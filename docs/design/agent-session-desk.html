@@ -1,0 +1,679 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Agent Session Desk · UI 设计稿 v0.1</title>
+  <style>html,body{margin:0;padding:0;background:#14171f}body{padding:24px} @media(max-width:700px){body{padding:0}}</style>
+</head>
+<body>
+<!-- ASD_FRAGMENT_START -->
+<div id="agent-session-desk-ui">
+  <style>
+    #agent-session-desk-ui{
+      --asd-bg:light-dark(#f6f7fa,#161a23);
+      --asd-surface:light-dark(#edf0f5,#1c2130);
+      --asd-raised:light-dark(#ffffff,#222939);
+      --asd-chrome:light-dark(#e3e7ee,#11151d);
+      --asd-line:light-dark(#c7ceda,#384358);
+      --asd-line-soft:light-dark(#dbe0e9,#2a3346);
+      --asd-fg:light-dark(#27364b,#d8e0ef);
+      --asd-muted:light-dark(#5d6b80,#95a3bb);
+      --asd-subtle:light-dark(#68748a,#7d8da6);
+      --asd-accent:light-dark(#166586,#8bd8ec);
+      --asd-accent-bg:light-dark(#d7eaf1,#253e4b);
+      --asd-blue:light-dark(#315eab,#96b5f9);
+      --asd-green:light-dark(#287447,#a8d5a2);
+      --asd-amber:light-dark(#8c5a12,#e6c282);
+      --asd-amber-bg:light-dark(#fcf0d7,#352d23);
+      --asd-red:light-dark(#a93443,#ef9ca5);
+      --asd-selection:light-dark(#dce9f6,#29374e);
+      color:var(--asd-fg);
+      font:14px/1.6 "Cascadia Code","JetBrains Mono","Noto Sans Mono CJK SC","Microsoft YaHei",monospace;
+      font-weight:400;
+      text-align:left;
+      width:100%;
+    }
+    #agent-session-desk-ui *{box-sizing:border-box}
+    #agent-session-desk-ui [hidden]{display:none!important}
+    #agent-session-desk-ui button,#agent-session-desk-ui input,#agent-session-desk-ui textarea,#agent-session-desk-ui select{
+      font:inherit;line-height:inherit;border-radius:0;color:inherit;
+    }
+    #agent-session-desk-ui button{border:0;background:transparent;text-align:left}
+    #agent-session-desk-ui button:hover{background:var(--asd-selection)}
+    #agent-session-desk-ui input,#agent-session-desk-ui textarea,#agent-session-desk-ui select{
+      background:var(--asd-bg);border:1px solid var(--asd-line);padding:8px 12px;min-width:0;width:100%;
+    }
+    #agent-session-desk-ui textarea{resize:vertical}
+    #agent-session-desk-ui input::placeholder,#agent-session-desk-ui textarea::placeholder{color:var(--asd-subtle);opacity:1}
+    #agent-session-desk-ui p,#agent-session-desk-ui h1,#agent-session-desk-ui h2,#agent-session-desk-ui h3{margin:0}
+    #agent-session-desk-ui strong{font-weight:600}
+    #agent-session-desk-ui .asd-muted{color:var(--asd-muted)}
+    #agent-session-desk-ui .asd-subtle{color:var(--asd-subtle)}
+    #agent-session-desk-ui .asd-accent{color:var(--asd-accent)}
+    #agent-session-desk-ui .asd-blue{color:var(--asd-blue)}
+    #agent-session-desk-ui .asd-green{color:var(--asd-green)}
+    #agent-session-desk-ui .asd-amber{color:var(--asd-amber)}
+    #agent-session-desk-ui .asd-red{color:var(--asd-red)}
+    #agent-session-desk-ui .asd-small{font-size:12px}
+    #agent-session-desk-ui .asd-window{background:var(--asd-bg);border:1px solid var(--asd-line);position:relative;overflow:hidden}
+    #agent-session-desk-ui .asd-winbar{
+      height:36px;background:var(--asd-chrome);display:flex;align-items:center;padding-left:16px;gap:20px;
+      font-size:12px;color:var(--asd-muted);border-bottom:1px solid var(--asd-line-soft);
+    }
+    #agent-session-desk-ui .asd-win-tab{align-self:stretch;display:flex;align-items:center;gap:12px;padding:0 18px;background:var(--asd-bg);border-top:2px solid var(--asd-line)}
+    #agent-session-desk-ui .asd-win-controls{margin-left:auto;display:flex;gap:30px;padding:0 18px;color:var(--asd-muted);font-size:16px}
+    #agent-session-desk-ui .asd-appbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:15px 22px;border-bottom:1px solid var(--asd-line);min-height:64px}
+    #agent-session-desk-ui .asd-brand{display:flex;gap:14px;align-items:baseline;min-width:0}
+    #agent-session-desk-ui .asd-mark{font-size:20px;color:var(--asd-accent);font-weight:600}
+    #agent-session-desk-ui .asd-brand h1{font-size:18px;font-weight:600;letter-spacing:.2px}
+    #agent-session-desk-ui .asd-appbar-right{display:flex;gap:22px;align-items:center;white-space:nowrap}
+    #agent-session-desk-ui .asd-draft{font-size:12px;color:var(--asd-muted)}
+    #agent-session-desk-ui .asd-layout{display:grid;grid-template-columns:264px minmax(0,1fr);min-height:672px}
+    #agent-session-desk-ui .asd-window.has-advanced .asd-layout{min-height:950px}
+    #agent-session-desk-ui .asd-sidebar{background:var(--asd-surface);border-right:1px solid var(--asd-line);display:flex;flex-direction:column;padding:18px 14px 12px;min-width:0}
+    #agent-session-desk-ui .asd-side-title{display:flex;align-items:center;justify-content:space-between;padding:0 5px 12px}
+    #agent-session-desk-ui .asd-side-title h2{font-size:14px;font-weight:600;letter-spacing:2px}
+    #agent-session-desk-ui .asd-key{color:var(--asd-accent);font-weight:500}
+    #agent-session-desk-ui .asd-mini-button{padding:3px 7px;color:var(--asd-accent);white-space:nowrap}
+    #agent-session-desk-ui .asd-search{position:relative;margin-bottom:17px}
+    #agent-session-desk-ui .asd-search input{padding:7px 32px 7px 10px;border-color:var(--asd-line-soft);font-size:13px}
+    #agent-session-desk-ui .asd-search-key{position:absolute;right:11px;top:8px;color:var(--asd-subtle)}
+    #agent-session-desk-ui .asd-group-title{display:flex;align-items:center;gap:7px;padding:8px 6px;color:var(--asd-muted);font-size:12px}
+    #agent-session-desk-ui .asd-group-title .asd-count{margin-left:auto}
+    #agent-session-desk-ui .asd-session{width:100%;padding:10px 10px 10px 13px;border-left:2px solid transparent;display:block;margin:2px 0}
+    #agent-session-desk-ui .asd-session.is-selected{background:var(--asd-selection);border-left-color:var(--asd-accent)}
+    #agent-session-desk-ui .asd-session-top{display:flex;gap:9px;align-items:center;white-space:nowrap}
+    #agent-session-desk-ui .asd-session-name{font-size:14px;font-weight:600}
+    #agent-session-desk-ui .asd-session-no{margin-left:auto;font-size:11px;color:var(--asd-subtle)}
+    #agent-session-desk-ui .asd-session-info{font-size:12px;color:var(--asd-muted);display:block;padding-left:19px;margin-top:3px}
+    #agent-session-desk-ui .asd-session-meta{font-size:11px;color:var(--asd-subtle);display:block;padding-left:19px}
+    #agent-session-desk-ui .asd-dot{font-size:12px}
+    #agent-session-desk-ui .asd-divider{border:0;border-top:1px solid var(--asd-line-soft);margin:17px 6px}
+    #agent-session-desk-ui .asd-side-bottom{margin-top:auto;padding-top:28px}
+    #agent-session-desk-ui .asd-queue-nav{width:100%;display:flex;justify-content:space-between;align-items:center;padding:10px;border-top:1px solid var(--asd-line-soft)}
+    #agent-session-desk-ui .asd-queue-nav.is-selected{background:var(--asd-selection)}
+    #agent-session-desk-ui .asd-badge{font-size:11px;background:var(--asd-amber-bg);color:var(--asd-amber);padding:0 5px}
+    #agent-session-desk-ui .asd-side-foot{padding:12px 10px 0;font-size:11px;color:var(--asd-subtle)}
+    #agent-session-desk-ui .asd-workarea{display:flex;flex-direction:column;min-width:0}
+    #agent-session-desk-ui .asd-tabs{display:flex;align-items:stretch;border-bottom:1px solid var(--asd-line);background:var(--asd-surface);min-height:45px;gap:0}
+    #agent-session-desk-ui .asd-tab{padding:10px 20px;border-right:1px solid var(--asd-line-soft);border-top:2px solid transparent;color:var(--asd-muted);font-size:13px;white-space:nowrap}
+    #agent-session-desk-ui .asd-tab.is-selected{color:var(--asd-accent);background:var(--asd-bg);border-top-color:var(--asd-accent)}
+    #agent-session-desk-ui .asd-tab-index{font-size:11px;color:var(--asd-subtle);margin-right:8px}
+    #agent-session-desk-ui .asd-tab-extra{margin-left:auto;padding:0 17px;color:var(--asd-muted)}
+    #agent-session-desk-ui .asd-context{padding:20px 25px 16px;display:flex;justify-content:space-between;gap:18px;align-items:flex-start}
+    #agent-session-desk-ui .asd-context h2{font-size:18px;font-weight:600;letter-spacing:.2px}
+    #agent-session-desk-ui .asd-path{color:var(--asd-muted);font-size:12px;margin-top:4px;overflow-wrap:anywhere}
+    #agent-session-desk-ui .asd-run-state{text-align:right;font-size:12px;line-height:1.85;white-space:nowrap}
+    #agent-session-desk-ui .asd-state-label{color:var(--asd-muted)}
+    #agent-session-desk-ui .asd-subnav{margin:0 25px;display:flex;align-items:center;gap:24px;border-bottom:1px solid var(--asd-line-soft);min-height:37px}
+    #agent-session-desk-ui .asd-subnav button{padding:4px 0 10px;color:var(--asd-muted);border-bottom:2px solid transparent;font-size:12px}
+    #agent-session-desk-ui .asd-subnav button.is-selected{color:var(--asd-accent);border-bottom-color:var(--asd-accent)}
+    #agent-session-desk-ui .asd-subnav .asd-subnav-trailing{margin-left:auto;font-size:11px;color:var(--asd-subtle)}
+    #agent-session-desk-ui .asd-pane{padding:20px 25px 18px;flex:1;min-width:0}
+    #agent-session-desk-ui .asd-terminal{min-height:390px;display:flex;flex-direction:column;position:relative;gap:0}
+    #agent-session-desk-ui .asd-terminal-intro{display:flex;gap:15px;align-items:flex-start;margin-bottom:17px}
+    #agent-session-desk-ui .asd-terminal-mark{color:var(--asd-green);font-size:23px;line-height:1.2;padding-top:1px}
+    #agent-session-desk-ui .asd-terminal-title{font-size:15px}
+    #agent-session-desk-ui .asd-term-line{line-height:1.9;white-space:pre-wrap;overflow-wrap:anywhere;font-size:13px}
+    #agent-session-desk-ui .asd-term-spacer{height:15px}
+    #agent-session-desk-ui .asd-user-line{background:var(--asd-surface);padding:10px 13px;margin-bottom:17px;color:var(--asd-fg);font-size:13px;border-left:2px solid var(--asd-line)}
+    #agent-session-desk-ui .asd-code{margin:8px 0 12px 16px;padding:7px 0 7px 17px;border-left:1px solid var(--asd-line);font-size:12px;line-height:1.85;white-space:pre-wrap}
+    #agent-session-desk-ui .asd-terminal-bottom{margin-top:auto;padding-top:22px}
+    #agent-session-desk-ui .asd-prompt{display:flex;align-items:center;gap:11px;padding:12px 0;border-top:1px solid var(--asd-line);border-bottom:1px solid var(--asd-line);color:var(--asd-muted);font-size:13px}
+    #agent-session-desk-ui .asd-caret{display:inline-block;width:8px;height:17px;background:var(--asd-accent);vertical-align:middle}
+    #agent-session-desk-ui .asd-term-hint{font-size:11px;color:var(--asd-subtle);margin-top:9px;display:flex;justify-content:space-between;gap:12px}
+    #agent-session-desk-ui .asd-focus-row{border-top:1px solid var(--asd-line-soft);padding:9px 25px;font-size:11px;display:flex;align-items:center;gap:16px;background:var(--asd-surface);color:var(--asd-muted)}
+    #agent-session-desk-ui .asd-focus-row .asd-focus-badge{color:var(--asd-accent)}
+    #agent-session-desk-ui .asd-focus-row .asd-focus-trailing{margin-left:auto}
+    #agent-session-desk-ui .asd-footer{display:flex;align-items:center;gap:21px;padding:10px 21px;background:var(--asd-chrome);border-top:1px solid var(--asd-line);color:var(--asd-muted);font-size:11px;min-height:40px;flex-wrap:wrap}
+    #agent-session-desk-ui .asd-footer button{padding:0}
+    #agent-session-desk-ui .asd-footer .asd-footer-right{margin-left:auto;color:var(--asd-subtle)}
+    #agent-session-desk-ui .asd-communication{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.02fr);gap:22px}
+    #agent-session-desk-ui .asd-section-heading{display:flex;align-items:center;justify-content:space-between;margin-bottom:13px;gap:8px}
+    #agent-session-desk-ui .asd-section-heading h3{font-size:13px;color:var(--asd-accent);font-weight:500}
+    #agent-session-desk-ui .asd-snapshot{border:1px solid var(--asd-line);background:var(--asd-surface)}
+    #agent-session-desk-ui .asd-snapshot-head{border-bottom:1px solid var(--asd-line-soft);padding:11px 13px;font-size:11px;color:var(--asd-muted);display:flex;justify-content:space-between;gap:6px;flex-wrap:wrap}
+    #agent-session-desk-ui .asd-snapshot-body{padding:14px 0;font-size:12px;line-height:1.9}
+    #agent-session-desk-ui .asd-snapshot-line{display:flex;padding:2px 13px;gap:13px}
+    #agent-session-desk-ui .asd-line-number{color:var(--asd-subtle);min-width:22px;user-select:none}
+    #agent-session-desk-ui .asd-snapshot-line.is-quoted{background:var(--asd-selection)}
+    #agent-session-desk-ui .asd-snapshot-line > span:last-child{overflow-wrap:anywhere}
+    #agent-session-desk-ui .asd-snapshot-foot{padding:11px 13px;border-top:1px solid var(--asd-line-soft);font-size:11px;color:var(--asd-muted)}
+    #agent-session-desk-ui .asd-button{display:inline-flex;align-items:center;justify-content:center;padding:8px 14px;border:1px solid var(--asd-line);font-size:12px;white-space:nowrap;gap:9px}
+    #agent-session-desk-ui button.asd-button{border:1px solid var(--asd-line)}
+    #agent-session-desk-ui button.asd-button-primary{color:var(--asd-bg);background:var(--asd-accent);border-color:var(--asd-accent);font-weight:600}
+    #agent-session-desk-ui button.asd-button-primary:hover{color:var(--asd-fg);background:var(--asd-selection);border-color:var(--asd-accent)}
+    #agent-session-desk-ui .asd-row-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:14px}
+    #agent-session-desk-ui .asd-read-note{font-size:11px;color:var(--asd-subtle);line-height:1.85;margin-top:12px}
+    #agent-session-desk-ui .asd-field{display:block;margin-bottom:15px}
+    #agent-session-desk-ui .asd-field-label{display:flex;justify-content:space-between;font-size:12px;color:var(--asd-muted);margin-bottom:7px;gap:8px}
+    #agent-session-desk-ui .asd-target-meta{font-size:11px;color:var(--asd-muted);margin-top:7px}
+    #agent-session-desk-ui .asd-compose{height:112px;font-size:12px!important;line-height:1.8!important}
+    #agent-session-desk-ui .asd-attachment{padding:9px 11px;border:1px solid var(--asd-line);display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:11px;background:var(--asd-surface);margin-top:-7px;margin-bottom:15px}
+    #agent-session-desk-ui .asd-delivery{padding:10px 12px;border-left:2px solid var(--asd-amber);background:var(--asd-amber-bg);font-size:11px;line-height:1.85}
+    #agent-session-desk-ui .asd-delivery strong{color:var(--asd-amber);font-weight:500}
+    #agent-session-desk-ui .asd-send-row{justify-content:space-between}
+    #agent-session-desk-ui .asd-queue-view{padding-top:3px}
+    #agent-session-desk-ui .asd-queue-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px;font-size:12px}
+    #agent-session-desk-ui .asd-queue-filters{display:flex;gap:15px;flex-wrap:wrap}
+    #agent-session-desk-ui .asd-queue-filters button{padding:2px 0;color:var(--asd-muted)}
+    #agent-session-desk-ui .asd-queue-filters button.is-selected{color:var(--asd-accent)}
+    #agent-session-desk-ui .asd-message-list{border:1px solid var(--asd-line)}
+    #agent-session-desk-ui .asd-message-columns{display:grid;grid-template-columns:90px minmax(0,1fr) 145px 55px;gap:12px;font-size:11px;color:var(--asd-muted);padding:9px 14px;background:var(--asd-surface)}
+    #agent-session-desk-ui .asd-message-row{display:grid;width:100%;grid-template-columns:90px minmax(0,1fr) 145px 55px;gap:12px;align-items:center;padding:12px 14px;border-top:1px solid var(--asd-line-soft);font-size:12px}
+    #agent-session-desk-ui .asd-message-row.is-selected{background:var(--asd-selection);box-shadow:inset 2px 0 var(--asd-accent)}
+    #agent-session-desk-ui .asd-message-summary{font-size:11px;color:var(--asd-muted);display:block;margin-top:3px}
+    #agent-session-desk-ui .asd-message-time{color:var(--asd-subtle);font-size:11px;text-align:right}
+    #agent-session-desk-ui .asd-message-detail{margin-top:20px;border:1px solid var(--asd-line);padding:16px 18px}
+    #agent-session-desk-ui .asd-detail-title{display:flex;align-items:center;justify-content:space-between;font-size:12px;gap:12px}
+    #agent-session-desk-ui .asd-detail-grid{display:grid;grid-template-columns:75px minmax(0,1fr);gap:5px 14px;font-size:11px;margin-top:14px}
+    #agent-session-desk-ui .asd-detail-grid dt{color:var(--asd-muted)}
+    #agent-session-desk-ui .asd-detail-grid dd{margin:0;overflow-wrap:anywhere}
+    #agent-session-desk-ui .asd-detail-note{margin-top:14px;font-size:11px;color:var(--asd-amber)}
+    #agent-session-desk-ui .asd-message-quote{margin-top:12px;font-size:11px;color:var(--asd-muted)}
+    #agent-session-desk-ui .asd-message-quote summary{color:var(--asd-accent)}
+    #agent-session-desk-ui .asd-message-quote pre{font:inherit;line-height:1.8;white-space:pre-wrap;overflow-wrap:anywhere;padding:10px 12px;background:var(--asd-surface);border-left:1px solid var(--asd-line)}
+    #agent-session-desk-ui .asd-detail-actions{border-top:1px solid var(--asd-line-soft);padding-top:14px;margin-top:15px;display:flex;gap:10px;flex-wrap:wrap}
+    #agent-session-desk-ui .asd-overlay{position:absolute;inset:36px 0 40px;z-index:5;display:flex;align-items:center;justify-content:center;padding:22px;background:light-dark(#e4e8efdd,#10141de8)}
+    #agent-session-desk-ui .asd-dialog{width:640px;max-width:100%;background:var(--asd-bg);border:1px solid var(--asd-accent);padding:24px 29px}
+    #agent-session-desk-ui .asd-dialog-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px}
+    #agent-session-desk-ui .asd-dialog-header h2{font-size:17px;font-weight:600;color:var(--asd-accent)}
+    #agent-session-desk-ui .asd-dialog-desc{font-size:12px;color:var(--asd-muted);margin-bottom:24px}
+    #agent-session-desk-ui .asd-dialog input{font-size:13px;padding:10px 13px}
+    #agent-session-desk-ui .asd-field-tip{font-size:11px;color:var(--asd-subtle);margin-top:5px;line-height:1.8}
+    #agent-session-desk-ui .asd-advanced-toggle{font-size:12px;color:var(--asd-muted);padding:7px 0}
+    #agent-session-desk-ui .asd-capability{padding:12px 0;border-top:1px solid var(--asd-line-soft);border-bottom:1px solid var(--asd-line-soft);font-size:11px;line-height:1.9;margin-top:9px;color:var(--asd-muted)}
+    #agent-session-desk-ui .asd-dialog-footer{display:flex;justify-content:space-between;gap:14px;align-items:center;margin-top:22px}
+    #agent-session-desk-ui .asd-dialog-keys{font-size:11px;color:var(--asd-subtle)}
+    #agent-session-desk-ui .asd-advanced{border-top:1px solid var(--asd-line-soft);padding-top:13px;margin-top:8px}
+    #agent-session-desk-ui .asd-toast{position:absolute;z-index:8;right:22px;bottom:54px;max-width:calc(100% - 44px);padding:13px 18px;border:1px solid var(--asd-accent);background:var(--asd-raised);font-size:12px}
+    #agent-session-desk-ui .asd-records{font-size:13px}
+    #agent-session-desk-ui .asd-record-head{display:flex;justify-content:space-between;font-size:11px;color:var(--asd-muted);border-bottom:1px solid var(--asd-line-soft);padding-bottom:12px;margin-bottom:15px}
+    #agent-session-desk-ui .asd-history-line{display:grid;grid-template-columns:58px 1fr;gap:15px;padding:7px 0;border-bottom:1px solid var(--asd-line-soft)}
+    #agent-session-desk-ui .asd-history-line span:first-child{color:var(--asd-subtle);font-size:11px}
+    #agent-session-desk-ui .asd-mobile-only{display:none}
+    #agent-session-desk-ui .asd-empty{padding:16px;color:var(--asd-muted);font-size:12px}
+    @media(max-width:1100px){
+      #agent-session-desk-ui .asd-layout{grid-template-columns:220px minmax(0,1fr)}
+      #agent-session-desk-ui .asd-sidebar{padding-left:9px;padding-right:9px}
+      #agent-session-desk-ui .asd-context{padding:18px 20px 14px}
+      #agent-session-desk-ui .asd-pane{padding-left:20px;padding-right:20px}
+      #agent-session-desk-ui .asd-subnav{margin-left:20px;margin-right:20px}
+      #agent-session-desk-ui .asd-tab{padding-left:13px;padding-right:13px}
+      #agent-session-desk-ui .asd-communication{grid-template-columns:1fr;gap:24px}
+      #agent-session-desk-ui .asd-layout[data-mode="communication"]{min-height:1000px}
+      #agent-session-desk-ui .asd-message-columns,#agent-session-desk-ui .asd-message-row{grid-template-columns:78px minmax(0,1fr) 115px}
+      #agent-session-desk-ui .asd-message-time{display:none}
+      #agent-session-desk-ui .asd-appbar-right{gap:12px}
+      #agent-session-desk-ui .asd-appbar-right .asd-backend{display:none}
+    }
+    @media(max-width:760px){
+      #agent-session-desk-ui .asd-layout{display:block;min-height:0}
+      #agent-session-desk-ui .asd-sidebar{display:none;border-right:0;border-bottom:1px solid var(--asd-line)}
+      #agent-session-desk-ui .asd-sidebar.is-mobile-open{display:flex}
+      #agent-session-desk-ui .asd-mobile-only{display:inline-flex}
+      #agent-session-desk-ui .asd-appbar{padding:12px 14px;gap:10px}
+      #agent-session-desk-ui .asd-brand{gap:9px}
+      #agent-session-desk-ui .asd-brand h1{font-size:15px}
+      #agent-session-desk-ui .asd-mark{font-size:17px}
+      #agent-session-desk-ui .asd-draft{font-size:11px}
+      #agent-session-desk-ui .asd-brand .asd-small{display:none}
+      #agent-session-desk-ui .asd-tabs{flex-wrap:wrap}
+      #agent-session-desk-ui .asd-tab{font-size:12px;padding:10px 12px}
+      #agent-session-desk-ui .asd-tab-index{display:none}
+      #agent-session-desk-ui .asd-context{padding:16px 14px;flex-wrap:wrap;gap:8px}
+      #agent-session-desk-ui .asd-context h2{font-size:16px}
+      #agent-session-desk-ui .asd-run-state{text-align:left;display:flex;gap:13px;flex-wrap:wrap}
+      #agent-session-desk-ui .asd-subnav{margin:0 14px;gap:20px}
+      #agent-session-desk-ui .asd-subnav-trailing{display:none}
+      #agent-session-desk-ui .asd-pane{padding:17px 14px}
+      #agent-session-desk-ui .asd-terminal{min-height:420px}
+      #agent-session-desk-ui .asd-focus-row{padding:9px 14px;flex-wrap:wrap;gap:8px 14px}
+      #agent-session-desk-ui .asd-focus-row .asd-focus-trailing{margin-left:0}
+      #agent-session-desk-ui .asd-footer{padding:10px 14px;gap:12px 17px}
+      #agent-session-desk-ui .asd-footer-right{display:none}
+      #agent-session-desk-ui .asd-overlay{inset:36px 0 0;padding:14px;align-items:flex-start;padding-top:35px}
+      #agent-session-desk-ui .asd-dialog{padding:20px}
+      #agent-session-desk-ui .asd-dialog-footer{flex-wrap:wrap}
+      #agent-session-desk-ui .asd-dialog-keys{width:100%}
+      #agent-session-desk-ui .asd-dialog-desc{margin-bottom:18px}
+      #agent-session-desk-ui .asd-message-columns{display:none}
+      #agent-session-desk-ui .asd-message-row{grid-template-columns:72px minmax(0,1fr);gap:6px}
+      #agent-session-desk-ui .asd-message-row>span:nth-child(3){grid-column:2}
+      #agent-session-desk-ui .asd-message-detail{padding:13px}
+      #agent-session-desk-ui .asd-detail-title{align-items:flex-start;flex-wrap:wrap}
+      #agent-session-desk-ui .asd-detail-actions{gap:8px}
+      #agent-session-desk-ui .asd-term-hint{flex-wrap:wrap}
+      #agent-session-desk-ui .asd-record-head{gap:12px;flex-wrap:wrap}
+      #agent-session-desk-ui .asd-queue-toolbar{flex-wrap:wrap}
+    }
+    @media(max-width:410px){
+      #agent-session-desk-ui .asd-win-controls{gap:15px}
+      #agent-session-desk-ui .asd-winbar{padding-left:0;gap:10px}
+      #agent-session-desk-ui .asd-win-tab{padding:0 12px}
+      #agent-session-desk-ui .asd-appbar-right{display:none}
+      #agent-session-desk-ui .asd-dialog{padding:17px}
+      #agent-session-desk-ui .asd-tab{padding:10px}
+      #agent-session-desk-ui .asd-snapshot-line{gap:9px;padding-left:10px;padding-right:10px}
+      #agent-session-desk-ui .asd-detail-grid{grid-template-columns:62px minmax(0,1fr);gap:7px}
+      #agent-session-desk-ui .asd-dialog-header h2{font-size:15px}
+    }
+    @media(pointer:coarse){
+      #agent-session-desk-ui button{min-height:44px}
+      #agent-session-desk-ui input,#agent-session-desk-ui select,#agent-session-desk-ui textarea{font-size:16px!important}
+    }
+  </style>
+  <div class="asd-window">
+    <div class="asd-winbar" aria-hidden="true">
+      <div class="asd-win-tab"><span class="asd-accent">›_</span><span>Agent Session Desk</span><span>×</span></div>
+      <span>＋</span><span>⌄</span>
+      <div class="asd-win-controls"><span>−</span><span>□</span><span>×</span></div>
+    </div>
+    <header class="asd-appbar">
+      <div class="asd-brand">
+        <button type="button" class="asd-mini-button asd-mobile-only" data-action="toggle-sidebar" aria-label="展开会话列表">☰</button>
+        <span class="asd-mark">›_</span><h1>Agent Session Desk</h1><span class="asd-small asd-subtle">/ workspace</span>
+      </div>
+      <div class="asd-appbar-right"><span class="asd-backend asd-small"><span class="asd-green">●</span> 后台已连接 <span class="asd-subtle">· 本地</span></span><span class="asd-draft">交互设计稿 v0.1</span></div>
+    </header>
+    <div class="asd-layout" data-mode="terminal">
+      <aside class="asd-sidebar" aria-label="项目与会话">
+        <div class="asd-side-title"><h2>会话 <span class="asd-subtle asd-small" id="asd-session-count">05</span></h2><button type="button" class="asd-mini-button" data-action="new-session">＋ 新建</button></div>
+        <label class="asd-search"><input type="search" id="asd-search" placeholder="搜索会话…" aria-label="搜索会话"><span class="asd-search-key">/</span></label>
+        <div class="asd-group-title"><span>▾</span><span>auth-service</span><span class="asd-count" id="asd-auth-count">3</span></div>
+        <div id="asd-session-list">
+          <button type="button" class="asd-session is-selected" data-session="dev" aria-pressed="true">
+            <span class="asd-session-top"><span class="asd-dot asd-green">●</span><span class="asd-session-name">登录鉴权</span><span class="asd-session-no">01</span></span>
+            <span class="asd-session-info">my-agent <span class="asd-subtle">· 工作状态未知</span></span><span class="asd-session-meta">刚刚有输出</span>
+          </button>
+          <button type="button" class="asd-session" data-session="review" aria-pressed="false">
+            <span class="asd-session-top"><span class="asd-dot asd-green">●</span><span class="asd-session-name">代码评审</span><span class="asd-session-no">02</span></span>
+            <span class="asd-session-info">review-agent <span class="asd-subtle">· 状态未知</span></span><span class="asd-session-meta">2 分钟前有输出</span>
+          </button>
+          <button type="button" class="asd-session" data-session="docs" aria-pressed="false">
+            <span class="asd-session-top"><span class="asd-dot asd-subtle">○</span><span class="asd-session-name">文档同步</span><span class="asd-session-no">03</span></span>
+            <span class="asd-session-info">docs-agent <span class="asd-subtle">· 已退出</span></span><span class="asd-session-meta">输出记录已保存</span>
+          </button>
+        </div>
+        <hr class="asd-divider">
+        <div class="asd-group-title"><span>▾</span><span>agent-session-desk</span><span class="asd-count">2</span></div>
+        <button type="button" class="asd-session" data-session="design" aria-pressed="false">
+          <span class="asd-session-top"><span class="asd-dot asd-green">●</span><span class="asd-session-name">产品设计</span></span>
+          <span class="asd-session-info">local-agent <span class="asd-subtle">· 状态未知</span></span>
+        </button>
+        <button type="button" class="asd-session" data-session="research" aria-pressed="false">
+          <span class="asd-session-top"><span class="asd-dot asd-subtle">○</span><span class="asd-session-name">技术调研</span></span>
+          <span class="asd-session-info">local-agent <span class="asd-subtle">· 已退出</span></span>
+        </button>
+        <div class="asd-empty" id="asd-search-empty" hidden>没有匹配的会话</div>
+        <div class="asd-side-bottom">
+          <button type="button" class="asd-queue-nav" data-action="queue"><span>⇄ 消息队列</span><span class="asd-badge" id="asd-queue-badge">2 待处理</span></button>
+          <div class="asd-side-foot">● 进程存活　○ 已退出<br>工作状态由独立信号确认</div>
+        </div>
+      </aside>
+      <main class="asd-workarea">
+        <nav class="asd-tabs" aria-label="已打开的会话">
+          <button type="button" class="asd-tab is-selected" data-tab="dev" aria-pressed="true"><span class="asd-tab-index">01</span>登录鉴权</button>
+          <button type="button" class="asd-tab" data-tab="review" aria-pressed="false"><span class="asd-tab-index">02</span>代码评审</button>
+          <button type="button" class="asd-tab" data-tab="docs" aria-pressed="false"><span class="asd-tab-index">03</span>文档同步</button>
+          <button type="button" class="asd-tab-extra" data-action="new-session" aria-label="新建会话">＋</button>
+        </nav>
+        <div class="asd-context">
+          <div><h2 id="asd-context-title">登录鉴权 <span class="asd-subtle asd-small">/ auth-service</span></h2><div class="asd-path" id="asd-context-path">D:\work\auth-service</div></div>
+          <div class="asd-run-state" id="asd-run-state"><div><span class="asd-green">● 进程存活</span> <span class="asd-subtle">· r07</span></div><div class="asd-state-label">工作状态未知 <span class="asd-subtle">/ 通用 CLI</span></div></div>
+        </div>
+        <nav class="asd-subnav" aria-label="会话视图">
+          <button type="button" class="is-selected" data-view="terminal" aria-pressed="true">终端</button>
+          <button type="button" data-view="records" aria-pressed="false">输出记录</button>
+          <button type="button" data-view="communication" aria-pressed="false">会话通信</button>
+          <span class="asd-subnav-trailing" id="asd-subnav-note">原生 CLI 视图</span>
+        </nav>
+        <section class="asd-pane" id="asd-terminal-view" aria-label="终端设计预览">
+          <div class="asd-terminal" id="asd-terminal-content">
+            <div class="asd-terminal-intro"><span class="asd-terminal-mark">›_</span><div><div class="asd-terminal-title">my-agent <span class="asd-subtle asd-small">v0.8.2</span></div><div class="asd-small asd-muted">D:\work\auth-service</div></div></div>
+            <div class="asd-user-line"><span class="asd-accent">›</span> 为登录接口补上 JWT 校验，并添加边界测试。</div>
+            <div class="asd-term-line"><span class="asd-green">✓</span> 已读取 src/auth/middleware.ts 和现有测试。</div>
+            <div class="asd-term-line asd-muted">  将校验收敛到中间件，避免业务处理函数重复判断。</div>
+            <div class="asd-term-spacer"></div>
+            <div class="asd-term-line"><span class="asd-blue">Updated</span>  src/auth/middleware.ts</div>
+            <div class="asd-code"><span class="asd-subtle">  21</span>  <span class="asd-blue">export async function</span> authenticate(req, res, next) {
+<span class="asd-green">+ 22    const token = parseBearer(req.headers.authorization);</span>
+<span class="asd-green">+ 23    if (!token) return res.status(401).end();</span>
+<span class="asd-green">+ 24    req.user = await verifyToken(token);</span>
+<span class="asd-subtle">  25</span>    next();
+<span class="asd-subtle">  26</span>  }</div>
+            <div class="asd-term-line"><span class="asd-blue">$</span> pnpm test -- auth</div>
+            <div class="asd-term-line"><span class="asd-green">PASS</span>  tests/auth.test.ts <span class="asd-muted">(12 tests)</span></div>
+            <div class="asd-term-line asd-muted">      缺失、过期和无效签名 token 均返回 401。</div>
+            <div class="asd-terminal-bottom">
+              <div class="asd-prompt"><span class="asd-accent">›</span><span class="asd-caret" aria-hidden="true"></span><span>继续输入任务…</span></div>
+              <div class="asd-term-hint"><span>以上为示例 CLI 输出</span><span>未连接真实 agent</span></div>
+            </div>
+          </div>
+        </section>
+        <section class="asd-pane" id="asd-records-view" hidden aria-label="输出记录">
+          <div class="asd-records">
+            <div class="asd-record-head"><span id="asd-record-source">dev-01 / r07</span><span>已保存的终端输出 · 非结构化对话历史</span></div>
+            <div id="asd-history-lines">
+            <div class="asd-history-line"><span>16:41:03</span><span>已读取 src/auth/middleware.ts 和现有测试。</span></div>
+            <div class="asd-history-line"><span>16:41:15</span><span>Updated src/auth/middleware.ts</span></div>
+            <div class="asd-history-line"><span>16:41:18</span><span>pnpm test -- auth</span></div>
+            <div class="asd-history-line"><span>16:41:22</span><span class="asd-green">PASS tests/auth.test.ts (12 tests)</span></div>
+            <div class="asd-history-line"><span>16:41:23</span><span>缺失、过期和无效签名 token 均返回 401。</span></div>
+            </div>
+            <div class="asd-row-actions"><button type="button" class="asd-button" data-action="communication">选取输出并转发 →</button></div>
+          </div>
+        </section>
+        <section class="asd-pane" id="asd-communication-view" hidden aria-label="跨会话通信">
+          <div class="asd-communication">
+            <div>
+              <div class="asd-section-heading"><h3>01 / 读取来源</h3><span class="asd-small asd-muted">只读快照</span></div>
+              <div class="asd-snapshot">
+                <div class="asd-snapshot-head"><span id="asd-snapshot-source">登录鉴权 · dev-01 / r07</span><span>16:42:08</span></div>
+                <div class="asd-snapshot-body">
+                  <div class="asd-snapshot-line"><span class="asd-line-number">18</span><span class="asd-muted">$ pnpm test -- auth</span></div>
+                  <div class="asd-snapshot-line"><span class="asd-line-number">19</span><span class="asd-green">PASS tests/auth.test.ts</span></div>
+                  <div class="asd-snapshot-line"><span class="asd-line-number">20</span><span>12 tests passed.</span></div>
+                  <div class="asd-snapshot-line is-quoted"><span class="asd-line-number">21</span><span>已增加 JWT 中间件。</span></div>
+                  <div class="asd-snapshot-line is-quoted"><span class="asd-line-number">22</span><span>缺失 token → 401</span></div>
+                  <div class="asd-snapshot-line is-quoted"><span class="asd-line-number">23</span><span>过期 token → 401</span></div>
+                  <div class="asd-snapshot-line is-quoted"><span class="asd-line-number">24</span><span>无效签名 → 401</span></div>
+                  <div class="asd-snapshot-line is-quoted"><span class="asd-line-number">25</span><span>仍需复核异常分支。</span></div>
+                </div>
+                <div class="asd-snapshot-foot">已选中 21–25 行 <span class="asd-subtle">· 终端输出片段</span></div>
+              </div>
+              <div class="asd-row-actions"><button type="button" class="asd-button" data-action="quote">引用所选输出 →</button><button type="button" class="asd-mini-button" data-action="refresh-snapshot">重新读取</button></div>
+              <div class="asd-read-note">读取不会向来源会话发送按键。<br>引用保留来源、运行编号与输出范围。</div>
+            </div>
+            <div>
+              <div class="asd-section-heading"><h3>02 / 发送指令</h3><span class="asd-small asd-muted">定向消息</span></div>
+              <label class="asd-field"><span class="asd-field-label"><span>目标会话</span><span class="asd-subtle">按稳定 ID 定位</span></span><select id="asd-target"><option value="review">代码评审 · review-01 / r04</option><option value="design">产品设计 · design-01 / r02</option></select><span class="asd-target-meta"><span class="asd-green">● 进程存活</span> <span class="asd-subtle">· 工作状态未知</span></span></label>
+              <label class="asd-field"><span class="asd-field-label">附加指令</span><textarea id="asd-message" class="asd-compose">请检查 JWT 校验的异常分支，重点看过期 token 和无效签名。结合所附输出，列出遗漏的测试。</textarea></label>
+              <div class="asd-attachment" id="asd-attachment"><span>↳ 引用 dev-01 / r07 · 21–25 行</span><button type="button" data-action="remove-quote" aria-label="移除引用">×</button></div>
+              <div class="asd-delivery"><strong>排队，等待显式投递</strong><br>目标未提供就绪信号。排队后不会自动写入终端。</div>
+              <div class="asd-row-actions asd-send-row"><span class="asd-small asd-muted">目标与内容在入队时锁定</span><button type="button" class="asd-button asd-button-primary" data-action="send">发送到队列 →</button></div>
+            </div>
+          </div>
+        </section>
+        <section class="asd-pane" id="asd-queue-view" hidden aria-label="消息队列">
+          <div class="asd-queue-view">
+            <div class="asd-queue-toolbar"><div class="asd-queue-filters"><button type="button" class="is-selected" data-filter="all" aria-pressed="true">全部 3</button><button type="button" data-filter="pending" aria-pressed="false">待处理 2</button><button type="button" data-filter="written" aria-pressed="false">已写入 1</button></div><span class="asd-small asd-subtle">会话之间的投递记录</span></div>
+            <div class="asd-message-list">
+              <div class="asd-message-columns"><span>消息</span><span>来源 → 目标</span><span>投递状态</span><span class="asd-message-time">时间</span></div>
+              <div id="asd-message-rows"></div>
+            </div>
+            <div class="asd-message-detail" id="asd-message-detail"></div>
+          </div>
+        </section>
+        <div class="asd-focus-row"><span class="asd-focus-badge" id="asd-focus-badge">焦点：管理器</span><span id="asd-focus-note">F6 进入终端 · 按键将交给当前 CLI</span><span class="asd-focus-trailing" id="asd-focus-trailing">dev-01 / r07</span></div>
+      </main>
+    </div>
+    <footer class="asd-footer">
+      <button type="button" data-action="focus"><span class="asd-key">F6</span> 切换焦点</button>
+      <button type="button" data-action="new-session"><span class="asd-key">N</span> 新建</button>
+      <button type="button" data-action="search"><span class="asd-key">/</span> 搜索</button>
+      <button type="button" data-action="communication"><span class="asd-key">C</span> 会话通信</button>
+      <button type="button" data-action="queue"><span class="asd-key">Q</span> 消息队列</button>
+      <button type="button" data-action="help"><span class="asd-key">?</span> 帮助</button>
+      <span class="asd-footer-right">Windows Terminal · 设计预览</span>
+    </footer>
+    <div class="asd-overlay" id="asd-new-overlay" hidden>
+      <section class="asd-dialog" role="dialog" aria-modal="true" aria-labelledby="asd-new-title">
+        <div class="asd-dialog-header"><h2 id="asd-new-title">新建会话</h2><button type="button" class="asd-mini-button" data-action="close-new" aria-label="关闭新建会话">Esc ×</button></div>
+        <div class="asd-dialog-desc">用一条本地命令，开启一个独立的 agent 会话。</div>
+        <form id="asd-new-form">
+          <label class="asd-field"><span class="asd-field-label"><span>会话名称</span><span class="asd-subtle">显示在列表与标签页</span></span><input id="asd-new-name" value="边界测试" maxlength="30" required autocomplete="off"></label>
+          <label class="asd-field"><span class="asd-field-label">启动命令</span><input id="asd-new-command" value="java -jar D:\agents\my-agent.jar" required spellcheck="false" autocomplete="off"><span class="asd-field-tip">填写本机可运行的命令；含空格的路径请使用引号。</span></label>
+          <label class="asd-field"><span class="asd-field-label">工作目录</span><input id="asd-new-cwd" value="D:\work\auth-service" required spellcheck="false" autocomplete="off"></label>
+          <button type="button" class="asd-advanced-toggle" data-action="advanced" aria-expanded="false">▸ 高级选项 <span class="asd-subtle">/ 参数 · 环境变量 · 可选适配</span></button>
+          <div class="asd-advanced" id="asd-advanced" hidden>
+            <label class="asd-field"><span class="asd-field-label">附加参数</span><input placeholder="例如 --profile dev" autocomplete="off"></label>
+            <label class="asd-field"><span class="asd-field-label">环境变量</span><input placeholder="例如 AGENT_ENV=development" autocomplete="off"></label>
+            <label class="asd-field"><span class="asd-field-label">能力适配</span><select><option>通用 CLI（无需协议）</option><option disabled>自定义状态适配器（后续扩展）</option></select></label>
+          </div>
+          <div class="asd-capability"><span class="asd-accent">通用 CLI 接入</span><br>支持终端显示、输入与输出记录。<br>就绪识别、自动投递和原对话恢复，需要 agent 提供相应能力。</div>
+          <div class="asd-dialog-footer"><span class="asd-dialog-keys">Tab 切换字段 · Esc 返回</span><div class="asd-row-actions" style="margin-top:0"><button type="button" class="asd-button" data-action="close-new">取消</button><button type="submit" class="asd-button asd-button-primary">创建并启动 →</button></div></div>
+        </form>
+      </section>
+    </div>
+    <div class="asd-toast" id="asd-toast" role="status" aria-live="polite" hidden></div>
+  </div>
+  <script>
+    (function () {
+      "use strict";
+      const root = document.getElementById("agent-session-desk-ui");
+      if (!root) return;
+      const q = function (s) { return root.querySelector(s); };
+      const qa = function (s) { return Array.from(root.querySelectorAll(s)); };
+      const sessions = {
+        dev: {name:"登录鉴权",project:"auth-service",path:"D:\\work\\auth-service",id:"dev-01",run:"r07",agent:"my-agent",alive:true},
+        review: {name:"代码评审",project:"auth-service",path:"D:\\work\\auth-service",id:"review-01",run:"r04",agent:"review-agent",alive:true},
+        docs: {name:"文档同步",project:"auth-service",path:"D:\\work\\auth-service",id:"docs-01",run:"r02",agent:"docs-agent",alive:false},
+        design: {name:"产品设计",project:"agent-session-desk",path:"D:\\work\\agent-session-desk",id:"design-01",run:"r02",agent:"local-agent",alive:true},
+        research: {name:"技术调研",project:"agent-session-desk",path:"D:\\work\\agent-session-desk",id:"research-01",run:"r01",agent:"local-agent",alive:false}
+      };
+      const state = {session:"dev",view:"terminal",focus:"manager",quote:true,quoteRange:"21–25",filter:"all",selectedMessage:"msg-009"};
+      const drafts = {};
+      const sampleLines = {
+        dev:["$ pnpm test -- auth","PASS tests/auth.test.ts","12 tests passed.","已增加 JWT 中间件。","缺失 token → 401","过期 token → 401","无效签名 → 401","仍需复核异常分支。"],
+        review:["已载入 src/auth/middleware.ts。","已列出评审范围。","关注鉴权失败的响应。","关注异常分支的一致性。","等待下一项任务。"],
+        docs:["已载入 docs/authentication.md。","已补充登录接口说明。","已记录 token 过期行为。","文档变更已保存。","进程退出，退出码 0。"],
+        design:["已整理多会话工作流。","需要显示当前输入焦点。","区分进程与工作状态。","通信必须保留输出来源。","目标重启后暂停旧消息。"],
+        research:["已记录 Windows 验证项。","检查中文输入与宽字符。","检查终端尺寸变化。","检查后台托管与重新连接。","进程退出，退出码 0。"]
+      };
+      const messages = [
+        {id:"msg-012",from:"登录鉴权",to:"代码评审",target:"review-01",boundRun:"r04",currentRun:"r04",status:"queued",time:"16:42",body:"检查 JWT 校验的异常分支",detail:"等待显式投递；目标工作状态未知。",source:"dev-01 / r07 · 21–25 行",quoteText:"已增加 JWT 中间件。\n缺失 token → 401\n过期 token → 401\n无效签名 → 401\n仍需复核异常分支。"},
+        {id:"msg-011",from:"产品设计",to:"代码评审",target:"review-01",boundRun:"r04",currentRun:"r04",status:"written",time:"16:40",body:"确认评审范围",detail:"输入已写入；尚无 agent 接收或完成回执。",source:"design-01 / r02"},
+        {id:"msg-009",from:"登录鉴权",to:"代码评审",target:"review-01",boundRun:"r03",currentRun:"r04",status:"held",time:"16:32",body:"复核上一次运行的登录修改",detail:"目标运行已变化，原消息未投递。",source:"dev-01 / r06 · 10–16 行",quoteText:"已调整登录处理逻辑。\n已更新鉴权中间件。\n已增加缺失 token 测试。\n已增加过期 token 测试。\n已增加无效签名测试。\n测试通过。\n请复核异常分支。"}
+      ];
+      const originalTerminal = q("#asd-terminal-content").innerHTML;
+      let toastTimer;
+      function escape(s) {
+        return String(s).replace(/[&<>"']/g, function(c) {return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});
+      }
+      function toast(message) {
+        clearTimeout(toastTimer); q("#asd-toast").textContent=message; q("#asd-toast").hidden=false;
+        toastTimer=setTimeout(function(){q("#asd-toast").hidden=true;},4500);
+      }
+      function updateFocus() {
+        const terminal = state.focus==="terminal" && state.view==="terminal" && sessions[state.session].alive;
+        q("#asd-focus-badge").textContent=terminal ? "焦点：终端 · 按键直通" : "焦点：管理器";
+        q("#asd-focus-note").textContent=terminal ? "F6 返回管理器 · 此预览不发送真实按键" : state.view==="terminal" ? (sessions[state.session].alive ? "F6 进入终端 · 按键将交给当前 CLI" : "进程已退出 · 可查看保存的输出") : "操作面板 · 不向终端发送按键";
+        q("#asd-focus-trailing").textContent=state.view==="queue" ? "消息绑定 Session 与 Run" : sessions[state.session].id+" / "+sessions[state.session].run;
+      }
+      function showView(view) {
+        state.view=view; state.focus="manager";
+        q(".asd-layout").dataset.mode=view;
+        ["terminal","records","communication","queue"].forEach(function(name){q("#asd-"+name+"-view").hidden=name!==view;});
+        qa("[data-view]").forEach(function(b){const selected=b.dataset.view===view;b.classList.toggle("is-selected",selected);b.setAttribute("aria-pressed",String(selected));});
+        q(".asd-queue-nav").classList.toggle("is-selected",view==="queue");
+        const s=sessions[state.session];
+        if(view==="queue") {
+          q("#asd-context-title").textContent="消息队列";
+          q("#asd-context-path").textContent="追踪已排队、已写入与暂停投递的消息";
+          q("#asd-run-state").innerHTML='<div class="asd-amber">2 条需要处理</div><div class="asd-state-label">已写入 ≠ 已接收 ≠ 已完成</div>';
+          q("#asd-subnav-note").textContent="本地通信记录";renderQueue();
+        } else {
+          q("#asd-context-title").innerHTML=escape(s.name)+' <span class="asd-subtle asd-small">/ '+escape(s.project)+'</span>';
+          q("#asd-context-path").textContent=s.path;
+          q("#asd-run-state").innerHTML='<div><span class="'+(s.alive?'asd-green':'asd-subtle')+'">'+(s.alive?'● 进程存活':'○ 已退出')+'</span> <span class="asd-subtle">· '+s.run+'</span></div><div class="asd-state-label">'+(s.alive?'工作状态未知 <span class="asd-subtle">/ 通用 CLI</span>':'输出记录已保存')+'</div>';
+          q("#asd-subnav-note").textContent=view==="communication"?"输出引用 → 定向指令":view==="records"?"只读输出记录":"原生 CLI 视图";
+        }
+        if(view==="records") renderRecords();
+        updateFocus();
+      }
+      function renderTerminal() {
+        const s=sessions[state.session];
+        if(state.session==="dev") {q("#asd-terminal-content").innerHTML=originalTerminal;return;}
+        const line=s.alive?"当前运行仍在托管中。可继续在原生终端内工作。":"进程已退出，保留以下终端输出。";
+        const body=state.session==="review"?"已载入 src/auth/middleware.ts，等待评审任务。":state.session==="docs"?"已更新 docs/authentication.md，退出码 0。":state.session==="design"?"已整理多会话工作流与通信交互草案。":state.session==="research"?"已记录 Windows 终端能力的待验证项，退出码 0。":"此为新建会话的界面预览，尚未执行任何本地命令。";
+        q("#asd-terminal-content").innerHTML='<div class="asd-terminal-intro"><span class="asd-terminal-mark">›_</span><div><div class="asd-terminal-title">'+escape(s.agent)+'</div><div class="asd-small asd-muted">'+escape(s.path)+'</div></div></div><div class="asd-term-line asd-muted">'+line+'</div><div class="asd-term-spacer"></div><div class="asd-term-line">'+body+'</div><div class="asd-terminal-bottom">'+(s.alive?'<div class="asd-prompt"><span class="asd-accent">›</span><span class="asd-caret" aria-hidden="true"></span><span>继续输入任务…</span></div>':'<div class="asd-row-actions"><button type="button" class="asd-button" data-action="restart">重新启动新运行 →</button></div>')+'<div class="asd-term-hint"><span>示例 CLI 输出</span><span>'+(s.alive?'未连接真实 agent':'重新启动不等于恢复原对话')+'</span></div></div>';
+      }
+      function selectSession(id) {
+        if(!sessions[id])return;
+        if(state.view==="communication") saveDraft();
+        state.session=id;
+        qa("[data-session]").forEach(function(b){const selected=b.dataset.session===id;b.classList.toggle("is-selected",selected);b.setAttribute("aria-pressed",String(selected));});
+        if(!q('[data-tab="'+id+'"]')) {
+          const b=document.createElement("button");b.type="button";b.className="asd-tab";b.dataset.tab=id;b.textContent=sessions[id].name;
+          q(".asd-tabs").insertBefore(b,q(".asd-tab-extra"));
+        }
+        qa("[data-tab]").forEach(function(b){const selected=b.dataset.tab===id;b.classList.toggle("is-selected",selected);b.setAttribute("aria-pressed",String(selected));});
+        renderTerminal();showView("terminal");q(".asd-sidebar").classList.remove("is-mobile-open");
+      }
+      function statusLabel(m) {
+        return m.status==="held"?"暂停投递":m.status==="written"?"输入已写入":m.status==="cancelled"?"已取消":"已排队";
+      }
+      function renderQueue() {
+        const visible=messages.filter(function(m){return state.filter==="all"||(state.filter==="written"?m.status==="written":m.status==="queued"||m.status==="held");});
+        if(!visible.some(function(m){return m.id===state.selectedMessage;}))state.selectedMessage=visible.length?visible[0].id:null;
+        q("#asd-message-rows").innerHTML=visible.map(function(m){
+          return '<button type="button" class="asd-message-row '+(m.id===state.selectedMessage?'is-selected':'')+'" data-message="'+m.id+'" aria-pressed="'+(m.id===state.selectedMessage)+'"><span class="asd-subtle">'+m.id+'</span><span>'+escape(m.from)+' <span class="asd-subtle">→</span> '+escape(m.to)+'<span class="asd-message-summary">'+escape(m.body)+'</span></span><span class="'+(m.status==="written"?'asd-blue':m.status==="cancelled"?'asd-subtle':'asd-amber')+'">'+statusLabel(m)+'<span class="asd-message-summary">'+(m.status==="held"?'目标运行已变化':m.status==="written"?'无接收回执':m.status==="cancelled"?'未继续投递':'等待显式投递')+'</span></span><span class="asd-message-time">'+m.time+'</span></button>';
+        }).join("") || '<div class="asd-empty">当前筛选下没有消息</div>';
+        const pending=messages.filter(function(m){return m.status==="queued"||m.status==="held";}).length;
+        const written=messages.filter(function(m){return m.status==="written";}).length;
+        q("#asd-queue-badge").textContent=pending+" 待处理";
+        q('[data-filter="all"]').textContent="全部 "+messages.length;
+        q('[data-filter="pending"]').textContent="待处理 "+pending;
+        q('[data-filter="written"]').textContent="已写入 "+written;
+        if(state.view==="queue")q("#asd-run-state").innerHTML='<div class="asd-amber">'+pending+' 条需要处理</div><div class="asd-state-label">已写入 ≠ 已接收 ≠ 已完成</div>';
+        renderMessageDetail();
+      }
+      function renderMessageDetail() {
+        const m=messages.find(function(x){return x.id===state.selectedMessage;});
+        if(!m){q("#asd-message-detail").hidden=true;return;}
+        q("#asd-message-detail").hidden=false;
+        const held=m.status==="held", queued=m.status==="queued";
+        const title=held?"目标已重启，消息暂停投递":queued?"等待你选择投递方式":m.status==="written"?"输入已写入，尚无接收回执":"消息已取消";
+        let actions="";
+        if(held) actions='<button type="button" class="asd-button" data-action="view-target">查看当前运行</button><button type="button" class="asd-button" data-action="rebind">重新指定目标运行 →</button><button type="button" class="asd-mini-button" data-action="cancel-message">取消消息</button>';
+        else if(queued)actions='<button type="button" class="asd-button" data-action="view-target">查看目标终端</button><button type="button" class="asd-button" data-action="paste">粘贴到输入区</button><button type="button" class="asd-button" data-action="submit-input">粘贴并提交</button><button type="button" class="asd-mini-button" data-action="cancel-message">取消消息</button>';
+        else if(m.status==="written")actions='<button type="button" class="asd-button" data-action="view-target">查看目标终端</button>';
+        const quote=m.quoteText?'<details class="asd-message-quote"><summary>查看附带输出 · '+m.quoteText.split("\n").length+' 行</summary><pre>'+escape(m.quoteText)+'</pre></details>':'';
+        q("#asd-message-detail").innerHTML='<div class="asd-detail-title"><strong class="'+(held||queued?'asd-amber':'asd-blue')+'">'+(held?'! ':'')+title+'</strong><span class="asd-subtle">'+m.id+'</span></div><dl class="asd-detail-grid"><dt>目标会话</dt><dd>'+escape(m.to)+' <span class="asd-subtle">/ '+m.target+'</span></dd><dt>目标运行</dt><dd>'+(held?'<span class="asd-subtle">'+m.boundRun+' 已退出</span> <span class="asd-muted">→</span> <span class="asd-accent">'+m.currentRun+' 当前运行</span>':m.boundRun)+'</dd><dt>消息来源</dt><dd class="asd-muted">'+escape(m.source)+'</dd><dt>指令内容</dt><dd>'+escape(m.body)+'</dd></dl>'+quote+'<div class="asd-detail-note">'+(held?'旧运行的消息不会自动注入新运行。重新指定后仍需明确投递。':escape(m.detail))+'</div>'+(actions?'<div class="asd-detail-actions">'+actions+'</div>':'');
+      }
+      function openNew() {
+        state.focus="manager";updateFocus();
+        q("#asd-new-overlay").hidden=false;
+        q("#asd-new-name").focus();
+        q(".asd-layout").inert=true;q(".asd-footer").inert=true;q(".asd-appbar").inert=true;
+      }
+      function closeNew() {
+        q("#asd-new-overlay").hidden=true;q(".asd-layout").inert=false;q(".asd-footer").inert=false;q(".asd-appbar").inert=false;
+        q(".asd-window").classList.remove("has-advanced");q("#asd-advanced").hidden=true;
+        q('[data-action="advanced"]').setAttribute("aria-expanded","false");
+        q('[data-action="advanced"]').firstChild.textContent="▸ 高级选项 ";
+        q('[data-action="new-session"]').focus();
+      }
+      function renderRecords() {
+        const s=sessions[state.session];const lines=sampleLines[state.session]||["此为新会话预览，尚无真实终端输出。"];
+        q("#asd-record-source").textContent=s.id+" / "+s.run;
+        q("#asd-history-lines").innerHTML=lines.map(function(line,i){return '<div class="asd-history-line"><span>'+String(16)+':41:'+String(10+i).padStart(2,"0")+'</span><span>'+escape(line)+'</span></div>';}).join("");
+      }
+      function saveDraft() {
+        drafts[state.session]={body:q("#asd-message").value,target:q("#asd-target").value,quote:state.quote};
+      }
+      function communication() {
+        const s=sessions[state.session], lines=sampleLines[state.session]||["此为新会话预览，尚无真实终端输出。"];
+        const start=state.session==="dev"?18:17, quoteStart=Math.max(0,lines.length-5);
+        state.quoteRange=(start+quoteStart)+"–"+(start+lines.length-1);
+        const draft=drafts[state.session];
+        state.quote=draft?draft.quote:true;
+        q("#asd-snapshot-source").textContent=s.name+" · "+s.id+" / "+s.run;
+        q(".asd-snapshot-body").innerHTML=lines.map(function(line,i){return '<div class="asd-snapshot-line '+(i>=quoteStart?'is-quoted':'')+'"><span class="asd-line-number">'+(start+i)+'</span><span'+(line.startsWith("PASS")?' class="asd-green"':'')+'>'+escape(line)+'</span></div>';}).join("");
+        q(".asd-snapshot-foot").innerHTML='已选中 '+state.quoteRange+' 行 <span class="asd-subtle">· 终端输出片段</span>';
+        q("#asd-attachment>span").textContent="↳ 引用 "+s.id+" / "+s.run+" · "+state.quoteRange+" 行";
+        q("#asd-attachment").hidden=!state.quote;
+        const targets=Object.keys(sessions).filter(function(k){return k!==state.session&&sessions[k].alive;});
+        q("#asd-target").innerHTML=targets.map(function(k){const t=sessions[k];return '<option value="'+k+'">'+escape(t.name)+' · '+t.id+' / '+t.run+'</option>';}).join("");
+        const desired=draft&&targets.includes(draft.target)?draft.target:state.session==="dev"&&targets.includes("review")?"review":targets[0];
+        q("#asd-target").value=desired;
+        q("#asd-message").value=draft?draft.body:state.session==="dev"?"请检查 JWT 校验的异常分支，重点看过期 token 和无效签名。结合所附输出，列出遗漏的测试。":"请阅读所附输出，继续处理相关任务，并返回结论。";
+        showView("communication");
+      }
+      function action(name) {
+        if(name==="new-session"){openNew();return;}
+        if(name==="close-new"){closeNew();return;}
+        if(name==="communication"){communication();return;}
+        if(name==="queue"){showView("queue");return;}
+        if(name==="search"){q(".asd-sidebar").classList.add("is-mobile-open");q("#asd-search").focus();return;}
+        if(name==="toggle-sidebar"){q(".asd-sidebar").classList.toggle("is-mobile-open");return;}
+        if(name==="focus"){if(state.view==="terminal"&&sessions[state.session].alive){state.focus=state.focus==="manager"?"terminal":"manager";updateFocus();}else toast("当前为管理面板，键盘不会进入终端。");return;}
+        if(name==="advanced"){
+          const el=q("#asd-advanced");el.hidden=!el.hidden;
+          q(".asd-window").classList.toggle("has-advanced",!el.hidden);
+          q('[data-action="advanced"]').setAttribute("aria-expanded",String(!el.hidden));
+          q('[data-action="advanced"]').firstChild.textContent=(el.hidden?"▸":"▾")+" 高级选项 ";
+          return;
+        }
+        if(name==="quote"){state.quote=true;q("#asd-attachment").hidden=false;saveDraft();toast("已引用 "+sessions[state.session].id+" / "+sessions[state.session].run+" 的第 "+state.quoteRange+" 行。");return;}
+        if(name==="remove-quote"){state.quote=false;q("#asd-attachment").hidden=true;saveDraft();return;}
+        if(name==="refresh-snapshot"){toast("设计预览：保留当前只读快照，未读取真实进程。");return;}
+        if(name==="send"){
+          const body=q("#asd-message").value.trim();if(!body){q("#asd-message").focus();toast("请先填写附加指令。");return;}
+          const target=sessions[q("#asd-target").value];const id="msg-"+String(13+messages.length-3).padStart(3,"0");
+          const source=sessions[state.session];saveDraft();
+          const quoteText=state.quote?(sampleLines[state.session]||["此为新会话预览，尚无真实终端输出。"]).slice(-5).join("\n"):"";
+          messages.unshift({id:id,from:source.name,to:target.name,target:target.id,boundRun:target.run,currentRun:target.run,status:"queued",time:"刚刚",body:body,detail:"等待显式投递；目标工作状态未知。",source:source.id+" / "+source.run+(state.quote?" · "+state.quoteRange+" 行":""),quoteText:quoteText});
+          state.selectedMessage=id;state.filter="all";qa("[data-filter]").forEach(function(b){const v=b.dataset.filter==="all";b.classList.toggle("is-selected",v);b.setAttribute("aria-pressed",String(v));});
+          showView("queue");toast("预览：消息已加入模拟队列，未写入真实终端。");return;
+        }
+        if(name==="view-target"){const m=messages.find(function(x){return x.id===state.selectedMessage;});const key=Object.keys(sessions).find(function(k){return sessions[k].id===m.target;});selectSession(key);return;}
+        if(name==="rebind"){
+          const m=messages.find(function(x){return x.id===state.selectedMessage;});
+          q("#asd-message-detail").innerHTML='<div class="asd-detail-title"><strong class="asd-amber">重新指定目标运行</strong><span class="asd-subtle">'+m.id+'</span></div><div class="asd-detail-note">将消息从 '+m.boundRun+' 改为 '+m.currentRun+'，不会立即投递。</div><div class="asd-detail-grid"><span class="asd-muted">原指令</span><span>'+escape(m.body)+'</span></div><div class="asd-detail-actions"><button type="button" class="asd-button asd-button-primary" data-action="confirm-rebind">确认绑定 '+m.currentRun+' 并重新排队</button><button type="button" class="asd-button" data-action="cancel-rebind">返回</button></div>';return;
+        }
+        if(name==="confirm-rebind"){const m=messages.find(function(x){return x.id===state.selectedMessage;});m.boundRun=m.currentRun;m.status="queued";m.detail="已重新指定目标运行；等待显式投递。";renderQueue();toast("预览：已重新排队，尚未写入输入。");return;}
+        if(name==="cancel-rebind"){renderMessageDetail();return;}
+        if(name==="cancel-message"){const m=messages.find(function(x){return x.id===state.selectedMessage;});m.status="cancelled";renderQueue();toast("预览：消息已取消。");return;}
+        if(name==="paste"||name==="submit-input"){
+          const m=messages.find(function(x){return x.id===state.selectedMessage;});m.status="written";m.detail=name==="paste"?"已写入输入区，未提交；无 agent 接收回执。":"输入与提交键已写入；无 agent 接收或完成回执。";renderQueue();toast("仅演示输入已写入状态，未操作真实 agent。");return;
+        }
+        if(name==="restart"){toast("设计预览：重新启动会创建新 Run；不能据此恢复原对话。");return;}
+        if(name==="help"){toast("预览快捷键：N 新建，C 通信，Q 队列，/ 搜索，F6 切换焦点，Esc 关闭弹窗。");return;}
+      }
+      root.addEventListener("click",function(event){
+        const b=event.target.closest("button");if(!b||!root.contains(b))return;
+        if(b.dataset.action)action(b.dataset.action);
+        else if(b.dataset.session)selectSession(b.dataset.session);
+        else if(b.dataset.tab)selectSession(b.dataset.tab);
+        else if(b.dataset.view){if(b.dataset.view==="communication")communication();else showView(b.dataset.view);}
+        else if(b.dataset.message){state.selectedMessage=b.dataset.message;renderQueue();}
+        else if(b.dataset.filter){state.filter=b.dataset.filter;qa("[data-filter]").forEach(function(x){const selected=x===b;x.classList.toggle("is-selected",selected);x.setAttribute("aria-pressed",String(selected));});renderQueue();}
+      });
+      q("#asd-search").addEventListener("input",function(e){
+        const term=e.target.value.trim().toLowerCase();let count=0;
+        qa("[data-session]").forEach(function(b){const match=b.textContent.toLowerCase().includes(term);b.hidden=!match;if(match)count++;});
+        q("#asd-search-empty").hidden=count>0;
+      });
+      q("#asd-new-form").addEventListener("submit",function(e){
+        e.preventDefault();const name=q("#asd-new-name").value.trim(), command=q("#asd-new-command").value.trim(),cwd=q("#asd-new-cwd").value.trim();
+        if(!name||!command||!cwd){toast("请填写名称、启动命令和工作目录。");return;}
+        const id="custom-"+Object.keys(sessions).length;
+        sessions[id]={name:name,project:"auth-service",path:cwd,id:id,run:"r01",agent:command.split(" ")[0],alive:true};
+        const b=document.createElement("button");b.type="button";b.className="asd-session";b.dataset.session=id;
+        b.innerHTML='<span class="asd-session-top"><span class="asd-dot asd-green">●</span><span class="asd-session-name">'+escape(name)+'</span></span><span class="asd-session-info">自定义 CLI · 状态未知</span>';
+        q("#asd-session-list").appendChild(b);q("#asd-session-count").textContent=String(Object.keys(sessions).length).padStart(2,"0");
+        q("#asd-auth-count").textContent=String(Object.values(sessions).filter(function(s){return s.project==="auth-service";}).length);
+        closeNew();selectSession(id);toast("预览：已新增模拟会话，未执行 "+command+"。");
+      });
+      root.addEventListener("keydown",function(e){
+        if(e.key==="Escape"&&!q("#asd-new-overlay").hidden){e.preventDefault();closeNew();return;}
+        if(!q("#asd-new-overlay").hidden){if(e.key==="F6")e.preventDefault();return;}
+        const editing=/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName);
+        if(e.key==="F6"){e.preventDefault();action("focus");return;}
+        if(editing||state.focus==="terminal"||e.ctrlKey||e.altKey||e.metaKey)return;
+        const map={n:"new-session",c:"communication",q:"queue","/":"search","?":"help"};
+        if(map[e.key.toLowerCase()]){e.preventDefault();action(map[e.key.toLowerCase()]);}
+      });
+      q("#asd-message").addEventListener("input",saveDraft);
+      q("#asd-target").addEventListener("change",saveDraft);
+      renderQueue();
+    }());
+  </script>
+</div>
+<!-- ASD_FRAGMENT_END -->
+</body>
+</html>

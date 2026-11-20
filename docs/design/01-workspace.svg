@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="880" viewBox="0 0 1440 880" role="img" aria-labelledby="title description">
+<title id="title">Agent Session Desk · 多会话工作台</title>
+<desc id="description">概念设计：Windows Terminal 外框、分组会话、原生 CLI 示例输出。进程存活，工作状态未知。</desc>
+<rect x="0" y="0" width="1440" height="880" fill="#10141c"/>
+<rect x="16" y="16" width="1408" height="848" fill="#161a23" stroke="#384358" stroke-width="1"/>
+<rect x="17" y="17" width="1406" height="35" fill="#11151d"/>
+<rect x="31" y="22" width="250" height="30" fill="#161a23"/>
+<line x1="31" y1="22" x2="281" y2="22" stroke="#384358" stroke-width="2"/>
+<text x="45.00" y="40.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="14" font-weight="700" fill="#8bd8ec" xml:space="preserve">›_</text>
+<text x="76.00" y="40.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="12" font-weight="400" fill="#95a3bb" xml:space="preserve">Agent Session Desk</text>
+<text x="258.00" y="41.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="15" font-weight="400" fill="#95a3bb" xml:space="preserve">×</text>
+<text x="299.00" y="42.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="17" font-weight="400" fill="#95a3bb" xml:space="preserve">+</text>
+<line x1="335" y1="32" x2="339.0" y2="36.0" stroke="#95a3bb" stroke-width="1"/>
+<line x1="339.0" y1="36.0" x2="343" y2="32" stroke="#95a3bb" stroke-width="1"/>
+<line x1="1295" y1="34" x2="1305" y2="34" stroke="#95a3bb" stroke-width="1"/>
+<rect x="1341" y="29" width="9" height="9" fill="#11151d" stroke="#95a3bb" stroke-width="1"/>
+<line x1="1387" y1="29" x2="1397" y2="39" stroke="#95a3bb" stroke-width="1"/>
+<line x1="1397" y1="29" x2="1387" y2="39" stroke="#95a3bb" stroke-width="1"/>
+<line x1="17" y1="52" x2="1423" y2="52" stroke="#2a3346" stroke-width="1"/>
+<text x="38.00" y="93.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="23" font-weight="700" fill="#8bd8ec" xml:space="preserve">›_</text>
+<text x="79.00" y="93.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="20" font-weight="700" fill="#d8e0ef" xml:space="preserve">Agent Session Desk</text>
+<text x="289.00" y="92.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="13" font-weight="400" fill="#7d8da6" xml:space="preserve">/ workspace</text>
+<circle cx="1071" cy="86" r="3.1" fill="#a8d5a2" stroke="#a8d5a2" stroke-width="1"/>
+<text x="1083.00" y="90.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="13" font-weight="400" fill="#d8e0ef" xml:space="preserve">后台已连接</text>
+<text x="1157.00" y="90.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="13" font-weight="400" fill="#7d8da6" xml:space="preserve">· 本地</text>
+<text x="1311.00" y="90.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="12" font-weight="400" fill="#95a3bb" xml:space="preserve">交互设计稿 v0.1</text>
+<line x1="17" y1="116" x2="1423" y2="116" stroke="#384358" stroke-width="1"/>
+<rect x="17" y="117" width="264" height="705" fill="#1c2130"/>
+<line x1="281" y1="116" x2="281" y2="822" stroke="#384358" stroke-width="1"/>
+<text x="37.00" y="150.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="15" font-weight="700" fill="#d8e0ef" xml:space="preserve">会话</text>
+<text x="77.00" y="149.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="12" font-weight="400" fill="#7d8da6" xml:space="preserve">05</text>
+<text x="209.50" y="148.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="13" font-weight="400" fill="#8bd8ec" xml:space="preserve">＋ 新建</text>
+<rect x="31" y="171" width="236" height="36" fill="#161a23" stroke="#2a3346" stroke-width="1"/>
+<text x="43.00" y="192.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="13" font-weight="400" fill="#7d8da6" xml:space="preserve">搜索会话…</text>
+<text x="244.50" y="192.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="13" font-weight="400" fill="#7d8da6" xml:space="preserve">/</text>
+<line x1="39" y1="234" x2="42.5" y2="237.5" stroke="#95a3bb" stroke-width="1"/>
+<line x1="42.5" y1="237.5" x2="46" y2="234" stroke="#95a3bb" stroke-width="1"/>
+<text x="61.00" y="238.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="12" font-weight="400" fill="#95a3bb" xml:space="preserve">auth-service</text>
+<text x="250.00" y="238.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="12" font-weight="400" fill="#7d8da6" xml:space="preserve">3</text>
+<rect x="31" y="252" width="236" height="81" fill="#29374e"/>
+<rect x="31" y="252" width="2" height="81" fill="#8bd8ec"/>
+<circle cx="47" cy="273" r="3.2" fill="#a8d5a2" stroke="#a8d5a2" stroke-width="1"/>
+<text x="61.00" y="276.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="15" font-weight="700" fill="#d8e0ef" xml:space="preserve">登录鉴权</text>
+<text x="240.00" y="276.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="12" font-weight="400" fill="#7d8da6" xml:space="preserve">01</text>
+<text x="61.00" y="299.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="12" font-weight="400" fill="#95a3bb" xml:space="preserve">my-agent</text>
+<text x="109.00" y="299.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="12" font-weight="400" fill="#7d8da6" xml:space="preserve"> · 工作状态未知</text>
+<text x="61.00" y="320.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="11" font-weight="400" fill="#7d8da6" xml:space="preserve">刚刚有输出</text>
+<circle cx="47" cy="358" r="3.2" fill="#a8d5a2" stroke="#a8d5a2" stroke-width="1"/>
+<text x="61.00" y="361.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="15" font-weight="700" fill="#d8e0ef" xml:space="preserve">代码评审</text>
+<text x="240.00" y="361.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="12" font-weight="400" fill="#7d8da6" xml:space="preserve">02</text>
+<text x="61.00" y="384.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="12" font-weight="400" fill="#95a3bb" xml:space="preserve">review-agent</text>
+<text x="133.00" y="384.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="12" font-weight="400" fill="#7d8da6" xml:space="preserve"> · 状态未知</text>
+<text x="61.00" y="405.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="11" font-weight="400" fill="#7d8da6" xml:space="preserve">2 分钟前有输出</text>
+<circle cx="47" cy="443" r="3.2" fill="none" stroke="#7d8da6" stroke-width="1"/>
+<text x="61.00" y="446.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="15" font-weight="700" fill="#d8e0ef" xml:space="preserve">文档同步</text>
+<text x="240.00" y="446.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="12" font-weight="400" fill="#7d8da6" xml:space="preserve">03</text>
+<text x="61.00" y="469.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="12" font-weight="400" fill="#95a3bb" xml:space="preserve">docs-agent</text>
+<text x="121.00" y="469.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="12" font-weight="400" fill="#7d8da6" xml:space="preserve"> · 已退出</text>
+<text x="61.00" y="490.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="11" font-weight="400" fill="#7d8da6" xml:space="preserve">输出记录已保存</text>
+<line x1="37" y1="518" x2="261" y2="518" stroke="#2a3346" stroke-width="1"/>
+<line x1="39" y1="541" x2="42.5" y2="544.5" stroke="#95a3bb" stroke-width="1"/>
+<line x1="42.5" y1="544.5" x2="46" y2="541" stroke="#95a3bb" stroke-width="1"/>
+<text x="61.00" y="545.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="12" font-weight="400" fill="#95a3bb" xml:space="preserve">agent-session-desk</text>
+<text x="250.00" y="545.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="12" font-weight="400" fill="#7d8da6" xml:space="preserve">2</text>
+<circle cx="47" cy="578" r="3.2" fill="#a8d5a2" stroke="#a8d5a2" stroke-width="1"/>
+<text x="61.00" y="581.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="15" font-weight="700" fill="#d8e0ef" xml:space="preserve">产品设计</text>
+<text x="61.00" y="604.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="12" font-weight="400" fill="#95a3bb" xml:space="preserve">local-agent</text>
+<text x="127.00" y="604.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="12" font-weight="400" fill="#7d8da6" xml:space="preserve"> · 状态未知</text>
+<circle cx="47" cy="645" r="3.2" fill="none" stroke="#7d8da6" stroke-width="1"/>
+<text x="61.00" y="648.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="15" font-weight="700" fill="#d8e0ef" xml:space="preserve">技术调研</text>
+<text x="61.00" y="671.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="12" font-weight="400" fill="#95a3bb" xml:space="preserve">local-agent</text>
+<text x="127.00" y="671.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="12" font-weight="400" fill="#7d8da6" xml:space="preserve"> · 已退出</text>
+<line x1="31" y1="725" x2="267" y2="725" stroke="#2a3346" stroke-width="1"/>
+<text x="41.00" y="749.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="13" font-weight="400" fill="#d8e0ef" xml:space="preserve">⇄ 消息队列</text>
+<rect x="196" y="735" width="61" height="21" fill="#352d23"/>
+<text x="204.50" y="749.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="11" font-weight="400" fill="#e6c282" xml:space="preserve">2 待处理</text>
+<text x="41.00" y="789.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="11" font-weight="400" fill="#7d8da6" xml:space="preserve">● 进程存活　○ 已退出</text>
+<text x="41.00" y="808.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="11" font-weight="400" fill="#7d8da6" xml:space="preserve">工作状态由独立信号确认</text>
+<rect x="282" y="117" width="1141" height="45" fill="#1c2130"/>
+<rect x="282" y="117" width="163" height="45" fill="#161a23"/>
+<rect x="282" y="117" width="163" height="2" fill="#8bd8ec"/>
+<text x="300.00" y="144.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="11" font-weight="400" fill="#7d8da6" xml:space="preserve">01</text>
+<text x="326.00" y="144.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="14" font-weight="400" fill="#8bd8ec" xml:space="preserve">登录鉴权</text>
+<line x1="445" y1="117" x2="445" y2="162" stroke="#2a3346" stroke-width="1"/>
+<text x="463.00" y="144.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="11" font-weight="400" fill="#7d8da6" xml:space="preserve">02</text>
+<text x="489.00" y="144.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="14" font-weight="400" fill="#95a3bb" xml:space="preserve">代码评审</text>
+<line x1="608" y1="117" x2="608" y2="162" stroke="#2a3346" stroke-width="1"/>
+<text x="626.00" y="144.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="11" font-weight="400" fill="#7d8da6" xml:space="preserve">03</text>
+<text x="652.00" y="144.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="14" font-weight="400" fill="#95a3bb" xml:space="preserve">文档同步</text>
+<line x1="771" y1="117" x2="771" y2="162" stroke="#2a3346" stroke-width="1"/>
+<text x="1385.00" y="148.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="20" font-weight="400" fill="#95a3bb" xml:space="preserve">+</text>
+<line x1="282" y1="162" x2="1423" y2="162" stroke="#384358" stroke-width="1"/>
+<text x="310.00" y="204.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="20" font-weight="700" fill="#d8e0ef" xml:space="preserve">登录鉴权</text>
+<text x="405.00" y="203.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="13" font-weight="400" fill="#7d8da6" xml:space="preserve">/ auth-service</text>
+<text x="310.00" y="231.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="13" font-weight="400" fill="#95a3bb" xml:space="preserve">D:\work\auth-service</text>
+<text x="1238.00" y="197.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="13" font-weight="400" fill="#a8d5a2" xml:space="preserve">● 进程存活</text>
+<text x="1309.50" y="197.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="13" font-weight="400" fill="#7d8da6" xml:space="preserve"> · r07</text>
+<text x="1255.00" y="222.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="12" font-weight="400" fill="#95a3bb" xml:space="preserve">工作状态未知 / 通用 CLI</text>
+<text x="310.00" y="271.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="13" font-weight="400" fill="#8bd8ec" xml:space="preserve">终端</text>
+<rect x="310" y="284" width="32" height="2" fill="#8bd8ec"/>
+<text x="369.00" y="271.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="13" font-weight="400" fill="#95a3bb" xml:space="preserve">输出记录</text>
+<text x="453.00" y="271.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="13" font-weight="400" fill="#95a3bb" xml:space="preserve">会话通信</text>
+<text x="1315.00" y="270.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="12" font-weight="400" fill="#7d8da6" xml:space="preserve">原生 CLI 视图</text>
+<line x1="310" y1="286" x2="1394" y2="286" stroke="#2a3346" stroke-width="1"/>
+<rect x="282" y="790" width="1141" height="32" fill="#1c2130"/>
+<line x1="282" y1="790" x2="1423" y2="790" stroke="#2a3346" stroke-width="1"/>
+<text x="310.00" y="811.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="12" font-weight="400" fill="#8bd8ec" xml:space="preserve">焦点：管理器</text>
+<text x="425.00" y="811.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="12" font-weight="400" fill="#95a3bb" xml:space="preserve">F6 进入终端 · 按键将交给当前 CLI</text>
+<text x="1328.00" y="810.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="11" font-weight="400" fill="#95a3bb" xml:space="preserve">dev-01 / r07</text>
+<rect x="17" y="822" width="1406" height="41" fill="#11151d"/>
+<line x1="17" y1="822" x2="1423" y2="822" stroke="#384358" stroke-width="1"/>
+<text x="38.00" y="849.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="12" font-weight="400" fill="#8bd8ec" xml:space="preserve">F6</text>
+<text x="50.00" y="849.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="12" font-weight="400" fill="#95a3bb" xml:space="preserve"> 切换焦点</text>
+<text x="173.00" y="849.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="12" font-weight="400" fill="#8bd8ec" xml:space="preserve">N</text>
+<text x="179.00" y="849.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="12" font-weight="400" fill="#95a3bb" xml:space="preserve"> 新建</text>
+<text x="259.00" y="849.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="12" font-weight="400" fill="#8bd8ec" xml:space="preserve">/</text>
+<text x="265.00" y="849.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="12" font-weight="400" fill="#95a3bb" xml:space="preserve"> 搜索</text>
+<text x="347.00" y="849.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="12" font-weight="400" fill="#8bd8ec" xml:space="preserve">C</text>
+<text x="353.00" y="849.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="12" font-weight="400" fill="#95a3bb" xml:space="preserve"> 会话通信</text>
+<text x="473.00" y="849.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="12" font-weight="400" fill="#8bd8ec" xml:space="preserve">Q</text>
+<text x="479.00" y="849.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="12" font-weight="400" fill="#95a3bb" xml:space="preserve"> 消息队列</text>
+<text x="598.00" y="849.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="12" font-weight="400" fill="#8bd8ec" xml:space="preserve">?</text>
+<text x="604.00" y="849.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="12" font-weight="400" fill="#95a3bb" xml:space="preserve"> 帮助</text>
+<text x="1246.00" y="848.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="11" font-weight="400" fill="#7d8da6" xml:space="preserve">Windows Terminal · 设计预览</text>
+<text x="310.00" y="333.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="26" font-weight="700" fill="#a8d5a2" xml:space="preserve">›_</text>
+<text x="355.00" y="325.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="16" font-weight="400" fill="#d8e0ef" xml:space="preserve">my-agent</text>
+<text x="434.00" y="324.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="12" font-weight="400" fill="#7d8da6" xml:space="preserve">v0.8.2</text>
+<text x="355.00" y="347.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="12" font-weight="400" fill="#95a3bb" xml:space="preserve">D:\work\auth-service</text>
+<rect x="310" y="368" width="1084" height="42" fill="#1c2130"/>
+<rect x="310" y="368" width="2" height="42" fill="#384358"/>
+<text x="324.00" y="395.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="15" font-weight="400" fill="#8bd8ec" xml:space="preserve">›  </text>
+<text x="343.53" y="395.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="15" font-weight="400" fill="#d8e0ef" xml:space="preserve">为登录接口补上 JWT 校验，并添加边界测试。</text>
+<text x="310.00" y="442.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="15" font-weight="400" fill="#a8d5a2" xml:space="preserve">✓ </text>
+<text x="327.74" y="442.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="15" font-weight="400" fill="#d8e0ef" xml:space="preserve">已读取 src/auth/middleware.ts 和现有测试。</text>
+<text x="329.00" y="469.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="15" font-weight="400" fill="#95a3bb" xml:space="preserve">将校验收敛到中间件，避免业务处理函数重复判断。</text>
+<text x="310.00" y="504.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="15" font-weight="400" fill="#96b5f9" xml:space="preserve">Updated</text>
+<text x="362.50" y="504.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="15" font-weight="400" fill="#d8e0ef" xml:space="preserve">  src/auth/middleware.ts</text>
+<line x1="327" y1="520" x2="327" y2="648" stroke="#384358" stroke-width="1"/>
+<text x="346.00" y="533.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="14" font-weight="400" fill="#7d8da6" xml:space="preserve">  21  </text>
+<text x="388.00" y="533.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="14" font-weight="400" fill="#96b5f9" xml:space="preserve">export async function</text>
+<text x="535.00" y="533.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="14" font-weight="400" fill="#d8e0ef" xml:space="preserve"> authenticate(req, res, next) {</text>
+<text x="346.00" y="554.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="14" font-weight="400" fill="#a8d5a2" xml:space="preserve">+ 22    const token = parseBearer(req.headers.authorization);</text>
+<text x="346.00" y="575.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="14" font-weight="400" fill="#a8d5a2" xml:space="preserve">+ 23    if (!token) return res.status(401).end();</text>
+<text x="346.00" y="596.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="14" font-weight="400" fill="#a8d5a2" xml:space="preserve">+ 24    req.user = await verifyToken(token);</text>
+<text x="346.00" y="617.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="14" font-weight="400" fill="#7d8da6" xml:space="preserve">  25  </text>
+<text x="388.00" y="617.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="14" font-weight="400" fill="#d8e0ef" xml:space="preserve">  next();</text>
+<text x="346.00" y="638.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="14" font-weight="400" fill="#7d8da6" xml:space="preserve">  26  </text>
+<text x="388.00" y="638.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="14" font-weight="400" fill="#d8e0ef" xml:space="preserve">}</text>
+<text x="310.00" y="673.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="15" font-weight="400" fill="#96b5f9" xml:space="preserve">$ </text>
+<text x="325.00" y="673.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="15" font-weight="400" fill="#d8e0ef" xml:space="preserve">pnpm test -- auth</text>
+<text x="310.00" y="698.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="15" font-weight="400" fill="#a8d5a2" xml:space="preserve">PASS</text>
+<text x="340.00" y="698.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="15" font-weight="400" fill="#d8e0ef" xml:space="preserve">  tests/auth.test.ts </text>
+<text x="497.50" y="698.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="15" font-weight="400" fill="#95a3bb" xml:space="preserve">(12 tests)</text>
+<text x="355.00" y="722.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="14" font-weight="400" fill="#95a3bb" xml:space="preserve">缺失、过期和无效签名 token 均返回 401。</text>
+<line x1="310" y1="742" x2="1394" y2="742" stroke="#384358" stroke-width="1"/>
+<text x="310.00" y="768.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="16" font-weight="400" fill="#8bd8ec" xml:space="preserve">›</text>
+<rect x="332" y="753" width="8" height="17" fill="#8bd8ec"/>
+<text x="355.00" y="767.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="14" font-weight="400" fill="#95a3bb" xml:space="preserve">继续输入任务…</text>
+<line x1="310" y1="775" x2="1394" y2="775" stroke="#384358" stroke-width="1"/>
+<text x="310.00" y="787.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="10" font-weight="400" fill="#7d8da6" xml:space="preserve">以上为示例 CLI 输出</text>
+<text x="1314.00" y="787.00" font-family="Noto Sans Mono CJK SC, Noto Sans CJK SC, monospace" font-size="10" font-weight="400" fill="#7d8da6" xml:space="preserve">未连接真实 agent</text>
+</svg>
