@@ -1,32 +1,45 @@
-# 架构草案
+# 架构说明
 
-状态：提议，尚未实现。基线日期：2026-11-20。
+状态：架构方向已接受，尚未实现。更新日期：2026-11-21。
 
-本文件定义责任边界与待验证方案，不锁定编程语言、框架、数据库或协议。产品要求见 [PRODUCT_PLAN.md](PRODUCT_PLAN.md)。
+本文件落实 [TECH_STACK.md](TECH_STACK.md) 与 [ADR](adr/README.md) 中的决定：Go 模块化单体、Charm v2、Agent Deck UI 选择性复用、Windows psmux 后台。产品要求见 [PRODUCT_PLAN.md](PRODUCT_PLAN.md)，实现状态与证据见 [FEATURE_LEDGER.md](FEATURE_LEDGER.md)。已接受的方向仍需通过 M0 Windows 与资源验证。
 
 ## 1. 分层与责任
 
 ```mermaid
 flowchart TD
-    UI["TUI 客户端"] --> HOST["本地会话后台"]
-    CTL["管理 CLI"] --> HOST
-    HOST --> RUNTIME["终端后端接口"]
-    HOST --> STORE["会话与消息记录"]
-    RUNTIME --> PTY["Windows 终端宿主"]
-    PTY --> AGENT["本地 Agent CLI"]
+    UI["TUI"] --> CORE["共享会话核心"]
+    CTL["管理 CLI"] --> CORE
+    HOST["M3 共享消息 Host"] -. "后台消费" .-> CORE
+    CORE --> RUNTIME["终端后端接口"]
+    CORE --> STORE["SQLite 与有界文件记录"]
+    RUNTIME --> WIN["Windows psmux"]
+    RUNTIME --> UNIX["Unix tmux"]
+    WIN --> AGENT["本地 Agent CLI"]
+    UNIX --> AGENT
     AGENT -. "通过自身命令工具调用" .-> CTL
 ```
 
 | 模块 | 职责 |
 | --- | --- |
-| TUI 客户端 | 会话列表、视图、搜索、交互焦点、终端画面与投递状态 |
-| 本地会话后台 | 稳定身份、运行生命周期、终端 I/O、输出记录、消息队列与重新连接 |
+| TUI | 简约列表、只读预览、搜索、按需表单、交互焦点与投递状态 |
+| 共享会话核心 | 稳定身份、Run 生命周期、能力声明、消息规则和后端协调；共享代码，不单独部署为服务 |
 | 终端后端接口 | 统一创建、接入、输入、resize、捕获输出、停止与退出事件 |
-| Windows 终端宿主 | 候选为 psmux 后台或直接 ConPTY；选型待 M0 验证 |
+| Windows 后台 | psmux 正式版持有终端和子进程；不重复创建自有 ConPTY 宿主 |
+| 存储 | TOML 配置；SQLite 元数据、队列与回执；有上限的输出文件及内存缓存 |
+| M3 消息 Host | 一个共享轻量进程负责后台队列消费、持续事件与投递仲裁；自动协作阶段引入 |
 | Agent 适配器 | 可选的 ready/busy、提交、取消、原生历史与 resume 能力 |
 | 管理 CLI | 让用户和具备命令执行工具的 agent 操作已托管会话 |
 
-TUI 的按键处理与绘制不应直接散落 tmux 或 Windows 进程调用。复用上游 UI 时，先识别并抽取这类边界。
+TUI 的按键处理与绘制不应直接散落 tmux 或 Windows 进程调用。复用上游 UI 时，先识别并抽取这类边界。图中是职责关系，不表示每个方框都是常驻进程。
+
+M0–M2 由按需运行的 TUI/CLI 调用共享核心，psmux/tmux 承担后台终端托管。M3 为关闭界面后的自动投递引入共享消息 Host；管理命令可按需执行，无消费者时落盘队列等待。具体 IPC、单实例和恢复机制在 M3 实施前固定。
+
+### 默认界面与终端交接
+
+管理状态仅显示会话列表、当前只读预览和简短提示。新建、搜索、发送和设置按需打开。进入会话后暂停管理界面并运行后台 attach 客户端；此时管理器侧栏和 Tab 隐藏，终端输入交给原 CLI。分离后恢复管理界面。
+
+被动预览不持续修改正在 attach 的终端尺寸。常驻侧栏内嵌完整可交互终端、独立 VT 引擎均后置。旧 [v0.1 图稿](UI_DESIGN.md)保留为未采纳探索，不规定当前界面的布局或快捷键。
 
 ## 2. CLI-first 启动描述
 
@@ -56,15 +69,21 @@ agent 本身必须能在目标环境运行。管理器不自动把 Linux-only �
 - 消息记录包含 `message_id`、可选 `reply_to`、发送幂等键，以及目标会话和入队时的目标 Run。
 - `agent_conversation_id`：可选，由 agent 自身提供，不能用 session_id 冒充。
 
-持久化对象包括配置、会话元数据、运行记录、有限输出记录和消息状态。保存终端记录不会保存 agent 内存或恢复活进程。
+TOML 保存配置，SQLite 保存会话、运行与消息状态，长期输出使用轮转文件，当前预览使用有界内存缓存。具体驱动、schema、事务和限额尚未固定。保存终端记录不会保存 agent 内存或恢复活进程。
 
 输出记录需区分：原始终端字节流、解析后的屏幕/滚动记录、可选结构化对话消息。原始全屏 TUI 重绘日志不能直接当作逐条聊天记录。
 
+终端后台继续运行不等于产品日志始终连续采集。无自有消费者时，可读取的历史取决于后端已经保存的范围；后端日志能力需要另行验证。丢失、轮转或未采集的区间显式报告，不声称持有完整历史。
+
 ## 4. 终端与生命周期
 
-ConPTY 是 Windows 的终端托管机制，宿主需要持续处理输入输出、VT 序列、终端尺寸和相关生命周期。参考 [Microsoft Pseudoconsoles](https://learn.microsoft.com/en-us/windows/console/pseudoconsoles) 与 [创建会话说明](https://learn.microsoft.com/en-us/windows/console/creating-a-pseudoconsole-session)。
+ConPTY 是 Windows 的终端托管机制，宿主需要持续处理输入输出、VT 序列、终端尺寸和相关生命周期。本项目通过 psmux 使用这层能力。参考 [Microsoft Pseudoconsoles](https://learn.microsoft.com/en-us/windows/console/pseudoconsoles) 与 [创建会话说明](https://learn.microsoft.com/en-us/windows/console/creating-a-pseudoconsole-session)。
 
-需要在 TUI 退出后继续运行时，由独立后台持有终端与通信通道，继续读取输出；不能仅记录 PID。TUI 断开不应触发终端关闭。具体关闭行为见 [ClosePseudoConsole](https://learn.microsoft.com/en-us/windows/console/closepseudoconsole)。
+需要在 TUI 退出后继续运行时，由 psmux/tmux 持有终端与通信通道，继续处理终端输出；不能仅记录 PID。TUI 断开不应触发终端关闭。具体关闭行为见 [ClosePseudoConsole](https://learn.microsoft.com/en-us/windows/console/closepseudoconsole)。
+
+psmux v3.4.0 正式版是 Windows 首轮验证目标，按一个产品 Session 对应一个后端 session，所有 server 和辅助进程都计入资源成本。使用产品私有配置关闭非必要预热；共享 server 开发分支不进入首版能力承诺。版本和边界见 [ADR-0002](adr/0002-terminal-backends-and-attach.md)。
+
+后端 session/pane 存在、shell 存活和 agent 存活分别判断。无法取得 agent 级证据时显示“终端运行中 / agent 状态未知”，不从后台进程存在推定 agent 正在工作。
 
 分别实现或声明：
 
@@ -77,7 +96,7 @@ ConPTY 是 Windows 的终端托管机制，宿主需要持续处理输入输出�
 
 ## 5. 能力声明与状态来源
 
-建议声明 `terminal_io`、`read_output`、`submit_prompt`、`ready_signal`、`cancel_turn`、`structured_history`、`resume` 等能力。
+接入声明 `terminal_io`、`read_output`、`submit_prompt`、`ready_signal`、`cancel_turn`、`structured_history`、`resume` 等实际具备的能力；能力名称和 API schema 在实现时固定。
 
 进程状态与工作状态分别记录：
 
@@ -91,17 +110,17 @@ ConPTY 是 Windows 的终端托管机制，宿主需要持续处理输入输出�
 
 ### 读取
 
-通过 session_id 寻址，返回来源、run_id、输出游标或范围与内容。UI 预览、转交给另一 agent 的内容、模型实际上下文分别处理。默认读取有限范围，避免整段历史无界增长。
+通过 session_id 寻址，返回来源、run_id、时间、输出游标或范围与内容。UI 预览、转交给另一 agent 的内容、模型实际上下文分别处理。转交时保存提交时的快照正文，不只保存来源标签。默认读取有限范围，避免整段历史无界增长。
 
 ### 发送
 
-建议状态包括：queued、input_written、accepted、completed、failed、cancelled、unknown。只有对应证据存在时才更新状态，不要求所有适配器都能到达 accepted 或 completed。
+消息状态包括：queued、input_written、accepted、completed、failed、cancelled、unknown。只有对应证据存在时才更新状态，不要求所有适配器都能到达 accepted 或 completed。
 
-队列保存在管理后台。自动投递要求可靠的 ready 信号；没有此能力的接入可保留待投递消息，并提供明确的输入操作。粘贴与粘贴后提交是不同动作，具体提交方式由配置或适配器定义。
+队列持久化在 SQLite。自动投递要求可靠的 ready 信号与运行中的消费者；没有此能力的接入可保留待投递消息，并提供明确的输入操作。M3 的共享 Host 使后台自动消费能够独立于 TUI 运行；这项功能在实现并验证前不标为完成。粘贴与粘贴后提交是不同动作，具体提交方式由配置或适配器定义。
 
-建议规则：消息记录目标 session_id 及入队时的 target_run_id。目标 Run 退出或被替换后，未投递消息暂停并显示原因，不自动进入新 Run 的上下文；入队时没有活跃 Run 的消息也保持待投递，重新指定目标 Run 作为明确操作处理。
+消息记录目标 session_id 及入队时的 target_run_id。目标 Run 退出或被替换后，未投递消息暂停并显示原因，不自动进入新 Run 的上下文；入队时没有活跃 Run 的消息也保持待投递，重新指定目标 Run 作为明确操作处理。
 
-同一 session 的用户键盘输入、自动投递和终端协议回复需要有序协调，避免内容交错。中断当前轮次、终止进程、追加提示是不同能力。
+同一 session 的用户键盘输入、自动投递和终端协议回复需要有序协调，避免内容交错。所有管理入口共享跨进程的目标校验与串行投递规则；仅靠单个 TUI 的内存锁不够。用户正在 attach 时默认暂缓自动投递，直到明确交接输入控制；无法确认占用时保留等待。中断当前轮次、终止进程、追加提示是不同能力。
 
 ### 重试与结果不确定
 
@@ -127,13 +146,13 @@ Session 独立不意味着工作文件独立。初版明确显示 cwd，允许�
 
 跨会话读取范围、默认通信分组、是否允许运行中打断属于产品行为，见 [DECISIONS.md](DECISIONS.md)。初版建议以项目为范围，并由明确的用户操作或已配置的协作规则触发。
 
-## 8. M0 需要回答的问题
+## 8. M0 需要验证的已选方向
 
-- 哪套 UI 的视觉与交互最符合目标，哪些代码可以独立复用？
-- psmux 的实际命令和控制能力是否覆盖创建、读取、输入、resize、重连和退出检测？
-- 直接使用 ConPTY 时，能复用哪些终端模拟/渲染组件？
-- Windows 输入法、宽字符、快捷键、剪贴板与嵌套 TUI 的实际行为如何？
-- 后台与客户端的本机通信、记录存储和更新方式如何选择？
+- 选定的 Agent Deck UI 切片能否在稳定 Charm v2 上运行，迁入的业务耦合是否可控？
+- psmux 稳定版的实际命令是否覆盖创建、捕获、输入、attach/detach、resize、重连和退出证据？
+- Windows 输入法、宽字符、快捷键、剪贴板、全屏 TUI 和终端交接后的恢复是否正常？
+- 关闭非必要预热后，0/1/5/10 会话的进程数、工作集、私有内存和输出缓存成本如何？
+- SQLite 驱动与配置解析库是否满足 Windows 构建和有限资源要求？输出采集与保留的真实边界是什么？
 - 哪个真实自定义 CLI 用于首个增强适配？
 
-任何候选项目均不视为已经选定的生产依赖。
+直接 ConPTY、完整嵌入终端及其他语言方案只在已选路径出现明确阻断或资源结果不满足目标时重新评估。技术方向已选，生产可用性仍以实际代码、测试和 Windows 证据为准。
