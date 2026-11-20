@@ -1,0 +1,4155 @@
+{
+  "schema_version": 1,
+  "suite": "launch-terminal-ui",
+  "cases": [
+    {
+      "id": "TC-LCH-001",
+      "title": "绝对路径启动通用 exe，不要求品牌注册或专用协议",
+      "features": [
+        "FL-001",
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-01"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P0",
+      "stage": "M0",
+      "kinds": [
+        "functional"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-ECHO",
+        "FX-DATA"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。",
+        "FX-ECHO 为原生 Windows exe，未实现任何 agent 专用协议。"
+      ],
+      "steps": [
+        "在创建表单设置 FX-ECHO 的 exe 绝对路径、两个已知参数、cwd 与一项合成环境变量，提交一次。",
+        "进入所建会话，读取 fixture 启动快照并发送标记输入。"
+      ],
+      "expected": [
+        "fixture 报告的 executable、argv、cwd 与合成环境值匹配配置；只产生一个对应的 agent Run。",
+        "无品牌注册、账号或 ACP 前置要求；终端输入到达该 Run。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-LCH-002",
+      "title": "空格与中文路径保持完整",
+      "features": [
+        "FL-001",
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-01"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P0",
+      "stage": "M0",
+      "kinds": [
+        "functional",
+        "boundary",
+        "compatibility"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-ECHO",
+        "FX-DATA"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "把 fixture 和工作目录分别放入参数矩阵指定的临时路径；每组创建一个会话。",
+        "核对实际映像路径、cwd 与启动错误；读取一条 echo。"
+      ],
+      "expected": [
+        "含空格或中文路径不会被按空格拆分，不会启动同名前缀的其他程序。",
+        "路径按原意传给子进程，错误也能定位到实际字段。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ],
+      "parameters": [
+        {
+          "name": "路径形状",
+          "values": [
+            "D:/ASD Test/agent.exe",
+            "D:/临时 项目/代理.exe",
+            "D:/试验/混合 path/agent.exe"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "TC-LCH-003",
+      "title": "argv 数组的空参数、空格、引号与末尾反斜杠",
+      "features": [
+        "FL-001",
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-01"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P0",
+      "stage": "M0",
+      "kinds": [
+        "boundary",
+        "compatibility"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-ECHO",
+        "FX-DATA"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "通过结构化参数配置分别传入参数矩阵，启动 FX-ECHO。",
+        "逐个比较 fixture 实际收到的参数数量、顺序、长度和字符。"
+      ],
+      "expected": [
+        "空字符串不丢失，带空格参数不拆成多项，字面引号与末尾反斜杠不多转义或被截断。",
+        "实际 argv 与输入数组一致；不能以展示出来的命令字符串代替 argv 证据。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ],
+      "parameters": [
+        {
+          "name": "参数数组样本",
+          "values": [
+            [
+              "",
+              "a b",
+              "中文"
+            ],
+            [
+              "quote\"inside",
+              "D:\\dir\\",
+              "x\\\\y"
+            ],
+            [
+              "--name=hello world",
+              "--",
+              "-literal"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "TC-LCH-004",
+      "title": "单行启动命令的解析规则与歧义错误",
+      "features": [
+        "FL-001",
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-01"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P1",
+      "stage": "M0",
+      "kinds": [
+        "boundary",
+        "negative"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "needs_decision",
+      "decision_refs": [
+        "O-004",
+        "O-009"
+      ],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-ECHO",
+        "FX-DATA"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "按待确认的单行命令语法输入带引号的 exe 路径和多参数；核对解析预览。",
+        "分别输入未闭合引号、仅空白、歧义反斜杠组合并提交。"
+      ],
+      "expected": [
+        "合法输入映射到已定义的 executable/args；歧义或非法输入给出可定位错误，不能静默改变参数。",
+        "错误路径不启动部分命令，不执行意外 shell 语句。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ],
+      "notes": "需先固定单行命令语法与显式 shell 模式的分界；本用例不指定必须采用某种解析库。"
+    },
+    {
+      "id": "TC-LCH-005",
+      "title": "直接启动模式中的 shell 元字符保持字面参数",
+      "features": [
+        "FL-001",
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-01"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P0",
+      "stage": "M0",
+      "kinds": [
+        "security",
+        "boundary"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-ECHO",
+        "FX-DATA"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "准备只会在被误执行时写入临时 sentinel 的无害命令文本，将其作为 FX-ECHO 普通 argv 值。",
+        "分别输入参数矩阵后启动，检查 argv 与 sentinel 文件是否出现。"
+      ],
+      "expected": [
+        "直接模式将文本传给 fixture，不把参数中的元字符当作管理器 shell 语法执行。",
+        "sentinel 不出现；fixture 收到完整字面文本，未发生其他进程的意外启动。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ],
+      "parameters": [
+        {
+          "name": "字面参数",
+          "values": [
+            "a&b",
+            "x|y",
+            "%ASD_SENTINEL%",
+            "$ASD_SENTINEL",
+            "$(synthetic_marker)",
+            "a;b",
+            ">marker.txt"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "TC-LCH-006",
+      "title": "显式 shell 模式只在用户选择时解释 shell 语法",
+      "features": [
+        "FL-001",
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-01"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P1",
+      "stage": "M0",
+      "kinds": [
+        "functional",
+        "compatibility"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "needs_decision",
+      "decision_refs": [
+        "O-004",
+        "O-009"
+      ],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-ECHO",
+        "FX-DATA"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "在已批准的 shell 配置下创建只使用临时测试文件的管道或变量展开命令。",
+        "再把相同文本以直接 executable/args 模式运行，比较两次结果。"
+      ],
+      "expected": [
+        "显式 shell 模式按所选 shell 的已记录规则执行；直接模式保持参数边界或给出明确无效入口错误。",
+        "两种模式在配置和错误信息中可辨认，不通过自动猜测悄悄切换模式。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ],
+      "parameters": [
+        {
+          "name": "shell 候选",
+          "values": [
+            "PowerShell 7",
+            "Windows PowerShell",
+            "cmd.exe"
+          ]
+        }
+      ],
+      "notes": "具体支持哪些 shell 及启动参数待定；不将全部候选都计为已支持。"
+    },
+    {
+      "id": "TC-LCH-007",
+      "title": "脚本入口的启动器与参数边界",
+      "features": [
+        "FL-001",
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-01"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P1",
+      "stage": "M0",
+      "kinds": [
+        "compatibility",
+        "boundary",
+        "negative"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "needs_decision",
+      "decision_refs": [
+        "O-004",
+        "O-005"
+      ],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-ECHO",
+        "FX-DATA"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "按支持矩阵逐一配置 .ps1、.cmd、.bat fixture，每个脚本将 argv/cwd 写入测试观察文件。",
+        "传入中文、空参数和带引号值；同时测试脚本路径含空格。"
+      ],
+      "expected": [
+        "已声明支持的入口通过正确启动器运行，参数保真；不支持的组合明确报错。",
+        "执行策略或宿主不可用时给出真实原因，不将失败包装为运行成功。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ],
+      "parameters": [
+        {
+          "name": "入口类型",
+          "values": [
+            ".ps1",
+            ".cmd",
+            ".bat"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "TC-LCH-008",
+      "title": "命令别名不能被误当成全局 executable",
+      "features": [
+        "FL-001",
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-01"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P1",
+      "stage": "M0",
+      "kinds": [
+        "negative",
+        "compatibility"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "needs_decision",
+      "decision_refs": [
+        "O-004",
+        "O-009"
+      ],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-ECHO",
+        "FX-DATA"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "准备同名 executable 与合成 shell 别名，但将它们的输出标记区分",
+        "直接模式按声明的 executable/PATH 规则解析；显式 shell 模式在受控 shell 初始化中解析别名",
+        "分别移除可执行入口或别名，使所请求的解析模式失败并观察是否偷偷改换模式"
+      ],
+      "expected": [
+        "直接模式可按明确 PATH 规则执行同名 exe，并不因为存在 shell 别名而被判错误",
+        "显式 shell 模式按其作用域/初始化合同解析别名；请求的解析方式失败时明确报错，不静默切换模式",
+        "实际入口、模式与参数可核对；不得假定父 shell 的临时别名自动继承到子 shell"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-LCH-009",
+      "title": "PATH 查找遵循目标环境并可核对入口",
+      "features": [
+        "FL-001",
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-01"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P1",
+      "stage": "M0",
+      "kinds": [
+        "functional",
+        "boundary"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-ECHO",
+        "FX-DATA"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。",
+        "环境继承与 profile 覆盖规则已有明确实现约定。"
+      ],
+      "steps": [
+        "在两个临时目录放置同名、不同标记的 FX-ECHO，配置有明确先后顺序的 PATH。",
+        "以短名称启动，交换 PATH 顺序后再次创建新的会话。"
+      ],
+      "expected": [
+        "每次启动对应已声明 PATH 规则下的入口，fixture 标记与解析路径吻合。",
+        "已运行会话不受后续配置修改影响；诊断可识别实际选中的程序。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-LCH-010",
+      "title": "环境变量仅作用于目标子进程",
+      "features": [
+        "FL-001",
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-01"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P0",
+      "stage": "M1",
+      "kinds": [
+        "functional",
+        "concurrency",
+        "security"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-ECHO",
+        "FX-DATA"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "并行建立 A/B 两个配置，给同名合成环境变量赋不同值。",
+        "读取两个 fixture 环境快照，再在外层终端读取该变量。"
+      ],
+      "expected": [
+        "A 与 B 分别得到自己的值，不串用；外层进程和用户全局环境未被修改。",
+        "配置中的合成敏感值不在默认列表或错误摘要中明文展开。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-LCH-011",
+      "title": "环境的空值、删除和大小写冲突处理",
+      "features": [
+        "FL-001",
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-01"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P1",
+      "stage": "M1",
+      "kinds": [
+        "boundary",
+        "compatibility"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "needs_decision",
+      "decision_refs": [
+        "O-004",
+        "O-008"
+      ],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-ECHO",
+        "FX-DATA"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "按待定环境合并规则测试空值、继承值覆盖、显式删除、仅大小写不同的同名键。",
+        "启动 FX-ECHO，比较环境集合与保存后重载的配置。"
+      ],
+      "expected": [
+        "每个分支符合已记录的合并规则，不能随机取值或因序列化改变语义。",
+        "未决定的冲突行为不能作为已通过；无效配置给出字段级错误。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ],
+      "parameters": [
+        {
+          "name": "环境边界",
+          "values": [
+            "空字符串",
+            "从父环境继承",
+            "明确移除",
+            "Asd_Value 与 ASD_VALUE 同时出现"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "TC-LCH-012",
+      "title": "无效 executable 不产生伪运行会话",
+      "features": [
+        "FL-001",
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-01",
+        "FR-12"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P0",
+      "stage": "M0",
+      "kinds": [
+        "negative",
+        "recovery"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-ECHO",
+        "FX-DATA",
+        "FX-PROCESS"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "分别提交不存在的路径、目录路径和非可执行数据文件。",
+        "核对界面错误、实际子进程及会话记录，再使用合法命令重试。"
+      ],
+      "expected": [
+        "失败原因关联入口字段，未出现可输入的伪存活 agent；残留后台对象按失败清理规则处理。",
+        "修正后能重新创建；失败记录不会被当作成功 Run 复用。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ],
+      "parameters": [
+        {
+          "name": "坏入口",
+          "values": [
+            "不存在",
+            "目录",
+            "非可执行数据文件"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "TC-LCH-013",
+      "title": "工作目录不存在、为文件或无法访问",
+      "features": [
+        "FL-001",
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-01",
+        "FR-12"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P0",
+      "stage": "M0",
+      "kinds": [
+        "negative",
+        "boundary"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-ECHO",
+        "FX-DATA"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "使用不存在目录、普通文件路径、测试账户无访问权限目录作为 cwd 创建会话。",
+        "观察错误并确认 fixture 是否实际启动；纠正目录后重试。"
+      ],
+      "expected": [
+        "无效 cwd 不静默退回用户主目录、仓库根目录或管理器目录。",
+        "失败可定位且不伪报正常运行；纠正后实际 cwd 匹配。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ],
+      "parameters": [
+        {
+          "name": "cwd 失败",
+          "values": [
+            "不存在",
+            "文件",
+            "拒绝访问"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "TC-LCH-014",
+      "title": "创建前验证后 executable 或 cwd 被移除",
+      "features": [
+        "FL-001",
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-01",
+        "FR-12"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P0",
+      "stage": "M1",
+      "kinds": [
+        "concurrency",
+        "negative",
+        "recovery"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-ECHO",
+        "FX-DATA",
+        "FX-FAULT"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "在验证配置与实际创建子进程之间设置故障屏障。",
+        "分别删除测试 exe 或移动 cwd，释放屏障后观察创建结果。"
+      ],
+      "expected": [
+        "以真实创建结果为准显示失败，不因前置验证成功就标为运行中。",
+        "不自动查找另一个同名程序或换目录启动；能清理已创建但未成功绑定的后台对象。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-LCH-015",
+      "title": "启动访问被拒绝时保留明确错误",
+      "features": [
+        "FL-001",
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-01",
+        "FR-12"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P1",
+      "stage": "M0",
+      "kinds": [
+        "negative",
+        "compatibility"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-ECHO",
+        "FX-DATA"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "使用隔离测试账户和只影响 fixture 的拒绝执行条件启动。",
+        "记录底层错误与 UI 描述，解除测试条件后再次启动。"
+      ],
+      "expected": [
+        "错误能区分访问失败与命令不存在，不自动提权或重试到其他入口。",
+        "其他会话保持可用，解除条件后能正常启动。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ],
+      "notes": "使用可回滚的测试 ACL/账户条件，不修改用户安全策略。"
+    },
+    {
+      "id": "TC-LCH-016",
+      "title": "超过支持范围的路径或命令长度",
+      "features": [
+        "FL-001",
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-01"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P1",
+      "stage": "M0",
+      "kinds": [
+        "boundary",
+        "negative"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "needs_decision",
+      "decision_refs": [
+        "O-004",
+        "O-005",
+        "O-009"
+      ],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-ECHO",
+        "FX-DATA"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "明确本版本支持的路径与 argv 边界 B_LAUNCH_PATH、B_LAUNCH_ARGV 后，分别生成边界前、边界、边界后样本。",
+        "逐项提交并比对 fixture 的完整输入或明确拒绝结果。"
+      ],
+      "expected": [
+        "支持范围内不截断路径或参数；超出范围明确拒绝，不能启动被截断后指向的程序。",
+        "不会仅因错误而崩溃或留下可误操作的 Run；边界尚未确定时记录为阻塞。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ],
+      "parameters": [
+        {
+          "name": "长度点",
+          "values": [
+            "B_LAUNCH_PATH-1",
+            "B_LAUNCH_PATH",
+            "B_LAUNCH_PATH+1",
+            "B_LAUNCH_ARGV-1",
+            "B_LAUNCH_ARGV",
+            "B_LAUNCH_ARGV+1"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "TC-LCH-017",
+      "title": "未提交的新建表单取消不启动进程",
+      "features": [
+        "FL-001",
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-01",
+        "FR-11"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P1",
+      "stage": "M1",
+      "kinds": [
+        "functional",
+        "negative",
+        "usability"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-ECHO",
+        "FX-DATA"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "填写有效命令与参数，取消表单或使用已定义的关闭动作。",
+        "回到列表检查新会话与进程树，再重新打开表单。"
+      ],
+      "expected": [
+        "没有提交动作就不创建 agent Run；取消不会改动其他运行会话。",
+        "草稿保留或清空符合已记录的表单规则，不被错误当作已启动项。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-LCH-018",
+      "title": "启动期间重复提交不会产生隐藏重复 Run",
+      "features": [
+        "FL-001",
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-01",
+        "FR-12"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P1",
+      "stage": "M1",
+      "kinds": [
+        "concurrency",
+        "boundary"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "needs_decision",
+      "decision_refs": [
+        "O-009"
+      ],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-ECHO",
+        "FX-DATA",
+        "FX-FAULT"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "在创建后端会话的可控延迟期间连续触发两次创建动作。",
+        "等待操作结束，核对 UI、持久记录与实际进程数。"
+      ],
+      "expected": [
+        "按已确定的重复提交规则处理；不出现 UI 只列一个但后台启动多个未关联 agent 的结果。",
+        "若允许用户明确创建两次，两个对象必须分别有身份并可见；不能悄悄丢失任一 Run 的管理记录。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ],
+      "notes": "本用例要求无隐藏重复启动；按钮防重/请求幂等的具体方式待交互合同决定。"
+    },
+    {
+      "id": "TC-LCH-019",
+      "title": "启动后立即退出的真实状态",
+      "features": [
+        "FL-001",
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-01",
+        "FR-12"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P0",
+      "stage": "M1",
+      "kinds": [
+        "state",
+        "boundary"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-PROCESS",
+        "FX-DATA"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "配置 FX-PROCESS 启动后立即返回指定退出码，并分别输出/不输出一条标记。",
+        "创建后立即进入预览与详情，核对退出证据。"
+      ],
+      "expected": [
+        "短生命周期不会永久停在 starting 或伪报 agent 存活；保留可获得的退出码与错误原因。",
+        "后端 shell 若继续存活，不被当作 agent 仍运行；无输出不被解释为成功完成任务。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ],
+      "parameters": [
+        {
+          "name": "退出码",
+          "values": [
+            0,
+            1,
+            42
+          ]
+        }
+      ]
+    },
+    {
+      "id": "TC-LCH-020",
+      "title": "慢启动与尚未就绪不等同于启动失败或 ready",
+      "features": [
+        "FL-001",
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-01",
+        "FR-12"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P1",
+      "stage": "M1",
+      "kinds": [
+        "state",
+        "negative",
+        "recovery"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "needs_decision",
+      "decision_refs": [
+        "O-004",
+        "O-009"
+      ],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-PROCESS",
+        "FX-CLOCK",
+        "FX-FAULT"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "让 FX-PROCESS 在输出首个标记前等待控制屏障，同时维持进程存活。",
+        "观察创建状态，触发取消/继续两个独立分支，记录子进程处置。"
+      ],
+      "expected": [
+        "状态区分正在启动、进程已存活和 agent 就绪；静默不能推导 ready。",
+        "超时/取消策略有明确终态和可核对的进程处置，不自动重复启动。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ],
+      "notes": "启动超时、取消时点和动作需先记录；用控制屏障避免依赖固定睡眠。"
+    },
+    {
+      "id": "TC-LCH-021",
+      "title": "配置保存重载不改变参数边界",
+      "features": [
+        "FL-001",
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-01"
+      ],
+      "adrs": [
+        "ADR-0003",
+        "ADR-0004"
+      ],
+      "priority": "P1",
+      "stage": "M1",
+      "kinds": [
+        "functional",
+        "boundary"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-ECHO",
+        "FX-DATA"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。",
+        "配置 schema 已定义并实现。"
+      ],
+      "steps": [
+        "保存含空参数、中文、引号、反斜杠与合成环境值的启动配置，退出后重开。",
+        "从重载配置启动 FX-ECHO，与首次配置的规范化快照比较。"
+      ],
+      "expected": [
+        "序列化与反序列化不增加引号、不丢空值、不修改 cwd 或参数数组。",
+        "不能将用于界面展示的合并命令反向当作真实参数源。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-LCH-022",
+      "title": "真实自定义 agent 最小启动闭环",
+      "features": [
+        "FL-001",
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-01",
+        "FR-02"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P0",
+      "stage": "M0",
+      "kinds": [
+        "functional"
+      ],
+      "level": "manual",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "needs_decision",
+      "decision_refs": [
+        "O-006"
+      ],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-DATA"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "选定 O-006 中一个用户实际使用且能原生运行的 CLI，以其原有命令创建会话。",
+        "完成一次输入/响应、detach、重新 attach，核对 cwd 与同一 Run。"
+      ],
+      "expected": [
+        "不依赖把该品牌硬编码进注册表即可进入终端；既有 CLI 的基本输入/输出流程可用。",
+        "测试结果只覆盖所记录 agent 和环境；不扩展为全部自定义 CLI 已支持。"
+      ],
+      "evidence": [
+        "完整 agent 命令与版本（凭据脱敏）、环境清单。",
+        "原生 Windows 运行录屏及 Run 身份对照。"
+      ]
+    },
+    {
+      "id": "TC-LCH-023",
+      "title": "执行目标与 cwd 配置保持分别处理",
+      "features": [
+        "FL-001",
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-01"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P1",
+      "stage": "M1",
+      "kinds": [
+        "functional",
+        "boundary"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-ECHO",
+        "FX-DATA"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "将 exe 放在 A 目录、cwd 设为 B 目录，两个目录均放置不同标记的同名配置文件。",
+        "启动 fixture 并令其读取 cwd 下的测试配置。"
+      ],
+      "expected": [
+        "exe 从 A 启动，工作数据来自 B；不因可执行文件位置而悄悄替换 cwd。",
+        "多个 profile 共享 exe 时，各自 cwd 不串用。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-LCH-024",
+      "title": "空入口或只含空白的配置被拒绝",
+      "features": [
+        "FL-001",
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-01"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P1",
+      "stage": "M0",
+      "kinds": [
+        "negative",
+        "boundary"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-ECHO",
+        "FX-DATA"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "分别提交未填写 executable、空字符串、仅空格/制表符的入口。",
+        "观察字段错误并检查进程树与记录，再填合法入口。"
+      ],
+      "expected": [
+        "没有有效入口时不启动默认 shell 或任意预置 agent。",
+        "错误可定位且保留用户其他合法字段；修正后能够正常提交。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-TRM-001",
+      "title": "列表进入 attach 再 detach 的基本闭环",
+      "features": [
+        "FL-002",
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-02",
+        "FR-11"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P0",
+      "stage": "M0",
+      "kinds": [
+        "functional"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-ECHO",
+        "FX-PROCESS"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。",
+        "detach 绑定已按 O-009 明确并显示；A Run 保持存活。"
+      ],
+      "steps": [
+        "选择 A 会话按 Enter 进入 attach，输入唯一标记。",
+        "按已配置的 detach 动作返回列表，随后再次进入 A。"
+      ],
+      "expected": [
+        "attach 时管理侧栏与表单隐藏，唯一标记只进入 A 的原 Run。",
+        "detach 恢复原列表选择与焦点，不停止或重启 agent；再次进入保留原终端状态。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-TRM-002",
+      "title": "正常离开 attach 后终端模式恢复",
+      "features": [
+        "FL-002",
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-02",
+        "FR-11"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P0",
+      "stage": "M0",
+      "kinds": [
+        "functional",
+        "recovery"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-VT",
+        "FX-ECHO"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "让 FX-VT 设置光标可见性、颜色和终端模式，然后正常 detach。",
+        "在管理器输入搜索词、打开表单，再正常退出产品并在外层 shell 输入标记。"
+      ],
+      "expected": [
+        "管理器重绘正确，输入模式、光标和样式不残留为子程序状态。",
+        "退出产品后外层 shell 可正常编辑和显示；终端控制序列不以文字泄漏。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-TRM-003",
+      "title": "attach 客户端异常退出恢复管理器",
+      "features": [
+        "FL-002",
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-02",
+        "FR-11",
+        "FR-12"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P0",
+      "stage": "M0",
+      "kinds": [
+        "recovery",
+        "negative"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-PROCESS",
+        "FX-FAULT"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "在 attach 到 A 时仅终止本次 attach 客户端，不结束后台 server 或 agent。",
+        "观察管理器错误与恢复；重新 attach A 并读取连续计数。"
+      ],
+      "expected": [
+        "终端输入所有权回到管理器，错误可见，不留黑屏、坏 raw mode 或重复键处理。",
+        "A 的原 Run 继续存在；不会自动重启成新 agent 掩盖断开。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-TRM-004",
+      "title": "目标在 attach 建立前退出",
+      "features": [
+        "FL-002",
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-02",
+        "FR-12"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P0",
+      "stage": "M0",
+      "kinds": [
+        "concurrency",
+        "negative"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-PROCESS",
+        "FX-FAULT"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "在选中 A 与建立 attach 之间设置屏障并使 A 退出。",
+        "继续进入动作，记录实际目标与管理器恢复。"
+      ],
+      "expected": [
+        "不 attach 到回收标识后出现的其他 Run，不启动新 agent 伪装为原连接。",
+        "界面显示目标不可用并恢复可操作的管理状态。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-TRM-005",
+      "title": "ASCII、中文及组合字符输入保真",
+      "features": [
+        "FL-002",
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-02",
+        "FR-11"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P0",
+      "stage": "M0",
+      "kinds": [
+        "compatibility",
+        "boundary"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-ECHO",
+        "FX-DATA"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "在 echo 目标中依次输入参数矩阵文本并提交。",
+        "按定义的提交边界比较实际文本码点、字符顺序和回显。"
+      ],
+      "expected": [
+        "正文无乱码、重复、丢字或意外规范化；提交动作不混入正文。",
+        "管理器预览中的宽度截断不改变真实 agent 收到的输入。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ],
+      "parameters": [
+        {
+          "name": "文本",
+          "values": [
+            "Hello 123",
+            "中文，标点。",
+            "Café",
+            "A中B",
+            "🙂👩‍💻"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "TC-TRM-006",
+      "title": "中文输入法候选确认与取消",
+      "features": [
+        "FL-002",
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-02",
+        "FR-11"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P0",
+      "stage": "M0",
+      "kinds": [
+        "compatibility",
+        "boundary"
+      ],
+      "level": "manual",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-ECHO",
+        "FX-DATA"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "在管理器表单和 attach 的目标输入框分别开启已选中文 IME，输入拼音并保持候选未确认。",
+        "依次选择候选、取消候选、提交整段文本，记录目标收到的事件。"
+      ],
+      "expected": [
+        "预编辑不会提前作为完成文本发送；候选确认不额外触发会话进入或整条指令提交。",
+        "取消候选不清空其他已确认输入；最终正文只进入焦点目标一次。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ],
+      "parameters": [
+        {
+          "name": "IME 操作",
+          "values": [
+            "确认候选",
+            "Esc 取消候选",
+            "切换中英文后继续输入"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "TC-TRM-007",
+      "title": "多行粘贴与显式提交边界",
+      "features": [
+        "FL-002",
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-02",
+        "FR-11"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P0",
+      "stage": "M0",
+      "kinds": [
+        "boundary",
+        "compatibility"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-ECHO",
+        "FX-VT"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。",
+        "已固定目标输入合同与提交键；以 fixture 的逻辑输入记录比对。"
+      ],
+      "steps": [
+        "在支持 bracketed paste 的测试目标中粘贴含中文、空行和尾部换行的多行正文。",
+        "先检查未提交输入，再用已定义的显式提交动作提交。"
+      ],
+      "expected": [
+        "正文作为粘贴内容到达，不因管理器处理换行而拆成多条意外执行；包装序列不成为正文。",
+        "粘贴与提交有可区分证据，目标最终文本符合固定输入合同。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-TRM-008",
+      "title": "不支持 bracketed paste 的目标降级",
+      "features": [
+        "FL-002",
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-02",
+        "FR-11"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P1",
+      "stage": "M0",
+      "kinds": [
+        "negative",
+        "compatibility"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "needs_decision",
+      "decision_refs": [
+        "O-009"
+      ],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-ECHO",
+        "FX-VT"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "在不支持 bracketed paste 的 fixture 上粘贴含换行的正文。",
+        "按已选降级规则观察提示/拒绝/确认后的实际输入。"
+      ],
+      "expected": [
+        "不暗示多行输入一定安全地作为单条指令提交；行为符合已记录的降级规则。",
+        "不能由目标未支持该能力仍显示已安全粘贴；管理器保持可操作。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-TRM-009",
+      "title": "CRLF、LF 与尾部换行按输入合同处理",
+      "features": [
+        "FL-002",
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-02",
+        "FR-11"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P1",
+      "stage": "M0",
+      "kinds": [
+        "boundary",
+        "compatibility"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "needs_decision",
+      "decision_refs": [
+        "O-009"
+      ],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-ECHO",
+        "FX-DATA"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "分别通过键盘粘贴和后端 buffer 路径传入 LF、CRLF、单 CR、末尾无换行的样本。",
+        "比较目标实际收到的正文与提交事件。"
+      ],
+      "expected": [
+        "只执行已明确的换行转换，不双倍插入空行或因尾部换行多提交一次。",
+        "尚未定义的控制字符/换行规则使该分支阻塞，不能按“看起来相同”判定通过。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ],
+      "parameters": [
+        {
+          "name": "换行样本",
+          "values": [
+            "A\\nB",
+            "A\\r\\nB",
+            "A\\rB",
+            "A\\n",
+            "A"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "TC-TRM-010",
+      "title": "长粘贴跨缓冲分块仍完整",
+      "features": [
+        "FL-002",
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-02",
+        "FR-11"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P1",
+      "stage": "M0",
+      "kinds": [
+        "boundary",
+        "stability"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "needs_decision",
+      "decision_refs": [
+        "O-009",
+        "O-012"
+      ],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-ECHO",
+        "FX-DATA"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "确定本版本粘贴上限 B_PASTE_BYTES，生成带头尾标记和内容哈希的长正文。",
+        "分别粘贴上限前、上限、上限后的样本，核对最终目标内容与拒绝信息。"
+      ],
+      "expected": [
+        "支持范围内字节/逻辑正文完整有序，无中间截断或分块间意外提交。",
+        "超限按已定义规则明确拒绝或截断提示，不能静默改写后显示成功。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ],
+      "parameters": [
+        {
+          "name": "正文长度",
+          "values": [
+            "B_PASTE_BYTES-1",
+            "B_PASTE_BYTES",
+            "B_PASTE_BYTES+1"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "TC-TRM-011",
+      "title": "颜色、光标定位与擦除序列",
+      "features": [
+        "FL-002",
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-02",
+        "FR-11"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P1",
+      "stage": "M0",
+      "kinds": [
+        "compatibility",
+        "functional"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-VT"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "FX-VT 输出可复现的调色板、光标移动、行/屏擦除和覆盖写入场景。",
+        "在 attach 和管理器被动预览中分别观察最终屏幕。"
+      ],
+      "expected": [
+        "按各显示路径已声明的能力呈现可核对内容；光标与覆盖位置正确，没有旧文本残留污染当前画面。",
+        "预览不把屏幕控制序列当成新输入写回 agent。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-TRM-012",
+      "title": "UTF-8 与 ANSI 序列跨读取块",
+      "features": [
+        "FL-002",
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-02",
+        "FR-11"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P1",
+      "stage": "M0",
+      "kinds": [
+        "boundary",
+        "compatibility",
+        "stability"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-VT",
+        "FX-LOAD"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "以固定切分点发送多字节中文/emoji、ESC 序列前缀与剩余字节。",
+        "对比完整写出与逐块写出两次的最终预览，过程中保持管理器响应。"
+      ],
+      "expected": [
+        "已支持序列的最终画面与整块样本一致；不会把不完整前缀错误显示为永久乱码。",
+        "处理不完整序列时不阻塞 UI，不把数据当成可执行管理命令。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ],
+      "parameters": [
+        {
+          "name": "切分位置",
+          "values": [
+            "UTF-8 每字节切分",
+            "ESC 与 [ 分开",
+            "颜色参数跨块",
+            "序列终止字节单独到达"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "TC-TRM-013",
+      "title": "alternate screen 进入退出与历史区分",
+      "features": [
+        "FL-002",
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-02",
+        "FR-11"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P1",
+      "stage": "M0",
+      "kinds": [
+        "state",
+        "compatibility"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-VT"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "FX-VT 先输出主屏标记，再进入 alternate screen 绘制表格并退出。",
+        "在两个屏幕状态分别切回管理预览，再重新 attach。"
+      ],
+      "expected": [
+        "活动屏幕状态正确；退出 alternate screen 后恢复对应主屏内容，不混合两套画面。",
+        "保存/预览记录标识其实际来源，不把全屏重绘误当作完整聊天历史。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-TRM-014",
+      "title": "窗口缩放连续传递且最终尺寸正确",
+      "features": [
+        "FL-002",
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-02",
+        "FR-11"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P0",
+      "stage": "M0",
+      "kinds": [
+        "boundary",
+        "compatibility"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-VT",
+        "FX-ECHO"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "在 attach 中把终端依次变为宽、窄、高、矮窗口，fixture 报告实际行列。",
+        "快速重复 resize 后停止，检查最终尺寸、光标和交互。"
+      ],
+      "expected": [
+        "最终 agent 尺寸与实际 attach 终端一致，屏幕不永久停留在中间尺寸。",
+        "中间 resize 可合并但不能破坏后续输入；无异常退出或错位残留。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ],
+      "parameters": [
+        {
+          "name": "窗口样本",
+          "values": [
+            "120×40",
+            "80×24",
+            "40×12",
+            "160×50"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "TC-TRM-015",
+      "title": "被动预览不得改变活跃 attach 尺寸",
+      "features": [
+        "FL-002",
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-02",
+        "FR-11",
+        "FR-05"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P0",
+      "stage": "M2",
+      "kinds": [
+        "concurrency",
+        "compatibility"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-VT",
+        "FX-ECHO"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "用一个 attach 客户端以固定尺寸操作 A，同时在另一个管理器视图只读预览 A。",
+        "反复改变管理器窗口尺寸并刷新预览，读取 A 的尺寸事件。"
+      ],
+      "expected": [
+        "A 不因预览窗口变化收到 resize；其尺寸只由拥有交互控制的路径按约定改变。",
+        "预览可裁切/降级显示，但不得破坏正在编辑的目标内容。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-TRM-016",
+      "title": "单行超过终端宽度的显示与滚动",
+      "features": [
+        "FL-002",
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-02",
+        "FR-11"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P1",
+      "stage": "M0",
+      "kinds": [
+        "boundary",
+        "compatibility"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-VT",
+        "FX-LOAD"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "输出长度为当前列数 C-1、C、C+1、4C 的行，混入宽字符与尾部唯一标记。",
+        "通过目标/后台已声明的滚动入口查看，缩放窗口后再次核对。"
+      ],
+      "expected": [
+        "真实输出不被 UI 截短后回写或丢失；预览截断与可读范围有可识别边界。",
+        "换行、裁切或滚动符合显示合同，尾部可访问性与已声明能力一致，行列不越界。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ],
+      "parameters": [
+        {
+          "name": "行长",
+          "values": [
+            "C-1",
+            "C",
+            "C+1",
+            "4C"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "TC-TRM-017",
+      "title": "Ctrl+C 只作用于当前终端目标",
+      "features": [
+        "FL-002",
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-02",
+        "FR-11"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P0",
+      "stage": "M1",
+      "kinds": [
+        "functional",
+        "state"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-PROCESS",
+        "FX-ECHO"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "在 A 运行可中断任务，B 输出后台计数；attach A 并按 Ctrl+C。",
+        "观察 A 的控制事件、B 计数及管理器是否仍可返回。"
+      ],
+      "expected": [
+        "Ctrl+C 按目标终端行为送达 A，不误终止 B、所有 server 或管理器本身。",
+        "目标忽略或处理 Ctrl+C 的行为按实证展示，不将“按过键”当成已停止。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-TRM-018",
+      "title": "方向键、Tab、Enter 与功能键无双重消费",
+      "features": [
+        "FL-002",
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-02",
+        "FR-11"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P0",
+      "stage": "M0",
+      "kinds": [
+        "compatibility",
+        "boundary"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-ECHO"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。",
+        "最终管理键与 detach 键配置已按 O-009 固定。"
+      ],
+      "steps": [
+        "attach 到按键记录 fixture，发送方向键、Tab、Enter 和实际支持的功能键。",
+        "detach 后在列表与表单发送相同键，比较两种模式下的接收者。"
+      ],
+      "expected": [
+        "attach 中普通终端键只由目标处理，不同时触发会话导航/提交管理表单。",
+        "管理模式中的导航键不泄漏到后台 agent；已保留的 detach 键明确显示并按约定处理。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-TRM-019",
+      "title": "终端查询响应不会被当作用户命令",
+      "features": [
+        "FL-002",
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-02",
+        "FR-11"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P0",
+      "stage": "M0",
+      "kinds": [
+        "concurrency",
+        "compatibility"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-VT",
+        "FX-ECHO"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "FX-VT 发出光标位置/设备属性等已支持的终端查询；同时由人工在 attach 输入唯一文本。",
+        "记录终端响应字节、逻辑用户文本与管理器事件。"
+      ],
+      "expected": [
+        "协议响应与用户文本被正确路由，查询回包不进入管理器命令表单。",
+        "输入与响应不交错为目标意外指令；不支持查询按既定能力降级。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-TRM-020",
+      "title": "鼠标与滚轮按当前模式处理",
+      "features": [
+        "FL-002",
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-02",
+        "FR-11"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P1",
+      "stage": "M0",
+      "kinds": [
+        "compatibility",
+        "usability"
+      ],
+      "level": "manual",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "needs_decision",
+      "decision_refs": [
+        "O-004",
+        "O-009"
+      ],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-VT"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "在声明支持鼠标的 FX-VT 目标中点击和滚动，再 detach 到管理列表执行相同行为。",
+        "关闭目标鼠标模式后重复滚动并记录事件。"
+      ],
+      "expected": [
+        "管理模式的选中与滚动不向 agent 发鼠标包；attach 模式按后台/目标的已记录能力处理。",
+        "不支持的组合明确记录，不把浏览器交互稿视作鼠标兼容结果。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-TRM-021",
+      "title": "异常字节与未结束控制序列不会破坏管理器",
+      "features": [
+        "FL-002",
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-02",
+        "FR-11"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P1",
+      "stage": "M0",
+      "kinds": [
+        "negative",
+        "boundary",
+        "stability"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-VT",
+        "FX-LOAD"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "分别输出无效 UTF-8、未终止 ESC/OSC 和长控制序列样本；对一直不终止的组观察有界处理及管理操作",
+        "对恢复组先发送该序列合法终止符或已声明的复位序列，再输出正常结束标记",
+        "尝试 detach/重入并检查管理器终端恢复"
+      ],
+      "expected": [
+        "异常输入不导致崩溃、忙循环、无界积累或管理侧命令副作用",
+        "合法终止/复位后正常标记可按合同处理；不要求未终止控制序列中的普通文本立即显示",
+        "异常字节按已声明策略处理，不伪造完整解析成功"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ],
+      "notes": "具体替换字形不在此硬编码；判定不崩溃、有界处理和可恢复。"
+    },
+    {
+      "id": "TC-TRM-022",
+      "title": "被动预览中的控制序列不会越权改变宿主",
+      "features": [
+        "FL-002",
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-02",
+        "FR-06"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P1",
+      "stage": "M3",
+      "kinds": [
+        "security",
+        "negative"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "needs_decision",
+      "decision_refs": [
+        "O-009"
+      ],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-VT",
+        "FX-DATA"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "在隔离环境让目标输出合成 OSC 标题、剪贴板与超链接序列，只打开被动预览。",
+        "检查外层终端标题/测试剪贴板是否被改变，记录可疑序列显示方式。"
+      ],
+      "expected": [
+        "预览按已明确的控制序列处理策略展示；不能把未审查的输出直接扩展为管理操作。",
+        "对宿主标题/剪贴板等副作用有明确允许范围与验证结果，未定策略前不判通过。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ],
+      "notes": "该项是预览信任边界设计门槛；不改变全屏 attach 中终端自身明示的功能策略。"
+    },
+    {
+      "id": "TC-UI-001",
+      "title": "默认主界面保持列表、预览与简短提示",
+      "features": [
+        "FL-003"
+      ],
+      "requirements": [
+        "FR-03",
+        "FR-11"
+      ],
+      "adrs": [
+        "ADR-0001",
+        "ADR-0002"
+      ],
+      "priority": "P1",
+      "stage": "M0",
+      "kinds": [
+        "usability",
+        "functional"
+      ],
+      "level": "manual",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-DATA"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "分别以零个、一个和多个会话启动管理器，查看默认页面。",
+        "检查默认展开区域，再打开并关闭新建/发送/设置入口。"
+      ],
+      "expected": [
+        "默认主要区域为一个会话列表、当前预览和简短提示；无重复常驻 Tab 导航与多个详情面板。",
+        "额外操作按需显示，关闭后回到管理界面；旧 v0.1 四屏图不是比对基线。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-UI-002",
+      "title": "空列表的引导与 Enter 边界",
+      "features": [
+        "FL-003"
+      ],
+      "requirements": [
+        "FR-03",
+        "FR-11"
+      ],
+      "adrs": [
+        "ADR-0001",
+        "ADR-0002"
+      ],
+      "priority": "P1",
+      "stage": "M0",
+      "kinds": [
+        "boundary",
+        "negative",
+        "usability"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-DATA",
+        "FX-ECHO"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "在无会话状态启动，依次按 Enter、方向键、搜索和取消。",
+        "通过明确的新建入口创建第一个会话。"
+      ],
+      "expected": [
+        "无选中对象时不会 attach 到默认/其他 namespace 会话，不报数组越界。",
+        "新建入口可发现，取消不会产生假会话，创建后列表选中实际新对象。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-UI-003",
+      "title": "长名称与 CJK 列宽不遮挡关键状态",
+      "features": [
+        "FL-003"
+      ],
+      "requirements": [
+        "FR-03",
+        "FR-11"
+      ],
+      "adrs": [
+        "ADR-0001",
+        "ADR-0005"
+      ],
+      "priority": "P1",
+      "stage": "M2",
+      "kinds": [
+        "boundary",
+        "usability",
+        "compatibility"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-DATA"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "加载空名错误样本、长英文/中文/emoji 名称及相似前缀名称的数据。",
+        "在正常与窄窗口查看列表、状态和完整名称入口。"
+      ],
+      "expected": [
+        "名称按显示规则截断/换行且不破坏列边界，当前选择与运行状态仍可辨认。",
+        "查看详情能取得实际名称/稳定身份，不凭截断文本将同名前缀会话混为一项。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-UI-004",
+      "title": "窄窗口与最小布局退化",
+      "features": [
+        "FL-003"
+      ],
+      "requirements": [
+        "FR-03",
+        "FR-11"
+      ],
+      "adrs": [
+        "ADR-0001",
+        "ADR-0005"
+      ],
+      "priority": "P1",
+      "stage": "M0",
+      "kinds": [
+        "boundary",
+        "usability"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "needs_decision",
+      "decision_refs": [
+        "O-009"
+      ],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-DATA"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "按已确认最小尺寸及其前后边界启动/resize 管理界面。",
+        "打开新建和发送表单，导航到确认/取消以及错误字段。"
+      ],
+      "expected": [
+        "支持尺寸内没有不可到达的主要动作或相互覆盖的输入字段。",
+        "低于支持尺寸时明确提示/采用已设计退化布局，不崩溃、不误发输入。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ],
+      "parameters": [
+        {
+          "name": "布局边界",
+          "values": [
+            "B_UI_MIN_COLS-1",
+            "B_UI_MIN_COLS",
+            "B_UI_MIN_ROWS-1",
+            "B_UI_MIN_ROWS"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "TC-UI-005",
+      "title": "对话框验证错误保留用户上下文",
+      "features": [
+        "FL-003"
+      ],
+      "requirements": [
+        "FR-01",
+        "FR-11"
+      ],
+      "adrs": [
+        "ADR-0001",
+        "ADR-0004"
+      ],
+      "priority": "P1",
+      "stage": "M1",
+      "kinds": [
+        "functional",
+        "negative",
+        "usability"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-DATA",
+        "FX-ECHO"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "在新建表单填写多字段，只让一个字段无效后提交。",
+        "修正错误字段，再取消或成功提交。"
+      ],
+      "expected": [
+        "错误靠近或清楚指向对应字段，其他已填内容不被清空。",
+        "修正、取消和成功提交不会重复触发创建；焦点始终可定位。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-UI-006",
+      "title": "状态含义不只依赖颜色",
+      "features": [
+        "FL-003"
+      ],
+      "requirements": [
+        "FR-03",
+        "FR-12"
+      ],
+      "adrs": [
+        "ADR-0001",
+        "ADR-0004",
+        "ADR-0005"
+      ],
+      "priority": "P1",
+      "stage": "M2",
+      "kinds": [
+        "usability",
+        "compatibility"
+      ],
+      "level": "manual",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-DATA"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "加载 starting、存活但工作未知、已退出、投递未知等合成状态。",
+        "在单色/低色能力及明暗背景的已支持配置下查看。"
+      ],
+      "expected": [
+        "状态仍有文字或符号区分，unknown 不以成功色单独暗示完成。",
+        "当前选择、错误和禁用入口可辨认，字体/配色变更不改变状态语义。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-UI-007",
+      "title": "预览只更新当前选择的会话",
+      "features": [
+        "FL-003"
+      ],
+      "requirements": [
+        "FR-03",
+        "FR-11"
+      ],
+      "adrs": [
+        "ADR-0001",
+        "ADR-0002"
+      ],
+      "priority": "P0",
+      "stage": "M2",
+      "kinds": [
+        "concurrency",
+        "state"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-ECHO",
+        "FX-FAULT"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "让 A/B 输出不同序列标记，在列表中快速切换选择。",
+        "在迟到的 A 预览返回时已选中 B，检查主预览与标题。"
+      ],
+      "expected": [
+        "迟到数据不会画到 B 的标题下；显示内容的 Session/Run 与当前选择匹配。",
+        "列表导航不发送终端输入，不因预览刷新自动 attach。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-UI-008",
+      "title": "预览读取失败时管理操作仍可用",
+      "features": [
+        "FL-003"
+      ],
+      "requirements": [
+        "FR-03",
+        "FR-12"
+      ],
+      "adrs": [
+        "ADR-0001",
+        "ADR-0002"
+      ],
+      "priority": "P1",
+      "stage": "M2",
+      "kinds": [
+        "negative",
+        "recovery"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-ECHO",
+        "FX-FAULT"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "使当前预览 capture 返回可控错误/暂时延迟，保持另一个会话健康。",
+        "进行搜索、切换、查看错误和重试。"
+      ],
+      "expected": [
+        "预览错误关联正确目标，不冻结整个 UI，也不显示旧缓存为新鲜成功结果。",
+        "其他会话仍可选择操作；重试不会自动重启 agent。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-UI-009",
+      "title": "Charm v2 键盘事件适配无重复动作",
+      "features": [
+        "FL-003"
+      ],
+      "requirements": [
+        "FR-03",
+        "FR-11"
+      ],
+      "adrs": [
+        "ADR-0001",
+        "ADR-0005"
+      ],
+      "priority": "P0",
+      "stage": "M0",
+      "kinds": [
+        "compatibility",
+        "boundary"
+      ],
+      "level": "contract",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-UNIT"
+      ],
+      "fixtures": [
+        "FX-DATA"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "对迁入的列表和表单发送单次按下、长按重复、键释放序列。",
+        "核对选择步数、文本追加次数与提交次数，再回放同一序列。"
+      ],
+      "expected": [
+        "按下/释放/重复事件按 v2 输入模型正确处理，单次 Enter 不重复创建或重复进入。",
+        "测试断言用户可见行为和事件效果，不只验证编译成功或 import 版本。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-UI-010",
+      "title": "Charm v2 View 与布局尺寸回归",
+      "features": [
+        "FL-003"
+      ],
+      "requirements": [
+        "FR-03",
+        "FR-11"
+      ],
+      "adrs": [
+        "ADR-0001",
+        "ADR-0005"
+      ],
+      "priority": "P1",
+      "stage": "M0",
+      "kinds": [
+        "compatibility",
+        "boundary"
+      ],
+      "level": "contract",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-UNIT"
+      ],
+      "fixtures": [
+        "FX-DATA"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "用固定会话数据与终端尺寸渲染迁入的列表、预览与弹窗。",
+        "在宽/窄和中文名称矩阵中比较布局语义、裁切边界及可用操作。"
+      ],
+      "expected": [
+        "v2 View 返回与声明式终端状态生效，布局不丢失主体或叠加旧帧。",
+        "快照差异按用户操作与布局约束审查，不把来源 v1 的每个像素当成产品要求。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-UI-011",
+      "title": "Charm v2 配套组件的粘贴与颜色回归",
+      "features": [
+        "FL-003"
+      ],
+      "requirements": [
+        "FR-03",
+        "FR-11"
+      ],
+      "adrs": [
+        "ADR-0001",
+        "ADR-0005"
+      ],
+      "priority": "P1",
+      "stage": "M0",
+      "kinds": [
+        "compatibility",
+        "boundary"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-DATA"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "在使用到的 Bubbles v2 输入组件内粘贴中文/多行文本，切换焦点并触发重绘。",
+        "切换已支持主题/终端颜色能力，检查输入框和错误样式。"
+      ],
+      "expected": [
+        "组件行为与已定输入合同一致，无 v1/v2 消息类型不匹配导致的吞键或重复输入。",
+        "颜色适配不会让文本消失或布局改变成不可操作状态。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-UI-012",
+      "title": "真实运行视觉验收及来源可追溯",
+      "features": [
+        "FL-003"
+      ],
+      "requirements": [
+        "FR-03",
+        "FR-11"
+      ],
+      "adrs": [
+        "ADR-0001",
+        "ADR-0005"
+      ],
+      "priority": "P1",
+      "stage": "M0",
+      "kinds": [
+        "usability",
+        "compatibility"
+      ],
+      "level": "manual",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-DATA",
+        "FX-ECHO"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "在 Windows 可运行版本中展示日常新建、查找、预览、attach 返回的短流程。",
+        "列出本次迁入文件/上游提交/修改点，由用户依据简约目标评审。"
+      ],
+      "expected": [
+        "评审材料来自当前构建且可复现，不能拿旧图稿或上游视频替代。",
+        "记录接受/需修改项与对应版本；来源清单能证明实际复用范围，不声称未统计的复用比例。"
+      ],
+      "evidence": [
+        "当前 Windows 构建运行截图/录屏、构建身份。",
+        "UI 评审结论、未解决问题与实际迁入来源清单。"
+      ]
+    },
+    {
+      "id": "TC-FOC-001",
+      "title": "管理器表单输入不泄漏给 agent",
+      "features": [
+        "FL-012"
+      ],
+      "requirements": [
+        "FR-11"
+      ],
+      "adrs": [
+        "ADR-0001",
+        "ADR-0004"
+      ],
+      "priority": "P0",
+      "stage": "M1",
+      "kinds": [
+        "functional",
+        "negative"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-ECHO",
+        "FX-DATA"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "A/B 均运行输入记录 fixture，在管理器打开新建或通信草稿表单。",
+        "输入唯一文本、Tab、方向键并取消；查看两个 agent 的输入记录。"
+      ],
+      "expected": [
+        "管理器编辑只改变当前表单，A/B 均未收到正文或按键。",
+        "取消不会产生发送或提交动作，返回后列表焦点明确。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-FOC-002",
+      "title": "attach 输入不同时触发管理命令",
+      "features": [
+        "FL-012"
+      ],
+      "requirements": [
+        "FR-11"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P0",
+      "stage": "M1",
+      "kinds": [
+        "functional",
+        "compatibility"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-ECHO"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。",
+        "最终键绑定已固定；测试使用实际产品配置。"
+      ],
+      "steps": [
+        "进入 A attach，在目标内输入与管理器快捷键相同的普通字符/组合。",
+        "核对 A 输入与后台新建、停止、发送动作日志。"
+      ],
+      "expected": [
+        "除明确保留的 detach 入口外，目标输入不被管理器再次消费。",
+        "不会意外停止 B、打开管理器表单或创建新 Run。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-FOC-003",
+      "title": "跨会话草稿各自保留且目标不串用",
+      "features": [
+        "FL-012"
+      ],
+      "requirements": [
+        "FR-11"
+      ],
+      "adrs": [
+        "ADR-0001",
+        "ADR-0004"
+      ],
+      "priority": "P0",
+      "stage": "M2",
+      "kinds": [
+        "state",
+        "boundary"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-ECHO",
+        "FX-DATA"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "分别为 A/B 编辑不同的管理器草稿，反复切换并重命名会话。",
+        "回到 A 检查草稿，再显式提交到已经确认的目标。"
+      ],
+      "expected": [
+        "草稿按稳定 Session 关联，不因名称或列表顺序变化串到 B。",
+        "提交只使用当前确认的草稿和目标；未提交的 B 草稿保持原样。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-FOC-004",
+      "title": "管理器草稿不覆盖子终端未提交输入",
+      "features": [
+        "FL-012"
+      ],
+      "requirements": [
+        "FR-11"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P0",
+      "stage": "M2",
+      "kinds": [
+        "state",
+        "functional"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-ECHO",
+        "FX-VT"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "在 A 目标原生输入区写入未提交的文本并 detach。",
+        "在管理器编辑/取消另一份草稿，再 attach A。"
+      ],
+      "expected": [
+        "目标原生未提交输入保持原样；管理器没有把自己的草稿写入目标。",
+        "两类草稿在操作入口与语义上明确区分。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-FOC-005",
+      "title": "焦点切换边界上的单个按键不重复或错投",
+      "features": [
+        "FL-012"
+      ],
+      "requirements": [
+        "FR-11"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P0",
+      "stage": "M1",
+      "kinds": [
+        "concurrency",
+        "boundary"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "needs_decision",
+      "decision_refs": [
+        "O-009"
+      ],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-ECHO",
+        "FX-FAULT"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "在管理转 attach、attach 转管理两个交接点用屏障安排唯一按键。",
+        "多次固定顺序回放，记录哪个接收者得到该按键。"
+      ],
+      "expected": [
+        "按已定交接规则最多由一个接收者处理，不同时进入管理器和 agent。",
+        "若边界输入被明确丢弃/暂存，行为可解释且一致，不能发给另一 Session。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-FOC-006",
+      "title": "弹窗确认与取消只完成一次动作",
+      "features": [
+        "FL-012"
+      ],
+      "requirements": [
+        "FR-11"
+      ],
+      "adrs": [
+        "ADR-0001",
+        "ADR-0004"
+      ],
+      "priority": "P1",
+      "stage": "M1",
+      "kinds": [
+        "concurrency",
+        "negative"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "needs_decision",
+      "decision_refs": [
+        "O-009"
+      ],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-DATA",
+        "FX-FAULT"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "打开有提交按钮的表单，在有延迟的回调下快速按 Enter/Esc 或点击取消。",
+        "记录 UI 终态与创建/发送调用次数。"
+      ],
+      "expected": [
+        "依据已定义的提交和取消竞争规则得到一个可解释结果，不隐式重复发送。",
+        "已提交与已取消状态不能同时宣告；焦点回到正确页面。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-FOC-007",
+      "title": "失去外部窗口焦点后无幽灵重复输入",
+      "features": [
+        "FL-012"
+      ],
+      "requirements": [
+        "FR-11"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P0",
+      "stage": "M1",
+      "kinds": [
+        "compatibility",
+        "boundary"
+      ],
+      "level": "manual",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-ECHO"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "在 attach 或表单中按住可重复键，并切换到另一个外部窗口。",
+        "释放按键后返回，输入新的唯一标记。"
+      ],
+      "expected": [
+        "仅处理实际终端发送的事件，不在无新事件时自行持续重复键操作。",
+        "返回后的新标记进入当前明确焦点对象，不向旧 Session 回放残留队列。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ],
+      "notes": "不假设每个终端都会提供窗口 focus 事件；以实际事件记录判断。"
+    },
+    {
+      "id": "TC-FOC-008",
+      "title": "输入法切换不触发全局会话动作",
+      "features": [
+        "FL-012"
+      ],
+      "requirements": [
+        "FR-11"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P0",
+      "stage": "M0",
+      "kinds": [
+        "compatibility",
+        "boundary"
+      ],
+      "level": "manual",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-ECHO"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。",
+        "最终产品键绑定与测试 IME 切换键已记录。"
+      ],
+      "steps": [
+        "在表单与 attach 下用测试环境配置的 IME 切换键切换语言。",
+        "在候选显示、确认后和空输入三种状态重复。"
+      ],
+      "expected": [
+        "语言切换不误触发停止、发送、新建或 detach；确认文字不重复。",
+        "冲突组合必须被支持矩阵明确处理，不能只测试英文字母输入。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-FOC-009",
+      "title": "快捷键帮助与实际配置一致",
+      "features": [
+        "FL-012"
+      ],
+      "requirements": [
+        "FR-11"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P1",
+      "stage": "M1",
+      "kinds": [
+        "usability",
+        "compatibility"
+      ],
+      "level": "manual",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "needs_decision",
+      "decision_refs": [
+        "O-009"
+      ],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-DATA",
+        "FX-ECHO"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "查看列表、表单和 attach 进入前的键位提示，逐一执行显示的主要操作。",
+        "如支持重绑定，应用一组合法变更后再次核对。"
+      ],
+      "expected": [
+        "提示与当前可用动作一致，用户可以找到进入和分离路径。",
+        "不继续展示历史稿中未采纳的 F6 或未实现操作；重绑定能力未实现时不宣称可用。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-FOC-010",
+      "title": "草稿正在编辑时目标 Run 改变",
+      "features": [
+        "FL-012",
+        "FL-013"
+      ],
+      "requirements": [
+        "FR-11",
+        "FR-12"
+      ],
+      "adrs": [
+        "ADR-0004"
+      ],
+      "priority": "P0",
+      "stage": "M3",
+      "kinds": [
+        "state",
+        "concurrency"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "needs_decision",
+      "decision_refs": [
+        "O-009"
+      ],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-ECHO",
+        "FX-PROCESS"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。",
+        "先确定草稿是在创建、选择目标还是建立投递请求时绑定 Run，以及目标变化的确认交互"
+      ],
+      "steps": [
+        "为 A 的原 Run 编辑尚未提交的发送草稿，期间让 A 退出并重启成新 Run。",
+        "返回草稿尝试发送，检查实际绑定对象与提示。"
+      ],
+      "expected": [
+        "草稿与目标变化按已记录的绑定时机处理，正文不会串入另一个 Session",
+        "建立投递请求时固定实际 target_run_id；请求建立后旧 Run 消息不得静默转投新 Run",
+        "是否保留旧目标并要求再次确认，按未决交互关闭后的合同验收；不能仅由本用例擅定"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-FOC-011",
+      "title": "resize 期间表单光标与输入焦点保持一致",
+      "features": [
+        "FL-012"
+      ],
+      "requirements": [
+        "FR-11"
+      ],
+      "adrs": [
+        "ADR-0001",
+        "ADR-0005"
+      ],
+      "priority": "P1",
+      "stage": "M1",
+      "kinds": [
+        "boundary",
+        "compatibility"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-DATA"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "在中文长文本中移动光标到中间，连续缩放窗口并输入标记。",
+        "切到下一字段再回到原字段，检查文本位置与视觉光标。"
+      ],
+      "expected": [
+        "输入插入正确逻辑位置，宽字符显示偏移不导致删除或覆盖相邻字符。",
+        "焦点不落到隐藏按钮或子终端，文本未因重绘清空。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-FOC-012",
+      "title": "多行编辑键不意外当作发送确认",
+      "features": [
+        "FL-012"
+      ],
+      "requirements": [
+        "FR-11",
+        "FR-07"
+      ],
+      "adrs": [
+        "ADR-0001",
+        "ADR-0004"
+      ],
+      "priority": "P0",
+      "stage": "M3",
+      "kinds": [
+        "boundary",
+        "usability"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "needs_decision",
+      "decision_refs": [
+        "O-009"
+      ],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-ECHO",
+        "FX-DATA"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "在发送表单中使用已定义的换行、编辑、提交按键，正文含空行和中文。",
+        "只执行编辑时检查消息记录，再明确提交。"
+      ],
+      "expected": [
+        "编辑操作不创建消息或写入目标，提交动作与普通换行可区分。",
+        "明确提交后只建立一次对应请求，正文按输入合同保真。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-WIN-001",
+      "title": "未安装 WSL 的原生 Windows 最小路径",
+      "features": [
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-01",
+        "FR-02",
+        "FR-05",
+        "FR-11"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P0",
+      "stage": "M0",
+      "kinds": [
+        "compatibility",
+        "functional"
+      ],
+      "level": "manual",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-RELEASE",
+        "FX-ECHO",
+        "FX-PROCESS"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "在干净、未启用 WSL 的选定 Windows 环境安装测试构建与锁定 psmux。",
+        "完成创建、输入、resize、detach、关闭管理器和重新连接。"
+      ],
+      "expected": [
+        "核心路径无需 WSL、Unix shell 或 tmux；实际启动链为记录的原生组件。",
+        "原 Run 在允许的后台生命周期内持续存在，输入与终端恢复达到对应核心用例要求。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-WIN-002",
+      "title": "Windows 构建、CPU 架构与终端版本支持矩阵",
+      "features": [
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-01",
+        "FR-02",
+        "FR-05",
+        "FR-07",
+        "FR-11"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P1",
+      "stage": "M4",
+      "kinds": [
+        "compatibility",
+        "release"
+      ],
+      "level": "release",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "needs_decision",
+      "decision_refs": [
+        "O-005"
+      ],
+      "environments": [
+        "ENV-WIN-COMPAT"
+      ],
+      "fixtures": [
+        "FX-RELEASE",
+        "FX-ECHO",
+        "FX-VT"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "按拟定支持矩阵逐个运行核心用例集合，包含计划支持的最低 Windows 构建与 CPU 架构。",
+        "对矩阵外组合记录探测/失败情况，汇总每个组合的真实证据。"
+      ],
+      "expected": [
+        "只有实际验收通过的组合可列为支持；不从 ConPTY API 最低版本推导产品最低系统。",
+        "架构不匹配或缺少能力时错误明确，不以 Linux 交叉编译替代 Windows 行为验证。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-WIN-003",
+      "title": "终端字体、缩放与语言环境组合",
+      "features": [
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-02",
+        "FR-11"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P1",
+      "stage": "M0",
+      "kinds": [
+        "compatibility",
+        "boundary"
+      ],
+      "level": "manual",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "needs_decision",
+      "decision_refs": [
+        "O-005"
+      ],
+      "environments": [
+        "ENV-WIN-COMPAT"
+      ],
+      "fixtures": [
+        "FX-ECHO",
+        "FX-VT"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "在已列入测试矩阵的字体、缩放比例、中文/英文语言环境中运行 CJK、IME、resize 与长名称用例。",
+        "记录每组实际行列、字体回退和可见结果。"
+      ],
+      "expected": [
+        "已声明支持组合中中文、宽字符与光标可用，未通过组合有明确限制。",
+        "不将字体缺字问题误判为输入丢失；输入正确性用 fixture 记录独立核对。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ],
+      "parameters": [
+        {
+          "name": "组合维度",
+          "values": [
+            "字体及其回退",
+            "100%/150%/200% 缩放测试点",
+            "中文/英文用户环境"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "TC-WIN-004",
+      "title": "psmux 缺失、版本不匹配与不可执行",
+      "features": [
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-01",
+        "FR-02",
+        "FR-12"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P0",
+      "stage": "M0",
+      "kinds": [
+        "negative",
+        "compatibility"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-DATA",
+        "FX-RELEASE"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。",
+        "产品采用的依赖探测和兼容范围已在当前构建记录。"
+      ],
+      "steps": [
+        "分别在后端缺失、路径无执行权限、版本不在当前验证范围的环境启动管理器。",
+        "尝试创建会话，观察诊断和是否自动启动其他后台。"
+      ],
+      "expected": [
+        "缺失或不可执行时给出明确诊断，不显示虚假的运行会话。",
+        "未验证版本不伪装成已验证版本；实际处理按依赖兼容策略记录，不静默使用 tmux/WSL 代替。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-WIN-005",
+      "title": "正式 psmux 与同版本字符串开发构建可区分",
+      "features": [
+        "FL-016"
+      ],
+      "requirements": [],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0005"
+      ],
+      "priority": "P1",
+      "stage": "M0",
+      "kinds": [
+        "compatibility",
+        "release"
+      ],
+      "level": "contract",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-RELEASE"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "准备稳定发行二进制与一个同版本字符串但来源不同的测试开发构建。",
+        "记录后端身份并运行相同基础命令合同，核对验收报告。"
+      ],
+      "expected": [
+        "报告包含来源/哈希或等价可核对身份，不只写版本字符串。",
+        "开发构建的成功不能计为稳定版能力证据；共享 server 实验功能不成为首版依赖。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-WIN-006",
+      "title": "产品私有后台配置不污染用户环境",
+      "features": [
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-01",
+        "FR-05"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0003"
+      ],
+      "priority": "P0",
+      "stage": "M0",
+      "kinds": [
+        "compatibility",
+        "security"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-DATA",
+        "FX-ECHO",
+        "FX-PROCESS"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "先在独立 namespace 运行一个用户自有 psmux 测试会话并记录其配置。",
+        "启动/停止产品会话，检查产品 namespace、数据目录、配置与环境。"
+      ],
+      "expected": [
+        "产品按 ADR 使用私有 namespace/目录/config，不修改用户全局设置或停止无关会话。",
+        "产品关闭预热的策略仅作用于自己的后台；真实进程树仍需单独测量。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-WIN-007",
+      "title": "Windows 用户名与产品数据目录含空格/中文",
+      "features": [
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-01",
+        "FR-02",
+        "FR-05"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P0",
+      "stage": "M0",
+      "kinds": [
+        "compatibility",
+        "boundary",
+        "security"
+      ],
+      "level": "windows_e2e",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-DATA",
+        "FX-ECHO",
+        "FX-PROCESS"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "将测试产品数据目录、配置路径与临时 buffer 目录放入包含空格/中文的目录。",
+        "执行创建、预览、粘贴、detach、重开与清理产品自己的测试数据。"
+      ],
+      "expected": [
+        "配置、命名缓冲和运行发现都使用完整路径，重开能定位相同产品 Session/Run。",
+        "清理只触及本次隔离数据，不能因转义错误读取/删除相邻目录。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ]
+    },
+    {
+      "id": "TC-WIN-008",
+      "title": "锁屏、休眠唤醒与时间变化后的终端恢复",
+      "features": [
+        "FL-016"
+      ],
+      "requirements": [
+        "FR-02",
+        "FR-05",
+        "FR-11",
+        "FR-12"
+      ],
+      "adrs": [
+        "ADR-0002",
+        "ADR-0004"
+      ],
+      "priority": "P1",
+      "stage": "M2",
+      "kinds": [
+        "recovery",
+        "compatibility",
+        "state"
+      ],
+      "level": "manual",
+      "status": "designed",
+      "execution": "not_run",
+      "spec_state": "ready",
+      "decision_refs": [],
+      "environments": [
+        "ENV-WIN-BASE"
+      ],
+      "fixtures": [
+        "FX-PROCESS",
+        "FX-CLOCK"
+      ],
+      "preconditions": [
+        "产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。",
+        "使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。"
+      ],
+      "steps": [
+        "在可回滚的 Windows 测试环境分别锁屏解锁、睡眠唤醒；在另一分支调整测试墙上时钟后恢复。",
+        "检查实际 agent/后台存活情况，再操作列表与 attach。"
+      ],
+      "expected": [
+        "依据真实存活证据恢复或显示断开，不把机器暂停时的静默当作 agent ready/完成。",
+        "无幽灵输入、错误 Run 重连或后台重复启动；不保证系统已杀死的进程仍可恢复。"
+      ],
+      "evidence": [
+        "带用例 ID 与环境清单的执行记录。",
+        "目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。"
+      ],
+      "notes": "只在受控测试环境调整时间/电源状态；此用例不承诺电脑重启恢复活进程。"
+    }
+  ]
+}

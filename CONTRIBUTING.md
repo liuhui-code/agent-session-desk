@@ -9,6 +9,7 @@
 3. [Feature Ledger](docs/FEATURE_LEDGER.md)：FL 能力编号、范围、真实实现状态与验收证据。
 4. [路线图](docs/ROADMAP.md)和[决策记录](docs/DECISIONS.md)：阶段门槛与产品行为。
 5. [界面方向](docs/UI_DESIGN.md)与[参考来源](docs/REFERENCES.md)：当前简约交互、未采纳的历史图稿和复用边界。
+6. [测试用例库](docs/testing/README.md)：实现前先找对应 FL 的用例、前置条件、未决项和证据要求。
 
 当前方向是 Go 模块化单体、选择性复用 Agent Deck UI 并迁移到稳定 Charm v2、借鉴 Agent Manager 的 Windows 适配、使用 psmux 托管终端。默认列表与预览，Enter 后全屏 attach，detach 返回；常驻侧栏的完整内嵌终端后置。精确依赖和后端版本以技术选型与 ADR 为准，不从上游旧 `go.mod` 直接推定本项目版本。
 
@@ -41,6 +42,12 @@
 - 提交说明写清问题、修改后的行为、验证方法与已知限制。
 - 在有可运行代码后，按具体风险增加有意义的验证；不为文档变化构造无关测试。
 
+### 维护测试用例
+
+在 `docs/testing/cases/` 编辑 JSON 源，保持 TC 编号稳定，并关联 FR/FL/ADR。有意义的新边界、缺陷或竞态应补可复现用例；不要通过改变预期掩盖实现不满足已接受需求。尚未决定的产品行为标 `needs_decision`，具体规则在决策记录关闭后再验收。
+
+运行 `python tools/test_catalog.py render` 和 `python tools/test_catalog.py check --generated`，同步可读文档、覆盖表和 CSV 索引。这个工具只检查测试资料，不执行产品或 Windows 测试。真实结果使用执行报告模板，区分 pass、fail、blocked、not_run 和 not_applicable；参数变体、环境和失败轮次均保留。
+
 ### Windows 实测门槛
 
 M0 要验证真实 Windows 上的最小流程：自定义命令启动 → 列表与预览 → 全屏 attach → detach 返回。覆盖中文/宽字符/IME、多行粘贴、光标与颜色、窗口尺寸变化、Ctrl+C、异常退出和终端恢复；输入必须只作用于预期目标。无原生实测证据时，不能把“计划支持 Windows”改写为“Windows 已支持”。
@@ -64,3 +71,4 @@ Agent Deck、Agent Manager 等是代码来源，不因使用同一语言就成�
 | 日期 | 变更 |
 | --- | --- |
 | 2026-11-21 | 增加技术选型、ADR 与 Feature Ledger 协作入口，明确决策与实现证据、Windows 实测门槛和复用代码归属记录 |
+| 2026-11-21 | 建立先写可追溯测试用例、再实现并收集运行证据的流程；测试 JSON 为唯一正文源 |

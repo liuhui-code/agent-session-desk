@@ -53,6 +53,7 @@
 | [架构说明](docs/ARCHITECTURE.md) | 模块、终端托管、会话身份、消息与恢复语义 |
 | [ADR](docs/adr/README.md) | 五项架构决定的背景、取舍、代价和重新评估条件 |
 | [Feature Ledger](docs/FEATURE_LEDGER.md) | 19 项能力、需求映射、状态与验收证据 |
+| [测试设计与用例库](docs/testing/README.md) | 功能、边界、并发、恢复、Windows、长稳与资源用例；全部尚未执行 |
 | [UI 探索记录](docs/UI_DESIGN.md) | 当前交互约束、未采纳的四屏图稿与验证点 |
 | [参考项目](docs/REFERENCES.md) | 值得借鉴的开源项目、一手资料、Windows 限制与复用边界 |
 | [决策记录](docs/DECISIONS.md) | 已确定要求、建议默认行为、待验证选择 |
@@ -80,6 +81,7 @@
 - [x] 绘制首轮 UI 探索稿和交互演示，记录未采纳反馈。
 - [x] 接受简约列表/预览、全屏 attach 的交互方向。
 - [x] 核查技术维护状态，记录选型、ADR 与 Feature Ledger。
+- [x] 根据 Feature Ledger 建立测试设计、覆盖表、环境/故障合同与可校验用例库；此项不代表产品测试通过。
 - [ ] 完成 Windows 原生终端与 UI 验证。
 - [ ] 完成上游 UI 代码迁入与 Charm v2 适配。
 - [ ] 完成首个单会话流程。

@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "environments": {
+    "ENV-UNIT": {"title": "纯逻辑与假后端环境", "path": "ENVIRONMENTS.md#env-unit"},
+    "ENV-WIN-BASE": {"title": "原生 Windows 首轮基线", "path": "ENVIRONMENTS.md#env-win-base"},
+    "ENV-WIN-COMPAT": {"title": "Windows 兼容与发布矩阵", "path": "ENVIRONMENTS.md#env-win-compat"},
+    "ENV-UNIX-LATER": {"title": "后续 Unix 适配环境", "path": "ENVIRONMENTS.md#env-unix-later"}
+  },
+  "fixtures": {
+    "FX-ECHO": {"title": "输入及启动描述回显", "path": "FIXTURES_AND_FAULTS.md#fx-echo"},
+    "FX-VT": {"title": "确定性终端屏幕", "path": "FIXTURES_AND_FAULTS.md#fx-vt"},
+    "FX-READY": {"title": "合作式就绪与回执 agent", "path": "FIXTURES_AND_FAULTS.md#fx-ready"},
+    "FX-PROCESS": {"title": "可控进程生命周期", "path": "FIXTURES_AND_FAULTS.md#fx-process"},
+    "FX-DATA": {"title": "隔离数据与参数样本", "path": "FIXTURES_AND_FAULTS.md#fx-data"},
+    "FX-FAULT": {"title": "可控故障屏障", "path": "FIXTURES_AND_FAULTS.md#fx-fault"},
+    "FX-CLOCK": {"title": "可控测试时间", "path": "FIXTURES_AND_FAULTS.md#fx-clock"},
+    "FX-LOAD": {"title": "确定性输出负载", "path": "FIXTURES_AND_FAULTS.md#fx-load"},
+    "FX-RELEASE": {"title": "干净发布包环境", "path": "FIXTURES_AND_FAULTS.md#fx-release"}
+  },
+  "decisions": {
+    "TBD-ARCHIVE-DELETE": {"title": "归档与删除范围", "question": "运行中能否归档、是否先停止？删除记录、日志、引用与活 Run 的范围及取消行为如何区分？", "stage": "M2", "status": "open", "related": ["O-007", "O-008", "O-009"]},
+    "TBD-BACKEND-TIMEOUT": {"title": "后端调用超时与取消", "question": "capture 等后端调用的超时、取消、迟到结果及重试上限如何定义？", "stage": "M2", "status": "open", "related": ["O-004", "O-009", "O-012"]},
+    "TBD-BACKPRESSURE": {"title": "队列与资源满载处理", "question": "消息/事件/磁盘或内存达到上限时分别拒绝、等待还是降速？生产者如何得到结果，解除压力后怎样恢复？", "stage": "M3", "status": "open", "related": ["O-007", "O-008", "O-012"]},
+    "TBD-CLI-CONTRACT": {"title": "管理 CLI 与来源合同", "question": "子命令、编码、结构化格式/版本、stdout/stderr、退出码和错误分类如何固定？可信 Session/Run 来源如何绑定？", "stage": "M3", "status": "open", "related": ["O-008", "O-009"]},
+    "TBD-CONFIG": {"title": "配置加载与保存合同", "question": "无文件/空文件、未知键、错误类型、未来 schema 如何处理？保存中断、重载时机、参数往返和旧配置保留规则是什么？", "stage": "M1", "status": "open", "related": ["O-008"]},
+    "TBD-DIAGNOSTICS": {"title": "诊断导出与脱敏范围", "question": "哪些启动字段、路径和日志默认进入诊断，哪些脱敏？用户选择和可分享模板的范围如何说明？", "stage": "M4", "status": "open", "related": ["O-007", "O-008"]},
+    "TBD-INSTANCE-SCOPE": {"title": "实例与消费者作用域", "question": "多个 TUI/CLI 指向同一或不同数据目录时，Host 单实例、namespace、启动竞争及消费者归属如何协调？", "stage": "M3", "status": "open", "related": ["O-008"]},
+    "TBD-IPC-TRUST": {"title": "本机控制入口信任范围", "question": "选定 IPC 后，哪些本机调用者可读、发、停？如何核对来源、作用域、过期 endpoint 与拒绝结果？", "stage": "M3", "status": "open", "related": ["O-008"]},
+    "TBD-LIFECYCLE": {"title": "停止、重启与创建恢复", "question": "正常停止、等待、强制升级及子进程范围是什么？并发重启如何仲裁，创建意图/后端创建/元数据提交间崩溃如何恢复？", "stage": "M1", "status": "open", "related": ["O-004", "O-008", "O-009"]},
+    "TBD-MSG-CANCEL": {"title": "消息取消边界", "question": "queued、已领取、部分写入和完整写入阶段各能取消什么？竞争请求的返回值与界面文案如何表达？", "stage": "M3", "status": "open", "related": ["O-008", "O-009"]},
+    "TBD-MSG-IDEMPOTENCY": {"title": "请求幂等键与冲突", "question": "幂等键作用域、载荷指纹与有效范围如何定义？相同键但正文/目标不同如何返回冲突？", "stage": "M3", "status": "open", "related": ["O-008"]},
+    "TBD-MSG-TTL": {"title": "消息有效期与时间来源", "question": "是否需要 TTL？若启用，到期时刻、边界比较、时钟来源、重启恢复及用户可见状态是什么？", "stage": "M3", "status": "open", "related": ["O-008", "O-009"]},
+    "TBD-MSG-VALIDATION": {"title": "消息正文验证", "question": "空正文、仅空白/换行、NUL/ESC 等控制字节是否允许？编码、验证时点与拒绝信息如何规定？", "stage": "M3", "status": "open", "related": ["O-008", "O-009"]},
+    "TBD-NAMING": {"title": "名称与搜索规则", "question": "同名、空白归一化、允许字符、长度计量，以及大小写/Unicode 搜索匹配采用什么规则？", "stage": "M2", "status": "open", "related": ["O-008", "O-009"]},
+    "TBD-PACKAGING": {"title": "安装卸载与数据保留", "question": "采用何种发布/安装方式，依赖由谁安装？卸载默认保留什么，显式清理及活 Run 如何处置？", "stage": "M4", "status": "open", "related": ["O-005", "O-008", "O-010"]},
+    "TBD-REPLY-DEDUP": {"title": "回复去重与聚合", "question": "回复 ID/幂等范围和同 ID 内容冲突如何处理？单请求是否支持多条进度/最终回复，其顺序与完成标记如何定义？", "stage": "M3", "status": "open", "related": ["O-008"]},
+    "TBD-SIGNAL-FRESHNESS": {"title": "就绪信号新鲜度", "question": "ready/busy 信号如何绑定 Run、事件序号和有效期？延迟、重复、时钟跳变及 Host 重启后如何判断仍可信？", "stage": "M3", "status": "open", "related": ["O-004", "O-008"]},
+    "TBD-TERMINAL-CONTROL": {"title": "预览终端控制序列策略", "question": "被动预览允许哪些 OSC/CSI/DCS 行为，分片/未终止/超长序列怎样有界解析，何时替换、拒绝或复位？", "stage": "M1", "status": "open", "related": ["O-004", "O-009", "O-012"]},
+    "TBD-UPGRADE": {"title": "配置与数据升级回退", "question": "支持哪些 schema 迁移和回退组合？备份、提交边界、中断恢复、旧版本读新格式及活 Run 如何处理？", "stage": "M2", "status": "open", "related": ["O-008"]}
+  },
+  "budgets": {
+    "B_CACHE_BYTES": {"title": "输出内存缓存上限", "unit": "bytes", "value": null, "stage": "M1", "decision_refs": ["O-007", "O-012"]},
+    "B_DB_WAIT": {"title": "数据库锁等待上限", "unit": "ms", "value": null, "stage": "M2", "decision_refs": ["O-008"]},
+    "B_EVENT_BACKLOG": {"title": "待处理事件积压上限", "unit": "items", "value": null, "stage": "M3", "decision_refs": ["O-008", "O-012", "TBD-BACKPRESSURE"]},
+    "B_INPUT_P95_MS": {"title": "输入响应 P95 预算", "unit": "ms", "value": null, "stage": "M2", "decision_refs": ["O-012"]},
+    "B_LAUNCH_ARGV": {"title": "启动参数长度边界", "unit": "待确定", "value": null, "stage": "M0", "decision_refs": ["O-004", "O-005", "O-009"]},
+    "B_LAUNCH_PATH": {"title": "启动路径长度边界", "unit": "待确定", "value": null, "stage": "M0", "decision_refs": ["O-004", "O-005", "O-009"]},
+    "B_LOG_FILE": {"title": "单日志文件轮转阈值", "unit": "bytes", "value": null, "stage": "M2", "decision_refs": ["O-007"]},
+    "B_LOG_TOTAL": {"title": "保留日志总量上限", "unit": "bytes", "value": null, "stage": "M2", "decision_refs": ["O-007", "O-012"]},
+    "B_MSG_BYTES": {"title": "单条消息正文上限", "unit": "bytes", "value": null, "stage": "M3", "decision_refs": ["O-009", "O-012", "TBD-MSG-VALIDATION"]},
+    "B_NAME": {"title": "会话名称长度边界", "unit": "待确定", "value": null, "stage": "M2", "decision_refs": ["TBD-NAMING"]},
+    "B_PASTE_BYTES": {"title": "单次粘贴正文上限", "unit": "bytes", "value": null, "stage": "M0", "decision_refs": ["O-009", "O-012"]},
+    "B_QUEUE_BYTES": {"title": "持久化待处理队列容量", "unit": "bytes", "value": null, "stage": "M3", "decision_refs": ["O-008", "O-012", "TBD-BACKPRESSURE"]},
+    "B_QUEUE_ITEMS": {"title": "持久化待处理请求数量", "unit": "items", "value": null, "stage": "M3", "decision_refs": ["O-008", "O-012", "TBD-BACKPRESSURE"]},
+    "B_READ_BYTES": {"title": "单次输出读取预算", "unit": "bytes", "value": null, "stage": "M3", "decision_refs": ["O-007", "O-012"]},
+    "B_SCREEN_CELLS": {"title": "屏幕缓存单元上限", "unit": "cells", "value": null, "stage": "M1", "decision_refs": ["O-004", "O-012"]},
+    "B_UI_MIN_COLS": {"title": "管理界面最小列数", "unit": "columns", "value": null, "stage": "M0", "decision_refs": ["O-009"]},
+    "B_UI_MIN_ROWS": {"title": "管理界面最小行数", "unit": "rows", "value": null, "stage": "M0", "decision_refs": ["O-009"]}
+  }
+}

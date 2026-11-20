@@ -8,6 +8,8 @@ The implementation target is Go 1.27 with stable Charm v2 libraries (Bubble Tea 
 
 Read README.md, docs/TECH_STACK.md, docs/PRODUCT_PLAN.md, docs/ROADMAP.md, docs/DECISIONS.md, docs/adr/README.md, and docs/FEATURE_LEDGER.md before implementation work. Exact dependency and upgrade policy is owned by ADR-0005 and TECH_STACK.md; acceptance of a direction does not establish compatibility.
 
+Test design now lives in docs/testing/. Read TEST_STRATEGY.md, COVERAGE.md, and the applicable JSON cases before implementation. All cases in this initial baseline are designed/not_run; fixtures and product test runners are not implemented. The Python catalog tool validates documentation structure and renders derived files only; its success is not product or Windows test evidence.
+
 ## Product invariants
 
 - Target native Windows; WSL is not a core prerequisite.
@@ -35,4 +37,5 @@ Read README.md, docs/TECH_STACK.md, docs/PRODUCT_PLAN.md, docs/ROADMAP.md, docs/
 - Keep credentials, private session content, and local runtime data out of commits.
 - Prefer concrete, reproducible acceptance scenarios over speculative architecture expansion.
 - Keep Feature Ledger IDs and FR mappings stable. Update actual implementation, evidence, and release status with each relevant change; documents and mockups do not count as implemented or Windows-validated features.
+- Keep TC IDs stable and edit test content in docs/testing/cases/*.json. Regenerate derived Markdown/CSV with tools/test_catalog.py, then check --generated. Record unresolved behaviors and budgets instead of silently inventing acceptance rules; save actual run evidence separately from design coverage.
 - Summarize what changed, why, how it was verified, and remaining limits.
