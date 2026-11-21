@@ -4,7 +4,7 @@
 
 通过一条 CLI 命令启动本地 agent，在清晰、美观的 TUI 中管理多个会话，并让会话能够读取彼此的输出、传递任务和返回结果。
 
-> 当前阶段：**M0 首批源码迁入已落地，五项 Windows 原生后端场景已在指定 Windows Server 2025 runner 通过；完整验收仍待完成。** 已有 Go / Charm v2 开发切片，包含简约列表、屏幕预览、CLI 启动与全屏 attach 代码；不是已发布的软件版本。运行方法见 [M0 开发指南](docs/M0_DEVELOPMENT.md)，证据分别记录在[源码迁入报告](docs/testing/results/2026-11-21-m0-source-migration.md)和[Windows 执行报告](docs/testing/results/2026-11-21-m0-native-windows.md)。桌面交互、资源预算和发布仍需独立验收。项目名称与原创部分的许可证仍待定。
+> 当前阶段：**M0 首批源码迁入已落地，五项 Windows 原生后端场景已在指定 Windows Server 2025 runner 通过；完整验收仍待完成。** 已有 Go / Charm v2 开发切片，包含简约列表、屏幕预览、CLI 启动与全屏 attach 代码；不是已发布的软件版本。运行方法见 [M0 开发指南](docs/M0_DEVELOPMENT.md)，证据分别记录在[源码迁入报告](docs/testing/results/2026-11-21-m0-source-migration.md)和[Windows 执行报告](docs/testing/results/2026-11-21-m0-native-windows.md)。另已完成 0/1/5/10 会话的[原生 Windows 短资源实验](docs/testing/results/2026-11-21-m0-windows-resources.md)，含真实 TUI 启停、重开与直接程序对照。桌面交互、资源预算、长稳和发布仍需独立验收。项目名称与原创部分的许可证仍待定。
 
 ## 产品目标
 
@@ -59,6 +59,7 @@
 | [测试设计与用例库](docs/testing/README.md) | 339 项设计基线与独立执行报告；设计覆盖和实际测试分别记录 |
 | [M0 开发指南](docs/M0_DEVELOPMENT.md) | 构建、CLI 用法、Windows 验证步骤和已知限制 |
 | [原生 Windows 自动化](docs/testing/NATIVE_WINDOWS.md) | 固定发行物、真实 fixture、运行与复现方法；[实际结果](docs/testing/results/2026-11-21-m0-native-windows.md)另行记录 |
+| [Windows 资源实验](docs/testing/WINDOWS_RESOURCES.md) | 进程身份、负载、内存/CPU 口径与复现；[实际结果](docs/testing/results/2026-11-21-m0-windows-resources.md)含失败与修复 |
 | [源码复用清单](docs/REUSE_MANIFEST.md) | 实际迁入文件、固定提交、修改点与许可证 |
 | [UI 探索记录](docs/UI_DESIGN.md) | 当前交互约束、未采纳的四屏图稿与验证点 |
 | [参考项目](docs/REFERENCES.md) | 值得借鉴的开源项目、一手资料、Windows 限制与复用边界 |
@@ -91,6 +92,7 @@
 - [x] 根据 Feature Ledger 建立测试设计、覆盖表、环境/故障合同与可校验用例库；此项不代表产品测试通过。
 - [x] 补充人工介入提醒的 FR-14、FL-020、ADR-0006 与专项测试设计；功能仍未实现。
 - [x] 建立固定 psmux 发行物的 Windows 原生自动化，五项可控进程／后端场景通过；独立 fixture 证据和此前失败均已归档，不代表完整 Windows 场景通过。
+- [x] 完成受控 CLI 的 0/1/5/10 会话短资源实验、TUI 退出重开及直接程序对照；完整资源预算、长稳和桌面交互仍需独立验证。
 - [ ] 完成 Windows 原生终端与 UI 验证。
 - [x] 完成首批上游 UI / Windows 平台代码选择性迁入，锁定 Charm v2 并建立自动化回归；完整 UI 及原生终端验收仍待完成。
 - [ ] 完成首个单会话流程。

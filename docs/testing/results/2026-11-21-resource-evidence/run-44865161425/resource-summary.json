@@ -1,0 +1,578 @@
+{
+  "schema_version": 1,
+  "commit": "30eaf058ed507fe8fea623593273ba6abf0162dc",
+  "completed_utc": "2026-11-21T04:23:09.1102236Z",
+  "result": "pass",
+  "failure": null,
+  "elapsed_ms": 434595.4029,
+  "sample_count": 280,
+  "windows_caption": "Microsoft Windows Server 2025 Datacenter",
+  "windows_version": "10.0.26100",
+  "image_os": "win25-vs2026",
+  "image_version": "20261116.315.1",
+  "total_visible_memory_kib": 16771836,
+  "whole_machine_counters_collected": false,
+  "logical_processors": 4,
+  "powershell": "7.6.10",
+  "binary_sha256": {
+    "managed": "020adfdb9b1ce0eff7551610b06a62e72d086774abee153107ea8d5a04165339",
+    "direct": "020adfdb9b1ce0eff7551610b06a62e72d086774abee153107ea8d5a04165339",
+    "driver": "bbe825a30f7cddc91b043084049143a381aba5f7e9e36e4d0bb587e296d262ca",
+    "backend": "bbe825a30f7cddc91b043084049143a381aba5f7e9e36e4d0bb587e296d262ca",
+    "product": "daafdfb300c7bbcf2fb98111b7b989e84de78d18318cf08e1349e629406499cd"
+  },
+  "warmup_seconds": 3,
+  "sample_seconds": 12,
+  "target_interval_ms": 1000,
+  "load": {
+    "line_bytes": 256,
+    "output_only_stdout": true,
+    "lines_per_second": 100,
+    "duration_ms": 25000
+  },
+  "terminal": {
+    "height": 32,
+    "interactive_windows_terminal": false,
+    "history_limit": 2000,
+    "width": 120,
+    "host": "separate measurement-only psmux ConPTY"
+  },
+  "scenarios": [
+    {
+      "id": "managed-0",
+      "mode": "managed",
+      "count": 0,
+      "namespace": "asd-res-013bd31d285e",
+      "sessions": [],
+      "selected_session": null,
+      "fixture_reports": []
+    },
+    {
+      "id": "managed-1",
+      "mode": "managed",
+      "count": 1,
+      "namespace": "asd-res-09f56be9aae1",
+      "sessions": [
+        {
+          "session_id": "aee8bdd8b0b2eee8f38aa151be05f1fa",
+          "run_id": "4b8fac395a138e230929d1257890a579",
+          "backend_id": "asd_aee8bdd8b0b2eee8f38aa151be05f1fa_4b8fac395a138e230929d1257890a579",
+          "title": "session-00",
+          "command": "D:\\a\\agent-session-desk\\agent-session-desk\\build\\resource-runtime-b448eac854a04c9e97ce5565b7d9794d\\bin\\managed\\asd-fixture.exe",
+          "terminal_state": "available"
+        }
+      ],
+      "selected_session": "aee8bdd8b0b2eee8f38aa151be05f1fa",
+      "fixture_reports": [
+        "managed-1-fixture-0.jsonl"
+      ]
+    },
+    {
+      "id": "managed-5",
+      "mode": "managed",
+      "count": 5,
+      "namespace": "asd-res-ff1344480829",
+      "sessions": [
+        {
+          "session_id": "13ffc0c06c1634f1558815f4cee783c1",
+          "run_id": "64fc59fcd808b8f0ee32c24ed1865c6e",
+          "backend_id": "asd_13ffc0c06c1634f1558815f4cee783c1_64fc59fcd808b8f0ee32c24ed1865c6e",
+          "title": "session-00",
+          "command": "D:\\a\\agent-session-desk\\agent-session-desk\\build\\resource-runtime-b448eac854a04c9e97ce5565b7d9794d\\bin\\managed\\asd-fixture.exe",
+          "terminal_state": "available"
+        },
+        {
+          "session_id": "96d78013fb667e148e51200ecaa07ef3",
+          "run_id": "db50ac0a8e468067d27406ec61c2afc8",
+          "backend_id": "asd_96d78013fb667e148e51200ecaa07ef3_db50ac0a8e468067d27406ec61c2afc8",
+          "title": "session-01",
+          "command": "D:\\a\\agent-session-desk\\agent-session-desk\\build\\resource-runtime-b448eac854a04c9e97ce5565b7d9794d\\bin\\managed\\asd-fixture.exe",
+          "terminal_state": "available"
+        },
+        {
+          "session_id": "b5ce8b3f21130512120d0c98143a8637",
+          "run_id": "015e06e51ea6d2b26f4ea9a70bf70fc0",
+          "backend_id": "asd_b5ce8b3f21130512120d0c98143a8637_015e06e51ea6d2b26f4ea9a70bf70fc0",
+          "title": "session-02",
+          "command": "D:\\a\\agent-session-desk\\agent-session-desk\\build\\resource-runtime-b448eac854a04c9e97ce5565b7d9794d\\bin\\managed\\asd-fixture.exe",
+          "terminal_state": "available"
+        },
+        {
+          "session_id": "6ff7dbdbffec508b1ec40f9b8a558ee5",
+          "run_id": "e753880a68e35c2b62ad8832dc30fa5a",
+          "backend_id": "asd_6ff7dbdbffec508b1ec40f9b8a558ee5_e753880a68e35c2b62ad8832dc30fa5a",
+          "title": "session-03",
+          "command": "D:\\a\\agent-session-desk\\agent-session-desk\\build\\resource-runtime-b448eac854a04c9e97ce5565b7d9794d\\bin\\managed\\asd-fixture.exe",
+          "terminal_state": "available"
+        },
+        {
+          "session_id": "d17d9c237e78dfca084c13e978c6533e",
+          "run_id": "885f149eaa2de3465993a933182fa7f7",
+          "backend_id": "asd_d17d9c237e78dfca084c13e978c6533e_885f149eaa2de3465993a933182fa7f7",
+          "title": "session-04",
+          "command": "D:\\a\\agent-session-desk\\agent-session-desk\\build\\resource-runtime-b448eac854a04c9e97ce5565b7d9794d\\bin\\managed\\asd-fixture.exe",
+          "terminal_state": "available"
+        }
+      ],
+      "selected_session": "13ffc0c06c1634f1558815f4cee783c1",
+      "fixture_reports": [
+        "managed-5-fixture-0.jsonl",
+        "managed-5-fixture-1.jsonl",
+        "managed-5-fixture-2.jsonl",
+        "managed-5-fixture-3.jsonl",
+        "managed-5-fixture-4.jsonl"
+      ]
+    },
+    {
+      "id": "managed-10",
+      "mode": "managed",
+      "count": 10,
+      "namespace": "asd-res-6b9341246172",
+      "sessions": [
+        {
+          "session_id": "14ae579ba4b639e55879719fa131e067",
+          "run_id": "87337f71907c9a9defbf3eaf6f4e2917",
+          "backend_id": "asd_14ae579ba4b639e55879719fa131e067_87337f71907c9a9defbf3eaf6f4e2917",
+          "title": "session-00",
+          "command": "D:\\a\\agent-session-desk\\agent-session-desk\\build\\resource-runtime-b448eac854a04c9e97ce5565b7d9794d\\bin\\managed\\asd-fixture.exe",
+          "terminal_state": "available"
+        },
+        {
+          "session_id": "cb1299b6c4faea7c14af41530ea20c7b",
+          "run_id": "276edfdf5aca1074582a3f3046618b26",
+          "backend_id": "asd_cb1299b6c4faea7c14af41530ea20c7b_276edfdf5aca1074582a3f3046618b26",
+          "title": "session-01",
+          "command": "D:\\a\\agent-session-desk\\agent-session-desk\\build\\resource-runtime-b448eac854a04c9e97ce5565b7d9794d\\bin\\managed\\asd-fixture.exe",
+          "terminal_state": "available"
+        },
+        {
+          "session_id": "9600a908f48e1790e02b2c932eb00fb5",
+          "run_id": "575b119716aaec3cc4b43ff0a3f6233a",
+          "backend_id": "asd_9600a908f48e1790e02b2c932eb00fb5_575b119716aaec3cc4b43ff0a3f6233a",
+          "title": "session-02",
+          "command": "D:\\a\\agent-session-desk\\agent-session-desk\\build\\resource-runtime-b448eac854a04c9e97ce5565b7d9794d\\bin\\managed\\asd-fixture.exe",
+          "terminal_state": "available"
+        },
+        {
+          "session_id": "9f8187bc19b00b757fc3e37edbb69b81",
+          "run_id": "92b6618f57d2bb449eccb94d086b2e21",
+          "backend_id": "asd_9f8187bc19b00b757fc3e37edbb69b81_92b6618f57d2bb449eccb94d086b2e21",
+          "title": "session-03",
+          "command": "D:\\a\\agent-session-desk\\agent-session-desk\\build\\resource-runtime-b448eac854a04c9e97ce5565b7d9794d\\bin\\managed\\asd-fixture.exe",
+          "terminal_state": "available"
+        },
+        {
+          "session_id": "9f3672aea203331d454bab1722aa223b",
+          "run_id": "62224a1135e4578be777612172d07eb6",
+          "backend_id": "asd_9f3672aea203331d454bab1722aa223b_62224a1135e4578be777612172d07eb6",
+          "title": "session-04",
+          "command": "D:\\a\\agent-session-desk\\agent-session-desk\\build\\resource-runtime-b448eac854a04c9e97ce5565b7d9794d\\bin\\managed\\asd-fixture.exe",
+          "terminal_state": "available"
+        },
+        {
+          "session_id": "1746c58de1d3b5888faa53c4e398b153",
+          "run_id": "93990e510d0ac72a8fb737d17def0ccf",
+          "backend_id": "asd_1746c58de1d3b5888faa53c4e398b153_93990e510d0ac72a8fb737d17def0ccf",
+          "title": "session-05",
+          "command": "D:\\a\\agent-session-desk\\agent-session-desk\\build\\resource-runtime-b448eac854a04c9e97ce5565b7d9794d\\bin\\managed\\asd-fixture.exe",
+          "terminal_state": "available"
+        },
+        {
+          "session_id": "5fba73b6d42cab44782af5b77364c697",
+          "run_id": "20ec0196c24c0689f147e22bad3f4b60",
+          "backend_id": "asd_5fba73b6d42cab44782af5b77364c697_20ec0196c24c0689f147e22bad3f4b60",
+          "title": "session-06",
+          "command": "D:\\a\\agent-session-desk\\agent-session-desk\\build\\resource-runtime-b448eac854a04c9e97ce5565b7d9794d\\bin\\managed\\asd-fixture.exe",
+          "terminal_state": "available"
+        },
+        {
+          "session_id": "f24bab10ca52e5e282c2d57567dd51a5",
+          "run_id": "77c00ada846ec2793a2e9708fb790d94",
+          "backend_id": "asd_f24bab10ca52e5e282c2d57567dd51a5_77c00ada846ec2793a2e9708fb790d94",
+          "title": "session-07",
+          "command": "D:\\a\\agent-session-desk\\agent-session-desk\\build\\resource-runtime-b448eac854a04c9e97ce5565b7d9794d\\bin\\managed\\asd-fixture.exe",
+          "terminal_state": "available"
+        },
+        {
+          "session_id": "c7e16ea7be63ee85550770660231c9af",
+          "run_id": "2e93a27e4508122f306d6c36145e00ab",
+          "backend_id": "asd_c7e16ea7be63ee85550770660231c9af_2e93a27e4508122f306d6c36145e00ab",
+          "title": "session-08",
+          "command": "D:\\a\\agent-session-desk\\agent-session-desk\\build\\resource-runtime-b448eac854a04c9e97ce5565b7d9794d\\bin\\managed\\asd-fixture.exe",
+          "terminal_state": "available"
+        },
+        {
+          "session_id": "cc3a120ccfa48b43d9f6c2de3807a9ab",
+          "run_id": "b5f8bebecd078994f9b0e939170498d3",
+          "backend_id": "asd_cc3a120ccfa48b43d9f6c2de3807a9ab_b5f8bebecd078994f9b0e939170498d3",
+          "title": "session-09",
+          "command": "D:\\a\\agent-session-desk\\agent-session-desk\\build\\resource-runtime-b448eac854a04c9e97ce5565b7d9794d\\bin\\managed\\asd-fixture.exe",
+          "terminal_state": "available"
+        }
+      ],
+      "selected_session": "14ae579ba4b639e55879719fa131e067",
+      "fixture_reports": [
+        "managed-10-fixture-0.jsonl",
+        "managed-10-fixture-1.jsonl",
+        "managed-10-fixture-2.jsonl",
+        "managed-10-fixture-3.jsonl",
+        "managed-10-fixture-4.jsonl",
+        "managed-10-fixture-5.jsonl",
+        "managed-10-fixture-6.jsonl",
+        "managed-10-fixture-7.jsonl",
+        "managed-10-fixture-8.jsonl",
+        "managed-10-fixture-9.jsonl"
+      ]
+    },
+    {
+      "id": "direct-1",
+      "mode": "direct",
+      "count": 1,
+      "namespace": "asd-res-b6bc746983aa",
+      "sessions": [],
+      "selected_session": null,
+      "fixture_reports": [
+        "direct-1-fixture-0.jsonl"
+      ]
+    },
+    {
+      "id": "direct-5",
+      "mode": "direct",
+      "count": 5,
+      "namespace": "asd-res-75b2b6825113",
+      "sessions": [],
+      "selected_session": null,
+      "fixture_reports": [
+        "direct-5-fixture-0.jsonl",
+        "direct-5-fixture-1.jsonl",
+        "direct-5-fixture-2.jsonl",
+        "direct-5-fixture-3.jsonl",
+        "direct-5-fixture-4.jsonl"
+      ]
+    },
+    {
+      "id": "direct-10",
+      "mode": "direct",
+      "count": 10,
+      "namespace": "asd-res-42fb1d36e186",
+      "sessions": [],
+      "selected_session": null,
+      "fixture_reports": [
+        "direct-10-fixture-0.jsonl",
+        "direct-10-fixture-1.jsonl",
+        "direct-10-fixture-2.jsonl",
+        "direct-10-fixture-3.jsonl",
+        "direct-10-fixture-4.jsonl",
+        "direct-10-fixture-5.jsonl",
+        "direct-10-fixture-6.jsonl",
+        "direct-10-fixture-7.jsonl",
+        "direct-10-fixture-8.jsonl",
+        "direct-10-fixture-9.jsonl"
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "scenario": "managed-0",
+      "phase": "idle",
+      "session_count": 0,
+      "first_sample": 1,
+      "sample_count": 12,
+      "warmup_seconds": 3,
+      "elapsed_ms": 12134.2869,
+      "expected_managers": 1,
+      "selected_session": null
+    },
+    {
+      "scenario": "managed-0",
+      "phase": "ui-closed",
+      "session_count": 0,
+      "first_sample": 13,
+      "sample_count": 12,
+      "warmup_seconds": 3,
+      "elapsed_ms": 12050.6739,
+      "expected_managers": 0,
+      "selected_session": null
+    },
+    {
+      "scenario": "managed-1",
+      "phase": "idle",
+      "session_count": 1,
+      "first_sample": 28,
+      "sample_count": 12,
+      "warmup_seconds": 3,
+      "elapsed_ms": 12137.1121,
+      "expected_managers": 1,
+      "selected_session": "aee8bdd8b0b2eee8f38aa151be05f1fa"
+    },
+    {
+      "scenario": "managed-1",
+      "phase": "selected-output",
+      "session_count": 1,
+      "first_sample": 40,
+      "sample_count": 12,
+      "warmup_seconds": 3,
+      "elapsed_ms": 12130.4555,
+      "expected_managers": 1,
+      "selected_session": "aee8bdd8b0b2eee8f38aa151be05f1fa"
+    },
+    {
+      "scenario": "managed-1",
+      "phase": "recovery-idle",
+      "session_count": 1,
+      "first_sample": 52,
+      "sample_count": 12,
+      "warmup_seconds": 3,
+      "elapsed_ms": 12130.6635,
+      "expected_managers": 1,
+      "selected_session": "aee8bdd8b0b2eee8f38aa151be05f1fa"
+    },
+    {
+      "scenario": "managed-1",
+      "phase": "ui-closed",
+      "session_count": 1,
+      "first_sample": 64,
+      "sample_count": 12,
+      "warmup_seconds": 3,
+      "elapsed_ms": 12102.9184,
+      "expected_managers": 0,
+      "selected_session": "aee8bdd8b0b2eee8f38aa151be05f1fa"
+    },
+    {
+      "scenario": "managed-5",
+      "phase": "idle",
+      "session_count": 5,
+      "first_sample": 79,
+      "sample_count": 12,
+      "warmup_seconds": 3,
+      "elapsed_ms": 12131.0931,
+      "expected_managers": 1,
+      "selected_session": "13ffc0c06c1634f1558815f4cee783c1"
+    },
+    {
+      "scenario": "managed-5",
+      "phase": "selected-output",
+      "session_count": 5,
+      "first_sample": 91,
+      "sample_count": 12,
+      "warmup_seconds": 3,
+      "elapsed_ms": 12158.6712,
+      "expected_managers": 1,
+      "selected_session": "13ffc0c06c1634f1558815f4cee783c1"
+    },
+    {
+      "scenario": "managed-5",
+      "phase": "all-output",
+      "session_count": 5,
+      "first_sample": 103,
+      "sample_count": 12,
+      "warmup_seconds": 3,
+      "elapsed_ms": 12126.2564,
+      "expected_managers": 1,
+      "selected_session": "13ffc0c06c1634f1558815f4cee783c1"
+    },
+    {
+      "scenario": "managed-5",
+      "phase": "recovery-idle",
+      "session_count": 5,
+      "first_sample": 115,
+      "sample_count": 12,
+      "warmup_seconds": 3,
+      "elapsed_ms": 12102.1,
+      "expected_managers": 1,
+      "selected_session": "13ffc0c06c1634f1558815f4cee783c1"
+    },
+    {
+      "scenario": "managed-5",
+      "phase": "ui-closed",
+      "session_count": 5,
+      "first_sample": 127,
+      "sample_count": 12,
+      "warmup_seconds": 3,
+      "elapsed_ms": 12070.8427,
+      "expected_managers": 0,
+      "selected_session": "13ffc0c06c1634f1558815f4cee783c1"
+    },
+    {
+      "scenario": "managed-10",
+      "phase": "idle",
+      "session_count": 10,
+      "first_sample": 142,
+      "sample_count": 12,
+      "warmup_seconds": 3,
+      "elapsed_ms": 12155.6496,
+      "expected_managers": 1,
+      "selected_session": "14ae579ba4b639e55879719fa131e067"
+    },
+    {
+      "scenario": "managed-10",
+      "phase": "selected-output",
+      "session_count": 10,
+      "first_sample": 154,
+      "sample_count": 12,
+      "warmup_seconds": 3,
+      "elapsed_ms": 12109.0301,
+      "expected_managers": 1,
+      "selected_session": "14ae579ba4b639e55879719fa131e067"
+    },
+    {
+      "scenario": "managed-10",
+      "phase": "all-output",
+      "session_count": 10,
+      "first_sample": 166,
+      "sample_count": 12,
+      "warmup_seconds": 3,
+      "elapsed_ms": 12131.1287,
+      "expected_managers": 1,
+      "selected_session": "14ae579ba4b639e55879719fa131e067"
+    },
+    {
+      "scenario": "managed-10",
+      "phase": "recovery-idle",
+      "session_count": 10,
+      "first_sample": 178,
+      "sample_count": 12,
+      "warmup_seconds": 3,
+      "elapsed_ms": 12101.5708,
+      "expected_managers": 1,
+      "selected_session": "14ae579ba4b639e55879719fa131e067"
+    },
+    {
+      "scenario": "managed-10",
+      "phase": "ui-closed",
+      "session_count": 10,
+      "first_sample": 190,
+      "sample_count": 12,
+      "warmup_seconds": 3,
+      "elapsed_ms": 12082.3989,
+      "expected_managers": 0,
+      "selected_session": "14ae579ba4b639e55879719fa131e067"
+    },
+    {
+      "scenario": "direct-1",
+      "phase": "idle",
+      "session_count": 1,
+      "first_sample": 204,
+      "sample_count": 12,
+      "warmup_seconds": 3,
+      "elapsed_ms": 12044.2418,
+      "expected_managers": 0,
+      "selected_session": null
+    },
+    {
+      "scenario": "direct-1",
+      "phase": "all-output",
+      "session_count": 1,
+      "first_sample": 216,
+      "sample_count": 12,
+      "warmup_seconds": 3,
+      "elapsed_ms": 12097.3809,
+      "expected_managers": 0,
+      "selected_session": null
+    },
+    {
+      "scenario": "direct-5",
+      "phase": "idle",
+      "session_count": 5,
+      "first_sample": 229,
+      "sample_count": 12,
+      "warmup_seconds": 3,
+      "elapsed_ms": 12089.7324,
+      "expected_managers": 0,
+      "selected_session": null
+    },
+    {
+      "scenario": "direct-5",
+      "phase": "all-output",
+      "session_count": 5,
+      "first_sample": 241,
+      "sample_count": 12,
+      "warmup_seconds": 3,
+      "elapsed_ms": 12124.2623,
+      "expected_managers": 0,
+      "selected_session": null
+    },
+    {
+      "scenario": "direct-10",
+      "phase": "idle",
+      "session_count": 10,
+      "first_sample": 254,
+      "sample_count": 12,
+      "warmup_seconds": 3,
+      "elapsed_ms": 12061.5436,
+      "expected_managers": 0,
+      "selected_session": null
+    },
+    {
+      "scenario": "direct-10",
+      "phase": "all-output",
+      "session_count": 10,
+      "first_sample": 266,
+      "sample_count": 12,
+      "warmup_seconds": 3,
+      "elapsed_ms": 12157.9429,
+      "expected_managers": 0,
+      "selected_session": null
+    }
+  ],
+  "cleanup": [
+    {
+      "scenario": "managed-0",
+      "normal_cleanup": true,
+      "remaining_owned_processes": [],
+      "collection_gaps": [],
+      "elapsed_ms": 32.6796
+    },
+    {
+      "scenario": "managed-1",
+      "normal_cleanup": true,
+      "remaining_owned_processes": [],
+      "collection_gaps": [],
+      "elapsed_ms": 25.2367
+    },
+    {
+      "scenario": "managed-5",
+      "normal_cleanup": true,
+      "remaining_owned_processes": [],
+      "collection_gaps": [],
+      "elapsed_ms": 28.3037
+    },
+    {
+      "scenario": "managed-10",
+      "normal_cleanup": true,
+      "remaining_owned_processes": [],
+      "collection_gaps": [],
+      "elapsed_ms": 31.7213
+    },
+    {
+      "scenario": "direct-1",
+      "normal_cleanup": true,
+      "remaining_owned_processes": [],
+      "collection_gaps": [],
+      "elapsed_ms": 32.2402
+    },
+    {
+      "scenario": "direct-5",
+      "normal_cleanup": true,
+      "remaining_owned_processes": [],
+      "collection_gaps": [],
+      "elapsed_ms": 33.8839
+    },
+    {
+      "scenario": "direct-10",
+      "normal_cleanup": true,
+      "remaining_owned_processes": [],
+      "collection_gaps": [],
+      "elapsed_ms": 34.5156
+    }
+  ],
+  "limitations": [
+    "Short baseline only: no performance budget, long-soak, leak-free, real-agent or Windows desktop acceptance.",
+    "One-second live-process snapshots miss short-lived clients; observed CPU is a lower bound, not complete process-lifetime CPU.",
+    "Working-set sums may double-count shared pages; private bytes are private committed memory, not physical residency.",
+    "Driver/sampler resources are separate; shared WMI-provider overhead and driver interference cannot be subtracted away.",
+    "Direct fixtures write to drained pipes; their output path is not equivalent to a terminal/ConPTY baseline.",
+    "An unobserved or unassignable console helper is a coverage gap, not proof of zero auxiliary processes.",
+    "Retained handles protect owned-image cleanup from PID reuse; exited handles are released at the next observation. This scaffolding can affect kernel/sampler cost."
+  ]
+}

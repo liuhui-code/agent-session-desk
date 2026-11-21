@@ -1,0 +1,1502 @@
+{
+  "schema_version": 1,
+  "run_id": 44865161425,
+  "commit": "30eaf058ed507fe8fea623593273ba6abf0162dc",
+  "run_url": "https://github.com/liuhui-code/agent-session-desk/actions/runs/44865161425",
+  "artifact_url": "https://github.com/liuhui-code/agent-session-desk/actions/runs/44865161425/artifacts/14691528489",
+  "artifact_id": 14691528489,
+  "artifact_name": "windows-native-evidence-30eaf058ed507fe8fea623593273ba6abf0162dc",
+  "artifact_digest": "sha256:296702d605a02d22a8ad94d6f7a0f0490ce1b8afc9f5a2c86f2ba6af66c8258b",
+  "artifact_bytes": 691820,
+  "zip_file": "artifact.zip",
+  "zip_sha256": "296702d605a02d22a8ad94d6f7a0f0490ce1b8afc9f5a2c86f2ba6af66c8258b",
+  "zip_matches_github_digest_and_size": true,
+  "github_artifact_metadata": {
+    "id": 14691528489,
+    "name": "windows-native-evidence-30eaf058ed507fe8fea623593273ba6abf0162dc",
+    "size_in_bytes": 691820,
+    "url": "https://api.github.com/repos/liuhui-code/agent-session-desk/actions/artifacts/14691528489",
+    "archive_download_url": "https://api.github.com/repos/liuhui-code/agent-session-desk/actions/artifacts/14691528489/zip",
+    "expired": false,
+    "created_at": "2026-11-21T04:23:11Z",
+    "expires_at": "2026-12-05T04:23:10Z",
+    "updated_at": "2026-11-21T04:23:11Z",
+    "digest": "sha256:296702d605a02d22a8ad94d6f7a0f0490ce1b8afc9f5a2c86f2ba6af66c8258b",
+    "workflow_run": {
+      "id": 44865161425,
+      "repository_id": 1465558795,
+      "head_repository_id": 1465558795,
+      "head_branch": "main",
+      "head_sha": "30eaf058ed507fe8fea623593273ba6abf0162dc"
+    }
+  },
+  "source_metadata_sha256": "6b3d5220141576008d858eae94133622d9c887f54b62eb30aa4051f0a02e8be0",
+  "entries": [
+    {
+      "path": "build-fixture.stderr",
+      "directory": false,
+      "bytes": 0,
+      "compressed_bytes": 2,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "build-fixture.stdout",
+      "directory": false,
+      "bytes": 0,
+      "compressed_bytes": 2,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "build-product.stderr",
+      "directory": false,
+      "bytes": 0,
+      "compressed_bytes": 2,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "build-product.stdout",
+      "directory": false,
+      "bytes": 0,
+      "compressed_bytes": 2,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "catalog.stderr",
+      "directory": false,
+      "bytes": 0,
+      "compressed_bytes": 2,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "catalog.stdout",
+      "directory": false,
+      "bytes": 274,
+      "compressed_bytes": 191,
+      "sha256": "8f23196a8a53abbc9a808d88a8151bce89ef89dfd0ba05bdc3189b7a0fe6e6ce"
+    },
+    {
+      "path": "go-version.stderr",
+      "directory": false,
+      "bytes": 0,
+      "compressed_bytes": 2,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "go-version.stdout",
+      "directory": false,
+      "bytes": 34,
+      "compressed_bytes": 36,
+      "sha256": "bd74e61f96314b4c2e72e63319395345bc2817752bbdd3fc177a9edb2eb2ba14"
+    },
+    {
+      "path": "modules.stderr",
+      "directory": false,
+      "bytes": 0,
+      "compressed_bytes": 2,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "modules.stdout",
+      "directory": false,
+      "bytes": 21,
+      "compressed_bytes": 23,
+      "sha256": "b4537ed75f533f993f371954de47e42a793b8e5b0587577de7e27fb3e50696bd"
+    },
+    {
+      "path": "native.stderr",
+      "directory": false,
+      "bytes": 0,
+      "compressed_bytes": 2,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "native.stdout",
+      "directory": false,
+      "bytes": 14714,
+      "compressed_bytes": 1218,
+      "sha256": "1594b992810029c768866b045b43eb9161c67ab6587d06b05f64bafce4e39055"
+    },
+    {
+      "path": "native/TestWindowsPsmuxNativeCLIProcessExitAndReconnect/asd-native-73bd13a3f310/fixture-0.jsonl",
+      "directory": false,
+      "bytes": 273,
+      "compressed_bytes": 242,
+      "sha256": "f53f8d2fdb676832233f76c174c835003da4856199a3e20de62f9f10d2f164d5"
+    },
+    {
+      "path": "native/TestWindowsPsmuxNativeIsolationAndRejectedLaunches/asd-native-2a77bd80f733/fixture-0.jsonl",
+      "directory": false,
+      "bytes": 249,
+      "compressed_bytes": 227,
+      "sha256": "1a1b2dde52c7657021e777a0ab1f3821863da73c74bce6ff9af9a13b524da8b7"
+    },
+    {
+      "path": "native/TestWindowsPsmuxNativeIsolationAndRejectedLaunches/asd-native-2a77bd80f733/fixture-1.jsonl",
+      "directory": false,
+      "bytes": 289,
+      "compressed_bytes": 250,
+      "sha256": "28ea2f92cc3e7f93ade96454bb65a3c2476112dda853188cf85e779e7c389068"
+    },
+    {
+      "path": "native/TestWindowsPsmuxNativeIsolationAndRejectedLaunches/asd-native-ab68fcec9a45/fixture-0.jsonl",
+      "directory": false,
+      "bytes": 262,
+      "compressed_bytes": 234,
+      "sha256": "105c716fbccc38c60fe1163e48f618a680160b8b7b593a4cd33906336ef7d2b1"
+    },
+    {
+      "path": "native/TestWindowsPsmuxNativeLaunchLifecycle/asd-native-629c73bdde65/fixture-0.jsonl",
+      "directory": false,
+      "bytes": 434,
+      "compressed_bytes": 335,
+      "sha256": "cb24f8a55dbf9d2c9cff9bd16fac45ac49cfa57118965d4ca9a8a5ee95638c47"
+    },
+    {
+      "path": "native/TestWindowsPsmuxNativeMissingOriginalPaneNeverFallsBack/asd-native-cd203e3f71d2/fixture-0.jsonl",
+      "directory": false,
+      "bytes": 279,
+      "compressed_bytes": 245,
+      "sha256": "a4b398c130fd47a80be5454bf6468715e036a362225e98269e96ffcdb19dd8d6"
+    },
+    {
+      "path": "native/TestWindowsPsmuxNativeMissingOriginalPaneNeverFallsBack/asd-native-cd203e3f71d2/fixture-1.jsonl",
+      "directory": false,
+      "bytes": 331,
+      "compressed_bytes": 276,
+      "sha256": "739ff3fae32404c2f2946e2ba256309c833b9df3c33e02aa8a6b91af782f9d3e"
+    },
+    {
+      "path": "native/TestWindowsPsmuxNativeRapidExitRetainsScreen/asd-native-befe97aeb774/fixture-0.jsonl",
+      "directory": false,
+      "bytes": 290,
+      "compressed_bytes": 249,
+      "sha256": "16703d645795da5388d40843008ba297b73f07d16195c68cf11b114315358b72"
+    },
+    {
+      "path": "process-metrics-graph-results.json",
+      "directory": false,
+      "bytes": 8345,
+      "compressed_bytes": 1137,
+      "sha256": "f793f24016903a69df3dabf659b47fea3d94e99b8afa6cb3bec119ddd9143c9d"
+    },
+    {
+      "path": "psmux-version.stderr",
+      "directory": false,
+      "bytes": 0,
+      "compressed_bytes": 2,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "psmux-version.stdout",
+      "directory": false,
+      "bytes": 44,
+      "compressed_bytes": 38,
+      "sha256": "5e3bbba0226f294300f6c87b132f7e2403a8c731cb128573f35243de73e19d61"
+    },
+    {
+      "path": "race.stderr",
+      "directory": false,
+      "bytes": 0,
+      "compressed_bytes": 2,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "race.stdout",
+      "directory": false,
+      "bytes": 416,
+      "compressed_bytes": 134,
+      "sha256": "f3ec8d38f3edeae192b4715169bb4f49353db2749dbe72008a862c7e64ce3e1d"
+    },
+    {
+      "path": "resources/direct-1-fixture-0.jsonl",
+      "directory": false,
+      "bytes": 756,
+      "compressed_bytes": 334,
+      "sha256": "e17bc137d21b4fbf2a589f0cd8ddceb41669ca41597a6bc057f7d4971ef996d1"
+    },
+    {
+      "path": "resources/direct-10-fixture-0.jsonl",
+      "directory": false,
+      "bytes": 758,
+      "compressed_bytes": 339,
+      "sha256": "0f84d9893bf436cded65ee34ca7c148862dbf6c155d2a856df2fbc8a69d37e80"
+    },
+    {
+      "path": "resources/direct-10-fixture-1.jsonl",
+      "directory": false,
+      "bytes": 758,
+      "compressed_bytes": 339,
+      "sha256": "a61e75ac1b640e52ffc7d73bb00a4834cf33445e1ff300e9b0e5b4edb0764903"
+    },
+    {
+      "path": "resources/direct-10-fixture-2.jsonl",
+      "directory": false,
+      "bytes": 757,
+      "compressed_bytes": 335,
+      "sha256": "2df3cf4408e0a481c1b0e61b2a523de2936a1b77fc001ade0dcf681de77c07a8"
+    },
+    {
+      "path": "resources/direct-10-fixture-3.jsonl",
+      "directory": false,
+      "bytes": 758,
+      "compressed_bytes": 337,
+      "sha256": "42f1c8fc3f272748bfa99ce36f201bc1d1900e286aa78fb622b548930869080c"
+    },
+    {
+      "path": "resources/direct-10-fixture-4.jsonl",
+      "directory": false,
+      "bytes": 758,
+      "compressed_bytes": 336,
+      "sha256": "80f9bf427131120dcfe5fec1a76f4ab19e65e17f24c3a34c17c654d937bf0e20"
+    },
+    {
+      "path": "resources/direct-10-fixture-5.jsonl",
+      "directory": false,
+      "bytes": 758,
+      "compressed_bytes": 338,
+      "sha256": "6b6f9f40112916efcbb104c820feb203400eb0a25a74b0e46140cc20832ef8a0"
+    },
+    {
+      "path": "resources/direct-10-fixture-6.jsonl",
+      "directory": false,
+      "bytes": 758,
+      "compressed_bytes": 335,
+      "sha256": "f5e3daa3d06ecc88e9491e2c403f3b0392131f91d7c6c3467cf54d0680979158"
+    },
+    {
+      "path": "resources/direct-10-fixture-7.jsonl",
+      "directory": false,
+      "bytes": 758,
+      "compressed_bytes": 337,
+      "sha256": "c4f6fb277fa51389e4fa2e12d1701a68c4f097d4ed8bcf1d428291d2129af36f"
+    },
+    {
+      "path": "resources/direct-10-fixture-8.jsonl",
+      "directory": false,
+      "bytes": 758,
+      "compressed_bytes": 337,
+      "sha256": "cb0d01d43a8a75079867b89909583cc9d038834251854f56a23a12900c8719ed"
+    },
+    {
+      "path": "resources/direct-10-fixture-9.jsonl",
+      "directory": false,
+      "bytes": 758,
+      "compressed_bytes": 336,
+      "sha256": "d6842719bcc5aaf9d047091bb72f2438efb2cc0760a58902f24bd52d752ad00a"
+    },
+    {
+      "path": "resources/direct-5-fixture-0.jsonl",
+      "directory": false,
+      "bytes": 758,
+      "compressed_bytes": 337,
+      "sha256": "907fa78a2d2e19550504493c755cfa4ff880b25632b6dc0b51a60c8529de51b3"
+    },
+    {
+      "path": "resources/direct-5-fixture-1.jsonl",
+      "directory": false,
+      "bytes": 756,
+      "compressed_bytes": 336,
+      "sha256": "eca654447d83083e69278bf177cb49a2ce87329b4fab29be2f6268764d3f898a"
+    },
+    {
+      "path": "resources/direct-5-fixture-2.jsonl",
+      "directory": false,
+      "bytes": 758,
+      "compressed_bytes": 337,
+      "sha256": "1177edd2a41dc4d9da77d8de64fc6b8afec854a286947305c6d5524a4b3ba7f4"
+    },
+    {
+      "path": "resources/direct-5-fixture-3.jsonl",
+      "directory": false,
+      "bytes": 758,
+      "compressed_bytes": 336,
+      "sha256": "9c2aee56891c19438eed18b9d8ceaea1f536ee79a654df36ec080671df952c38"
+    },
+    {
+      "path": "resources/direct-5-fixture-4.jsonl",
+      "directory": false,
+      "bytes": 758,
+      "compressed_bytes": 337,
+      "sha256": "41ffc6d3714bc8092fe64317ac86125a7d5531063b4ab8995f3b3d3b25fdb293"
+    },
+    {
+      "path": "resources/events.jsonl",
+      "directory": false,
+      "bytes": 320972,
+      "compressed_bytes": 23175,
+      "sha256": "343acfda109e8ca11cef8ad995b589d1ca7064fc6ea61ea14e4ef35274b1c42e"
+    },
+    {
+      "path": "resources/managed-0-backend.conf",
+      "directory": false,
+      "bytes": 163,
+      "compressed_bytes": 121,
+      "sha256": "932de1bc6c9336f7e20ccd6fdcfad6bd9d453c6863174b8082a73a5eaf6e51ca"
+    },
+    {
+      "path": "resources/managed-0-driver.conf",
+      "directory": false,
+      "bytes": 101,
+      "compressed_bytes": 80,
+      "sha256": "d95e80170c470f72edbf2c0ba04c370cdb6bcd843bf4a9f7aca812177a53caf5"
+    },
+    {
+      "path": "resources/managed-0-ui-1.txt",
+      "directory": false,
+      "bytes": 1825,
+      "compressed_bytes": 211,
+      "sha256": "ae5578b1218d51b05f0276ae73b6fddd4b8f8219f19890055ba7f7c8d5f4fa8e"
+    },
+    {
+      "path": "resources/managed-0-ui-2.txt",
+      "directory": false,
+      "bytes": 1825,
+      "compressed_bytes": 211,
+      "sha256": "ae5578b1218d51b05f0276ae73b6fddd4b8f8219f19890055ba7f7c8d5f4fa8e"
+    },
+    {
+      "path": "resources/managed-1-backend.conf",
+      "directory": false,
+      "bytes": 163,
+      "compressed_bytes": 121,
+      "sha256": "932de1bc6c9336f7e20ccd6fdcfad6bd9d453c6863174b8082a73a5eaf6e51ca"
+    },
+    {
+      "path": "resources/managed-1-driver.conf",
+      "directory": false,
+      "bytes": 101,
+      "compressed_bytes": 80,
+      "sha256": "d95e80170c470f72edbf2c0ba04c370cdb6bcd843bf4a9f7aca812177a53caf5"
+    },
+    {
+      "path": "resources/managed-1-fixture-0.jsonl",
+      "directory": false,
+      "bytes": 697,
+      "compressed_bytes": 319,
+      "sha256": "6fef47a402bae8587d529b90535a07db91fa248c10dd66d3b3a14657b9c369dc"
+    },
+    {
+      "path": "resources/managed-1-ui-1.txt",
+      "directory": false,
+      "bytes": 1793,
+      "compressed_bytes": 205,
+      "sha256": "f26f2101c3b650b48331f192e98ec20db9f2e1c3afed65181ca5c377213527f4"
+    },
+    {
+      "path": "resources/managed-1-ui-2.txt",
+      "directory": false,
+      "bytes": 1793,
+      "compressed_bytes": 205,
+      "sha256": "f26f2101c3b650b48331f192e98ec20db9f2e1c3afed65181ca5c377213527f4"
+    },
+    {
+      "path": "resources/managed-10-backend.conf",
+      "directory": false,
+      "bytes": 163,
+      "compressed_bytes": 121,
+      "sha256": "932de1bc6c9336f7e20ccd6fdcfad6bd9d453c6863174b8082a73a5eaf6e51ca"
+    },
+    {
+      "path": "resources/managed-10-driver.conf",
+      "directory": false,
+      "bytes": 101,
+      "compressed_bytes": 80,
+      "sha256": "d95e80170c470f72edbf2c0ba04c370cdb6bcd843bf4a9f7aca812177a53caf5"
+    },
+    {
+      "path": "resources/managed-10-fixture-0.jsonl",
+      "directory": false,
+      "bytes": 1232,
+      "compressed_bytes": 362,
+      "sha256": "5aed00bb75cd54d14f94f068645c35845cf548dbdf83fb43aac3992afc4d64c4"
+    },
+    {
+      "path": "resources/managed-10-fixture-1.jsonl",
+      "directory": false,
+      "bytes": 697,
+      "compressed_bytes": 319,
+      "sha256": "7b72d49684bca42b5c36002aed0e01313c15269e02f4cae27aa24e03dbe218df"
+    },
+    {
+      "path": "resources/managed-10-fixture-2.jsonl",
+      "directory": false,
+      "bytes": 697,
+      "compressed_bytes": 320,
+      "sha256": "50b7b96a6c9bfef853bf922d8b6052903afa89563ff10aeec89723aff0352ffd"
+    },
+    {
+      "path": "resources/managed-10-fixture-3.jsonl",
+      "directory": false,
+      "bytes": 696,
+      "compressed_bytes": 319,
+      "sha256": "665380bd289753e2df52de3823cff7b5a5f30c255c3c677f0fcd08b20bae9355"
+    },
+    {
+      "path": "resources/managed-10-fixture-4.jsonl",
+      "directory": false,
+      "bytes": 696,
+      "compressed_bytes": 320,
+      "sha256": "1dd2e73f416885acf773977e262ba6a5151866a169cb69166dc861dd71f68242"
+    },
+    {
+      "path": "resources/managed-10-fixture-5.jsonl",
+      "directory": false,
+      "bytes": 696,
+      "compressed_bytes": 320,
+      "sha256": "760c03e2e4074ddf4c63404892d35a7452bc17750f65db2e53e66f863a6feb7f"
+    },
+    {
+      "path": "resources/managed-10-fixture-6.jsonl",
+      "directory": false,
+      "bytes": 696,
+      "compressed_bytes": 323,
+      "sha256": "aa3f5a1b893a078a88a0899a1677069bf8c276135a324335c3fa2970fc22809a"
+    },
+    {
+      "path": "resources/managed-10-fixture-7.jsonl",
+      "directory": false,
+      "bytes": 697,
+      "compressed_bytes": 323,
+      "sha256": "04c7e02050104f678fa046aed5f609fafc7425b3121bf5ce2d839b41b3f0d2e0"
+    },
+    {
+      "path": "resources/managed-10-fixture-8.jsonl",
+      "directory": false,
+      "bytes": 697,
+      "compressed_bytes": 320,
+      "sha256": "9db3a029f3cf12555821b8cfe7f44fa728d2a96729d19b90378bebe3f0e65ecb"
+    },
+    {
+      "path": "resources/managed-10-fixture-9.jsonl",
+      "directory": false,
+      "bytes": 697,
+      "compressed_bytes": 320,
+      "sha256": "c3b9c6ada531b71632682a8faf25bf530414ff9d818191a2b9bb7dfd6f8c8add"
+    },
+    {
+      "path": "resources/managed-10-ui-1.txt",
+      "directory": false,
+      "bytes": 2010,
+      "compressed_bytes": 405,
+      "sha256": "8296247e78eecaf5af9168a1cdd50f9c7f80b0cc615d25d9d38bae80440751d1"
+    },
+    {
+      "path": "resources/managed-10-ui-2.txt",
+      "directory": false,
+      "bytes": 3121,
+      "compressed_bytes": 473,
+      "sha256": "9afedf3a733fd3310d9e9e4cab35e87aebde07f9268b5acc57eee5193732b592"
+    },
+    {
+      "path": "resources/managed-5-backend.conf",
+      "directory": false,
+      "bytes": 163,
+      "compressed_bytes": 121,
+      "sha256": "932de1bc6c9336f7e20ccd6fdcfad6bd9d453c6863174b8082a73a5eaf6e51ca"
+    },
+    {
+      "path": "resources/managed-5-driver.conf",
+      "directory": false,
+      "bytes": 101,
+      "compressed_bytes": 80,
+      "sha256": "d95e80170c470f72edbf2c0ba04c370cdb6bcd843bf4a9f7aca812177a53caf5"
+    },
+    {
+      "path": "resources/managed-5-fixture-0.jsonl",
+      "directory": false,
+      "bytes": 1231,
+      "compressed_bytes": 363,
+      "sha256": "bb52ef38d41d695dca0764173cf31380189667135a77e2ec13d76480739e8655"
+    },
+    {
+      "path": "resources/managed-5-fixture-1.jsonl",
+      "directory": false,
+      "bytes": 697,
+      "compressed_bytes": 319,
+      "sha256": "0e57464f3dd06fafeb0383b74401eccb8e09ba995bfb5bd97bf99fe6ea300c3e"
+    },
+    {
+      "path": "resources/managed-5-fixture-2.jsonl",
+      "directory": false,
+      "bytes": 696,
+      "compressed_bytes": 324,
+      "sha256": "8836b3c755a3eb2724a6710e149cb3d899023a775613ca9be1beaa43a9725de9"
+    },
+    {
+      "path": "resources/managed-5-fixture-3.jsonl",
+      "directory": false,
+      "bytes": 696,
+      "compressed_bytes": 321,
+      "sha256": "69739bf989a13dd1bb8dab8e7c4e9ebb9c3bf095998fda6489af0df53ca94931"
+    },
+    {
+      "path": "resources/managed-5-fixture-4.jsonl",
+      "directory": false,
+      "bytes": 695,
+      "compressed_bytes": 319,
+      "sha256": "852b8336ffdcd2e49516ab660ee06d67f3b1e6d1206bc4348ecdd262003d662b"
+    },
+    {
+      "path": "resources/managed-5-ui-1.txt",
+      "directory": false,
+      "bytes": 1995,
+      "compressed_bytes": 392,
+      "sha256": "b5b9187a95729e028dc3970477ee54153110541cc879e9b29031e3e8327ea28b"
+    },
+    {
+      "path": "resources/managed-5-ui-2.txt",
+      "directory": false,
+      "bytes": 3106,
+      "compressed_bytes": 464,
+      "sha256": "0ccbc45065654020b4a58246cbfc342dffe0e6052a8ad6c1bf70d9e0a7987232"
+    },
+    {
+      "path": "resources/samples.jsonl",
+      "directory": false,
+      "bytes": 7117404,
+      "compressed_bytes": 347237,
+      "sha256": "1bfeee152ebd7738c39bd1ec306e6a3af21b37a91f7b4d73ad58d85ca2588f9f"
+    },
+    {
+      "path": "resources/summary.analysis.json",
+      "directory": false,
+      "bytes": 8563952,
+      "compressed_bytes": 259835,
+      "sha256": "37ae9785130d9218ad5c20cccc25e397f4b48b1eeee899b01f86f1f9b0c9bba7"
+    },
+    {
+      "path": "resources/summary.json",
+      "directory": false,
+      "bytes": 20695,
+      "compressed_bytes": 3313,
+      "sha256": "c07821d7eb12acd1274a640e7bb8dc12109f4444b8fdce6c146dad2a95ffbca4"
+    },
+    {
+      "path": "resources/summary.table.md",
+      "directory": false,
+      "bytes": 110883,
+      "compressed_bytes": 14397,
+      "sha256": "f879f76a699f78bb61480f436f4c9e73d8e3bbadc88c4f4f7ec6fd7a8e904dc2"
+    },
+    {
+      "path": "source-after.json",
+      "directory": false,
+      "bytes": 2510,
+      "compressed_bytes": 1186,
+      "sha256": "daf9dc082335850535ea51d0f4e3415154c32dac81531e036b98e8893988e070"
+    },
+    {
+      "path": "source-before.json",
+      "directory": false,
+      "bytes": 2510,
+      "compressed_bytes": 1186,
+      "sha256": "daf9dc082335850535ea51d0f4e3415154c32dac81531e036b98e8893988e070"
+    },
+    {
+      "path": "summary.json",
+      "directory": false,
+      "bytes": 4044,
+      "compressed_bytes": 998,
+      "sha256": "1f0931293d108e179279c4aaf2cedec6e99569d207bc367658e65a57468c4f20"
+    },
+    {
+      "path": "unit.stderr",
+      "directory": false,
+      "bytes": 0,
+      "compressed_bytes": 2,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "unit.stdout",
+      "directory": false,
+      "bytes": 185500,
+      "compressed_bytes": 8075,
+      "sha256": "895bd3d8a964901c7f95ce4de1499d70288b306c23562a86bceaf6aaccab4d9d"
+    },
+    {
+      "path": "vet.stderr",
+      "directory": false,
+      "bytes": 0,
+      "compressed_bytes": 2,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "vet.stdout",
+      "directory": false,
+      "bytes": 0,
+      "compressed_bytes": 2,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "entry_count": 85,
+  "source_verification": {
+    "source_before_after_hashes_equal": true,
+    "source_before_after_bytes_equal": true,
+    "guarded_file_count": 25,
+    "files": [
+      {
+        "path": "cmd/asd-fixture/main.go",
+        "sha256": "a6b9e214b601c35e02c450ebf0eddd3d3c2b9f5484cc56cbb61a918e76cbcef1",
+        "matches_git_blob_bytes": true
+      },
+      {
+        "path": "cmd/asd-fixture/main_test.go",
+        "sha256": "a6e27d112995f66f24fb6b6019913cfd0bd4650bd97c2409ef217019771ad527",
+        "matches_git_blob_bytes": true
+      },
+      {
+        "path": "cmd/asd/main.go",
+        "sha256": "f8a910eed8f4ac1702f92f2e16a406376cc67890f4e36904a256615e53fa7da0",
+        "matches_git_blob_bytes": true
+      },
+      {
+        "path": "go.mod",
+        "sha256": "f5c342d23fb679d0b53c403e3c74bbc8ace653c40ce1e0a40f840c11011da862",
+        "matches_git_blob_bytes": true
+      },
+      {
+        "path": "go.sum",
+        "sha256": "ad80c1dd875e013a82f6178b9819a6090c37d8224932f90cd6adc96f6429e0f0",
+        "matches_git_blob_bytes": true
+      },
+      {
+        "path": "internal/backend/backend.go",
+        "sha256": "9d69c9d662f9285f5d7dae334ff444cc64d595647cc6416f72a5eab51f21f978",
+        "matches_git_blob_bytes": true
+      },
+      {
+        "path": "internal/backend/backend_test.go",
+        "sha256": "213509608613a2445c04ae1e4843ffee13e26c6d5801fc77a7fe53cc2333f9fd",
+        "matches_git_blob_bytes": true
+      },
+      {
+        "path": "internal/backend/integration_windows_test.go",
+        "sha256": "a4b97fd1d332c5949dcc61df1c4461c75b5229af4c3e463e907858afc9a78be9",
+        "matches_git_blob_bytes": true
+      },
+      {
+        "path": "internal/backend/process_unix.go",
+        "sha256": "4d9efe24bc5f644bef0d17cfbfed61d5e8eedb88f1fe119ba6f43a7a3815e6b2",
+        "matches_git_blob_bytes": true
+      },
+      {
+        "path": "internal/backend/process_windows.go",
+        "sha256": "a7d15b9b51f1d68d3fb83d053811a7dcf7360e8b205aeee4164a4c32252b4bfe",
+        "matches_git_blob_bytes": true
+      },
+      {
+        "path": "internal/backend/psmux_contract.go",
+        "sha256": "f7b34f2b879ce638f8a3a4ab7e257eb8d51e6e292ab520fcd07ccb0da77c5165",
+        "matches_git_blob_bytes": true
+      },
+      {
+        "path": "internal/backend/transport.go",
+        "sha256": "732b854ec6111893928f9e1e0b657d5932bb0d6ea178cdf7cf044f4aba63cc06",
+        "matches_git_blob_bytes": true
+      },
+      {
+        "path": "internal/cli/cli.go",
+        "sha256": "2c5738b67894972f3c5197dd2b8dc9cab0984d051514f77741c10b15a299a87d",
+        "matches_git_blob_bytes": true
+      },
+      {
+        "path": "internal/cli/cli_test.go",
+        "sha256": "9b13fdacc42446fbcc5d493f49f2539fe16cadda9b397452c74696f887fce692",
+        "matches_git_blob_bytes": true
+      },
+      {
+        "path": "internal/session/launch.go",
+        "sha256": "8938bacb7a303944529244177804484457a59a164a04627f297f6f9929c3a43c",
+        "matches_git_blob_bytes": true
+      },
+      {
+        "path": "internal/session/launch_test.go",
+        "sha256": "1ee77ae9320e48b2e0ad2529fe116182ab877e149c8256523030c3825638c04b",
+        "matches_git_blob_bytes": true
+      },
+      {
+        "path": "internal/session/session.go",
+        "sha256": "3d9dd0fcec805a21cabf1e7bea0c3231ecc3720520b55d97a093a5446ce2de31",
+        "matches_git_blob_bytes": true
+      },
+      {
+        "path": "internal/ui/cellwidth.go",
+        "sha256": "ef5d9ed1a9e70bf44bdf47d9bb07eb14fec95ab3cc331a00c8d1b28b502720bc",
+        "matches_git_blob_bytes": true
+      },
+      {
+        "path": "internal/ui/home_view_frame.go",
+        "sha256": "80378503a4aabff1305970520ec7dcf0baf710187e95085eeda6387e1fed6dd6",
+        "matches_git_blob_bytes": true
+      },
+      {
+        "path": "internal/ui/home_view_list.go",
+        "sha256": "481d2436f86a2bf158920ab436eb5ef2932a64574c40ff9334b3b911ae909f85",
+        "matches_git_blob_bytes": true
+      },
+      {
+        "path": "internal/ui/model.go",
+        "sha256": "6ff846db7e8ff1e1ced39b87a58ac121f2feca14e761a9a5832b0c2b49a1d790",
+        "matches_git_blob_bytes": true
+      },
+      {
+        "path": "internal/ui/model_test.go",
+        "sha256": "9626a6472336ea9e4971aee990b18a91d5dca416a1f746f8952da26d01cc5b65",
+        "matches_git_blob_bytes": true
+      },
+      {
+        "path": "internal/ui/styles.go",
+        "sha256": "e5447ba5bde71a5fc77fe473749012e86caf2bf1308e675d798e1886798bfd89",
+        "matches_git_blob_bytes": true
+      },
+      {
+        "path": "internal/ui/text.go",
+        "sha256": "e4af9e958a23ad1c936e49b3bf48daf1a1bb17bcd4a41fa304c7b1807b6aa4f0",
+        "matches_git_blob_bytes": true
+      },
+      {
+        "path": "internal/ui/view_test.go",
+        "sha256": "caf0dca194d2be785b0a412aea434af34cb8edb333ab7f0f0bf1e3cbad11bdec",
+        "matches_git_blob_bytes": true
+      }
+    ],
+    "additional_reported_source_hashes": [
+      {
+        "path": "tools/ci/windows-process-metrics.ps1",
+        "reported_sha256": "8e58a9688d67905f0dc25660f573fd781caa2d2f6747ff9b52000fccd9bb07a5",
+        "git_blob_sha256": "8e58a9688d67905f0dc25660f573fd781caa2d2f6747ff9b52000fccd9bb07a5",
+        "verified_representation": "exact_git_blob_bytes"
+      },
+      {
+        "path": "tools/ci/process-metrics-fixtures.json",
+        "reported_sha256": "57566974b2805f8e4ffa0fb228102f881effd194a22b5b595593b4f7f7597f40",
+        "git_blob_sha256": "57566974b2805f8e4ffa0fb228102f881effd194a22b5b595593b4f7f7597f40",
+        "verified_representation": "exact_git_blob_bytes"
+      }
+    ],
+    "scope": "Go sources and module files recorded in the native guard; extra graph-test hashes are checked separately. This does not assert that every CI script had a runtime hash guard."
+  },
+  "fixture_payload_audit": [
+    {
+      "path": "native/TestWindowsPsmuxNativeCLIProcessExitAndReconnect/asd-native-73bd13a3f310/fixture-0.jsonl",
+      "event_counts": {
+        "started": 1
+      },
+      "selected_env_keys": [
+        "ASD_NATIVE_EMPTY",
+        "ASD_NATIVE_VALUE"
+      ],
+      "synthetic_payload_checked": true
+    },
+    {
+      "path": "native/TestWindowsPsmuxNativeIsolationAndRejectedLaunches/asd-native-2a77bd80f733/fixture-0.jsonl",
+      "event_counts": {
+        "started": 1
+      },
+      "selected_env_keys": [
+        "ASD_NATIVE_EMPTY",
+        "ASD_NATIVE_VALUE"
+      ],
+      "synthetic_payload_checked": true
+    },
+    {
+      "path": "native/TestWindowsPsmuxNativeIsolationAndRejectedLaunches/asd-native-2a77bd80f733/fixture-1.jsonl",
+      "event_counts": {
+        "input": 1,
+        "started": 1
+      },
+      "selected_env_keys": [
+        "ASD_NATIVE_EMPTY",
+        "ASD_NATIVE_VALUE"
+      ],
+      "synthetic_payload_checked": true
+    },
+    {
+      "path": "native/TestWindowsPsmuxNativeIsolationAndRejectedLaunches/asd-native-ab68fcec9a45/fixture-0.jsonl",
+      "event_counts": {
+        "started": 1
+      },
+      "selected_env_keys": [
+        "ASD_NATIVE_EMPTY",
+        "ASD_NATIVE_VALUE"
+      ],
+      "synthetic_payload_checked": true
+    },
+    {
+      "path": "native/TestWindowsPsmuxNativeLaunchLifecycle/asd-native-629c73bdde65/fixture-0.jsonl",
+      "event_counts": {
+        "exiting": 1,
+        "input": 2,
+        "started": 1
+      },
+      "selected_env_keys": [
+        "ASD_NATIVE_EMPTY",
+        "ASD_NATIVE_VALUE"
+      ],
+      "synthetic_payload_checked": true
+    },
+    {
+      "path": "native/TestWindowsPsmuxNativeMissingOriginalPaneNeverFallsBack/asd-native-cd203e3f71d2/fixture-0.jsonl",
+      "event_counts": {
+        "started": 1
+      },
+      "selected_env_keys": [
+        "ASD_NATIVE_EMPTY",
+        "ASD_NATIVE_VALUE"
+      ],
+      "synthetic_payload_checked": true
+    },
+    {
+      "path": "native/TestWindowsPsmuxNativeMissingOriginalPaneNeverFallsBack/asd-native-cd203e3f71d2/fixture-1.jsonl",
+      "event_counts": {
+        "input": 1,
+        "started": 1
+      },
+      "selected_env_keys": [
+        "ASD_NATIVE_EMPTY",
+        "ASD_NATIVE_VALUE"
+      ],
+      "synthetic_payload_checked": true
+    },
+    {
+      "path": "native/TestWindowsPsmuxNativeRapidExitRetainsScreen/asd-native-befe97aeb774/fixture-0.jsonl",
+      "event_counts": {
+        "exiting": 1,
+        "started": 1
+      },
+      "selected_env_keys": [
+        "ASD_NATIVE_EMPTY",
+        "ASD_NATIVE_VALUE"
+      ],
+      "synthetic_payload_checked": true
+    },
+    {
+      "path": "resources/direct-1-fixture-0.jsonl",
+      "event_counts": {
+        "exiting": 1,
+        "input": 3,
+        "load-finished": 1,
+        "load-start": 1,
+        "started": 1
+      },
+      "selected_env_keys": [],
+      "synthetic_payload_checked": true
+    },
+    {
+      "path": "resources/direct-10-fixture-0.jsonl",
+      "event_counts": {
+        "exiting": 1,
+        "input": 3,
+        "load-finished": 1,
+        "load-start": 1,
+        "started": 1
+      },
+      "selected_env_keys": [],
+      "synthetic_payload_checked": true
+    },
+    {
+      "path": "resources/direct-10-fixture-1.jsonl",
+      "event_counts": {
+        "exiting": 1,
+        "input": 3,
+        "load-finished": 1,
+        "load-start": 1,
+        "started": 1
+      },
+      "selected_env_keys": [],
+      "synthetic_payload_checked": true
+    },
+    {
+      "path": "resources/direct-10-fixture-2.jsonl",
+      "event_counts": {
+        "exiting": 1,
+        "input": 3,
+        "load-finished": 1,
+        "load-start": 1,
+        "started": 1
+      },
+      "selected_env_keys": [],
+      "synthetic_payload_checked": true
+    },
+    {
+      "path": "resources/direct-10-fixture-3.jsonl",
+      "event_counts": {
+        "exiting": 1,
+        "input": 3,
+        "load-finished": 1,
+        "load-start": 1,
+        "started": 1
+      },
+      "selected_env_keys": [],
+      "synthetic_payload_checked": true
+    },
+    {
+      "path": "resources/direct-10-fixture-4.jsonl",
+      "event_counts": {
+        "exiting": 1,
+        "input": 3,
+        "load-finished": 1,
+        "load-start": 1,
+        "started": 1
+      },
+      "selected_env_keys": [],
+      "synthetic_payload_checked": true
+    },
+    {
+      "path": "resources/direct-10-fixture-5.jsonl",
+      "event_counts": {
+        "exiting": 1,
+        "input": 3,
+        "load-finished": 1,
+        "load-start": 1,
+        "started": 1
+      },
+      "selected_env_keys": [],
+      "synthetic_payload_checked": true
+    },
+    {
+      "path": "resources/direct-10-fixture-6.jsonl",
+      "event_counts": {
+        "exiting": 1,
+        "input": 3,
+        "load-finished": 1,
+        "load-start": 1,
+        "started": 1
+      },
+      "selected_env_keys": [],
+      "synthetic_payload_checked": true
+    },
+    {
+      "path": "resources/direct-10-fixture-7.jsonl",
+      "event_counts": {
+        "exiting": 1,
+        "input": 3,
+        "load-finished": 1,
+        "load-start": 1,
+        "started": 1
+      },
+      "selected_env_keys": [],
+      "synthetic_payload_checked": true
+    },
+    {
+      "path": "resources/direct-10-fixture-8.jsonl",
+      "event_counts": {
+        "exiting": 1,
+        "input": 3,
+        "load-finished": 1,
+        "load-start": 1,
+        "started": 1
+      },
+      "selected_env_keys": [],
+      "synthetic_payload_checked": true
+    },
+    {
+      "path": "resources/direct-10-fixture-9.jsonl",
+      "event_counts": {
+        "exiting": 1,
+        "input": 3,
+        "load-finished": 1,
+        "load-start": 1,
+        "started": 1
+      },
+      "selected_env_keys": [],
+      "synthetic_payload_checked": true
+    },
+    {
+      "path": "resources/direct-5-fixture-0.jsonl",
+      "event_counts": {
+        "exiting": 1,
+        "input": 3,
+        "load-finished": 1,
+        "load-start": 1,
+        "started": 1
+      },
+      "selected_env_keys": [],
+      "synthetic_payload_checked": true
+    },
+    {
+      "path": "resources/direct-5-fixture-1.jsonl",
+      "event_counts": {
+        "exiting": 1,
+        "input": 3,
+        "load-finished": 1,
+        "load-start": 1,
+        "started": 1
+      },
+      "selected_env_keys": [],
+      "synthetic_payload_checked": true
+    },
+    {
+      "path": "resources/direct-5-fixture-2.jsonl",
+      "event_counts": {
+        "exiting": 1,
+        "input": 3,
+        "load-finished": 1,
+        "load-start": 1,
+        "started": 1
+      },
+      "selected_env_keys": [],
+      "synthetic_payload_checked": true
+    },
+    {
+      "path": "resources/direct-5-fixture-3.jsonl",
+      "event_counts": {
+        "exiting": 1,
+        "input": 3,
+        "load-finished": 1,
+        "load-start": 1,
+        "started": 1
+      },
+      "selected_env_keys": [],
+      "synthetic_payload_checked": true
+    },
+    {
+      "path": "resources/direct-5-fixture-4.jsonl",
+      "event_counts": {
+        "exiting": 1,
+        "input": 3,
+        "load-finished": 1,
+        "load-start": 1,
+        "started": 1
+      },
+      "selected_env_keys": [],
+      "synthetic_payload_checked": true
+    },
+    {
+      "path": "resources/managed-1-fixture-0.jsonl",
+      "event_counts": {
+        "input": 2,
+        "load-finished": 1,
+        "load-start": 1,
+        "started": 1
+      },
+      "selected_env_keys": [],
+      "synthetic_payload_checked": true
+    },
+    {
+      "path": "resources/managed-10-fixture-0.jsonl",
+      "event_counts": {
+        "input": 4,
+        "load-finished": 2,
+        "load-start": 2,
+        "started": 1
+      },
+      "selected_env_keys": [],
+      "synthetic_payload_checked": true
+    },
+    {
+      "path": "resources/managed-10-fixture-1.jsonl",
+      "event_counts": {
+        "input": 2,
+        "load-finished": 1,
+        "load-start": 1,
+        "started": 1
+      },
+      "selected_env_keys": [],
+      "synthetic_payload_checked": true
+    },
+    {
+      "path": "resources/managed-10-fixture-2.jsonl",
+      "event_counts": {
+        "input": 2,
+        "load-finished": 1,
+        "load-start": 1,
+        "started": 1
+      },
+      "selected_env_keys": [],
+      "synthetic_payload_checked": true
+    },
+    {
+      "path": "resources/managed-10-fixture-3.jsonl",
+      "event_counts": {
+        "input": 2,
+        "load-finished": 1,
+        "load-start": 1,
+        "started": 1
+      },
+      "selected_env_keys": [],
+      "synthetic_payload_checked": true
+    },
+    {
+      "path": "resources/managed-10-fixture-4.jsonl",
+      "event_counts": {
+        "input": 2,
+        "load-finished": 1,
+        "load-start": 1,
+        "started": 1
+      },
+      "selected_env_keys": [],
+      "synthetic_payload_checked": true
+    },
+    {
+      "path": "resources/managed-10-fixture-5.jsonl",
+      "event_counts": {
+        "input": 2,
+        "load-finished": 1,
+        "load-start": 1,
+        "started": 1
+      },
+      "selected_env_keys": [],
+      "synthetic_payload_checked": true
+    },
+    {
+      "path": "resources/managed-10-fixture-6.jsonl",
+      "event_counts": {
+        "input": 2,
+        "load-finished": 1,
+        "load-start": 1,
+        "started": 1
+      },
+      "selected_env_keys": [],
+      "synthetic_payload_checked": true
+    },
+    {
+      "path": "resources/managed-10-fixture-7.jsonl",
+      "event_counts": {
+        "input": 2,
+        "load-finished": 1,
+        "load-start": 1,
+        "started": 1
+      },
+      "selected_env_keys": [],
+      "synthetic_payload_checked": true
+    },
+    {
+      "path": "resources/managed-10-fixture-8.jsonl",
+      "event_counts": {
+        "input": 2,
+        "load-finished": 1,
+        "load-start": 1,
+        "started": 1
+      },
+      "selected_env_keys": [],
+      "synthetic_payload_checked": true
+    },
+    {
+      "path": "resources/managed-10-fixture-9.jsonl",
+      "event_counts": {
+        "input": 2,
+        "load-finished": 1,
+        "load-start": 1,
+        "started": 1
+      },
+      "selected_env_keys": [],
+      "synthetic_payload_checked": true
+    },
+    {
+      "path": "resources/managed-5-fixture-0.jsonl",
+      "event_counts": {
+        "input": 4,
+        "load-finished": 2,
+        "load-start": 2,
+        "started": 1
+      },
+      "selected_env_keys": [],
+      "synthetic_payload_checked": true
+    },
+    {
+      "path": "resources/managed-5-fixture-1.jsonl",
+      "event_counts": {
+        "input": 2,
+        "load-finished": 1,
+        "load-start": 1,
+        "started": 1
+      },
+      "selected_env_keys": [],
+      "synthetic_payload_checked": true
+    },
+    {
+      "path": "resources/managed-5-fixture-2.jsonl",
+      "event_counts": {
+        "input": 2,
+        "load-finished": 1,
+        "load-start": 1,
+        "started": 1
+      },
+      "selected_env_keys": [],
+      "synthetic_payload_checked": true
+    },
+    {
+      "path": "resources/managed-5-fixture-3.jsonl",
+      "event_counts": {
+        "input": 2,
+        "load-finished": 1,
+        "load-start": 1,
+        "started": 1
+      },
+      "selected_env_keys": [],
+      "synthetic_payload_checked": true
+    },
+    {
+      "path": "resources/managed-5-fixture-4.jsonl",
+      "event_counts": {
+        "input": 2,
+        "load-finished": 1,
+        "load-start": 1,
+        "started": 1
+      },
+      "selected_env_keys": [],
+      "synthetic_payload_checked": true
+    }
+  ],
+  "archive_checks": {
+    "canonical_relative_paths_only": true,
+    "no_symlinks_or_encryption": true,
+    "known_evidence_entry_names_only": true,
+    "no_runtime_auth_or_key_files": true,
+    "fixture_selected_environment_is_synthetic": true
+  },
+  "reported_results": {
+    "native": "pass",
+    "native_failure": null,
+    "native_tests_passed": 5,
+    "resource": "pass",
+    "resource_failure": null,
+    "registered_resource_phases": [
+      {
+        "scenario": "managed-0",
+        "phase": "idle",
+        "session_count": 0,
+        "sample_count": 12
+      },
+      {
+        "scenario": "managed-0",
+        "phase": "ui-closed",
+        "session_count": 0,
+        "sample_count": 12
+      },
+      {
+        "scenario": "managed-1",
+        "phase": "idle",
+        "session_count": 1,
+        "sample_count": 12
+      },
+      {
+        "scenario": "managed-1",
+        "phase": "selected-output",
+        "session_count": 1,
+        "sample_count": 12
+      },
+      {
+        "scenario": "managed-1",
+        "phase": "recovery-idle",
+        "session_count": 1,
+        "sample_count": 12
+      },
+      {
+        "scenario": "managed-1",
+        "phase": "ui-closed",
+        "session_count": 1,
+        "sample_count": 12
+      },
+      {
+        "scenario": "managed-5",
+        "phase": "idle",
+        "session_count": 5,
+        "sample_count": 12
+      },
+      {
+        "scenario": "managed-5",
+        "phase": "selected-output",
+        "session_count": 5,
+        "sample_count": 12
+      },
+      {
+        "scenario": "managed-5",
+        "phase": "all-output",
+        "session_count": 5,
+        "sample_count": 12
+      },
+      {
+        "scenario": "managed-5",
+        "phase": "recovery-idle",
+        "session_count": 5,
+        "sample_count": 12
+      },
+      {
+        "scenario": "managed-5",
+        "phase": "ui-closed",
+        "session_count": 5,
+        "sample_count": 12
+      },
+      {
+        "scenario": "managed-10",
+        "phase": "idle",
+        "session_count": 10,
+        "sample_count": 12
+      },
+      {
+        "scenario": "managed-10",
+        "phase": "selected-output",
+        "session_count": 10,
+        "sample_count": 12
+      },
+      {
+        "scenario": "managed-10",
+        "phase": "all-output",
+        "session_count": 10,
+        "sample_count": 12
+      },
+      {
+        "scenario": "managed-10",
+        "phase": "recovery-idle",
+        "session_count": 10,
+        "sample_count": 12
+      },
+      {
+        "scenario": "managed-10",
+        "phase": "ui-closed",
+        "session_count": 10,
+        "sample_count": 12
+      },
+      {
+        "scenario": "direct-1",
+        "phase": "idle",
+        "session_count": 1,
+        "sample_count": 12
+      },
+      {
+        "scenario": "direct-1",
+        "phase": "all-output",
+        "session_count": 1,
+        "sample_count": 12
+      },
+      {
+        "scenario": "direct-5",
+        "phase": "idle",
+        "session_count": 5,
+        "sample_count": 12
+      },
+      {
+        "scenario": "direct-5",
+        "phase": "all-output",
+        "session_count": 5,
+        "sample_count": 12
+      },
+      {
+        "scenario": "direct-10",
+        "phase": "idle",
+        "session_count": 10,
+        "sample_count": 12
+      },
+      {
+        "scenario": "direct-10",
+        "phase": "all-output",
+        "session_count": 10,
+        "sample_count": 12
+      }
+    ],
+    "execution_excerpt_contains_failed_step": false
+  },
+  "verbatim_extracted_files": [
+    {
+      "archive_path": "process-metrics-graph-results.json",
+      "zip_entry": "process-metrics-graph-results.json",
+      "bytes": 8345,
+      "sha256": "f793f24016903a69df3dabf659b47fea3d94e99b8afa6cb3bec119ddd9143c9d",
+      "verbatim_copy": true
+    },
+    {
+      "archive_path": "ui/managed-0-ui-1.txt",
+      "zip_entry": "resources/managed-0-ui-1.txt",
+      "bytes": 1825,
+      "sha256": "ae5578b1218d51b05f0276ae73b6fddd4b8f8219f19890055ba7f7c8d5f4fa8e",
+      "verbatim_copy": true
+    },
+    {
+      "archive_path": "ui/managed-0-ui-2.txt",
+      "zip_entry": "resources/managed-0-ui-2.txt",
+      "bytes": 1825,
+      "sha256": "ae5578b1218d51b05f0276ae73b6fddd4b8f8219f19890055ba7f7c8d5f4fa8e",
+      "verbatim_copy": true
+    },
+    {
+      "archive_path": "ui/managed-1-ui-1.txt",
+      "zip_entry": "resources/managed-1-ui-1.txt",
+      "bytes": 1793,
+      "sha256": "f26f2101c3b650b48331f192e98ec20db9f2e1c3afed65181ca5c377213527f4",
+      "verbatim_copy": true
+    },
+    {
+      "archive_path": "ui/managed-1-ui-2.txt",
+      "zip_entry": "resources/managed-1-ui-2.txt",
+      "bytes": 1793,
+      "sha256": "f26f2101c3b650b48331f192e98ec20db9f2e1c3afed65181ca5c377213527f4",
+      "verbatim_copy": true
+    },
+    {
+      "archive_path": "ui/managed-10-ui-1.txt",
+      "zip_entry": "resources/managed-10-ui-1.txt",
+      "bytes": 2010,
+      "sha256": "8296247e78eecaf5af9168a1cdd50f9c7f80b0cc615d25d9d38bae80440751d1",
+      "verbatim_copy": true
+    },
+    {
+      "archive_path": "ui/managed-10-ui-2.txt",
+      "zip_entry": "resources/managed-10-ui-2.txt",
+      "bytes": 3121,
+      "sha256": "9afedf3a733fd3310d9e9e4cab35e87aebde07f9268b5acc57eee5193732b592",
+      "verbatim_copy": true
+    },
+    {
+      "archive_path": "ui/managed-5-ui-1.txt",
+      "zip_entry": "resources/managed-5-ui-1.txt",
+      "bytes": 1995,
+      "sha256": "b5b9187a95729e028dc3970477ee54153110541cc879e9b29031e3e8327ea28b",
+      "verbatim_copy": true
+    },
+    {
+      "archive_path": "ui/managed-5-ui-2.txt",
+      "zip_entry": "resources/managed-5-ui-2.txt",
+      "bytes": 3106,
+      "sha256": "0ccbc45065654020b4a58246cbfc342dffe0e6052a8ad6c1bf70d9e0a7987232",
+      "verbatim_copy": true
+    },
+    {
+      "archive_path": "resource-summary.json",
+      "zip_entry": "resources/summary.json",
+      "bytes": 20695,
+      "sha256": "c07821d7eb12acd1274a640e7bb8dc12109f4444b8fdce6c146dad2a95ffbca4",
+      "verbatim_copy": true
+    },
+    {
+      "archive_path": "resource-table.md",
+      "zip_entry": "resources/summary.table.md",
+      "bytes": 110883,
+      "sha256": "f879f76a699f78bb61480f436f4c9e73d8e3bbadc88c4f4f7ec6fd7a8e904dc2",
+      "verbatim_copy": true
+    },
+    {
+      "archive_path": "native-summary.json",
+      "zip_entry": "summary.json",
+      "bytes": 4044,
+      "sha256": "1f0931293d108e179279c4aaf2cedec6e99569d207bc367658e65a57468c4f20",
+      "verbatim_copy": true
+    }
+  ],
+  "unavailable_optional_files": [],
+  "execution_log_excerpt": {
+    "file": "windows-execution-excerpt.txt",
+    "source_name": "windows-job.log",
+    "source_full_log_sha256": "1bd21e7c11413c6877751c50f7544a034b42addc43c8b7ab92914b72912fc261",
+    "full_log_archived": false,
+    "first_source_line": 211,
+    "last_source_line": 644,
+    "source_excerpt_sha256": "ce2a1853e5d4ae2fcdb5f9dd933d26c50daa68e09c8c292a024864c3e9722437",
+    "archived_excerpt_sha256": "d844612770b894efabb9f8883d5ffe87c4dc79a5e386f1b5fa5e2c91ca193beb",
+    "transformation": "Only the native validation/resource/analysis execution span; ANSI formatting removed and CRLF normalized to LF. Checkout/auth setup and upload/post-job logs are excluded.",
+    "contains_failed_step": false
+  },
+  "notes": [
+    "完整原始 artifact.zip 按 GitHub digest 校验后逐字节保存；entries 列出每个 ZIP entry 的解压字节数与 SHA-256。",
+    "source-before/after、native/unit/race 原始输出、夹具 JSONL、samples/events 和完整资源分析 JSON 均在 ZIP 内；未被摘录替代。",
+    "resource-summary.json、resource-table.md、native-summary.json、图测试结果及 UI 文本只做原字节复制；失败结果保持失败。",
+    "归档校验通过只表示来源与保存一致，不表示 CI、资源实验、长稳或产品验收通过。",
+    "日志仅保留原生测试开始至上传之前的执行区间，不保留 checkout、凭据设置或整个 job log。"
+  ],
+  "reproduction": [
+    "先核对 artifact.zip 的 SHA-256 和本索引，再用 python -m zipfile -e artifact.zip EXTRACTED 解压。",
+    "在提交 30eaf058ed507fe8fea623593273ba6abf0162dc 的独立 checkout 中，使用 UTF-8 标准流运行 python -B tools/ci/summarize_resources.py EXTRACTED/resources；不要修改保存的原 ZIP。",
+    "重算会生成新的 derived 报告；对照 ZIP 中原始 resources/summary.analysis.json 与 summary.table.md，并保留原实验的失败/缺测信息。"
+  ]
+}

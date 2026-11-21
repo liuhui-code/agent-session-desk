@@ -70,7 +70,7 @@ UI 已使用 v2 的 `View() tea.View`、`KeyPressMsg`、颜色类型与 `ExecPro
 
 Windows 自动化通过[依赖锁定记录](../tools/ci/windows-dependencies.json)分别核对官方归档和 `psmux.exe` 的 SHA-256。官方 `-V` 输出包含 `psmux 3.4.0 (20aa1d7 2026-10-13)`；解析器已支持稳定源码定义的构建来源后缀，并保持精确 `3.4.0` 发布号校验。版本探测只解析后端报告的版本，不能单独认证发行物来源。指定 Windows Server 2025 runner 的五项可控后端场景已通过，完整提交、此前失败与修复见[Windows 执行报告](testing/results/2026-11-21-m0-native-windows.md)。
 
-首轮 Linux 环境没有执行 psmux；tmux 3.8 的真实启动尝试受容器 AF_UNIX 权限限制，仍没有 Unix 终端闭环通过结论。Windows hosted runner 的局部原生结果不代替桌面交互、最低系统矩阵或全进程树资源验证。
+首轮 Linux 环境没有执行 psmux；tmux 3.8 的真实启动尝试受容器 AF_UNIX 权限限制，仍没有 Unix 终端闭环通过结论。Windows hosted runner 另已执行[0/1/5/10 会话短资源实验](testing/results/2026-11-21-m0-windows-resources.md)，分别记录 TUI、后台、已归属辅助进程与 fixture，driver/sampler 单列。局部原生结果仍不代替桌面交互、最低系统矩阵、完整进程生命周期计量或长期资源预算。
 
 ## 5. 进程、界面与存储约束
 
@@ -84,7 +84,7 @@ Windows 自动化通过[依赖锁定记录](../tools/ci/windows-dependencies.jso
 
 架构拓扑与输入语义见 [ARCHITECTURE.md](ARCHITECTURE.md)。此前 [v0.1 UI 图稿](UI_DESIGN.md)保留为未采纳的探索记录。
 
-当前 M0 只把少量 Session/Run 标识写入后端 user options，用于发现仍存活的托管终端。这不是产品历史、SQLite 元数据仓库或模型上下文恢复，后台丢失后不承诺保留这些记录。已有预览/子进程输出防御性上限和取消机制，但尚无 Windows 全进程树内存数据、已接受的性能预算或长稳结论；后续存储与 Host 方向保持不变。
+当前 M0 只把少量 Session/Run 标识写入后端 user options，用于发现仍存活的托管终端。这不是产品历史、SQLite 元数据仓库或模型上下文恢复，后台丢失后不承诺保留这些记录。已有预览/子进程输出防御性上限、取消机制和 Windows 短资源观察，但尚无完整进程生命周期计量、已接受的性能预算或长稳结论；后续存储与 Host 方向保持不变。
 
 ## 6. 尚未固定的实现细节
 

@@ -1,0 +1,128 @@
+2026-11-21T03:47:44.1300583Z ##[group]Run $binary = ./tools/ci/install-psmux.ps1
+2026-11-21T03:47:44.1301063Z $binary = ./tools/ci/install-psmux.ps1
+2026-11-21T03:47:44.1301427Z ./tools/ci/windows.ps1 -PsmuxBinary $binary
+2026-11-21T03:47:44.1631077Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-11-21T03:47:44.1631572Z env:
+2026-11-21T03:47:44.1631810Z   GOTOOLCHAIN: local
+2026-11-21T03:47:44.1632093Z ##[endgroup]
+2026-11-21T03:47:45.8900199Z psmux-version : exit 0 (28 ms)
+2026-11-21T03:47:45.9200518Z go-version : exit 0 (28 ms)
+2026-11-21T03:47:46.2941882Z modules : exit 0 (372 ms)
+2026-11-21T03:47:54.7537248Z unit : exit 0 (8457 ms)
+2026-11-21T03:48:01.0277991Z race : exit 0 (6271 ms)
+2026-11-21T03:48:01.5731887Z vet : exit 0 (544 ms)
+2026-11-21T03:48:02.5471511Z catalog : exit 0 (972 ms)
+2026-11-21T03:48:03.4874300Z build-product : exit 0 (938 ms)
+2026-11-21T03:48:04.2462244Z build-fixture : exit 0 (757 ms)
+2026-11-21T03:48:09.0973742Z native : exit 0 (4849 ms)
+2026-11-21T03:48:09.4287368Z ##[group]Run ./tools/ci/test-windows-process-metrics.ps1 -EvidencePath build/ci-windows/process-metrics-graph-results.json
+2026-11-21T03:48:09.4288401Z ./tools/ci/test-windows-process-metrics.ps1 -EvidencePath build/ci-windows/process-metrics-graph-results.json
+2026-11-21T03:48:09.4289060Z $binary = ./tools/ci/install-psmux.ps1
+2026-11-21T03:48:09.4289437Z ./tools/ci/windows-resources.ps1 -PsmuxBinary $binary
+2026-11-21T03:48:09.4362273Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-11-21T03:48:09.4362623Z env:
+2026-11-21T03:48:09.4362796Z   GOTOOLCHAIN: local
+2026-11-21T03:48:09.4362993Z ##[endgroup]
+2026-11-21T03:48:10.1106744Z {
+2026-11-21T03:48:10.1107210Z   "schema_version": 1,
+2026-11-21T03:48:10.1107692Z   "powershell": "7.6.10",
+2026-11-21T03:48:10.1108296Z   "host_platform": "Microsoft Windows 10.0.26100",
+2026-11-21T03:48:10.1109649Z   "helper_sha256": "496bfc572d91d69dab2d398a84183a8022d127154424db2d93ce7a253e41f29f",
+2026-11-21T03:48:10.1111011Z   "fixture_sha256": "25b561e499b259b444a4bdbe938cbd0e5deee6bb446ecc167d23a12fc397b9ac",
+2026-11-21T03:48:10.1111890Z   "pure_graph_cases": 15,
+2026-11-21T03:48:10.1112355Z   "platform_guard_exercised": false,
+2026-11-21T03:48:10.1114106Z   "passed": 15,
+2026-11-21T03:48:10.1115119Z   "scope": "Pure synthetic process ownership; non-Windows guard where applicable. No Windows metrics executed.",
+2026-11-21T03:48:10.1116174Z   "cases": [
+2026-11-21T03:48:10.1116497Z     {
+2026-11-21T03:48:10.1117146Z       "name": "nearest_image_root_and_foreign_console_isolation",
+2026-11-21T03:48:10.1117847Z       "result": "pass"
+2026-11-21T03:48:10.1118187Z     },
+2026-11-21T03:48:10.1118457Z     {
+2026-11-21T03:48:10.1118951Z       "name": "reused_parent_pid_created_after_child",
+2026-11-21T03:48:10.1119543Z       "result": "pass"
+2026-11-21T03:48:10.1119926Z     },
+2026-11-21T03:48:10.1120218Z     {
+2026-11-21T03:48:10.1120769Z       "name": "absent_remembered_parent_cannot_own_new_child",
+2026-11-21T03:48:10.1121404Z       "result": "pass"
+2026-11-21T03:48:10.1121774Z     },
+2026-11-21T03:48:10.1122037Z     {
+2026-11-21T03:48:10.1122537Z       "name": "exact_previous_child_survives_parent_exit",
+2026-11-21T03:48:10.1123512Z       "result": "pass"
+2026-11-21T03:48:10.1123839Z     },
+2026-11-21T03:48:10.1124089Z     {
+2026-11-21T03:48:10.1124474Z       "name": "previous_pid_reuse_is_rejected",
+2026-11-21T03:48:10.1124933Z       "result": "pass"
+2026-11-21T03:48:10.1125213Z     },
+2026-11-21T03:48:10.1125465Z     {
+2026-11-21T03:48:10.1125843Z       "name": "previous_image_change_is_rejected",
+2026-11-21T03:48:10.1126356Z       "result": "pass"
+2026-11-21T03:48:10.1126655Z     },
+2026-11-21T03:48:10.1126918Z     {
+2026-11-21T03:48:10.1127338Z       "name": "explicit_identity_overrides_image_role",
+2026-11-21T03:48:10.1127836Z       "result": "pass"
+2026-11-21T03:48:10.1128123Z     },
+2026-11-21T03:48:10.1128343Z     {
+2026-11-21T03:48:10.1128872Z       "name": "stale_explicit_root_does_not_override_current_image",
+2026-11-21T03:48:10.1129461Z       "result": "pass"
+2026-11-21T03:48:10.1129763Z     },
+2026-11-21T03:48:10.1129985Z     {
+2026-11-21T03:48:10.1130434Z       "name": "same_image_explicit_direct_fixture_role",
+2026-11-21T03:48:10.1130979Z       "result": "pass"
+2026-11-21T03:48:10.1131279Z     },
+2026-11-21T03:48:10.1131500Z     {
+2026-11-21T03:48:10.1131827Z       "name": "invalid_ancestry_cycle",
+2026-11-21T03:48:10.1132255Z       "result": "pass"
+2026-11-21T03:48:10.1132548Z     },
+2026-11-21T03:48:10.1132774Z     {
+2026-11-21T03:48:10.1133210Z       "name": "same_timestamp_distinct_parent_child",
+2026-11-21T03:48:10.1133763Z       "result": "pass"
+2026-11-21T03:48:10.1134081Z     },
+2026-11-21T03:48:10.1134341Z     {
+2026-11-21T03:48:10.1134914Z       "name": "previous_console_anchor_keeps_descendant_owner_role",
+2026-11-21T03:48:10.1135456Z       "result": "pass"
+2026-11-21T03:48:10.1135651Z     },
+2026-11-21T03:48:10.1138163Z     {
+2026-11-21T03:48:10.1138515Z       "name": "empty_graph_keeps_array_shape",
+2026-11-21T03:48:10.1138831Z       "result": "pass"
+2026-11-21T03:48:10.1139049Z     },
+2026-11-21T03:48:10.1139209Z     {
+2026-11-21T03:48:10.1139443Z       "name": "numeric_filetime_rejected",
+2026-11-21T03:48:10.1139777Z       "result": "pass"
+2026-11-21T03:48:10.1139972Z     },
+2026-11-21T03:48:10.1140132Z     {
+2026-11-21T03:48:10.1140469Z       "name": "current_server_root_reclassifies_remembered_console",
+2026-11-21T03:48:10.1140832Z       "result": "pass"
+2026-11-21T03:48:10.1141016Z     }
+2026-11-21T03:48:10.1141168Z   ]
+2026-11-21T03:48:10.1141313Z }
+2026-11-21T03:48:11.1773867Z Resource baseline: managed-0 / idle
+2026-11-21T03:48:26.6025925Z Resource baseline: managed-0 / ui-closed
+2026-11-21T03:48:42.5111593Z Resource baseline failed: Exception calling "ReadAllText" with "1" argument(s): "The process cannot access the file 'D:\a\agent-session-desk\agent-session-desk\build\ci-windows\resources\managed-1-fixture-0.jsonl' because it is being used by another process."
+2026-11-21T03:48:42.7319672Z Exception: D:\a\agent-session-desk\agent-session-desk\tools\ci\windows-resources.ps1:539
+2026-11-21T03:48:42.7320931Z Line |
+2026-11-21T03:48:42.7322256Z  539 |  if ($null -ne $failure) { throw $failure }
+2026-11-21T03:48:42.7323040Z      |                            ~~~~~~~~~~~~~~
+2026-11-21T03:48:42.7324152Z      | Exception calling "ReadAllText" with "1" argument(s): "The process cannot access the file
+2026-11-21T03:48:42.7326194Z      | 'D:\a\agent-session-desk\agent-session-desk\build\ci-windows\resources\managed-1-fixture-0.jsonl' because it is
+2026-11-21T03:48:42.7328378Z      | being used by another process."
+2026-11-21T03:48:42.7584872Z ##[error]Process completed with exit code 1.
+2026-11-21T03:48:42.7765153Z ##[group]Run if (Test-Path build/ci-windows/resources/summary.json) {
+2026-11-21T03:48:42.7765757Z if (Test-Path build/ci-windows/resources/summary.json) {
+2026-11-21T03:48:42.7766265Z   python -B tools/ci/summarize_resources.py build/ci-windows/resources
+2026-11-21T03:48:42.7766653Z }
+2026-11-21T03:48:42.7839660Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-11-21T03:48:42.7840009Z env:
+2026-11-21T03:48:42.7840189Z   GOTOOLCHAIN: local
+2026-11-21T03:48:42.7840393Z ##[endgroup]
+2026-11-21T03:48:44.1772617Z Traceback (most recent call last):
+2026-11-21T03:48:44.1776646Z   File "D:\a\agent-session-desk\agent-session-desk\tools\ci\summarize_resources.py", line 450, in <module>
+2026-11-21T03:48:44.1777973Z     raise SystemExit(main())
+2026-11-21T03:48:44.2045674Z                      ^^^^^^
+2026-11-21T03:48:44.2047315Z   File "D:\a\agent-session-desk\agent-session-desk\tools\ci\summarize_resources.py", line 445, in main
+2026-11-21T03:48:44.2110604Z     print(f"\u5df2\u6c47\u603b {analysis['completed_phase_count']} \u4e2a\u767b\u8bb0\u91c7\u6837\u9636\u6bb5\uff1asummary.analysis.json\u3001summary.table.md")
+2026-11-21T03:48:44.2112312Z   File "C:\hostedtoolcache\windows\Python\3.12.10\x64\Lib\encodings\cp1252.py", line 19, in encode
+2026-11-21T03:48:44.2343242Z     return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+2026-11-21T03:48:44.2344640Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-21T03:48:44.2345833Z UnicodeEncodeError: 'charmap' codec can't encode characters in position 0-2: character maps to <undefined>
+2026-11-21T03:48:44.2988102Z ##[error]Process completed with exit code 1.

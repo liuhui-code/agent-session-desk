@@ -1,0 +1,434 @@
+2026-11-21T04:15:29.4952360Z ##[group]Run $binary = ./tools/ci/install-psmux.ps1
+2026-11-21T04:15:29.4952685Z $binary = ./tools/ci/install-psmux.ps1
+2026-11-21T04:15:29.4952894Z ./tools/ci/windows.ps1 -PsmuxBinary $binary
+2026-11-21T04:15:29.5615970Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-11-21T04:15:29.5616199Z env:
+2026-11-21T04:15:29.5616322Z   GOTOOLCHAIN: local
+2026-11-21T04:15:29.5616447Z ##[endgroup]
+2026-11-21T04:15:31.4074156Z psmux-version : exit 0 (46 ms)
+2026-11-21T04:15:31.4258898Z go-version : exit 0 (17 ms)
+2026-11-21T04:15:31.7033606Z modules : exit 0 (276 ms)
+2026-11-21T04:15:41.2982052Z unit : exit 0 (9592 ms)
+2026-11-21T04:15:47.0059069Z race : exit 0 (5706 ms)
+2026-11-21T04:15:47.2857180Z vet : exit 0 (278 ms)
+2026-11-21T04:15:48.2377973Z catalog : exit 0 (951 ms)
+2026-11-21T04:15:48.8743111Z build-product : exit 0 (634 ms)
+2026-11-21T04:15:49.3825646Z build-fixture : exit 0 (507 ms)
+2026-11-21T04:15:53.4311045Z native : exit 0 (4047 ms)
+2026-11-21T04:15:53.6463368Z ##[group]Run ./tools/ci/test-windows-process-metrics.ps1 -EvidencePath build/ci-windows/process-metrics-graph-results.json
+2026-11-21T04:15:53.6463947Z ./tools/ci/test-windows-process-metrics.ps1 -EvidencePath build/ci-windows/process-metrics-graph-results.json
+2026-11-21T04:15:53.6464302Z ./tools/ci/test-windows-fixture-journal.ps1
+2026-11-21T04:15:53.6464494Z $binary = ./tools/ci/install-psmux.ps1
+2026-11-21T04:15:53.6464720Z ./tools/ci/windows-resources.ps1 -PsmuxBinary $binary
+2026-11-21T04:15:53.6516197Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-11-21T04:15:53.6516400Z env:
+2026-11-21T04:15:53.6516512Z   GOTOOLCHAIN: local
+2026-11-21T04:15:53.6516636Z ##[endgroup]
+2026-11-21T04:15:54.1199472Z {
+2026-11-21T04:15:54.1199983Z   "schema_version": 1,
+2026-11-21T04:15:54.1200226Z   "powershell": "7.6.10",
+2026-11-21T04:15:54.1200479Z   "host_platform": "Microsoft Windows 10.0.26100",
+2026-11-21T04:15:54.1201000Z   "helper_sha256": "8e58a9688d67905f0dc25660f573fd781caa2d2f6747ff9b52000fccd9bb07a5",
+2026-11-21T04:15:54.1201510Z   "fixture_sha256": "57566974b2805f8e4ffa0fb228102f881effd194a22b5b595593b4f7f7597f40",
+2026-11-21T04:15:54.1201871Z   "pure_graph_cases": 15,
+2026-11-21T04:15:54.1203112Z   "path_key_cases": 54,
+2026-11-21T04:15:54.1203316Z   "platform_guard_exercised": false,
+2026-11-21T04:15:54.1203533Z   "passed": 69,
+2026-11-21T04:15:54.1204331Z   "scope": "Pure synthetic process ownership and lexical Windows path equivalence; non-Windows guard where applicable. No Windows metrics executed.",
+2026-11-21T04:15:54.1204677Z   "cases": [
+2026-11-21T04:15:54.1204779Z     {
+2026-11-21T04:15:54.1204973Z       "name": "nearest_image_root_and_foreign_console_isolation",
+2026-11-21T04:15:54.1205177Z       "result": "pass"
+2026-11-21T04:15:54.1205299Z     },
+2026-11-21T04:15:54.1205403Z     {
+2026-11-21T04:15:54.1205651Z       "name": "reused_parent_pid_created_after_child",
+2026-11-21T04:15:54.1205874Z       "result": "pass"
+2026-11-21T04:15:54.1205987Z     },
+2026-11-21T04:15:54.1206080Z     {
+2026-11-21T04:15:54.1206286Z       "name": "absent_remembered_parent_cannot_own_new_child",
+2026-11-21T04:15:54.1206476Z       "result": "pass"
+2026-11-21T04:15:54.1206611Z     },
+2026-11-21T04:15:54.1206705Z     {
+2026-11-21T04:15:54.1206864Z       "name": "exact_previous_child_survives_parent_exit",
+2026-11-21T04:15:54.1207045Z       "result": "pass"
+2026-11-21T04:15:54.1207155Z     },
+2026-11-21T04:15:54.1207242Z     {
+2026-11-21T04:15:54.1207394Z       "name": "previous_pid_reuse_is_rejected",
+2026-11-21T04:15:54.1207561Z       "result": "pass"
+2026-11-21T04:15:54.1207669Z     },
+2026-11-21T04:15:54.1207755Z     {
+2026-11-21T04:15:54.1207900Z       "name": "previous_image_change_is_rejected",
+2026-11-21T04:15:54.1208067Z       "result": "pass"
+2026-11-21T04:15:54.1208173Z     },
+2026-11-21T04:15:54.1208257Z     {
+2026-11-21T04:15:54.1208413Z       "name": "explicit_identity_overrides_image_role",
+2026-11-21T04:15:54.1208589Z       "result": "pass"
+2026-11-21T04:15:54.1208695Z     },
+2026-11-21T04:15:54.1208785Z     {
+2026-11-21T04:15:54.1208971Z       "name": "stale_explicit_root_does_not_override_current_image",
+2026-11-21T04:15:54.1209170Z       "result": "pass"
+2026-11-21T04:15:54.1209275Z     },
+2026-11-21T04:15:54.1209361Z     {
+2026-11-21T04:15:54.1209514Z       "name": "same_image_explicit_direct_fixture_role",
+2026-11-21T04:15:54.1209686Z       "result": "pass"
+2026-11-21T04:15:54.1209795Z     },
+2026-11-21T04:15:54.1209881Z     {
+2026-11-21T04:15:54.1210009Z       "name": "invalid_ancestry_cycle",
+2026-11-21T04:15:54.1210169Z       "result": "pass"
+2026-11-21T04:15:54.1210275Z     },
+2026-11-21T04:15:54.1210362Z     {
+2026-11-21T04:15:54.1210506Z       "name": "same_timestamp_distinct_parent_child",
+2026-11-21T04:15:54.1210673Z       "result": "pass"
+2026-11-21T04:15:54.1210787Z     },
+2026-11-21T04:15:54.1210870Z     {
+2026-11-21T04:15:54.1212624Z       "name": "previous_console_anchor_keeps_descendant_owner_role",
+2026-11-21T04:15:54.1212854Z       "result": "pass"
+2026-11-21T04:15:54.1212969Z     },
+2026-11-21T04:15:54.1213058Z     {
+2026-11-21T04:15:54.1213196Z       "name": "empty_graph_keeps_array_shape",
+2026-11-21T04:15:54.1213358Z       "result": "pass"
+2026-11-21T04:15:54.1213473Z     },
+2026-11-21T04:15:54.1213560Z     {
+2026-11-21T04:15:54.1213712Z       "name": "numeric_filetime_rejected",
+2026-11-21T04:15:54.1213866Z       "result": "pass"
+2026-11-21T04:15:54.1213997Z     },
+2026-11-21T04:15:54.1214092Z     {
+2026-11-21T04:15:54.1214271Z       "name": "current_server_root_reclassifies_remembered_console",
+2026-11-21T04:15:54.1214465Z       "result": "pass"
+2026-11-21T04:15:54.1214571Z     },
+2026-11-21T04:15:54.1214662Z     {
+2026-11-21T04:15:54.1214810Z       "name": "observed_cim_extended_dos_conhost",
+2026-11-21T04:15:54.1214979Z       "result": "pass",
+2026-11-21T04:15:54.1215120Z       "category": "path_key"
+2026-11-21T04:15:54.1215249Z     },
+2026-11-21T04:15:54.1215339Z     {
+2026-11-21T04:15:54.1215470Z       "name": "ordinary_dos_case_folding",
+2026-11-21T04:15:54.1215626Z       "result": "pass",
+2026-11-21T04:15:54.1215762Z       "category": "path_key"
+2026-11-21T04:15:54.1216024Z     },
+2026-11-21T04:15:54.1216114Z     {
+2026-11-21T04:15:54.1216266Z       "name": "ordinary_forward_slash_compatibility",
+2026-11-21T04:15:54.1216440Z       "result": "pass",
+2026-11-21T04:15:54.1216579Z       "category": "path_key"
+2026-11-21T04:15:54.1216700Z     },
+2026-11-21T04:15:54.1216789Z     {
+2026-11-21T04:15:54.1216952Z       "name": "extended_dos_unicode_and_internal_spaces",
+2026-11-21T04:15:54.1217128Z       "result": "pass",
+2026-11-21T04:15:54.1217258Z       "category": "path_key"
+2026-11-21T04:15:54.1217377Z     },
+2026-11-21T04:15:54.1217463Z     {
+2026-11-21T04:15:54.1217603Z       "name": "extended_dos_dotfile_component",
+2026-11-21T04:15:54.1217769Z       "result": "pass",
+2026-11-21T04:15:54.1217905Z       "category": "path_key"
+2026-11-21T04:15:54.1218022Z     },
+2026-11-21T04:15:54.1218108Z     {
+2026-11-21T04:15:54.1218254Z       "name": "extended_current_directory_segment",
+2026-11-21T04:15:54.1218419Z       "result": "pass",
+2026-11-21T04:15:54.1218552Z       "category": "path_key"
+2026-11-21T04:15:54.1218669Z     },
+2026-11-21T04:15:54.1218761Z     {
+2026-11-21T04:15:54.1218903Z       "name": "extended_parent_directory_segment",
+2026-11-21T04:15:54.1219068Z       "result": "pass",
+2026-11-21T04:15:54.1219201Z       "category": "path_key"
+2026-11-21T04:15:54.1219318Z     },
+2026-11-21T04:15:54.1219409Z     {
+2026-11-21T04:15:54.1219549Z       "name": "extended_empty_middle_component",
+2026-11-21T04:15:54.1219716Z       "result": "pass",
+2026-11-21T04:15:54.1219850Z       "category": "path_key"
+2026-11-21T04:15:54.1219972Z     },
+2026-11-21T04:15:54.1220058Z     {
+2026-11-21T04:15:54.1220204Z       "name": "extended_empty_component_after_drive",
+2026-11-21T04:15:54.1220376Z       "result": "pass",
+2026-11-21T04:15:54.1220544Z       "category": "path_key"
+2026-11-21T04:15:54.1220716Z     },
+2026-11-21T04:15:54.1220851Z     {
+2026-11-21T04:15:54.1220996Z       "name": "extended_trailing_empty_component",
+2026-11-21T04:15:54.1221164Z       "result": "pass",
+2026-11-21T04:15:54.1221303Z       "category": "path_key"
+2026-11-21T04:15:54.1221423Z     },
+2026-11-21T04:15:54.1221509Z     {
+2026-11-21T04:15:54.1221648Z       "name": "extended_drive_only_empty_tail",
+2026-11-21T04:15:54.1221815Z       "result": "pass",
+2026-11-21T04:15:54.1221949Z       "category": "path_key"
+2026-11-21T04:15:54.1222065Z     },
+2026-11-21T04:15:54.1222153Z     {
+2026-11-21T04:15:54.1222289Z       "name": "extended_file_trailing_dot",
+2026-11-21T04:15:54.1222454Z       "result": "pass",
+2026-11-21T04:15:54.1222587Z       "category": "path_key"
+2026-11-21T04:15:54.1222704Z     },
+2026-11-21T04:15:54.1222791Z     {
+2026-11-21T04:15:54.1222939Z       "name": "extended_directory_trailing_dot",
+2026-11-21T04:15:54.1223498Z       "result": "pass",
+2026-11-21T04:15:54.1223729Z       "category": "path_key"
+2026-11-21T04:15:54.1223857Z     },
+2026-11-21T04:15:54.1223949Z     {
+2026-11-21T04:15:54.1224220Z       "name": "extended_file_trailing_space",
+2026-11-21T04:15:54.1224383Z       "result": "pass",
+2026-11-21T04:15:54.1224515Z       "category": "path_key"
+2026-11-21T04:15:54.1224635Z     },
+2026-11-21T04:15:54.1224725Z     {
+2026-11-21T04:15:54.1224951Z       "name": "extended_directory_trailing_space",
+2026-11-21T04:15:54.1225123Z       "result": "pass",
+2026-11-21T04:15:54.1225253Z       "category": "path_key"
+2026-11-21T04:15:54.1225378Z     },
+2026-11-21T04:15:54.1225466Z     {
+2026-11-21T04:15:54.1225633Z       "name": "extended_forward_slash_at_drive",
+2026-11-21T04:15:54.1225863Z       "result": "pass",
+2026-11-21T04:15:54.1225998Z       "category": "path_key"
+2026-11-21T04:15:54.1226116Z     },
+2026-11-21T04:15:54.1226203Z     {
+2026-11-21T04:15:54.1226359Z       "name": "extended_forward_slash_in_component",
+2026-11-21T04:15:54.1226531Z       "result": "pass",
+2026-11-21T04:15:54.1226670Z       "category": "path_key"
+2026-11-21T04:15:54.1226789Z     },
+2026-11-21T04:15:54.1226878Z     {
+2026-11-21T04:15:54.1227007Z       "name": "extended_unc_not_mapped",
+2026-11-21T04:15:54.1227271Z       "result": "pass",
+2026-11-21T04:15:54.1227408Z       "category": "path_key"
+2026-11-21T04:15:54.1227527Z     },
+2026-11-21T04:15:54.1227614Z     {
+2026-11-21T04:15:54.1227759Z       "name": "win32_device_prefix_not_mapped",
+2026-11-21T04:15:54.1227924Z       "result": "pass",
+2026-11-21T04:15:54.1228055Z       "category": "path_key"
+2026-11-21T04:15:54.1228193Z     },
+2026-11-21T04:15:54.1228323Z     {
+2026-11-21T04:15:54.1228533Z       "name": "globalroot_device_not_mapped",
+2026-11-21T04:15:54.1228775Z       "result": "pass",
+2026-11-21T04:15:54.1228972Z       "category": "path_key"
+2026-11-21T04:15:54.1229159Z     },
+2026-11-21T04:15:54.1229296Z     {
+2026-11-21T04:15:54.1229493Z       "name": "native_device_not_mapped",
+2026-11-21T04:15:54.1229721Z       "result": "pass",
+2026-11-21T04:15:54.1229921Z       "category": "path_key"
+2026-11-21T04:15:54.1230098Z     },
+2026-11-21T04:15:54.1230228Z     {
+2026-11-21T04:15:54.1230467Z       "name": "nt_object_manager_prefix_not_mapped",
+2026-11-21T04:15:54.1230737Z       "result": "pass",
+2026-11-21T04:15:54.1230947Z       "category": "path_key"
+2026-11-21T04:15:54.1231132Z     },
+2026-11-21T04:15:54.1231257Z     {
+2026-11-21T04:15:54.1231446Z       "name": "volume_guid_not_mapped",
+2026-11-21T04:15:54.1231672Z       "result": "pass",
+2026-11-21T04:15:54.1231885Z       "category": "path_key"
+2026-11-21T04:15:54.1232069Z     },
+2026-11-21T04:15:54.1232207Z     {
+2026-11-21T04:15:54.1232399Z       "name": "extended_drive_relative_not_mapped",
+2026-11-21T04:15:54.1232569Z       "result": "pass",
+2026-11-21T04:15:54.1232706Z       "category": "path_key"
+2026-11-21T04:15:54.1232826Z     },
+2026-11-21T04:15:54.1232920Z     {
+2026-11-21T04:15:54.1233131Z       "name": "ordinary_drive_relative_not_resolved",
+2026-11-21T04:15:54.1233381Z       "result": "pass",
+2026-11-21T04:15:54.1233515Z       "category": "path_key"
+2026-11-21T04:15:54.1233639Z     },
+2026-11-21T04:15:54.1233726Z     {
+2026-11-21T04:15:54.1233875Z       "name": "ordinary_root_relative_not_resolved",
+2026-11-21T04:15:54.1234040Z       "result": "pass",
+2026-11-21T04:15:54.1234178Z       "category": "path_key"
+2026-11-21T04:15:54.1234295Z     },
+2026-11-21T04:15:54.1234381Z     {
+2026-11-21T04:15:54.1234525Z       "name": "extended_nonletter_drive_not_mapped",
+2026-11-21T04:15:54.1234690Z       "result": "pass",
+2026-11-21T04:15:54.1234826Z       "category": "path_key"
+2026-11-21T04:15:54.1234942Z     },
+2026-11-21T04:15:54.1235029Z     {
+2026-11-21T04:15:54.1235153Z       "name": "extended_ads_not_mapped",
+2026-11-21T04:15:54.1235309Z       "result": "pass",
+2026-11-21T04:15:54.1235442Z       "category": "path_key"
+2026-11-21T04:15:54.1235720Z     },
+2026-11-21T04:15:54.1235854Z     {
+2026-11-21T04:15:54.1236063Z       "name": "extended_reserved_device_1",
+2026-11-21T04:15:54.1236304Z       "result": "pass",
+2026-11-21T04:15:54.1236512Z       "category": "path_key"
+2026-11-21T04:15:54.1236702Z     },
+2026-11-21T04:15:54.1236837Z     {
+2026-11-21T04:15:54.1237047Z       "name": "extended_reserved_device_2",
+2026-11-21T04:15:54.1237292Z       "result": "pass",
+2026-11-21T04:15:54.1237500Z       "category": "path_key"
+2026-11-21T04:15:54.1237684Z     },
+2026-11-21T04:15:54.1237826Z     {
+2026-11-21T04:15:54.1238033Z       "name": "extended_reserved_device_3",
+2026-11-21T04:15:54.1238272Z       "result": "pass",
+2026-11-21T04:15:54.1258241Z       "category": "path_key"
+2026-11-21T04:15:54.1258488Z     },
+2026-11-21T04:15:54.1258621Z     {
+2026-11-21T04:15:54.1258830Z       "name": "extended_reserved_device_4",
+2026-11-21T04:15:54.1259078Z       "result": "pass",
+2026-11-21T04:15:54.1259284Z       "category": "path_key"
+2026-11-21T04:15:54.1259479Z     },
+2026-11-21T04:15:54.1259615Z     {
+2026-11-21T04:15:54.1259823Z       "name": "extended_reserved_device_5",
+2026-11-21T04:15:54.1260068Z       "result": "pass",
+2026-11-21T04:15:54.1260271Z       "category": "path_key"
+2026-11-21T04:15:54.1260609Z     },
+2026-11-21T04:15:54.1260708Z     {
+2026-11-21T04:15:54.1260836Z       "name": "extended_reserved_device_6",
+2026-11-21T04:15:54.1260991Z       "result": "pass",
+2026-11-21T04:15:54.1261124Z       "category": "path_key"
+2026-11-21T04:15:54.1261251Z     },
+2026-11-21T04:15:54.1261341Z     {
+2026-11-21T04:15:54.1261471Z       "name": "extended_reserved_device_7",
+2026-11-21T04:15:54.1261625Z       "result": "pass",
+2026-11-21T04:15:54.1261773Z       "category": "path_key"
+2026-11-21T04:15:54.1261897Z     },
+2026-11-21T04:15:54.1261988Z     {
+2026-11-21T04:15:54.1262116Z       "name": "extended_reserved_device_8",
+2026-11-21T04:15:54.1262277Z       "result": "pass",
+2026-11-21T04:15:54.1262416Z       "category": "path_key"
+2026-11-21T04:15:54.1262535Z     },
+2026-11-21T04:15:54.1262620Z     {
+2026-11-21T04:15:54.1262756Z       "name": "extended_reserved_device_9",
+2026-11-21T04:15:54.1262921Z       "result": "pass",
+2026-11-21T04:15:54.1263056Z       "category": "path_key"
+2026-11-21T04:15:54.1263185Z     },
+2026-11-21T04:15:54.1263277Z     {
+2026-11-21T04:15:54.1263408Z       "name": "extended_reserved_device_10",
+2026-11-21T04:15:54.1263572Z       "result": "pass",
+2026-11-21T04:15:54.1263708Z       "category": "path_key"
+2026-11-21T04:15:54.1263826Z     },
+2026-11-21T04:15:54.1263914Z     {
+2026-11-21T04:15:54.1264045Z       "name": "extended_reserved_device_11",
+2026-11-21T04:15:54.1264202Z       "result": "pass",
+2026-11-21T04:15:54.1264479Z       "category": "path_key"
+2026-11-21T04:15:54.1264597Z     },
+2026-11-21T04:15:54.1264692Z     {
+2026-11-21T04:15:54.1264822Z       "name": "extended_reserved_device_12",
+2026-11-21T04:15:54.1264978Z       "result": "pass",
+2026-11-21T04:15:54.1265115Z       "category": "path_key"
+2026-11-21T04:15:54.1265236Z     },
+2026-11-21T04:15:54.1265328Z     {
+2026-11-21T04:15:54.1265456Z       "name": "extended_reserved_device_13",
+2026-11-21T04:15:54.1265611Z       "result": "pass",
+2026-11-21T04:15:54.1265749Z       "category": "path_key"
+2026-11-21T04:15:54.1265952Z     },
+2026-11-21T04:15:54.1266079Z     {
+2026-11-21T04:15:54.1266212Z       "name": "extended_reserved_device_14",
+2026-11-21T04:15:54.1266366Z       "result": "pass",
+2026-11-21T04:15:54.1266502Z       "category": "path_key"
+2026-11-21T04:15:54.1266622Z     },
+2026-11-21T04:15:54.1266710Z     {
+2026-11-21T04:15:54.1266840Z       "name": "extended_reserved_device_15",
+2026-11-21T04:15:54.1266991Z       "result": "pass",
+2026-11-21T04:15:54.1267131Z       "category": "path_key"
+2026-11-21T04:15:54.1267250Z     },
+2026-11-21T04:15:54.1267336Z     {
+2026-11-21T04:15:54.1267466Z       "name": "extended_reserved_device_16",
+2026-11-21T04:15:54.1267625Z       "result": "pass",
+2026-11-21T04:15:54.1267861Z       "category": "path_key"
+2026-11-21T04:15:54.1267981Z     },
+2026-11-21T04:15:54.1268066Z     {
+2026-11-21T04:15:54.1268192Z       "name": "extended_reserved_device_17",
+2026-11-21T04:15:54.1268346Z       "result": "pass",
+2026-11-21T04:15:54.1268484Z       "category": "path_key"
+2026-11-21T04:15:54.1268600Z     },
+2026-11-21T04:15:54.1268685Z     {
+2026-11-21T04:15:54.1268820Z       "name": "extended_illegal_less_than",
+2026-11-21T04:15:54.1268974Z       "result": "pass",
+2026-11-21T04:15:54.1269109Z       "category": "path_key"
+2026-11-21T04:15:54.1269229Z     },
+2026-11-21T04:15:54.1269325Z     {
+2026-11-21T04:15:54.1269459Z       "name": "extended_illegal_greater_than",
+2026-11-21T04:15:54.1269620Z       "result": "pass",
+2026-11-21T04:15:54.1269753Z       "category": "path_key"
+2026-11-21T04:15:54.1269876Z     },
+2026-11-21T04:15:54.1269970Z     {
+2026-11-21T04:15:54.1270096Z       "name": "extended_illegal_quote",
+2026-11-21T04:15:54.1270257Z       "result": "pass",
+2026-11-21T04:15:54.1270396Z       "category": "path_key"
+2026-11-21T04:15:54.1270526Z     },
+2026-11-21T04:15:54.1270617Z     {
+2026-11-21T04:15:54.1270745Z       "name": "extended_illegal_pipe",
+2026-11-21T04:15:54.1270898Z       "result": "pass",
+2026-11-21T04:15:54.1271656Z       "category": "path_key"
+2026-11-21T04:15:54.1271776Z     },
+2026-11-21T04:15:54.1271862Z     {
+2026-11-21T04:15:54.1271990Z       "name": "extended_illegal_question",
+2026-11-21T04:15:54.1272145Z       "result": "pass",
+2026-11-21T04:15:54.1272282Z       "category": "path_key"
+2026-11-21T04:15:54.1272403Z     },
+2026-11-21T04:15:54.1272489Z     {
+2026-11-21T04:15:54.1272606Z       "name": "extended_illegal_star",
+2026-11-21T04:15:54.1272759Z       "result": "pass",
+2026-11-21T04:15:54.1272889Z       "category": "path_key"
+2026-11-21T04:15:54.1273008Z     },
+2026-11-21T04:15:54.1273095Z     {
+2026-11-21T04:15:54.1273216Z       "name": "extended_illegal_nul",
+2026-11-21T04:15:54.1273375Z       "result": "pass",
+2026-11-21T04:15:54.1273508Z       "category": "path_key"
+2026-11-21T04:15:54.1273626Z     },
+2026-11-21T04:15:54.1273711Z     {
+2026-11-21T04:15:54.1273835Z       "name": "extended_illegal_tab",
+2026-11-21T04:15:54.1273983Z       "result": "pass",
+2026-11-21T04:15:54.1274118Z       "category": "path_key"
+2026-11-21T04:15:54.1274242Z     },
+2026-11-21T04:15:54.1274331Z     {
+2026-11-21T04:15:54.1274465Z       "name": "extended_illegal_control_31",
+2026-11-21T04:15:54.1274623Z       "result": "pass",
+2026-11-21T04:15:54.1274761Z       "category": "path_key"
+2026-11-21T04:15:54.1274880Z     }
+2026-11-21T04:15:54.1274971Z   ]
+2026-11-21T04:15:54.1275070Z }
+2026-11-21T04:15:54.1665535Z Journal sharing/partial record/UTF-8/corruption checks passed; native Windows sharing is exercised only on Windows.
+2026-11-21T04:15:55.0529737Z Resource baseline: managed-0 / idle
+2026-11-21T04:16:10.5078949Z Resource baseline: managed-0 / ui-closed
+2026-11-21T04:16:26.6305101Z Resource baseline: managed-1 / idle
+2026-11-21T04:16:41.8167045Z Resource baseline: managed-1 / selected-output
+2026-11-21T04:17:06.8746448Z Resource baseline: managed-1 / recovery-idle
+2026-11-21T04:17:22.4632733Z Resource baseline: managed-1 / ui-closed
+2026-11-21T04:17:39.9979604Z Resource baseline: managed-5 / idle
+2026-11-21T04:17:55.1771397Z Resource baseline: managed-5 / selected-output
+2026-11-21T04:18:20.4105117Z Resource baseline: managed-5 / all-output
+2026-11-21T04:18:45.4970720Z Resource baseline: managed-5 / recovery-idle
+2026-11-21T04:19:01.5340472Z Resource baseline: managed-5 / ui-closed
+2026-11-21T04:19:21.7747852Z Resource baseline: managed-10 / idle
+2026-11-21T04:19:36.9772916Z Resource baseline: managed-10 / selected-output
+2026-11-21T04:20:02.5197720Z Resource baseline: managed-10 / all-output
+2026-11-21T04:20:27.7147669Z Resource baseline: managed-10 / recovery-idle
+2026-11-21T04:20:44.5377186Z Resource baseline: managed-10 / ui-closed
+2026-11-21T04:21:05.4919401Z Resource baseline: direct-1 / idle
+2026-11-21T04:21:20.5445625Z Resource baseline: direct-1 / all-output
+2026-11-21T04:21:45.6911150Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:21:45.6911587Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:21:46.2443880Z Resource baseline: direct-5 / idle
+2026-11-21T04:22:01.8974730Z Resource baseline: direct-5 / all-output
+2026-11-21T04:22:26.9073395Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:22:26.9073858Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:22:26.9074163Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:22:26.9074864Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:22:26.9075222Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:22:26.9075529Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:22:26.9075827Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:22:26.9076126Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:22:26.9076450Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:22:26.9076757Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:22:28.0060047Z Resource baseline: direct-10 / idle
+2026-11-21T04:22:44.0339064Z Resource baseline: direct-10 / all-output
+2026-11-21T04:23:09.0196152Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:23:09.0196622Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:23:09.0197486Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:23:09.0197800Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:23:09.0198254Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:23:09.0198654Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:23:09.0199200Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:23:09.0199514Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:23:09.0199798Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:23:09.0200113Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:23:09.0200602Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:23:09.0200933Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:23:09.0201297Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:23:09.0201685Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:23:09.0202061Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:23:09.0202440Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:23:09.0202739Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:23:09.0203996Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:23:09.0204508Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:23:09.0204806Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:23:09.1559845Z ##[group]Run if (Test-Path build/ci-windows/resources/summary.json) {
+2026-11-21T04:23:09.1560290Z if (Test-Path build/ci-windows/resources/summary.json) {
+2026-11-21T04:23:09.1560612Z   python -B tools/ci/summarize_resources.py build/ci-windows/resources
+2026-11-21T04:23:09.1560873Z }
+2026-11-21T04:23:09.1614019Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-11-21T04:23:09.1614271Z env:
+2026-11-21T04:23:09.1614441Z   GOTOOLCHAIN: local
+2026-11-21T04:23:09.1614617Z ##[endgroup]
+2026-11-21T04:23:10.3053181Z 已汇总 22 个登记采样阶段：summary.analysis.json、summary.table.md

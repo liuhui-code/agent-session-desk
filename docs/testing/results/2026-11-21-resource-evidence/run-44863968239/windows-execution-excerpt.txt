@@ -1,0 +1,163 @@
+2026-11-21T04:01:23.9044156Z ##[group]Run $binary = ./tools/ci/install-psmux.ps1
+2026-11-21T04:01:23.9044652Z $binary = ./tools/ci/install-psmux.ps1
+2026-11-21T04:01:23.9045015Z ./tools/ci/windows.ps1 -PsmuxBinary $binary
+2026-11-21T04:01:23.9358892Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-11-21T04:01:23.9359383Z env:
+2026-11-21T04:01:23.9359611Z   GOTOOLCHAIN: local
+2026-11-21T04:01:23.9359874Z ##[endgroup]
+2026-11-21T04:01:25.6969515Z psmux-version : exit 0 (29 ms)
+2026-11-21T04:01:25.7261703Z go-version : exit 0 (27 ms)
+2026-11-21T04:01:26.1274641Z modules : exit 0 (400 ms)
+2026-11-21T04:01:33.6671681Z unit : exit 0 (7538 ms)
+2026-11-21T04:01:39.7143085Z race : exit 0 (6044 ms)
+2026-11-21T04:01:40.2279231Z vet : exit 0 (512 ms)
+2026-11-21T04:01:41.0668371Z catalog : exit 0 (837 ms)
+2026-11-21T04:01:41.9850765Z build-product : exit 0 (916 ms)
+2026-11-21T04:01:42.7187614Z build-fixture : exit 0 (732 ms)
+2026-11-21T04:01:47.7468855Z native : exit 0 (5026 ms)
+2026-11-21T04:01:48.0772033Z ##[group]Run ./tools/ci/test-windows-process-metrics.ps1 -EvidencePath build/ci-windows/process-metrics-graph-results.json
+2026-11-21T04:01:48.0773049Z ./tools/ci/test-windows-process-metrics.ps1 -EvidencePath build/ci-windows/process-metrics-graph-results.json
+2026-11-21T04:01:48.0773693Z ./tools/ci/test-windows-fixture-journal.ps1
+2026-11-21T04:01:48.0774025Z $binary = ./tools/ci/install-psmux.ps1
+2026-11-21T04:01:48.0774382Z ./tools/ci/windows-resources.ps1 -PsmuxBinary $binary
+2026-11-21T04:01:48.0845863Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-11-21T04:01:48.0846202Z env:
+2026-11-21T04:01:48.0846371Z   GOTOOLCHAIN: local
+2026-11-21T04:01:48.0846565Z ##[endgroup]
+2026-11-21T04:01:48.7380184Z {
+2026-11-21T04:01:48.7382946Z   "schema_version": 1,
+2026-11-21T04:01:48.7383385Z   "powershell": "7.6.10",
+2026-11-21T04:01:48.7383925Z   "host_platform": "Microsoft Windows 10.0.26100",
+2026-11-21T04:01:48.7385160Z   "helper_sha256": "914a60fe3016fd3ed0661831e3ac5f2fcaddedc1b77680689a0054acd699acb4",
+2026-11-21T04:01:48.7386281Z   "fixture_sha256": "7c9996b509984c4e54a4c3b203a899b125f724da377b828e03c679144ef15436",
+2026-11-21T04:01:48.7387347Z   "pure_graph_cases": 15,
+2026-11-21T04:01:48.7388892Z   "platform_guard_exercised": false,
+2026-11-21T04:01:48.7389293Z   "passed": 15,
+2026-11-21T04:01:48.7389826Z   "scope": "Pure synthetic process ownership; non-Windows guard where applicable. No Windows metrics executed.",
+2026-11-21T04:01:48.7390362Z   "cases": [
+2026-11-21T04:01:48.7390532Z     {
+2026-11-21T04:01:48.7390862Z       "name": "nearest_image_root_and_foreign_console_isolation",
+2026-11-21T04:01:48.7391228Z       "result": "pass"
+2026-11-21T04:01:48.7391435Z     },
+2026-11-21T04:01:48.7391589Z     {
+2026-11-21T04:01:48.7391848Z       "name": "reused_parent_pid_created_after_child",
+2026-11-21T04:01:48.7392163Z       "result": "pass"
+2026-11-21T04:01:48.7392347Z     },
+2026-11-21T04:01:48.7392508Z     {
+2026-11-21T04:01:48.7392800Z       "name": "absent_remembered_parent_cannot_own_new_child",
+2026-11-21T04:01:48.7393122Z       "result": "pass"
+2026-11-21T04:01:48.7393307Z     },
+2026-11-21T04:01:48.7393463Z     {
+2026-11-21T04:01:48.7393735Z       "name": "exact_previous_child_survives_parent_exit",
+2026-11-21T04:01:48.7394042Z       "result": "pass"
+2026-11-21T04:01:48.7394222Z     },
+2026-11-21T04:01:48.7394361Z     {
+2026-11-21T04:01:48.7394602Z       "name": "previous_pid_reuse_is_rejected",
+2026-11-21T04:01:48.7394886Z       "result": "pass"
+2026-11-21T04:01:48.7395069Z     },
+2026-11-21T04:01:48.7395210Z     {
+2026-11-21T04:01:48.7395457Z       "name": "previous_image_change_is_rejected",
+2026-11-21T04:01:48.7395749Z       "result": "pass"
+2026-11-21T04:01:48.7395929Z     },
+2026-11-21T04:01:48.7396075Z     {
+2026-11-21T04:01:48.7396347Z       "name": "explicit_identity_overrides_image_role",
+2026-11-21T04:01:48.7396654Z       "result": "pass"
+2026-11-21T04:01:48.7396841Z     },
+2026-11-21T04:01:48.7396985Z     {
+2026-11-21T04:01:48.7397296Z       "name": "stale_explicit_root_does_not_override_current_image",
+2026-11-21T04:01:48.7397644Z       "result": "pass"
+2026-11-21T04:01:48.7397822Z     },
+2026-11-21T04:01:48.7397974Z     {
+2026-11-21T04:01:48.7398466Z       "name": "same_image_explicit_direct_fixture_role",
+2026-11-21T04:01:48.7398851Z       "result": "pass"
+2026-11-21T04:01:48.7399044Z     },
+2026-11-21T04:01:48.7399185Z     {
+2026-11-21T04:01:48.7399395Z       "name": "invalid_ancestry_cycle",
+2026-11-21T04:01:48.7399664Z       "result": "pass"
+2026-11-21T04:01:48.7399846Z     },
+2026-11-21T04:01:48.7399991Z     {
+2026-11-21T04:01:48.7400247Z       "name": "same_timestamp_distinct_parent_child",
+2026-11-21T04:01:48.7400552Z       "result": "pass"
+2026-11-21T04:01:48.7400760Z     },
+2026-11-21T04:01:48.7400908Z     {
+2026-11-21T04:01:48.7401232Z       "name": "previous_console_anchor_keeps_descendant_owner_role",
+2026-11-21T04:01:48.7403987Z       "result": "pass"
+2026-11-21T04:01:48.7404419Z     },
+2026-11-21T04:01:48.7404678Z     {
+2026-11-21T04:01:48.7405158Z       "name": "empty_graph_keeps_array_shape",
+2026-11-21T04:01:48.7405681Z       "result": "pass"
+2026-11-21T04:01:48.7406015Z     },
+2026-11-21T04:01:48.7406240Z     {
+2026-11-21T04:01:48.7406588Z       "name": "numeric_filetime_rejected",
+2026-11-21T04:01:48.7407473Z       "result": "pass"
+2026-11-21T04:01:48.7407819Z     },
+2026-11-21T04:01:48.7408082Z     {
+2026-11-21T04:01:48.7408620Z       "name": "current_server_root_reclassifies_remembered_console",
+2026-11-21T04:01:48.7409193Z       "result": "pass"
+2026-11-21T04:01:48.7409382Z     }
+2026-11-21T04:01:48.7409527Z   ]
+2026-11-21T04:01:48.7409678Z }
+2026-11-21T04:01:48.7971676Z Journal sharing/partial record/UTF-8/corruption checks passed; native Windows sharing is exercised only on Windows.
+2026-11-21T04:01:49.8485355Z Resource baseline: managed-0 / idle
+2026-11-21T04:02:05.3161596Z Resource baseline: managed-0 / ui-closed
+2026-11-21T04:02:21.6947479Z Resource baseline: managed-1 / idle
+2026-11-21T04:02:36.8132889Z Resource baseline: managed-1 / selected-output
+2026-11-21T04:03:01.9091951Z Resource baseline: managed-1 / recovery-idle
+2026-11-21T04:03:17.5511622Z Resource baseline: managed-1 / ui-closed
+2026-11-21T04:03:35.9069951Z Resource baseline: managed-5 / idle
+2026-11-21T04:03:51.1227579Z Resource baseline: managed-5 / selected-output
+2026-11-21T04:04:16.5230654Z Resource baseline: managed-5 / all-output
+2026-11-21T04:04:41.6601943Z Resource baseline: managed-5 / recovery-idle
+2026-11-21T04:04:58.0665857Z Resource baseline: managed-5 / ui-closed
+2026-11-21T04:05:20.4176187Z Resource baseline: managed-10 / idle
+2026-11-21T04:05:35.5846624Z Resource baseline: managed-10 / selected-output
+2026-11-21T04:06:01.4199601Z Resource baseline: managed-10 / all-output
+2026-11-21T04:06:26.5354533Z Resource baseline: managed-10 / recovery-idle
+2026-11-21T04:06:44.1664836Z Resource baseline: managed-10 / ui-closed
+2026-11-21T04:07:06.8092233Z Resource baseline: direct-1 / idle
+2026-11-21T04:07:21.8938077Z Resource baseline: direct-1 / all-output
+2026-11-21T04:07:46.9617033Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:07:46.9618075Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:07:47.5358700Z Resource baseline: direct-5 / idle
+2026-11-21T04:08:03.0118935Z Resource baseline: direct-5 / all-output
+2026-11-21T04:08:28.1575806Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:08:28.1576843Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:08:28.1578302Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:08:28.1579589Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:08:28.1581171Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:08:28.1582672Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:08:28.1585439Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:08:28.1587184Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:08:28.1588050Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:08:28.1588710Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:08:29.2897726Z Resource baseline: direct-10 / idle
+2026-11-21T04:08:44.5851924Z Resource baseline: direct-10 / all-output
+2026-11-21T04:09:09.6103495Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:09:09.6105209Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:09:09.6105973Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:09:09.6106941Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:09:09.6108263Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:09:09.6110054Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:09:09.6110742Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:09:09.6111451Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:09:09.6112642Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:09:09.6114287Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:09:09.6114963Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:09:09.6115852Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:09:09.6119723Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:09:09.6120533Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:09:09.6121197Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:09:09.6122159Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:09:09.6123094Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:09:09.6123783Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:09:09.6124728Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:09:09.6125369Z System.Threading.Tasks.VoidTaskResult
+2026-11-21T04:09:09.7919448Z ##[group]Run if (Test-Path build/ci-windows/resources/summary.json) {
+2026-11-21T04:09:09.7920121Z if (Test-Path build/ci-windows/resources/summary.json) {
+2026-11-21T04:09:09.7920703Z   python -B tools/ci/summarize_resources.py build/ci-windows/resources
+2026-11-21T04:09:09.7921137Z }
+2026-11-21T04:09:09.7998687Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-11-21T04:09:09.7999110Z env:
+2026-11-21T04:09:09.7999355Z   GOTOOLCHAIN: local
+2026-11-21T04:09:09.7999657Z ##[endgroup]
+2026-11-21T04:09:11.2808671Z 已汇总 22 个登记采样阶段：summary.analysis.json、summary.table.md

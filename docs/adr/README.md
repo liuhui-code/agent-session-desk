@@ -19,7 +19,7 @@ ADR 保存重要选择的背景、决定、替代方案、代价和重新评估�
 | --- | --- | --- | --- |
 | [0001](0001-architecture-and-reuse.md) | Go 模块化单体与 Agent Deck UI 选择性复用 | 已接受 | 首批 UI/平台代码已迁入；完整功能与 Windows 视觉验收待做 |
 | [0002](0002-terminal-backends-and-attach.md) | Windows psmux、Unix tmux 与全屏 attach | 已接受 | 适配及部分原生进程／后端证据已有；完整终端交互和 Windows 恢复待验证 |
-| [0003](0003-bounded-resources-and-background-work.md) | 有界资源、落盘存储和按阶段引入 Host | 已接受 | 选中预览/命令边界已有；存储、Host、内存基线与长稳待做 |
+| [0003](0003-bounded-resources-and-background-work.md) | 有界资源、落盘存储和按阶段引入 Host | 已接受 | 选中预览/命令边界与 Windows 短资源基线已有；存储、Host、完整预算与长稳待做 |
 | [0004](0004-cli-agents-and-session-messaging.md) | CLI-first、稳定身份与可核对的消息语义 | 已接受 | M0 模型与部分原生 fixture 接入证据已有；真实 agent 完整验收和 M3 消息待做 |
 | [0005](0005-dependency-lifecycle-and-upgrades.md) | 活跃稳定依赖与 Charm v1 → v2 迁移 | 已接受 | 模块／外部发行物已锁定，Windows 局部检查已有记录；完整迁移与桌面交互待做 |
 | [0006](0006-human-attention-and-notifications.md) | 人工介入事项、可信状态与分层提醒 | 已接受 | FR-14 / FL-020 与测试设计已记录；事件、通知、后台与 Windows 待实现验证 |

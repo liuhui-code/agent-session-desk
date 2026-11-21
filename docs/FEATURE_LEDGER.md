@@ -2,7 +2,7 @@
 
 更新时间：2026-11-21。用途：持续记录用户能力的范围、实现状态与验收证据。
 
-**已有首批 M0 源码迁入及 Linux／Windows 局部自动化证据；五项可控原生后端场景在指定 Windows Server 2025 runner 通过，尚无已验收/已发布功能。** 列表、预览、CLI 启动、终端适配与身份边界保持实现中，完整 Windows 交互与资源验收未完成。设计资料、代码存在、交叉编译和实际执行分别记录，范围及历史失败见[源码迁入报告](testing/results/2026-11-21-m0-source-migration.md)和[Windows 执行报告](testing/results/2026-11-21-m0-native-windows.md)。
+**已有首批 M0 源码迁入及 Linux／Windows 局部自动化证据；五项可控原生后端场景在指定 Windows Server 2025 runner 通过，尚无已验收/已发布功能。** 列表、预览、CLI 启动、终端适配与身份边界保持实现中，已有受控短资源实验，完整 Windows 交互、资源预算、长稳与验收未完成。设计资料、代码存在、交叉编译和实际执行分别记录，范围及历史失败见[源码迁入报告](testing/results/2026-11-21-m0-source-migration.md)和[Windows 执行报告](testing/results/2026-11-21-m0-native-windows.md)。
 
 产品意图与需求原文见[产品计划](PRODUCT_PLAN.md)，阶段安排见[路线图](ROADMAP.md)，架构理由见下列 ADR，测试设计见[用例库](testing/README.md)与[覆盖表](testing/COVERAGE.md)。本台账负责回答“能力做到哪里、凭什么认定做到”，不重复替代这些文档。
 
@@ -50,10 +50,10 @@
 | --- | --- | --- | --- | --- | --- |
 | FL-001 | 自定义 CLI 启动：直接接入自己的 agent | FR-01 | M0 预验证、M1 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md) / 未发布 |
 | FL-002 | 原生终端 attach：可靠输入并操作原有 CLI | FR-02、FR-11 | M0、M1 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md) / 未发布 |
-| FL-003 | 简约 TUI 与上游复用：减少视觉负担和重复设计 | FR-03、FR-11 | M0、M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md) / 未发布 |
+| FL-003 | 简约 TUI 与上游复用：减少视觉负担和重复设计 | FR-03、FR-11 | M0、M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[短资源实验](testing/results/2026-11-21-m0-windows-resources.md) / 未发布 |
 | FL-004 | 多会话组织：查找、切换、停止和归档任务 | FR-03 | M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md) / 未发布 |
 | FL-005 | 稳定身份：重命名、排序后仍控制正确对象 | FR-04 | M1、M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md) / 未发布 |
-| FL-006 | 后台托管与重新连接：关闭界面后任务继续 | FR-05 | M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md) / 未发布 |
+| FL-006 | 后台托管与重新连接：关闭界面后任务继续 | FR-05 | M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md)、[短资源实验](testing/results/2026-11-21-m0-windows-resources.md) / 未发布 |
 | FL-007 | 带来源的输出读取：交接内容可追溯 | FR-06 | M3 | 计划 | 未提供 / 未发布 |
 | FL-008 | 跨会话显式投递：把指令交给明确目标 | FR-07 | M3 | 计划 | 未提供 / 未发布 |
 | FL-009 | 按能力排队与自动投递：避免向未知状态盲目注入 | FR-08 | M3 | 计划 | 未提供 / 未发布 |
@@ -62,8 +62,8 @@
 | FL-012 | 焦点与草稿：输入不串用，切换不丢失管理器草稿 | FR-11 | M1、M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md) / 未发布 |
 | FL-013 | 异常、重试和运行变化：保留不确定性并避免误投 | FR-12 | M1 至 M3 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md) / 未发布 |
 | FL-014 | 请求与回复关联：按消息查询合作结果 | FR-13 | M3 | 计划 | 未提供 / 未发布 |
-| FL-015 | 有界资源：多会话和持续输出下内存可控 | 产品质量标准 | M0 基线、M1 至 M4 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md) / 未发布 |
-| FL-016 | Windows 兼容门槛：核心流程原生运行 | FR-01、FR-02、FR-05、FR-07、FR-11 | M0、M4 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md) / 未发布 |
+| FL-015 | 有界资源：多会话和持续输出下内存可控 | 产品质量标准 | M0 基线、M1 至 M4 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[短资源实验](testing/results/2026-11-21-m0-windows-resources.md) / 未发布 |
+| FL-016 | Windows 兼容门槛：核心流程原生运行 | FR-01、FR-02、FR-05、FR-07、FR-11 | M0、M4 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md)、[短资源实验](testing/results/2026-11-21-m0-windows-resources.md) / 未发布 |
 | FL-017 | 可安装预览版：用户可独立完成完整流程 | 全部首版需求 | M4 | 计划 | 未提供 / 未发布 |
 | FL-018 | 常驻侧栏内嵌终端：工作时持续看见管理导航 | FR-02、FR-11 的可选扩展 | 首版之后 | 后置 | 未提供 / 未发布 |
 | FL-019 | 依赖与复用可追溯：持续获得可维护的实现基线 | 架构与发布质量 | M0 至 M4 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md) / 未发布 |
@@ -123,7 +123,7 @@
 - **范围与边界：**psmux/tmux 承担终端持久托管，TUI 分离不结束目标 Run。后台存活期间可重新连接；机器重启、后台退出或 agent 结束后不声称原进程仍可接回。
 - **验收：**关闭 TUI 后验证实际任务继续，重新打开接回同一 Run；分别模拟 agent 退出且 shell 留存、后台退出和客户端断开，界面不误报 agent 仍在工作。
 - **依据：**[FR-05](PRODUCT_PLAN.md)、[ADR-0002](adr/0002-terminal-backends-and-attach.md)、[ADR-0003](adr/0003-bounded-resources-and-background-work.md)。
-- **实现与验收证据：**活后端 user option 可重新发现同一 Session/Run；退出 UI 不调用 Stop。Windows 场景已观察独立 `asd start` 命令进程结束后，fixture 的精确进程 handle 仍存活，新 `list/preview` 进程识别原 Run，显式 stop 后该 fixture 退出。它不代替 SQLite 历史或任意 agent 进程树保证；真实 TUI 关闭／重开、交互分离和更多故障恢复仍待验证。见[源码局部证据](testing/results/2026-11-21-m0-source-migration.md)与[Windows 独立进程场景](testing/results/2026-11-21-m0-native-windows.md)。
+- **实现与验收证据：**活后端 user option 可重新发现同一 Session/Run；退出 UI 不调用 Stop。Windows 场景已观察独立 `asd start` 命令进程结束后，fixture 的精确进程 handle 仍存活，新 `list/preview` 进程识别原 Run，显式 stop 后该 fixture 退出。它不代替 SQLite 历史或任意 agent 进程树保证；另在 Windows Server 的独立测试 ConPTY 中完成 0/1/5/10 档位的真实 TUI 关闭／重开，16 个受控 Session/Run 与 fixture 身份保持，见[短资源实验](testing/results/2026-11-21-m0-windows-resources.md)。Windows Terminal 下的交互分离、真实 agent 和更多故障恢复仍待验证。见[源码局部证据](testing/results/2026-11-21-m0-source-migration.md)与[Windows 独立进程场景](testing/results/2026-11-21-m0-native-windows.md)。
 
 ### FL-007：带来源的输出读取
 
@@ -204,7 +204,7 @@
 - **范围与边界：**关闭本产品后台的非必要预热；当前预览按需刷新，内存缓存、历史与队列设定清理边界；长期输出落盘并轮转。共享后台映射等优化需单独验证，不能以实验功能作为首版必需基础。
 - **验收：**在 0、1、5、10 个会话、空闲与持续输出场景记录基线，长时间输出后内存不无界增长；分别报告 TUI、产品 Host（若有）、psmux、控制台/shell 与 agent 开销；确认退出 UI 释放其缓存，无隐藏备用进程。数值预算在 M0 实测后记录。
 - **依据：**[产品质量标准](PRODUCT_PLAN.md)、[ADR-0003](adr/0003-bounded-resources-and-background-work.md)。
-- **实现与验收证据：**仅当前可见预览捕获、有界尾部缓存/控制响应、取消和命令时限已实现；私有 psmux no-warm 配置已生成。当前限额是防御性实现上限，Windows 进程树、0/1/5/10 会话及长稳资源预算尚未测量。 [实际验证范围与未通过门槛](testing/results/2026-11-21-m0-source-migration.md)。
+- **实现与验收证据：**仅当前可见预览捕获、有界尾部缓存/控制响应、取消和命令时限已实现；私有 psmux no-warm 配置已生成。已实施并执行原生 Windows 0/1/5/10 托管会话及 1/5/10 直接程序对照，记录真实 TUI、后台、控制台辅助进程、fixture 与测量工具的私有字节、工作集、句柄、线程和可见 CPU；含输出、回落、UI 重开及正常清理。失败、路径身份修复、实际数值和采样缺口见[资源执行报告](testing/results/2026-11-21-m0-windows-resources.md)。每阶段约 12 秒，仅属短基线；当前防御限额不是已接受预算，完整时长与长稳未完成。
 
 ### FL-016：Windows 兼容门槛
 
@@ -290,3 +290,5 @@
 实施补充（2026-11-21）：迁入首批 UI / Windows 平台源码及独立核心，11 项有相应局部代码的能力转为“实现中”；没有条目标为已验收。339 项设计用例及既有编号保持原样，Go 自动化局部证据单独记录。
 
 原生执行补充（2026-11-21）：固定官方发行物的 Windows 自动化已通过五项可控后端场景，包含独立 fixture 记录与原 pane 缺失回归；完整运行及此前失败见执行报告。不改变 339 项设计状态、各 FL 当前状态或 M0 验收门槛。
+
+资源执行补充（2026-11-21）：新增受控负载夹具、身份可核验的 Windows 采样与统计工具，归档短资源实验及失败/修复；FL-003/006/015/016 增加局部证据，仍为实现中，339 项设计状态与 M0 完整门槛不变。

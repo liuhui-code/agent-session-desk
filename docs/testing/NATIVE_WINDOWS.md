@@ -67,6 +67,8 @@ Hosted runner 是 **Windows Server 2025**，标签会随镜像更新；实际 Im
 
 这些测试不执行交互式 attach 客户端，也不验收 Windows Terminal 字体／绘制、IME、鼠标、焦点、全屏返回、真实 agent 品牌、低内存预算或安装发布。即使所有自动化通过，M0 和 FL-016 仍需对应交互式与资源证据，不能直接宣称 Windows 10/11 已完整支持。
 
+原生后端合同后另运行[短资源实验](WINDOWS_RESOURCES.md)：真实 TUI 在独立测试 ConPTY 中运行，采集 0/1/5/10 会话及直接程序对照。该步骤与汇总各自显示状态，原始结果见[资源执行报告](results/2026-11-21-m0-windows-resources.md)；它不扩展本页对桌面交互和已接受预算的承诺。
+
 ## 5. 本轮修正的目标定位
 
 对 psmux 3.4.0，pane 查询改为单个 `SESSION:.%N` 完整 target。稳定源码只对第一个 `-t` 做某些校验，原先“全局 session target + 局部 pane target”会留下未验证 pane 的路径。由于 capture 内部在目标消失时会退回活动 pane，返回预览前还要重新核对原 pane，无法确认就丢弃快照。

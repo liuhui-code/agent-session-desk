@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "powershell": "7.6.10",
+  "host_platform": "Microsoft Windows 10.0.26100",
+  "helper_sha256": "914a60fe3016fd3ed0661831e3ac5f2fcaddedc1b77680689a0054acd699acb4",
+  "fixture_sha256": "7c9996b509984c4e54a4c3b203a899b125f724da377b828e03c679144ef15436",
+  "pure_graph_cases": 15,
+  "platform_guard_exercised": false,
+  "passed": 15,
+  "scope": "Pure synthetic process ownership; non-Windows guard where applicable. No Windows metrics executed.",
+  "cases": [
+    {
+      "name": "nearest_image_root_and_foreign_console_isolation",
+      "result": "pass"
+    },
+    {
+      "name": "reused_parent_pid_created_after_child",
+      "result": "pass"
+    },
+    {
+      "name": "absent_remembered_parent_cannot_own_new_child",
+      "result": "pass"
+    },
+    {
+      "name": "exact_previous_child_survives_parent_exit",
+      "result": "pass"
+    },
+    {
+      "name": "previous_pid_reuse_is_rejected",
+      "result": "pass"
+    },
+    {
+      "name": "previous_image_change_is_rejected",
+      "result": "pass"
+    },
+    {
+      "name": "explicit_identity_overrides_image_role",
+      "result": "pass"
+    },
+    {
+      "name": "stale_explicit_root_does_not_override_current_image",
+      "result": "pass"
+    },
+    {
+      "name": "same_image_explicit_direct_fixture_role",
+      "result": "pass"
+    },
+    {
+      "name": "invalid_ancestry_cycle",
+      "result": "pass"
+    },
+    {
+      "name": "same_timestamp_distinct_parent_child",
+      "result": "pass"
+    },
+    {
+      "name": "previous_console_anchor_keeps_descendant_owner_role",
+      "result": "pass"
+    },
+    {
+      "name": "empty_graph_keeps_array_shape",
+      "result": "pass"
+    },
+    {
+      "name": "numeric_filetime_rejected",
+      "result": "pass"
+    },
+    {
+      "name": "current_server_root_reclassifies_remembered_console",
+      "result": "pass"
+    }
+  ]
+}

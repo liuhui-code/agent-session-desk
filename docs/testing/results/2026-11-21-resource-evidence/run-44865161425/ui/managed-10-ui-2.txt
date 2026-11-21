@@ -1,0 +1,33 @@
+Agent Session Desk                                                                                               10 会话
+
+会话                                    │ 屏幕预览
+─────────────────────────────────────── │ ──────────────────────────────────────────────────────────────────────────────
+› session-00                     可连接 │ 当前屏幕（节选）· CLI 状态未知
+  session-01                     可连接 │
+  session-02                     可连接 │ xxxxxxxxxxxxxxx
+  session-03                     可连接 │ ASD-LOAD xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  session-04                     可连接 │ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  session-05                     可连接 │ xxxxxxxxxxxxxxx
+  session-06                     可连接 │ ASD-LOAD xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  session-07                     可连接 │ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  session-08                     可连接 │ xxxxxxxxxxxxxxx
+  session-09                     可连接 │ ASD-LOAD xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                                        │ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                                        │ xxxxxxxxxxxxxxx
+                                        │ ASD-LOAD xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                                        │ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                                        │ xxxxxxxxxxxxxxx
+                                        │ ASD-LOAD xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                                        │ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                                        │ xxxxxxxxxxxxxxx
+                                        │ ASD-LOAD xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                                        │ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                                        │ xxxxxxxxxxxxxxx
+                                        │ {"event":"load-finished","load_id":2,"line_bytes":256,"lines_per_second":100,"
+                                        │ ytes_written":640000,"status":"completed","started_utc":"2026-11-21T04:20:02.1
+                                        │ 27.1149415Z"}
+                                        │ after-load-2
+                                        │ {"event":"input","text":"after-load-2"}
+
+↑↓ · 选择  Enter · 进入  r · 刷新  ? · 帮助  q · 退出
+

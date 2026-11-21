@@ -1,0 +1,679 @@
+{
+  "schema_version": 1,
+  "run_id": 44862887610,
+  "commit": "b682d764221248c113cf1fc2f3009d32474f799c",
+  "run_url": "https://github.com/liuhui-code/agent-session-desk/actions/runs/44862887610",
+  "artifact_url": "https://github.com/liuhui-code/agent-session-desk/actions/runs/44862887610/artifacts/14690606639",
+  "artifact_id": 14690606639,
+  "artifact_name": "windows-native-evidence-b682d764221248c113cf1fc2f3009d32474f799c",
+  "artifact_digest": "sha256:72d2bc46c1326bd2a5b6ae191046797b7c01ee50cab2504c1fb804f8a1222bd8",
+  "artifact_bytes": 56881,
+  "zip_file": "artifact.zip",
+  "zip_sha256": "72d2bc46c1326bd2a5b6ae191046797b7c01ee50cab2504c1fb804f8a1222bd8",
+  "zip_matches_github_digest_and_size": true,
+  "github_artifact_metadata": {
+    "id": 14690606639,
+    "name": "windows-native-evidence-b682d764221248c113cf1fc2f3009d32474f799c",
+    "size_in_bytes": 56881,
+    "url": "https://api.github.com/repos/liuhui-code/agent-session-desk/actions/artifacts/14690606639",
+    "archive_download_url": "https://api.github.com/repos/liuhui-code/agent-session-desk/actions/artifacts/14690606639/zip",
+    "expired": false,
+    "created_at": "2026-11-21T03:48:45Z",
+    "expires_at": "2026-12-05T03:48:44Z",
+    "updated_at": "2026-11-21T03:48:45Z",
+    "digest": "sha256:72d2bc46c1326bd2a5b6ae191046797b7c01ee50cab2504c1fb804f8a1222bd8",
+    "workflow_run": {
+      "id": 44862887610,
+      "repository_id": 1465558795,
+      "head_repository_id": 1465558795,
+      "head_branch": "main",
+      "head_sha": "b682d764221248c113cf1fc2f3009d32474f799c"
+    }
+  },
+  "source_metadata_sha256": "dc4478e212ee70ebca42c462e8cd7edf60e8eec49833edc31729ee3c7f6e7f72",
+  "entries": [
+    {
+      "path": "build-fixture.stderr",
+      "directory": false,
+      "bytes": 0,
+      "compressed_bytes": 2,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "build-fixture.stdout",
+      "directory": false,
+      "bytes": 0,
+      "compressed_bytes": 2,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "build-product.stderr",
+      "directory": false,
+      "bytes": 0,
+      "compressed_bytes": 2,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "build-product.stdout",
+      "directory": false,
+      "bytes": 0,
+      "compressed_bytes": 2,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "catalog.stderr",
+      "directory": false,
+      "bytes": 0,
+      "compressed_bytes": 2,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "catalog.stdout",
+      "directory": false,
+      "bytes": 274,
+      "compressed_bytes": 191,
+      "sha256": "8f23196a8a53abbc9a808d88a8151bce89ef89dfd0ba05bdc3189b7a0fe6e6ce"
+    },
+    {
+      "path": "go-version.stderr",
+      "directory": false,
+      "bytes": 0,
+      "compressed_bytes": 2,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "go-version.stdout",
+      "directory": false,
+      "bytes": 34,
+      "compressed_bytes": 36,
+      "sha256": "bd74e61f96314b4c2e72e63319395345bc2817752bbdd3fc177a9edb2eb2ba14"
+    },
+    {
+      "path": "modules.stderr",
+      "directory": false,
+      "bytes": 0,
+      "compressed_bytes": 2,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "modules.stdout",
+      "directory": false,
+      "bytes": 21,
+      "compressed_bytes": 23,
+      "sha256": "b4537ed75f533f993f371954de47e42a793b8e5b0587577de7e27fb3e50696bd"
+    },
+    {
+      "path": "native.stderr",
+      "directory": false,
+      "bytes": 0,
+      "compressed_bytes": 2,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "native.stdout",
+      "directory": false,
+      "bytes": 14720,
+      "compressed_bytes": 1233,
+      "sha256": "7516e5b89c2a47853359fe3785a4255a00a3c469ef1962250850d2d9c69ba580"
+    },
+    {
+      "path": "native/TestWindowsPsmuxNativeCLIProcessExitAndReconnect/asd-native-57ae1facae9b/fixture-0.jsonl",
+      "directory": false,
+      "bytes": 274,
+      "compressed_bytes": 242,
+      "sha256": "c793eeb053d56b94ea39a7b1181620ac6aa1da516e99c852bf73787b429a1614"
+    },
+    {
+      "path": "native/TestWindowsPsmuxNativeIsolationAndRejectedLaunches/asd-native-1430526a93f7/fixture-0.jsonl",
+      "directory": false,
+      "bytes": 249,
+      "compressed_bytes": 227,
+      "sha256": "31813af0cee161f55d07ad24099c8d5e163c7a3188beb7889724f1bf3a7bd2d8"
+    },
+    {
+      "path": "native/TestWindowsPsmuxNativeIsolationAndRejectedLaunches/asd-native-1430526a93f7/fixture-1.jsonl",
+      "directory": false,
+      "bytes": 289,
+      "compressed_bytes": 250,
+      "sha256": "6f63e5d144d85f3172de89232fd6fcd2cd7e6c175870441c1c21b37e2cec0afd"
+    },
+    {
+      "path": "native/TestWindowsPsmuxNativeIsolationAndRejectedLaunches/asd-native-e754f8ad7e65/fixture-0.jsonl",
+      "directory": false,
+      "bytes": 262,
+      "compressed_bytes": 234,
+      "sha256": "6da4ff8c1b8d7969a93d7d856916cb30dadde1b0d32a7fa3845ecc4e223ff498"
+    },
+    {
+      "path": "native/TestWindowsPsmuxNativeLaunchLifecycle/asd-native-a1e998521371/fixture-0.jsonl",
+      "directory": false,
+      "bytes": 438,
+      "compressed_bytes": 339,
+      "sha256": "3ccf432b3174811eeb8d6fe0a18d26efd5de1e9b50ed15c50d5708df7a402ab9"
+    },
+    {
+      "path": "native/TestWindowsPsmuxNativeMissingOriginalPaneNeverFallsBack/asd-native-d33392ff83b6/fixture-0.jsonl",
+      "directory": false,
+      "bytes": 279,
+      "compressed_bytes": 245,
+      "sha256": "944ff3413fb439c71b74e2cb528348fee6577f3f75ee9672f626527e11235b8d"
+    },
+    {
+      "path": "native/TestWindowsPsmuxNativeMissingOriginalPaneNeverFallsBack/asd-native-d33392ff83b6/fixture-1.jsonl",
+      "directory": false,
+      "bytes": 331,
+      "compressed_bytes": 276,
+      "sha256": "9e2a90655e5a1a0e068af28f253a1493a3afc3edc38aea8c1b20e34c38674e00"
+    },
+    {
+      "path": "native/TestWindowsPsmuxNativeRapidExitRetainsScreen/asd-native-fc804dd76f77/fixture-0.jsonl",
+      "directory": false,
+      "bytes": 291,
+      "compressed_bytes": 250,
+      "sha256": "ef5247f5c0f395461ae975f60465ab444cb954c7b12133733ec49c9d7f554c0c"
+    },
+    {
+      "path": "process-metrics-graph-results.json",
+      "directory": false,
+      "bytes": 1946,
+      "compressed_bytes": 659,
+      "sha256": "b17f1a13895e87b4e23a14a8c0006cf011717eac0c736517d05bf2ad7850cc71"
+    },
+    {
+      "path": "psmux-version.stderr",
+      "directory": false,
+      "bytes": 0,
+      "compressed_bytes": 2,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "psmux-version.stdout",
+      "directory": false,
+      "bytes": 44,
+      "compressed_bytes": 38,
+      "sha256": "5e3bbba0226f294300f6c87b132f7e2403a8c731cb128573f35243de73e19d61"
+    },
+    {
+      "path": "race.stderr",
+      "directory": false,
+      "bytes": 0,
+      "compressed_bytes": 2,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "race.stdout",
+      "directory": false,
+      "bytes": 416,
+      "compressed_bytes": 134,
+      "sha256": "a51f5ce528d7c697d03915255b697f488cc16fbf97377e29610b4f2a8c1ed6b5"
+    },
+    {
+      "path": "resources/events.jsonl",
+      "directory": false,
+      "bytes": 20206,
+      "compressed_bytes": 2719,
+      "sha256": "e8e7d983cc8bbda3f3ec346349630e49a055d0ce8ace83a384412b827617d044"
+    },
+    {
+      "path": "resources/managed-0-backend.conf",
+      "directory": false,
+      "bytes": 163,
+      "compressed_bytes": 121,
+      "sha256": "932de1bc6c9336f7e20ccd6fdcfad6bd9d453c6863174b8082a73a5eaf6e51ca"
+    },
+    {
+      "path": "resources/managed-0-driver.conf",
+      "directory": false,
+      "bytes": 101,
+      "compressed_bytes": 80,
+      "sha256": "d95e80170c470f72edbf2c0ba04c370cdb6bcd843bf4a9f7aca812177a53caf5"
+    },
+    {
+      "path": "resources/managed-0-ui-1.txt",
+      "directory": false,
+      "bytes": 1825,
+      "compressed_bytes": 211,
+      "sha256": "ae5578b1218d51b05f0276ae73b6fddd4b8f8219f19890055ba7f7c8d5f4fa8e"
+    },
+    {
+      "path": "resources/managed-0-ui-2.txt",
+      "directory": false,
+      "bytes": 1825,
+      "compressed_bytes": 211,
+      "sha256": "ae5578b1218d51b05f0276ae73b6fddd4b8f8219f19890055ba7f7c8d5f4fa8e"
+    },
+    {
+      "path": "resources/managed-1-fixture-0.jsonl",
+      "directory": false,
+      "bytes": 162,
+      "compressed_bytes": 127,
+      "sha256": "939eee9340d8a8e8bd993d2630f62a946bfce3421324829d24ca4fac95f3b254"
+    },
+    {
+      "path": "resources/samples.jsonl",
+      "directory": false,
+      "bytes": 122858,
+      "compressed_bytes": 6145,
+      "sha256": "ce4ad460ee88d25a5046695e8caf342c68a1f43ecda103639071ab56a32a65ed"
+    },
+    {
+      "path": "resources/summary.analysis.json",
+      "directory": false,
+      "bytes": 641304,
+      "compressed_bytes": 18812,
+      "sha256": "f27627004d579eee981e1af1ddca4eaa3301403ba027ed6a94505a94b9788f7b"
+    },
+    {
+      "path": "resources/summary.json",
+      "directory": false,
+      "bytes": 4263,
+      "compressed_bytes": 1764,
+      "sha256": "8a1606b6fade9e8319bf76973efcf892fa02890be1c05cadabe89d66a39ecb60"
+    },
+    {
+      "path": "resources/summary.table.md",
+      "directory": false,
+      "bytes": 12748,
+      "compressed_bytes": 3468,
+      "sha256": "45ed403d72f87f22907b6dedcf57c2a40b40e19b1c765563cb80907629c0d339"
+    },
+    {
+      "path": "source-after.json",
+      "directory": false,
+      "bytes": 2510,
+      "compressed_bytes": 1186,
+      "sha256": "daf9dc082335850535ea51d0f4e3415154c32dac81531e036b98e8893988e070"
+    },
+    {
+      "path": "source-before.json",
+      "directory": false,
+      "bytes": 2510,
+      "compressed_bytes": 1186,
+      "sha256": "daf9dc082335850535ea51d0f4e3415154c32dac81531e036b98e8893988e070"
+    },
+    {
+      "path": "summary.json",
+      "directory": false,
+      "bytes": 4044,
+      "compressed_bytes": 997,
+      "sha256": "6889ef2b1e2fe92b3b32d8507acd957e114b20db9a620eb5dd5ceaedf88cb6e7"
+    },
+    {
+      "path": "unit.stderr",
+      "directory": false,
+      "bytes": 0,
+      "compressed_bytes": 2,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "unit.stdout",
+      "directory": false,
+      "bytes": 185693,
+      "compressed_bytes": 8717,
+      "sha256": "690b41b7b15d6929be6fc5117f845ca93bb458a88f0ca1c565a8835f109bef2b"
+    },
+    {
+      "path": "vet.stderr",
+      "directory": false,
+      "bytes": 0,
+      "compressed_bytes": 2,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "vet.stdout",
+      "directory": false,
+      "bytes": 0,
+      "compressed_bytes": 2,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "entry_count": 42,
+  "source_verification": {
+    "source_before_after_hashes_equal": true,
+    "source_before_after_bytes_equal": true,
+    "guarded_file_count": 25,
+    "files": [
+      {
+        "path": "cmd/asd-fixture/main.go",
+        "sha256": "a6b9e214b601c35e02c450ebf0eddd3d3c2b9f5484cc56cbb61a918e76cbcef1",
+        "matches_git_blob_bytes": true
+      },
+      {
+        "path": "cmd/asd-fixture/main_test.go",
+        "sha256": "a6e27d112995f66f24fb6b6019913cfd0bd4650bd97c2409ef217019771ad527",
+        "matches_git_blob_bytes": true
+      },
+      {
+        "path": "cmd/asd/main.go",
+        "sha256": "f8a910eed8f4ac1702f92f2e16a406376cc67890f4e36904a256615e53fa7da0",
+        "matches_git_blob_bytes": true
+      },
+      {
+        "path": "go.mod",
+        "sha256": "f5c342d23fb679d0b53c403e3c74bbc8ace653c40ce1e0a40f840c11011da862",
+        "matches_git_blob_bytes": true
+      },
+      {
+        "path": "go.sum",
+        "sha256": "ad80c1dd875e013a82f6178b9819a6090c37d8224932f90cd6adc96f6429e0f0",
+        "matches_git_blob_bytes": true
+      },
+      {
+        "path": "internal/backend/backend.go",
+        "sha256": "9d69c9d662f9285f5d7dae334ff444cc64d595647cc6416f72a5eab51f21f978",
+        "matches_git_blob_bytes": true
+      },
+      {
+        "path": "internal/backend/backend_test.go",
+        "sha256": "213509608613a2445c04ae1e4843ffee13e26c6d5801fc77a7fe53cc2333f9fd",
+        "matches_git_blob_bytes": true
+      },
+      {
+        "path": "internal/backend/integration_windows_test.go",
+        "sha256": "a4b97fd1d332c5949dcc61df1c4461c75b5229af4c3e463e907858afc9a78be9",
+        "matches_git_blob_bytes": true
+      },
+      {
+        "path": "internal/backend/process_unix.go",
+        "sha256": "4d9efe24bc5f644bef0d17cfbfed61d5e8eedb88f1fe119ba6f43a7a3815e6b2",
+        "matches_git_blob_bytes": true
+      },
+      {
+        "path": "internal/backend/process_windows.go",
+        "sha256": "a7d15b9b51f1d68d3fb83d053811a7dcf7360e8b205aeee4164a4c32252b4bfe",
+        "matches_git_blob_bytes": true
+      },
+      {
+        "path": "internal/backend/psmux_contract.go",
+        "sha256": "f7b34f2b879ce638f8a3a4ab7e257eb8d51e6e292ab520fcd07ccb0da77c5165",
+        "matches_git_blob_bytes": true
+      },
+      {
+        "path": "internal/backend/transport.go",
+        "sha256": "732b854ec6111893928f9e1e0b657d5932bb0d6ea178cdf7cf044f4aba63cc06",
+        "matches_git_blob_bytes": true
+      },
+      {
+        "path": "internal/cli/cli.go",
+        "sha256": "2c5738b67894972f3c5197dd2b8dc9cab0984d051514f77741c10b15a299a87d",
+        "matches_git_blob_bytes": true
+      },
+      {
+        "path": "internal/cli/cli_test.go",
+        "sha256": "9b13fdacc42446fbcc5d493f49f2539fe16cadda9b397452c74696f887fce692",
+        "matches_git_blob_bytes": true
+      },
+      {
+        "path": "internal/session/launch.go",
+        "sha256": "8938bacb7a303944529244177804484457a59a164a04627f297f6f9929c3a43c",
+        "matches_git_blob_bytes": true
+      },
+      {
+        "path": "internal/session/launch_test.go",
+        "sha256": "1ee77ae9320e48b2e0ad2529fe116182ab877e149c8256523030c3825638c04b",
+        "matches_git_blob_bytes": true
+      },
+      {
+        "path": "internal/session/session.go",
+        "sha256": "3d9dd0fcec805a21cabf1e7bea0c3231ecc3720520b55d97a093a5446ce2de31",
+        "matches_git_blob_bytes": true
+      },
+      {
+        "path": "internal/ui/cellwidth.go",
+        "sha256": "ef5d9ed1a9e70bf44bdf47d9bb07eb14fec95ab3cc331a00c8d1b28b502720bc",
+        "matches_git_blob_bytes": true
+      },
+      {
+        "path": "internal/ui/home_view_frame.go",
+        "sha256": "80378503a4aabff1305970520ec7dcf0baf710187e95085eeda6387e1fed6dd6",
+        "matches_git_blob_bytes": true
+      },
+      {
+        "path": "internal/ui/home_view_list.go",
+        "sha256": "481d2436f86a2bf158920ab436eb5ef2932a64574c40ff9334b3b911ae909f85",
+        "matches_git_blob_bytes": true
+      },
+      {
+        "path": "internal/ui/model.go",
+        "sha256": "6ff846db7e8ff1e1ced39b87a58ac121f2feca14e761a9a5832b0c2b49a1d790",
+        "matches_git_blob_bytes": true
+      },
+      {
+        "path": "internal/ui/model_test.go",
+        "sha256": "9626a6472336ea9e4971aee990b18a91d5dca416a1f746f8952da26d01cc5b65",
+        "matches_git_blob_bytes": true
+      },
+      {
+        "path": "internal/ui/styles.go",
+        "sha256": "e5447ba5bde71a5fc77fe473749012e86caf2bf1308e675d798e1886798bfd89",
+        "matches_git_blob_bytes": true
+      },
+      {
+        "path": "internal/ui/text.go",
+        "sha256": "e4af9e958a23ad1c936e49b3bf48daf1a1bb17bcd4a41fa304c7b1807b6aa4f0",
+        "matches_git_blob_bytes": true
+      },
+      {
+        "path": "internal/ui/view_test.go",
+        "sha256": "caf0dca194d2be785b0a412aea434af34cb8edb333ab7f0f0bf1e3cbad11bdec",
+        "matches_git_blob_bytes": true
+      }
+    ],
+    "additional_reported_source_hashes": [
+      {
+        "path": "tools/ci/windows-process-metrics.ps1",
+        "reported_sha256": "496bfc572d91d69dab2d398a84183a8022d127154424db2d93ce7a253e41f29f",
+        "git_blob_sha256": "496bfc572d91d69dab2d398a84183a8022d127154424db2d93ce7a253e41f29f",
+        "verified_representation": "exact_git_blob_bytes"
+      },
+      {
+        "path": "tools/ci/process-metrics-fixtures.json",
+        "reported_sha256": "25b561e499b259b444a4bdbe938cbd0e5deee6bb446ecc167d23a12fc397b9ac",
+        "git_blob_sha256": "7c9996b509984c4e54a4c3b203a899b125f724da377b828e03c679144ef15436",
+        "verified_representation": "git_content_with_crlf_line_endings"
+      }
+    ],
+    "scope": "Go sources and module files recorded in the native guard; extra graph-test hashes are checked separately. This does not assert that every CI script had a runtime hash guard."
+  },
+  "fixture_payload_audit": [
+    {
+      "path": "native/TestWindowsPsmuxNativeCLIProcessExitAndReconnect/asd-native-57ae1facae9b/fixture-0.jsonl",
+      "event_counts": {
+        "started": 1
+      },
+      "selected_env_keys": [
+        "ASD_NATIVE_EMPTY",
+        "ASD_NATIVE_VALUE"
+      ],
+      "synthetic_payload_checked": true
+    },
+    {
+      "path": "native/TestWindowsPsmuxNativeIsolationAndRejectedLaunches/asd-native-1430526a93f7/fixture-0.jsonl",
+      "event_counts": {
+        "started": 1
+      },
+      "selected_env_keys": [
+        "ASD_NATIVE_EMPTY",
+        "ASD_NATIVE_VALUE"
+      ],
+      "synthetic_payload_checked": true
+    },
+    {
+      "path": "native/TestWindowsPsmuxNativeIsolationAndRejectedLaunches/asd-native-1430526a93f7/fixture-1.jsonl",
+      "event_counts": {
+        "input": 1,
+        "started": 1
+      },
+      "selected_env_keys": [
+        "ASD_NATIVE_EMPTY",
+        "ASD_NATIVE_VALUE"
+      ],
+      "synthetic_payload_checked": true
+    },
+    {
+      "path": "native/TestWindowsPsmuxNativeIsolationAndRejectedLaunches/asd-native-e754f8ad7e65/fixture-0.jsonl",
+      "event_counts": {
+        "started": 1
+      },
+      "selected_env_keys": [
+        "ASD_NATIVE_EMPTY",
+        "ASD_NATIVE_VALUE"
+      ],
+      "synthetic_payload_checked": true
+    },
+    {
+      "path": "native/TestWindowsPsmuxNativeLaunchLifecycle/asd-native-a1e998521371/fixture-0.jsonl",
+      "event_counts": {
+        "exiting": 1,
+        "input": 2,
+        "started": 1
+      },
+      "selected_env_keys": [
+        "ASD_NATIVE_EMPTY",
+        "ASD_NATIVE_VALUE"
+      ],
+      "synthetic_payload_checked": true
+    },
+    {
+      "path": "native/TestWindowsPsmuxNativeMissingOriginalPaneNeverFallsBack/asd-native-d33392ff83b6/fixture-0.jsonl",
+      "event_counts": {
+        "started": 1
+      },
+      "selected_env_keys": [
+        "ASD_NATIVE_EMPTY",
+        "ASD_NATIVE_VALUE"
+      ],
+      "synthetic_payload_checked": true
+    },
+    {
+      "path": "native/TestWindowsPsmuxNativeMissingOriginalPaneNeverFallsBack/asd-native-d33392ff83b6/fixture-1.jsonl",
+      "event_counts": {
+        "input": 1,
+        "started": 1
+      },
+      "selected_env_keys": [
+        "ASD_NATIVE_EMPTY",
+        "ASD_NATIVE_VALUE"
+      ],
+      "synthetic_payload_checked": true
+    },
+    {
+      "path": "native/TestWindowsPsmuxNativeRapidExitRetainsScreen/asd-native-fc804dd76f77/fixture-0.jsonl",
+      "event_counts": {
+        "exiting": 1,
+        "started": 1
+      },
+      "selected_env_keys": [
+        "ASD_NATIVE_EMPTY",
+        "ASD_NATIVE_VALUE"
+      ],
+      "synthetic_payload_checked": true
+    },
+    {
+      "path": "resources/managed-1-fixture-0.jsonl",
+      "event_counts": {
+        "started": 1
+      },
+      "selected_env_keys": [],
+      "synthetic_payload_checked": true
+    }
+  ],
+  "archive_checks": {
+    "canonical_relative_paths_only": true,
+    "no_symlinks_or_encryption": true,
+    "known_evidence_entry_names_only": true,
+    "no_runtime_auth_or_key_files": true,
+    "fixture_selected_environment_is_synthetic": true
+  },
+  "reported_results": {
+    "native": "pass",
+    "native_failure": null,
+    "native_tests_passed": 5,
+    "resource": "fail",
+    "resource_failure": "Exception calling \"ReadAllText\" with \"1\" argument(s): \"The process cannot access the file 'D:\\a\\agent-session-desk\\agent-session-desk\\build\\ci-windows\\resources\\managed-1-fixture-0.jsonl' because it is being used by another process.\"",
+    "registered_resource_phases": [
+      {
+        "scenario": "managed-0",
+        "phase": "idle",
+        "session_count": 0,
+        "sample_count": 12
+      },
+      {
+        "scenario": "managed-0",
+        "phase": "ui-closed",
+        "session_count": 0,
+        "sample_count": 12
+      }
+    ],
+    "execution_excerpt_contains_failed_step": true
+  },
+  "verbatim_extracted_files": [
+    {
+      "archive_path": "process-metrics-graph-results.json",
+      "zip_entry": "process-metrics-graph-results.json",
+      "bytes": 1946,
+      "sha256": "b17f1a13895e87b4e23a14a8c0006cf011717eac0c736517d05bf2ad7850cc71",
+      "verbatim_copy": true
+    },
+    {
+      "archive_path": "ui/managed-0-ui-1.txt",
+      "zip_entry": "resources/managed-0-ui-1.txt",
+      "bytes": 1825,
+      "sha256": "ae5578b1218d51b05f0276ae73b6fddd4b8f8219f19890055ba7f7c8d5f4fa8e",
+      "verbatim_copy": true
+    },
+    {
+      "archive_path": "ui/managed-0-ui-2.txt",
+      "zip_entry": "resources/managed-0-ui-2.txt",
+      "bytes": 1825,
+      "sha256": "ae5578b1218d51b05f0276ae73b6fddd4b8f8219f19890055ba7f7c8d5f4fa8e",
+      "verbatim_copy": true
+    },
+    {
+      "archive_path": "resource-summary.json",
+      "zip_entry": "resources/summary.json",
+      "bytes": 4263,
+      "sha256": "8a1606b6fade9e8319bf76973efcf892fa02890be1c05cadabe89d66a39ecb60",
+      "verbatim_copy": true
+    },
+    {
+      "archive_path": "resource-table.md",
+      "zip_entry": "resources/summary.table.md",
+      "bytes": 12748,
+      "sha256": "45ed403d72f87f22907b6dedcf57c2a40b40e19b1c765563cb80907629c0d339",
+      "verbatim_copy": true
+    },
+    {
+      "archive_path": "native-summary.json",
+      "zip_entry": "summary.json",
+      "bytes": 4044,
+      "sha256": "6889ef2b1e2fe92b3b32d8507acd957e114b20db9a620eb5dd5ceaedf88cb6e7",
+      "verbatim_copy": true
+    }
+  ],
+  "unavailable_optional_files": [],
+  "execution_log_excerpt": {
+    "file": "windows-execution-excerpt.txt",
+    "source_name": "windows-job.log",
+    "source_full_log_sha256": "8f974b9780a0b8ace2c3089cdb7d1292b3d8b2b4f45662e2edc767e25da5ee1d",
+    "full_log_archived": false,
+    "first_source_line": 211,
+    "last_source_line": 338,
+    "source_excerpt_sha256": "12f33834ea7bdbf07c6ea557bbe72992385d2a00e0ef57fc867713cd2479e07e",
+    "archived_excerpt_sha256": "01f47d10355582e8cfa8b7426f935ccb26b77d775826719c377624a2ae7e0b19",
+    "transformation": "Only the native validation/resource/analysis execution span; ANSI formatting removed and CRLF normalized to LF. Checkout/auth setup and upload/post-job logs are excluded.",
+    "contains_failed_step": true
+  },
+  "notes": [
+    "完整原始 artifact.zip 按 GitHub digest 校验后逐字节保存；entries 列出每个 ZIP entry 的解压字节数与 SHA-256。",
+    "source-before/after、native/unit/race 原始输出、夹具 JSONL、samples/events 和完整资源分析 JSON 均在 ZIP 内；未被摘录替代。",
+    "resource-summary.json、resource-table.md、native-summary.json、图测试结果及 UI 文本只做原字节复制；失败结果保持失败。",
+    "归档校验通过只表示来源与保存一致，不表示 CI、资源实验、长稳或产品验收通过。",
+    "日志仅保留原生测试开始至上传之前的执行区间，不保留 checkout、凭据设置或整个 job log。"
+  ],
+  "reproduction": [
+    "先核对 artifact.zip 的 SHA-256 和本索引，再用 python -m zipfile -e artifact.zip EXTRACTED 解压。",
+    "在提交 b682d764221248c113cf1fc2f3009d32474f799c 的独立 checkout 中，使用 UTF-8 标准流运行 python -B tools/ci/summarize_resources.py EXTRACTED/resources；不要修改保存的原 ZIP。",
+    "重算会生成新的 derived 报告；对照 ZIP 中原始 resources/summary.analysis.json 与 summary.table.md，并保留原实验的失败/缺测信息。"
+  ]
+}

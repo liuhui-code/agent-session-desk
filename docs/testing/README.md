@@ -2,7 +2,7 @@
 
 创建日期：2026-11-21。需求基线：[Feature Ledger](../FEATURE_LEDGER.md)、[产品计划](../PRODUCT_PLAN.md)、[ADR](../adr/README.md)。
 
-**339 项设计用例仍保留 `designed / not_run` 的基线状态；实际执行结果单独归档。** 首批 M0 迁入已有 Go 单元/子进程合同测试及可控 CLI fixture，见[源码迁入报告](results/2026-11-21-m0-source-migration.md)。随后在固定 Windows Server 2025 runner 上通过五项真实进程／后端场景，含六个边界子测试；两次失败与修复后的成功见[原生 Windows 报告](results/2026-11-21-m0-native-windows.md)。完整夹具、桌面交互、资源与长稳验收仍待补齐。目录校验通过只证明资料一致。
+**339 项设计用例仍保留 `designed / not_run` 的基线状态；实际执行结果单独归档。** 首批 M0 迁入已有 Go 单元/子进程合同测试及可控 CLI fixture，见[源码迁入报告](results/2026-11-21-m0-source-migration.md)。随后在固定 Windows Server 2025 runner 上通过五项真实进程／后端场景，含六个边界子测试；两次失败与修复后的成功见[原生 Windows 报告](results/2026-11-21-m0-native-windows.md)。另有[短资源执行报告](results/2026-11-21-m0-windows-resources.md)记录 0/1/5/10 会话与直接程序对照。完整夹具、桌面交互、完整资源时长与长稳验收仍待补齐。目录校验通过只证明资料一致。
 
 ## 从哪里开始
 
@@ -17,6 +17,7 @@
 | [预算与待决策项](BUDGETS_AND_DECISIONS.md) | 容量、时延、系统范围、取消/恢复等尚未固定的规则 |
 | [用例格式](CASE_FORMAT.md) | JSON 字段、编号、状态及维护规则 |
 | [执行报告模板](templates/EXECUTION_REPORT.md) | 后续记录实际步骤、证据、失败与回归 |
+| [原生短资源实验](WINDOWS_RESOURCES.md) | 受控负载、进程身份、实际采样与统计边界 |
 | [资源测量模板](templates/PERFORMANCE_REPORT.md) | 全进程树、基线、长时间趋势与可复现负载 |
 
 ## 五个套件

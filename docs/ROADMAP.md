@@ -4,7 +4,7 @@
 
 阶段按可验证结果推进，暂不承诺固定周数。Go/Charm v2、选择性 UI 复用及 Windows psmux 路线已经记录，具体移植范围、兼容性与资源预算由 M0 确认。选型见[技术栈](TECH_STACK.md)及 [ADR](adr/README.md)，初始需求见[产品计划](PRODUCT_PLAN.md)，实际状态与证据见 [Feature Ledger](FEATURE_LEDGER.md)。
 
-**当前没有已完成的软件阶段。** 已在指定 Windows Server 2025 runner 通过常规检查与五项可控原生后端场景，完整记录见[Windows 执行报告](testing/results/2026-11-21-m0-native-windows.md)。这些局部证据不代替 Windows Terminal 桌面交互、资源与完整 M0 验收；M4 发布前还必须复验对应发布组合。
+**当前没有已完成的软件阶段。** 已在指定 Windows Server 2025 runner 通过常规检查与五项可控原生后端场景，完整记录见[Windows 执行报告](testing/results/2026-11-21-m0-native-windows.md)。另有[原生 Windows 短资源实验](testing/results/2026-11-21-m0-windows-resources.md)，覆盖 0/1/5/10 会话、真实 TUI 启停与直接程序对照。这些局部证据不代替 Windows Terminal 桌面交互、完整资源预算与 M0 验收；M4 发布前还必须复验对应发布组合。
 
 ## M0：视觉基线与 Windows 可行性
 

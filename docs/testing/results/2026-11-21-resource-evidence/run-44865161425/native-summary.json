@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "completed_utc": "2026-11-21T04:15:53.5646086Z",
+  "commit": "30eaf058ed507fe8fea623593273ba6abf0162dc",
+  "runner_os": "Windows",
+  "image_os": "win25-vs2026",
+  "image_version": "20261116.315.1",
+  "windows_caption": "Microsoft Windows Server 2025 Datacenter",
+  "windows_version": "10.0.26100",
+  "windows_build": "26100",
+  "powershell": "7.6.10",
+  "architecture": "X64",
+  "psmux_release": "https://github.com/psmux/psmux/releases/tag/v3.4.0",
+  "psmux_sha256": "bbe825a30f7cddc91b043084049143a381aba5f7e9e36e4d0bb587e296d262ca",
+  "native_tests_passed": 5,
+  "commands": [
+    {
+      "name": "psmux-version",
+      "executable": "D:\\a\\agent-session-desk\\agent-session-desk\\build\\ci-tools\\psmux-3.4.0\\release\\psmux.exe",
+      "arguments": [
+        "-V"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 46,
+      "stdout": "psmux-version.stdout",
+      "stderr": "psmux-version.stderr"
+    },
+    {
+      "name": "go-version",
+      "executable": "go",
+      "arguments": [
+        "version"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 17,
+      "stdout": "go-version.stdout",
+      "stderr": "go-version.stderr"
+    },
+    {
+      "name": "modules",
+      "executable": "go",
+      "arguments": [
+        "mod",
+        "verify"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 276,
+      "stdout": "modules.stdout",
+      "stderr": "modules.stderr"
+    },
+    {
+      "name": "unit",
+      "executable": "go",
+      "arguments": [
+        "test",
+        "-count=1",
+        "-timeout=5m",
+        "-json",
+        "./..."
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 9592,
+      "stdout": "unit.stdout",
+      "stderr": "unit.stderr"
+    },
+    {
+      "name": "race",
+      "executable": "go",
+      "arguments": [
+        "test",
+        "-race",
+        "-count=1",
+        "-timeout=5m",
+        "./..."
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 5706,
+      "stdout": "race.stdout",
+      "stderr": "race.stderr"
+    },
+    {
+      "name": "vet",
+      "executable": "go",
+      "arguments": [
+        "vet",
+        "./..."
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 278,
+      "stdout": "vet.stdout",
+      "stderr": "vet.stderr"
+    },
+    {
+      "name": "catalog",
+      "executable": "python",
+      "arguments": [
+        "-B",
+        "tools/test_catalog.py",
+        "check",
+        "--generated"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 951,
+      "stdout": "catalog.stdout",
+      "stderr": "catalog.stderr"
+    },
+    {
+      "name": "build-product",
+      "executable": "go",
+      "arguments": [
+        "build",
+        "-trimpath",
+        "-o",
+        "D:\\a\\agent-session-desk\\agent-session-desk\\build\\asd-windows-native.exe",
+        "./cmd/asd"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 634,
+      "stdout": "build-product.stdout",
+      "stderr": "build-product.stderr"
+    },
+    {
+      "name": "build-fixture",
+      "executable": "go",
+      "arguments": [
+        "build",
+        "-trimpath",
+        "-o",
+        "D:\\a\\agent-session-desk\\agent-session-desk\\build\\asd-fixture-windows-native.exe",
+        "./cmd/asd-fixture"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 507,
+      "stdout": "build-fixture.stdout",
+      "stderr": "build-fixture.stderr"
+    },
+    {
+      "name": "native",
+      "executable": "go",
+      "arguments": [
+        "test",
+        "-count=1",
+        "-timeout=8m",
+        "-json",
+        "-run",
+        "^TestWindowsPsmuxNative",
+        "./internal/backend"
+      ],
+      "exit_code": 0,
+      "elapsed_ms": 4047,
+      "stdout": "native.stdout",
+      "stderr": "native.stderr"
+    }
+  ],
+  "result": "pass",
+  "failure": null,
+  "scope": "Native Windows process/backend contracts on this runner only; no interactive Windows Terminal, IME, focus, WSL-absence, memory budget or release acceptance."
+}

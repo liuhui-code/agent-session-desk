@@ -10,6 +10,7 @@
 $psmux = ./tools/ci/install-psmux.ps1
 ./tools/ci/windows.ps1 -PsmuxBinary $psmux
 ./tools/ci/test-windows-process-metrics.ps1
+./tools/ci/test-windows-fixture-journal.ps1
 ./tools/ci/windows-resources.ps1 -PsmuxBinary $psmux
 python -B tools/ci/summarize_resources.py build/ci-windows/resources
 ```
@@ -40,6 +41,10 @@ fixture 默认不启用负载命令。实验显式设置 `ASD_FIXTURE_ENABLE_LOA
 ## 计量与证据边界
 
 每个进程以 PID、准确创建 FILETIME 字符串和完整 image 路径识别。私有数据根中的 `.pid` 和 `servers/*` 提供 backend server 身份，必须与活进程核对；marker 残留不代表进程仍在。CIM 创建时间只有微秒精度，仅用于候选快照核验，不替代准确 FILETIME。按最近的已验证角色根归属子进程，避免把产品进程误算作 driver 或把 PID 复用后的进程算入旧会话。
+
+CIM 与进程句柄可能分别报告扩展 DOS 路径和普通绝对路径。只对各段均无歧义的盘符绝对路径识别这两种等价写法；不通过同名匹配放宽归属，也不取消 PID、创建时间、存活状态或父链检查。含点段、尾部空格/点、设备名、备用数据流等路径继续保守处理。15 项归属图测试和 54 项路径边界测试独立验证这些规则；Windows 外还验证采样入口拒绝伪装原生运行。
+
+活 fixture 日志与后端 registry 采用允许并发读写/删除的共享读取。JSONL 只接收完整换行记录，暂不读取半行；完整但无效的 JSON 仍失败。registry 的有界重读只应对更新竞争，不重发启动或输入命令。独立回归保留活 writer、半行、追加中文和损坏完整记录的场景。
 
 按采样时点对每组求和，再计算 P50/P95/观察峰值，不相加不同 PID 各自峰值。指标包括私有字节、工作集、句柄、线程、进程数与累计 CPU 时间，记录实际采样耗时、采样间隔和缺口。缺测不能填零。
 

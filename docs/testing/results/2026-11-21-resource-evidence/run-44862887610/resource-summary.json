@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "commit": "b682d764221248c113cf1fc2f3009d32474f799c",
+  "completed_utc": "2026-11-21T03:48:42.6442002Z",
+  "result": "fail",
+  "failure": "Exception calling \"ReadAllText\" with \"1\" argument(s): \"The process cannot access the file 'D:\\a\\agent-session-desk\\agent-session-desk\\build\\ci-windows\\resources\\managed-1-fixture-0.jsonl' because it is being used by another process.\"",
+  "elapsed_ms": 32065.4288,
+  "sample_count": 28,
+  "windows_caption": "Microsoft Windows Server 2025 Datacenter",
+  "windows_version": "10.0.26100",
+  "image_os": "win25-vs2026",
+  "image_version": "20261116.315.1",
+  "total_visible_memory_kib": 16771836,
+  "whole_machine_counters_collected": false,
+  "logical_processors": 4,
+  "powershell": "7.6.10",
+  "binary_sha256": {
+    "backend": "bbe825a30f7cddc91b043084049143a381aba5f7e9e36e4d0bb587e296d262ca",
+    "product": "6a45d4019772156bd3b2dded68c4542f26aff9e5e8b6cf49d414b1c9fd75c235",
+    "managed": "1483ad7dfd7be58ab6455ec405f4d62dc3be9fee2d89002821e2f585d216110d",
+    "direct": "1483ad7dfd7be58ab6455ec405f4d62dc3be9fee2d89002821e2f585d216110d",
+    "driver": "bbe825a30f7cddc91b043084049143a381aba5f7e9e36e4d0bb587e296d262ca"
+  },
+  "warmup_seconds": 3,
+  "sample_seconds": 12,
+  "target_interval_ms": 1000,
+  "load": {
+    "line_bytes": 256,
+    "output_only_stdout": true,
+    "lines_per_second": 100,
+    "duration_ms": 25000
+  },
+  "terminal": {
+    "width": 120,
+    "history_limit": 2000,
+    "height": 32,
+    "host": "separate measurement-only psmux ConPTY",
+    "interactive_windows_terminal": false
+  },
+  "scenarios": [
+    {
+      "id": "managed-0",
+      "mode": "managed",
+      "count": 0,
+      "namespace": "asd-res-a588b90390be",
+      "sessions": [],
+      "selected_session": null,
+      "fixture_reports": []
+    },
+    {
+      "id": "managed-1",
+      "mode": "managed",
+      "count": 1,
+      "namespace": "asd-res-f40a0fb34495",
+      "sessions": [
+        {
+          "session_id": "a7650744595ffebdadda8de988b5c702",
+          "run_id": "aae6477ca851ebd3a3467ce3acc416de",
+          "backend_id": "asd_a7650744595ffebdadda8de988b5c702_aae6477ca851ebd3a3467ce3acc416de",
+          "title": "session-00",
+          "command": "D:\\a\\agent-session-desk\\agent-session-desk\\build\\resource-runtime-52394ad130254d1fa1ad249b83302666\\bin\\managed\\asd-fixture.exe",
+          "terminal_state": "available"
+        }
+      ],
+      "selected_session": null,
+      "fixture_reports": []
+    }
+  ],
+  "phases": [
+    {
+      "scenario": "managed-0",
+      "phase": "idle",
+      "session_count": 0,
+      "first_sample": 1,
+      "sample_count": 12,
+      "warmup_seconds": 3,
+      "elapsed_ms": 12074.5319,
+      "expected_managers": 1,
+      "selected_session": null
+    },
+    {
+      "scenario": "managed-0",
+      "phase": "ui-closed",
+      "session_count": 0,
+      "first_sample": 13,
+      "sample_count": 12,
+      "warmup_seconds": 3,
+      "elapsed_ms": 12083.0123,
+      "expected_managers": 0,
+      "selected_session": null
+    }
+  ],
+  "cleanup": [
+    {
+      "scenario": "managed-0",
+      "normal_cleanup": true,
+      "remaining_owned_processes": [],
+      "collection_gaps": [],
+      "elapsed_ms": 37.2608
+    }
+  ],
+  "limitations": [
+    "Short baseline only: no performance budget, long-soak, leak-free, real-agent or Windows desktop acceptance.",
+    "One-second live-process snapshots miss short-lived clients; observed CPU is a lower bound, not complete process-lifetime CPU.",
+    "Working-set sums may double-count shared pages; private bytes are private committed memory, not physical residency.",
+    "Driver/sampler resources are separate; shared WMI-provider overhead and driver interference cannot be subtracted away.",
+    "Direct fixtures write to drained pipes; their output path is not equivalent to a terminal/ConPTY baseline.",
+    "An unobserved or unassignable console helper is a coverage gap, not proof of zero auxiliary processes.",
+    "Retained handles protect owned-image cleanup from PID reuse; exited handles are released at the next observation. This scaffolding can affect kernel/sampler cost."
+  ]
+}
