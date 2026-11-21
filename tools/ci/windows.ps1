@@ -68,6 +68,7 @@ try {
     }
     $sourceBefore = Get-SourceManifest
     $sourceBefore | ConvertTo-Json -Depth 5 | Set-Content -Encoding utf8 (Join-Path $evidence 'source-before.json')
+    Invoke-Recorded 'psmux-version' $psmux @('-V')
     Invoke-Recorded 'go-version' 'go' @('version')
     Invoke-Recorded 'modules' 'go' @('mod', 'verify')
     Invoke-Recorded 'unit' 'go' @('test', '-count=1', '-timeout=5m', '-json', './...')

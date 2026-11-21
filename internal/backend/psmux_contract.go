@@ -10,6 +10,7 @@ package backend
 
 import (
 	"fmt"
+	"regexp"
 	"strconv"
 	"strings"
 
@@ -18,14 +19,18 @@ import (
 
 const psmuxBaseline = "3.4.0"
 
+// Stable psmux 3.4.0's src/types.rs::build_version_string appends build
+// provenance. Accept its documented forms, not arbitrary trailing words. This
+// parses the reported release; the native runner separately pins binary hashes.
+var psmuxVersionLine = regexp.MustCompile(`^psmux (\S+)(?: \((?:[0-9a-f]{7,40}(?: [0-9]{4}-[0-9]{2}-[0-9]{2})?(?:, dirty)?|unknown commit)\))?$`)
+
 // psmux prints a tmux-compatibility version AND its own version. Do not accept
 // the compatibility line as evidence of the psmux release being exercised.
 func parsePsmuxVersion(out string) (string, error) {
 	found := "unknown"
 	for _, line := range strings.FieldsFunc(out, func(r rune) bool { return r == '\n' || r == '\r' }) {
-		fields := strings.Fields(line)
-		if len(fields) == 2 && fields[0] == "psmux" {
-			found = fields[1]
+		if match := psmuxVersionLine.FindStringSubmatch(strings.TrimSpace(line)); match != nil {
+			found = match[1]
 			break
 		}
 	}
@@ -57,8 +62,8 @@ func splitVersion(s string) (int, int, bool) {
 	return major, minor, true
 }
 
-// A psmux namespace holds one server per session. Global options and a %pane
-// target must therefore carry an explicit session route before the command.
+// A psmux namespace holds one server per session. Session-wide commands carry
+// an explicit route; paneArgs uses one session-qualified pane target instead.
 func sessionRoute(name string) []string {
 	if name == "" {
 		return nil

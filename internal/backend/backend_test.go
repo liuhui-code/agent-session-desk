@@ -73,7 +73,7 @@ func fakeBackend(args []string) int {
 	save := func() { data, _ := json.Marshal(state); _ = os.WriteFile(statePath, data, 0600) }
 	switch args[0] {
 	case "-V":
-		fmt.Print("tmux 3.4\npsmux 3.4.0\n")
+		fmt.Print("tmux 3.4.0\npsmux 3.4.0 (20aa1d7 2026-10-13)\n")
 	case "new-session":
 		state = fakeState{Name: flag("-s"), Dead: "0"}
 		save()
@@ -443,18 +443,33 @@ func TestMetadataLimitAllowsProtocolNewlineButRejectsExtraPayload(t *testing.T) 
 	}
 }
 
-func TestPsmuxVersionRequiresOwnExactStableLine(t *testing.T) {
+func TestPsmuxVersionRequiresOwnExactStableRelease(t *testing.T) {
 	for _, tc := range []struct {
 		output string
 		valid  bool
 	}{
+		// Stable 20aa1d7 src/cli.rs::print_version and
+		// src/types.rs::build_version_string, including CRLF from Windows.
+		{"tmux 3.4.0\r\npsmux 3.4.0 (20aa1d7 2026-10-13)\r\n", true},
+		{"psmux 3.4.0 (20aa1d7)", true},
+		{"psmux 3.4.0 (20aa1d7, dirty)", true},
+		{"psmux 3.4.0 (20aa1d7 2026-10-13, dirty)", true},
+		{"psmux 3.4.0 (unknown commit)", true},
 		{"tmux 3.4\r\npsmux 3.4.0\r\n", true},
-		{"tmux 3.4", false}, {"psmux 3.3.9", false}, {"psmux 3.4.0-dev", false},
+		{"tmux 3.4", false}, {"tmux 3.4.0", false}, {"psmux 3.3.9", false}, {"psmux 3.4.0-dev", false},
 		{"psmux 3.5.0", false}, {"psmux 3.4.0 extra", false}, {"psmux -3.4.0", false},
+		{"psmux 3.5.0 (20aa1d7 2026-10-13)", false},
+		{"psmux 3.4.0-dev (20aa1d7 2026-10-13)", false},
+		{"psmux 3.4.0 (arbitrary extra words)", false},
+		{"psmux 3.4.0 (20aa1d7 2026-10-13) extra", false},
+		{"psmux 3.4.0 (20aa1d7 2026-10-13", false},
 	} {
-		_, err := parsePsmuxVersion(tc.output)
+		version, err := parsePsmuxVersion(tc.output)
 		if (err == nil) != tc.valid {
 			t.Errorf("parsePsmuxVersion(%q)=%v", tc.output, err)
+		}
+		if tc.valid && version != psmuxBaseline {
+			t.Errorf("parsePsmuxVersion(%q) version=%q, want %q", tc.output, version, psmuxBaseline)
 		}
 	}
 }
