@@ -237,8 +237,20 @@ function Get-RegistryEvidence {
     if (Test-Path -LiteralPath $markers) { $files += @(Get-ChildItem -LiteralPath $markers -File) }
     $records = @()
     foreach ($file in $files) {
-        $value = [IO.File]::ReadAllText($file.FullName).Trim()
-        if ($value -notmatch '^(\d+):(\d+)$') { throw "Invalid owned server identity marker: $($file.Name)" }
+        # Stable psmux rewrites server markers every five seconds. A shared
+        # read may see that bounded truncate/write interval; retry observation
+        # only, never a process start or input write. Persistent failure is not
+        # a silently absent server.
+        $valid = $false
+        for ($attempt = 1; $attempt -le 5; $attempt++) {
+            try {
+                $value = (Get-AsdSharedText $file.FullName).Trim()
+                $valid = $value -match '^(\d+):(\d+)$'
+                if ($valid) { break }
+            } catch { if ($attempt -eq 5) { throw } }
+            if ($attempt -lt 5) { Start-Sleep -Milliseconds 20 }
+        }
+        if (-not $valid) { throw "Invalid owned server identity marker after bounded rereads: $($file.Name)" }
         $processID = [int]$Matches[1]
         $created = [string]$Matches[2]
         $live = $false
@@ -248,7 +260,7 @@ function Get-RegistryEvidence {
             $live = $process.StartTime.ToFileTimeUtc().ToString() -eq $created -and $process.MainModule.FileName -eq $ExpectedImage
             if ($live) { Remember-ProcessHandles @([pscustomobject]@{ process_id = $processID; creation_filetime = $created; executable_path = $ExpectedImage }) }
         } catch { $live = $false } finally { if ($null -ne $process) { $process.Dispose() } }
-        $records += [pscustomobject][ordered]@{ marker = [IO.Path]::GetRelativePath($DataDirectory, $file.FullName); process_id = $processID; creation_filetime = $created; live_identity_verified = $live }
+        $records += [pscustomobject][ordered]@{ marker = [IO.Path]::GetRelativePath($DataDirectory, $file.FullName); process_id = $processID; creation_filetime = $created; live_identity_verified = $live; read_attempts = $attempt }
     }
     return $records
 }

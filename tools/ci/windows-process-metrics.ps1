@@ -208,7 +208,7 @@ function Get-AsdWindowsProcessSnapshot {
     $cimClock = [Diagnostics.Stopwatch]::StartNew()
     try {
         # Do not fetch CommandLine or environment/owner information.
-        $cimRows = @(Get-CimInstance -ClassName Win32_Process -Property ProcessId, ParentProcessId, CreationDate, ExecutablePath -ErrorAction Stop)
+        $cimRows = @(Get-CimInstance -ClassName Win32_Process -Property ProcessId, ParentProcessId, CreationDate, Name, ExecutablePath -ErrorAction Stop)
     } catch {
         $gaps.Add([pscustomobject]@{
             reason = 'cim_snapshot_failed'; process_id = $null; owner_role = $null
@@ -254,10 +254,13 @@ function Get-AsdWindowsProcessSnapshot {
         $cim = $cimById[$key]
         $process = $null
         $check = $null
+        $path = $null
+        $processName = $null
         $readReason = 'process_read_failed'
         try {
             $process = Get-Process -Id $candidateId -ErrorAction Stop
             $process.Refresh()
+            $processName = $process.ProcessName
             $start = $process.StartTime.ToUniversalTime()
             $filetime = $start.ToFileTimeUtc()
             $path = [string]$process.Path
@@ -297,6 +300,12 @@ function Get-AsdWindowsProcessSnapshot {
                 owner_role = $(if (-not [string]::IsNullOrEmpty([string]$cim.ExecutablePath)) {
                     $imageKeys[(Get-AsdMetricPathKey $cim.ExecutablePath)]
                 } else { $null })
+                # Only already selected candidates are diagnosed. Never export
+                # the all-system CIM table, command lines or environments.
+                cim_name = [string]$cim.Name; process_name = $processName
+                cim_path_present = -not [string]::IsNullOrEmpty([string]$cim.ExecutablePath)
+                process_path_present = -not [string]::IsNullOrEmpty([string]$path)
+                cim_executable_path = [string]$cim.ExecutablePath; process_executable_path = $path
                 error_type = $_.Exception.GetType().FullName; error_hresult = $_.Exception.HResult
             })
         } finally {
@@ -337,6 +346,7 @@ function Get-AsdWindowsProcessSnapshot {
         schema_version = 1; sample_index = $SampleIndex; sample_utc = $sampleUtc
         sample_elapsed_ms = $ElapsedMilliseconds; sample_duration_ms = $clock.Elapsed.TotalMilliseconds
         cim_query_duration_ms = $cimClock.Elapsed.TotalMilliseconds; sampler_process_id = $PID
+        sampler_is_64_bit_process = [Environment]::Is64BitProcess
         candidate_process_count = $candidateIds.Count; observed_process_count = $processes.Count
         processes = @($processes.ToArray()); groups = @($groups.ToArray()); gaps = @($gaps.ToArray())
         owned_identities = @($ownership.owned_identities)
