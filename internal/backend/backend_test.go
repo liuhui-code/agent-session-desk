@@ -31,6 +31,7 @@ type fakeState struct {
 	Metadata string
 	Dead     string
 	Active   string
+	Missing  bool
 }
 
 func fakeBackend(args []string) int {
@@ -102,12 +103,12 @@ func fakeBackend(args []string) int {
 			}
 			break
 		}
-		if route != state.Name || flag("-t") != "%7" {
+		if state.Missing || route != "" || flag("-t") != state.Name+":.%7" {
 			return 94
 		}
 		fmt.Println(state.Dead)
 	case "capture-pane":
-		if route != state.Name || flag("-t") != "%7" {
+		if route != "" || flag("-t") != state.Name+":.%7" {
 			return 95
 		}
 		if path := os.Getenv("ASD_TEST_CAPTURE_FILE"); path != "" {
@@ -115,6 +116,10 @@ func fakeBackend(args []string) int {
 			_, _ = os.Stdout.Write(data)
 		} else {
 			fmt.Print("fixture output\n")
+		}
+		if os.Getenv("ASD_TEST_PANE_REMOVED_DURING_CAPTURE") == "1" {
+			state.Missing = true
+			save()
 		}
 	case "kill-session":
 		if flag("-t") != state.Name {
@@ -267,6 +272,27 @@ func TestPreviewIsBoundedAndNeverResizesOrWrites(t *testing.T) {
 		if strings.Contains(joined, "capture-pane") && !strings.Contains(joined, "-S -2000") {
 			t.Fatalf("unbounded line request: %q", args)
 		}
+		if strings.Contains(joined, "capture-pane") {
+			var targets []string
+			for i := 0; i+1 < len(args); i++ {
+				if args[i] == "-t" {
+					targets = append(targets, args[i+1])
+				}
+			}
+			if !reflect.DeepEqual(targets, []string{s.BackendID + ":.%7"}) {
+				t.Fatalf("psmux could validate a session while capturing an unvalidated pane: %q", args)
+			}
+		}
+	}
+}
+
+func TestPreviewDiscardsCaptureWhenOriginalPaneDisappears(t *testing.T) {
+	b := newFake(t)
+	s := startFake(t, b)
+	t.Setenv("ASD_TEST_PANE_REMOVED_DURING_CAPTURE", "1")
+	preview, err := b.Preview(context.Background(), s, 20)
+	if err == nil || !strings.Contains(err.Error(), "snapshot discarded") || preview.Text != "" {
+		t.Fatalf("unverified pane output escaped after capture: %+v, %v", preview, err)
 	}
 }
 

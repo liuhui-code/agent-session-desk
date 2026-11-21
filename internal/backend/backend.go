@@ -356,15 +356,20 @@ func (b *Backend) List(ctx context.Context) ([]session.Session, error) {
 	return sessions, nil
 }
 
-func (b *Backend) paneArgs(name, pane string, args ...string) []string {
+func (b *Backend) paneArgs(name, pane, command string, args ...string) []string {
+	target := pane
 	if b.kind == "psmux" {
-		return append(sessionRoute(name), args...)
+		// Stable 3.4.0 validates only the first -t target. Two targets (a
+		// global session route and a bare pane) can skip pane validation and
+		// capture another active pane if the original is gone. Use exactly
+		// one qualified target; the dot marks %N as a pane, not a window.
+		target = name + ":." + pane
 	}
-	return args
+	return append([]string{command, "-t", target}, args...)
 }
 
 func (b *Backend) paneState(ctx context.Context, name, pane string) session.TerminalState {
-	out, err := b.run(ctx, maxControlBytes, b.paneArgs(name, pane, "display-message", "-p", "-t", pane, "#{pane_dead}")...)
+	out, err := b.run(ctx, maxControlBytes, b.paneArgs(name, pane, "display-message", "-p", "#{pane_dead}")...)
 	if err != nil {
 		return session.TerminalUnknown
 	}
@@ -390,9 +395,16 @@ func (b *Backend) Preview(ctx context.Context, s session.Session, lines int) (se
 		lines = maxPreviewLines
 	}
 	// Snapshot only. No resize or terminal input is allowed in this path.
-	out, err := b.run(ctx, MaxPreviewBytes, b.paneArgs(s.BackendID, r.PaneID, "capture-pane", "-p", "-t", r.PaneID, "-S", "-"+strconv.Itoa(lines))...)
+	out, err := b.run(ctx, MaxPreviewBytes, b.paneArgs(s.BackendID, r.PaneID, "capture-pane", "-p", "-S", "-"+strconv.Itoa(lines))...)
 	if err != nil {
 		return session.Preview{}, err
+	}
+	// psmux 3.4.0's capture-by-id path falls back to the active pane if the
+	// original disappears between the CLI's validation and the capture. IDs
+	// are monotonic within that server; discard the text if the original can
+	// no longer be verified. This is not an atomic backend snapshot guarantee.
+	if b.kind == "psmux" && b.paneState(ctx, s.BackendID, r.PaneID) == session.TerminalUnknown {
+		return session.Preview{}, errors.New("original pane could not be verified after capture; snapshot discarded")
 	}
 	text := out.text
 	for len(text) > 0 && !utf8.RuneStart(text[0]) {

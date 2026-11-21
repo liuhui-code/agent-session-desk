@@ -134,6 +134,8 @@ Linux/macOS 的 tmux 路径仅用于开发对照，要求 3.8，不表示已经�
 
 ## 6. 下一次原生验收
 
+原生进程／后端自动化入口已提供，见[Windows 验证指南](testing/NATIVE_WINDOWS.md)。工作流采用固定官方 psmux 包、独立 fixture 观察和明确执行门槛；是否实际通过以对应运行报告为准。它不替代下面的交互式验收。
+
 下一步仍是 M0：记录 Windows 构建、架构、Windows Terminal、字体／IME、shell、psmux 发行来源与哈希，运行同一版本产品和 fixture。按既有测试库验证路径／argv、中文输入、粘贴、颜色、光标、resize、Ctrl+C、进入／分离／返回、关闭 UI 后重连及真实 agent 命令。另做 0/1/5/10 会话的全进程树测量，再决定资源预算。
 
 这些结果完成前，FL-016 和 M0 保持未验收；不把这里的开发构建或交叉编译作为已兼容的 Windows 发布包。

@@ -21,6 +21,8 @@
 
 ## 五个套件
 
+实现层另有[原生 Windows 自动化入口](NATIVE_WINDOWS.md)，使用固定 psmux 发行物及独立 fixture 记录。其实际运行结果单独归档，不直接修改以下设计用例的基线状态。
+
 | 套件 | 可读文档 | 机器可读源 |
 | --- | --- | --- |
 | 启动、终端、UI、焦点、Windows | [01](generated/01-launch-terminal-ui.md) | [JSON](cases/01-launch-terminal-ui.json) |

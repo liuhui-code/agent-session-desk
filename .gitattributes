@@ -1,0 +1,7 @@
+# Keep tested source bytes reproducible across Windows and Unix checkouts.
+*.go text eol=lf
+go.mod text eol=lf
+go.sum text eol=lf
+*.ps1 text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
