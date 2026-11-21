@@ -1,12 +1,12 @@
 # Windows x64 development preview
 
-This is an **unsigned, manually triggered development artifact**, not a release. The repository's original-code license has not yet been decided, so no GitHub Release, package manager publication, or automatic binary distribution is configured.
+This is an **unsigned development artifact**, not a release. The repository's original-code license has not yet been decided, so no GitHub Release, package manager publication, or automatic binary distribution is configured.
 
 ## Build and verification
 
 [Windows development preview workflow](../../.github/workflows/windows-preview.yml) runs on native Windows Server 2025 using the pinned Go toolchain and GitHub Actions revisions. It builds `cmd/asd` with `CGO_ENABLED=0`, `-trimpath` and `-buildvcs=true`, then runs the existing native Windows verification against the SHA-256-pinned psmux 3.4.0 binary. **Only a successful build and native verification upload the preview artifact.** Failed runs still upload verification evidence when present.
 
-To request a build, open GitHub Actions → **Windows development preview** → **Run workflow** on the intended commit/branch. Download the resulting `asd-windows-amd64-dev-<sha>` artifact. It contains:
+The first build was triggered automatically when the workflow was added; later builds can be requested manually. To request a build, open GitHub Actions → **Windows development preview** → **Run workflow** on the intended commit/branch. Download the resulting `asd-windows-amd64-dev-<sha>` artifact. It contains:
 
 - `asd-windows-amd64.exe`: unsigned product binary
 - `SHA256SUMS`: checksum of that exact executable
@@ -27,3 +27,12 @@ Run in Windows 10/11 **Windows Terminal**, not just the Server 2025 CI environme
 These are **not** automatically passed by the workflow. Preserve failed steps, screen recordings or sanitized logs, and record actual evidence in Feature Ledger before changing acceptance status.
 
 The artifact is ephemeral (14 days), unsigned and may trigger Windows security prompts. Do not bypass system protection or recommend disabling antivirus. No installation or auto-update is implied.
+
+## First execution evidence (2026-11-21)
+
+- Source commit: [`c2884bc94b3f043275eb3a00b46695e85b7d495f`](https://github.com/liuhui-code/agent-session-desk/commit/c2884bc94b3f043275eb3a00b46695e85b7d495f)
+- [GitHub Actions run 44882270556](https://github.com/liuhui-code/agent-session-desk/actions/runs/44882270556): completed successfully; Windows build, pinned native backend checks, preview upload, and verification upload all passed.
+- [Unsigned Windows amd64 preview artifact](https://github.com/liuhui-code/agent-session-desk/actions/runs/44882270556/artifacts/14698263784), ZIP size 4,264,817 bytes. The archive includes its own binary SHA-256 manifest; inspect it before use.
+- [Native verification artifact](https://github.com/liuhui-code/agent-session-desk/actions/runs/44882270556/artifacts/14698234102), ZIP size 20,531 bytes.
+
+**Not executed:** Windows 10/11 interactive Windows Terminal, IME, resize, focus, full-screen attach/detach, long soak, user-facing installation and release acceptance. This development artifact is not FL-017 acceptance or a published version.
