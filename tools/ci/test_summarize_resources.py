@@ -1,10 +1,13 @@
 """Synthetic checks for statistics and missing observations, not Windows evidence."""
 
-from contextlib import redirect_stdout
+from contextlib import redirect_stderr, redirect_stdout
 import importlib.util
 import io
 import json
+import os
 from pathlib import Path
+import subprocess
+import sys
 import tempfile
 import unittest
 
@@ -198,6 +201,43 @@ class ResourceStatisticsTests(unittest.TestCase):
             self.assertEqual(analysis["completed_phase_count"], 0)
             self.assertFalse(analysis["samples_file_present"])
             self.assertIsNone(analysis["source_sha256"]["samples.jsonl"])
+
+    def test_standalone_cli_uses_utf8_even_with_strict_legacy_stdio(self):
+        environment = dict(os.environ, PYTHONIOENCODING="cp1252:strict", PYTHONUTF8="0")
+        script = Path(__file__).with_name("summarize_resources.py")
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory) / "资源 证据"
+            root.mkdir()
+            (root / "summary.json").write_text(json.dumps(summary(1)), encoding="utf-8")
+            (root / "samples.jsonl").write_text(json.dumps(sample(0, [process(1)])) + "\n", encoding="utf-8")
+            cases = (
+                ([str(root)], 0, "stdout", "已汇总 1 个登记采样阶段"),
+                ([str(root / "资源 不存在")], 2, "stderr", "资源 不存在"),
+                (["--help"], 0, "stdout", "汇总已完成 Windows 资源采样阶段"),
+            )
+            for arguments, expected_code, channel, expected_text in cases:
+                with self.subTest(arguments=arguments):
+                    result = subprocess.run(
+                        [sys.executable, "-B", str(script), *arguments], env=environment,
+                        stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=15, check=False,
+                    )
+                    self.assertEqual(result.returncode, expected_code, repr(result.stderr))
+                    self.assertIn(expected_text, getattr(result, channel).decode("utf-8"))
+                    self.assertNotIn(b"UnicodeEncodeError", result.stderr)
+                    if expected_code == 2:
+                        self.assertIn("资源汇总失败", result.stderr.decode("utf-8"))
+            self.assertEqual(json.loads((root / "summary.analysis.json").read_text(encoding="utf-8"))["completed_phase_count"], 1)
+
+    def test_imported_main_does_not_reconfigure_callers_stream(self):
+        class OwnedStream(io.StringIO):
+            def reconfigure(self, **_):
+                raise AssertionError("library call changed the caller's stream")
+
+        with tempfile.TemporaryDirectory() as directory:
+            (Path(directory) / "summary.json").write_text(json.dumps({"phases": []}), encoding="utf-8")
+            with redirect_stdout(OwnedStream()), redirect_stderr(OwnedStream()):
+                self.assertEqual(resource.main([directory]), 0)
+                self.assertEqual(resource.main([str(Path(directory) / "missing")]), 2)
 
 
 if __name__ == "__main__":

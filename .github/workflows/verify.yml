@@ -61,6 +61,7 @@ jobs:
       - name: Measure short native Windows resource baseline
         run: |
           ./tools/ci/test-windows-process-metrics.ps1 -EvidencePath build/ci-windows/process-metrics-graph-results.json
+          ./tools/ci/test-windows-fixture-journal.ps1
           $binary = ./tools/ci/install-psmux.ps1
           ./tools/ci/windows-resources.ps1 -PsmuxBinary $binary
       - name: Summarize resource observations

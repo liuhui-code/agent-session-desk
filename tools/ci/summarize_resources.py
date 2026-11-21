@@ -446,5 +446,17 @@ def main(argv: list[str] | None = None) -> int:
     return 0
 
 
+def cli() -> int:
+    # Redirected Python output on Windows can default to a legacy code page.
+    # Configure the standalone CLI before argparse emits help/errors, so UTF-8
+    # evidence files are not followed by a UnicodeEncodeError in the status log.
+    # Imported main()/summarize() callers keep ownership of their own streams.
+    for stream in (sys.stdout, sys.stderr):
+        reconfigure = getattr(stream, "reconfigure", None)
+        if callable(reconfigure):
+            reconfigure(encoding="utf-8")
+    return main()
+
+
 if __name__ == "__main__":
-    raise SystemExit(main())
+    raise SystemExit(cli())

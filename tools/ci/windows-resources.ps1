@@ -16,6 +16,7 @@ $ErrorActionPreference = 'Stop'
 if (-not $IsWindows) { throw 'Resource evidence must be collected on native Windows.' }
 if ($WarmupSeconds + $SampleSeconds -gt 20) { throw 'The 25-second fixture load needs at least five seconds of control/staggering margin.' }
 . (Join-Path $PSScriptRoot 'windows-process-metrics.ps1')
+. (Join-Path $PSScriptRoot 'windows-fixture-journal.ps1')
 $repo = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '../..'))
 $evidence = [IO.Path]::GetFullPath($EvidenceDirectory)
 $experiment = Join-Path $repo ('build/resource-runtime-' + [Guid]::NewGuid().ToString('N'))
@@ -136,25 +137,11 @@ function Invoke-Mux {
     return Invoke-Control 'backend-control' $binaries.backend (@('-L', $Case.namespace, '-f', $Case.config) + $ArgumentList) (Get-MuxEnvironment $Case.data $Case.config)
 }
 
-function Get-Journal {
-    param([string]$Path)
-    if (-not (Test-Path -LiteralPath $Path)) { return @() }
-    # Each completed line is an independent observation. A concurrent partial
-    # last write is retried by the caller; it is never treated as an event.
-    $text = [IO.File]::ReadAllText($Path)
-    $lines = $text -split "`n"
-    $events = @()
-    for ($i = 0; $i -lt $lines.Count - 1; $i++) {
-        if ($lines[$i].Trim()) { $events += ($lines[$i] | ConvertFrom-Json) }
-    }
-    return $events
-}
-
 function Wait-Journal {
     param([string]$Path, [string]$Event, [int]$LoadID = 0, [int]$TimeoutSeconds = 15)
     $wait = [Diagnostics.Stopwatch]::StartNew()
     do {
-        $found = @(Get-Journal $Path | Where-Object { $_.event -eq $Event -and ($LoadID -eq 0 -or $_.load_id -eq $LoadID) })
+        $found = @(Get-AsdFixtureJournal $Path | Where-Object { $_.event -eq $Event -and ($LoadID -eq 0 -or $_.load_id -eq $LoadID) })
         if ($found.Count -gt 0) { return $found[-1] }
         Start-Sleep -Milliseconds 100
     } while ($wait.Elapsed.TotalSeconds -lt $TimeoutSeconds)
@@ -330,7 +317,7 @@ function Start-Load {
     param([object]$Case, [object[]]$Fixtures)
     $loads = @()
     foreach ($fixture in $Fixtures) {
-        $existing = @(Get-Journal $fixture.report | Where-Object { $_.event -eq 'load-start' }).Count
+        $existing = @(Get-AsdFixtureJournal $fixture.report | Where-Object { $_.event -eq 'load-start' }).Count
         $command = 'load 100 256 25000'
         if ($Case.mode -eq 'direct') { $fixture.child.process.StandardInput.WriteLine($command); $fixture.child.process.StandardInput.Flush() }
         else {
@@ -365,7 +352,7 @@ function Complete-Load {
         }
         $wait = [Diagnostics.Stopwatch]::StartNew()
         do {
-            $observed = @(Get-Journal $load.fixture.report | Where-Object { $_.event -eq 'input' -and $_.text -eq $marker }).Count -eq 1
+            $observed = @(Get-AsdFixtureJournal $load.fixture.report | Where-Object { $_.event -eq 'input' -and $_.text -eq $marker }).Count -eq 1
             if ($observed) { break }
             Start-Sleep -Milliseconds 100
         } while ($wait.Elapsed.TotalSeconds -lt 10)
