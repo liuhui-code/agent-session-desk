@@ -2,6 +2,9 @@ name: Windows development preview
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/windows-preview.yml']
 
 permissions:
   contents: read
