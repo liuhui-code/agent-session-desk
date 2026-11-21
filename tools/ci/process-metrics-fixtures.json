@@ -1,0 +1,609 @@
+{
+  "schema_version": 1,
+  "synthetic_only": true,
+  "cases": [
+    {
+      "name": "nearest_image_root_and_foreign_console_isolation",
+      "processes": [
+        {
+          "process_id": 10,
+          "parent_process_id": 1,
+          "creation_filetime": "134390000000000100",
+          "executable_path": "C:\\isolated\\driver\\psmux.exe"
+        },
+        {
+          "process_id": 20,
+          "parent_process_id": 10,
+          "creation_filetime": "134390000000000200",
+          "executable_path": "C:\\isolated\\asd.exe"
+        },
+        {
+          "process_id": 30,
+          "parent_process_id": 20,
+          "creation_filetime": "134390000000000300",
+          "executable_path": "C:\\isolated\\backend\\psmux.exe"
+        },
+        {
+          "process_id": 40,
+          "parent_process_id": 30,
+          "creation_filetime": "134390000000000400",
+          "executable_path": "C:\\isolated\\fixture.exe"
+        },
+        {
+          "process_id": 50,
+          "parent_process_id": 40,
+          "creation_filetime": "134390000000000500",
+          "executable_path": "C:\\Windows\\System32\\conhost.exe"
+        },
+        {
+          "process_id": 60,
+          "parent_process_id": 999,
+          "creation_filetime": "134390000000000600",
+          "executable_path": "C:\\Windows\\System32\\conhost.exe"
+        }
+      ],
+      "image_roles": {
+        "C:\\isolated\\driver\\psmux.exe": "measurement_driver",
+        "C:\\isolated\\asd.exe": "product_manager",
+        "C:\\isolated\\backend\\psmux.exe": "backend_process",
+        "C:\\isolated\\fixture.exe": "managed_fixture"
+      },
+      "roots": [],
+      "previous": [],
+      "expected": [
+        {
+          "process_id": 10,
+          "role": "measurement_driver",
+          "owner_role": "measurement_driver",
+          "is_descendant": false
+        },
+        {
+          "process_id": 20,
+          "role": "product_manager",
+          "owner_role": "product_manager",
+          "is_descendant": false
+        },
+        {
+          "process_id": 30,
+          "role": "backend_process",
+          "owner_role": "backend_process",
+          "is_descendant": false
+        },
+        {
+          "process_id": 40,
+          "role": "managed_fixture",
+          "owner_role": "managed_fixture",
+          "is_descendant": false
+        },
+        {
+          "process_id": 50,
+          "role": "console_aux",
+          "owner_role": "managed_fixture",
+          "is_descendant": true
+        }
+      ],
+      "gap_reasons": [
+        "parent_not_in_verified_snapshot"
+      ]
+    },
+    {
+      "name": "reused_parent_pid_created_after_child",
+      "processes": [
+        {
+          "process_id": 10,
+          "parent_process_id": 1,
+          "creation_filetime": "134390000000000900",
+          "executable_path": "C:\\isolated\\driver\\psmux.exe"
+        },
+        {
+          "process_id": 20,
+          "parent_process_id": 10,
+          "creation_filetime": "134390000000000800",
+          "executable_path": "C:\\other\\worker.exe"
+        }
+      ],
+      "image_roles": {
+        "C:\\isolated\\driver\\psmux.exe": "measurement_driver",
+        "C:\\isolated\\asd.exe": "product_manager",
+        "C:\\isolated\\backend\\psmux.exe": "backend_process",
+        "C:\\isolated\\fixture.exe": "managed_fixture"
+      },
+      "roots": [],
+      "previous": [],
+      "expected": [
+        {
+          "process_id": 10,
+          "role": "measurement_driver",
+          "owner_role": "measurement_driver",
+          "is_descendant": false
+        }
+      ],
+      "gap_reasons": [
+        "parent_created_after_child"
+      ]
+    },
+    {
+      "name": "absent_remembered_parent_cannot_own_new_child",
+      "processes": [
+        {
+          "process_id": 20,
+          "parent_process_id": 10,
+          "creation_filetime": "134390000000000200",
+          "executable_path": "C:\\other\\worker.exe"
+        }
+      ],
+      "image_roles": {
+        "C:\\isolated\\driver\\psmux.exe": "measurement_driver",
+        "C:\\isolated\\asd.exe": "product_manager",
+        "C:\\isolated\\backend\\psmux.exe": "backend_process",
+        "C:\\isolated\\fixture.exe": "managed_fixture"
+      },
+      "roots": [],
+      "previous": [
+        {
+          "process_id": 10,
+          "creation_filetime": "134390000000000100",
+          "executable_path": "C:\\isolated\\driver\\psmux.exe",
+          "role": "measurement_driver",
+          "context": "measurement_driver"
+        }
+      ],
+      "expected": [],
+      "gap_reasons": [
+        "parent_not_in_verified_snapshot"
+      ]
+    },
+    {
+      "name": "exact_previous_child_survives_parent_exit",
+      "processes": [
+        {
+          "process_id": 20,
+          "parent_process_id": 10,
+          "creation_filetime": "134390000000000200",
+          "executable_path": "C:\\other\\worker.exe"
+        }
+      ],
+      "image_roles": {
+        "C:\\isolated\\driver\\psmux.exe": "measurement_driver",
+        "C:\\isolated\\asd.exe": "product_manager",
+        "C:\\isolated\\backend\\psmux.exe": "backend_process",
+        "C:\\isolated\\fixture.exe": "managed_fixture"
+      },
+      "roots": [],
+      "previous": [
+        {
+          "process_id": 20,
+          "creation_filetime": "134390000000000200",
+          "executable_path": "C:\\other\\worker.exe",
+          "role": "managed_fixture",
+          "context": "managed_fixture",
+          "owner_role": "managed_fixture",
+          "is_descendant": true,
+          "root_process_id": 10,
+          "root_creation_filetime": "134390000000000100"
+        }
+      ],
+      "expected": [
+        {
+          "process_id": 20,
+          "role": "managed_fixture",
+          "owner_role": "managed_fixture",
+          "is_descendant": true
+        }
+      ],
+      "gap_reasons": []
+    },
+    {
+      "name": "previous_pid_reuse_is_rejected",
+      "processes": [
+        {
+          "process_id": 20,
+          "parent_process_id": 10,
+          "creation_filetime": "134390000000000201",
+          "executable_path": "C:\\other\\worker.exe"
+        }
+      ],
+      "image_roles": {
+        "C:\\isolated\\driver\\psmux.exe": "measurement_driver",
+        "C:\\isolated\\asd.exe": "product_manager",
+        "C:\\isolated\\backend\\psmux.exe": "backend_process",
+        "C:\\isolated\\fixture.exe": "managed_fixture"
+      },
+      "roots": [],
+      "previous": [
+        {
+          "process_id": 20,
+          "creation_filetime": "134390000000000200",
+          "executable_path": "C:\\other\\worker.exe",
+          "role": "managed_fixture",
+          "context": "managed_fixture"
+        }
+      ],
+      "expected": [],
+      "gap_reasons": [
+        "previous_owned_identity_changed",
+        "parent_not_in_verified_snapshot"
+      ]
+    },
+    {
+      "name": "previous_image_change_is_rejected",
+      "processes": [
+        {
+          "process_id": 20,
+          "parent_process_id": 10,
+          "creation_filetime": "134390000000000200",
+          "executable_path": "C:\\other\\replacement.exe"
+        }
+      ],
+      "image_roles": {
+        "C:\\isolated\\driver\\psmux.exe": "measurement_driver",
+        "C:\\isolated\\asd.exe": "product_manager",
+        "C:\\isolated\\backend\\psmux.exe": "backend_process",
+        "C:\\isolated\\fixture.exe": "managed_fixture"
+      },
+      "roots": [],
+      "previous": [
+        {
+          "process_id": 20,
+          "creation_filetime": "134390000000000200",
+          "executable_path": "C:\\other\\worker.exe",
+          "role": "managed_fixture",
+          "context": "managed_fixture"
+        }
+      ],
+      "expected": [],
+      "gap_reasons": [
+        "previous_owned_identity_changed",
+        "parent_not_in_verified_snapshot"
+      ]
+    },
+    {
+      "name": "explicit_identity_overrides_image_role",
+      "processes": [
+        {
+          "process_id": 30,
+          "parent_process_id": 20,
+          "creation_filetime": "134390000000000300",
+          "executable_path": "C:\\isolated\\backend\\psmux.exe"
+        },
+        {
+          "process_id": 50,
+          "parent_process_id": 30,
+          "creation_filetime": "134390000000000500",
+          "executable_path": "C:\\Windows\\System32\\conhost.exe"
+        }
+      ],
+      "image_roles": {
+        "C:\\isolated\\driver\\psmux.exe": "measurement_driver",
+        "C:\\isolated\\asd.exe": "product_manager",
+        "C:\\isolated\\backend\\psmux.exe": "backend_process",
+        "C:\\isolated\\fixture.exe": "managed_fixture"
+      },
+      "roots": [
+        {
+          "process_id": 30,
+          "creation_filetime": "134390000000000300",
+          "executable_path": "C:\\isolated\\backend\\psmux.exe",
+          "role": "backend_server",
+          "context": "backend_server"
+        }
+      ],
+      "previous": [],
+      "expected": [
+        {
+          "process_id": 30,
+          "role": "backend_server",
+          "owner_role": "backend_server",
+          "is_descendant": false
+        },
+        {
+          "process_id": 50,
+          "role": "console_aux",
+          "owner_role": "backend_server",
+          "is_descendant": true
+        }
+      ],
+      "gap_reasons": []
+    },
+    {
+      "name": "stale_explicit_root_does_not_override_current_image",
+      "processes": [
+        {
+          "process_id": 30,
+          "parent_process_id": 20,
+          "creation_filetime": "134390000000000300",
+          "executable_path": "C:\\isolated\\backend\\psmux.exe"
+        }
+      ],
+      "image_roles": {
+        "C:\\isolated\\driver\\psmux.exe": "measurement_driver",
+        "C:\\isolated\\asd.exe": "product_manager",
+        "C:\\isolated\\backend\\psmux.exe": "backend_process",
+        "C:\\isolated\\fixture.exe": "managed_fixture"
+      },
+      "roots": [
+        {
+          "process_id": 30,
+          "creation_filetime": "134390000000000299",
+          "executable_path": "C:\\isolated\\backend\\psmux.exe",
+          "role": "backend_server",
+          "context": "backend_server"
+        }
+      ],
+      "previous": [],
+      "expected": [
+        {
+          "process_id": 30,
+          "role": "backend_process",
+          "owner_role": "backend_process",
+          "is_descendant": false
+        }
+      ],
+      "gap_reasons": [
+        "explicit_root_missing_or_identity_changed"
+      ]
+    },
+    {
+      "name": "same_image_explicit_direct_fixture_role",
+      "processes": [
+        {
+          "process_id": 40,
+          "parent_process_id": 30,
+          "creation_filetime": "134390000000000400",
+          "executable_path": "C:\\isolated\\fixture.exe"
+        },
+        {
+          "process_id": 41,
+          "parent_process_id": 1,
+          "creation_filetime": "134390000000000410",
+          "executable_path": "C:\\isolated\\fixture.exe"
+        }
+      ],
+      "image_roles": {
+        "C:\\isolated\\driver\\psmux.exe": "measurement_driver",
+        "C:\\isolated\\asd.exe": "product_manager",
+        "C:\\isolated\\backend\\psmux.exe": "backend_process",
+        "C:\\isolated\\fixture.exe": "managed_fixture"
+      },
+      "roots": [
+        {
+          "process_id": 41,
+          "creation_filetime": "134390000000000410",
+          "executable_path": "C:\\isolated\\fixture.exe",
+          "role": "direct_fixture",
+          "context": "direct_fixture"
+        }
+      ],
+      "previous": [],
+      "expected": [
+        {
+          "process_id": 40,
+          "role": "managed_fixture",
+          "owner_role": "managed_fixture",
+          "is_descendant": false
+        },
+        {
+          "process_id": 41,
+          "role": "direct_fixture",
+          "owner_role": "direct_fixture",
+          "is_descendant": false
+        }
+      ],
+      "gap_reasons": []
+    },
+    {
+      "name": "invalid_ancestry_cycle",
+      "processes": [
+        {
+          "process_id": 20,
+          "parent_process_id": 21,
+          "creation_filetime": "134390000000000200",
+          "executable_path": "C:\\other\\worker.exe"
+        },
+        {
+          "process_id": 21,
+          "parent_process_id": 20,
+          "creation_filetime": "134390000000000200",
+          "executable_path": "C:\\other\\worker.exe"
+        }
+      ],
+      "image_roles": {
+        "C:\\isolated\\driver\\psmux.exe": "measurement_driver",
+        "C:\\isolated\\asd.exe": "product_manager",
+        "C:\\isolated\\backend\\psmux.exe": "backend_process",
+        "C:\\isolated\\fixture.exe": "managed_fixture"
+      },
+      "roots": [],
+      "previous": [],
+      "expected": [],
+      "gap_reasons": [
+        "ancestry_cycle"
+      ]
+    },
+    {
+      "name": "same_timestamp_distinct_parent_child",
+      "processes": [
+        {
+          "process_id": 10,
+          "parent_process_id": 1,
+          "creation_filetime": "134390000000000100",
+          "executable_path": "C:\\isolated\\driver\\psmux.exe"
+        },
+        {
+          "process_id": 20,
+          "parent_process_id": 10,
+          "creation_filetime": "134390000000000100",
+          "executable_path": "C:\\other\\worker.exe"
+        }
+      ],
+      "image_roles": {
+        "C:\\isolated\\driver\\psmux.exe": "measurement_driver",
+        "C:\\isolated\\asd.exe": "product_manager",
+        "C:\\isolated\\backend\\psmux.exe": "backend_process",
+        "C:\\isolated\\fixture.exe": "managed_fixture"
+      },
+      "roots": [],
+      "previous": [],
+      "expected": [
+        {
+          "process_id": 10,
+          "role": "measurement_driver",
+          "owner_role": "measurement_driver",
+          "is_descendant": false
+        },
+        {
+          "process_id": 20,
+          "role": "measurement_driver",
+          "owner_role": "measurement_driver",
+          "is_descendant": true
+        }
+      ],
+      "gap_reasons": []
+    },
+    {
+      "name": "previous_console_anchor_keeps_descendant_owner_role",
+      "processes": [
+        {
+          "process_id": 50,
+          "parent_process_id": 40,
+          "creation_filetime": "134390000000000500",
+          "executable_path": "C:\\Windows\\System32\\conhost.exe"
+        },
+        {
+          "process_id": 51,
+          "parent_process_id": 50,
+          "creation_filetime": "134390000000000510",
+          "executable_path": "C:\\other\\worker.exe"
+        }
+      ],
+      "image_roles": {
+        "C:\\isolated\\driver\\psmux.exe": "measurement_driver",
+        "C:\\isolated\\asd.exe": "product_manager",
+        "C:\\isolated\\backend\\psmux.exe": "backend_process",
+        "C:\\isolated\\fixture.exe": "managed_fixture"
+      },
+      "roots": [],
+      "previous": [
+        {
+          "process_id": 50,
+          "creation_filetime": "134390000000000500",
+          "executable_path": "C:\\Windows\\System32\\conhost.exe",
+          "role": "console_aux",
+          "context": "console_aux",
+          "owner_role": "managed_fixture",
+          "is_descendant": true,
+          "root_process_id": 40,
+          "root_creation_filetime": "134390000000000400"
+        }
+      ],
+      "expected": [
+        {
+          "process_id": 50,
+          "role": "console_aux",
+          "owner_role": "managed_fixture",
+          "is_descendant": true
+        },
+        {
+          "process_id": 51,
+          "role": "managed_fixture",
+          "owner_role": "managed_fixture",
+          "is_descendant": true
+        }
+      ],
+      "gap_reasons": []
+    },
+    {
+      "name": "empty_graph_keeps_array_shape",
+      "processes": [],
+      "image_roles": {
+        "C:\\isolated\\driver\\psmux.exe": "measurement_driver",
+        "C:\\isolated\\asd.exe": "product_manager",
+        "C:\\isolated\\backend\\psmux.exe": "backend_process",
+        "C:\\isolated\\fixture.exe": "managed_fixture"
+      },
+      "roots": [],
+      "previous": [],
+      "expected": [],
+      "gap_reasons": []
+    },
+    {
+      "name": "numeric_filetime_rejected",
+      "processes": [
+        {
+          "process_id": 10,
+          "parent_process_id": 1,
+          "creation_filetime": 134390000000000000,
+          "executable_path": "C:\\isolated\\driver\\psmux.exe"
+        }
+      ],
+      "image_roles": {
+        "C:\\isolated\\driver\\psmux.exe": "measurement_driver",
+        "C:\\isolated\\asd.exe": "product_manager",
+        "C:\\isolated\\backend\\psmux.exe": "backend_process",
+        "C:\\isolated\\fixture.exe": "managed_fixture"
+      },
+      "roots": [],
+      "previous": [],
+      "expected": [],
+      "gap_reasons": [],
+      "expect_error": "Creation FILETIME identities must be decimal strings."
+    },
+    {
+      "name": "current_server_root_reclassifies_remembered_console",
+      "processes": [
+        {
+          "process_id": 30,
+          "parent_process_id": 20,
+          "creation_filetime": "134390000000000300",
+          "executable_path": "C:\\isolated\\backend\\psmux.exe"
+        },
+        {
+          "process_id": 50,
+          "parent_process_id": 30,
+          "creation_filetime": "134390000000000500",
+          "executable_path": "C:\\Windows\\System32\\conhost.exe"
+        }
+      ],
+      "image_roles": {
+        "C:\\isolated\\backend\\psmux.exe": "backend_client"
+      },
+      "roots": [
+        {
+          "process_id": 30,
+          "creation_filetime": "134390000000000300",
+          "executable_path": "C:\\isolated\\backend\\psmux.exe",
+          "role": "backend_server",
+          "context": "backend_server"
+        }
+      ],
+      "previous": [
+        {
+          "process_id": 50,
+          "creation_filetime": "134390000000000500",
+          "executable_path": "C:\\Windows\\System32\\conhost.exe",
+          "role": "console_aux",
+          "owner_role": "backend_client",
+          "context": "backend_client",
+          "is_descendant": true,
+          "root_process_id": 30,
+          "root_creation_filetime": "134390000000000300"
+        }
+      ],
+      "expected": [
+        {
+          "process_id": 30,
+          "role": "backend_server",
+          "owner_role": "backend_server",
+          "is_descendant": false
+        },
+        {
+          "process_id": 50,
+          "role": "console_aux",
+          "owner_role": "backend_server",
+          "is_descendant": true
+        }
+      ],
+      "gap_reasons": []
+    }
+  ]
+}

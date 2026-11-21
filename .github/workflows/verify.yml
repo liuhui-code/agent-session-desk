@@ -37,9 +37,10 @@ jobs:
           go test -race -count=1 -timeout=5m ./...
           go vet ./...
           python3 -B tools/test_catalog.py check --generated
+          python3 -B -m unittest discover -s tools/ci -p 'test_*.py' -v
 
   native-windows:
-    name: Native psmux contracts (Windows Server 2025)
+    name: Native contracts and resources (Windows Server 2025)
     runs-on: windows-2025
     timeout-minutes: 25
     defaults:
@@ -57,6 +58,17 @@ jobs:
         run: |
           $binary = ./tools/ci/install-psmux.ps1
           ./tools/ci/windows.ps1 -PsmuxBinary $binary
+      - name: Measure short native Windows resource baseline
+        run: |
+          ./tools/ci/test-windows-process-metrics.ps1 -EvidencePath build/ci-windows/process-metrics-graph-results.json
+          $binary = ./tools/ci/install-psmux.ps1
+          ./tools/ci/windows-resources.ps1 -PsmuxBinary $binary
+      - name: Summarize resource observations
+        if: always()
+        run: |
+          if (Test-Path build/ci-windows/resources/summary.json) {
+            python -B tools/ci/summarize_resources.py build/ci-windows/resources
+          }
       - name: Upload actual verification evidence
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
