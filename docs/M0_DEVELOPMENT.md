@@ -1,6 +1,6 @@
 # M0 开发与验证指南
 
-日期：2026-11-21。当前是**首批源码迁入的开发切片**，没有发布经过原生 Windows 验收的软件包。实际执行范围见[验证报告](testing/results/2026-11-21-m0-source-migration.md)，逐文件来源见[复用清单](REUSE_MANIFEST.md)。
+日期：2026-11-21。当前是**首批源码迁入的开发切片**，已有 Windows 原生自动化与局部执行记录，没有发布经过完整 Windows 验收的软件包。实际范围与失败分别见[源码迁入报告](testing/results/2026-11-21-m0-source-migration.md)和[Windows 执行报告](testing/results/2026-11-21-m0-native-windows.md)，逐文件来源见[复用清单](REUSE_MANIFEST.md)。
 
 ## 1. 当前能做什么
 
@@ -80,13 +80,13 @@ Get-FileHash 'C:\Tools\psmux\psmux.exe' -Algorithm SHA256
 
 默认目录是 Go 的用户缓存目录下 `agent-session-desk/m0/asd-m0`；指定 `--runtime-dir` 后，仍会在其下建立 namespace 子目录。namespace 要求 `asd-` 前缀，后接 1–48 个 ASCII 字母、数字、下划线或短横线。
 
-只生成产品私有后端配置和运行数据，不改用户全局配置或环境。已有私有配置内容若与此切片不一致，会明确报错，要求使用新目录；不静默覆盖。psmux 命令环境使用自己的 `PSMUX_DATA_DIR` / `PSMUX_CONFIG_FILE`、`PSMUX_NO_WARM=1` 和 `warm off`。这些配置是否在实际 Windows 进程树中达到预期，仍待原生验证。
+只生成产品私有后端配置和运行数据，不改用户全局配置或环境。已有私有配置内容若与此切片不一致，会明确报错，要求使用新目录；不静默覆盖。psmux 命令环境使用自己的 `PSMUX_DATA_DIR` / `PSMUX_CONFIG_FILE`、`PSMUX_NO_WARM=1` 和 `warm off`。自动化已覆盖测试私有会话及另一 runtime／namespace 组合的部分隔离行为；没有据此验证任意现有用户配置或所有预热进程均已消失，完整 Windows 进程树仍待测量。
 
 发现元数据放在后端 user option 中，包含 schema、Session、Run、标题、可执行文件显示名和初始 pane ID，**不含 argv/env，不是持久会话数据库**。后台消失后不会从这里恢复产品历史或模型上下文。TOML、SQLite 与输出轮转仍按原 ADR 后续实施。
 
 ## 4. 当前参数合同与明确限制
 
-一般参数保留空字符串、空格、引号和 Unicode 的数组边界；Windows 实际接收仍需通过 fixture 验证。重复 `--env` 采用最后值；Windows 名称比较忽略大小写。可执行文件搜索使用目标环境 PATH，相对路径相对于目标 cwd，不隐式搜索当前目录。
+内部按数组保留空字符串、空格、引号和 Unicode 的参数边界；指定 Windows runner 的选定样本已由独立 fixture JSONL 核对实际接收，精确输入与结果见[执行报告](testing/results/2026-11-21-m0-native-windows.md)。这不推广为任意 shell／脚本或全部 CLI 参数组合已兼容。重复 `--env` 采用最后值；Windows 名称比较忽略大小写。可执行文件搜索使用目标环境 PATH，相对路径相对于目标 cwd，不隐式搜索当前目录。
 
 源码核查发现后端会在接收 agent 参数之前解析自己的命令语言，所以 M0 对已知不保真的形式先报错：
 
@@ -100,7 +100,7 @@ Get-FileHash 'C:\Tools\psmux\psmux.exe' -Algorithm SHA256
 
 校验同时覆盖原始输入和最终解析路径。它不会擅自改写原参数去尝试等价命令；此处也没有承诺其余所有复杂 shell 组合均已兼容。依据是 [psmux 固定稳定源码](https://github.com/psmux/psmux/tree/20aa1d7254ee93f64dafa059ef89341d9767470a)中的 `src/cli.rs` / `src/util.rs` 和 [tmux 3.8](https://github.com/tmux/tmux/tree/3.8)的参数解析。
 
-`doctor` 只校验版本输出。psmux 的 tmux 兼容版本行不算 psmux 自身版本证据；同样，显示 3.4.0 并不能认证二进制来源。没有把 `pane_dead_status` 用作准确退出码，也不把 shell / 后台存活用作 agent 忙闲证据。
+`doctor` 只校验版本输出。psmux 的 tmux 兼容版本行不算 psmux 自身版本证据；解析器接受稳定源码定义的构建来源后缀，并仍要求精确发布号 `3.4.0`。显示 3.4.0、commit 或 dirty 信息都不能认证二进制来源，原生工作流另做归档与 exe 哈希核对。没有把 `pane_dead_status` 用作准确退出码，也不把 shell / 后台存活用作 agent 忙闲证据。
 
 ## 5. 有界实现与测试
 
@@ -118,6 +118,8 @@ Get-FileHash 'C:\Tools\psmux\psmux.exe' -Algorithm SHA256
 
 预览不发送 resize 或输入。宽屏双栏、中屏上下、小窗口单列表；帮助页、预览不可见和 attach 时停止预览捕获。程序退出后的保留 pane 可只读查看，无法进入输入。
 
+psmux pane 查询使用单个 `SESSION:.%N` 完整目标，避免稳定 CLI 只验证首个 `-t` 而遗漏 pane。捕获后还会核对原 pane，无法确认则丢弃文本；这不是后端原子快照或外部 respawn 仲裁保证。原生回归已确认删除原 pane 所在窗口后，另一 pane 仍能接收输入，Preview/Attach 拒绝原目标；故障构造、此前失败和实际结果见[执行报告](testing/results/2026-11-21-m0-native-windows.md)。
+
 开发检查：
 
 ```text
@@ -128,13 +130,13 @@ go mod verify
 python -B tools/test_catalog.py check --generated
 ```
 
-Go 测试包含假后端子进程合同，能核对本程序发出的命令、目标与边界；不能证明真实 psmux / ConPTY 已正确接收输入。339 个 JSON 设计用例保留原始状态，实际局部结果写到报告。Windows 上 `-race` 另需 Go 支持的 C 工具链；缺少工具链时记录阻断，不能改记通过。
+普通 Go 测试包含假后端子进程合同，能核对本程序发出的命令、目标与边界；它们不能证明真实 psmux / ConPTY 已正确接收输入。另有显式启用的 Windows 原生测试，使用真实后端和独立 fixture 观察；未设置 opt-in 环境时跳过，专门 CI 步骤要求实际执行且不能 skip。339 个 JSON 设计用例保留原始状态，局部执行结果单独归档。Windows 上 `-race` 另需 Go 支持的 C 工具链；缺少工具链时记录阻断，不能改记通过。
 
 Linux/macOS 的 tmux 路径仅用于开发对照，要求 3.8，不表示已经发布 Unix 支持。当前执行容器禁止创建 Unix socket，真实 tmux 启动与 attach 尚无运行结果；这个限制不会用假后端测试掩盖。
 
-## 6. 下一次原生验收
+## 6. 原生自动化与剩余交互验收
 
-原生进程／后端自动化入口已提供，见[Windows 验证指南](testing/NATIVE_WINDOWS.md)。工作流采用固定官方 psmux 包、独立 fixture 观察和明确执行门槛；是否实际通过以对应运行报告为准。它不替代下面的交互式验收。
+原生进程／后端自动化已在指定 Windows Server 2025 runner 通过五项可控场景，专门 native 步骤零失败、零跳过；复现入口见[Windows 验证指南](testing/NATIVE_WINDOWS.md)，提交、环境、独立 fixture 证据与此前失败见[执行报告](testing/results/2026-11-21-m0-native-windows.md)。该镜像含 WSL；测试走原生程序路径，不证明“系统未安装 WSL”的场景。它也不替代下面的交互式验收。
 
 下一步仍是 M0：记录 Windows 构建、架构、Windows Terminal、字体／IME、shell、psmux 发行来源与哈希，运行同一版本产品和 fixture。按既有测试库验证路径／argv、中文输入、粘贴、颜色、光标、resize、Ctrl+C、进入／分离／返回、关闭 UI 后重连及真实 agent 命令。另做 0/1/5/10 会话的全进程树测量，再决定资源预算。
 

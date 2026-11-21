@@ -2,7 +2,7 @@
 
 更新时间：2026-11-21。用途：持续记录用户能力的范围、实现状态与验收证据。
 
-**已有首批 M0 源码迁入与局部自动化证据，尚无已验收/已发布功能，也没有完成 Windows 实机验收。** 列表、预览、CLI 启动、终端适配与身份边界进入实现中。设计资料、代码存在、交叉编译和真实终端验收分别记录，完整状态见[本轮报告](testing/results/2026-11-21-m0-source-migration.md)。
+**已有首批 M0 源码迁入及 Linux／Windows 局部自动化证据；五项可控原生后端场景在指定 Windows Server 2025 runner 通过，尚无已验收/已发布功能。** 列表、预览、CLI 启动、终端适配与身份边界保持实现中，完整 Windows 交互与资源验收未完成。设计资料、代码存在、交叉编译和实际执行分别记录，范围及历史失败见[源码迁入报告](testing/results/2026-11-21-m0-source-migration.md)和[Windows 执行报告](testing/results/2026-11-21-m0-native-windows.md)。
 
 产品意图与需求原文见[产品计划](PRODUCT_PLAN.md)，阶段安排见[路线图](ROADMAP.md)，架构理由见下列 ADR，测试设计见[用例库](testing/README.md)与[覆盖表](testing/COVERAGE.md)。本台账负责回答“能力做到哪里、凭什么认定做到”，不重复替代这些文档。
 
@@ -20,6 +20,8 @@
 “已验收”不自动意味着已发布；发布版本单独记录。Windows 能力必须有 Windows 实机结果，不能以 Linux 构建、浏览器交互稿或上游 README 代替。本文不使用缺乏证据的完成百分比。
 
 每个条目的验收记录至少包含：产品提交或版本、适用操作系统和终端、依赖及 agent 版本、复现步骤、期望与实际结果、测试或录屏链接、未通过项。没有真实结果时明确填写“未提供”，不能用设计文档链接充当验收报告。
+
+下列测试设计链接的“仅设计，未执行”指 339 项完整 catalog 场景的 `designed/not_run` 基线；独立实现测试的局部运行另行归档，不等同整条设计用例通过，也不自动提升功能状态。
 
 ## 2. 当前设计边界
 
@@ -46,25 +48,25 @@
 
 | ID | 能力与用户价值 | 关联需求 | 计划阶段 | 当前状态 | 验收证据 / 发布版本 |
 | --- | --- | --- | --- | --- | --- |
-| FL-001 | 自定义 CLI 启动：直接接入自己的 agent | FR-01 | M0 预验证、M1 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md) / 未发布 |
-| FL-002 | 原生终端 attach：可靠输入并操作原有 CLI | FR-02、FR-11 | M0、M1 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md) / 未发布 |
+| FL-001 | 自定义 CLI 启动：直接接入自己的 agent | FR-01 | M0 预验证、M1 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md) / 未发布 |
+| FL-002 | 原生终端 attach：可靠输入并操作原有 CLI | FR-02、FR-11 | M0、M1 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md) / 未发布 |
 | FL-003 | 简约 TUI 与上游复用：减少视觉负担和重复设计 | FR-03、FR-11 | M0、M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md) / 未发布 |
-| FL-004 | 多会话组织：查找、切换、停止和归档任务 | FR-03 | M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md) / 未发布 |
-| FL-005 | 稳定身份：重命名、排序后仍控制正确对象 | FR-04 | M1、M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md) / 未发布 |
-| FL-006 | 后台托管与重新连接：关闭界面后任务继续 | FR-05 | M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md) / 未发布 |
+| FL-004 | 多会话组织：查找、切换、停止和归档任务 | FR-03 | M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md) / 未发布 |
+| FL-005 | 稳定身份：重命名、排序后仍控制正确对象 | FR-04 | M1、M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md) / 未发布 |
+| FL-006 | 后台托管与重新连接：关闭界面后任务继续 | FR-05 | M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md) / 未发布 |
 | FL-007 | 带来源的输出读取：交接内容可追溯 | FR-06 | M3 | 计划 | 未提供 / 未发布 |
 | FL-008 | 跨会话显式投递：把指令交给明确目标 | FR-07 | M3 | 计划 | 未提供 / 未发布 |
 | FL-009 | 按能力排队与自动投递：避免向未知状态盲目注入 | FR-08 | M3 | 计划 | 未提供 / 未发布 |
 | FL-010 | Agent 控制 CLI：让有工具能力的 agent 主动协作 | FR-09 | M3 | 计划 | 未提供 / 未发布 |
 | FL-011 | 历史与恢复边界：知道接回、重启与续聊的区别 | FR-10 | M1、M2 | 计划 | 未提供 / 未发布 |
 | FL-012 | 焦点与草稿：输入不串用，切换不丢失管理器草稿 | FR-11 | M1、M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md) / 未发布 |
-| FL-013 | 异常、重试和运行变化：保留不确定性并避免误投 | FR-12 | M1 至 M3 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md) / 未发布 |
+| FL-013 | 异常、重试和运行变化：保留不确定性并避免误投 | FR-12 | M1 至 M3 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md) / 未发布 |
 | FL-014 | 请求与回复关联：按消息查询合作结果 | FR-13 | M3 | 计划 | 未提供 / 未发布 |
 | FL-015 | 有界资源：多会话和持续输出下内存可控 | 产品质量标准 | M0 基线、M1 至 M4 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md) / 未发布 |
-| FL-016 | Windows 兼容门槛：核心流程原生运行 | FR-01、FR-02、FR-05、FR-07、FR-11 | M0、M4 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md) / 未发布 |
+| FL-016 | Windows 兼容门槛：核心流程原生运行 | FR-01、FR-02、FR-05、FR-07、FR-11 | M0、M4 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md) / 未发布 |
 | FL-017 | 可安装预览版：用户可独立完成完整流程 | 全部首版需求 | M4 | 计划 | 未提供 / 未发布 |
 | FL-018 | 常驻侧栏内嵌终端：工作时持续看见管理导航 | FR-02、FR-11 的可选扩展 | 首版之后 | 后置 | 未提供 / 未发布 |
-| FL-019 | 依赖与复用可追溯：持续获得可维护的实现基线 | 架构与发布质量 | M0 至 M4 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md) / 未发布 |
+| FL-019 | 依赖与复用可追溯：持续获得可维护的实现基线 | 架构与发布质量 | M0 至 M4 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md) / 未发布 |
 | FL-020 | 人工介入提醒：及时发现并定位待批准、待回答与待检查事项 | FR-14；关联 FR-04、FR-08、FR-11、FR-12 | M2 界面与 attach、M3 后台、M4 发布复验 | 计划 | 未提供 / 未发布 |
 
 ## 4. 范围与验收条件
@@ -76,7 +78,7 @@
 - **范围与边界：**名称、可执行入口、参数、cwd、env 和显式 shell 模式；内部保留明确参数边界。品牌列表、模型账号或 ACP 注册不是创建前置条件。可执行文件、脚本、命令别名的支持范围以实测结果声明。
 - **验收：**至少一个可控测试 CLI 和一个真实目标 agent 通过配置启动；含空格路径、中文路径、引号、工作目录与环境变量按约定生效；命令或目录无效时显示可定位错误。
 - **依据：**[FR-01](PRODUCT_PLAN.md)、[ADR-0004](adr/0004-cli-agents-and-session-messaging.md)。
-- **实现与验收证据：**[启动模型与参数解析](../internal/session/launch.go)、[CLI 入口](../internal/cli/cli.go)和可控 fixture 已实现；直接 executable/argv/cwd/env 保持分开，已知后端改写形式明确拒绝。新建表单、持久配置、真实 agent 和 Windows argv/路径验收仍待做。 [实际验证范围与未通过门槛](testing/results/2026-11-21-m0-source-migration.md)。
+- **实现与验收证据：**[启动模型与参数解析](../internal/session/launch.go)、[CLI 入口](../internal/cli/cli.go)和可控 fixture 已实现；直接 executable/argv/cwd/env 保持分开，已知后端改写形式明确拒绝。指定 Windows runner 已独立记录 fixture 实际收到的空格／中文路径、选定 argv、cwd 与环境覆盖。新建表单、持久配置、更多参数／脚本组合和真实 agent 验收仍待做。见[源码局部证据](testing/results/2026-11-21-m0-source-migration.md)与[Windows 样本及结果](testing/results/2026-11-21-m0-native-windows.md)。
 
 ### FL-002：原生终端 attach
 
@@ -85,7 +87,7 @@
 - **范围与边界：**管理状态展示列表和被动预览；进入会话后通过后台 attach 客户端全屏操作原 CLI，分离后恢复管理界面。被动预览不持续改写正在使用的终端尺寸。
 - **验收：**Windows 实机验证中文输入、Unicode、颜色、光标、窗口缩放、多行粘贴、滚动、Ctrl+C 和交互式 TUI；正常分离及异常退出后恢复管理器终端状态，按键不发错对象。
 - **依据：**[FR-02 / FR-11](PRODUCT_PLAN.md)、[ADR-0002](adr/0002-terminal-backends-and-attach.md)。
-- **实现与验收证据：**[后端](../internal/backend/backend.go)与 [v2 UI 模型](../internal/ui/model.go)已实现只读快照、原始 pane 核对、全屏 ExecProcess 交接及返回路径；退出 pane 只读查看。真实 attach/detach、IME/输入/resize/终端恢复尚无 Windows 结果。 [实际验证范围与未通过门槛](testing/results/2026-11-21-m0-source-migration.md)。
+- **实现与验收证据：**[后端](../internal/backend/backend.go)与 [v2 UI 模型](../internal/ui/model.go)已实现只读快照、原始 pane 核对、全屏 ExecProcess 交接及返回路径；退出 pane 只读查看。指定 Windows runner 已检查被动预览前后尺寸一致、Attach 命令准备及对退出、缺失或非活动原 pane 的拒绝；未执行交互式 attach 客户端。真实 attach/detach、IME、用户输入交接、主动 resize 与终端恢复仍未验收。见[源码局部证据](testing/results/2026-11-21-m0-source-migration.md)与[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md)。
 
 ### FL-003：简约 TUI 与上游复用
 
@@ -103,7 +105,7 @@
 - **范围与边界：**新建、命名、分组、搜索、切换、停止、归档；停止运行、关闭视图和收纳记录分别操作。默认以会话列表承担导航，Tab 不承担寻址身份。
 - **验收：**并行会话切换不会创建新 agent Run、重启现有 agent 或发送额外输入；允许按需启动 attach 客户端进程。搜索与分组后能进入正确会话；停止与归档的对象、运行处置和记录保留符合已记录规则。
 - **依据：**[FR-03](PRODUCT_PLAN.md)、[ADR-0001](adr/0001-architecture-and-reuse.md)、[ADR-0004](adr/0004-cli-agents-and-session-messaging.md)。
-- **实现与验收证据：**首批列表选择、保持当前稳定身份、显式按 ID 停止入口已实现；命名编辑、分组、搜索和归档仍待实现，尚未完成多会话原生验收。 [实际验证范围与未通过门槛](testing/results/2026-11-21-m0-source-migration.md)。
+- **实现与验收证据：**首批列表选择、保持当前稳定身份、显式按 ID 停止入口已实现。Windows 可控场景中，两个真实会话及另一私有 runtime／namespace 组合并存，停止指定会话后其余会话仍可观测；这不代替任意用户配置或 UI 切换验收。命名编辑、分组、搜索和归档仍待实现。见[源码局部证据](testing/results/2026-11-21-m0-source-migration.md)与[Windows 隔离场景](testing/results/2026-11-21-m0-native-windows.md)。
 
 ### FL-005：稳定身份
 
@@ -112,7 +114,7 @@
 - **范围与边界：**分离 Session、Run、视图与后台 session/pane 标识；名称和排序可变，消息用稳定 ID 寻址。终端后台存活、shell 存活与 agent 的实际生命周期分别判断。
 - **验收：**重命名、排序、关闭再打开视图后，读取和投递仍定位原 Session；重新启动生成新 Run；旧消息仍绑定原 Run，不能因底层编号复用而转投。
 - **依据：**[FR-04](PRODUCT_PLAN.md)、[ADR-0004](adr/0004-cli-agents-and-session-messaging.md)。
-- **实现与验收证据：**[独立 Session/Run DTO](../internal/session/session.go)与随机 ID、后端元数据和初始 pane 绑定已实现；预览/attach/stop 前重新核对目标，迟到预览与重排序有局部测试。持久记录、重启同一 Session 和消息绑定仍待做。 [实际验证范围与未通过门槛](testing/results/2026-11-21-m0-source-migration.md)。
+- **实现与验收证据：**[独立 Session/Run DTO](../internal/session/session.go)与随机 ID、后端元数据和初始 pane 绑定已实现；预览/attach/stop 前重新核对目标。Windows 可控场景已核对新 Backend／独立产品进程重新发现同一 Session/Run，以及错误 Run 的访问拒绝。原 pane 非活动时仍读取原 pane；删除其所在窗口后，另一 pane 继续接收测试输入，产品 Preview/Attach 拒绝原目标。实现采用单个完整 pane 目标，捕获后无法确认原 pane 时丢弃快照；这些证据不构成后端原子快照保证。持久记录、重启同一 Session 和消息绑定仍待做。见[源码局部证据](testing/results/2026-11-21-m0-source-migration.md)及[Windows 修复与运行记录](testing/results/2026-11-21-m0-native-windows.md)。
 
 ### FL-006：后台托管与重新连接
 
@@ -121,7 +123,7 @@
 - **范围与边界：**psmux/tmux 承担终端持久托管，TUI 分离不结束目标 Run。后台存活期间可重新连接；机器重启、后台退出或 agent 结束后不声称原进程仍可接回。
 - **验收：**关闭 TUI 后验证实际任务继续，重新打开接回同一 Run；分别模拟 agent 退出且 shell 留存、后台退出和客户端断开，界面不误报 agent 仍在工作。
 - **依据：**[FR-05](PRODUCT_PLAN.md)、[ADR-0002](adr/0002-terminal-backends-and-attach.md)、[ADR-0003](adr/0003-bounded-resources-and-background-work.md)。
-- **实现与验收证据：**活后端 user option 可重新发现同一 Session/Run；退出 UI 不调用 Stop。它不代替 SQLite 历史，真实关闭 UI 后的后台生存、重开和 Windows 故障恢复仍待验证。 [实际验证范围与未通过门槛](testing/results/2026-11-21-m0-source-migration.md)。
+- **实现与验收证据：**活后端 user option 可重新发现同一 Session/Run；退出 UI 不调用 Stop。Windows 场景已观察独立 `asd start` 命令进程结束后，fixture 的精确进程 handle 仍存活，新 `list/preview` 进程识别原 Run，显式 stop 后该 fixture 退出。它不代替 SQLite 历史或任意 agent 进程树保证；真实 TUI 关闭／重开、交互分离和更多故障恢复仍待验证。见[源码局部证据](testing/results/2026-11-21-m0-source-migration.md)与[Windows 独立进程场景](testing/results/2026-11-21-m0-native-windows.md)。
 
 ### FL-007：带来源的输出读取
 
@@ -184,7 +186,7 @@
 - **范围与边界：**呈现启动失败、agent 退出、后台断开、写入结果不确定；请求建立有幂等键，投递保留目标 Run。管理器去重不等于任意 agent 的 exactly-once 执行。
 - **验收：**同一请求重试不重复建立收件项；写入后失连保留不确定状态且不自动重放。覆盖 Host 在终端写入后、回执落盘前崩溃的恢复场景，无法证明未写入的尝试保留 unknown，不因数据库仍显示旧状态而自动重放。目标 Run 改变后旧消息暂停；显式重绑不会伪造接收/完成回执。
 - **依据：**[FR-12](PRODUCT_PLAN.md)、[ADR-0004](adr/0004-cli-agents-and-session-messaging.md)。
-- **实现与验收证据：**启动前验证、明确超时、部分创建失败后的精确清理、清理结果未知和目标变化拒绝已有实现与子进程合同测试；消息重试、幂等与 Host 崩溃窗口尚未实现。 [实际验证范围与未通过门槛](testing/results/2026-11-21-m0-source-migration.md)。
+- **实现与验收证据：**启动前验证、明确超时、部分创建失败后的精确清理、清理结果未知和目标变化拒绝已有实现与子进程合同测试。Windows 场景已覆盖选定非法启动输入、错误 Run 拒绝及快速非零退出后保留屏幕；退出码来自 fixture 独立记录，不声称产品已提供准确 agent 退出码。消息重试、幂等与 Host 崩溃窗口尚未实现。见[源码局部证据](testing/results/2026-11-21-m0-source-migration.md)与[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md)。
 
 ### FL-014：请求与回复关联
 
@@ -211,7 +213,7 @@
 - **范围与边界：**在明确的 Windows、Windows Terminal、字体、IME、shell、psmux 二进制和 agent 组合上验证核心操作；版本来源、发布 tag/commit 与实际二进制信息可追溯。
 - **验收：**无需 WSL 完成启动、输入、resize、attach/detach、读取、发送、退出和重连；含中文、多字节字符、空格路径、引号与长文本。源码支持声明、Linux 交叉编译和概念图均不能替代结果。M0 未通过时不得宣称 Windows 已支持，M4 发布前必须复验适用组合。
 - **依据：**[路线图 M0 / M4](ROADMAP.md)、[ADR-0002](adr/0002-terminal-backends-and-attach.md)、[ADR-0005](adr/0005-dependency-lifecycle-and-upgrades.md)。
-- **实现与验收证据：**已有 Windows 平台适配及跨平台构建/测试入口；本轮证据只覆盖 Linux 单元/子进程合同与 Windows 交叉编译，**没有 Windows 运行结果**，本条不构成原生支持声明。 [实际验证范围与未通过门槛](testing/results/2026-11-21-m0-source-migration.md)。
+- **实现与验收证据：**提交 `b6f2cd2a` 在指定 Windows Server 2025 runner 的常规 Go 测试、race、vet、目录校验与构建通过；专门原生步骤五项真实后端测试和六项非法启动子测试通过，零失败、零跳过。完整提交、系统 build、发行物哈希、此前失败及修复复验见[Windows 执行报告](testing/results/2026-11-21-m0-native-windows.md)。本条仍为实现中，不构成 Windows 支持声明；交互式 attach/detach、IME、资源、无 WSL 安装环境和发布验收未完成。
 
 ### FL-017：可安装预览版
 
@@ -238,7 +240,7 @@
 - **范围与边界：**记录直接依赖、上游迁入文件、固定版本/提交、许可证、改动和升级策略。上游 v1 UI 仅作迁移来源，本项目面向稳定 v2 系列；精确版本以 ADR-0005 及后续依赖锁定文件为准。
 - **验收：**能从实现文件追溯到引用源及许可；构建依赖锁定，旧 major 的临时使用有退出条件；v1→v2 适配验证输入、布局、终端状态恢复和 Windows 行为；升级后复跑对应能力的回归场景，不凭版本号自动认定兼容。
 - **依据：**[ADR-0001](adr/0001-architecture-and-reuse.md)、[ADR-0005](adr/0005-dependency-lifecycle-and-upgrades.md)。
-- **实现与验收证据：**[go.mod](../go.mod)/[go.sum](../go.sum)、[逐文件复用清单](REUSE_MANIFEST.md)、[原始许可和 NOTICE](../THIRD_PARTY_NOTICES.md)已落地；已验证稳定 v2 构建切片。发行物许可收集、原创整体许可、Windows 回归及后续升级验收仍待做。 [实际验证范围与未通过门槛](testing/results/2026-11-21-m0-source-migration.md)。
+- **实现与验收证据：**[go.mod](../go.mod)/[go.sum](../go.sum)、[逐文件复用清单](REUSE_MANIFEST.md)、[原始许可和 NOTICE](../THIRD_PARTY_NOTICES.md)已落地；已有稳定 v2 构建与 Windows 常规检查记录。原生工作流固定官方 psmux 归档及 exe 哈希，记录被测提交和源码前后指纹；版本探测的横幅解析与发行物来源认证分别处理。发行物许可收集、原创整体许可、完整 Windows UI 回归及后续升级验收仍待做。见[首批迁入证据](testing/results/2026-11-21-m0-source-migration.md)与[Windows 执行报告](testing/results/2026-11-21-m0-native-windows.md)。
 
 ### FL-020：人工介入提醒
 
@@ -262,7 +264,7 @@
 | [ADR 索引](adr/README.md) | 保留选型理由、取舍和待验证条件 | 决策接受不等于功能验收 |
 | [v0.1 UI 探索稿](UI_DESIGN.md)及[设计源文件](design/) | 保留首次探索及用户反馈 | 不作为最终视觉基线；不是原生应用截图 |
 
-首批源码与局部自动化证据见[M0 迁入报告](testing/results/2026-11-21-m0-source-migration.md)及[复用清单](REUSE_MANIFEST.md)。Windows 运行、性能基线及发布包证据仍未提供。新增实现不提升尚无代码的通信、队列和提醒功能状态。
+首批源码与局部自动化证据见[M0 迁入报告](testing/results/2026-11-21-m0-source-migration.md)及[复用清单](REUSE_MANIFEST.md)。指定 runner 的 Windows 检查、原生场景失败与后续复验见[Windows 执行报告](testing/results/2026-11-21-m0-native-windows.md)；桌面交互、性能基线及发布包验收仍未提供。新增实现不提升尚无代码的通信、队列和提醒功能状态。
 
 ## 6. 维护方式
 
@@ -286,3 +288,5 @@
 测试基线补充（2026-11-21）：已根据本台账建立机器可读用例、可读场景、覆盖表、环境/夹具与故障合同；所有产品用例保持 designed/not_run。用例设计不改变本台账中的功能实现或验收状态。
 
 实施补充（2026-11-21）：迁入首批 UI / Windows 平台源码及独立核心，11 项有相应局部代码的能力转为“实现中”；没有条目标为已验收。339 项设计用例及既有编号保持原样，Go 自动化局部证据单独记录。
+
+原生执行补充（2026-11-21）：固定官方发行物的 Windows 自动化已通过五项可控后端场景，包含独立 fixture 记录与原 pane 缺失回归；完整运行及此前失败见执行报告。不改变 339 项设计状态、各 FL 当前状态或 M0 验收门槛。

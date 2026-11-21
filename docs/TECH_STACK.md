@@ -8,7 +8,7 @@
 
 ## 1. 技术栈与目标版本
 
-以下保留已接受的**目标版本快照**。本轮已建立产品 [go.mod](../go.mod) / [go.sum](../go.sum)，使用 Go 1.27.4、Bubble Tea 2.1.2、Lip Gloss 2.1.1 与 x/ansi 0.11.9；未使用 Bubbles 组件，因此没有引入该模块。外部终端程序、存储库和后续功能的状态分别记录，不能把模块锁定视为 Windows 兼容验收。实际验证以 [M0 执行报告](testing/results/2026-11-21-m0-source-migration.md)为准。
+以下保留已接受的**目标版本快照**。本轮已建立产品 [go.mod](../go.mod) / [go.sum](../go.sum)，使用 Go 1.27.4、Bubble Tea 2.1.2、Lip Gloss 2.1.1 与 x/ansi 0.11.9；未使用 Bubbles 组件，因此没有引入该模块。外部终端程序、存储库和后续功能的状态分别记录，不能把模块锁定视为 Windows 兼容验收。实际验证分别见[源码迁入报告](testing/results/2026-11-21-m0-source-migration.md)和[Windows 执行报告](testing/results/2026-11-21-m0-native-windows.md)。
 
 | 层次 | 选择 / 目标基线 | 用途与边界 |
 | --- | --- | --- |
@@ -17,7 +17,7 @@
 | 样式与布局 | **Lip Gloss 2.1.1** | 主题、布局、文字样式；`charm.land/lipgloss/v2` |
 | 辅助 UI 组件 | **Bubbles 2.2.2，按需；本轮未引入** | 后续实际需要输入等组件时使用；`charm.land/bubbles/v2` |
 | 界面代码来源 | Agent Deck 固定源码快照 | 已迁入样式、列表、布局和宽字符截断的 4 个派生文件；新建表单、分组/搜索等未迁入 |
-| Windows 适配来源 | Agent Manager 固定源码快照 | 已选择性迁入 psmux 平台、目标定位及参数处理；原生行为仍待验证 |
+| Windows 适配来源 | Agent Manager 固定源码快照 | 已选择性迁入 psmux 平台、目标定位及参数处理；部分原生后端场景已有记录，完整兼容验收待完成 |
 | Windows 终端后台 | **psmux 3.4.0 正式发布** | 持有终端、会话与子进程；默认后端方向已接受，M0 验证决定能否进入实现基线 |
 | Windows 底层终端能力 | **ConPTY，经 psmux 使用** | 首版不重复开发自己的 ConPTY 宿主 |
 | macOS/Linux 后台 | **tmux 3.8** 对照基线 | 后续适配与验收；不是 Windows 安装前提 |
@@ -66,7 +66,11 @@ UI 已使用 v2 的 `View() tea.View`、`KeyPressMsg`、颜色类型与 `ExecPro
 
 初始按一个产品 Session 对应一个后端 session，计入每个后台 server 的资源成本。共享 server 仅作后续实验，不成为首版依赖。产品使用私有 namespace、数据目录和配置，以 `PSMUX_NO_WARM=1` 与 `warm off` 关闭非必要预热；不改变用户全局设置。命令和进程树以实测为准，见 [ADR-0002](adr/0002-terminal-backends-and-attach.md)、[ADR-0003](adr/0003-bounded-resources-and-background-work.md)。
 
-本轮适配对稳定版参数解析会改写的特定输入显式拒绝，防止把错误 argv 当作成功启动；当前边界包括 `-x=value` 一类形状、独立分号/转义分号及会被裁剪的环境变量尾部空白，具体规则与复现见 [M0 开发说明](M0_DEVELOPMENT.md)。这属于当前实现限制，不意味着通用 CLI 参数合同已经完成。psmux 未在本环境运行；tmux 3.8 的真实启动尝试受容器 AF_UNIX 权限限制，也没有形成终端闭环通过结论。
+本轮适配对稳定版参数解析会改写的特定输入显式拒绝，防止把错误 argv 当作成功启动；当前边界包括 `-x=value` 一类形状、独立分号/转义分号及会被裁剪的环境变量尾部空白，具体规则与复现见 [M0 开发说明](M0_DEVELOPMENT.md)。这属于当前实现限制，不意味着通用 CLI 参数合同已经完成。
+
+Windows 自动化通过[依赖锁定记录](../tools/ci/windows-dependencies.json)分别核对官方归档和 `psmux.exe` 的 SHA-256。官方 `-V` 输出包含 `psmux 3.4.0 (20aa1d7 2026-10-13)`；解析器已支持稳定源码定义的构建来源后缀，并保持精确 `3.4.0` 发布号校验。版本探测只解析后端报告的版本，不能单独认证发行物来源。指定 Windows Server 2025 runner 的五项可控后端场景已通过，完整提交、此前失败与修复见[Windows 执行报告](testing/results/2026-11-21-m0-native-windows.md)。
+
+首轮 Linux 环境没有执行 psmux；tmux 3.8 的真实启动尝试受容器 AF_UNIX 权限限制，仍没有 Unix 终端闭环通过结论。Windows hosted runner 的局部原生结果不代替桌面交互、最低系统矩阵或全进程树资源验证。
 
 ## 5. 进程、界面与存储约束
 

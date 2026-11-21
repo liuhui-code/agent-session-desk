@@ -2,7 +2,7 @@
 
 - 日期：2026-11-21
 - 状态：已接受（Accepted）
-- 实现与验证状态：M0 Launch/Session/Run 模型与基础管理 CLI 已实现；真实接入验收、持久化、跨会话消息及增强协议未完成
+- 实现与验证状态：M0 Launch/Session/Run 模型与基础管理 CLI 已实现，指定 Windows runner 的可控接入已有局部结果；真实 agent 完整接入、持久化、跨会话消息及增强协议未完成
 - 关联需求：FR-01、FR-04、FR-05、FR-06、FR-07、FR-08、FR-09、FR-10、FR-11、FR-12、FR-13
 
 ## 背景与约束
@@ -54,7 +54,9 @@ Session、Run、View/Tab 分离。消息使用稳定 session_id，并在建立�
 
 这些命令服务于 M0 的基本终端管理，不是本 ADR 中 M3 的 `list/read/send/status` 协作协议。当前 `preview` 是有限屏幕快照；持久输出、来源游标、消息收件项、自动投递、回执、reply_to 与恢复对话能力仍未实现，不能把终端可连接或 CLI 命令返回当作 agent 接收/完成证据。
 
-Windows 参数保真仍是验收门槛。psmux 稳定版会改写的部分输入已明确拒绝，当前支持边界见 [M0 开发说明](../M0_DEVELOPMENT.md)；局部单元证据和未执行的原生场景见 [M0 执行报告](../testing/results/2026-11-21-m0-source-migration.md)。FR-01 至 FR-13 的完整范围保持不变。
+Windows 参数保真仍按输入组合验收。指定 Windows runner 已用独立 fixture JSONL 核对选定 argv、cwd、环境值与快速退出；独立 `asd start` 进程结束后，通过 fixture 的精确进程 handle 及新 `list/preview` 进程核对原 Run 存活和可发现，显式 stop 后核对 fixture 退出。通过、失败及未覆盖范围见[Windows 执行报告](../testing/results/2026-11-21-m0-native-windows.md)；首轮单元与迁入证据保留在[原报告](../testing/results/2026-11-21-m0-source-migration.md)。
+
+这些样本不覆盖任意 CLI 参数、显式 shell／脚本、真实 agent 或完整 UI 重连。测试用的 `send-keys` 只提供合成输入，不是产品发送接口、投递回执或 agent 协作协议。psmux 稳定版会改写的部分输入继续明确拒绝，支持边界见 [M0 开发说明](../M0_DEVELOPMENT.md)；FR-01 至 FR-13 的完整范围保持不变。
 
 ## 比较过的方案
 

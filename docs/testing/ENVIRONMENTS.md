@@ -1,6 +1,6 @@
 # 测试环境与兼容矩阵
 
-设计日期：2026-11-21。**以下均为计划环境，目前没有产品测试执行结果，也没有 Windows 兼容通过记录。** 用例引用这些 ID；实际执行时必须保存完整 manifest，不能只写“Windows 测过”。
+设计日期：2026-11-21。**以下 ID 是测试设计环境，不表示各环境已验收。** 已有独立实现测试的[局部结果](results/)；Windows Server 2025 CI 的原生进程／后端成功记录不能替代下面 Windows 11／Windows Terminal／无 WSL 基线。用例引用这些 ID；实际执行时必须保存完整 manifest，不能只写“Windows 测过”。
 
 测试范围由 [Feature Ledger](../FEATURE_LEDGER.md)、[ADR](../adr/README.md)及[用例目录](cases/)确定。数值限额与待决行为见 [BUDGETS_AND_DECISIONS.md](BUDGETS_AND_DECISIONS.md)；环境清单不扩展当前产品支持承诺。
 

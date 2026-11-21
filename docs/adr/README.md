@@ -11,17 +11,17 @@ ADR 保存重要选择的背景、决定、替代方案、代价和重新评估�
 - **已替代（Superseded）**：有后续 ADR 改变该决定，保留历史并链接替代记录。
 - **已撤回（Withdrawn）**：不再推进，记录原因。
 
-**决策状态和实现状态分别记录。** Accepted 不表示代码已实现、依赖已安装、Windows 已验收或性能已达标。ADR-0001 至 ADR-0005 依据用户核验维护状态后记录选型的授权接受；ADR-0006 依据用户确认人工介入提醒方案并要求补充台账、ADR 与测试的授权接受。当前已有首批 M0 源码迁入与构建切片，完整功能和 Windows 实机验收仍未完成；准确验证范围见 [M0 执行报告](../testing/results/2026-11-21-m0-source-migration.md)。
+**决策状态和实现状态分别记录。** Accepted 不表示代码已实现、依赖已安装、Windows 已验收或性能已达标。ADR-0001 至 ADR-0005 依据用户核验维护状态后记录选型的授权接受；ADR-0006 依据用户确认人工介入提醒方案并要求补充台账、ADR 与测试的授权接受。当前已有首批 M0 源码迁入、构建切片和部分 Windows 原生执行记录；完整功能、桌面交互及资源验收仍未完成。准确范围分别见[源码迁入报告](../testing/results/2026-11-21-m0-source-migration.md)和[Windows 执行报告](../testing/results/2026-11-21-m0-native-windows.md)，失败轮次同样保留。
 
 ## 当前索引
 
 | ADR | 决定 | 状态 | 验证状态 |
 | --- | --- | --- | --- |
 | [0001](0001-architecture-and-reuse.md) | Go 模块化单体与 Agent Deck UI 选择性复用 | 已接受 | 首批 UI/平台代码已迁入；完整功能与 Windows 视觉验收待做 |
-| [0002](0002-terminal-backends-and-attach.md) | Windows psmux、Unix tmux 与全屏 attach | 已接受 | 适配与 attach 代码已有；真实终端闭环和 Windows 恢复待验证 |
+| [0002](0002-terminal-backends-and-attach.md) | Windows psmux、Unix tmux 与全屏 attach | 已接受 | 适配及部分原生进程／后端证据已有；完整终端交互和 Windows 恢复待验证 |
 | [0003](0003-bounded-resources-and-background-work.md) | 有界资源、落盘存储和按阶段引入 Host | 已接受 | 选中预览/命令边界已有；存储、Host、内存基线与长稳待做 |
-| [0004](0004-cli-agents-and-session-messaging.md) | CLI-first、稳定身份与可核对的消息语义 | 已接受 | M0 身份模型与基础 CLI 已有；原生接入验收和 M3 消息功能待做 |
-| [0005](0005-dependency-lifecycle-and-upgrades.md) | 活跃稳定依赖与 Charm v1 → v2 迁移 | 已接受 | 模块已锁定、首批 v2 切片已有；完整迁移与 Windows 验证待做 |
+| [0004](0004-cli-agents-and-session-messaging.md) | CLI-first、稳定身份与可核对的消息语义 | 已接受 | M0 模型与部分原生 fixture 接入证据已有；真实 agent 完整验收和 M3 消息待做 |
+| [0005](0005-dependency-lifecycle-and-upgrades.md) | 活跃稳定依赖与 Charm v1 → v2 迁移 | 已接受 | 模块／外部发行物已锁定，Windows 局部检查已有记录；完整迁移与桌面交互待做 |
 | [0006](0006-human-attention-and-notifications.md) | 人工介入事项、可信状态与分层提醒 | 已接受 | FR-14 / FL-020 与测试设计已记录；事件、通知、后台与 Windows 待实现验证 |
 
 ## 维护规则

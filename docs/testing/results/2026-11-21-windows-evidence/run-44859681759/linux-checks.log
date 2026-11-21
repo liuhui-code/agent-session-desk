@@ -1,0 +1,26 @@
+2026-11-21T03:10:13.6228469Z ##[group]Run go mod verify
+2026-11-21T03:10:13.6228952Z [36;1mgo mod verify[0m
+2026-11-21T03:10:13.6229265Z [36;1mgo test -count=1 -timeout=5m ./...[0m
+2026-11-21T03:10:13.6229573Z [36;1mgo test -race -count=1 -timeout=5m ./...[0m
+2026-11-21T03:10:13.6229865Z [36;1mgo vet ./...[0m
+2026-11-21T03:10:13.6230171Z [36;1mpython3 -B tools/test_catalog.py check --generated[0m
+2026-11-21T03:10:13.8889474Z shell: /usr/bin/bash -e {0}
+2026-11-21T03:10:13.8890336Z env:
+2026-11-21T03:10:13.8890628Z   GOTOOLCHAIN: local
+2026-11-21T03:10:13.8890907Z   GOFLAGS: -mod=readonly
+2026-11-21T03:10:13.8891170Z ##[endgroup]
+2026-11-21T03:10:13.9875217Z all modules verified
+2026-11-21T03:10:14.2929535Z ?   	github.com/liuhui-code/agent-session-desk/cmd/asd	[no test files]
+2026-11-21T03:10:14.2959251Z ok  	github.com/liuhui-code/agent-session-desk/cmd/asd-fixture	0.003s
+2026-11-21T03:10:14.6386461Z ok  	github.com/liuhui-code/agent-session-desk/internal/backend	0.139s
+2026-11-21T03:10:14.6387446Z ok  	github.com/liuhui-code/agent-session-desk/internal/cli	0.004s
+2026-11-21T03:10:14.6388056Z ok  	github.com/liuhui-code/agent-session-desk/internal/session	0.002s
+2026-11-21T03:10:14.6388799Z ok  	github.com/liuhui-code/agent-session-desk/internal/ui	0.025s
+2026-11-21T03:10:14.9704218Z ?   	github.com/liuhui-code/agent-session-desk/cmd/asd	[no test files]
+2026-11-21T03:10:15.9864475Z ok  	github.com/liuhui-code/agent-session-desk/cmd/asd-fixture	1.013s
+2026-11-21T03:10:16.9282601Z ok  	github.com/liuhui-code/agent-session-desk/internal/backend	1.618s
+2026-11-21T03:10:16.9283090Z ok  	github.com/liuhui-code/agent-session-desk/internal/cli	1.012s
+2026-11-21T03:10:16.9283693Z ok  	github.com/liuhui-code/agent-session-desk/internal/session	1.011s
+2026-11-21T03:10:17.1802436Z ok  	github.com/liuhui-code/agent-session-desk/internal/ui	1.193s
+2026-11-21T03:10:17.3366597Z {"cases": 339, "suites": 5, "spec_state": {"deferred": 2, "needs_decision": 122, "ready": 215}, "feature_design_coverage": 20, "requirement_design_coverage": 14, "product_tests_executed_by_this_tool": 0}
+2026-11-21T03:10:17.3367512Z Catalog validation only; no product or Windows tests were executed.

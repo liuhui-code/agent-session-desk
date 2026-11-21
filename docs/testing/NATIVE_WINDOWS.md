@@ -2,6 +2,8 @@
 
 日期：2026-11-21。用途：把 M0 的 Windows 后端合同从交叉编译推进到真实 Windows 进程验证。**脚本和工作流存在不等于已经通过；实际执行结论另存于 [results/](results/)。**
 
+已完成的首批结果见 [M0 原生 Windows 报告](results/2026-11-21-m0-native-windows.md)：[run 44860102659](https://github.com/liuhui-code/agent-session-desk/actions/runs/44860102659) 的五项原生场景、六个边界子测试全部通过，native 无 skip。报告同时保留前两轮失败、修复及仍未覆盖的门槛。
+
 ## 1. 运行入口与版本
 
 [Verify 工作流](../../.github/workflows/verify.yml)在代码、构建依赖或检查工具变化时运行 Linux Go 检查，以及 Windows Server 2025 上的原生测试。也支持手动 `workflow_dispatch`。它只申请 `contents: read`，不发布版本、不修改仓库，也不需要用户 agent 凭据。
@@ -24,12 +26,12 @@
 | 启动与生命周期 | 空格／中文 exe 与 cwd、空参数／引号／反斜杠／Unicode、目标 env 的实际接收；新 Backend 重新发现同一 Session/Run；被动预览不 resize；输入一行后正常退出 |
 | 隔离与非法输入 | 两个真实会话独立；另一 namespace 看不到它们；无效路径和会被后端改写的参数在启动前拒绝 |
 | 快速退出 | fixture 启动后立即以指定非零码退出，后端显示退出并保留屏幕；退出码依据 fixture 自己的记录，不使用 psmux 的常量退出码字段 |
-| 原 pane 被删除 | 同一后端另有 sentinel pane，删除原 pane 后不得把另一个 pane 的内容作为原 Run 的预览返回 |
+| 原 pane 被删除 | 同一后端另有 sentinel pane；按精确 window ID 删除原窗口，确认原 pane 缺席且 sentinel 独立记录收到新输入，再检查 Preview/Attach 拒绝替代目标 |
 | 独立产品进程 | `asd start` 进程结束后，fixture 的精确 Windows 进程 handle 仍存活；新 `asd list/preview` 找回同一 Run；显式 stop 后核对原 fixture 退出 |
 
 测试创建自己的 namespace、目录与会话，只回收本次生成的精确后端名称。必要的 fixture 清理通过已打开的精确进程 handle 完成，不按进程名或复用后的 PID 批量终止。等待只重试观测，不重试启动、输入写入或停止。
 
-fixture 新增显式的 `ASD_FIXTURE_REPORT_PATH` JSONL 观察通道，逐条写出 started/input/exiting。它拒绝覆盖已有文件，只记录选择的合成环境值；测试不从会换行／重绘的终端画面反推完整 argv。`ASD_FIXTURE_EXIT_AFTER_START=1` 与 `ASD_FIXTURE_EXIT_CODE` 用于构造快速退出，不代表 agent ready/completed 协议。
+fixture 新增显式的 `ASD_FIXTURE_REPORT_PATH` JSONL 观察通道，逐条写出 started/input/exiting。它拒绝覆盖已有文件，只记录选择的合成环境值；测试不从会换行／重绘的终端画面反推完整 argv。`ASD_FIXTURE_EXIT_AFTER_START=1` 与 `ASD_FIXTURE_EXIT_CODE` 用于构造快速退出，不代表 agent ready/completed 协议。原 pane 缺失场景不能仅以 `kill-pane` 返回 0 判定前提成立；单 pane 窗口与保留退出画面的语义在第二轮实际执行中暴露了这个问题。
 
 ## 3. 在 Windows 本机重现
 
@@ -40,7 +42,7 @@ $psmuxBinary = ./tools/ci/install-psmux.ps1
 ./tools/ci/windows.ps1 -PsmuxBinary $psmuxBinary
 ```
 
-脚本执行模块校验、普通 Go 测试、race、vet、测试目录校验、原生程序构建及五项真实后端场景。它会保存所设进程环境变量原值并在退出时恢复。测试结束后输出到 `build/ci-windows/`，包括真实系统版本、镜像版本、提交、psmux 哈希、逐命令结果、测试 JSONL 和合成 fixture 记录。
+脚本执行模块校验、普通 Go 测试、race、vet、测试目录校验、原生程序构建及五项真实后端场景。race 运行的是普通 Go 测试，后续独立 native 套件没有使用 `-race`。它会保存所设进程环境变量原值并在退出时恢复。测试结束后输出到 `build/ci-windows/`，包括真实系统版本、镜像版本、提交、psmux 哈希与原始版本输出、逐命令结果、测试 JSONL 和合成 fixture 记录。
 
 也可以只执行原生后端套件：
 

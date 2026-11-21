@@ -2,7 +2,7 @@
 
 - 日期：2026-11-21
 - 状态：已接受（Accepted）
-- 实现与验证状态：首批 psmux/tmux 适配与全屏 attach 代码已实现；构建证据单独记录，原生 Windows 与真实终端闭环未验收
+- 实现与验证状态：首批 psmux/tmux 适配与全屏 attach 代码已实现；已有指定 Windows runner 的部分进程／后端结果，完整终端交互闭环未验收
 - 关联需求：FR-01、FR-02、FR-03、FR-05、FR-06、FR-10、FR-11、FR-12
 - 关联决定：[ADR-0001](0001-architecture-and-reuse.md)、[ADR-0003](0003-bounded-resources-and-background-work.md)
 
@@ -34,7 +34,11 @@
 
 psmux v3.4.0 的解析边界进入显式输入校验：对会被稳定版改写的特定参数形状、独立分号/转义分号和环境变量尾部空白拒绝启动，具体规则及限制见 [M0 开发说明](../M0_DEVELOPMENT.md)。单元/命令合同检查不能证明外部程序实际执行后的 argv、终端和环境均正确，后续必须在 Windows 真实后端验证。
 
-本环境没有执行 Windows psmux。Unix 对照使用的 tmux 3.8 已构建，但启动后台时受容器 AF_UNIX 权限拒绝，真实 attach/分离/重连闭环仍未通过；不得用假后端测试解除这些门槛。各项结果和阻断见 [M0 执行报告](../testing/results/2026-11-21-m0-source-migration.md)。
+首轮 Linux 环境没有执行 Windows psmux；Unix 对照使用的 tmux 3.8 已构建，但启动后台时受容器 AF_UNIX 权限拒绝，相关历史结果见[源码迁入报告](../testing/results/2026-11-21-m0-source-migration.md)。后续提交 `b6f2cd2a` 在指定 Windows Server 2025 runner 通过五项真实后端测试：启动生命周期、私有隔离／非法输入、快速退出保留屏幕、原 pane 缺失拒绝及独立 CLI 进程重连；专门 native 步骤零失败、零跳过。完整提交、环境、此前失败与修复复验见[Windows 执行报告](../testing/results/2026-11-21-m0-native-windows.md)。
+
+本轮还根据稳定源码将 pane 查询改为唯一的 `SESSION:.%N` 目标，捕获后无法确认原 pane 时丢弃快照，避免普通删除竞态下误读活动 pane。单元回归覆盖捕获后目标丢失；原生回归确认原窗口及 pane 删除后，另一 pane 仍接收测试输入，产品拒绝预览和准备 attach 到原目标。这些证据不声明原子快照、外部 respawn 仲裁或被替换 server 的完整恢复。
+
+原生套件使用测试 fixture 和少量合成输入；Attach 只准备命令并检查拒绝条件，没有执行交互客户端。它不代替真实 Windows Terminal 的 attach/分离/返回、IME、resize、焦点与终端恢复验收，也不构成资源、无 WSL 安装环境或 Windows 10/11 支持声明。
 
 ## 生命周期边界
 

@@ -2,7 +2,7 @@
 
 创建日期：2026-11-21。需求基线：[Feature Ledger](../FEATURE_LEDGER.md)、[产品计划](../PRODUCT_PLAN.md)、[ADR](../adr/README.md)。
 
-**339 项设计用例仍保留 `designed / not_run` 的基线状态；实际执行结果单独归档。** 首批 M0 迁入已增加 Go 单元/子进程合同测试及可控 CLI fixture；它们的局部结果见[源码迁入报告](results/2026-11-21-m0-source-migration.md)。完整夹具、故障注入、Windows 与长稳验收仍待实现或执行。目录校验通过只证明资料一致。
+**339 项设计用例仍保留 `designed / not_run` 的基线状态；实际执行结果单独归档。** 首批 M0 迁入已有 Go 单元/子进程合同测试及可控 CLI fixture，见[源码迁入报告](results/2026-11-21-m0-source-migration.md)。随后在固定 Windows Server 2025 runner 上通过五项真实进程／后端场景，含六个边界子测试；两次失败与修复后的成功见[原生 Windows 报告](results/2026-11-21-m0-native-windows.md)。完整夹具、桌面交互、资源与长稳验收仍待补齐。目录校验通过只证明资料一致。
 
 ## 从哪里开始
 
@@ -45,4 +45,4 @@ python tools/test_catalog.py check --generated
 
 `check` 检查字段、编号、FL/FR/ADR/决策/环境/夹具引用和设计覆盖；`render` 更新派生文档；`check --generated` 检查派生文件是否与 JSON 一致。这里的 Python 工具只维护测试资料，不是产品运行依赖，也不会启动 agent、psmux 或 Windows 测试。
 
-后续先实现夹具，再将用例接入真实 API、集成测试和 Windows 验收。实际报告放入 `results/`，保留原始证据位置，并回写 Feature Ledger。不得把 `not_run` 批量改为通过来表示“测试代码已经写好”。
+后续继续补齐完整夹具与故障钩子，再逐项接入真实 API、集成测试和 Windows 桌面验收。实际报告放入 `results/`，保留原始证据位置，并回写 Feature Ledger。不得把 `not_run` 批量改为通过来表示“测试代码已经写好”。

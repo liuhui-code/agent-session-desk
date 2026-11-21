@@ -2,7 +2,7 @@
 
 - 日期：2026-11-21
 - 状态：已接受（Accepted）
-- 实现与验证状态：精确 Go/Charm v2 模块已锁定，首批 UI 迁移形成构建切片；实际 Windows 行为和完整迁移验收待完成
+- 实现与验证状态：精确 Go/Charm v2 模块已锁定，首批 UI 迁移形成构建切片；已有 Windows 常规检查及部分真实后端结果，完整迁移与桌面交互验收待完成
 - 关联需求：FR-02、FR-03、FR-11，以及 Windows 发布和可维护性要求
 - 关联决定：[ADR-0001](0001-architecture-and-reuse.md)
 
@@ -24,7 +24,7 @@
 | tmux | **3.8** 作为本轮 Unix 对照基线 | 后续按平台验证的外部后台 |
 | SQLite / TOML | 稳定技术方向已选 | Go 驱动/解析库及精确版本在实现前固定 |
 
-版本表保留 **2026-11-21 的选型快照和验证目标**。首个实现提交已建立 [go.mod](../../go.mod) / [go.sum](../../go.sum)：Go 1.27.4、Bubble Tea 2.1.2、Lip Gloss 2.1.1、x/ansi 0.11.9 是当前构建基线；Bubbles 未实际使用，因此未引入。SQLite/TOML 库仍待选择。外部可执行文件另外记录版本、来源和哈希，发布时再次核查；实际构建和测试范围以 [M0 执行报告](../testing/results/2026-11-21-m0-source-migration.md)为准。
+版本表保留 **2026-11-21 的选型快照和验证目标**。首个实现提交已建立 [go.mod](../../go.mod) / [go.sum](../../go.sum)：Go 1.27.4、Bubble Tea 2.1.2、Lip Gloss 2.1.1、x/ansi 0.11.9 是当前构建基线；Bubbles 未实际使用，因此未引入。SQLite/TOML 库仍待选择。外部可执行文件另以[Windows 依赖锁定记录](../../tools/ci/windows-dependencies.json)固定官方 psmux 归档与 exe 哈希，发布时再次核查。实际范围见[源码迁入报告](../testing/results/2026-11-21-m0-source-migration.md)与[Windows 执行报告](../testing/results/2026-11-21-m0-native-windows.md)。
 
 ### v1 → v2 迁移要求
 
@@ -45,6 +45,12 @@ Go 按官方支持政策保持在受支持的版本线并及时评估补丁。�
 当前 UI 已改用 `charm.land/.../v2` import、`View() tea.View`、`KeyPressMsg`、v2 颜色类型与 `ExecProcess`。列表尺寸、CJK/emoji、按下/释放/粘贴事件、取消与迟到结果有局部单元测试。初次边界测试暴露 keycap emoji 的测量/截断不一致，随后从固定 Agent Deck 快照额外迁入 `cellTruncate` 修复；原始失败及复跑结果保留在执行报告中。
 
 尚未迁入的输入弹窗和鼠标/主题功能没有相应完成声明；原生 Windows 输入法、实际字形、终端恢复以及发布组合仍按原有要求回归。源码迁移没有静默回退到 Charm v1，也没有改变本 ADR 的稳定 v2 方向。
+
+### 原生依赖验证补充（2026-11-21）
+
+Windows runner 已通过普通 Go 测试、race、vet、目录校验和原生程序构建。版本解析器已支持官方版本行中的 commit／日期等稳定源码定义的构建来源后缀，仍严格要求 `3.4.0` 发布号；不将 tmux 兼容行当作 psmux 版本，也不凭版本文本认证发行物。工作流另外校验官方归档与可执行文件哈希，并保存被测提交、系统镜像及源码前后指纹。
+
+指定 runner 的五项可控原生后端场景已通过，完整环境及此前失败、修复和复验保留在[Windows 执行报告](../testing/results/2026-11-21-m0-native-windows.md)。这些结果没有升级依赖版本或改变架构选择，也不解除完整 v2 桌面交互与资源门槛。
 
 ## 后果与代价
 

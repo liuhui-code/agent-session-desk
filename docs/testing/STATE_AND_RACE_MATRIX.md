@@ -1,6 +1,6 @@
 # 状态、竞争与故障窗口验证模型
 
-日期：2026-11-21。状态：测试设计，尚无产品执行结果。依据：[ADR-0004](../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0006](../adr/0006-human-attention-and-notifications.md)、[Feature Ledger](../FEATURE_LEDGER.md)；具体前提、步骤与证据见下列用例。
+日期：2026-11-21。状态：测试设计，完整矩阵尚未执行；独立实现测试的局部结果另存于 [results/](results/)，不代表本矩阵整体通过。依据：[ADR-0004](../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0006](../adr/0006-human-attention-and-notifications.md)、[Feature Ledger](../FEATURE_LEDGER.md)；具体前提、步骤与证据见下列用例。
 
 本文把“实际发生了什么”“产品能证明什么”“界面允许显示什么”分开，作为实现和故障注入时的判断依据。夹具的旁路日志可揭示缺陷，但不能替产品补上它并未持有的证据。
 

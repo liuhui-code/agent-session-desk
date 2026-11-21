@@ -1,0 +1,43 @@
+2026-11-21T03:05:05.9240524Z ##[group]Run go mod verify
+2026-11-21T03:05:05.9240903Z [36;1mgo mod verify[0m
+2026-11-21T03:05:05.9241494Z [36;1mgo test -count=1 -timeout=5m ./...[0m
+2026-11-21T03:05:05.9241892Z [36;1mgo test -race -count=1 -timeout=5m ./...[0m
+2026-11-21T03:05:05.9242264Z [36;1mgo vet ./...[0m
+2026-11-21T03:05:05.9242614Z [36;1mpython3 -B tools/test_catalog.py check --generated[0m
+2026-11-21T03:05:05.9262175Z shell: /usr/bin/bash -e {0}
+2026-11-21T03:05:05.9262454Z env:
+2026-11-21T03:05:05.9262648Z   GOTOOLCHAIN: local
+2026-11-21T03:05:05.9262871Z   GOFLAGS: -mod=readonly
+2026-11-21T03:05:05.9263091Z ##[endgroup]
+2026-11-21T03:05:06.2395783Z all modules verified
+2026-11-21T03:05:06.2583762Z go: downloading charm.land/bubbletea/v2 v2.1.2
+2026-11-21T03:05:06.5294926Z go: downloading charm.land/lipgloss/v2 v2.1.1
+2026-11-21T03:05:06.6279716Z go: downloading github.com/charmbracelet/x/ansi v0.11.9
+2026-11-21T03:05:06.9073577Z go: downloading github.com/charmbracelet/colorprofile v0.4.3
+2026-11-21T03:05:06.9143644Z go: downloading github.com/charmbracelet/ultraviolet v0.0.0-20261008173134-6b8d4baf91b4
+2026-11-21T03:05:06.9174598Z go: downloading github.com/charmbracelet/x/term v0.2.2
+2026-11-21T03:05:06.9224366Z go: downloading github.com/lucasb-eyer/go-colorful v1.4.1
+2026-11-21T03:05:06.9709853Z go: downloading github.com/muesli/cancelreader v0.2.2
+2026-11-21T03:05:06.9774152Z go: downloading golang.org/x/sys v0.47.0
+2026-11-21T03:05:07.6556627Z go: downloading github.com/clipperhouse/displaywidth v0.11.0
+2026-11-21T03:05:07.6644592Z go: downloading github.com/clipperhouse/uax29/v2 v2.7.0
+2026-11-21T03:05:07.6654147Z go: downloading github.com/mattn/go-runewidth v0.0.30
+2026-11-21T03:05:07.6973875Z go: downloading github.com/rivo/uniseg v0.4.7
+2026-11-21T03:05:07.9623005Z go: downloading github.com/xo/terminfo v1.0.0
+2026-11-21T03:05:08.0243962Z go: downloading github.com/charmbracelet/x/termios v0.1.1
+2026-11-21T03:05:08.0289312Z go: downloading github.com/charmbracelet/x/windows v0.2.2
+2026-11-21T03:05:08.0339703Z go: downloading golang.org/x/sync v0.22.0
+2026-11-21T03:05:22.3195694Z ?   	github.com/liuhui-code/agent-session-desk/cmd/asd	[no test files]
+2026-11-21T03:05:24.1812797Z ok  	github.com/liuhui-code/agent-session-desk/cmd/asd-fixture	0.009s
+2026-11-21T03:05:24.3790062Z ok  	github.com/liuhui-code/agent-session-desk/internal/backend	0.206s
+2026-11-21T03:05:24.3790945Z ok  	github.com/liuhui-code/agent-session-desk/internal/cli	0.004s
+2026-11-21T03:05:24.3791918Z ok  	github.com/liuhui-code/agent-session-desk/internal/session	0.003s
+2026-11-21T03:05:24.4048016Z ok  	github.com/liuhui-code/agent-session-desk/internal/ui	0.029s
+2026-11-21T03:05:39.8092951Z ?   	github.com/liuhui-code/agent-session-desk/cmd/asd	[no test files]
+2026-11-21T03:05:40.8247806Z ok  	github.com/liuhui-code/agent-session-desk/cmd/asd-fixture	1.018s
+2026-11-21T03:05:41.7514745Z ok  	github.com/liuhui-code/agent-session-desk/internal/backend	1.944s
+2026-11-21T03:05:41.7515404Z ok  	github.com/liuhui-code/agent-session-desk/internal/cli	1.017s
+2026-11-21T03:05:41.7515921Z ok  	github.com/liuhui-code/agent-session-desk/internal/session	1.012s
+2026-11-21T03:05:42.0950147Z ok  	github.com/liuhui-code/agent-session-desk/internal/ui	1.239s
+2026-11-21T03:05:44.2170936Z {"cases": 339, "suites": 5, "spec_state": {"deferred": 2, "needs_decision": 122, "ready": 215}, "feature_design_coverage": 20, "requirement_design_coverage": 14, "product_tests_executed_by_this_tool": 0}
+2026-11-21T03:05:44.2172074Z Catalog validation only; no product or Windows tests were executed.

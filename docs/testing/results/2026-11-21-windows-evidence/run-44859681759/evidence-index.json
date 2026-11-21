@@ -1,0 +1,266 @@
+{
+  "schema_version": 1,
+  "run": {
+    "id": 44859681759,
+    "url": "https://github.com/liuhui-code/agent-session-desk/actions/runs/44859681759",
+    "attempt": 1,
+    "commit": "9bbacc42bf75b1abac42c763493d10df0892d4fc",
+    "status": "completed",
+    "conclusion": "failure",
+    "created_at": "2026-11-21T03:09:57Z",
+    "updated_at": "2026-11-21T03:11:40Z",
+    "linux_job_id": 136709953842,
+    "windows_job_id": 136709954013,
+    "artifact_id": 14689327449,
+    "artifact_digest": "sha256:c775b07554e561a4d57a1366facdb780379ad5a7b7c06080ee4410aacb0485d4",
+    "artifact_expires_at": "2026-12-05T03:11:35Z",
+    "linux_job_conclusion": "success",
+    "windows_job_conclusion": "failure"
+  },
+  "source_before_matches_after": true,
+  "source_manifest_verified_against_git_commit": "9bbacc42bf75b1abac42c763493d10df0892d4fc",
+  "source_files_verified": 25,
+  "test_counts": {
+    "native.stdout": {
+      "counts": {
+        "top_level_pass": 4,
+        "subtest_pass": 6,
+        "top_level_fail": 1
+      },
+      "skips": [],
+      "failures": [
+        "TestWindowsPsmuxNativeMissingOriginalPaneNeverFallsBack"
+      ]
+    },
+    "unit.stdout": {
+      "counts": {
+        "top_level_pass": 43,
+        "subtest_pass": 140,
+        "top_level_skip": 5
+      },
+      "skips": [
+        "TestWindowsPsmuxNativeLaunchLifecycle",
+        "TestWindowsPsmuxNativeIsolationAndRejectedLaunches",
+        "TestWindowsPsmuxNativeRapidExitRetainsScreen",
+        "TestWindowsPsmuxNativeMissingOriginalPaneNeverFallsBack",
+        "TestWindowsPsmuxNativeCLIProcessExitAndReconnect"
+      ],
+      "failures": []
+    }
+  },
+  "files": [
+    {
+      "artifact_path": "build-fixture.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "storage": "empty file; hash and size retained only"
+    },
+    {
+      "artifact_path": "build-fixture.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "storage": "empty file; hash and size retained only"
+    },
+    {
+      "artifact_path": "build-product.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "storage": "empty file; hash and size retained only"
+    },
+    {
+      "artifact_path": "build-product.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "storage": "empty file; hash and size retained only"
+    },
+    {
+      "artifact_path": "catalog.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "storage": "empty file; hash and size retained only"
+    },
+    {
+      "artifact_path": "catalog.stdout",
+      "bytes": 274,
+      "sha256": "8f23196a8a53abbc9a808d88a8151bce89ef89dfd0ba05bdc3189b7a0fe6e6ce",
+      "stored_as": "catalog.stdout",
+      "storage": "verbatim"
+    },
+    {
+      "artifact_path": "go-version.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "storage": "empty file; hash and size retained only"
+    },
+    {
+      "artifact_path": "go-version.stdout",
+      "bytes": 34,
+      "sha256": "bd74e61f96314b4c2e72e63319395345bc2817752bbdd3fc177a9edb2eb2ba14",
+      "stored_as": "go-version.stdout",
+      "storage": "verbatim"
+    },
+    {
+      "artifact_path": "modules.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "storage": "empty file; hash and size retained only"
+    },
+    {
+      "artifact_path": "modules.stdout",
+      "bytes": 21,
+      "sha256": "b4537ed75f533f993f371954de47e42a793b8e5b0587577de7e27fb3e50696bd",
+      "stored_as": "modules.stdout",
+      "storage": "verbatim"
+    },
+    {
+      "artifact_path": "native/TestWindowsPsmuxNativeCLIProcessExitAndReconnect/asd-native-04631fc61fb0/fixture-0.jsonl",
+      "bytes": 274,
+      "sha256": "e7ad1c543f4e024978d717f461d025718273b6c8458eb03f4786c19c98a3e668",
+      "stored_as": "native/TestWindowsPsmuxNativeCLIProcessExitAndReconnect/asd-native-04631fc61fb0/fixture-0.jsonl",
+      "storage": "verbatim"
+    },
+    {
+      "artifact_path": "native/TestWindowsPsmuxNativeIsolationAndRejectedLaunches/asd-native-4c4b59a1b3f5/fixture-0.jsonl",
+      "bytes": 262,
+      "sha256": "40ac08f34d51c2859bb3fccf0a4df70ce798edd6f97e39769bede9c73cd64b6b",
+      "stored_as": "native/TestWindowsPsmuxNativeIsolationAndRejectedLaunches/asd-native-4c4b59a1b3f5/fixture-0.jsonl",
+      "storage": "verbatim"
+    },
+    {
+      "artifact_path": "native/TestWindowsPsmuxNativeIsolationAndRejectedLaunches/asd-native-b84682dd1b81/fixture-0.jsonl",
+      "bytes": 249,
+      "sha256": "62626dd30d36351600d9fe2252e0f2b9f253e86bec65e24908976a8df4fbd2d6",
+      "stored_as": "native/TestWindowsPsmuxNativeIsolationAndRejectedLaunches/asd-native-b84682dd1b81/fixture-0.jsonl",
+      "storage": "verbatim"
+    },
+    {
+      "artifact_path": "native/TestWindowsPsmuxNativeIsolationAndRejectedLaunches/asd-native-b84682dd1b81/fixture-1.jsonl",
+      "bytes": 289,
+      "sha256": "293ed2620ce63eaaf7edf82737335bb37b34303ecb220e96116c6f7417206e47",
+      "stored_as": "native/TestWindowsPsmuxNativeIsolationAndRejectedLaunches/asd-native-b84682dd1b81/fixture-1.jsonl",
+      "storage": "verbatim"
+    },
+    {
+      "artifact_path": "native/TestWindowsPsmuxNativeLaunchLifecycle/asd-native-2fab808828ee/fixture-0.jsonl",
+      "bytes": 437,
+      "sha256": "21cd7327e1fc14fd985250a6c32e45659924d60d603c82277032294da467f8fe",
+      "stored_as": "native/TestWindowsPsmuxNativeLaunchLifecycle/asd-native-2fab808828ee/fixture-0.jsonl",
+      "storage": "verbatim"
+    },
+    {
+      "artifact_path": "native/TestWindowsPsmuxNativeMissingOriginalPaneNeverFallsBack/asd-native-11d5f53d596f/fixture-0.jsonl",
+      "bytes": 279,
+      "sha256": "181428f571915dc03b41b143bbe2c54418d30e128c589f49c2ae89854476649f",
+      "stored_as": "native/TestWindowsPsmuxNativeMissingOriginalPaneNeverFallsBack/asd-native-11d5f53d596f/fixture-0.jsonl",
+      "storage": "verbatim"
+    },
+    {
+      "artifact_path": "native/TestWindowsPsmuxNativeMissingOriginalPaneNeverFallsBack/asd-native-11d5f53d596f/fixture-1.jsonl",
+      "bytes": 278,
+      "sha256": "feda4e6ea5148be84d3fa7f15d2429119199089f9a16b0b11718ca1308709be8",
+      "stored_as": "native/TestWindowsPsmuxNativeMissingOriginalPaneNeverFallsBack/asd-native-11d5f53d596f/fixture-1.jsonl",
+      "storage": "verbatim"
+    },
+    {
+      "artifact_path": "native/TestWindowsPsmuxNativeRapidExitRetainsScreen/asd-native-c7d1166373d5/fixture-0.jsonl",
+      "bytes": 290,
+      "sha256": "dccc27ae222fc4c4c7d7c32796c1d01bc3e1e11479e808b49ba7e41fd10c5399",
+      "stored_as": "native/TestWindowsPsmuxNativeRapidExitRetainsScreen/asd-native-c7d1166373d5/fixture-0.jsonl",
+      "storage": "verbatim"
+    },
+    {
+      "artifact_path": "native.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "storage": "empty file; hash and size retained only"
+    },
+    {
+      "artifact_path": "native.stdout",
+      "bytes": 14471,
+      "sha256": "048a26bdd1dc446fa4e776dedd1eba6f20889e25fb4b244ae3de153cad6c08e8",
+      "stored_as": "native-events.jsonl",
+      "storage": "verbatim"
+    },
+    {
+      "artifact_path": "psmux-version.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "storage": "empty file; hash and size retained only"
+    },
+    {
+      "artifact_path": "psmux-version.stdout",
+      "bytes": 44,
+      "sha256": "5e3bbba0226f294300f6c87b132f7e2403a8c731cb128573f35243de73e19d61",
+      "stored_as": "psmux-version.stdout",
+      "storage": "verbatim"
+    },
+    {
+      "artifact_path": "race.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "storage": "empty file; hash and size retained only"
+    },
+    {
+      "artifact_path": "race.stdout",
+      "bytes": 416,
+      "sha256": "f8641811ea96a00655f660a4fe0d14489e5dd6f67fbf8d053eded84a5827c525",
+      "stored_as": "race.stdout",
+      "storage": "verbatim"
+    },
+    {
+      "artifact_path": "source-after.json",
+      "bytes": 2510,
+      "sha256": "e2999ae206cf990670cdc3c1ddcb92fa24d83d66a5871896192a8d9b75e125cf",
+      "stored_as": "source-after.json",
+      "storage": "verbatim"
+    },
+    {
+      "artifact_path": "source-before.json",
+      "bytes": 2510,
+      "sha256": "e2999ae206cf990670cdc3c1ddcb92fa24d83d66a5871896192a8d9b75e125cf",
+      "stored_as": "source-before.json",
+      "storage": "verbatim"
+    },
+    {
+      "artifact_path": "summary.json",
+      "bytes": 4078,
+      "sha256": "769ab68a2eb0cd99f49f7b55e76566ca3794f5a48d1ea6e391db4cbbebead9bd",
+      "stored_as": "summary.json",
+      "storage": "verbatim"
+    },
+    {
+      "artifact_path": "unit.stderr",
+      "bytes": 885,
+      "sha256": "2e9d621741ef54f2df4f198f44fffd9d96b313660ecb69aaae09af5d8c262e4b",
+      "stored_as": "unit.stderr",
+      "storage": "verbatim"
+    },
+    {
+      "artifact_path": "unit.stdout",
+      "bytes": 175860,
+      "sha256": "e646b604fb50b99d49a0c170c90cd197835ea260dc4765d36a4f3356e81bf851",
+      "stored_as": "unit-test-results.jsonl",
+      "storage": "pass/fail/skip events extracted without changing fields; complete original stdout hash above"
+    },
+    {
+      "artifact_path": "vet.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "storage": "empty file; hash and size retained only"
+    },
+    {
+      "artifact_path": "vet.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "storage": "empty file; hash and size retained only"
+    }
+  ],
+  "scope": "Native Windows process/backend contracts on this runner only; no interactive Windows Terminal, IME, focus, WSL-absence, memory budget or release acceptance.",
+  "linux_check_log": {
+    "source_url": "https://github.com/liuhui-code/agent-session-desk/actions/runs/44859681759/job/136709953842",
+    "stored_as": "linux-checks.log",
+    "extraction": "Decoded job log from Run go mod verify group through before the first Post job cleanup line; authentication and setup omitted.",
+    "downloaded_decoded_log_sha256": "f2904271c779a30e67fd471675f09b00650928351da5ebedd65d0563917b81cc",
+    "stored_sha256": "8acaac2ce1a6f24d748de70cd6717a79f986188d65e659e621714ffeca034a62"
+  }
+}
