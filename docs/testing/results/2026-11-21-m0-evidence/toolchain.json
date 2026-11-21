@@ -1,0 +1,43 @@
+{
+  "date": "2026-11-21",
+  "environment": {
+    "os": "Debian GNU/Linux 13 (trixie)",
+    "architecture": "x86_64",
+    "native_windows_run": false
+  },
+  "go": {
+    "version": "go1.27.4 linux/amd64",
+    "source": "https://dl.google.com/go/go1.27.4.linux-amd64.tar.gz",
+    "archive_sha256": "7226736c2339719cda28fbf3a54d71aa63bcefe376e98cef00034268dab24840",
+    "expected_sha256": "7226736c2339719cda28fbf3a54d71aa63bcefe376e98cef00034268dab24840",
+    "checksum_source": "https://go.dev/dl/ and https://dl.google.com/go/go1.27.4.linux-amd64.tar.gz.sha256",
+    "verified": true,
+    "git_tag_commit": "7b2881024c95a11ddb86663a616340aa3a88b67f"
+  },
+  "dependency_probe": {
+    "direct_versions": {
+      "charm.land/bubbletea/v2": "v2.1.2",
+      "charm.land/lipgloss/v2": "v2.1.1"
+    },
+    "go_mod_verify": "all modules verified",
+    "linux_build_and_execute": "passed",
+    "windows_amd64_cgo0_cross_compile": "passed",
+    "note": "Independent tiny import/View probe, not the product code and not Windows execution. -buildvcs=false was needed because scratch probe is outside a valid local Git repository."
+  },
+  "tmux": {
+    "version": "tmux 3.8",
+    "binary_sha256": "d85f2948c52f97f717a477fe475f08a87d6464f320ac1eeb6483447b9d5a8bd1",
+    "source": "https://github.com/tmux/tmux/releases/download/3.8/tmux-3.8.tar.gz",
+    "archive_sha256": "e79c699c7e949dccd0a4a125e17b8d1261e311b16979dbc8eb34542f3966d82e",
+    "expected_release_asset_digest": "sha256:e79c699c7e949dccd0a4a125e17b8d1261e311b16979dbc8eb34542f3966d82e",
+    "checksum_source": "https://api.github.com/repos/tmux/tmux/releases/tags/3.8",
+    "verified": true,
+    "build": "passed using gcc 14; scratch-extracted libevent 2.1.12, ncurses 6.5 and bison development packages; no system installation",
+    "runtime_probe": {
+      "result": "blocked",
+      "detail": "new-session returned exit 1: error connecting to /tmp/asd-tmux-probe-4ssmieqd/tmux-1000/asd-probe (Operation not permitted). Independent Python AF_UNIX bind was also EPERM in both /tmp and /workspace/scratch/ed26276f236a. No real backend session or attach was created.",
+      "scope": "Environment restriction; not product pass/fail. No workaround attempted."
+    }
+  },
+  "scope": "Toolchain/dependency preparation only. All generated artifacts outside product repo. Live Linux backend smoke and native Windows tests are not executed."
+}

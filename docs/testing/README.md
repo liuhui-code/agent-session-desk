@@ -2,7 +2,7 @@
 
 创建日期：2026-11-21。需求基线：[Feature Ledger](../FEATURE_LEDGER.md)、[产品计划](../PRODUCT_PLAN.md)、[ADR](../adr/README.md)。
 
-**本目录记录测试设计，所有产品用例当前均为 `designed / not_run`。** 产品、测试 agent、故障注入接口和 Windows 测试环境尚未实现或执行。目录校验通过只证明用例资料一致，不证明产品通过测试。
+**339 项设计用例仍保留 `designed / not_run` 的基线状态；实际执行结果单独归档。** 首批 M0 迁入已增加 Go 单元/子进程合同测试及可控 CLI fixture；它们的局部结果见[源码迁入报告](results/2026-11-21-m0-source-migration.md)。完整夹具、故障注入、Windows 与长稳验收仍待实现或执行。目录校验通过只证明资料一致。
 
 ## 从哪里开始
 

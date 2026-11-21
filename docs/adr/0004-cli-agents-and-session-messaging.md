@@ -2,7 +2,7 @@
 
 - 日期：2026-11-21
 - 状态：已接受（Accepted）
-- 实现与验证状态：业务语义已确定；相关功能未实现
+- 实现与验证状态：M0 Launch/Session/Run 模型与基础管理 CLI 已实现；真实接入验收、持久化、跨会话消息及增强协议未完成
 - 关联需求：FR-01、FR-04、FR-05、FR-06、FR-07、FR-08、FR-09、FR-10、FR-11、FR-12、FR-13
 
 ## 背景与约束
@@ -47,6 +47,14 @@ Session、Run、View/Tab 分离。消息使用稳定 session_id，并在建立�
 提供 list/read/send/status 等管理命令；完整命令命名与协议在实现时确定。具备命令执行能力的 agent 可主动调用，返回内容必须进入其真实工具上下文。agent 没有调用工具能力时，只获得普通终端接入。
 
 回复携带 reply_to/message_id，保留来源和 Run。对方返回结果、对方声明完成和用户接受结果分别记录。使用合作式测试 agent 验证 FR-13，不能用 UI 弹窗或模拟消息证明已完成。
+
+## 首批实施记录（2026-11-21）
+
+当前实现用独立 `Launch` 结构保存 executable、args、cwd、env，创建独立 Session/Run 标识；UI 选择、预览和 attach 按身份对齐。CLI 已有 `start`、`list`、`preview`、`attach`、`stop` 和 `doctor` 入口，启动形式为 `asd start --name 名称 -- 可执行文件 参数...`；显式选择 shell 时，其解析行为仍由用户选定的 shell 承担。
+
+这些命令服务于 M0 的基本终端管理，不是本 ADR 中 M3 的 `list/read/send/status` 协作协议。当前 `preview` 是有限屏幕快照；持久输出、来源游标、消息收件项、自动投递、回执、reply_to 与恢复对话能力仍未实现，不能把终端可连接或 CLI 命令返回当作 agent 接收/完成证据。
+
+Windows 参数保真仍是验收门槛。psmux 稳定版会改写的部分输入已明确拒绝，当前支持边界见 [M0 开发说明](../M0_DEVELOPMENT.md)；局部单元证据和未执行的原生场景见 [M0 执行报告](../testing/results/2026-11-21-m0-source-migration.md)。FR-01 至 FR-13 的完整范围保持不变。
 
 ## 比较过的方案
 

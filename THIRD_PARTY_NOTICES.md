@@ -1,0 +1,32 @@
+# 第三方源码与归属说明
+
+本文件随选择性迁入的源码保留。项目原创部分的整体许可证仍由 O-010 跟踪；这里列出的第三方许可证与版权声明继续适用于相应来源代码。没有把第三方代码归为本项目原创，也没有替上游改变许可证。
+
+## Agent Deck
+
+- 来源：<https://github.com/asheshgoplani/agent-deck>
+- 固定提交：`80494e527393b7ead00da30018e6ee7e60e9d7a0`
+- Copyright (c) 2025 Ashesh Goplani
+- 许可证：[MIT 原文](third_party/agent-deck/LICENSE)
+- 选择性迁入位置：`internal/ui/` 中带有来源头部的样式、布局与列表文件。
+- 本项目修改：精简依赖与业务模型，迁移到 Charm v2，保留列表/预览/简短提示的交互；详细对应关系见[复用清单](docs/REUSE_MANIFEST.md)。
+
+## Agent Manager
+
+- 来源：<https://github.com/wainmann/agent-manager>
+- 固定提交：`cc88464dfb6de59933ad3ff7246d987472e14beb`
+- 原始 NOTICE：
+
+> agent-manager  
+> Copyright 2026 Yoan Wai and the agent-manager contributors  
+> Licensed under the Apache License, Version 2.0.
+
+- 许可证：[Apache-2.0 原文](third_party/agent-manager/LICENSE)；[未经修改的 NOTICE](third_party/agent-manager/NOTICE)。
+- 选择性迁入位置：`internal/backend/` 中带有来源头部的 Windows 平台适配文件。
+- 本项目修改：独立命名空间、配置与运行数据目录，通用 CLI 启动，明确版本和错误边界；详细对应关系见[复用清单](docs/REUSE_MANIFEST.md)。
+
+## 其他参考与构建依赖
+
+ASMGR 与 Agent of Empires 在这一切片中仅作为流程/视觉参考，没有迁入其源码。psmux 和 tmux 是外部运行依赖，没有把它们的代码或二进制包含到本仓库；不得把开发分支等同于已核验的稳定发行物。
+
+Go 模块由 `go.mod` 与 `go.sum` 锁定，通过模块系统取得，没有复制进本仓库。发布包必须另外收集并核对实际包含的直接、间接依赖许可证，不能用本文件代替发行物审计。

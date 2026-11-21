@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-21",
+  "scope": "First M0 selective source migration. This manifest is not a release dependency SBOM.",
+  "original_project_license": "pending O-010",
+  "source_files": [
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/styles.go",
+      "source_sha256": "3c64963b3b0788bb7278d64e221d5ced30ff9c7d42d65cd5c6030b229c999bee",
+      "destination_file": "internal/ui/styles.go",
+      "license": "MIT",
+      "parts": [
+        "darkColors",
+        "initStyles subset",
+        "MenuKey"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "See docs/REUSE_MANIFEST.md and file header."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/home_view_frame.go",
+      "source_sha256": "e06fd64336964e6855695bc4190f540a503b483fa796fd8d20b7b07adf9bc6c4",
+      "destination_file": "internal/ui/home_view_frame.go",
+      "license": "MIT",
+      "parts": [
+        "renderPanelTitle",
+        "ensureExactHeight",
+        "ensureExactWidth",
+        "renderDualColumnLayout",
+        "renderStackedLayout",
+        "renderSingleColumnLayout"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "See docs/REUSE_MANIFEST.md and file header."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/home_view_list.go",
+      "source_sha256": "ab1ff8e3a661b4f21433a49c244dcc4629bb0bc58e92bfec8356499a1e04ea1f",
+      "destination_file": "internal/ui/home_view_list.go",
+      "license": "MIT",
+      "parts": [
+        "renderSessionList viewport and indicators"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "See docs/REUSE_MANIFEST.md and file header."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/cellwidth.go",
+      "source_sha256": "6f6453882c62e2d966e5e8f4557ba55c49cae4f54cd7e0a29ecba8228874ec7d",
+      "destination_file": "internal/ui/cellwidth.go",
+      "license": "MIT",
+      "parts": [
+        "cellTruncate"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "See docs/REUSE_MANIFEST.md and file header."
+    },
+    {
+      "project": "agent-manager",
+      "repository": "https://github.com/wainmann/agent-manager",
+      "commit": "cc88464dfb6de59933ad3ff7246d987472e14beb",
+      "source_file": "internal/tmux/platform_windows.go",
+      "source_sha256": "4d32a2565d249529c4f3ac29ca207266e184c8bed5f80e27ba53eef642fcfc78",
+      "destination_file": "internal/backend/psmux_contract.go",
+      "license": "Apache-2.0",
+      "parts": [
+        "parsePsmuxVersion",
+        "splitVersion",
+        "sessionRoute",
+        "startSession argv portion",
+        "commandEnv"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "See docs/REUSE_MANIFEST.md and file header."
+    }
+  ],
+  "preserved_notices": [
+    {
+      "project": "agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "path": "third_party/agent-deck/LICENSE",
+      "sha256": "6fa5dbb300eb4e797d93bec53195c81bf6efa602eb5327f1c217090786e97c5d",
+      "copied_verbatim": true
+    },
+    {
+      "project": "agent-manager",
+      "commit": "cc88464dfb6de59933ad3ff7246d987472e14beb",
+      "path": "third_party/agent-manager/LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "copied_verbatim": true
+    },
+    {
+      "project": "agent-manager",
+      "commit": "cc88464dfb6de59933ad3ff7246d987472e14beb",
+      "path": "third_party/agent-manager/NOTICE",
+      "sha256": "da31542e0eba0455cd759e319ed83e030e6190ccf95efeee85da1de9859a2ff9",
+      "copied_verbatim": true
+    }
+  ],
+  "reference_only": [
+    "ASMGR",
+    "Agent of Empires",
+    "psmux",
+    "tmux"
+  ]
+}

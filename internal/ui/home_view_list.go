@@ -1,0 +1,97 @@
+// Portions adapted from Agent Deck, Copyright (c) 2025 Ashesh Goplani.
+// SPDX-License-Identifier: MIT
+// Source: internal/ui/home_view_list.go at
+// 80494e527393b7ead00da30018e6ee7e60e9d7a0, renderSessionList.
+// Modified for Agent Session Desk: flat stable-identity session rows, bounded
+// viewport and above/below indicators; remove agent/group/provider state,
+// jump overlays, background status guesses and embedded terminal cards.
+// See third_party/agent-deck/LICENSE and THIRD_PARTY_NOTICES.md.
+
+package ui
+
+import (
+	"fmt"
+	"strings"
+
+	"charm.land/lipgloss/v2"
+
+	"github.com/liuhui-code/agent-session-desk/internal/session"
+)
+
+func (m *Model) renderSessionList(width, height int) string {
+	if height <= 0 || width <= 0 {
+		return ""
+	}
+	if len(m.sessions) == 0 {
+		if m.listBusy {
+			return m.styles.dim.Render("正在读取会话…")
+		}
+		return m.styles.dim.Render("暂无会话\n\n? 查看创建方法")
+	}
+	var b strings.Builder
+	viewOffset := m.viewOffset
+	lineBudget := height - 1 // reserve the below indicator as upstream does
+	if lineBudget < 1 {
+		lineBudget = 1
+	}
+	if m.cursor < viewOffset {
+		viewOffset = m.cursor
+	}
+	if m.cursor >= viewOffset+lineBudget {
+		viewOffset = max(0, m.cursor-lineBudget+1)
+	}
+	// The above indicator also occupies a row. Ensure the selected item is
+	// visible after reserving it, including at two-row and one-row boundaries.
+	if viewOffset > 0 && height >= 3 {
+		lineBudget--
+		viewOffset = max(viewOffset, m.cursor-lineBudget+1)
+		b.WriteString(m.styles.dim.Render(fmt.Sprintf("  ⋮ 上方 %d", viewOffset)))
+		b.WriteString("\n")
+	}
+	nextItem := viewOffset
+	for i := viewOffset; i < len(m.sessions) && i-viewOffset < lineBudget; i++ {
+		s := m.sessions[i]
+		title := label(s.Title)
+		if title == "" {
+			title = label(s.ID)
+		}
+		prefix := "  "
+		if i == m.cursor {
+			prefix = "› "
+		}
+		state := s.TerminalState
+		if m.listErr != nil {
+			state = session.TerminalUnknown
+		}
+		suffix := "  " + terminalLabel(state)
+		if width < 22 {
+			suffix = ""
+		}
+		nameWidth := max(0, width-lipgloss.Width(prefix)-lipgloss.Width(suffix))
+		row := prefix + cellTruncate(title, nameWidth, "…")
+		row += strings.Repeat(" ", max(0, width-lipgloss.Width(row)-lipgloss.Width(suffix))) + suffix
+		if i == m.cursor {
+			row = m.styles.highlight.Render(row)
+		} else {
+			row = m.styles.text.Render(row)
+		}
+		b.WriteString(row)
+		b.WriteString("\n")
+		nextItem = i + 1
+	}
+	if remaining := len(m.sessions) - nextItem; remaining > 0 && height > 1 {
+		b.WriteString(m.styles.dim.Render(fmt.Sprintf("  ⋮ 下方 %d", remaining)))
+	}
+	return strings.TrimRight(b.String(), "\n")
+}
+
+func terminalLabel(state session.TerminalState) string {
+	switch state {
+	case session.TerminalAvailable:
+		return "可连接"
+	case session.TerminalExited:
+		return "已退出"
+	default:
+		return "未知"
+	}
+}

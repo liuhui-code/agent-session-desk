@@ -1,6 +1,6 @@
 # 架构说明
 
-状态：架构方向已接受，尚未实现。更新日期：2026-11-21。
+状态：架构方向已接受，首批 M0 迁入切片已有实现；完整存储、通信、通知与 Windows 验收待做。更新日期：2026-11-21。
 
 本文件落实 [TECH_STACK.md](TECH_STACK.md) 与 [ADR](adr/README.md) 中的决定：Go 模块化单体、Charm v2、Agent Deck UI 选择性复用、Windows psmux 后台。产品要求见 [PRODUCT_PLAN.md](PRODUCT_PLAN.md)，实现状态与证据见 [FEATURE_LEDGER.md](FEATURE_LEDGER.md)。已接受的方向仍需通过 M0 Windows 与资源验证。
 
@@ -170,3 +170,11 @@ Session 独立不意味着工作文件独立。初版明确显示 cwd，允许�
 - 哪个真实自定义 CLI 用于首个增强适配？
 
 直接 ConPTY、完整嵌入终端及其他语言方案只在已选路径出现明确阻断或资源结果不满足目标时重新评估。技术方向已选，生产可用性仍以实际代码、测试和 Windows 证据为准。
+
+## 7. 首批 M0 代码边界（2026-11-21）
+
+当前实现位于 `cmd/asd`、`internal/cli`、`internal/session`、`internal/backend` 与 `internal/ui`。CLI 和 TUI 使用相同后端；迁入 UI 通过 List/Preview/Attach 窄接口访问独立 Session/Run 模型。后台命令与 stdout/stderr 有界，预览仅针对当前可见项，进入终端使用 Bubble Tea v2 的 ExecProcess。
+
+M0 只把版本化发现标记放在产品私有后端 user option 中，绑定 Session、Run 和创建时的 pane；不保存参数和环境变量，也没有产品持久历史。保留已退出 pane 的屏幕仅是后端当前状态。删除后台、停止会话或后台丢失后，M0 没有历史恢复能力；后续仍按既定 SQLite/TOML/有界文件方向实现。
+
+`start/list/preview/attach/stop/doctor` 是这个切片的开发入口，不是已完成的 M3 消息协议。没有 send、自动队列、准确忙闲/人工介入事件或共享 Host。来源、命令限制、实现限额和实际验证范围见[复用清单](REUSE_MANIFEST.md)、[开发指南](M0_DEVELOPMENT.md)与[迁入报告](testing/results/2026-11-21-m0-source-migration.md)。

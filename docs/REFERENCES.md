@@ -4,7 +4,7 @@
 
 这些项目用于研究产品体验、会话生命周期、Windows 终端托管和跨会话通信。下列原始提交与许可证记录保留初始研究依据；新增的采用决定以[技术选型](TECH_STACK.md)和 ADR 为准。列入清单不代表整套项目成为依赖，平台描述也不代表本项目已实测其功能。实际复用仍需执行 M0 验证。
 
-本仓库当前没有复制上游源码或截图。许可证栏仅记录所核对的标识，不替代针对实际复用范围的核对。
+本轮已选择性迁入 Agent Deck UI 和 Agent Manager 平台源码；具体文件、提交、哈希与修改范围见[复用清单](REUSE_MANIFEST.md)，保留的许可证及 NOTICE 见[第三方归属](../THIRD_PARTY_NOTICES.md)。本文继续保留初始研究提交与各项目的参考角色；列出的候选文件不表示本轮全部迁入。项目原创部分许可证仍由 O-010 跟踪。
 
 ## 1. 采用路线与参考角色（2026-11-21）
 
@@ -19,7 +19,7 @@
 | [Agent Manager](https://github.com/wainmann/agent-manager) | 首选 Windows 适配参考：psmux 版本检测、目标定位、命令与参数处理、预热关闭和预览降级 | 当前文档声明原生 Windows + psmux，也支持 WSL2；安装文档要求 psmux 3.4.0+。自定义 CLI 和语义增强能力另行验证 | Apache-2.0 |
 | [hcom](https://github.com/aannoo/hcom) | 跨 agent 消息、hook 事件、活动记录和控制接口参考 | README 提供 Windows 安装入口；不据此推定所有终端、agent 和生命周期场景均已验证。主要研究通信能力 | MIT |
 
-M0 优先验证 Agent Deck UI 迁移切片、Agent Manager 的 Windows 适配与 psmux attach 路径。完整依赖以首个实现版本的锁定清单为准。当前尚未迁入上游代码、完成 Windows 实机验证或形成内存测量结论。
+M0 优先验证 Agent Deck UI 迁移切片、Agent Manager 的 Windows 适配与 psmux attach 路径。首批迁入和模块锁定已经完成，使用方法见 [M0 开发说明](M0_DEVELOPMENT.md)，构建、局部测试及真实后端阻断见[执行报告](testing/results/2026-11-21-m0-source-migration.md)。目前没有 Windows 实机通过或内存测量达标结论；ASMGR、AoE 和 hcom 本轮仍只作为参考，没有迁入其源码。
 
 ## 2. Agent Deck
 
@@ -36,6 +36,8 @@ M0 优先验证 Agent Deck UI 迁移切片、Agent Manager 的 Windows 适配与
 其 Bubble Tea/Lip Gloss UI 层的可移植性，与整个应用的 Windows 可运行性需分别判断。
 
 该研究快照中的 Charm v1 是复用源代码的历史基线，不是本项目目标依赖。迁入文件时按 [ADR-0005](adr/0005-dependency-lifecycle-and-upgrades.md)迁移至稳定 v2，并保留来源及许可证记录；不能把旧主版本直接写成已被官方淘汰。
+
+首批实际迁入同一固定提交中的 `styles.go`、`home_view_list.go`、`home_view_frame.go` 和 `cellwidth.go` 的选定部分，已经连接本项目模型并适配 v2。保留主题、列表可视范围、布局与 keycap 截断修复；没有复制完整输入弹窗、分组/搜索、agent 状态识别或内嵌终端。源码级映射与修改点以[复用清单](REUSE_MANIFEST.md)为准。
 
 ## 3. Agent of Empires
 
@@ -76,6 +78,8 @@ README 另指向 `THIRD_PARTY_NOTICES.md` 与 `licenses/Apache-2.0.txt`。这里
 
 上述结论来自发行信息、文档及源码核查；未执行 Windows 实测，不引用上游性能数字作为本产品的内存或延迟承诺。
 
+首批适配已根据稳定版解析行为，为当前无法保真的参数形状设置明确拒绝路径，避免悄悄改变自定义 CLI 的 argv 或环境。具体限制见 [M0 开发说明](M0_DEVELOPMENT.md)。这不构成 psmux 的 Windows 命令合同、终端交接或后台生命周期已经通过的证据。
+
 ## 5. ASMGR
 
 核查提交：`e8a3be8edfcd7eb0ad76e3be4cde4d30c03f53ed`。
@@ -98,6 +102,8 @@ README 另指向 `THIRD_PARTY_NOTICES.md` 与 `licenses/Apache-2.0.txt`。这里
 使用当前 `wainmann/agent-manager` 的资料；旧仓库名 `YoanWai/agent-manager` 的搜索缓存可能落后。重点研究管理器与原 agent 终端的焦点协调、状态、投递与恢复入口，不预设其内置 agent 支持等价于通用自定义命令接入。
 
 该安装快照要求 psmux 3.4.0+，并说明 Windows 下每会话使用独立 server、通过轮询抓取预览而非使用 control mode 流。可复用这些平台边界处理，但各项降级是否适用于本产品选定版本仍需验证。
+
+首批选择性迁入已保留 Apache-2.0 许可证和上游 NOTICE，并在派生文件说明来源与修改；当前范围聚焦平台/版本/目标路由/参数边界。新产品的私有目录、稳定身份、通用命令合同与受限输入检查均需独立验收，没有把上游支持声明转写成本项目 Windows 通过结论。逐文件记录见[复用清单](REUSE_MANIFEST.md)。
 
 ## 7. hcom
 

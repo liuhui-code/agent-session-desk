@@ -1,0 +1,564 @@
+{
+  "verified_utc": "2026-11-21T02:36:46.040728+00:00",
+  "environment": {
+    "system": "Linux",
+    "machine": "x86_64",
+    "kernel": "6.18.57",
+    "go": "go version go1.27.4 linux/amd64"
+  },
+  "source_fingerprint_before": "0ef707a313522008fb5ce1025b6f9de4771f1486dc0fca3e769e4e66a60ff16c",
+  "source_fingerprint_after": "0ef707a313522008fb5ce1025b6f9de4771f1486dc0fca3e769e4e66a60ff16c",
+  "source_unchanged": true,
+  "source_manifest_path": "source-fingerprints.json",
+  "commands": [
+    {
+      "name": "unit",
+      "argv": [
+        "<toolchain>/go/bin/go",
+        "test",
+        "-count=1",
+        "-json",
+        "./..."
+      ],
+      "cwd": "<repo>",
+      "environment_overrides": {
+        "GOFLAGS": "-mod=readonly"
+      },
+      "started_utc": "2026-11-21T02:36:13.120083+00:00",
+      "elapsed_seconds": 1.497,
+      "exit_code": 0,
+      "error": null,
+      "assessment": "passed",
+      "stdout_evidence": "go-test-events.jsonl (final test/package pass/skip/fail events extracted from original -json output)",
+      "original_stdout_sha256": "a146dd991ba7abf5baf177d22d020f96d0ee0059ef25299e02a89a6657f56b85",
+      "stderr": ""
+    },
+    {
+      "name": "race",
+      "argv": [
+        "<toolchain>/go/bin/go",
+        "test",
+        "-race",
+        "-count=1",
+        "./..."
+      ],
+      "cwd": "<repo>",
+      "environment_overrides": {
+        "GOFLAGS": "-mod=readonly"
+      },
+      "started_utc": "2026-11-21T02:36:13.120422+00:00",
+      "elapsed_seconds": 4.407,
+      "exit_code": 0,
+      "error": null,
+      "assessment": "passed",
+      "stdout": "?   \tgithub.com/liuhui-code/agent-session-desk/cmd/asd\t[no test files]\n?   \tgithub.com/liuhui-code/agent-session-desk/cmd/asd-fixture\t[no test files]\nok  \tgithub.com/liuhui-code/agent-session-desk/internal/backend\t2.636s\nok  \tgithub.com/liuhui-code/agent-session-desk/internal/cli\t1.022s\nok  \tgithub.com/liuhui-code/agent-session-desk/internal/session\t1.021s\nok  \tgithub.com/liuhui-code/agent-session-desk/internal/ui\t1.648s\n",
+      "stderr": ""
+    },
+    {
+      "name": "vet",
+      "argv": [
+        "<toolchain>/go/bin/go",
+        "vet",
+        "./..."
+      ],
+      "cwd": "<repo>",
+      "environment_overrides": {
+        "GOFLAGS": "-mod=readonly"
+      },
+      "started_utc": "2026-11-21T02:36:13.120715+00:00",
+      "elapsed_seconds": 0.938,
+      "exit_code": 0,
+      "error": null,
+      "assessment": "passed",
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "modules",
+      "argv": [
+        "<toolchain>/go/bin/go",
+        "mod",
+        "verify"
+      ],
+      "cwd": "<repo>",
+      "environment_overrides": {
+        "GOFLAGS": "-mod=readonly"
+      },
+      "started_utc": "2026-11-21T02:36:13.121499+00:00",
+      "elapsed_seconds": 0.831,
+      "exit_code": 0,
+      "error": null,
+      "assessment": "passed",
+      "stdout": "all modules verified\n",
+      "stderr": ""
+    },
+    {
+      "name": "build-asd-linux",
+      "argv": [
+        "<toolchain>/go/bin/go",
+        "build",
+        "-trimpath",
+        "-o",
+        "<repo>/build/asd-linux-amd64",
+        "./cmd/asd"
+      ],
+      "cwd": "<repo>",
+      "environment_overrides": {
+        "GOFLAGS": "-mod=readonly",
+        "GOOS": "linux",
+        "GOARCH": "amd64",
+        "CGO_ENABLED": "0"
+      },
+      "started_utc": "2026-11-21T02:36:17.529082+00:00",
+      "elapsed_seconds": 11.535,
+      "exit_code": 0,
+      "error": null,
+      "assessment": "passed",
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "build-asd-fixture-linux",
+      "argv": [
+        "<toolchain>/go/bin/go",
+        "build",
+        "-trimpath",
+        "-o",
+        "<repo>/build/asd-fixture-linux-amd64",
+        "./cmd/asd-fixture"
+      ],
+      "cwd": "<repo>",
+      "environment_overrides": {
+        "GOFLAGS": "-mod=readonly",
+        "GOOS": "linux",
+        "GOARCH": "amd64",
+        "CGO_ENABLED": "0"
+      },
+      "started_utc": "2026-11-21T02:36:29.064452+00:00",
+      "elapsed_seconds": 0.423,
+      "exit_code": 0,
+      "error": null,
+      "assessment": "passed",
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "build-asd-windows",
+      "argv": [
+        "<toolchain>/go/bin/go",
+        "build",
+        "-trimpath",
+        "-o",
+        "<repo>/build/asd-windows-amd64.exe",
+        "./cmd/asd"
+      ],
+      "cwd": "<repo>",
+      "environment_overrides": {
+        "GOFLAGS": "-mod=readonly",
+        "GOOS": "windows",
+        "GOARCH": "amd64",
+        "CGO_ENABLED": "0"
+      },
+      "started_utc": "2026-11-21T02:36:29.487913+00:00",
+      "elapsed_seconds": 12.642,
+      "exit_code": 0,
+      "error": null,
+      "assessment": "passed",
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "build-asd-fixture-windows",
+      "argv": [
+        "<toolchain>/go/bin/go",
+        "build",
+        "-trimpath",
+        "-o",
+        "<repo>/build/asd-fixture-windows-amd64.exe",
+        "./cmd/asd-fixture"
+      ],
+      "cwd": "<repo>",
+      "environment_overrides": {
+        "GOFLAGS": "-mod=readonly",
+        "GOOS": "windows",
+        "GOARCH": "amd64",
+        "CGO_ENABLED": "0"
+      },
+      "started_utc": "2026-11-21T02:36:42.130631+00:00",
+      "elapsed_seconds": 0.419,
+      "exit_code": 0,
+      "error": null,
+      "assessment": "passed",
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "cross-test-backend",
+      "argv": [
+        "<toolchain>/go/bin/go",
+        "test",
+        "-c",
+        "-o",
+        "<repo>/build/backend-windows-amd64.test.exe",
+        "./internal/backend"
+      ],
+      "cwd": "<repo>",
+      "environment_overrides": {
+        "GOFLAGS": "-mod=readonly",
+        "GOOS": "windows",
+        "GOARCH": "amd64",
+        "CGO_ENABLED": "0"
+      },
+      "started_utc": "2026-11-21T02:36:42.550417+00:00",
+      "elapsed_seconds": 0.465,
+      "exit_code": 0,
+      "error": null,
+      "assessment": "passed",
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "cross-test-cli",
+      "argv": [
+        "<toolchain>/go/bin/go",
+        "test",
+        "-c",
+        "-o",
+        "<repo>/build/cli-windows-amd64.test.exe",
+        "./internal/cli"
+      ],
+      "cwd": "<repo>",
+      "environment_overrides": {
+        "GOFLAGS": "-mod=readonly",
+        "GOOS": "windows",
+        "GOARCH": "amd64",
+        "CGO_ENABLED": "0"
+      },
+      "started_utc": "2026-11-21T02:36:43.015915+00:00",
+      "elapsed_seconds": 1.447,
+      "exit_code": 0,
+      "error": null,
+      "assessment": "passed",
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "cross-test-session",
+      "argv": [
+        "<toolchain>/go/bin/go",
+        "test",
+        "-c",
+        "-o",
+        "<repo>/build/session-windows-amd64.test.exe",
+        "./internal/session"
+      ],
+      "cwd": "<repo>",
+      "environment_overrides": {
+        "GOFLAGS": "-mod=readonly",
+        "GOOS": "windows",
+        "GOARCH": "amd64",
+        "CGO_ENABLED": "0"
+      },
+      "started_utc": "2026-11-21T02:36:44.465455+00:00",
+      "elapsed_seconds": 0.524,
+      "exit_code": 0,
+      "error": null,
+      "assessment": "passed",
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "cross-test-ui",
+      "argv": [
+        "<toolchain>/go/bin/go",
+        "test",
+        "-c",
+        "-o",
+        "<repo>/build/ui-windows-amd64.test.exe",
+        "./internal/ui"
+      ],
+      "cwd": "<repo>",
+      "environment_overrides": {
+        "GOFLAGS": "-mod=readonly",
+        "GOOS": "windows",
+        "GOARCH": "amd64",
+        "CGO_ENABLED": "0"
+      },
+      "started_utc": "2026-11-21T02:36:44.989694+00:00",
+      "elapsed_seconds": 0.929,
+      "exit_code": 0,
+      "error": null,
+      "assessment": "passed",
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "linux-buildinfo",
+      "argv": [
+        "<toolchain>/go/bin/go",
+        "version",
+        "-m",
+        "<repo>/build/asd-linux-amd64"
+      ],
+      "cwd": "<repo>",
+      "environment_overrides": {
+        "GOFLAGS": "-mod=readonly"
+      },
+      "started_utc": "2026-11-21T02:36:45.918787+00:00",
+      "elapsed_seconds": 0.01,
+      "exit_code": 0,
+      "error": null,
+      "assessment": "passed",
+      "stdout": "/workspace/scratch/ed26276f236a/agent-session-desk/build/asd-linux-amd64: go1.27.4\n\tpath\tgithub.com/liuhui-code/agent-session-desk/cmd/asd\n\tmod\tgithub.com/liuhui-code/agent-session-desk\tv0.0.0-20261121021903-80288eaaa5c1+dirty\t\n\tdep\tcharm.land/bubbletea/v2\tv2.1.2\th1:vB3XAcHhLB2gR3HOHpwO3lHB3nbvaowIgL3e5x/DUZo=\n\tdep\tcharm.land/lipgloss/v2\tv2.1.1\th1:F+vKWis9Kz3MFRsbICSDFtT1ZwVL+8f+36Dtg+OpKwc=\n\tdep\tgithub.com/charmbracelet/colorprofile\tv0.4.3\th1:QPa1IWkYI+AOB+fE+mg/5/4HRMZcaXex9t5KX76i20Q=\n\tdep\tgithub.com/charmbracelet/ultraviolet\tv0.0.0-20261008173134-6b8d4baf91b4\th1:hISLzUbwcvJbGoNR6A3L/TpguRRnACBmZOee8LcHLJw=\n\tdep\tgithub.com/charmbracelet/x/ansi\tv0.11.9\th1:kIrqLBxtTVbLyyHO2Evoi93EjQo1mylWmpNEsfPxXAM=\n\tdep\tgithub.com/charmbracelet/x/term\tv0.2.2\th1:xVRT/S2ZcKdhhOuSP4t5cLi5o+JxklsoEObBSgfgZRk=\n\tdep\tgithub.com/charmbracelet/x/termios\tv0.1.1\th1:o3Q2bT8eqzGnGPOYheoYS8eEleT5ZVNYNy8JawjaNZY=\n\tdep\tgithub.com/charmbracelet/x/windows\tv0.2.2\th1:IofanmuvaxnKHuV04sC0eBy/smG6kIKrWG2/jYn2GuM=\n\tdep\tgithub.com/clipperhouse/displaywidth\tv0.11.0\th1:lBc6kY44VFw+TDx4I8opi/EtL9m20WSEFgwIwO+UVM8=\n\tdep\tgithub.com/clipperhouse/uax29/v2\tv2.7.0\th1:+gs4oBZ2gPfVrKPthwbMzWZDaAFPGYK72F0NJv2v7Vk=\n\tdep\tgithub.com/lucasb-eyer/go-colorful\tv1.4.1\th1:1EO+WB73+EH8EVbzlrG3KLAfEypQWVHIBqlTf+2hNss=\n\tdep\tgithub.com/mattn/go-runewidth\tv0.0.30\th1:+KUuiDA4fF0R1p5FeueHefjDm+GIM+kWfFnDjybOPgk=\n\tdep\tgithub.com/muesli/cancelreader\tv0.2.2\th1:3I4Kt4BQjOR54NavqnDogx/MIoWBFa0StPA8ELUXHmA=\n\tdep\tgithub.com/rivo/uniseg\tv0.4.7\th1:WUdvkW8uEhrYfLC4ZzdpI2ztxP1I582+49Oc5Mq64VQ=\n\tdep\tgithub.com/xo/terminfo\tv1.0.0\th1:2ZpYzqWzyyytjk3TP6aJVDhkMAkc99/1xKQdA3TDTBY=\n\tdep\tgolang.org/x/sync\tv0.22.0\th1:SZjpbeLmrCk4xhRSZFNZW5gFUeCeFgjekvI/+gfScek=\n\tdep\tgolang.org/x/sys\tv0.47.0\th1:o7XGOvZQCADBQQ4Y7VNq2dRWQR7JmOUW8Kxx4ZsNgWs=\n\tbuild\t-buildmode=exe\n\tbuild\t-compiler=gc\n\tbuild\t-trimpath=true\n\tbuild\tCGO_ENABLED=0\n\tbuild\tGOARCH=amd64\n\tbuild\tGOOS=linux\n\tbuild\tGOAMD64=v1\n\tbuild\tvcs=git\n\tbuild\tvcs.revision=80288eaaa5c1da43cbaa1dd53517452d4e4e7e4f\n\tbuild\tvcs.time=2026-11-21T02:19:03Z\n\tbuild\tvcs.modified=true\n",
+      "stderr": ""
+    },
+    {
+      "name": "windows-buildinfo",
+      "argv": [
+        "<toolchain>/go/bin/go",
+        "version",
+        "-m",
+        "<repo>/build/asd-windows-amd64.exe"
+      ],
+      "cwd": "<repo>",
+      "environment_overrides": {
+        "GOFLAGS": "-mod=readonly"
+      },
+      "started_utc": "2026-11-21T02:36:45.928588+00:00",
+      "elapsed_seconds": 0.016,
+      "exit_code": 0,
+      "error": null,
+      "assessment": "passed",
+      "stdout": "/workspace/scratch/ed26276f236a/agent-session-desk/build/asd-windows-amd64.exe: go1.27.4\n\tpath\tgithub.com/liuhui-code/agent-session-desk/cmd/asd\n\tmod\tgithub.com/liuhui-code/agent-session-desk\tv0.0.0-20261121021903-80288eaaa5c1+dirty\t\n\tdep\tcharm.land/bubbletea/v2\tv2.1.2\th1:vB3XAcHhLB2gR3HOHpwO3lHB3nbvaowIgL3e5x/DUZo=\n\tdep\tcharm.land/lipgloss/v2\tv2.1.1\th1:F+vKWis9Kz3MFRsbICSDFtT1ZwVL+8f+36Dtg+OpKwc=\n\tdep\tgithub.com/charmbracelet/colorprofile\tv0.4.3\th1:QPa1IWkYI+AOB+fE+mg/5/4HRMZcaXex9t5KX76i20Q=\n\tdep\tgithub.com/charmbracelet/ultraviolet\tv0.0.0-20261008173134-6b8d4baf91b4\th1:hISLzUbwcvJbGoNR6A3L/TpguRRnACBmZOee8LcHLJw=\n\tdep\tgithub.com/charmbracelet/x/ansi\tv0.11.9\th1:kIrqLBxtTVbLyyHO2Evoi93EjQo1mylWmpNEsfPxXAM=\n\tdep\tgithub.com/charmbracelet/x/term\tv0.2.2\th1:xVRT/S2ZcKdhhOuSP4t5cLi5o+JxklsoEObBSgfgZRk=\n\tdep\tgithub.com/charmbracelet/x/windows\tv0.2.2\th1:IofanmuvaxnKHuV04sC0eBy/smG6kIKrWG2/jYn2GuM=\n\tdep\tgithub.com/clipperhouse/displaywidth\tv0.11.0\th1:lBc6kY44VFw+TDx4I8opi/EtL9m20WSEFgwIwO+UVM8=\n\tdep\tgithub.com/clipperhouse/uax29/v2\tv2.7.0\th1:+gs4oBZ2gPfVrKPthwbMzWZDaAFPGYK72F0NJv2v7Vk=\n\tdep\tgithub.com/lucasb-eyer/go-colorful\tv1.4.1\th1:1EO+WB73+EH8EVbzlrG3KLAfEypQWVHIBqlTf+2hNss=\n\tdep\tgithub.com/mattn/go-runewidth\tv0.0.30\th1:+KUuiDA4fF0R1p5FeueHefjDm+GIM+kWfFnDjybOPgk=\n\tdep\tgithub.com/muesli/cancelreader\tv0.2.2\th1:3I4Kt4BQjOR54NavqnDogx/MIoWBFa0StPA8ELUXHmA=\n\tdep\tgithub.com/rivo/uniseg\tv0.4.7\th1:WUdvkW8uEhrYfLC4ZzdpI2ztxP1I582+49Oc5Mq64VQ=\n\tdep\tgithub.com/xo/terminfo\tv1.0.0\th1:2ZpYzqWzyyytjk3TP6aJVDhkMAkc99/1xKQdA3TDTBY=\n\tdep\tgolang.org/x/sync\tv0.22.0\th1:SZjpbeLmrCk4xhRSZFNZW5gFUeCeFgjekvI/+gfScek=\n\tdep\tgolang.org/x/sys\tv0.47.0\th1:o7XGOvZQCADBQQ4Y7VNq2dRWQR7JmOUW8Kxx4ZsNgWs=\n\tbuild\t-buildmode=exe\n\tbuild\t-compiler=gc\n\tbuild\t-trimpath=true\n\tbuild\tCGO_ENABLED=0\n\tbuild\tGOARCH=amd64\n\tbuild\tGOOS=windows\n\tbuild\tGOAMD64=v1\n\tbuild\tvcs=git\n\tbuild\tvcs.revision=80288eaaa5c1da43cbaa1dd53517452d4e4e7e4f\n\tbuild\tvcs.time=2026-11-21T02:19:03Z\n\tbuild\tvcs.modified=true\n",
+      "stderr": ""
+    },
+    {
+      "name": "help",
+      "argv": [
+        "<repo>/build/asd-linux-amd64",
+        "help"
+      ],
+      "cwd": "<repo>",
+      "environment_overrides": {
+        "GOFLAGS": "-mod=readonly"
+      },
+      "started_utc": "2026-11-21T02:36:45.945119+00:00",
+      "elapsed_seconds": 0.004,
+      "exit_code": 0,
+      "error": null,
+      "assessment": "passed",
+      "stdout": "Agent Session Desk — M0 source migration slice\n\nUsage:\n  asd [global options]                         Open the session manager\n  asd [global options] doctor                  Probe the terminal backend\n  asd [global options] start [options] -- EXE [ARG...]\n  asd [global options] list [--json]            List live backend records\n  asd [global options] preview SESSION_ID      Read a bounded snapshot as JSON\n  asd [global options] attach SESSION_ID       Enter a full-screen terminal\n  asd [global options] stop SESSION_ID         End this Run's backend session\n  asd version\n\nGlobal options (before the subcommand):\n  --backend PATH       psmux on Windows; tmux for Unix development\n  --runtime-dir DIR    Product-owned backend data/config directory\n  --namespace NAME     Isolated product backend namespace\n\nStart options:\n  --name NAME          Session label (defaults to executable name)\n  --cwd DIR            Working directory (defaults to current directory)\n  --env KEY=value      Per-launch override; repeat as needed\n\nInside the manager: arrows/j/k select, Enter attaches, r refreshes, ? help, q quits.\nInside the terminal: Ctrl+b then d detaches back to the manager.\nQuitting the manager keeps backend sessions; stop explicitly ends the selected Run.\n\nThis is a development slice. Native Windows acceptance, durable session storage,\ncross-session messaging and attention notifications are not completed.\n",
+      "stderr": ""
+    },
+    {
+      "name": "version",
+      "argv": [
+        "<repo>/build/asd-linux-amd64",
+        "version"
+      ],
+      "cwd": "<repo>",
+      "environment_overrides": {
+        "GOFLAGS": "-mod=readonly"
+      },
+      "started_utc": "2026-11-21T02:36:45.949070+00:00",
+      "elapsed_seconds": 0.008,
+      "exit_code": 0,
+      "error": null,
+      "assessment": "passed",
+      "stdout": "Agent Session Desk 0.0.0-m0-dev\n",
+      "stderr": ""
+    },
+    {
+      "name": "doctor",
+      "argv": [
+        "<repo>/build/asd-linux-amd64",
+        "--backend",
+        "<toolchain>/tmux-3.8/tmux",
+        "--runtime-dir",
+        "/tmp/asd-final-4r962mfu",
+        "--namespace",
+        "asd-verification",
+        "doctor"
+      ],
+      "cwd": "<repo>",
+      "environment_overrides": {
+        "GOFLAGS": "-mod=readonly"
+      },
+      "started_utc": "2026-11-21T02:36:45.957560+00:00",
+      "elapsed_seconds": 0.008,
+      "exit_code": 0,
+      "error": null,
+      "assessment": "passed",
+      "stdout": "{\n  \"backend\": \"tmux\",\n  \"version\": \"3.8\",\n  \"experimental\": true,\n  \"windows_validated\": false,\n  \"binary_provenance_validated\": false,\n  \"note\": \"Version probe only; record official binary hash and run native Windows acceptance separately.\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "name": "list-runtime",
+      "argv": [
+        "<repo>/build/asd-linux-amd64",
+        "--backend",
+        "<toolchain>/tmux-3.8/tmux",
+        "--runtime-dir",
+        "/tmp/asd-final-4r962mfu",
+        "--namespace",
+        "asd-verification",
+        "list",
+        "--json"
+      ],
+      "cwd": "<repo>",
+      "environment_overrides": {
+        "GOFLAGS": "-mod=readonly"
+      },
+      "started_utc": "2026-11-21T02:36:45.965655+00:00",
+      "elapsed_seconds": 0.016,
+      "exit_code": 1,
+      "error": null,
+      "assessment": "blocked_environment_unix_socket",
+      "stdout": "",
+      "stderr": "asd: tmux backend command failed: exit status 1: error connecting to /tmp/asd-final-4r962mfu/asd-verification/tmux-1000/asd-verification (Operation not permitted)\n"
+    },
+    {
+      "name": "fixture-direct",
+      "argv": [
+        "<repo>/build/asd-fixture-linux-amd64",
+        "with spaces",
+        "",
+        "引号\"tail\\"
+      ],
+      "cwd": "/tmp/asd-final-4r962mfu/fixture space 中文",
+      "environment_overrides": {
+        "GOFLAGS": "-mod=readonly",
+        "ASD_FIXTURE_ENV_KEYS": "ASD_SYNTHETIC_TOKEN",
+        "ASD_SYNTHETIC_TOKEN": "synthetic value only"
+      },
+      "started_utc": "2026-11-21T02:36:45.981928+00:00",
+      "elapsed_seconds": 0.004,
+      "exit_code": 0,
+      "error": null,
+      "synthetic_stdin": "第一行\nexit\n",
+      "assessment": "passed",
+      "stdout": "{\"event\":\"started\",\"args\":[\"with spaces\",\"\",\"引号\\\"tail\\\\\"],\"cwd\":\"/tmp/asd-final-4r962mfu/fixture space 中文\",\"env\":{\"ASD_SYNTHETIC_TOKEN\":\"synthetic value only\"}}\nCLI fixture · 中文 · é · 🧪 — type exit to end\n{\"event\":\"input\",\"text\":\"第一行\"}\n{\"event\":\"input\",\"text\":\"exit\"}\n",
+      "stderr": ""
+    }
+  ],
+  "test_counts": {
+    "packages_pass": 4,
+    "packages_fail": 0,
+    "top_level_pass": 38,
+    "top_level_skip": 1,
+    "top_level_fail": 0,
+    "subtests_pass": 140,
+    "subtests_skip": 0,
+    "subtests_fail": 0,
+    "packages_without_test_files": 2
+  },
+  "test_packages": [
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/cmd/asd",
+      "result": "no_test_files",
+      "elapsed_seconds": 0
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/cmd/asd-fixture",
+      "result": "no_test_files",
+      "elapsed_seconds": 0
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/session",
+      "result": "pass",
+      "elapsed_seconds": 0.005
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/cli",
+      "result": "pass",
+      "elapsed_seconds": 0.007
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/backend",
+      "result": "pass",
+      "elapsed_seconds": 0.564
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "result": "pass",
+      "elapsed_seconds": 0.059
+    }
+  ],
+  "skipped_tests": [
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/session",
+      "test": "TestWindowsLaunchEnvironmentAndScriptBoundary",
+      "output": "=== RUN   TestWindowsLaunchEnvironmentAndScriptBoundary\n    launch_test.go:98: Windows filesystem/PATH semantics require Windows execution\n--- SKIP: TestWindowsLaunchEnvironmentAndScriptBoundary (0.00s)\n"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "build/asd-linux-amd64",
+      "size_bytes": 7466000,
+      "sha256": "2e97063808c8d2c347f00a53e6a155a220ecc028b83c12d069207110208d55f6",
+      "format": "ELF",
+      "executed": true
+    },
+    {
+      "path": "build/asd-fixture-linux-amd64",
+      "size_bytes": 3978632,
+      "sha256": "c75815a5d7d77ebe058059e28e91ca6adcaf175ddb837d345e6655d9a2a9063f",
+      "format": "ELF",
+      "executed": true
+    },
+    {
+      "path": "build/asd-windows-amd64.exe",
+      "size_bytes": 7720448,
+      "sha256": "a6f8af48df4d613209ecc8fe1dabec7d9e765046faa40c2d8af1b7eb4c5edb95",
+      "format": "PE",
+      "executed": false
+    },
+    {
+      "path": "build/asd-fixture-windows-amd64.exe",
+      "size_bytes": 4093952,
+      "sha256": "4f1a9658cda3e2aab66ab8da7e31ce842e9dcd218c12dc37ef1b91ab71ebd327",
+      "format": "PE",
+      "executed": false
+    },
+    {
+      "path": "build/backend-windows-amd64.test.exe",
+      "size_bytes": 6337024,
+      "sha256": "60834dd5ab5e74f9703f5732dd992735b35dd272ed18a3e0811f40604b34c92e",
+      "format": "PE",
+      "executed": false
+    },
+    {
+      "path": "build/cli-windows-amd64.test.exe",
+      "size_bytes": 8681472,
+      "sha256": "db55063688974190db518f225d022a9513e9515f4225e6877e8b5adefac0b3b0",
+      "format": "PE",
+      "executed": false
+    },
+    {
+      "path": "build/session-windows-amd64.test.exe",
+      "size_bytes": 4864000,
+      "sha256": "eac239a9283b970fb57c4b1dabdd9ca7fc2be62fa0adafccae0513180a980275",
+      "format": "PE",
+      "executed": false
+    },
+    {
+      "path": "build/ui-windows-amd64.test.exe",
+      "size_bytes": 6609408,
+      "sha256": "ce9a3a32ea0644a53e4c93a54ae3ac50c47baebded6b89a149150921184a2a23",
+      "format": "PE",
+      "executed": false
+    }
+  ],
+  "scope": {
+    "unit_backend": "Synthetic self-executable helper; command contract checks only, not real psmux/ConPTY execution.",
+    "windows": "All Windows artifacts cross-compiled on Linux. None executed. Native Windows filesystem/PATH test skipped on Linux.",
+    "doctor": "Actual tmux 3.8 binary version probe only; does not create a terminal session.",
+    "list_runtime": "One actual isolated backend list attempt; inspect stdout/stderr and exit code for environment socket restriction.",
+    "fixture_direct": "Direct Linux fixture argv/cwd/env/stdin smoke, not a backend/attach smoke.",
+    "excluded": "No real attach/detach, Windows IME/fullscreen/native lifecycle, soak, or resource budget acceptance."
+  },
+  "overall_assessment": "Product automated Linux unit/race/static/module checks and Linux/Windows builds passed against unchanged source. Native Windows execution unperformed; real Unix backend session integration blocked by environment socket restriction.",
+  "source_file_count": 23,
+  "repository_parent_commit": "80288eaaa5c1da43cbaa1dd53517452d4e4e7e4f",
+  "build_artifact_note": "Development-only binaries under ignored build/, not distributed by this commit. Build VCS metadata refers to the parent plus modified=true; exact tested source is identified by source-fingerprints.json."
+}

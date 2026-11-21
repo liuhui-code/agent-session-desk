@@ -2,13 +2,13 @@
 
 ## Current state
 
-Updated 2026-11-21. Architecture and technology directions have been accepted and recorded; the product is not implemented, no executable release exists, and native Windows behavior has not been tested. The project license, exact reuse scope, SQLite driver, IPC transport, and measured resource budgets still need resolution.
+Updated 2026-11-21. The first M0 source migration slice is implemented: Go/Charm v2 management UI, a narrow shared Session/Run model, custom CLI commands, and isolated experimental psmux/tmux backends. There is no accepted release and native Windows behavior has not been tested. Read docs/M0_DEVELOPMENT.md, docs/REUSE_MANIFEST.md and docs/testing/results/2026-11-21-m0-source-migration.md for exact scope and evidence. The original-project license, remaining reuse scope, SQLite driver, IPC transport and measured resource budgets still need resolution.
 
 The implementation target is Go 1.27 with stable Charm v2 libraries (Bubble Tea 2.1.2, Lip Gloss 2.1.1, Bubbles 2.2.2 only where needed). Reuse selected Agent Deck UI code and Agent Manager's Windows adaptation code through explicit local interfaces. Upstream v1 source is a migration reference, not the intended release dependency baseline. Windows uses the psmux 3.4.0 stable release as an M0 validation candidate; do not equate newer master features with that release. The later Unix backend is tmux.
 
 Read README.md, docs/TECH_STACK.md, docs/PRODUCT_PLAN.md, docs/ROADMAP.md, docs/DECISIONS.md, docs/adr/README.md, and docs/FEATURE_LEDGER.md before implementation work. Exact dependency and upgrade policy is owned by ADR-0005 and TECH_STACK.md; acceptance of a direction does not establish compatibility.
 
-Test design now lives in docs/testing/. Read TEST_STRATEGY.md, COVERAGE.md, and the applicable JSON cases before implementation. All cases in this initial baseline are designed/not_run; fixtures and product test runners are not implemented. The Python catalog tool validates documentation structure and renders derived files only; its success is not product or Windows test evidence.
+Test design now lives in docs/testing/. Read TEST_STRATEGY.md, COVERAGE.md, and the applicable JSON cases before implementation. All 339 catalog cases retain their designed/not_run baseline; actual partial evidence is stored separately. Go unit/subprocess-contract tests and cmd/asd-fixture now exist, but the complete planned fixtures and native Windows runner do not. The Python catalog tool validates documentation structure and renders derived files only; its success is not product or Windows test evidence. Run go test ./..., go test -race ./..., go vet ./... and go mod verify for the implementation, then the catalog check. A Windows cross-build is not a Windows test execution. M0 stores only bounded live-discovery tags inside the backend, not a replacement metadata database; SQLite/TOML/log implementation remains pending. Known psmux/tmux parser mutations are rejected before launch; do not remove these guards without proving literal transport.
 
 ## Product invariants
 

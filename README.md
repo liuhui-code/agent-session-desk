@@ -4,7 +4,7 @@
 
 通过一条 CLI 命令启动本地 agent，在清晰、美观的 TUI 中管理多个会话，并让会话能够读取彼此的输出、传递任务和返回结果。
 
-> 当前阶段：技术选型已记录，准备 M0 实现与 Windows 验证。仓库包含产品文档、架构决策和探索图稿，没有可安装的软件版本。已选择 Go / Charm v2、选择性复用 Agent Deck UI、Windows psmux 后台；尚未迁入实现代码或完成 Windows 实测。项目名称与许可证仍待定。
+> 当前阶段：**M0 首批源码迁入已落地，Windows 验收仍待完成。** 已有 Go / Charm v2 开发切片，包含简约列表、屏幕预览、CLI 启动与全屏 attach 代码；不是已发布的软件版本。运行与测试方法见 [M0 开发指南](docs/M0_DEVELOPMENT.md)，实际验证范围见[迁入报告](docs/testing/results/2026-11-21-m0-source-migration.md)。项目名称与原创部分的许可证仍待定。
 
 ## 产品目标
 
@@ -56,7 +56,9 @@
 | [架构说明](docs/ARCHITECTURE.md) | 模块、终端托管、会话身份、消息与恢复语义 |
 | [ADR](docs/adr/README.md) | 六项架构决定的背景、取舍、代价和重新评估条件 |
 | [Feature Ledger](docs/FEATURE_LEDGER.md) | 20 项能力、需求映射、状态与验收证据 |
-| [测试设计与用例库](docs/testing/README.md) | 功能、边界、并发、恢复、Windows、长稳与资源用例；全部尚未执行 |
+| [测试设计与用例库](docs/testing/README.md) | 339 项设计基线与独立执行报告；设计覆盖和实际测试分别记录 |
+| [M0 开发指南](docs/M0_DEVELOPMENT.md) | 构建、CLI 用法、Windows 验证步骤和已知限制 |
+| [源码复用清单](docs/REUSE_MANIFEST.md) | 实际迁入文件、固定提交、修改点与许可证 |
 | [UI 探索记录](docs/UI_DESIGN.md) | 当前交互约束、未采纳的四屏图稿与验证点 |
 | [参考项目](docs/REFERENCES.md) | 值得借鉴的开源项目、一手资料、Windows 限制与复用边界 |
 | [决策记录](docs/DECISIONS.md) | 已确定要求、建议默认行为、待验证选择 |
@@ -88,7 +90,7 @@
 - [x] 根据 Feature Ledger 建立测试设计、覆盖表、环境/故障合同与可校验用例库；此项不代表产品测试通过。
 - [x] 补充人工介入提醒的 FR-14、FL-020、ADR-0006 与专项测试设计；功能仍未实现。
 - [ ] 完成 Windows 原生终端与 UI 验证。
-- [ ] 完成上游 UI 代码迁入与 Charm v2 适配。
+- [x] 完成首批上游 UI / Windows 平台代码选择性迁入，锁定 Charm v2 并建立自动化回归；完整 UI 及原生终端验收仍待完成。
 - [ ] 完成首个单会话流程。
 - [ ] 完成多会话、后台重新连接和通信。
 - [ ] 完成人工介入状态、通知和后台监测，并取得真实 Windows 验收证据。
@@ -96,10 +98,10 @@
 
 ## 参考与项目关系
 
-以 Agent Deck 为主要 UI 来源，以 Agent Manager 为 Windows 平台适配来源，参考 ASMGR 的 attach 流程；Agent of Empires 保留为交互与替代方案参考。完整清单见[参考项目](docs/REFERENCES.md)。本仓库采用独立核心与选择性源码复用，不以完整 fork 作为当前路线；尚未引入上游实现代码。
+以 Agent Deck 为主要 UI 来源，以 Agent Manager 为 Windows 平台适配来源，参考 ASMGR 的 attach 流程；Agent of Empires 保留为交互与替代方案参考。完整清单见[参考项目](docs/REFERENCES.md)。本仓库采用独立核心与选择性源码复用。首批实际迁入和来源哈希见[复用清单](docs/REUSE_MANIFEST.md)，第三方权利声明见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
 
 ## 许可证
 
-许可证待定，记录于[决策记录](docs/DECISIONS.md)。引入任何第三方代码、资源或组件之前，需核对相应版本的许可证与保留要求。
+项目原创部分的整体许可证待定，记录于[决策记录](docs/DECISIONS.md)。已迁入的 Agent Deck 与 Agent Manager 部分分别保留 MIT 与 Apache-2.0 原文、版权及 NOTICE；详见[第三方说明](THIRD_PARTY_NOTICES.md)。
 
 文档基线更新：2026-11-21。决策接受与软件实现分别记录，实际完成状态以 Feature Ledger 的证据为准。
