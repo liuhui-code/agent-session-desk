@@ -605,5 +605,385 @@
       ],
       "gap_reasons": []
     }
+  ],
+  "path_key_cases": [
+    {
+      "name": "observed_cim_extended_dos_conhost",
+      "path": "\\\\?\\C:\\Windows\\system32\\conhost.exe",
+      "expected_key": "c:\\windows\\system32\\conhost.exe",
+      "compare_to": "C:\\Windows\\system32\\conhost.exe",
+      "expect_equal": true
+    },
+    {
+      "name": "ordinary_dos_case_folding",
+      "path": "C:\\WINDOWS\\SYSTEM32\\CONHOST.EXE",
+      "expected_key": "c:\\windows\\system32\\conhost.exe",
+      "compare_to": "C:\\Windows\\system32\\conhost.exe",
+      "expect_equal": true
+    },
+    {
+      "name": "ordinary_forward_slash_compatibility",
+      "path": "C:/Windows/system32/conhost.exe",
+      "expected_key": "c:\\windows\\system32\\conhost.exe",
+      "compare_to": "C:\\Windows\\system32\\conhost.exe",
+      "expect_equal": true
+    },
+    {
+      "name": "extended_dos_unicode_and_internal_spaces",
+      "path": "\\\\?\\D:\\Agent Tools\\资料\\asd.v2.exe",
+      "expected_key": "d:\\agent tools\\资料\\asd.v2.exe",
+      "compare_to": "D:\\Agent Tools\\资料\\asd.v2.exe",
+      "expect_equal": true
+    },
+    {
+      "name": "extended_dos_dotfile_component",
+      "path": "\\\\?\\C:\\.config\\asd.exe",
+      "expected_key": "c:\\.config\\asd.exe",
+      "compare_to": "C:\\.config\\asd.exe",
+      "expect_equal": true
+    },
+    {
+      "name": "extended_current_directory_segment",
+      "path": "\\\\?\\C:\\Windows\\.\\system32\\conhost.exe",
+      "expected_key": "\\\\?\\c:\\windows\\.\\system32\\conhost.exe",
+      "compare_to": "C:\\Windows\\system32\\conhost.exe",
+      "expect_equal": false
+    },
+    {
+      "name": "extended_parent_directory_segment",
+      "path": "\\\\?\\C:\\Windows\\temp\\..\\system32\\conhost.exe",
+      "expected_key": "\\\\?\\c:\\windows\\temp\\..\\system32\\conhost.exe",
+      "compare_to": "C:\\Windows\\system32\\conhost.exe",
+      "expect_equal": false
+    },
+    {
+      "name": "extended_empty_middle_component",
+      "path": "\\\\?\\C:\\Windows\\\\system32\\conhost.exe",
+      "expected_key": "\\\\?\\c:\\windows\\\\system32\\conhost.exe",
+      "compare_to": "C:\\Windows\\system32\\conhost.exe",
+      "expect_equal": false
+    },
+    {
+      "name": "extended_empty_component_after_drive",
+      "path": "\\\\?\\C:\\\\Windows\\system32\\conhost.exe",
+      "expected_key": "\\\\?\\c:\\\\windows\\system32\\conhost.exe",
+      "compare_to": "C:\\Windows\\system32\\conhost.exe",
+      "expect_equal": false
+    },
+    {
+      "name": "extended_trailing_empty_component",
+      "path": "\\\\?\\C:\\Windows\\system32\\conhost.exe\\",
+      "expected_key": "\\\\?\\c:\\windows\\system32\\conhost.exe\\",
+      "compare_to": "C:\\Windows\\system32\\conhost.exe",
+      "expect_equal": false
+    },
+    {
+      "name": "extended_drive_only_empty_tail",
+      "path": "\\\\?\\C:\\",
+      "expected_key": "\\\\?\\c:\\",
+      "compare_to": "C:\\",
+      "expect_equal": false
+    },
+    {
+      "name": "extended_file_trailing_dot",
+      "path": "\\\\?\\C:\\Windows\\system32\\conhost.exe.",
+      "expected_key": "\\\\?\\c:\\windows\\system32\\conhost.exe.",
+      "compare_to": "C:\\Windows\\system32\\conhost.exe",
+      "expect_equal": false
+    },
+    {
+      "name": "extended_directory_trailing_dot",
+      "path": "\\\\?\\C:\\Windows.\\system32\\conhost.exe",
+      "expected_key": "\\\\?\\c:\\windows.\\system32\\conhost.exe",
+      "compare_to": "C:\\Windows\\system32\\conhost.exe",
+      "expect_equal": false
+    },
+    {
+      "name": "extended_file_trailing_space",
+      "path": "\\\\?\\C:\\Windows\\system32\\conhost.exe ",
+      "expected_key": "\\\\?\\c:\\windows\\system32\\conhost.exe ",
+      "compare_to": "C:\\Windows\\system32\\conhost.exe",
+      "expect_equal": false
+    },
+    {
+      "name": "extended_directory_trailing_space",
+      "path": "\\\\?\\C:\\Windows \\system32\\conhost.exe",
+      "expected_key": "\\\\?\\c:\\windows \\system32\\conhost.exe",
+      "compare_to": "C:\\Windows\\system32\\conhost.exe",
+      "expect_equal": false
+    },
+    {
+      "name": "extended_forward_slash_at_drive",
+      "path": "\\\\?\\C:/Windows/system32/conhost.exe",
+      "expected_key": "\\\\?\\c:/windows/system32/conhost.exe",
+      "compare_to": "C:\\Windows\\system32\\conhost.exe",
+      "expect_equal": false
+    },
+    {
+      "name": "extended_forward_slash_in_component",
+      "path": "\\\\?\\C:\\Windows/system32\\conhost.exe",
+      "expected_key": "\\\\?\\c:\\windows/system32\\conhost.exe",
+      "compare_to": "C:\\Windows\\system32\\conhost.exe",
+      "expect_equal": false
+    },
+    {
+      "name": "extended_unc_not_mapped",
+      "path": "\\\\?\\UNC\\server\\share\\asd.exe",
+      "expected_key": "\\\\?\\unc\\server\\share\\asd.exe",
+      "compare_to": "\\\\server\\share\\asd.exe",
+      "expect_equal": false
+    },
+    {
+      "name": "win32_device_prefix_not_mapped",
+      "path": "\\\\.\\C:\\Windows\\system32\\conhost.exe",
+      "expected_key": "\\\\.\\c:\\windows\\system32\\conhost.exe",
+      "compare_to": "C:\\Windows\\system32\\conhost.exe",
+      "expect_equal": false
+    },
+    {
+      "name": "globalroot_device_not_mapped",
+      "path": "\\\\?\\GLOBALROOT\\Device\\HarddiskVolume1\\asd.exe",
+      "expected_key": "\\\\?\\globalroot\\device\\harddiskvolume1\\asd.exe",
+      "compare_to": "\\Device\\HarddiskVolume1\\asd.exe",
+      "expect_equal": false
+    },
+    {
+      "name": "native_device_not_mapped",
+      "path": "\\Device\\HarddiskVolume1\\asd.exe",
+      "expected_key": "\\device\\harddiskvolume1\\asd.exe",
+      "compare_to": "C:\\asd.exe",
+      "expect_equal": false
+    },
+    {
+      "name": "nt_object_manager_prefix_not_mapped",
+      "path": "\\??\\C:\\Windows\\system32\\conhost.exe",
+      "expected_key": "\\??\\c:\\windows\\system32\\conhost.exe",
+      "compare_to": "C:\\Windows\\system32\\conhost.exe",
+      "expect_equal": false
+    },
+    {
+      "name": "volume_guid_not_mapped",
+      "path": "\\\\?\\Volume{00000000-0000-0000-0000-000000000001}\\asd.exe",
+      "expected_key": "\\\\?\\volume{00000000-0000-0000-0000-000000000001}\\asd.exe",
+      "compare_to": "C:\\asd.exe",
+      "expect_equal": false
+    },
+    {
+      "name": "extended_drive_relative_not_mapped",
+      "path": "\\\\?\\C:Windows\\system32\\conhost.exe",
+      "expected_key": "\\\\?\\c:windows\\system32\\conhost.exe",
+      "compare_to": "C:Windows\\system32\\conhost.exe",
+      "expect_equal": false
+    },
+    {
+      "name": "ordinary_drive_relative_not_resolved",
+      "path": "C:Windows\\system32\\conhost.exe",
+      "expected_key": "c:windows\\system32\\conhost.exe",
+      "compare_to": "C:\\Windows\\system32\\conhost.exe",
+      "expect_equal": false
+    },
+    {
+      "name": "ordinary_root_relative_not_resolved",
+      "path": "\\Windows\\system32\\conhost.exe",
+      "expected_key": "\\windows\\system32\\conhost.exe",
+      "compare_to": "C:\\Windows\\system32\\conhost.exe",
+      "expect_equal": false
+    },
+    {
+      "name": "extended_nonletter_drive_not_mapped",
+      "path": "\\\\?\\1:\\Windows\\system32\\conhost.exe",
+      "expected_key": "\\\\?\\1:\\windows\\system32\\conhost.exe",
+      "compare_to": "1:\\Windows\\system32\\conhost.exe",
+      "expect_equal": false
+    },
+    {
+      "name": "extended_ads_not_mapped",
+      "path": "\\\\?\\C:\\Tools\\asd.exe:stream",
+      "expected_key": "\\\\?\\c:\\tools\\asd.exe:stream",
+      "compare_to": "C:\\Tools\\asd.exe:stream",
+      "expect_equal": false
+    },
+    {
+      "name": "extended_reserved_device_1",
+      "path": "\\\\?\\C:\\Tools\\CON",
+      "expected_key": "\\\\?\\c:\\tools\\con",
+      "compare_to": "C:\\Tools\\CON",
+      "expect_equal": false
+    },
+    {
+      "name": "extended_reserved_device_2",
+      "path": "\\\\?\\C:\\Tools\\PRN.txt",
+      "expected_key": "\\\\?\\c:\\tools\\prn.txt",
+      "compare_to": "C:\\Tools\\PRN.txt",
+      "expect_equal": false
+    },
+    {
+      "name": "extended_reserved_device_3",
+      "path": "\\\\?\\C:\\Tools\\AUX.exe",
+      "expected_key": "\\\\?\\c:\\tools\\aux.exe",
+      "compare_to": "C:\\Tools\\AUX.exe",
+      "expect_equal": false
+    },
+    {
+      "name": "extended_reserved_device_4",
+      "path": "\\\\?\\C:\\Tools\\NUL.tar.gz",
+      "expected_key": "\\\\?\\c:\\tools\\nul.tar.gz",
+      "compare_to": "C:\\Tools\\NUL.tar.gz",
+      "expect_equal": false
+    },
+    {
+      "name": "extended_reserved_device_5",
+      "path": "\\\\?\\C:\\Tools\\COM1",
+      "expected_key": "\\\\?\\c:\\tools\\com1",
+      "compare_to": "C:\\Tools\\COM1",
+      "expect_equal": false
+    },
+    {
+      "name": "extended_reserved_device_6",
+      "path": "\\\\?\\C:\\Tools\\COM9.exe",
+      "expected_key": "\\\\?\\c:\\tools\\com9.exe",
+      "compare_to": "C:\\Tools\\COM9.exe",
+      "expect_equal": false
+    },
+    {
+      "name": "extended_reserved_device_7",
+      "path": "\\\\?\\C:\\Tools\\LPT1",
+      "expected_key": "\\\\?\\c:\\tools\\lpt1",
+      "compare_to": "C:\\Tools\\LPT1",
+      "expect_equal": false
+    },
+    {
+      "name": "extended_reserved_device_8",
+      "path": "\\\\?\\C:\\Tools\\LPT9.log",
+      "expected_key": "\\\\?\\c:\\tools\\lpt9.log",
+      "compare_to": "C:\\Tools\\LPT9.log",
+      "expect_equal": false
+    },
+    {
+      "name": "extended_reserved_device_9",
+      "path": "\\\\?\\C:\\Tools\\COM¹",
+      "expected_key": "\\\\?\\c:\\tools\\com¹",
+      "compare_to": "C:\\Tools\\COM¹",
+      "expect_equal": false
+    },
+    {
+      "name": "extended_reserved_device_10",
+      "path": "\\\\?\\C:\\Tools\\COM².txt",
+      "expected_key": "\\\\?\\c:\\tools\\com².txt",
+      "compare_to": "C:\\Tools\\COM².txt",
+      "expect_equal": false
+    },
+    {
+      "name": "extended_reserved_device_11",
+      "path": "\\\\?\\C:\\Tools\\COM³",
+      "expected_key": "\\\\?\\c:\\tools\\com³",
+      "compare_to": "C:\\Tools\\COM³",
+      "expect_equal": false
+    },
+    {
+      "name": "extended_reserved_device_12",
+      "path": "\\\\?\\C:\\Tools\\LPT¹.exe",
+      "expected_key": "\\\\?\\c:\\tools\\lpt¹.exe",
+      "compare_to": "C:\\Tools\\LPT¹.exe",
+      "expect_equal": false
+    },
+    {
+      "name": "extended_reserved_device_13",
+      "path": "\\\\?\\C:\\Tools\\LPT²",
+      "expected_key": "\\\\?\\c:\\tools\\lpt²",
+      "compare_to": "C:\\Tools\\LPT²",
+      "expect_equal": false
+    },
+    {
+      "name": "extended_reserved_device_14",
+      "path": "\\\\?\\C:\\Tools\\LPT³.exe",
+      "expected_key": "\\\\?\\c:\\tools\\lpt³.exe",
+      "compare_to": "C:\\Tools\\LPT³.exe",
+      "expect_equal": false
+    },
+    {
+      "name": "extended_reserved_device_15",
+      "path": "\\\\?\\C:\\Tools\\CONIN$",
+      "expected_key": "\\\\?\\c:\\tools\\conin$",
+      "compare_to": "C:\\Tools\\CONIN$",
+      "expect_equal": false
+    },
+    {
+      "name": "extended_reserved_device_16",
+      "path": "\\\\?\\C:\\Tools\\CONOUT$",
+      "expected_key": "\\\\?\\c:\\tools\\conout$",
+      "compare_to": "C:\\Tools\\CONOUT$",
+      "expect_equal": false
+    },
+    {
+      "name": "extended_reserved_device_17",
+      "path": "\\\\?\\C:\\Tools\\NUL .txt",
+      "expected_key": "\\\\?\\c:\\tools\\nul .txt",
+      "compare_to": "C:\\Tools\\NUL .txt",
+      "expect_equal": false
+    },
+    {
+      "name": "extended_illegal_less_than",
+      "path": "\\\\?\\C:\\Tools\\bad<name.exe",
+      "expected_key": "\\\\?\\c:\\tools\\bad<name.exe",
+      "compare_to": "C:\\Tools\\bad<name.exe",
+      "expect_equal": false
+    },
+    {
+      "name": "extended_illegal_greater_than",
+      "path": "\\\\?\\C:\\Tools\\bad>name.exe",
+      "expected_key": "\\\\?\\c:\\tools\\bad>name.exe",
+      "compare_to": "C:\\Tools\\bad>name.exe",
+      "expect_equal": false
+    },
+    {
+      "name": "extended_illegal_quote",
+      "path": "\\\\?\\C:\\Tools\\bad\"name.exe",
+      "expected_key": "\\\\?\\c:\\tools\\bad\"name.exe",
+      "compare_to": "C:\\Tools\\bad\"name.exe",
+      "expect_equal": false
+    },
+    {
+      "name": "extended_illegal_pipe",
+      "path": "\\\\?\\C:\\Tools\\bad|name.exe",
+      "expected_key": "\\\\?\\c:\\tools\\bad|name.exe",
+      "compare_to": "C:\\Tools\\bad|name.exe",
+      "expect_equal": false
+    },
+    {
+      "name": "extended_illegal_question",
+      "path": "\\\\?\\C:\\Tools\\bad?name.exe",
+      "expected_key": "\\\\?\\c:\\tools\\bad?name.exe",
+      "compare_to": "C:\\Tools\\bad?name.exe",
+      "expect_equal": false
+    },
+    {
+      "name": "extended_illegal_star",
+      "path": "\\\\?\\C:\\Tools\\bad*name.exe",
+      "expected_key": "\\\\?\\c:\\tools\\bad*name.exe",
+      "compare_to": "C:\\Tools\\bad*name.exe",
+      "expect_equal": false
+    },
+    {
+      "name": "extended_illegal_nul",
+      "path": "\\\\?\\C:\\Tools\\bad\u0000name.exe",
+      "expected_key": "\\\\?\\c:\\tools\\bad\u0000name.exe",
+      "compare_to": "C:\\Tools\\bad\u0000name.exe",
+      "expect_equal": false
+    },
+    {
+      "name": "extended_illegal_tab",
+      "path": "\\\\?\\C:\\Tools\\bad\tname.exe",
+      "expected_key": "\\\\?\\c:\\tools\\bad\tname.exe",
+      "compare_to": "C:\\Tools\\bad\tname.exe",
+      "expect_equal": false
+    },
+    {
+      "name": "extended_illegal_control_31",
+      "path": "\\\\?\\C:\\Tools\\bad\u001fname.exe",
+      "expected_key": "\\\\?\\c:\\tools\\bad\u001fname.exe",
+      "compare_to": "C:\\Tools\\bad\u001fname.exe",
+      "expect_equal": false
+    }
   ]
 }

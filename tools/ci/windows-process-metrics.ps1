@@ -29,6 +29,31 @@ function Get-AsdMetricPathKey {
     param([Parameter(Mandatory = $true)][string]$Path)
     # A lexical Windows path key also works in Linux-only synthetic graph tests.
     # The live collector requires full paths and compares the actual image path.
+    # CIM can report \\?\C:\... while Process.Path reports C:\... for conhost.
+    # Remove only an unambiguous extended DOS prefix. Extended paths otherwise
+    # bypass Win32 parsing, so dot segments, device names, ADS, trailing dots or
+    # spaces, empty components and forward slashes must not be normalized away.
+    # https://learn.microsoft.com/en-us/windows/win32/fileio/naming-a-file
+    # https://learn.microsoft.com/en-us/dotnet/standard/io/file-path-formats
+    if ($Path.StartsWith('\\?\', [StringComparison]::Ordinal)) {
+        $unchanged = $Path.ToLowerInvariant()
+        if ($Path -notmatch '^\\\\\?\\[A-Za-z]:\\') { return $unchanged }
+        $dosPath = $Path.Substring(4)
+        foreach ($component in $dosPath.Substring(3).Split('\')) {
+            if ($component.Length -eq 0 -or $component -in @('.', '..') -or
+                $component.EndsWith('.') -or $component.EndsWith(' ') -or
+                $component -match '[<>:"/|?*\x00-\x1F]') {
+                return $unchanged
+            }
+            # Reserved DOS names remain reserved with an extension; include
+            # Windows' three superscript-digit spellings and console devices.
+            $baseName = $component.Split('.')[0].TrimEnd(' ')
+            if ($baseName -match '^(CON|PRN|AUX|NUL|CONIN\$|CONOUT\$|COM[1-9\u00B9\u00B2\u00B3]|LPT[1-9\u00B9\u00B2\u00B3])$') {
+                return $unchanged
+            }
+        }
+        return $dosPath.ToLowerInvariant()
+    }
     return $Path.Replace('/', '\').ToLowerInvariant()
 }
 

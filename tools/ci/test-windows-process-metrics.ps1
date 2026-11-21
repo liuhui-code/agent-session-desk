@@ -35,6 +35,13 @@ foreach ($case in $fixture.cases) {
     }
     $results.Add([pscustomobject]@{ name = $case.name; result = 'pass' })
 }
+foreach ($case in $fixture.path_key_cases) {
+    $key = Get-AsdMetricPathKey $case.path
+    if ($key -cne $case.expected_key) { throw "Path case $($case.name): unexpected normalized key." }
+    $comparisonKey = Get-AsdMetricPathKey $case.compare_to
+    if (($key -ceq $comparisonKey) -ne $case.expect_equal) { throw "Path case $($case.name): incorrect path equivalence." }
+    $results.Add([pscustomobject]@{ name = $case.name; result = 'pass'; category = 'path_key' })
+}
 if (-not $IsWindows) {
     $guarded = $false
     try { $null = Get-AsdWindowsProcessSnapshot } catch { $guarded = $_.Exception.Message -eq 'Windows process counters require a native Windows host.' }
@@ -45,8 +52,9 @@ $report = [pscustomobject]@{
     schema_version = 1; powershell = $PSVersionTable.PSVersion.ToString(); host_platform = [Runtime.InteropServices.RuntimeInformation]::OSDescription
     helper_sha256 = (Get-FileHash -LiteralPath $helper -Algorithm SHA256).Hash.ToLowerInvariant()
     fixture_sha256 = (Get-FileHash -LiteralPath (Join-Path $PSScriptRoot 'process-metrics-fixtures.json') -Algorithm SHA256).Hash.ToLowerInvariant()
-    pure_graph_cases = $fixture.cases.Count; platform_guard_exercised = -not $IsWindows
-    passed = $results.Count; scope = 'Pure synthetic process ownership; non-Windows guard where applicable. No Windows metrics executed.'
+    pure_graph_cases = $fixture.cases.Count; path_key_cases = $fixture.path_key_cases.Count
+    platform_guard_exercised = -not $IsWindows
+    passed = $results.Count; scope = 'Pure synthetic process ownership and lexical Windows path equivalence; non-Windows guard where applicable. No Windows metrics executed.'
     cases = @($results.ToArray())
 }
 if ($EvidencePath) { $report | ConvertTo-Json -Depth 8 | Set-Content -Encoding utf8 $EvidencePath }
