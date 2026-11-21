@@ -25,6 +25,7 @@
 | 配置 | **TOML** | 启动配置、主题和偏好；解析库、支持的语法版本与 schema 待固定 |
 | 输出保存 | **有界文件记录 + 内存尾部缓存** | 文件轮转、分页读取、明确截断与缺口 |
 | Agent 接入 | **CLI-first** | executable、args、cwd、env；专用协议是可选增强 |
+| 人工介入与提醒 | **共享核心事件与可替换平台通知出口** | UI 标记、待处理入口与可选 Windows 通知；Go API/注册/激活、事件接口与预算待 M2–M4 验证，不预先引入 .NET 运行时依赖 |
 
 精确发布来源：[Go](https://go.dev/doc/devel/release)、[Bubble Tea](https://github.com/charmbracelet/bubbletea/releases/tag/v2.1.2)、[Lip Gloss](https://github.com/charmbracelet/lipgloss/releases/tag/v2.1.1)、[Bubbles](https://github.com/charmbracelet/bubbles/releases/tag/v2.2.2)、[psmux](https://github.com/psmux/psmux/releases/tag/v3.4.0)、[tmux](https://github.com/tmux/tmux/releases/tag/3.8)。版本依据官方发布记录；框架与终端后台的最新正式版本另经官方 GitHub Release API 核对，排除了 draft/prerelease。
 
@@ -68,9 +69,10 @@
 - **一个模块化应用代码库**：TUI 与管理 CLI 共享业务核心；逻辑分层不变成多套常驻服务。
 - **管理与终端操作分模式**：管理时显示列表与预览；进入会话后全屏 attach，分离后恢复管理界面。默认不同时保留重复的列表、Tab 和多个详情面板。
 - **M0–M2 按需运行自有界面/命令**：psmux/tmux 负责退出界面后的终端托管。没有消费者运行时，落盘消息等待后续处理。
-- **M3 引入自动协作所需的共享 Host**：实现可靠 ready 信号下的后台自动投递与输入仲裁；FR-08 保留。Host 不重复创建 ConPTY。
+- **M3 引入自动协作所需的共享 Host**：实现可靠 ready 信号下的后台自动投递与输入仲裁，并按 ADR-0006 复用为后台人工介入事件与提醒消费者；FR-08 保留。Host 不重复创建 ConPTY。
 - **低内存依靠有界工作量**：仅刷新当前预览、限制缓存与事件队列、长期输出轮转落盘、关闭闲置预热。语言选择本身不构成性能保证。
 - **会话通信按实际证据显示状态**：Session/Run/View 分离；队列写入、终端写入、agent 接收和完成分别记录，不能互相替代。
+- **人工介入独立记录**：明确事项与已读/稍后、信号新鲜度、系统通知结果分离；attach 中不抢终端画面/输入，无消费者不保证 UI 退出后监测，见 [ADR-0006](adr/0006-human-attention-and-notifications.md)。
 
 架构拓扑与输入语义见 [ARCHITECTURE.md](ARCHITECTURE.md)。此前 [v0.1 UI 图稿](UI_DESIGN.md)保留为未采纳的探索记录。
 
@@ -83,6 +85,7 @@
 - M3 Host 的本机 IPC、启动/退出方式、单实例与恢复机制。
 - Windows 最低构建、CPU 架构、Windows Terminal、shell 与 agent 支持矩阵。
 - 最终快捷键、默认日志保留与缓存限额、可量化内存/响应预算。
+- 人工介入事件的可信绑定与排序对账、提醒策略和记录保留；Go 的 Windows 通知/激活接入及 BEL 经 psmux 的能力验证。官方 .NET 通知示例仅作平台参考，不是本项目已选实现。
 - 产品名称与项目自身许可证；上游代码迁入前处理具体许可要求。
 
 ## 7. M0 接受门槛与升级规则

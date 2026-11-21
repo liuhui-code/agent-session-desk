@@ -48,6 +48,7 @@ SUITE_LABELS = {
     "sessions-recovery-storage": "会话、后台、恢复与存储",
     "output-messaging": "输出、投递、队列、控制 CLI 与回复",
     "resilience-resources-release": "资源、长稳、控制边界、发布与属性测试",
+    "attention-notifications": "人工介入、待处理事项、通知与后台监测",
 }
 
 

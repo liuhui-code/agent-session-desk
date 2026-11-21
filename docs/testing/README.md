@@ -19,7 +19,7 @@
 | [执行报告模板](templates/EXECUTION_REPORT.md) | 后续记录实际步骤、证据、失败与回归 |
 | [资源测量模板](templates/PERFORMANCE_REPORT.md) | 全进程树、基线、长时间趋势与可复现负载 |
 
-## 四个套件
+## 五个套件
 
 | 套件 | 可读文档 | 机器可读源 |
 | --- | --- | --- |
@@ -27,6 +27,7 @@
 | 会话、后台、恢复、配置与存储 | [02](generated/02-sessions-recovery-storage.md) | [JSON](cases/02-sessions-recovery-storage.json) |
 | 输出、投递、队列、管理 CLI、回复 | [03](generated/03-output-messaging.md) | [JSON](cases/03-output-messaging.json) |
 | 资源、长稳、控制边界、发布与后置能力 | [04](generated/04-resilience-resources-release.md) | [JSON](cases/04-resilience-resources-release.json) |
+| 人工介入、待处理事项、通知与后台监测 | [05](generated/05-attention-notifications.md) | [JSON](cases/05-attention-notifications.json) |
 
 JSON 是用例正文的唯一编辑来源；可读套件、索引、覆盖表及 [CSV 索引](case-index.csv)由同一源生成，避免两份预期逐渐不一致。用例数量与分布以生成的覆盖表为准，不用数量宣称穷尽缺陷或 100% 质量覆盖。
 

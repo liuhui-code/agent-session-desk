@@ -20,6 +20,9 @@ Test design now lives in docs/testing/. Read TEST_STRATEGY.md, COVERAGE.md, and 
 - Separate terminal output from structured conversation history and model context.
 - Separate queued, input-written, agent-accepted, and completed message states. Never infer stronger states without evidence.
 - Unknown CLI readiness must remain unknown. Automatic queued delivery requires a reliable readiness signal.
+- Follow ADR-0006 for human attention: verified approval/question/inspection events have separate item identity, lifecycle, read/snooze state, observation freshness, and notification outcome. Viewing or dismissing a notification does not resolve an interaction request; notification activation only navigates and revalidates, never approves or injects input.
+- Exiting a Run invalidates its old interactive prompts, but an abnormal-exit inspection item may remain linked to that ended Run. Disconnect alone is uncertainty, not resolution. Automatic queued tasks must not enter an approval prompt.
+- Continue event handling independently of TUI rendering during full-screen attach. After UI exit, continued attention monitoring requires a running shared Host or a separately verified hook path; terminal survival alone does not prove it. Desktop, sound, and completion notifications default off; no per-session notifier daemon or unbounded event history.
 - Reattaching to a live process is different from restoring an exited agent's conversation.
 - A live multiplexer session or shell does not prove the agent itself is alive. Keep terminal, Run, agent-exit evidence, and agent work state distinct.
 - In M0-M2, psmux owns the terminal process lifetime; the shared product core persists metadata and messages, and a product-owned resident Host is not mandatory. M3 background automatic queue consumption uses one shared lightweight Host when that capability is enabled. Queue persistence alone does not imply automatic delivery.

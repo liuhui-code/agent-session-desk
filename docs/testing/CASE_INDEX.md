@@ -304,3 +304,66 @@
 | [TC-PROP-006](generated/04-resilience-resources-release.md#tc-prop-006) | 随机异常终端字节有界且不产生管理操作 | FL-002、FL-013、FL-015 | P1 | M1 | integration | 待决策 |
 | [TC-PROP-007](generated/04-resilience-resources-release.md#tc-prop-007) | 历史分页组合与固定快照范围一致 | FL-007、FL-005 | P1 | M3 | integration | 待决策 |
 | [TC-PROP-008](generated/04-resilience-resources-release.md#tc-prop-008) | 并发发送调度不能把正文和提交交错 | FL-008、FL-009、FL-013 | P1 | M3 | integration | 依据明确 |
+
+## 人工介入、待处理事项、通知与后台监测
+
+| ID | 场景 | FL | 优先级 | 阶段 | 层次 | 规范 |
+| --- | --- | --- | --- | --- | --- | --- |
+| [TC-ATTN-001](generated/05-attention-notifications.md#tc-attn-001) | 可靠审批事件建立待批准事项并可定位来源 | FL-020、FL-005 | P1 | M2 | integration | 依据明确 |
+| [TC-ATTN-002](generated/05-attention-notifications.md#tc-attn-002) | 可靠提问事件显示待回答并与审批原因区分 | FL-020 | P1 | M2 | integration | 依据明确 |
+| [TC-ATTN-003](generated/05-attention-notifications.md#tc-attn-003) | 已退出运行的异常检查事项保留并可人工标记已检查 | FL-020、FL-011、FL-013 | P0 | M2 | integration | 依据明确 |
+| [TC-ATTN-004](generated/05-attention-notifications.md#tc-attn-004) | 未知 CLI 的静默和低活动不会制造人工介入状态 | FL-020、FL-009 | P0 | M2 | integration | 依据明确 |
+| [TC-ATTN-005](generated/05-attention-notifications.md#tc-attn-005) | 普通输出和历史中的批准词语不冒充可信控制事件 | FL-020 | P0 | M2 | integration | 依据明确 |
+| [TC-ATTN-006](generated/05-attention-notifications.md#tc-attn-006) | 可选终端规则匹配只显示疑似需要处理 | FL-020、FL-009 | P1 | M2 | contract | 依据明确 |
+| [TC-ATTN-007](generated/05-attention-notifications.md#tc-attn-007) | 人工介入状态与存活执行及消息回执分别保持 | FL-020、FL-008、FL-009 | P0 | M2 | integration | 依据明确 |
+| [TC-ATTN-008](generated/05-attention-notifications.md#tc-attn-008) | 结果提醒与阻塞待处理分离且不从空闲推断完成 | FL-020、FL-014 | P1 | M2 | integration | 依据明确 |
+| [TC-ATTN-009](generated/05-attention-notifications.md#tc-attn-009) | 事件来源绑定与不匹配身份拒绝合同 | FL-020、FL-005、FL-010 | P0 | M2 | contract | 待决策 |
+| [TC-ATTN-010](generated/05-attention-notifications.md#tc-attn-010) | 缺少字段未来版本和非法事件类型得到明确结果 | FL-020 | P0 | M2 | contract | 待决策 |
+| [TC-ATTN-011](generated/05-attention-notifications.md#tc-attn-011) | 提醒载荷长度和中文编码边界 | FL-020、FL-015 | P1 | M2 | contract | 待决策 |
+| [TC-ATTN-012](generated/05-attention-notifications.md#tc-attn-012) | 同一事件重送和重复观察不新增事项或重复提醒 | FL-020 | P0 | M2 | integration | 依据明确 |
+| [TC-ATTN-013](generated/05-attention-notifications.md#tc-attn-013) | 相同文字的独立审批请求分别保留 | FL-020 | P0 | M2 | integration | 依据明确 |
+| [TC-ATTN-014](generated/05-attention-notifications.md#tc-attn-014) | 同一 Run 的多个待处理事项逐项结束 | FL-020 | P1 | M2 | integration | 依据明确 |
+| [TC-ATTN-015](generated/05-attention-notifications.md#tc-attn-015) | 旧事件晚到不会重新打开已经解决的请求 | FL-020 | P0 | M2 | integration | 依据明确 |
+| [TC-ATTN-016](generated/05-attention-notifications.md#tc-attn-016) | 同事件身份但载荷冲突不得静默覆盖 | FL-020 | P0 | M2 | contract | 待决策 |
+| [TC-ATTN-017](generated/05-attention-notifications.md#tc-attn-017) | 重连时核对快照并明确缺口和信号时效 | FL-020、FL-013 | P0 | M2 | integration | 待决策 |
+| [TC-ATTN-018](generated/05-attention-notifications.md#tc-attn-018) | 仅事件通道断开不会把待处理事项标成已解决 | FL-020、FL-005、FL-013 | P0 | M2 | integration | 依据明确 |
+| [TC-ATTN-019](generated/05-attention-notifications.md#tc-attn-019) | Run 退出使交互请求失效但不吞掉异常待检查事项 | FL-020、FL-005、FL-011、FL-013 | P0 | M2 | integration | 依据明确 |
+| [TC-ATTN-020](generated/05-attention-notifications.md#tc-attn-020) | Agent 重启后旧提醒不能指向新运行上下文 | FL-020、FL-005、FL-013 | P0 | M2 | integration | 依据明确 |
+| [TC-ATTN-021](generated/05-attention-notifications.md#tc-attn-021) | 重命名排序和关闭视图后提醒仍定位原会话 | FL-020、FL-004、FL-005 | P0 | M2 | integration | 依据明确 |
+| [TC-ATTN-022](generated/05-attention-notifications.md#tc-attn-022) | 底层 pane 或 PID 标识复用不接管旧提醒 | FL-020、FL-005、FL-013 | P0 | M2 | integration | 依据明确 |
+| [TC-ATTN-023](generated/05-attention-notifications.md#tc-attn-023) | 点击提醒仅导航查看且在激活时重新核对对象 | FL-020、FL-005、FL-012、FL-013 | P0 | M2 | integration | 依据明确 |
+| [TC-ATTN-024](generated/05-attention-notifications.md#tc-attn-024) | 已查看和关闭系统横幅不解决审批或提问 | FL-020 | P0 | M2 | integration | 依据明确 |
+| [TC-ATTN-025](generated/05-attention-notifications.md#tc-attn-025) | 解决事项必须关联具体请求及可接受证据 | FL-020、FL-008、FL-014 | P0 | M2 | integration | 依据明确 |
+| [TC-ATTN-026](generated/05-attention-notifications.md#tc-attn-026) | 稍后提醒的到期取消与重复操作边界 | FL-020、FL-015 | P1 | M2 | integration | 待决策 |
+| [TC-ATTN-027](generated/05-attention-notifications.md#tc-attn-027) | 隐藏和静音的范围不会被解释为 Agent 已处理 | FL-020 | P1 | M2 | integration | 待决策 |
+| [TC-ATTN-028](generated/05-attention-notifications.md#tc-attn-028) | 时钟回拨和睡眠唤醒不会复活旧事项或集中刷屏 | FL-020 | P1 | M3 | windows_e2e | 待决策 |
+| [TC-ATTN-029](generated/05-attention-notifications.md#tc-attn-029) | 简约标记和按需待处理列表在支持尺寸下可辨认 | FL-020、FL-003、FL-004、FL-016 | P1 | M2 | manual | 依据明确 |
+| [TC-ATTN-030](generated/05-attention-notifications.md#tc-attn-030) | 多会话同时请求时按策略合并通知但保留独立事项 | FL-020、FL-004、FL-015 | P1 | M2 | integration | 待决策 |
+| [TC-ATTN-031](generated/05-attention-notifications.md#tc-attn-031) | 会话 B 请求介入时不打断 A 的键盘和中文输入 | FL-020、FL-002、FL-012、FL-016 | P0 | M2 | windows_e2e | 依据明确 |
+| [TC-ATTN-032](generated/05-attention-notifications.md#tc-attn-032) | 全屏 attach 隐藏管理界面后仍可接收其他会话事件 | FL-020、FL-002、FL-012 | P0 | M2 | windows_e2e | 依据明确 |
+| [TC-ATTN-033](generated/05-attention-notifications.md#tc-attn-033) | 待处理导航快捷键与 Agent 自身按键保持边界 | FL-020、FL-004、FL-012、FL-016 | P0 | M2 | windows_e2e | 待决策 |
+| [TC-ATTN-034](generated/05-attention-notifications.md#tc-attn-034) | 审批提醒存在时普通队列指令不得进入审批菜单 | FL-020、FL-008、FL-009、FL-012 | P0 | M3 | integration | 依据明确 |
+| [TC-ATTN-035](generated/05-attention-notifications.md#tc-attn-035) | 桌面声音和完成信息默认关闭且开关独立 | FL-020 | P1 | M2 | integration | 依据明确 |
+| [TC-ATTN-036](generated/05-attention-notifications.md#tc-attn-036) | Windows 本地通知实际显示并能激活正确事项 | FL-020、FL-005、FL-016、FL-017 | P0 | M2 | windows_e2e | 待决策 |
+| [TC-ATTN-037](generated/05-attention-notifications.md#tc-attn-037) | 通知被禁用或免打扰时待处理记录仍可查 | FL-020、FL-016 | P1 | M2 | windows_e2e | 待决策 |
+| [TC-ATTN-038](generated/05-attention-notifications.md#tc-attn-038) | 通知出口报错不回滚已持久化的待处理事项 | FL-020 | P0 | M2 | integration | 依据明确 |
+| [TC-ATTN-039](generated/05-attention-notifications.md#tc-attn-039) | 通知 API 接受不等于用户已读或已处理 | FL-020、FL-008 | P0 | M2 | integration | 依据明确 |
+| [TC-ATTN-040](generated/05-attention-notifications.md#tc-attn-040) | 通知出口缓慢或挂起时处理有界且输入继续 | FL-020、FL-012、FL-015 | P0 | M2 | integration | 待决策 |
+| [TC-ATTN-041](generated/05-attention-notifications.md#tc-attn-041) | 管理器退出且无消费者时不承诺持续监测 | FL-020、FL-006、FL-007、FL-015 | P0 | M2 | windows_e2e | 依据明确 |
+| [TC-ATTN-042](generated/05-attention-notifications.md#tc-attn-042) | UI 退出后共享 Host 接收提醒而非依赖 TUI 重绘 | FL-020、FL-006、FL-009、FL-015 | P0 | M3 | windows_e2e | 依据明确 |
+| [TC-ATTN-043](generated/05-attention-notifications.md#tc-attn-043) | 已声明的主动 hook 路径可选且能力范围可核对 | FL-020、FL-001、FL-010、FL-015 | P1 | M3 | contract | 待决策 |
+| [TC-ATTN-044](generated/05-attention-notifications.md#tc-attn-044) | 多 TUI 和 Host 启动竞争不会形成未协调的重复提醒者 | FL-020、FL-005、FL-009、FL-015 | P0 | M3 | integration | 待决策 |
+| [TC-ATTN-045](generated/05-attention-notifications.md#tc-attn-045) | 事件持久化前崩溃不会返回虚假可靠接收 | FL-020、FL-013 | P0 | M3 | integration | 待决策 |
+| [TC-ATTN-046](generated/05-attention-notifications.md#tc-attn-046) | 事项落盘后通知发送前崩溃可恢复待处理记录 | FL-020、FL-013 | P0 | M3 | integration | 待决策 |
+| [TC-ATTN-047](generated/05-attention-notifications.md#tc-attn-047) | 系统发送后回执未记录的崩溃不伪造 exactly-once | FL-020、FL-013 | P0 | M3 | integration | 待决策 |
+| [TC-ATTN-048](generated/05-attention-notifications.md#tc-attn-048) | 接收者停止期间的事件缺口不能伪造成连续监测 | FL-020、FL-007、FL-013 | P0 | M3 | integration | 待决策 |
+| [TC-ATTN-049](generated/05-attention-notifications.md#tc-attn-049) | 未处理事项容量边界与满载恢复 | FL-020、FL-015、FL-013 | P0 | M3 | integration | 待决策 |
+| [TC-ATTN-050](generated/05-attention-notifications.md#tc-attn-050) | 数据库锁或测试盘满时不丢已确认事项 | FL-020、FL-013、FL-015 | P0 | M3 | integration | 待决策 |
+| [TC-ATTN-051](generated/05-attention-notifications.md#tc-attn-051) | 提醒文本和激活参数按数据处理不执行命令 | FL-020、FL-005、FL-013 | P0 | M2 | contract | 待决策 |
+| [TC-ATTN-052](generated/05-attention-notifications.md#tc-attn-052) | Windows Terminal BEL 可选提醒经 psmux 传递并尊重用户设置 | FL-020、FL-002、FL-016 | P1 | M2 | windows_e2e | 待决策 |
+| [TC-ATTN-053](generated/05-attention-notifications.md#tc-attn-053) | 提醒开启前后的全进程树和事件驱动资源基线 | FL-020、FL-015、FL-016 | P1 | M3 | windows_e2e | 依据明确 |
+| [TC-ATTN-054](generated/05-attention-notifications.md#tc-attn-054) | 提醒可测阶段的延迟预算与系统展示分离 | FL-020、FL-015、FL-016 | P1 | M4 | windows_e2e | 待决策 |
+| [TC-ATTN-055](generated/05-attention-notifications.md#tc-attn-055) | 10 会话八小时提醒长稳覆盖重复乱序与界面切换 | FL-020、FL-013、FL-015、FL-016 | P0 | M4 | soak | 待决策 |
+| [TC-ATTN-056](generated/05-attention-notifications.md#tc-attn-056) | 状态轨迹属性检查保持身份和人工处理语义 | FL-020、FL-005、FL-009、FL-013 | P0 | M3 | unit | 依据明确 |
+| [TC-ATTN-057](generated/05-attention-notifications.md#tc-attn-057) | 事件与激活输入的有界模糊测试 | FL-020、FL-005、FL-013、FL-015 | P0 | M3 | contract | 待决策 |
+| [TC-ATTN-058](generated/05-attention-notifications.md#tc-attn-058) | 发布包通知注册升级回退与失效激活的范围 | FL-020、FL-013、FL-016、FL-017 | P0 | M4 | release | 待决策 |

@@ -1,0 +1,2274 @@
+# 人工介入、待处理事项、通知与后台监测
+
+> 从 [JSON 源](../cases/05-attention-notifications.json) 自动生成。请修改源并运行 `python tools/test_catalog.py render`。
+
+**全部为测试设计，当前未执行产品或 Windows 测试。** ready 仅表示预期依据明确。
+
+[总索引](../CASE_INDEX.md) · [覆盖表](../COVERAGE.md) · [字段约定](../CASE_FORMAT.md)
+
+| ID | 场景 | 优先级 | 阶段 | 规范状态 |
+| --- | --- | --- | --- | --- |
+| [TC-ATTN-001](#tc-attn-001) | 可靠审批事件建立待批准事项并可定位来源 | P1 | M2 | 依据明确 |
+| [TC-ATTN-002](#tc-attn-002) | 可靠提问事件显示待回答并与审批原因区分 | P1 | M2 | 依据明确 |
+| [TC-ATTN-003](#tc-attn-003) | 已退出运行的异常检查事项保留并可人工标记已检查 | P0 | M2 | 依据明确 |
+| [TC-ATTN-004](#tc-attn-004) | 未知 CLI 的静默和低活动不会制造人工介入状态 | P0 | M2 | 依据明确 |
+| [TC-ATTN-005](#tc-attn-005) | 普通输出和历史中的批准词语不冒充可信控制事件 | P0 | M2 | 依据明确 |
+| [TC-ATTN-006](#tc-attn-006) | 可选终端规则匹配只显示疑似需要处理 | P1 | M2 | 依据明确 |
+| [TC-ATTN-007](#tc-attn-007) | 人工介入状态与存活执行及消息回执分别保持 | P0 | M2 | 依据明确 |
+| [TC-ATTN-008](#tc-attn-008) | 结果提醒与阻塞待处理分离且不从空闲推断完成 | P1 | M2 | 依据明确 |
+| [TC-ATTN-009](#tc-attn-009) | 事件来源绑定与不匹配身份拒绝合同 | P0 | M2 | 待决策 |
+| [TC-ATTN-010](#tc-attn-010) | 缺少字段未来版本和非法事件类型得到明确结果 | P0 | M2 | 待决策 |
+| [TC-ATTN-011](#tc-attn-011) | 提醒载荷长度和中文编码边界 | P1 | M2 | 待决策 |
+| [TC-ATTN-012](#tc-attn-012) | 同一事件重送和重复观察不新增事项或重复提醒 | P0 | M2 | 依据明确 |
+| [TC-ATTN-013](#tc-attn-013) | 相同文字的独立审批请求分别保留 | P0 | M2 | 依据明确 |
+| [TC-ATTN-014](#tc-attn-014) | 同一 Run 的多个待处理事项逐项结束 | P1 | M2 | 依据明确 |
+| [TC-ATTN-015](#tc-attn-015) | 旧事件晚到不会重新打开已经解决的请求 | P0 | M2 | 依据明确 |
+| [TC-ATTN-016](#tc-attn-016) | 同事件身份但载荷冲突不得静默覆盖 | P0 | M2 | 待决策 |
+| [TC-ATTN-017](#tc-attn-017) | 重连时核对快照并明确缺口和信号时效 | P0 | M2 | 待决策 |
+| [TC-ATTN-018](#tc-attn-018) | 仅事件通道断开不会把待处理事项标成已解决 | P0 | M2 | 依据明确 |
+| [TC-ATTN-019](#tc-attn-019) | Run 退出使交互请求失效但不吞掉异常待检查事项 | P0 | M2 | 依据明确 |
+| [TC-ATTN-020](#tc-attn-020) | Agent 重启后旧提醒不能指向新运行上下文 | P0 | M2 | 依据明确 |
+| [TC-ATTN-021](#tc-attn-021) | 重命名排序和关闭视图后提醒仍定位原会话 | P0 | M2 | 依据明确 |
+| [TC-ATTN-022](#tc-attn-022) | 底层 pane 或 PID 标识复用不接管旧提醒 | P0 | M2 | 依据明确 |
+| [TC-ATTN-023](#tc-attn-023) | 点击提醒仅导航查看且在激活时重新核对对象 | P0 | M2 | 依据明确 |
+| [TC-ATTN-024](#tc-attn-024) | 已查看和关闭系统横幅不解决审批或提问 | P0 | M2 | 依据明确 |
+| [TC-ATTN-025](#tc-attn-025) | 解决事项必须关联具体请求及可接受证据 | P0 | M2 | 依据明确 |
+| [TC-ATTN-026](#tc-attn-026) | 稍后提醒的到期取消与重复操作边界 | P1 | M2 | 待决策 |
+| [TC-ATTN-027](#tc-attn-027) | 隐藏和静音的范围不会被解释为 Agent 已处理 | P1 | M2 | 待决策 |
+| [TC-ATTN-028](#tc-attn-028) | 时钟回拨和睡眠唤醒不会复活旧事项或集中刷屏 | P1 | M3 | 待决策 |
+| [TC-ATTN-029](#tc-attn-029) | 简约标记和按需待处理列表在支持尺寸下可辨认 | P1 | M2 | 依据明确 |
+| [TC-ATTN-030](#tc-attn-030) | 多会话同时请求时按策略合并通知但保留独立事项 | P1 | M2 | 待决策 |
+| [TC-ATTN-031](#tc-attn-031) | 会话 B 请求介入时不打断 A 的键盘和中文输入 | P0 | M2 | 依据明确 |
+| [TC-ATTN-032](#tc-attn-032) | 全屏 attach 隐藏管理界面后仍可接收其他会话事件 | P0 | M2 | 依据明确 |
+| [TC-ATTN-033](#tc-attn-033) | 待处理导航快捷键与 Agent 自身按键保持边界 | P0 | M2 | 待决策 |
+| [TC-ATTN-034](#tc-attn-034) | 审批提醒存在时普通队列指令不得进入审批菜单 | P0 | M3 | 依据明确 |
+| [TC-ATTN-035](#tc-attn-035) | 桌面声音和完成信息默认关闭且开关独立 | P1 | M2 | 依据明确 |
+| [TC-ATTN-036](#tc-attn-036) | Windows 本地通知实际显示并能激活正确事项 | P0 | M2 | 待决策 |
+| [TC-ATTN-037](#tc-attn-037) | 通知被禁用或免打扰时待处理记录仍可查 | P1 | M2 | 待决策 |
+| [TC-ATTN-038](#tc-attn-038) | 通知出口报错不回滚已持久化的待处理事项 | P0 | M2 | 依据明确 |
+| [TC-ATTN-039](#tc-attn-039) | 通知 API 接受不等于用户已读或已处理 | P0 | M2 | 依据明确 |
+| [TC-ATTN-040](#tc-attn-040) | 通知出口缓慢或挂起时处理有界且输入继续 | P0 | M2 | 待决策 |
+| [TC-ATTN-041](#tc-attn-041) | 管理器退出且无消费者时不承诺持续监测 | P0 | M2 | 依据明确 |
+| [TC-ATTN-042](#tc-attn-042) | UI 退出后共享 Host 接收提醒而非依赖 TUI 重绘 | P0 | M3 | 依据明确 |
+| [TC-ATTN-043](#tc-attn-043) | 已声明的主动 hook 路径可选且能力范围可核对 | P1 | M3 | 待决策 |
+| [TC-ATTN-044](#tc-attn-044) | 多 TUI 和 Host 启动竞争不会形成未协调的重复提醒者 | P0 | M3 | 待决策 |
+| [TC-ATTN-045](#tc-attn-045) | 事件持久化前崩溃不会返回虚假可靠接收 | P0 | M3 | 待决策 |
+| [TC-ATTN-046](#tc-attn-046) | 事项落盘后通知发送前崩溃可恢复待处理记录 | P0 | M3 | 待决策 |
+| [TC-ATTN-047](#tc-attn-047) | 系统发送后回执未记录的崩溃不伪造 exactly-once | P0 | M3 | 待决策 |
+| [TC-ATTN-048](#tc-attn-048) | 接收者停止期间的事件缺口不能伪造成连续监测 | P0 | M3 | 待决策 |
+| [TC-ATTN-049](#tc-attn-049) | 未处理事项容量边界与满载恢复 | P0 | M3 | 待决策 |
+| [TC-ATTN-050](#tc-attn-050) | 数据库锁或测试盘满时不丢已确认事项 | P0 | M3 | 待决策 |
+| [TC-ATTN-051](#tc-attn-051) | 提醒文本和激活参数按数据处理不执行命令 | P0 | M2 | 待决策 |
+| [TC-ATTN-052](#tc-attn-052) | Windows Terminal BEL 可选提醒经 psmux 传递并尊重用户设置 | P1 | M2 | 待决策 |
+| [TC-ATTN-053](#tc-attn-053) | 提醒开启前后的全进程树和事件驱动资源基线 | P1 | M3 | 依据明确 |
+| [TC-ATTN-054](#tc-attn-054) | 提醒可测阶段的延迟预算与系统展示分离 | P1 | M4 | 待决策 |
+| [TC-ATTN-055](#tc-attn-055) | 10 会话八小时提醒长稳覆盖重复乱序与界面切换 | P0 | M4 | 待决策 |
+| [TC-ATTN-056](#tc-attn-056) | 状态轨迹属性检查保持身份和人工处理语义 | P0 | M3 | 依据明确 |
+| [TC-ATTN-057](#tc-attn-057) | 事件与激活输入的有界模糊测试 | P0 | M3 | 待决策 |
+| [TC-ATTN-058](#tc-attn-058) | 发布包通知注册升级回退与失效激活的范围 | P0 | M4 | 待决策 |
+
+### TC-ATTN-001
+
+**可靠审批事件建立待批准事项并可定位来源**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)、[FL-005](../COVERAGE.md#fl-005)
+- 需求：[FR-14](../COVERAGE.md#fr-14)、[FR-04](../COVERAGE.md#fr-04)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 优先级 / 阶段 / 层次：P1 / M2 / integration
+- 类型：functional、state
+- 设计 / 执行：`designed / not_run`
+- 规范状态：依据明确（`ready`）
+- 待决依据：—
+- 环境：[ENV-UNIT](../ENVIRONMENTS.md#env-unit)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
+
+#### 前置条件
+
+- A/A1 和 B/B1 已运行；A1 的 FX-ATTENTION 通过受支持的可信事件通道上报；桌面通知关闭
+
+#### 操作步骤
+
+1. A1 发出新的审批请求 Q1，并保存独立 oracle 中的来源与请求标识
+2. 查看 A、B 会话行和全局待处理入口，打开 Q1 详情
+
+#### 预期与不变量
+
+- A 显示待批准；待处理列表保留 Q1 的来源、原因及可核对时间，B 不受影响
+- 定位 Q1 指向 A/A1；输入计数不增加，状态不被解释成 ready 或任务完成
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 上报事件与待处理记录快照
+- 会话行/待处理详情截图及 A/B 输入计数
+
+
+### TC-ATTN-002
+
+**可靠提问事件显示待回答并与审批原因区分**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)
+- 需求：[FR-14](../COVERAGE.md#fr-14)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)
+- 优先级 / 阶段 / 层次：P1 / M2 / integration
+- 类型：functional、state
+- 设计 / 执行：`designed / not_run`
+- 规范状态：依据明确（`ready`）
+- 待决依据：—
+- 环境：[ENV-UNIT](../ENVIRONMENTS.md#env-unit)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
+
+#### 前置条件
+
+- A/A1 支持明确提问事件；B/B1 已有一条待批准请求
+
+#### 操作步骤
+
+1. A1 报告需要补充信息的请求 Q1
+2. 打开全局待处理列表，分别查看两条请求
+
+#### 预期与不变量
+
+- A 的原因为待回答，B 的原因为待批准；两者有独立身份，不仅显示同一个无原因的 waiting
+- 待回答事项可定位 A/A1；查看不会发送答案或改变 B 的审批状态
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 两类事件与独立请求列表
+- 目标输入日志和详情状态
+
+
+### TC-ATTN-003
+
+**已退出运行的异常检查事项保留并可人工标记已检查**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)、[FL-011](../COVERAGE.md#fl-011)、[FL-013](../COVERAGE.md#fl-013)
+- 需求：[FR-14](../COVERAGE.md#fr-14)、[FR-10](../COVERAGE.md#fr-10)、[FR-12](../COVERAGE.md#fr-12)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 优先级 / 阶段 / 层次：P0 / M2 / integration
+- 类型：functional、state
+- 设计 / 执行：`designed / not_run`
+- 规范状态：依据明确（`ready`）
+- 待决依据：—
+- 环境：[ENV-UNIT](../ENVIRONMENTS.md#env-unit)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-PROCESS](../FIXTURES_AND_FAULTS.md#fx-process)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
+
+#### 前置条件
+
+- A/A1 已确认异常退出；适配器有可核对退出证据，生成绑定 A1 的检查事项 C1；A2 尚未创建
+
+#### 操作步骤
+
+1. 查看 C1 和 A 的退出信息
+2. 仅打开历史后再次检查待处理列表
+3. 显式执行标记已检查并查询记录
+
+#### 预期与不变量
+
+- C1 不因其所属 Run 已退出而被立即丢弃，普通查看不解决 C1
+- 显式标记只结束检查事项，保留人工检查证据；不伪称 Agent 收到批准、任务成功或 Run 恢复
+- 整个流程不创建新 Run，也不写入任何终端
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 退出证据与 C1 的状态/人工操作记录
+- Run 清单、启动次数和输入日志
+
+
+### TC-ATTN-004
+
+**未知 CLI 的静默和低活动不会制造人工介入状态**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)、[FL-009](../COVERAGE.md#fl-009)
+- 需求：[FR-14](../COVERAGE.md#fr-14)、[FR-08](../COVERAGE.md#fr-08)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 优先级 / 阶段 / 层次：P0 / M2 / integration
+- 类型：negative、state
+- 设计 / 执行：`designed / not_run`
+- 规范状态：依据明确（`ready`）
+- 待决依据：—
+- 环境：[ENV-UNIT](../ENVIRONMENTS.md#env-unit)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-PROCESS](../FIXTURES_AND_FAULTS.md#fx-process)
+
+#### 前置条件
+
+- A/A1 仅声明通用终端读写，没有可信审批或提问信号；启发式识别未启用
+
+#### 操作步骤
+
+1. 让 A1 分别停留在无输出计算、等待外部结果、普通空提示符三种 oracle 状态
+2. 让管理器完成多轮观察，再切换其他会话并返回
+
+#### 预期与不变量
+
+- 产品只使用实际获得的信号，工作状态保持未知或原有可证明状态
+- 没有因静默时长、CPU 低或 shell 存活而建立确定待批准/待回答事项或发送提醒
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- fixture 私有 oracle 与产品实际可见信号分开记录
+- 状态序列与通知调用计数
+
+说明：测试观察者知道真实原因，不等于产品具备该信息。
+
+
+### TC-ATTN-005
+
+**普通输出和历史中的批准词语不冒充可信控制事件**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)
+- 需求：[FR-14](../COVERAGE.md#fr-14)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)
+- 优先级 / 阶段 / 层次：P0 / M2 / integration
+- 类型：negative、security、state
+- 设计 / 执行：`designed / not_run`
+- 规范状态：依据明确（`ready`）
+- 待决依据：—
+- 环境：[ENV-UNIT](../ENVIRONMENTS.md#env-unit)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-VT](../FIXTURES_AND_FAULTS.md#fx-vt)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
+
+#### 前置条件
+
+- A1 没有事件通道能力；其普通输出含历史审批截图、说明文档和示例 JSON；启发式识别关闭
+
+#### 操作步骤
+
+1. 输出 approve、需要确认、waiting for input 等普通文本，并回放此前已处理的终端片段
+2. 在其他会话中显示同样文本，观察待处理记录
+
+#### 预期与不变量
+
+- 普通 stdout/屏幕文字不因包含关键字或形似事件 JSON 而成为可信审批证据
+- 不新增确定待处理事项，也不向任意会话发送输入
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 原始普通输出样本与声明能力
+- 可信事件入口调用记录、事项列表和通知次数
+
+
+### TC-ATTN-006
+
+**可选终端规则匹配只显示疑似需要处理**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)、[FL-009](../COVERAGE.md#fl-009)
+- 需求：[FR-14](../COVERAGE.md#fr-14)、[FR-08](../COVERAGE.md#fr-08)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 优先级 / 阶段 / 层次：P1 / M2 / contract
+- 类型：functional、negative、state
+- 设计 / 执行：`designed / not_run`
+- 规范状态：依据明确（`ready`）
+- 待决依据：—
+- 环境：[ENV-UNIT](../ENVIRONMENTS.md#env-unit)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-VT](../FIXTURES_AND_FAULTS.md#fx-vt)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)
+
+#### 前置条件
+
+- 已选择一个测试用启发式规则及其明确匹配文本；A1 未提供可靠 ready/approval 事件
+
+#### 操作步骤
+
+1. A1 输出匹配样本，查看状态来源与提示
+2. 输出不匹配样本和同一句话的文档引用变体
+3. 尝试查询可用于自动投递的状态
+
+#### 预期与不变量
+
+- 匹配结果明确标为疑似及其来源，不伪装成已确认审批/提问
+- 启发式提示不能成为 ready、自动批准或完成证据；误判时可以辨认依据
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 规则版本、输入样本与匹配结果
+- UI/CLI 状态来源以及自动投递输入计数
+
+说明：只验证已选择规则的输出语义；不承诺适用于所有 CLI 或任意自然语言。
+
+
+### TC-ATTN-007
+
+**人工介入状态与存活执行及消息回执分别保持**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)、[FL-008](../COVERAGE.md#fl-008)、[FL-009](../COVERAGE.md#fl-009)
+- 需求：[FR-14](../COVERAGE.md#fr-14)、[FR-07](../COVERAGE.md#fr-07)、[FR-08](../COVERAGE.md#fr-08)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 优先级 / 阶段 / 层次：P0 / M2 / integration
+- 类型：functional、state
+- 设计 / 执行：`designed / not_run`
+- 规范状态：依据明确（`ready`）
+- 待决依据：—
+- 环境：[ENV-UNIT](../ENVIRONMENTS.md#env-unit)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
+
+#### 前置条件
+
+- A1 正在执行一项可独立继续的工作，另有请求 Q1 需要用户回答；消息 M1 仅有 input_written 证据
+
+#### 操作步骤
+
+1. 交付 Q1 的提问事件和独立工作的进度事件
+2. 分别查询进程、工作、待处理事项及 M1 回执
+
+#### 预期与不变量
+
+- Q1 可以与其他正在运行的工作并存；不会把整个 Run 必然显示为停止
+- Q1 的出现不把 M1 升级为 accepted/completed，也不制造普通任务可投递的 ready
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 四类状态的前后快照与实际证据
+- 独立请求和消息的关联信息
+
+
+### TC-ATTN-008
+
+**结果提醒与阻塞待处理分离且不从空闲推断完成**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)、[FL-014](../COVERAGE.md#fl-014)
+- 需求：[FR-14](../COVERAGE.md#fr-14)、[FR-13](../COVERAGE.md#fr-13)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 优先级 / 阶段 / 层次：P1 / M2 / integration
+- 类型：functional、state
+- 设计 / 执行：`designed / not_run`
+- 规范状态：依据明确（`ready`）
+- 待决依据：—
+- 环境：[ENV-UNIT](../ENVIRONMENTS.md#env-unit)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
+
+#### 前置条件
+
+- 完成信息通知保持默认关闭；A1 有待回答 Q1，B1 没有待处理事项
+
+#### 操作步骤
+
+1. B1 进入普通空闲状态但不发完成证据
+2. 随后交付 B1 的有效结果事件，再显式开启完成信息提醒重做一轮
+3. 观察待处理汇总和 A1 的 Q1
+
+#### 预期与不变量
+
+- 普通空闲不产生完成通知；默认关闭时有效结果也不产生桌面完成横幅
+- 开启后的结果提示明确归于信息类型，不冒充用户必须回答或已验收通过
+- B1 的完成不清除 A1 的 Q1
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 空闲与完成事件轨迹
+- 提醒类别、通知设置和 Q1 快照
+
+
+### TC-ATTN-009
+
+**事件来源绑定与不匹配身份拒绝合同**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)、[FL-005](../COVERAGE.md#fl-005)、[FL-010](../COVERAGE.md#fl-010)
+- 需求：[FR-14](../COVERAGE.md#fr-14)、[FR-04](../COVERAGE.md#fr-04)、[FR-09](../COVERAGE.md#fr-09)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 优先级 / 阶段 / 层次：P0 / M2 / contract
+- 类型：security、negative
+- 设计 / 执行：`designed / not_run`
+- 规范状态：待决策（`needs_decision`）
+- 待决依据：[TBD-ATTENTION-EVENTS](../BUDGETS_AND_DECISIONS.md)、[TBD-IPC-TRUST](../BUDGETS_AND_DECISIONS.md)
+- 环境：[ENV-UNIT](../ENVIRONMENTS.md#env-unit)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
+
+#### 前置条件
+
+- TBD-ATTENTION-EVENTS 与可信入口合同已固定；测试接入声明来源 A/A1，B/B1 是不同会话
+
+#### 操作步骤
+
+1. 分别提交有效 A1 事件、自报 B1 的事件、未知 namespace、旧连接令牌和伪造来源名称
+2. 查询两个会话的事项，并读取调用结果
+
+#### 预期与不变量
+
+- 有效事件按合同接收；不匹配来源的调用被明确拒绝或隔离，不篡改 B1 状态
+- 拒绝结果不泄露作用域外事项，不只凭正文中的 Session 名称授予来源身份
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 接口版本与各身份样本的返回值
+- 按作用域隔离的记录差异和拒绝证据
+
+
+### TC-ATTN-010
+
+**缺少字段未来版本和非法事件类型得到明确结果**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)
+- 需求：[FR-14](../COVERAGE.md#fr-14)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)
+- 优先级 / 阶段 / 层次：P0 / M2 / contract
+- 类型：negative、boundary
+- 设计 / 执行：`designed / not_run`
+- 规范状态：待决策（`needs_decision`）
+- 待决依据：[TBD-ATTENTION-EVENTS](../BUDGETS_AND_DECISIONS.md)
+- 环境：[ENV-UNIT](../ENVIRONMENTS.md#env-unit)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
+
+#### 前置条件
+
+- 事件 schema、必填字段、版本兼容和错误分类已按 TBD-ATTENTION-EVENTS 固定
+
+#### 操作步骤
+
+1. 向测试入口提交缺请求 ID、缺 Run、空类型、未知类型、非法版本及合法最小事件
+2. 重复查询被拒绝事件可能关联的 Session
+
+#### 预期与不变量
+
+- 逐项符合固定的接收/拒绝合同，错误与空成功可区分
+- 无效事件不建立半条确定待处理记录、不覆盖已有请求、不发送终端输入
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 合法与非法载荷、错误类别及接口版本
+- 记录数量和状态变化
+
+
+### TC-ATTN-011
+
+**提醒载荷长度和中文编码边界**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)、[FL-015](../COVERAGE.md#fl-015)
+- 需求：[FR-14](../COVERAGE.md#fr-14)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)
+- 优先级 / 阶段 / 层次：P1 / M2 / contract
+- 类型：boundary、negative、compatibility
+- 设计 / 执行：`designed / not_run`
+- 规范状态：待决策（`needs_decision`）
+- 待决依据：[TBD-ATTENTION-EVENTS](../BUDGETS_AND_DECISIONS.md)、[TBD-ATTENTION-POLICY](../BUDGETS_AND_DECISIONS.md)
+- 环境：[ENV-UNIT](../ENVIRONMENTS.md#env-unit)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
+
+#### 前置条件
+
+- B_ATTENTION_EVENT_BYTES 的单位、元数据计入范围及超限策略已经固定；使用合成文本
+
+#### 操作步骤
+
+1. 构造 0、1、B−1、B、B+1 字节的事件载荷，分别包含 ASCII、中文、组合字符和换行
+2. 通过同一真实事件入口提交并查看应用记录与通知载荷
+
+#### 预期与不变量
+
+- 允许范围内的数据按合同保真；超限的拒绝/截断行为明确，不把修改后的正文冒充原始完整内容
+- 无效编码或半个多字节字符不导致无界解析，来源与请求 ID 不被截断成其他对象
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 精确字节计量、编码样本与返回值
+- 保存/展示的文本与对象身份
+
+#### 参数变体
+
+- payload_bytes：`["0", "1", "B-1", "B", "B+1"]`
+
+
+### TC-ATTN-012
+
+**同一事件重送和重复观察不新增事项或重复提醒**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)
+- 需求：[FR-14](../COVERAGE.md#fr-14)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)
+- 优先级 / 阶段 / 层次：P0 / M2 / integration
+- 类型：concurrency、state、stability
+- 设计 / 执行：`designed / not_run`
+- 规范状态：依据明确（`ready`）
+- 待决依据：—
+- 环境：[ENV-UNIT](../ENVIRONMENTS.md#env-unit)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
+
+#### 前置条件
+
+- A1 的 Q1/E1 是合法新请求；通知出口使用可计数 FX-NOTIFY 并已开启
+
+#### 操作步骤
+
+1. 交付 E1 一次，再按相同内容和身份重复交付 100 次
+2. 让管理器观察同一状态多轮，重新打开待处理列表
+
+#### 预期与不变量
+
+- 只存在一个 Q1；持续观察和事件重送不产生新的待处理请求
+- 无新事件/显式重提醒操作时不会每次轮询都调用通知出口；实际调用按去重合同核对
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 事件投递次数、请求唯一性和通知调用账本
+- 观察轮次与最终状态
+
+
+### TC-ATTN-013
+
+**相同文字的独立审批请求分别保留**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)
+- 需求：[FR-14](../COVERAGE.md#fr-14)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)
+- 优先级 / 阶段 / 层次：P0 / M2 / integration
+- 类型：functional、state、boundary
+- 设计 / 执行：`designed / not_run`
+- 规范状态：依据明确（`ready`）
+- 待决依据：—
+- 环境：[ENV-UNIT](../ENVIRONMENTS.md#env-unit)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
+
+#### 前置条件
+
+- A1 连续生成 Q1、Q2，两者原因和正文相同但请求身份不同
+
+#### 操作步骤
+
+1. 交付两条请求并查看待处理详情
+2. 仅交付 Q1 的有效处理结果
+
+#### 预期与不变量
+
+- Q1、Q2 不因正文相同而合并成一条请求
+- Q1 结束后 Q2 仍待处理；汇总计数单位清楚且与详情一致
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 独立请求身份、正文哈希与处理结果
+- 处理前后事项列表和汇总显示
+
+
+### TC-ATTN-014
+
+**同一 Run 的多个待处理事项逐项结束**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)
+- 需求：[FR-14](../COVERAGE.md#fr-14)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)
+- 优先级 / 阶段 / 层次：P1 / M2 / integration
+- 类型：functional、state
+- 设计 / 执行：`designed / not_run`
+- 规范状态：依据明确（`ready`）
+- 待决依据：—
+- 环境：[ENV-UNIT](../ENVIRONMENTS.md#env-unit)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
+
+#### 前置条件
+
+- A1 同时具有待批准 Q1、待回答 Q2 和检查事项 C1；均来源可核对
+
+#### 操作步骤
+
+1. 处理 Q2，再取消 Q1，最后人工标记 C1 已检查
+2. 每一步查看会话标记、待处理汇总和各事项历史
+
+#### 预期与不变量
+
+- 一次操作只结束关联事项，不批量清空整个 Session 的待处理状态
+- 仍有未结束事项时会话继续可被发现；最后一项结束后汇总与详情一致
+- 人工检查、取消与 Agent 已处理分别保留来源和语义
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 每步状态快照和操作事件
+- 各请求终态与处理证据
+
+
+### TC-ATTN-015
+
+**旧事件晚到不会重新打开已经解决的请求**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)
+- 需求：[FR-14](../COVERAGE.md#fr-14)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)
+- 优先级 / 阶段 / 层次：P0 / M2 / integration
+- 类型：concurrency、recovery、state
+- 设计 / 执行：`designed / not_run`
+- 规范状态：依据明确（`ready`）
+- 待决依据：—
+- 环境：[ENV-UNIT](../ENVIRONMENTS.md#env-unit)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
+
+#### 前置条件
+
+- 测试适配器能给出同一请求可比较的新旧事件；Q1 的有效解决事件版本高于创建事件
+- 产品相应提醒出口已显式启用，夹具记录每次真实出口调用；先用独立请求验证该轮通知路径可达并结束基线事项；以下次数只统计待测请求，再进行故障或边界操作
+
+#### 操作步骤
+
+1. 先交付创建和解决事件，再交付旧创建/等待事件及其重复副本
+2. 重新加载记录后再次交付旧等待事件
+
+#### 预期与不变量
+
+- Q1 保持已结束；旧事件不重新加入待处理列表或触发新的通知
+- 重载不会丢失防止旧请求复活所需的关联证据
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 原始事件及可比较顺序依据
+- 重载前后终态和通知次数
+
+说明：比较依据来自已声明的适配能力；未提供可比较证据的输入不能被测试观察者强行排序。
+
+
+### TC-ATTN-016
+
+**同事件身份但载荷冲突不得静默覆盖**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)
+- 需求：[FR-14](../COVERAGE.md#fr-14)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)
+- 优先级 / 阶段 / 层次：P0 / M2 / contract
+- 类型：negative、concurrency、security
+- 设计 / 执行：`designed / not_run`
+- 规范状态：待决策（`needs_decision`）
+- 待决依据：[TBD-ATTENTION-EVENTS](../BUDGETS_AND_DECISIONS.md)
+- 环境：[ENV-UNIT](../ENVIRONMENTS.md#env-unit)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
+
+#### 前置条件
+
+- 事件 ID 作用域、版本冲突和指纹处理按 TBD-ATTENTION-EVENTS 固定；Q1/E1 已接收
+
+#### 操作步骤
+
+1. 重发 E1 但替换请求类型、目标 Run 或正文
+2. 随后交付原始 E1 并查询 Q1
+
+#### 预期与不变量
+
+- 冲突有可识别结果，不把原有请求静默改成其他目标或原因
+- 合法重复不会产生第二条请求；冲突恢复遵循固定合同，不误发输入或批准
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 原始/冲突载荷与指纹
+- 错误结果及 Q1 不变量
+
+
+### TC-ATTN-017
+
+**重连时核对快照并明确缺口和信号时效**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)、[FL-013](../COVERAGE.md#fl-013)
+- 需求：[FR-14](../COVERAGE.md#fr-14)、[FR-12](../COVERAGE.md#fr-12)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 优先级 / 阶段 / 层次：P0 / M2 / integration
+- 类型：recovery、state、concurrency
+- 设计 / 执行：`designed / not_run`
+- 规范状态：待决策（`needs_decision`）
+- 待决依据：[TBD-ATTENTION-EVENTS](../BUDGETS_AND_DECISIONS.md)、[TBD-SIGNAL-FRESHNESS](../BUDGETS_AND_DECISIONS.md)
+- 环境：[ENV-UNIT](../ENVIRONMENTS.md#env-unit)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-FAULT](../FIXTURES_AND_FAULTS.md#fx-fault)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
+
+#### 前置条件
+
+- TBD-ATTENTION-EVENTS 中的重连、顺序与新鲜度规则已固定；Q1 已落盘，连接随后中断
+
+#### 操作步骤
+
+1. 在断开期间分别模拟 Q1 仍未处理、已处理但结束事件丢失、出现 Q2 三种情况
+2. 在 F-ATTENTION-RECONCILE 暂停，先读取产品状态，再交付可信重连快照或使快照失败
+
+#### 预期与不变量
+
+- 核对完成前保留未知/待核对，不因为超时或无新输出清除 Q1
+- 成功快照只按其声明覆盖范围核对请求；失败/不完整快照显示缺口，不伪称持续完整监测
+- 恢复后新旧请求均绑定正确 Run，迟到事件不覆盖更可靠的新证据
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 断连区间、快照覆盖声明及屏障日志
+- 核对前后记录、信号时效与告警
+
+
+### TC-ATTN-018
+
+**仅事件通道断开不会把待处理事项标成已解决**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)、[FL-005](../COVERAGE.md#fl-005)、[FL-013](../COVERAGE.md#fl-013)
+- 需求：[FR-14](../COVERAGE.md#fr-14)、[FR-04](../COVERAGE.md#fr-04)、[FR-12](../COVERAGE.md#fr-12)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 优先级 / 阶段 / 层次：P0 / M2 / integration
+- 类型：recovery、negative、state
+- 设计 / 执行：`designed / not_run`
+- 规范状态：依据明确（`ready`）
+- 待决依据：—
+- 环境：[ENV-UNIT](../ENVIRONMENTS.md#env-unit)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-PROCESS](../FIXTURES_AND_FAULTS.md#fx-process)、[FX-FAULT](../FIXTURES_AND_FAULTS.md#fx-fault)
+
+#### 前置条件
+
+- A1 仍然存活且 Q1 待回答；产品已经可靠接收到 Q1
+
+#### 操作步骤
+
+1. 只断开事件通道，不退出 Agent，也不提供回答或解决事件
+2. 继续查看 A1 并尝试进入其终端
+
+#### 预期与不变量
+
+- Q1 不因断连自动变为已解决或已失效；来源当前状态不确定应可辨认
+- Agent 进程存活和事件通道失联分别呈现，进入终端不自动发送回答
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 进程存活证据和通道断开事件
+- Q1 状态与输入计数
+
+
+### TC-ATTN-019
+
+**Run 退出使交互请求失效但不吞掉异常待检查事项**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)、[FL-005](../COVERAGE.md#fl-005)、[FL-011](../COVERAGE.md#fl-011)、[FL-013](../COVERAGE.md#fl-013)
+- 需求：[FR-14](../COVERAGE.md#fr-14)、[FR-04](../COVERAGE.md#fr-04)、[FR-10](../COVERAGE.md#fr-10)、[FR-12](../COVERAGE.md#fr-12)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 优先级 / 阶段 / 层次：P0 / M2 / integration
+- 类型：recovery、state、negative
+- 设计 / 执行：`designed / not_run`
+- 规范状态：依据明确（`ready`）
+- 待决依据：—
+- 环境：[ENV-UNIT](../ENVIRONMENTS.md#env-unit)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-PROCESS](../FIXTURES_AND_FAULTS.md#fx-process)、[FX-ECHO](../FIXTURES_AND_FAULTS.md#fx-echo)
+
+#### 前置条件
+
+- A1 有待批准 Q1、待回答 Q2；终端 shell 可以在 Agent 退出后继续存活
+
+#### 操作步骤
+
+1. 令 A1 确认异常退出，并提供独立的异常检查事项 C1
+2. 查询三个事项，再点击 Q1 和 C1 的旧通知
+
+#### 预期与不变量
+
+- Q1/Q2 作为已结束运行的交互请求失效，不再提示等待批准或回答
+- C1 可保留为绑定已结束 A1 的待检查事项；shell 存活不使 Q1/Q2 恢复有效
+- Q1 点击显示失效原因，C1 可查看记录；两者均不重启 Agent 或向 shell 写入答案
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- Agent/shell 独立生命周期证据
+- Q1/Q2/C1 状态及点击后的启动/输入记录
+
+
+### TC-ATTN-020
+
+**Agent 重启后旧提醒不能指向新运行上下文**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)、[FL-005](../COVERAGE.md#fl-005)、[FL-013](../COVERAGE.md#fl-013)
+- 需求：[FR-14](../COVERAGE.md#fr-14)、[FR-04](../COVERAGE.md#fr-04)、[FR-12](../COVERAGE.md#fr-12)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 优先级 / 阶段 / 层次：P0 / M2 / integration
+- 类型：recovery、concurrency、state
+- 设计 / 执行：`designed / not_run`
+- 规范状态：依据明确（`ready`）
+- 待决依据：—
+- 环境：[ENV-UNIT](../ENVIRONMENTS.md#env-unit)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-PROCESS](../FIXTURES_AND_FAULTS.md#fx-process)、[FX-ECHO](../FIXTURES_AND_FAULTS.md#fx-echo)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
+
+#### 前置条件
+
+- A/A1 的审批 Q1 已产生通知；保存该通知激活参数；重启流程按既有合同可生成 A2
+
+#### 操作步骤
+
+1. 退出 A1 并启动 A2；让 A2 产生独立 Q2
+2. 点击 Q1 的旧通知，并延迟交付 A1 的等待/解决事件
+
+#### 预期与不变量
+
+- 旧通知保留 A1 来源并显示其已失效或历史；不把它解释成 A2 的审批
+- A1 事件不修改 Q2；无任何批准/回答/普通输入写入 A2
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- Run 更替、通知参数与迟到事件
+- Q2 状态及 A2 输入字节日志
+
+
+### TC-ATTN-021
+
+**重命名排序和关闭视图后提醒仍定位原会话**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)、[FL-004](../COVERAGE.md#fl-004)、[FL-005](../COVERAGE.md#fl-005)
+- 需求：[FR-14](../COVERAGE.md#fr-14)、[FR-03](../COVERAGE.md#fr-03)、[FR-04](../COVERAGE.md#fr-04)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 优先级 / 阶段 / 层次：P0 / M2 / integration
+- 类型：functional、state
+- 设计 / 执行：`designed / not_run`
+- 规范状态：依据明确（`ready`）
+- 待决依据：—
+- 环境：[ENV-UNIT](../ENVIRONMENTS.md#env-unit)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
+
+#### 前置条件
+
+- A/A1、B/B1 使用合法的相似名称；A1 已有 Q1，已取得其应用内入口与通知参数
+
+#### 操作步骤
+
+1. 重命名 A、交换列表顺序、关闭并重新打开 A 的视图
+2. 从应用待处理入口与 FX-NOTIFY 激活 Q1，记录实际定位对象
+
+#### 预期与不变量
+
+- 两条入口均按稳定身份定位 A/A1，不按名称、Tab 序号或当前选中会话寻址
+- 关闭视图不结束 Q1，也不改变 B 的输入或请求状态
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 操作前后的身份映射与视图顺序
+- 激活路由和各会话输入日志
+
+
+### TC-ATTN-022
+
+**底层 pane 或 PID 标识复用不接管旧提醒**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)、[FL-005](../COVERAGE.md#fl-005)、[FL-013](../COVERAGE.md#fl-013)
+- 需求：[FR-14](../COVERAGE.md#fr-14)、[FR-04](../COVERAGE.md#fr-04)、[FR-12](../COVERAGE.md#fr-12)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 优先级 / 阶段 / 层次：P0 / M2 / integration
+- 类型：negative、recovery、security
+- 设计 / 执行：`designed / not_run`
+- 规范状态：依据明确（`ready`）
+- 待决依据：—
+- 环境：[ENV-UNIT](../ENVIRONMENTS.md#env-unit)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-PROCESS](../FIXTURES_AND_FAULTS.md#fx-process)、[FX-ECHO](../FIXTURES_AND_FAULTS.md#fx-echo)
+
+#### 前置条件
+
+- A1 的 Q1 已落盘；测试后端可把 A1 结束后的 pane/PID 数值分配给另一个 B1
+
+#### 操作步骤
+
+1. 结束 A1，令 B1 使用重复的底层编号
+2. 点击 Q1 通知并再次交付旧 A1 事件
+
+#### 预期与不变量
+
+- Session/Run 与生成信息校验阻止把旧事件或点击解释为 B1 操作
+- Q1 显示原运行历史/失效；B1 的输入计数和待处理记录不改变
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 底层编号复用和真实生成标记
+- 激活结果与 B1 输入计数
+
+
+### TC-ATTN-023
+
+**点击提醒仅导航查看且在激活时重新核对对象**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)、[FL-005](../COVERAGE.md#fl-005)、[FL-012](../COVERAGE.md#fl-012)、[FL-013](../COVERAGE.md#fl-013)
+- 需求：[FR-14](../COVERAGE.md#fr-14)、[FR-04](../COVERAGE.md#fr-04)、[FR-11](../COVERAGE.md#fr-11)、[FR-12](../COVERAGE.md#fr-12)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 优先级 / 阶段 / 层次：P0 / M2 / integration
+- 类型：concurrency、negative、state
+- 设计 / 执行：`designed / not_run`
+- 规范状态：依据明确（`ready`）
+- 待决依据：—
+- 环境：[ENV-UNIT](../ENVIRONMENTS.md#env-unit)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-FAULT](../FIXTURES_AND_FAULTS.md#fx-fault)、[FX-ECHO](../FIXTURES_AND_FAULTS.md#fx-echo)、[FX-PROCESS](../FIXTURES_AND_FAULTS.md#fx-process)
+
+#### 前置条件
+
+- Q1 来自 A1；记录 A/B 的输入字节和全部 Run；通知出口具备可控激活回调
+
+#### 操作步骤
+
+1. 点击有效 Q1，记录导航与输入
+2. 在 F-ATTENTION-ACTIVATE 暂停另一次点击，令 Q1 解决或 A1 退出后继续
+3. 再投递重复点击
+
+#### 预期与不变量
+
+- 有效点击可以定位/查看 Q1，但不会自动批准、提交回车或生成答案
+- 激活时目标已变化则展示当前事实，不使用旧参数向其他上下文发送输入
+- 重复点击不创建新 Run，也不把事项标为 Agent 已接收或任务完成
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 激活屏障前后对象状态与回调参数
+- 输入字节和 Run 数量对照
+
+
+### TC-ATTN-024
+
+**已查看和关闭系统横幅不解决审批或提问**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)
+- 需求：[FR-14](../COVERAGE.md#fr-14)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)
+- 优先级 / 阶段 / 层次：P0 / M2 / integration
+- 类型：functional、state、usability
+- 设计 / 执行：`designed / not_run`
+- 规范状态：依据明确（`ready`）
+- 待决依据：—
+- 环境：[ENV-UNIT](../ENVIRONMENTS.md#env-unit)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-ECHO](../FIXTURES_AND_FAULTS.md#fx-echo)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
+
+#### 前置条件
+
+- A1 的 Q1 待批准，B1 的 Q2 待回答；两者尚无处理结果
+- 产品相应提醒出口已显式启用，夹具记录每次真实出口调用；先用独立请求验证该轮通知路径可达并结束基线事项；以下次数只统计待测请求，再进行故障或边界操作
+
+#### 操作步骤
+
+1. 依次进入会话、打开事项详情、点击通知、关闭横幅
+2. 每一步返回待处理列表，并查看 Agent 侧 oracle
+
+#### 预期与不变量
+
+- 这些查看/关闭动作最多改变已查看或通知展示状态，Q1/Q2 仍待处理
+- Agent 侧未收到任何批准或回答；汇总不因横幅消失而减去未结束事项
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 四种查看/关闭动作与两类事项状态
+- 已读字段、待处理列表和 Agent 输入证据
+
+
+### TC-ATTN-025
+
+**解决事项必须关联具体请求及可接受证据**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)、[FL-008](../COVERAGE.md#fl-008)、[FL-014](../COVERAGE.md#fl-014)
+- 需求：[FR-14](../COVERAGE.md#fr-14)、[FR-07](../COVERAGE.md#fr-07)、[FR-13](../COVERAGE.md#fr-13)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 优先级 / 阶段 / 层次：P0 / M2 / integration
+- 类型：negative、state
+- 设计 / 执行：`designed / not_run`
+- 规范状态：依据明确（`ready`）
+- 待决依据：—
+- 环境：[ENV-UNIT](../ENVIRONMENTS.md#env-unit)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
+
+#### 前置条件
+
+- A1 有 Q1、Q2，B1 有 Q3；Q1 待回答且尚未解决
+
+#### 操作步骤
+
+1. 向产品交付普通进度、单纯 ready、其他请求的完成和错误 Run 的解决事件
+2. 最后交付 A1/Q1 有效的已处理或撤销事件
+
+#### 预期与不变量
+
+- 无关联证据不会解决 Q1；其他事项的状态只由自己的事件改变
+- 有效 Q1 结果才结束对应事项，并保留已处理/已撤销的实际区别
+- 解除待处理不等于整项开发任务成功或用户验收通过
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 各类候选证据与请求/Run 关联
+- Q1/Q2/Q3 独立状态轨迹
+
+
+### TC-ATTN-026
+
+**稍后提醒的到期取消与重复操作边界**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)、[FL-015](../COVERAGE.md#fl-015)
+- 需求：[FR-14](../COVERAGE.md#fr-14)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)
+- 优先级 / 阶段 / 层次：P1 / M2 / integration
+- 类型：boundary、concurrency、state
+- 设计 / 执行：`designed / not_run`
+- 规范状态：待决策（`needs_decision`）
+- 待决依据：[TBD-ATTENTION-POLICY](../BUDGETS_AND_DECISIONS.md)
+- 环境：[ENV-UNIT](../ENVIRONMENTS.md#env-unit)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-CLOCK](../FIXTURES_AND_FAULTS.md#fx-clock)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
+
+#### 前置条件
+
+- TBD-ATTENTION-POLICY 已固定稍后时长、等号规则、重复操作和重启恢复；Q1 未处理
+- 产品相应提醒出口已显式启用，夹具记录每次真实出口调用；先用独立请求验证该轮通知路径可达并结束基线事项；以下次数只统计待测请求，再进行故障或边界操作
+
+#### 操作步骤
+
+1. 对 Q1 选择稍后提醒，在到期前、到期点、到期后观察通知
+2. 重复选择稍后，再分别在到期前解决 Q1 和保持未解决
+3. 使用 FX-CLOCK 控制边界，不修改共享宿主时间
+
+#### 预期与不变量
+
+- 稍后操作不结束 Q1；期间仍能从待处理列表找到它
+- 重提醒按已定策略发生；已解决事项不因旧计时器再次通知
+- 重复稍后不会产生无界计时器或独立复制事项
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 固定时间规则、虚拟时钟与通知调用时间
+- 请求终态和计时器/任务数量
+
+
+### TC-ATTN-027
+
+**隐藏和静音的范围不会被解释为 Agent 已处理**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)
+- 需求：[FR-14](../COVERAGE.md#fr-14)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)
+- 优先级 / 阶段 / 层次：P1 / M2 / integration
+- 类型：functional、state、usability
+- 设计 / 执行：`designed / not_run`
+- 规范状态：待决策（`needs_decision`）
+- 待决依据：[TBD-ATTENTION-POLICY](../BUDGETS_AND_DECISIONS.md)
+- 环境：[ENV-UNIT](../ENVIRONMENTS.md#env-unit)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
+
+#### 前置条件
+
+- TBD-ATTENTION-POLICY 已确定事项隐藏、会话静音及恢复入口；A1 有审批 Q1 和检查 C1
+- 产品相应提醒出口已显式启用，夹具记录每次真实出口调用；先用独立请求验证该轮通知路径可达并结束基线事项；以下次数只统计待测请求，再进行故障或边界操作
+
+#### 操作步骤
+
+1. 依合同隐藏或静音 Q1，再对 C1 显式标记已检查
+2. 恢复显示或取消静音，查询原始记录与新请求 Q2 的提醒行为
+
+#### 预期与不变量
+
+- 隐藏/静音只按声明范围改变发现或提醒行为，不伪造批准、回答或任务完成
+- 检查事项可按明确人工操作结束并保留来源；同一动作不顺带结束 Q1
+- 恢复入口可找到仍有效的事项，新请求是否提醒遵循明示策略
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 各操作范围、持久化偏好与事项来源
+- 隐藏前后待办和通知调用记录
+
+
+### TC-ATTN-028
+
+**时钟回拨和睡眠唤醒不会复活旧事项或集中刷屏**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)
+- 需求：[FR-14](../COVERAGE.md#fr-14)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)
+- 优先级 / 阶段 / 层次：P1 / M3 / windows_e2e
+- 类型：recovery、boundary、stability
+- 设计 / 执行：`designed / not_run`
+- 规范状态：待决策（`needs_decision`）
+- 待决依据：[TBD-ATTENTION-POLICY](../BUDGETS_AND_DECISIONS.md)、[TBD-ATTENTION-EVENTS](../BUDGETS_AND_DECISIONS.md)
+- 环境：[ENV-WIN-BASE](../ENVIRONMENTS.md#env-win-base)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-CLOCK](../FIXTURES_AND_FAULTS.md#fx-clock)、[FX-FAULT](../FIXTURES_AND_FAULTS.md#fx-fault)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
+
+#### 前置条件
+
+- 稍后/节流和睡眠恢复规则已固定；有未处理 Q1、已解决 Q2 和稍后 Q3
+- 产品相应提醒出口已显式启用，夹具记录每次真实出口调用；先用独立请求验证该轮通知路径可达并结束基线事项；以下次数只统计待测请求，再进行故障或边界操作
+
+#### 操作步骤
+
+1. 先在 FX-CLOCK 中模拟壁钟前跳/回拨，保持单调计时独立
+2. 在可回滚 Windows VM 中另执行睡眠/唤醒，核对监测中断区间
+3. 恢复事件源并查询三个事项和通知
+
+#### 预期与不变量
+
+- 时间变化不改变请求身份，不把 Q2 重新设为待处理
+- 恢复后的重提醒符合已定合并/节流策略；不把睡眠期说成持续实时监测
+- Q1/Q3 的期限与状态可解释，失联未知与确认已解决分开
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 虚拟时间轨迹与真实 VM 睡眠/唤醒记录分别保存
+- 待办状态、通知时间与监测可用区间
+
+
+### TC-ATTN-029
+
+**简约标记和按需待处理列表在支持尺寸下可辨认**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)、[FL-003](../COVERAGE.md#fl-003)、[FL-004](../COVERAGE.md#fl-004)、[FL-016](../COVERAGE.md#fl-016)
+- 需求：[FR-14](../COVERAGE.md#fr-14)、[FR-03](../COVERAGE.md#fr-03)、[FR-11](../COVERAGE.md#fr-11)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)
+- 优先级 / 阶段 / 层次：P1 / M2 / manual
+- 类型：usability、compatibility、functional
+- 设计 / 执行：`designed / not_run`
+- 规范状态：依据明确（`ready`）
+- 待决依据：—
+- 环境：[ENV-WIN-BASE](../ENVIRONMENTS.md#env-win-base)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-VT](../FIXTURES_AND_FAULTS.md#fx-vt)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
+
+#### 前置条件
+
+- 使用已声明支持的窗口尺寸、字体和主题；会话名含中文、组合字符和相似前缀
+
+#### 操作步骤
+
+1. 让三个会话分别出现审批、提问和检查事项
+2. 在默认管理界面查看会话标记与汇总，按需打开待处理列表
+3. 切换到无颜色辨别条件，调整支持范围内的窗口尺寸
+
+#### 预期与不变量
+
+- 默认保持会话列表/当前预览/必要提示，待处理详情按需打开，不额外常驻多个状态面板
+- 原因有文字或符号辅助，不能只靠颜色；截断名称仍能进入正确事项并查看完整身份
+- 汇总标明计数单位，数量与详情一致，必要操作在支持尺寸内可达
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 实际 Windows 截图/录屏、窗口尺寸和主题字体
+- 各项导航结果与显示计数
+
+
+### TC-ATTN-030
+
+**多会话同时请求时按策略合并通知但保留独立事项**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)、[FL-004](../COVERAGE.md#fl-004)、[FL-015](../COVERAGE.md#fl-015)
+- 需求：[FR-14](../COVERAGE.md#fr-14)、[FR-03](../COVERAGE.md#fr-03)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 优先级 / 阶段 / 层次：P1 / M2 / integration
+- 类型：concurrency、boundary、usability
+- 设计 / 执行：`designed / not_run`
+- 规范状态：待决策（`needs_decision`）
+- 待决依据：[TBD-ATTENTION-POLICY](../BUDGETS_AND_DECISIONS.md)
+- 环境：[ENV-UNIT](../ENVIRONMENTS.md#env-unit)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-CLOCK](../FIXTURES_AND_FAULTS.md#fx-clock)、[FX-LOAD](../FIXTURES_AND_FAULTS.md#fx-load)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
+
+#### 前置条件
+
+- 合并窗口、节流额度、计数单位与排序按 TBD-ATTENTION-POLICY 固定；10 个会话可同时请求
+- 产品相应提醒出口已显式启用，夹具记录每次真实出口调用；先用独立请求验证该轮通知路径可达并结束基线事项；以下次数只统计待测请求，再进行故障或边界操作
+
+#### 操作步骤
+
+1. 用屏障同时释放 10 个不同请求，并重复其中两个事件
+2. 打开汇总，处理其中一条后再次查看；再在合并窗口边界补发请求
+
+#### 预期与不变量
+
+- 通知调用数遵循合并/节流合同，重复事件不额外新增事项
+- 每个独立请求仍可追踪和处理，汇总横幅不代替持久待处理记录
+- 列表刷新不会在用户确认某个目标的瞬间偷换该目标
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 屏障与事件时间线、独立请求清单
+- 通知账本、合并窗口和目标选择记录
+
+
+### TC-ATTN-031
+
+**会话 B 请求介入时不打断 A 的键盘和中文输入**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)、[FL-002](../COVERAGE.md#fl-002)、[FL-012](../COVERAGE.md#fl-012)、[FL-016](../COVERAGE.md#fl-016)
+- 需求：[FR-14](../COVERAGE.md#fr-14)、[FR-02](../COVERAGE.md#fr-02)、[FR-11](../COVERAGE.md#fr-11)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 优先级 / 阶段 / 层次：P0 / M2 / windows_e2e
+- 类型：concurrency、compatibility、usability
+- 设计 / 执行：`designed / not_run`
+- 规范状态：依据明确（`ready`）
+- 待决依据：—
+- 环境：[ENV-WIN-BASE](../ENVIRONMENTS.md#env-win-base)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-ECHO](../FIXTURES_AND_FAULTS.md#fx-echo)、[FX-VT](../FIXTURES_AND_FAULTS.md#fx-vt)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
+
+#### 前置条件
+
+- Windows 中 A 正在管理表单或全屏 attach 输入；准备唯一 ASCII、中文 IME 预编辑和多行草稿样本；B1 有可信事件源
+- 提醒已显式启用并使用 FX-NOTIFY 记录出口调用；真实系统横幅路径另由 TC-ATTN-036 验证
+
+#### 操作步骤
+
+1. 每个变体隔离复位，在 A 的预编辑、确认字符、普通输入与提交前分别让 B1 发出独立的新请求 Q1/Q2/Q3/Q4，并核对出口确实被调用
+2. 查看提醒到达后 A 的焦点、草稿和实际输入字节，再手动返回管理器
+
+#### 预期与不变量
+
+- 提醒不抢焦点、不自动切换会话、不插入正文、不触发提交或输入法确认
+- A 原输入保持所属对象和内容；B 的事项可在待处理入口发现，B 无自动输入
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 真实 IME/焦点录屏与 A 输入字节
+- 草稿前后快照、B 事项及输入计数
+
+
+### TC-ATTN-032
+
+**全屏 attach 隐藏管理界面后仍可接收其他会话事件**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)、[FL-002](../COVERAGE.md#fl-002)、[FL-012](../COVERAGE.md#fl-012)
+- 需求：[FR-14](../COVERAGE.md#fr-14)、[FR-02](../COVERAGE.md#fr-02)、[FR-11](../COVERAGE.md#fr-11)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)
+- 优先级 / 阶段 / 层次：P0 / M2 / windows_e2e
+- 类型：functional、concurrency、compatibility
+- 设计 / 执行：`designed / not_run`
+- 规范状态：依据明确（`ready`）
+- 待决依据：—
+- 环境：[ENV-WIN-BASE](../ENVIRONMENTS.md#env-win-base)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-ECHO](../FIXTURES_AND_FAULTS.md#fx-echo)、[FX-VT](../FIXTURES_AND_FAULTS.md#fx-vt)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
+
+#### 前置条件
+
+- 管理器进程保持运行且配置提醒；FX-NOTIFY 仅记录通知出口调用，不冒充真实 Windows 横幅；A attach、B 支持事件
+
+#### 操作步骤
+
+1. 进入 A 全屏操作，令 B1 发出待回答 Q1并由独立夹具确认事件已送达
+2. 保持 attach 一段观察窗口，再主动分离回管理器
+
+#### 预期与不变量
+
+- 事件接收不依赖 TUI 重绘，attach 期间 Q1 已进入待处理记录并产生合适出口调用
+- A 终端字节流不被提醒文字污染，管理器不夺回终端或自动分离
+- 返回后能发现 Q1；本用例的假出口结果不被声称为系统通知已显示
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- attach 时间区间、独立事件接收/存储时间
+- A 原始输出与通知出口账本、返回截图
+
+
+### TC-ATTN-033
+
+**待处理导航快捷键与 Agent 自身按键保持边界**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)、[FL-004](../COVERAGE.md#fl-004)、[FL-012](../COVERAGE.md#fl-012)、[FL-016](../COVERAGE.md#fl-016)
+- 需求：[FR-14](../COVERAGE.md#fr-14)、[FR-03](../COVERAGE.md#fr-03)、[FR-11](../COVERAGE.md#fr-11)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 优先级 / 阶段 / 层次：P0 / M2 / windows_e2e
+- 类型：usability、compatibility、concurrency
+- 设计 / 执行：`designed / not_run`
+- 规范状态：待决策（`needs_decision`）
+- 待决依据：[O-009](../../DECISIONS.md)
+- 环境：[ENV-WIN-BASE](../ENVIRONMENTS.md#env-win-base)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-ECHO](../FIXTURES_AND_FAULTS.md#fx-echo)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
+
+#### 前置条件
+
+- O-009 已固定管理模式、全屏 attach 的按键和返回流程；待处理有 A/Q1、B/Q2
+
+#### 操作步骤
+
+1. 在管理器执行下一待处理事项操作，并在选择后让列表发生更新
+2. 在 Agent 全屏模式输入相同或冲突按键，执行已声明的返回/跳转流程
+3. 处理或结束全部待处理事项，返回管理器后再次执行下一待处理事项操作
+
+#### 预期与不变量
+
+- 管理动作只在声明的作用域生效，跳转目标与用户确认对象一致
+- Agent 的普通按键不被管理器无声吞掉，管理导航不发送批准/回答
+- 无可处理事项时给出明确空状态，不打开错误会话
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 固定键位与模式合同、按键输入日志
+- 列表变动和实际跳转目标录屏
+
+
+### TC-ATTN-034
+
+**审批提醒存在时普通队列指令不得进入审批菜单**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)、[FL-008](../COVERAGE.md#fl-008)、[FL-009](../COVERAGE.md#fl-009)、[FL-012](../COVERAGE.md#fl-012)
+- 需求：[FR-14](../COVERAGE.md#fr-14)、[FR-07](../COVERAGE.md#fr-07)、[FR-08](../COVERAGE.md#fr-08)、[FR-11](../COVERAGE.md#fr-11)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 优先级 / 阶段 / 层次：P0 / M3 / integration
+- 类型：concurrency、negative、state
+- 设计 / 执行：`designed / not_run`
+- 规范状态：依据明确（`ready`）
+- 待决依据：—
+- 环境：[ENV-UNIT](../ENVIRONMENTS.md#env-unit)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-READY](../FIXTURES_AND_FAULTS.md#fx-ready)、[FX-ECHO](../FIXTURES_AND_FAULTS.md#fx-echo)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
+
+#### 前置条件
+
+- A1 的 Q1 为有效审批请求，目标另有普通任务消息 M1 排队；共享消费者已运行
+
+#### 操作步骤
+
+1. 交付审批事件和重复通知，尝试后台消费 M1
+2. 用户仅查看通知和 Q1，不进行批准；随后才交付真实处理证据和可靠 ready
+
+#### 预期与不变量
+
+- 审批期间 M1 保持待投递，普通正文和 Enter 均不进入审批输入
+- 点击/已读不会制造 ready 或解除投递限制；只有满足既有输入占用与可靠就绪条件才可继续
+- Q1 提醒状态和 M1 投递阶段分别记录
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- M1 队列轨迹和 Q1 状态
+- 逐字节输入/提交计数与 ready/占用证据
+
+
+### TC-ATTN-035
+
+**桌面声音和完成信息默认关闭且开关独立**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)
+- 需求：[FR-14](../COVERAGE.md#fr-14)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)
+- 优先级 / 阶段 / 层次：P1 / M2 / integration
+- 类型：functional、state、usability
+- 设计 / 执行：`designed / not_run`
+- 规范状态：依据明确（`ready`）
+- 待决依据：—
+- 环境：[ENV-UNIT](../ENVIRONMENTS.md#env-unit)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
+
+#### 前置条件
+
+- 使用产品新建的合法默认配置；通知出口及声音出口均可计数
+
+#### 操作步骤
+
+1. 分别产生可靠审批、提问、检查和完成事件
+2. 单独开启桌面提醒，再单独开启声音和完成信息提醒，按已定配置加载方式重做
+
+#### 预期与不变量
+
+- 默认保留应用内必要事项，桌面/声音/完成信息不会自行启用
+- 用户只开启桌面提醒不隐式开启声音或完成信息；关闭外部提醒不删除待处理记录
+- 设置变化作用范围可辨认，不修改用户其他应用或全局终端配置
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 默认配置和各开关组合
+- 应用待办、通知/声音调用计数
+
+
+### TC-ATTN-036
+
+**Windows 本地通知实际显示并能激活正确事项**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)、[FL-005](../COVERAGE.md#fl-005)、[FL-016](../COVERAGE.md#fl-016)、[FL-017](../COVERAGE.md#fl-017)
+- 需求：[FR-14](../COVERAGE.md#fr-14)、[FR-04](../COVERAGE.md#fr-04)、[FR-11](../COVERAGE.md#fr-11)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)
+- 优先级 / 阶段 / 层次：P0 / M2 / windows_e2e
+- 类型：compatibility、functional、usability
+- 设计 / 执行：`designed / not_run`
+- 规范状态：待决策（`needs_decision`）
+- 待决依据：[TBD-WINDOWS-NOTIFY](../BUDGETS_AND_DECISIONS.md)
+- 环境：[ENV-WIN-BASE](../ENVIRONMENTS.md#env-win-base)、[ENV-WIN-COMPAT](../ENVIRONMENTS.md#env-win-compat)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-ECHO](../FIXTURES_AND_FAULTS.md#fx-echo)、[FX-RELEASE](../FIXTURES_AND_FAULTS.md#fx-release)
+
+#### 前置条件
+
+- TBD-WINDOWS-NOTIFY 已选择并实现 Go 接入/注册/激活合同；干净受支持 Windows 环境允许该应用通知，产品桌面通知也已显式开启
+
+#### 操作步骤
+
+1. 分别在管理器可见、另一个应用前台和 A 全屏 attach 时由 B1 请求审批；各变体用独立请求，并包括 A 正在中文 IME 预编辑的组合
+2. 观察真实系统横幅/通知中心，再点击有效通知并核对 Session/Run/事项
+3. 在通知点击冷启动路径存在时按合同另测该路径
+
+#### 预期与不变量
+
+- 真实 Windows 通知行为符合声明支持范围，内容和激活参数定位 B1 的具体事项
+- 通知到达不自动夺走当前输入，点击按产品导航合同执行且不自动批准
+- API 返回成功、系统实际展示和用户点击三个观察结果分开记录
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- Windows build/通知设置/包及注册信息
+- 真实通知录屏、激活回调及目标映射
+- Agent 输入计数与进程树
+
+说明：FX-NOTIFY 的模拟发送成功不能替代此项真实 Windows 验证；未支持的提权/系统组合按发布范围明确记录。
+
+
+### TC-ATTN-037
+
+**通知被禁用或免打扰时待处理记录仍可查**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)、[FL-016](../COVERAGE.md#fl-016)
+- 需求：[FR-14](../COVERAGE.md#fr-14)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)
+- 优先级 / 阶段 / 层次：P1 / M2 / windows_e2e
+- 类型：compatibility、negative、recovery
+- 设计 / 执行：`designed / not_run`
+- 规范状态：待决策（`needs_decision`）
+- 待决依据：[TBD-WINDOWS-NOTIFY](../BUDGETS_AND_DECISIONS.md)、[TBD-ATTENTION-POLICY](../BUDGETS_AND_DECISIONS.md)
+- 环境：[ENV-WIN-COMPAT](../ENVIRONMENTS.md#env-win-compat)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-RELEASE](../FIXTURES_AND_FAULTS.md#fx-release)
+
+#### 前置条件
+
+- 隔离 Windows 测试账户；已明确所选通知 API 对关闭通知/免打扰的可观测能力
+- 产品桌面通知已显式开启；先在系统允许通知时产生独立请求并取得实际发送/展示基线，各禁用变体另用新请求
+
+#### 操作步骤
+
+1. 分别关闭应用通知、启用免打扰并让窗口在后台或最小化，再交付 Q1
+2. 返回应用查看待处理列表，随后恢复系统设置并按合同检查后续提醒
+
+#### 预期与不变量
+
+- Q1 在应用内持久可查，不因无横幅或声音而丢失
+- 产品不把系统 API 接受视为用户已看到；若 API 不提供展示/免打扰或前台状态证据，相关结果保持未知，不伪造已送达屏幕
+- 恢复后的补提醒遵循固定策略；不修改用户系统设置来强制弹出
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 各轮系统通知配置与实际画面
+- Q1 存储记录、API 返回/诊断及恢复事件
+
+
+### TC-ATTN-038
+
+**通知出口报错不回滚已持久化的待处理事项**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)
+- 需求：[FR-14](../COVERAGE.md#fr-14)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)
+- 优先级 / 阶段 / 层次：P0 / M2 / integration
+- 类型：negative、recovery、state
+- 设计 / 执行：`designed / not_run`
+- 规范状态：依据明确（`ready`）
+- 待决依据：—
+- 环境：[ENV-UNIT](../ENVIRONMENTS.md#env-unit)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-ECHO](../FIXTURES_AND_FAULTS.md#fx-echo)、[FX-FAULT](../FIXTURES_AND_FAULTS.md#fx-fault)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
+
+#### 前置条件
+
+- 产品桌面通知已显式开启；Q1 可靠接收并已持久化，在首次通知调用前暂停；FX-NOTIFY 可模拟平台不可用、拒绝和发送异常
+
+#### 操作步骤
+
+1. 每种故障隔离复位并使用新请求；在首次出口调用前布置对应错误，解除暂停让发送实际执行，再查询该事项和其他会话
+2. 恢复通知出口，按当前明确策略继续后续操作
+
+#### 预期与不变量
+
+- Q1 仍待处理且可从应用入口查看，不因外部提醒失败被删除或标已解决
+- 故障可诊断但不污染 Agent 终端，不阻塞其他会话基本导航和输入
+- 外部发送状态和业务待办状态分别记录
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 每种故障返回和 Q1 持久记录
+- 导航/输入记录及诊断输出
+
+
+### TC-ATTN-039
+
+**通知 API 接受不等于用户已读或已处理**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)、[FL-008](../COVERAGE.md#fl-008)
+- 需求：[FR-14](../COVERAGE.md#fr-14)、[FR-07](../COVERAGE.md#fr-07)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 优先级 / 阶段 / 层次：P0 / M2 / integration
+- 类型：state、negative
+- 设计 / 执行：`designed / not_run`
+- 规范状态：依据明确（`ready`）
+- 待决依据：—
+- 环境：[ENV-UNIT](../ENVIRONMENTS.md#env-unit)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
+
+#### 前置条件
+
+- FX-NOTIFY 发送调用返回已接受，但不产生展示或点击事件；Q1 尚未处理
+
+#### 操作步骤
+
+1. 发送 Q1 提醒后查询通知和事项状态
+2. 仅交付可验证的点击事件，再次查询；最后交付真实请求处理证据
+
+#### 预期与不变量
+
+- API 接受最多证明出口接受调用，不能据此标记人已看到或 Q1 已解决
+- 点击最多改变查看状态；只有有效处理证据结束 Q1
+- 通知通道状态不升级 Agent 的消息接收/完成回执
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 发送/点击/处理三段事件时间线
+- 通知、事项与消息各自状态
+
+
+### TC-ATTN-040
+
+**通知出口缓慢或挂起时处理有界且输入继续**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)、[FL-012](../COVERAGE.md#fl-012)、[FL-015](../COVERAGE.md#fl-015)
+- 需求：[FR-14](../COVERAGE.md#fr-14)、[FR-11](../COVERAGE.md#fr-11)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)
+- 优先级 / 阶段 / 层次：P0 / M2 / integration
+- 类型：stability、concurrency、recovery
+- 设计 / 执行：`designed / not_run`
+- 规范状态：待决策（`needs_decision`）
+- 待决依据：[TBD-WINDOWS-NOTIFY](../BUDGETS_AND_DECISIONS.md)、[TBD-ATTENTION-POLICY](../BUDGETS_AND_DECISIONS.md)
+- 环境：[ENV-UNIT](../ENVIRONMENTS.md#env-unit)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-FAULT](../FIXTURES_AND_FAULTS.md#fx-fault)、[FX-CLOCK](../FIXTURES_AND_FAULTS.md#fx-clock)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
+
+#### 前置条件
+
+- 通知超时、取消、重试/节流合同已固定；FX-NOTIFY 可阻塞发送或激活回调
+- 产品相应提醒出口已显式启用，夹具记录每次真实出口调用；先用独立请求验证该轮通知路径可达并结束基线事项；以下次数只统计待测请求，再进行故障或边界操作
+
+#### 操作步骤
+
+1. 阻塞 Q1 的通知调用，并继续产生有限批次独立事项及用户导航/输入
+2. 跨过已定超时点后解除阻塞，观察迟到返回和重试
+
+#### 预期与不变量
+
+- 慢通知不会无限阻塞核心状态接收或交互；待处理记录仍可查询
+- 重试、等待任务与通知缓存有界，迟到成功不清除事项或制造重复业务请求
+- 返回与重试按固定合同记录，不能凭超时断言系统从未展示
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 阻塞/解除时间、任务/句柄数量和重试账本
+- 事件持久化与交互观察记录
+
+
+### TC-ATTN-041
+
+**管理器退出且无消费者时不承诺持续监测**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)、[FL-006](../COVERAGE.md#fl-006)、[FL-007](../COVERAGE.md#fl-007)、[FL-015](../COVERAGE.md#fl-015)
+- 需求：[FR-14](../COVERAGE.md#fr-14)、[FR-05](../COVERAGE.md#fr-05)、[FR-06](../COVERAGE.md#fr-06)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)
+- 优先级 / 阶段 / 层次：P0 / M2 / windows_e2e
+- 类型：state、recovery、negative
+- 设计 / 执行：`designed / not_run`
+- 规范状态：依据明确（`ready`）
+- 待决依据：—
+- 环境：[ENV-WIN-BASE](../ENVIRONMENTS.md#env-win-base)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-PROCESS](../FIXTURES_AND_FAULTS.md#fx-process)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
+
+#### 前置条件
+
+- 采用 M2 默认形态；无共享提醒 Host 或主动 hook 路径；A1 由 psmux 托管，已有 Q1 持久记录
+
+#### 操作步骤
+
+1. 退出 TUI 并核对产品进程树，A1 继续运行
+2. 在退出期间让 fixture 私有 oracle 产生 Q2 但不通过任何存活产品入口交付
+3. 重开管理器，查看监测状态、原记录和可读取的当前证据
+
+#### 预期与不变量
+
+- 退出前后能辨认无持续提醒消费者；产品不声称退出期间可靠发现/发送了 Q2
+- 已持久化 Q1 仍可查；重开只能依据当时可获得的证据核对，不能把 oracle 私有信息当成产品历史
+- 不会为了假装持续监测而隐式增加每会话常驻服务或终止 A1
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 退出/重开进程树与监测可用区间
+- Q1 持久记录、Q2 独立 oracle 和产品可见证据分别保存
+
+
+### TC-ATTN-042
+
+**UI 退出后共享 Host 接收提醒而非依赖 TUI 重绘**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)、[FL-006](../COVERAGE.md#fl-006)、[FL-009](../COVERAGE.md#fl-009)、[FL-015](../COVERAGE.md#fl-015)
+- 需求：[FR-14](../COVERAGE.md#fr-14)、[FR-05](../COVERAGE.md#fr-05)、[FR-08](../COVERAGE.md#fr-08)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)
+- 优先级 / 阶段 / 层次：P0 / M3 / windows_e2e
+- 类型：functional、recovery、state
+- 设计 / 执行：`designed / not_run`
+- 规范状态：依据明确（`ready`）
+- 待决依据：—
+- 环境：[ENV-WIN-BASE](../ENVIRONMENTS.md#env-win-base)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-PROCESS](../FIXTURES_AND_FAULTS.md#fx-process)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
+
+#### 前置条件
+
+- M3 共享 Host 已启用且可核对作用域/进程；后台持续提醒与产品桌面通知均已显式开启；A1 可靠事件源和 FX-NOTIFY 出口仍可连接
+
+#### 操作步骤
+
+1. 退出全部 TUI，保持 Host、psmux、A1 运行
+2. A1 发出 Q1，核对 Host 接收、持久化及 FX-NOTIFY 出口调用
+3. 重开 TUI 查看并处理 Q1
+
+#### 预期与不变量
+
+- Q1 在 UI 关闭期间被实际接收和记录，通知调用不依赖 TUI 重绘
+- 重开看到同一事项与来源，查看不等于解决
+- 同一作用域复用共享 Host；不为每个 Session 新建提醒宿主或另一套终端托管
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 完整进程树、UI退出区间与Host事件日志
+- Q1 持久记录和通知调用时间
+
+说明：本项使用可观察通知出口验证后台消费；真正 Windows 横幅和点击路径仍需 TC-ATTN-036。
+
+
+### TC-ATTN-043
+
+**已声明的主动 hook 路径可选且能力范围可核对**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)、[FL-001](../COVERAGE.md#fl-001)、[FL-010](../COVERAGE.md#fl-010)、[FL-015](../COVERAGE.md#fl-015)
+- 需求：[FR-14](../COVERAGE.md#fr-14)、[FR-01](../COVERAGE.md#fr-01)、[FR-09](../COVERAGE.md#fr-09)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 优先级 / 阶段 / 层次：P1 / M3 / contract
+- 类型：compatibility、negative、functional
+- 设计 / 执行：`designed / not_run`
+- 规范状态：待决策（`needs_decision`）
+- 待决依据：[TBD-ATTENTION-EVENTS](../BUDGETS_AND_DECISIONS.md)、[TBD-WINDOWS-NOTIFY](../BUDGETS_AND_DECISIONS.md)
+- 环境：[ENV-WIN-BASE](../ENVIRONMENTS.md#env-win-base)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-PROCESS](../FIXTURES_AND_FAULTS.md#fx-process)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
+
+#### 前置条件
+
+- 产品仅在明确声明支持的接入上启用 UI 退出后的主动 hook 路径；其事件/通知合同已固定
+- 只执行该版本已经声明支持并显式启用的 hook/提醒策略；调用可观察的出口，未采用路径按说明记不适用
+
+#### 操作步骤
+
+1. 关闭 TUI 与共享 Host，触发受支持 hook，并核对它实际唤起或调用的接收/通知路径
+2. 再用没有该 hook 能力的普通 CLI 重做同一用户场景
+3. 使 hook 通道失败或脚本未安装，观察返回与后续重开
+
+#### 预期与不变量
+
+- 只有实际存在并经验证的路径才能产生记录/提醒；记录包含来源和执行证据
+- 普通 CLI 不被宣称拥有相同后台提醒能力；缺失/失败不得报成功
+- 临时 hook 调用按合同结束，不额外建立每会话常驻服务
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 声明能力、hook 安装与实际调用进程
+- 事件/通知返回及失败诊断
+
+说明：可选路径未纳入该版本时按说明记 not_applicable，不能由它推导任意 CLI 在无消费者时都能提醒。
+
+
+### TC-ATTN-044
+
+**多 TUI 和 Host 启动竞争不会形成未协调的重复提醒者**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)、[FL-005](../COVERAGE.md#fl-005)、[FL-009](../COVERAGE.md#fl-009)、[FL-015](../COVERAGE.md#fl-015)
+- 需求：[FR-14](../COVERAGE.md#fr-14)、[FR-04](../COVERAGE.md#fr-04)、[FR-08](../COVERAGE.md#fr-08)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 优先级 / 阶段 / 层次：P0 / M3 / integration
+- 类型：concurrency、recovery、state
+- 设计 / 执行：`designed / not_run`
+- 规范状态：待决策（`needs_decision`）
+- 待决依据：[TBD-INSTANCE-SCOPE](../BUDGETS_AND_DECISIONS.md)、[TBD-ATTENTION-EVENTS](../BUDGETS_AND_DECISIONS.md)
+- 环境：[ENV-UNIT](../ENVIRONMENTS.md#env-unit)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-FAULT](../FIXTURES_AND_FAULTS.md#fx-fault)、[FX-PROCESS](../FIXTURES_AND_FAULTS.md#fx-process)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
+
+#### 前置条件
+
+- TBD-INSTANCE-SCOPE 与提醒事件所有权合同已固定；同一数据目录两 TUI，另有隔离目录 C
+- 产品相应提醒出口已显式启用，夹具记录每次真实出口调用；先用独立请求验证该轮通知路径可达并结束基线事项；以下次数只统计待测请求，再进行故障或边界操作
+
+#### 操作步骤
+
+1. 用屏障并发启动或接管同一作用域 Host，随后只产生一次 Q1
+2. 在能够证明尚未调用通知出口的屏障暂停旧所有者，按声明的交接合同接管并发出 Q2，再恢复旧所有者
+3. 在 C 的同名会话发出独立请求，比较记录与通知
+
+#### 预期与不变量
+
+- 同一作用域不存在未协调的有效双消费者；合法提醒触发不会因窗口数量翻倍发送
+- 旧所有者恢复后不能越过所有权边界更新请求或触发新重复通知
+- 不同目录/namespace 的事件、通知激活和偏好不串用
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 消费者归属/代次、进程启动与屏障序列
+- 各作用域请求表、通知账本和激活路由
+
+说明：本项检查发送结果可知的所有者竞争与去重；通知已发送但本地回执缺失的跨系统不确定性由 TC-ATTN-047 验证，不承诺横幅端到端 exactly-once。
+
+
+### TC-ATTN-045
+
+**事件持久化前崩溃不会返回虚假可靠接收**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)、[FL-013](../COVERAGE.md#fl-013)
+- 需求：[FR-14](../COVERAGE.md#fr-14)、[FR-12](../COVERAGE.md#fr-12)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 优先级 / 阶段 / 层次：P0 / M3 / integration
+- 类型：recovery、concurrency、negative
+- 设计 / 执行：`designed / not_run`
+- 规范状态：待决策（`needs_decision`）
+- 待决依据：[TBD-ATTENTION-EVENTS](../BUDGETS_AND_DECISIONS.md)
+- 环境：[ENV-UNIT](../ENVIRONMENTS.md#env-unit)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-FAULT](../FIXTURES_AND_FAULTS.md#fx-fault)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
+
+#### 前置条件
+
+- TBD-ATTENTION-EVENTS 已定义接收确认、重试和持久化边界；Q1 是尚未接收的新请求
+
+#### 操作步骤
+
+1. 在事件记录事务提交前暂停并终止本轮消费者
+2. 保存调用者观察到的返回，再恢复消费者并按合同重送同一事件
+3. 读取 Q1 记录与提醒次数
+
+#### 预期与不变量
+
+- 未提交的请求不返回虚假的已可靠保存；若结果不确定，返回语义与合同一致
+- 重试后至多建立一个逻辑 Q1，不把新请求正文偷偷替换为默认内容
+- 恢复不得根据缺少记录而伪造用户已处理或 Agent 已收到答案
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 提交前屏障、崩溃点和生产者返回
+- 恢复前后数据库副本与 Q1 身份
+
+
+### TC-ATTN-046
+
+**事项落盘后通知发送前崩溃可恢复待处理记录**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)、[FL-013](../COVERAGE.md#fl-013)
+- 需求：[FR-14](../COVERAGE.md#fr-14)、[FR-12](../COVERAGE.md#fr-12)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 优先级 / 阶段 / 层次：P0 / M3 / integration
+- 类型：recovery、state
+- 设计 / 执行：`designed / not_run`
+- 规范状态：待决策（`needs_decision`）
+- 待决依据：[TBD-ATTENTION-POLICY](../BUDGETS_AND_DECISIONS.md)
+- 环境：[ENV-UNIT](../ENVIRONMENTS.md#env-unit)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-FAULT](../FIXTURES_AND_FAULTS.md#fx-fault)、[FX-ECHO](../FIXTURES_AND_FAULTS.md#fx-echo)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
+
+#### 前置条件
+
+- Q1 已通过可信通道接收；重启后的补提醒/去重策略已固定
+- 产品相应提醒出口已显式启用，夹具记录每次真实出口调用；先用独立请求验证该轮通知路径可达并结束基线事项；以下次数只统计待测请求，再进行故障或边界操作
+
+#### 操作步骤
+
+1. 在 F-ATTENTION-AFTER-COMMIT 暂停，确认 Q1 持久化但通知尚未调用
+2. 终止消费者，重启同一作用域并重送原事件
+3. 查看 Q1 与后续通知安排
+
+#### 预期与不变量
+
+- Q1 仍为同一个未处理事项，不能因通知尚未发送而丢失
+- 补提醒遵循已定策略，不因重复原事件建立第二条请求
+- 重启恢复不自动批准、回答或向 Agent 写入任何内容
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 提交后/发送前屏障和恢复数据
+- 通知发送账本及 Agent 输入计数
+
+
+### TC-ATTN-047
+
+**系统发送后回执未记录的崩溃不伪造 exactly-once**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)、[FL-013](../COVERAGE.md#fl-013)
+- 需求：[FR-14](../COVERAGE.md#fr-14)、[FR-12](../COVERAGE.md#fr-12)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 优先级 / 阶段 / 层次：P0 / M3 / integration
+- 类型：recovery、concurrency、state
+- 设计 / 执行：`designed / not_run`
+- 规范状态：待决策（`needs_decision`）
+- 待决依据：[TBD-ATTENTION-POLICY](../BUDGETS_AND_DECISIONS.md)、[TBD-WINDOWS-NOTIFY](../BUDGETS_AND_DECISIONS.md)
+- 环境：[ENV-UNIT](../ENVIRONMENTS.md#env-unit)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-FAULT](../FIXTURES_AND_FAULTS.md#fx-fault)、[FX-ECHO](../FIXTURES_AND_FAULTS.md#fx-echo)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
+
+#### 前置条件
+
+- Q1 已落盘；FX-NOTIFY 已接受一次发送但可暂停本地发送结果提交；重试策略已记录
+- 产品相应提醒出口已显式启用，夹具记录每次真实出口调用；先用独立请求验证该轮通知路径可达并结束基线事项；以下次数只统计待测请求，再进行故障或边界操作
+
+#### 操作步骤
+
+1. 在 F-NOTIFY-AFTER-SHOW 终止消费者，再恢复并读取待处理记录
+2. 分别保留系统已经展示和系统未展示两种外部 oracle 结果，产品收到的信息保持相同
+3. 触发后续补提醒/查询流程
+
+#### 预期与不变量
+
+- Q1 不丢失且不变成已读/已解决；产品不得仅凭本地无发送回执断言从未展示
+- 恢复按明确策略处理发送不确定性，不能宣称跨系统横幅严格只出现一次
+- 即使有可解释的重复横幅，也不重复建立业务请求或自动重发 Agent 输入
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 系统出口 oracle、本地发送记录与崩溃点分别保存
+- 补提醒策略、业务请求唯一性和输入计数
+
+
+### TC-ATTN-048
+
+**接收者停止期间的事件缺口不能伪造成连续监测**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)、[FL-007](../COVERAGE.md#fl-007)、[FL-013](../COVERAGE.md#fl-013)
+- 需求：[FR-14](../COVERAGE.md#fr-14)、[FR-06](../COVERAGE.md#fr-06)、[FR-12](../COVERAGE.md#fr-12)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 优先级 / 阶段 / 层次：P0 / M3 / integration
+- 类型：recovery、negative、state
+- 设计 / 执行：`designed / not_run`
+- 规范状态：待决策（`needs_decision`）
+- 待决依据：[TBD-ATTENTION-EVENTS](../BUDGETS_AND_DECISIONS.md)
+- 环境：[ENV-UNIT](../ENVIRONMENTS.md#env-unit)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-FAULT](../FIXTURES_AND_FAULTS.md#fx-fault)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
+
+#### 前置条件
+
+- A1 已有 Q1；事件源的保留/回放及快照能力按 TBD-ATTENTION-EVENTS 声明，可配置有/无回放
+
+#### 操作步骤
+
+1. 停止 Host 与 TUI，在停止期间产生解决 Q1 和新增 Q2 的事件
+2. 先以可回放接入恢复，再以无回放/快照失败接入重做
+3. 在 F-ATTENTION-RECONCILE 比较产品状态与独立 oracle
+
+#### 预期与不变量
+
+- 有回放时按正确 Run/事件版本核对，不重复通知已结束旧请求
+- 无回放或核对失败时明确证据缺口和未核对状态，不假称已经发现、提醒或解决全部事项
+- 不能仅从当前屏幕缺少原问题就推出历史请求已处理
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 接收者停止区间、源端保留范围与重连快照
+- 各变体的缺口展示和请求状态
+
+
+### TC-ATTN-049
+
+**未处理事项容量边界与满载恢复**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)、[FL-015](../COVERAGE.md#fl-015)、[FL-013](../COVERAGE.md#fl-013)
+- 需求：[FR-14](../COVERAGE.md#fr-14)、[FR-12](../COVERAGE.md#fr-12)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)
+- 优先级 / 阶段 / 层次：P0 / M3 / integration
+- 类型：boundary、stability、recovery
+- 设计 / 执行：`designed / not_run`
+- 规范状态：待决策（`needs_decision`）
+- 待决依据：[TBD-ATTENTION-POLICY](../BUDGETS_AND_DECISIONS.md)、[TBD-BACKPRESSURE](../BUDGETS_AND_DECISIONS.md)
+- 环境：[ENV-UNIT](../ENVIRONMENTS.md#env-unit)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-LOAD](../FIXTURES_AND_FAULTS.md#fx-load)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
+
+#### 前置条件
+
+- B_ATTENTION_ITEMS 的计数作用域、未结束/已结束条目计入范围及满载合同已经固定
+
+#### 操作步骤
+
+1. 依次建立 0、1、B−1、B、B+1 个独立请求，并在满载时重送已存在请求
+2. 处理部分事项以释放容量，继续提交之前未被接受的独立请求
+3. 重新打开管理器并比较数量与来源
+
+#### 预期与不变量
+
+- 接受/拒绝/背压符合固定容量合同；已确认持久化的未处理事项不得静默淘汰
+- 重复事件不消耗新的逻辑请求配额，不同请求不因满载被错误合并
+- 容量恢复不复活已解决事项，不把此前未接收请求伪称为已提醒
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 预算、作用域与每次提交结果
+- 容量变化、持久记录和拒绝/恢复轨迹
+
+#### 参数变体
+
+- active_requests：`["0", "1", "B-1", "B", "B+1"]`
+
+
+### TC-ATTN-050
+
+**数据库锁或测试盘满时不丢已确认事项**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)、[FL-013](../COVERAGE.md#fl-013)、[FL-015](../COVERAGE.md#fl-015)
+- 需求：[FR-14](../COVERAGE.md#fr-14)、[FR-12](../COVERAGE.md#fr-12)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)
+- 优先级 / 阶段 / 层次：P0 / M3 / integration
+- 类型：recovery、negative、stability
+- 设计 / 执行：`designed / not_run`
+- 规范状态：待决策（`needs_decision`）
+- 待决依据：[TBD-ATTENTION-EVENTS](../BUDGETS_AND_DECISIONS.md)、[TBD-BACKPRESSURE](../BUDGETS_AND_DECISIONS.md)
+- 环境：[ENV-UNIT](../ENVIRONMENTS.md#env-unit)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-FAULT](../FIXTURES_AND_FAULTS.md#fx-fault)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
+
+#### 前置条件
+
+- 接收确认和持久化失败合同已固定；专用测试盘/数据库副本中有已确认 Q1
+
+#### 操作步骤
+
+1. 在隔离数据库制造写锁，再在独立有限容量测试盘触发可控空间不足
+2. 尝试新增 Q2、标记 Q1 已查看或处理，并保存调用结果
+3. 解除故障后重启读取并按合同重试
+
+#### 预期与不变量
+
+- Q1 已持久化状态不被静默删除；失败操作不虚报可靠保存或解决
+- Q2 接收状态与事务实际提交一致，不出现只有横幅却谎称待办已保存的成功
+- 恢复重试保留身份和状态证据；所有故障限本轮隔离存储
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 隔离卷/锁范围、磁盘及事务结果
+- Q1/Q2 故障前后副本和调用返回
+
+
+### TC-ATTN-051
+
+**提醒文本和激活参数按数据处理不执行命令**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)、[FL-005](../COVERAGE.md#fl-005)、[FL-013](../COVERAGE.md#fl-013)
+- 需求：[FR-14](../COVERAGE.md#fr-14)、[FR-04](../COVERAGE.md#fr-04)、[FR-12](../COVERAGE.md#fr-12)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 优先级 / 阶段 / 层次：P0 / M2 / contract
+- 类型：security、negative、boundary
+- 设计 / 执行：`designed / not_run`
+- 规范状态：待决策（`needs_decision`）
+- 待决依据：[TBD-ATTENTION-EVENTS](../BUDGETS_AND_DECISIONS.md)、[TBD-WINDOWS-NOTIFY](../BUDGETS_AND_DECISIONS.md)
+- 环境：[ENV-UNIT](../ENVIRONMENTS.md#env-unit)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-ECHO](../FIXTURES_AND_FAULTS.md#fx-echo)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
+
+#### 前置条件
+
+- 使用合成会话名和摘要，包含引号、分号、反引号、换行、ESC及伪命令；所有哨兵路径位于测试目录
+- 产品通知出口已显式开启并连接到可观察的测试出口，先确认合法样本确实经过文本编码和激活参数构造路径
+
+#### 操作步骤
+
+1. 通过合法事件入口生成提醒并查看出口调用参数
+2. 向激活入口提供错误目标、过期 Run 和含伪命令的参数值
+3. 检查宿主副作用、终端字节和实际导航对象
+
+#### 预期与不变量
+
+- 名称/摘要作为数据传递，不能被拼接执行、触发终端控制副作用或改变寻址身份
+- 不合法激活不写输入、不启动新 Agent；有效查看仍需核对来源对象
+- 展示内容遵循既定摘要/清洗合同，原始请求身份可追溯
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 合成文本、实际参数边界和激活返回
+- 哨兵目录/进程/终端副作用检查记录
+
+
+### TC-ATTN-052
+
+**Windows Terminal BEL 可选提醒经 psmux 传递并尊重用户设置**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)、[FL-002](../COVERAGE.md#fl-002)、[FL-016](../COVERAGE.md#fl-016)
+- 需求：[FR-14](../COVERAGE.md#fr-14)、[FR-02](../COVERAGE.md#fr-02)、[FR-11](../COVERAGE.md#fr-11)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)
+- 优先级 / 阶段 / 层次：P1 / M2 / windows_e2e
+- 类型：compatibility、usability
+- 设计 / 执行：`designed / not_run`
+- 规范状态：待决策（`needs_decision`）
+- 待决依据：[TBD-WINDOWS-NOTIFY](../BUDGETS_AND_DECISIONS.md)
+- 环境：[ENV-WIN-COMPAT](../ENVIRONMENTS.md#env-win-compat)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-VT](../FIXTURES_AND_FAULTS.md#fx-vt)、[FX-RELEASE](../FIXTURES_AND_FAULTS.md#fx-release)
+
+#### 前置条件
+
+- TBD-WINDOWS-NOTIFY 已声明是否支持 BEL 补充通道；测试产品显式启用 BEL，桌面出口关闭以隔离观察；独立 Windows Terminal profile 保存原始 bellStyle
+
+#### 操作步骤
+
+1. 在声明支持的 psmux/attach 路径分别配置无铃声和任务栏/声音等拟支持模式
+2. 由 B1 产生事项，在 A 全屏 attach 或窗口后台时触发补充提醒
+3. 返回应用查看具体事项，并恢复测试 profile
+
+#### 预期与不变量
+
+- 真实行为按该终端/后端组合记录，BEL 不被当成带会话身份的完整通知
+- 静音/禁用设置不被产品改写；应用内事项不依赖可见闪烁或可听声音
+- 未支持的传递路径明确列入限制，不能从终端文档推出 psmux 实测通过
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 终端/psmux 精确版本与 profile 差异
+- 实际声音/任务栏/画面观察及应用事项
+
+说明：可选能力未采用时明确记录不适用；不把模拟 BEL 字节写出等价于用户已经收到提醒。
+
+
+### TC-ATTN-053
+
+**提醒开启前后的全进程树和事件驱动资源基线**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)、[FL-015](../COVERAGE.md#fl-015)、[FL-016](../COVERAGE.md#fl-016)
+- 需求：[FR-14](../COVERAGE.md#fr-14)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)
+- 优先级 / 阶段 / 层次：P1 / M3 / windows_e2e
+- 类型：performance、stability
+- 设计 / 执行：`designed / not_run`
+- 规范状态：依据明确（`ready`）
+- 待决依据：—
+- 环境：[ENV-WIN-BASE](../ENVIRONMENTS.md#env-win-base)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-LOAD](../FIXTURES_AND_FAULTS.md#fx-load)、[FX-PROCESS](../FIXTURES_AND_FAULTS.md#fx-process)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
+
+#### 前置条件
+
+- 固定同样的 Agent 负载、终端、窗口和采样工具；准备 0/1/5/10 会话；全部数据为合成内容
+
+#### 操作步骤
+
+1. 分别在提醒关闭、仅应用内监测、桌面出口开启和 M3 Host 模式采集空闲/事件突发基线
+2. 在固定观察窗口内记录进程、线程、句柄、CPU、私有提交和工作集
+3. 退出 UI，再按声明停止 Host，观察属于各进程的资源回收
+
+#### 预期与不变量
+
+- 完整报告管理器/Host、psmux、shell/控制台、Agent及测量工具，不只比较 TUI 单进程
+- 同作用域没有每会话提醒服务或为识别待处理而持续调用模型；必要检查/事件频率有记录
+- 数据作为基线；未接受数值预算时不得宣称低内存或延迟达标
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 按归属分组的进程树与原始CSV时序
+- 负载/采样配置和各模式差值
+
+#### 参数变体
+
+- sessions：`[0, 1, 5, 10]`
+
+
+### TC-ATTN-054
+
+**提醒可测阶段的延迟预算与系统展示分离**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)、[FL-015](../COVERAGE.md#fl-015)、[FL-016](../COVERAGE.md#fl-016)
+- 需求：[FR-14](../COVERAGE.md#fr-14)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)
+- 优先级 / 阶段 / 层次：P1 / M4 / windows_e2e
+- 类型：performance、boundary
+- 设计 / 执行：`designed / not_run`
+- 规范状态：待决策（`needs_decision`）
+- 待决依据：[TBD-ATTENTION-POLICY](../BUDGETS_AND_DECISIONS.md)、[TBD-WINDOWS-NOTIFY](../BUDGETS_AND_DECISIONS.md)
+- 环境：[ENV-WIN-BASE](../ENVIRONMENTS.md#env-win-base)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-CLOCK](../FIXTURES_AND_FAULTS.md#fx-clock)、[FX-LOAD](../FIXTURES_AND_FAULTS.md#fx-load)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
+
+#### 前置条件
+
+- B_ATTENTION_LATENCY_MS 的起止、统计口径、观察窗口、负载和适用环境已经固定
+- 产品相应提醒出口已显式启用，夹具记录每次真实出口调用；先用独立请求验证该轮通知路径可达并结束基线事项；以下次数只统计待测请求，再进行故障或边界操作
+
+#### 操作步骤
+
+1. 在 1/5/10 会话和空闲/输出负载下记录产品接收事件时间、持久化、应用内展示及通知 API 提交时间
+2. 按已定口径统计分位数或上限；对真实系统横幅/用户点击另记观察，不混入接收基准
+3. 包含批量合并与后台/attach 模式，分别报告延迟构成
+
+#### 预期与不变量
+
+- 只对预算明确包含的可观测阶段判定；时钟来源与跨进程校准可解释
+- API 接受不等于横幅可见或用户已看到；系统免打扰等情况不被伪计成实时到达
+- 预算未赋值或采样不足时结果为待判定/blocked，不能自动通过
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 原始阶段时间戳、统计算法与负载manifest
+- 预算版本和分阶段结果
+
+
+### TC-ATTN-055
+
+**10 会话八小时提醒长稳覆盖重复乱序与界面切换**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)、[FL-013](../COVERAGE.md#fl-013)、[FL-015](../COVERAGE.md#fl-015)、[FL-016](../COVERAGE.md#fl-016)
+- 需求：[FR-14](../COVERAGE.md#fr-14)、[FR-11](../COVERAGE.md#fr-11)、[FR-12](../COVERAGE.md#fr-12)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 优先级 / 阶段 / 层次：P0 / M4 / soak
+- 类型：stability、recovery、concurrency、performance
+- 设计 / 执行：`designed / not_run`
+- 规范状态：待决策（`needs_decision`）
+- 待决依据：[TBD-ATTENTION-EVENTS](../BUDGETS_AND_DECISIONS.md)、[TBD-ATTENTION-POLICY](../BUDGETS_AND_DECISIONS.md)、[O-012](../../DECISIONS.md)
+- 环境：[ENV-WIN-BASE](../ENVIRONMENTS.md#env-win-base)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-LOAD](../FIXTURES_AND_FAULTS.md#fx-load)、[FX-FAULT](../FIXTURES_AND_FAULTS.md#fx-fault)、[FX-PROCESS](../FIXTURES_AND_FAULTS.md#fx-process)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
+
+#### 前置条件
+
+- 接收、重连、保留与节流合同和资源预算已固定；独立 Windows 测试环境可回滚；至少允许10个并发待处理事项
+- 产品相应提醒出口已显式启用，夹具记录每次真实出口调用；先用独立请求验证该轮通知路径可达并结束基线事项；以下次数只统计待测请求，再进行故障或边界操作
+
+#### 操作步骤
+
+1. 实际持续 8 小时，计划 48 轮；每轮10会话各创建一请求、重复其事件、标已查看、再提供对应解决证据
+2. 用固定种子交错迟到旧事件、管理界面与 attach 切换，以及预定轮次 Host 重启；保持原始失败轮次
+3. 持续采样资源和待办数量，结束后核对全部请求、通知与未解决异常
+
+#### 预期与不变量
+
+- 已查看不导致提前解决，重复/迟到不复活旧请求，始终无错目标或自动批准输入
+- 已确认事项与明确缺口均可核对；通知发送不确定与实际展示分开，合并/重试符合合同
+- 资源满足已接受预算且趋势可解释；提前终止或预算未定不得记完整长稳通过
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 实际运行时长、各轮请求及固定种子
+- 全量资源时序、Host重启/监测缺口与通知账本
+- 所有失败/未结束请求和最终对账
+
+说明：8小时、48轮和10会话是计划测试负载，不是产品SLA；系统出口用隔离测试账户并按节流合同避免无界横幅。
+
+
+### TC-ATTN-056
+
+**状态轨迹属性检查保持身份和人工处理语义**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)、[FL-005](../COVERAGE.md#fl-005)、[FL-009](../COVERAGE.md#fl-009)、[FL-013](../COVERAGE.md#fl-013)
+- 需求：[FR-14](../COVERAGE.md#fr-14)、[FR-04](../COVERAGE.md#fr-04)、[FR-08](../COVERAGE.md#fr-08)、[FR-12](../COVERAGE.md#fr-12)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 优先级 / 阶段 / 层次：P0 / M3 / unit
+- 类型：property、concurrency、state
+- 设计 / 执行：`designed / not_run`
+- 规范状态：依据明确（`ready`）
+- 待决依据：—
+- 环境：[ENV-UNIT](../ENVIRONMENTS.md#env-unit)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-CLOCK](../FIXTURES_AND_FAULTS.md#fx-clock)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
+
+#### 前置条件
+
+- 建立独立可审查参考模型，分别保存请求生命周期、查看/稍后和通知状态；不调用被测代码计算预期
+
+#### 操作步骤
+
+1. 按固定种子生成新请求、重复事件、有效解决、查看、断连、Run退出/重启、旧事件晚到等有限轨迹
+2. 在相同可证明因果约束内交换事件顺序，执行被测核心并逐步比较不变量
+3. 发现失败时缩减为最短轨迹并保存
+
+#### 预期与不变量
+
+- 每个请求只属于其原 Session/Run；名称/排序变化不改变来源，旧Run事件不影响新Run
+- 查看不解决审批/提问，真实退出使交互请求失效但不抹掉独立待检查事项
+- 缺少证据不制造ready/完成；无轨迹通过提醒动作自动发送批准或回答
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 参考模型版本、种子和生成操作表
+- 最短失败轨迹或全部轨迹检查记录
+
+说明：此项检查已接受的语义不变量；具体协议字段/排序解析另由合同用例验证，不把随机通过视为穷尽证明。
+
+
+### TC-ATTN-057
+
+**事件与激活输入的有界模糊测试**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)、[FL-005](../COVERAGE.md#fl-005)、[FL-013](../COVERAGE.md#fl-013)、[FL-015](../COVERAGE.md#fl-015)
+- 需求：[FR-14](../COVERAGE.md#fr-14)、[FR-04](../COVERAGE.md#fr-04)、[FR-12](../COVERAGE.md#fr-12)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 优先级 / 阶段 / 层次：P0 / M3 / contract
+- 类型：fuzz、security、boundary、stability
+- 设计 / 执行：`designed / not_run`
+- 规范状态：待决策（`needs_decision`）
+- 待决依据：[TBD-ATTENTION-EVENTS](../BUDGETS_AND_DECISIONS.md)、[TBD-WINDOWS-NOTIFY](../BUDGETS_AND_DECISIONS.md)
+- 环境：[ENV-UNIT](../ENVIRONMENTS.md#env-unit)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)、[FX-LOAD](../FIXTURES_AND_FAULTS.md#fx-load)
+
+#### 前置条件
+
+- 事件schema、通知激活格式和 B_ATTENTION_EVENT_BYTES 上限已固定；选择有效语料与合成非法语料
+
+#### 操作步骤
+
+1. 以固定种子变异字段类型、长度、UTF编码、嵌套、ID、Run、事件版本及控制字节
+2. 将变异输入送入真实解析/校验入口，监控分配、耗时、状态变化与终端副作用
+3. 缩减失败输入并保留精确字节与触发条件
+
+#### 预期与不变量
+
+- 合法输入遵循合同，非法输入明确拒绝或按已定策略处理，不崩溃或无界分配
+- 变异输入不能改变无关会话、复活旧请求、伪造已处理或执行文本内容
+- 提醒出口/解析失败不抹掉已确认持久化的事项
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 语料版本、种子、预算和原始失败字节
+- 缩减结果、资源轨迹及副作用检查
+
+
+### TC-ATTN-058
+
+**发布包通知注册升级回退与失效激活的范围**
+
+- 功能：[FL-020](../COVERAGE.md#fl-020)、[FL-013](../COVERAGE.md#fl-013)、[FL-016](../COVERAGE.md#fl-016)、[FL-017](../COVERAGE.md#fl-017)
+- 需求：[FR-14](../COVERAGE.md#fr-14)、[FR-12](../COVERAGE.md#fr-12)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0005](../../adr/0005-dependency-lifecycle-and-upgrades.md)
+- 优先级 / 阶段 / 层次：P0 / M4 / release
+- 类型：release、compatibility、recovery、negative
+- 设计 / 执行：`designed / not_run`
+- 规范状态：待决策（`needs_decision`）
+- 待决依据：[TBD-WINDOWS-NOTIFY](../BUDGETS_AND_DECISIONS.md)、[TBD-PACKAGING](../BUDGETS_AND_DECISIONS.md)、[TBD-UPGRADE](../BUDGETS_AND_DECISIONS.md)
+- 环境：[ENV-WIN-COMPAT](../ENVIRONMENTS.md#env-win-compat)
+- 夹具：[FX-ATTENTION](../FIXTURES_AND_FAULTS.md#fx-attention)、[FX-NOTIFY](../FIXTURES_AND_FAULTS.md#fx-notify)、[FX-RELEASE](../FIXTURES_AND_FAULTS.md#fx-release)、[FX-PROCESS](../FIXTURES_AND_FAULTS.md#fx-process)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
+
+#### 前置条件
+
+- TBD-WINDOWS-NOTIFY、TBD-PACKAGING、TBD-UPGRADE 已固定；干净 Windows 用户/VM、可回滚安装包和独立数据目录
+- 正向通知流程显式开启产品桌面通知，系统允许该应用通知；安装默认关闭的行为已由 TC-ATTN-035 单独验证
+
+#### 操作步骤
+
+1. 按说明安装并产生真实通知，关闭应用后按声明支持的激活方式点击
+2. 保留旧通知执行受支持升级/回退，再点击旧参数；另外在隔离环境卸载后测试残留入口
+3. 核对其他产品namespace、启动注册和用户Agent均未改变
+
+#### 预期与不变量
+
+- 注册与激活行为符合实际包说明，冷启动只进入已校验的目标/历史，不自动重启Agent或发送输入
+- 仍安装且处理器可运行时，旧格式/旧 Run/已删除对象能识别并给出可理解结果；不能激活另一个数据目录的会话
+- 升级保留已确认待办；卸载清理仅限已声明归属，失败路径和未支持组合明确记录
+- 完全卸载后按包合同核对激活不可用或系统反馈；即使已无产品处理器，也不得错误路由到其他 namespace、启动 Agent 或写入输入，不要求已卸载产品显示解释界面
+
+#### 需要的证据
+
+- 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
+- 安装包哈希/源码版本、注册与数据迁移快照
+- 通知点击录屏、激活参数和进程/输入记录
+- 隔离范围与清理/回退结果

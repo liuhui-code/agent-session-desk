@@ -10,6 +10,8 @@
     "FX-ECHO": {"title": "输入及启动描述回显", "path": "FIXTURES_AND_FAULTS.md#fx-echo"},
     "FX-VT": {"title": "确定性终端屏幕", "path": "FIXTURES_AND_FAULTS.md#fx-vt"},
     "FX-READY": {"title": "合作式就绪与回执 agent", "path": "FIXTURES_AND_FAULTS.md#fx-ready"},
+    "FX-ATTENTION": {"title": "可信人工介入事件与事项核对", "path": "FIXTURES_AND_FAULTS.md#fx-attention"},
+    "FX-NOTIFY": {"title": "通知出口与激活故障夹具", "path": "FIXTURES_AND_FAULTS.md#fx-notify"},
     "FX-PROCESS": {"title": "可控进程生命周期", "path": "FIXTURES_AND_FAULTS.md#fx-process"},
     "FX-DATA": {"title": "隔离数据与参数样本", "path": "FIXTURES_AND_FAULTS.md#fx-data"},
     "FX-FAULT": {"title": "可控故障屏障", "path": "FIXTURES_AND_FAULTS.md#fx-fault"},
@@ -18,6 +20,9 @@
     "FX-RELEASE": {"title": "干净发布包环境", "path": "FIXTURES_AND_FAULTS.md#fx-release"}
   },
   "decisions": {
+    "TBD-ATTENTION-EVENTS": {"title": "人工介入事件与对账合同", "question": "事件 schema、可信来源与 Session/Run/请求绑定、事件去重及版本/顺序、缺失重查和失效/保留规则如何固定？", "stage": "M2", "status": "open", "related": ["O-004", "O-006", "O-008", "O-013"]},
+    "TBD-ATTENTION-POLICY": {"title": "提醒展示与有界处理策略", "question": "稍后提醒时长、重复/批量汇总、重试、人工隐藏、正文可见范围、事项容量及保留/清理怎样定义？", "stage": "M2", "status": "open", "related": ["O-007", "O-009", "O-012", "O-013"]},
+    "TBD-WINDOWS-NOTIFY": {"title": "Windows 通知与激活合同", "question": "Go 通知接入、注册/打包/卸载、已有进程/冷启动激活、普通/提升权限、禁用/免打扰、BEL 经 psmux 与明确降级范围如何验证？", "stage": "M2", "status": "open", "related": ["O-004", "O-005", "O-008", "O-009", "O-013"]},
     "TBD-ARCHIVE-DELETE": {"title": "归档与删除范围", "question": "运行中能否归档、是否先停止？删除记录、日志、引用与活 Run 的范围及取消行为如何区分？", "stage": "M2", "status": "open", "related": ["O-007", "O-008", "O-009"]},
     "TBD-BACKEND-TIMEOUT": {"title": "后端调用超时与取消", "question": "capture 等后端调用的超时、取消、迟到结果及重试上限如何定义？", "stage": "M2", "status": "open", "related": ["O-004", "O-009", "O-012"]},
     "TBD-BACKPRESSURE": {"title": "队列与资源满载处理", "question": "消息/事件/磁盘或内存达到上限时分别拒绝、等待还是降速？生产者如何得到结果，解除压力后怎样恢复？", "stage": "M3", "status": "open", "related": ["O-007", "O-008", "O-012"]},
@@ -39,6 +44,9 @@
     "TBD-UPGRADE": {"title": "配置与数据升级回退", "question": "支持哪些 schema 迁移和回退组合？备份、提交边界、中断恢复、旧版本读新格式及活 Run 如何处理？", "stage": "M2", "status": "open", "related": ["O-008"]}
   },
   "budgets": {
+    "B_ATTENTION_ITEMS": {"title": "待处理事项容量", "unit": "items", "value": null, "stage": "M2", "decision_refs": ["O-008", "O-012", "TBD-ATTENTION-POLICY", "TBD-BACKPRESSURE"]},
+    "B_ATTENTION_EVENT_BYTES": {"title": "单人工介入事件尺寸", "unit": "bytes", "value": null, "stage": "M2", "decision_refs": ["O-012", "TBD-ATTENTION-EVENTS"]},
+    "B_ATTENTION_LATENCY_MS": {"title": "人工介入提醒阶段时延预算", "unit": "ms", "value": null, "stage": "M2", "decision_refs": ["O-012", "TBD-ATTENTION-POLICY", "TBD-WINDOWS-NOTIFY"]},
     "B_CACHE_BYTES": {"title": "输出内存缓存上限", "unit": "bytes", "value": null, "stage": "M1", "decision_refs": ["O-007", "O-012"]},
     "B_DB_WAIT": {"title": "数据库锁等待上限", "unit": "ms", "value": null, "stage": "M2", "decision_refs": ["O-008"]},
     "B_EVENT_BACKLOG": {"title": "待处理事件积压上限", "unit": "items", "value": null, "stage": "M3", "decision_refs": ["O-008", "O-012", "TBD-BACKPRESSURE"]},

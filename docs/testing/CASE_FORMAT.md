@@ -26,7 +26,7 @@
 
 ## 编号与覆盖
 
-分组包括 LCH、TRM、UI、FOC、WIN、SESSION、LIFE、STORE、REC、READ、SEND、QUEUE、CTL、REPLY、PERF、SOAK、SEC、REL、DEFER、PROP。PROP 用于属性与模糊测试；分组不是组件包名，不应限制实现结构。
+分组包括 LCH、TRM、UI、FOC、WIN、SESSION、LIFE、STORE、REC、READ、SEND、QUEUE、CTL、REPLY、PERF、SOAK、SEC、REL、DEFER、PROP、ATTN。PROP 用于属性与模糊测试；ATTN 用于人工介入事项、提醒呈现、通知投递与激活；分组不是组件包名，不应限制实现结构。
 
 一个场景可覆盖多个 FL/FR。覆盖表统计“至少有设计用例”，不表示每个分支、状态或平台组合均覆盖，更不表示代码覆盖率。参数化变体没有被膨胀计入用例总数。
 
@@ -35,6 +35,10 @@
 已接受的不变量仍然写清，例如“不能静默丢消息”；具体拒绝、等待、取消或恢复策略未定时，用 `needs_decision` 关联[未决项](BUDGETS_AND_DECISIONS.md)。固定策略后才能填写严格的结果判定。
 
 FL-018 的两项探索用例为 `deferred / POST_MVP`，不进入首版发布门槛。未来启用应关联新 ADR 并补齐真实的输入、渲染与资源预算。
+
+FL-020 用例由 [ADR-0006](../adr/0006-human-attention-and-notifications.md) 约束。已读不等于已解决、旧 Run 不转投、审批时不注入普通队列等已接受不变量可记为 `ready`；依赖事件合同、稍后提醒/节流参数、Windows API 或未赋值资源预算的场景记为 `needs_decision` 并关联登记项。仅因产品或夹具尚未实现，不将明确的行为要求改成“待决策”。
+
+人工介入用例应分别写出产品持有的事件证据、应用内事项、通知发送结果、点击/关闭动作和 Agent 请求状态；不以一个通知截图或发送成功标志证明整个处理流程。固定种子的属性轨迹和参数变体保持为一个可识别场景，不把未执行的变体数计入独立用例数量。
 
 ## 维护命令
 
