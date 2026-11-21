@@ -1,0 +1,87 @@
+name: Publish Windows M0 test prerelease
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/publish-m0-prerelease.yml']
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: windows-2025
+    timeout-minutes: 18
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-go@d8cbb8045d7f43706b9177cceb36c1f91a6644d5
+        with:
+          go-version-file: go.mod
+          cache: true
+      - name: Build
+        env:
+          GOFLAGS: -mod=readonly
+          CGO_ENABLED: '0'
+          GOOS: windows
+          GOARCH: amd64
+        run: |
+          go mod verify
+          New-Item -ItemType Directory -Force build/release | Out-Null
+          go build -trimpath -buildvcs=true -o build/release/asd-windows-amd64.exe ./cmd/asd
+          if ($LASTEXITCODE -ne 0) { throw 'Build failed' }
+      - name: Verify native backend
+        run: |
+          $psmux = ./tools/ci/install-psmux.ps1
+          ./tools/ci/windows.ps1 -PsmuxBinary $psmux -EvidenceDirectory build/release-native-check
+      - name: Package
+        run: |
+          Copy-Item THIRD_PARTY_NOTICES.md build/release/
+          New-Item -ItemType Directory -Force build/release/licenses/agent-deck,build/release/licenses/agent-manager | Out-Null
+          Copy-Item third_party/agent-deck/LICENSE build/release/licenses/agent-deck/LICENSE
+          Copy-Item third_party/agent-manager/LICENSE build/release/licenses/agent-manager/LICENSE
+          Copy-Item third_party/agent-manager/NOTICE build/release/licenses/agent-manager/NOTICE
+          $exe = 'build/release/asd-windows-amd64.exe'
+          $hash = (Get-FileHash -LiteralPath $exe -Algorithm SHA256).Hash.ToLowerInvariant()
+          [ordered]@{
+            schema_version = 1
+            commit = (& git rev-parse HEAD).Trim()
+            platform = 'windows/amd64'
+            sha256 = $hash
+            size_bytes = (Get-Item $exe).Length
+            psmux_version = '3.4.0'
+            psmux_sha256 = 'bbe825a30f7cddc91b043084049143a381aba5f7e9e36e4d0bb587e296d262ca'
+            signed = $false
+            acceptance = 'native CI only; interactive Windows Terminal not yet tested'
+          } | ConvertTo-Json | Set-Content build/release/manifest.json -Encoding utf8
+          "$hash  asd-windows-amd64.exe" | Set-Content build/release/SHA256SUMS -Encoding ascii
+          Compress-Archive -Path build/release/asd-windows-amd64.exe,build/release/manifest.json,build/release/SHA256SUMS,build/release/THIRD_PARTY_NOTICES.md,build/release/licenses -DestinationPath build/asd-windows-amd64-m0-preview.zip
+      - name: Publish GitHub prerelease
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $tag = 'v0.0.0-m0-preview.1'
+          $sha = (& git rev-parse HEAD).Trim()
+          $notes = @'
+          Windows M0 test preview — unsigned and experimental.
+
+          Native backend CI passed on Windows Server 2025.
+          Not yet verified on Windows 10/11 Windows Terminal: IME, focus, interactive attach/detach, resizing, long-soak or performance budget.
+          Requires official psmux v3.4.0 separately; not bundled.
+          Verify SHA256SUMS and follow docs/testing/WINDOWS_INTERACTIVE_ACCEPTANCE.md.
+          Third-party source notices are included. The original-code license and full dependency-license audit remain pending; not a production release.
+          '@
+          $notes | Set-Content build/release-notes.md -Encoding utf8
+          $existing = gh release view $tag --repo $env:GITHUB_REPOSITORY 2>$null
+          if ($LASTEXITCODE -eq 0) { throw 'Refusing to overwrite an existing release' }
+          gh release create $tag build/asd-windows-amd64-m0-preview.zip build/release/SHA256SUMS build/release/manifest.json --repo $env:GITHUB_REPOSITORY --target $sha --title 'M0 Windows x64 test preview 1' --prerelease --latest=false --notes-file build/release-notes.md
+          if ($LASTEXITCODE -ne 0) { throw 'Release publication failed' }
+      - name: Upload failure evidence
+        if: failure()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        with:
+          name: m0-prerelease-failed-native-evidence
+          path: build/release-native-check/
+          if-no-files-found: warn
+          retention-days: 14
