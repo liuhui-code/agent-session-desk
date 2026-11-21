@@ -15,6 +15,7 @@ import (
 	"os/exec"
 	"path/filepath"
 	"reflect"
+	"regexp"
 	"strings"
 	"syscall"
 	"testing"
@@ -544,6 +545,14 @@ func TestWindowsPsmuxNativeMissingOriginalPaneNeverFallsBack(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
+	out, err := h.b.run(h.ctx, 128, "display-message", "-p", "-t", s.BackendID+":."+original.PaneID, "#{window_id}")
+	if err != nil {
+		t.Fatalf("identify exact original test window: %v", err)
+	}
+	originalWindow := strings.TrimSpace(out.text)
+	if !regexp.MustCompile(`^@[0-9]+$`).MatchString(originalWindow) {
+		t.Fatalf("invalid original window identity: %q", originalWindow)
+	}
 	next, nextReport := h.launch("sentinel", "other-pane-sentinel")
 	args := []string{"new-window", "-t", s.BackendID, "-P", "-F", "#{pane_id}", "-n", "sentinel", "-c", next.Dir}
 	for _, value := range next.Env {
@@ -553,7 +562,7 @@ func TestWindowsPsmuxNativeMissingOriginalPaneNeverFallsBack(t *testing.T) {
 	// command token. The controlled fixture and marker deliberately meet that
 	// contract, and the fresh report path cannot replace the original report.
 	args = append(args, "--", next.Executable, "other-pane-sentinel")
-	out, err := h.b.run(h.ctx, maxControlBytes, args...)
+	out, err = h.b.run(h.ctx, maxControlBytes, args...)
 	if err != nil {
 		t.Fatalf("create owned alternate window: %v", err)
 	}
@@ -569,8 +578,14 @@ func TestWindowsPsmuxNativeMissingOriginalPaneNeverFallsBack(t *testing.T) {
 	if _, err := h.b.Attach(h.ctx, s); err == nil {
 		t.Fatal("attach would enter the alternate active pane")
 	}
-	if _, err := h.b.run(h.ctx, 4096, "kill-pane", "-t", s.BackendID+":."+original.PaneID); err != nil {
-		t.Fatalf("remove exact original test pane: %v", err)
+	// Stable 20aa1d7 pane.rs::kill_pane_at_path kills the process, but
+	// tree.rs::remove_node retains a single root Leaf. With remain-on-exit,
+	// kill-pane therefore does not establish that the pane was removed.
+	// kill-window removes this exact window from a multi-window session.
+	// Never infer the fault was injected from a successful exit code alone.
+	t.Logf("native missing-pane injection: original window=%s pane=%s; alternate pane=%s", originalWindow, original.PaneID, otherPane)
+	if _, err := h.b.run(h.ctx, 4096, "kill-window", "-t", s.BackendID+":"+originalWindow); err != nil {
+		t.Fatalf("remove exact original test window: %v", err)
 	}
 	waitNative(t, h.ctx, "original pane removal", func(ctx context.Context) error {
 		out, err := h.b.run(ctx, maxControlBytes, "list-panes", "-a", "-t", s.BackendID, "-F", "#{pane_id}")
@@ -589,6 +604,17 @@ func TestWindowsPsmuxNativeMissingOriginalPaneNeverFallsBack(t *testing.T) {
 		}
 		return nil
 	})
+	// A retained dead pane would still appear in list-panes. Require the
+	// independently reported input event to establish the sentinel survived.
+	sentinelTarget := s.BackendID + ":." + otherPane
+	if _, err := h.b.run(h.ctx, 1024, "send-keys", "-t", sentinelTarget, "-l", "sentinel-survived-removal"); err != nil {
+		t.Fatalf("write surviving sentinel input: %v", err)
+	}
+	if _, err := h.b.run(h.ctx, 1024, "send-keys", "-t", sentinelTarget, "Enter"); err != nil {
+		t.Fatalf("submit surviving sentinel input: %v", err)
+	}
+	fixtureEvent(t, h.ctx, nextReport, "input", "sentinel-survived-removal")
+	t.Logf("native missing-pane injection confirmed: original %s absent; alternate %s accepted input", original.PaneID, otherPane)
 	if preview, err := h.b.Preview(h.ctx, s, 60); err == nil || strings.Contains(preview.Text, "other-pane-sentinel") {
 		t.Fatalf("missing original pane fell back to another pane: preview=%q error=%v", preview.Text, err)
 	}
