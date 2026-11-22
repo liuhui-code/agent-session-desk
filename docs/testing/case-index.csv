@@ -28,7 +28,7 @@ TC-TRM-002,正常离开 attach 后终端模式恢复,FL-002;FL-016,FR-02;FR-11,A
 TC-TRM-003,attach 客户端异常退出恢复管理器,FL-002;FL-016,FR-02;FR-11;FR-12,ADR-0002;ADR-0004,P0,M0,recovery;negative,windows_e2e,ready,designed,not_run,,cases/01-launch-terminal-ui.json,generated/01-launch-terminal-ui.md#tc-trm-003
 TC-TRM-004,目标在 attach 建立前退出,FL-002;FL-016,FR-02;FR-12,ADR-0002;ADR-0004,P0,M0,concurrency;negative,windows_e2e,ready,designed,not_run,,cases/01-launch-terminal-ui.json,generated/01-launch-terminal-ui.md#tc-trm-004
 TC-TRM-005,ASCII、中文及组合字符输入保真,FL-002;FL-016,FR-02;FR-11,ADR-0002;ADR-0004,P0,M0,compatibility;boundary,windows_e2e,ready,designed,not_run,,cases/01-launch-terminal-ui.json,generated/01-launch-terminal-ui.md#tc-trm-005
-TC-TRM-006,中文输入法候选确认与取消,FL-002;FL-016,FR-02;FR-11,ADR-0002;ADR-0004,P0,M0,compatibility;boundary,manual,ready,designed,not_run,,cases/01-launch-terminal-ui.json,generated/01-launch-terminal-ui.md#tc-trm-006
+TC-TRM-006,中文输入法候选确认与取消,FL-002;FL-016,FR-02;FR-11,ADR-0002;ADR-0004;ADR-0014;ADR-0016,P0,M0,compatibility;boundary,manual,ready,designed,not_run,,cases/01-launch-terminal-ui.json,generated/01-launch-terminal-ui.md#tc-trm-006
 TC-TRM-007,多行粘贴与显式提交边界,FL-002;FL-016,FR-02;FR-11,ADR-0002;ADR-0004,P0,M0,boundary;compatibility,windows_e2e,ready,designed,not_run,,cases/01-launch-terminal-ui.json,generated/01-launch-terminal-ui.md#tc-trm-007
 TC-TRM-008,不支持 bracketed paste 的目标降级,FL-002;FL-016,FR-02;FR-11,ADR-0002;ADR-0004,P1,M0,negative;compatibility,windows_e2e,needs_decision,designed,not_run,O-009,cases/01-launch-terminal-ui.json,generated/01-launch-terminal-ui.md#tc-trm-008
 TC-TRM-009,CRLF、LF 与尾部换行按输入合同处理,FL-002;FL-016,FR-02;FR-11,ADR-0002;ADR-0004,P1,M0,boundary;compatibility,windows_e2e,needs_decision,designed,not_run,O-009,cases/01-launch-terminal-ui.json,generated/01-launch-terminal-ui.md#tc-trm-009
@@ -64,7 +64,7 @@ TC-FOC-004,管理器草稿不覆盖子终端未提交输入,FL-012,FR-11,ADR-000
 TC-FOC-005,焦点切换边界上的单个按键不重复或错投,FL-012,FR-11,ADR-0002;ADR-0004,P0,M1,concurrency;boundary,windows_e2e,needs_decision,designed,not_run,O-009,cases/01-launch-terminal-ui.json,generated/01-launch-terminal-ui.md#tc-foc-005
 TC-FOC-006,弹窗确认与取消只完成一次动作,FL-012,FR-11,ADR-0001;ADR-0004,P1,M1,concurrency;negative,windows_e2e,needs_decision,designed,not_run,O-009,cases/01-launch-terminal-ui.json,generated/01-launch-terminal-ui.md#tc-foc-006
 TC-FOC-007,失去外部窗口焦点后无幽灵重复输入,FL-012,FR-11,ADR-0002;ADR-0004,P0,M1,compatibility;boundary,manual,ready,designed,not_run,,cases/01-launch-terminal-ui.json,generated/01-launch-terminal-ui.md#tc-foc-007
-TC-FOC-008,输入法切换不触发全局会话动作,FL-012,FR-11,ADR-0002;ADR-0004,P0,M0,compatibility;boundary,manual,ready,designed,not_run,,cases/01-launch-terminal-ui.json,generated/01-launch-terminal-ui.md#tc-foc-008
+TC-FOC-008,输入法切换不触发全局会话动作,FL-012,FR-11,ADR-0002;ADR-0004;ADR-0014;ADR-0016,P0,M0,compatibility;boundary,manual,ready,designed,not_run,,cases/01-launch-terminal-ui.json,generated/01-launch-terminal-ui.md#tc-foc-008
 TC-FOC-009,快捷键帮助与实际配置一致,FL-012,FR-11,ADR-0002;ADR-0004,P1,M1,usability;compatibility,manual,needs_decision,designed,not_run,O-009,cases/01-launch-terminal-ui.json,generated/01-launch-terminal-ui.md#tc-foc-009
 TC-FOC-010,草稿正在编辑时目标 Run 改变,FL-012;FL-013,FR-11;FR-12,ADR-0004,P0,M3,state;concurrency,windows_e2e,needs_decision,designed,not_run,O-009,cases/01-launch-terminal-ui.json,generated/01-launch-terminal-ui.md#tc-foc-010
 TC-FOC-011,resize 期间表单光标与输入焦点保持一致,FL-012,FR-11,ADR-0001;ADR-0005,P1,M1,boundary;compatibility,windows_e2e,ready,designed,not_run,,cases/01-launch-terminal-ui.json,generated/01-launch-terminal-ui.md#tc-foc-011

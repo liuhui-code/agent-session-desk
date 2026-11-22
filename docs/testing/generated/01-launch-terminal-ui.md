@@ -1201,7 +1201,7 @@
 
 - 功能：[FL-002](../COVERAGE.md#fl-002)、[FL-016](../COVERAGE.md#fl-016)
 - 需求：[FR-02](../COVERAGE.md#fr-02)、[FR-11](../COVERAGE.md#fr-11)
-- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0014](../../adr/0014-upstream-ui-tabs-and-general-terminals.md)、[ADR-0016](../../adr/0016-tab-workspaces-and-input-ownership.md)
 - 优先级 / 阶段 / 层次：P0 / M0 / manual
 - 类型：compatibility、boundary
 - 设计 / 执行：`designed / not_run`
@@ -1217,7 +1217,7 @@
 
 #### 操作步骤
 
-1. 在管理器表单和 attach 的目标输入框分别开启已选中文 IME，输入拼音并保持候选未确认。
+1. 在管理器表单与活动 Tab 终端分别开启已选中文 IME，输入拼音并保持候选未确认；显式辅助全屏 attach 另作独立对照。
 2. 依次选择候选、取消候选、提交整段文本，记录目标收到的事件。
 
 #### 预期与不变量
@@ -1233,6 +1233,8 @@
 #### 参数变体
 
 - IME 操作：`["确认候选", "Esc 取消候选", "切换中英文后继续输入"]`
+
+说明：分别记录表单、Tab 原生终端与辅助 attach 的结果。组合预编辑、候选确认与显式命令提交分开观察；不以 Unicode 注入或剪贴板代替 IME。
 
 
 ### TC-TRM-007
@@ -2540,7 +2542,7 @@
 
 - 功能：[FL-012](../COVERAGE.md#fl-012)
 - 需求：[FR-11](../COVERAGE.md#fr-11)
-- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0014](../../adr/0014-upstream-ui-tabs-and-general-terminals.md)、[ADR-0016](../../adr/0016-tab-workspaces-and-input-ownership.md)
 - 优先级 / 阶段 / 层次：P0 / M0 / manual
 - 类型：compatibility、boundary
 - 设计 / 执行：`designed / not_run`
@@ -2557,7 +2559,7 @@
 
 #### 操作步骤
 
-1. 在表单与 attach 下用测试环境配置的 IME 切换键切换语言。
+1. 在表单、活动 Tab 终端与显式辅助 attach 下分别用测试环境配置的 IME 切换键切换语言。
 2. 在候选显示、确认后和空输入三种状态重复。
 
 #### 预期与不变量

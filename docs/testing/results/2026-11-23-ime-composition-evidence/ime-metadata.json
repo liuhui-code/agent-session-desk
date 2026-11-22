@@ -1,0 +1,37 @@
+{
+    "engines":  [
+                    {
+                        "name":  "ChsIME",
+                        "pid":  2772,
+                        "path":  "C:\\Windows\\System32\\InputMethod\\CHS\\ChsIME.exe",
+                        "session":  2,
+                        "description":  "Microsoft IME",
+                        "file_version":  "10.0.19041.4355 (WinBuild.160101.0800)"
+                    },
+                    {
+                        "name":  "ChsIME",
+                        "pid":  15400,
+                        "path":  "C:\\Windows\\System32\\InputMethod\\CHS\\ChsIME.exe",
+                        "session":  2,
+                        "description":  "Microsoft IME",
+                        "file_version":  "10.0.19041.4355 (WinBuild.160101.0800)"
+                    },
+                    {
+                        "name":  "TextInputHost",
+                        "pid":  1912,
+                        "path":  "C:\\Windows\\SystemApps\\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\\TextInputHost.exe",
+                        "session":  2,
+                        "description":  "",
+                        "file_version":  "125.1700.0.0"
+                    }
+                ],
+    "language_list_type":  "System.Collections.Generic.List`1[[Microsoft.InternationalSettings.Commands.WinUserLanguage, Microsoft.InternationalSettings.Commands, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]]",
+    "languages":  [
+                      {
+                          "tag":  "zh-Hans-CN",
+                          "tips":  [
+                                       "0804:{81D4E9C9-1D3B-41BC-9E6C-4B40BF79E35E}{FA550B04-5AD7-411F-A5AC-CA038EC515D7}"
+                                   ]
+                      }
+                  ]
+}

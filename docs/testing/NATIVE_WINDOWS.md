@@ -74,3 +74,5 @@ Hosted runner 是 **Windows Server 2025**，标签会随镜像更新；实际 Im
 对 psmux 3.4.0，pane 查询改为单个 `SESSION:.%N` 完整 target。稳定源码只对第一个 `-t` 做某些校验，原先“全局 session target + 局部 pane target”会留下未验证 pane 的路径。由于 capture 内部在目标消失时会退回活动 pane，返回预览前还要重新核对原 pane，无法确认就丢弃快照。
 
 这能覆盖普通删除竞态的错读风险；不构成后端原子快照、外部 respawn 仲裁或服务器被替换后的完整恢复保证。稳定源码仍存在忙碌时枚举不完整等边界，后续长稳和异常恢复验证须继续覆盖。
+
+2026-11-23 桌面补充：[基础 IME 实际报告](results/2026-11-23-ime-composition.md)记录当前 Tab 与表单在 Microsoft 拼音下的候选／确认／取消及直接 PowerShell 对照。它是独立桌面证据，不属于以上 CI 合同套件，不提升全部输入法、切换键、辅助 attach 或 Windows 发布支持范围。
