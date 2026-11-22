@@ -1,0 +1,84 @@
+{
+    "ok":  true,
+    "utc":  "2026-11-22T08:41:57.7037839Z",
+    "state":  {
+                  "pid":  18992,
+                  "filetime":  134398100370036003,
+                  "rect":  [
+                               226,
+                               234,
+                               1113,
+                               657
+                           ],
+                  "tree":  [
+                               {
+                                   "name":  "",
+                                   "type":  "ControlType.Pane"
+                               },
+                               {
+                                   "name":  "",
+                                   "type":  "ControlType.Pane"
+                               },
+                               {
+                                   "name":  "",
+                                   "type":  "ControlType.Tab"
+                               },
+                               {
+                                   "name":  "",
+                                   "type":  "ControlType.List"
+                               },
+                               {
+                                   "name":  "ASD isolated desktop acceptance",
+                                   "type":  "ControlType.TabItem"
+                               },
+                               {
+                                   "name":  "ASD isolated desktop acceptance",
+                                   "type":  "ControlType.Text"
+                               },
+                               {
+                                   "name":  "关闭标签页",
+                                   "type":  "ControlType.Button"
+                               },
+                               {
+                                   "name":  "新建标签页",
+                                   "type":  "ControlType.SplitButton"
+                               },
+                               {
+                                   "name":  "",
+                                   "type":  "ControlType.Custom"
+                               },
+                               {
+                                   "name":  "ASD isolated desktop acceptance",
+                                   "type":  "ControlType.Text"
+                               },
+                               {
+                                   "name":  "垂直",
+                                   "type":  "ControlType.ScrollBar"
+                               },
+                               {
+                                   "name":  "垂直小幅下降",
+                                   "type":  "ControlType.Button"
+                               },
+                               {
+                                   "name":  "垂直大幅下降",
+                                   "type":  "ControlType.Button"
+                               },
+                               {
+                                   "name":  "垂直大幅增长",
+                                   "type":  "ControlType.Button"
+                               },
+                               {
+                                   "name":  "垂直小幅增长",
+                                   "type":  "ControlType.Button"
+                               }
+                           ],
+                  "keyboardLayout":  134481924,
+                  "path":  "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe",
+                  "text":  "ASD isolated desktop acceptance\nAgent Session Desk                                                                                              2 条历史\r\n                                                                                                                        \r\n历史记录 · 最近 100 条                                                                                                  \r\n────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────\r\n只读记录 · 当前在线状态未知                                                                                             \r\n名称：history-fixture-1                                                                                                 \r\nSession：a6d17dbc67132b7f864c18c7fcfb3fc7                                                                               \r\nRun：265677b34b07927a029ad48dd4c31654                                                                                   \r\nBackend：asd_a6d17dbc67132b7f864c18c7fcfb3fc7_265677b34b07927a029ad48dd4c31654                                          \r\n程序：C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\asd-fixture.exe                                                     \r\n首次记录：2026-11-22T08:19:40.645044Z                                                                                   \r\nagent 结果：未知                                                                                                        \r\n停止确认：2026-11-22T08:19:42.6664863Z                                                                                  \r\npane：%1                                                                                                                \r\n观测来源：psmux.pane_dead                                                                                               \r\n退出观测时间：2026-11-22T08:19:41.8180127Z                                                                              \r\n退出码：未知                                                                                                            \r\n                                                                                                                        \r\n                                                                                                                        \r\n                                                                                                                        \r\n                                                                                                                        \r\n                                                                                                                        \r\n                                                                                                                        \r\n                                                                                                                        \r\n                                                                                                                        \r\n                                                                                                                        \r\n                                                                                                                        \r\n                                                                                                                        \r\n                                                                                                                        \r\n                                                                                                                        \r\n                                                                                                                        \r\n↑↓/PgUp/PgDown · 滚动  r · 刷新  Esc/h · 返回  q · 退出                                                                ",
+                  "session":  2
+              },
+    "command":  {
+                    "kind":  "capture",
+                    "label":  "history-refreshed"
+                }
+}

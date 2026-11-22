@@ -1,0 +1,28 @@
+--- FAIL: TestHistoryDetailsWrapScrollAndKeepObservationsSeparate (0.00s)
+    history_test.go:141: missing detail "agent": Agent Session Desk                                                                            2 会话
+
+        历史记录 · 最近 100 条
+        ────────────────────────────────────────────────────────────────────────────────────────────────────
+        只读记录 · 不代表当前在线状态
+
+        名称：历史 任务
+        Session：historical-session
+        Run：historical-run
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        ↑↓ 选择 · Enter 详情 · Esc 返回 · q 退出
+FAIL
+FAIL    github.com/liuhui-code/agent-session-desk/internal/ui   2.346s
+FAIL

@@ -31,6 +31,9 @@ func (m *Model) renderFrame() string {
 	}
 	header := m.styles.title.Render("Agent Session Desk")
 	count := m.styles.dim.Render(fmt.Sprintf("%d 会话", len(m.sessions)))
+	if m.history.open {
+		count = m.styles.dim.Render(fmt.Sprintf("%d 条历史", len(m.history.rows)))
+	}
 	gap := m.width - lipgloss.Width(header) - lipgloss.Width(count)
 	if gap > m.tokens.layout.headerMinGap {
 		header += strings.Repeat(" ", gap) + count
@@ -41,6 +44,8 @@ func (m *Model) renderFrame() string {
 	contentHeight := m.height - m.tokens.chromeRows() // header, breathing row, breathing row, footer
 	var content string
 	switch {
+	case m.history.open:
+		content = m.renderHistory(contentHeight)
 	case m.help:
 		content = m.renderHelp(contentHeight)
 	case !m.previewVisible():
@@ -51,10 +56,13 @@ func (m *Model) renderFrame() string {
 		content = m.renderDualColumnLayout(contentHeight)
 	}
 	footer := m.renderHelpBar()
-	if m.status != "" {
+	if m.history.open {
+		footer = m.renderHistoryHelpBar()
+	}
+	if !m.history.open && m.status != "" {
 		footer = m.styles.dim.Render(cellTruncate(label(m.status), max(0, m.width-m.tokens.layout.statusHelpWidth), m.tokens.marks.ellipsis)) + m.tokens.itemGap() + "? 帮助" + m.tokens.itemGap() + "q 退出"
 	}
-	if m.listErr != nil {
+	if !m.history.open && m.listErr != nil {
 		footer = m.styles.error.Render("后台状态未知："+label(m.listErr.Error())) + m.tokens.itemGap() + "r 重试"
 	}
 	return fitFrame(header+m.tokens.sectionBreak()+ensureExactHeight(content, contentHeight)+m.tokens.sectionBreak()+footer, m.width, m.height)
@@ -200,7 +208,7 @@ func (m *Model) renderHelpBar() string {
 	}
 	parts := []string{
 		m.styles.menuKey("↑↓", "选择"), m.styles.menuKey("Enter", "进入"),
-		m.styles.menuKey("r", "刷新"), m.styles.menuKey("?", "帮助"), m.styles.menuKey("q", "退出"),
+		m.styles.menuKey("h", "历史"), m.styles.menuKey("r", "刷新"), m.styles.menuKey("?", "帮助"), m.styles.menuKey("q", "退出"),
 	}
 	return strings.Join(parts, m.tokens.itemGap())
 }
@@ -213,6 +221,7 @@ func (m *Model) renderHelp(height int) string {
 		"↑↓ / j k 选择会话；Enter 全屏进入。\n" +
 		"分离前取消候选并切至英文输入模式。\n" +
 		"Ctrl+b，松开后按 d，返回管理器。\n" +
+		"h 只读历史；Enter 详情，Esc 返回。\n" +
 		"q 退出管理器，保留后台会话。" + m.tokens.sectionBreak() + "" +
 		m.styles.dim.Render("预览仅为当前屏幕；CLI 工作状态保持未知。") + "\n" +
 		"Esc / ? 返回"

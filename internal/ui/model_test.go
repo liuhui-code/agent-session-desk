@@ -13,6 +13,7 @@ import (
 )
 
 type fakeService struct {
+	history func(context.Context, int) ([]session.HistoryRecord, error)
 	list    func(context.Context) ([]session.Session, error)
 	preview func(context.Context, session.Session, int) (session.Preview, error)
 	attach  func(context.Context, session.Session) (*exec.Cmd, error)
@@ -254,4 +255,11 @@ func TestQuitCancelsWorkWithoutStoppingSession(t *testing.T) {
 		t.Fatal("quit left pending backend reads uncancelled")
 	}
 	// Service deliberately has no Stop method. Quitting cannot stop a Run.
+}
+
+func (s fakeService) History(ctx context.Context, limit int) ([]session.HistoryRecord, error) {
+	if s.history != nil {
+		return s.history(ctx, limit)
+	}
+	return nil, nil
 }

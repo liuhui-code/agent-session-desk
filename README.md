@@ -115,3 +115,5 @@
 M1 最小元数据切片：已加入 [Session/Run 元数据与 history](docs/METADATA.md)，重开后核对实际后台，历史不自动变为在线；[ADR-0009](docs/adr/0009-session-run-metadata.md) 与[实际证据](docs/testing/results/2026-11-22-m1-metadata.md)单独记录。
 
 后续切片已加入 [pane 退出观测与元数据 v2](docs/adr/0010-pane-exit-observations.md)：保留退出来源和观测时间，退出码未知，不把 shell 存活或历史观测当作 agent 结果。
+
+M1 后续切片提供 TUI 只读历史：h 打开最近 100 条，Enter 查看详情，Esc 返回；历史不接回终端、不推定当前状态。[用法](docs/METADATA.md#tui-只读历史)与[局部验证](docs/testing/results/2026-11-22-m1-history-ui.md)单独记录。

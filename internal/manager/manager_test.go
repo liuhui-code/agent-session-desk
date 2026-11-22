@@ -170,3 +170,33 @@ func TestPaneExitObservationSurvivesMissingBackendWithoutClaimingAgentOutcome(t 
 		t.Fatalf("outcome exaggerated: %#v", rows)
 	}
 }
+
+func TestHistoryDoesNotNeedTerminalAndRetainsMetadataSemantics(t *testing.T) {
+	ctx := context.Background()
+	db, err := store.Open(ctx, filepath.Join(t.TempDir(), "metadata.sqlite3"), "history-only")
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer db.Close()
+	v := observed()
+	if err = db.Save(ctx, v); err != nil {
+		t.Fatal(err)
+	}
+	if err = db.MarkStopped(ctx, v); err != nil {
+		t.Fatal(err)
+	}
+	// A nil terminal makes any backend call a failure, including liveness probes.
+	m := manager.New(nil, db)
+	rows, err := m.History(ctx, 100)
+	if err != nil || len(rows) != 1 {
+		t.Fatalf("history: %v, %v", rows, err)
+	}
+	if rows[0].Session.RunID != v.RunID || rows[0].Session.TerminalState != session.TerminalUnknown || rows[0].StopConfirmedAt == nil {
+		t.Fatalf("history changed evidence: %#v", rows)
+	}
+	cancelled, cancel := context.WithCancel(ctx)
+	cancel()
+	if _, err = m.History(cancelled, 100); err == nil {
+		t.Fatal("history ignored cancellation")
+	}
+}

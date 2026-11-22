@@ -1,0 +1,13 @@
+{
+    "utc":  "2026-11-22T08:42:02.3252379Z",
+    "result":  "passed",
+    "checks":  [
+                   "history-list",
+                   "read-only-enter",
+                   "exit-provenance",
+                   "refresh-same-run",
+                   "narrow-scroll-bottom-top",
+                   "stop-without-pane-exit",
+                   "return-empty-live"
+               ]
+}

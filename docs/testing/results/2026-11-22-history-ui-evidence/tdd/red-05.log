@@ -1,0 +1,5 @@
+--- FAIL: TestHistoryRefreshPreservesRunIdentityAndHandlesErrors (0.00s)
+    history_test.go:185: refresh changed the chosen Run
+FAIL
+FAIL    github.com/liuhui-code/agent-session-desk/internal/ui   0.983s
+FAIL

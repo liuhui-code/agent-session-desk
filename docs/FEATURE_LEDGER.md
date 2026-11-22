@@ -50,7 +50,7 @@
 | --- | --- | --- | --- | --- | --- |
 | FL-001 | 自定义 CLI 启动：直接接入自己的 agent | FR-01 | M0 预验证、M1 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md) / 未发布 |
 | FL-002 | 原生终端 attach：可靠输入并操作原有 CLI | FR-02、FR-11 | M0、M1 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md) / 未发布 |
-| FL-003 | 简约 TUI 与上游复用：减少视觉负担和重复设计 | FR-03、FR-11 | M0、M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[短资源实验](testing/results/2026-11-21-m0-windows-resources.md) / 未发布 |
+| FL-003 | 简约 TUI 与上游复用：减少视觉负担和重复设计 | FR-03、FR-11 | M0、M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[短资源实验](testing/results/2026-11-21-m0-windows-resources.md)、[只读历史 UI](testing/results/2026-11-22-m1-history-ui.md) / 未发布 |
 | FL-004 | 多会话组织：查找、切换、停止和归档任务 | FR-03 | M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md) / 未发布 |
 | FL-005 | 稳定身份：重命名、排序后仍控制正确对象 | FR-04 | M1、M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md) / 未发布 |
 | FL-006 | 后台托管与重新连接：关闭界面后任务继续 | FR-05 | M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md)、[短资源实验](testing/results/2026-11-21-m0-windows-resources.md) / 未发布 |
@@ -58,7 +58,7 @@
 | FL-008 | 跨会话显式投递：把指令交给明确目标 | FR-07 | M3 | 计划 | 未提供 / 未发布 |
 | FL-009 | 按能力排队与自动投递：避免向未知状态盲目注入 | FR-08 | M3 | 计划 | 未提供 / 未发布 |
 | FL-010 | Agent 控制 CLI：让有工具能力的 agent 主动协作 | FR-09 | M3 | 计划 | 未提供 / 未发布 |
-| FL-011 | 历史与恢复边界：知道接回、重启与续聊的区别 | FR-10 | M1、M2 | 实现中 | [最小元数据证据](testing/results/2026-11-22-m1-metadata.md) / 未发布 |
+| FL-011 | 历史与恢复边界：知道接回、重启与续聊的区别 | FR-10 | M1、M2 | 实现中 | [最小元数据证据](testing/results/2026-11-22-m1-metadata.md)、[只读历史 UI](testing/results/2026-11-22-m1-history-ui.md) / 未发布 |
 | FL-012 | 焦点与草稿：输入不串用，切换不丢失管理器草稿 | FR-11 | M1、M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md) / 未发布 |
 | FL-013 | 异常、重试和运行变化：保留不确定性并避免误投 | FR-12 | M1 至 M3 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md) / 未发布 |
 | FL-014 | 请求与回复关联：按消息查询合作结果 | FR-13 | M3 | 计划 | 未提供 / 未发布 |
@@ -97,6 +97,9 @@
 - **验收：**列明来源文件、固定提交和实际保留/适配范围；完成 v1 来源代码向稳定 v2 依赖的必要适配；真实 Windows 运行中验证宽字符、布局缩放、焦点和快捷键，界面由用户评审。不能把复制目录、静态图或编译通过视为完成。
 - **依据：**[FR-03 / FR-11](PRODUCT_PLAN.md)、[ADR-0001](adr/0001-architecture-and-reuse.md)、[ADR-0005](adr/0005-dependency-lifecycle-and-upgrades.md)。
 - **实现与验收证据：**[四个 Agent Deck 派生文件与来源](REUSE_MANIFEST.md)已迁入 Charm v2；包含响应式列表/预览、短提示、keycap 宽度修复及局部回归。当前颜色、间距、尺寸、断点、样式标记统一通过 [设计 tokens](../internal/ui/design_tokens.go) 管理，见 [ADR-0008](adr/0008-ui-design-tokens.md) 与[局部渲染回归](testing/results/2026-11-22-m1-config-tokens.md)。新建暂用 CLI，完整表单、运行时主题切换和本次改动后的 Windows 视觉评审待做。 [实际验证范围与未通过门槛](testing/results/2026-11-21-m0-source-migration.md)。
+
+- **TUI 历史局部进展（2026-11-22）：**h 按需读取最近 100 条，Enter 只读详情，独立选择与刷新按 Run ID 保留；关闭取消、迟到结果丢弃、错误及窄窗口边界有回归。历史不 attach、不重启、不推定当前状态；详见 [ADR-0011](adr/0011-read-only-tui-history.md) 和[实际报告](testing/results/2026-11-22-m1-history-ui.md)。完整历史、归档／恢复和发布仍待做。
+
 
 ### FL-004：多会话组织
 
@@ -178,14 +181,20 @@
 
 - **pane 退出观测局部进展（2026-11-22）：**实际核对原 pane 后保存首次退出观测、来源和时间；exit_code 保持 null，历史与当前状态分开。v1→v2 追加迁移保留原身份，shell 存活不推定子 agent 状态。见 [ADR-0010](adr/0010-pane-exit-observations.md) 与[实际报告](testing/results/2026-11-22-m1-pane-exit.md)。
 
+- **TUI 历史局部进展（2026-11-22）：**h 按需读取最近 100 条，Enter 只读详情，独立选择与刷新按 Run ID 保留；关闭取消、迟到结果丢弃、错误及窄窗口边界有回归。历史不 attach、不重启、不推定当前状态；详见 [ADR-0011](adr/0011-read-only-tui-history.md) 和[实际报告](testing/results/2026-11-22-m1-history-ui.md)。完整历史、归档／恢复和发布仍待做。
+
+
 ### FL-012：焦点与草稿
 
-测试设计：[FL-012 用例与映射](testing/COVERAGE.md#fl-012)；当前仅设计，未执行。
+测试设计：[FL-012 用例与映射](testing/COVERAGE.md#fl-012)；目录保留 designed/not_run 基线，局部执行见实际报告。
 
 - **范围与边界：**明确管理模式与 attach 终端模式；表单、通信草稿按 Session 保留，子终端自身输入由原程序管理。最终按键绑定依据 Windows/输入法/agent 冲突验证，不沿用概念图中的未确认键位。
 - **验收：**编辑表单、切换会话、进入/退出 attach 和处理弹窗时，普通输入与快捷键各自只作用于预期对象；管理器草稿不会串会话，也不会覆盖子终端未提交输入。
 - **依据：**[FR-11](PRODUCT_PLAN.md)、[ADR-0002](adr/0002-terminal-backends-and-attach.md)、[ADR-0004](adr/0004-cli-agents-and-session-messaging.md)。
 - **实现与验收证据：**管理键盘与 attach 的代码路径已分离，粘贴不解释为管理快捷键、重复 Enter 不重复接入；完整新建/通信草稿、IME 与原生焦点交接尚未验收。 [实际验证范围与未通过门槛](testing/results/2026-11-21-m0-source-migration.md)。
+
+- **TUI 历史局部进展（2026-11-22）：**h 按需读取最近 100 条，Enter 只读详情，独立选择与刷新按 Run ID 保留；关闭取消、迟到结果丢弃、错误及窄窗口边界有回归。历史不 attach、不重启、不推定当前状态；详见 [ADR-0011](adr/0011-read-only-tui-history.md) 和[实际报告](testing/results/2026-11-22-m1-history-ui.md)。完整历史、归档／恢复和发布仍待做。
+
 
 ### FL-013：异常、重试和运行变化
 
@@ -199,6 +208,9 @@
 
 
 - **pane 退出观测局部进展（2026-11-22）：**实际核对原 pane 后保存首次退出观测、来源和时间；exit_code 保持 null，历史与当前状态分开。v1→v2 追加迁移保留原身份，shell 存活不推定子 agent 状态。见 [ADR-0010](adr/0010-pane-exit-observations.md) 与[实际报告](testing/results/2026-11-22-m1-pane-exit.md)。
+
+- **TUI 历史局部进展（2026-11-22）：**h 按需读取最近 100 条，Enter 只读详情，独立选择与刷新按 Run ID 保留；关闭取消、迟到结果丢弃、错误及窄窗口边界有回归。历史不 attach、不重启、不推定当前状态；详见 [ADR-0011](adr/0011-read-only-tui-history.md) 和[实际报告](testing/results/2026-11-22-m1-history-ui.md)。完整历史、归档／恢复和发布仍待做。
+
 
 ### FL-014：请求与回复关联
 
@@ -320,3 +332,5 @@ SSH 局部执行补充（2026-11-22）：Windows 10 build 19045 上使用实际�
 元数据局部实现补充（2026-11-22）：FL-005/011/013 增加 SQLite 与原生 Windows 局部证据，FL-011 进入实现中；339 项设计状态和完整 M0/M1 门槛保持不变。
 
 pane 退出观测补充（2026-11-22）：FL-005/011/013 增加有来源的 pane 退出、未知退出码、重复观测去重与 schema v2 证据；各项保持实现中和未发布。
+
+只读历史补充（2026-11-22）：FL-003/011/012/013 增加历史视图、控制与观察边界的局部证据；保持实现中、未发布，339 项设计状态不变。

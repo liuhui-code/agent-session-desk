@@ -63,3 +63,7 @@ func (m *Manager) Stop(ctx context.Context, v session.Session) error {
 	}
 	return nil
 }
+
+func (m *Manager) History(ctx context.Context, limit int) ([]session.HistoryRecord, error) {
+	return m.metadata.History(ctx, limit)
+}

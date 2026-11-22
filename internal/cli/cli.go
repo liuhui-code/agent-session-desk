@@ -52,6 +52,7 @@ Start options:
 
 Inside the manager: arrows/j/k select, Enter attaches, r refreshes, ? help, q quits.
 Inside the terminal: cancel IME composition, switch to English input, then Ctrl+b and d detach back to the manager.
+Press h for read-only metadata history; Enter shows details and Esc returns.
 Quitting the manager keeps backend sessions; stop explicitly ends the selected Run.
 
 This is a development slice. Recorded metadata does not establish liveness.

@@ -1,0 +1,32 @@
+[
+  {
+    "session": {
+      "session_id": "2b5d5a76fdcb4485fecf6ba5c45ce96f",
+      "run_id": "9044848384715b564a3c83e3ee18edef",
+      "backend_id": "asd_2b5d5a76fdcb4485fecf6ba5c45ce96f_9044848384715b564a3c83e3ee18edef",
+      "title": "history-fixture-2",
+      "command": "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\asd-fixture.exe",
+      "terminal_state": "unknown"
+    },
+    "recorded_at": "2026-11-22T08:19:44.275228Z",
+    "stop_confirmed_at": "2026-11-22T08:19:45.6325035Z"
+  },
+  {
+    "session": {
+      "session_id": "a6d17dbc67132b7f864c18c7fcfb3fc7",
+      "run_id": "265677b34b07927a029ad48dd4c31654",
+      "backend_id": "asd_a6d17dbc67132b7f864c18c7fcfb3fc7_265677b34b07927a029ad48dd4c31654",
+      "title": "history-fixture-1",
+      "command": "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\asd-fixture.exe",
+      "terminal_state": "unknown"
+    },
+    "recorded_at": "2026-11-22T08:19:40.645044Z",
+    "stop_confirmed_at": "2026-11-22T08:19:42.6664863Z",
+    "pane_exit": {
+      "pane_id": "%1",
+      "source": "psmux.pane_dead",
+      "observed_at": "2026-11-22T08:19:41.8180127Z",
+      "exit_code": null
+    }
+  }
+]

@@ -62,3 +62,5 @@ ASMGR 与 AoE 本轮没有迁入源码。psmux / tmux 作为外部程序，仅�
 本清单不代替发行物 SBOM 或全部 Go 依赖许可审计。实际打包时还需按发行物收集直接／间接依赖的许可证，解决原创整体许可证，并完成 Windows 与发布验证。
 
 2026-11-22：派生调色板从 styles.go 移到 [design_tokens.go](../internal/ui/design_tokens.go)，新增文件头及机器清单条目保留相同上游快照和 source SHA。响应式尺寸、间距与标记集中管理，styles.go 组合角色样式；默认值不构成新视觉方案接受。Go 后端命令 helper 与资源采集脚本 process helper 仅拆文件以满足 500 行限制，无行为扩展；见 [本轮报告](testing/results/2026-11-22-m1-config-tokens.md)。
+
+2026-11-22：派生 home_view_frame.go 增加历史视图路由、历史计数、h 帮助提示；历史状态／详情是本地连接代码，继续复用既有 token 和角色样式，不引入新上游源或依赖。尺寸／宽字符回归与 Windows 局部检查见[历史 UI 报告](testing/results/2026-11-22-m1-history-ui.md)。

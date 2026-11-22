@@ -1,0 +1,80 @@
+[
+  {
+    "args": [
+      "start",
+      "--name",
+      "history-fixture-1",
+      "--env",
+      "ASD_FIXTURE_REPORT_PATH=C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-history-ui-run2\\fixture-1.jsonl",
+      "--env",
+      "ASD_FIXTURE_EXIT_AFTER_START=1",
+      "--env",
+      "ASD_FIXTURE_EXIT_CODE=7",
+      "--",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\asd-fixture.exe",
+      "synthetic-history-1"
+    ],
+    "stderr": "",
+    "code": 0,
+    "stdout": "{\r\n  \"session_id\": \"a6d17dbc67132b7f864c18c7fcfb3fc7\",\r\n  \"run_id\": \"265677b34b07927a029ad48dd4c31654\",\r\n  \"backend_id\": \"asd_a6d17dbc67132b7f864c18c7fcfb3fc7_265677b34b07927a029ad48dd4c31654\",\r\n  \"title\": \"history-fixture-1\",\r\n  \"command\": \"C:\\\\Users\\\\liu xun yuan\\\\asd-acceptance-20261122\\\\asd-fixture.exe\",\r\n  \"terminal_state\": \"available\"\r\n}\r\n"
+  },
+  {
+    "args": [
+      "list",
+      "--json"
+    ],
+    "stderr": "",
+    "code": 0,
+    "stdout": "[\r\n  {\r\n    \"session_id\": \"a6d17dbc67132b7f864c18c7fcfb3fc7\",\r\n    \"run_id\": \"265677b34b07927a029ad48dd4c31654\",\r\n    \"backend_id\": \"asd_a6d17dbc67132b7f864c18c7fcfb3fc7_265677b34b07927a029ad48dd4c31654\",\r\n    \"title\": \"history-fixture-1\",\r\n    \"command\": \"C:\\\\Users\\\\liu xun yuan\\\\asd-acceptance-20261122\\\\asd-fixture.exe\",\r\n    \"terminal_state\": \"exited\",\r\n    \"pane_exit\": {\r\n      \"pane_id\": \"%1\",\r\n      \"source\": \"psmux.pane_dead\",\r\n      \"observed_at\": \"2026-11-22T08:19:41.8180127Z\",\r\n      \"exit_code\": null\r\n    }\r\n  }\r\n]\r\n"
+  },
+  {
+    "args": [
+      "stop",
+      "a6d17dbc67132b7f864c18c7fcfb3fc7"
+    ],
+    "stderr": "",
+    "code": 0,
+    "stdout": "{\r\n  \"session_id\": \"a6d17dbc67132b7f864c18c7fcfb3fc7\",\r\n  \"run_id\": \"265677b34b07927a029ad48dd4c31654\",\r\n  \"result\": \"backend_session_stopped\"\r\n}\r\n"
+  },
+  {
+    "args": [
+      "start",
+      "--name",
+      "history-fixture-2",
+      "--env",
+      "ASD_FIXTURE_REPORT_PATH=C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-history-ui-run2\\fixture-2.jsonl",
+      "--",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\asd-fixture.exe",
+      "synthetic-history-2"
+    ],
+    "stderr": "",
+    "code": 0,
+    "stdout": "{\r\n  \"session_id\": \"2b5d5a76fdcb4485fecf6ba5c45ce96f\",\r\n  \"run_id\": \"9044848384715b564a3c83e3ee18edef\",\r\n  \"backend_id\": \"asd_2b5d5a76fdcb4485fecf6ba5c45ce96f_9044848384715b564a3c83e3ee18edef\",\r\n  \"title\": \"history-fixture-2\",\r\n  \"command\": \"C:\\\\Users\\\\liu xun yuan\\\\asd-acceptance-20261122\\\\asd-fixture.exe\",\r\n  \"terminal_state\": \"available\"\r\n}\r\n"
+  },
+  {
+    "args": [
+      "stop",
+      "2b5d5a76fdcb4485fecf6ba5c45ce96f"
+    ],
+    "stderr": "",
+    "code": 0,
+    "stdout": "{\r\n  \"session_id\": \"2b5d5a76fdcb4485fecf6ba5c45ce96f\",\r\n  \"run_id\": \"9044848384715b564a3c83e3ee18edef\",\r\n  \"result\": \"backend_session_stopped\"\r\n}\r\n"
+  },
+  {
+    "args": [
+      "history"
+    ],
+    "stderr": "",
+    "code": 0,
+    "stdout": "[\r\n  {\r\n    \"session\": {\r\n      \"session_id\": \"2b5d5a76fdcb4485fecf6ba5c45ce96f\",\r\n      \"run_id\": \"9044848384715b564a3c83e3ee18edef\",\r\n      \"backend_id\": \"asd_2b5d5a76fdcb4485fecf6ba5c45ce96f_9044848384715b564a3c83e3ee18edef\",\r\n      \"title\": \"history-fixture-2\",\r\n      \"command\": \"C:\\\\Users\\\\liu xun yuan\\\\asd-acceptance-20261122\\\\asd-fixture.exe\",\r\n      \"terminal_state\": \"unknown\"\r\n    },\r\n    \"recorded_at\": \"2026-11-22T08:19:44.275228Z\",\r\n    \"stop_confirmed_at\": \"2026-11-22T08:19:45.6325035Z\"\r\n  },\r\n  {\r\n    \"session\": {\r\n      \"session_id\": \"a6d17dbc67132b7f864c18c7fcfb3fc7\",\r\n      \"run_id\": \"265677b34b07927a029ad48dd4c31654\",\r\n      \"backend_id\": \"asd_a6d17dbc67132b7f864c18c7fcfb3fc7_265677b34b07927a029ad48dd4c31654\",\r\n      \"title\": \"history-fixture-1\",\r\n      \"command\": \"C:\\\\Users\\\\liu xun yuan\\\\asd-acceptance-20261122\\\\asd-fixture.exe\",\r\n      \"terminal_state\": \"unknown\"\r\n    },\r\n    \"recorded_at\": \"2026-11-22T08:19:40.645044Z\",\r\n    \"stop_confirmed_at\": \"2026-11-22T08:19:42.6664863Z\",\r\n    \"pane_exit\": {\r\n      \"pane_id\": \"%1\",\r\n      \"source\": \"psmux.pane_dead\",\r\n      \"observed_at\": \"2026-11-22T08:19:41.8180127Z\",\r\n      \"exit_code\": null\r\n    }\r\n  }\r\n]\r\n"
+  },
+  {
+    "args": [
+      "list",
+      "--json"
+    ],
+    "stderr": "",
+    "code": 0,
+    "stdout": "[]\r\n"
+  }
+]

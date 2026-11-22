@@ -1,6 +1,6 @@
 # 架构决策记录（ADR）
 
-更新日期：2026-11-21。
+更新日期：2026-11-22。
 
 ADR 保存重要选择的背景、决定、替代方案、代价和重新评估条件。[技术选型](../TECH_STACK.md)提供当前结论，[Feature Ledger](../FEATURE_LEDGER.md)记录功能及验收进度，[决策索引](../DECISIONS.md)保留原有编号和产品决定。
 
@@ -29,6 +29,8 @@ ADR 保存重要选择的背景、决定、替代方案、代价和重新评估�
 | [0009](0009-session-run-metadata.md) | SQLite 最小 Session/Run 元数据、独立历史与非原子副作用 | 已接受 | 最小实现、Go 检查与 Windows 局部执行；完整恢复、迁移和资源门槛待做 |
 
 | [0010](0010-pane-exit-observations.md) | 有来源的 pane 退出观测、未知退出码与 schema v2 迁移 | 已接受 | 局部 Go／原生执行单独记账；agent 退出码与完整恢复仍待做 |
+
+| [0011](0011-read-only-tui-history.md) | 按需只读历史、独立选择与实时控制边界 | 已接受 | 局部 Go／Windows 证据见执行报告；完整恢复与发布仍待做 |
 
 ## 维护规则
 

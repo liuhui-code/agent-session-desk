@@ -17,6 +17,7 @@ import (
 // Implementations must honor cancellation and bound captured output. Attach
 // prepares a foreground client; it must not start it or bind its standard I/O.
 type Service interface {
+	History(context.Context, int) ([]session.HistoryRecord, error)
 	List(context.Context) ([]session.Session, error)
 	Preview(context.Context, session.Session, int) (session.Preview, error)
 	Attach(context.Context, session.Session) (*exec.Cmd, error)
@@ -52,6 +53,7 @@ type Model struct {
 	service Service
 	styles  styles
 	tokens  designTokens
+	history historyState
 
 	width, height      int
 	sessions           []session.Session
@@ -88,6 +90,7 @@ func newModelWithTokens(ctx context.Context, service Service, tokens designToken
 // exits because of an external error or signal. It does not stop a session.
 func (m *Model) Close() {
 	m.closed = true
+	m.cancelHistory()
 	m.cancel()
 	if m.previewCancel != nil {
 		m.previewCancel()
@@ -103,6 +106,8 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		return m, nil
 	}
 	switch msg := msg.(type) {
+	case historyMsg:
+		return m, m.historyResult(msg)
 	case tea.WindowSizeMsg:
 		m.width, m.height = max(0, msg.Width), max(0, msg.Height)
 		if !m.previewVisible() {
@@ -180,10 +185,15 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		if m.attaching {
 			return m, nil
 		}
+		if m.history.open && msg.String() != "q" && msg.String() != "ctrl+c" {
+			return m, m.historyKey(msg.String())
+		}
 		switch msg.String() {
 		case "q", "ctrl+c":
 			m.Close()
 			return m, tea.Quit
+		case "h":
+			return m, m.openHistory()
 		case "?", "n":
 			m.help = !m.help
 			if m.help {
@@ -281,7 +291,7 @@ func (m *Model) loadPreview() tea.Cmd {
 }
 
 func (m *Model) previewVisible() bool {
-	if m.help || m.width < m.tokens.layout.singleBelow || m.height < m.tokens.layout.minPreviewHeight {
+	if m.history.open || m.help || m.width < m.tokens.layout.singleBelow || m.height < m.tokens.layout.minPreviewHeight {
 		return false
 	}
 	if m.width < m.tokens.layout.stackedBelow {

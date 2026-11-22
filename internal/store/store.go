@@ -21,12 +21,9 @@ type Store struct {
 	db    *sql.DB
 	scope string
 }
-type Record struct {
-	Session         session.Session   `json:"session"`
-	RecordedAt      time.Time         `json:"recorded_at"`
-	StopConfirmedAt *time.Time        `json:"stop_confirmed_at,omitempty"`
-	PaneExit        *session.PaneExit `json:"pane_exit,omitempty"`
-}
+
+// Record remains a compatible name for callers of the storage boundary.
+type Record = session.HistoryRecord
 
 func Open(ctx context.Context, path, scope string) (*Store, error) {
 	path, err := filepath.Abs(path)

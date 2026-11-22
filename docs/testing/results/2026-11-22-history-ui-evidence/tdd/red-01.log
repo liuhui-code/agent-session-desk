@@ -1,0 +1,8 @@
+# github.com/liuhui-code/agent-session-desk/internal/ui [github.com/liuhui-code/agent-session-desk/internal/ui.test]
+internal/ui/model_test.go:16:48: undefined: session.HistoryRecord
+internal/ui/model_test.go:260:73: undefined: session.HistoryRecord
+internal/ui/history_test.go:15:30: undefined: session.HistoryRecord
+internal/ui/history_test.go:16:19: undefined: session.HistoryRecord
+internal/ui/history_test.go:21:79: undefined: session.HistoryRecord
+FAIL    github.com/liuhui-code/agent-session-desk/internal/ui [build failed]
+FAIL
