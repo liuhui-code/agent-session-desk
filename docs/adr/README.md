@@ -28,6 +28,8 @@ ADR 保存重要选择的背景、决定、替代方案、代价和重新评估�
 
 | [0009](0009-session-run-metadata.md) | SQLite 最小 Session/Run 元数据、独立历史与非原子副作用 | 已接受 | 最小实现、Go 检查与 Windows 局部执行；完整恢复、迁移和资源门槛待做 |
 
+| [0010](0010-pane-exit-observations.md) | 有来源的 pane 退出观测、未知退出码与 schema v2 迁移 | 已接受 | 局部 Go／原生执行单独记账；agent 退出码与完整恢复仍待做 |
+
 ## 维护规则
 
 1. 新决定使用下一个连续编号，复制[模板](template.md)，已有编号不重用。

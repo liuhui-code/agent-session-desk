@@ -1,0 +1,5 @@
+# github.com/liuhui-code/agent-session-desk/internal/backend [github.com/liuhui-code/agent-session-desk/internal/backend.test]
+internal/backend/exit_test.go:20:13: created.PaneExit undefined (type session.Session has no field or method PaneExit)
+internal/backend/exit_test.go:45:15: rows[0].PaneExit undefined (type session.Session has no field or method PaneExit)
+FAIL    github.com/liuhui-code/agent-session-desk/internal/backend [build failed]
+FAIL

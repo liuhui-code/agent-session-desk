@@ -27,7 +27,7 @@ start 先检查当前可写性，成功创建终端后提交元数据，再报�
 
 list/TUI 始终向后端查询，成功发现才保存，后端错误按原错误返回；未列出某 Run 不写成退出或停止。attach/preview/stop 继续只从实时后台选取、重验目标，历史记录不能成为控制凭据。stop 的后端成功返回后才记录明确 stop 证据；若落盘失败，错误说明后端已停止和元数据未更新。
 
-`asd history [--limit N]` 独立读取数据库，无需找到或启动后端。默认最近 100 项，上限 1000，历史 terminal_state 恒为 unknown，stop_confirmed_at 为独立事件证据，不等于 agent 退出码或任务完成。读取历史不会启动/重启 agent；库打开时会初始化空库并短暂获取写锁验证 schema，当前不提供只读文件模式。历史查询尚无 TUI 页面和完整分页接口。打开库会初始化空库并短暂校验写锁，尚不提供只读文件打开模式。
+`asd history [--limit N]` 独立读取数据库，无需找到或启动后端。默认最近 100 项，上限 1000，历史 terminal_state 恒为 unknown，stop_confirmed_at 为独立事件证据，不等于 agent 退出码或任务完成。读取历史不会启动/重启 agent；库打开时会初始化空库并短暂获取写锁验证 schema，当前不提供只读文件模式。历史查询尚无 TUI 页面和完整分页接口。
 
 ## 保留的门槛
 
@@ -38,3 +38,7 @@ list/TUI 始终向后端查询，成功发现才保存，后端错误按原错�
 - [固定驱动版本](https://pkg.go.dev/modernc.org/sqlite@v1.62.0)、[源码](https://gitlab.com/cznic/sqlite/-/tree/v1.62.0)
 - [SQLite 事务](https://sqlite.org/lang_transaction.html)、[PRAGMA](https://sqlite.org/pragma.html)
 - 驱动 BSD-3-Clause，Copyright (c) 2017 The Sqlite Authors；SQLite 本体 public domain。实际发行物的直接/间接模块与嵌入代码许可仍须收集，原创整体许可 O-010 未解决。
+
+## 后续细化
+
+2026-11-22 的 [ADR-0010](0010-pane-exit-observations.md) 在本 v1 合同上追加 pane 退出观测和事务性 v1→v2 迁移。本文保留初始 schema 与当时验证边界；当前打开支持 v1 升级及 v2，未来版本仍拒绝，准确进程退出码仍未知。

@@ -1,0 +1,48 @@
+{
+  "utc": "2026-11-22T07:19:07.6787513Z",
+  "os": "Microsoft Windows NT 10.0.19045.0",
+  "product_sha256": "5216bdfa1b77897d63089f03d3f38b93908e22f1502100d1d79daa52864ac918",
+  "psmux_sha256": "bbe825a30f7cddc91b043084049143a381aba5f7e9e36e4d0bb587e296d262ca",
+  "checks": [
+    {
+      "observation": {
+        "pane_id": "%1",
+        "source": "psmux.pane_dead",
+        "observed_at": "2026-11-22T07:18:53.910161Z",
+        "exit_code": null
+      },
+      "scenario": "exit-0",
+      "fixture_exit": 0,
+      "session_id": "75ce9f3177043526a921c132e9fe9adf",
+      "run_id": "b1db095f755204785313e6ce1aa8ae0d",
+      "result": "passed"
+    },
+    {
+      "observation": {
+        "pane_id": "%1",
+        "source": "psmux.pane_dead",
+        "observed_at": "2026-11-22T07:18:57.5529782Z",
+        "exit_code": null
+      },
+      "scenario": "exit-7",
+      "fixture_exit": 7,
+      "session_id": "f67584081339272ebf6b97b948c00fc4",
+      "run_id": "643fa9b750732264e1fb721e1c61dee0",
+      "result": "passed"
+    },
+    {
+      "session_id": "f05ab80590c075fd13607ab828e529ec",
+      "result": "passed",
+      "fixture_exit": 7,
+      "run_id": "4f0b03fd3890434ebd04d14444bc1792",
+      "scenario": "shell-retained"
+    },
+    {
+      "result": "passed",
+      "sha256": "43f0dc009f8f2e04a89b82aa99b62b854f4832327d5288644614a223805a693b",
+      "scenario": "native-store-tests"
+    }
+  ],
+  "remaining_owned": 0,
+  "failure": null
+}

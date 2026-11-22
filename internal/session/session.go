@@ -7,6 +7,7 @@ import (
 	"encoding/hex"
 	"fmt"
 	"strings"
+	"time"
 )
 
 type TerminalState string
@@ -27,6 +28,17 @@ type Session struct {
 	Title         string        `json:"title"`
 	Command       string        `json:"command"`
 	TerminalState TerminalState `json:"terminal_state"`
+	PaneExit      *PaneExit     `json:"pane_exit,omitempty"`
+}
+
+// PaneExit is an observation of the product-associated pane, not an agent
+// lifecycle or task result. The observation time is not the process exit time.
+// Both current backends leave ExitCode nil until a reliable contract is proved.
+type PaneExit struct {
+	PaneID     string    `json:"pane_id"`
+	Source     string    `json:"source"`
+	ObservedAt time.Time `json:"observed_at"`
+	ExitCode   *int      `json:"exit_code"`
 }
 
 // Preview is a bounded screen snapshot, not a conversation or a complete log.

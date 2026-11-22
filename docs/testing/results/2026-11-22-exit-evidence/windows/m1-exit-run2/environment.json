@@ -1,0 +1,34 @@
+{
+    "utc":  "2026-11-22T07:20:52.7779506Z",
+    "caption":  "Microsoft Windows 10 家庭版",
+    "version":  "10.0.19045",
+    "architecture":  "64 位",
+    "binaries":  {
+                     "asd.exe":  {
+                                     "sha256":  "5216bdfa1b77897d63089f03d3f38b93908e22f1502100d1d79daa52864ac918",
+                                     "file_version":  null
+                                 },
+                     "asd-fixture.exe":  {
+                                             "sha256":  "f9a30f0dae7bd6a9fffe7deedf8a194405d67d651aad0b99cc20296e8cb5d9d6",
+                                             "file_version":  null
+                                         },
+                     "store-tests.exe":  {
+                                             "sha256":  "43f0dc009f8f2e04a89b82aa99b62b854f4832327d5288644614a223805a693b",
+                                             "file_version":  null
+                                         },
+                     "backend/psmux.exe":  {
+                                               "sha256":  "bbe825a30f7cddc91b043084049143a381aba5f7e9e36e4d0bb587e296d262ca",
+                                               "file_version":  "3.4.0"
+                                           },
+                     "pwsh7/pwsh.exe":  {
+                                            "sha256":  "f2833e07a5a7d59153ffc63db83bd6b62f6c63ffd8b5b5099a2feadf6b605336",
+                                            "file_version":  "7.7.0.500"
+                                        }
+                 },
+    "owned_shell_identity":  {
+                                 "path":  "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                 "pid":  19156,
+                                 "filetime":  134398055400753923
+                             },
+    "owned_shell_identity_alive":  false
+}

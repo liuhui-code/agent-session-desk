@@ -1,0 +1,5 @@
+--- FAIL: TestRepeatedPaneExitPreservesFirstObservationWithoutWriterLock (1.02s)
+    exit_test.go:75: duplicate observation requested writer lock: database is locked (5) (SQLITE_BUSY)
+FAIL
+FAIL    github.com/liuhui-code/agent-session-desk/internal/store        2.061s
+FAIL

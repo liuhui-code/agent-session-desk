@@ -118,6 +118,8 @@
 - **M1 元数据局部证据（2026-11-22）：**SQLite Session/Run 两表事务、跨作用域隔离、重复发现保留原身份、独立 `history`、显式停止确认已实现；历史不提供在线／任务状态，不参与自动启动。数据库与后台副作用分离，提交失败保留准确 ID 和不确定性。见 [ADR-0009](adr/0009-session-run-metadata.md)、[实际报告](testing/results/2026-11-22-m1-metadata.md)。完整恢复、重命名／归档、原对话 resume、迁移与故障矩阵仍待做。
 
 
+- **pane 退出观测局部进展（2026-11-22）：**实际核对原 pane 后保存首次退出观测、来源和时间；exit_code 保持 null，历史与当前状态分开。v1→v2 追加迁移保留原身份，shell 存活不推定子 agent 状态。见 [ADR-0010](adr/0010-pane-exit-observations.md) 与[实际报告](testing/results/2026-11-22-m1-pane-exit.md)。
+
 ### FL-006：后台托管与重新连接
 
 测试设计：[FL-006 用例与映射](testing/COVERAGE.md#fl-006)；当前仅设计，未执行。
@@ -174,6 +176,8 @@
 - **M1 元数据局部证据（2026-11-22）：**SQLite Session/Run 两表事务、跨作用域隔离、重复发现保留原身份、独立 `history`、显式停止确认已实现；历史不提供在线／任务状态，不参与自动启动。数据库与后台副作用分离，提交失败保留准确 ID 和不确定性。见 [ADR-0009](adr/0009-session-run-metadata.md)、[实际报告](testing/results/2026-11-22-m1-metadata.md)。完整恢复、重命名／归档、原对话 resume、迁移与故障矩阵仍待做。
 
 
+- **pane 退出观测局部进展（2026-11-22）：**实际核对原 pane 后保存首次退出观测、来源和时间；exit_code 保持 null，历史与当前状态分开。v1→v2 追加迁移保留原身份，shell 存活不推定子 agent 状态。见 [ADR-0010](adr/0010-pane-exit-observations.md) 与[实际报告](testing/results/2026-11-22-m1-pane-exit.md)。
+
 ### FL-012：焦点与草稿
 
 测试设计：[FL-012 用例与映射](testing/COVERAGE.md#fl-012)；当前仅设计，未执行。
@@ -193,6 +197,8 @@
 - **实现与验收证据：**启动前验证、明确超时、部分创建失败后的精确清理、清理结果未知和目标变化拒绝已有实现与子进程合同测试。Windows 场景已覆盖选定非法启动输入、错误 Run 拒绝及快速非零退出后保留屏幕；退出码来自 fixture 独立记录，不声称产品已提供准确 agent 退出码。消息重试、幂等与 Host 崩溃窗口尚未实现。见[源码局部证据](testing/results/2026-11-21-m0-source-migration.md)与[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md)。
 - **M1 元数据局部证据（2026-11-22）：**SQLite Session/Run 两表事务、跨作用域隔离、重复发现保留原身份、独立 `history`、显式停止确认已实现；历史不提供在线／任务状态，不参与自动启动。数据库与后台副作用分离，提交失败保留准确 ID 和不确定性。见 [ADR-0009](adr/0009-session-run-metadata.md)、[实际报告](testing/results/2026-11-22-m1-metadata.md)。完整恢复、重命名／归档、原对话 resume、迁移与故障矩阵仍待做。
 
+
+- **pane 退出观测局部进展（2026-11-22）：**实际核对原 pane 后保存首次退出观测、来源和时间；exit_code 保持 null，历史与当前状态分开。v1→v2 追加迁移保留原身份，shell 存活不推定子 agent 状态。见 [ADR-0010](adr/0010-pane-exit-observations.md) 与[实际报告](testing/results/2026-11-22-m1-pane-exit.md)。
 
 ### FL-014：请求与回复关联
 
@@ -312,3 +318,5 @@ SSH 局部执行补充（2026-11-22）：Windows 10 build 19045 上使用实际�
 接入范围澄清（2026-11-22）：用户确认基础接入即自定义 CLI 命令拉起，沿用已实现的直接启动／TOML 模板。FL-001 实现和验收状态不变；真实 CLI 样本验证保留，下一实现切片推进 M1 最小会话元数据存储。
 
 元数据局部实现补充（2026-11-22）：FL-005/011/013 增加 SQLite 与原生 Windows 局部证据，FL-011 进入实现中；339 项设计状态和完整 M0/M1 门槛保持不变。
+
+pane 退出观测补充（2026-11-22）：FL-005/011/013 增加有来源的 pane 退出、未知退出码、重复观测去重与 schema v2 证据；各项保持实现中和未发布。

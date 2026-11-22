@@ -8,6 +8,7 @@ import (
 	"path/filepath"
 	"strings"
 	"testing"
+	"time"
 
 	"github.com/liuhui-code/agent-session-desk/internal/manager"
 	"github.com/liuhui-code/agent-session-desk/internal/session"
@@ -124,5 +125,48 @@ func TestDiscoveryPersistsWithoutResolvingDisconnectOrMissingRun(t *testing.T) {
 	rows, err = db.History(ctx, 100)
 	if err != nil || rows[0].StopConfirmedAt == nil {
 		t.Fatalf("explicit stop not recorded: %#v %v", rows, err)
+	}
+}
+
+func TestPaneExitObservationSurvivesMissingBackendWithoutClaimingAgentOutcome(t *testing.T) {
+	ctx := context.Background()
+	path := filepath.Join(t.TempDir(), "metadata.sqlite3")
+	db, err := store.Open(ctx, path, "a")
+	if err != nil {
+		t.Fatal(err)
+	}
+	f := &terminal{items: []session.Session{observed()}}
+	m := manager.New(f, db)
+	if _, err = m.List(ctx); err != nil {
+		t.Fatal(err)
+	}
+	f.items[0].TerminalState = session.TerminalExited
+	f.items[0].PaneExit = &session.PaneExit{PaneID: "%7", Source: "psmux.pane_dead", ObservedAt: time.Now().UTC()}
+	if _, err = m.List(ctx); err != nil {
+		t.Fatal(err)
+	}
+	f.err = errors.New("disconnected")
+	if _, err = m.List(ctx); err == nil {
+		t.Fatal("disconnect masked")
+	}
+	f.err = nil
+	f.items = nil
+	if _, err = m.List(ctx); err != nil {
+		t.Fatal(err)
+	}
+	if err = db.Close(); err != nil {
+		t.Fatal(err)
+	}
+	db, err = store.Open(ctx, path, "a")
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer db.Close()
+	rows, err := db.History(ctx, 100)
+	if err != nil || len(rows) != 1 {
+		t.Fatalf("history lost: %#v %v", rows, err)
+	}
+	if rows[0].PaneExit == nil || rows[0].PaneExit.ExitCode != nil || rows[0].Session.TerminalState != session.TerminalUnknown || rows[0].StopConfirmedAt != nil || f.starts != 0 {
+		t.Fatalf("outcome exaggerated: %#v", rows)
 	}
 }

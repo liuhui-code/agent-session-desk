@@ -83,6 +83,7 @@ try {
     Invoke-Recorded 'build-fixture' 'go' @('build', '-trimpath', '-o', $fixture, './cmd/asd-fixture')
     Invoke-Recorded 'native-config' 'pwsh' @('-NoProfile', '-File', 'tools/ci/windows-config.ps1', '-ProductBinary', $product, '-FixtureBinary', $fixture, '-PsmuxBinary', $psmux, '-EvidenceDirectory', (Join-Path $evidence 'config'))
     Invoke-Recorded 'native-metadata' 'pwsh' @('-NoProfile', '-File', 'tools/ci/windows-metadata.ps1', '-ProductBinary', $product, '-FixtureBinary', $fixture, '-PsmuxBinary', $psmux, '-EvidenceDirectory', (Join-Path $evidence 'metadata'))
+    Invoke-Recorded 'native-exit' 'pwsh' @('-NoProfile', '-File', 'tools/ci/windows-exit.ps1', '-ProductBinary', $product, '-FixtureBinary', $fixture, '-PsmuxBinary', $psmux, '-ShellBinary', (Get-Command pwsh).Source, '-EvidenceDirectory', (Join-Path $evidence 'exit'))
     $env:ASD_PSMUX_TEST_BINARY = $psmux
     $env:ASD_PSMUX_TEST_SHA256 = $lock.psmux.executable_sha256
     $env:ASD_FIXTURE_TEST_BINARY = $fixture

@@ -95,3 +95,7 @@ M0 使用后端 user option 做存活终端的发现，不建立临时 JSON 文�
 ### 2026-11-22：M1 最小元数据
 
 [ADR-0009](adr/0009-session-run-metadata.md) 固定 SQLite 驱动与最小两表事务、作用域和 history 合同。启动／停止与数据库非原子，保留后端已产生副作用时的准确身份和错误；数据库记录不成为在线证据，不自动启动 agent。实际状态见 [FL-005/011/013](FEATURE_LEDGER.md) 与[执行报告](testing/results/2026-11-22-m1-metadata.md)。
+
+### 2026-11-22：pane 退出观测
+
+[ADR-0010](adr/0010-pane-exit-observations.md) 固定仅记录原 pane 的退出观测，时间属于产品观测，exit_code 为 null；psmux 3.4.0 的状态码格式常量不得误作成功。SQLite v2 追加首次观测、事务性升级 v1；shell／agent／任务结果继续分离。

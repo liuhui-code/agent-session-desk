@@ -1,0 +1,5 @@
+# github.com/liuhui-code/agent-session-desk/internal/store_test [github.com/liuhui-code/agent-session-desk/internal/store.test]
+internal/store/exit_test.go:41:31: rows[0].PaneExit undefined (type store.Record has no field or method PaneExit)
+internal/store/exit_test.go:44:15: rows[0].PaneExit undefined (type store.Record has no field or method PaneExit)
+FAIL    github.com/liuhui-code/agent-session-desk/internal/store [build failed]
+FAIL

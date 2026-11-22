@@ -1,0 +1,47 @@
+=== RUN   TestConcurrentConnectionsKeepAllCommittedIdentities
+--- PASS: TestConcurrentConnectionsKeepAllCommittedIdentities (0.22s)
+=== RUN   TestPaneExitObservationSurvivesReopenAndDoesNotClaimCurrentState
+--- PASS: TestPaneExitObservationSurvivesReopenAndDoesNotClaimCurrentState (0.16s)
+=== RUN   TestRepeatedPaneExitPreservesFirstObservationWithoutWriterLock
+--- PASS: TestRepeatedPaneExitPreservesFirstObservationWithoutWriterLock (0.04s)
+=== RUN   TestExitEvidenceCannotClaimMoreThanBackendProves
+=== RUN   TestExitEvidenceCannotClaimMoreThanBackendProves/live
+=== RUN   TestExitEvidenceCannotClaimMoreThanBackendProves/code
+=== RUN   TestExitEvidenceCannotClaimMoreThanBackendProves/source
+=== RUN   TestExitEvidenceCannotClaimMoreThanBackendProves/pane
+=== RUN   TestExitEvidenceCannotClaimMoreThanBackendProves/time
+--- PASS: TestExitEvidenceCannotClaimMoreThanBackendProves (0.10s)
+    --- PASS: TestExitEvidenceCannotClaimMoreThanBackendProves/live (0.03s)
+    --- PASS: TestExitEvidenceCannotClaimMoreThanBackendProves/code (0.02s)
+    --- PASS: TestExitEvidenceCannotClaimMoreThanBackendProves/source (0.01s)
+    --- PASS: TestExitEvidenceCannotClaimMoreThanBackendProves/pane (0.01s)
+    --- PASS: TestExitEvidenceCannotClaimMoreThanBackendProves/time (0.03s)
+=== RUN   TestV1UpgradePreservesIdentityAndStopEvidence
+--- PASS: TestV1UpgradePreservesIdentityAndStopEvidence (0.15s)
+=== RUN   TestFailedV1UpgradeDoesNotModifyExistingDatabase
+--- PASS: TestFailedV1UpgradeDoesNotModifyExistingDatabase (0.12s)
+=== RUN   TestUnrecognizedOrCorruptDatabaseIsPreserved
+=== RUN   TestUnrecognizedOrCorruptDatabaseIsPreserved/corrupt
+=== RUN   TestUnrecognizedOrCorruptDatabaseIsPreserved/foreign
+=== RUN   TestUnrecognizedOrCorruptDatabaseIsPreserved/future
+=== RUN   TestUnrecognizedOrCorruptDatabaseIsPreserved/missing-table
+--- PASS: TestUnrecognizedOrCorruptDatabaseIsPreserved (0.14s)
+    --- PASS: TestUnrecognizedOrCorruptDatabaseIsPreserved/corrupt (0.01s)
+    --- PASS: TestUnrecognizedOrCorruptDatabaseIsPreserved/foreign (0.06s)
+    --- PASS: TestUnrecognizedOrCorruptDatabaseIsPreserved/future (0.03s)
+    --- PASS: TestUnrecognizedOrCorruptDatabaseIsPreserved/missing-table (0.05s)
+=== RUN   TestBusyPreflightFailsWithinBoundWithoutChangingHistory
+--- PASS: TestBusyPreflightFailsWithinBoundWithoutChangingHistory (1.11s)
+=== RUN   TestRepeatedDiscoveryDoesNotNeedWriterLock
+--- PASS: TestRepeatedDiscoveryDoesNotNeedWriterLock (0.02s)
+=== RUN   TestMetadataSurvivesReopenWithoutClaimingLiveness
+--- PASS: TestMetadataSurvivesReopenWithoutClaimingLiveness (0.06s)
+=== RUN   TestScopeAndIdentityConflictsCannotOverwriteOrLeaveHalfRecords
+--- PASS: TestScopeAndIdentityConflictsCannotOverwriteOrLeaveHalfRecords (0.05s)
+=== RUN   TestConfirmedStopKeepsHistoryAndChecksExactRun
+--- PASS: TestConfirmedStopKeepsHistoryAndChecksExactRun (0.03s)
+=== RUN   TestHistoryReadIsBounded
+--- PASS: TestHistoryReadIsBounded (0.01s)
+=== RUN   TestInvalidIdentityCannotBecomePersistentMetadata
+--- PASS: TestInvalidIdentityCannotBecomePersistentMetadata (0.01s)
+PASS

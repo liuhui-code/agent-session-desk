@@ -290,7 +290,7 @@ func (b *Backend) Start(ctx context.Context, launch session.Launch) (session.Ses
 	if _, err = b.run(ctx, maxControlBytes, b.metadataArgs(name, encoded)...); err != nil {
 		return result, b.failedStart(name, err)
 	}
-	result.TerminalState = b.paneState(ctx, name, r.PaneID)
+	result.TerminalState, result.PaneExit = b.observePane(ctx, name, r.PaneID)
 	return result, nil
 }
 
@@ -326,7 +326,8 @@ func (b *Backend) List(ctx context.Context) ([]session.Session, error) {
 		if err != nil {
 			return nil, fmt.Errorf("read live session %s: %w", name, err)
 		}
-		sessions = append(sessions, session.Session{ID: r.SessionID, RunID: r.RunID, BackendID: name, Title: r.Title, Command: r.Command, TerminalState: b.paneState(ctx, name, r.PaneID)})
+		state, exit := b.observePane(ctx, name, r.PaneID)
+		sessions = append(sessions, session.Session{ID: r.SessionID, RunID: r.RunID, BackendID: name, Title: r.Title, Command: r.Command, TerminalState: state, PaneExit: exit})
 	}
 	sort.Slice(sessions, func(i, j int) bool {
 		if sessions[i].Title == sessions[j].Title {

@@ -1,0 +1,14 @@
+--- FAIL: TestExitEvidenceCannotClaimMoreThanBackendProves (0.03s)
+    --- FAIL: TestExitEvidenceCannotClaimMoreThanBackendProves/live (0.01s)
+        exit_test.go:107: unproven exit evidence accepted
+    --- FAIL: TestExitEvidenceCannotClaimMoreThanBackendProves/code (0.01s)
+        exit_test.go:107: unproven exit evidence accepted
+    --- FAIL: TestExitEvidenceCannotClaimMoreThanBackendProves/source (0.00s)
+        exit_test.go:107: unproven exit evidence accepted
+    --- FAIL: TestExitEvidenceCannotClaimMoreThanBackendProves/pane (0.00s)
+        exit_test.go:107: unproven exit evidence accepted
+    --- FAIL: TestExitEvidenceCannotClaimMoreThanBackendProves/time (0.00s)
+        exit_test.go:107: unproven exit evidence accepted
+FAIL
+FAIL    github.com/liuhui-code/agent-session-desk/internal/store        1.026s
+FAIL

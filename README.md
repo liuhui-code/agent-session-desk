@@ -113,3 +113,5 @@
 2026-11-22 后续切片：已实现[只读 TOML 启动模板](docs/LAUNCH_CONFIG.md)与[集中 UI design tokens](docs/adr/0008-ui-design-tokens.md)。局部证据见[执行报告](docs/testing/results/2026-11-22-m1-config-tokens.md)；M0/M1 整体验收仍未完成。
 
 M1 最小元数据切片：已加入 [Session/Run 元数据与 history](docs/METADATA.md)，重开后核对实际后台，历史不自动变为在线；[ADR-0009](docs/adr/0009-session-run-metadata.md) 与[实际证据](docs/testing/results/2026-11-22-m1-metadata.md)单独记录。
+
+后续切片已加入 [pane 退出观测与元数据 v2](docs/adr/0010-pane-exit-observations.md)：保留退出来源和观测时间，退出码未知，不把 shell 存活或历史观测当作 agent 结果。

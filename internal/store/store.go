@@ -22,9 +22,10 @@ type Store struct {
 	scope string
 }
 type Record struct {
-	Session         session.Session `json:"session"`
-	RecordedAt      time.Time       `json:"recorded_at"`
-	StopConfirmedAt *time.Time      `json:"stop_confirmed_at,omitempty"`
+	Session         session.Session   `json:"session"`
+	RecordedAt      time.Time         `json:"recorded_at"`
+	StopConfirmedAt *time.Time        `json:"stop_confirmed_at,omitempty"`
+	PaneExit        *session.PaneExit `json:"pane_exit,omitempty"`
 }
 
 func Open(ctx context.Context, path, scope string) (*Store, error) {
@@ -89,10 +90,13 @@ func (s *Store) initialize(ctx context.Context) error {
  CREATE TABLE sessions(scope TEXT NOT NULL,id TEXT NOT NULL,title TEXT NOT NULL,command TEXT NOT NULL,PRIMARY KEY(scope,id));
  CREATE TABLE runs(scope TEXT NOT NULL,id TEXT NOT NULL,session_id TEXT NOT NULL,backend_id TEXT NOT NULL,recorded_ns INTEGER NOT NULL,stopped_ns INTEGER,PRIMARY KEY(scope,id),FOREIGN KEY(scope,session_id) REFERENCES sessions(scope,id));
  CREATE INDEX runs_recent ON runs(scope,recorded_ns DESC,id DESC);
- PRAGMA application_id=1095975985; PRAGMA user_version=1;`); err != nil {
+ PRAGMA application_id=1095975985; PRAGMA user_version=2;`); err != nil {
 			return err
 		}
-	} else if app != applicationID || version != 1 {
+		if _, err = tx.ExecContext(ctx, exitSchema); err != nil {
+			return err
+		}
+	} else if app != applicationID || (version != 1 && version != 2) {
 		return fmt.Errorf("unsupported metadata application/schema; file preserved")
 	}
 	var journal string
@@ -109,10 +113,25 @@ func (s *Store) initialize(ctx context.Context) error {
 	if err = rows.Close(); err != nil {
 		return err
 	}
+	if version == 1 {
+		if _, err = tx.ExecContext(ctx, exitSchema+" PRAGMA user_version=2;"); err != nil {
+			return err
+		}
+	}
+	rows, err = tx.QueryContext(ctx, `SELECT scope,run_id,pane_id,source,observed_ns FROM pane_exits LIMIT 0`)
+	if err != nil {
+		return err
+	}
+	if err = rows.Close(); err != nil {
+		return err
+	}
 	return tx.Commit()
 }
 
 func (s *Store) Save(ctx context.Context, v session.Session) error {
+	if err := validateExit(v); err != nil {
+		return err
+	}
 	for _, id := range []string{v.ID, v.RunID} {
 		if len(id) != 32 {
 			return fmt.Errorf("invalid metadata identity")
@@ -130,8 +149,12 @@ func (s *Store) Save(ctx context.Context, v session.Session) error {
 		}
 	}
 
-	if found, err := s.matches(ctx, s.db, v); err != nil || found {
+	if found, err := s.matches(ctx, s.db, v); err != nil {
 		return err
+	} else if found {
+		if match, err := s.matchesExit(ctx, s.db, v); err != nil || match {
+			return err
+		}
 	}
 
 	tx, err := s.db.BeginTx(ctx, nil)
@@ -150,6 +173,9 @@ func (s *Store) Save(ctx context.Context, v session.Session) error {
 	} else if !found {
 		return fmt.Errorf("metadata Run missing after insert")
 	}
+	if err = s.saveExit(ctx, tx, v); err != nil {
+		return err
+	}
 	return tx.Commit()
 }
 
@@ -157,7 +183,7 @@ func (s *Store) History(ctx context.Context, limit int) ([]Record, error) {
 	if limit < 1 || limit > 1000 {
 		return nil, fmt.Errorf("history limit must be 1–1000")
 	}
-	rows, err := s.db.QueryContext(ctx, `SELECT s.id,r.id,r.backend_id,s.title,s.command,r.recorded_ns,r.stopped_ns FROM runs r JOIN sessions s ON s.scope=r.scope AND s.id=r.session_id WHERE r.scope=? ORDER BY r.recorded_ns DESC,r.id DESC LIMIT ?`, s.scope, limit)
+	rows, err := s.db.QueryContext(ctx, `SELECT s.id,r.id,r.backend_id,s.title,s.command,r.recorded_ns,r.stopped_ns,e.pane_id,e.source,e.observed_ns FROM runs r JOIN sessions s ON s.scope=r.scope AND s.id=r.session_id LEFT JOIN pane_exits e ON e.scope=r.scope AND e.run_id=r.id WHERE r.scope=? ORDER BY r.recorded_ns DESC,r.id DESC LIMIT ?`, s.scope, limit)
 	if err != nil {
 		return nil, err
 	}
@@ -166,8 +192,9 @@ func (s *Store) History(ctx context.Context, limit int) ([]Record, error) {
 	for rows.Next() {
 		var r Record
 		var at int64
-		var stopped sql.NullInt64
-		if err = rows.Scan(&r.Session.ID, &r.Session.RunID, &r.Session.BackendID, &r.Session.Title, &r.Session.Command, &at, &stopped); err != nil {
+		var stopped, exitAt sql.NullInt64
+		var pane, source sql.NullString
+		if err = rows.Scan(&r.Session.ID, &r.Session.RunID, &r.Session.BackendID, &r.Session.Title, &r.Session.Command, &at, &stopped, &pane, &source, &exitAt); err != nil {
 			return nil, err
 		}
 		r.Session.TerminalState = session.TerminalUnknown
@@ -175,6 +202,9 @@ func (s *Store) History(ctx context.Context, limit int) ([]Record, error) {
 		if stopped.Valid {
 			t := time.Unix(0, stopped.Int64).UTC()
 			r.StopConfirmedAt = &t
+		}
+		if pane.Valid {
+			r.PaneExit = &session.PaneExit{PaneID: pane.String, Source: source.String, ObservedAt: time.Unix(0, exitAt.Int64).UTC()}
 		}
 		result = append(result, r)
 	}

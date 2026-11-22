@@ -82,7 +82,7 @@ Get-FileHash 'C:\Tools\psmux\psmux.exe' -Algorithm SHA256
 
 只生成产品私有后端配置和运行数据，不改用户全局配置或环境。已有私有配置内容若与此切片不一致，会明确报错，要求使用新目录；不静默覆盖。psmux 命令环境使用自己的 `PSMUX_DATA_DIR` / `PSMUX_CONFIG_FILE`、`PSMUX_NO_WARM=1` 和 `warm off`。自动化已覆盖测试私有会话及另一 runtime／namespace 组合的部分隔离行为；没有据此验证任意现有用户配置或所有预热进程均已消失，完整 Windows 进程树仍待测量。
 
-发现元数据放在后端 user option 中，包含 schema、Session、Run、标题、可执行文件显示名和初始 pane ID，**不含 argv/env，不是持久会话数据库**。后台消失后不会从这里恢复产品历史或模型上下文。TOML 的首个只读启动模板现见 [启动配置](LAUNCH_CONFIG.md)；SQLite 与输出轮转仍待实施。
+发现元数据放在后端 user option 中，包含 schema、Session、Run、标题、可执行文件显示名和初始 pane ID，**不含 argv/env，不是持久会话数据库**。后台消失后不会从这里恢复产品历史或模型上下文。TOML 的首个只读启动模板现见 [启动配置](LAUNCH_CONFIG.md)；SQLite 最小元数据现见 [元数据说明](METADATA.md)，输出轮转仍待实施。
 
 ## 4. 当前参数合同与明确限制
 
@@ -149,3 +149,5 @@ Linux/macOS 的 tmux 路径仅用于开发对照，要求 3.8，不表示已经�
 ## M1 元数据入口（2026-11-22）
 
 新建／发现的后台会话写入最小 SQLite 元数据，`asd history --limit 20` 可独立读取；实时 list/preview/attach/stop 继续按实际后台寻址。持久目录、scope 和失败处理见[元数据使用说明](METADATA.md)，本节不修改先前 M0 执行记录或宣称整体阶段完成。
+
+M1 后续 [pane 退出观测](adr/0010-pane-exit-observations.md) 仅保存原 pane 的退出来源和产品观测时间，exit_code 保持 null；不再只依赖关闭前的 UI 状态，也没有把稳定版 pane_dead_status=0 当作真实退出码。
