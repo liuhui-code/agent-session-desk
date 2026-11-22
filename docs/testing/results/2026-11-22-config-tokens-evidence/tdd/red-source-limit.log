@@ -1,0 +1,17 @@
+test_limit_and_test_exemption (test_source_limits.SourceLimitsTest) ... ERROR
+
+======================================================================
+ERROR: test_limit_and_test_exemption (test_source_limits.SourceLimitsTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/liuhui/Documents/code/agent-session-desk/tools/ci/test_source_limits.py", line 13, in test_limit_and_test_exemption
+    spec.loader.exec_module(module)
+  File "<frozen importlib._bootstrap_external>", line 846, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 982, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1039, in get_data
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/liuhui/Documents/code/agent-session-desk/tools/ci/check_source_limits.py'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.003s
+
+FAILED (errors=1)

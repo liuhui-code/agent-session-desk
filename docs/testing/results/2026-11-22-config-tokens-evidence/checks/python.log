@@ -1,0 +1,21 @@
+test_limit_and_test_exemption (test_source_limits.SourceLimitsTest) ... ok
+test_scripts_share_the_production_limit (test_source_limits.SourceLimitsTest) ... ok
+test_cli_writes_only_derived_files_and_supports_empty_failed_run (test_summarize_resources.ResourceStatisticsTests) ... ok
+test_counter_reset_missing_counter_and_missing_sample_are_not_zero_cpu (test_summarize_resources.ResourceStatisticsTests) ... ok
+test_cpu_partial_pairs_remain_visible_but_not_complete (test_summarize_resources.ResourceStatisticsTests) ... ok
+test_cpu_uses_per_process_actual_time_and_separate_phase_wall_time (test_summarize_resources.ResourceStatisticsTests) ... ok
+test_duplicate_identity_or_wrong_phase_fails_before_double_counting (test_summarize_resources.ResourceStatisticsTests) ... ok
+test_gap_scope_and_departure_observations_are_distinct (test_summarize_resources.ResourceStatisticsTests) ... ok
+test_imported_main_does_not_reconfigure_callers_stream (test_summarize_resources.ResourceStatisticsTests) ... ok
+test_missing_metric_is_partial_not_a_zero_or_complete_total (test_summarize_resources.ResourceStatisticsTests) ... ok
+test_only_registered_phase_samples_are_analyzed (test_summarize_resources.ResourceStatisticsTests) ... ok
+test_owner_groups_include_auxiliaries_and_exclude_driver_sampler (test_summarize_resources.ResourceStatisticsTests) ... ok
+test_percentiles_have_explicit_interpolation_and_keep_missing_values (test_summarize_resources.ResourceStatisticsTests) ... ok
+test_pid_reuse_or_changed_image_never_creates_a_cpu_delta (test_summarize_resources.ResourceStatisticsTests) ... ok
+test_standalone_cli_uses_utf8_even_with_strict_legacy_stdio (test_summarize_resources.ResourceStatisticsTests) ... ok
+test_sum_each_snapshot_before_taking_peaks (test_summarize_resources.ResourceStatisticsTests) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.362s
+
+OK

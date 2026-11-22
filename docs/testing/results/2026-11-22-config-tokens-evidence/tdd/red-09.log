@@ -1,0 +1,5 @@
+--- FAIL: TestCLIOverridesTemplateWorkingDirectoryAndEnvironment (0.08s)
+    config_start_test.go:49: cwd changed: []string{"-L", "asd-config-test", "-f", "/var/folders/6x/y713d9_n1gl90wk20zms7q5m0000gn/T/TestCLIOverridesTemplateWorkingDirectoryAndEnvironment1428510432/001/runtime/asd-config-test/tmux-m0.conf", "new-session", "-d", "-s", "asd_dbb301f797e198b1f3ecd7a8e6ef9ee8_1b135fa55caf0814f6c9ad39521f1006", "-c", "/var/folders/6x/y713d9_n1gl90wk20zms7q5m0000gn/T/TestCLIOverridesTemplateWorkingDirectoryAndEnvironment1428510432/001/project", "-x", "120", "-y", "32", "-e", "ASD_TEST=template value", "--", "/usr/bin/env", "--", "/var/folders/6x/y713d9_n1gl90wk20zms7q5m0000gn/T/go-build1189326941/b001/cli.test", "", "a b", "中文", "end\\"}
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/cli	1.076s
+FAIL

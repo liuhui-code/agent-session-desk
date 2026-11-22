@@ -1,0 +1,5 @@
+--- FAIL: TestUnknownFieldsAreRejectedWithoutEchoingInput (0.00s)
+    config_test.go:63: unknown field was accepted or input leaked: <nil>
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/config	0.939s
+FAIL

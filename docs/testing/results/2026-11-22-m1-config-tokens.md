@@ -10,7 +10,7 @@
 
 ## 验证依据
 
-被测工作树基于 `1564919`，源文件指纹及候选二进制哈希见 [evidence/source-manifest.json](2026-11-22-config-tokens-evidence/source-manifest.json)。这不是把未提交候选二进制称为最终 Git 提交构建。证据中的合成 argv/env 用于核对，不包含真实 agent 私有内容。
+被测工作树基于 `1564919`，源文件指纹及候选二进制哈希见 [evidence/source-manifest.json](2026-11-22-config-tokens-evidence/source-manifest.json)。这不是把未提交候选二进制称为最终 Git 提交构建。证据中的合成 argv/env 用于核对，不包含真实 agent 私有内容。归档文本统一 LF，build-info 行尾空白规范化，二进制 SHA 不变。
 
 ### RED → GREEN 与回归
 

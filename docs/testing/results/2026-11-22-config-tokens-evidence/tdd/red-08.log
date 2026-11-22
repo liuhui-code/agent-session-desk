@@ -1,0 +1,6 @@
+--- FAIL: TestCLIStartsExplicitNamedTemplate (0.00s)
+    config_start_test.go:65: template did not reach backend: open /var/folders/6x/y713d9_n1gl90wk20zms7q5m0000gn/T/TestCLIStartsExplicitNamedTemplate825659779/001/trace.json: no such file or directory; flag provided but not defined: -config
+        asd: flag provided but not defined: -config
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/cli	1.495s
+FAIL

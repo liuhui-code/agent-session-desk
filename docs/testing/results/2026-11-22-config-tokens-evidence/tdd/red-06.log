@@ -1,0 +1,5 @@
+--- FAIL: TestSchemaKeysAreCaseSensitive (0.00s)
+    config_test.go:107: case-misspelled key accepted
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/config	0.960s
+FAIL

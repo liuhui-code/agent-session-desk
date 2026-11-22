@@ -39,4 +39,3 @@ function Get-MuxEnvironment {
     param([string]$DataDirectory, [string]$Config)
     return @{ PSMUX_DATA_DIR = $DataDirectory; PSMUX_CONFIG_FILE = $Config; PSMUX_NO_WARM = '1'; PSMUX_ALLOW_NESTING = '1'; TERM = 'xterm-256color' }
 }
-

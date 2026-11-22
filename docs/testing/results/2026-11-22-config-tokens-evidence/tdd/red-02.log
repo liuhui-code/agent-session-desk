@@ -1,0 +1,5 @@
+--- FAIL: TestUnsupportedSchemaDoesNotProduceLaunch (0.00s)
+    config_test.go:45: unsupported schema accepted: <nil>
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/config	0.959s
+FAIL

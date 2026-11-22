@@ -1,0 +1,5 @@
+--- FAIL: TestMalformedConfigDoesNotExposeSourceOrValues (0.00s)
+    config_test.go:78: unsafe parse error: toml: line 2 (last key "synthetic-sensitive-marker"): expected value but found '}' instead
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/config	0.978s
+FAIL
