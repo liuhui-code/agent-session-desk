@@ -1,0 +1,334 @@
+{
+  "base_commit": "5f18d1b",
+  "source_files": {
+    "go.mod": "35d6fb5b9968199f902e72c5021e773cf3b02c2ea027112a3ee3ca5b854fc9bc",
+    "go.sum": "1305e2cc0f036c30ae05946e26e89b9bbc5ba67753fc15ad2b9287806545c2ef",
+    "internal/backend/backend.go": "1b9420d351f2dc6cbc95b2b226d491c2be4df0c5e624fc3d3251c8b7b4b87800",
+    "internal/backend/backend_test.go": "64a9f2b3655afe5e11a7eb423d5f7f6bb6858fa972c49c781fa2de61e86eea03",
+    "internal/backend/command.go": "a385feb1c95deec7f7e6e3f5dc5129f8903e2953572c6795698fdcf401892ef8",
+    "internal/backend/exit.go": "c826f365ce64f7357e5534a2ccb9000f24b17275e619a473838c6884170a20b2",
+    "internal/backend/exit_test.go": "e34db45f33cb0ca76701efab7c71b6ae4a7f4bd22a587fbb3fbf5fd53ce23a18",
+    "internal/backend/helper_test.go": "67ef82cb9c3ef819eb0c35f057260dfbc386272235728f4a22f363c39c997f24",
+    "internal/backend/integration_windows_test.go": "a4b97fd1d332c5949dcc61df1c4461c75b5229af4c3e463e907858afc9a78be9",
+    "internal/backend/location.go": "99ec7eb4c913dc86459313c9c854f1b0093a41baa050e56fe273d35e469238f9",
+    "internal/backend/process_unix.go": "4d9efe24bc5f644bef0d17cfbfed61d5e8eedb88f1fe119ba6f43a7a3815e6b2",
+    "internal/backend/process_windows.go": "a7d15b9b51f1d68d3fb83d053811a7dcf7360e8b205aeee4164a4c32252b4bfe",
+    "internal/backend/psmux_contract.go": "f7b34f2b879ce638f8a3a4ab7e257eb8d51e6e292ab520fcd07ccb0da77c5165",
+    "internal/backend/terminal.go": "4ee331bf25e824e8208d14bd7b26e10c6159f01407006baea73f10fa323256b2",
+    "internal/backend/terminal_windows_test.go": "a39c89b8608230feffd19f4f890e1fd47be780de39a8d7d8fc7ef770da1f78c2",
+    "internal/backend/transport.go": "732b854ec6111893928f9e1e0b657d5932bb0d6ea178cdf7cf044f4aba63cc06",
+    "internal/cli/cli.go": "f66368a0df566fdf67db72ad075b009c2653e6130d13d29c7daf6c206436cea4",
+    "internal/cli/cli_test.go": "9b13fdacc42446fbcc5d493f49f2539fe16cadda9b397452c74696f887fce692",
+    "internal/cli/config_rejection_test.go": "f5c147a07090c3a58a32bb7a156bee3750b1accff862c5c48afee80bb8c6833f",
+    "internal/cli/config_start_test.go": "bf8e3dcfbb5d5d50d9d97f86115ecf0c9e5edf1860fb97b08636a0886fefecd2",
+    "internal/cli/history.go": "3b9c190ec251f48f14c5bc89e683a50ff2bdbb35b8f6957840591ea16080a6ce",
+    "internal/cli/history_test.go": "ee840c23baad4fa65344e619ff2fa8928cdf22094b0473e4dc9d9c0391c3717e",
+    "internal/cli/metadata.go": "5f292c80530c4a58f35dce9da0d9ff1156a645177e2b1738b9634148ebd07c64",
+    "internal/cli/metadata_test.go": "b0bbea6887aefe0f3318316d5e6cdddca0fcfba7e82ffc09f267e63d30019241",
+    "internal/cli/output_test.go": "994027bfa64e21006d3d7ff2de654aee1deea4f0310e9b43893b0b2a8c8fb42b",
+    "internal/cli/start.go": "21c322c9383aa4e407af1e23cd6493de12a55a972d37718fe976c29c98f6339d",
+    "internal/config/config.go": "7e088b9068ba63270d5d38c1f4c3e079cf43be5184b04f9666be9ed7961ae5a1",
+    "internal/config/config_test.go": "dfb92897b1186aef355e8898b4d4d6007c98fea2bf1b595e0aad6f0f09311816",
+    "internal/manager/manager.go": "275da319ffbfbfdcd395d52cd8436208f5ad2d3f0b2aaf43f841eb204e1b3746",
+    "internal/manager/manager_test.go": "1b937b830cb6a937376779e96c0b0c32ccf46b6a5333b7c2fa3379270a689cff",
+    "internal/manager/output.go": "b244e621ddbae20ce0d4755319d094c2f8d5b7b545f7e1514bd8ce10f86ba4fa",
+    "internal/manager/output_test.go": "7a30297225aa4d3228a819a265d64378fbf6c445b81a73c484895d243eef2ff1",
+    "internal/manager/terminal.go": "f715f6fccac7f6e9fbb0c4356215b1852015c27e571571938927049209541f10",
+    "internal/manager/terminal_test.go": "e093212347fff2024e5aa2662668bb6b5855d8d8cad3c44bfe162a0675d35ce0",
+    "internal/session/history.go": "9281cb62be634189aa3e669931dd7de31de56aae9b365358086ddc9efaa98f96",
+    "internal/session/launch.go": "8938bacb7a303944529244177804484457a59a164a04627f297f6f9929c3a43c",
+    "internal/session/launch_test.go": "1ee77ae9320e48b2e0ad2529fe116182ab877e149c8256523030c3825638c04b",
+    "internal/session/output.go": "0415e9e033a7badfb6e1dc1199ef611719bfc34609f5694ab450136091b9ccae",
+    "internal/session/session.go": "4d21dc8068cfaba202b31f327b1c745bd3056ea316dc173acfa7d500e978c0a4",
+    "internal/store/check.go": "681e58f7cb9aa0581bc80a1b0cd8e6152d5d140e71225cf8c2b7dbd0d99b6993",
+    "internal/store/concurrency_test.go": "7a2bd61e2d858deda9a5c5990862e71e83afa2e519aafdfa59e6f44a331f67f3",
+    "internal/store/crash_test.go": "634e6b6f02efef8aeb67b39eeeae1804cbd307325224f6b1f1d1522b716142cf",
+    "internal/store/exit.go": "2ad6854a2f3e369e566318737e92eb90c5c487de8a67080452a1a227e6bae114",
+    "internal/store/exit_test.go": "52f7730d91b24d19d3eeff3a79ed7d3f541322d2079076f7f77f4e3a4c4de796",
+    "internal/store/migration_test.go": "505bdbf8180da55f2b28e930c4c447fa3eea569d66e7e30ad8b39e320dc7886f",
+    "internal/store/output.go": "27089b17aa9d26b259470062a422da6e00019d1313636bc033406dd098e273c3",
+    "internal/store/output_concurrency_test.go": "bb89f3961fe47e5cc6551032f7889881574a680205e10a81507d1ac866256c4a",
+    "internal/store/output_files.go": "b7c5ef487d5c82f6f47d4ad98cd1ee48a094977230528706156e014905fc5006",
+    "internal/store/output_publication_test.go": "ef6008057d55822fab5879e21a0d736786a5a2031592666337a75d7f255f0691",
+    "internal/store/output_scan.go": "2db80627b5cb2340c91788f68aaf70cf1b6c380b0def9886c5b768d340b51e25",
+    "internal/store/output_test.go": "2c361df17f703d845af954e93ea6477b1a71f27217a0fb5bedc2d3c7dd74e6ca",
+    "internal/store/output_validation_test.go": "283be55a50592ce0d364ae8ec1a73c3854de536556cc20e50c7e46170939c42f",
+    "internal/store/recovery.go": "8aa3b0e1849ea6e229d5fb7775c4d2304216604f6c6d03bd6b05eb61370847c1",
+    "internal/store/recovery_test.go": "1b326354cdc2f3da45b17dff2a204a36c826a8f8ddc583509d0ed135f038c880",
+    "internal/store/schema_test.go": "892b5610505b0f65c44ae772be03c5d36b3a4f6d8e13117efdcdcf9287617641",
+    "internal/store/store.go": "a62341298ee871fc7bbe60b60156a878b2df3aa184b32a89217b98d796c33574",
+    "internal/store/store_test.go": "1e71d4a13c22173b136b15d89298a4abe264c76c0e355775ec87948cdeef3397",
+    "internal/terminal/connection.go": "b69618d6e780c2dbf1175cb972f0876c06b9b350c992a2c2a92e0e7eaaf47e15",
+    "internal/terminal/input.go": "bafe42e7337f02335481e146ac87c31006f691e12c1804e6448d64c3398fd283",
+    "internal/terminal/psmux.go": "829311fc9657e07756279d1931a412e1668e7d8fed378a47d58bab3b5ed074b2",
+    "internal/terminal/psmux_screen.go": "1950548f7c251c5209fceb81cb6f03499123efff3629f25207d1a7d71ca590b5",
+    "internal/terminal/psmux_test.go": "1e389870f2fc53c68f2f6122b846cf0fdc4294b24616b125ee843a75b41a9646",
+    "internal/terminal/render.go": "1ea00b5d059d05aa687f142a81e67c2459b5c0272f46dd1770129825efa20fd8",
+    "internal/terminal/render_test.go": "94f636cc6346f9941510ae2146d371b25f8c112830e52a76432ace926bd5ef88",
+    "internal/terminal/screen.go": "86b80bd98fcc7060f5bd0d568d76ff21c6d0ccdd5f4950d16be3513d58add7a9",
+    "internal/ui/cellwidth.go": "ef5d9ed1a9e70bf44bdf47d9bb07eb14fec95ab3cc331a00c8d1b28b502720bc",
+    "internal/ui/design_tokens.go": "e0109a2875d3705ff45adbf0a7d99311169c400545c3944c1cc6c8f9c1fd7cbd",
+    "internal/ui/history.go": "19b4760363cfa762a576fe9fbe1c14eb82e9af6959370426d78779cb35865cd2",
+    "internal/ui/history_test.go": "a8d6a1f7cd786ceed3840438f6c0c387cd4524e0f3eea4cbae4e45d4fd45cbfc",
+    "internal/ui/history_view.go": "d7d7f2df252e989905e3cbfb718e049ccc0f84a7226863bdcb79705dd04606ed",
+    "internal/ui/home_view_frame.go": "5b795856e2685173c4e2b36166f712805b674db91da26e9a21d69032d7d7326c",
+    "internal/ui/home_view_list.go": "09c4a730d08cc37814c8321f941366d7bf8449f0beafd5432841b5d8dc706546",
+    "internal/ui/launch_dialog.go": "3e7e19d92fb27904d3e073b19899cb0a9006741889fdb501db889caa45c7623e",
+    "internal/ui/launch_dialog_test.go": "62d08adece334e5ffdf55457a44d9abbb348919fd2d2b3a86154e4a2ccffed0b",
+    "internal/ui/launch_dialog_view.go": "483ad3613f4d587853909595d3a00df71c068bb91228b759a9a406152f2c4cf9",
+    "internal/ui/launch_result.go": "8695cd3b187d7911f2cdd7989a1e1f5ce991774d16f2c46510167e816fa521e3",
+    "internal/ui/launch_surface_test.go": "533e414141e855abed934fc3abf921e08741336e0f1b3487dbb150a284c28666",
+    "internal/ui/model.go": "21571cdb09e44c063852c72407ae5f24270c06bc6bb2a140034c481a3bc46a2a",
+    "internal/ui/model_test.go": "10b0faf46bcf07cb81532eba2606c4b6f9aead2c20841210b56610d1ac321233",
+    "internal/ui/styles.go": "31b95ba00bfa3cafb088692d7041bd48b8fb58f82c50cb23462eb3da6a736cba",
+    "internal/ui/text.go": "0ef6aa91424d9bb00a9c6fffd2b47f86327986ec8500a6110bc612b7124a0aa7",
+    "internal/ui/tokens_test.go": "2ece8d27f58b54c3acdfd6ba2b7b0abcfd281ba2a6a13f06a5030f661471c226",
+    "internal/ui/view_test.go": "caf0dca194d2be785b0a412aea434af34cb8edb333ab7f0f0bf1e3cbad11bdec",
+    "internal/ui/workspace.go": "bea2665840e3cc2fd84b8ca5a387a71986c9721345a3926d062adab0a31a8fc1",
+    "internal/ui/workspace_controls_test.go": "fbb26daf6aa465645ae6044d0d3f7e705865c8180c96f7762bdf0a352f7d8f04",
+    "internal/ui/workspace_failure.go": "2419f150e09e547afb36996d5e200235292e83d083806fe51a8223503626974d",
+    "internal/ui/workspace_input.go": "0a79f695ec67cb881169ad9c972d53d5f80738b5bc78ed1eb1ee000a499e3203",
+    "internal/ui/workspace_keys.go": "0d64f4d5c2595b4717ea67275185b351becd23ad966bef520c6ef2feda7cbf9c",
+    "internal/ui/workspace_lifecycle_test.go": "219caef5dd60e09e6e4bd1cb18a26d65be2518af2aeeacf1ee33d801b8813f1e",
+    "internal/ui/workspace_mouse.go": "82695f298cc1178b4a3e7061abb699352ceb36e8fb4fc42ca35d55fdb650c5d2",
+    "internal/ui/workspace_navigation.go": "c0cb2d6eae2814bb6da006065a23bcf3aba54de94017f43fb2000dc34fa25c2e",
+    "internal/ui/workspace_reconcile_test.go": "0406eedf187706e916979ee8757eda5fd662cd9476fe439ea313f749fa62e5cc",
+    "internal/ui/workspace_split.go": "99fb240860cacf4d9f7928ec622156d6af3c846babdbb382181abcbff2f79af1",
+    "internal/ui/workspace_split_test.go": "56721964e90a90f6268531bcbadfb32514a890ca648e3220c7339bf2ec6122e2",
+    "internal/ui/workspace_tabbar.go": "190d11734e18c052564bb57b3ee6314cc0029d1dc811edf8875f39d110b78921",
+    "internal/ui/workspace_tabs.go": "3522a2cc3b76f38c11681effe1c3d15ae6bdc9238bdee572557266f4a565a5ab",
+    "internal/ui/workspace_test.go": "ac390949e0aafe35d552ae4e8b42056b31d0afa3a04489e6fa30781bf6d9253a",
+    "internal/ui/workspace_view.go": "db74749a472ad813fc9ece9080b022c89be08a7992e6efa326074225fc0294f3",
+    "cmd/asd/main.go": "f8a910eed8f4ac1702f92f2e16a406376cc67890f4e36904a256615e53fa7da0",
+    "cmd/asd-fixture/main.go": "a6b9e214b601c35e02c450ebf0eddd3d3c2b9f5484cc56cbb61a918e76cbcef1",
+    "cmd/asd-fixture/main_test.go": "a6e27d112995f66f24fb6b6019913cfd0bd4650bd97c2409ef217019771ad527"
+  },
+  "binary_sha256": {
+    "asd.exe": "612fd63983e776f69b582d9eddb337d40dffcbfc2c085225a59b23eb297405f2",
+    "ui-tests.exe": "6df748e6a71ea1eabb136f121b842124300e3539f71c433bc295d08292513b80",
+    "mouse-probe.exe": "25f28fdfaaf33482f8b84f14414678b069ad2d2c78e7610e67dbecd43097a92f"
+  },
+  "diagnostic_note": "mouse-probe.exe differs only by a temporary tea.WithFilter logger of MouseMsg type/button. Hook and helper are absent from production source. Diagnostic screenshots are not production evidence.",
+  "archive_originals": [
+    {
+      "path": "mouse-events.log",
+      "original_sha256": "5e3c1b457ef2edfe720a7180cffbb58f2c08cb6f81b6d163503e1ba72f1bb0f9",
+      "normalization": "UTF-8/LF and private path normalization"
+    },
+    {
+      "path": "red-01.log",
+      "original_sha256": "8fa241d466eaaa8155b0991f15069ed91916204be10d13b22b5526cf9d20b9a0",
+      "normalization": "UTF-8/LF and private path normalization"
+    },
+    {
+      "path": "flow.log",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "normalization": "UTF-8/LF and private path normalization"
+    },
+    {
+      "path": "go-vet.log",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "normalization": "UTF-8/LF and private path normalization"
+    },
+    {
+      "path": "go-test.log",
+      "original_sha256": "6db662c2a5dbd1cbc647fcc8787cc376bcd3f4adc5f1644858936fabba5fcaf1",
+      "normalization": "UTF-8/LF and private path normalization"
+    },
+    {
+      "path": "red-02.log",
+      "original_sha256": "2eff3f8ffe41b8284a21dfb58091a0d96c1d0710569e68bff5b4a8435e04bcaa",
+      "normalization": "UTF-8/LF and private path normalization"
+    },
+    {
+      "path": "flow-run2.log",
+      "original_sha256": "83dc0524173d5064b6ae0e2e3567992d03a600f62cdff85636418376a7199f1a",
+      "normalization": "UTF-8/LF and private path normalization"
+    },
+    {
+      "path": "read-injected-run2.log",
+      "original_sha256": "cd4ae78fb0029c490d22207356d83bab42340f93a962280c87f78d58b1c92b5e",
+      "normalization": "UTF-8/LF and private path normalization"
+    },
+    {
+      "path": "start-injected-drag.log",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "normalization": "UTF-8/LF and private path normalization"
+    },
+    {
+      "path": "start-driver.log",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "normalization": "UTF-8/LF and private path normalization"
+    },
+    {
+      "path": "source-limits.log",
+      "original_sha256": "cd968af2e2a36b7b2224a66edf651b2396cbf82f744ea46ef87b96920d88366d",
+      "normalization": "UTF-8/LF and private path normalization"
+    },
+    {
+      "path": "catalog-render.log",
+      "original_sha256": "3532ac1ca6cabcc8af85376b39651426006574b24ea314fd927f4740b56e785c",
+      "normalization": "UTF-8/LF and private path normalization"
+    },
+    {
+      "path": "setup.log",
+      "original_sha256": "0cfbdf83df5e58b741bd60a9635144a6dcc2afcc2dd83f667d934af859f64c8b",
+      "normalization": "UTF-8/LF and private path normalization"
+    },
+    {
+      "path": "green-01.log",
+      "original_sha256": "d4fe05a681389804d86723c9e594b1bf201feaf30259fe7417b5f84a60ede2c3",
+      "normalization": "UTF-8/LF and private path normalization"
+    },
+    {
+      "path": "cleanup.log",
+      "original_sha256": "42ddbace28a2d47d5ea4e24c943f71d4b8d2c6a51b53795496d8cf5938c2b0f7",
+      "normalization": "UTF-8/LF and private path normalization"
+    },
+    {
+      "path": "green-02.log",
+      "original_sha256": "dd09006abdc1f1ce9b15bc229dcc27e0d0d39ff6afb830a73227d60f353ec491",
+      "normalization": "UTF-8/LF and private path normalization"
+    },
+    {
+      "path": "catalog-check.log",
+      "original_sha256": "3e62facbf66abf0c73cdc9b1a27d223196c296ab9f0a4cbfbb07adcb2048130d",
+      "normalization": "UTF-8/LF and private path normalization"
+    },
+    {
+      "path": "green-03-contracts.log",
+      "original_sha256": "084e4913a615018663a2baecaf118c8e760a80385001804e0e34ba4619b50020",
+      "normalization": "UTF-8/LF and private path normalization"
+    },
+    {
+      "path": "start-injected-drag-run3.log",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "normalization": "UTF-8/LF and private path normalization"
+    },
+    {
+      "path": "start-injected-drag-run2.log",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "normalization": "UTF-8/LF and private path normalization"
+    },
+    {
+      "path": "go-race.log",
+      "original_sha256": "b7e436b95eb20ab30582e221f01a9fbc2daba990a783e9f1f1e236357608ee8a",
+      "normalization": "UTF-8/LF and private path normalization"
+    },
+    {
+      "path": "native-ui-tests.log",
+      "original_sha256": "3ac22781920439a6a35854397b635a3fb4d35c1e3805ac645651109e4e01ee25",
+      "normalization": "UTF-8/LF and private path normalization"
+    },
+    {
+      "path": "read-injected-drag.log",
+      "original_sha256": "40b27b59bad6f7bfd645adb1266fdb4bd7b3484fbf90b61f8722146d05c07dd2",
+      "normalization": "UTF-8/LF and private path normalization"
+    },
+    {
+      "path": "mouse-probe-flow.log",
+      "original_sha256": "98ab4d3fa00a663384d7079465bc3741d25dd9e092d6cd2236ace8ed3f96e9d7",
+      "normalization": "UTF-8/LF and private path normalization"
+    },
+    {
+      "path": "go-mod-verify.log",
+      "original_sha256": "b4537ed75f533f993f371954de47e42a793b8e5b0587577de7e27fb3e50696bd",
+      "normalization": "UTF-8/LF and private path normalization"
+    },
+    {
+      "path": "setup.ps1",
+      "original_sha256": "5439ce01cfb00db6072cc493feb269aefc5ea228c1f7796846e3c035b953d176",
+      "normalization": "UTF-8/LF and private path normalization"
+    },
+    {
+      "path": "read-injected-run2.ps1",
+      "original_sha256": "78a7b206f776d367d040f1e06ec0ee641aa23c9da4a2d3f36ed039eaf1be540b",
+      "normalization": "UTF-8/LF and private path normalization"
+    },
+    {
+      "path": "start-injected-drag.ps1",
+      "original_sha256": "27c1366ed1db4bb69f5856215b09c02e74f838b371eca7473c41342a7e50a234",
+      "normalization": "UTF-8/LF and private path normalization"
+    },
+    {
+      "path": "start-driver.ps1",
+      "original_sha256": "1663e28ddac3915d8ca5e3501671e68e0cc199e60fbb55568bff52b9e1f1467e",
+      "normalization": "UTF-8/LF and private path normalization"
+    },
+    {
+      "path": "layout-driver.ps1",
+      "original_sha256": "a74df4cfe5baf1524e07dcf889c4f6bba28707ce74b4d587a6ec4148cc5e9698",
+      "normalization": "UTF-8/LF and private path normalization"
+    },
+    {
+      "path": "flow.ps1",
+      "original_sha256": "8e6d9b295457db4dfb4421321e70e4fe0fab6f80a3ac290931dfd062e1c3a9c4",
+      "normalization": "UTF-8/LF and private path normalization"
+    },
+    {
+      "path": "flow-run2.ps1",
+      "original_sha256": "448c1f0e179c18b854dc9eef93900280f0460383d678ead1bf135fd395c03cca",
+      "normalization": "UTF-8/LF and private path normalization"
+    },
+    {
+      "path": "mouse-probe-flow.ps1",
+      "original_sha256": "b68ef321e0c0d7318fc0f77cec985632b72ff54a6e6d96188c811277782f47a3",
+      "normalization": "UTF-8/LF and private path normalization"
+    },
+    {
+      "path": "read-injected-drag.ps1",
+      "original_sha256": "1be1391ce68ca038a3ad0d53a7e4b8e0a5c0efa2a1ec88452c01074124a2744b",
+      "normalization": "UTF-8/LF and private path normalization"
+    },
+    {
+      "path": "injected-drag.ps1",
+      "original_sha256": "4aab5f04005efa47ec5a2eeb51e2dd1a4c7a9f0434cd7ae660d9fcabe1683316",
+      "normalization": "UTF-8/LF and private path normalization"
+    },
+    {
+      "path": "injected-drag-run2.ps1",
+      "original_sha256": "aa99b8c25b544dc19f6fd2b083bc8586aec1d5fb35213e3ba8a471dc35754e29",
+      "normalization": "UTF-8/LF and private path normalization"
+    },
+    {
+      "path": "injected-drag-run3.ps1",
+      "original_sha256": "9f47f95057b447471c4a1fdbdfb379fe30f23ef8de888af968733b0055c3fec0",
+      "normalization": "UTF-8/LF and private path normalization"
+    },
+    {
+      "path": "start-injected-drag-run2.ps1",
+      "original_sha256": "12ac46fbf4a34641e3de0c891bcc7e7a09863dea1fbf0a2c8cf02ca47becc668",
+      "normalization": "UTF-8/LF and private path normalization"
+    },
+    {
+      "path": "start-injected-drag-run3.ps1",
+      "original_sha256": "fbb2b8531c70aeabd213d7268feacc5e4be32b7beab6bde2db6d7d0cc8c1f9eb",
+      "normalization": "UTF-8/LF and private path normalization"
+    },
+    {
+      "path": "cleanup.ps1",
+      "original_sha256": "426d75295d99116a3400d6d0924915b38fbbbd7d1b72709e3bc4d9b19a38d571",
+      "normalization": "UTF-8/LF and private path normalization"
+    },
+    {
+      "path": "receipt.json",
+      "original_sha256": "7b5db67bd666f8e54319643e99e9d9f6a145af802947ddcd9d63d6d30fe2116a",
+      "normalization": "UTF-8/LF and private path normalization"
+    },
+    {
+      "path": "flow-result.json",
+      "original_sha256": "1159d554cbddfaa728911d725d6910dc02eb3fc926e07a4fb554adf701274d76",
+      "normalization": "UTF-8/LF and private path normalization"
+    },
+    {
+      "path": "production-reset-public.png",
+      "original_sha256": "880007c0be991fb5fac1166315da74b92c19d5e6062d781143e22707a1168e6a",
+      "normalization": "none; original production capture"
+    },
+    {
+      "path": "production-sixty-public.png",
+      "original_sha256": "726786453e385aa2b8cfc7655b0efb542927d13fd5bb6b124ad15a9c754b5e2d",
+      "normalization": "none; original production capture"
+    }
+  ]
+}

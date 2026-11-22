@@ -1,0 +1,15 @@
+{
+    "result":  "passed",
+    "native_widths":  {
+                          "key":  67,
+                          "drag":  55,
+                          "reset":  94
+                      },
+    "checks":  [
+                   "production five-percent key",
+                   "SendInput mouse drag",
+                   "native viewport sizes",
+                   "reset restores auto compact"
+               ]
+}
+

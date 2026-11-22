@@ -31,6 +31,9 @@ func (m *Model) workspaceKey(msg tea.KeyPressMsg) tea.Cmd {
 	if w.focused && len(w.tabs) > 0 {
 		return m.workspaceTerminalKey(msg)
 	}
+	if cmd, handled := m.workspaceSplitKey(msg); handled {
+		return cmd
+	}
 	switch msg.String() {
 	case "q", "ctrl+c":
 		if w.pending > 0 || (w.busy && len(w.buffered) > 0) {

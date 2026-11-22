@@ -9,7 +9,7 @@
 - Copyright (c) 2025 Ashesh Goplani
 - 许可证：[MIT 原文](third_party/agent-deck/LICENSE)
 - 选择性迁入位置：`internal/ui/` 中带有来源头部的样式、布局与列表文件。
-- 本项目修改：精简依赖与业务模型，迁移到 Charm v2，保留列表/预览/简短提示的交互；ADR-0016 另改编圆角终端布局、侧栏比例与通用创建表单；详细对应关系见[复用清单](docs/REUSE_MANIFEST.md)。
+- 本项目修改：精简依赖与业务模型，迁移到 Charm v2，保留列表/预览/简短提示的交互；ADR-0016 另改编圆角终端布局、侧栏比例／调整与拖动、通用创建表单；详细对应关系见[复用清单](docs/REUSE_MANIFEST.md)。
 
 ## Agent Manager
 

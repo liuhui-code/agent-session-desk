@@ -1,0 +1,5 @@
+--- FAIL: TestWorkspaceDividerDragChangesSplitWithoutTerminalInput (0.01s)
+    workspace_split_test.go:52: divider did not follow drag to fifty percent
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.957s
+FAIL

@@ -1,0 +1,12 @@
+tea.MouseClickMsg left
+tea.MouseReleaseMsg left
+
+Move : 找不到路径“C:\Windows\system32\472”，因为该路径不存在。
+所在位置 行:52 字符: 2
++  Move ([int]($line.Left+49.5*$cell)) ([int]$y)
++  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Windows\system32\472:String) [Move-Item], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.MoveItemCommand
+ 
+
+

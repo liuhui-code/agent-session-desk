@@ -31,6 +31,7 @@ const (
 )
 
 type workspaceState struct {
+	split                      workspaceSplit
 	readBusy                   bool
 	transition                 workspaceTransition
 	pending                    int
@@ -66,6 +67,7 @@ type workspaceResized struct {
 }
 
 func (w *workspaceState) disconnect() {
+	w.split.dragging = false
 	w.generation++
 	if w.cancel != nil {
 		w.cancel()
@@ -166,6 +168,18 @@ func (m *Model) readWorkspace() tea.Cmd {
 func (m *Model) workspaceEvent(msg tea.Msg) (tea.Cmd, bool) {
 	w := m.workspace
 	switch msg := msg.(type) {
+	case workspaceSplitTick:
+		return m.workspaceSplitExpired(), true
+	case tea.MouseMotionMsg:
+		if !m.attaching && !m.history.open && !m.help && m.launch == nil {
+			return m.workspaceSplitMotion(msg), true
+		}
+		return nil, true
+	case tea.MouseReleaseMsg:
+		if !m.attaching && !m.history.open && !m.help && m.launch == nil {
+			return m.workspaceSplitRelease(msg), true
+		}
+		return nil, true
 	case tea.MouseClickMsg:
 		if !m.attaching && !m.history.open && !m.help && m.launch == nil {
 			return m.workspaceClick(msg), true

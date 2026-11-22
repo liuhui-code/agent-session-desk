@@ -15,6 +15,7 @@ import (
 )
 
 type styles struct {
+	separatorDrag                                                  lipgloss.Style
 	formTitle, formText, formHint, formError                       lipgloss.Style
 	dialog, backdrop                                               lipgloss.Style
 	formInput                                                      textinput.Styles
@@ -25,6 +26,7 @@ type styles struct {
 
 func newStyles(t designTokens) styles {
 	return styles{
+		separatorDrag:   lipgloss.NewStyle().Foreground(t.colors.accent),
 		formTitle:       lipgloss.NewStyle().Foreground(t.colors.cyan).Background(t.colors.surface).Bold(t.bold),
 		formText:        lipgloss.NewStyle().Foreground(t.colors.text).Background(t.colors.surface),
 		formHint:        lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.surface),

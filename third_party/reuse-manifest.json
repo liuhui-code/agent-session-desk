@@ -154,6 +154,22 @@
       ],
       "mode": "selectively_adapted",
       "modifications": "Stable Charm v2, design tokens, product Tab identities, bounded viewport and generic CLI fields; see ADR-0016 and file headers."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/split_config.go",
+      "source_sha256": "4c830a0bf8e543bbdf12b4166d48042198b5d6ae0d4f82d3ae2566ed2f3dc011",
+      "destination_file": "internal/ui/workspace_split.go",
+      "license": "MIT",
+      "parts": [
+        "getPreviewPct bounds and adjustPreviewPct step",
+        "setPreviewPctFromMouseX percentage math and compact override",
+        "divider grab tolerance and bounded ratio notice"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "Design tokens, v2 mouse messages, management-only keys, one notice timer; no implicit configuration persistence. See ADR-0016."
     }
   ],
   "preserved_notices": [

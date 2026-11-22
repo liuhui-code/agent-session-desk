@@ -22,10 +22,7 @@ func (m *Model) workspaceGeometry() workspaceGeometry {
 	left := 0
 	gap := lipgloss.Width(t.divider())
 	if m.width >= t.layout.stackedBelow {
-		percent := t.workspace.sidebarPercent
-		if m.workspace.focused {
-			percent = t.workspace.compactPercent
-		}
+		percent := m.workspaceSidebarPercent()
 		left = max(t.workspace.minPane, m.width*percent/100)
 		left = min(left, max(0, m.width-gap-t.workspace.minPane))
 	} else {
@@ -75,12 +72,20 @@ func (m *Model) renderWorkspace() string {
 	body := right
 	if g.left > 0 {
 		left := m.renderPanelTitle("会话", g.left) + "\n" + m.renderSessionList(g.left, max(0, g.bodyHeight-m.tokens.layout.headingRows))
-		separator := m.styles.separator.Render(m.tokens.divider())
+		separatorStyle := m.styles.separator
+		if w.split.dragging {
+			separatorStyle = m.styles.separatorDrag
+		}
+		separator := separatorStyle.Render(m.tokens.divider())
 		body = lipgloss.JoinHorizontal(lipgloss.Top, fitFrame(left, g.left, g.bodyHeight), strings.TrimSuffix(strings.Repeat(separator+"\n", g.bodyHeight), "\n"), right)
 	}
 	footer := m.styles.dim.Render("终端模式 · F6 管理 · Ctrl+PgUp/PgDn 切换 Tab")
 	if !w.focused {
-		footer = m.styles.dim.Render("管理模式 · Enter 终端 · n 新建 · x 关 Tab · h 历史 · q 退出 · F6 返回终端")
+		footer = m.styles.dim.Render("管理模式 · Enter 终端 · n 新建 · x 关Tab · <> 比例 · = 默认 · ? 帮助 · q 退出 · F6 终端")
+	}
+	if !w.split.noticeUntil.IsZero() {
+		pct := m.workspaceSidebarPercent()
+		footer = m.styles.dim.Render(fmt.Sprintf("会话 %d%% / 终端 %d%%", pct, 100-pct))
 	}
 	if m.status != "" {
 		footer = m.styles.dim.Render(label(m.status))

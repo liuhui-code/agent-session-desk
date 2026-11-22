@@ -7,6 +7,7 @@ func (m *Model) workspaceClick(msg tea.MouseClickMsg) tea.Cmd {
 	if msg.Button != tea.MouseLeft || w.transition != workspaceIdle {
 		return nil
 	}
+	w.split.dragging = false
 	if msg.Y == 1 {
 		button := m.workspaceNewTabCell()
 		if msg.X >= button.x && msg.X < button.x+button.width {
@@ -26,6 +27,12 @@ func (m *Model) workspaceClick(msg tea.MouseClickMsg) tea.Cmd {
 		}
 	}
 	g := m.workspaceGeometry()
+	if m.workspaceDividerHit(msg.X, msg.Y) {
+		w.split.dragging = true
+		w.split.moved = false
+		w.split.dragStart = msg.X
+		return nil
+	}
 	if msg.X >= g.x && msg.X < g.x+g.width && msg.Y >= g.y && msg.Y < g.y+g.height {
 		if !w.focused {
 			w.focused = true

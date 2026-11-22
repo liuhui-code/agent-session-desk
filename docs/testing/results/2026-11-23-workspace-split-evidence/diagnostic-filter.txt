@@ -1,0 +1,4 @@
+Temporary diagnostic: tea.WithFilter(mouseProbeFilter) appended to CLI Program construction.
+Helper logs only MouseMsg types/button via fmt.Fprintf(file, "%T %+v\n", msg, msg.Mouse()).
+Env: ASD_SYNTHETIC_MOUSE_PROBE, test-owned file only.
+No key/paste payload, no authentication data, no production hook remains.

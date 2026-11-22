@@ -68,3 +68,5 @@ ASMGR 与 AoE 本轮没有迁入源码。psmux / tmux 作为外部程序，仅�
 2026-11-23：按 ADR-0016 新增选择性改编：`workspace_view.go` 取自固定 Agent Deck `home_view_frame.go` 的圆角终端框与精确尺寸思路，以及 `split_config.go` 的 35%／18%／8 列默认几何；`launch_dialog.go`、`launch_dialog_view.go` 取自同提交 `newdialog.go` 的居中宽度、表单焦点与圆角覆盖布局。原始 SHA-256 已写入机器清单。Tab / Session / Run 绑定、串行输入、连接取消和通用 CLI 字段属于本项目连接代码；没有迁入上游 agent／worktree 业务。此前“未迁入表单”的表述描述首轮切片，当前只新增本段列出的通用表单子集。比例拖动、列表密度和分组搜索仍未迁入。
 
 Bubbles 2.2.2 textinput 通过模块使用，未复制组件源码。v2 表单使用真实光标并将样式覆盖到 design tokens；runewidth、uniseg 及 clipboard 的传递依赖变化见 TECH_STACK。上游只作为固定来源，不使用其 v1 依赖，也不以这次迁入声明完整视觉还原。
+
+2026-11-23：`workspace_split.go` 从相同固定提交的 `split_config.go` 选择性改编百分比夹取、5% 调整、鼠标 X 到比例的向下取整、2 列抓取容差与短暂反馈。数值经 design_tokens.go，v2 事件串接和单一提示计时器为本地改造；仅管理焦点截获比例键，终端操作符保持原样。比例只存当前 UI 内存，未迁入上游隐式写 config.toml；这是与原体验的明确差异，延续本项目当前配置只读边界。原始哈希和新目标文件已加入机器清单。
