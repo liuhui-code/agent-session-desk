@@ -75,11 +75,13 @@ try {
     Invoke-Recorded 'race' 'go' @('test', '-race', '-count=1', '-timeout=5m', './...')
     Invoke-Recorded 'vet' 'go' @('vet', './...')
     Invoke-Recorded 'catalog' 'python' @('-B', 'tools/test_catalog.py', 'check', '--generated')
+    Invoke-Recorded 'source-size' 'python' @('-B', 'tools/ci/check_source_limits.py')
     $env:CGO_ENABLED = '0'
     $product = Join-Path $repo 'build/asd-windows-native.exe'
     $fixture = Join-Path $repo 'build/asd-fixture-windows-native.exe'
     Invoke-Recorded 'build-product' 'go' @('build', '-trimpath', '-o', $product, './cmd/asd')
     Invoke-Recorded 'build-fixture' 'go' @('build', '-trimpath', '-o', $fixture, './cmd/asd-fixture')
+    Invoke-Recorded 'native-config' 'pwsh' @('-NoProfile', '-File', 'tools/ci/windows-config.ps1', '-ProductBinary', $product, '-FixtureBinary', $fixture, '-PsmuxBinary', $psmux, '-EvidenceDirectory', (Join-Path $evidence 'config'))
     $env:ASD_PSMUX_TEST_BINARY = $psmux
     $env:ASD_PSMUX_TEST_SHA256 = $lock.psmux.executable_sha256
     $env:ASD_FIXTURE_TEST_BINARY = $fixture

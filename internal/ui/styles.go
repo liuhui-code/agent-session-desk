@@ -8,50 +8,35 @@
 package ui
 
 import (
-	"fmt"
-	"image/color"
+	"strings"
 
 	"charm.land/lipgloss/v2"
 )
 
-// palette is immutable for the lifetime of a UI. There is no theme watcher or
-// shared mutable renderer state in this first migration slice.
-type palette struct {
-	bg, surface, border, text, dim, accent, cyan, red color.Color
-}
-
-var darkColors = palette{
-	bg:      lipgloss.Color("#1a1b26"),
-	surface: lipgloss.Color("#24283b"),
-	border:  lipgloss.Color("#414868"),
-	text:    lipgloss.Color("#c0caf5"),
-	dim:     lipgloss.Color("#787fa0"),
-	accent:  lipgloss.Color("#7aa2f7"),
-	cyan:    lipgloss.Color("#7dcfff"),
-	red:     lipgloss.Color("#f7768e"),
-}
-
 type styles struct {
-	title, highlight, dim, error, text, key, separator lipgloss.Style
+	title, highlight, dim, error, text, key, separator, panelTitle lipgloss.Style
+	menuDot, menuGap                                               string
 }
 
-func newStyles() styles {
+func newStyles(t designTokens) styles {
 	return styles{
-		title: lipgloss.NewStyle().Bold(true).
-			Foreground(darkColors.accent),
-		highlight: lipgloss.NewStyle().Foreground(darkColors.bg).
-			Background(darkColors.accent).Bold(true),
-		dim:       lipgloss.NewStyle().Foreground(darkColors.dim),
-		error:     lipgloss.NewStyle().Foreground(darkColors.red).Bold(true),
-		text:      lipgloss.NewStyle().Foreground(darkColors.text),
-		key:       lipgloss.NewStyle().Foreground(darkColors.accent).Bold(true),
-		separator: lipgloss.NewStyle().Foreground(darkColors.border),
+		title: lipgloss.NewStyle().Bold(t.bold).
+			Foreground(t.colors.accent),
+		highlight: lipgloss.NewStyle().Foreground(t.colors.bg).
+			Background(t.colors.accent).Bold(t.bold),
+		dim:        lipgloss.NewStyle().Foreground(t.colors.dim),
+		error:      lipgloss.NewStyle().Foreground(t.colors.red).Bold(t.bold),
+		text:       lipgloss.NewStyle().Foreground(t.colors.text),
+		key:        lipgloss.NewStyle().Foreground(t.colors.accent).Bold(t.bold),
+		separator:  lipgloss.NewStyle().Foreground(t.colors.border),
+		panelTitle: lipgloss.NewStyle().Foreground(t.colors.cyan).Bold(t.bold),
+		menuDot:    t.marks.menuDot,
+		menuGap:    strings.Repeat(" ", t.layout.menuGap),
 	}
 }
 
 // menuKey is adapted from Agent Deck's MenuKey. Keep the small, consistent
 // key/description treatment without importing its application hotkey registry.
 func (s styles) menuKey(key, description string) string {
-	return fmt.Sprintf("%s %s %s", s.key.Render(key),
-		s.separator.Render("·"), s.text.Render(description))
+	return s.key.Render(key) + s.menuGap + s.separator.Render(s.menuDot) + s.menuGap + s.text.Render(description)
 }

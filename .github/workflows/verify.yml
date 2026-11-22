@@ -37,6 +37,7 @@ jobs:
           go test -race -count=1 -timeout=5m ./...
           go vet ./...
           python3 -B tools/test_catalog.py check --generated
+          python3 -B tools/ci/check_source_limits.py
           python3 -B -m unittest discover -s tools/ci -p 'test_*.py' -v
 
   native-windows:

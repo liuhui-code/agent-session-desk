@@ -55,7 +55,7 @@ func boundedPreview(s string) (string, bool) {
 			s = s[1:]
 		}
 	}
-	s = strings.ReplaceAll(plainText(s), "\t", "    ")
+	s = strings.ReplaceAll(plainText(s), "\t", strings.Repeat(" ", previewTabWidth))
 	// Tabs and replacement runes can expand after decoding. Bound the retained
 	// display text as well as the untrusted source bytes.
 	if len(s) > maxPreviewBytes {

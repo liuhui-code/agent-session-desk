@@ -44,3 +44,10 @@ Test design now lives in docs/testing/. Read TEST_STRATEGY.md, COVERAGE.md, and 
 - Keep Feature Ledger IDs and FR mappings stable. Update actual implementation, evidence, and release status with each relevant change; documents and mockups do not count as implemented or Windows-validated features.
 - Keep TC IDs stable and edit test content in docs/testing/cases/*.json. Regenerate derived Markdown/CSV with tools/test_catalog.py, then check --generated. Record unresolved behaviors and budgets instead of silently inventing acceptance rules; save actual run evidence separately from design coverage.
 - Summarize what changed, why, how it was verified, and remaining limits.
+
+## Development guardrails
+
+- 使用 TDD：新增行为或修复按一条行为 RED → GREEN → 必要重构推进，保存关键失败和复验依据；重构沿用行为测试。
+- 每个相关变更同步 ADR、Feature Ledger、实际测试报告和 Git 提交记录。架构决定的接受不等于实现或验收完成。
+- 产品代码正文单文件不得超过 500 行；生产 Go、Python 与 PowerShell 文件采用更严格的物理总行数检查（含注释和空行；Go 测试文件除外），由 `python3 -B tools/ci/check_source_limits.py` 执行。测试文件单独组织，新增文件也保持短小。
+- UI 样式 100% 由 design tokens 管理：颜色、粗细、间距、装饰符与响应式尺寸统一定义在 `internal/ui/design_tokens.go`；`styles.go` 仅组合 token，视图不得新增独立样式数值。单元格对齐、数组下标与固定结构行数不是设计值。新增 UI 必须沿用该入口并验证渲染边界。

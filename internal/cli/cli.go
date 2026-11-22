@@ -37,11 +37,13 @@ Global options (before the subcommand):
   --backend PATH       psmux on Windows; tmux for Unix development
   --runtime-dir DIR    Product-owned backend data/config directory
   --namespace NAME     Isolated product backend namespace
+  --config PATH        Explicit TOML launch configuration (start --template only)
 
 Start options:
   --name NAME          Session label (defaults to executable name)
   --cwd DIR            Working directory (defaults to current directory)
   --env KEY=value      Per-launch override; repeat as needed
+  --template NAME      Start a named template from --config instead of EXE
 
 Inside the manager: arrows/j/k select, Enter attaches, r refreshes, ? help, q quits.
 Inside the terminal: cancel IME composition, switch to English input, then Ctrl+b and d detach back to the manager.
@@ -75,9 +77,11 @@ func run(ctx context.Context, args []string, input io.Reader, output, errorOutpu
 	flags := flag.NewFlagSet("asd", flag.ContinueOnError)
 	flags.SetOutput(errorOutput)
 	var options backend.Options
+	var configPath string
 	flags.StringVar(&options.Binary, "backend", "", "terminal backend executable")
 	flags.StringVar(&options.RuntimeDir, "runtime-dir", "", "product runtime directory")
 	flags.StringVar(&options.Namespace, "namespace", "", "product namespace")
+	flags.StringVar(&configPath, "config", "", "explicit TOML launch configuration")
 	flags.Usage = func() { fmt.Fprint(output, usage) }
 	if err := flags.Parse(args); err != nil {
 		return err
@@ -101,13 +105,16 @@ func run(ctx context.Context, args []string, input io.Reader, output, errorOutpu
 	if command != "" && command != "doctor" && command != "start" && command != "list" && command != "preview" && command != "attach" && command != "stop" {
 		return fmt.Errorf("unknown command %q; run asd help", command)
 	}
+	if configPath != "" && command != "start" {
+		return fmt.Errorf("--config is only used by start --template")
+	}
 	// Validate command shape before touching the backend or its runtime files.
 	var launch session.Launch
 	var err error
 	jsonList := false
 	switch command {
 	case "start":
-		launch, err = parseLaunch(commandArgs, output, errorOutput)
+		launch, err = parseLaunchWithConfig(commandArgs, configPath, output, errorOutput)
 		if err != nil {
 			return err
 		}
@@ -218,25 +225,6 @@ func run(ctx context.Context, args []string, input io.Reader, output, errorOutpu
 		}{target.ID, target.RunID, "backend_session_stopped"})
 	}
 	return nil
-}
-
-func parseLaunch(args []string, output, errorOutput io.Writer) (session.Launch, error) {
-	var l session.Launch
-	var env envFlags
-	flags := flag.NewFlagSet("start", flag.ContinueOnError)
-	flags.SetOutput(errorOutput)
-	flags.StringVar(&l.Name, "name", "", "session name")
-	flags.StringVar(&l.Dir, "cwd", "", "working directory")
-	flags.Var(&env, "env", "KEY=value (repeatable)")
-	flags.Usage = func() { fmt.Fprint(output, usage) }
-	if err := flags.Parse(args); err != nil {
-		return l, err
-	}
-	if flags.NArg() == 0 {
-		return l, fmt.Errorf("usage: asd start [--name NAME] [--cwd DIR] [--env KEY=value] -- EXE [ARG...]")
-	}
-	l.Executable, l.Args, l.Env = flags.Arg(0), flags.Args()[1:], env
-	return l, l.Validate()
 }
 
 func findSession(sessions []session.Session, id string) (session.Session, error) {

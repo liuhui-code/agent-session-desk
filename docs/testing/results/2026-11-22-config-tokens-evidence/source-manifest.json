@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "base_commit": "15649199b1dc5f3540cbef6a2a0ffd9f261d6dec",
+  "scope": "uncommitted M1 slice fingerprint; native Windows CLI/fixture, no desktop verdict",
+  "toolchain": "go1.27.4 darwin/amd64",
+  "build": {
+    "GOOS": "windows",
+    "GOARCH": "amd64",
+    "CGO_ENABLED": "0",
+    "flags": [
+      "-trimpath"
+    ]
+  },
+  "source_sha256": {
+    "go.mod": "915fb0d04e83902b09834c292b350fceb793e885d27c6fa82ac5573586fb6649",
+    "go.sum": "5b8a8b98376269aa00d36edfa69ad0574172ace4c8330b886db6f2629f222bdd",
+    "cmd/asd/main.go": "f8a910eed8f4ac1702f92f2e16a406376cc67890f4e36904a256615e53fa7da0",
+    "cmd/asd-fixture/main.go": "a6b9e214b601c35e02c450ebf0eddd3d3c2b9f5484cc56cbb61a918e76cbcef1",
+    "cmd/asd-fixture/main_test.go": "a6e27d112995f66f24fb6b6019913cfd0bd4650bd97c2409ef217019771ad527",
+    "internal/backend/backend.go": "04571e3fdc5cf8d9770794571ac03bccb8b2799316d9eebbda0a0a36d839de7d",
+    "internal/backend/backend_test.go": "213509608613a2445c04ae1e4843ffee13e26c6d5801fc77a7fe53cc2333f9fd",
+    "internal/backend/command.go": "a385feb1c95deec7f7e6e3f5dc5129f8903e2953572c6795698fdcf401892ef8",
+    "internal/backend/integration_windows_test.go": "a4b97fd1d332c5949dcc61df1c4461c75b5229af4c3e463e907858afc9a78be9",
+    "internal/backend/process_unix.go": "4d9efe24bc5f644bef0d17cfbfed61d5e8eedb88f1fe119ba6f43a7a3815e6b2",
+    "internal/backend/process_windows.go": "a7d15b9b51f1d68d3fb83d053811a7dcf7360e8b205aeee4164a4c32252b4bfe",
+    "internal/backend/psmux_contract.go": "f7b34f2b879ce638f8a3a4ab7e257eb8d51e6e292ab520fcd07ccb0da77c5165",
+    "internal/backend/transport.go": "732b854ec6111893928f9e1e0b657d5932bb0d6ea178cdf7cf044f4aba63cc06",
+    "internal/cli/cli.go": "0e821ab2b2177ca60e313e5dc4ea44df0e285f320d1a2a2030346aa6eae13c5e",
+    "internal/cli/cli_test.go": "9b13fdacc42446fbcc5d493f49f2539fe16cadda9b397452c74696f887fce692",
+    "internal/cli/config_rejection_test.go": "f5c147a07090c3a58a32bb7a156bee3750b1accff862c5c48afee80bb8c6833f",
+    "internal/cli/config_start_test.go": "bf8e3dcfbb5d5d50d9d97f86115ecf0c9e5edf1860fb97b08636a0886fefecd2",
+    "internal/cli/start.go": "21c322c9383aa4e407af1e23cd6493de12a55a972d37718fe976c29c98f6339d",
+    "internal/config/config.go": "7e088b9068ba63270d5d38c1f4c3e079cf43be5184b04f9666be9ed7961ae5a1",
+    "internal/config/config_test.go": "dfb92897b1186aef355e8898b4d4d6007c98fea2bf1b595e0aad6f0f09311816",
+    "internal/session/launch.go": "8938bacb7a303944529244177804484457a59a164a04627f297f6f9929c3a43c",
+    "internal/session/launch_test.go": "1ee77ae9320e48b2e0ad2529fe116182ab877e149c8256523030c3825638c04b",
+    "internal/session/session.go": "3d9dd0fcec805a21cabf1e7bea0c3231ecc3720520b55d97a093a5446ce2de31",
+    "internal/ui/cellwidth.go": "ef5d9ed1a9e70bf44bdf47d9bb07eb14fec95ab3cc331a00c8d1b28b502720bc",
+    "internal/ui/design_tokens.go": "4c68fc47f2d8968c5aa3b05824e5b86e7c0f016f20be532cd7c632fa9c3e245d",
+    "internal/ui/home_view_frame.go": "c07b276ff8168aa7acc88b966cc90e522d957ce20ade1305b691e201b06f46f3",
+    "internal/ui/home_view_list.go": "09c4a730d08cc37814c8321f941366d7bf8449f0beafd5432841b5d8dc706546",
+    "internal/ui/model.go": "3d2a64ae4dd48d20de335540241682556213d17b335bf6e200f178314d2b1762",
+    "internal/ui/model_test.go": "9626a6472336ea9e4971aee990b18a91d5dca416a1f746f8952da26d01cc5b65",
+    "internal/ui/styles.go": "e248f90eb2366dc75847c1c8c3e2d642cd1c2d7d22ddacbfd1d1245699c200f8",
+    "internal/ui/text.go": "0ef6aa91424d9bb00a9c6fffd2b47f86327986ec8500a6110bc612b7124a0aa7",
+    "internal/ui/tokens_test.go": "2ece8d27f58b54c3acdfd6ba2b7b0abcfd281ba2a6a13f06a5030f661471c226",
+    "internal/ui/view_test.go": "caf0dca194d2be785b0a412aea434af34cb8edb333ab7f0f0bf1e3cbad11bdec"
+  },
+  "candidate_sha256": {
+    "asd.exe": "521261996358c342644a5032e93ebd027f5d805d9863b193bfb664154ac7d937",
+    "asd-fixture.exe": "69a8c17f829eb18eb84bda9c45094fc705617804ec9013c570182eb22b177736"
+  },
+  "native_script_sha256": "2fd23d7427524e225cce148e1cf648d5eba4d63ce5beecfa54582dd461d1baaa"
+}

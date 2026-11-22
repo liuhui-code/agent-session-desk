@@ -26,11 +26,11 @@ func (m *Model) renderSessionList(width, height int) string {
 		if m.listBusy {
 			return m.styles.dim.Render("正在读取会话…")
 		}
-		return m.styles.dim.Render("暂无会话\n\n? 查看创建方法")
+		return m.styles.dim.Render("暂无会话" + m.tokens.sectionBreak() + "? 查看创建方法")
 	}
 	var b strings.Builder
 	viewOffset := m.viewOffset
-	lineBudget := height - 1 // reserve the below indicator as upstream does
+	lineBudget := height - m.tokens.layout.indicatorRows // reserve the below indicator as upstream does
 	if lineBudget < 1 {
 		lineBudget = 1
 	}
@@ -42,10 +42,10 @@ func (m *Model) renderSessionList(width, height int) string {
 	}
 	// The above indicator also occupies a row. Ensure the selected item is
 	// visible after reserving it, including at two-row and one-row boundaries.
-	if viewOffset > 0 && height >= 3 {
+	if viewOffset > 0 && height >= m.tokens.layout.aboveMinHeight {
 		lineBudget--
 		viewOffset = max(viewOffset, m.cursor-lineBudget+1)
-		b.WriteString(m.styles.dim.Render(fmt.Sprintf("  ⋮ 上方 %d", viewOffset)))
+		b.WriteString(m.styles.dim.Render(fmt.Sprintf("%s%s 上方 %d", m.tokens.itemGap(), m.tokens.marks.above, viewOffset)))
 		b.WriteString("\n")
 	}
 	nextItem := viewOffset
@@ -55,20 +55,20 @@ func (m *Model) renderSessionList(width, height int) string {
 		if title == "" {
 			title = label(s.ID)
 		}
-		prefix := "  "
+		prefix := strings.Repeat(" ", m.tokens.layout.rowPrefixWidth)
 		if i == m.cursor {
-			prefix = "› "
+			prefix = m.tokens.marks.selected + strings.Repeat(" ", max(0, m.tokens.layout.rowPrefixWidth-lipgloss.Width(m.tokens.marks.selected)))
 		}
 		state := s.TerminalState
 		if m.listErr != nil {
 			state = session.TerminalUnknown
 		}
-		suffix := "  " + terminalLabel(state)
-		if width < 22 {
+		suffix := m.tokens.itemGap() + terminalLabel(state)
+		if width < m.tokens.layout.suffixBelow {
 			suffix = ""
 		}
 		nameWidth := max(0, width-lipgloss.Width(prefix)-lipgloss.Width(suffix))
-		row := prefix + cellTruncate(title, nameWidth, "…")
+		row := prefix + cellTruncate(title, nameWidth, m.tokens.marks.ellipsis)
 		row += strings.Repeat(" ", max(0, width-lipgloss.Width(row)-lipgloss.Width(suffix))) + suffix
 		if i == m.cursor {
 			row = m.styles.highlight.Render(row)
@@ -80,7 +80,7 @@ func (m *Model) renderSessionList(width, height int) string {
 		nextItem = i + 1
 	}
 	if remaining := len(m.sessions) - nextItem; remaining > 0 && height > 1 {
-		b.WriteString(m.styles.dim.Render(fmt.Sprintf("  ⋮ 下方 %d", remaining)))
+		b.WriteString(m.styles.dim.Render(fmt.Sprintf("%s%s 下方 %d", m.tokens.itemGap(), m.tokens.marks.below, remaining)))
 	}
 	return strings.TrimRight(b.String(), "\n")
 }

@@ -51,6 +51,7 @@ type Model struct {
 	cancel  context.CancelFunc
 	service Service
 	styles  styles
+	tokens  designTokens
 
 	width, height      int
 	sessions           []session.Session
@@ -75,8 +76,12 @@ type Model struct {
 }
 
 func New(ctx context.Context, service Service) *Model {
+	return newModelWithTokens(ctx, service, defaultDesignTokens())
+}
+
+func newModelWithTokens(ctx context.Context, service Service, tokens designTokens) *Model {
 	ctx, cancel := context.WithCancel(ctx)
-	return &Model{ctx: ctx, cancel: cancel, service: service, styles: newStyles()}
+	return &Model{ctx: ctx, cancel: cancel, service: service, tokens: tokens, styles: newStyles(tokens)}
 }
 
 // Close releases pending reads. Call it after Program.Run even if the program
@@ -276,13 +281,13 @@ func (m *Model) loadPreview() tea.Cmd {
 }
 
 func (m *Model) previewVisible() bool {
-	if m.help || m.width < layoutBreakpointSingle || m.height < 10 {
+	if m.help || m.width < m.tokens.layout.singleBelow || m.height < m.tokens.layout.minPreviewHeight {
 		return false
 	}
-	if m.width < layoutBreakpointStacked {
-		contentHeight := m.height - 4
-		listHeight := max(3, contentHeight/2)
-		return contentHeight-listHeight-1 >= 5 // title, caption and one text row
+	if m.width < m.tokens.layout.stackedBelow {
+		contentHeight := m.height - m.tokens.chromeRows()
+		listHeight := max(m.tokens.layout.stackedListMin, contentHeight/m.tokens.layout.stackedFraction)
+		return contentHeight-listHeight-m.tokens.layout.stackedGap >= m.tokens.layout.previewMin // title, caption and one text row
 	}
 	return true
 }

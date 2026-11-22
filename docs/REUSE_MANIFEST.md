@@ -60,3 +60,5 @@ ASMGR 与 AoE 本轮没有迁入源码。psmux / tmux 作为外部程序，仅�
 2026-11-21 的原生 Windows 复跑修正了派生函数 `parsePsmuxVersion`：识别稳定发行版附带的括号构建来源，仍固定自身版本 3.4.0，并保留 CRLF／预发布／仅兼容版本行的回归。上游来源及原文件哈希没有改变；本地修复与真实执行见[原生 Windows 报告](testing/results/2026-11-21-m0-native-windows.md)。后端 pane 定位和 fixture 故障构造的修正也在该报告逐项说明。
 
 本清单不代替发行物 SBOM 或全部 Go 依赖许可审计。实际打包时还需按发行物收集直接／间接依赖的许可证，解决原创整体许可证，并完成 Windows 与发布验证。
+
+2026-11-22：派生调色板从 styles.go 移到 [design_tokens.go](../internal/ui/design_tokens.go)，新增文件头及机器清单条目保留相同上游快照和 source SHA。响应式尺寸、间距与标记集中管理，styles.go 组合角色样式；默认值不构成新视觉方案接受。Go 后端命令 helper 与资源采集脚本 process helper 仅拆文件以满足 500 行限制，无行为扩展；见 [本轮报告](testing/results/2026-11-22-m1-config-tokens.md)。

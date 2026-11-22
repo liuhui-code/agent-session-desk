@@ -19,11 +19,6 @@ import (
 	"github.com/liuhui-code/agent-session-desk/internal/session"
 )
 
-const (
-	layoutBreakpointSingle  = 50
-	layoutBreakpointStacked = 80
-)
-
 func (m *Model) View() tea.View {
 	view := tea.NewView(m.renderFrame())
 	view.AltScreen = true
@@ -37,42 +32,42 @@ func (m *Model) renderFrame() string {
 	header := m.styles.title.Render("Agent Session Desk")
 	count := m.styles.dim.Render(fmt.Sprintf("%d 会话", len(m.sessions)))
 	gap := m.width - lipgloss.Width(header) - lipgloss.Width(count)
-	if gap > 1 {
+	if gap > m.tokens.layout.headerMinGap {
 		header += strings.Repeat(" ", gap) + count
 	}
-	if m.height < 5 {
+	if m.height < m.tokens.layout.minFrameHeight {
 		return fitFrame(header+"\n"+m.styles.dim.Render("请增大窗口 · q 退出"), m.width, m.height)
 	}
-	contentHeight := m.height - 4 // header, breathing row, breathing row, footer
+	contentHeight := m.height - m.tokens.chromeRows() // header, breathing row, breathing row, footer
 	var content string
 	switch {
 	case m.help:
 		content = m.renderHelp(contentHeight)
 	case !m.previewVisible():
 		content = m.renderSingleColumnLayout(contentHeight)
-	case m.width < layoutBreakpointStacked:
+	case m.width < m.tokens.layout.stackedBelow:
 		content = m.renderStackedLayout(contentHeight)
 	default:
 		content = m.renderDualColumnLayout(contentHeight)
 	}
 	footer := m.renderHelpBar()
 	if m.status != "" {
-		footer = m.styles.dim.Render(cellTruncate(label(m.status), max(0, m.width-18), "…")) + "  ? 帮助  q 退出"
+		footer = m.styles.dim.Render(cellTruncate(label(m.status), max(0, m.width-m.tokens.layout.statusHelpWidth), m.tokens.marks.ellipsis)) + m.tokens.itemGap() + "? 帮助" + m.tokens.itemGap() + "q 退出"
 	}
 	if m.listErr != nil {
-		footer = m.styles.error.Render("后台状态未知："+label(m.listErr.Error())) + "  r 重试"
+		footer = m.styles.error.Render("后台状态未知："+label(m.listErr.Error())) + m.tokens.itemGap() + "r 重试"
 	}
-	return fitFrame(header+"\n\n"+ensureExactHeight(content, contentHeight)+"\n\n"+footer, m.width, m.height)
+	return fitFrame(header+m.tokens.sectionBreak()+ensureExactHeight(content, contentHeight)+m.tokens.sectionBreak()+footer, m.width, m.height)
 }
 
 func (m *Model) renderPanelTitle(title string, width int) string {
 	if width <= 0 {
 		return ""
 	}
-	title = cellTruncate(title, width, "…")
-	titleStyle := lipgloss.NewStyle().Foreground(darkColors.cyan).Bold(true).Width(width)
-	underlineStyle := lipgloss.NewStyle().Foreground(darkColors.border).Width(width)
-	return titleStyle.Render(title) + "\n" + underlineStyle.Render(strings.Repeat("─", width))
+	title = cellTruncate(title, width, m.tokens.marks.ellipsis)
+	titleStyle := m.styles.panelTitle.Width(width)
+	underlineStyle := m.styles.separator.Width(width)
+	return titleStyle.Render(title) + "\n" + underlineStyle.Render(strings.Repeat(m.tokens.marks.rule, width))
 }
 
 // ensureExactHeight is retained from Agent Deck. Having exactly the requested
@@ -117,16 +112,17 @@ func fitFrame(content string, width, height int) string {
 }
 
 func (m *Model) renderDualColumnLayout(contentHeight int) string {
-	leftWidth := min(42, max(24, (m.width-3)/3))
-	rightWidth := m.width - leftWidth - 3
-	panelContentHeight := max(0, contentHeight-2)
+	dividerWidth := lipgloss.Width(m.tokens.divider())
+	leftWidth := min(m.tokens.layout.listMax, max(m.tokens.layout.listMin, (m.width-dividerWidth)/m.tokens.layout.listFraction))
+	rightWidth := m.width - leftWidth - dividerWidth
+	panelContentHeight := max(0, contentHeight-m.tokens.layout.headingRows)
 	leftPanel := m.renderPanelTitle("会话", leftWidth) + "\n" +
 		ensureExactHeight(m.renderSessionList(leftWidth, panelContentHeight), panelContentHeight)
 	rightPanel := m.renderPanelTitle("屏幕预览", rightWidth) + "\n" +
 		ensureExactHeight(m.renderPreviewPane(rightWidth, panelContentHeight), panelContentHeight)
 
 	// Style the constant separator once, then repeat it for each exact row.
-	separatorCell := m.styles.separator.Render(" │ ")
+	separatorCell := m.styles.separator.Render(m.tokens.divider())
 	separatorLines := make([]string, contentHeight)
 	for i := range separatorLines {
 		separatorLines[i] = separatorCell
@@ -140,26 +136,26 @@ func (m *Model) renderDualColumnLayout(contentHeight int) string {
 func (m *Model) renderStackedLayout(totalHeight int) string {
 	// Unlike the upstream minimum floors, clamp both regions to the actual
 	// available height; a short terminal must never overflow into the footer.
-	listHeight := max(3, totalHeight/2)
-	previewHeight := max(0, totalHeight-listHeight-1)
+	listHeight := max(m.tokens.layout.stackedListMin, totalHeight/m.tokens.layout.stackedFraction)
+	previewHeight := max(0, totalHeight-listHeight-m.tokens.layout.stackedGap)
 	list := m.renderPanelTitle("会话", m.width) + "\n" +
-		ensureExactHeight(m.renderSessionList(m.width, listHeight-2), listHeight-2)
+		ensureExactHeight(m.renderSessionList(m.width, listHeight-m.tokens.layout.headingRows), listHeight-m.tokens.layout.headingRows)
 	preview := m.renderPanelTitle("屏幕预览", m.width) + "\n" +
-		ensureExactHeight(m.renderPreviewPane(m.width, previewHeight-2), previewHeight-2)
+		ensureExactHeight(m.renderPreviewPane(m.width, previewHeight-m.tokens.layout.headingRows), previewHeight-m.tokens.layout.headingRows)
 	return ensureExactHeight(list, listHeight) + "\n" +
-		m.styles.separator.Render(strings.Repeat("─", m.width)) + "\n" +
+		ensureExactHeight(m.styles.separator.Render(strings.Repeat(m.tokens.marks.rule, m.width)), m.tokens.layout.stackedGap) + "\n" +
 		ensureExactHeight(preview, previewHeight)
 }
 
 func (m *Model) renderSingleColumnLayout(totalHeight int) string {
 	return m.renderPanelTitle("会话", m.width) + "\n" +
-		ensureExactHeight(m.renderSessionList(m.width, totalHeight-2), totalHeight-2)
+		ensureExactHeight(m.renderSessionList(m.width, totalHeight-m.tokens.layout.headingRows), totalHeight-m.tokens.layout.headingRows)
 }
 
 func (m *Model) renderPreviewPane(width, height int) string {
 	s, ok := m.selected()
 	if !ok {
-		return m.styles.dim.Render("选择会话后查看当前屏幕\n\n? 查看创建方法")
+		return m.styles.dim.Render("选择会话后查看当前屏幕" + m.tokens.sectionBreak() + "? 查看创建方法")
 	}
 	if m.listErr != nil {
 		return m.styles.dim.Render("后台连接尚未确认；按 r 重试")
@@ -179,7 +175,7 @@ func (m *Model) renderPreviewPane(width, height int) string {
 	// The capture is a snapshot, not durable history or a reconstructed
 	// conversation. Keep its newest visible rows without retaining more copies.
 	lines := strings.Split(m.preview, "\n")
-	budget := max(0, height-2)
+	budget := max(0, height-1-m.tokens.layout.captionGap)
 	clipped := len(lines) > budget
 	if clipped {
 		lines = lines[len(lines)-budget:]
@@ -194,30 +190,30 @@ func (m *Model) renderPreviewPane(width, height int) string {
 			caption = "终端已退出 · 保留屏幕（节选）"
 		}
 	}
-	return m.styles.dim.Render(cellTruncate(caption, width, "…")) + "\n\n" +
+	return m.styles.dim.Render(cellTruncate(caption, width, m.tokens.marks.ellipsis)) + strings.Repeat("\n", m.tokens.layout.captionGap+1) +
 		strings.Join(lines, "\n")
 }
 
 func (m *Model) renderHelpBar() string {
-	if m.width < 50 {
-		return m.styles.menuKey("↑↓", "选择") + "  " + m.styles.menuKey("↵", "进入") + "  ?  q"
+	if m.width < m.tokens.layout.singleBelow {
+		return m.styles.menuKey("↑↓", "选择") + m.tokens.itemGap() + m.styles.menuKey("↵", "进入") + m.tokens.itemGap() + "?" + m.tokens.itemGap() + "q"
 	}
 	parts := []string{
 		m.styles.menuKey("↑↓", "选择"), m.styles.menuKey("Enter", "进入"),
 		m.styles.menuKey("r", "刷新"), m.styles.menuKey("?", "帮助"), m.styles.menuKey("q", "退出"),
 	}
-	return strings.Join(parts, "  ")
+	return strings.Join(parts, m.tokens.itemGap())
 }
 
 func (m *Model) renderHelp(height int) string {
-	content := m.renderPanelTitle("使用方法", m.width) + "\n\n" +
+	content := m.renderPanelTitle("使用方法", m.width) + m.tokens.sectionBreak() +
 		"在另一个终端创建会话：\n" +
-		m.styles.text.Render("  asd start --name 开发 -- codex") + "\n" +
-		m.styles.text.Render("  asd start --name 评审 --cwd 路径 -- 自定义程序 参数") + "\n\n" +
+		m.styles.text.Render(m.tokens.itemGap()+"asd start --name 开发 -- codex") + "\n" +
+		m.styles.text.Render(m.tokens.itemGap()+"asd start --name 评审 --cwd 路径 -- 自定义程序 参数") + m.tokens.sectionBreak() +
 		"↑↓ / j k 选择会话；Enter 全屏进入。\n" +
 		"分离前取消候选并切至英文输入模式。\n" +
 		"Ctrl+b，松开后按 d，返回管理器。\n" +
-		"q 退出管理器，保留后台会话。\n\n" +
+		"q 退出管理器，保留后台会话。" + m.tokens.sectionBreak() + "" +
 		m.styles.dim.Render("预览仅为当前屏幕；CLI 工作状态保持未知。") + "\n" +
 		"Esc / ? 返回"
 	return ensureExactHeight(content, height)

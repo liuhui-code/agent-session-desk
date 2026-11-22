@@ -82,7 +82,7 @@ Get-FileHash 'C:\Tools\psmux\psmux.exe' -Algorithm SHA256
 
 只生成产品私有后端配置和运行数据，不改用户全局配置或环境。已有私有配置内容若与此切片不一致，会明确报错，要求使用新目录；不静默覆盖。psmux 命令环境使用自己的 `PSMUX_DATA_DIR` / `PSMUX_CONFIG_FILE`、`PSMUX_NO_WARM=1` 和 `warm off`。自动化已覆盖测试私有会话及另一 runtime／namespace 组合的部分隔离行为；没有据此验证任意现有用户配置或所有预热进程均已消失，完整 Windows 进程树仍待测量。
 
-发现元数据放在后端 user option 中，包含 schema、Session、Run、标题、可执行文件显示名和初始 pane ID，**不含 argv/env，不是持久会话数据库**。后台消失后不会从这里恢复产品历史或模型上下文。TOML、SQLite 与输出轮转仍按原 ADR 后续实施。
+发现元数据放在后端 user option 中，包含 schema、Session、Run、标题、可执行文件显示名和初始 pane ID，**不含 argv/env，不是持久会话数据库**。后台消失后不会从这里恢复产品历史或模型上下文。TOML 的首个只读启动模板现见 [启动配置](LAUNCH_CONFIG.md)；SQLite 与输出轮转仍待实施。
 
 ## 4. 当前参数合同与明确限制
 
@@ -141,3 +141,7 @@ Linux/macOS 的 tmux 路径仅用于开发对照，要求 3.8，不表示已经�
 下一步仍是 M0：记录 Windows 构建、架构、Windows Terminal、字体／IME、shell、psmux 发行来源与哈希，运行同一版本产品和 fixture。按既有测试库验证路径／argv、中文输入、粘贴、颜色、光标、resize、Ctrl+C、进入／分离／返回、关闭 UI 后重连及真实 agent 命令。已完成受控 0/1/5/10 会话的短资源实验和直接程序对照，见[资源执行报告](testing/results/2026-11-21-m0-windows-resources.md)及[复现入口](testing/WINDOWS_RESOURCES.md)。还需补齐完整测量时长、采样覆盖与长稳，再决定资源预算；受控 TUI 重开证据不替代真实 agent 与桌面交互。
 
 这些结果完成前，FL-016 和 M0 保持未验收；不把这里的开发构建或交叉编译作为已兼容的 Windows 发布包。
+
+## M1 首个后续切片
+
+`asd --config PATH start --template NAME` 可从显式 TOML 启动；格式及覆盖规则见[启动模板](LAUNCH_CONFIG.md)。这不改变上述 M0 验证边界。UI 调整入口统一为 [design_tokens.go](../internal/ui/design_tokens.go)，角色样式在 styles.go 组合，见 [ADR-0008](adr/0008-ui-design-tokens.md)。

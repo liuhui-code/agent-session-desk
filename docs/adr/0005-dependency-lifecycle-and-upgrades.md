@@ -24,7 +24,7 @@
 | tmux | **3.8** 作为本轮 Unix 对照基线 | 后续按平台验证的外部后台 |
 | SQLite / TOML | 稳定技术方向已选 | Go 驱动/解析库及精确版本在实现前固定 |
 
-版本表保留 **2026-11-21 的选型快照和验证目标**。首个实现提交已建立 [go.mod](../../go.mod) / [go.sum](../../go.sum)：Go 1.27.4、Bubble Tea 2.1.2、Lip Gloss 2.1.1、x/ansi 0.11.9 是当前构建基线；Bubbles 未实际使用，因此未引入。SQLite/TOML 库仍待选择。外部可执行文件另以[Windows 依赖锁定记录](../../tools/ci/windows-dependencies.json)固定官方 psmux 归档与 exe 哈希，发布时再次核查。实际范围见[源码迁入报告](../testing/results/2026-11-21-m0-source-migration.md)与[Windows 执行报告](../testing/results/2026-11-21-m0-native-windows.md)。
+版本表保留 **2026-11-21 的选型快照和验证目标**。首个实现提交已建立 [go.mod](../../go.mod) / [go.sum](../../go.sum)：Go 1.27.4、Bubble Tea 2.1.2、Lip Gloss 2.1.1、x/ansi 0.11.9 是当前构建基线；Bubbles 未实际使用，因此未引入。SQLite 驱动仍待选择；2026-11-22 的 [ADR-0007](0007-explicit-launch-configuration.md) 固定 TOML 解析器 BurntSushi/toml v1.6.0 和首个配置合同。外部可执行文件另以[Windows 依赖锁定记录](../../tools/ci/windows-dependencies.json)固定官方 psmux 归档与 exe 哈希，发布时再次核查。实际范围见[源码迁入报告](../testing/results/2026-11-21-m0-source-migration.md)与[Windows 执行报告](../testing/results/2026-11-21-m0-native-windows.md)。
 
 ### v1 → v2 迁移要求
 

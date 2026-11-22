@@ -22,7 +22,7 @@
 | Windows 底层终端能力 | **ConPTY，经 psmux 使用** | 首版不重复开发自己的 ConPTY 宿主 |
 | macOS/Linux 后台 | **tmux 3.8** 对照基线 | 后续适配与验收；不是 Windows 安装前提 |
 | 本地状态与消息 | **SQLite 3，未实现** | Session、Run、队列、回执与迁移；Go 驱动和具体嵌入版本待选 |
-| 配置 | **TOML，未实现** | 启动配置、主题和偏好；解析库、支持的语法版本与 schema 待固定 |
+| 配置 | **TOML，首个只读启动切片已实现** | BurntSushi/toml v1.6.0、TOML 1.1.0、schema_version=1；[ADR-0007](adr/0007-explicit-launch-configuration.md)。主题／偏好文件和保存待做 |
 | 输出保存 | **有界文件记录 + 内存尾部缓存** | 当前仅有限屏幕捕获及选中预览缓存；文件轮转、分页和连续日志未实现 |
 | Agent 接入 | **CLI-first** | executable、args、cwd、env；专用协议是可选增强 |
 | 人工介入与提醒 | **共享核心事件与可替换平台通知出口** | UI 标记、待处理入口与可选 Windows 通知；Go API/注册/激活、事件接口与预算待 M2–M4 验证，不预先引入 .NET 运行时依赖 |
@@ -91,7 +91,7 @@ Windows 自动化通过[依赖锁定记录](../tools/ci/windows-dependencies.jso
 以下不阻止接受总体方向，但必须在相应实现前关闭：
 
 - SQLite Go 驱动、嵌入版本、事务/锁策略与数据迁移。
-- TOML 解析库、兼容语法版本与配置 schema。
+- TOML 启动配置已按 ADR-0007 固定解析器、语法及首版只读 schema；保存、迁移与主题文件仍待实现。
 - M3 Host 的本机 IPC、启动/退出方式、单实例与恢复机制。
 - Windows 最低构建、CPU 架构、Windows Terminal、shell 与 agent 支持矩阵。
 - 最终快捷键、默认日志保留与缓存限额、可量化内存/响应预算。
@@ -105,3 +105,5 @@ M0 先跑通“列表/预览 → 自定义命令 → 全屏 attach → 返回”
 建立 0、1、5、10 会话的空闲与输出负载基线，分开报告产品、终端后台、shell/控制台和 agent，并与直接运行同一 agent 比较。通过后制定数值预算；当前没有内存数值承诺。
 
 实现时锁定 Go 模块和外部程序版本，发布前复查维护与兼容情况。主要方向改变通过新 ADR，补丁升级按受影响功能回归并更新台账。完整版本维护规则见 [ADR-0005](adr/0005-dependency-lifecycle-and-upgrades.md)。
+
+2026-11-22 补充：UI 样式统一由类型化 design tokens 管理，当前默认值与组件角色入口见 [ADR-0008](adr/0008-ui-design-tokens.md)。

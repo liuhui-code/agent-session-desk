@@ -109,3 +109,5 @@
 项目原创部分的整体许可证待定，记录于[决策记录](docs/DECISIONS.md)。已迁入的 Agent Deck 与 Agent Manager 部分分别保留 MIT 与 Apache-2.0 原文、版权及 NOTICE；详见[第三方说明](THIRD_PARTY_NOTICES.md)。
 
 文档基线更新：2026-11-21。决策接受与软件实现分别记录，实际完成状态以 Feature Ledger 的证据为准。
+
+2026-11-22 后续切片：已实现[只读 TOML 启动模板](docs/LAUNCH_CONFIG.md)与[集中 UI design tokens](docs/adr/0008-ui-design-tokens.md)。局部证据见[执行报告](docs/testing/results/2026-11-22-m1-config-tokens.md)；M0/M1 整体验收仍未完成。

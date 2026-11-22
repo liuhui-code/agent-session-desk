@@ -11,7 +11,7 @@ ADR 保存重要选择的背景、决定、替代方案、代价和重新评估�
 - **已替代（Superseded）**：有后续 ADR 改变该决定，保留历史并链接替代记录。
 - **已撤回（Withdrawn）**：不再推进，记录原因。
 
-**决策状态和实现状态分别记录。** Accepted 不表示代码已实现、依赖已安装、Windows 已验收或性能已达标。ADR-0001 至 ADR-0005 依据用户核验维护状态后记录选型的授权接受；ADR-0006 依据用户确认人工介入提醒方案并要求补充台账、ADR 与测试的授权接受。当前已有首批 M0 源码迁入、构建切片和部分 Windows 原生执行记录；完整功能、桌面交互及资源验收仍未完成。准确范围分别见[源码迁入报告](../testing/results/2026-11-21-m0-source-migration.md)和[Windows 执行报告](../testing/results/2026-11-21-m0-native-windows.md)，失败轮次同样保留。
+**决策状态和实现状态分别记录。** Accepted 不表示代码已实现、依赖已安装、Windows 已验收或性能已达标。ADR-0001 至 ADR-0005 依据用户核验维护状态后记录选型的授权接受；ADR-0006 依据用户确认人工介入提醒方案并要求补充台账、ADR 与测试的授权接受；ADR-0007/0008 依据用户批准配置切片和明确 UI tokens 规则。当前已有首批 M0 源码迁入、构建切片和部分 Windows 原生执行记录；完整功能、桌面交互及资源验收仍未完成。准确范围分别见[源码迁入报告](../testing/results/2026-11-21-m0-source-migration.md)和[Windows 执行报告](../testing/results/2026-11-21-m0-native-windows.md)，失败轮次同样保留。
 
 ## 当前索引
 
@@ -23,6 +23,8 @@ ADR 保存重要选择的背景、决定、替代方案、代价和重新评估�
 | [0004](0004-cli-agents-and-session-messaging.md) | CLI-first、稳定身份与可核对的消息语义 | 已接受 | M0 模型与部分原生 fixture 接入证据已有；真实 agent 完整验收和 M3 消息待做 |
 | [0005](0005-dependency-lifecycle-and-upgrades.md) | 活跃稳定依赖与 Charm v1 → v2 迁移 | 已接受 | 模块／外部发行物已锁定，Windows 局部检查已有记录；完整迁移与桌面交互待做 |
 | [0006](0006-human-attention-and-notifications.md) | 人工介入事项、可信状态与分层提醒 | 已接受 | FR-14 / FL-020 与测试设计已记录；事件、通知、后台与 Windows 待实现验证 |
+| [0007](0007-explicit-launch-configuration.md) | 显式 TOML 只读启动模板与严格 schema | 已接受 | CLI、局部 Go 测试与 Windows fixture 原生证据；保存／迁移及真实 agent 待做 |
+| [0008](0008-ui-design-tokens.md) | 产品 UI 样式统一由设计 tokens 管理 | 已接受 | 当前样式集中、渲染和尺寸回归；新版本 Windows 视觉接受待做 |
 
 ## 维护规则
 

@@ -84,6 +84,20 @@
       ],
       "mode": "selectively_adapted",
       "modifications": "See docs/REUSE_MANIFEST.md and file header."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/styles.go",
+      "source_sha256": "3c64963b3b0788bb7278d64e221d5ced30ff9c7d42d65cd5c6030b229c999bee",
+      "destination_file": "internal/ui/design_tokens.go",
+      "license": "MIT",
+      "parts": [
+        "darkColors palette moved from local styles.go"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "Type-safe design tokens; original palette values and attribution retained. See ADR-0008."
     }
   ],
   "preserved_notices": [

@@ -1,0 +1,71 @@
+{
+  "utc": "2026-11-22T05:53:35.2383746Z",
+  "os": "Microsoft Windows NT 10.0.19045.0",
+  "product_sha256": "76008721bcae74279609d7a7078d23cb548085106d26288491f42900382a8b9c",
+  "fixture_sha256": "69a8c17f829eb18eb84bda9c45094fc705617804ec9013c570182eb22b177736",
+  "psmux_sha256": "bbe825a30f7cddc91b043084049143a381aba5f7e9e36e4d0bb587e296d262ca",
+  "observations": [
+    {
+      "scenario": "template",
+      "session_id": "f30ee362756737b3fadbe45a8d51e6df",
+      "run_id": "4cacddda869e0972058bbe43acef770e",
+      "title": "模板",
+      "fixture": {
+        "event": "started",
+        "pid": 4976,
+        "args": [
+          "",
+          "a b",
+          "中文",
+          "a\"b",
+          "end\\"
+        ],
+        "cwd": "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-config-run2\\project 中文",
+        "env": {
+          "ASD_CONFIG_VALUE": "template value"
+        }
+      },
+      "result": "passed"
+    },
+    {
+      "scenario": "override",
+      "session_id": "7f70c0b6f1d5f9bcdedf43419a933647",
+      "run_id": "4b200cbcd16076d403bdb9a4eeb5fd32",
+      "title": "覆盖",
+      "fixture": {
+        "event": "started",
+        "pid": 2056,
+        "args": [
+          "",
+          "a b",
+          "中文",
+          "a\"b",
+          "end\\"
+        ],
+        "cwd": "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-config-run2",
+        "env": {
+          "ASD_CONFIG_VALUE": "CLI value"
+        }
+      },
+      "result": "passed"
+    },
+    {
+      "scenario": "rejections",
+      "count": 3,
+      "result": "passed"
+    }
+  ],
+  "identities": [
+    {
+      "pid": 4976,
+      "start_filetime": 134398004136844486,
+      "path": "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\asd-fixture.exe"
+    },
+    {
+      "pid": 2056,
+      "start_filetime": 134398004139523303,
+      "path": "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\asd-fixture.exe"
+    }
+  ],
+  "failure": null
+}

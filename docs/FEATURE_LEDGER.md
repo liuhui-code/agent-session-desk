@@ -73,12 +73,12 @@
 
 ### FL-001：自定义 CLI 启动
 
-测试设计：[FL-001 用例与映射](testing/COVERAGE.md#fl-001)；当前仅设计，未执行。
+测试设计：[FL-001 用例与映射](testing/COVERAGE.md#fl-001)；目录保留 designed/not_run 基线，局部执行见下方实际证据。
 
 - **范围与边界：**名称、可执行入口、参数、cwd、env 和显式 shell 模式；内部保留明确参数边界。品牌列表、模型账号或 ACP 注册不是创建前置条件。可执行文件、脚本、命令别名的支持范围以实测结果声明。
 - **验收：**至少一个可控测试 CLI 和一个真实目标 agent 通过配置启动；含空格路径、中文路径、引号、工作目录与环境变量按约定生效；命令或目录无效时显示可定位错误。
 - **依据：**[FR-01](PRODUCT_PLAN.md)、[ADR-0004](adr/0004-cli-agents-and-session-messaging.md)。
-- **实现与验收证据：**[启动模型与参数解析](../internal/session/launch.go)、[CLI 入口](../internal/cli/cli.go)和可控 fixture 已实现；直接 executable/argv/cwd/env 保持分开，已知后端改写形式明确拒绝。指定 Windows runner 已独立记录 fixture 实际收到的空格／中文路径、选定 argv、cwd 与环境覆盖。新建表单、持久配置、更多参数／脚本组合和真实 agent 验收仍待做。见[源码局部证据](testing/results/2026-11-21-m0-source-migration.md)与[Windows 样本及结果](testing/results/2026-11-21-m0-native-windows.md)。
+- **实现与验收证据：**[启动模型与参数解析](../internal/session/launch.go)、[CLI 入口](../internal/cli/cli.go)和可控 fixture 已实现；直接 executable/argv/cwd/env 保持分开，已知后端改写形式明确拒绝。指定 Windows runner 已独立记录 fixture 实际收到的空格／中文路径、选定 argv、cwd 与环境覆盖。显式只读 TOML 命名模板与 CLI 覆盖已实现，见 [ADR-0007](adr/0007-explicit-launch-configuration.md) 和 [2026-11-22 实际证据](testing/results/2026-11-22-m1-config-tokens.md)。新建表单、配置保存／迁移、更多参数／脚本组合和真实 agent 验收仍待做。见[源码局部证据](testing/results/2026-11-21-m0-source-migration.md)与[Windows 样本及结果](testing/results/2026-11-21-m0-native-windows.md)。
 
 ### FL-002：原生终端 attach
 
@@ -91,12 +91,12 @@
 
 ### FL-003：简约 TUI 与上游复用
 
-测试设计：[FL-003 用例与映射](testing/COVERAGE.md#fl-003)；当前仅设计，未执行。
+测试设计：[FL-003 用例与映射](testing/COVERAGE.md#fl-003)；目录保留 designed/not_run 基线，局部执行见下方实际证据。
 
 - **范围与边界：**保留 Agent Deck 的主题、列表、布局、弹窗和快捷键处理等适合迁入的代码，连接精简的会话模型。默认只保留列表、当前预览和必要提示；不同时长期展开重复会话导航与多个状态面板。新建、通信和设置按需进入。
 - **验收：**列明来源文件、固定提交和实际保留/适配范围；完成 v1 来源代码向稳定 v2 依赖的必要适配；真实 Windows 运行中验证宽字符、布局缩放、焦点和快捷键，界面由用户评审。不能把复制目录、静态图或编译通过视为完成。
 - **依据：**[FR-03 / FR-11](PRODUCT_PLAN.md)、[ADR-0001](adr/0001-architecture-and-reuse.md)、[ADR-0005](adr/0005-dependency-lifecycle-and-upgrades.md)。
-- **实现与验收证据：**[四个 Agent Deck 派生文件与来源](REUSE_MANIFEST.md)已迁入 Charm v2；包含响应式列表/预览、短提示、keycap 宽度修复及局部回归。新建暂用 CLI，完整表单、主题切换和 Windows 视觉评审待做。 [实际验证范围与未通过门槛](testing/results/2026-11-21-m0-source-migration.md)。
+- **实现与验收证据：**[四个 Agent Deck 派生文件与来源](REUSE_MANIFEST.md)已迁入 Charm v2；包含响应式列表/预览、短提示、keycap 宽度修复及局部回归。当前颜色、间距、尺寸、断点、样式标记统一通过 [设计 tokens](../internal/ui/design_tokens.go) 管理，见 [ADR-0008](adr/0008-ui-design-tokens.md) 与[局部渲染回归](testing/results/2026-11-22-m1-config-tokens.md)。新建暂用 CLI，完整表单、运行时主题切换和本次改动后的 Windows 视觉评审待做。 [实际验证范围与未通过门槛](testing/results/2026-11-21-m0-source-migration.md)。
 
 ### FL-004：多会话组织
 
@@ -300,3 +300,5 @@ SSH 局部执行补充（2026-11-22）：Windows 10 build 19045 上使用实际�
 桌面局部执行补充（2026-11-22）：已恢复 SSH→InteractiveToken 桌面通道，在 Windows 10 build 19045 上实际执行官方便携 Windows Terminal / PowerShell 组合。FL-002/003/006/012/016 增加 [桌面报告与合成证据](testing/results/2026-11-22-windows-desktop-acceptance.md)：IME、布局、粘贴、会话隔离、Ctrl+C、重开身份及清理有局部结果；物理分离键事件路径及完整显示缩放/IME 组合仍待验证。保留 PowerShell Unicode 和驱动失败样本，各能力未转为已验收，339 项 catalog 基线不变。
 
 分离诊断补充（2026-11-22）：FL-002/012/016 的[分离键诊断](testing/results/2026-11-22-windows-detach-diagnosis.md)证明中文 IME 在后端前截留 d；明确取消候选/切英文前提，并更新 TUI/CLI 提示。固定 psmux、原 ASD、提示修正版在 Windows Terminal 中各有三轮物理虚拟键回归，Session/Run 不变。仅关闭该组合的 WIN-UI-05 未决项，其他 IME/显示缩放及完整 M0 仍待验收，各 FL 实现状态和 catalog 基线不变。
+
+配置与样式补充（2026-11-22）：FL-001 增加显式 TOML 模板／CLI 覆盖，FL-003 集中 UI design tokens；均保持实现中、未发布。[实际报告](testing/results/2026-11-22-m1-config-tokens.md)关联 ADR-0007/0008。

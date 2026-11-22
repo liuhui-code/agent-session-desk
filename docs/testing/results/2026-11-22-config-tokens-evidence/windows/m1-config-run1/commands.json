@@ -1,0 +1,23 @@
+[
+  {
+    "args": [
+      "--config",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-config-run1\\agents.toml",
+      "start",
+      "--template",
+      "dev"
+    ],
+    "code": 0,
+    "stdout": "{\r\n  \"session_id\": \"e5205cc818582e83427cd7acd13ae262\",\r\n  \"run_id\": \"24631fd875d9f7b3a05d6fadbd4c154d\",\r\n  \"backend_id\": \"asd_e5205cc818582e83427cd7acd13ae262_24631fd875d9f7b3a05d6fadbd4c154d\",\r\n  \"title\": \"模板\",\r\n  \"command\": \"C:\\\\Users\\\\liu xun yuan\\\\asd-acceptance-20261122\\\\asd-fixture.exe\",\r\n  \"terminal_state\": \"available\"\r\n}\r\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "stop",
+      "e5205cc818582e83427cd7acd13ae262"
+    ],
+    "code": 0,
+    "stdout": "{\r\n  \"session_id\": \"e5205cc818582e83427cd7acd13ae262\",\r\n  \"run_id\": \"24631fd875d9f7b3a05d6fadbd4c154d\",\r\n  \"result\": \"backend_session_stopped\"\r\n}\r\n",
+    "stderr": ""
+  }
+]

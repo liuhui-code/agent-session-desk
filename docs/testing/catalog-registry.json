@@ -27,7 +27,7 @@
     "TBD-BACKEND-TIMEOUT": {"title": "后端调用超时与取消", "question": "capture 等后端调用的超时、取消、迟到结果及重试上限如何定义？", "stage": "M2", "status": "open", "related": ["O-004", "O-009", "O-012"]},
     "TBD-BACKPRESSURE": {"title": "队列与资源满载处理", "question": "消息/事件/磁盘或内存达到上限时分别拒绝、等待还是降速？生产者如何得到结果，解除压力后怎样恢复？", "stage": "M3", "status": "open", "related": ["O-007", "O-008", "O-012"]},
     "TBD-CLI-CONTRACT": {"title": "管理 CLI 与来源合同", "question": "子命令、编码、结构化格式/版本、stdout/stderr、退出码和错误分类如何固定？可信 Session/Run 来源如何绑定？", "stage": "M3", "status": "open", "related": ["O-008", "O-009"]},
-    "TBD-CONFIG": {"title": "配置加载与保存合同", "question": "无文件/空文件、未知键、错误类型、未来 schema 如何处理？保存中断、重载时机、参数往返和旧配置保留规则是什么？", "stage": "M1", "status": "open", "related": ["O-008"]},
+    "TBD-CONFIG": {"title": "配置加载与保存合同", "question": "无文件/空文件、未知键、错误类型、未来 schema 如何处理？保存中断、重载时机、参数往返和旧配置保留规则是什么？ 2026-11-22 ADR-0007 已细化显式启动配置的只读加载部分；保存、迁移、旧文件恢复与主题配置仍未决。", "stage": "M1", "status": "open", "related": ["O-008"]},
     "TBD-DIAGNOSTICS": {"title": "诊断导出与脱敏范围", "question": "哪些启动字段、路径和日志默认进入诊断，哪些脱敏？用户选择和可分享模板的范围如何说明？", "stage": "M4", "status": "open", "related": ["O-007", "O-008"]},
     "TBD-INSTANCE-SCOPE": {"title": "实例与消费者作用域", "question": "多个 TUI/CLI 指向同一或不同数据目录时，Host 单实例、namespace、启动竞争及消费者归属如何协调？", "stage": "M3", "status": "open", "related": ["O-008"]},
     "TBD-IPC-TRUST": {"title": "本机控制入口信任范围", "question": "选定 IPC 后，哪些本机调用者可读、发、停？如何核对来源、作用域、过期 endpoint 与拒绝结果？", "stage": "M3", "status": "open", "related": ["O-008"]},
