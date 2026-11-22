@@ -86,6 +86,12 @@ func (m *Model) renderLaunchDialog() (string, *tea.Cursor) {
 		lines = cropped
 	}
 	lines = append(lines, footer...)
+	// Child styles terminate with an SGR reset. Paint the trailing cells too,
+	// so padding cannot inherit the outer terminal background through it.
+	for i, line := range lines {
+		padding := strings.Repeat(" ", max(0, contentWidth-lipgloss.Width(line)))
+		lines[i] = line + m.styles.formText.Render(padding)
+	}
 	content := fitFrame(strings.Join(lines, "\n"), contentWidth, min(maxRows, len(lines)))
 	box := m.styles.dialog.Width(width).Render(content)
 	boxWidth, boxHeight := lipgloss.Size(box)

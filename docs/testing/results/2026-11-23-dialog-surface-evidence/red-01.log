@@ -1,0 +1,5 @@
+--- FAIL: TestLaunchDialogSurfaceFillsTrailingLabelCells (0.00s)
+    launch_surface_test.go:33: dialog label trailing cell shows outside background: got default want 36,40,59
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	3.125s
+FAIL
