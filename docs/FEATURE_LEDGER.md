@@ -114,6 +114,8 @@
 
 - **实际画面对照跟进（2026-11-23）：**固定上游实际帧与 Windows 前后产品对照，修正框／页脚行带、66／86 列外宽和首次／普通留白；82 个原生 UI 顶层／235 个含子测试通过，A→B→A 保留输入与两条原 Session/Run。六个参考帧逐行一致，两个 49 列末格缺口保留；详见[实际画面对照](testing/results/2026-11-23-upstream-visual-comparison.md)。保持实现中／未发布，用户视觉接受、真实 agent、完整交互与资源门槛不提升。
 
+- **Tab 排序进展（2026-11-23）：**标题拖动与管理模式 `[`／`]` 调整当前 UI 的 Tab 顺序；活动 View、Session/Run 和排空中的输入目标保持身份，终端字符不截获。可见槽位固定，其他输入／缩放／释放结束手势；不自动滚到隐藏项或持久保存顺序。[行为与原生证据](testing/results/2026-11-23-tab-order.md)单独记录，仍实现中／未发布。
+
 ### FL-004：多会话组织
 
 测试设计：[FL-004 用例与映射](testing/COVERAGE.md#fl-004)；当前仅设计，未执行。
@@ -122,6 +124,8 @@
 - **验收：**agent 与普通终端的 A→B→A Tab 切换保留未提交输入、终端状态和原 Run，不重启目标或发送额外输入；允许按需启动 attach 客户端进程。搜索与分组后能进入正确会话；停止与归档的对象、运行处置和记录保留符合已记录规则。
 - **依据：**[FR-03](PRODUCT_PLAN.md)、[ADR-0001](adr/0001-architecture-and-reuse.md)、[ADR-0004](adr/0004-cli-agents-and-session-messaging.md)、[ADR-0014](adr/0014-upstream-ui-tabs-and-general-terminals.md)。
 - **实现与验收证据：**首批列表选择、保持当前稳定身份、显式按 ID 停止入口已实现。Windows 可控场景中，两个真实会话及另一私有 runtime／namespace 组合并存，停止指定会话后其余会话仍可观测；这不代替任意用户配置或 UI 切换验收。命名编辑、分组、搜索和归档仍待实现。见[源码局部证据](testing/results/2026-11-21-m0-source-migration.md)与[Windows 隔离场景](testing/results/2026-11-21-m0-native-windows.md)。
+
+- **Tab 排序进展（2026-11-23）：**标题拖动与管理模式 `[`／`]` 调整当前 UI 的 Tab 顺序；活动 View、Session/Run 和排空中的输入目标保持身份，终端字符不截获。可见槽位固定，其他输入／缩放／释放结束手势；不自动滚到隐藏项或持久保存顺序。[行为与原生证据](testing/results/2026-11-23-tab-order.md)单独记录，仍实现中／未发布。
 
 ### FL-005：稳定身份
 
@@ -222,6 +226,8 @@
 
 - **实际画面对照跟进（2026-11-23）：**固定上游实际帧与 Windows 前后产品对照，修正框／页脚行带、66／86 列外宽和首次／普通留白；82 个原生 UI 顶层／235 个含子测试通过，A→B→A 保留输入与两条原 Session/Run。六个参考帧逐行一致，两个 49 列末格缺口保留；详见[实际画面对照](testing/results/2026-11-23-upstream-visual-comparison.md)。保持实现中／未发布，用户视觉接受、真实 agent、完整交互与资源门槛不提升。
 
+- **Tab 排序进展（2026-11-23）：**标题拖动与管理模式 `[`／`]` 调整当前 UI 的 Tab 顺序；活动 View、Session/Run 和排空中的输入目标保持身份，终端字符不截获。可见槽位固定，其他输入／缩放／释放结束手势；不自动滚到隐藏项或持久保存顺序。[行为与原生证据](testing/results/2026-11-23-tab-order.md)单独记录，仍实现中／未发布。
+
 ### FL-013：异常、重试和运行变化
 
 测试设计：[FL-013 用例与映射](testing/COVERAGE.md#fl-013)；目录保留 designed/not_run 基线，局部执行见实际报告。
@@ -294,9 +300,11 @@
 - **范围与边界：**首版计划能力，活动 Tab 直接显示并操作对应终端，保留 Tab 导航；agent、普通交互 shell 与 CLI 共用终端原生输入。侧栏布局按上游体验与 Tab 主导航适配，不强制额外常驻重复列表。全屏 attach 可辅助使用，不能代替本能力。
 - **验收：**Windows 实机验证 A→B→A、输入／光标／终端状态保留、IME、鼠标、alternate screen、resize 与 Ctrl+C；切换不向后台会话写入。关闭／重开 Tab 接回存活 Run，显式停止另行操作。屏幕模型、输入路径与资源成本独立留证，具体终端集成方案实施前验证。
 - **依据：**[ADR-0014](adr/0014-upstream-ui-tabs-and-general-terminals.md)；替代 ADR-0002 的后置约束。
-- **实现与验收证据：**[原生终端传输切片](testing/results/2026-11-22-native-terminal-transport.md)已实现并有两项限定 Windows 后端结果，支持当前屏幕／光标、字面输入、粘贴与回车分离、resize、断开重连。[ADR-0016 的首个 Tab UI](testing/results/2026-11-23-tab-workspaces.md)已接入活动终端、真实光标、串行输入、切换／关闭／重开与通用创建表单，并有普通 shell 桌面局部证据。后续已有 [Microsoft 拼音组合](testing/results/2026-11-23-ime-composition.md)和[基础历史滚轮](testing/results/2026-11-23-workspace-scroll.md)的限定实测；其他 IME／焦点组合、子程序鼠标、完整选择复制／搜索、上游视觉对照、Tab 排序与资源预算仍开放，不构成整条验收。
+- **实现与验收证据：**[原生终端传输切片](testing/results/2026-11-22-native-terminal-transport.md)已实现并有两项限定 Windows 后端结果，支持当前屏幕／光标、字面输入、粘贴与回车分离、resize、断开重连。[ADR-0016 的首个 Tab UI](testing/results/2026-11-23-tab-workspaces.md)已接入活动终端、真实光标、串行输入、切换／关闭／重开与通用创建表单，并有普通 shell 桌面局部证据。后续已有 [Microsoft 拼音组合](testing/results/2026-11-23-ime-composition.md)和[基础历史滚轮](testing/results/2026-11-23-workspace-scroll.md)的限定实测；其他 IME／焦点组合、子程序鼠标、完整选择复制／搜索、上游视觉接受、Tab 顺序持久化与资源预算仍开放，不构成整条验收。
 
 - **实际画面对照跟进（2026-11-23）：**固定上游实际帧与 Windows 前后产品对照，修正框／页脚行带、66／86 列外宽和首次／普通留白；82 个原生 UI 顶层／235 个含子测试通过，A→B→A 保留输入与两条原 Session/Run。六个参考帧逐行一致，两个 49 列末格缺口保留；详见[实际画面对照](testing/results/2026-11-23-upstream-visual-comparison.md)。保持实现中／未发布，用户视觉接受、真实 agent、完整交互与资源门槛不提升。
+
+- **Tab 排序进展（2026-11-23）：**标题拖动与管理模式 `[`／`]` 调整当前 UI 的 Tab 顺序；活动 View、Session/Run 和排空中的输入目标保持身份，终端字符不截获。可见槽位固定，其他输入／缩放／释放结束手势；不自动滚到隐藏项或持久保存顺序。[行为与原生证据](testing/results/2026-11-23-tab-order.md)单独记录，仍实现中／未发布。
 
 ### FL-019：依赖升级与复用来源
 
@@ -411,3 +419,5 @@ M1 恢复补充（2026-11-22）：按用户继续完成 M1 的授权实现 metad
 2026-11-23 宿主分界与资源跟进：独立原始读取器定位本机系统 ConPTY／psmux 在 VT 模式丢 F6；仅为 measurement driver 显式选择固定 SDK 后，同一正式产品完成 7 场景、22 阶段、280 快照和 7 次正常清理。FL-003/006/015/016/018 增加[局部证据](testing/results/2026-11-23-tab-resource-host.md)，仍实现中、未发布。managed-5 idle 完整观察覆盖 0/12、managed-10 all-output 5/12 等缺口保留；SDK 不成为产品依赖，Windows 10／目标 agent、视觉、预算与长稳门槛不提升。117 项指纹前后一致，旧失败和 339 项 designed/not_run 状态保持。
 
 2026-11-23 实际上游对照：FL-003/012/018/019 增加真实来源帧、Windows 前后构建、四组 RED→GREEN 与 82 项原生 UI 顶层结果；框／页脚行带和 v1→v2 外宽差异已修复。编码失败、缩放／连接拒绝及 49 列末格缺口全部保留，完整视觉接受仍开放。见[实际画面对照](testing/results/2026-11-23-upstream-visual-comparison.md)。
+
+2026-11-23 Tab 排序：FL-003/004/012/018 增加本产品 Tab 拖动／键盘顺序调整及原目标输入隔离；不改变上游来源、终端托管或发布状态，见[报告](testing/results/2026-11-23-tab-order.md)。

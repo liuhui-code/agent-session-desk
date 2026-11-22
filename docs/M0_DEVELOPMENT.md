@@ -151,3 +151,5 @@ Linux/macOS 的 tmux 路径仅用于开发对照，要求 3.8，不表示已经�
 新建／发现的后台会话写入最小 SQLite 元数据，`asd history --limit 20` 可独立读取；实时 list/preview/attach/stop 继续按实际后台寻址。持久目录、scope 和失败处理见[元数据使用说明](METADATA.md)，本节不修改先前 M0 执行记录或宣称整体阶段完成。
 
 M1 后续 [pane 退出观测](adr/0010-pane-exit-observations.md) 仅保存原 pane 的退出来源和产品观测时间，exit_code 保持 null；不再只依赖关闭前的 UI 状态，也没有把稳定版 pane_dead_status=0 当作真实退出码。
+
+Tab 顺序：左键拖动标题到可见 Tab 位置；管理模式 `[`／`]` 左右移动活动 Tab，边缘停住。终端焦点仍写入原字符，不排序或提交。顺序仅本次 UI 有效；不自动滚到隐藏 Tab，可先 Ctrl+PgUp/PgDn 切到目标再 F6 管理后移动。关闭视图与停止 Run 分开，实测见[报告](testing/results/2026-11-23-tab-order.md)。

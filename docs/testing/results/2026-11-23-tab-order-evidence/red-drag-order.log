@@ -1,0 +1,5 @@
+--- FAIL: TestWorkspaceDragReordersVisibleTabsWithoutChangingActiveRun (0.01s)
+    workspace_order_test.go:59: drag did not move the source Tab past the other Tab
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.840s
+FAIL

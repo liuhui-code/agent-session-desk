@@ -1,0 +1,5 @@
+--- FAIL: TestWorkspaceTabOrderKeepsPendingSwitchBoundToOriginalRun (0.01s)
+    workspace_order_test.go:56: sort changed the pending input/switch target
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.947s
+FAIL

@@ -21,6 +21,7 @@ type workspaceListClick struct {
 
 func (m *Model) workspaceClick(msg tea.MouseClickMsg) tea.Cmd {
 	w := m.workspace
+	w.tabDrag = workspaceTabDrag{}
 	previous := w.listClick
 	w.listClick = workspaceListClick{}
 	if msg.Button != tea.MouseLeft || w.transition != workspaceIdle {
@@ -37,15 +38,7 @@ func (m *Model) workspaceClick(msg tea.MouseClickMsg) tea.Cmd {
 				if msg.X == cell.closeX {
 					return m.closeWorkspaceView(cell.index)
 				}
-				if w.busy {
-					m.status = "当前 Tab 正在连接；连接完成后可切换"
-					return nil
-				}
-				w.focused = true
-				if cell.index == w.active {
-					return m.workspaceSize()
-				}
-				return m.activateWorkspace(cell.index)
+				return m.pressWorkspaceTab(cell.index)
 			}
 		}
 	}

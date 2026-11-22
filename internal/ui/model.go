@@ -142,6 +142,7 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	case tea.WindowSizeMsg:
 		m.width, m.height = max(0, msg.Width), max(0, msg.Height)
 		if m.workspace != nil {
+			m.workspace.tabDrag = workspaceTabDrag{}
 			m.workspace.split.dragging = false
 			m.workspace.listClick = workspaceListClick{}
 			return m, m.workspaceSize()

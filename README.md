@@ -2,6 +2,8 @@
 
 **面向 Windows 的本地 CLI Agent 多会话工作台。**
 
+当前 psmux Tab 工作区支持拖动标题排序；管理模式 `[`／`]` 左右移动活动 Tab，终端中的同名字符仍交给原程序。顺序只在本次 UI 有效，关闭／重开视图保持原 Run，具体范围见[排序验证](docs/testing/results/2026-11-23-tab-order.md)。
+
 通过一条 CLI 命令启动本地 agent，在清晰、美观的 TUI 中管理多个会话，并让会话能够读取彼此的输出、传递任务和返回结果。
 
 > 当前阶段：**M0 首批源码迁入已落地，五项 Windows 原生后端场景已在指定 Windows Server 2025 runner 通过；完整验收仍待完成。** 已有 Go / Charm v2 开发切片，包含简约列表、屏幕预览、CLI 启动与全屏 attach 代码；不是已发布的软件版本。运行方法见 [M0 开发指南](docs/M0_DEVELOPMENT.md)，证据分别记录在[源码迁入报告](docs/testing/results/2026-11-21-m0-source-migration.md)和[Windows 执行报告](docs/testing/results/2026-11-21-m0-native-windows.md)。另已完成 0/1/5/10 会话的[原生 Windows 短资源实验](docs/testing/results/2026-11-21-m0-windows-resources.md)，含真实 TUI 启停、重开与直接程序对照。桌面交互、资源预算、长稳和发布仍需独立验收。项目名称与原创部分的许可证仍待定。

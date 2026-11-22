@@ -10,6 +10,7 @@ import tea "charm.land/bubbletea/v2"
 
 func (m *Model) workspaceWheel(msg tea.MouseWheelMsg) tea.Cmd {
 	w := m.workspace
+	w.tabDrag = workspaceTabDrag{}
 	if w.transition != workspaceIdle {
 		return nil
 	}

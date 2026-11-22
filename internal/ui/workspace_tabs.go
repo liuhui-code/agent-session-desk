@@ -5,6 +5,35 @@ import (
 	"github.com/liuhui-code/agent-session-desk/internal/terminal"
 )
 
+// Tab order is view state. Keep the live connection and both target identities
+// while moving a view, including during a write or an identity-bound switch.
+func (m *Model) moveWorkspaceTab(viewID uint64, destination int) {
+	w := m.workspace
+	if len(w.tabs) < 2 || destination < 0 || destination >= len(w.tabs) {
+		return
+	}
+	activeID := w.tabs[w.active].viewID
+	for source, tab := range w.tabs {
+		if tab.viewID != viewID || source == destination {
+			continue
+		}
+		if source < destination {
+			copy(w.tabs[source:destination], w.tabs[source+1:destination+1])
+		} else {
+			copy(w.tabs[destination+1:source+1], w.tabs[destination:source])
+		}
+		w.tabs[destination] = tab
+		for index := range w.tabs {
+			if w.tabs[index].viewID == activeID {
+				w.active = index
+				break
+			}
+		}
+		m.status = "Tab 顺序已调整；运行实例与输入保持原目标"
+		return
+	}
+}
+
 func (m *Model) closeWorkspaceTabNow() tea.Cmd {
 	w := m.workspace
 	if len(w.tabs) == 0 {

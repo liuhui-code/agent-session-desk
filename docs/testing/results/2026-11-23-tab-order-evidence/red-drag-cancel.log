@@ -1,0 +1,8 @@
+--- FAIL: TestWorkspaceTabDragStopsAfterWheelOrOtherInput (0.05s)
+    --- FAIL: TestWorkspaceTabDragStopsAfterWheelOrOtherInput/wheel (0.01s)
+        workspace_order_test.go:100: stale gesture reordered a Tab after another input
+    --- FAIL: TestWorkspaceTabDragStopsAfterWheelOrOtherInput/paste (0.01s)
+        workspace_order_test.go:100: stale gesture reordered a Tab after another input
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.876s
+FAIL

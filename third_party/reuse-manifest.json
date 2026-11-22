@@ -37,7 +37,7 @@
         "renderSingleColumnLayout"
       ],
       "mode": "selectively_adapted",
-      "modifications": "See docs/REUSE_MANIFEST.md and file header."
+      "modifications": "See docs/REUSE_MANIFEST.md and file header. Product Tab reorder routing/help added; ordering itself is local product logic, not an upstream Tab feature."
     },
     {
       "project": "agent-deck",
@@ -184,7 +184,7 @@
         "500ms double-click threshold relocated to design_tokens.go"
       ],
       "mode": "selectively_adapted",
-      "modifications": "Stable Bubble Tea v2 messages; one shared flat-list window for render and hit testing; stable Session/Run identity instead of agent/group/provider items; product Tab open with no child Enter. Keyboard input and resize reset the click sequence."
+      "modifications": "Stable Bubble Tea v2 messages; one shared flat-list window for render and hit testing; stable Session/Run identity instead of agent/group/provider items; product Tab open with no child Enter. Keyboard input and resize reset the click sequence. Product Tab reorder routing/help added; ordering itself is local product logic, not an upstream Tab feature."
     },
     {
       "project": "agent-deck",
@@ -254,7 +254,7 @@
         "full/compact/minimal/auto cards, 28-column fallback, bounded wrapped metadata, active/selected markers, surface highlight and shared row-height measurement"
       ],
       "mode": "selectively_adapted",
-      "modifications": "Flat local Session/Run cards; observed terminal availability and executable basename only. Auto reads only current item count and geometry. No inferred agent status or branding."
+      "modifications": "Flat local Session/Run cards; observed terminal availability and executable basename only. Auto reads only current item count and geometry. No inferred agent status or branding. Product Tab reorder routing/help added; ordering itself is local product logic, not an upstream Tab feature."
     },
     {
       "project": "agent-deck",

@@ -1,0 +1,5 @@
+--- FAIL: TestWorkspaceManagementReordersActiveTabWithoutReconnecting (0.01s)
+    workspace_order_test.go:25: management ] did not move the active Tab to the right
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.789s
+FAIL

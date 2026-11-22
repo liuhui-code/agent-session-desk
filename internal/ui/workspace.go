@@ -32,6 +32,7 @@ const (
 )
 
 type workspaceState struct {
+	tabDrag                    workspaceTabDrag
 	listClick                  workspaceListClick
 	split                      workspaceSplit
 	readBusy                   bool
@@ -69,6 +70,7 @@ type workspaceResized struct {
 }
 
 func (w *workspaceState) disconnect() {
+	w.tabDrag = workspaceTabDrag{}
 	w.split.dragging = false
 	w.generation++
 	if w.cancel != nil {
@@ -179,11 +181,17 @@ func (m *Model) workspaceEvent(msg tea.Msg) (tea.Cmd, bool) {
 		return nil, true
 	case tea.MouseMotionMsg:
 		if !m.attaching && !m.history.open && !m.help && m.launch == nil {
+			if m.workspaceTabMotion(msg) {
+				return nil, true
+			}
 			return m.workspaceSplitMotion(msg), true
 		}
 		return nil, true
 	case tea.MouseReleaseMsg:
 		if !m.attaching && !m.history.open && !m.help && m.launch == nil {
+			if m.workspaceTabRelease(msg) {
+				return nil, true
+			}
 			return m.workspaceSplitRelease(msg), true
 		}
 		return nil, true
@@ -193,6 +201,7 @@ func (m *Model) workspaceEvent(msg tea.Msg) (tea.Cmd, bool) {
 		}
 		return nil, true
 	case tea.PasteMsg:
+		w.tabDrag = workspaceTabDrag{}
 		if !m.attaching && !m.history.open && !m.help && w.focused && len(w.tabs) > 0 && w.transition != workspaceQuit && w.transition != workspaceClose {
 			return m.workspaceWrite(workspaceInput{kind: "paste", text: msg.Content}), true
 		}

@@ -7,6 +7,7 @@ import (
 
 func (m *Model) workspaceKey(msg tea.KeyPressMsg) tea.Cmd {
 	w := m.workspace
+	w.tabDrag = workspaceTabDrag{}
 	w.listClick = workspaceListClick{}
 	if w.transition != workspaceIdle && w.transition != workspaceSwitch {
 		return nil
@@ -40,6 +41,15 @@ func (m *Model) workspaceKey(msg tea.KeyPressMsg) tea.Cmd {
 		return cmd
 	}
 	switch msg.String() {
+	case "[", "]":
+		if len(w.tabs) > 0 {
+			destination := w.active - 1
+			if msg.String() == "]" {
+				destination = w.active + 1
+			}
+			m.moveWorkspaceTab(w.tabs[w.active].viewID, destination)
+		}
+		return nil
 	case "q", "ctrl+c":
 		if w.pending > 0 || (w.busy && len(w.buffered) > 0) {
 			w.transition = workspaceQuit

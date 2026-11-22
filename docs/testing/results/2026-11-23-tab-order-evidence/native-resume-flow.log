@@ -1,0 +1,71 @@
+{
+    "shell_processes":  [
+                            {
+                                "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                "pid":  19988,
+                                "filetime":  134398576036265490
+                            },
+                            {
+                                "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                "pid":  8344,
+                                "filetime":  134398576038640448
+                            }
+                        ],
+    "after":  {
+                  "value":  [
+                                {
+                                    "session_id":  "9d3d9315504987548f7d545aa443ae9a",
+                                    "run_id":  "a4c5e63b5427166d75f7a8402f7559b5",
+                                    "backend_id":  "asd_9d3d9315504987548f7d545aa443ae9a_a4c5e63b5427166d75f7a8402f7559b5",
+                                    "title":  "Order A",
+                                    "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                    "terminal_state":  "available"
+                                },
+                                {
+                                    "session_id":  "a64fb9539099654653336c50ba6b96a9",
+                                    "run_id":  "a266b73d158bfe808e37197b1aeea6cc",
+                                    "backend_id":  "asd_a64fb9539099654653336c50ba6b96a9_a266b73d158bfe808e37197b1aeea6cc",
+                                    "title":  "Order B",
+                                    "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                    "terminal_state":  "available"
+                                }
+                            ],
+                  "Count":  2
+              },
+    "b_pid":  8344,
+    "a_pid":  19988,
+    "commands":  95,
+    "before":  {
+                   "value":  [
+                                 {
+                                     "session_id":  "9d3d9315504987548f7d545aa443ae9a",
+                                     "run_id":  "a4c5e63b5427166d75f7a8402f7559b5",
+                                     "backend_id":  "asd_9d3d9315504987548f7d545aa443ae9a_a4c5e63b5427166d75f7a8402f7559b5",
+                                     "title":  "Order A",
+                                     "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                     "terminal_state":  "available"
+                                 },
+                                 {
+                                     "session_id":  "a64fb9539099654653336c50ba6b96a9",
+                                     "run_id":  "a266b73d158bfe808e37197b1aeea6cc",
+                                     "backend_id":  "asd_a64fb9539099654653336c50ba6b96a9_a266b73d158bfe808e37197b1aeea6cc",
+                                     "title":  "Order B",
+                                     "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                     "terminal_state":  "available"
+                                 }
+                             ],
+                   "Count":  2
+               },
+    "a_reopened_pid":  19988,
+    "result":  "passed",
+    "checks":  [
+                   "physical Tab drag",
+                   "management bracket ordering",
+                   "terminal literal brackets",
+                   "drafts not submitted by reorder",
+                   "navigation follows new order",
+                   "close and reopen original Run",
+                   "independent native shell PIDs"
+               ]
+}
+

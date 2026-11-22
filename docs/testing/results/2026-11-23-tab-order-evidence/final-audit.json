@@ -1,0 +1,49 @@
+{
+    "binaries":  [
+                     {
+                         "sha256":  "E77ADCDE41BD87478EF90A270D9E4D77ECF1B03A0BB69FBF5FCB50EBBEC92FBB",
+                         "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\order-product.exe"
+                     },
+                     {
+                         "sha256":  "55B2EBA852F11220391CE8490A39376BBAD587FA4F2326A9714BB5C1B90C0560",
+                         "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\order-ui-tests.exe"
+                     },
+                     {
+                         "sha256":  "337C583DB0B4B53C726A851933E3D3DF86C09E0D4812D14D68AD703E81293FC9",
+                         "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe"
+                     },
+                     {
+                         "sha256":  "BBE825A30F7CDDC91B043084049143A381ABA5F7E9E36E4D0BB587E296D262CA",
+                         "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\backend\\psmux.exe"
+                     },
+                     {
+                         "sha256":  "F2833E07A5A7D59153FFC63DB83BD6B62F6C63FFD8B5B5099A2FEADF6B605336",
+                         "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe"
+                     },
+                     {
+                         "sha256":  "B17E48B07EF153B420F0A6E178BACD31FB4C3390E21AE746586213FC0719A775",
+                         "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\OpenConsole.exe"
+                     }
+                 ],
+    "original_processes":  [
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                   "pid":  19988,
+                                   "filetime":  134398576036265490,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                   "pid":  8344,
+                                   "filetime":  134398576038640448,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               }
+                           ],
+    "settings_restored":  "1499307ABEBA68C23F9EB38A4C636F81172475B6B2B535BC0B11DCD9547241F8",
+    "result":  "passed",
+    "tasks_absent":  true,
+    "utc":  "2026-11-22T21:49:22.1332492Z",
+    "exact_test_images_alive":  0
+}
