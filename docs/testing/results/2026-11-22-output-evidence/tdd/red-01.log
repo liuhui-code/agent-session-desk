@@ -1,0 +1,6 @@
+# github.com/liuhui-code/agent-session-desk/internal/store_test [github.com/liuhui-code/agent-session-desk/internal/store.test]
+internal/store/output_test.go:25:19: db.RecordOutput undefined (type *store.Store has no field or method RecordOutput)
+internal/store/output_test.go:38:18: db.Output undefined (type *store.Store has no field or method Output)
+internal/store/output_test.go:39:54: undefined: session.OutputRecord
+FAIL    github.com/liuhui-code/agent-session-desk/internal/store [build failed]
+FAIL

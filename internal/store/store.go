@@ -1,4 +1,4 @@
-// Package store persists minimal metadata, never terminal contents or readiness.
+// Package store persists metadata and bounded screen records, never readiness.
 package store
 
 import (
@@ -20,6 +20,7 @@ import (
 type Store struct {
 	db    *sql.DB
 	scope string
+	path  string
 }
 
 // Record remains a compatible name for callers of the storage boundary.
@@ -55,7 +56,7 @@ func Open(ctx context.Context, path, scope string) (*Store, error) {
 	}
 	db.SetMaxOpenConns(1)
 	db.SetMaxIdleConns(1)
-	s := &Store{db: db, scope: scope}
+	s := &Store{db: db, scope: scope, path: path}
 	if err = s.initialize(ctx); err != nil {
 		db.Close()
 		return nil, fmt.Errorf("open metadata: %w", err)

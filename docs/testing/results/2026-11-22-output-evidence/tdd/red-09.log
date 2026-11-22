@@ -1,0 +1,5 @@
+--- FAIL: TestSavedOutputCanBeReadOfflineOnlyInItsOriginalScope (0.05s)
+    output_test.go:54: offline output required backend: asd: unknown command "output"; run asd help
+FAIL
+FAIL    github.com/liuhui-code/agent-session-desk/internal/cli  1.585s
+FAIL

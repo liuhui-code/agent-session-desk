@@ -41,7 +41,7 @@
 
 M1 收尾已加入[离线检查、备份和非覆盖恢复](adr/0012-metadata-checkpoint-recovery.md)及真实 SQLite 进程中断回归。用户当前没有实际 agent，继续按自定义命令／目录配置化实施；真实 agent 兼容性保留待测，不用可控 fixture 冒充。剩余输出文件记录与最终流程验证见 [M1 验收清单](testing/M1_ACCEPTANCE.md)。
 
-M1 收尾按[验收清单](testing/M1_ACCEPTANCE.md)推进。用户目前没有实际目标 agent，继续以自定义命令／工作目录的配置化实施；真实 agent 兼容性不得由 fixture 冒充，仍保留待测。
+M1 收尾按[验收清单](testing/M1_ACCEPTANCE.md)推进；显式有界屏幕记录与离线读取已有 [ADR-0013](adr/0013-bounded-screen-output-records.md) 和[Windows 局部结果](testing/results/2026-11-22-m1-output-records.md)，连续流日志不在此能力声明中。用户目前没有实际目标 agent，继续以自定义命令／工作目录的配置化实施；真实 agent 兼容性不得由 fixture 冒充，仍保留待测。
 
 交付物：启动配置、Session/Run 身份、工作目录和环境处理、终端预览与全屏 attach、停止和失败说明，以及最小记录存储。会话核心随 TUI 或管理命令运行；本阶段不强制启动自有常驻 Host。
 

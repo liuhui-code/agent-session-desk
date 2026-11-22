@@ -11,7 +11,7 @@ asd --state-dir C:\asd-data history --limit 20
 asd --state-dir C:\asd-data stop 完整session_id
 ```
 
-history 返回 JSON，即使后端程序缺失也可读取。它显示入库记录而非在线证明，terminal_state 为 unknown；stop_confirmed_at 只说明产品曾确认停止了该后端目标。它不提供终端日志、agent 退出码或模型上下文。list 只显示实际后台记录，历史不会自动变成可输入会话。
+history 返回 JSON，即使后端程序缺失也可读取。它显示入库记录而非在线证明，terminal_state 为 unknown；stop_confirmed_at 只说明产品曾确认停止了该后端目标。history 不提供终端正文、agent 退出码或模型上下文；显式屏幕快照另用 [record／output](OUTPUT_RECORDS.md) 查询。list 只显示实际后台记录，历史不会自动变成可输入会话。
 
 `--state-dir` 放在子命令之前，指定 metadata.sqlite3 的父目录。默认使用用户配置目录下 agent-session-desk；如果明确传入 `--runtime-dir` 且未设 state-dir，则在该 runtime 的 namespace 子目录存储，方便隔离。查询时使用相同 runtime-dir/namespace；同一个数据库内不同后台作用域互相隔离。目录搬迁和作用域合并尚无迁移功能。
 
@@ -66,3 +66,5 @@ backup／restore 的目标数据库路径必须不存在，空文件同样拒绝
 操作先在目标目录创建临时 SQLite 快照并验证，再通过同目录硬链接发布，不提供覆盖式替换。Windows NTFS 已有本轮原生证据；不支持硬链接的文件系统明确失败，不降级成覆盖重命名。正常失败清理自有临时文件；进程强杀可能留下 .asd-snapshot-*.sqlite3 临时文件，不把它视为正式备份，不自动删除其他文件。若错误明确表示快照已发布但临时清理失败，先 check 目标，不重复覆盖。
 
 FULL 同步设置和进程强杀回归不等于物理断电验收。完整升级／回退、磁盘满、网络文件系统、目录迁移和输出记录恢复仍有各自边界。见 [ADR-0012](adr/0012-metadata-checkpoint-recovery.md) 与[执行记录](testing/results/2026-11-22-m1-metadata-recovery.md)。
+
+屏幕记录与 SQLite 元数据分开保存；数据库备份不包括 output-records。停止后能读取已保存的有限画面，但没有连续录制和全流历史承诺。用法见[输出记录](OUTPUT_RECORDS.md)。

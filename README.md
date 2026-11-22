@@ -121,3 +121,5 @@ M1 后续切片提供 TUI 只读历史：h 打开最近 100 条，Enter 查看�
 M1 恢复切片已加入离线 `metadata check / backup / restore`，恢复只写新数据库，不覆盖已有库、不重启 agent。[用法](docs/METADATA.md#离线检查与备份恢复)与[实际证据](docs/testing/results/2026-11-22-m1-metadata-recovery.md)分别记录；完整 M1 仍按[清单](docs/testing/M1_ACCEPTANCE.md)推进。
 
 M1 元数据恢复增加离线 `metadata check / backup / restore`，只读检查、完整快照与非覆盖恢复保持原 Run 证据；[使用说明](docs/METADATA.md)与[原生执行](docs/testing/results/2026-11-22-m1-metadata-recovery.md)单独记账。M1 仍在补齐输出记录和完整流程，见[清单](docs/testing/M1_ACCEPTANCE.md)。
+
+M1 输出记录支持 `record SESSION_ID` 显式保存有限画面、`output RUN_ID` 离线读取；固定标记为不完整屏幕快照，按原 Run 保留，见[用法与边界](docs/OUTPUT_RECORDS.md)。

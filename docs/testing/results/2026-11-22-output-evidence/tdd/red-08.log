@@ -1,0 +1,5 @@
+# github.com/liuhui-code/agent-session-desk/internal/manager_test [github.com/liuhui-code/agent-session-desk/internal/manager.test]
+internal/manager/output_test.go:38:18: m.RecordOutput undefined (type *manager.Manager has no field or method RecordOutput)
+internal/manager/output_test.go:43:36: manager.New(nil, db).Output undefined (type *manager.Manager has no field or method Output)
+FAIL    github.com/liuhui-code/agent-session-desk/internal/manager [build failed]
+FAIL

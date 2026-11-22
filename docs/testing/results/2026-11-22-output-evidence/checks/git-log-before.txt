@@ -1,0 +1,5 @@
+d1ca62a feat: add offline metadata checks and safe checkpoint recovery
+36b2204 feat: add read-only TUI metadata history
+6ff6902 feat: persist verified pane-exit observations and migrate metadata to v2
+8799347 feat: persist scoped Session and Run metadata with offline history
+2fecc0a docs: clarify custom CLI launch scope and next M1 slice

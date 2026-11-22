@@ -1,0 +1,5 @@
+--- FAIL: TestOutputRecordBoundsTextAndKeepsUTF8WithExplicitTruncation (0.04s)
+    output_test.go:68: capture unbounded or stronger than its source: bytes=160011 truncated=false valid=false
+FAIL
+FAIL    github.com/liuhui-code/agent-session-desk/internal/store    2.489s
+FAIL

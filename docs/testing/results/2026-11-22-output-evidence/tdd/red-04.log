@@ -1,0 +1,5 @@
+--- FAIL: TestOutputDoesNotAdoptAnUnrecognizedDirectoryOrDeleteItsFiles (0.04s)
+    output_test.go:142: silently adopted a directory without product ownership marker
+FAIL
+FAIL    github.com/liuhui-code/agent-session-desk/internal/store    1.624s
+FAIL

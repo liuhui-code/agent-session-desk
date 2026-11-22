@@ -30,6 +30,8 @@ Usage:
   asd [global options] start [options] -- EXE [ARG...]
   asd [global options] history [--limit N]      Read recorded metadata as JSON
   asd [global options] history [--limit N]     Read recorded metadata as JSON
+  asd [global options] record SESSION_ID       Save a bounded screen snapshot
+  asd [global options] output RUN_ID           Read retained screen records as JSON
   asd [global options] list [--json]            List live backend records
   asd [global options] preview SESSION_ID      Read a bounded snapshot as JSON
   asd [global options] attach SESSION_ID       Enter a full-screen terminal
@@ -112,7 +114,7 @@ func run(ctx context.Context, args []string, input io.Reader, output, errorOutpu
 		fmt.Fprintln(output, "Agent Session Desk", Version)
 		return nil
 	}
-	if command != "" && command != "doctor" && command != "start" && command != "list" && command != "preview" && command != "attach" && command != "stop" && command != "history" && command != "metadata" {
+	if command != "" && command != "doctor" && command != "start" && command != "list" && command != "preview" && command != "attach" && command != "stop" && command != "history" && command != "metadata" && command != "output" && command != "record" {
 		return fmt.Errorf("unknown command %q; run asd help", command)
 	}
 	if configPath != "" && command != "start" {
@@ -127,6 +129,10 @@ func run(ctx context.Context, args []string, input io.Reader, output, errorOutpu
 	jsonList := false
 	limit := 100
 	switch command {
+	case "output":
+		if len(commandArgs) != 1 || !validID(commandArgs[0]) {
+			return fmt.Errorf("output requires one full run_id from asd history")
+		}
 	case "history":
 		limit, err = historyLimit(commandArgs, errorOutput)
 		if err != nil {
@@ -147,7 +153,7 @@ func run(ctx context.Context, args []string, input io.Reader, output, errorOutpu
 		} else if len(commandArgs) != 0 {
 			return fmt.Errorf("usage: asd list [--json]")
 		}
-	case "preview", "attach", "stop":
+	case "preview", "record", "attach", "stop":
 		if len(commandArgs) != 1 || !validID(commandArgs[0]) {
 			return fmt.Errorf("%s requires one full session_id from asd list", command)
 		}
@@ -156,12 +162,19 @@ func run(ctx context.Context, args []string, input io.Reader, output, errorOutpu
 			return fmt.Errorf("%s accepts no arguments", command)
 		}
 	}
-	if command == "history" {
+	if command == "history" || command == "output" {
 		metadata, e := openMetadata(ctx, options, stateDir)
 		if e != nil {
 			return e
 		}
 		defer metadata.Close()
+		if command == "output" {
+			rows, e := metadata.Output(ctx, commandArgs[0])
+			if e != nil {
+				return e
+			}
+			return writeJSON(output, rows)
+		}
 		rows, e := metadata.History(ctx, limit)
 		if e != nil {
 			return e
@@ -233,6 +246,12 @@ func run(ctx context.Context, args []string, input io.Reader, output, errorOutpu
 		return err
 	}
 	switch command {
+	case "record":
+		record, e := service.RecordOutput(ctx, target)
+		if e != nil {
+			return e
+		}
+		return writeJSON(output, record)
 	case "preview":
 		preview, err := service.Preview(ctx, target, 60)
 		if err != nil {

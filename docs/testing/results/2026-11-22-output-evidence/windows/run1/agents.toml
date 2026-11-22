@@ -1,0 +1,8 @@
+schema_version = 1
+[templates.custom]
+name = 'output fixture'
+executable = 'C:\Users\liu xun yuan\asd-acceptance-20261122\asd-fixture.exe'
+args = ['output-marker']
+cwd = 'C:\Users\liu xun yuan\asd-acceptance-20261122\m1-output-run1\自定义 目录'
+[templates.custom.env]
+ASD_FIXTURE_REPORT_PATH = 'C:\Users\liu xun yuan\asd-acceptance-20261122\m1-output-run1\fixture.jsonl'

@@ -1,0 +1,5 @@
+--- FAIL: TestOutputPublicationNeverExposesIncompleteOrExcessFiles (1.86s)
+    output_publication_test.go:60: published partial=false or excess=true output files
+FAIL
+FAIL    github.com/liuhui-code/agent-session-desk/internal/store    3.445s
+FAIL

@@ -1,0 +1,14 @@
+--- FAIL: TestOutputRejectsUnexpectedOrUnboundedFilesWithoutDeletingThem (0.26s)
+    --- FAIL: TestOutputRejectsUnexpectedOrUnboundedFilesWithoutDeletingThem/unrelated (0.05s)
+        output_validation_test.go:73: reader accepted unexpected or stronger output
+    --- FAIL: TestOutputRejectsUnexpectedOrUnboundedFilesWithoutDeletingThem/file-budget (0.05s)
+        output_validation_test.go:73: reader accepted unexpected or stronger output
+    --- FAIL: TestOutputRejectsUnexpectedOrUnboundedFilesWithoutDeletingThem/text-budget (0.05s)
+        output_validation_test.go:73: reader accepted unexpected or stronger output
+    --- FAIL: TestOutputRejectsUnexpectedOrUnboundedFilesWithoutDeletingThem/complete-claim (0.04s)
+        output_validation_test.go:73: reader accepted unexpected or stronger output
+    --- FAIL: TestOutputRejectsUnexpectedOrUnboundedFilesWithoutDeletingThem/backend-conflict (0.07s)
+        output_validation_test.go:76: writer accepted invalid output directory
+FAIL
+FAIL    github.com/liuhui-code/agent-session-desk/internal/store    1.788s
+FAIL

@@ -23,7 +23,7 @@
 | macOS/Linux 后台 | **tmux 3.8** 对照基线 | 后续适配与验收；不是 Windows 安装前提 |
 | 本地状态与消息 | **SQLite 3.54.1，最小元数据已实现** | modernc.org/sqlite v1.62.0、libc v1.80.1；Session/Run、独立 history 和 [schema v2 pane 观测](adr/0010-pane-exit-observations.md)；v1→v2 追加迁移和离线检查／非覆盖快照恢复已实现（ADR-0012），队列、回执与完整升级恢复待做 |
 | 配置 | **TOML，首个只读启动切片已实现** | BurntSushi/toml v1.6.0、TOML 1.1.0、schema_version=1；[ADR-0007](adr/0007-explicit-launch-configuration.md)。主题／偏好文件和保存待做 |
-| 输出保存 | **有界文件记录 + 内存尾部缓存** | 当前仅有限屏幕捕获及选中预览缓存；文件轮转、分页和连续日志未实现 |
+| 输出保存 | **有界文件记录 + 内存尾部缓存** | 已有显式屏幕记录文件与按 Run／全库数量轮转（ADR-0013），仍有选中预览缓存；分页、连续全流日志和完整资源预算未完成 |
 | Agent 接入 | **CLI-first** | executable、args、cwd、env；专用协议是可选增强 |
 | 人工介入与提醒 | **共享核心事件与可替换平台通知出口** | UI 标记、待处理入口与可选 Windows 通知；Go API/注册/激活、事件接口与预算待 M2–M4 验证，不预先引入 .NET 运行时依赖 |
 

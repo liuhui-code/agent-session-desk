@@ -1,0 +1,252 @@
+[
+  {
+    "args": [
+      "--config",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-output-run1\\agents.toml",
+      "start",
+      "--template",
+      "custom"
+    ],
+    "stderr": "",
+    "global": [
+      "--backend",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\backend\\psmux.exe",
+      "--runtime-dir",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-output-run1\\runtime",
+      "--namespace",
+      "asd-output-native",
+      "--state-dir",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-output-run1\\state"
+    ],
+    "code": 0,
+    "stdout": "{\r\n  \"session_id\": \"c0abf030f24885bc08f142b528a59f3c\",\r\n  \"run_id\": \"31a527eba6330786f7aaff3651c93d57\",\r\n  \"backend_id\": \"asd_c0abf030f24885bc08f142b528a59f3c_31a527eba6330786f7aaff3651c93d57\",\r\n  \"title\": \"output fixture\",\r\n  \"command\": \"C:\\\\Users\\\\liu xun yuan\\\\asd-acceptance-20261122\\\\asd-fixture.exe\",\r\n  \"terminal_state\": \"available\"\r\n}\r\n"
+  },
+  {
+    "args": [
+      "preview",
+      "c0abf030f24885bc08f142b528a59f3c"
+    ],
+    "stderr": "",
+    "global": [
+      "--backend",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\backend\\psmux.exe",
+      "--runtime-dir",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-output-run1\\runtime",
+      "--namespace",
+      "asd-output-native",
+      "--state-dir",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-output-run1\\state"
+    ],
+    "code": 0,
+    "stdout": "{\r\n  \"session_id\": \"c0abf030f24885bc08f142b528a59f3c\",\r\n  \"run_id\": \"31a527eba6330786f7aaff3651c93d57\",\r\n  \"kind\": \"screen_snapshot\",\r\n  \"snapshot\": {\r\n    \"text\": \"{\\\"event\\\":\\\"started\\\",\\\"pid\\\":20172,\\\"args\\\":[\\\"output-marker\\\"],\\\"cwd\\\":\\\"C:\\\\\\\\Users\\\\\\\\liu xun yuan\\\\\\\\asd-acceptance-20261122\\\\\\\\m1-outp\\nut-run1\\\\\\\\自定义 目录\\\",\\\"env\\\":{}}\\nCLI fixture · 中文 · é · 🧪 — type exit to end\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\",\r\n    \"truncated\": false\r\n  }\r\n}\r\n"
+  },
+  {
+    "args": [
+      "record",
+      "c0abf030f24885bc08f142b528a59f3c"
+    ],
+    "stderr": "",
+    "global": [
+      "--backend",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\backend\\psmux.exe",
+      "--runtime-dir",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-output-run1\\runtime",
+      "--namespace",
+      "asd-output-native",
+      "--state-dir",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-output-run1\\state"
+    ],
+    "code": 0,
+    "stdout": "{\r\n  \"record_id\": \"6286554e7d3d42f1a987b3e7be2f5834\",\r\n  \"session_id\": \"c0abf030f24885bc08f142b528a59f3c\",\r\n  \"run_id\": \"31a527eba6330786f7aaff3651c93d57\",\r\n  \"backend_id\": \"asd_c0abf030f24885bc08f142b528a59f3c_31a527eba6330786f7aaff3651c93d57\",\r\n  \"sequence\": 1,\r\n  \"recorded_at\": \"2026-11-22T11:21:17.8174254Z\",\r\n  \"text\": \"{\\\"event\\\":\\\"started\\\",\\\"pid\\\":20172,\\\"args\\\":[\\\"output-marker\\\"],\\\"cwd\\\":\\\"C:\\\\\\\\Users\\\\\\\\liu xun yuan\\\\\\\\asd-acceptance-20261122\\\\\\\\m1-outp\\nut-run1\\\\\\\\自定义 目录\\\",\\\"env\\\":{}}\\nCLI fixture · 中文 · é · 🧪 — type exit to end\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\",\r\n  \"truncated\": false,\r\n  \"source\": \"screen_snapshot\",\r\n  \"complete\": false\r\n}\r\n"
+  },
+  {
+    "args": [
+      "record",
+      "c0abf030f24885bc08f142b528a59f3c"
+    ],
+    "stderr": "",
+    "global": [
+      "--backend",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\backend\\psmux.exe",
+      "--runtime-dir",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-output-run1\\runtime",
+      "--namespace",
+      "asd-output-native",
+      "--state-dir",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-output-run1\\state"
+    ],
+    "code": 0,
+    "stdout": "{\r\n  \"record_id\": \"e0b48a68c00ae3bacdd799d20fe7154e\",\r\n  \"session_id\": \"c0abf030f24885bc08f142b528a59f3c\",\r\n  \"run_id\": \"31a527eba6330786f7aaff3651c93d57\",\r\n  \"backend_id\": \"asd_c0abf030f24885bc08f142b528a59f3c_31a527eba6330786f7aaff3651c93d57\",\r\n  \"sequence\": 2,\r\n  \"recorded_at\": \"2026-11-22T11:21:18.5488788Z\",\r\n  \"text\": \"{\\\"event\\\":\\\"started\\\",\\\"pid\\\":20172,\\\"args\\\":[\\\"output-marker\\\"],\\\"cwd\\\":\\\"C:\\\\\\\\Users\\\\\\\\liu xun yuan\\\\\\\\asd-acceptance-20261122\\\\\\\\m1-outp\\nut-run1\\\\\\\\自定义 目录\\\",\\\"env\\\":{}}\\nCLI fixture · 中文 · é · 🧪 — type exit to end\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\",\r\n  \"truncated\": false,\r\n  \"source\": \"screen_snapshot\",\r\n  \"complete\": false\r\n}\r\n"
+  },
+  {
+    "args": [
+      "record",
+      "c0abf030f24885bc08f142b528a59f3c"
+    ],
+    "stderr": "",
+    "global": [
+      "--backend",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\backend\\psmux.exe",
+      "--runtime-dir",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-output-run1\\runtime",
+      "--namespace",
+      "asd-output-native",
+      "--state-dir",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-output-run1\\state"
+    ],
+    "code": 0,
+    "stdout": "{\r\n  \"record_id\": \"ce669c5a8e4003b72be7661a2c6cc09a\",\r\n  \"session_id\": \"c0abf030f24885bc08f142b528a59f3c\",\r\n  \"run_id\": \"31a527eba6330786f7aaff3651c93d57\",\r\n  \"backend_id\": \"asd_c0abf030f24885bc08f142b528a59f3c_31a527eba6330786f7aaff3651c93d57\",\r\n  \"sequence\": 3,\r\n  \"recorded_at\": \"2026-11-22T11:21:19.5216564Z\",\r\n  \"text\": \"{\\\"event\\\":\\\"started\\\",\\\"pid\\\":20172,\\\"args\\\":[\\\"output-marker\\\"],\\\"cwd\\\":\\\"C:\\\\\\\\Users\\\\\\\\liu xun yuan\\\\\\\\asd-acceptance-20261122\\\\\\\\m1-outp\\nut-run1\\\\\\\\自定义 目录\\\",\\\"env\\\":{}}\\nCLI fixture · 中文 · é · 🧪 — type exit to end\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\",\r\n  \"truncated\": false,\r\n  \"source\": \"screen_snapshot\",\r\n  \"complete\": false\r\n}\r\n"
+  },
+  {
+    "args": [
+      "output",
+      "31a527eba6330786f7aaff3651c93d57"
+    ],
+    "stderr": "",
+    "global": [
+      "--backend",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\backend\\psmux.exe",
+      "--runtime-dir",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-output-run1\\runtime",
+      "--namespace",
+      "asd-output-native",
+      "--state-dir",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-output-run1\\state"
+    ],
+    "code": 0,
+    "stdout": "[\r\n  {\r\n    \"record_id\": \"ce669c5a8e4003b72be7661a2c6cc09a\",\r\n    \"session_id\": \"c0abf030f24885bc08f142b528a59f3c\",\r\n    \"run_id\": \"31a527eba6330786f7aaff3651c93d57\",\r\n    \"backend_id\": \"asd_c0abf030f24885bc08f142b528a59f3c_31a527eba6330786f7aaff3651c93d57\",\r\n    \"sequence\": 3,\r\n    \"recorded_at\": \"2026-11-22T11:21:19.5216564Z\",\r\n    \"text\": \"{\\\"event\\\":\\\"started\\\",\\\"pid\\\":20172,\\\"args\\\":[\\\"output-marker\\\"],\\\"cwd\\\":\\\"C:\\\\\\\\Users\\\\\\\\liu xun yuan\\\\\\\\asd-acceptance-20261122\\\\\\\\m1-outp\\nut-run1\\\\\\\\自定义 目录\\\",\\\"env\\\":{}}\\nCLI fixture · 中文 · é · 🧪 — type exit to end\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\",\r\n    \"truncated\": false,\r\n    \"source\": \"screen_snapshot\",\r\n    \"complete\": false\r\n  },\r\n  {\r\n    \"record_id\": \"e0b48a68c00ae3bacdd799d20fe7154e\",\r\n    \"session_id\": \"c0abf030f24885bc08f142b528a59f3c\",\r\n    \"run_id\": \"31a527eba6330786f7aaff3651c93d57\",\r\n    \"backend_id\": \"asd_c0abf030f24885bc08f142b528a59f3c_31a527eba6330786f7aaff3651c93d57\",\r\n    \"sequence\": 2,\r\n    \"recorded_at\": \"2026-11-22T11:21:18.5488788Z\",\r\n    \"text\": \"{\\\"event\\\":\\\"started\\\",\\\"pid\\\":20172,\\\"args\\\":[\\\"output-marker\\\"],\\\"cwd\\\":\\\"C:\\\\\\\\Users\\\\\\\\liu xun yuan\\\\\\\\asd-acceptance-20261122\\\\\\\\m1-outp\\nut-run1\\\\\\\\自定义 目录\\\",\\\"env\\\":{}}\\nCLI fixture · 中文 · é · 🧪 — type exit to end\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\",\r\n    \"truncated\": false,\r\n    \"source\": \"screen_snapshot\",\r\n    \"complete\": false\r\n  }\r\n]\r\n"
+  },
+  {
+    "args": [
+      "record",
+      "c0abf030f24885bc08f142b528a59f3c"
+    ],
+    "stderr": "asd: captured screen (session_id=c0abf030f24885bc08f142b528a59f3c run_id=31a527eba6330786f7aaff3651c93d57); saved output not confirmed: unrecognized output directory; files preserved\r\n",
+    "global": [
+      "--backend",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\backend\\psmux.exe",
+      "--runtime-dir",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-output-run1\\runtime",
+      "--namespace",
+      "asd-output-native",
+      "--state-dir",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-output-run1\\state"
+    ],
+    "code": 1,
+    "stdout": ""
+  },
+  {
+    "args": [
+      "output",
+      "31a527eba6330786f7aaff3651c93d57"
+    ],
+    "stderr": "asd: output directory must not be a link or non-directory\r\n",
+    "global": [
+      "--backend",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\backend\\psmux.exe",
+      "--runtime-dir",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-output-run1\\runtime",
+      "--namespace",
+      "asd-output-native",
+      "--state-dir",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-output-run1\\state"
+    ],
+    "code": 1,
+    "stdout": ""
+  },
+  {
+    "args": [
+      "record",
+      "c0abf030f24885bc08f142b528a59f3c"
+    ],
+    "stderr": "asd: captured screen (session_id=c0abf030f24885bc08f142b528a59f3c run_id=31a527eba6330786f7aaff3651c93d57); saved output not confirmed: output directory must not be a link or non-directory\r\n",
+    "global": [
+      "--backend",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\backend\\psmux.exe",
+      "--runtime-dir",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-output-run1\\runtime",
+      "--namespace",
+      "asd-output-native",
+      "--state-dir",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-output-run1\\state"
+    ],
+    "code": 1,
+    "stdout": ""
+  },
+  {
+    "args": [
+      "stop",
+      "c0abf030f24885bc08f142b528a59f3c"
+    ],
+    "stderr": "",
+    "global": [
+      "--backend",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\backend\\psmux.exe",
+      "--runtime-dir",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-output-run1\\runtime",
+      "--namespace",
+      "asd-output-native",
+      "--state-dir",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-output-run1\\state"
+    ],
+    "code": 0,
+    "stdout": "{\r\n  \"session_id\": \"c0abf030f24885bc08f142b528a59f3c\",\r\n  \"run_id\": \"31a527eba6330786f7aaff3651c93d57\",\r\n  \"result\": \"backend_session_stopped\"\r\n}\r\n"
+  },
+  {
+    "args": [
+      "output",
+      "31a527eba6330786f7aaff3651c93d57"
+    ],
+    "stderr": "",
+    "global": [
+      "--backend",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-output-run1\\absent-backend.exe",
+      "--runtime-dir",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-output-run1\\runtime",
+      "--namespace",
+      "asd-output-native",
+      "--state-dir",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-output-run1\\state"
+    ],
+    "code": 0,
+    "stdout": "[\r\n  {\r\n    \"record_id\": \"ce669c5a8e4003b72be7661a2c6cc09a\",\r\n    \"session_id\": \"c0abf030f24885bc08f142b528a59f3c\",\r\n    \"run_id\": \"31a527eba6330786f7aaff3651c93d57\",\r\n    \"backend_id\": \"asd_c0abf030f24885bc08f142b528a59f3c_31a527eba6330786f7aaff3651c93d57\",\r\n    \"sequence\": 3,\r\n    \"recorded_at\": \"2026-11-22T11:21:19.5216564Z\",\r\n    \"text\": \"{\\\"event\\\":\\\"started\\\",\\\"pid\\\":20172,\\\"args\\\":[\\\"output-marker\\\"],\\\"cwd\\\":\\\"C:\\\\\\\\Users\\\\\\\\liu xun yuan\\\\\\\\asd-acceptance-20261122\\\\\\\\m1-outp\\nut-run1\\\\\\\\自定义 目录\\\",\\\"env\\\":{}}\\nCLI fixture · 中文 · é · 🧪 — type exit to end\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\",\r\n    \"truncated\": false,\r\n    \"source\": \"screen_snapshot\",\r\n    \"complete\": false\r\n  },\r\n  {\r\n    \"record_id\": \"e0b48a68c00ae3bacdd799d20fe7154e\",\r\n    \"session_id\": \"c0abf030f24885bc08f142b528a59f3c\",\r\n    \"run_id\": \"31a527eba6330786f7aaff3651c93d57\",\r\n    \"backend_id\": \"asd_c0abf030f24885bc08f142b528a59f3c_31a527eba6330786f7aaff3651c93d57\",\r\n    \"sequence\": 2,\r\n    \"recorded_at\": \"2026-11-22T11:21:18.5488788Z\",\r\n    \"text\": \"{\\\"event\\\":\\\"started\\\",\\\"pid\\\":20172,\\\"args\\\":[\\\"output-marker\\\"],\\\"cwd\\\":\\\"C:\\\\\\\\Users\\\\\\\\liu xun yuan\\\\\\\\asd-acceptance-20261122\\\\\\\\m1-outp\\nut-run1\\\\\\\\自定义 目录\\\",\\\"env\\\":{}}\\nCLI fixture · 中文 · é · 🧪 — type exit to end\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\",\r\n    \"truncated\": false,\r\n    \"source\": \"screen_snapshot\",\r\n    \"complete\": false\r\n  }\r\n]\r\n"
+  },
+  {
+    "args": [
+      "record",
+      "c0abf030f24885bc08f142b528a59f3c"
+    ],
+    "stderr": "asd: session c0abf030f24885bc08f142b528a59f3c is not present in this backend; use asd history for metadata; no implicit restart is available\r\n",
+    "global": [
+      "--backend",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\backend\\psmux.exe",
+      "--runtime-dir",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-output-run1\\runtime",
+      "--namespace",
+      "asd-output-native",
+      "--state-dir",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-output-run1\\state"
+    ],
+    "code": 1,
+    "stdout": ""
+  },
+  {
+    "args": [
+      "list",
+      "--json"
+    ],
+    "stderr": "",
+    "global": [
+      "--backend",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\backend\\psmux.exe",
+      "--runtime-dir",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-output-run1\\runtime",
+      "--namespace",
+      "asd-output-native",
+      "--state-dir",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-output-run1\\state"
+    ],
+    "code": 0,
+    "stdout": "[]\r\n"
+  }
+]

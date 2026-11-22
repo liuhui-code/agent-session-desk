@@ -34,6 +34,10 @@ ADR 保存重要选择的背景、决定、替代方案、代价和重新评估�
 
 | [0012](0012-metadata-checkpoint-recovery.md) | 离线检查、完整快照与非覆盖元数据恢复 | 已接受 | TDD／原生 Windows 按实际报告记账；完整故障与断电矩阵仍待做 |
 
+| [0013](0013-bounded-screen-output-records.md) | 显式有界屏幕记录、非覆盖发布与跨进程轮转 | 已接受 | 原生 Windows 自定义 CLI／目录、采集／离线读取与文件边界见报告；完整流日志未实现 |
+
+| [0013](0013-bounded-screen-output-records.md) | 显式有界屏幕记录、按原 Run 离线读取与文件归属 | 已接受 | Go／原生 Windows 合同及 junction 拒绝已有局部证据；连续流与完整故障矩阵仍待做 |
+
 ## 维护规则
 
 1. 新决定使用下一个连续编号，复制[模板](template.md)，已有编号不重用。

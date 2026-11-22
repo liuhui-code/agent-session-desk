@@ -5,7 +5,7 @@
 - 用例：339；全部 designed / not_run。
 - 依据明确：215；待决策：122；后置：2。
 - FL：20；FR：14，均有设计引用。
-- 已记录 ADR：12；本库引用 ADR：6。下方逐项列出数量，零引用不等于已覆盖。
+- 已记录 ADR：13；本库引用 ADR：6。下方逐项列出数量，零引用不等于已覆盖。
 - 本轮设计基线执行：0；没有产品通过结论。本表不统计后续独立运行报告，实际证据见 [results/](results/)。
 
 [总索引](CASE_INDEX.md) · [测试策略](TEST_STRATEGY.md) · [未决项](BUDGETS_AND_DECISIONS.md)
@@ -302,5 +302,6 @@
 | [ADR-0010](../adr/0010-pane-exit-observations.md) | 0 |
 | [ADR-0011](../adr/0011-read-only-tui-history.md) | 0 |
 | [ADR-0012](../adr/0012-metadata-checkpoint-recovery.md) | 0 |
+| [ADR-0013](../adr/0013-bounded-screen-output-records.md) | 0 |
 
 FL-018 为后置探索，不能因已有两条用例就将其计入首版实现范围。

@@ -1,0 +1,5 @@
+--- FAIL: TestRecordValidatesFullSessionTargetBeforeTouchingRuntimeFiles (0.00s)
+    output_test.go:75: invalid record target: 1 asd: unknown command "record"; run asd help
+FAIL
+FAIL    github.com/liuhui-code/agent-session-desk/internal/cli  1.598s
+FAIL

@@ -1,0 +1,5 @@
+--- FAIL: TestOutputRetentionKeepsTwoPerScopedRunWithoutMixingIdentities (0.08s)
+    output_test.go:100: output 3a32385dcbbeea14a9a596fb868e8859 saved; retention failed: remove /var/folders/6x/y713d9_n1gl90wk20zms7q5m0000gn/T/TestOutputRetentionKeepsTwoPerScopedRunWithoutMixingIdentities2178851260/001/output-records: directory not empty
+FAIL
+FAIL    github.com/liuhui-code/agent-session-desk/internal/store    3.309s
+FAIL

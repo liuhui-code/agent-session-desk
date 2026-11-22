@@ -1,0 +1,37 @@
+{
+  "product_sha256": "DA88E3AC5622C817CABC44231AB81862A6DB7C9AF865DE7702F96E1FA84ACC7D",
+  "fixture_ended": true,
+  "checks": [
+    {
+      "result": "passed",
+      "scenario": "store native tests",
+      "sha256": "9F872748592497C4A3B1D3638840DF7625592C93C012A93A295CC9EB6CDC804E"
+    },
+    {
+      "result": "passed",
+      "scenario": "cli native tests",
+      "sha256": "D205B301725E2CBDC367774314BCC81EBCD173988DB95D9447BE0D57A081F825"
+    },
+    {
+      "result": "passed",
+      "scenario": "manager native tests",
+      "sha256": "DCD55671DF3A2DEA7D70D221791746308805157B5FC74B1B5CEEC15451ECC6B4"
+    },
+    {
+      "result": "passed",
+      "scenario": "Configured command/cwd and explicit three captures retain two"
+    },
+    {
+      "result": "passed",
+      "scenario": "Unrecognized directory and NTFS junction refused; fixture and sentinels unchanged"
+    },
+    {
+      "result": "passed",
+      "scenario": "Offline read after exact fixture exit; ended Run cannot record/restart"
+    }
+  ],
+  "cleanup_owned_backend": true,
+  "os": "Microsoft Windows NT 10.0.19045.0",
+  "failure": null,
+  "utc": "2026-11-22T11:37:04.3440070Z"
+}

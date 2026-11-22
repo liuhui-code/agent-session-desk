@@ -82,6 +82,8 @@
 
 - **M1 元数据恢复进展（2026-11-22）：**离线检查、全部作用域快照和非覆盖恢复已实现；校验后发布，保留原身份／时间，不从恢复记录启动进程。真实 SQLite 写事务强杀、v1 只读检查与原生 Windows 合同见 [ADR-0012](adr/0012-metadata-checkpoint-recovery.md) 和[执行报告](testing/results/2026-11-22-m1-metadata-recovery.md)。本轮使用自定义命令／目录的受控 CLI；实际 agent 当前不可用，物理断电及完整阶段验收仍待做。
 
+- **M1 输出记录进展（2026-11-22）：**record 显式保存重验目标的屏幕快照，output 按原 Run 离线读回；每作用域／Run 2 份、同库 32 份，正文 64 KiB／文件 512 KiB 为工程硬边界，不是性能预算。固定 complete=false，不冒充完整流或对话；并发轮转、未知文件／NTFS junction 拒绝和停止后读取见 [ADR-0013](adr/0013-bounded-screen-output-records.md) 与[实际报告](testing/results/2026-11-22-m1-output-records.md)。连续日志、完整磁盘故障与实际 agent 兼容仍待做。
+
 ### FL-002：原生终端 attach
 
 测试设计：[FL-002 用例与映射](testing/COVERAGE.md#fl-002)；当前仅设计，未执行。
@@ -90,6 +92,8 @@
 - **验收：**Windows 实机验证中文输入、Unicode、颜色、光标、窗口缩放、多行粘贴、滚动、Ctrl+C 和交互式 TUI；正常分离及异常退出后恢复管理器终端状态，按键不发错对象。
 - **依据：**[FR-02 / FR-11](PRODUCT_PLAN.md)、[ADR-0002](adr/0002-terminal-backends-and-attach.md)。
 - **实现与验收证据：**[后端](../internal/backend/backend.go)与 [v2 UI 模型](../internal/ui/model.go)已实现只读快照、原始 pane 核对、全屏 ExecProcess 交接及返回路径；退出 pane 只读查看。指定 Windows runner 已检查被动预览前后尺寸一致、Attach 命令准备及对退出、缺失或非活动原 pane 的拒绝；未执行交互式 attach 客户端。真实 attach/detach、IME、用户输入交接、主动 resize 与终端恢复仍未验收。见[源码局部证据](testing/results/2026-11-21-m0-source-migration.md)与[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md)。
+
+- **M1 输出记录进展（2026-11-22）：**record 显式保存重验目标的屏幕快照，output 按原 Run 离线读回；每作用域／Run 2 份、同库 32 份，正文 64 KiB／文件 512 KiB 为工程硬边界，不是性能预算。固定 complete=false，不冒充完整流或对话；并发轮转、未知文件／NTFS junction 拒绝和停止后读取见 [ADR-0013](adr/0013-bounded-screen-output-records.md) 与[实际报告](testing/results/2026-11-22-m1-output-records.md)。连续日志、完整磁盘故障与实际 agent 兼容仍待做。
 
 ### FL-003：简约 TUI 与上游复用
 
@@ -195,6 +199,8 @@
 
 - **M1 元数据恢复进展（2026-11-22）：**离线检查、全部作用域快照和非覆盖恢复已实现；校验后发布，保留原身份／时间，不从恢复记录启动进程。真实 SQLite 写事务强杀、v1 只读检查与原生 Windows 合同见 [ADR-0012](adr/0012-metadata-checkpoint-recovery.md) 和[执行报告](testing/results/2026-11-22-m1-metadata-recovery.md)。本轮使用自定义命令／目录的受控 CLI；实际 agent 当前不可用，物理断电及完整阶段验收仍待做。
 
+- **M1 输出记录进展（2026-11-22）：**record 显式保存重验目标的屏幕快照，output 按原 Run 离线读回；每作用域／Run 2 份、同库 32 份，正文 64 KiB／文件 512 KiB 为工程硬边界，不是性能预算。固定 complete=false，不冒充完整流或对话；并发轮转、未知文件／NTFS junction 拒绝和停止后读取见 [ADR-0013](adr/0013-bounded-screen-output-records.md) 与[实际报告](testing/results/2026-11-22-m1-output-records.md)。连续日志、完整磁盘故障与实际 agent 兼容仍待做。
+
 ### FL-012：焦点与草稿
 
 测试设计：[FL-012 用例与映射](testing/COVERAGE.md#fl-012)；目录保留 designed/not_run 基线，局部执行见实际报告。
@@ -227,6 +233,8 @@
 
 - **M1 元数据恢复进展（2026-11-22）：**离线检查、全部作用域快照和非覆盖恢复已实现；校验后发布，保留原身份／时间，不从恢复记录启动进程。真实 SQLite 写事务强杀、v1 只读检查与原生 Windows 合同见 [ADR-0012](adr/0012-metadata-checkpoint-recovery.md) 和[执行报告](testing/results/2026-11-22-m1-metadata-recovery.md)。本轮使用自定义命令／目录的受控 CLI；实际 agent 当前不可用，物理断电及完整阶段验收仍待做。
 
+- **M1 输出记录进展（2026-11-22）：**record 显式保存重验目标的屏幕快照，output 按原 Run 离线读回；每作用域／Run 2 份、同库 32 份，正文 64 KiB／文件 512 KiB 为工程硬边界，不是性能预算。固定 complete=false，不冒充完整流或对话；并发轮转、未知文件／NTFS junction 拒绝和停止后读取见 [ADR-0013](adr/0013-bounded-screen-output-records.md) 与[实际报告](testing/results/2026-11-22-m1-output-records.md)。连续日志、完整磁盘故障与实际 agent 兼容仍待做。
+
 ### FL-014：请求与回复关联
 
 测试设计：[FL-014 用例与映射](testing/COVERAGE.md#fl-014)；当前仅设计，未执行。
@@ -244,6 +252,8 @@
 - **验收：**在 0、1、5、10 个会话、空闲与持续输出场景记录基线，长时间输出后内存不无界增长；分别报告 TUI、产品 Host（若有）、psmux、控制台/shell 与 agent 开销；确认退出 UI 释放其缓存，无隐藏备用进程。数值预算在 M0 实测后记录。
 - **依据：**[产品质量标准](PRODUCT_PLAN.md)、[ADR-0003](adr/0003-bounded-resources-and-background-work.md)。
 - **实现与验收证据：**仅当前可见预览捕获、有界尾部缓存/控制响应、取消和命令时限已实现；私有 psmux no-warm 配置已生成。已实施并执行原生 Windows 0/1/5/10 托管会话及 1/5/10 直接程序对照，记录真实 TUI、后台、控制台辅助进程、fixture 与测量工具的私有字节、工作集、句柄、线程和可见 CPU；含输出、回落、UI 重开及正常清理。失败、路径身份修复、实际数值和采样缺口见[资源执行报告](testing/results/2026-11-21-m0-windows-resources.md)。每阶段约 12 秒，仅属短基线；当前防御限额不是已接受预算，完整时长与长稳未完成。
+
+- **M1 输出记录进展（2026-11-22）：**record 显式保存重验目标的屏幕快照，output 按原 Run 离线读回；每作用域／Run 2 份、同库 32 份，正文 64 KiB／文件 512 KiB 为工程硬边界，不是性能预算。固定 complete=false，不冒充完整流或对话；并发轮转、未知文件／NTFS junction 拒绝和停止后读取见 [ADR-0013](adr/0013-bounded-screen-output-records.md) 与[实际报告](testing/results/2026-11-22-m1-output-records.md)。连续日志、完整磁盘故障与实际 agent 兼容仍待做。
 
 ### FL-016：Windows 兼容门槛
 
@@ -358,3 +368,5 @@ pane 退出观测补充（2026-11-22）：FL-005/011/013 增加有来源的 pane
 M1 恢复补充（2026-11-22）：新增离线检查、完整快照和非覆盖恢复及实际进程强杀回归，FL-005/011/013/016 保持实现中。用户当前没有真实 agent，接入继续按自定义命令和工作目录配置化，真实 agent 兼容性不宣称已验证。
 
 M1 恢复补充（2026-11-22）：按用户继续完成 M1 的授权实现 metadata check／backup／restore；用户当前没有真实 agent，通用命令与目录配置化作为当前实施重点，真实兼容性保留待测。各 FL 保持实现中，目录用例状态不变。
+
+输出记录补充（2026-11-22）：通用 CLI 增加显式 record／离线 output，保存有限屏幕而非连续历史流；不添加 UI 常驻记录器或 Host，FL 状态与 339 项基线不变。

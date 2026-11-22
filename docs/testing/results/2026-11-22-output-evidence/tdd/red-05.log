@@ -1,0 +1,5 @@
+--- FAIL: TestOutputGlobalRetentionBoundsPublishedFilesAcrossRuns (3.02s)
+    output_test.go:196: published output files=40, want 32
+FAIL
+FAIL    github.com/liuhui-code/agent-session-desk/internal/store    4.533s
+FAIL
