@@ -16,3 +16,5 @@
 Windows 脚本使用 `$env:USERPROFILE/asd-acceptance-20261122` 的专用安装和隔离状态目录；原始 Darwin 脚本中的 `<LOCAL_TEST_HOME>`、`<REPO>` 需按本机替换，临时根必须独立创建。先查看脚本和已有进程，不直接重放已执行的输入或复用旧运行目录。保留精确 PID／FILETIME／路径核对、前台窗口保护、尺寸保护和恢复原设置；不按程序名杀进程。
 
 未运行的完整目录用例仍为 designed/not_run；fixture 不等于目标 agent，文本回放不等于上游在 Windows 运行，也不等于用户视觉接受。
+
+Git 字节保护：本目录 frames 在 `.gitattributes` 中标记 `-text`，保留 VT 的 CRLF 和原始 ANSI；提交索引／Git blob 逐项与 archive manifest 核对，避免检出时的自动换行转换破坏哈希。首次提交出现 CRLF 规范化提示，后续证据修正提交恢复原字节；实际运行所用临时文件未改变。
