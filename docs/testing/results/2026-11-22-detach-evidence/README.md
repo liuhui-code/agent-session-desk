@@ -11,3 +11,5 @@
 - 选定 PNG 各边裁掉 8 像素，移除外框阴影区域的无关桌面像素；未修改产品画面。JSON/日志中的测试用户主目录被替换为 `<USERPROFILE>`。原始 ZIP、原图及固定源码归档哈希见 derivation.json；最终归档哈希见 SHA256SUMS。
 
 图形驱动从上一轮本仓库的 `2026-11-22-desktop-evidence/desktop-driver.ps1` 派生；只改用独立诊断输出目录，保留旧的事件机制以作对照。并未借改输入驱动隐藏原失败。psmux 固定源码只读用于核对日志和 prefix 实现，未迁入产品或此目录。
+
+文本归档统一使用 LF，保证 Git 检出后的 SHA256SUMS 可复核；derivation.json 中原件哈希保持不变。

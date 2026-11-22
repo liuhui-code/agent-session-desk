@@ -15,3 +15,5 @@
 官方依赖来源：https://github.com/microsoft/terminal/releases/tag/v1.25.3131.0 、https://github.com/PowerShell/PowerShell/releases/tag/v7.7.0 、https://github.com/psmux/psmux/releases/tag/v3.4.0 。这些只作为隔离验收工具，不更改产品发行依赖。
 
 测试源保留了失败版本 `desktop-driver-v2.ps1`（重复 paste 分支）及最终版本 `desktop-driver.ps1`；最终启动器为 `start-driver-v3.ps1`，v2 启动器只保留失败/中间运行的真实配置。任何复现都应换用全新目录、任务名和 namespace，不应直接重放旧 done 命令。
+
+文本归档统一使用 LF，保证 Git 检出后的 SHA256SUMS 可复核；derivation.json 中原件哈希保持不变。
