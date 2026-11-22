@@ -1,10 +1,12 @@
 # ADR-0002：采用可替换终端后端和全屏 attach 交互
 
 - 日期：2026-11-21
-- 状态：已接受（Accepted）
+- 状态：已接受（Accepted），部分决定由 ADR-0014 替代／扩展
 - 实现与验证状态：首批 psmux/tmux 适配与全屏 attach 代码已实现；已有指定 Windows runner 的部分进程／后端结果，完整终端交互闭环未验收
 - 关联需求：FR-01、FR-02、FR-03、FR-05、FR-06、FR-10、FR-11、FR-12
 - 关联决定：[ADR-0001](0001-architecture-and-reuse.md)、[ADR-0003](0003-bounded-resources-and-background-work.md)
+
+> 2026-11-22 更新：[ADR-0014](0014-upstream-ui-tabs-and-general-terminals.md) 要求尽可能还原固定上游的布局、比例、交互和颜色，以 Tab 为主要会话工作区，agent 与普通 shell／CLI 共用终端原生输入。下文的最小列表主导航、默认隐藏 Tab 的全屏交接和内嵌交互后置是历史决定；其冲突部分由新 ADR 替代，CLI 管理对象扩展至普通终端。Go/Charm v2、后端托管、稳定身份与消息证据规则继续有效；既有实现／测试记录保留，不能视为新 Tab 路径的通过证据。
 
 ## 背景与约束
 

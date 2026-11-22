@@ -17,10 +17,10 @@ ADR 保存重要选择的背景、决定、替代方案、代价和重新评估�
 
 | ADR | 决定 | 状态 | 验证状态 |
 | --- | --- | --- | --- |
-| [0001](0001-architecture-and-reuse.md) | Go 模块化单体与 Agent Deck UI 选择性复用 | 已接受 | 首批 UI/平台代码已迁入；完整功能与 Windows 视觉验收待做 |
-| [0002](0002-terminal-backends-and-attach.md) | Windows psmux、Unix tmux 与全屏 attach | 已接受 | 适配及部分原生进程／后端证据已有；完整终端交互和 Windows 恢复待验证 |
+| [0001](0001-architecture-and-reuse.md) | Go 模块化单体与 Agent Deck UI 选择性复用 | 已接受；界面约束部分由 0014 替代 | 首批 UI/平台代码已迁入；完整功能与 Windows 视觉验收待做 |
+| [0002](0002-terminal-backends-and-attach.md) | Windows psmux、Unix tmux 与全屏 attach | 已接受；默认交互部分由 0014 替代 | 适配及部分原生进程／后端证据已有；完整终端交互和 Windows 恢复待验证 |
 | [0003](0003-bounded-resources-and-background-work.md) | 有界资源、落盘存储和按阶段引入 Host | 已接受 | 选中预览/命令边界与 Windows 短资源基线已有；存储、Host、完整预算与长稳待做 |
-| [0004](0004-cli-agents-and-session-messaging.md) | CLI-first、稳定身份与可核对的消息语义 | 已接受 | M0 模型与部分原生 fixture 接入证据已有；真实 agent 完整验收和 M3 消息待做 |
+| [0004](0004-cli-agents-and-session-messaging.md) | CLI-first、稳定身份与可核对的消息语义 | 已接受；0014 扩展普通终端范围 | M0 模型与部分原生 fixture 接入证据已有；真实 agent 完整验收和 M3 消息待做 |
 | [0005](0005-dependency-lifecycle-and-upgrades.md) | 活跃稳定依赖与 Charm v1 → v2 迁移 | 已接受 | 模块／外部发行物已锁定，Windows 局部检查已有记录；完整迁移与桌面交互待做 |
 | [0006](0006-human-attention-and-notifications.md) | 人工介入事项、可信状态与分层提醒 | 已接受 | FR-14 / FL-020 与测试设计已记录；事件、通知、后台与 Windows 待实现验证 |
 | [0007](0007-explicit-launch-configuration.md) | 显式 TOML 只读启动模板与严格 schema | 已接受 | CLI、局部 Go 测试与 Windows fixture 原生证据；保存／迁移及真实 agent 待做 |
@@ -37,6 +37,10 @@ ADR 保存重要选择的背景、决定、替代方案、代价和重新评估�
 | [0013](0013-bounded-screen-output-records.md) | 显式有界屏幕记录、非覆盖发布与跨进程轮转 | 已接受 | 原生 Windows 自定义 CLI／目录、采集／离线读取与文件边界见报告；完整流日志未实现 |
 
 | [0013](0013-bounded-screen-output-records.md) | 显式有界屏幕记录、按原 Run 离线读取与文件归属 | 已接受 | Go／原生 Windows 合同及 junction 拒绝已有局部证据；连续流与完整故障矩阵仍待做 |
+
+| [0014](0014-upstream-ui-tabs-and-general-terminals.md) | 尽可能还原上游体验、Tab 主导航、agent 与普通终端共用原生输入 | 已接受 | 仅产品决定与测试设计更新；Tab 工作区和上游体验还原未实现／未验收 |
+
+ADR-0014 依据用户 2026-11-22 的明确要求接受，部分替代 0001/0002 的界面约束并扩展 0004 的管理对象。原有运行证据不升级为新路径通过。
 
 ## 维护规则
 

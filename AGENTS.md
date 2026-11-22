@@ -21,9 +21,9 @@ Test design now lives in docs/testing/. Read TEST_STRATEGY.md, COVERAGE.md, and 
 ## Product invariants
 
 - Target native Windows; WSL is not a core prerequisite.
-- Launch local custom agents through CLI commands. ACP, MCP, HTTP, and custom SDKs are optional enhancements, not entry requirements.
-- Preserve a minimal multi-session TUI using Agent Deck's suitable layout and interaction code. Prefer one session list, the selected preview, and on-demand dialogs. The v0.1 design images are unaccepted exploration, not the implementation baseline.
-- Start with list/preview management and full-screen attach. The manager sidebar and tabs are hidden during attach; return to the manager after detaching. A permanently embedded interactive terminal is deferred.
+- Manage local agent CLIs, ordinary interactive shells, and other CLI programs through executable/args/cwd/env. All use the target terminal’s native input; no separate everyday chat composer. ACP, MCP, HTTP, and custom SDKs are optional enhancements, not entry requirements.
+- Follow ADR-0014: reproduce the pinned Agent Deck experience as closely as possible, including layout proportions, interactions, colors, spacing, and focus states. Record necessary product/platform differences and keep all styling in design tokens. The v0.1 design images remain unaccepted exploration.
+- Use product Tabs as the primary Session workspace with native terminal interaction and reachable Tab navigation while typing. Lists/search are auxiliary. Closing a Tab closes only the view, not the Run. Full-screen attach may remain an explicit auxiliary mode; Tab interaction (FL-018) is now first-version planned scope, not deferred. Current code and old evidence still cover list/preview/full-screen attach, not the new Tab path.
 - Keep Session, Run, and Tab identities distinct.
 - Separate terminal output from structured conversation history and model context.
 - Separate queued, input-written, agent-accepted, and completed message states. Never infer stronger states without evidence.

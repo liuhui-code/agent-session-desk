@@ -1,6 +1,6 @@
 # Feature Ledger
 
-更新时间：2026-11-21。用途：持续记录用户能力的范围、实现状态与验收证据。
+更新时间：2026-11-22。用途：持续记录用户能力的范围、实现状态与验收证据。
 
 **已有首批 M0 源码迁入及 Linux／Windows 局部自动化证据；五项可控原生后端场景在指定 Windows Server 2025 runner 通过，尚无已验收/已发布功能。** 列表、预览、CLI 启动、终端适配与身份边界保持实现中，已有受控短资源实验，完整 Windows 交互、资源预算、长稳与验收未完成。设计资料、代码存在、交叉编译和实际执行分别记录，范围及历史失败见[源码迁入报告](testing/results/2026-11-21-m0-source-migration.md)和[Windows 执行报告](testing/results/2026-11-21-m0-native-windows.md)。
 
@@ -25,10 +25,10 @@
 
 ## 2. 当前设计边界
 
-- 主界面向 Agent Deck 的简约列表、预览和按需弹窗收敛，选择性复用其样式与交互代码。现有 [v0.1 四屏设计](UI_DESIGN.md)保留为探索记录，用户已反馈过于杂乱，**不作为实现基线**。
-- 首版进入会话采用全屏 attach，返回后继续管理；进入 agent 后管理器侧栏和 Tab 暂时隐藏。常驻侧栏的完整内嵌终端列为后置能力。
+- 主界面尽可能还原固定 Agent Deck 上游的布局、比例、交互、颜色、间距与状态样式；通过 design tokens 和可追溯源码迁移实现，必要差异逐项说明。现有 [v0.1 四屏设计](UI_DESIGN.md)保留为探索记录，用户已反馈过于杂乱，**不作为实现基线**。
+- 首版以产品内 Tab 为主要会话入口，活动 Tab 直接操作终端，操作时保留 Tab 导航；列表／分组／搜索辅助组织。现有全屏 attach 可作显式辅助模式，不满足默认 Tab 体验。FL-018 从后置转为首版计划，当前尚未实现。
 - Windows 终端托管优先采用 psmux；其版本、实际命令能力和输入行为必须通过 M0 验证。UI、核心和终端后端保持可替换边界。
-- 自定义 agent 通过 CLI 接入；专用协议与增强适配不构成基础接入门槛。
+- 自定义 agent、普通交互 shell 和普通 CLI 均属于管理范围，共用 executable/args/cwd/env 启动与终端原生输入；不增加独立聊天框作为日常输入入口。专用协议与增强适配不构成基础接入门槛。
 - 人工介入提醒按可信事件显示待批准、待回答或待检查；已查看不等于已解决。全屏 attach 中的通知不改写终端画面或输入，UI 退出后的持续监测必须有明确运行的消费者，见 FL-020。
 - M0–M2 自有核心随 TUI 或管理命令运行，终端后台承担持续托管。消息落盘；没有自有消费者运行时，不承诺队列自动推进。M3 后台自动投递引入共享 Host，在 FL-009 中单独验收。
 - Bubble Tea / Lip Gloss 的旧 v1 代码是上游来源快照和迁移参考；本项目新实现面向已核验的稳定 v2 系列。迁入后的行为与 Windows 回归属于 M0 门槛，精确版本及升级规则见 ADR-0005。
@@ -41,6 +41,9 @@
 - [ADR-0004：CLI agent 与会话通信](adr/0004-cli-agents-and-session-messaging.md)
 - [ADR-0005：依赖生命周期与升级](adr/0005-dependency-lifecycle-and-upgrades.md)
 - [ADR-0006：人工介入状态与分层提醒](adr/0006-human-attention-and-notifications.md)
+- [ADR-0014：上游体验、Tab 与通用终端](adr/0014-upstream-ui-tabs-and-general-terminals.md)（部分替代旧界面约束）
+
+**2026-11-22 范围变更：**下列 FL-001/002/003/004/012 的现有局部代码继续记为实现中，但 Tab 工作区、上游体验完整还原及普通 shell 工作流尚无通过证据。FL-018 改为计划，不因本次文档更新提升为实现中。既有报告只证明当时被测列表／attach 路径；新要求详见 ADR-0014。
 
 ## 3. 能力总表
 
@@ -48,10 +51,10 @@
 
 | ID | 能力与用户价值 | 关联需求 | 计划阶段 | 当前状态 | 验收证据 / 发布版本 |
 | --- | --- | --- | --- | --- | --- |
-| FL-001 | 自定义 CLI 启动：直接接入自己的 agent | FR-01 | M0 预验证、M1 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md) / 未发布 |
-| FL-002 | 原生终端 attach：可靠输入并操作原有 CLI | FR-02、FR-11 | M0、M1 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md) / 未发布 |
-| FL-003 | 简约 TUI 与上游复用：减少视觉负担和重复设计 | FR-03、FR-11 | M0、M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[短资源实验](testing/results/2026-11-21-m0-windows-resources.md)、[只读历史 UI](testing/results/2026-11-22-m1-history-ui.md) / 未发布 |
-| FL-004 | 多会话组织：查找、切换、停止和归档任务 | FR-03 | M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md) / 未发布 |
+| FL-001 | 自定义 CLI 启动：接入 agent、普通 shell 与 CLI | FR-01 | M0 预验证、M1 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md) / 未发布 |
+| FL-002 | 原生终端交互：在 Tab 中输入并操作原有 CLI | FR-02、FR-11 | M0、M1 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md) / 未发布 |
+| FL-003 | 上游体验还原与代码复用：保留布局比例、交互和配色 | FR-03、FR-11 | M0、M1、M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[短资源实验](testing/results/2026-11-21-m0-windows-resources.md)、[只读历史 UI](testing/results/2026-11-22-m1-history-ui.md) / 未发布 |
+| FL-004 | Tab 多会话组织：查找、切换、停止和归档 | FR-03 | M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md) / 未发布 |
 | FL-005 | 稳定身份：重命名、排序后仍控制正确对象 | FR-04 | M1、M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md) / 未发布 |
 | FL-006 | 后台托管与重新连接：关闭界面后任务继续 | FR-05 | M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md)、[短资源实验](testing/results/2026-11-21-m0-windows-resources.md) / 未发布 |
 | FL-007 | 带来源的输出读取：交接内容可追溯 | FR-06 | M3 | 计划 | 未提供 / 未发布 |
@@ -65,7 +68,7 @@
 | FL-015 | 有界资源：多会话和持续输出下内存可控 | 产品质量标准 | M0 基线、M1 至 M4 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[短资源实验](testing/results/2026-11-21-m0-windows-resources.md) / 未发布 |
 | FL-016 | Windows 兼容门槛：核心流程原生运行 | FR-01、FR-02、FR-05、FR-07、FR-11 | M0、M4 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md)、[短资源实验](testing/results/2026-11-21-m0-windows-resources.md) / 未发布 |
 | FL-017 | 可安装预览版：用户可独立完成完整流程 | 全部首版需求 | M4 | 计划 | 未提供 / 未发布 |
-| FL-018 | 常驻侧栏内嵌终端：工作时持续看见管理导航 | FR-02、FR-11 的可选扩展 | 首版之后 | 后置 | 未提供 / 未发布 |
+| FL-018 | Tab 内完整终端：操作 agent 与普通命令行时保留 Tab 导航 | FR-02、FR-11 | M1 单 Tab、M2 多 Tab（首版） | 计划 | 未提供；ADR-0014 仅接受方向 / 未发布 |
 | FL-019 | 依赖与复用可追溯：持续获得可维护的实现基线 | 架构与发布质量 | M0 至 M4 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md) / 未发布 |
 | FL-020 | 人工介入提醒：及时发现并定位待批准、待回答与待检查事项 | FR-14；关联 FR-04、FR-08、FR-11、FR-12 | M2 界面与 attach、M3 后台、M4 发布复验 | 计划 | 未提供 / 未发布 |
 
@@ -75,33 +78,33 @@
 
 测试设计：[FL-001 用例与映射](testing/COVERAGE.md#fl-001)；目录保留 designed/not_run 基线，局部执行见下方实际证据。
 
-- **范围与边界：**名称、可执行入口、参数、cwd、env 和显式 shell 模式；内部保留明确参数边界。品牌列表、模型账号或 ACP 注册不是创建前置条件。用户自定义 CLI 通过通用启动入口拉起；真实 agent 是运行验收样本，不新增逐品牌接入开发阶段。可执行文件、脚本、命令别名的支持范围以实测结果声明。
-- **验收：**至少一个可控测试 CLI 和一个真实目标 agent 通过配置启动；含空格路径、中文路径、引号、工作目录与环境变量按约定生效；命令或目录无效时显示可定位错误。
-- **依据：**[FR-01](PRODUCT_PLAN.md)、[ADR-0004](adr/0004-cli-agents-and-session-messaging.md)。
+- **范围与边界：**名称、可执行入口、参数、cwd、env 和显式 shell 模式；内部保留明确参数边界。品牌列表、模型账号或 ACP 注册不是创建前置条件。用户自定义 agent、普通交互 shell 与 CLI 均通过通用启动入口拉起，使用终端自身输入区；普通 shell 不需要 agent 协议。真实 agent 是运行验收样本，不新增逐品牌接入开发阶段。可执行文件、脚本、命令别名的支持范围以实测结果声明。
+- **验收：**至少一个可控测试 CLI、一个普通交互 shell 和一个真实目标 agent 通过配置启动；普通 shell 连续执行命令、返回提示符后再次输入仍属同一 Run；含空格路径、中文路径、引号、工作目录与环境变量按约定生效；命令或目录无效时显示可定位错误。
+- **依据：**[FR-01](PRODUCT_PLAN.md)、[ADR-0004](adr/0004-cli-agents-and-session-messaging.md)、[ADR-0014](adr/0014-upstream-ui-tabs-and-general-terminals.md)。
 - **实现与验收证据：**[启动模型与参数解析](../internal/session/launch.go)、[CLI 入口](../internal/cli/cli.go)和可控 fixture 已实现；直接 executable/argv/cwd/env 保持分开，已知后端改写形式明确拒绝。指定 Windows runner 已独立记录 fixture 实际收到的空格／中文路径、选定 argv、cwd 与环境覆盖。显式只读 TOML 命名模板与 CLI 覆盖已实现，见 [ADR-0007](adr/0007-explicit-launch-configuration.md) 和 [2026-11-22 实际证据](testing/results/2026-11-22-m1-config-tokens.md)。新建表单、配置保存／迁移、更多参数／脚本组合和真实 agent 验收仍待做。见[源码局部证据](testing/results/2026-11-21-m0-source-migration.md)与[Windows 样本及结果](testing/results/2026-11-21-m0-native-windows.md)。
 
 - **M1 元数据恢复进展（2026-11-22）：**离线检查、全部作用域快照和非覆盖恢复已实现；校验后发布，保留原身份／时间，不从恢复记录启动进程。真实 SQLite 写事务强杀、v1 只读检查与原生 Windows 合同见 [ADR-0012](adr/0012-metadata-checkpoint-recovery.md) 和[执行报告](testing/results/2026-11-22-m1-metadata-recovery.md)。本轮使用自定义命令／目录的受控 CLI；实际 agent 当前不可用，物理断电及完整阶段验收仍待做。
 
 - **M1 输出记录进展（2026-11-22）：**record 显式保存重验目标的屏幕快照，output 按原 Run 离线读回；每作用域／Run 2 份、同库 32 份，正文 64 KiB／文件 512 KiB 为工程硬边界，不是性能预算。固定 complete=false，不冒充完整流或对话；并发轮转、未知文件／NTFS junction 拒绝和停止后读取见 [ADR-0013](adr/0013-bounded-screen-output-records.md) 与[实际报告](testing/results/2026-11-22-m1-output-records.md)。连续日志、完整磁盘故障与实际 agent 兼容仍待做。
 
-### FL-002：原生终端 attach
+### FL-002：原生终端交互（保留 attach 辅助路径）
 
 测试设计：[FL-002 用例与映射](testing/COVERAGE.md#fl-002)；当前仅设计，未执行。
 
-- **范围与边界：**管理状态展示列表和被动预览；进入会话后通过后台 attach 客户端全屏操作原 CLI，分离后恢复管理界面。被动预览不持续改写正在使用的终端尺寸。
+- **范围与边界：**活动 Tab 内完整操作 agent、普通 shell 和 CLI，保留 Tab 导航，输入交给目标程序自身的行编辑／提示符；全屏 attach 仅作为显式辅助路径。被动预览不持续改写正在使用的终端尺寸。实现方案与 Windows 合同按 ADR-0014 验证。
 - **验收：**Windows 实机验证中文输入、Unicode、颜色、光标、窗口缩放、多行粘贴、滚动、Ctrl+C 和交互式 TUI；正常分离及异常退出后恢复管理器终端状态，按键不发错对象。
-- **依据：**[FR-02 / FR-11](PRODUCT_PLAN.md)、[ADR-0002](adr/0002-terminal-backends-and-attach.md)。
+- **依据：**[FR-02 / FR-11](PRODUCT_PLAN.md)、[ADR-0002](adr/0002-terminal-backends-and-attach.md)、[ADR-0014](adr/0014-upstream-ui-tabs-and-general-terminals.md)。
 - **实现与验收证据：**[后端](../internal/backend/backend.go)与 [v2 UI 模型](../internal/ui/model.go)已实现只读快照、原始 pane 核对、全屏 ExecProcess 交接及返回路径；退出 pane 只读查看。指定 Windows runner 已检查被动预览前后尺寸一致、Attach 命令准备及对退出、缺失或非活动原 pane 的拒绝；未执行交互式 attach 客户端。真实 attach/detach、IME、用户输入交接、主动 resize 与终端恢复仍未验收。见[源码局部证据](testing/results/2026-11-21-m0-source-migration.md)与[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md)。
 
 - **M1 输出记录进展（2026-11-22）：**record 显式保存重验目标的屏幕快照，output 按原 Run 离线读回；每作用域／Run 2 份、同库 32 份，正文 64 KiB／文件 512 KiB 为工程硬边界，不是性能预算。固定 complete=false，不冒充完整流或对话；并发轮转、未知文件／NTFS junction 拒绝和停止后读取见 [ADR-0013](adr/0013-bounded-screen-output-records.md) 与[实际报告](testing/results/2026-11-22-m1-output-records.md)。连续日志、完整磁盘故障与实际 agent 兼容仍待做。
 
-### FL-003：简约 TUI 与上游复用
+### FL-003：上游体验还原与代码复用
 
 测试设计：[FL-003 用例与映射](testing/COVERAGE.md#fl-003)；目录保留 designed/not_run 基线，局部执行见下方实际证据。
 
-- **范围与边界：**保留 Agent Deck 的主题、列表、布局、弹窗和快捷键处理等适合迁入的代码，连接精简的会话模型。默认只保留列表、当前预览和必要提示；不同时长期展开重复会话导航与多个状态面板。新建、通信和设置按需进入。
-- **验收：**列明来源文件、固定提交和实际保留/适配范围；完成 v1 来源代码向稳定 v2 依赖的必要适配；真实 Windows 运行中验证宽字符、布局缩放、焦点和快捷键，界面由用户评审。不能把复制目录、静态图或编译通过视为完成。
-- **依据：**[FR-03 / FR-11](PRODUCT_PLAN.md)、[ADR-0001](adr/0001-architecture-and-reuse.md)、[ADR-0005](adr/0005-dependency-lifecycle-and-upgrades.md)。
+- **范围与边界：**尽可能还原固定 Agent Deck 的布局结构、区域比例、颜色、间距、边框、选中／焦点、弹窗及键鼠交互，以 Tab 为主导航。新建、通信和设置按需进入。必要的平台与产品适配逐项说明；所有样式经 design tokens 管理，实际源码来源仍由复用清单记账。
+- **验收：**列明来源文件、固定提交和实际保留/适配范围；完成 v1 来源代码向稳定 v2 依赖的必要适配；在相同尺寸、字体、主题与合成数据下对照固定上游与真实 Windows 构建，记录布局比例、配色、交互和必要差异；验证宽字符、布局缩放、焦点与快捷键，界面由用户评审。不能把复制目录、静态图或编译通过视为完成。
+- **依据：**[FR-03 / FR-11](PRODUCT_PLAN.md)、[ADR-0001](adr/0001-architecture-and-reuse.md)、[ADR-0005](adr/0005-dependency-lifecycle-and-upgrades.md)、[ADR-0014](adr/0014-upstream-ui-tabs-and-general-terminals.md)。
 - **实现与验收证据：**[四个 Agent Deck 派生文件与来源](REUSE_MANIFEST.md)已迁入 Charm v2；包含响应式列表/预览、短提示、keycap 宽度修复及局部回归。当前颜色、间距、尺寸、断点、样式标记统一通过 [设计 tokens](../internal/ui/design_tokens.go) 管理，见 [ADR-0008](adr/0008-ui-design-tokens.md) 与[局部渲染回归](testing/results/2026-11-22-m1-config-tokens.md)。新建暂用 CLI，完整表单、运行时主题切换和本次改动后的 Windows 视觉评审待做。 [实际验证范围与未通过门槛](testing/results/2026-11-21-m0-source-migration.md)。
 
 - **TUI 历史局部进展（2026-11-22）：**h 按需读取最近 100 条，Enter 只读详情，独立选择与刷新按 Run ID 保留；关闭取消、迟到结果丢弃、错误及窄窗口边界有回归。历史不 attach、不重启、不推定当前状态；详见 [ADR-0011](adr/0011-read-only-tui-history.md) 和[实际报告](testing/results/2026-11-22-m1-history-ui.md)。完整历史、归档／恢复和发布仍待做。
@@ -111,9 +114,9 @@
 
 测试设计：[FL-004 用例与映射](testing/COVERAGE.md#fl-004)；当前仅设计，未执行。
 
-- **范围与边界：**新建、命名、分组、搜索、切换、停止、归档；停止运行、关闭视图和收纳记录分别操作。默认以会话列表承担导航，Tab 不承担寻址身份。
-- **验收：**并行会话切换不会创建新 agent Run、重启现有 agent 或发送额外输入；允许按需启动 attach 客户端进程。搜索与分组后能进入正确会话；停止与归档的对象、运行处置和记录保留符合已记录规则。
-- **依据：**[FR-03](PRODUCT_PLAN.md)、[ADR-0001](adr/0001-architecture-and-reuse.md)、[ADR-0004](adr/0004-cli-agents-and-session-messaging.md)。
+- **范围与边界：**新建、命名、分组、搜索、切换、停止、归档；停止运行、关闭视图和收纳记录分别操作。默认以 Tab 承担创建、选择、切换和重开入口，列表／分组／搜索辅助组织；Tab 不承担寻址身份，关闭 Tab 不停止 Run。
+- **验收：**agent 与普通终端的 A→B→A Tab 切换保留未提交输入、终端状态和原 Run，不重启目标或发送额外输入；允许按需启动 attach 客户端进程。搜索与分组后能进入正确会话；停止与归档的对象、运行处置和记录保留符合已记录规则。
+- **依据：**[FR-03](PRODUCT_PLAN.md)、[ADR-0001](adr/0001-architecture-and-reuse.md)、[ADR-0004](adr/0004-cli-agents-and-session-messaging.md)、[ADR-0014](adr/0014-upstream-ui-tabs-and-general-terminals.md)。
 - **实现与验收证据：**首批列表选择、保持当前稳定身份、显式按 ID 停止入口已实现。Windows 可控场景中，两个真实会话及另一私有 runtime／namespace 组合并存，停止指定会话后其余会话仍可观测；这不代替任意用户配置或 UI 切换验收。命名编辑、分组、搜索和归档仍待实现。见[源码局部证据](testing/results/2026-11-21-m0-source-migration.md)与[Windows 隔离场景](testing/results/2026-11-21-m0-native-windows.md)。
 
 ### FL-005：稳定身份
@@ -205,9 +208,9 @@
 
 测试设计：[FL-012 用例与映射](testing/COVERAGE.md#fl-012)；目录保留 designed/not_run 基线，局部执行见实际报告。
 
-- **范围与边界：**明确管理模式与 attach 终端模式；表单、通信草稿按 Session 保留，子终端自身输入由原程序管理。最终按键绑定依据 Windows/输入法/agent 冲突验证，不沿用概念图中的未确认键位。
+- **范围与边界：**明确 Tab 导航、管理表单与活动终端的焦点，辅助全屏 attach 单独交接；表单、通信草稿按 Session 保留，agent 与普通 shell／CLI 的实时输入由子终端原程序管理，不新增日常聊天输入框。Tab 切换必须保留子终端未提交输入。最终按键绑定依据 Windows/输入法/agent 冲突验证，不沿用概念图中的未确认键位。
 - **验收：**编辑表单、切换会话、进入/退出 attach 和处理弹窗时，普通输入与快捷键各自只作用于预期对象；管理器草稿不会串会话，也不会覆盖子终端未提交输入。
-- **依据：**[FR-11](PRODUCT_PLAN.md)、[ADR-0002](adr/0002-terminal-backends-and-attach.md)、[ADR-0004](adr/0004-cli-agents-and-session-messaging.md)。
+- **依据：**[FR-11](PRODUCT_PLAN.md)、[ADR-0002](adr/0002-terminal-backends-and-attach.md)、[ADR-0004](adr/0004-cli-agents-and-session-messaging.md)、[ADR-0014](adr/0014-upstream-ui-tabs-and-general-terminals.md)。
 - **实现与验收证据：**管理键盘与 attach 的代码路径已分离，粘贴不解释为管理快捷键、重复 Enter 不重复接入；完整新建/通信草稿、IME 与原生焦点交接尚未验收。 [实际验证范围与未通过门槛](testing/results/2026-11-21-m0-source-migration.md)。
 
 - **TUI 历史局部进展（2026-11-22）：**h 按需读取最近 100 条，Enter 只读详情，独立选择与刷新按 Run ID 保留；关闭取消、迟到结果丢弃、错误及窄窗口边界有回归。历史不 attach、不重启、不推定当前状态；详见 [ADR-0011](adr/0011-read-only-tui-history.md) 和[实际报告](testing/results/2026-11-22-m1-history-ui.md)。完整历史、归档／恢复和发布仍待做。
@@ -278,13 +281,13 @@
 - **依据：**[路线图 M4](ROADMAP.md)、全部首版需求及 ADR-0001 至 ADR-0005。
 - **实现与验收证据：**未提供；当前没有可安装版本。
 
-### FL-018：常驻侧栏内嵌终端
+### FL-018：Tab 内完整终端与持续导航
 
 测试设计：[FL-018 用例与映射](testing/COVERAGE.md#fl-018)；当前仅设计，未执行。
 
-- **范围与边界：**进入 agent 后仍保留管理器侧栏，并在右侧完整交互。当前首版采用全屏 attach，本条处于后置状态。
-- **重新评估条件：**已有全屏路径稳定，用户仍明确需要常驻导航；提供可复用的屏幕模型和输入路径，并测得其 Windows、IME、鼠标、光标及资源成本。
-- **依据：**[ADR-0002](adr/0002-terminal-backends-and-attach.md)。
+- **范围与边界：**首版计划能力，活动 Tab 直接显示并操作对应终端，保留 Tab 导航；agent、普通交互 shell 与 CLI 共用终端原生输入。侧栏布局按上游体验与 Tab 主导航适配，不强制额外常驻重复列表。全屏 attach 可辅助使用，不能代替本能力。
+- **验收：**Windows 实机验证 A→B→A、输入／光标／终端状态保留、IME、鼠标、alternate screen、resize 与 Ctrl+C；切换不向后台会话写入。关闭／重开 Tab 接回存活 Run，显式停止另行操作。屏幕模型、输入路径与资源成本独立留证，具体终端集成方案实施前验证。
+- **依据：**[ADR-0014](adr/0014-upstream-ui-tabs-and-general-terminals.md)；替代 ADR-0002 的后置约束。
 - **实现与验收证据：**未提供。
 
 ### FL-019：依赖升级与复用来源
@@ -370,3 +373,5 @@ M1 恢复补充（2026-11-22）：新增离线检查、完整快照和非覆盖�
 M1 恢复补充（2026-11-22）：按用户继续完成 M1 的授权实现 metadata check／backup／restore；用户当前没有真实 agent，通用命令与目录配置化作为当前实施重点，真实兼容性保留待测。各 FL 保持实现中，目录用例状态不变。
 
 输出记录补充（2026-11-22）：通用 CLI 增加显式 record／离线 output，保存有限屏幕而非连续历史流；不添加 UI 常驻记录器或 Host，FL 状态与 339 项基线不变。
+
+2026-11-22 产品方向更新：用户明确上游体验尽可能还原、Tab 主导航、agent 与普通 shell／CLI 共用终端输入。ADR-0014 部分替代 0001/0002 并扩展 0004；FL-018 从后置改为首版计划，其余相关条目保留实际实现状态。FR/FL/TC 编号保持稳定；测试预期更新但仍 designed/not_run。本次仅文档核验，见[变更报告](testing/results/2026-11-22-tab-terminal-direction.md)，不新增产品或 Windows 通过结论。

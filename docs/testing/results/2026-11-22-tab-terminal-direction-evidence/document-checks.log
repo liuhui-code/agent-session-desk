@@ -1,0 +1,4 @@
+PASS: all 339 TC IDs and designed/not_run states preserved; original FR/FL mappings retained.
+Changed cases: TC-ATTN-029, TC-DEFER-001, TC-DEFER-002, TC-FOC-004, TC-LCH-006, TC-TRM-001, TC-UI-001, TC-UI-012
+PASS: 4287 relative Markdown file links exist in changed/new documents (fragment anchors not checked).
+PASS: git diff --check.

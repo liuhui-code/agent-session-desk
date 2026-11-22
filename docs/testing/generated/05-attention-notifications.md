@@ -1112,7 +1112,7 @@
 
 - 功能：[FL-020](../COVERAGE.md#fl-020)、[FL-003](../COVERAGE.md#fl-003)、[FL-004](../COVERAGE.md#fl-004)、[FL-016](../COVERAGE.md#fl-016)
 - 需求：[FR-14](../COVERAGE.md#fr-14)、[FR-03](../COVERAGE.md#fr-03)、[FR-11](../COVERAGE.md#fr-11)
-- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0014](../../adr/0014-upstream-ui-tabs-and-general-terminals.md)
 - 优先级 / 阶段 / 层次：P1 / M2 / manual
 - 类型：usability、compatibility、functional
 - 设计 / 执行：`designed / not_run`
@@ -1133,7 +1133,7 @@
 
 #### 预期与不变量
 
-- 默认保持会话列表/当前预览/必要提示，待处理详情按需打开，不额外常驻多个状态面板
+- 以 Tab 为主要工作区，原因标记和待处理入口可达，详情按需打开；尽可能保留上游布局／交互，不遮挡当前终端输入或强制增加通知侧栏。
 - 原因有文字或符号辅助，不能只靠颜色；截断名称仍能进入正确事项并查看完整身份
 - 汇总标明计数单位，数量与详情一致，必要操作在支持尺寸内可达
 

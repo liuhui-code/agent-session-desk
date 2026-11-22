@@ -4,7 +4,7 @@
 
 当前选择为：**Go 模块化单体 + Charm v2 TUI，选择性复用 Agent Deck 界面代码；Windows 使用 psmux，macOS/Linux 后续适配 tmux；自定义 agent 通过 CLI 接入。**
 
-界面默认采用会话列表、当前预览和简短状态栏，进入会话后全屏 attach。详细取舍见 [ADR 索引](adr/README.md)，功能范围与实际进展见 [Feature Ledger](FEATURE_LEDGER.md)。
+界面按 [ADR-0014](adr/0014-upstream-ui-tabs-and-general-terminals.md) 尽可能还原固定上游的布局比例、交互和配色，以 Tab 管理 agent 与普通终端，使用终端原生输入；全屏 attach 为显式辅助路径。当前代码仍是列表／全屏 attach，新方向尚未实现／验收。详细取舍见 [ADR 索引](adr/README.md)，功能范围与实际进展见 [Feature Ledger](FEATURE_LEDGER.md)。
 
 ## 1. 技术栈与目标版本
 
@@ -24,7 +24,7 @@
 | 本地状态与消息 | **SQLite 3.54.1，最小元数据已实现** | modernc.org/sqlite v1.62.0、libc v1.80.1；Session/Run、独立 history 和 [schema v2 pane 观测](adr/0010-pane-exit-observations.md)；v1→v2 追加迁移和离线检查／非覆盖快照恢复已实现（ADR-0012），队列、回执与完整升级恢复待做 |
 | 配置 | **TOML，首个只读启动切片已实现** | BurntSushi/toml v1.6.0、TOML 1.1.0、schema_version=1；[ADR-0007](adr/0007-explicit-launch-configuration.md)。主题／偏好文件和保存待做 |
 | 输出保存 | **有界文件记录 + 内存尾部缓存** | 已有显式屏幕记录文件与按 Run／全库数量轮转（ADR-0013），仍有选中预览缓存；分页、连续全流日志和完整资源预算未完成 |
-| Agent 接入 | **CLI-first** | executable、args、cwd、env；专用协议是可选增强 |
+| 终端／Agent 接入 | **CLI-first** | agent、普通交互 shell 和 CLI 共用 executable、args、cwd、env 与终端原生输入；专用协议是可选增强 |
 | 人工介入与提醒 | **共享核心事件与可替换平台通知出口** | UI 标记、待处理入口与可选 Windows 通知；Go API/注册/激活、事件接口与预算待 M2–M4 验证，不预先引入 .NET 运行时依赖 |
 
 精确发布来源：[Go](https://go.dev/doc/devel/release)、[Bubble Tea](https://github.com/charmbracelet/bubbletea/releases/tag/v2.1.2)、[Lip Gloss](https://github.com/charmbracelet/lipgloss/releases/tag/v2.1.1)、[Bubbles](https://github.com/charmbracelet/bubbles/releases/tag/v2.2.2)、[psmux](https://github.com/psmux/psmux/releases/tag/v3.4.0)、[tmux](https://github.com/tmux/tmux/releases/tag/3.8)。版本依据官方发布记录；框架与终端后台的最新正式版本另经官方 GitHub Release API 核对，排除了 draft/prerelease。
@@ -75,7 +75,7 @@ Windows 自动化通过[依赖锁定记录](../tools/ci/windows-dependencies.jso
 ## 5. 进程、界面与存储约束
 
 - **一个模块化应用代码库**：TUI 与管理 CLI 共享业务核心；逻辑分层不变成多套常驻服务。
-- **管理与终端操作分模式**：管理时显示列表与预览；进入会话后全屏 attach，分离后恢复管理界面。默认不同时保留重复的列表、Tab 和多个详情面板。
+- **Tab 工作区与输入焦点**：Tab 是主要会话入口，活动 Tab 使用目标终端原生输入；列表／搜索辅助组织，表单按需打开。尽可能还原上游体验；当前仅有列表／全屏 attach，Tab 屏幕模型、输入和 resize 集成实施前验证，见 ADR-0014。
 - **M0–M2 按需运行自有界面/命令**：psmux/tmux 负责退出界面后的终端托管。没有消费者运行时，落盘消息等待后续处理。
 - **M3 引入自动协作所需的共享 Host**：实现可靠 ready 信号下的后台自动投递与输入仲裁，并按 ADR-0006 复用为后台人工介入事件与提醒消费者；FR-08 保留。Host 不重复创建 ConPTY。
 - **低内存依靠有界工作量**：仅刷新当前预览、限制缓存与事件队列、长期输出轮转落盘、关闭闲置预热。语言选择本身不构成性能保证。
@@ -100,7 +100,7 @@ Windows 自动化通过[依赖锁定记录](../tools/ci/windows-dependencies.jso
 
 ## 7. M0 接受门槛与升级规则
 
-M0 先跑通“列表/预览 → 自定义命令 → 全屏 attach → 返回”，完成旧 UI 代码向 v2 的必要迁移。Windows 必测输入法、中文/宽字符、空格与引号路径、多行粘贴、全屏 TUI、resize、分离与重连；同时核对真实命令、退出证据和资源进程树。
+M0 已有“列表/预览 → 自定义命令 → 全屏 attach → 返回”的局部切片；新验收按 ADR-0014 增补上游体验对照、Tab 工作区与普通终端输入，单 Tab 在 M1、多 Tab 在 M2 交付。完成旧 UI 代码向 v2 的必要迁移；旧路径结果不替代新路径验证。Windows 必测输入法、中文/宽字符、空格与引号路径、多行粘贴、全屏 TUI、resize、分离与重连；同时核对真实命令、退出证据和资源进程树。
 
 建立 0、1、5、10 会话的空闲与输出负载基线，分开报告产品、终端后台、shell/控制台和 agent，并与直接运行同一 agent 比较。通过后制定数值预算；当前没有内存数值承诺。
 

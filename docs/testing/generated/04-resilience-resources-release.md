@@ -56,8 +56,8 @@
 | [TC-REL-014](#tc-rel-014) | 发布依赖升级触发相应回归 | P1 | M4 | 依据明确 |
 | [TC-REL-015](#tc-rel-015) | 诊断和恢复说明可由新用户完成 | P1 | M4 | 依据明确 |
 | [TC-REL-016](#tc-rel-016) | 相同包多次启动与配置目录选择 | P0 | M4 | 待决策 |
-| [TC-DEFER-001](#tc-defer-001) | 常驻侧栏内嵌终端的焦点合同 | P2 | POST_MVP | 后置 |
-| [TC-DEFER-002](#tc-defer-002) | 嵌入终端资源与 VT 完整性 | P2 | POST_MVP | 后置 |
+| [TC-DEFER-001](#tc-defer-001) | Tab 内终端与管理导航的焦点合同 | P1 | M2 | 待决策 |
+| [TC-DEFER-002](#tc-defer-002) | Tab 内终端资源与 VT 完整性 | P1 | M2 | 待决策 |
 | [TC-PROP-001](#tc-prop-001) | 随机生命周期操作保持 Session/Run 不变量 | P1 | M2 | 待决策 |
 | [TC-PROP-002](#tc-prop-002) | 随机参数编码保持直接启动边界 | P1 | M1 | 待决策 |
 | [TC-PROP-003](#tc-prop-003) | 分片方式不改变有效 UTF-8/VT 的最终屏幕 | P1 | M1 | 依据明确 |
@@ -1923,78 +1923,85 @@
 
 ### TC-DEFER-001
 
-**常驻侧栏内嵌终端的焦点合同**
+**Tab 内终端与管理导航的焦点合同**
 
 - 功能：[FL-018](../COVERAGE.md#fl-018)
-- 需求：—
-- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)
-- 优先级 / 阶段 / 层次：P2 / POST_MVP / manual
+- 需求：[FR-02](../COVERAGE.md#fr-02)、[FR-11](../COVERAGE.md#fr-11)
+- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0014](../../adr/0014-upstream-ui-tabs-and-general-terminals.md)
+- 优先级 / 阶段 / 层次：P1 / M2 / manual
 - 类型：usability、compatibility、state
 - 设计 / 执行：`designed / not_run`
-- 规范状态：后置（`deferred`）
-- 待决依据：—
+- 规范状态：待决策（`needs_decision`）
+- 待决依据：[O-009](../../DECISIONS.md)
 - 环境：[ENV-WIN-BASE](../ENVIRONMENTS.md#env-win-base)
 - 夹具：[FX-VT](../FIXTURES_AND_FAULTS.md#fx-vt)、[FX-ECHO](../FIXTURES_AND_FAULTS.md#fx-echo)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
 
 #### 前置条件
 
-- 未来通过新 ADR 启用 FL-018；当前首版不执行本能力验收
+- ADR-0014 已接受，Tab 内终端实现与 Windows 屏幕／输入合同已可运行；本条仍为 designed/not_run。
+- 记录产品、固定上游版本、Windows／终端／shell／agent／psmux 哈希和快捷键配置；使用隔离合成数据。
 
 #### 操作步骤
 
-1. 将完整交互终端嵌入侧栏布局
-2. 在表单、列表和子终端之间切换焦点
-3. 覆盖 IME、鼠标和保留快捷键
+1. 打开普通 shell A 与 agent B 的 Tab，分别使用各自终端输入区，保留未提交文本。
+2. 在 Tab 导航、按需表单与子终端间切换焦点，执行 A→B→A、重命名、排序、关闭／重新打开视图。
+3. 覆盖 IME、鼠标、Tab 键、方向键、Enter、Ctrl+C 和保留管理快捷键；最后显式停止目标。
 
 #### 预期与不变量
 
-- 每个输入只被预期消费者处理
-- 明确嵌入终端与管理器焦点，保留目标 Run
-- 不能把全屏 attach 通过等同于本能力通过
+- 每个输入只被当前消费者处理，后台会话不收到键盘输入；不新增日常聊天输入框。
+- 终端操作时 Tab 导航仍可达，无需先 detach；切换保留原 Run、屏幕和未提交输入。
+- 关闭 Tab 只关闭视图，重开接回存活 Run；显式停止单独操作。普通 shell 命令返回后仍可输入。
+- 旧全屏 attach 证据不能代替本能力；缺少真实 agent 时保留该样本待测。
 
 #### 需要的证据
 
-- 未来焦点与输入证据
-- 新 ADR 与 Windows 回归
+- Windows Tab 切换与焦点录屏、输入接收独立记录、Session/Run 对照。
+- 固定上游视觉对照、构建身份和实际失败／限制。
+
+说明：编号 TC-DEFER-001 为历史稳定 ID；ADR-0014 已将其纳入首版，不再表示后置。具体快捷键与技术路径按 O-009 验证。
 
 
 ### TC-DEFER-002
 
-**嵌入终端资源与 VT 完整性**
+**Tab 内终端资源与 VT 完整性**
 
 - 功能：[FL-018](../COVERAGE.md#fl-018)、[FL-015](../COVERAGE.md#fl-015)
-- 需求：—
-- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)
-- 优先级 / 阶段 / 层次：P2 / POST_MVP / windows_e2e
+- 需求：[FR-02](../COVERAGE.md#fr-02)、[FR-11](../COVERAGE.md#fr-11)
+- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0014](../../adr/0014-upstream-ui-tabs-and-general-terminals.md)
+- 优先级 / 阶段 / 层次：P1 / M2 / windows_e2e
 - 类型：performance、compatibility、boundary
 - 设计 / 执行：`designed / not_run`
-- 规范状态：后置（`deferred`）
-- 待决依据：—
+- 规范状态：待决策（`needs_decision`）
+- 待决依据：[O-009](../../DECISIONS.md)、[O-012](../../DECISIONS.md)
 - 环境：[ENV-WIN-BASE](../ENVIRONMENTS.md#env-win-base)
 - 夹具：[FX-VT](../FIXTURES_AND_FAULTS.md#fx-vt)、[FX-LOAD](../FIXTURES_AND_FAULTS.md#fx-load)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
 
 #### 前置条件
 
-- 未来已有可复用屏幕模型和嵌入终端实现
-- 该阶段预算与支持序列已固定
+- ADR-0014 已接受，Tab 内屏幕模型与输入路径可运行；记录支持序列、资源口径及未定预算。本条仍为 designed/not_run。
 
 #### 操作步骤
 
-1. 用同一 agent 比较全屏 attach 与嵌入路径
+1. 用同一普通 shell／CLI 和 agent 分别对照直接终端、辅助全屏 attach 与 Tab 内路径；固定尺寸、输出负载和版本。
 2. 覆盖 alternate screen、宽字符、resize、滚动和高输出
 3. 测量屏幕模型重复缓存
+4. 覆盖 0/1/5/10 会话和活动／后台 Tab，检查切换、关闭／重开、持续输出后的有界缓存。
 
 #### 预期与不变量
 
 - 已声明 VT 与输入行为可复现
 - 内存和响应成本单独列明，不沿用当前全屏模式数据
 - 未支持序列按声明处理，不造成其他会话状态污染
+- 未定预算只报告测量与待判定；旧 attach 资源数据不能作为 Tab 路径结果。
 
 #### 需要的证据
 
 - 两路径对照记录
 - 资源曲线与缓存对象
 - 屏幕/输入证据
+
+说明：TC-DEFER-002 保留原 ID，ADR-0014 将能力转为首版；终端集成合同与数值预算仍待决定。
 
 
 ### TC-PROP-001

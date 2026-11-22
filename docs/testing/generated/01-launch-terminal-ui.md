@@ -32,7 +32,7 @@
 | [TC-LCH-022](#tc-lch-022) | 真实自定义 agent 最小启动闭环 | P0 | M0 | 待决策 |
 | [TC-LCH-023](#tc-lch-023) | 执行目标与 cwd 配置保持分别处理 | P1 | M1 | 依据明确 |
 | [TC-LCH-024](#tc-lch-024) | 空入口或只含空白的配置被拒绝 | P1 | M0 | 依据明确 |
-| [TC-TRM-001](#tc-trm-001) | 列表进入 attach 再 detach 的基本闭环 | P0 | M0 | 依据明确 |
+| [TC-TRM-001](#tc-trm-001) | 显式辅助全屏 attach 再 detach 的基本闭环 | P0 | M0 | 依据明确 |
 | [TC-TRM-002](#tc-trm-002) | 正常离开 attach 后终端模式恢复 | P0 | M0 | 依据明确 |
 | [TC-TRM-003](#tc-trm-003) | attach 客户端异常退出恢复管理器 | P0 | M0 | 依据明确 |
 | [TC-TRM-004](#tc-trm-004) | 目标在 attach 建立前退出 | P0 | M0 | 依据明确 |
@@ -54,7 +54,7 @@
 | [TC-TRM-020](#tc-trm-020) | 鼠标与滚轮按当前模式处理 | P1 | M0 | 待决策 |
 | [TC-TRM-021](#tc-trm-021) | 异常字节与未结束控制序列不会破坏管理器 | P1 | M0 | 依据明确 |
 | [TC-TRM-022](#tc-trm-022) | 被动预览中的控制序列不会越权改变宿主 | P1 | M3 | 待决策 |
-| [TC-UI-001](#tc-ui-001) | 默认主界面保持列表、预览与简短提示 | P1 | M0 | 依据明确 |
+| [TC-UI-001](#tc-ui-001) | Tab 为主要工作区并保留上游布局与交互 | P1 | M0 | 依据明确 |
 | [TC-UI-002](#tc-ui-002) | 空列表的引导与 Enter 边界 | P1 | M0 | 依据明确 |
 | [TC-UI-003](#tc-ui-003) | 长名称与 CJK 列宽不遮挡关键状态 | P1 | M2 | 依据明确 |
 | [TC-UI-004](#tc-ui-004) | 窄窗口与最小布局退化 | P1 | M0 | 待决策 |
@@ -288,7 +288,7 @@
 
 - 功能：[FL-001](../COVERAGE.md#fl-001)、[FL-016](../COVERAGE.md#fl-016)
 - 需求：[FR-01](../COVERAGE.md#fr-01)
-- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0014](../../adr/0014-upstream-ui-tabs-and-general-terminals.md)
 - 优先级 / 阶段 / 层次：P1 / M0 / windows_e2e
 - 类型：functional、compatibility
 - 设计 / 执行：`designed / not_run`
@@ -306,11 +306,13 @@
 
 1. 在已批准的 shell 配置下创建只使用临时测试文件的管道或变量展开命令。
 2. 再把相同文本以直接 executable/args 模式运行，比较两次结果。
+3. 在普通交互 shell Tab 中连续执行两个合成命令，每次返回提示符后再次输入；不启动 agent。
 
 #### 预期与不变量
 
 - 显式 shell 模式按所选 shell 的已记录规则执行；直接模式保持参数边界或给出明确无效入口错误。
 - 两种模式在配置和错误信息中可辨认，不通过自动猜测悄悄切换模式。
+- 普通 shell 无需 agent 协议或管理器聊天框，终端原生输入可用；命令返回提示符后仍是同一 Session/Run，不显示未经证实的 agent 工作状态。
 
 #### 需要的证据
 
@@ -1008,11 +1010,11 @@
 
 ### TC-TRM-001
 
-**列表进入 attach 再 detach 的基本闭环**
+**显式辅助全屏 attach 再 detach 的基本闭环**
 
 - 功能：[FL-002](../COVERAGE.md#fl-002)、[FL-016](../COVERAGE.md#fl-016)
 - 需求：[FR-02](../COVERAGE.md#fr-02)、[FR-11](../COVERAGE.md#fr-11)
-- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0014](../../adr/0014-upstream-ui-tabs-and-general-terminals.md)
 - 优先级 / 阶段 / 层次：P0 / M0 / windows_e2e
 - 类型：functional
 - 设计 / 执行：`designed / not_run`
@@ -1029,7 +1031,7 @@
 
 #### 操作步骤
 
-1. 选择 A 会话按 Enter 进入 attach，输入唯一标记。
+1. 显式选择 A 会话的辅助全屏 attach 入口，输入唯一标记；该路径不作为默认 Tab 验收。
 2. 按已配置的 detach 动作返回列表，随后再次进入 A。
 
 #### 预期与不变量
@@ -1041,6 +1043,8 @@
 
 - 带用例 ID 与环境清单的执行记录。
 - 目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。
+
+说明：保留全屏辅助模式回归；不得将本条局部证据计为 ADR-0014 默认 Tab 工作区通过。
 
 
 ### TC-TRM-002
@@ -1837,11 +1841,11 @@
 
 ### TC-UI-001
 
-**默认主界面保持列表、预览与简短提示**
+**Tab 为主要工作区并保留上游布局与交互**
 
 - 功能：[FL-003](../COVERAGE.md#fl-003)
 - 需求：[FR-03](../COVERAGE.md#fr-03)、[FR-11](../COVERAGE.md#fr-11)
-- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)
+- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0014](../../adr/0014-upstream-ui-tabs-and-general-terminals.md)
 - 优先级 / 阶段 / 层次：P1 / M0 / manual
 - 类型：usability、functional
 - 设计 / 执行：`designed / not_run`
@@ -1858,12 +1862,13 @@
 #### 操作步骤
 
 1. 分别以零个、一个和多个会话启动管理器，查看默认页面。
-2. 检查默认展开区域，再打开并关闭新建/发送/设置入口。
+2. 检查 Tab 主入口、当前终端与辅助导航，打开／关闭新建、发送和设置入口，操作终端时检查 Tab 可达性。
 
 #### 预期与不变量
 
-- 默认主要区域为一个会话列表、当前预览和简短提示；无重复常驻 Tab 导航与多个详情面板。
-- 额外操作按需显示，关闭后回到管理界面；旧 v0.1 四屏图不是比对基线。
+- 产品内 Tab 是主要会话工作区，活动 Tab 直接操作终端且保留导航；列表／搜索只能辅助组织。
+- 布局比例、颜色、间距、焦点、弹窗和交互尽可能还原固定上游；Tab 等必要适配逐项记录，旧 v0.1 四屏图不是比对基线。
+- 额外表单按需显示；日常输入使用目标终端原生输入区，不新增管理器聊天输入框。
 
 #### 需要的证据
 
@@ -2241,7 +2246,7 @@
 
 - 功能：[FL-003](../COVERAGE.md#fl-003)
 - 需求：[FR-03](../COVERAGE.md#fr-03)、[FR-11](../COVERAGE.md#fr-11)
-- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0005](../../adr/0005-dependency-lifecycle-and-upgrades.md)
+- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0005](../../adr/0005-dependency-lifecycle-and-upgrades.md)、[ADR-0014](../../adr/0014-upstream-ui-tabs-and-general-terminals.md)
 - 优先级 / 阶段 / 层次：P1 / M0 / manual
 - 类型：usability、compatibility
 - 设计 / 执行：`designed / not_run`
@@ -2257,13 +2262,15 @@
 
 #### 操作步骤
 
-1. 在 Windows 可运行版本中展示日常新建、查找、预览、attach 返回的短流程。
-2. 列出本次迁入文件/上游提交/修改点，由用户依据简约目标评审。
+1. 在相同尺寸、字体、主题与合成数据下并排核对固定 Agent Deck 源码版本与当前 Windows 构建。
+2. 展示新建、Tab 切换、普通 shell／CLI 与 agent 原生输入、弹窗和辅助 attach 返回流程。
+3. 列出来源文件／上游提交／修改点与必要差异，由用户评审布局比例、颜色、间距、键鼠及焦点交互。
 
 #### 预期与不变量
 
 - 评审材料来自当前构建且可复现，不能拿旧图稿或上游视频替代。
 - 记录接受/需修改项与对应版本；来源清单能证明实际复用范围，不声称未统计的复用比例。
+- 逐项记录还原结果与差异原因；仅沿用配色或局部布局代码不构成完整体验还原，缺少真实 agent 时明确保留待测。
 
 #### 需要的证据
 
@@ -2386,7 +2393,7 @@
 
 - 功能：[FL-012](../COVERAGE.md#fl-012)
 - 需求：[FR-11](../COVERAGE.md#fr-11)
-- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0014](../../adr/0014-upstream-ui-tabs-and-general-terminals.md)
 - 优先级 / 阶段 / 层次：P0 / M2 / windows_e2e
 - 类型：state、functional
 - 设计 / 执行：`designed / not_run`
@@ -2402,13 +2409,14 @@
 
 #### 操作步骤
 
-1. 在 A 目标原生输入区写入未提交的文本并 detach。
-2. 在管理器编辑/取消另一份草稿，再 attach A。
+1. 分别在普通 shell 与 agent 的 A Tab 原生输入区写入未提交文本，切换至 B Tab。
+2. 在管理器编辑／取消另一份表单草稿，再通过 Tab 导航返回 A，不先执行 detach。
 
 #### 预期与不变量
 
 - 目标原生未提交输入保持原样；管理器没有把自己的草稿写入目标。
 - 两类草稿在操作入口与语义上明确区分。
+- Tab 切换不自动提交或创建新 Run；agent 和普通 shell 均使用自身终端输入，不依赖统一聊天框。
 
 #### 需要的证据
 

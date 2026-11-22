@@ -3,9 +3,9 @@
 > 自动生成；这里的覆盖是设计映射，不是代码覆盖率、实际通过率或全部边界已穷尽。
 
 - 用例：339；全部 designed / not_run。
-- 依据明确：215；待决策：122；后置：2。
+- 依据明确：215；待决策：124；后置：0。
 - FL：20；FR：14，均有设计引用。
-- 已记录 ADR：13；本库引用 ADR：6。下方逐项列出数量，零引用不等于已覆盖。
+- 已记录 ADR：14；本库引用 ADR：7。下方逐项列出数量，零引用不等于已覆盖。
 - 本轮设计基线执行：0；没有产品通过结论。本表不统计后续独立运行报告，实际证据见 [results/](results/)。
 
 [总索引](CASE_INDEX.md) · [测试策略](TEST_STRATEGY.md) · [未决项](BUDGETS_AND_DECISIONS.md)
@@ -25,8 +25,8 @@
 | 优先级 | 数量 |
 | --- | --- |
 | P0 | 188 |
-| P1 | 146 |
-| P2 | 5 |
+| P1 | 148 |
+| P2 | 3 |
 
 ## 阶段
 
@@ -34,10 +34,9 @@
 | --- | --- |
 | M0 | 55 |
 | M1 | 42 |
-| M2 | 105 |
+| M2 | 107 |
 | M3 | 105 |
 | M4 | 30 |
-| POST_MVP | 2 |
 
 ## 层次
 
@@ -90,10 +89,10 @@
 | [FL-012](#fl-012) | 23 | 14 | 9 | 0 |
 | [FL-013](#fl-013) | 124 | 70 | 54 | 0 |
 | [FL-014](#fl-014) | 13 | 9 | 4 | 0 |
-| [FL-015](#fl-015) | 46 | 8 | 37 | 1 |
+| [FL-015](#fl-015) | 46 | 8 | 38 | 0 |
 | [FL-016](#fl-016) | 71 | 47 | 24 | 0 |
 | [FL-017](#fl-017) | 18 | 9 | 9 | 0 |
-| [FL-018](#fl-018) | 2 | 0 | 0 | 2 |
+| [FL-018](#fl-018) | 2 | 0 | 2 | 0 |
 | [FL-019](#fl-019) | 6 | 5 | 1 | 0 |
 | [FL-020](#fl-020) | 58 | 31 | 27 | 0 |
 
@@ -202,7 +201,7 @@
 | 编号 | 用例数 | 依据明确 | 待决策 | 后置 |
 | --- | --- | --- | --- | --- |
 | [FR-01](#fr-01) | 48 | 31 | 17 | 0 |
-| [FR-02](#fr-02) | 44 | 30 | 14 | 0 |
+| [FR-02](#fr-02) | 46 | 30 | 16 | 0 |
 | [FR-03](#fr-03) | 40 | 26 | 14 | 0 |
 | [FR-04](#fr-04) | 66 | 46 | 20 | 0 |
 | [FR-05](#fr-05) | 44 | 35 | 9 | 0 |
@@ -211,7 +210,7 @@
 | [FR-08](#fr-08) | 42 | 31 | 11 | 0 |
 | [FR-09](#fr-09) | 17 | 12 | 5 | 0 |
 | [FR-10](#fr-10) | 30 | 17 | 13 | 0 |
-| [FR-11](#fr-11) | 73 | 51 | 22 | 0 |
+| [FR-11](#fr-11) | 75 | 51 | 24 | 0 |
 | [FR-12](#fr-12) | 137 | 81 | 56 | 0 |
 | [FR-13](#fr-13) | 13 | 9 | 4 | 0 |
 | [FR-14](#fr-14) | 58 | 31 | 27 | 0 |
@@ -223,7 +222,7 @@
 
 ### FR-02
 
-[TC-LCH-022](generated/01-launch-terminal-ui.md#tc-lch-022)、[TC-TRM-001](generated/01-launch-terminal-ui.md#tc-trm-001)、[TC-TRM-002](generated/01-launch-terminal-ui.md#tc-trm-002)、[TC-TRM-003](generated/01-launch-terminal-ui.md#tc-trm-003)、[TC-TRM-004](generated/01-launch-terminal-ui.md#tc-trm-004)、[TC-TRM-005](generated/01-launch-terminal-ui.md#tc-trm-005)、[TC-TRM-006](generated/01-launch-terminal-ui.md#tc-trm-006)、[TC-TRM-007](generated/01-launch-terminal-ui.md#tc-trm-007)、[TC-TRM-008](generated/01-launch-terminal-ui.md#tc-trm-008)、[TC-TRM-009](generated/01-launch-terminal-ui.md#tc-trm-009)、[TC-TRM-010](generated/01-launch-terminal-ui.md#tc-trm-010)、[TC-TRM-011](generated/01-launch-terminal-ui.md#tc-trm-011)、[TC-TRM-012](generated/01-launch-terminal-ui.md#tc-trm-012)、[TC-TRM-013](generated/01-launch-terminal-ui.md#tc-trm-013)、[TC-TRM-014](generated/01-launch-terminal-ui.md#tc-trm-014)、[TC-TRM-015](generated/01-launch-terminal-ui.md#tc-trm-015)、[TC-TRM-016](generated/01-launch-terminal-ui.md#tc-trm-016)、[TC-TRM-017](generated/01-launch-terminal-ui.md#tc-trm-017)、[TC-TRM-018](generated/01-launch-terminal-ui.md#tc-trm-018)、[TC-TRM-019](generated/01-launch-terminal-ui.md#tc-trm-019)、[TC-TRM-020](generated/01-launch-terminal-ui.md#tc-trm-020)、[TC-TRM-021](generated/01-launch-terminal-ui.md#tc-trm-021)、[TC-TRM-022](generated/01-launch-terminal-ui.md#tc-trm-022)、[TC-WIN-001](generated/01-launch-terminal-ui.md#tc-win-001)、[TC-WIN-002](generated/01-launch-terminal-ui.md#tc-win-002)、[TC-WIN-003](generated/01-launch-terminal-ui.md#tc-win-003)、[TC-WIN-004](generated/01-launch-terminal-ui.md#tc-win-004)、[TC-WIN-007](generated/01-launch-terminal-ui.md#tc-win-007)、[TC-WIN-008](generated/01-launch-terminal-ui.md#tc-win-008)、[TC-PERF-001](generated/04-resilience-resources-release.md#tc-perf-001)、[TC-PERF-009](generated/04-resilience-resources-release.md#tc-perf-009)、[TC-PERF-013](generated/04-resilience-resources-release.md#tc-perf-013)、[TC-SOAK-003](generated/04-resilience-resources-release.md#tc-soak-003)、[TC-SOAK-006](generated/04-resilience-resources-release.md#tc-soak-006)、[TC-SEC-002](generated/04-resilience-resources-release.md#tc-sec-002)、[TC-SEC-003](generated/04-resilience-resources-release.md#tc-sec-003)、[TC-REL-001](generated/04-resilience-resources-release.md#tc-rel-001)、[TC-REL-008](generated/04-resilience-resources-release.md#tc-rel-008)、[TC-REL-012](generated/04-resilience-resources-release.md#tc-rel-012)、[TC-PROP-003](generated/04-resilience-resources-release.md#tc-prop-003)、[TC-PROP-006](generated/04-resilience-resources-release.md#tc-prop-006)、[TC-ATTN-031](generated/05-attention-notifications.md#tc-attn-031)、[TC-ATTN-032](generated/05-attention-notifications.md#tc-attn-032)、[TC-ATTN-052](generated/05-attention-notifications.md#tc-attn-052)
+[TC-LCH-022](generated/01-launch-terminal-ui.md#tc-lch-022)、[TC-TRM-001](generated/01-launch-terminal-ui.md#tc-trm-001)、[TC-TRM-002](generated/01-launch-terminal-ui.md#tc-trm-002)、[TC-TRM-003](generated/01-launch-terminal-ui.md#tc-trm-003)、[TC-TRM-004](generated/01-launch-terminal-ui.md#tc-trm-004)、[TC-TRM-005](generated/01-launch-terminal-ui.md#tc-trm-005)、[TC-TRM-006](generated/01-launch-terminal-ui.md#tc-trm-006)、[TC-TRM-007](generated/01-launch-terminal-ui.md#tc-trm-007)、[TC-TRM-008](generated/01-launch-terminal-ui.md#tc-trm-008)、[TC-TRM-009](generated/01-launch-terminal-ui.md#tc-trm-009)、[TC-TRM-010](generated/01-launch-terminal-ui.md#tc-trm-010)、[TC-TRM-011](generated/01-launch-terminal-ui.md#tc-trm-011)、[TC-TRM-012](generated/01-launch-terminal-ui.md#tc-trm-012)、[TC-TRM-013](generated/01-launch-terminal-ui.md#tc-trm-013)、[TC-TRM-014](generated/01-launch-terminal-ui.md#tc-trm-014)、[TC-TRM-015](generated/01-launch-terminal-ui.md#tc-trm-015)、[TC-TRM-016](generated/01-launch-terminal-ui.md#tc-trm-016)、[TC-TRM-017](generated/01-launch-terminal-ui.md#tc-trm-017)、[TC-TRM-018](generated/01-launch-terminal-ui.md#tc-trm-018)、[TC-TRM-019](generated/01-launch-terminal-ui.md#tc-trm-019)、[TC-TRM-020](generated/01-launch-terminal-ui.md#tc-trm-020)、[TC-TRM-021](generated/01-launch-terminal-ui.md#tc-trm-021)、[TC-TRM-022](generated/01-launch-terminal-ui.md#tc-trm-022)、[TC-WIN-001](generated/01-launch-terminal-ui.md#tc-win-001)、[TC-WIN-002](generated/01-launch-terminal-ui.md#tc-win-002)、[TC-WIN-003](generated/01-launch-terminal-ui.md#tc-win-003)、[TC-WIN-004](generated/01-launch-terminal-ui.md#tc-win-004)、[TC-WIN-007](generated/01-launch-terminal-ui.md#tc-win-007)、[TC-WIN-008](generated/01-launch-terminal-ui.md#tc-win-008)、[TC-PERF-001](generated/04-resilience-resources-release.md#tc-perf-001)、[TC-PERF-009](generated/04-resilience-resources-release.md#tc-perf-009)、[TC-PERF-013](generated/04-resilience-resources-release.md#tc-perf-013)、[TC-SOAK-003](generated/04-resilience-resources-release.md#tc-soak-003)、[TC-SOAK-006](generated/04-resilience-resources-release.md#tc-soak-006)、[TC-SEC-002](generated/04-resilience-resources-release.md#tc-sec-002)、[TC-SEC-003](generated/04-resilience-resources-release.md#tc-sec-003)、[TC-REL-001](generated/04-resilience-resources-release.md#tc-rel-001)、[TC-REL-008](generated/04-resilience-resources-release.md#tc-rel-008)、[TC-REL-012](generated/04-resilience-resources-release.md#tc-rel-012)、[TC-DEFER-001](generated/04-resilience-resources-release.md#tc-defer-001)、[TC-DEFER-002](generated/04-resilience-resources-release.md#tc-defer-002)、[TC-PROP-003](generated/04-resilience-resources-release.md#tc-prop-003)、[TC-PROP-006](generated/04-resilience-resources-release.md#tc-prop-006)、[TC-ATTN-031](generated/05-attention-notifications.md#tc-attn-031)、[TC-ATTN-032](generated/05-attention-notifications.md#tc-attn-032)、[TC-ATTN-052](generated/05-attention-notifications.md#tc-attn-052)
 
 
 ### FR-03
@@ -268,7 +267,7 @@
 
 ### FR-11
 
-[TC-LCH-017](generated/01-launch-terminal-ui.md#tc-lch-017)、[TC-TRM-001](generated/01-launch-terminal-ui.md#tc-trm-001)、[TC-TRM-002](generated/01-launch-terminal-ui.md#tc-trm-002)、[TC-TRM-003](generated/01-launch-terminal-ui.md#tc-trm-003)、[TC-TRM-005](generated/01-launch-terminal-ui.md#tc-trm-005)、[TC-TRM-006](generated/01-launch-terminal-ui.md#tc-trm-006)、[TC-TRM-007](generated/01-launch-terminal-ui.md#tc-trm-007)、[TC-TRM-008](generated/01-launch-terminal-ui.md#tc-trm-008)、[TC-TRM-009](generated/01-launch-terminal-ui.md#tc-trm-009)、[TC-TRM-010](generated/01-launch-terminal-ui.md#tc-trm-010)、[TC-TRM-011](generated/01-launch-terminal-ui.md#tc-trm-011)、[TC-TRM-012](generated/01-launch-terminal-ui.md#tc-trm-012)、[TC-TRM-013](generated/01-launch-terminal-ui.md#tc-trm-013)、[TC-TRM-014](generated/01-launch-terminal-ui.md#tc-trm-014)、[TC-TRM-015](generated/01-launch-terminal-ui.md#tc-trm-015)、[TC-TRM-016](generated/01-launch-terminal-ui.md#tc-trm-016)、[TC-TRM-017](generated/01-launch-terminal-ui.md#tc-trm-017)、[TC-TRM-018](generated/01-launch-terminal-ui.md#tc-trm-018)、[TC-TRM-019](generated/01-launch-terminal-ui.md#tc-trm-019)、[TC-TRM-020](generated/01-launch-terminal-ui.md#tc-trm-020)、[TC-TRM-021](generated/01-launch-terminal-ui.md#tc-trm-021)、[TC-UI-001](generated/01-launch-terminal-ui.md#tc-ui-001)、[TC-UI-002](generated/01-launch-terminal-ui.md#tc-ui-002)、[TC-UI-003](generated/01-launch-terminal-ui.md#tc-ui-003)、[TC-UI-004](generated/01-launch-terminal-ui.md#tc-ui-004)、[TC-UI-005](generated/01-launch-terminal-ui.md#tc-ui-005)、[TC-UI-007](generated/01-launch-terminal-ui.md#tc-ui-007)、[TC-UI-009](generated/01-launch-terminal-ui.md#tc-ui-009)、[TC-UI-010](generated/01-launch-terminal-ui.md#tc-ui-010)、[TC-UI-011](generated/01-launch-terminal-ui.md#tc-ui-011)、[TC-UI-012](generated/01-launch-terminal-ui.md#tc-ui-012)、[TC-FOC-001](generated/01-launch-terminal-ui.md#tc-foc-001)、[TC-FOC-002](generated/01-launch-terminal-ui.md#tc-foc-002)、[TC-FOC-003](generated/01-launch-terminal-ui.md#tc-foc-003)、[TC-FOC-004](generated/01-launch-terminal-ui.md#tc-foc-004)、[TC-FOC-005](generated/01-launch-terminal-ui.md#tc-foc-005)、[TC-FOC-006](generated/01-launch-terminal-ui.md#tc-foc-006)、[TC-FOC-007](generated/01-launch-terminal-ui.md#tc-foc-007)、[TC-FOC-008](generated/01-launch-terminal-ui.md#tc-foc-008)、[TC-FOC-009](generated/01-launch-terminal-ui.md#tc-foc-009)、[TC-FOC-010](generated/01-launch-terminal-ui.md#tc-foc-010)、[TC-FOC-011](generated/01-launch-terminal-ui.md#tc-foc-011)、[TC-FOC-012](generated/01-launch-terminal-ui.md#tc-foc-012)、[TC-WIN-001](generated/01-launch-terminal-ui.md#tc-win-001)、[TC-WIN-002](generated/01-launch-terminal-ui.md#tc-win-002)、[TC-WIN-003](generated/01-launch-terminal-ui.md#tc-win-003)、[TC-WIN-008](generated/01-launch-terminal-ui.md#tc-win-008)、[TC-QUEUE-007](generated/03-output-messaging.md#tc-queue-007)、[TC-QUEUE-008](generated/03-output-messaging.md#tc-queue-008)、[TC-QUEUE-009](generated/03-output-messaging.md#tc-queue-009)、[TC-PERF-001](generated/04-resilience-resources-release.md#tc-perf-001)、[TC-PERF-003](generated/04-resilience-resources-release.md#tc-perf-003)、[TC-PERF-009](generated/04-resilience-resources-release.md#tc-perf-009)、[TC-PERF-013](generated/04-resilience-resources-release.md#tc-perf-013)、[TC-SOAK-003](generated/04-resilience-resources-release.md#tc-soak-003)、[TC-SOAK-006](generated/04-resilience-resources-release.md#tc-soak-006)、[TC-SOAK-010](generated/04-resilience-resources-release.md#tc-soak-010)、[TC-SEC-002](generated/04-resilience-resources-release.md#tc-sec-002)、[TC-SEC-003](generated/04-resilience-resources-release.md#tc-sec-003)、[TC-REL-001](generated/04-resilience-resources-release.md#tc-rel-001)、[TC-REL-008](generated/04-resilience-resources-release.md#tc-rel-008)、[TC-REL-011](generated/04-resilience-resources-release.md#tc-rel-011)、[TC-REL-012](generated/04-resilience-resources-release.md#tc-rel-012)、[TC-ATTN-023](generated/05-attention-notifications.md#tc-attn-023)、[TC-ATTN-029](generated/05-attention-notifications.md#tc-attn-029)、[TC-ATTN-031](generated/05-attention-notifications.md#tc-attn-031)、[TC-ATTN-032](generated/05-attention-notifications.md#tc-attn-032)、[TC-ATTN-033](generated/05-attention-notifications.md#tc-attn-033)、[TC-ATTN-034](generated/05-attention-notifications.md#tc-attn-034)、[TC-ATTN-036](generated/05-attention-notifications.md#tc-attn-036)、[TC-ATTN-040](generated/05-attention-notifications.md#tc-attn-040)、[TC-ATTN-052](generated/05-attention-notifications.md#tc-attn-052)、[TC-ATTN-055](generated/05-attention-notifications.md#tc-attn-055)
+[TC-LCH-017](generated/01-launch-terminal-ui.md#tc-lch-017)、[TC-TRM-001](generated/01-launch-terminal-ui.md#tc-trm-001)、[TC-TRM-002](generated/01-launch-terminal-ui.md#tc-trm-002)、[TC-TRM-003](generated/01-launch-terminal-ui.md#tc-trm-003)、[TC-TRM-005](generated/01-launch-terminal-ui.md#tc-trm-005)、[TC-TRM-006](generated/01-launch-terminal-ui.md#tc-trm-006)、[TC-TRM-007](generated/01-launch-terminal-ui.md#tc-trm-007)、[TC-TRM-008](generated/01-launch-terminal-ui.md#tc-trm-008)、[TC-TRM-009](generated/01-launch-terminal-ui.md#tc-trm-009)、[TC-TRM-010](generated/01-launch-terminal-ui.md#tc-trm-010)、[TC-TRM-011](generated/01-launch-terminal-ui.md#tc-trm-011)、[TC-TRM-012](generated/01-launch-terminal-ui.md#tc-trm-012)、[TC-TRM-013](generated/01-launch-terminal-ui.md#tc-trm-013)、[TC-TRM-014](generated/01-launch-terminal-ui.md#tc-trm-014)、[TC-TRM-015](generated/01-launch-terminal-ui.md#tc-trm-015)、[TC-TRM-016](generated/01-launch-terminal-ui.md#tc-trm-016)、[TC-TRM-017](generated/01-launch-terminal-ui.md#tc-trm-017)、[TC-TRM-018](generated/01-launch-terminal-ui.md#tc-trm-018)、[TC-TRM-019](generated/01-launch-terminal-ui.md#tc-trm-019)、[TC-TRM-020](generated/01-launch-terminal-ui.md#tc-trm-020)、[TC-TRM-021](generated/01-launch-terminal-ui.md#tc-trm-021)、[TC-UI-001](generated/01-launch-terminal-ui.md#tc-ui-001)、[TC-UI-002](generated/01-launch-terminal-ui.md#tc-ui-002)、[TC-UI-003](generated/01-launch-terminal-ui.md#tc-ui-003)、[TC-UI-004](generated/01-launch-terminal-ui.md#tc-ui-004)、[TC-UI-005](generated/01-launch-terminal-ui.md#tc-ui-005)、[TC-UI-007](generated/01-launch-terminal-ui.md#tc-ui-007)、[TC-UI-009](generated/01-launch-terminal-ui.md#tc-ui-009)、[TC-UI-010](generated/01-launch-terminal-ui.md#tc-ui-010)、[TC-UI-011](generated/01-launch-terminal-ui.md#tc-ui-011)、[TC-UI-012](generated/01-launch-terminal-ui.md#tc-ui-012)、[TC-FOC-001](generated/01-launch-terminal-ui.md#tc-foc-001)、[TC-FOC-002](generated/01-launch-terminal-ui.md#tc-foc-002)、[TC-FOC-003](generated/01-launch-terminal-ui.md#tc-foc-003)、[TC-FOC-004](generated/01-launch-terminal-ui.md#tc-foc-004)、[TC-FOC-005](generated/01-launch-terminal-ui.md#tc-foc-005)、[TC-FOC-006](generated/01-launch-terminal-ui.md#tc-foc-006)、[TC-FOC-007](generated/01-launch-terminal-ui.md#tc-foc-007)、[TC-FOC-008](generated/01-launch-terminal-ui.md#tc-foc-008)、[TC-FOC-009](generated/01-launch-terminal-ui.md#tc-foc-009)、[TC-FOC-010](generated/01-launch-terminal-ui.md#tc-foc-010)、[TC-FOC-011](generated/01-launch-terminal-ui.md#tc-foc-011)、[TC-FOC-012](generated/01-launch-terminal-ui.md#tc-foc-012)、[TC-WIN-001](generated/01-launch-terminal-ui.md#tc-win-001)、[TC-WIN-002](generated/01-launch-terminal-ui.md#tc-win-002)、[TC-WIN-003](generated/01-launch-terminal-ui.md#tc-win-003)、[TC-WIN-008](generated/01-launch-terminal-ui.md#tc-win-008)、[TC-QUEUE-007](generated/03-output-messaging.md#tc-queue-007)、[TC-QUEUE-008](generated/03-output-messaging.md#tc-queue-008)、[TC-QUEUE-009](generated/03-output-messaging.md#tc-queue-009)、[TC-PERF-001](generated/04-resilience-resources-release.md#tc-perf-001)、[TC-PERF-003](generated/04-resilience-resources-release.md#tc-perf-003)、[TC-PERF-009](generated/04-resilience-resources-release.md#tc-perf-009)、[TC-PERF-013](generated/04-resilience-resources-release.md#tc-perf-013)、[TC-SOAK-003](generated/04-resilience-resources-release.md#tc-soak-003)、[TC-SOAK-006](generated/04-resilience-resources-release.md#tc-soak-006)、[TC-SOAK-010](generated/04-resilience-resources-release.md#tc-soak-010)、[TC-SEC-002](generated/04-resilience-resources-release.md#tc-sec-002)、[TC-SEC-003](generated/04-resilience-resources-release.md#tc-sec-003)、[TC-REL-001](generated/04-resilience-resources-release.md#tc-rel-001)、[TC-REL-008](generated/04-resilience-resources-release.md#tc-rel-008)、[TC-REL-011](generated/04-resilience-resources-release.md#tc-rel-011)、[TC-REL-012](generated/04-resilience-resources-release.md#tc-rel-012)、[TC-DEFER-001](generated/04-resilience-resources-release.md#tc-defer-001)、[TC-DEFER-002](generated/04-resilience-resources-release.md#tc-defer-002)、[TC-ATTN-023](generated/05-attention-notifications.md#tc-attn-023)、[TC-ATTN-029](generated/05-attention-notifications.md#tc-attn-029)、[TC-ATTN-031](generated/05-attention-notifications.md#tc-attn-031)、[TC-ATTN-032](generated/05-attention-notifications.md#tc-attn-032)、[TC-ATTN-033](generated/05-attention-notifications.md#tc-attn-033)、[TC-ATTN-034](generated/05-attention-notifications.md#tc-attn-034)、[TC-ATTN-036](generated/05-attention-notifications.md#tc-attn-036)、[TC-ATTN-040](generated/05-attention-notifications.md#tc-attn-040)、[TC-ATTN-052](generated/05-attention-notifications.md#tc-attn-052)、[TC-ATTN-055](generated/05-attention-notifications.md#tc-attn-055)
 
 
 ### FR-12
@@ -303,5 +302,6 @@
 | [ADR-0011](../adr/0011-read-only-tui-history.md) | 0 |
 | [ADR-0012](../adr/0012-metadata-checkpoint-recovery.md) | 0 |
 | [ADR-0013](../adr/0013-bounded-screen-output-records.md) | 0 |
+| [ADR-0014](../adr/0014-upstream-ui-tabs-and-general-terminals.md) | 8 |
 
-FL-018 为后置探索，不能因已有两条用例就将其计入首版实现范围。
+FL-018 按 ADR-0014 纳入首版计划；沿用原 TC-DEFER 编号，不代表已实现或已验收。

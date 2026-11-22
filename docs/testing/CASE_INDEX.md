@@ -32,7 +32,7 @@
 | [TC-LCH-022](generated/01-launch-terminal-ui.md#tc-lch-022) | 真实自定义 agent 最小启动闭环 | FL-001、FL-016 | P0 | M0 | manual | 待决策 |
 | [TC-LCH-023](generated/01-launch-terminal-ui.md#tc-lch-023) | 执行目标与 cwd 配置保持分别处理 | FL-001、FL-016 | P1 | M1 | windows_e2e | 依据明确 |
 | [TC-LCH-024](generated/01-launch-terminal-ui.md#tc-lch-024) | 空入口或只含空白的配置被拒绝 | FL-001、FL-016 | P1 | M0 | windows_e2e | 依据明确 |
-| [TC-TRM-001](generated/01-launch-terminal-ui.md#tc-trm-001) | 列表进入 attach 再 detach 的基本闭环 | FL-002、FL-016 | P0 | M0 | windows_e2e | 依据明确 |
+| [TC-TRM-001](generated/01-launch-terminal-ui.md#tc-trm-001) | 显式辅助全屏 attach 再 detach 的基本闭环 | FL-002、FL-016 | P0 | M0 | windows_e2e | 依据明确 |
 | [TC-TRM-002](generated/01-launch-terminal-ui.md#tc-trm-002) | 正常离开 attach 后终端模式恢复 | FL-002、FL-016 | P0 | M0 | windows_e2e | 依据明确 |
 | [TC-TRM-003](generated/01-launch-terminal-ui.md#tc-trm-003) | attach 客户端异常退出恢复管理器 | FL-002、FL-016 | P0 | M0 | windows_e2e | 依据明确 |
 | [TC-TRM-004](generated/01-launch-terminal-ui.md#tc-trm-004) | 目标在 attach 建立前退出 | FL-002、FL-016 | P0 | M0 | windows_e2e | 依据明确 |
@@ -54,7 +54,7 @@
 | [TC-TRM-020](generated/01-launch-terminal-ui.md#tc-trm-020) | 鼠标与滚轮按当前模式处理 | FL-002、FL-016 | P1 | M0 | manual | 待决策 |
 | [TC-TRM-021](generated/01-launch-terminal-ui.md#tc-trm-021) | 异常字节与未结束控制序列不会破坏管理器 | FL-002、FL-016 | P1 | M0 | windows_e2e | 依据明确 |
 | [TC-TRM-022](generated/01-launch-terminal-ui.md#tc-trm-022) | 被动预览中的控制序列不会越权改变宿主 | FL-002、FL-016 | P1 | M3 | windows_e2e | 待决策 |
-| [TC-UI-001](generated/01-launch-terminal-ui.md#tc-ui-001) | 默认主界面保持列表、预览与简短提示 | FL-003 | P1 | M0 | manual | 依据明确 |
+| [TC-UI-001](generated/01-launch-terminal-ui.md#tc-ui-001) | Tab 为主要工作区并保留上游布局与交互 | FL-003 | P1 | M0 | manual | 依据明确 |
 | [TC-UI-002](generated/01-launch-terminal-ui.md#tc-ui-002) | 空列表的引导与 Enter 边界 | FL-003 | P1 | M0 | windows_e2e | 依据明确 |
 | [TC-UI-003](generated/01-launch-terminal-ui.md#tc-ui-003) | 长名称与 CJK 列宽不遮挡关键状态 | FL-003 | P1 | M2 | windows_e2e | 依据明确 |
 | [TC-UI-004](generated/01-launch-terminal-ui.md#tc-ui-004) | 窄窗口与最小布局退化 | FL-003 | P1 | M0 | windows_e2e | 待决策 |
@@ -294,8 +294,8 @@
 | [TC-REL-014](generated/04-resilience-resources-release.md#tc-rel-014) | 发布依赖升级触发相应回归 | FL-019、FL-017 | P1 | M4 | release | 依据明确 |
 | [TC-REL-015](generated/04-resilience-resources-release.md#tc-rel-015) | 诊断和恢复说明可由新用户完成 | FL-017、FL-013 | P1 | M4 | manual | 依据明确 |
 | [TC-REL-016](generated/04-resilience-resources-release.md#tc-rel-016) | 相同包多次启动与配置目录选择 | FL-017、FL-009、FL-013 | P0 | M4 | release | 待决策 |
-| [TC-DEFER-001](generated/04-resilience-resources-release.md#tc-defer-001) | 常驻侧栏内嵌终端的焦点合同 | FL-018 | P2 | POST_MVP | manual | 后置 |
-| [TC-DEFER-002](generated/04-resilience-resources-release.md#tc-defer-002) | 嵌入终端资源与 VT 完整性 | FL-018、FL-015 | P2 | POST_MVP | windows_e2e | 后置 |
+| [TC-DEFER-001](generated/04-resilience-resources-release.md#tc-defer-001) | Tab 内终端与管理导航的焦点合同 | FL-018 | P1 | M2 | manual | 待决策 |
+| [TC-DEFER-002](generated/04-resilience-resources-release.md#tc-defer-002) | Tab 内终端资源与 VT 完整性 | FL-018、FL-015 | P1 | M2 | windows_e2e | 待决策 |
 | [TC-PROP-001](generated/04-resilience-resources-release.md#tc-prop-001) | 随机生命周期操作保持 Session/Run 不变量 | FL-004、FL-005、FL-006、FL-013 | P1 | M2 | integration | 待决策 |
 | [TC-PROP-002](generated/04-resilience-resources-release.md#tc-prop-002) | 随机参数编码保持直接启动边界 | FL-001、FL-016 | P1 | M1 | integration | 待决策 |
 | [TC-PROP-003](generated/04-resilience-resources-release.md#tc-prop-003) | 分片方式不改变有效 UTF-8/VT 的最终屏幕 | FL-002、FL-007 | P1 | M1 | integration | 依据明确 |

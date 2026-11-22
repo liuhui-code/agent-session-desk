@@ -235,8 +235,6 @@ def validate(root):
                 errors.append(prefix + ": ready cannot depend on an unresolved TBD")
             if case.get("spec_state") == "deferred" and case.get("stage") != "POST_MVP":
                 errors.append(prefix + ": deferred case must be POST_MVP")
-            if "FL-018" in case.get("features", []) and case.get("spec_state") != "deferred":
-                errors.append(prefix + ": FL-018 remains deferred in this baseline")
             for budget in set(re.findall(r"\bB_[A-Z0-9_]+", json.dumps(case, ensure_ascii=False))):
                 if budget not in registry["budgets"]:
                     errors.append(prefix + ": unregistered budget " + budget)
@@ -410,7 +408,7 @@ def render_outputs(root, suites, registry, adrs):
     for ref, path in sorted(adrs.items()):
         coverage.append("| [" + ref + "](../adr/" + path.name + ") | " +
                         str(sum(ref in case["adrs"] for case in cases)) + " |")
-    coverage += ["", "FL-018 为后置探索，不能因已有两条用例就将其计入首版实现范围。", ""]
+    coverage += ["", "FL-018 按 ADR-0014 纳入首版计划；沿用原 TC-DEFER 编号，不代表已实现或已验收。", ""]
     outputs[TESTING / "COVERAGE.md"] = "\n".join(coverage).rstrip() + "\n"
 
     stream = io.StringIO(newline="")
