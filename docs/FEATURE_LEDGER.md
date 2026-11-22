@@ -75,7 +75,7 @@
 
 测试设计：[FL-001 用例与映射](testing/COVERAGE.md#fl-001)；目录保留 designed/not_run 基线，局部执行见下方实际证据。
 
-- **范围与边界：**名称、可执行入口、参数、cwd、env 和显式 shell 模式；内部保留明确参数边界。品牌列表、模型账号或 ACP 注册不是创建前置条件。可执行文件、脚本、命令别名的支持范围以实测结果声明。
+- **范围与边界：**名称、可执行入口、参数、cwd、env 和显式 shell 模式；内部保留明确参数边界。品牌列表、模型账号或 ACP 注册不是创建前置条件。用户自定义 CLI 通过通用启动入口拉起；真实 agent 是运行验收样本，不新增逐品牌接入开发阶段。可执行文件、脚本、命令别名的支持范围以实测结果声明。
 - **验收：**至少一个可控测试 CLI 和一个真实目标 agent 通过配置启动；含空格路径、中文路径、引号、工作目录与环境变量按约定生效；命令或目录无效时显示可定位错误。
 - **依据：**[FR-01](PRODUCT_PLAN.md)、[ADR-0004](adr/0004-cli-agents-and-session-messaging.md)。
 - **实现与验收证据：**[启动模型与参数解析](../internal/session/launch.go)、[CLI 入口](../internal/cli/cli.go)和可控 fixture 已实现；直接 executable/argv/cwd/env 保持分开，已知后端改写形式明确拒绝。指定 Windows runner 已独立记录 fixture 实际收到的空格／中文路径、选定 argv、cwd 与环境覆盖。显式只读 TOML 命名模板与 CLI 覆盖已实现，见 [ADR-0007](adr/0007-explicit-launch-configuration.md) 和 [2026-11-22 实际证据](testing/results/2026-11-22-m1-config-tokens.md)。新建表单、配置保存／迁移、更多参数／脚本组合和真实 agent 验收仍待做。见[源码局部证据](testing/results/2026-11-21-m0-source-migration.md)与[Windows 样本及结果](testing/results/2026-11-21-m0-native-windows.md)。
@@ -302,3 +302,5 @@ SSH 局部执行补充（2026-11-22）：Windows 10 build 19045 上使用实际�
 分离诊断补充（2026-11-22）：FL-002/012/016 的[分离键诊断](testing/results/2026-11-22-windows-detach-diagnosis.md)证明中文 IME 在后端前截留 d；明确取消候选/切英文前提，并更新 TUI/CLI 提示。固定 psmux、原 ASD、提示修正版在 Windows Terminal 中各有三轮物理虚拟键回归，Session/Run 不变。仅关闭该组合的 WIN-UI-05 未决项，其他 IME/显示缩放及完整 M0 仍待验收，各 FL 实现状态和 catalog 基线不变。
 
 配置与样式补充（2026-11-22）：FL-001 增加显式 TOML 模板／CLI 覆盖，FL-003 集中 UI design tokens；均保持实现中、未发布。[实际报告](testing/results/2026-11-22-m1-config-tokens.md)关联 ADR-0007/0008。
+
+接入范围澄清（2026-11-22）：用户确认基础接入即自定义 CLI 命令拉起，沿用已实现的直接启动／TOML 模板。FL-001 实现和验收状态不变；真实 CLI 样本验证保留，下一实现切片推进 M1 最小会话元数据存储。
