@@ -74,3 +74,5 @@ Bubbles 2.2.2 textinput 通过模块使用，未复制组件源码。v2 表单�
 2026-11-23：`workspace_view.go` 继续从已记账的同一 `home_view_frame.go`／`split_config.go` 改编上下与单列管理布局、百分比与列表高度下限；Tab 终端焦点保持展开，原生框额外保留 3 行内容。断点与尺寸全部经 design tokens；没有新增来源或依赖，未声称迁入所有内嵌状态分支。见[实际报告](testing/results/2026-11-23-workspace-responsive.md)。
 
 2026-11-23：`workspace_mouse.go` 从固定 `home.go`／`handleMouse` 选择性改编单击选择、同条目双击激活和分隔符优先，500ms 阈值进入 design_tokens.go。完整 Session/Run、共享扁平列表窗口、v2 鼠标消息及 Tab 打开为产品适配；不复制 group／agent 业务。新增来源哈希和目标文件见机器清单，实际双 shell 证据见[报告](testing/results/2026-11-23-workspace-list-mouse.md)。
+
+2026-11-23：`workspace_scroll.go` 从固定 `home.go` 的区域滚轮路由选择性改编，沿用 MIT／版权及相同原始 SHA；新增目标已记入机器清单。后端改用固定 psmux 的语义 pane-scroll 与原生历史而非复制本地历史，v2 事件／产品几何／有界 FIFO 为本地适配；Rust 源码仅核对内部协议，未复制实现。见[实际报告](testing/results/2026-11-23-workspace-scroll.md)。

@@ -1,0 +1,16 @@
+{
+    "outputs":  {
+                    "scroll-b.txt":  "B:1164",
+                    "scroll-draft.txt":  "A:20232"
+                },
+    "result":  "passed",
+    "actions":  47,
+    "checks":  [
+                   "real wheel enters native scrollback",
+                   "search prompt visible",
+                   "Escape preserves and does not submit draft",
+                   "A-B-A retains per-Run history",
+                   "q returns to live without child text",
+                   "list wheel only selects"
+               ]
+}

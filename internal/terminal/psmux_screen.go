@@ -16,19 +16,23 @@ func (c *PSMux) readScreen() (Screen, error) {
 		}
 		var frame struct {
 			Session string `json:"session_name"`
+			Status  string `json:"status_message"`
 			Layout  struct {
-				Type      string `json:"type"`
-				ID        int    `json:"id"`
-				Rows      int    `json:"rows"`
-				Cols      int    `json:"cols"`
-				CursorRow int    `json:"cursor_row"`
-				CursorCol int    `json:"cursor_col"`
-				Hidden    bool   `json:"hide_cursor"`
-				Shape     int    `json:"cursor_shape"`
-				Active    bool   `json:"active"`
-				Alternate bool   `json:"alternate_screen"`
-				Mouse     bool   `json:"wants_mouse"`
-				Runs      []Row  `json:"rows_v2"`
+				Type       string `json:"type"`
+				ID         int    `json:"id"`
+				Rows       int    `json:"rows"`
+				Cols       int    `json:"cols"`
+				CursorRow  int    `json:"cursor_row"`
+				CursorCol  int    `json:"cursor_col"`
+				Hidden     bool   `json:"hide_cursor"`
+				Shape      int    `json:"cursor_shape"`
+				Active     bool   `json:"active"`
+				Alternate  bool   `json:"alternate_screen"`
+				Mouse      bool   `json:"wants_mouse"`
+				CopyMode   bool   `json:"copy_mode"`
+				Offset     uint64 `json:"scroll_offset"`
+				ViewOffset uint64 `json:"view_offset"`
+				Runs       []Row  `json:"rows_v2"`
 			} `json:"layout"`
 		}
 		if err := json.Unmarshal(line, &frame); err != nil {
@@ -61,7 +65,8 @@ func (c *PSMux) readScreen() (Screen, error) {
 		// The pinned native server can expose col==cols at the right margin
 		// while wrap is pending. Display that one-past-column state on the last
 		// cell; larger columns and all out-of-range rows remain rejected.
-		return Screen{Width: p.Cols, Height: p.Rows, Cursor: Cursor{min(p.CursorCol, p.Cols-1), p.CursorRow, !p.Hidden, p.Shape}, Rows: p.Runs, AlternateScreen: p.Alternate, WantsMouse: p.Mouse}, nil
+		offset := max(p.Offset, p.ViewOffset)
+		return Screen{Width: p.Cols, Height: p.Rows, Cursor: Cursor{min(p.CursorCol, p.Cols-1), p.CursorRow, !p.Hidden && !p.CopyMode && offset == 0, p.Shape}, Rows: p.Runs, AlternateScreen: p.Alternate, WantsMouse: p.Mouse, CopyMode: p.CopyMode, ScrollbackOffset: offset, Status: frame.Status}, nil
 	}
 	if c.scanner.Err() != nil {
 		return Screen{}, errors.New("terminal stream read failed or exceeded frame limit")

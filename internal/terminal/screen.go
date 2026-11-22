@@ -14,6 +14,9 @@ type Screen struct {
 	Cursor                      Cursor
 	Rows                        []Row
 	AlternateScreen, WantsMouse bool
+	CopyMode                    bool
+	ScrollbackOffset            uint64
+	Status                      string
 }
 
 type Cursor struct {

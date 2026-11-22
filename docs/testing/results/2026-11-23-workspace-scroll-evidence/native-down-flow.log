@@ -1,0 +1,18 @@
+{
+    "native_offsets":  [
+                           12,
+                           6,
+                           0
+                       ],
+    "actions":  15,
+    "original_output":  "A:20232",
+    "result":  "passed",
+    "checks":  [
+                   "new owned window identity",
+                   "native wheel down decreases history offset",
+                   "bottom returns to live without submitting draft",
+                   "UI reopen retains original shell process"
+               ],
+    "reopened_output":  "A2:20232"
+}
+

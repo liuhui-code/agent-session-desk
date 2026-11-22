@@ -111,6 +111,14 @@ func (m *Model) renderWorkspace() string {
 	footer := m.styles.dim.Render("终端模式 · F6 管理 · Ctrl+PgUp/PgDn 切换 Tab")
 	if !w.focused {
 		footer = m.styles.dim.Render("管理模式 · Enter 终端 · n 新建 · x 关Tab · <> 比例 · = 默认 · ? 帮助 · q 退出 · F6 终端")
+	} else if w.screen.CopyMode {
+		text := fmt.Sprintf("滚动历史 · %d 行 · Esc/q 返回 · ↑↓/PgUp/PgDn 浏览", w.screen.ScrollbackOffset)
+		if w.screen.Status != "" {
+			text = "滚动历史 · " + label(w.screen.Status)
+		}
+		footer = m.styles.dim.Render(text)
+	} else if w.screen.ScrollbackOffset > 0 {
+		footer = m.styles.dim.Render(fmt.Sprintf("滚动位置 · %d 行 · 向下滚动返回实时输出", w.screen.ScrollbackOffset))
 	}
 	if !w.split.noticeUntil.IsZero() {
 		pct := m.workspaceSidebarPercent()

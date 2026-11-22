@@ -1,0 +1,5 @@
+--- FAIL: TestPSMuxCopyModeHidesLiveCursorAndCarriesOffset (0.00s)
+    scroll_test.go:83: scrolled history still advertises a live input cursor
+FAIL
+FAIL	github.com/<LOCAL_TEST_USER>-code/agent-session-desk/internal/terminal	0.843s
+FAIL

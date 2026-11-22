@@ -133,6 +133,9 @@ func (s *workspaceStream) Resize(ctx context.Context, w, h int) error {
 	return s.record(ctx, fmt.Sprintf("size:%d,%d", w, h))
 }
 func (s *workspaceStream) Refresh(ctx context.Context) error { return s.record(ctx, "refresh") }
+func (s *workspaceStream) Scroll(ctx context.Context, x, y int, up bool) error {
+	return s.record(ctx, fmt.Sprintf("scroll:%t,%d,%d", up, x, y))
+}
 
 type workspaceHarness struct {
 	t        *testing.T

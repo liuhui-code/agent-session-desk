@@ -1,0 +1,5 @@
+--- FAIL: TestPSMuxScrollTargetsOriginalPaneWithoutTextOrArrowKeys (0.00s)
+    scroll_test.go:44: native terminal cannot scroll its original pane
+FAIL
+FAIL	github.com/<LOCAL_TEST_USER>-code/agent-session-desk/internal/terminal	1.366s
+FAIL

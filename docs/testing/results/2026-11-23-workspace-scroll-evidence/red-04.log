@@ -1,0 +1,5 @@
+--- FAIL: TestWorkspaceScrollModeShowsHistoryAndNativePrompt (0.01s)
+    workspace_scroll_test.go:41: history mode is indistinguishable from live input or hides its native prompt
+FAIL
+FAIL	github.com/<LOCAL_TEST_USER>-code/agent-session-desk/internal/ui	0.873s
+FAIL

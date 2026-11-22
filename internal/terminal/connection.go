@@ -11,5 +11,6 @@ type Connection interface {
 	Paste(context.Context, string) error
 	Resize(context.Context, int, int) error
 	Refresh(context.Context) error
+	Scroll(context.Context, int, int, bool) error
 	Close() error
 }

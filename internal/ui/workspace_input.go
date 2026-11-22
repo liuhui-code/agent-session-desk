@@ -13,6 +13,8 @@ const workspaceInputCapacity = 64 // defensive input bound, not an agent queue
 type workspaceInput struct {
 	kind, text    string
 	width, height int
+	x, y          int
+	up            bool
 	reply         chan error
 }
 type workspaceInputDone struct {
@@ -79,6 +81,8 @@ func startWorkspaceWriter(ctx context.Context, conn terminal.Connection, inputs 
 					err = conn.Resize(ctx, action.width, action.height)
 				case "refresh":
 					err = conn.Refresh(ctx)
+				case "scroll":
+					err = conn.Scroll(ctx, action.x, action.y, action.up)
 				default:
 					err = fmt.Errorf("未知终端输入类型")
 				}

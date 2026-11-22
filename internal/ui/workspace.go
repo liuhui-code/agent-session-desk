@@ -171,6 +171,11 @@ func (m *Model) workspaceEvent(msg tea.Msg) (tea.Cmd, bool) {
 	switch msg := msg.(type) {
 	case workspaceSplitTick:
 		return m.workspaceSplitExpired(), true
+	case tea.MouseWheelMsg:
+		if !m.attaching && !m.history.open && !m.help && m.launch == nil {
+			return m.workspaceWheel(msg), true
+		}
+		return nil, true
 	case tea.MouseMotionMsg:
 		if !m.attaching && !m.history.open && !m.help && m.launch == nil {
 			return m.workspaceSplitMotion(msg), true

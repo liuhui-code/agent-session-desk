@@ -185,6 +185,20 @@
       ],
       "mode": "selectively_adapted",
       "modifications": "Stable Bubble Tea v2 messages; one shared flat-list window for render and hit testing; stable Session/Run identity instead of agent/group/provider items; product Tab open with no child Enter. Keyboard input and resize reset the click sequence."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/home.go",
+      "source_sha256": "982178adb5c0ef2e27ff316a1f2383b47e261a965a3e6ac2fd50bf0c199dede9",
+      "destination_file": "internal/ui/workspace_scroll.go",
+      "license": "MIT",
+      "parts": [
+        "home.go mouse wheel routing between session list and preview region"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "Stable Bubble Tea v2 wheel events; shared Tab list/terminal geometry; list wheel changes management selection while terminal wheel uses serialized native psmux pane-scroll instead of local history duplication."
     }
   ],
   "preserved_notices": [
