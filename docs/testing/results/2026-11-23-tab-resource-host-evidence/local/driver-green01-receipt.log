@@ -1,0 +1,7 @@
+Separate child processes confirmed default/inherited isolation and driver-only host selection. No ConPTY DLL was loaded by this test.
+
+{
+    "phase":  "driver-green01",
+    "expected":  0,
+    "exit_code":  0
+}

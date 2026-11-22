@@ -20,5 +20,17 @@
     "label": "windows-2025",
     "source_url": "https://github.com/actions/runner-images/blob/main/images/windows/Windows2025-VS2026-Readme.md",
     "scope": "Hosted Windows Server 2025. Record actual ImageVersion; this is not Windows 10/11 desktop, an interactive Windows Terminal/IME test, or proof that WSL is absent."
+  },
+  "resource_driver_conpty": {
+    "version": "1.25.261109001",
+    "scope": "Explicit measurement-driver candidate only; not a product runtime or release dependency. Default remains system ConPTY.",
+    "package_url": "https://api.nuget.org/v3-flatcontainer/microsoft.windows.console.conpty/1.25.261109001/microsoft.windows.console.conpty.1.25.261109001.nupkg",
+    "package_sha256": "3d77f535df848e44225c2a8912ac844fecb23f3057732b639f3034b587496f09",
+    "package_bytes": 1763943,
+    "license": "MIT",
+    "files": {
+      "conpty.dll": "e971856f89748dc3b458125e9afdd79b5e9574a7c937676116d3cbbd3b71f492",
+      "OpenConsole.exe": "b17e48b07ef153b420f0a6e178bacd31fb4c3390e21ae746586213fc0719a775"
+    }
   }
 }

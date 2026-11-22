@@ -1,10 +1,10 @@
 # 界面方向与历史设计稿
 
-更新日期：2026-11-22。历史图稿版本：v0.1（2026-11-20）。
+更新日期：2026-11-23。历史图稿版本：v0.1（2026-11-20）。
 
 **状态：v0.1 图稿未采纳。** 用户反馈其界面过于杂乱；下方四张设计图和[交互设计稿](design/agent-session-desk.html)保留为历史探索，**不作为实现基线**。示例会话与输出均为演示内容，现有图稿也没有通过 Windows 实机验证。
 
-当前按 [ADR-0014](adr/0014-upstream-ui-tabs-and-general-terminals.md) 尽可能还原固定 Agent Deck 的布局比例、交互、颜色、间距与状态样式，以 Tab 为主要会话工作区，普通终端与 agent 共用终端原生输入。该决定部分替代 ADR-0001/0002 的界面约束。技术与依赖见[技术选型](TECH_STACK.md)，实现状态和验收见 [Feature Ledger](FEATURE_LEDGER.md)。当前代码仍是列表／预览与全屏 attach；新 Tab 体验尚未实现，具体视觉细节仍需对照上游在真实 Windows 构建上评审。
+当前按 [ADR-0014](adr/0014-upstream-ui-tabs-and-general-terminals.md) 尽可能还原固定 Agent Deck 的布局比例、交互、颜色、间距与状态样式，以 Tab 为主要会话工作区，普通终端与 agent 共用终端原生输入。该决定部分替代 ADR-0001/0002 的界面约束。技术与依赖见[技术选型](TECH_STACK.md)，实现状态和验收见 [Feature Ledger](FEATURE_LEDGER.md)。psmux 已接入 [ADR-0016 的首个 Tab 工作区](adr/0016-tab-workspaces-and-input-ownership.md)，有普通 shell 输入、切换、重开、基础 IME 与滚轮的局部证据；完整视觉细节仍须按[固定上游基线](design/UPSTREAM_UI_BASELINE.md)在真实 Windows 构建上对照评审。
 
 ## 当前采用的交互方向
 
@@ -19,9 +19,9 @@
 | 全屏辅助 | 用户可显式进入旧 attach 模式；该模式可隐藏导航，不能代替默认 Tab 工作流 |
 | 新建或发送 | 按需表单不覆盖子终端当前输入；提交前核对命令／cwd 或消息目标 |
 
-普通 shell 连续运行命令、返回提示符仍属同一 Run；在 shell 内启动 agent 不自动推定 agent 生命周期或工作状态。Tab 导航、管理表单和终端输入各有明确焦点；具体快捷键先经 Windows／IME／目标程序冲突验证，不以历史稿的 F6 作为既定键位。
+普通 shell 连续运行命令、返回提示符仍属同一 Run；在 shell 内启动 agent 不自动推定 agent 生命周期或工作状态。Tab 导航、管理表单和终端输入各有明确焦点。ADR-0016 当前实现 F6 管理／终端焦点及 Ctrl+PgUp/PgDn 切 Tab；它们已有特定桌面条件的局部证据，其他宿主、IME／目标程序冲突仍需逐项验证，不从历史图稿推导键位保证。
 
-样式全部使用 design tokens，继续迁移至稳定 Charm v2 并保留上游许可、固定提交与修改说明。上游不相关业务功能不随视觉还原纳入。Tab 内屏幕模型、输入和 resize 集成实施前验证，不预先新增自有 ConPTY 托管层。FL-018 已从后置转为首版计划；现有 attach、资源与 IME 证据只证明原路径，不证明新 Tab 实现。新路径须重新进行上游对照、用户评审和 Windows／资源验收。
+样式全部使用 design tokens，采用稳定 Charm v2 并保留上游许可、固定提交与修改说明。上游不相关业务功能不随视觉还原纳入。Tab 内屏幕、输入与 resize 已通过固定 psmux 原生客户端适配，psmux 继续拥有 ConPTY；FL-018 为首版范围、当前实现中。各份旧 attach 与新 Tab 的证据分别限定路径，不能互相替代。完整上游对照、用户评审和 Windows／资源验收继续开放。
 
 ### 人工介入提醒
 

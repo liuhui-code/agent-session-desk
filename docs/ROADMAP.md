@@ -6,7 +6,7 @@
 
 **当前没有已完成的软件阶段。** 已在指定 Windows Server 2025 runner 通过常规检查与五项可控原生后端场景，完整记录见[Windows 执行报告](testing/results/2026-11-21-m0-native-windows.md)。另有[原生 Windows 短资源实验](testing/results/2026-11-21-m0-windows-resources.md)，覆盖 0/1/5/10 会话、真实 TUI 启停与直接程序对照。这些局部证据不代替 Windows Terminal 桌面交互、完整资源预算与 M0 验收；M4 发布前还必须复验对应发布组合。
 
-2026-11-22 范围更新：[ADR-0014](adr/0014-upstream-ui-tabs-and-general-terminals.md) 要求上游体验尽可能还原、Tab 主工作区及普通 shell／CLI。现有阶段和证据保留；M0 增补视觉与技术可行性，M1 交付单 Tab 原生终端，M2 交付多 Tab。新增范围均未实现／验收，不能用旧全屏 attach 结果关闭。
+2026-11-22 范围更新：[ADR-0014](adr/0014-upstream-ui-tabs-and-general-terminals.md) 要求上游体验尽可能还原、Tab 主工作区及普通 shell／CLI。现有阶段和证据保留；M0 增补视觉与技术可行性，M1 交付单 Tab 原生终端，M2 交付多 Tab。后续 ADR-0016 已进入局部实现，完整范围仍未验收，不能用旧全屏 attach 结果关闭。
 
 2026-11-22 技术进展：[ADR-0015](adr/0015-pinned-psmux-native-terminal-client.md) 已实现固定 psmux 原生终端传输，并通过 fixture／普通 PowerShell 的两项局部原生测试；ADR-0016 在 2026-11-23 接入首个 psmux Tab UI，并有普通 shell 的[局部桌面证据](testing/results/2026-11-23-tab-workspaces.md)。完整上游视觉／交互、IME、子程序鼠标、滚动／排序与资源门槛保持开放。
 
@@ -47,7 +47,7 @@ M1 收尾已加入[离线检查、备份和非覆盖恢复](adr/0012-metadata-ch
 
 M1 收尾按[验收清单](testing/M1_ACCEPTANCE.md)推进；显式有界屏幕记录与离线读取已有 [ADR-0013](adr/0013-bounded-screen-output-records.md) 和[Windows 局部结果](testing/results/2026-11-22-m1-output-records.md)，连续流日志不在此能力声明中。用户目前没有实际目标 agent，继续以自定义命令／工作目录的配置化实施；真实 agent 兼容性不得由 fixture 冒充，仍保留待测。
 
-交付物：启动配置、Session/Run 身份、工作目录和环境处理、单 Tab 内完整终端输入／显示、辅助预览与全屏 attach、停止和失败说明，以及最小记录存储。普通 shell／CLI 与 agent 同属管理对象，Tab 工作区当前待实现。会话核心随 TUI 或管理命令运行；本阶段不强制启动自有常驻 Host。
+交付物：启动配置、Session/Run 身份、工作目录和环境处理、单 Tab 内完整终端输入／显示、辅助预览与全屏 attach、停止和失败说明，以及最小记录存储。普通 shell／CLI 与 agent 同属管理对象；首个 psmux Tab 工作区已有局部实现与实机结果，完整交互与视觉仍待验收。会话核心随 TUI 或管理命令运行；本阶段不强制启动自有常驻 Host。
 
 验收：
 

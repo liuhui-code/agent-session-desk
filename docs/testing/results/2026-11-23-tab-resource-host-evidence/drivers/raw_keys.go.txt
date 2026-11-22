@@ -1,0 +1,116 @@
+//go:build windows
+
+// Diagnostic only: read the original console, then run the normal product in
+// that same console. No Bubble Tea decoder or input injection in this reader.
+package main
+
+import (
+	"encoding/json"
+	"fmt"
+	"os"
+	"os/exec"
+	"time"
+
+	xwin "github.com/charmbracelet/x/windows"
+	"golang.org/x/sys/windows"
+)
+
+func main() {
+	if err := run(); err != nil {
+		fmt.Fprintln(os.Stderr, err)
+		os.Exit(1)
+	}
+}
+
+func run() error {
+	if len(os.Args) < 3 {
+		return fmt.Errorf("usage: raw-keys REPORT PRODUCT [ARGS...]")
+	}
+	file, err := os.OpenFile(os.Args[1], os.O_WRONLY|os.O_CREATE|os.O_EXCL, 0600)
+	if err != nil {
+		return err
+	}
+	defer file.Close()
+	encoder := json.NewEncoder(file)
+	emit := func(event string, data any) error {
+		return encoder.Encode(map[string]any{"event": event, "utc": time.Now().UTC(), "pid": os.Getpid(), "data": data})
+	}
+	input, err := windows.GetStdHandle(windows.STD_INPUT_HANDLE)
+	if err != nil {
+		return err
+	}
+	var original uint32
+	if err := windows.GetConsoleMode(input, &original); err != nil {
+		return err
+	}
+	defer windows.SetConsoleMode(input, original)
+	process, err := windows.GetCurrentProcess()
+	if err != nil {
+		return err
+	}
+	var creation, exit, kernel, user windows.Filetime
+	if err := windows.GetProcessTimes(process, &creation, &exit, &kernel, &user); err != nil {
+		return err
+	}
+	creationTicks := uint64(creation.HighDateTime)<<32 | uint64(creation.LowDateTime)
+	if err := emit("chain-started", map[string]any{"original_input_mode": original, "creation_filetime": fmt.Sprint(creationTicks)}); err != nil {
+		return err
+	}
+	for _, mode := range []struct {
+		name  string
+		value uint32
+	}{{"native", 0x88}, {"vt", 0x288}} {
+		if err := windows.SetConsoleMode(input, mode.value); err != nil {
+			return err
+		}
+		var actual uint32
+		if err := windows.GetConsoleMode(input, &actual); err != nil {
+			return err
+		}
+		if actual != mode.value {
+			return fmt.Errorf("input mode differs")
+		}
+		if err := emit("stage-"+mode.name+"-ready", map[string]any{"mode": actual}); err != nil {
+			return err
+		}
+		until := time.Now().Add(4 * time.Second)
+		records := make([]xwin.InputRecord, 64)
+		for time.Now().Before(until) {
+			var count uint32
+			if err := xwin.PeekConsoleInput(input, &records[0], uint32(len(records)), &count); err != nil {
+				return err
+			}
+			if count == 0 {
+				time.Sleep(10 * time.Millisecond)
+				continue
+			}
+			if err := xwin.ReadConsoleInput(input, &records[0], uint32(len(records)), &count); err != nil {
+				return err
+			}
+			for _, record := range records[:count] {
+				if record.EventType != xwin.KEY_EVENT {
+					continue
+				}
+				key := record.KeyEvent()
+				if err := emit("key-"+mode.name, key); err != nil {
+					return err
+				}
+			}
+		}
+		if err := emit("stage-"+mode.name+"-finished", nil); err != nil {
+			return err
+		}
+	}
+	if err := windows.SetConsoleMode(input, original); err != nil {
+		return err
+	}
+	if err := emit("product-starting", nil); err != nil {
+		return err
+	}
+	child := exec.Command(os.Args[2], os.Args[3:]...)
+	child.Stdin, child.Stdout, child.Stderr = os.Stdin, os.Stdout, os.Stderr
+	if err := child.Run(); err != nil {
+		return fmt.Errorf("product child: %w", err)
+	}
+	return emit("product-exited", nil)
+}

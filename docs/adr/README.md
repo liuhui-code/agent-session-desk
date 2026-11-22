@@ -38,11 +38,11 @@ ADR 保存重要选择的背景、决定、替代方案、代价和重新评估�
 
 | [0013](0013-bounded-screen-output-records.md) | 显式有界屏幕记录、按原 Run 离线读取与文件归属 | 已接受 | Go／原生 Windows 合同及 junction 拒绝已有局部证据；连续流与完整故障矩阵仍待做 |
 
-| [0014](0014-upstream-ui-tabs-and-general-terminals.md) | 尽可能还原上游体验、Tab 主导航、agent 与普通终端共用原生输入 | 已接受 | 仅产品决定与测试设计更新；Tab 工作区和上游体验还原未实现／未验收 |
+| [0014](0014-upstream-ui-tabs-and-general-terminals.md) | 尽可能还原上游体验、Tab 主导航、agent 与普通终端共用原生输入 | 已接受 | ADR-0016 已进入局部实现；完整上游对照与验收仍开放 |
 
 ADR-0014 依据用户 2026-11-22 的明确要求接受，部分替代 0001/0002 的界面约束并扩展 0004 的管理对象。原有运行证据不升级为新路径通过。
 
-| [0015](0015-pinned-psmux-native-terminal-client.md) | 固定 psmux 原生持久客户端屏幕、输入与尺寸适配 | 已接受 | 两项限定 Windows 原生终端合同通过；TUI Tab、视觉、IME、鼠标与资源待做 |
+| [0015](0015-pinned-psmux-native-terminal-client.md) | 固定 psmux 原生持久客户端屏幕、输入与尺寸适配 | 已接受 | 后端合同及后续 Tab 局部证据已有；完整视觉／输入矩阵与资源预算仍开放 |
 | [0016](0016-tab-workspaces-and-input-ownership.md) | Tab 工作区、终端输入归属与通用创建表单 | 已接受 | 首个 psmux UI 切片；实际局部结果与剩余门槛见执行报告 |
 
 ## 维护规则

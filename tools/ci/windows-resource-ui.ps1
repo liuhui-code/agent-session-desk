@@ -21,6 +21,7 @@ function Start-Manager {
             $manager = @($snapshot.processes | Where-Object { $_.executable_path -eq $binaries.product })
             if ($manager.Count -ne 1) { throw 'TUI screen appeared without one live manager identity.' }
             $Case.ui_identity = $manager[0]
+            Assert-AsdResourceDriverHost $Case $driverHost
             Write-Event 'ui-started' @{ scenario = $Case.id; identity = $Case.ui_identity; width = 120; height = 32 }
             return
         }

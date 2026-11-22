@@ -12,6 +12,7 @@ $psmux = ./tools/ci/install-psmux.ps1
 ./tools/ci/test-windows-process-metrics.ps1
 ./tools/ci/test-windows-fixture-journal.ps1
 ./tools/ci/test-windows-resource-ui.ps1
+./tools/ci/test-windows-resource-driver.ps1
 ./tools/ci/windows-resources.ps1 -PsmuxBinary $psmux
 python -B tools/ci/summarize_resources.py build/ci-windows/resources
 ```
@@ -75,3 +76,18 @@ CIM 与进程句柄可能分别报告扩展 DOS 路径和普通绝对路径。�
 产品运行／元数据继续隔离在每档专有 runtime-dir，不新增用户全局配置。采样和归属算法未因 Tab 改变，短窗口及缺测口径也不变；新工具代码或 CI 步骤存在不等于新资源结果，实际运行仍须另存精确报告。
 
 fixture 的 `finished_utc` 必须经 PowerShell 7 JSON 解码得到 UTC `DateTime`；直接保留其 Kind 与小数秒，拒绝不明时区。不得先将已解码时间隐式转成字符串再 `DateTime.Parse`：这会丢失 UTC 与精度，并在非 UTC 主机上错误移动采样覆盖边界。[官方 JSON 时间规则](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/convertfrom-json?view=powershell-7.7#notes)说明了默认解码行为；未借此新增 7.5 的 `-DateKind` 依赖。回归通过实际共享 journal 读回固定 UTC 时间，要求准确到原 ticks；负载覆盖与计数校验保持不变。
+
+## 显式测量宿主候选
+
+Windows 10 build 19045 的独立原始输入读取器已复现：同一个 psmux ConPTY 中，native 模式能收到 F6，VT 输入模式丢失 F6，普通字符与 Enter 继续到达。仅更换测量 driver 的 console host 后，同一个正式产品构建可观察管理焦点并正常 q 退出。因此工具支持显式 `-MeasurementConptyDirectory`；默认仍使用系统 ConPTY。
+
+候选为 [Microsoft.Windows.Console.ConPTY 1.25.261109001](https://www.nuget.org/packages/Microsoft.Windows.Console.ConPTY/1.25.261109001)。下载地址、包 SHA-256／大小、两个文件哈希和 MIT 许可声明固定在 `windows-dependencies.json` 的 `resource_driver_conpty`，**仅是测量工具候选，不是新增产品运行或发布依赖**。将包中的 `runtimes/win-x64/native/conpty.dll` 和 `build/native/runtimes/x64/OpenConsole.exe` 放在同一个专有目录，然后执行：
+
+```powershell
+./tools/ci/test-windows-resource-driver.ps1 -ConptyDirectory C:/test-tools/conpty-candidate
+./tools/ci/windows-resources.ps1 -PsmuxBinary $psmux -MeasurementConptyDirectory C:/test-tools/conpty-candidate -EvidenceDirectory build/ci-windows/resources-sdk
+```
+
+工具在启动前／结束后核对固定文件哈希及有效 Microsoft 签名；每次 UI 就绪后，必须观察到精确 driver PID／FILETIME／路径对应进程加载该 DLL，以及该进程下精确匹配的 OpenConsole。设置了变量或 psmux 静默回落都不能算候选已加载。只给 measurement driver 的子进程环境添加 `PSMUX_CONPTY_DIR`，backend 控制路径继续清除继承值；回归通过独立真实子进程检查隔离，并拒绝被改动的私有文件副本。
+
+摘要 `measurement_driver_host` 和事件 `measurement-host-observed` 保留所请求和实际观察的宿主。候选的 OpenConsole 归属 measurement driver，按原父链／身份规则计量；不能算作产品额外 Host，也不能从产品计数中简单减去消除测量干扰。宿主候选与系统宿主结果分别记账；本选项不关闭 Windows 10 的产品／目标 agent 兼容矩阵，也不将上游诊断开关提升为已支持的产品配置。

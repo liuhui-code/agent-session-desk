@@ -79,3 +79,5 @@ Windows runner 已通过普通 Go 测试、race、vet、目录校验和原生程
 [ADR-0009](0009-session-run-metadata.md) 固定 modernc.org/sqlite v1.62.0（内嵌 SQLite 3.54.1）及驱动要求的 libc v1.80.1。新增模块同时引入 go.mod 中的传递版本变化，常规／race／原生 Windows 验证独立记录。纯 Go 构建避免产品额外 C 工具链要求，不自动证明资源或掉电恢复通过。
 
 2026-11-23 实现补充：Bubbles 2.2.2 的依赖要求使 MVS 将 runewidth 升至 0.0.31、uniseg 升至 `v0.4.8-0.20261110175422-3a370411ca06`，另引入 clipboard 0.1.4。uniseg 是上游稳定组件要求的预发布传递依赖，按 go.sum 精确锁定并记录风险，不能描述为全链路稳定版本。主框架仍使用本 ADR 的稳定 v2 基线；字宽、布局和 Windows 输入结果见[ADR-0016](0016-tab-workspaces-and-input-ownership.md)及其执行报告。
+
+测量宿主补充：`Microsoft.Windows.Console.ConPTY 1.25.261109001` 仅作为显式 resource driver 候选固定包／文件哈希与 Microsoft 签名，在当前 psmux 3.4.0 实际 EXE 上核对加载，而非依据 master 推定。Go／Charm／产品后端版本与环境隔离不变；上游将该宿主开关标为诊断用途，不提升为产品配置支持。具体选择、观察与测量口径见 [WINDOWS_RESOURCES](../testing/WINDOWS_RESOURCES.md)。它不是新的产品运行或发布依赖，未来生产采用需另立决策并完成兼容／资源／许可验证。

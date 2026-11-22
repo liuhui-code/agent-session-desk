@@ -1,0 +1,14 @@
+{
+  "product_base_commit": "921b67013ac779e5f9d847e796d32acfb22e264a",
+  "tool_change_base_commit": "5f29d95",
+  "go_toolchain": "go1.27.4 darwin/amd64",
+  "target": "windows/amd64",
+  "source_and_diagnostic_binary_sha256": {
+    "raw_keys.go": "3bf6d203bf076531e6029dd925388ad85f240d4a0454262d88ef55e0f6a8d5da",
+    "raw-focus-probe.ps1": "df4d033b670120a0c031de8b4c7688a4907bcc4cf1b7176b80fe51a275835adf",
+    "raw-focus-conpty.ps1": "2e862d5594eda8d34e2d97f647179bcfc97ce6170d573dd35aae4a34f81480d9",
+    "raw-focus-conpty2.ps1": "8aab4a2c4e1e0ca3aeba3ee00e3f531cb75cb963959e62f7c44fe7ddaec707ce",
+    "raw-keys.exe": "5dc9ceb9c8cab34deaf57803608cbee592695e2ad82fbe5489ab708d1fa99e0c"
+  },
+  "notes": "raw-keys is a diagnostic console reader followed by the unchanged formal product in the same console; it is never a resource workload. Raw native and VT input record stages are 4 seconds each. Exact pinned libraries are from repository go.mod/go.sum."
+}

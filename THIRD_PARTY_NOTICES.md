@@ -36,3 +36,5 @@ Go 模块由 `go.mod` 与 `go.sum` 锁定，通过模块系统取得，没有复
 M1 新增直接依赖 `modernc.org/sqlite v1.62.0`：BSD-3-Clause，Copyright (c) 2017 The Sqlite Authors；[固定版本 LICENSE](https://gitlab.com/cznic/sqlite/-/blob/v1.62.0/LICENSE)。内嵌 SQLite 3.54.1 的 public-domain 声明与模块内第三方归属需随发行物收集；libc v1.80.1 和全部传递依赖以 go.mod/go.sum 为准。通过模块系统使用，未复制其驱动源码。
 
 ADR-0016 新增直接依赖 `charm.land/bubbles/v2 v2.2.2`：MIT，Copyright (c) 2020–2026 Charmbracelet, Inc.；[固定版本许可](https://github.com/charmbracelet/bubbles/blob/v2.2.2/LICENSE)。通过模块使用 textinput，无组件源码复制；clipboard、runewidth、uniseg 等间接依赖的实际版本和许可随发行物另行收集。
+
+测量工具的显式宿主候选 `Microsoft.Windows.Console.ConPTY 1.25.261109001`：NuGet 原始 nuspec 声明 MIT、© Microsoft Corporation，来源为[固定版本官方包](https://www.nuget.org/packages/Microsoft.Windows.Console.ConPTY/1.25.261109001)。归档与 x64 `conpty.dll`／`OpenConsole.exe` 哈希固定在 `tools/ci/windows-dependencies.json`，执行前验证 Microsoft 签名。本仓库不包含这两个二进制，不将该诊断候选列为产品运行／发布依赖；未来若随产品分发，仍须完成发行物许可与兼容审计。

@@ -1,0 +1,28 @@
+{
+  "@id": "https://api.nuget.org/v3/registration5-gz-semver2/microsoft.windows.console.conpty/1.25.261109001.json",
+  "@type": [
+    "Package",
+    "http://schema.nuget.org/catalog#Permalink"
+  ],
+  "catalogEntry": "https://api.nuget.org/v3/catalog0/data/2026.11.11.18.52.40/microsoft.windows.console.conpty.1.25.261109001.json",
+  "listed": true,
+  "packageContent": "https://api.nuget.org/v3-flatcontainer/microsoft.windows.console.conpty/1.25.261109001/microsoft.windows.console.conpty.1.25.261109001.nupkg",
+  "published": "2026-11-11T18:47:46.53+00:00",
+  "registration": "https://api.nuget.org/v3/registration5-gz-semver2/microsoft.windows.console.conpty/index.json",
+  "@context": {
+    "@vocab": "http://schema.nuget.org/schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "catalogEntry": {
+      "@type": "@id"
+    },
+    "registration": {
+      "@type": "@id"
+    },
+    "packageContent": {
+      "@type": "@id"
+    },
+    "published": {
+      "@type": "xsd:dateTime"
+    }
+  }
+}

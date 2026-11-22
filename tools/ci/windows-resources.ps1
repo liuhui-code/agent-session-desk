@@ -3,6 +3,7 @@ param(
     [Parameter(Mandatory = $true)][string]$PsmuxBinary,
     [string]$ProductBinary = 'build/asd-windows-native.exe',
     [string]$FixtureBinary = 'build/asd-fixture-windows-native.exe',
+    [string]$MeasurementConptyDirectory,
     [string]$EvidenceDirectory = 'build/ci-windows/resources',
     [ValidateRange(1, 10)][int]$WarmupSeconds = 3,
     [ValidateRange(8, 15)][int]$SampleSeconds = 12
@@ -18,11 +19,13 @@ if ($WarmupSeconds + $SampleSeconds -gt 20) { throw 'The 25-second fixture load 
 . (Join-Path $PSScriptRoot 'windows-process-metrics.ps1')
 . (Join-Path $PSScriptRoot 'windows-resource-process.ps1')
 . (Join-Path $PSScriptRoot 'windows-resource-ui.ps1')
+. (Join-Path $PSScriptRoot 'windows-resource-driver.ps1')
 . (Join-Path $PSScriptRoot 'windows-fixture-journal.ps1')
 $repo = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '../..'))
 $evidence = [IO.Path]::GetFullPath($EvidenceDirectory)
 $experiment = Join-Path $repo ('build/resource-runtime-' + [Guid]::NewGuid().ToString('N'))
 $lock = Get-Content -Raw (Join-Path $PSScriptRoot 'windows-dependencies.json') | ConvertFrom-Json
+$driverHost = Resolve-AsdResourceDriverHost $MeasurementConptyDirectory $lock.resource_driver_conpty
 $originals = @{
     backend = (Resolve-Path -LiteralPath $PsmuxBinary).Path
     driver = (Resolve-Path -LiteralPath $PsmuxBinary).Path
@@ -94,7 +97,7 @@ function Invoke-Product {
 function Invoke-Mux {
     param([object]$Case, [string[]]$ArgumentList, [switch]$Driver)
     if ($Driver) {
-        return Invoke-Control 'driver' $binaries.driver (@('-L', $Case.driver_namespace, '-f', $Case.driver_config) + $ArgumentList) (Get-MuxEnvironment $Case.driver_data $Case.driver_config)
+        return Invoke-Control 'driver' $binaries.driver (@('-L', $Case.driver_namespace, '-f', $Case.driver_config) + $ArgumentList) (Get-AsdResourceDriverEnvironment $Case.driver_data $Case.driver_config $driverHost)
     }
     return Invoke-Control 'backend-control' $binaries.backend (@('-L', $Case.namespace, '-f', $Case.config) + $ArgumentList) (Get-MuxEnvironment $Case.data $Case.config)
 }
@@ -408,6 +411,10 @@ try {
     Write-Host "Resource baseline failed: $failure"
     Write-Event 'failure' @{ message = $failure; script_stack = $_.ScriptStackTrace }
 } finally {
+    try { $null = Resolve-AsdResourceDriverHost $MeasurementConptyDirectory $lock.resource_driver_conpty } catch {
+        Write-Event 'measurement-host-changed' @{ message = $_.Exception.Message }
+        if ($null -eq $failure) { $failure = 'Measurement host files changed during execution.' }
+    }
     # Failure-only backstop. Normal cleanup above is measured separately. Hold
     # and verify exact owned images; never kill by name, wildcard or PID alone.
     try { $null = Read-Snapshot 'experiment' 'final' 0 } catch {
@@ -442,6 +449,7 @@ try {
         warmup_seconds = $WarmupSeconds; sample_seconds = $SampleSeconds; target_interval_ms = 1000
         load = @{ lines_per_second = 100; line_bytes = 256; duration_ms = 25000; output_only_stdout = $true }
         terminal = @{ width = 120; height = 32; history_limit = 2000; host = 'separate measurement-only psmux ConPTY'; interactive_windows_terminal = $false }
+        measurement_driver_host = $driverHost
         scenarios = $scenarioRecords; phases = $script:phases.ToArray(); cleanup = $script:cleanup.ToArray()
         limitations = @(
             'Short baseline only: no performance budget, long-soak, leak-free, real-agent or Windows desktop acceptance.'

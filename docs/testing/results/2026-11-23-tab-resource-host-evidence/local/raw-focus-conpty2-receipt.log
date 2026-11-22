@@ -1,0 +1,31 @@
+{
+    "failure":  null,
+    "events":  [
+                   {
+                       "event":  "candidate-host-observed",
+                       "focus":  null
+                   },
+                   {
+                       "event":  "raw-native-observed",
+                       "focus":  null
+                   },
+                   {
+                       "event":  "raw-vt-observed",
+                       "focus":  null
+                   },
+                   {
+                       "event":  "product-f6-observed",
+                       "focus":  "management"
+                   }
+               ],
+    "probe_exit_code":  0,
+    "binary_sha256":  {
+                          "backend":  "bbe825a30f7cddc91b043084049143a381aba5f7e9e36e4d0bb587e296d262ca",
+                          "driver":  "bbe825a30f7cddc91b043084049143a381aba5f7e9e36e4d0bb587e296d262ca",
+                          "product":  "3ea19887436c4f803e988d64186e54762b86d5879132686023b5d13e7f0d15b4",
+                          "managed":  "107f94c3e886ef26c32cd4f4e1fa14cc22bbe3163510d74b847e4239dc41bbb1",
+                          "direct":  "107f94c3e886ef26c32cd4f4e1fa14cc22bbe3163510d74b847e4239dc41bbb1",
+                          "recorder":  "5dc9ceb9c8cab34deaf57803608cbee592695e2ad82fbe5489ab708d1fa99e0c"
+                      },
+    "result":  "pass"
+}

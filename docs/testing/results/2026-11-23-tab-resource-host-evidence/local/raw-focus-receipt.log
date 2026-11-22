@@ -1,0 +1,234 @@
+{
+    "failure":  "Normal product did not observe F6 after raw-reader stages.",
+    "probe_exit_code":  1,
+    "binary_sha256":  {
+                          "managed":  "107f94c3e886ef26c32cd4f4e1fa14cc22bbe3163510d74b847e4239dc41bbb1",
+                          "driver":  "bbe825a30f7cddc91b043084049143a381aba5f7e9e36e4d0bb587e296d262ca",
+                          "backend":  "bbe825a30f7cddc91b043084049143a381aba5f7e9e36e4d0bb587e296d262ca",
+                          "direct":  "107f94c3e886ef26c32cd4f4e1fa14cc22bbe3163510d74b847e4239dc41bbb1",
+                          "product":  "3ea19887436c4f803e988d64186e54762b86d5879132686023b5d13e7f0d15b4",
+                          "recorder":  "5dc9ceb9c8cab34deaf57803608cbee592695e2ad82fbe5489ab708d1fa99e0c"
+                      },
+    "result":  "fail",
+    "stages":  [
+                   {
+                       "event":  "raw-native-observed",
+                       "data":  {
+                                    "records":  [
+                                                    {
+                                                        "data":  {
+                                                                     "KeyDown":  true,
+                                                                     "RepeatCount":  1,
+                                                                     "VirtualKeyCode":  65,
+                                                                     "VirtualScanCode":  30,
+                                                                     "Char":  97,
+                                                                     "ControlKeyState":  0
+                                                                 },
+                                                        "event":  "key-native",
+                                                        "pid":  7324,
+                                                        "utc":  "2026-11-22T19:37:22.1108133Z"
+                                                    },
+                                                    {
+                                                        "data":  {
+                                                                     "KeyDown":  false,
+                                                                     "RepeatCount":  1,
+                                                                     "VirtualKeyCode":  65,
+                                                                     "VirtualScanCode":  30,
+                                                                     "Char":  97,
+                                                                     "ControlKeyState":  0
+                                                                 },
+                                                        "event":  "key-native",
+                                                        "pid":  7324,
+                                                        "utc":  "2026-11-22T19:37:22.1108133Z"
+                                                    },
+                                                    {
+                                                        "data":  {
+                                                                     "KeyDown":  true,
+                                                                     "RepeatCount":  1,
+                                                                     "VirtualKeyCode":  117,
+                                                                     "VirtualScanCode":  64,
+                                                                     "Char":  0,
+                                                                     "ControlKeyState":  0
+                                                                 },
+                                                        "event":  "key-native",
+                                                        "pid":  7324,
+                                                        "utc":  "2026-11-22T19:37:22.1544216Z"
+                                                    },
+                                                    {
+                                                        "data":  {
+                                                                     "KeyDown":  false,
+                                                                     "RepeatCount":  1,
+                                                                     "VirtualKeyCode":  117,
+                                                                     "VirtualScanCode":  64,
+                                                                     "Char":  0,
+                                                                     "ControlKeyState":  0
+                                                                 },
+                                                        "event":  "key-native",
+                                                        "pid":  7324,
+                                                        "utc":  "2026-11-22T19:37:22.1544216Z"
+                                                    },
+                                                    {
+                                                        "data":  {
+                                                                     "KeyDown":  true,
+                                                                     "RepeatCount":  1,
+                                                                     "VirtualKeyCode":  13,
+                                                                     "VirtualScanCode":  28,
+                                                                     "Char":  13,
+                                                                     "ControlKeyState":  0
+                                                                 },
+                                                        "event":  "key-native",
+                                                        "pid":  7324,
+                                                        "utc":  "2026-11-22T19:37:22.1867475Z"
+                                                    },
+                                                    {
+                                                        "data":  {
+                                                                     "KeyDown":  false,
+                                                                     "RepeatCount":  1,
+                                                                     "VirtualKeyCode":  13,
+                                                                     "VirtualScanCode":  28,
+                                                                     "Char":  13,
+                                                                     "ControlKeyState":  0
+                                                                 },
+                                                        "event":  "key-native",
+                                                        "pid":  7324,
+                                                        "utc":  "2026-11-22T19:37:22.1867475Z"
+                                                    },
+                                                    {
+                                                        "data":  {
+                                                                     "KeyDown":  true,
+                                                                     "RepeatCount":  1,
+                                                                     "VirtualKeyCode":  90,
+                                                                     "VirtualScanCode":  44,
+                                                                     "Char":  122,
+                                                                     "ControlKeyState":  0
+                                                                 },
+                                                        "event":  "key-native",
+                                                        "pid":  7324,
+                                                        "utc":  "2026-11-22T19:37:22.21866Z"
+                                                    },
+                                                    {
+                                                        "data":  {
+                                                                     "KeyDown":  false,
+                                                                     "RepeatCount":  1,
+                                                                     "VirtualKeyCode":  90,
+                                                                     "VirtualScanCode":  44,
+                                                                     "Char":  122,
+                                                                     "ControlKeyState":  0
+                                                                 },
+                                                        "event":  "key-native",
+                                                        "pid":  7324,
+                                                        "utc":  "2026-11-22T19:37:22.21866Z"
+                                                    }
+                                                ],
+                                    "ready":  {
+                                                  "data":  {
+                                                               "mode":  136
+                                                           },
+                                                  "event":  "stage-native-ready",
+                                                  "pid":  7324,
+                                                  "utc":  "2026-11-22T19:37:22.035681Z"
+                                              }
+                                }
+                   },
+                   {
+                       "event":  "raw-vt-observed",
+                       "data":  {
+                                    "records":  [
+                                                    {
+                                                        "data":  {
+                                                                     "KeyDown":  true,
+                                                                     "RepeatCount":  1,
+                                                                     "VirtualKeyCode":  0,
+                                                                     "VirtualScanCode":  0,
+                                                                     "Char":  97,
+                                                                     "ControlKeyState":  0
+                                                                 },
+                                                        "event":  "key-vt",
+                                                        "pid":  7324,
+                                                        "utc":  "2026-11-22T19:37:26.1780314Z"
+                                                    },
+                                                    {
+                                                        "data":  {
+                                                                     "KeyDown":  false,
+                                                                     "RepeatCount":  1,
+                                                                     "VirtualKeyCode":  65,
+                                                                     "VirtualScanCode":  30,
+                                                                     "Char":  97,
+                                                                     "ControlKeyState":  0
+                                                                 },
+                                                        "event":  "key-vt",
+                                                        "pid":  7324,
+                                                        "utc":  "2026-11-22T19:37:26.1780314Z"
+                                                    },
+                                                    {
+                                                        "data":  {
+                                                                     "KeyDown":  true,
+                                                                     "RepeatCount":  1,
+                                                                     "VirtualKeyCode":  13,
+                                                                     "VirtualScanCode":  28,
+                                                                     "Char":  13,
+                                                                     "ControlKeyState":  0
+                                                                 },
+                                                        "event":  "key-vt",
+                                                        "pid":  7324,
+                                                        "utc":  "2026-11-22T19:37:26.2431299Z"
+                                                    },
+                                                    {
+                                                        "data":  {
+                                                                     "KeyDown":  false,
+                                                                     "RepeatCount":  1,
+                                                                     "VirtualKeyCode":  13,
+                                                                     "VirtualScanCode":  28,
+                                                                     "Char":  13,
+                                                                     "ControlKeyState":  0
+                                                                 },
+                                                        "event":  "key-vt",
+                                                        "pid":  7324,
+                                                        "utc":  "2026-11-22T19:37:26.2431299Z"
+                                                    },
+                                                    {
+                                                        "data":  {
+                                                                     "KeyDown":  true,
+                                                                     "RepeatCount":  1,
+                                                                     "VirtualKeyCode":  0,
+                                                                     "VirtualScanCode":  0,
+                                                                     "Char":  122,
+                                                                     "ControlKeyState":  0
+                                                                 },
+                                                        "event":  "key-vt",
+                                                        "pid":  7324,
+                                                        "utc":  "2026-11-22T19:37:26.2753884Z"
+                                                    },
+                                                    {
+                                                        "data":  {
+                                                                     "KeyDown":  false,
+                                                                     "RepeatCount":  1,
+                                                                     "VirtualKeyCode":  90,
+                                                                     "VirtualScanCode":  44,
+                                                                     "Char":  122,
+                                                                     "ControlKeyState":  0
+                                                                 },
+                                                        "event":  "key-vt",
+                                                        "pid":  7324,
+                                                        "utc":  "2026-11-22T19:37:26.2753884Z"
+                                                    }
+                                                ],
+                                    "ready":  {
+                                                  "data":  {
+                                                               "mode":  648
+                                                           },
+                                                  "event":  "stage-vt-ready",
+                                                  "pid":  7324,
+                                                  "utc":  "2026-11-22T19:37:26.0378914Z"
+                                              }
+                                }
+                   },
+                   {
+                       "event":  "product-f6-observed",
+                       "data":  {
+                                    "screen":  "Agent Session Desk                                                                                                1 会话\n session-00 ×                                                                                                         +\n\n会话                  │ ╭──────────────────────────────────────────────────────────────────────────────────────────────╮\n───────────────────── │ │{\"event\":\"started\",\"pid\":14140,\"args\":[],\"cwd\":\"C:\\\\Users\\\\<WINDOWS_TEST_USER>\\\\asdr-1123\\\\build\\\\res│\n› session-00          │ │ource-runtime-fab7a58e43304f35b2d40d21695c5499\",\"env\":{}}                                     │\n                      │ │CLI fixture · 中文 · é · 🧪 — type exit to end\n│                     │ │resource-ui-ready-1                                                                           │\n                      │ │{\"event\":\"input\",\"text\":\"resource-ui-ready-1\"}                                                │\n                      │ │                                                                                              │\n                      │ │                                                                                              │\n                      │ │                                                                                              │\n                      │ │                                                                                              │\n                      │ │                                                                                              │\n                      │ │                                                                                              │\n                      │ │                                                                                              │\n                      │ │                                                                                              │\n                      │ │                                                                                              │\n                      │ │                                                                                              │\n                      │ │                                                                                              │\n                      │ │                                                                                              │\n                      │ │                                                                                              │\n                      │ │                                                                                              │\n                      │ │                                                                                              │\n                      │ │                                                                                              │\n                      │ │                                                                                              │\n                      │ │                                                                                              │\n                      │ │                                                                                              │\n                      │ │                                                                                              │\n                      │ ╰──────────────────────────────────────────────────────────────────────────────────────────────╯\n\n终端模式 · F6 管理 · Ctrl+PgUp/PgDn 切换 Tab\n",
+                                    "focus":  "terminal"
+                                }
+                   }
+               ]
+}

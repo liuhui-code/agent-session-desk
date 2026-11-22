@@ -1,0 +1,13 @@
+Resource baseline failed: Normal product did not observe F6 after raw-reader stages.
+pwsh.exe : [31;1mException: [0mC:\Users\<WINDOWS_TEST_USER>\asdr-1123\tools\ci\raw-focus-probe.ps1:465
+所在位置 行:6 字符: 1
++ & (Join-Path $base 'pwsh7/pwsh.exe') -NoLogo -NoProfile -File (Join-P ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([31;1mExceptio...s-probe.ps1:465:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+[36;1mLine |[0m
+[36;1m[36;1m 465 | [0m if ($null -ne $failure) { [36;1mthrow $failure[0m }
+[36;1m     | [31;1m                           ~~~~~~~~~~~~~~[0m
+[36;1m[31;1m[31;1m[36;1m     | [31;1mNormal product did not observe F6 after raw-reader stages.[0m
+[36;1m[31;1m[31;1m[36;1m[31;1m[0m

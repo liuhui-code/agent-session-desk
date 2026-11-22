@@ -1,0 +1,8 @@
+Separate child processes confirmed default/inherited isolation and driver-only host selection. No ConPTY DLL was loaded by this test.
+Pinned Microsoft host files accepted; mutated private copy rejected before any DLL load.
+
+{
+    "phase":  "driver-green02",
+    "expected":  0,
+    "exit_code":  0
+}

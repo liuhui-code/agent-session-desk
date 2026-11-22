@@ -1,0 +1,20 @@
+Separate child processes confirmed default/inherited isolation and driver-only host selection. No ConPTY DLL was loaded by this test.
+pwsh.exe : [31;1mException: [0mC:\Users\<WINDOWS_TEST_USER>\asd-acceptance-20261122\f6-reader-20261123\test-windows-resource
+-driver.ps1:43
+所在位置 行:4 字符: 1
++ & (Join-Path $base 'pwsh7/pwsh.exe') -NoLogo -NoProfile -File (Join-P ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([31;1mExceptio...e-driver.ps1:43:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+[36;1mLine |[0m
+[36;1m[36;1m  43 | [0m …       if (-not $rejected) { [36;1mthrow 'Changed host file was accepted.'[0m }
+[36;1m     | [31;1m                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[36;1m[31;1m[31;1m[36;1m     | [31;1mChanged host file was accepted.[0m
+[36;1m[31;1m[31;1m[36;1m[31;1m[0m
+
+{
+    "phase":  "driver-red02",
+    "expected":  1,
+    "exit_code":  1
+}

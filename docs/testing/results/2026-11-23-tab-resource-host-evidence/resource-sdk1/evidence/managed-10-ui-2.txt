@@ -1,0 +1,33 @@
+Agent Session Desk                                                                                               10 会话
+ session-00 ×    session-01 ×    session-02 ×    session-03 ×    session-04 ×    session-05 ×    session-06 ×    s…   +
+
+会话                  │ ╭──────────────────────────────────────────────────────────────────────────────────────────────╮
+───────────────────── │ │xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx│
+› session-00          │ │xxxxxxxxxxxxxxx                                                                               │
+  session-01          │ │ASD-LOAD xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx│
+  session-02          │ │xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx│
+  session-03          │ │xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx                           │
+  session-04          │ │ASD-LOAD xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx│
+  session-05          │ │xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx│
+  session-06          │ │xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx                           │
+  session-07          │ │ASD-LOAD xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx│
+  session-08          │ │xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx│
+  session-09          │ │xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx                           │
+                      │ │ASD-LOAD xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx│
+                      │ │xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx│
+                      │ │xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx                           │
+                      │ │{"event":"load-finished","load_id":2,"line_bytes":256,"lines_per_second":100,"duration_ms":250│
+                      │ │00,"lines_written":2499,"bytes_written":639744,"status":"completed","started_utc":"2026-11-22T│
+                      │ │19:53:27.5610359Z","finished_utc":"2026-11-22T19:53:52.5614555Z"}                             │
+                      │ │after-load-2                                                                                  │
+                      │ │{"event":"input","text":"after-load-2"}                                                       │
+                      │ │                                                                                              │
+                      │ │                                                                                              │
+                      │ │                                                                                              │
+                      │ │                                                                                              │
+                      │ │                                                                                              │
+                      │ │                                                                                              │
+                      │ ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+
+终端模式 · F6 管理 · Ctrl+PgUp/PgDn 切换 Tab
+
