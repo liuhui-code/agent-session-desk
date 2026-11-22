@@ -29,9 +29,17 @@ func historyLimit(args []string, output io.Writer) (int, error) {
 }
 
 func openMetadata(ctx context.Context, opts backend.Options, dir string) (*store.Store, error) {
-	kind, location, err := backend.Location(opts)
+	path, scope, err := metadataPath(opts, dir)
 	if err != nil {
 		return nil, err
+	}
+	return store.Open(ctx, path, scope)
+}
+
+func metadataPath(opts backend.Options, dir string) (string, string, error) {
+	kind, location, err := backend.Location(opts)
+	if err != nil {
+		return "", "", err
 	}
 	scope := kind + ":" + location
 	if runtime.GOOS == "windows" {
@@ -43,10 +51,10 @@ func openMetadata(ctx context.Context, opts backend.Options, dir string) (*store
 		} else {
 			base, e := os.UserConfigDir()
 			if e != nil {
-				return nil, e
+				return "", "", e
 			}
 			dir = filepath.Join(base, "agent-session-desk")
 		}
 	}
-	return store.Open(ctx, filepath.Join(dir, "metadata.sqlite3"), scope)
+	return filepath.Join(dir, "metadata.sqlite3"), scope, nil
 }

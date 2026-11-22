@@ -15,7 +15,7 @@ history 返回 JSON，即使后端程序缺失也可读取。它显示入库记�
 
 `--state-dir` 放在子命令之前，指定 metadata.sqlite3 的父目录。默认使用用户配置目录下 agent-session-desk；如果明确传入 `--runtime-dir` 且未设 state-dir，则在该 runtime 的 namespace 子目录存储，方便隔离。查询时使用相同 runtime-dir/namespace；同一个数据库内不同后台作用域互相隔离。目录搬迁和作用域合并尚无迁移功能。
 
-启动报错若已包含 Session/Run ID 且提示终端已创建、元数据未提交，先用相同参数的 list 检查，避免重复 start。成功发现可以补录后台现有记录。数据库故障会明确报错；不要删除或覆盖故障文件来冒充恢复。重要记录应由用户保存在保留目录，当前未实现备份工具。
+启动报错若已包含 Session/Run ID 且提示终端已创建、元数据未提交，先用相同参数的 list 检查，避免重复 start。成功发现可以补录后台现有记录。数据库故障会明确报错；不要删除或覆盖故障文件来冒充恢复。重要记录应由用户保存在保留目录，现在可使用下方离线检查与备份／恢复命令；仍需自行保管配置和输出记录。
 
 读取默认最近 100 项，limit 为 1–1000。读取内存和 SQLite 连接有边界，元数据磁盘保留/清理策略和完整资源预算仍待验证。库打开会初始化空库并短暂获取写锁校验 schema；当前不提供只读文件模式。SQLite 文件只用于本机；本次不承诺网络共享目录、完整升级迁移和掉电恢复。
 
@@ -34,3 +34,35 @@ v1 数据库打开时事务性追加观测表并升级为 v2，原有身份与�
 详情区分首次记录、停止确认和 pane 退出观测；所有时间显示 UTC。历史不显示当前在线证明、agent 成功结果或可靠数值退出码。刷新按 Run ID 保留选择；结果不再包含该 Run 时关闭详情。记录与错误清洗后按窗口宽度换行，完整正常身份可滚动查看。
 
 历史最多保留一个读取请求，关闭时取消，忽略迟到结果；窗口缩放和实时发现轮询不自动重读。TUI 当前仍需初始后端探测成功，随后发现失败时可打开历史；后端程序缺失时可使用独立 CLI history。最近 100 条以外的 TUI 查询、完整数据库分页、日志及原对话恢复尚未实现。见 [ADR-0011](adr/0011-read-only-tui-history.md) 与[局部证据](testing/results/2026-11-22-m1-history-ui.md)。
+
+## 离线检查、备份与恢复
+
+```powershell
+asd --state-dir C:\asd-data metadata check
+asd metadata check C:\backups\before.sqlite3
+asd --state-dir C:\asd-data metadata backup C:\backups\before.sqlite3
+asd --state-dir C:\asd-restored metadata restore C:\backups\before.sqlite3
+```
+
+三条命令均不依赖后端程序。check 不创建缺失库、不升级 v1，只检查结构、完整性和声明的外键。backup 保存整个数据库的所有 scope，而非只保存当前 namespace；不包含 TOML、输出、活进程或模型上下文。
+
+backup 的目标、restore 的 metadata.sqlite3 必须尚不存在，包括空文件也拒绝覆盖。恢复可选择新的 state-dir，同时继续使用原 runtime-dir/namespace 读取原 scope。不要删除原库再重试；损坏／未来版本会报错并保留原文件。
+
+快照先在目标同目录生成并检查，再以硬链接发布完整文件。当前要求支持硬链接的本地文件系统；不支持则明确失败。中途强杀可留下 .asd-snapshot-*.sqlite3 临时文件；确认没有在途备份后再检查和处理，不把临时文件当成备份成功。v1 快照保持 v1，正常打开恢复目标时再事务性升级。详见 [ADR-0012](adr/0012-metadata-checkpoint-recovery.md)。
+
+## 离线检查与备份恢复
+
+```powershell
+asd --state-dir C:\asd-data metadata check
+asd --state-dir C:\asd-data metadata backup C:\backups\metadata-copy.sqlite3
+asd metadata check C:\backups\metadata-copy.sqlite3
+asd --state-dir C:\asd-restored metadata restore C:\backups\metadata-copy.sqlite3
+```
+
+这些命令无需后端程序。check 只检查已有文件的完整性、外键、产品标记和支持的 schema，不初始化、不迁移、不探测存活。backup 保存整个数据库的所有作用域，不是仅当前 namespace，也不包含输出文件、TOML、agent 会话内容或活进程。
+
+backup／restore 的目标数据库路径必须不存在，空文件同样拒绝；恢复不会覆盖故障库。保留原库，用新的 state-dir 恢复，再用原来的 runtime-dir／namespace 查询相同作用域。恢复不会自动启动任何 Run。v1 快照仍为 v1，正常打开恢复库时才执行已有 v1→v2 迁移；原备份不变。
+
+操作先在目标目录创建临时 SQLite 快照并验证，再通过同目录硬链接发布，不提供覆盖式替换。Windows NTFS 已有本轮原生证据；不支持硬链接的文件系统明确失败，不降级成覆盖重命名。正常失败清理自有临时文件；进程强杀可能留下 .asd-snapshot-*.sqlite3 临时文件，不把它视为正式备份，不自动删除其他文件。若错误明确表示快照已发布但临时清理失败，先 check 目标，不重复覆盖。
+
+FULL 同步设置和进程强杀回归不等于物理断电验收。完整升级／回退、磁盘满、网络文件系统、目录迁移和输出记录恢复仍有各自边界。见 [ADR-0012](adr/0012-metadata-checkpoint-recovery.md) 与[执行记录](testing/results/2026-11-22-m1-metadata-recovery.md)。

@@ -1,0 +1,31 @@
+=== RUN   TestStartKeepsUserArgumentBoundaries
+--- PASS: TestStartKeepsUserArgumentBoundaries (0.00s)
+=== RUN   TestInvalidCommandsAndHelpDoNotNeedBackend
+--- PASS: TestInvalidCommandsAndHelpDoNotNeedBackend (0.00s)
+=== RUN   TestSessionLookupUsesFullStableIDAndRejectsAmbiguity
+--- PASS: TestSessionLookupUsesFullStableIDAndRejectsAmbiguity (0.00s)
+=== RUN   TestCLIErrorCannotExecuteTerminalEscapes
+--- PASS: TestCLIErrorCannotExecuteTerminalEscapes (0.00s)
+=== RUN   TestInvalidConfigurationFailsBeforeBackendInitialization
+=== RUN   TestInvalidConfigurationFailsBeforeBackendInitialization/future_schema
+=== RUN   TestInvalidConfigurationFailsBeforeBackendInitialization/unknown_field
+=== RUN   TestInvalidConfigurationFailsBeforeBackendInitialization/missing_selection
+=== RUN   TestInvalidConfigurationFailsBeforeBackendInitialization/missing_template
+=== RUN   TestInvalidConfigurationFailsBeforeBackendInitialization/empty_selection
+=== RUN   TestInvalidConfigurationFailsBeforeBackendInitialization/mixed_executable
+--- PASS: TestInvalidConfigurationFailsBeforeBackendInitialization (0.14s)
+    --- PASS: TestInvalidConfigurationFailsBeforeBackendInitialization/future_schema (0.05s)
+    --- PASS: TestInvalidConfigurationFailsBeforeBackendInitialization/unknown_field (0.04s)
+    --- PASS: TestInvalidConfigurationFailsBeforeBackendInitialization/missing_selection (0.00s)
+    --- PASS: TestInvalidConfigurationFailsBeforeBackendInitialization/missing_template (0.03s)
+    --- PASS: TestInvalidConfigurationFailsBeforeBackendInitialization/empty_selection (0.01s)
+    --- PASS: TestInvalidConfigurationFailsBeforeBackendInitialization/mixed_executable (0.00s)
+=== RUN   TestCLIStartsExplicitNamedTemplate
+--- PASS: TestCLIStartsExplicitNamedTemplate (0.45s)
+=== RUN   TestCLIOverridesTemplateWorkingDirectoryAndEnvironment
+--- PASS: TestCLIOverridesTemplateWorkingDirectoryAndEnvironment (0.25s)
+=== RUN   TestHistoryWorksWithoutBackendAndSeparatesScope
+--- PASS: TestHistoryWorksWithoutBackendAndSeparatesScope (0.03s)
+=== RUN   TestMetadataCommandsBackupCheckAndRestoreWithoutBackend
+--- PASS: TestMetadataCommandsBackupCheckAndRestoreWithoutBackend (0.08s)
+PASS

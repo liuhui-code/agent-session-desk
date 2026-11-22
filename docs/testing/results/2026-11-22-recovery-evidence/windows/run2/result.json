@@ -1,0 +1,25 @@
+{
+  "os": "Microsoft Windows NT 10.0.19045.0",
+  "product_sha256": "6B7013EBC4B77BE8B94A59EE55D81CA5B450176D420E41B5DCCD9987E948AE56",
+  "failure": null,
+  "utc": "2026-11-22T10:03:05.0752240Z",
+  "cleanup_owned_backend": true,
+  "checks": [
+    {
+      "result": "passed",
+      "sha256": "EF686D1AAA1812A5DE41404679D43A62E2FD3C9E505F22B135C4497327C9C540",
+      "scenario": "store native tests"
+    },
+    {
+      "result": "passed",
+      "sha256": "7416FB4931F0230D163E2BE124DDF8B279331204DF7CB921F3E832D390A92DBA",
+      "scenario": "cli native tests"
+    },
+    {
+      "result": "passed",
+      "run_id": "b5b0659acb863cd6ed30171257de47fc",
+      "session_id": "18d5e3993a1084dfe4b64a7812d895e1",
+      "scenario": "TOML custom command and cwd; offline check, exclusive backup/restore, damaged source preserved"
+    }
+  ]
+}

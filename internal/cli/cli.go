@@ -34,6 +34,9 @@ Usage:
   asd [global options] preview SESSION_ID      Read a bounded snapshot as JSON
   asd [global options] attach SESSION_ID       Enter a full-screen terminal
   asd [global options] stop SESSION_ID         End this Run's backend session
+  asd [global options] metadata check [FILE]   Check metadata without a backend
+  asd [global options] metadata backup FILE    Back up metadata to a new file
+  asd [global options] metadata restore FILE   Restore into an absent database
   asd version
 
 Global options (before the subcommand):
@@ -109,11 +112,14 @@ func run(ctx context.Context, args []string, input io.Reader, output, errorOutpu
 		fmt.Fprintln(output, "Agent Session Desk", Version)
 		return nil
 	}
-	if command != "" && command != "doctor" && command != "start" && command != "list" && command != "preview" && command != "attach" && command != "stop" && command != "history" {
+	if command != "" && command != "doctor" && command != "start" && command != "list" && command != "preview" && command != "attach" && command != "stop" && command != "history" && command != "metadata" {
 		return fmt.Errorf("unknown command %q; run asd help", command)
 	}
 	if configPath != "" && command != "start" {
 		return fmt.Errorf("--config is only used by start --template")
+	}
+	if command == "metadata" {
+		return metadataCommand(ctx, commandArgs, options, stateDir, output)
 	}
 	// Validate command shape before touching the backend or its runtime files.
 	var launch session.Launch

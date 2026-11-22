@@ -37,7 +37,11 @@
 
 当前局部进展（2026-11-22）：显式只读 TOML 启动模板及 CLI 覆盖已有实现与 [Windows fixture 证据](testing/results/2026-11-22-m1-config-tokens.md)。真实 agent 验收、配置保存及完整记录存储仍未完成，M0 剩余门槛继续保留。
 
-最小会话元数据切片已实现：SQLite 驱动、schema v1 和事务合同见 [ADR-0009](adr/0009-session-run-metadata.md)，局部验证见[实际报告](testing/results/2026-11-22-m1-metadata.md)。pane 退出观测与 v1→v2 追加迁移现见 [ADR-0010](adr/0010-pane-exit-observations.md)；数值退出码仍未知。按需只读 TUI 历史与详情见 [ADR-0011](adr/0011-read-only-tui-history.md)，只覆盖最近 100 条；完整历史查询、迁移／异常恢复仍需验证。agent 接入沿用现有自定义 CLI／TOML 模板，不另建品牌适配阶段；真实 CLI 仅作为通用启动流程的验收样本，既有 Windows 回归门槛保留。
+最小会话元数据切片已实现：SQLite 驱动、schema v1 和事务合同见 [ADR-0009](adr/0009-session-run-metadata.md)，局部验证见[实际报告](testing/results/2026-11-22-m1-metadata.md)。pane 退出观测与 v1→v2 追加迁移现见 [ADR-0010](adr/0010-pane-exit-observations.md)；数值退出码仍未知。按需只读 TUI 历史与详情见 [ADR-0011](adr/0011-read-only-tui-history.md)，只覆盖最近 100 条；离线检查、快照和非覆盖恢复已有 [ADR-0012](adr/0012-metadata-checkpoint-recovery.md) 及[局部执行](testing/results/2026-11-22-m1-metadata-recovery.md)，完整历史查询与异常矩阵仍需验证。agent 接入沿用现有自定义 CLI／TOML 模板，不另建品牌适配阶段；真实 CLI 仅作为通用启动流程的验收样本，既有 Windows 回归门槛保留。
+
+M1 收尾已加入[离线检查、备份和非覆盖恢复](adr/0012-metadata-checkpoint-recovery.md)及真实 SQLite 进程中断回归。用户当前没有实际 agent，继续按自定义命令／目录配置化实施；真实 agent 兼容性保留待测，不用可控 fixture 冒充。剩余输出文件记录与最终流程验证见 [M1 验收清单](testing/M1_ACCEPTANCE.md)。
+
+M1 收尾按[验收清单](testing/M1_ACCEPTANCE.md)推进。用户目前没有实际目标 agent，继续以自定义命令／工作目录的配置化实施；真实 agent 兼容性不得由 fixture 冒充，仍保留待测。
 
 交付物：启动配置、Session/Run 身份、工作目录和环境处理、终端预览与全屏 attach、停止和失败说明，以及最小记录存储。会话核心随 TUI 或管理命令运行；本阶段不强制启动自有常驻 Host。
 

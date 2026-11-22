@@ -80,6 +80,8 @@
 - **依据：**[FR-01](PRODUCT_PLAN.md)、[ADR-0004](adr/0004-cli-agents-and-session-messaging.md)。
 - **实现与验收证据：**[启动模型与参数解析](../internal/session/launch.go)、[CLI 入口](../internal/cli/cli.go)和可控 fixture 已实现；直接 executable/argv/cwd/env 保持分开，已知后端改写形式明确拒绝。指定 Windows runner 已独立记录 fixture 实际收到的空格／中文路径、选定 argv、cwd 与环境覆盖。显式只读 TOML 命名模板与 CLI 覆盖已实现，见 [ADR-0007](adr/0007-explicit-launch-configuration.md) 和 [2026-11-22 实际证据](testing/results/2026-11-22-m1-config-tokens.md)。新建表单、配置保存／迁移、更多参数／脚本组合和真实 agent 验收仍待做。见[源码局部证据](testing/results/2026-11-21-m0-source-migration.md)与[Windows 样本及结果](testing/results/2026-11-21-m0-native-windows.md)。
 
+- **M1 元数据恢复进展（2026-11-22）：**离线检查、全部作用域快照和非覆盖恢复已实现；校验后发布，保留原身份／时间，不从恢复记录启动进程。真实 SQLite 写事务强杀、v1 只读检查与原生 Windows 合同见 [ADR-0012](adr/0012-metadata-checkpoint-recovery.md) 和[执行报告](testing/results/2026-11-22-m1-metadata-recovery.md)。本轮使用自定义命令／目录的受控 CLI；实际 agent 当前不可用，物理断电及完整阶段验收仍待做。
+
 ### FL-002：原生终端 attach
 
 测试设计：[FL-002 用例与映射](testing/COVERAGE.md#fl-002)；当前仅设计，未执行。
@@ -122,6 +124,11 @@
 
 
 - **pane 退出观测局部进展（2026-11-22）：**实际核对原 pane 后保存首次退出观测、来源和时间；exit_code 保持 null，历史与当前状态分开。v1→v2 追加迁移保留原身份，shell 存活不推定子 agent 状态。见 [ADR-0010](adr/0010-pane-exit-observations.md) 与[实际报告](testing/results/2026-11-22-m1-pane-exit.md)。
+
+- **M1 恢复局部进展（2026-11-22）：**离线 metadata check／backup／restore、完整临时快照后非覆盖发布、v1 保留及正常恢复升级已实现；真实 SQLite 写事务强杀和 Windows 原生回归通过。命令覆盖全部存储作用域，不恢复活进程或对话，不代表完整故障矩阵。见 [ADR-0012](adr/0012-metadata-checkpoint-recovery.md) 与[实际报告](testing/results/2026-11-22-m1-metadata-recovery.md)。
+
+
+- **M1 元数据恢复进展（2026-11-22）：**离线检查、全部作用域快照和非覆盖恢复已实现；校验后发布，保留原身份／时间，不从恢复记录启动进程。真实 SQLite 写事务强杀、v1 只读检查与原生 Windows 合同见 [ADR-0012](adr/0012-metadata-checkpoint-recovery.md) 和[执行报告](testing/results/2026-11-22-m1-metadata-recovery.md)。本轮使用自定义命令／目录的受控 CLI；实际 agent 当前不可用，物理断电及完整阶段验收仍待做。
 
 ### FL-006：后台托管与重新连接
 
@@ -183,6 +190,10 @@
 
 - **TUI 历史局部进展（2026-11-22）：**h 按需读取最近 100 条，Enter 只读详情，独立选择与刷新按 Run ID 保留；关闭取消、迟到结果丢弃、错误及窄窗口边界有回归。历史不 attach、不重启、不推定当前状态；详见 [ADR-0011](adr/0011-read-only-tui-history.md) 和[实际报告](testing/results/2026-11-22-m1-history-ui.md)。完整历史、归档／恢复和发布仍待做。
 
+- **M1 恢复局部进展（2026-11-22）：**离线 metadata check／backup／restore、完整临时快照后非覆盖发布、v1 保留及正常恢复升级已实现；真实 SQLite 写事务强杀和 Windows 原生回归通过。命令覆盖全部存储作用域，不恢复活进程或对话，不代表完整故障矩阵。见 [ADR-0012](adr/0012-metadata-checkpoint-recovery.md) 与[实际报告](testing/results/2026-11-22-m1-metadata-recovery.md)。
+
+
+- **M1 元数据恢复进展（2026-11-22）：**离线检查、全部作用域快照和非覆盖恢复已实现；校验后发布，保留原身份／时间，不从恢复记录启动进程。真实 SQLite 写事务强杀、v1 只读检查与原生 Windows 合同见 [ADR-0012](adr/0012-metadata-checkpoint-recovery.md) 和[执行报告](testing/results/2026-11-22-m1-metadata-recovery.md)。本轮使用自定义命令／目录的受控 CLI；实际 agent 当前不可用，物理断电及完整阶段验收仍待做。
 
 ### FL-012：焦点与草稿
 
@@ -211,6 +222,10 @@
 
 - **TUI 历史局部进展（2026-11-22）：**h 按需读取最近 100 条，Enter 只读详情，独立选择与刷新按 Run ID 保留；关闭取消、迟到结果丢弃、错误及窄窗口边界有回归。历史不 attach、不重启、不推定当前状态；详见 [ADR-0011](adr/0011-read-only-tui-history.md) 和[实际报告](testing/results/2026-11-22-m1-history-ui.md)。完整历史、归档／恢复和发布仍待做。
 
+- **M1 恢复局部进展（2026-11-22）：**离线 metadata check／backup／restore、完整临时快照后非覆盖发布、v1 保留及正常恢复升级已实现；真实 SQLite 写事务强杀和 Windows 原生回归通过。命令覆盖全部存储作用域，不恢复活进程或对话，不代表完整故障矩阵。见 [ADR-0012](adr/0012-metadata-checkpoint-recovery.md) 与[实际报告](testing/results/2026-11-22-m1-metadata-recovery.md)。
+
+
+- **M1 元数据恢复进展（2026-11-22）：**离线检查、全部作用域快照和非覆盖恢复已实现；校验后发布，保留原身份／时间，不从恢复记录启动进程。真实 SQLite 写事务强杀、v1 只读检查与原生 Windows 合同见 [ADR-0012](adr/0012-metadata-checkpoint-recovery.md) 和[执行报告](testing/results/2026-11-22-m1-metadata-recovery.md)。本轮使用自定义命令／目录的受控 CLI；实际 agent 当前不可用，物理断电及完整阶段验收仍待做。
 
 ### FL-014：请求与回复关联
 
@@ -238,6 +253,11 @@
 - **验收：**无需 WSL 完成启动、输入、resize、attach/detach、读取、发送、退出和重连；含中文、多字节字符、空格路径、引号与长文本。源码支持声明、Linux 交叉编译和概念图均不能替代结果。M0 未通过时不得宣称 Windows 已支持，M4 发布前必须复验适用组合。
 - **依据：**[路线图 M0 / M4](ROADMAP.md)、[ADR-0002](adr/0002-terminal-backends-and-attach.md)、[ADR-0005](adr/0005-dependency-lifecycle-and-upgrades.md)。
 - **实现与验收证据：**提交 `b6f2cd2a` 在指定 Windows Server 2025 runner 的常规 Go 测试、race、vet、目录校验与构建通过；专门原生步骤五项真实后端测试和六项非法启动子测试通过，零失败、零跳过。完整提交、系统 build、发行物哈希、此前失败及修复复验见[Windows 执行报告](testing/results/2026-11-21-m0-native-windows.md)。本条仍为实现中，不构成 Windows 支持声明；交互式 attach/detach、IME、资源、无 WSL 安装环境和发布验收未完成。
+
+- **M1 恢复局部进展（2026-11-22）：**离线 metadata check／backup／restore、完整临时快照后非覆盖发布、v1 保留及正常恢复升级已实现；真实 SQLite 写事务强杀和 Windows 原生回归通过。命令覆盖全部存储作用域，不恢复活进程或对话，不代表完整故障矩阵。见 [ADR-0012](adr/0012-metadata-checkpoint-recovery.md) 与[实际报告](testing/results/2026-11-22-m1-metadata-recovery.md)。
+
+
+- **M1 元数据恢复进展（2026-11-22）：**离线检查、全部作用域快照和非覆盖恢复已实现；校验后发布，保留原身份／时间，不从恢复记录启动进程。真实 SQLite 写事务强杀、v1 只读检查与原生 Windows 合同见 [ADR-0012](adr/0012-metadata-checkpoint-recovery.md) 和[执行报告](testing/results/2026-11-22-m1-metadata-recovery.md)。本轮使用自定义命令／目录的受控 CLI；实际 agent 当前不可用，物理断电及完整阶段验收仍待做。
 
 ### FL-017：可安装预览版
 
@@ -334,3 +354,7 @@ SSH 局部执行补充（2026-11-22）：Windows 10 build 19045 上使用实际�
 pane 退出观测补充（2026-11-22）：FL-005/011/013 增加有来源的 pane 退出、未知退出码、重复观测去重与 schema v2 证据；各项保持实现中和未发布。
 
 只读历史补充（2026-11-22）：FL-003/011/012/013 增加历史视图、控制与观察边界的局部证据；保持实现中、未发布，339 项设计状态不变。
+
+M1 恢复补充（2026-11-22）：新增离线检查、完整快照和非覆盖恢复及实际进程强杀回归，FL-005/011/013/016 保持实现中。用户当前没有真实 agent，接入继续按自定义命令和工作目录配置化，真实 agent 兼容性不宣称已验证。
+
+M1 恢复补充（2026-11-22）：按用户继续完成 M1 的授权实现 metadata check／backup／restore；用户当前没有真实 agent，通用命令与目录配置化作为当前实施重点，真实兼容性保留待测。各 FL 保持实现中，目录用例状态不变。

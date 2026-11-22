@@ -1,0 +1,10 @@
+--- FAIL: TestSnapshotRejectsInvalidDatabaseAndPreservesBothPaths (0.03s)
+    --- FAIL: TestSnapshotRejectsInvalidDatabaseAndPreservesBothPaths/foreign (0.01s)
+        recovery_test.go:107: invalid database accepted as a product backup
+    --- FAIL: TestSnapshotRejectsInvalidDatabaseAndPreservesBothPaths/future (0.01s)
+        recovery_test.go:107: invalid database accepted as a product backup
+    --- FAIL: TestSnapshotRejectsInvalidDatabaseAndPreservesBothPaths/missing-table (0.01s)
+        recovery_test.go:107: invalid database accepted as a product backup
+FAIL
+FAIL    github.com/liuhui-code/agent-session-desk/internal/store    1.533s
+FAIL

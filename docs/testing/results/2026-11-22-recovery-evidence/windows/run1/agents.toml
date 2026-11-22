@@ -1,0 +1,10 @@
+schema_version = 1
+[templates.check]
+name = 'recovery fixture'
+executable = 'C:\Users\liu xun yuan\asd-acceptance-20261122\asd-fixture.exe'
+args = ['recovery-marker']
+cwd = 'C:\Users\liu xun yuan\asd-acceptance-20261122\m1-recovery-run1\工作 目录'
+[templates.check.env]
+ASD_FIXTURE_REPORT_PATH = 'C:\Users\liu xun yuan\asd-acceptance-20261122\m1-recovery-run1\fixture.jsonl'
+ASD_FIXTURE_EXIT_AFTER_START = '1'
+ASD_FIXTURE_EXIT_CODE = '7'

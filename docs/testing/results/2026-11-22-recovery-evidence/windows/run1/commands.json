@@ -1,0 +1,217 @@
+[
+  {
+    "stdout": "{\r\n  \"session_id\": \"d57e1e3f5f88e89b76978b074f659c03\",\r\n  \"run_id\": \"417a60643cf2dc1288a6e4f3ade0696f\",\r\n  \"backend_id\": \"asd_d57e1e3f5f88e89b76978b074f659c03_417a60643cf2dc1288a6e4f3ade0696f\",\r\n  \"title\": \"recovery fixture\",\r\n  \"command\": \"C:\\\\Users\\\\liu xun yuan\\\\asd-acceptance-20261122\\\\asd-fixture.exe\",\r\n  \"terminal_state\": \"exited\",\r\n  \"pane_exit\": {\r\n    \"pane_id\": \"%1\",\r\n    \"source\": \"psmux.pane_dead\",\r\n    \"observed_at\": \"2026-11-22T09:52:59.1403677Z\",\r\n    \"exit_code\": null\r\n  }\r\n}\r\n",
+    "code": 0,
+    "args": [
+      "--config",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-recovery-run1\\agents.toml",
+      "start",
+      "--template",
+      "check"
+    ],
+    "stderr": "",
+    "global": [
+      "--backend",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\backend\\psmux.exe",
+      "--runtime-dir",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-recovery-run1\\runtime",
+      "--namespace",
+      "asd-recovery-native",
+      "--state-dir",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-recovery-run1\\state"
+    ]
+  },
+  {
+    "stdout": "{\r\n  \"session_id\": \"d57e1e3f5f88e89b76978b074f659c03\",\r\n  \"run_id\": \"417a60643cf2dc1288a6e4f3ade0696f\",\r\n  \"result\": \"backend_session_stopped\"\r\n}\r\n",
+    "code": 0,
+    "args": [
+      "stop",
+      "d57e1e3f5f88e89b76978b074f659c03"
+    ],
+    "stderr": "",
+    "global": [
+      "--backend",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\backend\\psmux.exe",
+      "--runtime-dir",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-recovery-run1\\runtime",
+      "--namespace",
+      "asd-recovery-native",
+      "--state-dir",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-recovery-run1\\state"
+    ]
+  },
+  {
+    "stdout": "[\r\n  {\r\n    \"session\": {\r\n      \"session_id\": \"d57e1e3f5f88e89b76978b074f659c03\",\r\n      \"run_id\": \"417a60643cf2dc1288a6e4f3ade0696f\",\r\n      \"backend_id\": \"asd_d57e1e3f5f88e89b76978b074f659c03_417a60643cf2dc1288a6e4f3ade0696f\",\r\n      \"title\": \"recovery fixture\",\r\n      \"command\": \"C:\\\\Users\\\\liu xun yuan\\\\asd-acceptance-20261122\\\\asd-fixture.exe\",\r\n      \"terminal_state\": \"unknown\"\r\n    },\r\n    \"recorded_at\": \"2026-11-22T09:52:59.1447752Z\",\r\n    \"stop_confirmed_at\": \"2026-11-22T09:53:00.2126293Z\",\r\n    \"pane_exit\": {\r\n      \"pane_id\": \"%1\",\r\n      \"source\": \"psmux.pane_dead\",\r\n      \"observed_at\": \"2026-11-22T09:52:59.1403677Z\",\r\n      \"exit_code\": null\r\n    }\r\n  }\r\n]\r\n",
+    "code": 0,
+    "args": [
+      "history"
+    ],
+    "stderr": "",
+    "global": [
+      "--backend",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\backend\\psmux.exe",
+      "--runtime-dir",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-recovery-run1\\runtime",
+      "--namespace",
+      "asd-recovery-native",
+      "--state-dir",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-recovery-run1\\state"
+    ]
+  },
+  {
+    "stdout": "{\r\n  \"schema_version\": 2,\r\n  \"integrity\": \"ok\",\r\n  \"foreign_keys\": \"ok\"\r\n}\r\n",
+    "code": 0,
+    "args": [
+      "metadata",
+      "check"
+    ],
+    "stderr": "",
+    "global": [
+      "--backend",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-recovery-run1\\absent-backend.exe",
+      "--runtime-dir",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-recovery-run1\\runtime",
+      "--namespace",
+      "asd-recovery-native",
+      "--state-dir",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-recovery-run1\\state"
+    ]
+  },
+  {
+    "stdout": "{\r\n  \"operation\": \"backup\",\r\n  \"path\": \"C:\\\\Users\\\\liu xun yuan\\\\asd-acceptance-20261122\\\\m1-recovery-run1\\\\备份 #% copy.sqlite3\",\r\n  \"scope\": \"all stored scopes; metadata only\"\r\n}\r\n",
+    "code": 0,
+    "args": [
+      "metadata",
+      "backup",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-recovery-run1\\备份 #% copy.sqlite3"
+    ],
+    "stderr": "",
+    "global": [
+      "--backend",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-recovery-run1\\absent-backend.exe",
+      "--runtime-dir",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-recovery-run1\\runtime",
+      "--namespace",
+      "asd-recovery-native",
+      "--state-dir",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-recovery-run1\\state"
+    ]
+  },
+  {
+    "stdout": "",
+    "code": 1,
+    "args": [
+      "metadata",
+      "backup",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-recovery-run1\\备份 #% copy.sqlite3"
+    ],
+    "stderr": "asd: snapshot destination must not exist: open C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-recovery-run1\\备份 #% copy.sqlite3: The file exists.\r\n",
+    "global": [
+      "--backend",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-recovery-run1\\absent-backend.exe",
+      "--runtime-dir",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-recovery-run1\\runtime",
+      "--namespace",
+      "asd-recovery-native",
+      "--state-dir",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-recovery-run1\\state"
+    ]
+  },
+  {
+    "stdout": "{\r\n  \"operation\": \"restore\",\r\n  \"path\": \"C:\\\\Users\\\\liu xun yuan\\\\asd-acceptance-20261122\\\\m1-recovery-run1\\\\restored\\\\metadata.sqlite3\",\r\n  \"scope\": \"all stored scopes; metadata only\"\r\n}\r\n",
+    "code": 0,
+    "args": [
+      "metadata",
+      "restore",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-recovery-run1\\备份 #% copy.sqlite3"
+    ],
+    "stderr": "",
+    "global": [
+      "--backend",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-recovery-run1\\absent-backend.exe",
+      "--runtime-dir",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-recovery-run1\\runtime",
+      "--namespace",
+      "asd-recovery-native",
+      "--state-dir",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-recovery-run1\\restored"
+    ]
+  },
+  {
+    "stdout": "[\r\n  {\r\n    \"session\": {\r\n      \"session_id\": \"d57e1e3f5f88e89b76978b074f659c03\",\r\n      \"run_id\": \"417a60643cf2dc1288a6e4f3ade0696f\",\r\n      \"backend_id\": \"asd_d57e1e3f5f88e89b76978b074f659c03_417a60643cf2dc1288a6e4f3ade0696f\",\r\n      \"title\": \"recovery fixture\",\r\n      \"command\": \"C:\\\\Users\\\\liu xun yuan\\\\asd-acceptance-20261122\\\\asd-fixture.exe\",\r\n      \"terminal_state\": \"unknown\"\r\n    },\r\n    \"recorded_at\": \"2026-11-22T09:52:59.1447752Z\",\r\n    \"stop_confirmed_at\": \"2026-11-22T09:53:00.2126293Z\",\r\n    \"pane_exit\": {\r\n      \"pane_id\": \"%1\",\r\n      \"source\": \"psmux.pane_dead\",\r\n      \"observed_at\": \"2026-11-22T09:52:59.1403677Z\",\r\n      \"exit_code\": null\r\n    }\r\n  }\r\n]\r\n",
+    "code": 0,
+    "args": [
+      "history"
+    ],
+    "stderr": "",
+    "global": [
+      "--backend",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-recovery-run1\\absent-backend.exe",
+      "--runtime-dir",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-recovery-run1\\runtime",
+      "--namespace",
+      "asd-recovery-native",
+      "--state-dir",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-recovery-run1\\restored"
+    ]
+  },
+  {
+    "stdout": "",
+    "code": 1,
+    "args": [
+      "metadata",
+      "restore",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-recovery-run1\\备份 #% copy.sqlite3"
+    ],
+    "stderr": "asd: snapshot destination must not exist: open C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-recovery-run1\\restored\\metadata.sqlite3: The file exists.\r\n",
+    "global": [
+      "--backend",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-recovery-run1\\absent-backend.exe",
+      "--runtime-dir",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-recovery-run1\\runtime",
+      "--namespace",
+      "asd-recovery-native",
+      "--state-dir",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-recovery-run1\\restored"
+    ]
+  },
+  {
+    "stdout": "",
+    "code": 1,
+    "args": [
+      "metadata",
+      "check",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-recovery-run1\\damaged.sqlite3"
+    ],
+    "stderr": "asd: file is not a database (26)\r\n",
+    "global": [
+      "--backend",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-recovery-run1\\absent-backend.exe",
+      "--runtime-dir",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-recovery-run1\\runtime",
+      "--namespace",
+      "asd-recovery-native",
+      "--state-dir",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-recovery-run1\\state"
+    ]
+  },
+  {
+    "stdout": "[]\r\n",
+    "code": 0,
+    "args": [
+      "list",
+      "--json"
+    ],
+    "stderr": "",
+    "global": [
+      "--backend",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\backend\\psmux.exe",
+      "--runtime-dir",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-recovery-run1\\runtime",
+      "--namespace",
+      "asd-recovery-native",
+      "--state-dir",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-recovery-run1\\state"
+    ]
+  }
+]

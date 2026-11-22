@@ -1,0 +1,9 @@
+--- FAIL: TestSnapshotDestinationIsNeverPublishedAsAnIncompleteFile (0.73s)
+    recovery_test.go:279: backup destination was visible before it was a complete database
+--- FAIL: TestSnapshotDestinationIsNeverPublishedAsAnIncompleteFile (0.79s)
+    recovery_test.go:279: backup destination was visible before it was a complete database
+--- FAIL: TestSnapshotDestinationIsNeverPublishedAsAnIncompleteFile (0.67s)
+    recovery_test.go:279: backup destination was visible before it was a complete database
+FAIL
+FAIL    github.com/liuhui-code/agent-session-desk/internal/store    4.519s
+FAIL

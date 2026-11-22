@@ -21,7 +21,7 @@
 | Windows 终端后台 | **psmux 3.4.0 正式发布** | 持有终端、会话与子进程；默认后端方向已接受，M0 验证决定能否进入实现基线 |
 | Windows 底层终端能力 | **ConPTY，经 psmux 使用** | 首版不重复开发自己的 ConPTY 宿主 |
 | macOS/Linux 后台 | **tmux 3.8** 对照基线 | 后续适配与验收；不是 Windows 安装前提 |
-| 本地状态与消息 | **SQLite 3.54.1，最小元数据已实现** | modernc.org/sqlite v1.62.0、libc v1.80.1；Session/Run、独立 history 和 [schema v2 pane 观测](adr/0010-pane-exit-observations.md)；仅 v1→v2 追加迁移，队列、回执与完整升级恢复待做 |
+| 本地状态与消息 | **SQLite 3.54.1，最小元数据已实现** | modernc.org/sqlite v1.62.0、libc v1.80.1；Session/Run、独立 history 和 [schema v2 pane 观测](adr/0010-pane-exit-observations.md)；v1→v2 追加迁移和离线检查／非覆盖快照恢复已实现（ADR-0012），队列、回执与完整升级恢复待做 |
 | 配置 | **TOML，首个只读启动切片已实现** | BurntSushi/toml v1.6.0、TOML 1.1.0、schema_version=1；[ADR-0007](adr/0007-explicit-launch-configuration.md)。主题／偏好文件和保存待做 |
 | 输出保存 | **有界文件记录 + 内存尾部缓存** | 当前仅有限屏幕捕获及选中预览缓存；文件轮转、分页和连续日志未实现 |
 | Agent 接入 | **CLI-first** | executable、args、cwd、env；专用协议是可选增强 |

@@ -1,0 +1,5 @@
+--- FAIL: TestMetadataCommandsBackupCheckAndRestoreWithoutBackend (0.01s)
+    metadata_test.go:44: [metadata check]: asd: unknown command "metadata"; run asd help
+FAIL
+FAIL    github.com/liuhui-code/agent-session-desk/internal/cli  2.912s
+FAIL

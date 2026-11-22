@@ -1,0 +1,69 @@
+=== RUN   TestConcurrentConnectionsKeepAllCommittedIdentities
+--- PASS: TestConcurrentConnectionsKeepAllCommittedIdentities (0.09s)
+=== RUN   TestCommittedMetadataSurvivesKilledWriter
+--- PASS: TestCommittedMetadataSurvivesKilledWriter (0.15s)
+=== RUN   TestPaneExitObservationSurvivesReopenAndDoesNotClaimCurrentState
+--- PASS: TestPaneExitObservationSurvivesReopenAndDoesNotClaimCurrentState (0.07s)
+=== RUN   TestRepeatedPaneExitPreservesFirstObservationWithoutWriterLock
+--- PASS: TestRepeatedPaneExitPreservesFirstObservationWithoutWriterLock (0.06s)
+=== RUN   TestExitEvidenceCannotClaimMoreThanBackendProves
+=== RUN   TestExitEvidenceCannotClaimMoreThanBackendProves/live
+=== RUN   TestExitEvidenceCannotClaimMoreThanBackendProves/code
+=== RUN   TestExitEvidenceCannotClaimMoreThanBackendProves/source
+=== RUN   TestExitEvidenceCannotClaimMoreThanBackendProves/pane
+=== RUN   TestExitEvidenceCannotClaimMoreThanBackendProves/time
+--- PASS: TestExitEvidenceCannotClaimMoreThanBackendProves (0.10s)
+    --- PASS: TestExitEvidenceCannotClaimMoreThanBackendProves/live (0.02s)
+    --- PASS: TestExitEvidenceCannotClaimMoreThanBackendProves/code (0.02s)
+    --- PASS: TestExitEvidenceCannotClaimMoreThanBackendProves/source (0.03s)
+    --- PASS: TestExitEvidenceCannotClaimMoreThanBackendProves/pane (0.02s)
+    --- PASS: TestExitEvidenceCannotClaimMoreThanBackendProves/time (0.02s)
+=== RUN   TestV1UpgradePreservesIdentityAndStopEvidence
+--- PASS: TestV1UpgradePreservesIdentityAndStopEvidence (0.10s)
+=== RUN   TestFailedV1UpgradeDoesNotModifyExistingDatabase
+--- PASS: TestFailedV1UpgradeDoesNotModifyExistingDatabase (0.14s)
+=== RUN   TestSnapshotRetainsAllScopedEvidenceWithoutNeedingBackend
+--- PASS: TestSnapshotRetainsAllScopedEvidenceWithoutNeedingBackend (0.10s)
+=== RUN   TestSnapshotRejectsInvalidDatabaseAndPreservesBothPaths
+=== RUN   TestSnapshotRejectsInvalidDatabaseAndPreservesBothPaths/foreign
+=== RUN   TestSnapshotRejectsInvalidDatabaseAndPreservesBothPaths/future
+=== RUN   TestSnapshotRejectsInvalidDatabaseAndPreservesBothPaths/corrupt
+=== RUN   TestSnapshotRejectsInvalidDatabaseAndPreservesBothPaths/missing-table
+--- PASS: TestSnapshotRejectsInvalidDatabaseAndPreservesBothPaths (0.12s)
+    --- PASS: TestSnapshotRejectsInvalidDatabaseAndPreservesBothPaths/foreign (0.03s)
+    --- PASS: TestSnapshotRejectsInvalidDatabaseAndPreservesBothPaths/future (0.02s)
+    --- PASS: TestSnapshotRejectsInvalidDatabaseAndPreservesBothPaths/corrupt (0.02s)
+    --- PASS: TestSnapshotRejectsInvalidDatabaseAndPreservesBothPaths/missing-table (0.04s)
+=== RUN   TestCheckIsReadOnlyAndDoesNotMigrateV1OrCreateMissingSource
+--- PASS: TestCheckIsReadOnlyAndDoesNotMigrateV1OrCreateMissingSource (0.08s)
+=== RUN   TestSnapshotNeverOverwritesAndCancellationLeavesNoOutput
+--- PASS: TestSnapshotNeverOverwritesAndCancellationLeavesNoOutput (0.06s)
+=== RUN   TestCheckAndSnapshotRejectBrokenForeignKeyEvidence
+--- PASS: TestCheckAndSnapshotRejectBrokenForeignKeyEvidence (0.05s)
+=== RUN   TestV1SnapshotRestoresThroughNormalMigrationWithoutChangingBackup
+--- PASS: TestV1SnapshotRestoresThroughNormalMigrationWithoutChangingBackup (0.12s)
+=== RUN   TestUnrecognizedOrCorruptDatabaseIsPreserved
+=== RUN   TestUnrecognizedOrCorruptDatabaseIsPreserved/corrupt
+=== RUN   TestUnrecognizedOrCorruptDatabaseIsPreserved/foreign
+=== RUN   TestUnrecognizedOrCorruptDatabaseIsPreserved/future
+=== RUN   TestUnrecognizedOrCorruptDatabaseIsPreserved/missing-table
+--- PASS: TestUnrecognizedOrCorruptDatabaseIsPreserved (0.26s)
+    --- PASS: TestUnrecognizedOrCorruptDatabaseIsPreserved/corrupt (0.02s)
+    --- PASS: TestUnrecognizedOrCorruptDatabaseIsPreserved/foreign (0.07s)
+    --- PASS: TestUnrecognizedOrCorruptDatabaseIsPreserved/future (0.08s)
+    --- PASS: TestUnrecognizedOrCorruptDatabaseIsPreserved/missing-table (0.09s)
+=== RUN   TestBusyPreflightFailsWithinBoundWithoutChangingHistory
+--- PASS: TestBusyPreflightFailsWithinBoundWithoutChangingHistory (1.10s)
+=== RUN   TestRepeatedDiscoveryDoesNotNeedWriterLock
+--- PASS: TestRepeatedDiscoveryDoesNotNeedWriterLock (0.07s)
+=== RUN   TestMetadataSurvivesReopenWithoutClaimingLiveness
+--- PASS: TestMetadataSurvivesReopenWithoutClaimingLiveness (0.04s)
+=== RUN   TestScopeAndIdentityConflictsCannotOverwriteOrLeaveHalfRecords
+--- PASS: TestScopeAndIdentityConflictsCannotOverwriteOrLeaveHalfRecords (0.05s)
+=== RUN   TestConfirmedStopKeepsHistoryAndChecksExactRun
+--- PASS: TestConfirmedStopKeepsHistoryAndChecksExactRun (0.03s)
+=== RUN   TestHistoryReadIsBounded
+--- PASS: TestHistoryReadIsBounded (0.01s)
+=== RUN   TestInvalidIdentityCannotBecomePersistentMetadata
+--- PASS: TestInvalidIdentityCannotBecomePersistentMetadata (0.01s)
+PASS
