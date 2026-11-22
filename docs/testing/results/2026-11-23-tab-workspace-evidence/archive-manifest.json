@@ -3575,5 +3575,10 @@
     "archive": "logs/catalog-check-final.log",
     "original_sha256": "3e62facbf66abf0c73cdc9b1a27d223196c296ab9f0a4cbfbb07adcb2048130d",
     "normalization": "none"
+  },
+  {
+    "archive": "windows/native-backend-run3/native/TestWindowsPsmuxNativeTerminalScreenInputResizeAndReconnect/asd-native-062ac9aa78d2/fixture-0.jsonl",
+    "original_sha256": "92b5ff8b65688e2c9296313f0d74b47cb4883706f9853a59a475740d571359f3",
+    "normalization": "UTF-8, LF, local profile replaced; synthetic fixture records"
   }
 ]

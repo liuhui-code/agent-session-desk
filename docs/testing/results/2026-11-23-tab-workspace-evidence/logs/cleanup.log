@@ -1,0 +1,62 @@
+{
+    "result":  "passed",
+    "before":  {
+                   "value":  [
+                                 {
+                                     "session_id":  "4aa1338890d824f84495b9dcc269cf88",
+                                     "run_id":  "1217687937da4ef031163ed8290ab103",
+                                     "backend_id":  "asd_4aa1338890d824f84495b9dcc269cf88_1217687937da4ef031163ed8290ab103",
+                                     "title":  "Shell A",
+                                     "command":  "%USERPROFILE%\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                     "terminal_state":  "available"
+                                 },
+                                 {
+                                     "session_id":  "faefeb129a0428ec49dc9bec74b3296c",
+                                     "run_id":  "4dc8f38153f9bb605cbe5f7eade51b29",
+                                     "backend_id":  "asd_faefeb129a0428ec49dc9bec74b3296c_4dc8f38153f9bb605cbe5f7eade51b29",
+                                     "title":  "Shell B",
+                                     "command":  "%USERPROFILE%\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                     "terminal_state":  "available"
+                                 },
+                                 {
+                                     "session_id":  "e6403a86c7a538fc10f2a333dd49808d",
+                                     "run_id":  "21340c3ebac489a01f2c5e592861cdc2",
+                                     "backend_id":  "asd_e6403a86c7a538fc10f2a333dd49808d_21340c3ebac489a01f2c5e592861cdc2",
+                                     "title":  "普通终端 C",
+                                     "command":  "%USERPROFILE%\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                     "terminal_state":  "available"
+                                 }
+                             ],
+                   "Count":  3
+               },
+    "utc":  "2026-11-22T16:54:50.9167452Z",
+    "after_json":  "[]",
+    "removed_tasks":  [
+                          "AsdTabsDesktop20261123",
+                          "AsdTabsDesktop2_20261123",
+                          "AsdTabsPasteProbe20261123",
+                          "AsdTabsScanProbe20261123"
+                      ],
+    "private_terminal_count":  0,
+    "settings_restored_sha256":  "1499307ABEBA68C23F9EB38A4C636F81172475B6B2B535BC0B11DCD9547241F8",
+    "stops":  [
+                  {
+                      "output":  "{\r\n  \"session_id\": \"4aa1338890d824f84495b9dcc269cf88\",\r\n  \"run_id\": \"1217687937da4ef031163ed8290ab103\",\r\n  \"result\": \"backend_session_stopped\"\r\n}\r\n",
+                      "run_id":  "1217687937da4ef031163ed8290ab103",
+                      "session_id":  "4aa1338890d824f84495b9dcc269cf88",
+                      "code":  0
+                  },
+                  {
+                      "output":  "{\r\n  \"session_id\": \"faefeb129a0428ec49dc9bec74b3296c\",\r\n  \"run_id\": \"4dc8f38153f9bb605cbe5f7eade51b29\",\r\n  \"result\": \"backend_session_stopped\"\r\n}\r\n",
+                      "run_id":  "4dc8f38153f9bb605cbe5f7eade51b29",
+                      "session_id":  "faefeb129a0428ec49dc9bec74b3296c",
+                      "code":  0
+                  },
+                  {
+                      "output":  "{\r\n  \"session_id\": \"e6403a86c7a538fc10f2a333dd49808d\",\r\n  \"run_id\": \"21340c3ebac489a01f2c5e592861cdc2\",\r\n  \"result\": \"backend_session_stopped\"\r\n}\r\n",
+                      "run_id":  "21340c3ebac489a01f2c5e592861cdc2",
+                      "session_id":  "e6403a86c7a538fc10f2a333dd49808d",
+                      "code":  0
+                  }
+              ]
+}

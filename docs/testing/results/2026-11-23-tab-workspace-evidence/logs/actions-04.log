@@ -1,0 +1,33 @@
+ASD isolated desktop acceptance
+Agent Session Desk                                                                                                2 会话
+ Shell A    Shell B                                                                                                     
+                                                                                                                        
+会话                  │ ╭──────────────────────────────────────────────────────────────────────────────────────────────╮
+───────────────────── │ │PS %USERPROFILE%\asd-acceptance-20261122\tabs-ui-20261123\工作区 with spaces>         │
+  Shell A             │ │PS %USERPROFILE%\asd-acceptance-20261122\tabs-ui-20261123\工作区 with spaces>         │
+› Shell B             │ │PS %USERPROFILE%\asd-acceptance-20261122\tabs-ui-20261123\工作区 with spaces> Write-Ou│
+                      │ │tput 'typed unicode 中文'                                                                     │
+                      │ │                                                                                              │
+                      │ │                                                                                              │
+                      │ │                                                                                              │
+                      │ │                                                                                              │
+                      │ │                                                                                              │
+                      │ │                                                                                              │
+                      │ │                                                                                              │
+                      │ │                                                                                              │
+                      │ │                                                                                              │
+                      │ │                                                                                              │
+                      │ │                                                                                              │
+                      │ │                                                                                              │
+                      │ │                                                                                              │
+                      │ │                                                                                              │
+                      │ │                                                                                              │
+                      │ │                                                                                              │
+                      │ │                                                                                              │
+                      │ │                                                                                              │
+                      │ │                                                                                              │
+                      │ │                                                                                              │
+                      │ │                                                                                              │
+                      │ ╰──────────────────────────────────────────────────────────────────────────────────────────────╯
+                                                                                                                        
+终端模式 · F6 管理 · Ctrl+PgUp/PgDn 切换 Tab                                                                           

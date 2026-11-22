@@ -1,0 +1,5 @@
+--- FAIL: TestPSMuxRightMarginPendingWrapKeepsCursorInsideViewport (0.00s)
+    psmux_test.go:337: terminal frame exceeds screen bounds (size=8x2 cursor=8,1 rows=2)
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/terminal	1.801s
+FAIL

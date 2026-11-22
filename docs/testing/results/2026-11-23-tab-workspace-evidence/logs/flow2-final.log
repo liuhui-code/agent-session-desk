@@ -1,0 +1,10 @@
+{
+    "checks":  [
+                   "literal multiline without implicit Enter",
+                   "final dialog",
+                   "help returns",
+                   "graceful quit"
+               ],
+    "result":  "passed",
+    "multiline_value":  "line 1 中文\nline 2\r\n"
+}

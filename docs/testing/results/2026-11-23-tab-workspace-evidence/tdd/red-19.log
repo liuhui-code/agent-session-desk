@@ -1,0 +1,5 @@
+--- FAIL: TestWorkspaceCloseWaitsForInputBufferedDuringConnect (0.00s)
+    workspace_lifecycle_test.go:100: buffered input lost: []
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.964s
+FAIL

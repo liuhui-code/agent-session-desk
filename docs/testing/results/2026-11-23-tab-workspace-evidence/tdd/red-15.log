@@ -1,0 +1,5 @@
+--- FAIL: TestWorkspaceOpeningHistoryDrainsPreviouslyTypedInput (0.00s)
+    workspace_lifecycle_test.go:45: history cancelled accepted input: []
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.912s
+FAIL

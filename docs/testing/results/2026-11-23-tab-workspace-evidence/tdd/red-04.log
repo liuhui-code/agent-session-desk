@@ -1,0 +1,5 @@
+--- FAIL: TestWorkspaceNativeViewportAndCursorReachLastCell (0.01s)
+    workspace_test.go:180: native last cell clipped or cursor offset wrong: cursor=&{Position:{X:118 Y:28} Color:<nil> Shape:0 Blink:true} line="                      │ │                                                                                            │  "
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.920s
+FAIL

@@ -1,0 +1,5 @@
+--- FAIL: TestWorkspaceOversizedInputIsRefusedBeforeQueueing (0.01s)
+    workspace_test.go:262: oversized input was not refused at the UI boundary
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.937s
+FAIL

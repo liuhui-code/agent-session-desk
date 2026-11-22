@@ -1,0 +1,8 @@
+--- PASS: TestWorkspaceManagementFocusDoesNotSendKeysToTerminal (0.01s)
+=== RUN   TestWorkspaceQuitDrainsPreviouslyTypedInput
+--- PASS: TestWorkspaceQuitDrainsPreviouslyTypedInput (0.01s)
+=== RUN   TestWorkspaceClosingAndReopeningTabKeepsOriginalRun
+--- PASS: TestWorkspaceClosingAndReopeningTabKeepsOriginalRun (0.02s)
+=== RUN   TestWorkspaceCloseTabDrainsPreviouslyTypedInput
+--- PASS: TestWorkspaceCloseTabDrainsPreviouslyTypedInput (0.01s)
+PASS

@@ -1,0 +1,5 @@
+--- FAIL: TestWorkspaceQuitDrainsPreviouslyTypedInput (0.01s)
+    workspace_test.go:312: quit cancelled previously typed input before it was written
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	1.418s
+FAIL

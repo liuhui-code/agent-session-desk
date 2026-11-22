@@ -1,0 +1,5 @@
+--- FAIL: TestLaunchDialogCreatesGenericTerminalTabWithLiteralArguments (0.01s)
+    launch_dialog_test.go:20: terminal creation dialog did not open
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	3.304s
+FAIL
