@@ -1,6 +1,6 @@
 # M0 Windows Terminal interactive acceptance — execution sheet
 
-**Status: not run.** The [unsigned development preview](WINDOWS_PREVIEW.md) passed Windows Server 2025 CI. CI cannot establish interactive Windows 10/11 input-method and focus behavior. This sheet is an execution protocol, not proof of acceptance.
+**Status: partially executed, gate still open.** The [2026-11-22 desktop record](results/2026-11-22-windows-desktop-acceptance.md) preserves the first execution. The later [detach diagnosis](results/2026-11-22-windows-detach-diagnosis.md) closes WIN-UI-05 for the tested Microsoft Pinyin/English-mode path; the full display-scaling/alternate-IME combination remains open.
 
 ## Preconditions
 
@@ -27,7 +27,7 @@ Record each row as **pass / fail / blocked / not_run**, with timestamp, actual o
 | WIN-UI-02 | Create two isolated fixture sessions using `asd start`; verify `asd list --json` | Distinct Session/Run identities; correct names and UTF-8 |
 | WIN-UI-03 | Select first session, Enter, type ASCII and Chinese text through IME composition/commit | Text reaches only selected fixture, no unintended manager shortcuts |
 | WIN-UI-04 | In attached session, compose then cancel Chinese IME, paste multiline Unicode | Cancelled composition not submitted; committed text and paste boundaries match fixture record |
-| WIN-UI-05 | While attached, use Ctrl+b then d to detach | Returns to same manager, cursor and keyboard focus usable, session identity unchanged |
+| WIN-UI-05 | While attached, cancel any IME composition, switch to English input, press and release Ctrl+b, then press d | Returns to same manager, cursor and keyboard focus usable, session identity unchanged; record IME mode and input mechanism, not just HKL |
 | WIN-UI-06 | Switch to second session, enter input, detach, return to first | No cross-session input, stale preview, or wrong Run |
 | WIN-UI-07 | Resize while attached, then detach; test Ctrl+C with disposable fixture | Resizing/cursor correct; signal affects intended target, manager remains operable |
 | WIN-UI-08 | Quit manager with q, reopen using identical backend/runtime/namespace | Both background Run identities unchanged; no implicit restart |

@@ -1,0 +1,43 @@
+{
+    "fixture_start_time":  "2026-11-22T05:12:21.4062324Z",
+    "fixture_pid":  12540,
+    "psmux_sha256":  "bbe825a30f7cddc91b043084049143a381aba5f7e9e36e4d0bb587e296d262ca",
+    "fixture_journal":  [
+                            {
+                                "kind":  "started",
+                                "pid":  12540,
+                                "api":  "ReadConsoleW"
+                            }
+                        ],
+    "utc":  "2026-11-22T05:24:03.5183200Z",
+    "created":  {
+                    "session_id":  "dc1d3ccc8e2e221ac6f52d2ab9f97bf2",
+                    "run_id":  "62888d171241862dd8ebdffe8c7e26ea",
+                    "backend_id":  "asd_dc1d3ccc8e2e221ac6f52d2ab9f97bf2_62888d171241862dd8ebdffe8c7e26ea",
+                    "title":  "分离诊断",
+                    "command":  "<USERPROFILE>\\asd-acceptance-20261122\\desktop\\native-reader.exe",
+                    "terminal_state":  "available"
+                },
+    "candidate_sha256":  "5085d052c5468ced425936409f935628d01b7a6c10e9fb3559869afc6a5088b9",
+    "fixture_started_once":  true,
+    "candidate_processes":  [
+                                {
+                                    "ProcessId":  3300,
+                                    "ParentProcessId":  10852,
+                                    "ExecutablePath":  "<USERPROFILE>\\asd-acceptance-20261122\\asd-detach-guidance.exe"
+                                }
+                            ],
+    "live":  {
+                 "value":  [
+                               {
+                                   "session_id":  "dc1d3ccc8e2e221ac6f52d2ab9f97bf2",
+                                   "run_id":  "62888d171241862dd8ebdffe8c7e26ea",
+                                   "backend_id":  "asd_dc1d3ccc8e2e221ac6f52d2ab9f97bf2_62888d171241862dd8ebdffe8c7e26ea",
+                                   "title":  "分离诊断",
+                                   "command":  "<USERPROFILE>\\asd-acceptance-20261122\\desktop\\native-reader.exe",
+                                   "terminal_state":  "available"
+                               }
+                           ],
+                 "Count":  1
+             }
+}

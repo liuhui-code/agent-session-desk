@@ -313,7 +313,7 @@ func (m *Model) attach() tea.Cmd {
 	}
 	m.pollGeneration++
 	m.pollPending = false
-	m.status = "正在连接；Ctrl+b 后按 d 返回管理器"
+	m.status = "正在连接；切至英文，Ctrl+b 后按 d 返回管理器"
 	ctx := m.ctx
 	return func() tea.Msg {
 		cmd, err := m.service.Attach(ctx, s)

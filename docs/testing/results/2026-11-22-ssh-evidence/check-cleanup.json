@@ -1,0 +1,66 @@
+{
+    "utc":  "2026-11-22T03:37:55.0456560Z",
+    "before_stop":  {
+                        "value":  [
+                                      {
+                                          "session_id":  "474c5357eb49777411f8bba1e4877c73",
+                                          "run_id":  "8ccdbf1bb1e8b583c13e1665bdbe1cc4",
+                                          "backend_id":  "asd_474c5357eb49777411f8bba1e4877c73_8ccdbf1bb1e8b583c13e1665bdbe1cc4",
+                                          "title":  "中文输入 A",
+                                          "command":  "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                                          "terminal_state":  "available"
+                                      },
+                                      {
+                                          "session_id":  "b1900b343aadb6cc72a1c48ecc7bd90a",
+                                          "run_id":  "5403ec4f8e35a83ae08c8c4e96b0016c",
+                                          "backend_id":  "asd_b1900b343aadb6cc72a1c48ecc7bd90a_5403ec4f8e35a83ae08c8c4e96b0016c",
+                                          "title":  "会话 B",
+                                          "command":  "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                                          "terminal_state":  "available"
+                                      }
+                                  ],
+                        "Count":  2
+                    },
+    "previews":  [
+                     {
+                         "session_id":  "474c5357eb49777411f8bba1e4877c73",
+                         "run_id":  "8ccdbf1bb1e8b583c13e1665bdbe1cc4",
+                         "kind":  "screen_snapshot",
+                         "snapshot":  {
+                                          "text":  "ASD synthetic interactive CLI ready\nASD_A_20261122\nASD received: ASD_A_20261122\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+                                          "truncated":  false
+                                      }
+                     },
+                     {
+                         "session_id":  "b1900b343aadb6cc72a1c48ecc7bd90a",
+                         "run_id":  "5403ec4f8e35a83ae08c8c4e96b0016c",
+                         "kind":  "screen_snapshot",
+                         "snapshot":  {
+                                          "text":  "ASD synthetic interactive CLI ready\nASD_B_20261122 中文\nASD received: ASD_B_20261122 中文\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+                                          "truncated":  false
+                                      }
+                     }
+                 ],
+    "stop_results":  [
+                         {
+                             "session_id":  "474c5357eb49777411f8bba1e4877c73",
+                             "run_id":  "8ccdbf1bb1e8b583c13e1665bdbe1cc4",
+                             "result":  "backend_session_stopped"
+                         },
+                         {
+                             "session_id":  "b1900b343aadb6cc72a1c48ecc7bd90a",
+                             "run_id":  "5403ec4f8e35a83ae08c8c4e96b0016c",
+                             "result":  "backend_session_stopped"
+                         }
+                     ],
+    "after_stop":  {
+                       "value":  [
+
+                                 ],
+                       "Count":  0
+                   },
+    "identity_unchanged":  true,
+    "input_isolation":  true,
+    "scope":  "SSH PTY only; no Windows Terminal desktop or IME tested"
+}
+

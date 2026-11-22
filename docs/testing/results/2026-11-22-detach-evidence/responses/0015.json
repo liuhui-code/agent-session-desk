@@ -1,0 +1,8 @@
+{
+    "ok":  true,
+    "utc":  "2026-11-22T05:14:16.8856635Z",
+    "command":  {
+                    "kind":  "text",
+                    "text":  "\u0026 ([ScriptBlock]::Create([IO.File]::ReadAllText((Join-Path $env:USERPROFILE \"asd-acceptance-20261122/direct-attach.ps1\"))))"
+                }
+}

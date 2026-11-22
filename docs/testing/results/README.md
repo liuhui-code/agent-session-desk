@@ -13,3 +13,11 @@
 后续按测试批次建立目录，使用[执行报告模板](../templates/EXECUTION_REPORT.md)，长稳附[资源报告模板](../templates/PERFORMANCE_REPORT.md)。每批记录用例库与产品 commit、环境、参数、状态和证据；大体积录屏与原始负载可引用稳定的发布附件或 CI artifact，并注明保留期限。
 
 不要将未来执行计划、静态目录检查结果或空模板作为产品 pass 报告。测试资料维护工具的校验结果只证明资料结构与引用一致。
+
+- [2026-11-22：Windows 10 SSH 局部操作与桌面验收阻断](2026-11-22-windows-ssh-acceptance.md)：实际测试预览的双会话、attach/detach、中文字符传输、退出重开身份及精确停止；桌面 IME/焦点/resize 仍 blocked。
+
+- [2026-11-22：Windows 10 桌面交互](2026-11-22-windows-desktop-acceptance.md)：通过 SSH/InteractiveToken 进入真实 Windows Terminal，记录窗口缩放、IME、Unicode 对照、切换、Ctrl+C、重开与清理；8 项在所述范围通过，物理分离与系统缩放/另一 IME 两项未关闭。
+
+- [2026-11-22：Windows 10 真实桌面交互](2026-11-22-windows-desktop-acceptance.md)：InteractiveToken 桌面通道、官方便携 Terminal/PowerShell、IME 组合提交取消、Unicode 粘贴、resize、Ctrl+C、A→B→A、退出重开及精确清理；8 项限定范围通过，物理分离键与完整显示/IME 组合仍未关闭。
+
+- [2026-11-22：Windows 分离键根因与回归](2026-11-22-windows-detach-diagnosis.md)：定位微软拼音在中文模式拦截 d；取消候选并切英文后，直接 psmux、原 ASD 及提示修正版各三轮通过。WIN-UI-05 在明确条件下闭环，完整 M0 门槛不变。

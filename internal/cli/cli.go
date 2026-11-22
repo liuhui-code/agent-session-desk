@@ -44,7 +44,7 @@ Start options:
   --env KEY=value      Per-launch override; repeat as needed
 
 Inside the manager: arrows/j/k select, Enter attaches, r refreshes, ? help, q quits.
-Inside the terminal: Ctrl+b then d detaches back to the manager.
+Inside the terminal: cancel IME composition, switch to English input, then Ctrl+b and d detach back to the manager.
 Quitting the manager keeps backend sessions; stop explicitly ends the selected Run.
 
 This is a development slice. Native Windows acceptance, durable session storage,

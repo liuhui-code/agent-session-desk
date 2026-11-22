@@ -1,0 +1,91 @@
+{
+    "after_list_raw":  "[]",
+    "identity_preserved":  true,
+    "stop_results":  [
+                         {
+                             "session_id":  "5d512ee12a8579453c42c6a82de2390d",
+                             "run_id":  "65b4f32a6eaa973e74a5852bdf8cf416",
+                             "result":  "backend_session_stopped"
+                         },
+                         {
+                             "session_id":  "92892fd5a58e0aee22bfae37f76b8666",
+                             "run_id":  "6b1064f528f7c68fcef568e7607eebd7",
+                             "result":  "backend_session_stopped"
+                         }
+                     ],
+    "utc":  "2026-11-22T05:02:20.1455981Z",
+    "original_processes_exited":  true,
+    "live_before":  [
+                        {
+                            "session_id":  "5d512ee12a8579453c42c6a82de2390d",
+                            "run_id":  "65b4f32a6eaa973e74a5852bdf8cf416",
+                            "backend_id":  "asd_5d512ee12a8579453c42c6a82de2390d_65b4f32a6eaa973e74a5852bdf8cf416",
+                            "title":  "会话 A2",
+                            "command":  "<USERPROFILE>\\asd-acceptance-20261122\\desktop\\native-reader.exe",
+                            "terminal_state":  "available"
+                        },
+                        {
+                            "session_id":  "92892fd5a58e0aee22bfae37f76b8666",
+                            "run_id":  "6b1064f528f7c68fcef568e7607eebd7",
+                            "backend_id":  "asd_92892fd5a58e0aee22bfae37f76b8666_6b1064f528f7c68fcef568e7607eebd7",
+                            "title":  "会话 B2",
+                            "command":  "<USERPROFILE>\\asd-acceptance-20261122\\desktop\\native-reader.exe",
+                            "terminal_state":  "available"
+                        }
+                    ],
+    "journals":  {
+                     "A2":  [
+                                {
+                                    "kind":  "started",
+                                    "pid":  8952,
+                                    "api":  "ReadConsoleW"
+                                },
+                                {
+                                    "kind":  "input",
+                                    "line":  "ASD_RETURN_A_FIRST"
+                                }
+                            ],
+                     "B2":  [
+                                {
+                                    "kind":  "started",
+                                    "pid":  3160,
+                                    "api":  "ReadConsoleW"
+                                },
+                                {
+                                    "kind":  "input",
+                                    "line":  "ASD_RETURN_B_ONLY"
+                                }
+                            ]
+                 },
+    "pair":  [
+                 {
+                     "session_id":  "5d512ee12a8579453c42c6a82de2390d",
+                     "run_id":  "65b4f32a6eaa973e74a5852bdf8cf416",
+                     "backend_id":  "asd_5d512ee12a8579453c42c6a82de2390d_65b4f32a6eaa973e74a5852bdf8cf416",
+                     "title":  "会话 A2",
+                     "command":  "<USERPROFILE>\\asd-acceptance-20261122\\desktop\\native-reader.exe",
+                     "terminal_state":  "available"
+                 },
+                 {
+                     "session_id":  "92892fd5a58e0aee22bfae37f76b8666",
+                     "run_id":  "6b1064f528f7c68fcef568e7607eebd7",
+                     "backend_id":  "asd_92892fd5a58e0aee22bfae37f76b8666_6b1064f528f7c68fcef568e7607eebd7",
+                     "title":  "会话 B2",
+                     "command":  "<USERPROFILE>\\asd-acceptance-20261122\\desktop\\native-reader.exe",
+                     "terminal_state":  "available"
+                 }
+             ],
+    "input_isolation":  true,
+    "processes":  [
+                      {
+                          "pid":  8952,
+                          "fixture":  "A2",
+                          "start_time":  "2026-11-22T05:00:52.3405764Z"
+                      },
+                      {
+                          "pid":  3160,
+                          "fixture":  "B2",
+                          "start_time":  "2026-11-22T05:00:52.5964136Z"
+                      }
+                  ]
+}

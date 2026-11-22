@@ -215,7 +215,8 @@ func (m *Model) renderHelp(height int) string {
 		m.styles.text.Render("  asd start --name 开发 -- codex") + "\n" +
 		m.styles.text.Render("  asd start --name 评审 --cwd 路径 -- 自定义程序 参数") + "\n\n" +
 		"↑↓ / j k 选择会话；Enter 全屏进入。\n" +
-		"进入后按 Ctrl+b，再按 d，返回管理器。\n" +
+		"分离前取消候选并切至英文输入模式。\n" +
+		"Ctrl+b，松开后按 d，返回管理器。\n" +
 		"q 退出管理器，保留后台会话。\n\n" +
 		m.styles.dim.Render("预览仅为当前屏幕；CLI 工作状态保持未知。") + "\n" +
 		"Esc / ? 返回"

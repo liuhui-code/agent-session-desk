@@ -1,0 +1,1464 @@
+{
+  "source_zip_sha256": "f233f501659ef6b03cb4adddff2a5ae5bafb7ddea91a83b33def1cca11a37943",
+  "files": [
+    {
+      "file": "after-q-list.json",
+      "raw_sha256": "2a9ab344a53bb6ccf3759f328abed2261db50cfc364ef50e2cd66889cbe197ec",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "attached-narrow.png",
+      "raw_sha256": "13453e09b7e94281ff2050019c135aa6003fae2b97b4be84cab7a3f5035c0eea",
+      "transformation": "8 px cropped from every edge to remove window shadow and unrelated desktop pixels",
+      "raw_size": [
+        573,
+        405
+      ]
+    },
+    {
+      "file": "binary-hashes.json",
+      "raw_sha256": "60e4300c4007c092fd0bd1df979cf179869ede791f77a027d6a370ae1f85f3eb",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "cleanup.json",
+      "raw_sha256": "d02b76ba098e524ed685129bbf368461299e84b0ec891ce1967648b5039b091d",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "created.json",
+      "raw_sha256": "ccd0a6b7711e8818a5f343178afa9614946f54bf2296a3b399f7c4c0faa8d4c5",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "detach-ime-state.png",
+      "raw_sha256": "d16cd9bb8f07ed8c7e62ba5c2835469ee1698039b9cc8af98056b4f53ed4fb6d",
+      "transformation": "8 px cropped from every edge to remove window shadow and unrelated desktop pixels",
+      "raw_size": [
+        1113,
+        657
+      ]
+    },
+    {
+      "file": "driver-error-first.json",
+      "raw_sha256": "c15e9efba0fb63d14a20c7ef61d17f166708609c2ad1b755990dec9dcb7c0bd2",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "final-check.json",
+      "raw_sha256": "2b44839a8f64189b4513b0a9e6b3f7361497c089bd412252fcad2919321e038c",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "fixture-A.jsonl",
+      "raw_sha256": "74638b98b93963f3cd989a3af4d6eb8d903b3ef712d9f4f2352ddb956c82992f",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "fixture-A2.jsonl",
+      "raw_sha256": "f4fbdd61a502bfabdd76bad06bb8800042634ad2b79630b9f193af42013b84f6",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "fixture-B.jsonl",
+      "raw_sha256": "58e86a3d9d24489a8243df6a1fdfd98e286c74c92b256b90ec0ffe71259369eb",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "fixture-B2.jsonl",
+      "raw_sha256": "ba246684e0d1961bc7b7ebdd81019bd4cbae8ae12ce4c5c690aac157add24496",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "fixture-C.jsonl",
+      "raw_sha256": "deff4730443a22c9dd955b377e15ef030fa7c9639fd7d19408b164c8b3d0316a",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "fixture-D.jsonl",
+      "raw_sha256": "1a5b80f00f82a10185055f19514af473f7f277c6d05e8da00cb014d236f82930",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "fixture-E.jsonl",
+      "raw_sha256": "a299afe7ea244325214e862f2624237e509fbc3c2c71c25395d3e22d94c8cc0d",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "font-environment.json",
+      "raw_sha256": "970408d0245af390e129194f6455a19a836c64ab0d50a171fab45e18eacea601",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "ime-before-cancel.png",
+      "raw_sha256": "58de3fbe7cbbb13682d17e56e879e0f74b762efbbf01ae3ed4a2f6abcbdcf94a",
+      "transformation": "8 px cropped from every edge to remove window shadow and unrelated desktop pixels",
+      "raw_size": [
+        1113,
+        657
+      ]
+    },
+    {
+      "file": "ime-composition.png",
+      "raw_sha256": "4d30b2c8e8fc9ea436988844f9881298d50f2bbd57c3efe200bba6f189686809",
+      "transformation": "8 px cropped from every edge to remove window shadow and unrelated desktop pixels",
+      "raw_size": [
+        1113,
+        657
+      ]
+    },
+    {
+      "file": "manager-after-cleanup.png",
+      "raw_sha256": "3987365686488407896b13f58fdb9e43f6b265568a3a43e6a8d2d7df7cbb54fb",
+      "transformation": "8 px cropped from every edge to remove window shadow and unrelated desktop pixels",
+      "raw_size": [
+        1113,
+        657
+      ]
+    },
+    {
+      "file": "manager-alternate-font-final.png",
+      "raw_sha256": "e5ce5b419530a06b654928d9f289dd09771ba931a57d3b6269e023cfca992df3",
+      "transformation": "8 px cropped from every edge to remove window shadow and unrelated desktop pixels",
+      "raw_size": [
+        1113,
+        657
+      ]
+    },
+    {
+      "file": "manager-initial.png",
+      "raw_sha256": "43f0ce1b1cedec7ac586225f66a8cdf845d0d773cc210ec13af616c3595cfd2d",
+      "transformation": "8 px cropped from every edge to remove window shadow and unrelated desktop pixels",
+      "raw_size": [
+        1113,
+        657
+      ]
+    },
+    {
+      "file": "manager-narrow.png",
+      "raw_sha256": "7f4960b6f0cda3c3ccb019decd34b72b05d86391e8e3f13e8cc1bc04021d9704",
+      "transformation": "8 px cropped from every edge to remove window shadow and unrelated desktop pixels",
+      "raw_size": [
+        573,
+        405
+      ]
+    },
+    {
+      "file": "manager-reopened-same-runs.png",
+      "raw_sha256": "31d2b89494e3143805138a1224cc2f6303af3f5e759e3ecce431e8722a9c4f76",
+      "transformation": "8 px cropped from every edge to remove window shadow and unrelated desktop pixels",
+      "raw_size": [
+        1113,
+        657
+      ]
+    },
+    {
+      "file": "native-unicode-paste.png",
+      "raw_sha256": "645df3063486a98d9029df4bd44dcf1d70daee6e7e6774052b705a8e1f00e375",
+      "transformation": "8 px cropped from every edge to remove window shadow and unrelated desktop pixels",
+      "raw_size": [
+        1113,
+        657
+      ]
+    },
+    {
+      "file": "pair-final-check.json",
+      "raw_sha256": "fd0110a5f880afd9f5db68cd208a30fa32754c7a3323cf385818fbc106a4925f",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "paste-error.json",
+      "raw_sha256": "92323554b22134df6dd1e8c0aadd31d40867924514adfdb6a1e00848d113fb15",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "ready.json",
+      "raw_sha256": "6e7033dd7a35610d93fb1b58b5dcbb295197c567dc54b71a4af120e6781fa4a4",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "returned-a-same-screen.png",
+      "raw_sha256": "c4a5d8f76c2c5faf1bdd9c17548d578a4afbedebcf0968f4fed71b808c411fa1",
+      "transformation": "8 px cropped from every edge to remove window shadow and unrelated desktop pixels",
+      "raw_size": [
+        1113,
+        657
+      ]
+    },
+    {
+      "file": "second-pair.json",
+      "raw_sha256": "c9eb27fdaab6684a129550f1eab794a45c1e48cf733084bbe467b447175e0200",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "task-cleanup.json",
+      "raw_sha256": "8b32aae65d9ffa0e2b45916a88d56c2e66d2cc0e45ef6b0996d3669d5db50a27",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "terminal-settings-before.json",
+      "raw_sha256": "c6b9018f024c94e2d71639fa2b35c1dc471155734d80b5f9953ff0d47a3c3ed3",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0001.json",
+      "raw_sha256": "8fc18f550c8677d93784221363c22996e3f859d2c06b1ef2bb53da275b2c899b",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0002.json",
+      "raw_sha256": "3d1e905cddc2af50d8a004dfd1e131cdb9651087d3ed003269dd7995bccb93c0",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0003.json",
+      "raw_sha256": "d2c9c12be8a41ca0093cbc9747835eae27f02ba847cac99c891a6b8ca01a2b69",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0004.json",
+      "raw_sha256": "c2faec826cae9be529b2f7bdefc787d9c7954ee1dbda041fb7b9b70cadae2d20",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0005.json",
+      "raw_sha256": "2c51e3c581e9209a86568d1e6716d70a400840338cb1b971ff3f2ade0929e213",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0006.json",
+      "raw_sha256": "45d7f4581d320f3e16a6c13b591f4c97c858ca82cb4826be71b2e478b8312bcb",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0007.json",
+      "raw_sha256": "27eb59e8ba8d35c57c87a6dfb36431ea5269be3ee5d4a9034e4eb923ebd63c78",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0008.json",
+      "raw_sha256": "8c0e09be57f3ca5aaefd653fd0ca26c1b9b7d10e95520103ef136950b8c6213f",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0009.json",
+      "raw_sha256": "3bb460769f67df38d7bdf9ec1ff57be0774123f37acd33f8594da39952d60cec",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0010.json",
+      "raw_sha256": "4feee1aa07cdcd37c9b6b4b486ac4fa5554bad0be116fc0a1b242b3c6444e658",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0011.json",
+      "raw_sha256": "2c51e3c581e9209a86568d1e6716d70a400840338cb1b971ff3f2ade0929e213",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0012.json",
+      "raw_sha256": "f7d9485be80904950dd7bb8174d8c45862e020f296515e8936831ddc1455eef9",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0013.json",
+      "raw_sha256": "345907b10b129cb435d45e344fa91e7a72876e15b532708c102d470550cd71db",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0014.json",
+      "raw_sha256": "20099268891af4588f0fd681fdc8cf7637bab4611fa1fed4f5eac08ada740d1f",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0015.json",
+      "raw_sha256": "8d658c7b08e2c56743c4fd45f5e111d75d5bc627e498cbeb343e485c2fa4f9b1",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0016.json",
+      "raw_sha256": "2c51e3c581e9209a86568d1e6716d70a400840338cb1b971ff3f2ade0929e213",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0017.json",
+      "raw_sha256": "950ab2957889a21cc6095e88e282242af4b43bd6f8fe44707610a30f23dacb9d",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0018.json",
+      "raw_sha256": "771ff3f8670c84e071ba131a6bab84c2c2c8931dae221f94d8263397a62caaf4",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0019.json",
+      "raw_sha256": "d51f586566f937abfae7fc342cd976a4ea290ca509f6c7c58bcb797a8b6dec91",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0020.json",
+      "raw_sha256": "aa1ad2f1a866afee4b0603dde2f8c0a9ebadc704cea519f7104d78933742052c",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0021.json",
+      "raw_sha256": "15b90edeb0b38cbf07d987cbb91bebd3964e0e44dc44d1b033a39557b7ff8fd7",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0022.json",
+      "raw_sha256": "3cd60a5a5376fa6a580795d440f79604ce0b759661aa89ab117e0a4d90eb879f",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0023.json",
+      "raw_sha256": "1b921bcaa763047a3c6eaee1e47c24821a80b4b0a54d18a554a073542c11702c",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0024.json",
+      "raw_sha256": "2c51e3c581e9209a86568d1e6716d70a400840338cb1b971ff3f2ade0929e213",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0025.json",
+      "raw_sha256": "3cd60a5a5376fa6a580795d440f79604ce0b759661aa89ab117e0a4d90eb879f",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0026.json",
+      "raw_sha256": "a7e8ee3b8f4a54a90c09288a8539b919106af0cfb33123553885f3f372138f47",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0027.json",
+      "raw_sha256": "2c51e3c581e9209a86568d1e6716d70a400840338cb1b971ff3f2ade0929e213",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0028.json",
+      "raw_sha256": "49bea023e652e899cfe4314a4de50aed7fa9789c3f325f9866864ebb59a9fe61",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0029.json",
+      "raw_sha256": "99d57da51e2c41ff60a62326cd1e7656cc39420feef8c6e943c87d39759ab07b",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0030.json",
+      "raw_sha256": "1c1ec8fb5ed0e4b88479b4fe5b4dc1b7e9d6b3c47ce094d8915df5e323764b52",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0031.json",
+      "raw_sha256": "20099268891af4588f0fd681fdc8cf7637bab4611fa1fed4f5eac08ada740d1f",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0032.json",
+      "raw_sha256": "c6ce32f4a42c33fabc0767a082e0dc14106115ca5244aee4ad759ba48d734844",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0033.json",
+      "raw_sha256": "49bea023e652e899cfe4314a4de50aed7fa9789c3f325f9866864ebb59a9fe61",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0034.json",
+      "raw_sha256": "682620fbd928fc73e47d7174c435ec99fd48c9e24b51340ed207e175bf2036c6",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0035.json",
+      "raw_sha256": "eb77afdd1a6bbb91c373694ed6d7041bedde5d00fdb84b08ba58dacbcc96dff3",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0036.json",
+      "raw_sha256": "22eaaa4c4152e7a1cc9eddb761e0d2962ce2728637db960e478fbd7b784958c0",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0037.json",
+      "raw_sha256": "dfebf4dd6feb8d622af55bcd7f4a961d47b89383fea7d1b0c75c169a5e4311a4",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0038.json",
+      "raw_sha256": "6dc26699be9acd476fb78b1179f30433bc4f13c452b74acd59d9ca5d7e442967",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0039.json",
+      "raw_sha256": "2c51e3c581e9209a86568d1e6716d70a400840338cb1b971ff3f2ade0929e213",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0040.json",
+      "raw_sha256": "d4d728462988ba4f413e0fd7a3e3d087a2544c8aee52779343fa9cca0141cf69",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0041.json",
+      "raw_sha256": "2c51e3c581e9209a86568d1e6716d70a400840338cb1b971ff3f2ade0929e213",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0042.json",
+      "raw_sha256": "3d1e905cddc2af50d8a004dfd1e131cdb9651087d3ed003269dd7995bccb93c0",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0043.json",
+      "raw_sha256": "7a5a944b3b85118e44347c6dca954ebde3c010dd588c6d8ce989a40341744238",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0044.json",
+      "raw_sha256": "c2faec826cae9be529b2f7bdefc787d9c7954ee1dbda041fb7b9b70cadae2d20",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0045.json",
+      "raw_sha256": "eb77afdd1a6bbb91c373694ed6d7041bedde5d00fdb84b08ba58dacbcc96dff3",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0046.json",
+      "raw_sha256": "22eaaa4c4152e7a1cc9eddb761e0d2962ce2728637db960e478fbd7b784958c0",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0047.json",
+      "raw_sha256": "754359241ca335fd94ac0b375db4dcf676555b31159f3c7bf7cdb300199c6714",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0048.json",
+      "raw_sha256": "6dc26699be9acd476fb78b1179f30433bc4f13c452b74acd59d9ca5d7e442967",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0049.json",
+      "raw_sha256": "2c51e3c581e9209a86568d1e6716d70a400840338cb1b971ff3f2ade0929e213",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0050.json",
+      "raw_sha256": "d896ade52f2fe796b28249b1893ba9f5861ba7a7d276f0879824cdd6466da892",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0051.json",
+      "raw_sha256": "6b3c20fd74f853d0ee210cd49b857fa894a2698e4241f38b2fd52c202f978109",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0052.json",
+      "raw_sha256": "eb77afdd1a6bbb91c373694ed6d7041bedde5d00fdb84b08ba58dacbcc96dff3",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0053.json",
+      "raw_sha256": "22eaaa4c4152e7a1cc9eddb761e0d2962ce2728637db960e478fbd7b784958c0",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0054.json",
+      "raw_sha256": "9580a37a66c7a4e71582b5110f5a2b8bb1d179b671d7521670a0c5c4be47280e",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0055.json",
+      "raw_sha256": "6dc26699be9acd476fb78b1179f30433bc4f13c452b74acd59d9ca5d7e442967",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0056.json",
+      "raw_sha256": "2c51e3c581e9209a86568d1e6716d70a400840338cb1b971ff3f2ade0929e213",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0057.json",
+      "raw_sha256": "d3514d269a59c33d4d7205525250c757e8beb1b905abefbebe6663344a83dc70",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0058.json",
+      "raw_sha256": "214be757b2865b6913852a9357d46dfded9f4404e48d05cf1e76eeeec776f48c",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0059.json",
+      "raw_sha256": "e608e76dd26a23bdf8d5e150b108279412700836601f7b8b3a4082105634d88b",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0060.json",
+      "raw_sha256": "55020a5f03791720ba135d7e33600d6cb30a8c115b40771d8322c6a635c533e6",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0061.json",
+      "raw_sha256": "2c51e3c581e9209a86568d1e6716d70a400840338cb1b971ff3f2ade0929e213",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0062.json",
+      "raw_sha256": "82867ba48789d23428684cb14e9abcef69da63cb10613d53b4ae5fa55ae49427",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0063.json",
+      "raw_sha256": "4e5feba0348485263548ac4fa55ff852504b0074c3b8a589ea7cd60182f6f95a",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0064.json",
+      "raw_sha256": "2c51e3c581e9209a86568d1e6716d70a400840338cb1b971ff3f2ade0929e213",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0065.json",
+      "raw_sha256": "249d1e9ecbe063308ae8876b688848c761b52955460051bee1bce682e1eaec8e",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0066.json",
+      "raw_sha256": "eb77afdd1a6bbb91c373694ed6d7041bedde5d00fdb84b08ba58dacbcc96dff3",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0067.json",
+      "raw_sha256": "22eaaa4c4152e7a1cc9eddb761e0d2962ce2728637db960e478fbd7b784958c0",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0068.json",
+      "raw_sha256": "087fd76f55752f2c16556c2206a6cb602e3ac630344cf0782dfd2218cb053855",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0069.json",
+      "raw_sha256": "1f3a0ace0dd6cc0fdcbcfe28fffdb428bed15e68d6531ff3df5d08929b7bd14c",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0070.json",
+      "raw_sha256": "15b90edeb0b38cbf07d987cbb91bebd3964e0e44dc44d1b033a39557b7ff8fd7",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0071.json",
+      "raw_sha256": "f6092ee75e276f4707fdd1b70b0d407962673e4af4311affc65c1b6cdc32c24b",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0072.json",
+      "raw_sha256": "6f393f797309f223880c22a69522a8fe8b981346f7da832ce8add6691f8142b7",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0073.json",
+      "raw_sha256": "2c51e3c581e9209a86568d1e6716d70a400840338cb1b971ff3f2ade0929e213",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0074.json",
+      "raw_sha256": "b646c6cbb9f9238554ed5187e946931cba309e52ecfe517e4a0c048d11261e79",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0075.json",
+      "raw_sha256": "d93d6001999b7e382f346eec1ef9706b33a1990ab35bb0753ff74bb15484d28c",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0076.json",
+      "raw_sha256": "2c51e3c581e9209a86568d1e6716d70a400840338cb1b971ff3f2ade0929e213",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0077.json",
+      "raw_sha256": "a203c1f62df06895ff1aee0f93a4599d83613d8ddbd65966e3052d384ff848b1",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0100.json",
+      "raw_sha256": "eb77afdd1a6bbb91c373694ed6d7041bedde5d00fdb84b08ba58dacbcc96dff3",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0101.json",
+      "raw_sha256": "22eaaa4c4152e7a1cc9eddb761e0d2962ce2728637db960e478fbd7b784958c0",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0102.json",
+      "raw_sha256": "32793071ba10f05af2b36b6213778333e7e65abc10c42882d37e4bdc4a1d0132",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0103.json",
+      "raw_sha256": "f5ee3f8f574080cb5db44cf052ba56b9e5f606d6a947611acc931a7657867e4f",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0104.json",
+      "raw_sha256": "4366b88fae0c2ebd90f834023e49626b5c3990b3f8435ea7fe82ab326702c6a6",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0105.json",
+      "raw_sha256": "2c51e3c581e9209a86568d1e6716d70a400840338cb1b971ff3f2ade0929e213",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0106.json",
+      "raw_sha256": "304519ac7a4774799e963cbbef27496e00dacc0f4ca7ae89dcdcbc6586122efe",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0107.json",
+      "raw_sha256": "4f8f814c10c2f1c5504259d957dd7c87ff1d5f35a193cebed24b618063c006f3",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0108.json",
+      "raw_sha256": "2c51e3c581e9209a86568d1e6716d70a400840338cb1b971ff3f2ade0929e213",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0109.json",
+      "raw_sha256": "a203c1f62df06895ff1aee0f93a4599d83613d8ddbd65966e3052d384ff848b1",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0110.json",
+      "raw_sha256": "7c946cf955b4d9cb49d63ec558eadcc35c458beeda24c1d3e869d6979f2dcc4b",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0111.json",
+      "raw_sha256": "eb77afdd1a6bbb91c373694ed6d7041bedde5d00fdb84b08ba58dacbcc96dff3",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0112.json",
+      "raw_sha256": "ba859d583dc7cf0762329f1e05941e9cdb0322d916db2ae29f901b1968360b36",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0113.json",
+      "raw_sha256": "424b2d1261a088558d712a0ff513d5ce4cc4c9df3fac489e15315e0410ecebd1",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0114.json",
+      "raw_sha256": "20099268891af4588f0fd681fdc8cf7637bab4611fa1fed4f5eac08ada740d1f",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0115.json",
+      "raw_sha256": "c6ce32f4a42c33fabc0767a082e0dc14106115ca5244aee4ad759ba48d734844",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0116.json",
+      "raw_sha256": "eb77afdd1a6bbb91c373694ed6d7041bedde5d00fdb84b08ba58dacbcc96dff3",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0117.json",
+      "raw_sha256": "ba859d583dc7cf0762329f1e05941e9cdb0322d916db2ae29f901b1968360b36",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0118.json",
+      "raw_sha256": "74c9370cce47b9713701609f67389d724e44a9f49c682f4fd599835ca045e41e",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0119.json",
+      "raw_sha256": "eb77afdd1a6bbb91c373694ed6d7041bedde5d00fdb84b08ba58dacbcc96dff3",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0120.json",
+      "raw_sha256": "22eaaa4c4152e7a1cc9eddb761e0d2962ce2728637db960e478fbd7b784958c0",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0121.json",
+      "raw_sha256": "09fff8a0e928f9a7bab0195c90e2161b445d27461b2a1c2ed49aca23c6ee1906",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0122.json",
+      "raw_sha256": "087fd76f55752f2c16556c2206a6cb602e3ac630344cf0782dfd2218cb053855",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0123.json",
+      "raw_sha256": "8b91c7ba6149a156f5b3947589f162c547a02b082d09bb53434e8b14bf81f2d0",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0124.json",
+      "raw_sha256": "ab9f23d27d07bad5e31bb30f233d3c6aece4ebba4750c543d446c2ee92f9b7d9",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0125.json",
+      "raw_sha256": "2c51e3c581e9209a86568d1e6716d70a400840338cb1b971ff3f2ade0929e213",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0126.json",
+      "raw_sha256": "cd35ecc6189ade161a0429a930837bb585e269f2b8bf15b2fc19f3a32cc9c278",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0127.json",
+      "raw_sha256": "71513d8e05d5a25e4e6c213f3140199d26080a02ce4537881b6c25d5bbfdcbc5",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0130.json",
+      "raw_sha256": "e2a3a46e1080cf18271ce42f6eb19866347617e2f8615c632d25de566c7846d2",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0131.json",
+      "raw_sha256": "e850795e9230f7a2523621f71ce55e1164d7b2bfad7eba0e3f0306fbd9752542",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0132.json",
+      "raw_sha256": "2c51e3c581e9209a86568d1e6716d70a400840338cb1b971ff3f2ade0929e213",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0133.json",
+      "raw_sha256": "d2fee6b3662e05375cd6fe8576f5578e6c81eabdee0cf2ae7b1425ee1c81ccac",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0134.json",
+      "raw_sha256": "2c51e3c581e9209a86568d1e6716d70a400840338cb1b971ff3f2ade0929e213",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0135.json",
+      "raw_sha256": "eb77afdd1a6bbb91c373694ed6d7041bedde5d00fdb84b08ba58dacbcc96dff3",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0136.json",
+      "raw_sha256": "22eaaa4c4152e7a1cc9eddb761e0d2962ce2728637db960e478fbd7b784958c0",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0137.json",
+      "raw_sha256": "f5ee3f8f574080cb5db44cf052ba56b9e5f606d6a947611acc931a7657867e4f",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0138.json",
+      "raw_sha256": "a2f3dfd0aa4d77b5d8a9633debf57d621b922df67f4be4d2b37a86a2db93835e",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0139.json",
+      "raw_sha256": "2c51e3c581e9209a86568d1e6716d70a400840338cb1b971ff3f2ade0929e213",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0140.json",
+      "raw_sha256": "c814116c8398c95f514549416f06b794ca174a6fa52c02abaa3759eb4996694e",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0141.json",
+      "raw_sha256": "2c51e3c581e9209a86568d1e6716d70a400840338cb1b971ff3f2ade0929e213",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0142.json",
+      "raw_sha256": "eb77afdd1a6bbb91c373694ed6d7041bedde5d00fdb84b08ba58dacbcc96dff3",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0143.json",
+      "raw_sha256": "22eaaa4c4152e7a1cc9eddb761e0d2962ce2728637db960e478fbd7b784958c0",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0144.json",
+      "raw_sha256": "a8df78015e636e1c06b1d8f87d6484ae922146f3fe1f9ba8dfe37533a4ea406d",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0145.json",
+      "raw_sha256": "713a7b1efa85d7acfed93604340ec32bae995945b2c94aa12adbad11abad47c2",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0146.json",
+      "raw_sha256": "2c51e3c581e9209a86568d1e6716d70a400840338cb1b971ff3f2ade0929e213",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0147.json",
+      "raw_sha256": "822560a97908adb7582baf74850ee2847320ccae6447e55d14ff6bcef316c7f7",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0148.json",
+      "raw_sha256": "ec54a40581b98f67993c9ccd2556c8264c6a25b40e0c274ec738afff78d2463c",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0149.json",
+      "raw_sha256": "087fd76f55752f2c16556c2206a6cb602e3ac630344cf0782dfd2218cb053855",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "done/0150.json",
+      "raw_sha256": "15b90edeb0b38cbf07d987cbb91bebd3964e0e44dc44d1b033a39557b7ff8fd7",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0001.json",
+      "raw_sha256": "cf172ca5789330f846c93b539417d3ecc3637ad61327bf42d7471608212b1023",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0002.json",
+      "raw_sha256": "d2e31adf37756d8d6e7711e6a80836547b617e2c5f5190a02eab872ddf2617e6",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0003.json",
+      "raw_sha256": "434208e9e9b31842ff75f565dd4f0d41aecfa05d7c1ab7d14fc19ddeeb12a22d",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0004.json",
+      "raw_sha256": "600a085f6bc516bc8dd151c3c6ac06e80f042ba191e882e01ab5005676b21041",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0005.json",
+      "raw_sha256": "46e9d36a43abdcec3c28154caaadce90f70fbe4c15308926f6aee8cf02c6a214",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0006.json",
+      "raw_sha256": "d36bb91c7ccbed54f20a5f1f30191e444c126653632f2576b1bf3921ec5af6ca",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0007.json",
+      "raw_sha256": "6b39c8c997955a89d1a080e37e718085e78e1953ae63f8f882ebe397441b85ce",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0008.json",
+      "raw_sha256": "216de3f01112930fac88c82ed17b53faa94da28ce12c7b98269296ac4adabcce",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0009.json",
+      "raw_sha256": "6eeb62bb0c5197b44375ea758eb3078d7a9cec1d140a5aa1c5e4c1fbc07ae410",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0010.json",
+      "raw_sha256": "169a8e5a3b432592ca1e4a88f1c58c094f8abf8c8b4b73bbc7dec2271dc1633b",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0011.json",
+      "raw_sha256": "e697f1c85fb70f8d54fd152fdf5d0b097679f87f0b3d8b3fd084e8142bb5182f",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0012.json",
+      "raw_sha256": "24198d4fe83bdea29fcfd93dd7323a2639829703cf52eb23eb258973a53c14e5",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0013.json",
+      "raw_sha256": "dc69133cb8f6e05920e7fe79533df98c97cee5593a0d7ec362811d5c8677cbaa",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0014.json",
+      "raw_sha256": "b396cb93476f5cbff3e89487c6f8d2c1cd17693b380a86e138bf78b070f7926e",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0015.json",
+      "raw_sha256": "e626fa6f13ac3cb35b6b91872d13c86eb4af56f8784147346038ce91507a71b6",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0016.json",
+      "raw_sha256": "8149fad1f74b7a17c463cfb8450b95ad7b70ef13213803b31c2d434dfa9c3950",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0017.json",
+      "raw_sha256": "1878521c2ba9db439578bfa6bddb83fdfa2ed0df8619d7728e99683e5d872f8d",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0018.json",
+      "raw_sha256": "b55434beb0195c760ddc238fa32cde293a29608a6b8a7ef745a4649ad2de81f1",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0019.json",
+      "raw_sha256": "9ace37fb6372652479b679d425fde34bfb2cc0cf6f4d68a00e24b50e9e100ded",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0020.json",
+      "raw_sha256": "218987c97f6f69090ce6380ead4e05a4344bcb30bd77f36d839f7b52ba217fe4",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0021.json",
+      "raw_sha256": "8b584fb25dea40244a92cb1518a0c84a61b998bf0db05055373f48c0df57ad25",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0022.json",
+      "raw_sha256": "0cfe2bdbaf82d5ef29222e7550bdf000ed33330b6a9df9ee29b9197bfc232367",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0023.json",
+      "raw_sha256": "6abd3680382e64d4cb713b1676f3566c4c1ca404516708b31545935a72f5b7f7",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0024.json",
+      "raw_sha256": "d93c82612c524ea7f076ecb6def89b4189ab486bd4acb62e64831c750ac8ccf0",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0025.json",
+      "raw_sha256": "d646624cbd2c8e50474fb11b6349f11940f54b0b3aaff716b3b1654c34dc82a8",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0026.json",
+      "raw_sha256": "5e70ac6c4c7a435684c96d0c520345385131711f0dc0a897d300d4d0763855e4",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0027.json",
+      "raw_sha256": "28326622c02f91b6e6ad54afffa65e704db924b2b2fbc7bf80f6db224d2fdf88",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0028.json",
+      "raw_sha256": "868d769d4403e4451d8479067a8fc24a93c747c1c407c4dd5c667dd801b01c28",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0029.json",
+      "raw_sha256": "47bd78cb3f0b93a5a1df3ef8197ff8fbd8a0c1e05ce09c0ecb18ef1405e03237",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0030.json",
+      "raw_sha256": "0111ce74ffd7248bc4568c9a202d5b5a9275c619063d5e171c76270133c3fbd1",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0031.json",
+      "raw_sha256": "5352cdfeafc2481b43f5b14b950f6410d1a555b00dcfbfe3a5cab467791b4826",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0032.json",
+      "raw_sha256": "f834ca08abfa1d0b065aa7ce06af7aaad2bfb52340f287f4872bb05e73908da7",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0033.json",
+      "raw_sha256": "a07f81f4609a7fc55b882eaf61bd96b4384f7cf52eb62bc57a712a9314d98adc",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0034.json",
+      "raw_sha256": "9358aea878606e215c2475d71687fe6f9bc49ec3c25a8cfb8368c04618a8b22b",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0035.json",
+      "raw_sha256": "39bfa977f8c4b3774181cd9e3768f02c95e4863958429fb84cc7f70bc66e8ccc",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0036.json",
+      "raw_sha256": "7a74510c19cb7dc0b1af5b4223a1445cf8d520382d41619daebb1963aa5f64bf",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0037.json",
+      "raw_sha256": "8542d5cc57eae53cbdcddec637543884f447d01461c7325d7640896285d73e4d",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0038.json",
+      "raw_sha256": "983dc1daa587ee309c36cc490489622356684c099dd6818ce76b252fa4bd14ef",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0039.json",
+      "raw_sha256": "e657dbd0dea9ec01d60d5f0d70ae01ea9b9eb21a2b50948af3a09dc4cbf35189",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0040.json",
+      "raw_sha256": "27f815dc4083824e2382ac3a0f80d73486f1fdeb6cdcfb20f5865f00510cbf03",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0041.json",
+      "raw_sha256": "e1e1258e685469a50e7f8065727e6f105fa8fd0cef71d073854d62126d822aab",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0042.json",
+      "raw_sha256": "939829dd519f7cc687d6d954b6d0a60fb701124e9d8dabe40639a0cd3fb8b927",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0043.json",
+      "raw_sha256": "972c15f2e5450aa5aef2d7c5e9977276caa66777d124d6b7e2275ddd34e05e46",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0044.json",
+      "raw_sha256": "8e98c36c17bf750acd737e63e9d9492dbdd713acab1c6ded265c0f5b844a8c7e",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0045.json",
+      "raw_sha256": "423de58985a6051f8f1d525d391a83e6d36775874991700d3e198a9b6461f696",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0046.json",
+      "raw_sha256": "98e69a33b670639df7d217b5736f3855945e0bb5ee919face11c2c6cbcf51417",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0047.json",
+      "raw_sha256": "b835a56b36b525d5a282150e2a0f548d248831ab5bd71de36239977eda9fc345",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0048.json",
+      "raw_sha256": "8b0f726f320f08e9a91654a1133765706044f5cce82d7eb5fa3ed7e9c624d888",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0049.json",
+      "raw_sha256": "4c89ac4e2894d4c16e36bdb5d07a3180a8a615454475546d86bb9bcd07a59757",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0050.json",
+      "raw_sha256": "fac3653da512240bf4514bfa9e5fb9641429dd7bee60d59e6b1b3c2d5974b173",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0051.json",
+      "raw_sha256": "47c728f61c7c0f1a12eb934f12f8117d22c9179e9ae0d2e2237eb02d01ea8c5a",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0052.json",
+      "raw_sha256": "7c9db9e162ded198b336dd30d00db283abd014cf871e6e125278c5a71e9046b1",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0053.json",
+      "raw_sha256": "3a9c8d29d73dae32e5afe5f5ed294dc7a37c17745c63927fc0453431ecaa2ce9",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0054.json",
+      "raw_sha256": "f490c2fce2fc6abb504ff92a11553a8bd6905277ea72252d200fd41a47f3ad72",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0055.json",
+      "raw_sha256": "2f145e1b8eadaefd71224b3afe9b1a4422cec094051c4d1f1cb262893ebf881c",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0056.json",
+      "raw_sha256": "8950029651b5f9fd00aa05e9395c04f7c699eaa249cbdc9ad8e5646657b667c1",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0057.json",
+      "raw_sha256": "92c50c635839371fb3ee287965ab837c7afd72e44ba7d399082ac12603f020e0",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0058.json",
+      "raw_sha256": "b71d332f0bb114fe747a9784ae95996c918cd665171b5035ba47329eea0eca8a",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0059.json",
+      "raw_sha256": "f67d273f576d4e3067533597a5c3bffa75c827a4fbba497083cdf02f487bbcb1",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0060.json",
+      "raw_sha256": "cc52b9c6a2c88395cdf49ae94d10ecb5d3afa891be9571dd63644d5aa3381798",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0061.json",
+      "raw_sha256": "21d24cfa877a2b0b4d35cd1a900166bd39eb5b2c2822dec07d30ec7697b00424",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0062.json",
+      "raw_sha256": "fc41da26a140678fcbc469fc5006a179970a2e7ca0e7e42ae54c250c3195939c",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0063.json",
+      "raw_sha256": "58079541b39b7e9ad355a0591e0b16e2b577bb57335211a28b7be91d3a36c8f6",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0064.json",
+      "raw_sha256": "39dee340033a4cce66131275d4aec1296054d327ec9b90082839ed66b7210b3e",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0065.json",
+      "raw_sha256": "d222d97f459d24f51a8e07a6aeb25bf8e6839823533e3a4d15bea69bef06299f",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0066.json",
+      "raw_sha256": "a9f2e1813c3a5c6a1a3d1705dc44df3131361c954499a9cefd3926bedcee5f46",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0067.json",
+      "raw_sha256": "473f9120e050ee7f120254428c453239d33e33ba8d341f732f10032467d42c20",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0068.json",
+      "raw_sha256": "3b145c5d50e9156344b77737a0644ca2a06fbaf4276fdc33dc339ca8b7122f8b",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0069.json",
+      "raw_sha256": "2ab7b2eb378434e6939e3c6dbd0f928f1c4d3d80bccd6ca4e0d1744658b59c60",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0070.json",
+      "raw_sha256": "f422130687a2341c3a762e53b5055a5ee75445b6f4c359f701bfd55e7346b1ea",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0071.json",
+      "raw_sha256": "232d4e2a6084c841333baca16dec0acef49ef5b8e3989753d6134addcb4507c9",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0072.json",
+      "raw_sha256": "4708c04a28c35548a29ea605a3c800f8c28e997fd9fa9ed542e305ffd44fad49",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0073.json",
+      "raw_sha256": "de00d5847607f2deb282a8a476fea162efdbc4f7034c09c99353e50ec8f84f8f",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0074.json",
+      "raw_sha256": "8ca90f36cb1d50959d536fabdac9b38e6c12e8e96fb51a3eeec2af84a9bff374",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0075.json",
+      "raw_sha256": "756510e90b4c0c4f430d3840a3ef8a1055973c9412fc2b6fbaa534da9d201960",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0076.json",
+      "raw_sha256": "cba38a9069440578326c5f0493f0558dd12535bb5eb54b4e9aed3e6216214d06",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0077.json",
+      "raw_sha256": "071dd5daf2dd7487376de919024e3c69010b0a862ab2e589cc074abee3e533bb",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0100.json",
+      "raw_sha256": "fcce5ed56a4833d210385015e801ab3b5e6d57e77d922616a830f1f30401289a",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0101.json",
+      "raw_sha256": "1895c64e8457937bb7cbf66f1f163b7b91af4c9dfd0e1e95ab39f62a5e2284ab",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0102.json",
+      "raw_sha256": "7b8a386771254b87e85a2c205dbec1d5d0a8698447c317401d40cf073edaee75",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0103.json",
+      "raw_sha256": "d503a7df8c51430181b65060adc9f0e1691a171c8cabd60d5dd22d0ebfc51a6f",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0104.json",
+      "raw_sha256": "0b333b5b63b980908e9312ff9b94f191d2969fc20e3cd9b94df5b634ffb91607",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0105.json",
+      "raw_sha256": "5509490db6d795f26a830f22f925abd576c6831e10710d23bc508b839a51604c",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0106.json",
+      "raw_sha256": "5c05a15b9941367700b1e056ae17eccbcbd7043eefee63a0c068631d73d41577",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0107.json",
+      "raw_sha256": "8ffcd273bf6641c3e42bf7d7f5abad52beb6b2cae3702f11d674721ea1e2949f",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0108.json",
+      "raw_sha256": "b061d8b0ea32b0a0761100be7536696196795c6cbd1adaf080a7bf7766953723",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0109.json",
+      "raw_sha256": "1f2fa210d9c8f0ff40b34d01bb11d87e25b150d5ad88d804384d1e0c6a71a9a2",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0110.json",
+      "raw_sha256": "79c729171ce55b3f7e87cd7298d4ae85e19884a98401ecbd8829e6d0b5eb0cb5",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0111.json",
+      "raw_sha256": "af72e989a3fc80d3ca77c7aa1fb5818e296f507da2d76a3c18b6211204d40665",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0112.json",
+      "raw_sha256": "470f4ddf6d0d7b76238a425c51483d1b7ce1265755f3ecf70057d79cab3e9848",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0113.json",
+      "raw_sha256": "6f99a080efe8f9204093484559b2713ae939b786d49430e9c2800ba4d64f330c",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0114.json",
+      "raw_sha256": "b381e5a78d97d548f88d215d988da917be0abc84a2228758eff57055742e1876",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0115.json",
+      "raw_sha256": "873fb489c53d85f573decaa71228d473509800ff0be262b9feae9b89edac3b11",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0116.json",
+      "raw_sha256": "190643470ebb1637a6b7e48897bc61a3bb744e8dfdac87675f1d9b7af75cb9ae",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0117.json",
+      "raw_sha256": "e6965645a26e9403b24bf7a529b237ca03007005ecfbd7d8710fa265456ec01a",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0118.json",
+      "raw_sha256": "bd3ab7216045527a9d5fa16dba49b985e982209fb3d056866606132e52eff1e5",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0119.json",
+      "raw_sha256": "6a4d22d40ca92f4530ff4d37bf591d75add880c38471d669dac453ebd7c13722",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0120.json",
+      "raw_sha256": "2869919d9f3278b1ac121baa743e2c002096915f27214b0893f6fbf89d4163ba",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0121.json",
+      "raw_sha256": "e7e045b9afd72424d3c9fd9f6331724db39873ffd0547c1e4f2176837e1f33db",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0122.json",
+      "raw_sha256": "90182edda32e1dc36e60fc12e6f31bb987e3ee5afbbd80af164ed14b94792912",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0123.json",
+      "raw_sha256": "cc44302cd3503cf46e006440d675ce6284f5ec7ec2bcd6b98553d77bbe113c95",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0124.json",
+      "raw_sha256": "0a029f754c71ed87cba10b5adbbf2e9af1938b085c53d5b39e7cae620c33dfa5",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0125.json",
+      "raw_sha256": "075c5eb56f1a5576066eed7689451a4282ece084a722c392de7015f2d9bd0d8f",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0126.json",
+      "raw_sha256": "d1358b60005517f81d9c49cc7dff736860ce9775a34af4df82e3a99c632876fd",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0127.json",
+      "raw_sha256": "cee8ebc461eea355b921ab24caf33a64ca29452e88676c28c50745e8245b90aa",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0130.json",
+      "raw_sha256": "1c259e5cc97de5c234226460da19f34e617fa30311833350b86beeb52c81d773",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0131.json",
+      "raw_sha256": "d22f381bfc52d862c782ac4d27fe09d666d4b38fe6fff7987365e19629a33101",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0132.json",
+      "raw_sha256": "9d49d27a4d4493faacbc81de986f3a9effe6db559e4c2b15349dc2819e5ef4ab",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0133.json",
+      "raw_sha256": "37ac189efa1a9fd47dfbffc254bc81dd00c1a3de0301df4ab6128ced752efd6c",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0134.json",
+      "raw_sha256": "0f162ff384bea394593ffd0751cfbc5eff46bcd27fab543fbc648c9935fe4cfb",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0135.json",
+      "raw_sha256": "24f45bef2a4a7688aead1698cca9f70b36748b5034a44e5c31fc323ea5a62351",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0136.json",
+      "raw_sha256": "f161f7a9a48c02580e80e38161fc534478a2d9693de0f348d3124b59b645c2f8",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0137.json",
+      "raw_sha256": "8f3714ef827a707fb2bf16e0ee86814f6b73143d6801d7201a0efc961196d481",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0138.json",
+      "raw_sha256": "d34050cead5bc72fbf16369ef02705a4aa125d4442d8f3ed47367ff818850ae8",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0139.json",
+      "raw_sha256": "1d9f44229a69fa7279d493afaabc8c05d58ebf1bf6d41d4b2fb0336eb7a1579e",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0140.json",
+      "raw_sha256": "a9026016f656b7d397f0a1d3a990f3051f1b64acbadaa68b7c1c5f561c9ddb90",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0141.json",
+      "raw_sha256": "686196ab8e903346f1a811b090374012b90eb52842738073c767e752aae6ace6",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0142.json",
+      "raw_sha256": "0a3aec1cd8fa63c39dd6368ae7e31be24eb92e82420e1392373f0bfc0493ebc6",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0143.json",
+      "raw_sha256": "2c7c9ca35fd96266835b0c7d11d0f5d06a56e289a57a3e9e6eab19a55f024cd9",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0144.json",
+      "raw_sha256": "6c3f98ad00f6fe9d89e9e31729711a8c0ad4501695d4839b7c526289658bcc12",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0145.json",
+      "raw_sha256": "7aa1d2094ed7a85aad6ae2242b6d71b26eb0b2f8c3363f8a08dc58b1f4e22198",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0146.json",
+      "raw_sha256": "241533da4e8beea99ca9716b77f3f10dc8de41f30e4f3d7d9c42a525a7bec00b",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0147.json",
+      "raw_sha256": "03ecddaf0cdcce7d8267f236e0e294a1d1fe5467f0634bd99b9c57a0424440e1",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0148.json",
+      "raw_sha256": "c2a4666a6d99a2a1238bbc49b793f606ec46e43a0b57b9c77e514a1677b970e6",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0149.json",
+      "raw_sha256": "1f4845b83b9ec2f780c9b4c9d05e1b8a1645e5258c528df45825cfdc76f6fea7",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    },
+    {
+      "file": "responses/0150.json",
+      "raw_sha256": "cdecbb48aa7a30c73394d1cf24a1ef38dc7370ea681221c393aca71640c9c1f0",
+      "transformation": "UTF-8 BOM removed; test-user home path replaced"
+    }
+  ]
+}

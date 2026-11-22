@@ -292,3 +292,11 @@
 原生执行补充（2026-11-21）：固定官方发行物的 Windows 自动化已通过五项可控后端场景，包含独立 fixture 记录与原 pane 缺失回归；完整运行及此前失败见执行报告。不改变 339 项设计状态、各 FL 当前状态或 M0 验收门槛。
 
 资源执行补充（2026-11-21）：新增受控负载夹具、身份可核验的 Windows 采样与统计工具，归档短资源实验及失败/修复；FL-003/006/015/016 增加局部证据，仍为实现中，339 项设计状态与 M0 完整门槛不变。
+
+SSH 局部执行补充（2026-11-22）：Windows 10 build 19045 上使用实际测试预览完成双会话创建、SSH PTY attach/detach、输入隔离、退出重开及精确停止；[报告及原始合成证据](testing/results/2026-11-22-windows-ssh-acceptance.md)记录适用 FL-002/003/006/012/016、测试脚本修正和桌面阻断。中文字符传输不证明 IME 通过；各能力状态和 339 项设计基线不变。
+
+桌面局部执行补充（2026-11-22）：已恢复 SSH/InteractiveToken 图形通道，在 Windows 10 + 固定 Terminal/PowerShell/psmux 组合实际验证列表/预览、窗口变化、中文拼音组合提交取消、合成原生 Unicode 粘贴、A→B→A、Ctrl+C、退出重开和精确停止。FL-002/003/006/012/016 增加[桌面报告与截图](testing/results/2026-11-22-windows-desktop-acceptance.md)；物理分离输入仍待定位，系统缩放与其他 IME 未执行，PowerShell 读取对照保留失败。状态仍为实现中，不关闭 M0，也不改变 339 项 catalog 基线。
+
+桌面局部执行补充（2026-11-22）：已恢复 SSH→InteractiveToken 桌面通道，在 Windows 10 build 19045 上实际执行官方便携 Windows Terminal / PowerShell 组合。FL-002/003/006/012/016 增加 [桌面报告与合成证据](testing/results/2026-11-22-windows-desktop-acceptance.md)：IME、布局、粘贴、会话隔离、Ctrl+C、重开身份及清理有局部结果；物理分离键事件路径及完整显示缩放/IME 组合仍待验证。保留 PowerShell Unicode 和驱动失败样本，各能力未转为已验收，339 项 catalog 基线不变。
+
+分离诊断补充（2026-11-22）：FL-002/012/016 的[分离键诊断](testing/results/2026-11-22-windows-detach-diagnosis.md)证明中文 IME 在后端前截留 d；明确取消候选/切英文前提，并更新 TUI/CLI 提示。固定 psmux、原 ASD、提示修正版在 Windows Terminal 中各有三轮物理虚拟键回归，Session/Run 不变。仅关闭该组合的 WIN-UI-05 未决项，其他 IME/显示缩放及完整 M0 仍待验收，各 FL 实现状态和 catalog 基线不变。

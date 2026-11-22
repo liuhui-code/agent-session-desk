@@ -1,0 +1,1 @@
+{"kind": "text", "text": "& ([ScriptBlock]::Create([IO.File]::ReadAllText((Join-Path $env:USERPROFILE \"asd-acceptance-20261122/direct-attach.ps1\"))))"}

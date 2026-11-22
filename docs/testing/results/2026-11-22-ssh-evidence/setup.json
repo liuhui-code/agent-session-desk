@@ -1,0 +1,57 @@
+{
+    "utc":  "2026-11-22T03:36:48.2441189Z",
+    "source_commit":  "5c94b7d407a59be3f8fa476ea6c584aac67110bf",
+    "product_sha256":  "a810705c4322e9f774b61b9159f39340b7681ca4a275d2615b1f8c938fb79cca",
+    "psmux_sha256":  "bbe825a30f7cddc91b043084049143a381aba5f7e9e36e4d0bb587e296d262ca",
+    "doctor":  {
+                   "backend":  "psmux",
+                   "version":  "3.4.0",
+                   "experimental":  true,
+                   "windows_validated":  false,
+                   "binary_provenance_validated":  false,
+                   "note":  "Version probe only; record official binary hash and run native Windows acceptance separately."
+               },
+    "created":  [
+                    {
+                        "session_id":  "474c5357eb49777411f8bba1e4877c73",
+                        "run_id":  "8ccdbf1bb1e8b583c13e1665bdbe1cc4",
+                        "backend_id":  "asd_474c5357eb49777411f8bba1e4877c73_8ccdbf1bb1e8b583c13e1665bdbe1cc4",
+                        "title":  "中文输入 A",
+                        "command":  "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                        "terminal_state":  "available"
+                    },
+                    {
+                        "session_id":  "b1900b343aadb6cc72a1c48ecc7bd90a",
+                        "run_id":  "5403ec4f8e35a83ae08c8c4e96b0016c",
+                        "backend_id":  "asd_b1900b343aadb6cc72a1c48ecc7bd90a_5403ec4f8e35a83ae08c8c4e96b0016c",
+                        "title":  "会话 B",
+                        "command":  "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                        "terminal_state":  "available"
+                    }
+                ],
+    "list":  {
+                 "value":  [
+                               {
+                                   "session_id":  "474c5357eb49777411f8bba1e4877c73",
+                                   "run_id":  "8ccdbf1bb1e8b583c13e1665bdbe1cc4",
+                                   "backend_id":  "asd_474c5357eb49777411f8bba1e4877c73_8ccdbf1bb1e8b583c13e1665bdbe1cc4",
+                                   "title":  "中文输入 A",
+                                   "command":  "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                                   "terminal_state":  "available"
+                               },
+                               {
+                                   "session_id":  "b1900b343aadb6cc72a1c48ecc7bd90a",
+                                   "run_id":  "5403ec4f8e35a83ae08c8c4e96b0016c",
+                                   "backend_id":  "asd_b1900b343aadb6cc72a1c48ecc7bd90a_5403ec4f8e35a83ae08c8c4e96b0016c",
+                                   "title":  "会话 B",
+                                   "command":  "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                                   "terminal_state":  "available"
+                               }
+                           ],
+                 "Count":  2
+             },
+    "case":  "WIN-UI-02",
+    "result":  "pass",
+    "scope":  "Native Windows CLI via SSH; synthetic Windows PowerShell CLI; no Windows Terminal desktop tested"
+}
+

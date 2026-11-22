@@ -1,0 +1,42 @@
+[
+    {
+        "session_id":  "cfe4a8b795bd58b33e38d584ea390af9",
+        "run_id":  "27d626da5b0cfad4ddfc3cc0e803b293",
+        "backend_id":  "asd_cfe4a8b795bd58b33e38d584ea390af9_27d626da5b0cfad4ddfc3cc0e803b293",
+        "title":  "中文输入 A",
+        "command":  "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "terminal_state":  "available"
+    },
+    {
+        "session_id":  "8f21ee8a1ece4e3864e74225720e15d7",
+        "run_id":  "28cd8b5c902b6af2039845810b9334d2",
+        "backend_id":  "asd_8f21ee8a1ece4e3864e74225720e15d7_28cd8b5c902b6af2039845810b9334d2",
+        "title":  "会话 B",
+        "command":  "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "terminal_state":  "available"
+    },
+    {
+        "session_id":  "7e5b6025d5661fc26ba6891f0e1d69b6",
+        "run_id":  "66c6d355bc27c7dcb1f3db6dfd0a66e1",
+        "backend_id":  "asd_7e5b6025d5661fc26ba6891f0e1d69b6_66c6d355bc27c7dcb1f3db6dfd0a66e1",
+        "title":  "信号测试 C",
+        "command":  "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "terminal_state":  "available"
+    },
+    {
+        "session_id":  "e5b5560bec0d3e962659c97c0aeaa3df",
+        "run_id":  "0978374785295c1bef099db5872c1aac",
+        "backend_id":  "asd_e5b5560bec0d3e962659c97c0aeaa3df_0978374785295c1bef099db5872c1aac",
+        "title":  "UTF8 粘贴 D",
+        "command":  "<USERPROFILE>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+        "terminal_state":  "available"
+    },
+    {
+        "session_id":  "205b7ec8285e2c40c9037e0aeda51964",
+        "run_id":  "71bd9b051f86b476e5ff76a1153cd1d5",
+        "backend_id":  "asd_205b7ec8285e2c40c9037e0aeda51964_71bd9b051f86b476e5ff76a1153cd1d5",
+        "title":  "Unicode 原生 E",
+        "command":  "<USERPROFILE>\\asd-acceptance-20261122\\desktop\\native-reader.exe",
+        "terminal_state":  "available"
+    }
+]

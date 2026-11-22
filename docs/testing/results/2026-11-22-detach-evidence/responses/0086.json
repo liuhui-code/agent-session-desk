@@ -1,0 +1,82 @@
+{
+    "ok":  true,
+    "utc":  "2026-11-22T05:22:23.8130592Z",
+    "state":  {
+                  "keyboardLayout":  134481924,
+                  "text":  "ASD isolated desktop acceptance\nAgent Session Desk                                    1 会话\r\n                                                            \r\n使用方法                                                    \r\n────────────────────────────────────────────────────────────\r\n                                                            \r\n在另一个终端创建会话：                                      \r\n  asd start --name 开发 -- codex                            \r\n  asd start --name 评审 --cwd 路径 -- 自定义程序 参数       \r\n                                                            \r\n↑↓ / j k 选择会话；Enter 全屏进入。                         \r\n分离前取消候选并切至英文输入模式。                          \r\nCtrl+b，松开后按 d，返回管理器。                            \r\nq 退出管理器，保留后台会话。                                \r\n                                                            \r\n预览仅为当前屏幕；CLI 工作状态保持未知。                    \r\nEsc / ? 返回                                                \r\n                                                            \r\n↑↓ · 选择  Enter · 进入  r · 刷新  ? · 帮助  q · 退出      ",
+                  "pid":  5136,
+                  "session":  2,
+                  "rect":  [
+                               40,
+                               40,
+                               573,
+                               405
+                           ],
+                  "tree":  [
+                               {
+                                   "name":  "",
+                                   "type":  "ControlType.Pane"
+                               },
+                               {
+                                   "name":  "",
+                                   "type":  "ControlType.Pane"
+                               },
+                               {
+                                   "name":  "",
+                                   "type":  "ControlType.Tab"
+                               },
+                               {
+                                   "name":  "",
+                                   "type":  "ControlType.List"
+                               },
+                               {
+                                   "name":  "ASD isolated desktop acceptance",
+                                   "type":  "ControlType.TabItem"
+                               },
+                               {
+                                   "name":  "ASD isolated desktop acceptance",
+                                   "type":  "ControlType.Text"
+                               },
+                               {
+                                   "name":  "关闭标签页",
+                                   "type":  "ControlType.Button"
+                               },
+                               {
+                                   "name":  "新建标签页",
+                                   "type":  "ControlType.SplitButton"
+                               },
+                               {
+                                   "name":  "",
+                                   "type":  "ControlType.Custom"
+                               },
+                               {
+                                   "name":  "ASD isolated desktop acceptance",
+                                   "type":  "ControlType.Text"
+                               },
+                               {
+                                   "name":  "垂直",
+                                   "type":  "ControlType.ScrollBar"
+                               },
+                               {
+                                   "name":  "垂直小幅下降",
+                                   "type":  "ControlType.Button"
+                               },
+                               {
+                                   "name":  "垂直大幅下降",
+                                   "type":  "ControlType.Button"
+                               },
+                               {
+                                   "name":  "垂直大幅增长",
+                                   "type":  "ControlType.Button"
+                               },
+                               {
+                                   "name":  "垂直小幅增长",
+                                   "type":  "ControlType.Button"
+                               }
+                           ]
+              },
+    "command":  {
+                    "kind":  "capture",
+                    "label":  "candidate-help-narrow"
+                }
+}

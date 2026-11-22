@@ -1,0 +1,67 @@
+[
+  {
+    "command": [
+      "/private/tmp/asd-detach-20261122/go/bin/go",
+      "test",
+      "./..."
+    ],
+    "exit": 0,
+    "elapsed_seconds": 25.75921320915222,
+    "log": "verify-0.log"
+  },
+  {
+    "command": [
+      "/private/tmp/asd-detach-20261122/go/bin/go",
+      "test",
+      "-race",
+      "./..."
+    ],
+    "exit": 0,
+    "elapsed_seconds": 21.936210870742798,
+    "log": "verify-1.log"
+  },
+  {
+    "command": [
+      "/private/tmp/asd-detach-20261122/go/bin/go",
+      "vet",
+      "./..."
+    ],
+    "exit": 0,
+    "elapsed_seconds": 2.243356227874756,
+    "log": "verify-2.log"
+  },
+  {
+    "command": [
+      "/private/tmp/asd-detach-20261122/go/bin/go",
+      "mod",
+      "verify"
+    ],
+    "exit": 0,
+    "elapsed_seconds": 0.19655871391296387,
+    "log": "verify-3.log"
+  },
+  {
+    "command": [
+      "python3",
+      "tools/test_catalog.py",
+      "check",
+      "--generated"
+    ],
+    "exit": 0,
+    "elapsed_seconds": 0.1676468849182129,
+    "log": "verify-4.log"
+  },
+  {
+    "command": [
+      "/private/tmp/asd-detach-20261122/go/bin/go",
+      "build",
+      "-trimpath",
+      "-buildvcs=true",
+      "-o",
+      "/private/tmp/asd-detach-20261122/asd-detach-guidance.exe",
+      "./cmd/asd"
+    ],
+    "exit": 0,
+    "scope": "Windows cross-build only; native execution is separate"
+  }
+]

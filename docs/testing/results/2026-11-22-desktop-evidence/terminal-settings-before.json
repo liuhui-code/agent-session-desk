@@ -1,0 +1,66 @@
+{
+    "$help": "https://aka.ms/terminal-documentation",
+    "$schema": "https://aka.ms/terminal-profiles-schema",
+    "actions": [],
+    "copyOnSelect": false,
+    "defaultProfile": "{a81a7af0-f002-4a1e-982a-202611220001}",
+    "initialCols": 120,
+    "initialRows": 32,
+    "keybindings": [],
+    "newTabMenu":
+    [
+        {
+            "type": "remainingProfiles"
+        }
+    ],
+    "profiles":
+    {
+        "defaults": {},
+        "list":
+        [
+            {
+                "closeOnExit": "never",
+                "commandline": "\"<USERPROFILE>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe\" -NoLogo -NoProfile -NoExit -EncodedCommand JABiAD0ASgBvAGkAbgAtAFAAYQB0AGgAIAAkAGUAbgB2ADoAVQBTAEUAUgBQAFIATwBGAEkATABFACAAIgBhAHMAZAAtAGEAYwBjAGUAcAB0AGEAbgBjAGUALQAyADAAMgA2ADEAMQAyADIAIgA7ACAAJgAgACIAJABiAFwAcAByAG8AZAB1AGMAdABcAGEAcwBkAC0AdwBpAG4AZABvAHcAcwAtAGEAbQBkADYANAAuAGUAeABlACIAIAAtAC0AYgBhAGMAawBlAG4AZAAgACIAJABiAFwAYgBhAGMAawBlAG4AZABcAHAAcwBtAHUAeAAuAGUAeABlACIAIAAtAC0AcgB1AG4AdABpAG0AZQAtAGQAaQByACAAIgAkAGIAXABkAGUAcwBrAHQAbwBwAC0AcgB1AG4AdABpAG0AZQAiACAALQAtAG4AYQBtAGUAcwBwAGEAYwBlACAAYQBzAGQALQBkAGUAcwBrAHQAbwBwAC0AMgAwADIANgAxADEAMgAyAA==",
+                "font":
+                {
+                    "face": "Consolas",
+                    "size": 12
+                },
+                "guid": "{a81a7af0-f002-4a1e-982a-202611220001}",
+                "name": "ASD isolated desktop acceptance",
+                "padding": "0",
+                "startingDirectory": "<USERPROFILE>\\asd-acceptance-20261122"
+            },
+            {
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+                "hidden": false,
+                "name": "Windows PowerShell"
+            },
+            {
+                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+                "hidden": false,
+                "name": "Command Prompt"
+            },
+            {
+                "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+                "hidden": false,
+                "name": "Azure Cloud Shell",
+                "source": "Windows.Terminal.Azure"
+            },
+            {
+                "guid": "{2b25193a-cf4b-579f-8f75-40f0d6fd5cc8}",
+                "hidden": false,
+                "name": "Developer Command Prompt for VS 2022",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{1b0479a7-a3c6-5233-9765-4bc75fe2d5ef}",
+                "hidden": false,
+                "name": "Developer PowerShell for VS 2022",
+                "source": "Windows.Terminal.VisualStudio"
+            }
+        ]
+    },
+    "schemes": [],
+    "themes": []
+}
