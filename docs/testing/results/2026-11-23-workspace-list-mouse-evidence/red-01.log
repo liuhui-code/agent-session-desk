@@ -1,0 +1,10 @@
+--- FAIL: TestWorkspaceListClickSelectsThenEnterOpensExactRun (0.02s)
+    --- FAIL: TestWorkspaceListClickSelectsThenEnterOpensExactRun/120 (0.01s)
+        workspace_list_mouse_test.go:35: click did not select the visible session in management focus
+    --- FAIL: TestWorkspaceListClickSelectsThenEnterOpensExactRun/60 (0.01s)
+        workspace_list_mouse_test.go:35: click did not select the visible session in management focus
+    --- FAIL: TestWorkspaceListClickSelectsThenEnterOpensExactRun/40 (0.01s)
+        workspace_list_mouse_test.go:35: click did not select the visible session in management focus
+FAIL
+FAIL	github.com/<LOCAL_TEST_USER>-code/agent-session-desk/internal/ui	0.945s
+FAIL

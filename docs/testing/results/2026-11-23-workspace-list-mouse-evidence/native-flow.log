@@ -1,0 +1,28 @@
+{
+    "outputs":  {
+                    "b-after-click.txt":  "B2:9272",
+                    "a-click.txt":  "A:17636",
+                    "b-click.txt":  "B:9272"
+                },
+    "result":  "passed",
+    "shell_processes":  [
+                            {
+                                "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                "pid":  17636,
+                                "filetime":  134398453279642502
+                            },
+                            {
+                                "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                "pid":  9272,
+                                "filetime":  134398453282713161
+                            }
+                        ],
+    "checks":  [
+                   "single click selects without switching",
+                   "Enter reopens original draft",
+                   "double click opens without child Enter",
+                   "stacked and single-list mouse selection",
+                   "independent shell command results"
+               ]
+}
+

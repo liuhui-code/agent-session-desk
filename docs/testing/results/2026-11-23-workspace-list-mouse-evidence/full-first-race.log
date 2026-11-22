@@ -1,0 +1,40 @@
+?   	github.com/<LOCAL_TEST_USER>-code/agent-session-desk/cmd/asd	[no test files]
+ok  	github.com/<LOCAL_TEST_USER>-code/agent-session-desk/cmd/asd-fixture	(cached)
+ok  	github.com/<LOCAL_TEST_USER>-code/agent-session-desk/internal/backend	(cached)
+ok  	github.com/<LOCAL_TEST_USER>-code/agent-session-desk/internal/cli	6.607s
+ok  	github.com/<LOCAL_TEST_USER>-code/agent-session-desk/internal/config	(cached)
+ok  	github.com/<LOCAL_TEST_USER>-code/agent-session-desk/internal/manager	(cached)
+ok  	github.com/<LOCAL_TEST_USER>-code/agent-session-desk/internal/session	(cached)
+ok  	github.com/<LOCAL_TEST_USER>-code/agent-session-desk/internal/store	(cached)
+ok  	github.com/<LOCAL_TEST_USER>-code/agent-session-desk/internal/terminal	(cached)
+--- FAIL: TestWorkspaceListDoubleClickWhileConnectingKeepsManagementFocus (0.10s)
+    workspace_list_mouse_test.go:183: refused switch gave input focus to the previous Run
+--- FAIL: TestWorkspaceVeryNarrowManagementSelectsFromSingleList (3.05s)
+    workspace_responsive_test.go:41: workspace did not reach expected state:
+        [1;38;2;122;162;247mAgent Session Desk[m                [38;2;120;127;160m2 会话[m
+        [48;2;36;40;59m [m[38;2;192;202;245;48;2;36;40;59m开发 ×[m[48;2;36;40;59m [m  [48;2;122;162;247m [m[1;38;2;26;27;38;48;2;122;162;247m评审 ×[m[48;2;122;162;247m [m                   [48;2;36;40;59m [m[38;2;192;202;245;48;2;36;40;59m+[m[48;2;36;40;59m [m
+                                                
+        [1;38;2;125;207;255m会话[m                                    
+        [38;2;65;72;104m────────────────────────────────────────[m
+        [38;2;192;202;245m  开发                            可连接[m
+        [1;38;2;26;27;38;48;2;122;162;247m› 评审                            可连接[m
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+        [38;2;120;127;160m管理模式 · Enter 终端 · n 新建 · x 关Tab[m
+FAIL
+FAIL	github.com/<LOCAL_TEST_USER>-code/agent-session-desk/internal/ui	9.538s
+FAIL

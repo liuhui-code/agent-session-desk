@@ -170,6 +170,21 @@
       ],
       "mode": "selectively_adapted",
       "modifications": "Design tokens, v2 mouse messages, management-only keys, one notice timer; no implicit configuration persistence. See ADR-0016."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/home.go",
+      "source_sha256": "982178adb5c0ef2e27ff316a1f2383b47e261a965a3e6ac2fd50bf0c199dede9",
+      "destination_file": "internal/ui/workspace_mouse.go",
+      "license": "MIT",
+      "parts": [
+        "handleMouse single selection and same-item double-click activation; divider precedence",
+        "500ms double-click threshold relocated to design_tokens.go"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "Stable Bubble Tea v2 messages; one shared flat-list window for render and hit testing; stable Session/Run identity instead of agent/group/provider items; product Tab open with no child Enter. Keyboard input and resize reset the click sequence."
     }
   ],
   "preserved_notices": [

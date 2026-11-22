@@ -23,3 +23,5 @@
 首个 Tab UI 的实际画面、失败与局部结果见[2026-11-23 报告](../testing/results/2026-11-23-tab-workspaces.md)。通用创建表单另从固定上游 newdialog.go 改编居中宽度／圆角／焦点结构，保留字面参数边界；不能以此认定上游所有表单或业务迁入。
 
 产品 Tab 适配在[后续切片](../testing/results/2026-11-23-tab-controls.md)加入新建／关闭入口与有界标题，并有实际鼠标证据；这些是产品导航约束的实现，不归为固定 Agent Deck 原有 Tab 行。
+
+列表键鼠已继续迁入固定 `home.go` 的单击选择／同目标双击打开和 500ms 阈值，命中与渲染共用当前可见窗口；三种布局的实际证据见[报告](../testing/results/2026-11-23-workspace-list-mouse.md)。产品以 Session/Run 核对身份，双击打开 Tab 而不发送子程序 Enter；未迁入上游分组／远程条目或子程序鼠标。

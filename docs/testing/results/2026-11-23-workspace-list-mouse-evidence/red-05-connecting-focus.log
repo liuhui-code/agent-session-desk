@@ -1,0 +1,5 @@
+--- FAIL: TestWorkspaceListDoubleClickWhileConnectingKeepsManagementFocus (0.01s)
+    workspace_list_mouse_test.go:183: refused switch gave input focus to the previous Run
+FAIL
+FAIL	github.com/<LOCAL_TEST_USER>-code/agent-session-desk/internal/ui	0.926s
+FAIL

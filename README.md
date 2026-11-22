@@ -127,3 +127,5 @@ M1 输出记录支持 `record SESSION_ID` 显式保存有限画面、`output RUN
 ADR-0014 的首个技术切片已按 [ADR-0015](docs/adr/0015-pinned-psmux-native-terminal-client.md) 实现原生 psmux 屏幕／输入／resize／重连适配；fixture 与普通 shell 的[两项 Windows 局部证据](docs/testing/results/2026-11-22-native-terminal-transport.md)已记录。[ADR-0016](docs/adr/0016-tab-workspaces-and-input-ownership.md) 已接入首个 psmux Tab UI：终端直接输入，F6 切换管理焦点，Ctrl+PgUp/PgDn 切 Tab，管理模式 n 新建、x 关视图、Enter 重开；退出 UI 不停止 Run。Unix tmux 保留旧辅助路径。普通 shell 的[局部桌面证据](docs/testing/results/2026-11-23-tab-workspaces.md)不等于完整上游还原、IME、鼠标、资源或真实 agent 验收。
 
 Tab 窄窗口管理已恢复[上下／单列布局](docs/testing/results/2026-11-23-workspace-responsive.md)：F6 进入管理，Enter 返回原终端并展开输入区域；Tab 栏持续保留。实际 63／49 列的普通 shell 草稿恢复已有局部证据，真实 IME、滚动及完整上游对照仍待验证。
+
+会话列表可单击选择，Enter 或双击打开原 Run；选择与当前活动 Tab 分开，单击不会提交终端草稿。三种布局与两条普通 shell 的[实际鼠标证据](docs/testing/results/2026-11-23-workspace-list-mouse.md)已记录，子程序鼠标／滚动另待实现。

@@ -31,6 +31,7 @@ const (
 )
 
 type workspaceState struct {
+	listClick                  workspaceListClick
 	split                      workspaceSplit
 	readBusy                   bool
 	transition                 workspaceTransition
@@ -313,13 +314,7 @@ func (m *Model) activateWorkspaceNow(index int) tea.Cmd {
 	w.active = index
 	w.err = nil
 	m.status = ""
-	target := w.tabs[index].session
-	for i, s := range m.sessions {
-		if sameRun(s, target) {
-			m.cursor = i
-			break
-		}
-	}
+	m.selectWorkspaceSession(w.tabs[index].session)
 	cmd := m.connectWorkspace()
 	if !w.busy {
 		w.transition = workspaceIdle
@@ -342,9 +337,19 @@ func (m *Model) activateWorkspace(index int) tea.Cmd {
 	}
 	w.transition = workspaceSwitch
 	w.switchTarget = w.tabs[index].viewID
+	m.selectWorkspaceSession(w.tabs[index].session)
 	if w.pending > 0 {
 		m.status = "正在完成原终端输入后切换 Tab…"
 		return nil
 	}
 	return m.activateWorkspaceNow(index)
+}
+
+func (m *Model) selectWorkspaceSession(target session.Session) {
+	for i, s := range m.sessions {
+		if sameRun(s, target) {
+			m.cursor = i
+			return
+		}
+	}
 }

@@ -18,17 +18,14 @@ import (
 	"github.com/liuhui-code/agent-session-desk/internal/session"
 )
 
-func (m *Model) renderSessionList(width, height int) string {
-	if height <= 0 || width <= 0 {
-		return ""
+type sessionListWindow struct {
+	start, end, leading int
+}
+
+func (m *Model) sessionListWindow(height int) sessionListWindow {
+	if height <= 0 || len(m.sessions) == 0 {
+		return sessionListWindow{}
 	}
-	if len(m.sessions) == 0 {
-		if m.listBusy {
-			return m.styles.dim.Render("正在读取会话…")
-		}
-		return m.styles.dim.Render("暂无会话" + m.tokens.sectionBreak() + "? 查看创建方法")
-	}
-	var b strings.Builder
 	viewOffset := m.viewOffset
 	lineBudget := height - m.tokens.layout.indicatorRows // reserve the below indicator as upstream does
 	if lineBudget < 1 {
@@ -45,11 +42,30 @@ func (m *Model) renderSessionList(width, height int) string {
 	if viewOffset > 0 && height >= m.tokens.layout.aboveMinHeight {
 		lineBudget--
 		viewOffset = max(viewOffset, m.cursor-lineBudget+1)
+		return sessionListWindow{start: viewOffset, end: min(len(m.sessions), viewOffset+lineBudget), leading: 1}
+	}
+	return sessionListWindow{start: viewOffset, end: min(len(m.sessions), viewOffset+lineBudget)}
+}
+
+func (m *Model) renderSessionList(width, height int) string {
+	if height <= 0 || width <= 0 {
+		return ""
+	}
+	if len(m.sessions) == 0 {
+		if m.listBusy {
+			return m.styles.dim.Render("正在读取会话…")
+		}
+		return m.styles.dim.Render("暂无会话" + m.tokens.sectionBreak() + "? 查看创建方法")
+	}
+	var b strings.Builder
+	window := m.sessionListWindow(height)
+	if window.leading > 0 {
+		viewOffset := window.start
 		b.WriteString(m.styles.dim.Render(fmt.Sprintf("%s%s 上方 %d", m.tokens.itemGap(), m.tokens.marks.above, viewOffset)))
 		b.WriteString("\n")
 	}
-	nextItem := viewOffset
-	for i := viewOffset; i < len(m.sessions) && i-viewOffset < lineBudget; i++ {
+	nextItem := window.start
+	for i := window.start; i < window.end; i++ {
 		s := m.sessions[i]
 		title := label(s.Title)
 		if title == "" {

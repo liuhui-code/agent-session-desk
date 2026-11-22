@@ -7,6 +7,7 @@ import (
 
 func (m *Model) workspaceKey(msg tea.KeyPressMsg) tea.Cmd {
 	w := m.workspace
+	w.listClick = workspaceListClick{}
 	if w.transition != workspaceIdle && w.transition != workspaceSwitch {
 		return nil
 	}
@@ -58,6 +59,19 @@ func (m *Model) workspaceKey(msg tea.KeyPressMsg) tea.Cmd {
 	case "x":
 		return m.closeWorkspaceTab()
 	case "enter":
+		if w.transition == workspaceSwitch {
+			selected, ok := m.selected()
+			for _, tab := range w.tabs {
+				if ok && tab.viewID == w.switchTarget && sameRun(tab.session, selected) {
+					w.focused = true
+					return m.workspaceSize()
+				}
+			}
+		}
+		if w.busy || w.transition != workspaceIdle {
+			m.status = "当前 Tab 正在连接或切换；完成后可打开所选终端"
+			return nil
+		}
 		selected, ok := m.selected()
 		if !ok {
 			return nil
