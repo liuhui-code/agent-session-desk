@@ -37,3 +37,5 @@ clipboard 字段没有独立的原始 pane／program 身份，匹配帧只证明
 - 验证事件不因屏幕合并丢失、上限与无效编码、关闭取消、旧代次和跨 Tab 在途排序；实际事件循环输出与 Windows 剪贴板分别留证。
 - 固定 [Agent Deck 内嵌终端](https://github.com/asheshgoplani/agent-deck/blob/80494e527393b7ead00da30018e6ee7e60e9d7a0/internal/ui/embedded_terminal.go)、[psmux 协议](https://github.com/psmux/psmux/blob/20aa1d7254ee93f64dafa059ef89341d9767470a/src/server/connection.rs)、[布局元数据](https://github.com/psmux/psmux/blob/20aa1d7254ee93f64dafa059ef89341d9767470a/src/layout.rs)、[复制模式](https://github.com/psmux/psmux/blob/20aa1d7254ee93f64dafa059ef89341d9767470a/src/copy_mode.rs)。源码仅核对语义与协议，Go 适配／事件桥自行实现，没有复制 Rust 实现。
 - Context7 资料包含 beta／main；具体 API 再按锁定 Bubble Tea 2.1.2 与 x/ansi 0.11.9 源码和行为核对，未升级依赖。
+
+2026-11-23 缩放验证补充：已将早期截图的 10→18 缺口定位至进入复制模式前的官方 psmux 缩高；冻结页看似连续不证明背后的实时历史完整。新增实时 capture 与冻结画面分开核对，保留默认依赖失败；独立修复候选的适用范围、构建、原生通过和剩余门槛见[历史报告](../testing/results/2026-11-23-resize-history.md)。不在 UI 补写丢失内容，不提升完整复制／历史或发布状态。

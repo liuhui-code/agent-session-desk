@@ -45,7 +45,7 @@
 | [TC-TRM-011](generated/01-launch-terminal-ui.md#tc-trm-011) | 颜色、光标定位与擦除序列 | FL-002、FL-016 | P1 | M0 | windows_e2e | 依据明确 |
 | [TC-TRM-012](generated/01-launch-terminal-ui.md#tc-trm-012) | UTF-8 与 ANSI 序列跨读取块 | FL-002、FL-016 | P1 | M0 | windows_e2e | 依据明确 |
 | [TC-TRM-013](generated/01-launch-terminal-ui.md#tc-trm-013) | alternate screen 进入退出与历史区分 | FL-002、FL-016 | P1 | M0 | windows_e2e | 依据明确 |
-| [TC-TRM-014](generated/01-launch-terminal-ui.md#tc-trm-014) | 窗口缩放连续传递且最终尺寸正确 | FL-002、FL-016 | P0 | M0 | windows_e2e | 依据明确 |
+| [TC-TRM-014](generated/01-launch-terminal-ui.md#tc-trm-014) | 窗口缩放连续传递且最终尺寸正确 | FL-002、FL-016、FL-018 | P0 | M0 | windows_e2e | 依据明确 |
 | [TC-TRM-015](generated/01-launch-terminal-ui.md#tc-trm-015) | 被动预览不得改变活跃 attach 尺寸 | FL-002、FL-016 | P0 | M2 | windows_e2e | 依据明确 |
 | [TC-TRM-016](generated/01-launch-terminal-ui.md#tc-trm-016) | 单行超过终端宽度的显示与滚动 | FL-002、FL-016 | P1 | M0 | windows_e2e | 依据明确 |
 | [TC-TRM-017](generated/01-launch-terminal-ui.md#tc-trm-017) | Ctrl+C 只作用于当前终端目标 | FL-002、FL-016 | P0 | M1 | windows_e2e | 依据明确 |

@@ -1506,9 +1506,9 @@
 
 **窗口缩放连续传递且最终尺寸正确**
 
-- 功能：[FL-002](../COVERAGE.md#fl-002)、[FL-016](../COVERAGE.md#fl-016)
+- 功能：[FL-002](../COVERAGE.md#fl-002)、[FL-016](../COVERAGE.md#fl-016)、[FL-018](../COVERAGE.md#fl-018)
 - 需求：[FR-02](../COVERAGE.md#fr-02)、[FR-11](../COVERAGE.md#fr-11)
-- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0014](../../adr/0014-upstream-ui-tabs-and-general-terminals.md)、[ADR-0015](../../adr/0015-pinned-psmux-native-terminal-client.md)、[ADR-0016](../../adr/0016-tab-workspaces-and-input-ownership.md)、[ADR-0018](../../adr/0018-native-copy-search-and-host-clipboard.md)
 - 优先级 / 阶段 / 层次：P0 / M0 / windows_e2e
 - 类型：boundary、compatibility
 - 设计 / 执行：`designed / not_run`
@@ -1524,22 +1524,27 @@
 
 #### 操作步骤
 
-1. 在 attach 中把终端依次变为宽、窄、高、矮窗口，fixture 报告实际行列。
-2. 快速重复 resize 后停止，检查最终尺寸、光标和交互。
+1. 在 Tab 终端及显式辅助 attach 中把终端依次变为宽、窄、高、矮窗口，fixture 报告实际行列；分别覆盖首次连接前已输出和确定初始尺寸后才输出。
+2. 在主屏幕输出独立可核对、短于最窄宽度的连续编号和 Unicode 标记；使用 120×32→94×25→61×18→94×25，先核对首次缩高前后的实时 capture，再在复制／搜索模式中重复缩放。
+3. 快速重复 resize 后停止，检查最终尺寸、光标和交互；分别核对冻结复制画面与背后实时 capture 的编号，不以搜索能找到某一行代替历史完整。
 
 #### 预期与不变量
 
 - 最终 agent 尺寸与实际 attach 终端一致，屏幕不永久停留在中间尺寸。
 - 中间 resize 可合并但不能破坏后续输入；无异常退出或错位残留。
+- 未达到声明的历史保留上限时，受控编号在实时 capture 中保持顺序、没有缺失或重复；复制快照与实时历史分别核对，主屏幕和 alternate screen 的保留边界分别记录。
+- 每帧尺寸、Session/Run 和原 pane 可核对；若固定后端已丢失数据，报告失败和边界，不通过客户端补写历史或把可见快照的连续性当作完整保留。
 
 #### 需要的证据
 
 - 带用例 ID 与环境清单的执行记录。
 - 目标 fixture 的输入/输出或生命周期事件记录，以及对应界面截图或录屏。
+- 首次连接／每次缩放前后的受控 capture、rows_v2／content 合成文本投影、独立编号预期和清理身份；不归档认证密钥或用户会话内容。
 
 #### 参数变体
 
 - 窗口样本：`["120×40", "80×24", "40×12", "160×50"]`
+- 输出与浏览时序：`["首次 attach 前已有输出", "确定尺寸后才输出", "复制／搜索模式缩放与实时历史分别核对"]`
 
 
 ### TC-TRM-015

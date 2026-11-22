@@ -40,7 +40,7 @@
 | [internal/backend](../internal/backend/) 中其他文件 | 私有配置、命令执行、元数据／pane 身份重验、有界输出与错误、预览、attach、精确停止／失败清理、已知参数改写拒绝 |
 | [cmd/asd-fixture](../cmd/asd-fixture/) 与各包测试 | 可控参数／cwd／指定测试环境值／输入回显；单元和假后端子进程合同测试 |
 
-ASMGR 与 AoE 本轮没有迁入源码。psmux / tmux 作为外部程序，仅核查固定源码来界定命令合同；它们的源码、发行二进制没有包含在本仓库中。
+ASMGR 与 AoE 本轮没有迁入源码。psmux / tmux 作为外部程序，完整源码、发行二进制没有包含在本仓库中。2026-11-23 新增下述 psmux 实验补丁片段，不应用于产品依赖。
 
 ## 4. v1 → v2 已做的工作
 
@@ -92,3 +92,5 @@ Bubbles 2.2.2 textinput 通过模块使用，未复制组件源码。v2 表单�
 2026-11-23 Tab 排序：`workspace_order.go` 与 `workspace_tabs.go` 的 View ID 顺序调整、固定可见槽位与输入归属保护为本产品实现；固定上游没有该 Tab 栏，不新增第三方来源或依赖。已有派生 `workspace_mouse.go`／`home_view_frame.go` 只接入产品导航与帮助，原始 source SHA 不变，见[排序报告](testing/results/2026-11-23-tab-order.md)。
 
 2026-11-23 原生复制／搜索：核对固定 Agent Deck `embedded_terminal.go` 的 OSC52、容量／最新待处理语义，以及固定 psmux 3.4.0 来源 `20aa1d7254ee93f64dafa059ef89341d9767470a` 的 copy-mode、布局选区／光标／命中／提示与 clipboard_osc52 协议。Go 适配、渲染和跨 Tab 事件桥自行实现；没有复制 Rust、引入上游 VT 或新的 Go 依赖。既有派生 `design_tokens.go`／`styles.go`／`home_view_frame.go` 增加角色与帮助；原文件哈希／归属不变，来源核验与必要差异见[报告](testing/results/2026-11-23-native-copy-search.md)。
+
+2026-11-23 缩高历史诊断：新增[实验补丁及公开 parser 用例](../tools/experiments/psmux-resize-history/)，基于 psmux `20aa1d7254ee93f64dafa059ef89341d9767470a` 的 `crates/vt100-psmux/src/grid.rs`；唯一源修改、原始 1604 个文件指纹和构建证据见[报告](testing/results/2026-11-23-resize-history.md)。补丁上下文归属 psmux／vt100，原样 MIT 及版权已收集，机器清单列为 diagnostic_artifacts。完整源码／二进制未迁入，产品／安装依赖未应用该补丁；不得将其当作官方 3.4.0 发行物。

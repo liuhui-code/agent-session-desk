@@ -1,0 +1,32 @@
+{
+    "secondary_resize":  true,
+    "early_copy":  true,
+    "original_ended":  true,
+    "cleanup_json":  "[]",
+    "hashes":  {
+                   "psmux.exe":  "bbe825a30f7cddc91b043084049143a381aba5f7e9e36e4d0bb587e296d262ca",
+                   "copy-final2-product.exe":  "a2518bc0c28c4ff23ac544b440fe1fcc704c1d0e682bbfaf3cb7da91d65934b0",
+                   "pwsh.exe":  "f2833e07a5a7d59153ffc63db83bd6b62f6c63ffd8b5b5099a2feadf6b605336"
+               },
+    "namespace":  "asd-history-344dd2dec8c6",
+    "complete":  false,
+    "session":  {
+                    "session_id":  "5aa951df3c2eb651380b68a71af48eed",
+                    "run_id":  "cf44b088d9b284ff8655939fd8aed34f",
+                    "backend_id":  "asd_5aa951df3c2eb651380b68a71af48eed_cf44b088d9b284ff8655939fd8aed34f",
+                    "title":  "Synthetic history resize",
+                    "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                    "terminal_state":  "available"
+                },
+    "result":  "history-incomplete",
+    "direct_backend":  false,
+    "utc":  "2026-11-22T23:03:14.3760053Z",
+    "identity":  {
+                     "pid":  13448,
+                     "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                     "filetime":  134398621945233191
+                 },
+    "output_timing":  "BeforeAttach",
+    "idle_writer":  false,
+    "windows":  "Microsoft Windows NT 10.0.19045.0"
+}

@@ -1,0 +1,21 @@
+{
+    "windows":  "Microsoft Windows NT 10.0.19045.0",
+    "cleanup_json":  "[]",
+    "case":  "direct-control",
+    "direct_endpoint_closed":  true,
+    "result":  "harness-failed",
+    "no_resize":  true,
+    "no_copy":  true,
+    "utc":  "2026-11-22T22:49:11.3796538Z",
+    "error":  "使用“1”个参数调用“ReadAllText”时发生异常:“未能找到文件“C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\history-direct-control\\runtime\\asd-history-direct-control\\asd-history-direct-control__history-direct-direct-control.port”。”",
+    "hashes":  {
+                   "psmux.exe":  "bbe825a30f7cddc91b043084049143a381aba5f7e9e36e4d0bb587e296d262ca",
+                   "copy-final2-product.exe":  "a2518bc0c28c4ff23ac544b440fe1fcc704c1d0e682bbfaf3cb7da91d65934b0",
+                   "pwsh.exe":  "f2833e07a5a7d59153ffc63db83bd6b62f6c63ffd8b5b5099a2feadf6b605336"
+               },
+    "session":  {
+                    "session_id":  "direct-direct-control",
+                    "run_id":  "direct-direct-control",
+                    "backend_id":  "history-direct-direct-control"
+                }
+}

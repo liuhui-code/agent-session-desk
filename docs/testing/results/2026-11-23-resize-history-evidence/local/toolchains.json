@@ -1,0 +1,35 @@
+[
+  {
+    "command": [
+      "go",
+      "version"
+    ],
+    "exit_code": 0,
+    "output": "go version go1.27.4 darwin/amd64\n"
+  },
+  {
+    "command": [
+      "rustc",
+      "--version"
+    ],
+    "exit_code": 0,
+    "output": "rustc 1.95.0 (59807616e 2026-04-14)\n"
+  },
+  {
+    "command": [
+      "cargo",
+      "--version"
+    ],
+    "exit_code": 0,
+    "output": "cargo 1.95.0 (f2d3ce0bd 2026-03-21)\n"
+  },
+  {
+    "command": [
+      "cargo",
+      "xwin",
+      "--version"
+    ],
+    "exit_code": 0,
+    "output": "cargo-xwin-xwin 0.23.0\n"
+  }
+]

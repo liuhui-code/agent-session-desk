@@ -76,3 +76,7 @@ Hosted runner 是 **Windows Server 2025**，标签会随镜像更新；实际 Im
 这能覆盖普通删除竞态的错读风险；不构成后端原子快照、外部 respawn 仲裁或服务器被替换后的完整恢复保证。稳定源码仍存在忙碌时枚举不完整等边界，后续长稳和异常恢复验证须继续覆盖。
 
 2026-11-23 桌面补充：[基础 IME 实际报告](results/2026-11-23-ime-composition.md)记录当前 Tab 与表单在 Microsoft 拼音下的候选／确认／取消及直接 PowerShell 对照。它是独立桌面证据，不属于以上 CI 合同套件，不提升全部输入法、切换键、辅助 attach 或 Windows 发布支持范围。
+
+## 6. 独立历史缩高诊断
+
+[`windows-history-resize.ps1`](../../tools/ci/windows-history-resize.ps1) 为 opt-in、单合成会话／新目录的完整性诊断；每个实时 capture 必须严格保留编号 1–40，默认缺失／重复即非零退出，冻结画面另行保留。启动参数与安全清理见[复现说明](../../tools/experiments/psmux-resize-history/README.md)。官方 3.4.0 失败、独立候选通过及中间 harness 失败见[实际报告](results/2026-11-23-resize-history.md)。它不进入现有 hosted CI，也不自动替换官方固定哈希；没有新的 Windows 桌面或发布接受。

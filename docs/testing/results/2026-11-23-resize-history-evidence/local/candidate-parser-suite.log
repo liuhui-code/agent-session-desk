@@ -1,0 +1,317 @@
+warning: /private/tmp/asd-history-20261123/psmux-candidate/Cargo.toml: file `/private/tmp/asd-history-20261123/psmux-candidate/src/main.rs` found to be present in multiple build targets:
+  * `bin` target `pmux`
+  * `bin` target `psmux`
+  * `bin` target `tmux`
+ Downloading crates ...
+  Downloaded terminal_size v0.4.4
+  Downloaded env_logger v0.11.11
+  Downloaded env_filter v2.0.0
+  Downloaded cpufeatures v0.3.1
+  Downloaded rand_core v0.10.1
+  Downloaded chacha20 v0.10.2
+  Downloaded rand v0.10.3
+  Downloaded quickcheck v1.1.0
+   Compiling memchr v2.8.3
+   Compiling libc v0.2.190
+   Compiling proc-macro2 v1.0.107
+   Compiling regex-syntax v0.8.11
+   Compiling unicode-ident v1.0.26
+   Compiling cfg-if v1.0.5
+   Compiling quote v1.0.47
+   Compiling getrandom v0.4.3
+   Compiling serde_core v1.0.229
+   Compiling rand_core v0.10.1
+   Compiling cpufeatures v0.3.1
+   Compiling bitflags v2.13.2
+   Compiling cfg_aliases v0.2.2
+   Compiling log v0.4.34
+   Compiling zmij v1.0.23
+   Compiling rustix v1.1.5
+   Compiling chacha20 v0.10.2
+   Compiling nix v0.31.3
+   Compiling serde v1.0.229
+   Compiling itoa v1.0.18
+   Compiling arrayvec v0.7.8
+   Compiling serde_json v1.0.151
+   Compiling aho-corasick v1.1.5
+   Compiling vte v0.15.0
+   Compiling unicode-width v0.2.2
+   Compiling vt100-psmux v0.16.13 (/private/tmp/asd-history-20261123/psmux-candidate/crates/vt100-psmux)
+   Compiling regex-automata v0.4.18
+   Compiling syn v3.0.7
+   Compiling regex v1.13.1
+   Compiling env_filter v2.0.0
+   Compiling env_logger v0.11.11
+   Compiling errno v0.3.14
+   Compiling rand v0.10.3
+   Compiling serde_derive v1.0.229
+   Compiling quickcheck v1.1.0
+   Compiling terminal_size v0.4.4
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 22.51s
+     Running unittests src/lib.rs (target/debug/deps/vt100_psmux-acba4ed9e69d6a29)
+
+running 68 tests
+test screen::test_issue155_sgr_attrs::contents_formatted_includes_sgr29_to_clear_strikethrough ... ok
+test screen::test_issue155_sgr_attrs::combined_strikethrough_hidden_bold_roundtrip ... ok
+test screen::test_issue155_sgr_attrs::contents_formatted_includes_sgr8_for_hidden ... ok
+test screen::test_issue155_sgr_attrs::sgr0_resets_strikethrough_and_hidden ... ok
+test screen::test_issue155_sgr_attrs::sgr28_clears_hidden_on_cell ... ok
+test screen::test_issue155_sgr_attrs::contents_formatted_includes_sgr9_for_strikethrough ... ok
+test screen::test_issue155_sgr_attrs::sgr29_clears_strikethrough_on_cell ... ok
+test screen::test_issue155_sgr_attrs::sgr8_sets_hidden_on_cell ... ok
+test grid::test_issue673_scrollback_cow::the_visible_rows_are_a_private_copy ... ok
+test screen::test_issue155_sgr_attrs::sgr9_sets_strikethrough_on_cell ... ok
+test screen::test_issue361_osc8_hyperlink::no_osc8_means_no_hyperlink ... ok
+test screen::test_issue361_osc8_hyperlink::osc8_bel_terminated ... ok
+test screen::test_issue361_osc8_hyperlink::osc8_dedups_same_uri_to_one_id ... ok
+test screen::test_issue361_osc8_hyperlink::osc8_st_terminated_sets_cell_hyperlink ... ok
+test screen::test_issue361_osc8_hyperlink::osc8_uri_with_semicolon_is_rejoined ... ok
+test screen::test_issue361_osc8_hyperlink::osc8_with_id_param_keys_on_uri ... ok
+test screen::tests::decode_invalid_hex_passthrough ... ok
+test screen::tests::decode_mixed_case_hex ... ok
+test screen::tests::decode_no_encoding ... ok
+test screen::tests::decode_space ... ok
+test screen::tests::decode_truncated_percent ... ok
+test screen::tests::osc7_bare_path_no_scheme ... ok
+test screen::tests::osc7_empty_hostname ... ok
+test screen::tests::osc7_empty_string ... ok
+test screen::tests::osc7_file_no_slash_after_host ... ok
+test screen::tests::osc7_full_uri_with_hostname ... ok
+test screen::tests::osc7_localhost ... ok
+test screen::tests::osc7_percent_encoded_spaces ... ok
+test screen::tests::osc7_percent_encoded_special_chars ... ok
+test screen::tests::osc7_windows_path_via_uri ... ok
+test screen::tests::parser_osc7_bel_terminated ... ok
+test screen::tests::parser_osc7_roundtrip ... ok
+test screen::tests::parser_osc7_updates_on_cd ... ok
+test screen::tests::parser_other_osc_does_not_affect_path ... ok
+test screen::tests::parser_osc7_with_percent_encoding ... ok
+test screen::tests::screen_path_initially_none ... ok
+test screen::tests::screen_set_path_from_osc7 ... ok
+test screen::tests::screen_set_path_ignores_invalid_utf8 ... ok
+test screen::tests::screen_set_path_overwrites ... ok
+test screen::tests::screen_set_title_empty_string ... ok
+test screen::tests::screen_set_title_from_utf8 ... ok
+test screen::tests::screen_set_title_invalid_utf8_ignored ... ok
+test screen::tests::screen_set_title_overwrites ... ok
+test screen::tests::screen_title_initially_empty ... ok
+test screen::tests::squelch_armed_then_csi_2j_fires_signal ... ok
+test screen::tests::squelch_armed_then_csi_3j_fires_signal ... ok
+test screen::tests::squelch_csi_0j_does_not_fire ... ok
+test screen::tests::squelch_csi_1j_does_not_fire ... ok
+test screen::tests::squelch_csi_2j_then_3j_only_first_fires ... ok
+test screen::tests::squelch_disarm_prevents_fire ... ok
+test screen::tests::squelch_fires_only_once_per_arm ... ok
+test screen::tests::squelch_initially_not_set ... ok
+test screen::tests::squelch_mixed_escape_sequences_before_clear ... ok
+test screen::tests::squelch_not_armed_csi_2j_does_not_fire ... ok
+test screen::tests::squelch_not_armed_csi_3j_does_not_fire ... ok
+test screen::tests::squelch_pending_initially_false ... ok
+test screen::tests::squelch_rearm_fires_again ... ok
+test width::tests::accepts_every_legal_width ... ok
+test width::tests::parses_inclusive_range ... ok
+test screen::tests::squelch_take_clears_flag ... ok
+test screen::tests::squelch_regular_text_does_not_fire ... ok
+test width::tests::parses_literal_character ... ok
+test width::tests::parses_single_hex_codepoint ... ok
+test width::tests::rejects_malformed_entries ... ok
+test grid::test_issue673_scrollback_cow::several_snapshots_share_one_copy_of_the_history ... ok
+test grid::test_issue673_scrollback_cow::a_snapshot_shares_every_retained_row_with_the_live_grid ... ok
+test grid::test_issue673_scrollback_cow::the_shared_history_is_still_frozen_for_the_reader ... ok
+test grid::test_issue673_scrollback_cow::every_visible_row_is_reachable_by_index_without_walking_the_history ... ok
+
+test result: ok. 68 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.22s
+
+     Running tests/issue502_altscreen_attrs.rs (target/debug/deps/issue502_altscreen_attrs-2c58e599a5b70b31)
+
+running 3 tests
+test alt_screen_exit_restores_background ... ok
+test alt_screen_exit_clears_bold_from_alt_screen ... ok
+test alt_screen_exit_restores_background_when_entry_had_one ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/issue502_decsc_altscreen.rs (target/debug/deps/issue502_decsc_altscreen-79ab80746cdbf910)
+
+running 4 tests
+test decsc_in_main_screen_still_restores_normally ... ok
+test decsc_inside_alt_screen_does_not_poison_main_screen ... ok
+test alt_screen_decrc_uses_its_own_slot ... ok
+test csi_s_inside_alt_screen_does_not_poison_main_screen ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/issue533_vs16_width.rs (target/debug/deps/issue533_vs16_width-5659eb1355818c71)
+
+running 14 tests
+test bare_base_character_stays_narrow ... ok
+test mixed_row_matches_the_reported_status_line_shape ... ok
+test keycap_and_zwj_sequences_do_not_regress ... ok
+test promotion_clears_the_continuation_of_a_clobbered_wide_glyph ... ok
+test plain_wide_emoji_unchanged ... ok
+test issue_441_combining_marks_still_zero_width ... ok
+test promotion_holds_when_text_follows_in_a_later_chunk ... ok
+test promotion_does_not_run_off_the_last_column ... ok
+test vs15_keeps_text_presentation_narrow ... ok
+test contents_and_formatted_round_trip_the_sequence ... ok
+test text_after_vs16_does_not_drift_left ... ok
+test promotion_survives_every_chunk_boundary ... ok
+test vs16_cell_is_wide_with_a_continuation ... ok
+test vs16_sequence_occupies_two_columns ... ok
+
+test result: ok. 14 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/issue534_shrink_wide_erase.rs (target/debug/deps/issue534_shrink_wide_erase-8f5e08ca59847b10)
+
+running 15 tests
+test exact_repro_from_the_report_does_not_panic ... ok
+test erase_in_display_variants_survive_too ... ok
+test erase_still_works_normally_on_a_roomy_row ... ok
+test erase_to_start_over_a_wide_char_mid_row_is_unchanged ... ok
+test every_erase_in_line_variant_survives_the_orphaned_cell ... ok
+test contents_and_formatted_survive_the_orphaned_cell ... ok
+test growing_back_does_not_resurrect_a_broken_glyph ... ok
+test erase_survives_at_every_shrink_target ... ok
+test shrinking_to_exactly_the_wide_char_width_keeps_it_intact ... ok
+test shrinking_a_row_with_no_wide_char_is_unchanged ... ok
+test shrinking_through_the_continuation_clears_the_wide_flag ... ok
+test repeated_shrink_and_erase_cycles_stay_stable ... ok
+test vs16_promoted_cell_survives_the_same_truncation ... ok
+test wide_char_not_at_the_left_edge_is_handled_too ... ok
+test writing_over_the_orphaned_cell_works ... ok
+
+test result: ok. 15 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/issue589_undercurl.rs (target/debug/deps/issue589_undercurl-1ec8584e7cd689a9)
+
+running 23 tests
+test colon_form_truecolour_fg_and_bg_also_parse ... ok
+test bare_csi_m_clears_style_and_colour ... ok
+test a_leading_reset_wipes_attributes_set_before_it ... ok
+test contents_formatted_replays_extended_styles ... ok
+test plain_sgr_4_downgrades_a_curl_to_a_straight_line ... ok
+test contents_formatted_replays_each_style_code ... ok
+test sgr_0_at_the_end_of_a_list_clears_style_and_colour ... ok
+test sgr_21_is_double_underline ... ok
+test sgr_0_in_the_middle_of_a_longer_list_clears_style_and_colour ... ok
+test sgr_0_clears_style_and_colour ... ok
+test sgr_4_colon_0_clears_every_underline_style ... ok
+test extended_styles_still_report_underline ... ok
+test sgr_24_clears_every_underline_style ... ok
+test sgr_4_plain_is_single_underline ... ok
+test sgr_4_semicolon_1_is_not_the_subparameter_form_in_any_order ... ok
+test sgr_4_semicolon_1_is_underline_plus_bold_not_undercurl ... ok
+test sgr_58_sets_underline_colour_colon_forms ... ok
+test sgr_4_subparams_select_extended_styles ... ok
+test sgr_58_sets_underline_colour_semicolon_form ... ok
+test sgr_59_clears_only_the_underline_colour ... ok
+test the_no_color_stripped_conhost_stream_renders_like_tmux ... ok
+test underline_colour_outlives_sgr_24_exactly_like_tmux ... ok
+test the_unstripped_stream_leaves_nothing_behind ... ok
+
+test result: ok. 23 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running tests/issue641_scrollback_compaction.rs (target/debug/deps/issue641_scrollback_compaction-b9ca73e05e7e13c0)
+
+running 10 tests
+test a_row_erased_to_a_non_default_background_is_not_dropped ... ok
+test wide_glyph_at_the_compaction_boundary_survives ... ok
+test alt_screen_exit_pushes_compacted_rows ... ok
+test reading_past_a_compacted_row_yields_blanks_not_a_panic ... ok
+test resize_after_compaction_leaves_history_readable ... ok
+test fully_blank_scrollback_row_costs_no_cells ... ok
+test scrollback_row_is_compacted_to_its_used_width ... ok
+test history_bytes_tracks_text_not_pane_width ... ok
+test capture_of_compacted_history_matches_the_dense_rows ... ok
+test random_mutations_render_the_same_compacted_as_dense ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.29s
+
+     Running tests/issue685_osc4_palette.rs (target/debug/deps/issue685_osc4_palette-9b44bf19174ee11b)
+
+running 33 tests
+test osc4_bad_index_stops_the_sequence ... ok
+test osc104_bare_clears_everything ... ok
+test osc104_with_empty_payload_clears_everything ... ok
+test a_true_colour_cell_is_never_rewritten ... ok
+test a_pane_with_no_palette_resolves_to_itself ... ok
+test an_index_with_no_entry_is_left_alone ... ok
+test indexed_cell_resolves_through_the_palette ... ok
+test osc104_with_several_indexes_clears_each ... ok
+test osc104_with_index_clears_just_that_entry ... ok
+test osc4_conhost_style_burst_sets_the_whole_low_table ... ok
+test osc4_bel_terminated_sets_entry ... ok
+test osc4_decimal_triple_sets_entry ... ok
+test osc4_hash_rgb_short_form_sets_entry ... ok
+test osc4_hash_rrggbb_sets_entry ... ok
+test osc4_index_above_255_is_rejected ... ok
+test osc4_multiple_pairs_in_one_sequence ... ok
+test osc4_query_alone_sets_nothing ... ok
+test osc4_query_does_not_disturb_the_entry ... ok
+test osc4_query_then_set_in_one_sequence ... ok
+test osc4_reaches_the_high_indexes_too ... ok
+test osc4_rgb_four_digit_scales_to_eight_bits ... ok
+test osc4_rgb_one_digit_scales_like_xterm ... ok
+test osc4_rgb_two_digit_sets_entry ... ok
+test osc4_unparseable_colour_is_skipped_not_fatal ... ok
+test parse_palette_index_matches_tmux_bounds ... ok
+test parse_x11_colour_accepts_the_forms_tmux_accepts ... ok
+test parse_x11_colour_rejects_junk ... ok
+test ris_clears_the_palette ... ok
+test sgr_38_5_n_resolves_through_the_same_entry ... ok
+test the_default_colour_is_never_rewritten ... ok
+test the_generation_moves_only_on_a_real_change ... ok
+test underline_colour_resolves_too ... ok
+test the_palette_survives_a_resize ... ok
+
+test result: ok. 33 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/issue749_emoji_clusters.rs (target/debug/deps/issue749_emoji_clusters-3eaa798b3b0a2ccf)
+
+running 16 tests
+test letter_followed_by_zwj_alone ... ok
+test modifier_before_its_emoji_combines ... ok
+test letter_followed_by_zwj_keeps_the_letter_cell_narrow ... ok
+test modifier_outside_the_table_stands_alone ... ok
+test modifier_after_a_letter_stands_alone ... ok
+test cluster_at_the_last_column_wraps_whole ... ok
+test every_cluster_is_one_cell_and_text_follows_on_col_2 ... ok
+test cluster_longer_than_a_cell_spills_like_tmux ... ok
+test modifier_with_nothing_before_it_is_a_wide_cell ... ok
+test long_clusters_compare_by_text ... ok
+test ten_sequences_match_tmux_cursor_columns ... ok
+test third_regional_indicator_starts_a_new_cell ... ok
+test str_cells_agrees_with_the_grid ... ok
+test zero_width_at_column_0_is_discarded ... ok
+test text_extraction_reproduces_the_cluster_bytes ... ok
+test clusters_survive_every_chunk_boundary ... ok
+
+test result: ok. 16 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/osc7_windows_path.rs (target/debug/deps/osc7_windows_path-5197c1f4852e31ec)
+
+running 6 tests
+test osc7_empty_payload_does_not_clear_previous_path ... ok
+test osc7_drive_letter_path_with_st_terminator ... ok
+test osc7_unc_authority_is_stripped ... ok
+test osc7_percent_encoding_is_decoded ... ok
+test osc7_accepts_bel_terminator ... ok
+test basename_of_parsed_path_is_the_directory_name ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+     Running tests/width_thai_441.rs (target/debug/deps/width_thai_441-3df31a443c61b296)
+
+running 3 tests
+test full_repro_string_width ... ok
+test per_cluster_widths ... ok
+test thai_and_cjk_widths ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests vt100_psmux
+
+running 1 test
+test crates/vt100-psmux/src/lib.rs - (line 15) ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.07s

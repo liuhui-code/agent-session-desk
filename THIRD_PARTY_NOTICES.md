@@ -27,7 +27,9 @@
 
 ## 其他参考与构建依赖
 
-ASMGR 与 Agent of Empires 在这一切片中仅作为流程/视觉参考，没有迁入其源码。psmux 和 tmux 是外部运行依赖，没有把它们的代码或二进制包含到本仓库；不得把开发分支等同于已核验的稳定发行物。
+ASMGR 与 Agent of Empires 在这一切片中仅作为流程/视觉参考，没有迁入其源码。psmux 和 tmux 是外部运行依赖，没有将完整源码或二进制包含到本仓库；psmux 的下述实验补丁另行归属，不得把开发分支或候选等同于已核验的稳定发行物。
+
+psmux 缩高历史[实验补丁](tools/experiments/psmux-resize-history/candidate.patch)基于 `20aa1d7254ee93f64dafa059ef89341d9767470a` 的 `crates/vt100-psmux/src/grid.rs`，包含原始上下文及本项目修改，仅供隔离验证，未应用于产品安装依赖。psmux 为 MIT、Copyright (c) 2025 Godwin Sam Josh；保留[原文](third_party/psmux/LICENSE)。vt100-psmux 继承 MIT、Copyright (c) 2016 Jesse Luehrs；保留[原文](third_party/vt100-psmux/LICENSE)。本项目修改为缩高前保留被挤出的主屏幕历史行；来源、哈希与适用边界见[执行报告](docs/testing/results/2026-11-23-resize-history.md)。
 
 Go 模块由 `go.mod` 与 `go.sum` 锁定，通过模块系统取得，没有复制进本仓库。发布包必须另外收集并核对实际包含的直接、间接依赖许可证，不能用本文件代替发行物审计。
 

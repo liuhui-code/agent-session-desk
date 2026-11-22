@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "date": "2026-11-23",
-  "scope": "Selective M0 source migration plus ADR-0016 Tab layout and generic CLI dialog adaptations; not a release dependency SBOM.",
+  "scope": "Selective M0 source migration plus ADR-0016 Tab layout and generic CLI dialog adaptations; not a release dependency SBOM. Includes an explicitly experimental psmux diagnostic patch, not applied to product dependencies.",
   "original_project_license": "pending O-010",
   "source_files": [
     {
@@ -362,12 +362,38 @@
       "path": "third_party/agent-manager/NOTICE",
       "sha256": "da31542e0eba0455cd759e319ed83e030e6190ccf95efeee85da1de9859a2ff9",
       "copied_verbatim": true
+    },
+    {
+      "project": "psmux",
+      "commit": "20aa1d7254ee93f64dafa059ef89341d9767470a",
+      "path": "third_party/psmux/LICENSE",
+      "sha256": "08da43448469783a5b56d903e29c071383d7c201b9644287f98531e76083b959",
+      "copied_verbatim": true
+    },
+    {
+      "project": "vt100-psmux",
+      "commit": "20aa1d7254ee93f64dafa059ef89341d9767470a",
+      "path": "third_party/vt100-psmux/LICENSE",
+      "sha256": "53a04b0a11073f3d0183c31a4b7bdf9a3f68d453adeec136e59e5a9d9a554370",
+      "copied_verbatim": true
     }
   ],
   "reference_only": [
     "ASMGR",
     "Agent of Empires",
-    "psmux",
     "tmux"
+  ],
+  "diagnostic_artifacts": [
+    {
+      "project": "psmux / vt100-psmux",
+      "repository": "https://github.com/psmux/psmux",
+      "commit": "20aa1d7254ee93f64dafa059ef89341d9767470a",
+      "source_file": "crates/vt100-psmux/src/grid.rs",
+      "source_sha256": "d841bf76035f6b35da9e9de5e688177437e9c413dfdb5f35af0615ef0319089b",
+      "destination_file": "tools/experiments/psmux-resize-history/candidate.patch",
+      "license": "MIT",
+      "mode": "experimental_patch_only",
+      "modifications": "Keep displaced main-screen rows in bounded native history before height shrink; not applied by product or installer."
+    }
   ]
 }

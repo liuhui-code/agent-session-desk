@@ -1,0 +1,46 @@
+{
+  "native_top_passes": 7,
+  "native_passes_including_subtests": 13,
+  "parser_existing_passes": 196,
+  "parser_probe_sha256": "da1fba45000e9030fd4af90aa521be02ded2ce869ed10e547f00772912baccab",
+  "product_files_unchanged": 124,
+  "reused_product_source_matches_previous_build": true,
+  "candidate_cases": [
+    {
+      "case": "history-tool-candidate2",
+      "exact_captures": 5
+    },
+    {
+      "case": "history-matrix-before",
+      "exact_captures": 5
+    },
+    {
+      "case": "history-matrix-after",
+      "exact_captures": 4
+    },
+    {
+      "case": "history-matrix-direct",
+      "exact_captures": 3
+    },
+    {
+      "case": "history-matrix-idle",
+      "exact_captures": 3
+    }
+  ],
+  "candidate_exact_captures": 20,
+  "official_retained_counts": [
+    40,
+    33,
+    26,
+    26,
+    26
+  ],
+  "native_rows_v2_equal_copy_content": true,
+  "source_files_verified": 1604,
+  "candidate_changed_files": [
+    "crates/vt100-psmux/src/grid.rs"
+  ],
+  "patch_applies_to_exact_source": true,
+  "final_audit_passed": true,
+  "final_diagnostic_matches_windows_hash": true
+}

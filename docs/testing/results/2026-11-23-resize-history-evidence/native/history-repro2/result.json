@@ -1,0 +1,60 @@
+{
+    "windows":  "Microsoft Windows NT 10.0.19045.0",
+    "cleanup_json":  "[]",
+    "case":  "repro2",
+    "result":  "reproduced-gap",
+    "no_resize":  false,
+    "no_copy":  false,
+    "utc":  "2026-11-22T22:47:31.9724986Z",
+    "gaps":  [
+                 [
+                     10,
+                     18
+                 ]
+             ],
+    "identity":  {
+                     "filetime":  134398612521146536,
+                     "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                     "pid":  3328
+                 },
+    "original_ended":  true,
+    "visible_ids":  [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28,
+                        29,
+                        30,
+                        31
+                    ],
+    "hashes":  {
+                   "psmux.exe":  "bbe825a30f7cddc91b043084049143a381aba5f7e9e36e4d0bb587e296d262ca",
+                   "copy-final2-product.exe":  "a2518bc0c28c4ff23ac544b440fe1fcc704c1d0e682bbfaf3cb7da91d65934b0",
+                   "pwsh.exe":  "f2833e07a5a7d59153ffc63db83bd6b62f6c63ffd8b5b5099a2feadf6b605336"
+               },
+    "session":  {
+                    "session_id":  "b74016fc44a610cbf5218eb0dbd81ac2",
+                    "run_id":  "e8e576d92d35a8088c21f39fbd27730e",
+                    "backend_id":  "asd_b74016fc44a610cbf5218eb0dbd81ac2_e8e576d92d35a8088c21f39fbd27730e",
+                    "title":  "Synthetic history resize",
+                    "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                    "terminal_state":  "available"
+                }
+}

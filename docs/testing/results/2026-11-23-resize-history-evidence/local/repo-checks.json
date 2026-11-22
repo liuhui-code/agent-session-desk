@@ -1,0 +1,35 @@
+[
+  {
+    "command": [
+      "python3",
+      "-B",
+      "tools/ci/check_source_limits.py"
+    ],
+    "exit_code": 0,
+    "output": "Production source size: all files <= 500 lines\n"
+  },
+  {
+    "command": [
+      "python3",
+      "-B",
+      "tools/test_catalog.py",
+      "check",
+      "--generated"
+    ],
+    "exit_code": 0,
+    "output": "{\"cases\": 339, \"suites\": 5, \"spec_state\": {\"needs_decision\": 124, \"ready\": 215}, \"feature_design_coverage\": 20, \"requirement_design_coverage\": 14, \"product_tests_executed_by_this_tool\": 0}\nCatalog validation only; no product or Windows tests were executed.\n"
+  },
+  {
+    "command": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "exit_code": 0,
+    "output": ""
+  },
+  {
+    "check": "new report and experiment documentation relative links",
+    "result": "passed"
+  }
+]

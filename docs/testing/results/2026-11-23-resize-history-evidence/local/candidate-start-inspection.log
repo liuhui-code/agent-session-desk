@@ -1,0 +1,85 @@
+{
+    "logs":  [
+
+             ],
+    "files":  [
+                  {
+                      "relative":  "\\history-fixture.ps1",
+                      "name":  "history-fixture.ps1",
+                      "size":  487
+                  },
+                  {
+                      "relative":  "\\identity.json",
+                      "name":  "identity.json",
+                      "size":  137
+                  },
+                  {
+                      "relative":  "\\result.json",
+                      "name":  "result.json",
+                      "size":  784
+                  },
+                  {
+                      "relative":  "\\runtime\\asd-history-dfc0d73f8803\\.registry_sweep",
+                      "name":  ".registry_sweep",
+                      "size":  0
+                  },
+                  {
+                      "relative":  "\\runtime\\asd-history-dfc0d73f8803\\asd-history-dfc0d73f8803__asd_248d7f7c13d90924bf2a910b381bc4c2_155bf416f9f8d831eadcd141a612bc07.key",
+                      "name":  "asd-history-dfc0d73f8803__asd_248d7f7c13d90924bf2a910b381bc4c2_155bf416f9f8d831eadcd141a612bc07.key",
+                      "size":  16
+                  },
+                  {
+                      "relative":  "\\runtime\\asd-history-dfc0d73f8803\\asd-history-dfc0d73f8803__asd_248d7f7c13d90924bf2a910b381bc4c2_155bf416f9f8d831eadcd141a612bc07.pid",
+                      "name":  "asd-history-dfc0d73f8803__asd_248d7f7c13d90924bf2a910b381bc4c2_155bf416f9f8d831eadcd141a612bc07.pid",
+                      "size":  24
+                  },
+                  {
+                      "relative":  "\\runtime\\asd-history-dfc0d73f8803\\asd-history-dfc0d73f8803__asd_248d7f7c13d90924bf2a910b381bc4c2_155bf416f9f8d831eadcd141a612bc07.port",
+                      "name":  "asd-history-dfc0d73f8803__asd_248d7f7c13d90924bf2a910b381bc4c2_155bf416f9f8d831eadcd141a612bc07.port",
+                      "size":  5
+                  },
+                  {
+                      "relative":  "\\runtime\\asd-history-dfc0d73f8803\\asd-history-dfc0d73f8803__asd_248d7f7c13d90924bf2a910b381bc4c2_155bf416f9f8d831eadcd141a612bc07.sid",
+                      "name":  "asd-history-dfc0d73f8803__asd_248d7f7c13d90924bf2a910b381bc4c2_155bf416f9f8d831eadcd141a612bc07.sid",
+                      "size":  1
+                  },
+                  {
+                      "relative":  "\\runtime\\asd-history-dfc0d73f8803\\next_session_id",
+                      "name":  "next_session_id",
+                      "size":  1
+                  },
+                  {
+                      "relative":  "\\runtime\\asd-history-dfc0d73f8803\\psmux-m0.conf",
+                      "name":  "psmux-m0.conf",
+                      "size":  163
+                  },
+                  {
+                      "relative":  "\\runtime\\asd-history-dfc0d73f8803\\instances\\asd-history-dfc0d73f8803-f2781c77642cc0fa",
+                      "name":  "asd-history-dfc0d73f8803-f2781c77642cc0fa",
+                      "size":  16
+                  },
+                  {
+                      "relative":  "\\runtime\\asd-history-dfc0d73f8803\\servers\\16800",
+                      "name":  "16800",
+                      "size":  24
+                  },
+                  {
+                      "relative":  "\\state\\metadata.sqlite3",
+                      "name":  "metadata.sqlite3",
+                      "size":  32768
+                  }
+              ],
+    "version":  "tmux 3.4.0\r\npsmux 3.4.0 (unknown commit)\r\n",
+    "matching_test_processes":  [
+                                    {
+                                        "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\psmux-history-candidate.exe",
+                                        "pid":  16800,
+                                        "filetime":  134398618849179548
+                                    },
+                                    {
+                                        "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                        "pid":  20216,
+                                        "filetime":  134398618849845410
+                                    }
+                                ]
+}

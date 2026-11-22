@@ -1,0 +1,176 @@
+{
+    "exact_test_images_alive":  [
+
+                                ],
+    "diagnostic_sha256":  "3BD080D7833B7A492CC48A6EA55BA5CF0E9ECC872E70A164C4A86E6E52647DF6",
+    "utc":  "2026-11-22T23:04:29.4206734Z",
+    "official_psmux_sha256":  "BBE825A30F7CDDC91B043084049143A381ABA5F7E9E36E4D0BB587E296D262CA",
+    "original_fixtures":  [
+                              {
+                                  "case":  "history-repro1",
+                                  "original_ended":  true,
+                                  "identity":  {
+                                                   "filetime":  134398612076018708,
+                                                   "pid":  17896,
+                                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe"
+                                               }
+                              },
+                              {
+                                  "case":  "history-repro2",
+                                  "original_ended":  true,
+                                  "identity":  {
+                                                   "filetime":  134398612521146536,
+                                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                                   "pid":  3328
+                                               }
+                              },
+                              {
+                                  "case":  "history-repro3",
+                                  "original_ended":  true,
+                                  "identity":  {
+                                                   "pid":  11052,
+                                                   "filetime":  134398612711796827,
+                                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe"
+                                               }
+                              },
+                              {
+                                  "case":  "history-direct-control",
+                                  "original_ended":  true,
+                                  "identity":  {
+                                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                                   "filetime":  134398613514700067,
+                                                   "pid":  11792
+                                               }
+                              },
+                              {
+                                  "case":  "history-direct-control2",
+                                  "original_ended":  true,
+                                  "identity":  {
+                                                   "filetime":  134398613931427584,
+                                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                                   "pid":  13732
+                                               }
+                              },
+                              {
+                                  "case":  "history-idle-control",
+                                  "original_ended":  true,
+                                  "identity":  {
+                                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                                   "pid":  6064,
+                                                   "filetime":  134398614185529631
+                                               }
+                              },
+                              {
+                                  "case":  "history-tool-official",
+                                  "original_ended":  true,
+                                  "identity":  {
+                                                   "filetime":  134398617403630773,
+                                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                                   "pid":  15464
+                                               }
+                              },
+                              {
+                                  "case":  "history-tool-official-final",
+                                  "original_ended":  true,
+                                  "identity":  {
+                                                   "pid":  13448,
+                                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                                   "filetime":  134398621945233191
+                                               }
+                              },
+                              {
+                                  "case":  "history-tool-candidate1",
+                                  "original_ended":  true,
+                                  "identity":  {
+                                                   "filetime":  134398618849845410,
+                                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                                   "pid":  20216
+                                               }
+                              },
+                              {
+                                  "case":  "history-tool-candidate2",
+                                  "original_ended":  true,
+                                  "identity":  {
+                                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                                   "filetime":  134398620400865023,
+                                                   "pid":  19152
+                                               }
+                              },
+                              {
+                                  "case":  "history-matrix-before",
+                                  "original_ended":  true,
+                                  "identity":  {
+                                                   "filetime":  134398621108242091,
+                                                   "pid":  9072,
+                                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe"
+                                               }
+                              },
+                              {
+                                  "case":  "history-matrix-after",
+                                  "original_ended":  true,
+                                  "identity":  {
+                                                   "filetime":  134398621180121106,
+                                                   "pid":  1756,
+                                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe"
+                                               }
+                              },
+                              {
+                                  "case":  "history-matrix-direct",
+                                  "original_ended":  true,
+                                  "identity":  {
+                                                   "filetime":  134398621255656051,
+                                                   "pid":  18176,
+                                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe"
+                                               }
+                              },
+                              {
+                                  "case":  "history-matrix-idle",
+                                  "original_ended":  true,
+                                  "identity":  {
+                                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                                   "pid":  14060,
+                                                   "filetime":  134398621299713718
+                                               }
+                              }
+                          ],
+    "candidate_sha256":  "CA9753A059A6926BB5AD1D9FEE81513507A6133D3EFA5EEFCF2423E33F348937",
+    "listed_namespaces":  [
+                              {
+                                  "list_json":  "[]",
+                                  "case":  "history-tool-official",
+                                  "namespace":  "asd-history-e0d9d4459692"
+                              },
+                              {
+                                  "list_json":  "[]",
+                                  "case":  "history-tool-official-final",
+                                  "namespace":  "asd-history-344dd2dec8c6"
+                              },
+                              {
+                                  "list_json":  "[]",
+                                  "case":  "history-tool-candidate1",
+                                  "namespace":  "asd-history-dfc0d73f8803"
+                              },
+                              {
+                                  "list_json":  "[]",
+                                  "case":  "history-tool-candidate2",
+                                  "namespace":  "asd-history-5c25c09fee40"
+                              },
+                              {
+                                  "list_json":  "[]",
+                                  "case":  "history-matrix-before",
+                                  "namespace":  "asd-history-1e9e1bca35cc"
+                              },
+                              {
+                                  "list_json":  "[]",
+                                  "case":  "history-matrix-after",
+                                  "namespace":  "asd-history-ddff6c2b8ff0"
+                              },
+                              {
+                                  "list_json":  "[]",
+                                  "case":  "history-matrix-idle",
+                                  "namespace":  "asd-history-41e0af142003"
+                              }
+                          ],
+    "scope":  "read-only combined audit after matrix and native suite ended; no desktop/settings/clipboard changes",
+    "result":  "passed"
+}

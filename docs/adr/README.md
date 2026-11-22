@@ -42,12 +42,12 @@ ADR 保存重要选择的背景、决定、替代方案、代价和重新评估�
 
 ADR-0014 依据用户 2026-11-22 的明确要求接受，部分替代 0001/0002 的界面约束并扩展 0004 的管理对象。原有运行证据不升级为新路径通过。
 
-| [0015](0015-pinned-psmux-native-terminal-client.md) | 固定 psmux 原生持久客户端屏幕、输入与尺寸适配 | 已接受 | 后端合同及后续 Tab 局部证据已有；完整视觉／输入矩阵与资源预算仍开放 |
+| [0015](0015-pinned-psmux-native-terminal-client.md) | 固定 psmux 原生持久客户端屏幕、输入与尺寸适配 | 已接受 | 后端合同及 Tab 局部证据已有；[官方缩高历史阻断](../testing/results/2026-11-23-resize-history.md)未关闭，候选不等于默认依赖 |
 | [0016](0016-tab-workspaces-and-input-ownership.md) | Tab 工作区、终端输入归属与通用创建表单 | 已接受 | 首个 psmux UI 切片；实际局部结果与剩余门槛见执行报告 |
 
 | [0017](0017-sidebar-density-preferences.md) | 上游侧栏密度、管理设置输入归属与独立 ui.toml 偏好 | 已接受 | 局部实现／验证见实际报告；完整视觉与故障门槛开放 |
 
-| [0018](0018-native-copy-search-and-host-clipboard.md) | 原生选择／搜索、结构化剪贴板与跨 Tab 串行转发 | 已接受 | 局部实现与 Windows 结果另见报告，完整体验／兼容仍开放 |
+| [0018](0018-native-copy-search-and-host-clipboard.md) | 原生选择／搜索、结构化剪贴板与跨 Tab 串行转发 | 已接受 | 局部实现与 Windows 结果另见报告；[缩高缺行与候选](../testing/results/2026-11-23-resize-history.md)单列，完整体验／兼容开放 |
 
 ## 维护规则
 

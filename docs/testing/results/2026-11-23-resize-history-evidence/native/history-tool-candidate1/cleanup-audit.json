@@ -1,0 +1,18 @@
+{
+    "cleanup":  "authenticated original Session kill-session; no PID/name kill",
+    "result":  "passed",
+    "original_identities":  [
+                                {
+                                    "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\psmux-history-candidate.exe",
+                                    "pid":  16800,
+                                    "filetime":  134398618849179548
+                                },
+                                {
+                                    "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                    "pid":  20216,
+                                    "filetime":  134398618849845410
+                                }
+                            ],
+    "port_removed":  true,
+    "original_processes_remaining":  0
+}

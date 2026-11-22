@@ -1,0 +1,30 @@
+{
+    "secondary_resize":  false,
+    "early_copy":  false,
+    "original_ended":  true,
+    "cleanup_json":  "[]",
+    "hashes":  {
+                   "psmux.exe":  "ca9753a059a6926bb5ad1d9fee81513507a6133d3efa5eefcf2423e33f348937",
+                   "copy-final2-product.exe":  "a2518bc0c28c4ff23ac544b440fe1fcc704c1d0e682bbfaf3cb7da91d65934b0",
+                   "pwsh.exe":  "f2833e07a5a7d59153ffc63db83bd6b62f6c63ffd8b5b5099a2feadf6b605336"
+               },
+    "namespace":  "asd-history-add13841ad74",
+    "complete":  true,
+    "session":  {
+                    "backend_id":  "history-19f23e6f890d4874bf7fbd9b86c9947d",
+                    "session_id":  "direct-diagnostic",
+                    "run_id":  "direct-diagnostic"
+                },
+    "direct_endpoint_closed":  true,
+    "result":  "complete-in-probe",
+    "direct_backend":  true,
+    "utc":  "2026-11-22T23:02:05.4591068Z",
+    "identity":  {
+                     "filetime":  134398621255656051,
+                     "pid":  18176,
+                     "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe"
+                 },
+    "output_timing":  "BeforeAttach",
+    "idle_writer":  false,
+    "windows":  "Microsoft Windows NT 10.0.19045.0"
+}

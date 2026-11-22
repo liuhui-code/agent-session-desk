@@ -1,0 +1,19 @@
+--- a/crates/vt100-psmux/src/grid.rs
++++ b/crates/vt100-psmux/src/grid.rs
+@@ -94,2 +94,16 @@
+     pub fn set_size(&mut self, size: Size) {
++        // Experimental ASD resize-history fix: preserve the rows displaced
++        // above a bottom-positioned cursor before ConPTY repaints the smaller
++        // live screen. Only a main grid with an unrestricted region has history.
++        if size.rows < self.size.rows
++            && self.scrollback_len > 0
++            && !self.scroll_region_active()
++            && !self.rows.is_empty()
++        {
++            let displaced = self.pos.row.saturating_add(1).saturating_sub(size.rows)
++                .min(self.size.rows - size.rows);
++            self.scroll_up(displaced);
++            self.pos.row = self.pos.row.saturating_sub(displaced);
++            self.saved_pos.row = self.saved_pos.row.saturating_sub(displaced);
++        }
+         if size.cols != self.size.cols {
