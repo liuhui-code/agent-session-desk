@@ -33,3 +33,5 @@ Bubbles 2.2.2 首次作为直接依赖加入；它要求的 runewidth 0.0.31 与
 局部测试需覆盖真实光标到最后单元格、Tab 身份、输入焦点、Unicode／多行粘贴、关闭重开、输入排空、创建参数和小窗口边界。真实 Windows 桌面需另验 A→B→A 草稿、命令独立观测、UI 重启、窗口缩放、IME 与对话框。没有安装目标 agent 的环境仍只能证明普通 shell 与测试 fixture，不能声明真实 agent 兼容或完整发布通过。全部 339 项 catalog 保留 designed/not_run，实际局部结果单独记录。
 
 同日修复补充：初始创建弹窗的子样式 SGR reset 使行末空白显示外层背景；已用既有 formText 角色填充，保持 tokens 单一入口。RED→GREEN、43 项 Windows 顶层 UI 测试与实际画面见[背景修复报告](../testing/results/2026-11-23-dialog-surface.md)，不提升完整还原或发布状态。
+
+同日交互补充：Tab 栏已有 token 管理的 `+`／`×` 入口和长标题上限。后台视图关闭不更换活动连接，活动视图关闭复用排空路径；本轮有鼠标点击与原 Run／草稿核对。见[交互报告](../testing/results/2026-11-23-tab-controls.md)。此实现不改变关闭与停止的架构边界，排序／滚动与其他鼠标能力仍待做。

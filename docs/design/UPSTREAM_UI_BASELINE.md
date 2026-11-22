@@ -21,3 +21,5 @@
 源码永久链接：[布局比例](https://github.com/asheshgoplani/agent-deck/blob/80494e527393b7ead00da30018e6ee7e60e9d7a0/internal/ui/split_config.go)、[面板布局](https://github.com/asheshgoplani/agent-deck/blob/80494e527393b7ead00da30018e6ee7e60e9d7a0/internal/ui/home_view_frame.go)、[调色板](https://github.com/asheshgoplani/agent-deck/blob/80494e527393b7ead00da30018e6ee7e60e9d7a0/internal/ui/styles.go)、[侧栏密度](https://github.com/asheshgoplani/agent-deck/blob/80494e527393b7ead00da30018e6ee7e60e9d7a0/internal/ui/embedded_sidebar.go)、[终端](https://github.com/asheshgoplani/agent-deck/blob/80494e527393b7ead00da30018e6ee7e60e9d7a0/internal/ui/embedded_terminal.go)。
 
 首个 Tab UI 的实际画面、失败与局部结果见[2026-11-23 报告](../testing/results/2026-11-23-tab-workspaces.md)。通用创建表单另从固定上游 newdialog.go 改编居中宽度／圆角／焦点结构，保留字面参数边界；不能以此认定上游所有表单或业务迁入。
+
+产品 Tab 适配在[后续切片](../testing/results/2026-11-23-tab-controls.md)加入新建／关闭入口与有界标题，并有实际鼠标证据；这些是产品导航约束的实现，不归为固定 Agent Deck 原有 Tab 行。

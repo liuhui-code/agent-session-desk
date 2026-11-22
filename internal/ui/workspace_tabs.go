@@ -34,3 +34,19 @@ func (m *Model) closeWorkspaceTab() tea.Cmd {
 	}
 	return m.closeWorkspaceTabNow()
 }
+
+func (m *Model) closeWorkspaceView(index int) tea.Cmd {
+	w := m.workspace
+	if index < 0 || index >= len(w.tabs) {
+		return nil
+	}
+	if index == w.active {
+		return m.closeWorkspaceTab()
+	}
+	w.tabs = append(w.tabs[:index], w.tabs[index+1:]...)
+	if index < w.active {
+		w.active--
+	}
+	m.status = "Tab 已关闭；运行实例继续保留，可从会话列表重新打开"
+	return nil
+}

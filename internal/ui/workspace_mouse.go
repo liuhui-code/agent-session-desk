@@ -8,8 +8,15 @@ func (m *Model) workspaceClick(msg tea.MouseClickMsg) tea.Cmd {
 		return nil
 	}
 	if msg.Y == 1 {
+		button := m.workspaceNewTabCell()
+		if msg.X >= button.x && msg.X < button.x+button.width {
+			return m.navigateWorkspace(workspaceLaunch)
+		}
 		for _, cell := range m.workspaceTabCells() {
 			if msg.X >= cell.x && msg.X < cell.x+cell.width {
+				if msg.X == cell.closeX {
+					return m.closeWorkspaceView(cell.index)
+				}
 				w.focused = true
 				if cell.index == w.active {
 					return m.workspaceSize()

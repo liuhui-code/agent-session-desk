@@ -1,0 +1,5 @@
+--- FAIL: TestWorkspaceCloseButtonRemovesInactiveViewWithoutInterruptingActiveInput (0.01s)
+    workspace_controls_test.go:48: inactive Tab has no visible close button
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.981s
+FAIL

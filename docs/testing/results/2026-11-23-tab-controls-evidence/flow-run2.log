@@ -1,0 +1,15 @@
+{
+    "run_count_after_close":  2,
+    "other":  "Shell B",
+    "next_id":  27,
+    "active":  "Shell A",
+    "result":  "passed",
+    "checks":  [
+                   "inactive close keeps active draft",
+                   "active close keeps Run",
+                   "list reopens original draft",
+                   "new Tab opens form without launch"
+               ],
+    "geometry_method":  "observed per-row UIA rectangles; ASCII labels and one-cell close mark"
+}
+

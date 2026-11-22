@@ -84,49 +84,6 @@ func (m *Model) renderWorkspace() string {
 	return fitFrame(header+"\n"+m.workspaceTabs()+m.tokens.sectionBreak()+fitFrame(body, m.width, g.bodyHeight)+m.tokens.sectionBreak()+footer, m.width, m.height)
 }
 
-type workspaceTabCell struct {
-	index, x, width int
-	text            string
-}
-
-func (m *Model) workspaceTabCells() []workspaceTabCell {
-	w := m.workspace
-	labels := make([]string, len(w.tabs))
-	for i, tab := range w.tabs {
-		style := m.styles.tab
-		if i == w.active {
-			style = m.styles.tabActive
-		}
-		title := label(tab.session.Title)
-		if title == "" {
-			title = label(tab.session.ID)
-		}
-		labels[i] = style.Render(title)
-	}
-	start := w.active
-	for start > 0 && lipgloss.Width(strings.Join(labels[start-1:w.active+1], m.tokens.itemGap())) <= m.width {
-		start--
-	}
-	var cells []workspaceTabCell
-	x := 0
-	for i := start; i < len(labels) && x < m.width; i++ {
-		width := min(lipgloss.Width(labels[i]), m.width-x)
-		cells = append(cells, workspaceTabCell{index: i, x: x, width: width, text: cellTruncate(labels[i], width, m.tokens.marks.ellipsis)})
-		x += width + m.tokens.layout.itemGap
-	}
-	return cells
-}
-func (m *Model) workspaceTabs() string {
-	if len(m.workspace.tabs) == 0 {
-		return m.styles.dim.Render("Tab")
-	}
-	var labels []string
-	for _, cell := range m.workspaceTabCells() {
-		labels = append(labels, cell.text)
-	}
-	return strings.Join(labels, m.tokens.itemGap())
-}
-
 func (m *Model) workspaceCursor() *tea.Cursor {
 	w := m.workspace
 	if !w.focused || w.conn == nil || w.err != nil || !w.screen.Cursor.Visible {
