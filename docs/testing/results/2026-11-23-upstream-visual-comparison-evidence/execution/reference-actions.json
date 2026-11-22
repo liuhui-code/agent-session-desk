@@ -1,0 +1,136 @@
+[
+  {
+    "utc": 1795381450.4150589,
+    "args": [
+      "send-keys",
+      "-t",
+      "reference:0.0",
+      "S"
+    ],
+    "code": 0
+  },
+  {
+    "utc": 1795381450.817535,
+    "args": [
+      "send-keys",
+      "-t",
+      "reference:0.0",
+      "Escape"
+    ],
+    "code": 0
+  },
+  {
+    "utc": 1795381451.047691,
+    "args": [
+      "send-keys",
+      "-t",
+      "reference:0.0",
+      "-l",
+      "\u001b[<0;22;10M"
+    ],
+    "code": 0
+  },
+  {
+    "utc": 1795381451.178733,
+    "args": [
+      "send-keys",
+      "-t",
+      "reference:0.0",
+      "-l",
+      "\u001b[<32;43;10M"
+    ],
+    "code": 0
+  },
+  {
+    "utc": 1795381451.3019662,
+    "args": [
+      "send-keys",
+      "-t",
+      "reference:0.0",
+      "-l",
+      "\u001b[<0;43;10m"
+    ],
+    "code": 0
+  },
+  {
+    "utc": 1795381453.228121,
+    "args": [
+      "send-keys",
+      "-t",
+      "reference:0.0",
+      "Enter"
+    ],
+    "code": 0
+  },
+  {
+    "utc": 1795381454.022146,
+    "args": [
+      "send-keys",
+      "-t",
+      "reference:0.0",
+      "C-q"
+    ],
+    "code": 0
+  },
+  {
+    "utc": 1795381459.552969,
+    "resize": [
+      63,
+      25
+    ]
+  },
+  {
+    "utc": 1795381459.952368,
+    "args": [
+      "send-keys",
+      "-t",
+      "reference:0.0",
+      "Enter"
+    ],
+    "code": 0
+  },
+  {
+    "utc": 1795381460.663405,
+    "args": [
+      "send-keys",
+      "-t",
+      "reference:0.0",
+      "C-q"
+    ],
+    "code": 0
+  },
+  {
+    "utc": 1795381466.1941278,
+    "resize": [
+      49,
+      25
+    ]
+  },
+  {
+    "utc": 1795381466.614537,
+    "args": [
+      "send-keys",
+      "-t",
+      "reference:0.0",
+      "S"
+    ],
+    "code": 0
+  },
+  {
+    "utc": 1795381467.038411,
+    "args": [
+      "send-keys",
+      "-t",
+      "reference:0.0",
+      "Escape"
+    ],
+    "code": 0
+  },
+  {
+    "utc": 1795381467.066478,
+    "resize": [
+      120,
+      32
+    ]
+  }
+]

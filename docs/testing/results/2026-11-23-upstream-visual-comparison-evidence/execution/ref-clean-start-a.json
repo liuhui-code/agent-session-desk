@@ -1,0 +1,5 @@
+{
+  "code": "INVALID_OPERATION",
+  "error": "failed to start session: start refused: this session still owns processes from an earlier spawn (the spawn's pane process (pid 34363) could not be identified, so anything it started is unaccounted for; nothing was signalled)\n  unverifiable: pid=34363 start= uid=0 role=leader — identity could not be read at spawn: process identity is unreadable: read kern.boottime: exec: \"sysctl\": executable file not found in $PATH\nNothing was started and nothing was signalled.\nInspect: agent-deck session ownership inspect 833d1ba6-1795380773\nReap and clear: agent-deck session ownership reconcile 833d1ba6-1795380773",
+  "success": false
+}

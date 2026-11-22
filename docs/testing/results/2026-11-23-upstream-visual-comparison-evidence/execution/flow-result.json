@@ -1,0 +1,68 @@
+{
+    "checks":  [
+                   "eight original frames replayed with exact console dimension checks",
+                   "same Consolas 12 terminal profile",
+                   "actual before/after views",
+                   "footer frame and dialog geometry",
+                   "wide/stacked/single layouts",
+                   "metadata mouse selection after row shift",
+                   "A-B-A drafts and explicit echo only",
+                   "same Session/Run and two original fixture PIDs"
+               ],
+    "fixture_processes":  [
+                              {
+                                  "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\visual-fixture.exe",
+                                  "pid":  7756,
+                                  "filetime":  134398556780732231
+                              },
+                              {
+                                  "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\visual-fixture.exe",
+                                  "pid":  16232,
+                                  "filetime":  134398556783354674
+                              }
+                          ],
+    "result":  "passed",
+    "before":  {
+                   "value":  [
+                                 {
+                                     "session_id":  "02caa424d6c75ebd65b1da75700f7156",
+                                     "run_id":  "369a1512b14b0f27cf82bb03a9c65a0c",
+                                     "backend_id":  "asd_02caa424d6c75ebd65b1da75700f7156_369a1512b14b0f27cf82bb03a9c65a0c",
+                                     "title":  "Review A",
+                                     "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\visual-fixture.exe",
+                                     "terminal_state":  "available"
+                                 },
+                                 {
+                                     "session_id":  "996b0e2d00e8239e07108ad70997a431",
+                                     "run_id":  "af33cc804d445b486c0da2fb123f144b",
+                                     "backend_id":  "asd_996b0e2d00e8239e07108ad70997a431_af33cc804d445b486c0da2fb123f144b",
+                                     "title":  "Review B",
+                                     "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\visual-fixture.exe",
+                                     "terminal_state":  "available"
+                                 }
+                             ],
+                   "Count":  2
+               },
+    "after":  {
+                  "value":  [
+                                {
+                                    "session_id":  "02caa424d6c75ebd65b1da75700f7156",
+                                    "run_id":  "369a1512b14b0f27cf82bb03a9c65a0c",
+                                    "backend_id":  "asd_02caa424d6c75ebd65b1da75700f7156_369a1512b14b0f27cf82bb03a9c65a0c",
+                                    "title":  "Review A",
+                                    "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\visual-fixture.exe",
+                                    "terminal_state":  "available"
+                                },
+                                {
+                                    "session_id":  "996b0e2d00e8239e07108ad70997a431",
+                                    "run_id":  "af33cc804d445b486c0da2fb123f144b",
+                                    "backend_id":  "asd_996b0e2d00e8239e07108ad70997a431_af33cc804d445b486c0da2fb123f144b",
+                                    "title":  "Review B",
+                                    "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\visual-fixture.exe",
+                                    "terminal_state":  "available"
+                                }
+                            ],
+                  "Count":  2
+              },
+    "commands":  153
+}

@@ -1,0 +1,13 @@
+Session:  Review A (833d1ba6-1795380773)
+Receipt:  generation 1, state unverified_spawn, provider darwin_ps
+Leader:   pid=35437 start= uid=0 role=leader
+Members:  0 recorded
+Pane:     no live pane accounts for this receipt
+Verdict:  verdict=unknown (the spawn's pane process (pid 35437) could not be identified, so anything it started is unaccounted for; nothing was signalled)
+  pid=35437 start= uid=0 role=leader -> unknown: identity could not be read at spawn: process identity is unreadable: ps for pid 35437: fork/exec /bin/ps: operation not permitted
+
+The last spawn's pane process (pid 35437) could not be identified, so anything it
+started is unaccounted for. Nothing is owned and nothing will be signalled.
+A start or restart is refused until you decide:
+  agent-deck session ownership abandon 833d1ba6-1795380773 --yes
+agent-deck: heads-up — your tmux (3.3a) has an unfixed control-mode NULL deref (tmux #4980) that can crash the server. We apply a SIGTERM+grace mitigation in v1.7.68+, but a patched tmux from Homebrew will close the window entirely. Set AGENTDECK_SUPPRESS_TMUX_WARNING=1 to silence.

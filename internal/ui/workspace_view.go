@@ -18,7 +18,7 @@ type workspaceGeometry struct{ x, y, width, height, left, outerWidth, bodyHeight
 
 func (m *Model) workspaceGeometry() workspaceGeometry {
 	t := m.tokens
-	bodyHeight := max(0, m.height-t.chromeRows()-1) // existing header/footer plus Tab row
+	bodyHeight := max(0, m.height-t.workspaceChromeRows()) // existing header/footer plus Tab row
 	left := 0
 	gap := lipgloss.Width(t.divider())
 	if m.width >= t.layout.stackedBelow {
@@ -51,7 +51,7 @@ func (m *Model) workspaceGeometry() workspaceGeometry {
 	}
 
 	return workspaceGeometry{
-		x: left + gap + style.GetBorderLeftSize(), y: 2 + t.layout.frameGap + above + style.GetBorderTopSize(),
+		x: left + gap + style.GetBorderLeftSize(), y: 2 + t.workspace.headerGapRows + above + style.GetBorderTopSize(),
 		width: max(0, outer-style.GetHorizontalFrameSize()), height: max(0, terminalHeight-style.GetVerticalFrameSize()),
 		left: left, outerWidth: outer, bodyHeight: bodyHeight, above: above, terminalHeight: terminalHeight,
 		listWidth: listWidth, listHeight: listHeight,
@@ -108,9 +108,9 @@ func (m *Model) renderWorkspace() string {
 			body += strings.Repeat("\n", m.tokens.layout.stackedGap+1) + right
 		}
 	}
-	footer := m.styles.dim.Render("终端模式 · F6 管理 · Ctrl+PgUp/PgDn 切换 Tab")
+	footer := m.styles.dim.Render(m.workspaceFooterText(true))
 	if !w.focused {
-		footer = m.styles.dim.Render("管理模式 · Enter 终端 · n 新建 · x 关Tab · <> 比例 · = 默认 · S 设置 · ? 帮助 · q 退出 · F6 终端")
+		footer = m.styles.dim.Render(m.workspaceFooterText(false))
 	} else if w.screen.CopyMode {
 		text := fmt.Sprintf("滚动历史 · %d 行 · Esc/q 返回 · ↑↓/PgUp/PgDn 浏览", w.screen.ScrollbackOffset)
 		if w.screen.Status != "" {
@@ -130,7 +130,13 @@ func (m *Model) renderWorkspace() string {
 	if w.err != nil && w.screen.Width > 0 && w.screen.Height > 0 {
 		footer = m.styles.error.Render("只读：上次观察屏幕；连接不可用，r 重查。" + label(w.err.Error()))
 	}
-	return fitFrame(header+"\n"+m.workspaceTabs()+m.tokens.sectionBreak()+fitFrame(body, m.width, g.bodyHeight)+m.tokens.sectionBreak()+footer, m.width, m.height)
+	footerRows := footer
+	if t := m.tokens.workspace; t.footerRuleRows > 0 {
+		rule := m.styles.separator.Render(strings.Repeat(m.tokens.marks.rule, m.width))
+		footerRows = strings.Repeat(rule+"\n", t.footerRuleRows) + footer
+	}
+	t := m.tokens.workspace
+	return fitFrame(header+"\n"+m.workspaceTabs()+strings.Repeat("\n", t.headerGapRows+1)+fitFrame(body, m.width, g.bodyHeight)+strings.Repeat("\n", t.footerGapRows+1)+footerRows+strings.Repeat("\n", t.footerBottomGapRows), m.width, m.height)
 }
 
 func (m *Model) workspaceCursor() *tea.Cursor {
@@ -152,4 +158,24 @@ func (m *Model) workspaceCursor() *tea.Cursor {
 	}
 	cursor.Blink = native.Shape == 0 || native.Shape%2 == 1
 	return cursor
+}
+
+// Keep the original footer's reachable help/quit hints when the full command
+// legend no longer fits. Match actual cell widths rather than a new breakpoint.
+func (m *Model) workspaceFooterText(terminalFocus bool) string {
+	choices := []string{
+		"管理模式 · Enter 终端 · n 新建 · x 关Tab · <> 比例 · = 默认 · S 设置 · ? 帮助 · q 退出 · F6 终端",
+		"管理模式 · Enter 终端 · n 新建 · S 设置 · ? · q · F6",
+		"管理模式 · Enter/n · S · ? · q · F6",
+		"管理模式 · ? · q · F6",
+	}
+	if terminalFocus {
+		choices = []string{"终端模式 · F6 管理 · Ctrl+PgUp/PgDn 切换 Tab", "终端模式 · F6 管理 · Ctrl+PgUp/PgDn", "终端模式 · F6 管理"}
+	}
+	for _, text := range choices {
+		if lipgloss.Width(text) <= m.width {
+			return text
+		}
+	}
+	return cellTruncate(choices[len(choices)-1], m.width, m.tokens.marks.ellipsis)
 }

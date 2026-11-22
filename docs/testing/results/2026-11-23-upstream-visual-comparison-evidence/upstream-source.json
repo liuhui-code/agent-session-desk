@@ -1,0 +1,45 @@
+{
+  "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+  "source_status": "",
+  "sources": {
+    "go.mod": {
+      "sha256": "32ade3e778734b520a47f93531712c16fd77cc12fbdf77d61a5cf1489b906888",
+      "git_blob": "2d0700f87fec8563be80d6866b1ca446d0d97d71"
+    },
+    "go.sum": {
+      "sha256": "16e784b0c4954e7d5f306c9143bd3b91cb80cd2d8a58d7aff4533887ec057bf7",
+      "git_blob": "2b520b9d1ea718e2092536759983d40c63d93178"
+    },
+    "LICENSE": {
+      "sha256": "6fa5dbb300eb4e797d93bec53195c81bf6efa602eb5327f1c217090786e97c5d",
+      "git_blob": "e9a272b78b65617d5b53dcd3b865d7d2cfebef93"
+    },
+    "internal/ui/home_view_frame.go": {
+      "sha256": "e06fd64336964e6855695bc4190f540a503b483fa796fd8d20b7b07adf9bc6c4",
+      "git_blob": "50a5e230a50a3e651a828caff09a5ac2d8af1d7e"
+    },
+    "internal/ui/newdialog.go": {
+      "sha256": "46bf00ebc78acff15ff9f5b0d8f4beb055b2472e35f535f44529f8729a7a0c57",
+      "git_blob": "f6c919e6b34a6953f2c737b3e6b5d504b80cc55f"
+    },
+    "internal/ui/settings_panel.go": {
+      "sha256": "142a7d454853138309ca84edbe1d50f05db2fe61fc36186bb2163d00939aa8c4",
+      "git_blob": "e18a377d922886b4483f7c7d4b13689ad32260cb"
+    },
+    "internal/ui/embedded_sidebar.go": {
+      "sha256": "f4539e560f61c760b5bc3fc7a30bc7c3ab78ff371262239464a178fa78c835d0",
+      "git_blob": "ccd6a51df0b3d8caa8abd217bf8721db7fdc8dd7"
+    },
+    "internal/ui/split_config.go": {
+      "sha256": "4c830a0bf8e543bbdf12b4166d48042198b5d6ae0d4f82d3ae2566ed2f3dc011",
+      "git_blob": "b931fcfedf056f05e922c2f6ea573b92277e7f8a"
+    },
+    "internal/ui/styles.go": {
+      "sha256": "3c64963b3b0788bb7278d64e221d5ced30ff9c7d42d65cd5c6030b229c999bee",
+      "git_blob": "1cbd549d6b21140d9c576c268e10a1e56661bf62"
+    }
+  },
+  "binary_sha256": "77a7990fcf2d58439a9319160410f7bdfa25eed2e8aec3b4457bbe50360256f6",
+  "reference_version": "1.16.39",
+  "reference_runtime": "Darwin amd64, Go 1.27.4, tmux 3.3a, sandboxed private XDG/TMUX roots; ownership unknown"
+}

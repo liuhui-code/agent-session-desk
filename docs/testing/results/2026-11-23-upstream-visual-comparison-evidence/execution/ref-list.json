@@ -1,0 +1,40 @@
+[
+  {
+    "id": "833d1ba6-1795380773",
+    "title": "Review A",
+    "path": "/private/tmp/asdui-1123/work",
+    "group": "asdui-1123",
+    "tool": "shell",
+    "account": "",
+    "command": "/private/tmp/asd-upstream-compare-20261123/visual-fixture-darwin \"Review A\"",
+    "status": "idle",
+    "status_source": "live",
+    "tmux_session": "agentdeck_Review-A_403e2a72",
+    "tmux_socket_name": "asdref-inner-1123",
+    "profile": "compare",
+    "created_at": "2026-11-23T04:52:53+08:00",
+    "archived": false,
+    "archived_at": "0001-01-01T00:00:00Z",
+    "last_activity_at": "2026-11-23T04:52:53+08:00",
+    "viewers": []
+  },
+  {
+    "id": "33730d79-1795380793",
+    "title": "Review B",
+    "path": "/private/tmp/asdui-1123/work",
+    "group": "asdui-1123",
+    "tool": "shell",
+    "account": "",
+    "command": "/private/tmp/asd-upstream-compare-20261123/visual-fixture-darwin \"Review B\"",
+    "status": "idle",
+    "status_source": "live",
+    "tmux_session": "agentdeck_Review-B_73949ca0",
+    "tmux_socket_name": "asdref-inner-1123",
+    "profile": "compare",
+    "created_at": "2026-11-23T04:53:13+08:00",
+    "archived": false,
+    "archived_at": "0001-01-01T00:00:00Z",
+    "last_activity_at": "2026-11-23T04:53:13+08:00",
+    "viewers": []
+  }
+]

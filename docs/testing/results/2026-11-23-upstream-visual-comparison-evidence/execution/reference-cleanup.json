@@ -1,0 +1,20 @@
+{
+  "outer_dead_identity": "35496|35497|1",
+  "stops": [
+    {
+      "id": "833d1ba6-1795380773",
+      "code": 0,
+      "stdout": "{\n  \"id\": \"833d1ba6-1795380773\",\n  \"success\": true,\n  \"title\": \"Review A\"\n}\n",
+      "stderr": "agent-deck: heads-up \u2014 your tmux (3.3a) has an unfixed control-mode NULL deref (tmux #4980) that can crash the server. We apply a SIGTERM+grace mitigation in v1.7.68+, but a patched tmux from Homebrew will close the window entirely. Set AGENTDECK_SUPPRESS_TMUX_WARNING=1 to silence.\n"
+    },
+    {
+      "id": "33730d79-1795380793",
+      "code": 0,
+      "stdout": "{\n  \"id\": \"33730d79-1795380793\",\n  \"success\": true,\n  \"title\": \"Review B\"\n}\n",
+      "stderr": "agent-deck: heads-up \u2014 your tmux (3.3a) has an unfixed control-mode NULL deref (tmux #4980) that can crash the server. We apply a SIGTERM+grace mitigation in v1.7.68+, but a patched tmux from Homebrew will close the window entirely. Set AGENTDECK_SUPPRESS_TMUX_WARNING=1 to silence.\n"
+    }
+  ],
+  "private_executable_matches": [],
+  "uid": 501,
+  "unknown_ownership_receipts_retained": true
+}

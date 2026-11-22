@@ -33,3 +33,5 @@
 默认侧栏卡片的来源、共享高度窗口与 Windows 元信息行点击证据见[本轮报告](../testing/results/2026-11-23-workspace-sidebar-cards.md)。低高度先保证完整标题行；空白／指示行不选择会话，旧 tmux 辅助列表保留原单行路径。
 
 侧栏设置沿用固定 `settings_panel.go`／`hotkeys.go` 的 `S`、Full/Compact/Minimal/Auto 顺序、左右／h/l、空格即时保存与 Esc/S 返回；独立界面偏好避免写启动模板。即时保存和 Auto 的当前预算／串行写入、必要窄窗适配见[本轮报告](../testing/results/2026-11-23-sidebar-density-preferences.md)。
+
+实际运行补充（2026-11-23）：未修改的固定上游已在隔离 Darwin/tmux 环境产生真实帧；Windows 按相同尺寸、Consolas 12 与主题回放，对照真实前后产品。已修正零基第 2 行终端框、第 29/30/31 行页脚、设置外宽 66、新建外宽 86、普通／首次上下 padding 2／1。六帧逐行一致，两张 49 列末格缺口及编码失败保留，颜色／字重／交互仍需评审。具体画面、来源、流程和差异表见[实际对照报告](../testing/results/2026-11-23-upstream-visual-comparison.md)，不能提升为上游 Windows 或完整体验通过。

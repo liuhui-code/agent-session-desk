@@ -2184,7 +2184,7 @@
 
 - 功能：[FL-003](../COVERAGE.md#fl-003)
 - 需求：[FR-03](../COVERAGE.md#fr-03)、[FR-11](../COVERAGE.md#fr-11)
-- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0005](../../adr/0005-dependency-lifecycle-and-upgrades.md)、[ADR-0017](../../adr/0017-sidebar-density-preferences.md)
+- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0005](../../adr/0005-dependency-lifecycle-and-upgrades.md)、[ADR-0017](../../adr/0017-sidebar-density-preferences.md)、[ADR-0014](../../adr/0014-upstream-ui-tabs-and-general-terminals.md)、[ADR-0016](../../adr/0016-tab-workspaces-and-input-ownership.md)
 - 优先级 / 阶段 / 层次：P1 / M0 / contract
 - 类型：compatibility、boundary
 - 设计 / 执行：`designed / not_run`
@@ -2203,11 +2203,12 @@
 1. 用固定会话数据与终端尺寸渲染迁入的列表、预览与弹窗。
 2. 在宽/窄和中文名称矩阵中比较布局语义、裁切边界及可用操作。
 3. 对照四种侧栏密度与设置 radio 选项、实际命中行高和短窗选中项，重复相同尺寸计算再缩放。
+4. 以固定上游实际帧校对工作区边框／页脚行带、设置和新建外宽、首次／普通上下留白，以及 27／49／63 列帮助与焦点提示。
 
 #### 预期与不变量
 
 - v2 View 返回与声明式终端状态生效，布局不丢失主体或叠加旧帧。
-- 快照差异按用户操作与布局约束审查，不把来源 v1 的每个像素当成产品要求。
+- 上游体验为还原基线；v1→稳定 v2 外宽语义等必要差异逐项说明并评审，未经接受的视觉裁剪保留待改。
 
 #### 需要的证据
 
@@ -2276,12 +2277,14 @@
 1. 在相同尺寸、字体、主题与合成数据下并排核对固定 Agent Deck 源码版本与当前 Windows 构建。
 2. 展示新建、Tab 切换、普通 shell／CLI 与 agent 原生输入、弹窗和辅助 attach 返回流程。
 3. 列出来源文件／上游提交／修改点与必要差异，由用户评审布局比例、颜色、间距、键鼠及焦点交互。
+4. 若采用来源终端单元格回放，保留原始 ANSI／文本／光标与哈希，显式核验编码、实际列行、字体主题及逐行结果；编码错误和末格差异不能算作一致。
 
 #### 预期与不变量
 
 - 评审材料来自当前构建且可复现，不能拿旧图稿或上游视频替代。
 - 记录接受/需修改项与对应版本；来源清单能证明实际复用范围，不声称未统计的复用比例。
 - 逐项记录还原结果与差异原因；仅沿用配色或局部布局代码不构成完整体验还原，缺少真实 agent 时明确保留待测。
+- 来源运行平台、回放、真实 Windows 产品与用户评审分别留证；不以静态回放或 fixture 推定上游 Windows、真实 agent 或完整视觉通过。
 
 #### 需要的证据
 

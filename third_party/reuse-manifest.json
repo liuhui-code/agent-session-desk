@@ -111,7 +111,7 @@
         "embedded terminal rounded frame and exact viewport layout"
       ],
       "mode": "selectively_adapted",
-      "modifications": "Stable Charm v2, design tokens, product Tab identities, bounded viewport and generic CLI fields; see ADR-0016 and file headers. Responsive management stacked/single-list layouts; terminal focus expands the native viewport; minimum native content rows and hidden refresh suppression are product adaptations."
+      "modifications": "Stable Charm v2, design tokens, product Tab identities, bounded viewport and generic CLI fields; see ADR-0016 and file headers. Responsive management stacked/single-list layouts; terminal focus expands the native viewport; minimum native content rows and hidden refresh suppression are product adaptations. Actual pinned-source frame comparison: workspace bands, outer settings/new widths 66/86, regular/first padding 2/1; stable-v2 and bounded narrow-view adaptations. See 2026-11-23-upstream-visual-comparison report."
     },
     {
       "project": "agent-deck",
@@ -139,7 +139,7 @@
         "generic dialog input/focus and submission structure"
       ],
       "mode": "selectively_adapted",
-      "modifications": "Stable Charm v2, design tokens, product Tab identities, bounded viewport and generic CLI fields; see ADR-0016 and file headers."
+      "modifications": "Stable Charm v2, design tokens, product Tab identities, bounded viewport and generic CLI fields; see ADR-0016 and file headers. Actual pinned-source frame comparison: workspace bands, outer settings/new widths 66/86, regular/first padding 2/1; stable-v2 and bounded narrow-view adaptations. See 2026-11-23-upstream-visual-comparison report."
     },
     {
       "project": "agent-deck",
@@ -153,7 +153,7 @@
         "dialog width, centered origin, rounded padded overlay"
       ],
       "mode": "selectively_adapted",
-      "modifications": "Stable Charm v2, design tokens, product Tab identities, bounded viewport and generic CLI fields; see ADR-0016 and file headers."
+      "modifications": "Stable Charm v2, design tokens, product Tab identities, bounded viewport and generic CLI fields; see ADR-0016 and file headers. Actual pinned-source frame comparison: workspace bands, outer settings/new widths 66/86, regular/first padding 2/1; stable-v2 and bounded narrow-view adaptations. See 2026-11-23-upstream-visual-comparison report."
     },
     {
       "project": "agent-deck",
@@ -296,7 +296,7 @@
         "sidebar density radio order, left/right and h/l adjustment, Space cycling, Esc/S close, cyan rounded settings box and focus marker"
       ],
       "mode": "selectively_adapted",
-      "modifications": "Stable v2, token-only styling, density-only settings, serial asynchronous saves to a separate ui.toml; narrow radio shows current choice. Upstream unrelated settings and whole configuration writes are not migrated."
+      "modifications": "Stable v2, token-only styling, density-only settings, serial asynchronous saves to a separate ui.toml; narrow radio shows current choice. Upstream unrelated settings and whole configuration writes are not migrated. Actual pinned-source frame comparison: workspace bands, outer settings/new widths 66/86, regular/first padding 2/1; stable-v2 and bounded narrow-view adaptations. See 2026-11-23-upstream-visual-comparison report."
     },
     {
       "project": "agent-deck",

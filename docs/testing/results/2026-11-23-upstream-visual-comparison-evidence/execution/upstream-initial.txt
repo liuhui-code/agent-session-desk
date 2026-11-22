@@ -1,0 +1,32 @@
+e apply a SIGTERM+grace mitigation in v1.7.68+, but a patched tmux from Homebrew will close the window entirely. Set AGE
+NTDECK_SUPPRESS_TMUX_WARNING=1 to silence.
+Agent Deck · quick check
+
+You are inside tmux. agent-deck runs its own tmux sessions, and
+Ctrl+Q would bring you back to this tmux, not to a plain shell.
+
+✓ tmux         tmux 3.3a · you are inside it
+✓ agent-deck   v1.16.39
+
+Detach (Ctrl+B d) and run agent-deck from a plain shell.
+Or run it here anyway:
+
+  AGENT_DECK_ALLOW_OUTER_TMUX=1 agent-deck
+
+CLI commands work inside tmux: agent-deck list, agent-deck add <path>.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Pane is dead (status 1, Mon Nov 23 04:53:56 2026)

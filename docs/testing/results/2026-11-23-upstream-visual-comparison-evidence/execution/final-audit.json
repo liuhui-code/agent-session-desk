@@ -1,0 +1,64 @@
+{
+    "binaries":  [
+                     {
+                         "sha256":  "B76B041CF484C9CCC71A576BFD9D1273C4D0AC7C10B81CB93AFD435A2BCCC0E7",
+                         "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\visual-fixture.exe"
+                     },
+                     {
+                         "sha256":  "74B3064EEDEE746B595F24BFD394293BD2D217BD7FCA74828A6FB6D45E8CF5AA",
+                         "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\product-after.exe"
+                     },
+                     {
+                         "sha256":  "986A6D7EDC805EDD97C1D2B0CC9C0C80C082DC18E74A916F67DD31201BC3415F",
+                         "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\product-before.exe"
+                     },
+                     {
+                         "sha256":  "60B727E8C478307B759DCFB244514E40863578212B969CE2F577B46ADE4F5A55",
+                         "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\compare-ui-tests.exe"
+                     },
+                     {
+                         "sha256":  "337C583DB0B4B53C726A851933E3D3DF86C09E0D4812D14D68AD703E81293FC9",
+                         "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe"
+                     },
+                     {
+                         "sha256":  "BBE825A30F7CDDC91B043084049143A381ABA5F7E9E36E4D0BB587E296D262CA",
+                         "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\backend\\psmux.exe"
+                     },
+                     {
+                         "sha256":  "F2833E07A5A7D59153FFC63DB83BD6B62F6C63FFD8B5B5099A2FEADF6B605336",
+                         "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe"
+                     },
+                     {
+                         "sha256":  "B17E48B07EF153B420F0A6E178BACD31FB4C3390E21AE746586213FC0719A775",
+                         "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\OpenConsole.exe"
+                     }
+                 ],
+    "original_processes":  [
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\visual-fixture.exe",
+                                   "pid":  7756,
+                                   "filetime":  134398556780732231,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\visual-fixture.exe",
+                                   "pid":  16232,
+                                   "filetime":  134398556783354674,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                   "pid":  1684,
+                                   "filetime":  134398568842494742,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               }
+                           ],
+    "settings_restored":  "1499307ABEBA68C23F9EB38A4C636F81172475B6B2B535BC0B11DCD9547241F8",
+    "result":  "passed",
+    "tasks_absent":  true,
+    "utc":  "2026-11-22T21:36:08.6458614Z",
+    "exact_test_images_alive":  0
+}

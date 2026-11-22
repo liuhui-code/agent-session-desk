@@ -55,3 +55,5 @@ IME 验证补充：不修改产品代码，限定 Windows 10／Microsoft 拼音�
 默认侧栏卡片补充（2026-11-23）：固定上游 compact 默认对应两行，28 列以下退到单行；活动终端和管理选择分别用 `┃`／`▶`，选中／活动使用 surface。渲染、窗口和鼠标共用卡片高度，元信息行选中所属 Session，不打开或提交终端输入；仅显示已有终端观察和程序文件名，不推断 agent 状态。其他密度设置及配置持久化仍待迁移。[来源与实测](../testing/results/2026-11-23-workspace-sidebar-cards.md)不代表完整视觉接受或发布验收。
 
 四种密度与设置后续（2026-11-23）：[ADR-0017](0017-sidebar-density-preferences.md) 接入 full／compact／minimal／auto、管理 S 设置、即时保存与独立 `ui.toml`。启动模板仍只读，终端键／草稿与 Run 身份不因设置改变。[实际报告](../testing/results/2026-11-23-sidebar-density-preferences.md)包含原生只读保存拒绝、Auto 缩放和 UI 重开选择恢复；不提升完整上游视觉、真实 agent 或发布状态。
+
+实际帧对照补充（2026-11-23）：运行未修改的固定上游，校正工作区终端框／页脚行带、设置外宽 66 列、新建外宽 86 列及普通／首次 padding 2／1 行，窄窗保留帮助与焦点键。原始单元格经 Windows 同显示配置回放，六帧逐行一致，两个 49 列末格缺口保留；产品前后实机与 82 个原生 UI 顶层测试见[报告](../testing/results/2026-11-23-upstream-visual-comparison.md)。这是既有还原决定的修正，不更改终端所有权／依赖；上游 Darwin 参考、静态回放和 fixture 均不等于真实 agent 或完整视觉接受。

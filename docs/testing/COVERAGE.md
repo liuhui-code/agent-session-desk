@@ -302,9 +302,9 @@
 | [ADR-0011](../adr/0011-read-only-tui-history.md) | 0 |
 | [ADR-0012](../adr/0012-metadata-checkpoint-recovery.md) | 0 |
 | [ADR-0013](../adr/0013-bounded-screen-output-records.md) | 0 |
-| [ADR-0014](../adr/0014-upstream-ui-tabs-and-general-terminals.md) | 11 |
+| [ADR-0014](../adr/0014-upstream-ui-tabs-and-general-terminals.md) | 12 |
 | [ADR-0015](../adr/0015-pinned-psmux-native-terminal-client.md) | 1 |
-| [ADR-0016](../adr/0016-tab-workspaces-and-input-ownership.md) | 3 |
+| [ADR-0016](../adr/0016-tab-workspaces-and-input-ownership.md) | 4 |
 | [ADR-0017](../adr/0017-sidebar-density-preferences.md) | 6 |
 
 FL-018 按 ADR-0014 纳入首版计划；沿用原 TC-DEFER 编号，不代表已实现或已验收。

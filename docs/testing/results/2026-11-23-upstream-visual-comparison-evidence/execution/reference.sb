@@ -1,0 +1,5 @@
+(version 1)
+(allow default)
+(deny file-read-data file-write* (subpath "<LOCAL_TEST_HOME>"))
+(deny network-outbound (remote ip "*:*"))
+(deny process-exec (literal "/usr/bin/security") (literal "/usr/bin/pbpaste") (literal "/usr/bin/osascript"))

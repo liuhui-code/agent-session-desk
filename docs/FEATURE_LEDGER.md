@@ -112,6 +112,8 @@
 - **默认侧栏还原（2026-11-23）：**固定上游的 compact 默认值对应两行卡片，28 列以下退到单行；标题、观察到的终端状态／程序文件名分层，活动 Run 与管理选择分开标记，选中／活动使用 surface 背景。渲染、滚动窗口和鼠标按同一行高计算，元信息行选择所属 Session，不切换或提交输入。实际源码与本轮结果见[报告](testing/results/2026-11-23-workspace-sidebar-cards.md)。四种密度设置与独立偏好随后由 [ADR-0017](adr/0017-sidebar-density-preferences.md) 接入，见[后续报告](testing/results/2026-11-23-sidebar-density-preferences.md)；完整同尺寸上游对照及用户视觉接受仍未完成，不提升发布状态。
 
 
+- **实际画面对照跟进（2026-11-23）：**固定上游实际帧与 Windows 前后产品对照，修正框／页脚行带、66／86 列外宽和首次／普通留白；82 个原生 UI 顶层／235 个含子测试通过，A→B→A 保留输入与两条原 Session/Run。六个参考帧逐行一致，两个 49 列末格缺口保留；详见[实际画面对照](testing/results/2026-11-23-upstream-visual-comparison.md)。保持实现中／未发布，用户视觉接受、真实 agent、完整交互与资源门槛不提升。
+
 ### FL-004：多会话组织
 
 测试设计：[FL-004 用例与映射](testing/COVERAGE.md#fl-004)；当前仅设计，未执行。
@@ -218,6 +220,8 @@
 - **TUI 历史局部进展（2026-11-22）：**h 按需读取最近 100 条，Enter 只读详情，独立选择与刷新按 Run ID 保留；关闭取消、迟到结果丢弃、错误及窄窗口边界有回归。历史不 attach、不重启、不推定当前状态；详见 [ADR-0011](adr/0011-read-only-tui-history.md) 和[实际报告](testing/results/2026-11-22-m1-history-ui.md)。完整历史、归档／恢复和发布仍待做。
 
 
+- **实际画面对照跟进（2026-11-23）：**固定上游实际帧与 Windows 前后产品对照，修正框／页脚行带、66／86 列外宽和首次／普通留白；82 个原生 UI 顶层／235 个含子测试通过，A→B→A 保留输入与两条原 Session/Run。六个参考帧逐行一致，两个 49 列末格缺口保留；详见[实际画面对照](testing/results/2026-11-23-upstream-visual-comparison.md)。保持实现中／未发布，用户视觉接受、真实 agent、完整交互与资源门槛不提升。
+
 ### FL-013：异常、重试和运行变化
 
 测试设计：[FL-013 用例与映射](testing/COVERAGE.md#fl-013)；目录保留 designed/not_run 基线，局部执行见实际报告。
@@ -292,6 +296,8 @@
 - **依据：**[ADR-0014](adr/0014-upstream-ui-tabs-and-general-terminals.md)；替代 ADR-0002 的后置约束。
 - **实现与验收证据：**[原生终端传输切片](testing/results/2026-11-22-native-terminal-transport.md)已实现并有两项限定 Windows 后端结果，支持当前屏幕／光标、字面输入、粘贴与回车分离、resize、断开重连。[ADR-0016 的首个 Tab UI](testing/results/2026-11-23-tab-workspaces.md)已接入活动终端、真实光标、串行输入、切换／关闭／重开与通用创建表单，并有普通 shell 桌面局部证据。后续已有 [Microsoft 拼音组合](testing/results/2026-11-23-ime-composition.md)和[基础历史滚轮](testing/results/2026-11-23-workspace-scroll.md)的限定实测；其他 IME／焦点组合、子程序鼠标、完整选择复制／搜索、上游视觉对照、Tab 排序与资源预算仍开放，不构成整条验收。
 
+- **实际画面对照跟进（2026-11-23）：**固定上游实际帧与 Windows 前后产品对照，修正框／页脚行带、66／86 列外宽和首次／普通留白；82 个原生 UI 顶层／235 个含子测试通过，A→B→A 保留输入与两条原 Session/Run。六个参考帧逐行一致，两个 49 列末格缺口保留；详见[实际画面对照](testing/results/2026-11-23-upstream-visual-comparison.md)。保持实现中／未发布，用户视觉接受、真实 agent、完整交互与资源门槛不提升。
+
 ### FL-019：依赖升级与复用来源
 
 测试设计：[FL-019 用例与映射](testing/COVERAGE.md#fl-019)；当前仅设计，未执行。
@@ -300,6 +306,8 @@
 - **验收：**能从实现文件追溯到引用源及许可；构建依赖锁定，旧 major 的临时使用有退出条件；v1→v2 适配验证输入、布局、终端状态恢复和 Windows 行为；升级后复跑对应能力的回归场景，不凭版本号自动认定兼容。
 - **依据：**[ADR-0001](adr/0001-architecture-and-reuse.md)、[ADR-0005](adr/0005-dependency-lifecycle-and-upgrades.md)。
 - **实现与验收证据：**[go.mod](../go.mod)/[go.sum](../go.sum)、[逐文件复用清单](REUSE_MANIFEST.md)、[原始许可和 NOTICE](../THIRD_PARTY_NOTICES.md)已落地；已有稳定 v2 构建与 Windows 常规检查记录。原生工作流固定官方 psmux 归档及 exe 哈希，记录被测提交和源码前后指纹；版本探测的横幅解析与发行物来源认证分别处理。发行物许可收集、原创整体许可、完整 Windows UI 回归及后续升级验收仍待做。见[首批迁入证据](testing/results/2026-11-21-m0-source-migration.md)与[Windows 执行报告](testing/results/2026-11-21-m0-native-windows.md)。
+
+- **实际画面对照跟进（2026-11-23）：**固定上游实际帧与 Windows 前后产品对照，修正框／页脚行带、66／86 列外宽和首次／普通留白；82 个原生 UI 顶层／235 个含子测试通过，A→B→A 保留输入与两条原 Session/Run。六个参考帧逐行一致，两个 49 列末格缺口保留；详见[实际画面对照](testing/results/2026-11-23-upstream-visual-comparison.md)。保持实现中／未发布，用户视觉接受、真实 agent、完整交互与资源门槛不提升。
 
 ### FL-020：人工介入提醒
 
@@ -401,3 +409,5 @@ M1 恢复补充（2026-11-22）：按用户继续完成 M1 的授权实现 metad
 2026-11-23 资源复测：FL-003/006/015/016/018 增加新 Tab 的局部失败证据，仍为实现中、未发布。脚手架已按终端／管理焦点核验就绪与退出，UTC JSON 时间二次解析的 RED→GREEN 已完成；原生 run3 完成 5 个登记阶段／65 次快照后，因测量 ConPTY 中 F6 未确认管理焦点而失败，未发送 q。七次短探针保留特殊键丢失边界，根因尚未关闭；没有 5／10 会话或直接对照的新结果，不提升资源预算或验收状态。36 条精确映像路径清理审计及三项任务删除见[报告](testing/results/2026-11-23-tab-resources.md)。339 项设计状态不变。
 
 2026-11-23 宿主分界与资源跟进：独立原始读取器定位本机系统 ConPTY／psmux 在 VT 模式丢 F6；仅为 measurement driver 显式选择固定 SDK 后，同一正式产品完成 7 场景、22 阶段、280 快照和 7 次正常清理。FL-003/006/015/016/018 增加[局部证据](testing/results/2026-11-23-tab-resource-host.md)，仍实现中、未发布。managed-5 idle 完整观察覆盖 0/12、managed-10 all-output 5/12 等缺口保留；SDK 不成为产品依赖，Windows 10／目标 agent、视觉、预算与长稳门槛不提升。117 项指纹前后一致，旧失败和 339 项 designed/not_run 状态保持。
+
+2026-11-23 实际上游对照：FL-003/012/018/019 增加真实来源帧、Windows 前后构建、四组 RED→GREEN 与 82 项原生 UI 顶层结果；框／页脚行带和 v1→v2 外宽差异已修复。编码失败、缩放／连接拒绝及 49 列末格缺口全部保留，完整视觉接受仍开放。见[实际画面对照](testing/results/2026-11-23-upstream-visual-comparison.md)。

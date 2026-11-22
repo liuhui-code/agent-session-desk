@@ -1,0 +1,62 @@
+[
+  {
+    "frame": "upstream-focused-120",
+    "expected_rows": 32,
+    "uia_rows": 32,
+    "differences": []
+  },
+  {
+    "frame": "upstream-focused-wide-120",
+    "expected_rows": 32,
+    "uia_rows": 32,
+    "differences": []
+  },
+  {
+    "frame": "upstream-manager-wide-120",
+    "expected_rows": 32,
+    "uia_rows": 32,
+    "differences": []
+  },
+  {
+    "frame": "upstream-settings-120",
+    "expected_rows": 32,
+    "uia_rows": 32,
+    "differences": []
+  },
+  {
+    "frame": "upstream-new-dialog-120",
+    "expected_rows": 32,
+    "uia_rows": 32,
+    "differences": []
+  },
+  {
+    "frame": "upstream-manager-63",
+    "expected_rows": 25,
+    "uia_rows": 25,
+    "differences": []
+  },
+  {
+    "frame": "upstream-manager-49",
+    "expected_rows": 25,
+    "uia_rows": 25,
+    "differences": [
+      {
+        "row": 24,
+        "source": "⚠ embedded session ended: signal: killed (auto-di",
+        "rendered": "⚠ embedded session ended: signal: killed (auto-d"
+      }
+    ]
+  },
+  {
+    "frame": "upstream-settings-49",
+    "expected_rows": 25,
+    "uia_rows": 25,
+    "differences": [
+      {
+        "row": 24,
+        "source": "╰────────────────────────────────────────────────",
+        "rendered": "╰───────────────────────────────────────────────"
+      }
+    ]
+  }
+]

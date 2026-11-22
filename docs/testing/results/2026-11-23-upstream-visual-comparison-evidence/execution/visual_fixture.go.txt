@@ -1,0 +1,22 @@
+package main
+
+import (
+ "bufio"
+ "fmt"
+ "os"
+ "time"
+)
+
+// A finite, synthetic screen source for visual comparison. It never executes
+// input, reads credentials/environment, or emits agent readiness evidence.
+func main() {
+ time.AfterFunc(20*time.Minute,func(){os.Exit(0)})
+ name:="Review A";if len(os.Args)>1{name=os.Args[1]}
+ fmt.Printf("\x1b[2J\x1b[H%s\r\n",name)
+ fmt.Print("Plain terminal output\r\n\x1b[38;2;122;162;247mAccent sample\x1b[0m\r\n中文 · e\u0301 · 🧪\r\n> ")
+ scanner:=bufio.NewScanner(os.Stdin);scanner.Buffer(make([]byte,4096),65536)
+ for scanner.Scan(){
+  if scanner.Text()=="exit"{return}
+  fmt.Printf("echo: %s\r\n> ",scanner.Text())
+ }
+}

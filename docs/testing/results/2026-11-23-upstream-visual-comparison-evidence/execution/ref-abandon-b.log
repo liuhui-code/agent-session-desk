@@ -1,0 +1,2 @@
+✓ ownership receipt discarded; nothing was signalled
+agent-deck: heads-up — your tmux (3.3a) has an unfixed control-mode NULL deref (tmux #4980) that can crash the server. We apply a SIGTERM+grace mitigation in v1.7.68+, but a patched tmux from Homebrew will close the window entirely. Set AGENTDECK_SUPPRESS_TMUX_WARNING=1 to silence.

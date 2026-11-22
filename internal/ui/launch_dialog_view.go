@@ -34,8 +34,13 @@ func (m *Model) launchWidth() int {
 func (m *Model) renderLaunchDialog() (string, *tea.Cursor) {
 	d := m.launch
 	t := m.tokens.dialog
+	paddingY := t.paddingY
+	if d.firstSession {
+		paddingY = t.firstPaddingY
+	}
+	dialogStyle := m.styles.dialog.Padding(paddingY, t.paddingX)
 	width := m.launchWidth()
-	contentWidth := max(1, width-m.styles.dialog.GetHorizontalFrameSize())
+	contentWidth := max(1, width-dialogStyle.GetHorizontalFrameSize())
 	var lines []string
 	lines = append(lines, m.styles.formTitle.Render("新建终端"))
 	for range t.titleGap {
@@ -69,7 +74,7 @@ func (m *Model) renderLaunchDialog() (string, *tea.Cursor) {
 	if d.err != nil {
 		footer = append(footer, m.styles.formError.Render(cellTruncate(label(d.err.Error()), contentWidth, m.tokens.marks.ellipsis)))
 	}
-	maxRows := max(1, m.height-m.styles.dialog.GetVerticalFrameSize())
+	maxRows := max(1, m.height-dialogStyle.GetVerticalFrameSize())
 	if len(lines)+len(footer) > maxRows {
 		budget := max(1, maxRows-headerRows-len(footer))
 		start := headerRows
@@ -93,7 +98,7 @@ func (m *Model) renderLaunchDialog() (string, *tea.Cursor) {
 		lines[i] = line + m.styles.formText.Render(padding)
 	}
 	content := fitFrame(strings.Join(lines, "\n"), contentWidth, min(maxRows, len(lines)))
-	box := m.styles.dialog.Width(width).Render(content)
+	box := dialogStyle.Width(width).Render(content)
 	boxWidth, boxHeight := lipgloss.Size(box)
 	x, y := max(0, (m.width-boxWidth)/2), max(0, (m.height-boxHeight)/2)
 	background := m.styles.backdrop.Render(m.renderWorkspace())
@@ -102,8 +107,8 @@ func (m *Model) renderLaunchDialog() (string, *tea.Cursor) {
 	if !d.busy && d.focus < len(d.fields) && cursorRow >= 0 {
 		cursor = d.fields[d.focus].Cursor()
 		if cursor != nil {
-			cursor.X += x + m.styles.dialog.GetBorderLeftSize() + t.paddingX
-			cursor.Y += y + m.styles.dialog.GetBorderTopSize() + t.paddingY + cursorRow
+			cursor.X += x + dialogStyle.GetBorderLeftSize() + t.paddingX
+			cursor.Y += y + dialogStyle.GetBorderTopSize() + paddingY + cursorRow
 			if cursor.X >= m.width || cursor.Y >= m.height {
 				cursor = nil
 			}

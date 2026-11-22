@@ -22,6 +22,7 @@ type launchService interface {
 	Start(context.Context, session.Launch) (session.Session, error)
 }
 type launchDialog struct {
+	firstSession    bool
 	fields          []textinput.Model
 	focus           int
 	busy, uncertain bool
@@ -38,7 +39,7 @@ func (m *Model) openLaunchDialog() tea.Cmd {
 		m.status = "当前接入不支持创建终端"
 		return nil
 	}
-	d := &launchDialog{}
+	d := &launchDialog{firstSession: len(m.sessions) == 0}
 	placeholders := []string{"可留空，使用程序名", "例如 pwsh.exe、cmd.exe 或 agent 路径", "可留空，使用当前工作目录", `例如 ["-NoLogo","-NoProfile"]`}
 	for _, placeholder := range placeholders {
 		field := textinput.New()

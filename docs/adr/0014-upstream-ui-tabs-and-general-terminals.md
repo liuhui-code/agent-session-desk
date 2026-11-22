@@ -66,3 +66,5 @@ Tab 内完整交互增加终端屏幕模型、焦点、尺寸和资源验证工�
 默认侧栏还原补充（2026-11-23）：迁入固定上游 compact 默认两行卡片、28 列退化阈值、活动／选择标记与 surface 高亮；Session/Run 卡片的所有行共享窗口和鼠标命中计算。元信息使用已有终端观察和程序文件名，未引入上游 agent ready/busy 推断、分组或新模型字段。full／minimal／auto 设置与持久化仍待迁移，用户视觉接受仍开放。来源、失败和局部实测见[报告](../testing/results/2026-11-23-workspace-sidebar-cards.md)；产品决定及终端所有权未改变。
 
 四种密度与设置后续（2026-11-23）：[ADR-0017](0017-sidebar-density-preferences.md) 接入 full／compact／minimal／auto、管理 S 设置、即时保存与独立 `ui.toml`。启动模板仍只读，终端键／草稿与 Run 身份不因设置改变。[实际报告](../testing/results/2026-11-23-sidebar-density-preferences.md)包含原生只读保存拒绝、Auto 缩放和 UI 重开选择恢复；不提升完整上游视觉、真实 agent 或发布状态。
+
+实际帧对照补充（2026-11-23）：运行未修改的固定上游，校正工作区终端框／页脚行带、设置外宽 66 列、新建外宽 86 列及普通／首次 padding 2／1 行，窄窗保留帮助与焦点键。原始单元格经 Windows 同显示配置回放，六帧逐行一致，两个 49 列末格缺口保留；产品前后实机与 82 个原生 UI 顶层测试见[报告](../testing/results/2026-11-23-upstream-visual-comparison.md)。这是既有还原决定的修正，不更改终端所有权／依赖；上游 Darwin 参考、静态回放和 fixture 均不等于真实 agent 或完整视觉接受。

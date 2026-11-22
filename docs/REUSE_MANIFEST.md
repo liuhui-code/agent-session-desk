@@ -84,3 +84,7 @@ Bubbles 2.2.2 textinput 通过模块使用，未复制组件源码。v2 表单�
 ### 2026-11-23 四种侧栏密度与设置
 
 固定 Agent Deck `80494e527393b7ead00da30018e6ee7e60e9d7a0`（MIT）的 `embedded_sidebar.go` 继续适配 full／compact／minimal／auto、元信息有界换行和共享测量；`settings_panel.go`、`hotkeys.go` 适配密度顺序、radio 标记／下划线、设置圆角／配色、S、左右／h/l、Space 即时调整和 Esc/S 返回，全部经 tokens。目标文件包括 `sidebar_settings.go`、`workspace_sidebar.go`、`workspace_keys.go`、`styles.go` 和 `design_tokens.go`；JSON 逐文件清单已更新。独立 ui.toml 格式／有界临时文件发布与异步串行保存为本产品实现，不搬用上游整个配置写入或其他业务设置。来源 Git blob／SHA-256 与本轮 Windows 证据见[报告](testing/results/2026-11-23-sidebar-density-preferences.md)。
+
+## 实际帧几何对照补充（2026-11-23）
+
+继续使用相同固定 Agent Deck 来源和 MIT 许可，没有新增源或依赖。`workspace_view.go`／`design_tokens.go` 对齐实际 `home_view_frame.go` 的终端框与页脚行带；设置外宽改为 66，新建外宽改为 86，以适配 v1／稳定 v2 的 Width 语义差异。`launch_dialog.go`／`launch_dialog_view.go` 保留 `newdialog.go` 的普通／首次上下 padding 2／1，并在打开时固定首次状态。窄窗帮助选择为产品有界适配，继续保留 F6 和通用终端输入归属。原 source SHA 未改变；机器清单更新修改点，实际原始单元格、失败和 Windows 前后图见[报告](testing/results/2026-11-23-upstream-visual-comparison.md)。不将上游 v1 构建作为产品依赖，也不宣称完整视觉接受。

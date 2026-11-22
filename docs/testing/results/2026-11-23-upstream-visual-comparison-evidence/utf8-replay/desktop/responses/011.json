@@ -1,0 +1,88 @@
+{
+    "ok":  true,
+    "utc":  "2026-11-22T21:34:53.8432437Z",
+    "state":  {
+                  "text":  "ASD isolated desktop acceptance\n                                                                                                                        \r\n                                                                                                                        \r\n                                                                                                                        \r\n                 ╭────────────────────────────────────────────────────────────────────────────────────╮                 \r\n                 │                                                                                    │                 \r\n                 │                                                                                    │                 \r\n                 │    New Session                                                                     │                 \r\n                 │                                                                                    │                 \r\n                 │      in group: asdui-1123                                                          │                 \r\n                 │                                                                                    │                 \r\n                 │    ▶ Name:  \u003e work                                                                 │                 \r\n                 │                                                                                    │                 \r\n                 │      Agent:   \u003e visual     shell     claude     gemini     opencode                │                 \r\n                 │               opencode2     codex     pi     copilot     crush     muse            │                 \r\n                 │               cursor agent     hermes     deepseek     omp                         │                 \r\n                 │               ←→ change   grey = not installed                                     │                 \r\n                 │                                                                                    │                 \r\n                 │      Path:  \u003e /private/tmp/asdui-1123/work                                         │                 \r\n                 │                                                                                    │                 \r\n                 │      ▸ More options: worktree, Docker sandbox, multi-repo                          │                 \r\n                 │                                                                                    │                 \r\n                 │      [ Create session ]                                                            │                 \r\n                 │                                                                                    │                 \r\n                 │                                                                                    │                 \r\n                 │    Tab next │ ↑↓ navigate │ Enter create │ Esc cancel                              │                 \r\n                 │                                                                                    │                 \r\n                 │                                                                                    │                 \r\n                 ╰────────────────────────────────────────────────────────────────────────────────────╯                 \r\n                                                                                                                        \r\n                                                                                                                        \r\n                                                                                                                        \r\n                                                                                                                       ",
+                  "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe",
+                  "filetime":  134398568838753114,
+                  "rect":  [
+                               40,
+                               40,
+                               1113,
+                               657
+                           ],
+                  "fontNames":  [
+                                    "System.__ComObject",
+                                    "Consolas"
+                                ],
+                  "session":  2,
+                  "tree":  [
+                               {
+                                   "name":  "",
+                                   "type":  "ControlType.Pane"
+                               },
+                               {
+                                   "name":  "",
+                                   "type":  "ControlType.Pane"
+                               },
+                               {
+                                   "name":  "",
+                                   "type":  "ControlType.Tab"
+                               },
+                               {
+                                   "name":  "",
+                                   "type":  "ControlType.List"
+                               },
+                               {
+                                   "name":  "ASD isolated desktop acceptance",
+                                   "type":  "ControlType.TabItem"
+                               },
+                               {
+                                   "name":  "ASD isolated desktop acceptance",
+                                   "type":  "ControlType.Text"
+                               },
+                               {
+                                   "name":  "关闭标签页",
+                                   "type":  "ControlType.Button"
+                               },
+                               {
+                                   "name":  "新建标签页",
+                                   "type":  "ControlType.SplitButton"
+                               },
+                               {
+                                   "name":  "",
+                                   "type":  "ControlType.Custom"
+                               },
+                               {
+                                   "name":  "ASD isolated desktop acceptance",
+                                   "type":  "ControlType.Text"
+                               },
+                               {
+                                   "name":  "垂直",
+                                   "type":  "ControlType.ScrollBar"
+                               },
+                               {
+                                   "name":  "垂直小幅下降",
+                                   "type":  "ControlType.Button"
+                               },
+                               {
+                                   "name":  "垂直大幅下降",
+                                   "type":  "ControlType.Button"
+                               },
+                               {
+                                   "name":  "垂直大幅增长",
+                                   "type":  "ControlType.Button"
+                               },
+                               {
+                                   "name":  "垂直小幅增长",
+                                   "type":  "ControlType.Button"
+                               }
+                           ],
+                  "pid":  8744,
+                  "keyboardLayout":  134481924
+              },
+    "command":  {
+                    "kind":  "capture",
+                    "label":  "reference-replay-upstream-new-dialog-120-public"
+                }
+}

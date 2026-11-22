@@ -1,0 +1,14 @@
+[
+  {
+    "scope": "outer",
+    "code": 1,
+    "stdout": "",
+    "stderr": "no server running on /private/tmp/asdui-1123/t/tmux-501/asdref-outer-1123\n"
+  },
+  {
+    "scope": "inner",
+    "code": 1,
+    "stdout": "",
+    "stderr": "no server running on /private/tmp/asdui-1123/t/tmux-501/asdref-inner-1123\n"
+  }
+]

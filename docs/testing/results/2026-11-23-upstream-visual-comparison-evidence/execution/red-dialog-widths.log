@@ -1,0 +1,8 @@
+--- FAIL: TestWorkspaceDialogOuterWidthsMatchUpstreamActualFrames (0.02s)
+    --- FAIL: TestWorkspaceDialogOuterWidthsMatchUpstreamActualFrames/settings (0.01s)
+        workspace_reference_geometry_test.go:47: settings outer width differs from actual upstream 66-column frame
+    --- FAIL: TestWorkspaceDialogOuterWidthsMatchUpstreamActualFrames/new-terminal (0.01s)
+        workspace_reference_geometry_test.go:47: new-terminal outer width differs from actual upstream 86-column frame
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.852s
+FAIL

@@ -1,0 +1,6 @@
+--- FAIL: TestLaunchDialogKeepsUpstreamRegularAndFirstSessionPadding (0.02s)
+    --- FAIL: TestLaunchDialogKeepsUpstreamRegularAndFirstSessionPadding/regular (0.01s)
+        workspace_reference_geometry_test.go:81: regular missing upstream padding row 2
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.834s
+FAIL

@@ -35,6 +35,7 @@ type sidebarTokens struct {
 }
 
 type dialogTokens struct {
+	firstPaddingY                                                            int
 	preferredWidth, minWidth, gutter, paddingX, paddingY, titleGap, fieldGap int
 	dimBackdrop                                                              bool
 	cursorShape                                                              tea.CursorShape
@@ -42,12 +43,13 @@ type dialogTokens struct {
 }
 
 type workspaceTokens struct {
-	minTerminalRows                                                  int
-	sidebarPercent, compactPercent, minPane, tabPadding, maxTabWidth int
-	splitStep, minSplitPercent, maxSplitPercent, dividerGrabSlop     int
-	splitNoticeDuration                                              time.Duration
-	doubleClickInterval                                              time.Duration
-	border                                                           lipgloss.Border
+	headerGapRows, footerGapRows, footerRuleRows, footerBottomGapRows int
+	minTerminalRows                                                   int
+	sidebarPercent, compactPercent, minPane, tabPadding, maxTabWidth  int
+	splitStep, minSplitPercent, maxSplitPercent, dividerGrabSlop      int
+	splitNoticeDuration                                               time.Duration
+	doubleClickInterval                                               time.Duration
+	border                                                            lipgloss.Border
 }
 
 type palette struct{ bg, surface, border, text, dim, accent, cyan, red color.Color }
@@ -64,9 +66,9 @@ type markTokens struct{ rule, divider, selected, ellipsis, menuDot, above, below
 
 func defaultDesignTokens() designTokens {
 	return designTokens{
-		sidebar:   sidebarTokens{cardMinWidth: 28, cardRows: 2, fullRows: 3, selected: "▶ ", active: "┃ ", metadata: "  ╰ ", metadataMiddle: "  │ ", separator: " · ", settingsWidth: 64, settingsPaddingX: 2, settingsPaddingY: 1, radioGap: 2, radioMarker: ">", radioUnselected: " ", underlineChoice: true},
-		dialog:    dialogTokens{preferredWidth: 84, minWidth: 44, gutter: 10, paddingX: 4, paddingY: 1, titleGap: 1, fieldGap: 1, dimBackdrop: true, cursorShape: tea.CursorBar, cursorBlink: true},
-		workspace: workspaceTokens{sidebarPercent: 35, compactPercent: 18, minPane: 8, tabPadding: 1, maxTabWidth: 32, splitStep: 5, minSplitPercent: 10, maxSplitPercent: 90, dividerGrabSlop: 2, minTerminalRows: 3, splitNoticeDuration: 1500 * time.Millisecond, doubleClickInterval: 500 * time.Millisecond, border: lipgloss.RoundedBorder()},
+		sidebar:   sidebarTokens{cardMinWidth: 28, cardRows: 2, fullRows: 3, selected: "▶ ", active: "┃ ", metadata: "  ╰ ", metadataMiddle: "  │ ", separator: " · ", settingsWidth: 66, settingsPaddingX: 2, settingsPaddingY: 1, radioGap: 2, radioMarker: ">", radioUnselected: " ", underlineChoice: true},
+		dialog:    dialogTokens{preferredWidth: 86, minWidth: 44, gutter: 10, paddingX: 4, paddingY: 2, firstPaddingY: 1, titleGap: 1, fieldGap: 1, dimBackdrop: true, cursorShape: tea.CursorBar, cursorBlink: true},
+		workspace: workspaceTokens{footerRuleRows: 1, footerBottomGapRows: 1, sidebarPercent: 35, compactPercent: 18, minPane: 8, tabPadding: 1, maxTabWidth: 32, splitStep: 5, minSplitPercent: 10, maxSplitPercent: 90, dividerGrabSlop: 2, minTerminalRows: 3, splitNoticeDuration: 1500 * time.Millisecond, doubleClickInterval: 500 * time.Millisecond, border: lipgloss.RoundedBorder()},
 		colors: palette{
 			bg: lipgloss.Color("#1a1b26"), surface: lipgloss.Color("#24283b"),
 			border: lipgloss.Color("#414868"), text: lipgloss.Color("#c0caf5"),
@@ -96,3 +98,7 @@ func (t designTokens) divider() string {
 const previewTabWidth = 4
 
 func (t designTokens) chromeRows() int { return 2 + 2*t.layout.frameGap }
+
+func (t designTokens) workspaceChromeRows() int {
+	return 3 + t.workspace.headerGapRows + t.workspace.footerGapRows + t.workspace.footerRuleRows + t.workspace.footerBottomGapRows
+}

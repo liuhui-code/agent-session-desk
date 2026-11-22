@@ -1,0 +1,10 @@
+--- FAIL: TestWorkspaceNarrowFooterKeepsHelpQuitAndTerminalFocusKeys (0.02s)
+    --- FAIL: TestWorkspaceNarrowFooterKeepsHelpQuitAndTerminalFocusKeys/27 (0.01s)
+        workspace_reference_geometry_test.go:108: 27-column footer lost reachable key ?: "管理模式 · Enter 终端 · n  "
+    --- FAIL: TestWorkspaceNarrowFooterKeepsHelpQuitAndTerminalFocusKeys/49 (0.00s)
+        workspace_reference_geometry_test.go:108: 49-column footer lost reachable key ?: "管理模式 · Enter 终端 · n 新建 · x 关Tab · <> 比 "
+    --- FAIL: TestWorkspaceNarrowFooterKeepsHelpQuitAndTerminalFocusKeys/63 (0.01s)
+        workspace_reference_geometry_test.go:108: 63-column footer lost reachable key ?: "管理模式 · Enter 终端 · n 新建 · x 关Tab · <> 比例 · = 默认 · S"
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	1.202s
+FAIL
