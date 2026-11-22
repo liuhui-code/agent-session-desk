@@ -1,0 +1,31 @@
+{
+    "utc":  "2026-11-22T15:57:43.6802172Z",
+    "binaries":  [
+                     {
+                         "sha256":  "bbe825a30f7cddc91b043084049143a381aba5f7e9e36e4d0bb587e296d262ca",
+                         "file_version":  "3.4.0",
+                         "image":  "backend/psmux.exe"
+                     },
+                     {
+                         "sha256":  "2561d5c72ba545c9b98a17763a1a80553b4455dd38bc4dfce53c030015d281b8",
+                         "file_version":  null,
+                         "image":  "backend-tabs-tests.exe"
+                     },
+                     {
+                         "sha256":  "f9a30f0dae7bd6a9fffe7deedf8a194405d67d651aad0b99cc20296e8cb5d9d6",
+                         "file_version":  null,
+                         "image":  "asd-fixture.exe"
+                     },
+                     {
+                         "sha256":  "f2833e07a5a7d59153ffc63db83bd6b62f6c63ffd8b5b5099a2feadf6b605336",
+                         "file_version":  "7.7.0.500",
+                         "image":  "pwsh7/pwsh.exe"
+                     },
+                     {
+                         "sha256":  "da88e3ac5622c817cabc44231ab81862a6db7c9af865de7702f96e1fa84acc7d",
+                         "file_version":  null,
+                         "image":  "asd-output.exe"
+                     }
+                 ],
+    "windows_build":  "10.0.19045.0"
+}

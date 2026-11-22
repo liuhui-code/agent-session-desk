@@ -8,6 +8,8 @@
 
 2026-11-22 范围更新：[ADR-0014](adr/0014-upstream-ui-tabs-and-general-terminals.md) 要求上游体验尽可能还原、Tab 主工作区及普通 shell／CLI。现有阶段和证据保留；M0 增补视觉与技术可行性，M1 交付单 Tab 原生终端，M2 交付多 Tab。新增范围均未实现／验收，不能用旧全屏 attach 结果关闭。
 
+2026-11-22 技术进展：[ADR-0015](adr/0015-pinned-psmux-native-terminal-client.md) 已实现固定 psmux 原生终端传输，并通过 fixture／普通 PowerShell 的两项局部原生测试；尚未接入 Tab UI，视觉、焦点、IME、鼠标和资源门槛保持开放。
+
 ## M0：视觉基线与 Windows 可行性
 
 目标：验证 Agent Deck 的简约界面代码可以迁入稳定 Charm v2，并通过 psmux 在原生 Windows 完成最小闭环。

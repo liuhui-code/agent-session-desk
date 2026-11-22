@@ -1,0 +1,5 @@
+--- FAIL: TestPSMuxScreenUpdatesStayBoundedWhenViewIsSlow (1.00s)
+    psmux_test.go:131: screen producer stalled behind the view
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/terminal	2.020s
+FAIL

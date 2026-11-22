@@ -1,0 +1,5 @@
+# github.com/liuhui-code/agent-session-desk/internal/terminal_test [github.com/liuhui-code/agent-session-desk/internal/terminal.test]
+internal/terminal/psmux_test.go:168:17: live.Resize undefined (type *terminal.PSMux has no field or method Resize)
+internal/terminal/psmux_test.go:174:17: live.Resize undefined (type *terminal.PSMux has no field or method Resize)
+FAIL	github.com/liuhui-code/agent-session-desk/internal/terminal [build failed]
+FAIL

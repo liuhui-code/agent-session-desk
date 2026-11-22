@@ -1,0 +1,7 @@
+=== RUN   TestWindowsPsmuxNativeTerminalScreenInputResizeAndReconnect
+    terminal_windows_test.go:19: native Windows backend=psmux version=3.4.0 sha256=bbe825a30f7cddc91b043084049143a381aba5f7e9e36e4d0bb587e296d262ca namespace=asd-native-4e02b26c024d
+--- PASS: TestWindowsPsmuxNativeTerminalScreenInputResizeAndReconnect (0.94s)
+=== RUN   TestWindowsPsmuxNativeTerminalOrdinaryShellKeepsPromptAndDraft
+    terminal_windows_test.go:94: native Windows backend=psmux version=3.4.0 sha256=bbe825a30f7cddc91b043084049143a381aba5f7e9e36e4d0bb587e296d262ca namespace=asd-native-2997b4a88c61
+--- PASS: TestWindowsPsmuxNativeTerminalOrdinaryShellKeepsPromptAndDraft (1.39s)
+PASS

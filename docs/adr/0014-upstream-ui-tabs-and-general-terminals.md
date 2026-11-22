@@ -60,3 +60,5 @@ Tab 内完整交互增加终端屏幕模型、焦点、尺寸和资源验证工�
 - 用户 2026-11-22 明确要求尽可能还原原界面、以 Tab 管理 Session、agent 使用 terminal 输入且普通命令行也受管理，并要求更新 ADR 与 Feature Ledger。
 - [固定上游来源及实际迁入范围](../REUSE_MANIFEST.md)、[UI 基线与历史探索](../UI_DESIGN.md)。
 - [ADR-0008：design tokens](0008-ui-design-tokens.md)、[Feature Ledger](../FEATURE_LEDGER.md)、[产品计划](../PRODUCT_PLAN.md)。
+
+2026-11-22 技术验证进展：[ADR-0015](0015-pinned-psmux-native-terminal-client.md) 已固定原生 psmux 客户端传输方案，并有 fixture／普通 shell 的局部 Windows 证据。Tab TUI 与视觉交互尚未连接，完整验收要求不变。

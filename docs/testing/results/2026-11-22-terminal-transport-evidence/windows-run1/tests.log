@@ -1,0 +1,5 @@
+=== RUN   TestWindowsPsmuxNativeTerminalScreenInputResizeAndReconnect
+    terminal_windows_test.go:15: native Windows backend=psmux version=3.4.0 sha256=bbe825a30f7cddc91b043084049143a381aba5f7e9e36e4d0bb587e296d262ca namespace=asd-native-42d8c1bbd83c
+    terminal_windows_test.go:21: invalid terminal cell
+--- FAIL: TestWindowsPsmuxNativeTerminalScreenInputResizeAndReconnect (0.78s)
+FAIL

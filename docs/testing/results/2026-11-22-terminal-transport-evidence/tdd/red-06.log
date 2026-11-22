@@ -1,0 +1,3 @@
+# github.com/liuhui-code/agent-session-desk/internal/backend [github.com/liuhui-code/agent-session-desk/internal/backend.test]
+internal/backend/terminal_windows_test.go:19:19: h.b.OpenTerminal undefined (type *Backend has no field or method OpenTerminal)
+internal/backend/terminal_windows_test.go:57:29: h.fresh().OpenTerminal undefined (type *Backend has no field or method OpenTerminal)

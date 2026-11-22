@@ -1,0 +1,6 @@
+# github.com/liuhui-code/agent-session-desk/internal/terminal_test [github.com/liuhui-code/agent-session-desk/internal/terminal.test]
+internal/terminal/psmux_test.go:202:17: live.Paste undefined (type *terminal.PSMux has no field or method Paste)
+internal/terminal/psmux_test.go:205:17: live.SendKey undefined (type *terminal.PSMux has no field or method SendKey)
+internal/terminal/psmux_test.go:211:17: live.SendKey undefined (type *terminal.PSMux has no field or method SendKey)
+FAIL	github.com/liuhui-code/agent-session-desk/internal/terminal [build failed]
+FAIL

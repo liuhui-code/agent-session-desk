@@ -123,3 +123,5 @@ M1 恢复切片已加入离线 `metadata check / backup / restore`，恢复只�
 M1 元数据恢复增加离线 `metadata check / backup / restore`，只读检查、完整快照与非覆盖恢复保持原 Run 证据；[使用说明](docs/METADATA.md)与[原生执行](docs/testing/results/2026-11-22-m1-metadata-recovery.md)单独记账。M1 仍在补齐输出记录和完整流程，见[清单](docs/testing/M1_ACCEPTANCE.md)。
 
 M1 输出记录支持 `record SESSION_ID` 显式保存有限画面、`output RUN_ID` 离线读取；固定标记为不完整屏幕快照，按原 Run 保留，见[用法与边界](docs/OUTPUT_RECORDS.md)。
+
+ADR-0014 的首个技术切片已按 [ADR-0015](docs/adr/0015-pinned-psmux-native-terminal-client.md) 实现原生 psmux 屏幕／输入／resize／重连适配；fixture 与普通 shell 的[两项 Windows 局部证据](docs/testing/results/2026-11-22-native-terminal-transport.md)已记录。TUI 仍为旧界面，Tab、上游体验还原和键鼠／IME 尚待接入。

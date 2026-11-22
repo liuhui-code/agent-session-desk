@@ -1,0 +1,4 @@
+# github.com/liuhui-code/agent-session-desk/internal/terminal_test [github.com/liuhui-code/agent-session-desk/internal/terminal.test]
+internal/terminal/psmux_test.go:85:17: live.SendText undefined (type *terminal.PSMux has no field or method SendText)
+FAIL	github.com/liuhui-code/agent-session-desk/internal/terminal [build failed]
+FAIL

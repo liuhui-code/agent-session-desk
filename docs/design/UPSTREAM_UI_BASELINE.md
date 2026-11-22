@@ -1,0 +1,21 @@
+# 固定上游界面还原基线
+
+日期：2026-11-22。依据 [ADR-0014](../adr/0014-upstream-ui-tabs-and-general-terminals.md)。本文件记录已核对的源码行为和实施缺口，不是用户视觉接受或产品截图。
+
+主要来源为 Agent Deck `80494e527393b7ead00da30018e6ee7e60e9d7a0`。完整归属和已迁入范围见[复用清单](../REUSE_MANIFEST.md)。本轮读取的原文件哈希见[来源指纹](../testing/results/2026-11-22-terminal-transport-evidence/source-manifest.json)；没有将上游整个应用或 v1 依赖作为本项目构建基线。
+
+| 对照项 | 固定上游源码行为 | 当前产品与后续要求 |
+| --- | --- | --- |
+| 双栏比例 | `split_config.go`：历史默认 Sessions/Preview 为 35/65；分隔符占 3 列，两侧最小宽度各 8 列 | 当前产品使用 1/3 与 24–42 列夹取，尚未还原该比例；迁移至 tokens 并验证边界 |
+| 内嵌侧栏 | 同文件：紧凑侧栏比例为 18%，具体启用由上游内嵌状态决定 | 需要按 Tab 焦点与导航适配核对，不能把所有场景固定成同一宽度 |
+| 比例调整 | `<` / `>` 每次调整预览占比 5%；鼠标拖动分隔符；短暂展示当前比例 | 新 Tab 模式尚未实现；是否在终端焦点保留某个管理快捷键须验证冲突，不能吞掉目标程序输入 |
+| 响应式断点 | `home.go`：低于 50 列单列，低于 80 列上下；内嵌模式保留可交互终端的布局分支 | Tab 主导航是产品适配；窄窗口仍须能操作终端及切换 Tab，不能仅剩只读列表 |
+| 面板和终端框 | `home_view_frame.go`：标题加下划线占两行；内嵌终端使用强调色圆角边框，并对宽高精确约束 | 当前只有列表／预览；后续恢复终端框、焦点和分隔符状态，全部样式经 tokens |
+| 调色板 | `styles.go`：Tokyo Night 的 bg `#1a1b26`、surface `#24283b`、border `#414868`、text `#c0caf5`、dim `#787fa0`、accent `#7aa2f7`、cyan `#7dcfff`、red `#f7768e` | 这些基础色已存在；完整层级、选中／焦点、背景、间距和弹窗不能因颜色相同就视为还原 |
+| 列表密度 | `embedded_sidebar.go`：minimal/full 等密度对应 1–3 行；不足 28 列时可退化，auto 根据可见项与空间选择密度 | 当前扁平单行列表仅是局部复用；会话身份与状态展示仍须对照迁移，普通 shell 不伪造 agent 状态 |
+| 终端输入 | `embedded_terminal.go`：通过子终端输入，VT 模型维护屏幕、尺寸与真实光标 | Windows 改为 ADR-0015 的 psmux 原生屏幕模型；仍须在 TUI 恢复真实光标、键鼠／IME 与焦点交接，无额外日常聊天框 |
+| Tab 主工作区 | 本产品明确要求；不是声称固定上游已有完全相同的 Tab 工作流 | 保留 Tab/View、Session、Run 区别；Tab 的新增、切换、排序、关闭／重开不改变受管理 Run，必要差异逐项留证 |
+
+后续对照需使用相同终端尺寸、字体、主题与合成数据，提供当前 Windows 构建画面、按键／鼠标流程和未解决差异。原始视频版本与固定源码不一定一致，不能混用作为精确比例或行为依据。上游账户、远程、worktree 和成本等业务能力不因还原界面而自动迁入。
+
+源码永久链接：[布局比例](https://github.com/asheshgoplani/agent-deck/blob/80494e527393b7ead00da30018e6ee7e60e9d7a0/internal/ui/split_config.go)、[面板布局](https://github.com/asheshgoplani/agent-deck/blob/80494e527393b7ead00da30018e6ee7e60e9d7a0/internal/ui/home_view_frame.go)、[调色板](https://github.com/asheshgoplani/agent-deck/blob/80494e527393b7ead00da30018e6ee7e60e9d7a0/internal/ui/styles.go)、[侧栏密度](https://github.com/asheshgoplani/agent-deck/blob/80494e527393b7ead00da30018e6ee7e60e9d7a0/internal/ui/embedded_sidebar.go)、[终端](https://github.com/asheshgoplani/agent-deck/blob/80494e527393b7ead00da30018e6ee7e60e9d7a0/internal/ui/embedded_terminal.go)。

@@ -5,7 +5,7 @@
 | 门槛 | 当前证据／缺口 | 后续核验 |
 | --- | --- | --- |
 | 自定义 CLI 与启动配置 | 直接 executable/args/cwd/env、显式 TOML 与覆盖已实现 | Windows 可控 fixture 与实际目标 agent 都经配置完成启动／输入／输出／退出；用户目前没有实际 agent；按自定义命令／目录配置化实施，真实 agent 兼容性仍待测 |
-| 单 Tab 原生终端与上游体验 | ADR-0014 已接受，尚未实现；旧全屏 attach 有局部证据 | 对照固定上游布局比例／配色／交互；普通 shell、CLI 与 agent 在终端原生输入区操作，保留 Tab 导航；验证 IME、窗口缩放、Ctrl+C 与焦点。M2 再验证多 Tab；辅助 attach 的旧证据不能代替 |
+| 单 Tab 原生终端与上游体验 | ADR-0014 已接受；ADR-0015 终端传输有两项原生合同证据，尚未连接 Tab UI；旧全屏 attach 有局部证据 | 对照固定上游布局比例／配色／交互；普通 shell、CLI 与 agent 在终端原生输入区操作，保留 Tab 导航；验证 IME、窗口缩放、Ctrl+C 与焦点。M2 再验证多 Tab；辅助 attach 的旧证据不能代替 |
 | 身份与生命周期 | Session/Run、停止确认和有来源的 pane 退出已实现 | 正常／非零退出、shell 留存、重开对账；数值退出码未知可明确说明，不能推断 agent 活跃或任务结果 |
 | 最小记录存储 | SQLite v2、v1→v2、独立 CLI/TUI history 已实现 | 已加入数据库占用／进程强杀、损坏／未来 schema 保留、离线检查和手工备份恢复的局部证据；磁盘满与物理掉电仍待测 |
 | 输出记录 | 已有[显式屏幕记录与离线读取](results/2026-11-22-m1-output-records.md)；固定 complete=false，非连续流 | 工程硬边界、跨进程轮转、目录归属和 NTFS junction 拒绝已验证；完整磁盘满故障矩阵与连续流录制未实现 |

@@ -1,0 +1,24 @@
+{
+    "backend_hash":  "bbe825a30f7cddc91b043084049143a381aba5f7e9e36e4d0bb587e296d262ca",
+    "result":  "passed",
+    "cleanup_json":  "[]",
+    "frames":  13,
+    "wire_session":  "asd_4126d82d4fbda9b6db34a5243c182819_3a34153e8b51ac861842f99647074022",
+    "remaining_sessions":  0,
+    "pane":  1,
+    "checks":  [
+                   "native persistent auth",
+                   "styled screen snapshot",
+                   "explicit pane hex input with independent execution file",
+                   "client resize",
+                   "disconnect preserves run"
+               ],
+    "session":  {
+                    "session_id":  "4126d82d4fbda9b6db34a5243c182819",
+                    "run_id":  "3a34153e8b51ac861842f99647074022",
+                    "backend_id":  "asd_4126d82d4fbda9b6db34a5243c182819_3a34153e8b51ac861842f99647074022",
+                    "title":  "Tab shell wire probe",
+                    "command":  "<USERPROFILE>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                    "terminal_state":  "available"
+                }
+}
