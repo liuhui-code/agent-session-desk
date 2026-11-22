@@ -1,0 +1,20 @@
+$ErrorActionPreference='Stop';$ProgressPreference='SilentlyContinue';[Console]::OutputEncoding=[Text.UTF8Encoding]::new($false)
+$base=Join-Path $env:USERPROFILE 'asd-acceptance-20261122';$root=Join-Path $base 'workspace-reconcile-20261123'
+New-Item -ItemType Directory -Path $root -ErrorAction Stop|Out-Null
+New-Item -ItemType Directory -Path (Join-Path $root 'work')|Out-Null
+$product=Join-Path $base 'reconcile-ui.exe';$backend=Join-Path $base 'backend/psmux.exe'
+$test=Join-Path $base 'reconcile-ui-tests.exe'
+& $test '-test.v' *> (Join-Path $root 'ui-tests.log')
+$code=$LASTEXITCODE
+if($code -ne 0){throw 'Native UI tests failed'}
+$terminal=Get-ChildItem (Join-Path $base 'terminal') -Filter WindowsTerminal.exe -Recurse|Select-Object -First 1
+if(@(Get-Process WindowsTerminal -ErrorAction SilentlyContinue|Where-Object{$_.Path -eq $terminal.FullName}).Count -ne 0){throw 'Private terminal already running'}
+$settings=Join-Path $terminal.Directory.FullName 'settings/settings.json';$backup=Join-Path $root 'settings.before'
+[IO.File]::Copy($settings,$backup)
+$config=[IO.File]::ReadAllText($settings)|ConvertFrom-Json
+$profile=@($config.profiles.list|Where-Object{$_.guid -eq $config.defaultProfile})[0]
+$command="& '$product' --backend '$backend' --runtime-dir '$(Join-Path $root 'runtime')' --namespace asd-ui-reconcile --state-dir '$(Join-Path $root 'state')'"
+$profile.commandline='"'+(Join-Path $base 'pwsh7/pwsh.exe')+'" -NoLogo -NoProfile -NoExit -EncodedCommand '+[Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($command))
+[IO.File]::WriteAllText($settings,($config|ConvertTo-Json -Depth 12),[Text.UTF8Encoding]::new($false))
+@{utc=[DateTime]::UtcNow.ToString('o');app_sha256=(Get-FileHash $product).Hash;test_sha256=(Get-FileHash $test).Hash;backend_sha256=(Get-FileHash $backend).Hash;settings_before=(Get-FileHash $backup).Hash;settings_test=(Get-FileHash $settings).Hash;windows=[Environment]::OSVersion.VersionString}|ConvertTo-Json|Set-Content (Join-Path $root 'receipt.json') -Encoding utf8
+Get-Content (Join-Path $root 'receipt.json') -Raw -Encoding utf8

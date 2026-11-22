@@ -58,7 +58,11 @@ func (m *Model) renderWorkspace() string {
 	case w.busy:
 		content = m.styles.dim.Render("正在连接原终端…")
 	case w.err != nil:
-		content = m.styles.error.Render("终端不可交互：" + label(w.err.Error()))
+		if w.screen.Width > 0 && w.screen.Height > 0 {
+			content = w.screen.Render(g.width, g.height)
+		} else {
+			content = m.styles.error.Render("终端不可交互：" + label(w.err.Error()))
+		}
 	default:
 		content = w.screen.Render(g.width, g.height)
 	}
@@ -80,6 +84,9 @@ func (m *Model) renderWorkspace() string {
 	}
 	if m.status != "" {
 		footer = m.styles.dim.Render(label(m.status))
+	}
+	if w.err != nil && w.screen.Width > 0 && w.screen.Height > 0 {
+		footer = m.styles.error.Render("只读：上次观察屏幕；连接不可用，r 重查。" + label(w.err.Error()))
 	}
 	return fitFrame(header+"\n"+m.workspaceTabs()+m.tokens.sectionBreak()+fitFrame(body, m.width, g.bodyHeight)+m.tokens.sectionBreak()+footer, m.width, m.height)
 }

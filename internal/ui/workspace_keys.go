@@ -19,6 +19,11 @@ func (m *Model) workspaceKey(msg tea.KeyPressMsg) tea.Cmd {
 		}
 	}
 	if msg.Code == tea.KeyF6 && msg.Mod == 0 {
+		if len(w.tabs) == 0 || w.err != nil {
+			w.focused = false
+			m.status = ""
+			return nil
+		}
 		w.focused = !w.focused
 		m.status = ""
 		return m.workspaceSize()

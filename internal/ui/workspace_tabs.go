@@ -8,6 +8,7 @@ import (
 func (m *Model) closeWorkspaceTabNow() tea.Cmd {
 	w := m.workspace
 	if len(w.tabs) == 0 {
+		w.focused = false
 		return nil
 	}
 	w.transition = workspaceIdle
@@ -20,6 +21,8 @@ func (m *Model) closeWorkspaceTabNow() tea.Cmd {
 	w.transition = workspaceIdle
 	m.status = "Tab 已关闭；运行实例继续保留，可从会话列表重新打开"
 	if len(w.tabs) == 0 {
+		w.focused = false
+		m.status = "已返回管理模式；n 新建，Enter 重开，原实例继续保留"
 		return nil
 	}
 	return m.activateWorkspaceNow(w.active)

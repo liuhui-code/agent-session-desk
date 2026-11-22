@@ -167,6 +167,9 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			m.invalidatePreview()
 		}
 		if m.workspace != nil {
+			if len(m.workspace.tabs) == 0 && len(m.sessions) == 0 {
+				m.workspace.focused = false
+			}
 			return m, m.workspaceSessions()
 		}
 		return m, m.loadPreview()

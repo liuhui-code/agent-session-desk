@@ -106,8 +106,7 @@ func (m *Model) workspaceSessions() tea.Cmd {
 	}
 	tab := w.tabs[w.active]
 	if !tab.live || tab.session.TerminalState != session.TerminalAvailable {
-		w.disconnect()
-		w.err = fmt.Errorf("目标终端当前不可交互；保留视图，不会自动重启")
+		m.failWorkspace(fmt.Errorf("目标终端当前不可交互；保留视图，不会自动重启"))
 		return nil
 	}
 	if w.conn == nil && !w.busy && w.err == nil {
@@ -193,11 +192,7 @@ func (m *Model) workspaceEvent(msg tea.Msg) (tea.Cmd, bool) {
 			w.pending--
 		}
 		if msg.err != nil {
-			w.disconnect()
-			w.err = msg.err
-			w.buffered = nil
-			w.transition = workspaceIdle
-			w.focused = false
+			m.failWorkspace(msg.err)
 			return nil, true
 		}
 		if w.pending == 0 && w.transition >= workspaceHistory {
@@ -233,9 +228,11 @@ func (m *Model) workspaceEvent(msg tea.Msg) (tea.Cmd, bool) {
 		w.busy = false
 		w.err = msg.err
 		if msg.err != nil {
-			w.buffered = nil
-			w.transition = workspaceIdle
-			w.focused = false
+			if msg.conn != nil {
+				_ = msg.conn.Close()
+			}
+			m.failWorkspace(msg.err)
+			return nil, true
 		}
 		if msg.err == nil && msg.conn != nil {
 			w.conn = msg.conn
@@ -271,8 +268,7 @@ func (m *Model) workspaceEvent(msg tea.Msg) (tea.Cmd, bool) {
 			return nil, true
 		}
 		if msg.err != nil {
-			w.disconnect()
-			w.err = msg.err
+			m.failWorkspace(msg.err)
 			return nil, true
 		}
 		w.readBusy = false
@@ -283,8 +279,7 @@ func (m *Model) workspaceEvent(msg tea.Msg) (tea.Cmd, bool) {
 		return m.readWorkspace(), true
 	case workspaceResized:
 		if msg.generation == w.generation && msg.err != nil {
-			w.disconnect()
-			w.err = msg.err
+			m.failWorkspace(msg.err)
 		}
 		return nil, true
 	}

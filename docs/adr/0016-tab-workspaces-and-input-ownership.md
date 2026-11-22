@@ -35,3 +35,5 @@ Bubbles 2.2.2 首次作为直接依赖加入；它要求的 runewidth 0.0.31 与
 同日修复补充：初始创建弹窗的子样式 SGR reset 使行末空白显示外层背景；已用既有 formText 角色填充，保持 tokens 单一入口。RED→GREEN、43 项 Windows 顶层 UI 测试与实际画面见[背景修复报告](../testing/results/2026-11-23-dialog-surface.md)，不提升完整还原或发布状态。
 
 同日交互补充：Tab 栏已有 token 管理的 `+`／`×` 入口和长标题上限。后台视图关闭不更换活动连接，活动视图关闭复用排空路径；本轮有鼠标点击与原 Run／草稿核对。见[交互报告](../testing/results/2026-11-23-tab-controls.md)。此实现不改变关闭与停止的架构边界，排序／滚动与其他鼠标能力仍待做。
+
+同日生命周期补充：Start 成功后失效旧发现请求，按同一 Session/Run 对账已发现记录／Tab；关闭最后视图与空工作区回管理焦点。连接失败后只显示上次已观察的内存屏幕，取消输入权限并清除未发送缓冲，显式重查前不重放。该缓存不是持久输出或 agent 上下文。确定时序回归与 51 个 Windows 顶层 UI 测试、真实 shell 的断开只读流程见[报告](../testing/results/2026-11-23-workspace-reconciliation.md)。

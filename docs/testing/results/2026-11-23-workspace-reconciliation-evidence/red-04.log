@@ -1,0 +1,5 @@
+--- FAIL: TestWorkspaceEmptyDiscoveryAndF6KeepManagementFocus (0.00s)
+    workspace_reconcile_test.go:74: empty discovery exposes nonexistent terminal focus
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.937s
+FAIL

@@ -1,0 +1,22 @@
+{
+    "checks":  [
+                   "empty management/F6",
+                   "one created Session/Tab",
+                   "last Tab close management",
+                   "n opens form without active view",
+                   "same Run reopens",
+                   "last observed output retained read-only",
+                   "F6 cannot refocus disconnected terminal",
+                   "q exits manager"
+               ],
+    "result":  "passed",
+    "session":  {
+                    "session_id":  "f97e5325c3d19f7f446de65ba7e8aa50",
+                    "run_id":  "c210b4a2ff6423a7d3ec80b4cf6fe790",
+                    "backend_id":  "asd_f97e5325c3d19f7f446de65ba7e8aa50_c210b4a2ff6423a7d3ec80b4cf6fe790",
+                    "title":  "Reconcile Shell",
+                    "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                    "terminal_state":  "available"
+                }
+}
+

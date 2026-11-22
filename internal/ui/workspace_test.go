@@ -16,6 +16,7 @@ import (
 
 type workspaceFixture struct {
 	openGate    <-chan struct{}
+	startGate   <-chan struct{}
 	startErr    error
 	startResult session.Session
 	starts      []session.Launch
@@ -33,15 +34,25 @@ func (s *workspaceFixture) List(ctx context.Context) ([]session.Session, error) 
 	defer s.mu.Unlock()
 	return append(append([]session.Session(nil), rows...), s.created...), err
 }
-func (s *workspaceFixture) Start(_ context.Context, l session.Launch) (session.Session, error) {
+func (s *workspaceFixture) Start(ctx context.Context, l session.Launch) (session.Session, error) {
 	s.mu.Lock()
-	defer s.mu.Unlock()
 	s.starts = append(s.starts, l)
 	if s.startErr != nil {
-		return s.startResult, s.startErr
+		v, err := s.startResult, s.startErr
+		s.mu.Unlock()
+		return v, err
 	}
 	v := session.Session{ID: fmt.Sprintf("created-%d", len(s.starts)), RunID: fmt.Sprintf("created-run-%d", len(s.starts)), Title: l.Name, Command: l.Executable, TerminalState: session.TerminalAvailable}
 	s.created = append(s.created, v)
+	gate := s.startGate
+	s.mu.Unlock()
+	if gate != nil {
+		select {
+		case <-gate:
+		case <-ctx.Done():
+			return v, ctx.Err()
+		}
+	}
 	return v, nil
 }
 

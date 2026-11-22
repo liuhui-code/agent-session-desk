@@ -75,15 +75,14 @@ func (m *Model) launchEvent(msg tea.Msg) (tea.Cmd, bool) {
 			}
 			return nil, true
 		}
+		// A discovery snapshot requested before Start may omit the new Run.
+		// Cancel/invalidate it before adding the acknowledged live terminal.
+		m.listGeneration++
+		if m.listCancel != nil {
+			m.listCancel()
+		}
 		m.launch = nil
-		s := result.session
-		m.sessions = append(m.sessions, s)
-		w := m.workspace
-		w.initialized = true
-		w.nextID++
-		w.tabs = append(w.tabs, workspaceTab{viewID: w.nextID, session: s, live: true})
-		w.focused = true
-		return m.activateWorkspace(len(w.tabs) - 1), true
+		return m.acceptLaunchedSession(result.session), true
 	}
 	d := m.launch
 	if d == nil {
