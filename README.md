@@ -10,7 +10,7 @@
 
 - **Windows 原生运行**：目标是在 Windows Terminal 中使用，核心使用流程不要求 WSL。
 - **CLI 优先接入**：配置启动命令、参数、工作目录和环境变量，即可创建受管理会话；不把支持的 agent 写死为几个品牌。
-- **还原上游体验的多会话 TUI**：尽可能还原固定 Agent Deck 的布局比例、交互与配色，以 Tab 为主要会话工作区；普通 shell／CLI 与 agent 使用终端原生输入。新方向已按 [ADR-0014](docs/adr/0014-upstream-ui-tabs-and-general-terminals.md) 接受，当前仍为待实现范围。
+- **还原上游体验的多会话 TUI**：尽可能还原固定 Agent Deck 的布局比例、交互与配色，以 Tab 为主要会话工作区；普通 shell／CLI 与 agent 使用终端原生输入。新方向已按 [ADR-0014](docs/adr/0014-upstream-ui-tabs-and-general-terminals.md) 接受，已接入首个 psmux Tab 工作区，完整还原与验收仍开放。
 - **低运行开销**：限制预览、缓存和历史占用，关闭非必要预热；以 Windows 全进程树测量制定预算。
 - **可靠的会话管理**：统一管理会话身份、运行实例、Tab、输出记录、后台运行和重新连接。
 - **会话之间可通信**：读取带来源的输出，向明确目标投递消息，并区分排队、写入、接收和完成。
@@ -19,7 +19,7 @@
 
 ## 核心使用场景
 
-在一个项目中，用户启动“开发”和“评审”两个 CLI agent。目标界面以 Tab 管理会话，在活动 Tab 中直接操作原 CLI，并支持普通 shell／命令行；全屏 attach 可作为显式辅助模式。当前开发切片仍是列表与全屏 attach，新 Tab 体验未实现。用户可以把开发会话的相关输出交给评审会话，并查看投递状态。退出管理界面后，终端后台继续托管任务；再次打开时接回仍在运行的实例。
+在一个项目中，用户启动“开发”和“评审”两个 CLI agent。目标界面以 Tab 管理会话，在活动 Tab 中直接操作原 CLI，并支持普通 shell／命令行；全屏 attach 可作为显式辅助模式。当前 psmux 开发切片已能在 Tab 内直接操作终端，Unix tmux 暂保留列表与辅助全屏 attach。用户可以把开发会话的相关输出交给评审会话，并查看投递状态。退出管理界面后，终端后台继续托管任务；再次打开时接回仍在运行的实例。
 
 对于已经退出的 agent，是否能继续原对话取决于该 agent 的恢复能力。保存终端输出不等于恢复模型上下文。消息持久化与自动投递也分别实现：没有消费者运行时消息等待；M3 的后台自动协作由共享轻量 Host 承担。
 
@@ -40,7 +40,7 @@
 
 ## UI 探索记录
 
-首轮四屏图稿被反馈为信息过多，**未采纳为实现基线**。当前目标已由 ADR-0014 调整为上游体验尽可能还原、Tab 主导航与通用终端输入；Tab 内完整交互纳入首版计划，现有列表／全屏 attach 是旧实现切片。
+首轮四屏图稿被反馈为信息过多，**未采纳为实现基线**。当前目标已由 ADR-0014 调整为上游体验尽可能还原、Tab 主导航与通用终端输入；Tab 内完整交互纳入首版计划，psmux 已接入原生 Tab 输入，列表／全屏 attach 保留为辅助路径。
 
 [查看 v0.1 探索与反馈](docs/UI_DESIGN.md) · [设计源文件](docs/design/) · [历史交互稿](docs/design/agent-session-desk.html)
 
@@ -87,7 +87,7 @@
 - [x] 整理产品目标、用户场景与范围。
 - [x] 建立需求、路线图、参考项目和决策文档。
 - [x] 绘制首轮 UI 探索稿和交互演示，记录未采纳反馈。
-- [x] 已记录原列表／预览与全屏 attach 方向；2026-11-22 经 ADR-0014 调整为上游体验还原、Tab 主导航及通用终端，新增要求尚未实现。
+- [x] 已记录原列表／预览与全屏 attach 方向；2026-11-22 经 ADR-0014 调整为上游体验还原、Tab 主导航及通用终端，psmux 已实现首个 Tab 切片，完整要求仍待验收。
 - [x] 核查技术维护状态，记录选型、ADR 与 Feature Ledger。
 - [x] 根据 Feature Ledger 建立测试设计、覆盖表、环境/故障合同与可校验用例库；此项不代表产品测试通过。
 - [x] 补充人工介入提醒的 FR-14、FL-020、ADR-0006 与专项测试设计；功能仍未实现。
@@ -125,3 +125,5 @@ M1 元数据恢复增加离线 `metadata check / backup / restore`，只读检�
 M1 输出记录支持 `record SESSION_ID` 显式保存有限画面、`output RUN_ID` 离线读取；固定标记为不完整屏幕快照，按原 Run 保留，见[用法与边界](docs/OUTPUT_RECORDS.md)。
 
 ADR-0014 的首个技术切片已按 [ADR-0015](docs/adr/0015-pinned-psmux-native-terminal-client.md) 实现原生 psmux 屏幕／输入／resize／重连适配；fixture 与普通 shell 的[两项 Windows 局部证据](docs/testing/results/2026-11-22-native-terminal-transport.md)已记录。[ADR-0016](docs/adr/0016-tab-workspaces-and-input-ownership.md) 已接入首个 psmux Tab UI：终端直接输入，F6 切换管理焦点，Ctrl+PgUp/PgDn 切 Tab，管理模式 n 新建、x 关视图、Enter 重开；退出 UI 不停止 Run。Unix tmux 保留旧辅助路径。普通 shell 的[局部桌面证据](docs/testing/results/2026-11-23-tab-workspaces.md)不等于完整上游还原、IME、鼠标、资源或真实 agent 验收。
+
+Tab 窄窗口管理已恢复[上下／单列布局](docs/testing/results/2026-11-23-workspace-responsive.md)：F6 进入管理，Enter 返回原终端并展开输入区域；Tab 栏持续保留。实际 63／49 列的普通 shell 草稿恢复已有局部证据，真实 IME、滚动及完整上游对照仍待验证。

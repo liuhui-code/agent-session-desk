@@ -1,0 +1,258 @@
+{
+  "base_commit": "48f92c2ce4556b2ebcc085b8da26139f04369c02",
+  "source_files": {
+    "go.mod": "35d6fb5b9968199f902e72c5021e773cf3b02c2ea027112a3ee3ca5b854fc9bc",
+    "go.sum": "1305e2cc0f036c30ae05946e26e89b9bbc5ba67753fc15ad2b9287806545c2ef",
+    "internal/backend/backend.go": "1b9420d351f2dc6cbc95b2b226d491c2be4df0c5e624fc3d3251c8b7b4b87800",
+    "internal/backend/backend_test.go": "64a9f2b3655afe5e11a7eb423d5f7f6bb6858fa972c49c781fa2de61e86eea03",
+    "internal/backend/command.go": "a385feb1c95deec7f7e6e3f5dc5129f8903e2953572c6795698fdcf401892ef8",
+    "internal/backend/exit.go": "c826f365ce64f7357e5534a2ccb9000f24b17275e619a473838c6884170a20b2",
+    "internal/backend/exit_test.go": "e34db45f33cb0ca76701efab7c71b6ae4a7f4bd22a587fbb3fbf5fd53ce23a18",
+    "internal/backend/helper_test.go": "67ef82cb9c3ef819eb0c35f057260dfbc386272235728f4a22f363c39c997f24",
+    "internal/backend/integration_windows_test.go": "a4b97fd1d332c5949dcc61df1c4461c75b5229af4c3e463e907858afc9a78be9",
+    "internal/backend/location.go": "99ec7eb4c913dc86459313c9c854f1b0093a41baa050e56fe273d35e469238f9",
+    "internal/backend/process_unix.go": "4d9efe24bc5f644bef0d17cfbfed61d5e8eedb88f1fe119ba6f43a7a3815e6b2",
+    "internal/backend/process_windows.go": "a7d15b9b51f1d68d3fb83d053811a7dcf7360e8b205aeee4164a4c32252b4bfe",
+    "internal/backend/psmux_contract.go": "f7b34f2b879ce638f8a3a4ab7e257eb8d51e6e292ab520fcd07ccb0da77c5165",
+    "internal/backend/terminal.go": "4ee331bf25e824e8208d14bd7b26e10c6159f01407006baea73f10fa323256b2",
+    "internal/backend/terminal_windows_test.go": "a39c89b8608230feffd19f4f890e1fd47be780de39a8d7d8fc7ef770da1f78c2",
+    "internal/backend/transport.go": "732b854ec6111893928f9e1e0b657d5932bb0d6ea178cdf7cf044f4aba63cc06",
+    "internal/cli/cli.go": "f66368a0df566fdf67db72ad075b009c2653e6130d13d29c7daf6c206436cea4",
+    "internal/cli/cli_test.go": "9b13fdacc42446fbcc5d493f49f2539fe16cadda9b397452c74696f887fce692",
+    "internal/cli/config_rejection_test.go": "f5c147a07090c3a58a32bb7a156bee3750b1accff862c5c48afee80bb8c6833f",
+    "internal/cli/config_start_test.go": "bf8e3dcfbb5d5d50d9d97f86115ecf0c9e5edf1860fb97b08636a0886fefecd2",
+    "internal/cli/history.go": "3b9c190ec251f48f14c5bc89e683a50ff2bdbb35b8f6957840591ea16080a6ce",
+    "internal/cli/history_test.go": "ee840c23baad4fa65344e619ff2fa8928cdf22094b0473e4dc9d9c0391c3717e",
+    "internal/cli/metadata.go": "5f292c80530c4a58f35dce9da0d9ff1156a645177e2b1738b9634148ebd07c64",
+    "internal/cli/metadata_test.go": "b0bbea6887aefe0f3318316d5e6cdddca0fcfba7e82ffc09f267e63d30019241",
+    "internal/cli/output_test.go": "994027bfa64e21006d3d7ff2de654aee1deea4f0310e9b43893b0b2a8c8fb42b",
+    "internal/cli/start.go": "21c322c9383aa4e407af1e23cd6493de12a55a972d37718fe976c29c98f6339d",
+    "internal/config/config.go": "7e088b9068ba63270d5d38c1f4c3e079cf43be5184b04f9666be9ed7961ae5a1",
+    "internal/config/config_test.go": "dfb92897b1186aef355e8898b4d4d6007c98fea2bf1b595e0aad6f0f09311816",
+    "internal/manager/manager.go": "275da319ffbfbfdcd395d52cd8436208f5ad2d3f0b2aaf43f841eb204e1b3746",
+    "internal/manager/manager_test.go": "1b937b830cb6a937376779e96c0b0c32ccf46b6a5333b7c2fa3379270a689cff",
+    "internal/manager/output.go": "b244e621ddbae20ce0d4755319d094c2f8d5b7b545f7e1514bd8ce10f86ba4fa",
+    "internal/manager/output_test.go": "7a30297225aa4d3228a819a265d64378fbf6c445b81a73c484895d243eef2ff1",
+    "internal/manager/terminal.go": "f715f6fccac7f6e9fbb0c4356215b1852015c27e571571938927049209541f10",
+    "internal/manager/terminal_test.go": "e093212347fff2024e5aa2662668bb6b5855d8d8cad3c44bfe162a0675d35ce0",
+    "internal/session/history.go": "9281cb62be634189aa3e669931dd7de31de56aae9b365358086ddc9efaa98f96",
+    "internal/session/launch.go": "8938bacb7a303944529244177804484457a59a164a04627f297f6f9929c3a43c",
+    "internal/session/launch_test.go": "1ee77ae9320e48b2e0ad2529fe116182ab877e149c8256523030c3825638c04b",
+    "internal/session/output.go": "0415e9e033a7badfb6e1dc1199ef611719bfc34609f5694ab450136091b9ccae",
+    "internal/session/session.go": "4d21dc8068cfaba202b31f327b1c745bd3056ea316dc173acfa7d500e978c0a4",
+    "internal/store/check.go": "681e58f7cb9aa0581bc80a1b0cd8e6152d5d140e71225cf8c2b7dbd0d99b6993",
+    "internal/store/concurrency_test.go": "7a2bd61e2d858deda9a5c5990862e71e83afa2e519aafdfa59e6f44a331f67f3",
+    "internal/store/crash_test.go": "634e6b6f02efef8aeb67b39eeeae1804cbd307325224f6b1f1d1522b716142cf",
+    "internal/store/exit.go": "2ad6854a2f3e369e566318737e92eb90c5c487de8a67080452a1a227e6bae114",
+    "internal/store/exit_test.go": "52f7730d91b24d19d3eeff3a79ed7d3f541322d2079076f7f77f4e3a4c4de796",
+    "internal/store/migration_test.go": "505bdbf8180da55f2b28e930c4c447fa3eea569d66e7e30ad8b39e320dc7886f",
+    "internal/store/output.go": "27089b17aa9d26b259470062a422da6e00019d1313636bc033406dd098e273c3",
+    "internal/store/output_concurrency_test.go": "bb89f3961fe47e5cc6551032f7889881574a680205e10a81507d1ac866256c4a",
+    "internal/store/output_files.go": "b7c5ef487d5c82f6f47d4ad98cd1ee48a094977230528706156e014905fc5006",
+    "internal/store/output_publication_test.go": "ef6008057d55822fab5879e21a0d736786a5a2031592666337a75d7f255f0691",
+    "internal/store/output_scan.go": "2db80627b5cb2340c91788f68aaf70cf1b6c380b0def9886c5b768d340b51e25",
+    "internal/store/output_test.go": "2c361df17f703d845af954e93ea6477b1a71f27217a0fb5bedc2d3c7dd74e6ca",
+    "internal/store/output_validation_test.go": "283be55a50592ce0d364ae8ec1a73c3854de536556cc20e50c7e46170939c42f",
+    "internal/store/recovery.go": "8aa3b0e1849ea6e229d5fb7775c4d2304216604f6c6d03bd6b05eb61370847c1",
+    "internal/store/recovery_test.go": "1b326354cdc2f3da45b17dff2a204a36c826a8f8ddc583509d0ed135f038c880",
+    "internal/store/schema_test.go": "892b5610505b0f65c44ae772be03c5d36b3a4f6d8e13117efdcdcf9287617641",
+    "internal/store/store.go": "a62341298ee871fc7bbe60b60156a878b2df3aa184b32a89217b98d796c33574",
+    "internal/store/store_test.go": "1e71d4a13c22173b136b15d89298a4abe264c76c0e355775ec87948cdeef3397",
+    "internal/terminal/connection.go": "b69618d6e780c2dbf1175cb972f0876c06b9b350c992a2c2a92e0e7eaaf47e15",
+    "internal/terminal/input.go": "bafe42e7337f02335481e146ac87c31006f691e12c1804e6448d64c3398fd283",
+    "internal/terminal/psmux.go": "829311fc9657e07756279d1931a412e1668e7d8fed378a47d58bab3b5ed074b2",
+    "internal/terminal/psmux_screen.go": "1950548f7c251c5209fceb81cb6f03499123efff3629f25207d1a7d71ca590b5",
+    "internal/terminal/psmux_test.go": "1e389870f2fc53c68f2f6122b846cf0fdc4294b24616b125ee843a75b41a9646",
+    "internal/terminal/render.go": "1ea00b5d059d05aa687f142a81e67c2459b5c0272f46dd1770129825efa20fd8",
+    "internal/terminal/render_test.go": "94f636cc6346f9941510ae2146d371b25f8c112830e52a76432ace926bd5ef88",
+    "internal/terminal/screen.go": "86b80bd98fcc7060f5bd0d568d76ff21c6d0ccdd5f4950d16be3513d58add7a9",
+    "internal/ui/cellwidth.go": "ef5d9ed1a9e70bf44bdf47d9bb07eb14fec95ab3cc331a00c8d1b28b502720bc",
+    "internal/ui/design_tokens.go": "c595b5efb93ca37d7450f9c8f978d1b2a8ca6de7c34bb42ee994995d56397863",
+    "internal/ui/history.go": "19b4760363cfa762a576fe9fbe1c14eb82e9af6959370426d78779cb35865cd2",
+    "internal/ui/history_test.go": "a8d6a1f7cd786ceed3840438f6c0c387cd4524e0f3eea4cbae4e45d4fd45cbfc",
+    "internal/ui/history_view.go": "d7d7f2df252e989905e3cbfb718e049ccc0f84a7226863bdcb79705dd04606ed",
+    "internal/ui/home_view_frame.go": "5b795856e2685173c4e2b36166f712805b674db91da26e9a21d69032d7d7326c",
+    "internal/ui/home_view_list.go": "09c4a730d08cc37814c8321f941366d7bf8449f0beafd5432841b5d8dc706546",
+    "internal/ui/launch_dialog.go": "3e7e19d92fb27904d3e073b19899cb0a9006741889fdb501db889caa45c7623e",
+    "internal/ui/launch_dialog_test.go": "62d08adece334e5ffdf55457a44d9abbb348919fd2d2b3a86154e4a2ccffed0b",
+    "internal/ui/launch_dialog_view.go": "483ad3613f4d587853909595d3a00df71c068bb91228b759a9a406152f2c4cf9",
+    "internal/ui/launch_result.go": "8695cd3b187d7911f2cdd7989a1e1f5ce991774d16f2c46510167e816fa521e3",
+    "internal/ui/launch_surface_test.go": "533e414141e855abed934fc3abf921e08741336e0f1b3487dbb150a284c28666",
+    "internal/ui/model.go": "21571cdb09e44c063852c72407ae5f24270c06bc6bb2a140034c481a3bc46a2a",
+    "internal/ui/model_test.go": "10b0faf46bcf07cb81532eba2606c4b6f9aead2c20841210b56610d1ac321233",
+    "internal/ui/styles.go": "31b95ba00bfa3cafb088692d7041bd48b8fb58f82c50cb23462eb3da6a736cba",
+    "internal/ui/text.go": "0ef6aa91424d9bb00a9c6fffd2b47f86327986ec8500a6110bc612b7124a0aa7",
+    "internal/ui/tokens_test.go": "2ece8d27f58b54c3acdfd6ba2b7b0abcfd281ba2a6a13f06a5030f661471c226",
+    "internal/ui/view_test.go": "caf0dca194d2be785b0a412aea434af34cb8edb333ab7f0f0bf1e3cbad11bdec",
+    "internal/ui/workspace.go": "a2366030253fbfefa455f5d9142715e793e46ff90a738c00ddf3bf9fa4e326a0",
+    "internal/ui/workspace_controls_test.go": "fbb26daf6aa465645ae6044d0d3f7e705865c8180c96f7762bdf0a352f7d8f04",
+    "internal/ui/workspace_failure.go": "2419f150e09e547afb36996d5e200235292e83d083806fe51a8223503626974d",
+    "internal/ui/workspace_input.go": "0a79f695ec67cb881169ad9c972d53d5f80738b5bc78ed1eb1ee000a499e3203",
+    "internal/ui/workspace_keys.go": "cf66d3e278d4539584813c8beb4abdec2e1a88e4df424a01bb7a59f36abe4caf",
+    "internal/ui/workspace_lifecycle_test.go": "219caef5dd60e09e6e4bd1cb18a26d65be2518af2aeeacf1ee33d801b8813f1e",
+    "internal/ui/workspace_mouse.go": "82695f298cc1178b4a3e7061abb699352ceb36e8fb4fc42ca35d55fdb650c5d2",
+    "internal/ui/workspace_navigation.go": "34b3ca7a2fae7b63b680eec0f7473e707150e807f4d21732e55e5e8a70a25a1f",
+    "internal/ui/workspace_reconcile_test.go": "0406eedf187706e916979ee8757eda5fd662cd9476fe439ea313f749fa62e5cc",
+    "internal/ui/workspace_responsive_test.go": "d921ab881893a99424f8a6fd9c23d13bc2301a73c1b91d927fa376583e8f6372",
+    "internal/ui/workspace_split.go": "99fb240860cacf4d9f7928ec622156d6af3c846babdbb382181abcbff2f79af1",
+    "internal/ui/workspace_split_test.go": "56721964e90a90f6268531bcbadfb32514a890ca648e3220c7339bf2ec6122e2",
+    "internal/ui/workspace_tabbar.go": "190d11734e18c052564bb57b3ee6314cc0029d1dc811edf8875f39d110b78921",
+    "internal/ui/workspace_tabs.go": "3522a2cc3b76f38c11681effe1c3d15ae6bdc9238bdee572557266f4a565a5ab",
+    "internal/ui/workspace_test.go": "ac390949e0aafe35d552ae4e8b42056b31d0afa3a04489e6fa30781bf6d9253a",
+    "internal/ui/workspace_view.go": "4dfbc6120e6aef821b6cffee21e8f20da82086867cebd4966806d1ff47419638",
+    "cmd/asd/main.go": "f8a910eed8f4ac1702f92f2e16a406376cc67890f4e36904a256615e53fa7da0",
+    "cmd/asd-fixture/main.go": "a6b9e214b601c35e02c450ebf0eddd3d3c2b9f5484cc56cbb61a918e76cbcef1",
+    "cmd/asd-fixture/main_test.go": "a6e27d112995f66f24fb6b6019913cfd0bd4650bd97c2409ef217019771ad527"
+  },
+  "artifacts": {
+    "responsive-ui.exe": "992304979b87de0301061308acfb6f060ab960c7334f3ca1e407771b8bc7e478",
+    "responsive-ui-tests.exe": "e8d62ef7700d4d0cc6083db351adf7431ccfb19cc99beb243a093c16cc2f8406"
+  },
+  "archived_inputs": [
+    {
+      "path": "catalog.log",
+      "original_sha256": "3e62facbf66abf0c73cdc9b1a27d223196c296ab9f0a4cbfbb07adcb2048130d",
+      "normalization": "UTF-8/LF; local account and repository paths replaced"
+    },
+    {
+      "path": "cleanup.ps1",
+      "original_sha256": "78d2e7e150bdbd29a7cbb01f324cdd0e4a4e2a4d5fdce7dca2cdaced04737269",
+      "normalization": "UTF-8/LF; local account and repository paths replaced"
+    },
+    {
+      "path": "flow-result.json",
+      "original_sha256": "951a4d531ed9ed9448f03c499a730e1ab3dfe3022a72c7af5e0b4df13dfb8909",
+      "normalization": "UTF-8/LF; local account and repository paths replaced"
+    },
+    {
+      "path": "flow.ps1",
+      "original_sha256": "1ee9efa1948b4cd571573c2897d01a2755f85bbf2c3e222f2fd740ce90fd9c9e",
+      "normalization": "UTF-8/LF; local account and repository paths replaced"
+    },
+    {
+      "path": "go-race.log",
+      "original_sha256": "a5d9944aac0e8b9bf74ac0c8bbbed553cd3b1cfb9b76e90e38ce76e17ab915c9",
+      "normalization": "UTF-8/LF; local account and repository paths replaced"
+    },
+    {
+      "path": "go-test.log",
+      "original_sha256": "1cbccc93bafeae6ea410c4cb7b4498da3fa46f4c160af326b106245fd1b0e251",
+      "normalization": "UTF-8/LF; local account and repository paths replaced"
+    },
+    {
+      "path": "go-vet.log",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "normalization": "UTF-8/LF; local account and repository paths replaced"
+    },
+    {
+      "path": "green-01-fixed.log",
+      "original_sha256": "f9e57df70700cc238d4f488f8abf19856969d5a025d4aa1f10b55cdf149b1c66",
+      "normalization": "UTF-8/LF; local account and repository paths replaced"
+    },
+    {
+      "path": "green-01.log",
+      "original_sha256": "fd8e63a13b783cd5ccce5e7192d24018e2cd68af6b98d398be8dc79b810f9e2f",
+      "normalization": "UTF-8/LF; local account and repository paths replaced"
+    },
+    {
+      "path": "green-02.log",
+      "original_sha256": "405c3141ff8f5efc76e94ffbd6b3fca89ca730cf84fe4c75957c510820fd1dcd",
+      "normalization": "UTF-8/LF; local account and repository paths replaced"
+    },
+    {
+      "path": "green-03.log",
+      "original_sha256": "bf63d8f82c4f9595bb35109a66fdb35003577b82ec4a8a800bbe0f258e6cbf70",
+      "normalization": "UTF-8/LF; local account and repository paths replaced"
+    },
+    {
+      "path": "mod-verify.log",
+      "original_sha256": "b4537ed75f533f993f371954de47e42a793b8e5b0587577de7e27fb3e50696bd",
+      "normalization": "UTF-8/LF; local account and repository paths replaced"
+    },
+    {
+      "path": "native-cleanup.log",
+      "original_sha256": "9c882532473c3dc0350acc3a814e706d6814e5ed69cb4d01265a23428b2689c9",
+      "normalization": "UTF-8/LF; local account and repository paths replaced"
+    },
+    {
+      "path": "native-driver-start.log",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "normalization": "UTF-8/LF; local account and repository paths replaced"
+    },
+    {
+      "path": "native-flow.log",
+      "original_sha256": "0372e2b3c1b051fbb93bf2f489573097663e3377a1d68b1db301ea8cc7b3345a",
+      "normalization": "UTF-8/LF; local account and repository paths replaced"
+    },
+    {
+      "path": "native-setup.log",
+      "original_sha256": "3c0327348225aef6075aacce2399cbf5d051178c1bfaa812984454e501d1068a",
+      "normalization": "UTF-8/LF; local account and repository paths replaced"
+    },
+    {
+      "path": "receipt.json",
+      "original_sha256": "6067884bdce8efaad63cc7a34ac2afefbd0689b484a7c431b4da31696668e5ac",
+      "normalization": "UTF-8/LF; local account and repository paths replaced"
+    },
+    {
+      "path": "red-01.log",
+      "original_sha256": "9bdbaef4a09d972c17fae8199d2ff60a941eea18326a2761ee37f8eae12ce685",
+      "normalization": "UTF-8/LF; local account and repository paths replaced"
+    },
+    {
+      "path": "red-02.log",
+      "original_sha256": "a10555ed273411835e8db4ff6bada048263a3aada1cb6b5d99cee180a4130379",
+      "normalization": "UTF-8/LF; local account and repository paths replaced"
+    },
+    {
+      "path": "red-03.log",
+      "original_sha256": "a33a005a7777682ada59c3b9775dfbcc600fcc7d044cd746ce4d70d1fd548c0d",
+      "normalization": "UTF-8/LF; local account and repository paths replaced"
+    },
+    {
+      "path": "responsive-driver.ps1",
+      "original_sha256": "747b80accd5898151eac913ad462e76e18fc3d3048247749cc467094b38032c6",
+      "normalization": "UTF-8/LF; local account and repository paths replaced"
+    },
+    {
+      "path": "setup.ps1",
+      "original_sha256": "fa201c717150205df6193151bcaa5354a23e8d2e2f3d2c8c0cfebf29a51b88f5",
+      "normalization": "UTF-8/LF; local account and repository paths replaced"
+    },
+    {
+      "path": "source-limits.log",
+      "original_sha256": "cd968af2e2a36b7b2224a66edf651b2396cbf82f744ea46ef87b96920d88366d",
+      "normalization": "UTF-8/LF; local account and repository paths replaced"
+    },
+    {
+      "path": "start-driver.ps1",
+      "original_sha256": "f7251b20ebc523645ce5861c3d7a9525eb8f4fd521d55e54cf92b60fa55fa2d9",
+      "normalization": "UTF-8/LF; local account and repository paths replaced"
+    },
+    {
+      "path": "ui-tests.log",
+      "original_sha256": "a737050423af24af27a4a71fb314a8c7267d3e847112ae1196202dc2fbff8bd1",
+      "normalization": "UTF-8/LF; local account and repository paths replaced"
+    },
+    {
+      "path": "stacked-public.png",
+      "original_sha256": "898e7b76e8b99db5946e2a86943d3a70dd0487f5df43a6dd90788d3029ad9fb1",
+      "normalization": "none; original production capture"
+    },
+    {
+      "path": "single-list-public.png",
+      "original_sha256": "58eb144fbfc44e6394936ea2f6b5be32043af852fd74843a7d9d52aaca3ad0c1",
+      "normalization": "none; original production capture"
+    },
+    {
+      "path": "narrow-terminal-public.png",
+      "original_sha256": "a9dbae9e9793e0b04e40cbe70164b4da33d6df9b0af79beb6d4678d16a4b5a5a",
+      "normalization": "none; original production capture"
+    },
+    {
+      "path": "very-narrow-terminal-public.png",
+      "original_sha256": "3d94a81d47f8657159bf6e844e09bc1a2887085d3b10437a7420b6c223595447",
+      "normalization": "none; original production capture"
+    }
+  ]
+}

@@ -70,3 +70,5 @@ ASMGR 与 AoE 本轮没有迁入源码。psmux / tmux 作为外部程序，仅�
 Bubbles 2.2.2 textinput 通过模块使用，未复制组件源码。v2 表单使用真实光标并将样式覆盖到 design tokens；runewidth、uniseg 及 clipboard 的传递依赖变化见 TECH_STACK。上游只作为固定来源，不使用其 v1 依赖，也不以这次迁入声明完整视觉还原。
 
 2026-11-23：`workspace_split.go` 从相同固定提交的 `split_config.go` 选择性改编百分比夹取、5% 调整、鼠标 X 到比例的向下取整、2 列抓取容差与短暂反馈。数值经 design_tokens.go，v2 事件串接和单一提示计时器为本地改造；仅管理焦点截获比例键，终端操作符保持原样。比例只存当前 UI 内存，未迁入上游隐式写 config.toml；这是与原体验的明确差异，延续本项目当前配置只读边界。原始哈希和新目标文件已加入机器清单。
+
+2026-11-23：`workspace_view.go` 继续从已记账的同一 `home_view_frame.go`／`split_config.go` 改编上下与单列管理布局、百分比与列表高度下限；Tab 终端焦点保持展开，原生框额外保留 3 行内容。断点与尺寸全部经 design tokens；没有新增来源或依赖，未声称迁入所有内嵌状态分支。见[实际报告](testing/results/2026-11-23-workspace-responsive.md)。

@@ -33,6 +33,7 @@ type dialogTokens struct {
 }
 
 type workspaceTokens struct {
+	minTerminalRows                                                  int
 	sidebarPercent, compactPercent, minPane, tabPadding, maxTabWidth int
 	splitStep, minSplitPercent, maxSplitPercent, dividerGrabSlop     int
 	splitNoticeDuration                                              time.Duration
@@ -54,7 +55,7 @@ type markTokens struct{ rule, divider, selected, ellipsis, menuDot, above, below
 func defaultDesignTokens() designTokens {
 	return designTokens{
 		dialog:    dialogTokens{preferredWidth: 84, minWidth: 44, gutter: 10, paddingX: 4, paddingY: 1, titleGap: 1, fieldGap: 1, dimBackdrop: true, cursorShape: tea.CursorBar, cursorBlink: true},
-		workspace: workspaceTokens{sidebarPercent: 35, compactPercent: 18, minPane: 8, tabPadding: 1, maxTabWidth: 32, splitStep: 5, minSplitPercent: 10, maxSplitPercent: 90, dividerGrabSlop: 2, splitNoticeDuration: 1500 * time.Millisecond, border: lipgloss.RoundedBorder()},
+		workspace: workspaceTokens{sidebarPercent: 35, compactPercent: 18, minPane: 8, tabPadding: 1, maxTabWidth: 32, splitStep: 5, minSplitPercent: 10, maxSplitPercent: 90, dividerGrabSlop: 2, minTerminalRows: 3, splitNoticeDuration: 1500 * time.Millisecond, border: lipgloss.RoundedBorder()},
 		colors: palette{
 			bg: lipgloss.Color("#1a1b26"), surface: lipgloss.Color("#24283b"),
 			border: lipgloss.Color("#414868"), text: lipgloss.Color("#c0caf5"),

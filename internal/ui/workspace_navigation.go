@@ -40,5 +40,9 @@ func (m *Model) refreshWorkspace() tea.Cmd {
 	if w == nil || w.conn == nil || w.busy || w.pending > 0 || w.transition != workspaceIdle || m.attaching || m.history.open || m.help || m.launch != nil {
 		return nil
 	}
+	g := m.workspaceGeometry()
+	if g.width < 1 || g.height < 1 {
+		return nil
+	}
 	return m.workspaceWrite(workspaceInput{kind: "refresh"})
 }

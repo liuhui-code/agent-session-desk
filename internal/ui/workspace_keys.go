@@ -19,6 +19,10 @@ func (m *Model) workspaceKey(msg tea.KeyPressMsg) tea.Cmd {
 		}
 	}
 	if msg.Code == tea.KeyF6 && msg.Mod == 0 {
+		if w.transition == workspaceSwitch {
+			m.status = "正在切换 Tab；完成后可改变输入焦点"
+			return nil
+		}
 		if len(w.tabs) == 0 || w.err != nil {
 			w.focused = false
 			m.status = ""

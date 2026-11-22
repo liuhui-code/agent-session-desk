@@ -63,3 +63,5 @@ Test design now lives in docs/testing/. Read TEST_STRATEGY.md, COVERAGE.md, and 
 - UI 样式 100% 由 design tokens 管理：颜色、粗细、间距、装饰符与响应式尺寸统一定义在 `internal/ui/design_tokens.go`；`styles.go` 仅组合 token，视图不得新增独立样式数值。单元格对齐、数组下标与固定结构行数不是设计值。新增 UI 必须沿用该入口并验证渲染边界。
 
 M1 follow-up: ADR-0010 adds first pane-exit observations and transactional metadata v1→v2 migration. psmux 3.4.0 hardcodes pane_dead_status/signal/time to zero; never treat it as an exit code. Pane observation time is not process exit time, and shell/pane liveness never proves the child agent state.
+
+The 2026-11-23 responsive Tab follow-up restores stacked/single-list management layouts while terminal focus expands the native input area. Native desktop evidence is limited to observed 63/49 columns and one ordinary shell; deterministic model tests separately cover hidden Tab switching and buffered input ownership. See docs/testing/results/2026-11-23-workspace-responsive.md. Full upstream parity, IME, child mouse/scrollback, resource budgets and real-agent gates remain open.

@@ -1,0 +1,5 @@
+# github.com/<LOCAL_TEST_USER>-code/agent-session-desk/internal/ui [github.com/<LOCAL_TEST_USER>-code/agent-session-desk/internal/ui.test]
+internal/ui/design_tokens.go:57:190: unknown field minTerminalRows in struct literal of type workspaceTokens
+internal/ui/workspace_view.go:35:57: t.workspace.minTerminalRows undefined (type workspaceTokens has no field or method minTerminalRows)
+FAIL	github.com/<LOCAL_TEST_USER>-code/agent-session-desk/internal/ui [build failed]
+FAIL

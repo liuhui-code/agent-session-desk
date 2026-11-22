@@ -14,7 +14,7 @@ import (
 	"charm.land/lipgloss/v2"
 )
 
-type workspaceGeometry struct{ x, y, width, height, left, outerWidth, bodyHeight int }
+type workspaceGeometry struct{ x, y, width, height, left, outerWidth, bodyHeight, above, terminalHeight int }
 
 func (m *Model) workspaceGeometry() workspaceGeometry {
 	t := m.tokens
@@ -30,10 +30,23 @@ func (m *Model) workspaceGeometry() workspaceGeometry {
 	}
 	outer := max(0, m.width-left-gap)
 	style := m.styles.terminalFrame
+	above, terminalHeight := 0, bodyHeight
+	minList := t.layout.headingRows + t.layout.stackedListMin
+	minFrame := style.GetVerticalFrameSize() + t.workspace.minTerminalRows
+	if m.width < t.layout.stackedBelow && !m.workspace.focused {
+		above, terminalHeight = bodyHeight, 0
+		if m.width >= t.layout.singleBelow && bodyHeight >= minList+t.layout.stackedGap+minFrame {
+			listHeight := max(minList, bodyHeight*m.workspaceSidebarPercent()/100)
+			listHeight = min(listHeight, bodyHeight-t.layout.stackedGap-minFrame)
+			above = listHeight + t.layout.stackedGap
+			terminalHeight = bodyHeight - above
+		}
+	}
+
 	return workspaceGeometry{
-		x: left + gap + style.GetBorderLeftSize(), y: 2 + t.layout.frameGap + style.GetBorderTopSize(),
-		width: max(0, outer-style.GetHorizontalFrameSize()), height: max(0, bodyHeight-style.GetVerticalFrameSize()),
-		left: left, outerWidth: outer, bodyHeight: bodyHeight,
+		x: left + gap + style.GetBorderLeftSize(), y: 2 + t.layout.frameGap + above + style.GetBorderTopSize(),
+		width: max(0, outer-style.GetHorizontalFrameSize()), height: max(0, terminalHeight-style.GetVerticalFrameSize()),
+		left: left, outerWidth: outer, bodyHeight: bodyHeight, above: above, terminalHeight: terminalHeight,
 	}
 }
 
@@ -68,7 +81,7 @@ func (m *Model) renderWorkspace() string {
 	if w.focused {
 		frameStyle = m.styles.terminalFocused
 	}
-	right := frameStyle.Width(g.outerWidth).Height(g.bodyHeight).Render(content)
+	right := frameStyle.Width(g.outerWidth).Height(g.terminalHeight).Render(content)
 	body := right
 	if g.left > 0 {
 		left := m.renderPanelTitle("会话", g.left) + "\n" + m.renderSessionList(g.left, max(0, g.bodyHeight-m.tokens.layout.headingRows))
@@ -78,6 +91,17 @@ func (m *Model) renderWorkspace() string {
 		}
 		separator := separatorStyle.Render(m.tokens.divider())
 		body = lipgloss.JoinHorizontal(lipgloss.Top, fitFrame(left, g.left, g.bodyHeight), strings.TrimSuffix(strings.Repeat(separator+"\n", g.bodyHeight), "\n"), right)
+	}
+	if g.above > 0 {
+		listHeight := g.above
+		if g.terminalHeight > 0 {
+			listHeight -= m.tokens.layout.stackedGap
+		}
+		list := m.renderPanelTitle("会话", m.width) + "\n" + m.renderSessionList(m.width, max(0, listHeight-m.tokens.layout.headingRows))
+		body = fitFrame(list, m.width, listHeight)
+		if g.terminalHeight > 0 {
+			body += strings.Repeat("\n", m.tokens.layout.stackedGap+1) + right
+		}
 	}
 	footer := m.styles.dim.Render("终端模式 · F6 管理 · Ctrl+PgUp/PgDn 切换 Tab")
 	if !w.focused {

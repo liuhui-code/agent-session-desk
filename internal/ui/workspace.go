@@ -320,7 +320,11 @@ func (m *Model) activateWorkspaceNow(index int) tea.Cmd {
 			break
 		}
 	}
-	return m.connectWorkspace()
+	cmd := m.connectWorkspace()
+	if !w.busy {
+		w.transition = workspaceIdle
+	}
+	return cmd
 }
 
 func (m *Model) activateWorkspace(index int) tea.Cmd {
