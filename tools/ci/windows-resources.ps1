@@ -17,6 +17,7 @@ if (-not $IsWindows) { throw 'Resource evidence must be collected on native Wind
 if ($WarmupSeconds + $SampleSeconds -gt 20) { throw 'The 25-second fixture load needs at least five seconds of control/staggering margin.' }
 . (Join-Path $PSScriptRoot 'windows-process-metrics.ps1')
 . (Join-Path $PSScriptRoot 'windows-resource-process.ps1')
+. (Join-Path $PSScriptRoot 'windows-resource-ui.ps1')
 . (Join-Path $PSScriptRoot 'windows-fixture-journal.ps1')
 $repo = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '../..'))
 $evidence = [IO.Path]::GetFullPath($EvidenceDirectory)
@@ -244,48 +245,6 @@ function Check-Backend {
     Write-Event 'backend-registry' @{ scenario = $Case.id; phase = $Phase; records = $registry }
 }
 
-function Start-Manager {
-    param([object]$Case)
-    $Case.ui_sequence++
-    $Case.ui_name = 'ui' + $Case.ui_sequence
-    $launch = @('new-session', '-d', '-s', $Case.ui_name, '-x', '120', '-y', '32', '--', $binaries.product, '--backend', $binaries.backend, '--runtime-dir', $Case.runtime, '--namespace', $Case.namespace)
-    $null = Invoke-Mux $Case $launch -Driver
-    $pane = (Invoke-Mux $Case @('list-panes', '-t', $Case.ui_name, '-F', '#{pane_id}') -Driver).Trim()
-    if ($pane -notmatch '^%\d+$') { throw 'Driver must contain one known original pane.' }
-    $Case.ui_target = $Case.ui_name + ':.' + $pane
-    $warm = (Invoke-Mux $Case @('show-options', '-t', $Case.ui_name, '-g', '-v', 'warm') -Driver).Trim()
-    $pool = (Invoke-Mux $Case @('show-options', '-t', $Case.ui_name, '-g', '-v', 'warm-pool-size') -Driver).Trim()
-    if ($warm -ne 'off' -or $pool -ne '0') { throw "Driver warm configuration differs: warm=$warm pool=$pool" }
-    $ready = [Diagnostics.Stopwatch]::StartNew()
-    do {
-        $screen = Invoke-Mux $Case @('capture-pane', '-t', $Case.ui_target, '-p') -Driver
-        if ($screen -match 'Agent Session Desk' -and ($Case.count -eq 0 -or $screen -match 'session-00')) {
-            $screen | Set-Content -Encoding utf8 (Join-Path $evidence "$($Case.id)-ui-$($Case.ui_sequence).txt")
-            $snapshot = Read-Snapshot $Case.id 'ui-ready' $Case.count
-            $manager = @($snapshot.processes | Where-Object { $_.executable_path -eq $binaries.product })
-            if ($manager.Count -ne 1) { throw 'TUI screen appeared without one live manager identity.' }
-            $Case.ui_identity = $manager[0]
-            Write-Event 'ui-started' @{ scenario = $Case.id; identity = $Case.ui_identity; width = 120; height = 32 }
-            return
-        }
-        Start-Sleep -Milliseconds 250
-    } while ($ready.Elapsed.TotalSeconds -lt 20)
-    $screen | Set-Content -Encoding utf8 (Join-Path $evidence "$($Case.id)-ui-failed.txt")
-    throw 'Normal TUI did not render a session list in its driver ConPTY.'
-}
-
-function Stop-Manager {
-    param([object]$Case)
-    $null = Invoke-Mux $Case @('send-keys', '-t', $Case.ui_target, '-l', 'q') -Driver
-    $key = "$($Case.ui_identity.process_id):$($Case.ui_identity.creation_filetime)"
-    if (-not $script:held.ContainsKey($key)) { throw 'Missing retained TUI identity handle.' }
-    if (-not $script:held[$key].process.WaitForExit(15000)) { throw 'TUI did not exit normally after q.' }
-    Write-Event 'ui-exited-after-q' @{ scenario = $Case.id; identity = $Case.ui_identity; exit_code = $script:held[$key].process.ExitCode }
-    if ($script:held[$key].process.ExitCode -ne 0) { throw 'TUI exited with a failure status.' }
-    $null = Invoke-Mux $Case @('kill-session', '-t', $Case.ui_name) -Driver
-    $Case.ui_target = $null
-}
-
 function Start-Load {
     param([object]$Case, [object[]]$Fixtures)
     $loads = @()
@@ -313,7 +272,7 @@ function Complete-Load {
         if ($done.status -ne 'completed' -or $done.lines_written -lt 2000 -or $done.bytes_written -ne $done.lines_written * 256) {
             throw 'Output generator did not complete its bounded declared workload.'
         }
-        if ([DateTime]::Parse($done.finished_utc).ToUniversalTime() -lt $windowEnd) { throw 'Output ended before sampling window completed.' }
+        if ((Get-AsdFixtureFinishedUtc $done) -lt $windowEnd) { throw 'Output ended before sampling window completed.' }
         Write-Event 'load-observed' @{ scenario = $Case.id; phase = $Phase; report = [IO.Path]::GetFileName($load.fixture.report); start = $load.started; finish = $done }
         # The report is written before stdout under the same fixture lock. A
         # subsequent input observation proves it passed that completed write.

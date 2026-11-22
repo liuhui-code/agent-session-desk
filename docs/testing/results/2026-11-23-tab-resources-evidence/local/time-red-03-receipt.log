@@ -1,0 +1,21 @@
+pwsh.exe : [31;1mException: [0mC:\Users\<WINDOWS_TEST_USER>\asd-acceptance-20261122\tab-resources-20261123\test-windows-fixt
+ure-journal.ps1:30
+所在位置 行:5 字符: 1
++ & $pwsh -NoLogo -NoProfile -File (Join-Path $root 'test-windows-fixtu ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([31;1mExceptio...-journal.ps1:30:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+[36;1mLine |[0m
+[36;1m[36;1m  30 | [0m         [36;1mthrow 'Fixture UTC finish instant lost its timezone or fracti[0m …
+[36;1m     | [31;1m         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[36;1m[31;1m[31;1m[36;1m     | [31;1mFixture UTC finish instant lost its timezone or fractional seconds after JSON
+ decoding.[0m
+[36;1m[31;1m[31;1m[36;1m[31;1m[0m
+
+{
+    "phase":  "time-red-03",
+    "test_exit_code":  1,
+    "expected_exit_code":  1,
+    "pwsh_sha256":  "F2833E07A5A7D59153FFC63DB83BD6B62F6C63FFD8B5B5099A2FEADF6B605336"
+}

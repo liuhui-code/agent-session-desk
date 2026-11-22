@@ -133,3 +133,5 @@ Tab 窄窗口管理已恢复[上下／单列布局](docs/testing/results/2026-11
 当前 Windows 10／Microsoft 拼音组合下，Tab 终端与创建表单的[真实候选、确认和取消](docs/testing/results/2026-11-23-ime-composition.md)已有局部实机证据；候选确认不提交 shell 命令。其他输入法、切换键与候选中焦点切换仍待验证。
 
 Tab 终端支持[原生历史滚动](docs/testing/results/2026-11-23-workspace-scroll.md)：终端区域滚轮浏览，Esc／q 返回原草稿，向下到末尾恢复实时输出；列表区域滚轮只选择会话。基础普通 shell 已实测，完整选择复制与目标应用鼠标另待验证。
+
+当前 Tab 的[资源复测](docs/testing/results/2026-11-23-tab-resources.md)仍未通过：UTC 覆盖误判已修复，但测量用 ConPTY 的 F6 输入边界尚未定位，第三轮完成 5 个登记阶段后安全失败，未盲发 q。旧列表 UI 的资源结果不替代新 Tab；新 0／1／5／10 基线、预算与长稳继续开放。

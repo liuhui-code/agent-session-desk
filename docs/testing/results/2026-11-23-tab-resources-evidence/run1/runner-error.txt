@@ -1,0 +1,7 @@
+test-windows-process-metrics.ps1: C:\Users\<WINDOWS_TEST_USER>\asd-acceptance-20261122\tab-resources-20261123\run-resource.ps1:9
+Line |
+   9 |   & $File @Arguments *> (Join-Path $root ($Name+'.log'))
+     |   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | A positional parameter cannot be found that accepts argument 'C:\Users\<WINDOWS_TEST_USER>\asd-acceptance-20261122\tab-resources-20261123\process-metrics-results.json'.
+
+

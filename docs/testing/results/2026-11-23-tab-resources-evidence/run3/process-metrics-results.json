@@ -1,0 +1,344 @@
+{
+  "schema_version": 1,
+  "powershell": "7.7.0",
+  "host_platform": "Microsoft Windows 10.0.19045",
+  "helper_sha256": "8e58a9688d67905f0dc25660f573fd781caa2d2f6747ff9b52000fccd9bb07a5",
+  "fixture_sha256": "57566974b2805f8e4ffa0fb228102f881effd194a22b5b595593b4f7f7597f40",
+  "pure_graph_cases": 15,
+  "path_key_cases": 54,
+  "platform_guard_exercised": false,
+  "passed": 69,
+  "scope": "Pure synthetic process ownership and lexical Windows path equivalence; non-Windows guard where applicable. No Windows metrics executed.",
+  "cases": [
+    {
+      "name": "nearest_image_root_and_foreign_console_isolation",
+      "result": "pass"
+    },
+    {
+      "name": "reused_parent_pid_created_after_child",
+      "result": "pass"
+    },
+    {
+      "name": "absent_remembered_parent_cannot_own_new_child",
+      "result": "pass"
+    },
+    {
+      "name": "exact_previous_child_survives_parent_exit",
+      "result": "pass"
+    },
+    {
+      "name": "previous_pid_reuse_is_rejected",
+      "result": "pass"
+    },
+    {
+      "name": "previous_image_change_is_rejected",
+      "result": "pass"
+    },
+    {
+      "name": "explicit_identity_overrides_image_role",
+      "result": "pass"
+    },
+    {
+      "name": "stale_explicit_root_does_not_override_current_image",
+      "result": "pass"
+    },
+    {
+      "name": "same_image_explicit_direct_fixture_role",
+      "result": "pass"
+    },
+    {
+      "name": "invalid_ancestry_cycle",
+      "result": "pass"
+    },
+    {
+      "name": "same_timestamp_distinct_parent_child",
+      "result": "pass"
+    },
+    {
+      "name": "previous_console_anchor_keeps_descendant_owner_role",
+      "result": "pass"
+    },
+    {
+      "name": "empty_graph_keeps_array_shape",
+      "result": "pass"
+    },
+    {
+      "name": "numeric_filetime_rejected",
+      "result": "pass"
+    },
+    {
+      "name": "current_server_root_reclassifies_remembered_console",
+      "result": "pass"
+    },
+    {
+      "name": "observed_cim_extended_dos_conhost",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "ordinary_dos_case_folding",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "ordinary_forward_slash_compatibility",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "extended_dos_unicode_and_internal_spaces",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "extended_dos_dotfile_component",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "extended_current_directory_segment",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "extended_parent_directory_segment",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "extended_empty_middle_component",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "extended_empty_component_after_drive",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "extended_trailing_empty_component",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "extended_drive_only_empty_tail",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "extended_file_trailing_dot",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "extended_directory_trailing_dot",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "extended_file_trailing_space",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "extended_directory_trailing_space",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "extended_forward_slash_at_drive",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "extended_forward_slash_in_component",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "extended_unc_not_mapped",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "win32_device_prefix_not_mapped",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "globalroot_device_not_mapped",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "native_device_not_mapped",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "nt_object_manager_prefix_not_mapped",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "volume_guid_not_mapped",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "extended_drive_relative_not_mapped",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "ordinary_drive_relative_not_resolved",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "ordinary_root_relative_not_resolved",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "extended_nonletter_drive_not_mapped",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "extended_ads_not_mapped",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "extended_reserved_device_1",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "extended_reserved_device_2",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "extended_reserved_device_3",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "extended_reserved_device_4",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "extended_reserved_device_5",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "extended_reserved_device_6",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "extended_reserved_device_7",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "extended_reserved_device_8",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "extended_reserved_device_9",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "extended_reserved_device_10",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "extended_reserved_device_11",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "extended_reserved_device_12",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "extended_reserved_device_13",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "extended_reserved_device_14",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "extended_reserved_device_15",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "extended_reserved_device_16",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "extended_reserved_device_17",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "extended_illegal_less_than",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "extended_illegal_greater_than",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "extended_illegal_quote",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "extended_illegal_pipe",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "extended_illegal_question",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "extended_illegal_star",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "extended_illegal_nul",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "extended_illegal_tab",
+      "result": "pass",
+      "category": "path_key"
+    },
+    {
+      "name": "extended_illegal_control_31",
+      "result": "pass",
+      "category": "path_key"
+    }
+  ]
+}

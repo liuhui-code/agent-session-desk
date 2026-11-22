@@ -1,0 +1,6 @@
+{
+  "file": "tools/ci/test-windows-resource-ui.ps1",
+  "tested_sha256": "96e92e4f722e5e3f9bc0ada80e25aec188f6b50f0a974b2d764bebec16d52c0d",
+  "committed_sha256": "cd44723c5b355f27efaa24d6da09235c17c822a8b405c153a6155ebaeee829cd",
+  "change": "Removed one trailing space on pure regression test line 48. Native tested source bytes remain archived unchanged in sources/. No behavior changed."
+}

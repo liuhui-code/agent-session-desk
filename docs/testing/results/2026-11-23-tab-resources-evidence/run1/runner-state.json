@@ -1,0 +1,10 @@
+{
+  "filetime": "134398478446310862",
+  "completed_utc": "2026-11-22T19:04:05.7979660Z",
+  "error": "test-windows-process-metrics.ps1: C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\tab-resources-20261123\\run-resource.ps1:9\r\nLine |\r\n   9 |   & $File @Arguments *> (Join-Path $root ($Name+'.log'))\r\n     |   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n     | A positional parameter cannot be found that accepts argument 'C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\tab-resources-20261123\\process-metrics-results.json'.\r\n\r\n",
+  "source_commit": "921b67013ac779e5f9d847e796d32acfb22e264a",
+  "pid": 1044,
+  "started_utc": "2026-11-22T19:04:05.3073298Z",
+  "status": "failed",
+  "path": "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe"
+}

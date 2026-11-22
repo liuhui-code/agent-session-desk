@@ -20,6 +20,15 @@ try {
     $writer.Flush()
     $records = @(Get-AsdFixtureJournal $path)
     if ($records.Count -ne 2 -or $records[1].text -cne '中文') { throw 'Appended UTF-8 record was not read exactly.' }
+    $finish = [Text.Encoding]::UTF8.GetBytes('{"event":"load-finished","finished_utc":"2026-11-22T19:07:43.6999814Z"}' + "`n")
+    $writer.Write($finish, 0, $finish.Length)
+    $writer.Flush()
+    $records = @(Get-AsdFixtureJournal $path)
+    $expectedUtc = [DateTime]::new(2026, 11, 22, 19, 7, 43, [DateTimeKind]::Utc).AddTicks(6999814)
+    $actualUtc = Get-AsdFixtureFinishedUtc $records[2]
+    if ($actualUtc.Kind -ne [DateTimeKind]::Utc -or $actualUtc.Ticks -ne $expectedUtc.Ticks) {
+        throw 'Fixture UTC finish instant lost its timezone or fractional seconds after JSON decoding.'
+    }
     $invalid = [Text.Encoding]::UTF8.GetBytes("invalid-json`n")
     $writer.Write($invalid, 0, $invalid.Length)
     $writer.Flush()

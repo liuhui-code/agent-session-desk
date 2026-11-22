@@ -1,0 +1,11 @@
+Resource UI stop routing and footer guards passed. Pure simulated driver only; no native counters or TUI executed.
+pwsh.exe : [31;1mtest-windows-resource-ui.ps1: [31;1mThe term 'Test-AsdResourceUIReady' is not recognized as a name o
+f a cmdlet, function, script file, or executable program.[0m
+所在位置 行:6 字符: 1
++ & $pwsh -NoLogo -NoProfile -File (Join-Path $base 'test-windows-resou ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([31;1mtest-win...le program.[0m:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+[31;1m[31;1mCheck the spelling of the name, or if a path was included, verify that the path is correct and try again.
+[0m

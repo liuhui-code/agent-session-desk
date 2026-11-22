@@ -20,3 +20,14 @@ function Get-AsdFixtureJournal {
     # A concurrent partial last record is retried by the caller. Malformed
     # completed records must still throw instead of silently disappearing.
 }
+
+function Get-AsdFixtureFinishedUtc {
+    param([Parameter(Mandatory = $true)][object]$Record)
+    # PowerShell 7 JSON decoding already preserves the fixture's trailing Z.
+    # Reparsing a DateTime first stringifies it, losing Kind and sub-seconds.
+    $value = $Record.finished_utc
+    if ($value -isnot [DateTime] -or $value.Kind -ne [DateTimeKind]::Utc) {
+        throw 'Fixture finish time must be a decoded UTC DateTime.'
+    }
+    return $value
+}

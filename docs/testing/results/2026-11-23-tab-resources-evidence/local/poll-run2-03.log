@@ -1,0 +1,22 @@
+{
+    "runner_identity_matches":  false,
+    "runner_state":  {
+                         "started_utc":  "2026-11-22T19:06:26.2778207Z",
+                         "pid":  8520,
+                         "filetime":  "134398479855706332",
+                         "completed_utc":  "2026-11-22T19:07:44.2439216Z",
+                         "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                         "source_commit":  "921b67013ac779e5f9d847e796d32acfb22e264a",
+                         "error":  "Exception: C:\\Users\\<WINDOWS_TEST_USER>\\asdr-1123\\tools\\ci\\windows-resources.ps1:458\r\nLine |\r\n 458 |  if ($null -ne $failure) { throw $failure }\r\n     |                            ~~~~~~~~~~~~~~\r\n     | Output ended before sampling window completed.\r\n\r\n",
+                         "status":  "failed"
+                     },
+    "task_result":  1,
+    "observed_utc":  "2026-11-22T19:08:49.0231850Z",
+    "runner_alive":  false,
+    "task_state":  "Ready",
+    "latest_resource_output":  [
+                                   "Resource baseline: managed-1 / idle",
+                                   "Resource baseline: managed-1 / selected-output",
+                                   "Resource baseline failed: Output ended before sampling window completed."
+                               ]
+}

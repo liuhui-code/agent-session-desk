@@ -1,0 +1,12 @@
+pwsh.exe : [31;1mException: [0mC:\Users\<WINDOWS_TEST_USER>\asd-acceptance-20261122\windows-resource-ui.ps1:37
+所在位置 行:6 字符: 1
++ & $pwsh -NoLogo -NoProfile -File (Join-Path $base 'test-windows-resou ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([31;1mExceptio...ource-ui.ps1:37:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+[36;1mLine |[0m
+[36;1m[36;1m  37 | [0m … ss.WaitForExit(15000)) { [36;1mthrow 'TUI did not exit normally after q.'[0m }
+[36;1m     | [31;1m                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[36;1m[31;1m[31;1m[36;1m     | [31;1mTUI did not exit normally after q.[0m
+[36;1m[31;1m[31;1m[36;1m[31;1m[0m

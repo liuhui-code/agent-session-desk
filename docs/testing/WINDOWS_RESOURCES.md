@@ -11,6 +11,7 @@ $psmux = ./tools/ci/install-psmux.ps1
 ./tools/ci/windows.ps1 -PsmuxBinary $psmux
 ./tools/ci/test-windows-process-metrics.ps1
 ./tools/ci/test-windows-fixture-journal.ps1
+./tools/ci/test-windows-resource-ui.ps1
 ./tools/ci/windows-resources.ps1 -PsmuxBinary $psmux
 python -B tools/ci/summarize_resources.py build/ci-windows/resources
 ```
@@ -28,7 +29,7 @@ GitHub Verify 工作流在普通测试及五项原生后端合同后执行本流
 | 选中会话输出 | 1 / 5 / 10 | `session-00` 为默认选中会话，其他会话空闲 |
 | 全部会话输出 | 5 / 10；1 会话与上一阶段等价 | 每个 fixture 的真实计数与负载开始/结束时间 |
 | 输出后空闲 | 1 / 5 / 10 | 后端保留历史后的占用，不称为已达到稳定上限 |
-| 退出、重开 TUI | 每档都执行 | `q` 正常退出；原 Session/Run 与 fixture 保留；重新显示列表 |
+| 退出、重开 TUI | 每档都执行 | 先确认管理焦点再 `q` 正常退出；原 Session/Run 与 fixture 保留；重开原 Tab |
 | 直接运行 1 / 5 / 10 个 fixture | 空闲及全部输出 | stdin 管道控制，stdout/stderr 异步排空到 NUL；**不是相同终端条件** |
 | 正常清理 | 每档完成后 | 精确产品 stop；已归属进程身份消失；强制兜底单独记录为失败 |
 
@@ -64,3 +65,13 @@ CIM 与进程句柄可能分别报告扩展 DOS 路径和普通绝对路径。�
 - [Microsoft Process.TotalProcessorTime](https://learn.microsoft.com/en-us/dotnet/api/system.diagnostics.process.totalprocessortime)
 - [Win32_Process](https://learn.microsoft.com/en-us/windows/win32/cimwin32prov/win32-process)、[CIM_DATETIME](https://learn.microsoft.com/en-us/windows/win32/wmisdk/cim-datetime)、[GetProcessTimes](https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-getprocesstimes)
 - [psmux 3.4.0 session registry](https://github.com/psmux/psmux/blob/20aa1d7254ee93f64dafa059ef89341d9767470a/src/session.rs)、[实际选项](https://github.com/psmux/psmux/blob/20aa1d7254ee93f64dafa059ef89341d9767470a/src/server/options.rs)
+
+## 当前 Tab 路径的脚手架（2026-11-23）
+
+`windows-resource-ui.ps1` 独立管理 UI 的启动／退出。零会话必须先出现管理焦点；非零会话必须出现正常 Tab／终端页脚且不处连接／不可交互提示，再经正常 TUI 输入路径向已知受控 fixture 提交一次 `resource-ui-ready-N`。独立 fixture journal 只收到一次对应标记后才开始采样；缺确认不重试输入。这只是测试 fixture 合同，不能作为通用 agent 就绪判断。
+
+退出先读最后一个非空页脚；终端／复制模式只发送一次 F6，观察管理页脚后才发送 q。已在管理模式直接 q；未知焦点拒绝发送退出文字。不能对新 Tab 界面沿用旧列表模式的盲发 q，也不以直接杀管理器代替正常退出证据。失败时仍保留原有严格身份兜底与失败记录。
+
+产品运行／元数据继续隔离在每档专有 runtime-dir，不新增用户全局配置。采样和归属算法未因 Tab 改变，短窗口及缺测口径也不变；新工具代码或 CI 步骤存在不等于新资源结果，实际运行仍须另存精确报告。
+
+fixture 的 `finished_utc` 必须经 PowerShell 7 JSON 解码得到 UTC `DateTime`；直接保留其 Kind 与小数秒，拒绝不明时区。不得先将已解码时间隐式转成字符串再 `DateTime.Parse`：这会丢失 UTC 与精度，并在非 UTC 主机上错误移动采样覆盖边界。[官方 JSON 时间规则](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/convertfrom-json?view=powershell-7.7#notes)说明了默认解码行为；未借此新增 7.5 的 `-DateKind` 依赖。回归通过实际共享 journal 读回固定 UTC 时间，要求准确到原 ticks；负载覆盖与计数校验保持不变。

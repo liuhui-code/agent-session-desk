@@ -1,0 +1,22 @@
+{
+    "runner_identity_matches":  false,
+    "runner_state":  {
+                         "pid":  15408,
+                         "completed_utc":  "2026-11-22T19:17:41.6479068Z",
+                         "source_commit":  "921b67013ac779e5f9d847e796d32acfb22e264a",
+                         "status":  "failed",
+                         "started_utc":  "2026-11-22T19:16:03.4440606Z",
+                         "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                         "filetime":  "134398485627400292",
+                         "error":  "Exception: C:\\Users\\<WINDOWS_TEST_USER>\\asdr-1123\\tools\\ci\\windows-resources.ps1:458\r\nLine |\r\n 458 |  if ($null -ne $failure) { throw $failure }\r\n     |                            ~~~~~~~~~~~~~~\r\n     | Resource UI did not confirm management focus after F6; q was not sent.\r\n\r\n"
+                     },
+    "task_result":  1,
+    "observed_utc":  "2026-11-22T19:18:24.6385123Z",
+    "runner_alive":  false,
+    "task_state":  "Ready",
+    "latest_resource_output":  [
+                                   "Resource baseline: managed-1 / selected-output",
+                                   "Resource baseline: managed-1 / recovery-idle",
+                                   "Resource baseline failed: Resource UI did not confirm management focus after F6; q was not sent."
+                               ]
+}

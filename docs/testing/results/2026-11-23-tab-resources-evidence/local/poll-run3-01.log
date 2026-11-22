@@ -1,0 +1,19 @@
+{
+    "runner_identity_matches":  true,
+    "runner_state":  {
+                         "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                         "status":  "running",
+                         "started_utc":  "2026-11-22T19:16:03.4440606Z",
+                         "source_commit":  "921b67013ac779e5f9d847e796d32acfb22e264a",
+                         "filetime":  "134398485627400292",
+                         "pid":  15408
+                     },
+    "task_result":  267009,
+    "observed_utc":  "2026-11-22T19:16:27.3158321Z",
+    "runner_alive":  true,
+    "task_state":  "Running",
+    "latest_resource_output":  [
+                                   "Resource baseline: managed-0 / idle",
+                                   "Resource baseline: managed-0 / ui-closed"
+                               ]
+}

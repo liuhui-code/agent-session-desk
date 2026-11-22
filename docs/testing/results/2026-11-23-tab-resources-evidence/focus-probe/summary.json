@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "commit": "921b67013ac779e5f9d847e796d32acfb22e264a",
+  "completed_utc": "2026-11-22T19:20:59.4241053Z",
+  "result": "fail",
+  "failure": "Diagnostic native F6 did not confirm management focus.",
+  "elapsed_ms": 4824.7386,
+  "sample_count": 2,
+  "windows_caption": "Microsoft Windows 10 家庭版",
+  "windows_version": "10.0.19045",
+  "image_os": null,
+  "image_version": null,
+  "total_visible_memory_kib": 16659688,
+  "whole_machine_counters_collected": false,
+  "logical_processors": 4,
+  "powershell": "7.7.0",
+  "binary_sha256": {
+    "backend": "bbe825a30f7cddc91b043084049143a381aba5f7e9e36e4d0bb587e296d262ca",
+    "direct": "107f94c3e886ef26c32cd4f4e1fa14cc22bbe3163510d74b847e4239dc41bbb1",
+    "driver": "bbe825a30f7cddc91b043084049143a381aba5f7e9e36e4d0bb587e296d262ca",
+    "product": "3ea19887436c4f803e988d64186e54762b86d5879132686023b5d13e7f0d15b4",
+    "managed": "107f94c3e886ef26c32cd4f4e1fa14cc22bbe3163510d74b847e4239dc41bbb1"
+  },
+  "warmup_seconds": 3,
+  "sample_seconds": 12,
+  "target_interval_ms": 1000,
+  "load": {
+    "lines_per_second": 100,
+    "duration_ms": 25000,
+    "output_only_stdout": true,
+    "line_bytes": 256
+  },
+  "terminal": {
+    "history_limit": 2000,
+    "width": 120,
+    "interactive_windows_terminal": false,
+    "height": 32,
+    "host": "separate measurement-only psmux ConPTY"
+  },
+  "scenarios": [
+    {
+      "id": "managed-1",
+      "mode": "managed",
+      "count": 1,
+      "namespace": "asd-res-8d8f81bcba77",
+      "sessions": [
+        {
+          "session_id": "207f5386015e4a90353fb81912794191",
+          "run_id": "6206c066a4c9df78e3052e819bd880e2",
+          "backend_id": "asd_207f5386015e4a90353fb81912794191_6206c066a4c9df78e3052e819bd880e2",
+          "title": "session-00",
+          "command": "C:\\Users\\<WINDOWS_TEST_USER>\\asdr-1123\\build\\resource-runtime-43d9aa7241a94a58a1e46c82e64ce6ff\\bin\\managed\\asd-fixture.exe",
+          "terminal_state": "available"
+        }
+      ],
+      "selected_session": "207f5386015e4a90353fb81912794191",
+      "fixture_reports": [
+        "managed-1-fixture-0.jsonl"
+      ]
+    }
+  ],
+  "phases": [],
+  "cleanup": [],
+  "limitations": [
+    "Short baseline only: no performance budget, long-soak, leak-free, real-agent or Windows desktop acceptance.",
+    "One-second live-process snapshots miss short-lived clients; observed CPU is a lower bound, not complete process-lifetime CPU.",
+    "Working-set sums may double-count shared pages; private bytes are private committed memory, not physical residency.",
+    "Driver/sampler resources are separate; shared WMI-provider overhead and driver interference cannot be subtracted away.",
+    "Direct fixtures write to drained pipes; their output path is not equivalent to a terminal/ConPTY baseline.",
+    "An unobserved or unassignable console helper is a coverage gap, not proof of zero auxiliary processes.",
+    "Retained handles protect owned-image cleanup from PID reuse; exited handles are released at the next observation. This scaffolding can affect kernel/sampler cost."
+  ]
+}

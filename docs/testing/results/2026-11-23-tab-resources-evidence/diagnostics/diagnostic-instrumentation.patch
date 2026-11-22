@@ -1,0 +1,54 @@
+--- a/internal/ui/model.go
++++ b/internal/ui/model.go
+@@ -116,6 +116,7 @@
+ }
+ 
+ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
++	diagnosticKeys(msg)
+ 	if m.closed {
+ 		return m, nil
+ 	}
+--- a/internal/ui/diagnostic_keys.go
++++ b/internal/ui/diagnostic_keys.go
+@@ -0,0 +1,18 @@
++package ui
++
++import (
++ "fmt"
++ "os"
++ "strings"
++ "time"
++ tea "charm.land/bubbletea/v2"
++)
++
++func diagnosticKeys(msg tea.Msg) {
++ f, err := os.OpenFile(os.Getenv("ASD_DIAGNOSTIC_KEYS"), os.O_WRONLY|os.O_CREATE|os.O_APPEND, 0600)
++ if err != nil { return }; defer f.Close()
++ kind := fmt.Sprintf("%T", msg)
++ fmt.Fprintf(f, "[DEBUG-asd-f6] %s %s", time.Now().UTC().Format(time.RFC3339Nano), kind)
++ if strings.Contains(kind, "Key") || strings.Contains(kind,"Unknown") { fmt.Fprintf(f, " %#v", msg) }
++ fmt.Fprintln(f)
++}
+--- a/ultraviolet/terminal_reader_windows.go
++++ b/ultraviolet/terminal_reader_windows.go
+@@ -7,6 +7,7 @@
+ 	"bytes"
+ 	"context"
+ 	"fmt"
++ "os"
+ 	"strings"
+ 	"time"
+ 	"unicode/utf16"
+@@ -80,6 +81,12 @@
+ 		switch record.EventType {
+ 		case xwindows.KEY_EVENT:
+ 			kevent := record.KeyEvent()
++            if path := os.Getenv("ASD_DIAGNOSTIC_KEYS"); path != "" {
++                if f, err := os.OpenFile(path, os.O_WRONLY|os.O_CREATE|os.O_APPEND, 0600); err == nil {
++                    fmt.Fprintf(f, "[DEBUG-asd-f6-record] vt=%v vk=%d scan=%d char=%d down=%v flags=%d repeat=%d\n", d.vtInput, kevent.VirtualKeyCode, kevent.VirtualScanCode, kevent.Char, kevent.KeyDown, kevent.ControlKeyState, kevent.RepeatCount)
++                    f.Close()
++                }
++            }
+ 			// d.logf("key event: %s", keyEventString(kevent.VirtualKeyCode, kevent.VirtualScanCode, kevent.Char, kevent.KeyDown, kevent.ControlKeyState, kevent.RepeatCount))
+ 
+ 			var kd int

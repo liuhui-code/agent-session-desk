@@ -1,0 +1,23 @@
+{
+  "runner_identity_matches": true,
+  "runner_state": {
+    "source_commit": "921b67013ac779e5f9d847e796d32acfb22e264a",
+    "status": "running",
+    "path": "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+    "filetime": "134398479855706332",
+    "pid": 8520,
+    "started_utc": "2026-11-22T19:06:26.2778207Z"
+  },
+  "task_result": 267009,
+  "observed_utc": "2026-11-22T19:07:06.4606322Z",
+  "runner_alive": true,
+  "task_state": "Running",
+  "latest_resource_output": [
+    "Resource baseline: managed-0 / idle",
+    "Resource baseline: managed-0 / ui-closed",
+    "Resource baseline: managed-1 / idle"
+  ],
+  "capture_note": "Original observer accidentally serialized Get-Content provider metadata; retained only intended task/identity/stage fields.",
+  "original_capture_sha256": "89f70db3da67939860e5d2bc302895b7271cd4e0a8f1818a7b1104237799b0e7",
+  "original_capture_bytes": 13713227
+}

@@ -1,0 +1,7 @@
+Exception: C:\Users\<WINDOWS_TEST_USER>\asdr-1123\tools\ci\windows-resources.ps1:458
+Line |
+ 458 |  if ($null -ne $failure) { throw $failure }
+     |                            ~~~~~~~~~~~~~~
+     | Output ended before sampling window completed.
+
+

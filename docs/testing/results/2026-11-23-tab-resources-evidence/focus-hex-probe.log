@@ -1,0 +1,13 @@
+Resource baseline failed: Hex F6 did not confirm management focus.
+pwsh.exe : [31;1mException: [0mC:\Users\<WINDOWS_TEST_USER>\asdr-1123\tools\ci\resource-focus-hex-probe.ps1:442
+所在位置 行:10 字符: 1
++ & (Join-Path $base 'pwsh7/pwsh.exe') -NoLogo -NoProfile -File (Join-P ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([31;1mExceptio...x-probe.ps1:442:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+[36;1mLine |[0m
+[36;1m[36;1m 442 | [0m if ($null -ne $failure) { [36;1mthrow $failure[0m }
+[36;1m     | [31;1m                           ~~~~~~~~~~~~~~[0m
+[36;1m[31;1m[31;1m[36;1m     | [31;1mHex F6 did not confirm management focus.[0m
+[36;1m[31;1m[31;1m[36;1m[31;1m[0m
