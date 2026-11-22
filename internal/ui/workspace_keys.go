@@ -3,6 +3,7 @@ package ui
 import (
 	tea "charm.land/bubbletea/v2"
 	"github.com/liuhui-code/agent-session-desk/internal/session"
+	"github.com/liuhui-code/agent-session-desk/internal/terminal"
 )
 
 func (m *Model) workspaceKey(msg tea.KeyPressMsg) tea.Cmd {
@@ -41,6 +42,14 @@ func (m *Model) workspaceKey(msg tea.KeyPressMsg) tea.Cmd {
 		return cmd
 	}
 	switch msg.String() {
+	case "v":
+		if _, ok := w.conn.(terminal.CopyModeConnection); !ok || w.busy || w.err != nil || w.transition != workspaceIdle {
+			m.status = "当前终端尚不可进入选择／搜索"
+			return nil
+		}
+		w.focused = true
+		m.status = ""
+		return tea.Batch(m.workspaceSize(), m.workspaceWrite(workspaceInput{kind: "copy-mode"}))
 	case "[", "]":
 		if len(w.tabs) > 0 {
 			destination := w.active - 1

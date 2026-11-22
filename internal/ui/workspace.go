@@ -32,6 +32,7 @@ const (
 )
 
 type workspaceState struct {
+	clipboardReading           bool
 	tabDrag                    workspaceTabDrag
 	listClick                  workspaceListClick
 	split                      workspaceSplit
@@ -70,6 +71,7 @@ type workspaceResized struct {
 }
 
 func (w *workspaceState) disconnect() {
+	w.clipboardReading = false
 	w.tabDrag = workspaceTabDrag{}
 	w.split.dragging = false
 	w.generation++
@@ -171,6 +173,9 @@ func (m *Model) readWorkspace() tea.Cmd {
 
 func (m *Model) workspaceEvent(msg tea.Msg) (tea.Cmd, bool) {
 	w := m.workspace
+	if cmd, handled := m.workspaceClipboardEvent(msg); handled {
+		return cmd, true
+	}
 	switch msg := msg.(type) {
 	case workspaceSplitTick:
 		return m.workspaceSplitExpired(), true
@@ -281,6 +286,7 @@ func (m *Model) workspaceEvent(msg tea.Msg) (tea.Cmd, bool) {
 			if m.launch == nil {
 				commands = append(commands, m.readWorkspace())
 			}
+			commands = append(commands, m.readWorkspaceClipboard())
 			for _, action := range buffered {
 				commands = append(commands, m.workspaceWrite(action))
 			}

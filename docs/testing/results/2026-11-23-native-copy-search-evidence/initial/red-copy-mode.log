@@ -1,0 +1,5 @@
+--- FAIL: TestPSMuxEnterCopyModeTargetsOriginalPaneWithoutTyping (0.00s)
+    copy_test.go:39: native terminal has no semantic copy-mode entry
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/terminal	1.165s
+FAIL

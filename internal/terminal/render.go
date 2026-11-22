@@ -12,6 +12,14 @@ import (
 // Render emits only text and generated SGR character attributes, never raw VT
 // received from the child. These attributes are terminal content, not UI chrome.
 func (s Screen) Render(width, height int) string {
+	return s.render(width, height, nil)
+}
+
+func (s Screen) RenderWithCopyStyles(width, height int, styles CopyStyles) string {
+	return s.render(width, height, &styles)
+}
+
+func (s Screen) render(width, height int, copyStyles *CopyStyles) string {
 	width = min(max(0, width), MaxWidth)
 	height = min(max(0, height), MaxHeight)
 	if width == 0 || height == 0 {
@@ -20,8 +28,18 @@ func (s Screen) Render(width, height int) string {
 	rows := make([]string, height)
 	for i := range rows {
 		var line strings.Builder
+		var roles []int
+		if copyStyles != nil && s.CopyMode {
+			roles = s.copyRowRoles(i, width)
+		}
 		if i < len(s.Rows) {
+			column := 0
 			for _, run := range s.Rows[i].Runs {
+				if roles != nil {
+					line.WriteString(paintCopyRun(run, column, roles, *copyStyles))
+					column += run.Width
+					continue
+				}
 				text := strings.Map(func(r rune) rune {
 					if unicode.IsControl(r) {
 						return -1
@@ -37,6 +55,11 @@ func (s Screen) Render(width, height int) string {
 					line.WriteString("\x1b[0m")
 				}
 			}
+			if roles != nil && column < width {
+				line.WriteString(paintCopyRun(Run{Text: strings.Repeat(" ", width-column), Width: width - column}, column, roles, *copyStyles))
+			}
+		} else if roles != nil {
+			line.WriteString(paintCopyRun(Run{Text: strings.Repeat(" ", width), Width: width}, 0, roles, *copyStyles))
 		}
 		row := ansi.Truncate(line.String(), width, "")
 		row += strings.Repeat(" ", max(0, width-ansi.StringWidth(row)))

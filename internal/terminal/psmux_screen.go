@@ -15,9 +15,13 @@ func (c *PSMux) readScreen() (Screen, error) {
 			continue
 		}
 		var frame struct {
-			Session string `json:"session_name"`
-			Status  string `json:"status_message"`
-			Layout  struct {
+			Clipboard    string `json:"clipboard_osc52"`
+			Session      string `json:"session_name"`
+			Status       string `json:"status_message"`
+			StatusLabel  *int   `json:"status_label"`
+			StatusCursor *int   `json:"status_cursor"`
+			Layout       struct {
+				nativeCopyDecoration
 				Type       string `json:"type"`
 				ID         int    `json:"id"`
 				Rows       int    `json:"rows"`
@@ -66,7 +70,12 @@ func (c *PSMux) readScreen() (Screen, error) {
 		// while wrap is pending. Display that one-past-column state on the last
 		// cell; larger columns and all out-of-range rows remain rejected.
 		offset := max(p.Offset, p.ViewOffset)
-		return Screen{Width: p.Cols, Height: p.Rows, Cursor: Cursor{min(p.CursorCol, p.Cols-1), p.CursorRow, !p.Hidden && !p.CopyMode && offset == 0, p.Shape}, Rows: p.Runs, AlternateScreen: p.Alternate, WantsMouse: p.Mouse, CopyMode: p.CopyMode, ScrollbackOffset: offset, Status: frame.Status}, nil
+		selection, copyCursor, highlights, err := p.nativeCopyDecoration.decode(p.CopyMode, p.Cols, p.Rows)
+		if err != nil {
+			return Screen{}, err
+		}
+		c.receiveClipboard(frame.Clipboard)
+		return Screen{Width: p.Cols, Height: p.Rows, Cursor: Cursor{min(p.CursorCol, p.Cols-1), p.CursorRow, !p.Hidden && !p.CopyMode && offset == 0, p.Shape}, Rows: p.Runs, AlternateScreen: p.Alternate, WantsMouse: p.Mouse, CopyMode: p.CopyMode, ScrollbackOffset: offset, Status: frame.Status, CopyPrompt: nativeCopyPrompt(p.CopyMode, frame.Status, frame.StatusLabel, frame.StatusCursor), Selection: selection, CopyCursor: copyCursor, CopyHighlights: highlights}, nil
 	}
 	if c.scanner.Err() != nil {
 		return Screen{}, errors.New("terminal stream read failed or exceeded frame limit")
@@ -75,3 +84,18 @@ func (c *PSMux) readScreen() (Screen, error) {
 }
 
 func validSize(w, h int) bool { return w > 0 && w <= MaxWidth && h > 0 && h <= MaxHeight }
+
+func nativeCopyPrompt(copyMode bool, text string, label, cursor *int) *CopyPrompt {
+	if !copyMode || label == nil || cursor == nil || len(text) > MaxInputBytes || *label < 0 || *cursor < *label || *cursor > len(text) {
+		return nil
+	}
+	if !utf8.ValidString(text[:*label]) || !utf8.ValidString(text[:*cursor]) {
+		return nil
+	}
+	for _, r := range text {
+		if unicode.IsControl(r) {
+			return nil
+		}
+	}
+	return &CopyPrompt{Text: text, LabelBytes: *label, CursorBytes: *cursor}
+}

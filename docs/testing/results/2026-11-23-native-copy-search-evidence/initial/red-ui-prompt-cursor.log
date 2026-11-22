@@ -1,0 +1,8 @@
+--- FAIL: TestWorkspaceNativeSearchPromptKeepsCursorAndUnicodeInputVisible (0.01s)
+    --- FAIL: TestWorkspaceNativeSearchPromptKeepsCursorAndUnicodeInputVisible/x (0.01s)
+        workspace_copy_test.go:156: native search cursor is not at the visible prompt: <nil>
+    --- FAIL: TestWorkspaceNativeSearchPromptKeepsCursorAndUnicodeInputVisible/\x1b (0.01s)
+        workspace_copy_test.go:156: native search cursor is not at the visible prompt: <nil>
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.814s
+FAIL

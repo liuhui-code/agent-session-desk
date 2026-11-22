@@ -1,0 +1,9 @@
+{
+  "go": "go version go1.27.4 darwin/amd64",
+  "target": "windows/amd64",
+  "identical_rebuilds": {
+    "copy-final-product.exe": "1dabf3003eae386e8b4a5f3ece1921d7770236c313c502c3482b24d937b81907",
+    "copy-final-ui-tests.exe": "36928d8297bb3c8c0926d6dbf0616373dedd63efd2c92bb76b66b7146866f09f",
+    "copy-final-terminal-tests.exe": "37758ad93a85837321bb1fcc46e3611f330d0fa4550d6e91931c1a0516079611"
+  }
+}

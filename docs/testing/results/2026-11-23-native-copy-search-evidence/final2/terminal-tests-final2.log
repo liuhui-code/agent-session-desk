@@ -1,0 +1,77 @@
+=== RUN   TestNativeSelectionPaintsWholeUnicodeGraphemesAndKeepsAttributes
+--- PASS: TestNativeSelectionPaintsWholeUnicodeGraphemesAndKeepsAttributes (0.00s)
+=== RUN   TestCopyHighlightsRespectSelectionPriorityAndGraphemeBoundaries
+=== RUN   TestCopyHighlightsRespectSelectionPriorityAndGraphemeBoundaries/中文
+=== RUN   TestCopyHighlightsRespectSelectionPriorityAndGraphemeBoundaries/éx
+=== RUN   TestCopyHighlightsRespectSelectionPriorityAndGraphemeBoundaries/👩\u200d💻
+--- PASS: TestCopyHighlightsRespectSelectionPriorityAndGraphemeBoundaries (0.00s)
+    --- PASS: TestCopyHighlightsRespectSelectionPriorityAndGraphemeBoundaries/中文 (0.00s)
+    --- PASS: TestCopyHighlightsRespectSelectionPriorityAndGraphemeBoundaries/éx (0.00s)
+    --- PASS: TestCopyHighlightsRespectSelectionPriorityAndGraphemeBoundaries/👩\u200d💻 (0.00s)
+=== RUN   TestPSMuxEnterCopyModeTargetsOriginalPaneWithoutTyping
+--- PASS: TestPSMuxEnterCopyModeTargetsOriginalPaneWithoutTyping (0.00s)
+=== RUN   TestPSMuxClipboardBoundsAndMalformedDataDoNotBreakScreen
+=== RUN   TestPSMuxClipboardBoundsAndMalformedDataDoNotBreakScreen/unicode
+=== RUN   TestPSMuxClipboardBoundsAndMalformedDataDoNotBreakScreen/at-limit
+=== RUN   TestPSMuxClipboardBoundsAndMalformedDataDoNotBreakScreen/over-limit
+=== RUN   TestPSMuxClipboardBoundsAndMalformedDataDoNotBreakScreen/query
+=== RUN   TestPSMuxClipboardBoundsAndMalformedDataDoNotBreakScreen/bad-base64
+=== RUN   TestPSMuxClipboardBoundsAndMalformedDataDoNotBreakScreen/invalid-utf8
+=== RUN   TestPSMuxClipboardBoundsAndMalformedDataDoNotBreakScreen/nul
+=== RUN   TestPSMuxClipboardBoundsAndMalformedDataDoNotBreakScreen/empty
+--- PASS: TestPSMuxClipboardBoundsAndMalformedDataDoNotBreakScreen (0.13s)
+    --- PASS: TestPSMuxClipboardBoundsAndMalformedDataDoNotBreakScreen/unicode (0.00s)
+    --- PASS: TestPSMuxClipboardBoundsAndMalformedDataDoNotBreakScreen/at-limit (0.00s)
+    --- PASS: TestPSMuxClipboardBoundsAndMalformedDataDoNotBreakScreen/over-limit (0.02s)
+    --- PASS: TestPSMuxClipboardBoundsAndMalformedDataDoNotBreakScreen/query (0.02s)
+    --- PASS: TestPSMuxClipboardBoundsAndMalformedDataDoNotBreakScreen/bad-base64 (0.02s)
+    --- PASS: TestPSMuxClipboardBoundsAndMalformedDataDoNotBreakScreen/invalid-utf8 (0.02s)
+    --- PASS: TestPSMuxClipboardBoundsAndMalformedDataDoNotBreakScreen/nul (0.02s)
+    --- PASS: TestPSMuxClipboardBoundsAndMalformedDataDoNotBreakScreen/empty (0.02s)
+=== RUN   TestPSMuxClipboardSurvivesScreenCoalescingAndKeepsLatest
+--- PASS: TestPSMuxClipboardSurvivesScreenCoalescingAndKeepsLatest (0.00s)
+=== RUN   TestPSMuxSearchPromptRetainsValidatedUTF8ByteCursor
+--- PASS: TestPSMuxSearchPromptRetainsValidatedUTF8ByteCursor (0.00s)
+=== RUN   TestPSMuxRetainsNativeSelectionAndSearchHighlights
+--- PASS: TestPSMuxRetainsNativeSelectionAndSearchHighlights (0.00s)
+=== RUN   TestPSMuxResizeCanHideStaleCopyCursorWithoutDiscardingSearch
+--- PASS: TestPSMuxResizeCanHideStaleCopyCursorWithoutDiscardingSearch (0.00s)
+=== RUN   TestPSMuxConnectionReadsExistingNativeScreen
+--- PASS: TestPSMuxConnectionReadsExistingNativeScreen (0.00s)
+=== RUN   TestPSMuxTextIsLiteralUTF8AndCannotBecomeAControlCommand
+--- PASS: TestPSMuxTextIsLiteralUTF8AndCannotBecomeAControlCommand (0.00s)
+=== RUN   TestPSMuxScreenUpdatesStayBoundedWhenViewIsSlow
+--- PASS: TestPSMuxScreenUpdatesStayBoundedWhenViewIsSlow (0.00s)
+=== RUN   TestPSMuxResizeChangesViewportWithoutInputOrRestart
+--- PASS: TestPSMuxResizeChangesViewportWithoutInputOrRestart (0.00s)
+=== RUN   TestPSMuxPasteDoesNotSubmitAndSpecialKeysRemainExplicit
+--- PASS: TestPSMuxPasteDoesNotSubmitAndSpecialKeysRemainExplicit (0.00s)
+=== RUN   TestPSMuxNativeStyleRunMaySpanTheWholeRow
+--- PASS: TestPSMuxNativeStyleRunMaySpanTheWholeRow (0.00s)
+=== RUN   TestPSMuxRejectsChangedIdentityAndUnsafeNativeFrames
+=== RUN   TestPSMuxRejectsChangedIdentityAndUnsafeNativeFrames/pane
+=== RUN   TestPSMuxRejectsChangedIdentityAndUnsafeNativeFrames/split
+=== RUN   TestPSMuxRejectsChangedIdentityAndUnsafeNativeFrames/control_text
+=== RUN   TestPSMuxRejectsChangedIdentityAndUnsafeNativeFrames/row_overflow
+=== RUN   TestPSMuxRejectsChangedIdentityAndUnsafeNativeFrames/cursor_outside
+=== RUN   TestPSMuxRejectsChangedIdentityAndUnsafeNativeFrames/cursor_row_outside
+=== RUN   TestPSMuxRejectsChangedIdentityAndUnsafeNativeFrames/session
+--- PASS: TestPSMuxRejectsChangedIdentityAndUnsafeNativeFrames (0.00s)
+    --- PASS: TestPSMuxRejectsChangedIdentityAndUnsafeNativeFrames/pane (0.00s)
+    --- PASS: TestPSMuxRejectsChangedIdentityAndUnsafeNativeFrames/split (0.00s)
+    --- PASS: TestPSMuxRejectsChangedIdentityAndUnsafeNativeFrames/control_text (0.00s)
+    --- PASS: TestPSMuxRejectsChangedIdentityAndUnsafeNativeFrames/row_overflow (0.00s)
+    --- PASS: TestPSMuxRejectsChangedIdentityAndUnsafeNativeFrames/cursor_outside (0.00s)
+    --- PASS: TestPSMuxRejectsChangedIdentityAndUnsafeNativeFrames/cursor_row_outside (0.00s)
+    --- PASS: TestPSMuxRejectsChangedIdentityAndUnsafeNativeFrames/session (0.00s)
+=== RUN   TestPSMuxRefreshGetsScreenWithoutResizingOrWritingInput
+--- PASS: TestPSMuxRefreshGetsScreenWithoutResizingOrWritingInput (0.00s)
+=== RUN   TestPSMuxRightMarginPendingWrapKeepsCursorInsideViewport
+--- PASS: TestPSMuxRightMarginPendingWrapKeepsCursorInsideViewport (0.00s)
+=== RUN   TestNativeScreenRenderingKeepsCellStylesAndViewport
+--- PASS: TestNativeScreenRenderingKeepsCellStylesAndViewport (0.00s)
+=== RUN   TestPSMuxScrollTargetsOriginalPaneWithoutTextOrArrowKeys
+--- PASS: TestPSMuxScrollTargetsOriginalPaneWithoutTextOrArrowKeys (0.00s)
+=== RUN   TestPSMuxCopyModeHidesLiveCursorAndCarriesOffset
+--- PASS: TestPSMuxCopyModeHidesLiveCursorAndCarriesOffset (0.00s)
+PASS

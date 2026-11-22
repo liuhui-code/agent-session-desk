@@ -1,0 +1,5 @@
+--- FAIL: TestPSMuxClipboardSurvivesScreenCoalescingAndKeepsLatest (0.00s)
+    copy_test.go:80: clipboard selections disappear with the coalesced screen
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/terminal	0.854s
+FAIL

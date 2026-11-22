@@ -242,6 +242,7 @@ func (m *Model) renderHelp(height int) string {
 			"F6 切换管理／终端焦点；Ctrl+PgUp/PgDn 切 Tab。\n" +
 			"管理模式：↑↓ 选择，Enter 打开，n 新建，x 关闭视图。\n" +
 			"拖动 Tab 标题排序；管理模式 [ / ] 左右移动活动 Tab。\n" +
+			"管理 v 进入原生选择／搜索；空格选择、Enter 复制、/ 搜索。\n" +
 			"关闭 Tab 或退出管理器不会停止运行实例。\n" +
 			"S 侧栏设置；←→/空格即时保存，Esc/S 返回。\n" +
 			"h 只读历史；r 重查连接；a 辅助全屏进入。\n" +

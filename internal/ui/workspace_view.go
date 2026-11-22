@@ -77,12 +77,12 @@ func (m *Model) renderWorkspace() string {
 		content = m.styles.dim.Render("正在连接原终端…")
 	case w.err != nil:
 		if w.screen.Width > 0 && w.screen.Height > 0 {
-			content = w.screen.Render(g.width, g.height)
+			content = w.screen.RenderWithCopyStyles(g.width, g.height, m.styles.copy)
 		} else {
 			content = m.styles.error.Render("终端不可交互：" + label(w.err.Error()))
 		}
 	default:
-		content = w.screen.Render(g.width, g.height)
+		content = w.screen.RenderWithCopyStyles(g.width, g.height, m.styles.copy)
 	}
 	content = fitFrame(content, g.width, g.height)
 	frameStyle := m.styles.terminalFrame
@@ -112,7 +112,7 @@ func (m *Model) renderWorkspace() string {
 	if !w.focused {
 		footer = m.styles.dim.Render(m.workspaceFooterText(false))
 	} else if w.screen.CopyMode {
-		text := fmt.Sprintf("滚动历史 · %d 行 · Esc/q 返回 · ↑↓/PgUp/PgDn 浏览", w.screen.ScrollbackOffset)
+		text := fmt.Sprintf("滚动历史 · %d 行 · 空格选择 · Enter 复制 · / 搜索 · Esc/q 返回", w.screen.ScrollbackOffset)
 		if w.screen.Status != "" {
 			text = "滚动历史 · " + label(w.screen.Status)
 		}
@@ -130,6 +130,9 @@ func (m *Model) renderWorkspace() string {
 	if w.err != nil && w.screen.Width > 0 && w.screen.Height > 0 {
 		footer = m.styles.error.Render("只读：上次观察屏幕；连接不可用，r 重查。" + label(w.err.Error()))
 	}
+	if text, cursor := m.workspaceCopyPrompt(); cursor != nil {
+		footer = m.styles.dim.Render(text)
+	}
 	footerRows := footer
 	if t := m.tokens.workspace; t.footerRuleRows > 0 {
 		rule := m.styles.separator.Render(strings.Repeat(m.tokens.marks.rule, m.width))
@@ -141,11 +144,20 @@ func (m *Model) renderWorkspace() string {
 
 func (m *Model) workspaceCursor() *tea.Cursor {
 	w := m.workspace
-	if !w.focused || w.conn == nil || w.err != nil || !w.screen.Cursor.Visible {
+	if _, cursor := m.workspaceCopyPrompt(); cursor != nil {
+		return cursor
+	}
+	if !w.focused || w.conn == nil || w.err != nil {
 		return nil
 	}
 	g := m.workspaceGeometry()
 	native := w.screen.Cursor
+	if w.screen.CopyMode && w.screen.CopyCursor != nil {
+		native = *w.screen.CopyCursor
+	}
+	if !native.Visible {
+		return nil
+	}
 	if native.X < 0 || native.X >= g.width || native.Y < 0 || native.Y >= g.height {
 		return nil
 	}
@@ -157,6 +169,9 @@ func (m *Model) workspaceCursor() *tea.Cursor {
 		cursor.Shape = tea.CursorBar
 	}
 	cursor.Blink = native.Shape == 0 || native.Shape%2 == 1
+	if w.screen.CopyMode {
+		cursor.Shape, cursor.Blink = m.tokens.copy.cursorShape, m.tokens.copy.cursorBlink
+	}
 	return cursor
 }
 

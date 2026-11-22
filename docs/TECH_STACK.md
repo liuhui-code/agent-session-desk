@@ -109,3 +109,5 @@ M0 已有“列表/预览 → 自定义命令 → 全屏 attach → 返回”的
 2026-11-22 补充：UI 样式统一由类型化 design tokens 管理，当前默认值与组件角色入口见 [ADR-0008](adr/0008-ui-design-tokens.md)。
 
 2026-11-23 依赖变化：Bubbles 2.2.2 为正式发布，但其模块要求使 MVS 选中 `github.com/mattn/go-runewidth v0.0.31`、`github.com/rivo/uniseg v0.4.8-0.20261110175422-3a370411ca06`，并加入 `github.com/atotto/clipboard v0.1.4`。uniseg 是精确锁定的预发布提交，不能称为稳定发行；不据此更改主框架稳定版本策略。表单使用真实光标并覆盖组件样式至 design tokens；应用本身不主动读取剪贴板，接收外层终端的粘贴事件。实际测试见[Tab 工作区报告](testing/results/2026-11-23-tab-workspaces.md)。
+
+2026-11-23 原生复制／搜索：[ADR-0018](adr/0018-native-copy-search-and-host-clipboard.md) 沿用已锁定的 v2 SetClipboard／Sequence 和 x/ansi grapheme 渲染，解析固定 psmux 的受限复制元数据；没有新增或升级生产依赖，也不直接执行原始 VT。OSC52 已发与实际保存分开，应用不主动读取用户剪贴板。

@@ -21,20 +21,21 @@ type PSMuxOptions struct {
 // PSMux is an adapter to the pinned 3.4.0 native client's persistent protocol.
 // psmux still owns the pseudoconsole, parser, scrollback and child lifetime.
 type PSMux struct {
-	writeMu sync.Mutex
-	conn    net.Conn
-	scanner *bufio.Scanner
-	options PSMuxOptions
-	frames  chan Screen
-	done    chan struct{}
-	errMu   sync.Mutex
-	err     error
-	once    sync.Once
-	stop    func() bool
+	writeMu   sync.Mutex
+	conn      net.Conn
+	scanner   *bufio.Scanner
+	options   PSMuxOptions
+	frames    chan Screen
+	clipboard chan string
+	done      chan struct{}
+	errMu     sync.Mutex
+	err       error
+	once      sync.Once
+	stop      func() bool
 }
 
 func OpenPSMux(ctx context.Context, conn net.Conn, opts PSMuxOptions) (*PSMux, error) {
-	c := &PSMux{conn: conn, options: opts, frames: make(chan Screen, 1), done: make(chan struct{})}
+	c := &PSMux{conn: conn, options: opts, frames: make(chan Screen, 1), clipboard: make(chan string, 1), done: make(chan struct{})}
 	if !validSize(opts.Width, opts.Height) || opts.Pane < 0 || opts.Session == "" || strings.ContainsAny(opts.Key, "\r\n") || opts.Key == "" {
 		_ = conn.Close()
 		return nil, errors.New("invalid persistent terminal options")

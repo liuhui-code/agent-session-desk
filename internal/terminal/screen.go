@@ -17,6 +17,31 @@ type Screen struct {
 	CopyMode                    bool
 	ScrollbackOffset            uint64
 	Status                      string
+	CopyPrompt                  *CopyPrompt
+	Selection                   *Selection
+	CopyCursor                  *Cursor
+	CopyHighlights              []CopyHighlight
+}
+
+type Selection struct {
+	StartRow, StartCol, EndRow, EndCol int
+	Mode                               string
+}
+
+type CopyHighlight struct{ Row, Start, End, Kind int }
+
+// CopyStyles contains generated character attributes for native copy metadata.
+// The application supplies its token-owned styles; source VT is never executed.
+type CopyStyles struct {
+	Selection  Run
+	Highlights [4]Run
+}
+
+// CopyPrompt offsets are UTF-8 byte positions reported by the native server,
+// not terminal cells. Renderers convert them only after boundary validation.
+type CopyPrompt struct {
+	Text                    string
+	LabelBytes, CursorBytes int
 }
 
 type Cursor struct {

@@ -1,0 +1,24 @@
+{
+  "psmux_commit": "20aa1d7254ee93f64dafa059ef89341d9767470a",
+  "reference_only_no_rust_copied": true,
+  "psmux_source_sha256": {
+    "src/server/connection.rs": "bdc00f141140cb9de613ef6f829abfaf84180f9c654355c179377dacc0fed30d",
+    "src/server/mod.rs": "ae4cc7ed52f54a05472ceb2deaf76b577dbe4833a28f20e8aafc365ab5c07b8e",
+    "src/layout.rs": "d88357aac479348cd6cc1c6b40f85176e1d2e19198739f3f560ecbd097767814",
+    "src/client.rs": "ea8533eace46156d86e89e77e2454e6b403032d5ec54c68aae1bce907e9a5cc3",
+    "src/copy_mode.rs": "e71c1d3b728b17a32ef53ee4af595deefa464e3514c4a121fd32bfb8aa752106",
+    "src/input.rs": "34590d90d373831716a9b6d37b8f04dc25587f022f5fd2823ec8948b53602ecd",
+    "src/types.rs": "0150ea5ba3c639c2d9f5c017c94ff3c19d245738fd13359c634a08ca8b219e86"
+  },
+  "agent_deck_commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+  "agent_deck_sha256": {
+    "internal/ui/embedded_terminal.go": "76bd357e57468cddc4c960376941f0aa9e9f7220c56158837b98159b5c0dc453",
+    "internal/ui/pane_copy.go": "73042087f2e691b2c660c2f191815557816070af364f944cfb361efe8c2c83b3",
+    "LICENSE": "6fa5dbb300eb4e797d93bec53195c81bf6efa602eb5327f1c217090786e97c5d"
+  },
+  "locked_api_sha256": {
+    "charm.land/bubbletea/v2@v2.1.2/clipboard.go": "810a92552c8b8ef5ec1767dbe47a0e6461790e92aa82ef871f8b10a2e3fe2559",
+    "charm.land/bubbletea/v2@v2.1.2/commands.go": "4596762919aaa7e3979e807a9a17605e180e418849e132c6e6de792ed7dd639a",
+    "github.com/charmbracelet/x/ansi@v0.11.9/parser_decode.go": "5ce87b0333586453f158337e598614bc4e59f9d240d58cfa5691356ec76f18f8"
+  }
+}

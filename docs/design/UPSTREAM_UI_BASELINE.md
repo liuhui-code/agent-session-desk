@@ -35,3 +35,5 @@
 侧栏设置沿用固定 `settings_panel.go`／`hotkeys.go` 的 `S`、Full/Compact/Minimal/Auto 顺序、左右／h/l、空格即时保存与 Esc/S 返回；独立界面偏好避免写启动模板。即时保存和 Auto 的当前预算／串行写入、必要窄窗适配见[本轮报告](../testing/results/2026-11-23-sidebar-density-preferences.md)。
 
 实际运行补充（2026-11-23）：未修改的固定上游已在隔离 Darwin/tmux 环境产生真实帧；Windows 按相同尺寸、Consolas 12 与主题回放，对照真实前后产品。已修正零基第 2 行终端框、第 29/30/31 行页脚、设置外宽 66、新建外宽 86、普通／首次上下 padding 2／1。六帧逐行一致，两张 49 列末格缺口及编码失败保留，颜色／字重／交互仍需评审。具体画面、来源、流程和差异表见[实际对照报告](../testing/results/2026-11-23-upstream-visual-comparison.md)，不能提升为上游 Windows 或完整体验通过。
+
+原生选择／搜索补充（2026-11-23）：固定 Agent Deck 的终端复制请求转发语义由 [ADR-0018](../adr/0018-native-copy-search-and-host-clipboard.md) 接入；后端维护历史／选择／搜索，产品解析原生元数据、保留 Unicode 提示光标并输出受限 OSC52。没有迁入上游 VT 或新建终端历史。选区与命中默认沿用固定原生角色并由 tokens 管理；实际范围见[报告](../testing/results/2026-11-23-native-copy-search.md)，鼠标选择和上游 V 可见页复制仍待迁入。

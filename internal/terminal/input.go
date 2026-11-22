@@ -96,6 +96,10 @@ func (c *PSMux) Refresh(ctx context.Context) error {
 	return c.write(ctx, "dump-state\n")
 }
 
+func (c *PSMux) EnterCopyMode(ctx context.Context) error {
+	return c.write(ctx, fmt.Sprintf("copy-mode -t %%%d\ndump-state\n", c.options.Pane))
+}
+
 // Scroll delegates one wheel notch at pane-relative coordinates to psmux.
 // The server owns scrollback/copy mode and decides whether a child TUI instead
 // receives the wheel. It must never be approximated with Up/Down input keys.

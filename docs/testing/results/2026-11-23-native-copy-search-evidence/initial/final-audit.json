@@ -1,0 +1,50 @@
+{
+    "exact_test_images_alive":  0,
+    "result":  "passed",
+    "original_processes":  [
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                   "pid":  1560,
+                                   "filetime":  134398587323200943,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                   "pid":  16692,
+                                   "filetime":  134398587326007346,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               }
+                           ],
+    "utc":  "2026-11-22T22:07:33.0044520Z",
+    "binaries":  [
+                     {
+                         "sha256":  "42553049A770DF2E3800BB6A71F275F3954C0F3E44CDB0575D851542B451C7D9",
+                         "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\copy-product.exe"
+                     },
+                     {
+                         "sha256":  "BEFE9EC4ECC5CBAE4EC3DB61F42C31911F583A4BFAE4AF2E478CFE2C3F7250BF",
+                         "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\copy-ui-tests.exe"
+                     },
+                     {
+                         "sha256":  "337C583DB0B4B53C726A851933E3D3DF86C09E0D4812D14D68AD703E81293FC9",
+                         "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe"
+                     },
+                     {
+                         "sha256":  "BBE825A30F7CDDC91B043084049143A381ABA5F7E9E36E4D0BB587E296D262CA",
+                         "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\backend\\psmux.exe"
+                     },
+                     {
+                         "sha256":  "F2833E07A5A7D59153FFC63DB83BD6B62F6C63FFD8B5B5099A2FEADF6B605336",
+                         "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe"
+                     },
+                     {
+                         "sha256":  "B17E48B07EF153B420F0A6E178BACD31FB4C3390E21AE746586213FC0719A775",
+                         "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\OpenConsole.exe"
+                     }
+                 ],
+    "settings_restored":  "1499307ABEBA68C23F9EB38A4C636F81172475B6B2B535BC0B11DCD9547241F8",
+    "tasks_absent":  true,
+    "clipboard_restored":  true
+}

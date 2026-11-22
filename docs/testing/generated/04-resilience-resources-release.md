@@ -1927,7 +1927,7 @@
 
 - 功能：[FL-018](../COVERAGE.md#fl-018)
 - 需求：[FR-02](../COVERAGE.md#fr-02)、[FR-11](../COVERAGE.md#fr-11)
-- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0014](../../adr/0014-upstream-ui-tabs-and-general-terminals.md)、[ADR-0016](../../adr/0016-tab-workspaces-and-input-ownership.md)
+- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0014](../../adr/0014-upstream-ui-tabs-and-general-terminals.md)、[ADR-0016](../../adr/0016-tab-workspaces-and-input-ownership.md)、[ADR-0018](../../adr/0018-native-copy-search-and-host-clipboard.md)
 - 优先级 / 阶段 / 层次：P1 / M2 / manual
 - 类型：usability、compatibility、state
 - 设计 / 执行：`designed / not_run`
@@ -1947,6 +1947,7 @@
 2. 在 Tab 导航、按需表单与子终端间切换焦点，执行 A→B→A、重命名、排序、关闭／重新打开视图。
 3. 覆盖 IME、鼠标、Tab 键、方向键、Enter、Ctrl+C 和保留管理快捷键；最后显式停止目标。
 4. 用鼠标拖动可见 Tab，并在管理焦点用 [／] 移动活动 Tab；在终端验证同名字符；输入排空／切换期间再排序，释放／其他输入／resize 后不沿用旧手势。
+5. 管理 v 进入后端选择／搜索，验证空格／整行／Enter、/／? 和取消；观察中文长提示、原生选区／命中／复制光标，核对外层终端剪贴板中仅合成内容。
 
 #### 预期与不变量
 
@@ -1955,6 +1956,7 @@
 - 关闭 Tab 只关闭视图，重开接回存活 Run；显式停止单独操作。普通 shell 命令返回后仍可输入。
 - 旧全屏 attach 证据不能代替本能力；缺少真实 agent 时保留该样本待测。
 - 排序只改 View 顺序，活动连接、Session/Run 与切换目标不变，不自动提交；不同标题长度不让指针下槽位反复变化，边缘不循环。当前内存顺序与持久保存的实现状态分别记录。
+- 原草稿不因搜索／选择提交；复制事件与屏幕合并分离并有界，跨 Tab 在途提交串行，旧事件／重复完成不重开读取器。仅已发 OSC52 不标为系统已保存，不读取或回传用户剪贴板。
 
 #### 需要的证据
 

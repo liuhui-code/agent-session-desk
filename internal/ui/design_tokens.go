@@ -17,6 +17,7 @@ import (
 // there is no mutable global theme, file watcher or runtime theme format yet.
 // Zero/one in viewport algorithms are counts, not additional style choices.
 type designTokens struct {
+	copy      copyTokens
 	sidebar   sidebarTokens
 	dialog    dialogTokens
 	colors    palette
@@ -24,6 +25,12 @@ type designTokens struct {
 	layout    layoutTokens
 	marks     markTokens
 	bold      bool
+}
+
+type copyTokens struct {
+	foreground, selection, match, current, mark string
+	cursorShape                                 tea.CursorShape
+	cursorBlink                                 bool
 }
 
 type sidebarTokens struct {
@@ -66,6 +73,8 @@ type markTokens struct{ rule, divider, selected, ellipsis, menuDot, above, below
 
 func defaultDesignTokens() designTokens {
 	return designTokens{
+		// Pinned native copy-mode defaults; interpreted as character attributes.
+		copy:      copyTokens{foreground: "idx:0", selection: "idx:3", match: "idx:6", current: "idx:5", mark: "idx:1", cursorShape: tea.CursorBlock},
 		sidebar:   sidebarTokens{cardMinWidth: 28, cardRows: 2, fullRows: 3, selected: "▶ ", active: "┃ ", metadata: "  ╰ ", metadataMiddle: "  │ ", separator: " · ", settingsWidth: 66, settingsPaddingX: 2, settingsPaddingY: 1, radioGap: 2, radioMarker: ">", radioUnselected: " ", underlineChoice: true},
 		dialog:    dialogTokens{preferredWidth: 86, minWidth: 44, gutter: 10, paddingX: 4, paddingY: 2, firstPaddingY: 1, titleGap: 1, fieldGap: 1, dimBackdrop: true, cursorShape: tea.CursorBar, cursorBlink: true},
 		workspace: workspaceTokens{footerRuleRows: 1, footerBottomGapRows: 1, sidebarPercent: 35, compactPercent: 18, minPane: 8, tabPadding: 1, maxTabWidth: 32, splitStep: 5, minSplitPercent: 10, maxSplitPercent: 90, dividerGrabSlop: 2, minTerminalRows: 3, splitNoticeDuration: 1500 * time.Millisecond, doubleClickInterval: 500 * time.Millisecond, border: lipgloss.RoundedBorder()},

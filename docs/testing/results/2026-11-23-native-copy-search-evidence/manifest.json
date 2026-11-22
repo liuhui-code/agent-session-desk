@@ -1,0 +1,2647 @@
+{
+  "initial/setup.ps1": {
+    "original_sha256": "5043e6ba34e332881073a48d142f433e11e1711ad1ff0d75e98d28f2da83404c",
+    "archived_sha256": "5043e6ba34e332881073a48d142f433e11e1711ad1ff0d75e98d28f2da83404c",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/green-ui-prompt-cursor.log": {
+    "original_sha256": "0f83e597906ba2054111230a5e92b3917e3be30e30cbf65230213f4cab6c2e06",
+    "archived_sha256": "0f83e597906ba2054111230a5e92b3917e3be30e30cbf65230213f4cab6c2e06",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/native-cleanup.log": {
+    "original_sha256": "9d4c1e998b92842775568dddbd64ce3d532f9b136cda350f5c89ebbbe8ab8fc9",
+    "archived_sha256": "cd2264ff1e27aae49843bb0dd736502aa783c169201fda991681cc9783e756ec",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/red-cross-tab-copy-order.log": {
+    "original_sha256": "5eb57978e0e8a5ec3b32e5b95e542828355597f3f147de96a095e78b1e89c00c",
+    "archived_sha256": "5eb57978e0e8a5ec3b32e5b95e542828355597f3f147de96a095e78b1e89c00c",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/native-driver-start.log": {
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/green-cross-tab-copy-order.log": {
+    "original_sha256": "223d8acbe575751ebe9666f740552ff7283eda609269c7cd66480f673ec50812",
+    "archived_sha256": "223d8acbe575751ebe9666f740552ff7283eda609269c7cd66480f673ec50812",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/green-selection-render.log": {
+    "original_sha256": "58960a86ec997b6fbccf6f09eadfc433e77aa177768f674a29cdd78a92f831fc",
+    "archived_sha256": "58960a86ec997b6fbccf6f09eadfc433e77aa177768f674a29cdd78a92f831fc",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/copy-driver.ps1": {
+    "original_sha256": "7fdcfdd760fa8a13415df5561645356ed75b3ebf64e5554d00a75006b8581f0e",
+    "archived_sha256": "7fdcfdd760fa8a13415df5561645356ed75b3ebf64e5554d00a75006b8581f0e",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/sessions.json": {
+    "original_sha256": "e54a8a1b886112f02ab8a0752f671341b5e57e78df721065c4ac92b1e8035d66",
+    "archived_sha256": "8330971b67c49afd190054a6bbcee475ea9f4664ee69bbbced10a9f0c642aa26",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/ui-clipboard-diagnostic.log": {
+    "original_sha256": "98f63991caee4bc97483cbf2920398ee62796ed329b15686362662f30f871334",
+    "archived_sha256": "98f63991caee4bc97483cbf2920398ee62796ed329b15686362662f30f871334",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/go-vet.log": {
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/go-test.log": {
+    "original_sha256": "16330d05bcd65cd6767deddde3734c0ee59e0212953288088d692dc7cc59df14",
+    "archived_sha256": "16330d05bcd65cd6767deddde3734c0ee59e0212953288088d692dc7cc59df14",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/start-driver.ps1": {
+    "original_sha256": "1878e4effe1d28a4bd02f9eb299bcdfbb4693b923639b14ae6c54134fda2a9a9",
+    "archived_sha256": "1878e4effe1d28a4bd02f9eb299bcdfbb4693b923639b14ae6c54134fda2a9a9",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/red-copy-mode.log": {
+    "original_sha256": "f9535c34aedc0244991f72d55b747c132e8f3ee793ce619065f95b7d116fbc2a",
+    "archived_sha256": "f9535c34aedc0244991f72d55b747c132e8f3ee793ce619065f95b7d116fbc2a",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/source-before.json": {
+    "original_sha256": "313e948c4128b6c42b1c0cd9df116bf54884c0736cb056ae2f18a55d428a4735",
+    "archived_sha256": "313e948c4128b6c42b1c0cd9df116bf54884c0736cb056ae2f18a55d428a4735",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/red-copy-cursor.log": {
+    "original_sha256": "2cab8d4da26c80000e94232cecc0a6f6870d1dcdefa7492b02e83a68298dc6b8",
+    "archived_sha256": "2cab8d4da26c80000e94232cecc0a6f6870d1dcdefa7492b02e83a68298dc6b8",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/red-selection-render.log": {
+    "original_sha256": "ceb59c2fca1908d2fbc1d9206e5b8175abc15a2689d922697ccf017e3c8c068b",
+    "archived_sha256": "ceb59c2fca1908d2fbc1d9206e5b8175abc15a2689d922697ccf017e3c8c068b",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/flow.ps1": {
+    "original_sha256": "263ef96103f970345a0e3f6e6c9a4adb5f635bf8e06b2644b460170766d6b3da",
+    "archived_sha256": "263ef96103f970345a0e3f6e6c9a4adb5f635bf8e06b2644b460170766d6b3da",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/green-copy-mode.log": {
+    "original_sha256": "921df881992a892494e3967afa461f598458cb0e7f5464e578f51f76aaf45967",
+    "archived_sha256": "921df881992a892494e3967afa461f598458cb0e7f5464e578f51f76aaf45967",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/ui-tests.log": {
+    "original_sha256": "e465a3b2da4b33d08a4ad765a8fbf92439ae7b8af43bb8bc8095a634076dec06",
+    "archived_sha256": "db7f0af656d3992088bfe931cf9e0e4ca12b566c0e404d16cc007e5f8d3e9e8c",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/mod-verify.log": {
+    "original_sha256": "b4537ed75f533f993f371954de47e42a793b8e5b0587577de7e27fb3e50696bd",
+    "archived_sha256": "b4537ed75f533f993f371954de47e42a793b8e5b0587577de7e27fb3e50696bd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/red-prompt-metadata.log": {
+    "original_sha256": "c6bd111a6dc7554a00b48476107b466fa2a798c7928ae229b25f544aee433812",
+    "archived_sha256": "c6bd111a6dc7554a00b48476107b466fa2a798c7928ae229b25f544aee433812",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/red-ui-copy-entry.log": {
+    "original_sha256": "f4ba7a0943e0626a2522df1148e6e1869ed7cc3133735df1a13414ab10d35a5e",
+    "archived_sha256": "f4ba7a0943e0626a2522df1148e6e1869ed7cc3133735df1a13414ab10d35a5e",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/green-clipboard-event.log": {
+    "original_sha256": "e5d8aea74149aabdc4cf6c73a08969139229ea795cfc625cc5706514df9a780c",
+    "archived_sha256": "e5d8aea74149aabdc4cf6c73a08969139229ea795cfc625cc5706514df9a780c",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/native-setup.log": {
+    "original_sha256": "4dd379172f2726b8edacbd34a087ec956617b997e1218a3a144c440300a62d34",
+    "archived_sha256": "bc3a624d8e03c27ed2acd78f5533167e63df0e4a68cc4a5c8b76ee8205570228",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/green-ui-clipboard-fixed-size.log": {
+    "original_sha256": "db0afa166c0c5215c31647044aab564514e3f53f502052ac4e4b1aaec077a0ec",
+    "archived_sha256": "db0afa166c0c5215c31647044aab564514e3f53f502052ac4e4b1aaec077a0ec",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/red-ui-prompt-cursor.log": {
+    "original_sha256": "41d6f19d5bff879d5b0d5723b37118fb45c2dfe3e28ab232e8f38b10ca13eb00",
+    "archived_sha256": "41d6f19d5bff879d5b0d5723b37118fb45c2dfe3e28ab232e8f38b10ca13eb00",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/cleanup.json": {
+    "original_sha256": "c0a4d98a2ac4849f4cdb29a2db38fcffb1c579e9bb679455e1ec3f68389fab93",
+    "archived_sha256": "1d7084459fd87eb8876ebfae3b351bf7fcdeab9f78eccd30415f37336a115db2",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/red-clipboard-event.log": {
+    "original_sha256": "b06ce7e4b8cc6a3cd7e7270217e6b516d9021d113219282659edd55c32558638",
+    "archived_sha256": "b06ce7e4b8cc6a3cd7e7270217e6b516d9021d113219282659edd55c32558638",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/native-audit.log": {
+    "original_sha256": "b8cf4cf9c419895c4c0e110128c9e4da9fb63a41fb38eb549e1db54ac1d9f423",
+    "archived_sha256": "57da112d3b6b4d3ca9e5394bf3aec3b89d9b0a991ccf48ed25b4301390b1c229",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/native-flow.log": {
+    "original_sha256": "722685683d08693b5a337247b54224470b1f7cd29d18f383ed049f5b43122f56",
+    "archived_sha256": "75c8e6c81bbcc979c57da7adba9d97c1014dfdcc073924457938366173de07d7",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/green-prompt-metadata.log": {
+    "original_sha256": "d3cedbfe44266a0bb9958e3a8ca4a15eaab87783e1ae405b55bcd51a5ea519c8",
+    "archived_sha256": "d3cedbfe44266a0bb9958e3a8ca4a15eaab87783e1ae405b55bcd51a5ea519c8",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/green-ui-prompt-fixed-ready.log": {
+    "original_sha256": "756f2ed9e3a06dab8992f2e4a8aac1590c12475dabe2a7999fecc7c4d7cdcb02",
+    "archived_sha256": "756f2ed9e3a06dab8992f2e4a8aac1590c12475dabe2a7999fecc7c4d7cdcb02",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/terminal-tests.log": {
+    "original_sha256": "4b788fb42418646ea6ab9bc6348452ca5846adf9b2873ec6fcdac336f1637dc6",
+    "archived_sha256": "4614e9d0d610d93f4ac096df67d0160680662cf5e6b6420537318a0993649b7b",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/copy-decorations-regression.log": {
+    "original_sha256": "7cc30b2d95760fcae1c77adfdfe5ef6cdcf69a2947a679d292a20176a03e6d20",
+    "archived_sha256": "7cc30b2d95760fcae1c77adfdfe5ef6cdcf69a2947a679d292a20176a03e6d20",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/copy-regression.log": {
+    "original_sha256": "89667e2ee7c96d7330e67e425b393a3ac977b6b67bf5f304f1c09840f6547594",
+    "archived_sha256": "89667e2ee7c96d7330e67e425b393a3ac977b6b67bf5f304f1c09840f6547594",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/red-copy-decorations.log": {
+    "original_sha256": "adff788236e03b1b7c27e86aabdb12b631b4b48da25781748b18cb7649452f9d",
+    "archived_sha256": "adff788236e03b1b7c27e86aabdb12b631b4b48da25781748b18cb7649452f9d",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/red-ui-clipboard.log": {
+    "original_sha256": "3d0c1ebc8e5238fb2dafaa3a49b42edf2021ac2ddccee9af74ede34dcd848fe7",
+    "archived_sha256": "3d0c1ebc8e5238fb2dafaa3a49b42edf2021ac2ddccee9af74ede34dcd848fe7",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/flow-result.json": {
+    "original_sha256": "64447285b63bf1151e0170e58b068ac6ed511dbace777d10a034b10b956e5ad0",
+    "archived_sha256": "d459531c25ab7668fe1bad9c0453f556503c7d36e2a1eea35a429b9e1fc7cd57",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/go-race.log": {
+    "original_sha256": "c728089eaf17e43082921b84bf6aa2d12367f579c99f4ee1c0ff0453d26aea66",
+    "archived_sha256": "c728089eaf17e43082921b84bf6aa2d12367f579c99f4ee1c0ff0453d26aea66",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/green-ui-copy-entry.log": {
+    "original_sha256": "3f427ff31042a895ab81837a70ac4f3ca0087736952a6b1f1ea157e0834fd3a4",
+    "archived_sha256": "3f427ff31042a895ab81837a70ac4f3ca0087736952a6b1f1ea157e0834fd3a4",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/green-ui-clipboard.log": {
+    "original_sha256": "3d0c1ebc8e5238fb2dafaa3a49b42edf2021ac2ddccee9af74ede34dcd848fe7",
+    "archived_sha256": "3d0c1ebc8e5238fb2dafaa3a49b42edf2021ac2ddccee9af74ede34dcd848fe7",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/green-copy-decorations.log": {
+    "original_sha256": "b9a25e7b81287041590695a8df050bcca1d0d01959bc3e83d059d9baa83b4c96",
+    "archived_sha256": "b9a25e7b81287041590695a8df050bcca1d0d01959bc3e83d059d9baa83b4c96",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/audit.ps1": {
+    "original_sha256": "ea7d1cbd32bd7af0f504e63d228d39025da3e68f50c71b46e6d00a4bf3ffa6aa",
+    "archived_sha256": "ea7d1cbd32bd7af0f504e63d228d39025da3e68f50c71b46e6d00a4bf3ffa6aa",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/final-audit.json": {
+    "original_sha256": "dee8faba73e592355da7e4fe60f55ca5c6a4d6f945fe8bd97936c83966de8edd",
+    "archived_sha256": "2e36b9f7c85581b41e8a92953395537fc798bb80717a7417b9c1ab68c0beb623",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/cleanup.ps1": {
+    "original_sha256": "79060fb035fe2461c2d533bccf523975feb039a85f4e6b050ba300ea2585d14b",
+    "archived_sha256": "79060fb035fe2461c2d533bccf523975feb039a85f4e6b050ba300ea2585d14b",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/receipt.json": {
+    "original_sha256": "f481559c4847aa2ad59b7affd7fec118e76eb4c9e9aac90895c5f3d38ab3762d",
+    "archived_sha256": "edafdbdec332b77a302df16a6b1118fc1eb7e7df5fe2a888097f7820078d611d",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/search-long-prompt-63-public.png": {
+    "original_sha256": "959899ca5b9c064dff1311c8bc89b67b46ea3314ce27df367835367d18fd89f8",
+    "archived_sha256": "959899ca5b9c064dff1311c8bc89b67b46ea3314ce27df367835367d18fd89f8",
+    "transformation": "none"
+  },
+  "initial/desktop/clipboard-restored.json": {
+    "original_sha256": "d5de365ceda545a02da381c6363c6e4a9998ca9583ebb348b422c7bbd6a06429",
+    "archived_sha256": "dd5b1aba68c83d381efddb2d20b3a6fd23bffbab7b81e721b51979c2555a78c7",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/a-draft-after-copy-public.png": {
+    "original_sha256": "3f3bf6125d97ab61583ce2d3a357df12de4451ca0bf8fec3fedd79a1d93e273b",
+    "archived_sha256": "3f3bf6125d97ab61583ce2d3a357df12de4451ca0bf8fec3fedd79a1d93e273b",
+    "transformation": "none"
+  },
+  "initial/desktop/a-original-draft-public.png": {
+    "original_sha256": "9873bdb969dc447b3ff735577052b132ed39be1f2e2a568aa7b961e2122f7604",
+    "archived_sha256": "9873bdb969dc447b3ff735577052b132ed39be1f2e2a568aa7b961e2122f7604",
+    "transformation": "none"
+  },
+  "initial/desktop/native-line-selected-public.png": {
+    "original_sha256": "651dd114cbdd28f36736f528474c5204b0d8ebd995814ca2a70d3b7db2152c9d",
+    "archived_sha256": "651dd114cbdd28f36736f528474c5204b0d8ebd995814ca2a70d3b7db2152c9d",
+    "transformation": "none"
+  },
+  "initial/desktop/a-explicit-command-after-copy-public.png": {
+    "original_sha256": "d7bb777e6f8ea215492ee0dc81651e76c192275b227fe127e8a1224963ff7fb5",
+    "archived_sha256": "d7bb777e6f8ea215492ee0dc81651e76c192275b227fe127e8a1224963ff7fb5",
+    "transformation": "none"
+  },
+  "initial/desktop/search-unicode-prompt-public.png": {
+    "original_sha256": "6d894e18ec191963c06f891c4b41eab8c2263acadf048d076f85a1b3dce74442",
+    "archived_sha256": "6d894e18ec191963c06f891c4b41eab8c2263acadf048d076f85a1b3dce74442",
+    "transformation": "none"
+  },
+  "initial/desktop/ready.json": {
+    "original_sha256": "da6473c74eeefa8b7f1b798595c0badc59138f0c6e08b1c4a5687e63638fcf1a",
+    "archived_sha256": "427c48d860f6d026d36885b345dfc4f28fd71ef1880af6aa139171d32443e50e",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/050.json": {
+    "original_sha256": "4f76b6df933f99a88e9083176ef19fccb0e6ce57f3061e85cd1b4ef9987745af",
+    "archived_sha256": "4b893249a2a18617309d862b60fce4f77cde2708ec2e2bf42344bcb7615f923d",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/007.json": {
+    "original_sha256": "81afbb4affdb760309c1049eef6556afc66c3442f1930a156ba8ce795b74adf7",
+    "archived_sha256": "2eee8fc5a2a0235819fa9652acfc84ce9c266c1f73761c7d998e0bdf94934c56",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/011.json": {
+    "original_sha256": "3c43697632b48e9d45276a09ef572122f9b73010064224e2a3788641d541cc81",
+    "archived_sha256": "2d98fbabea33443538c53cd311eaddda6109a36572d1cfc993236c01020a596c",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/046.json": {
+    "original_sha256": "9fe75e5b5bc32463375ad1ec6da63a616ee398d85d330d07e98105c59b6590c9",
+    "archived_sha256": "ef28e8afb252b6c75a595e9320ff0f12b805668c4f5d20787d50acec15cecac1",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/031.json": {
+    "original_sha256": "108aa015450c1143e8a77b8d010ba54d334ce3c55bde976d7284619ddc1619e0",
+    "archived_sha256": "92226f679a0d77d40fe09946bcf90d3d05a4f7e8ce3d997d8ad8616438f29746",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/027.json": {
+    "original_sha256": "33c3b62b8853d2f44b2bc1ee4229c216a0fd673684f8567e264d333cb91040e0",
+    "archived_sha256": "0a99e2a5bd484b841cde3c5d39c25d6816c9ad6c290b3a0508ec1a81114c2578",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/026.json": {
+    "original_sha256": "30e3dde18add8d418a0d36cf0f004747b27cb3e76f20449b3a31cee5dbef6f26",
+    "archived_sha256": "394f5eb0a5931a236ea6a85ba8121f4e4aa3a53a9ea7eb93410d57b4bb5b2cb6",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/030.json": {
+    "original_sha256": "36ba38b9ed8ec71dbcf351804b744213ac62b9bc7f16b6781dfb57c2aec0082e",
+    "archived_sha256": "61cfc7f29d5fe01b279f1ed5a9c9736b246f29b3e4954d7e2578eafa7a49e7d8",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/047.json": {
+    "original_sha256": "8c457d6872a448d5d6a63649dceb97ec89c6b97b652f55d6725ed7302ea919ef",
+    "archived_sha256": "fca07ea3e67a8c2f98b9adcb00c01dc09bdede2ba5b55f42f700f71ef8a143e1",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/010.json": {
+    "original_sha256": "fa1f2d86b9f942fd0d88b2de6ecfd005c7a61c92e346ba7fcc17f2bc33aa1d03",
+    "archived_sha256": "16cfa264a5cb37a80ac0bb0876f1f940b63bac4d04701d4c90c93cb7d81d6404",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/006.json": {
+    "original_sha256": "7352ee4cd35ada9516953c1346565fb5d6b049cfe5eb735bbece7c5e0e802fee",
+    "archived_sha256": "30ae82b5ad5d709e693293123c177221b93ef15c77fffa0f38d41ec0b2a74165",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/051.json": {
+    "original_sha256": "2e62e624ea38dda343fc5a211e665709ce1654b181e00c4b39c3178303cd0e44",
+    "archived_sha256": "5c27b762e7f0b1e29c3badc484ade3fdf6237ec45744e1ec9be798640778e1b4",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/037.json": {
+    "original_sha256": "8ecb9fe4750b7d75a59927c463a959e03ac807d2b748f69749bb56ddf5e0840f",
+    "archived_sha256": "af08e4e7393871033bc6c0840cbd77c925431ee0905f24071a3681641a6052f1",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/021.json": {
+    "original_sha256": "a7bc47e9048d7ef48fe42dcb88c8f78c5335867428465cf446547078f62b3bf0",
+    "archived_sha256": "5f8efb621b825a1ff30dd5c38119a32286d8ff495061a83179f8b334c69e6930",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/001.json": {
+    "original_sha256": "b6ef209af87977305967ac110e4a047a589e7ccdbcad25e0bed37e9eb1fd1a0e",
+    "archived_sha256": "cbb9c1d8670465cd8acdc3de04c7a2629caf39a53ae3ac433d50a51f88d8d500",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/017.json": {
+    "original_sha256": "3f881fad303f588ef8520e8f5ef9cf8c5d9a67e71e938957d8698de939ee8c99",
+    "archived_sha256": "0ee1e50b03e78a0ed03633f9405eed45b8a1797ad1fe825f8ebabefef0e6e29a",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/040.json": {
+    "original_sha256": "a107693967079f0a147fa57af8c0bf5ba3ef8f6310cf5f2376ae4460e6e035d2",
+    "archived_sha256": "946d32a14eda9b30c4171773b40803c1589d4c7d6a3dcc179c9b068b4b5e994c",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/041.json": {
+    "original_sha256": "809b137cf5af2e9b9c32b4aea0ba425d0fab2d6f40b3e63230d38d1ccb9a48de",
+    "archived_sha256": "2feed83442f0ab3b53afcaf8db8bacdc06e722e9b1da910d474928ed44879042",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/016.json": {
+    "original_sha256": "a29e9a6d0707bc467dd635ceec8efff63992c74d536f7ea36cc7bc033de40432",
+    "archived_sha256": "ccbb8ea4a5b10c953b320171704e26d59c043a3f92359c516178763304e6f47b",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/020.json": {
+    "original_sha256": "85918ebef6eef4433b5ea01ea4fff7e937d9370a2a9c4ebc45fd9eecb4fa03ad",
+    "archived_sha256": "35b3bc56125a9754d6c53da26e6c7552d07238a8462f9478296c1b059c94928f",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/036.json": {
+    "original_sha256": "4b6adf464b73f9071d284aca50f46f7a28dc6537b1fd227e9739d55197933bed",
+    "archived_sha256": "42486ff342d468a0cf1825f968be1ddbc296ff97bbb80234560dfb03737ee107",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/023.json": {
+    "original_sha256": "53d1edfd70a1ff022b66159683bd0c2dd8eb84cd0b54e22dcbb9119a6a3c3581",
+    "archived_sha256": "922da83e97cea42a6254c2ed216f831d616d95695dc260b304eb4c72ca53bb0f",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/035.json": {
+    "original_sha256": "ecf9218f6086e4933309c4ed38d5031c3c39dd44c4dd81f816a7555f433796ba",
+    "archived_sha256": "f5d6868ab516c330c876dba765c6a1db8eda27d4267b50bd3ec0b4eda855e8d6",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/019.json": {
+    "original_sha256": "5cce18718c9d62034fe500c42fd612eba3e0c80fd99db536015b7346384ba08e",
+    "archived_sha256": "344cc71b83ec7f757b3429eabf076bd84b68823ef5300e1054d5a83c77a8978f",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/039.json": {
+    "original_sha256": "b83747f4e7f775c34c15b4196b4e35f6ae20e4b0f55889388e699925803cf76f",
+    "archived_sha256": "09fddfb2fbf8832fec3f863ac707ddbb44a6186e0715c495b82c571e9f25e593",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/042.json": {
+    "original_sha256": "60129890dbc40de55037b2349650c221c41b50794629827882a9c15c931155d2",
+    "archived_sha256": "2a120dbab5f6339cbf35bb20b62a5013536cb3e845fc0b8e32e871eb7530cc8c",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/015.json": {
+    "original_sha256": "91c36040de20d9f75841afbbb97c6604d64d6d26291fb4c114f16d71fbb8f3ac",
+    "archived_sha256": "a30d927bc8a566f29f844bd1781af15b38a2066406aa7f0c843dcf1c50f7f9c5",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/003.json": {
+    "original_sha256": "8b96d676f9105d36efeea820a691f8e5cf2fbbff834d8c93ed0d77835f99c4cb",
+    "archived_sha256": "2f29a333ed74e35975d2b507a8c4217a56c089fc10a5f67e7a0c1d16c568cbad",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/054.json": {
+    "original_sha256": "56cdac00abe5259c348d088ada88e7f44248534d3d9ff6e3bac85280550f9493",
+    "archived_sha256": "b3565b243080c8d7d18392f16b6f0ea8edf26046cc7679d7a6aef3ffb3868f27",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/055.json": {
+    "original_sha256": "9640e337e9004a03886ef146284e1f5163259bd1cdad5e0214e7241ce9ffd507",
+    "archived_sha256": "62f4e221472e9cfd694298e0522caf2c282c73c97f22997f56a5e1fff3893e47",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/002.json": {
+    "original_sha256": "88f570d6990207a147d7d8925afbd59286087131dc11fa6695e1d1bd66949ff0",
+    "archived_sha256": "2a5f3240a6105a99bdd1b87a08ea0a07d1bfadd38f2e1ecbb9c5d7f386313666",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/014.json": {
+    "original_sha256": "26258bbeb91d75c7d8520360b433474d4257e8a8c77ae5880809f9ce511040cc",
+    "archived_sha256": "8621e24839f083fd9e557c97cd90ad6e8665504cafabcf99e9b6fad59d31a2a6",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/043.json": {
+    "original_sha256": "6a865c6ca6b65abc6aa6beb5532af6ec7a6b45e935fc37cf87e58db16bc526e7",
+    "archived_sha256": "6b2cc2e32d2e0db1e028c697be2c3a11745b80625bd03eda7ca65a2727812106",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/038.json": {
+    "original_sha256": "b909f95c26f01d0aae1df1f3db331202289726b3ddeab4ae63ba6d7ad64a22f3",
+    "archived_sha256": "2ecfc9846aba0a1ec1b9760af8573f38a121a85cea9e11c5c93d40a5d57c4036",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/018.json": {
+    "original_sha256": "41ded3a65edc4b465202480f515d686a03b7d0f9a0c397d0b0f80d69bedf079c",
+    "archived_sha256": "73182d0275f64a0a1b046c9aa2f1b4d6693ec60d884d024a9b88cd55eddda560",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/034.json": {
+    "original_sha256": "1f43ada20d898892e1a3ac78f4147ade58ec412ddef12d856333848ae2f1a317",
+    "archived_sha256": "cf9e508d0dbc1aeba9452b8f3c05a135e4ea45c1bb6945d2f951b1bf5b80f3d1",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/022.json": {
+    "original_sha256": "40942158b49d83e708386ae2adcc4b2d99884522332f303446a2d96d43812b14",
+    "archived_sha256": "206ef8455a6a793f361b23498d41a78f5a6824a0236107bdcc5d98c40784697a",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/029.json": {
+    "original_sha256": "1e1e4c1e560153c30b7a84d7025a6149c7d8778005cc0f589f9c37ebfd759bad",
+    "archived_sha256": "16c17aaac4c5aa6590f3cab4de3a004e62757eea5bb1678001141daa56b160aa",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/044.json": {
+    "original_sha256": "bde34f0311e622a822f572b4e312729cc635bc2ea5001eabbfe0f12ec17221d5",
+    "archived_sha256": "ac151f46964051b8903fe1f89cc06c7c44800b630fb4c33f708bc06eb3d913db",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/013.json": {
+    "original_sha256": "884ba7d3ebd329ba2e99a4b715570509ca6c11943fd6e7c3108d8a64617b783a",
+    "archived_sha256": "954db07373fbd840d08fcae35722cb8581b1393b313454472c9c2f72a34141a5",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/005.json": {
+    "original_sha256": "08dbd5f8a5e77d8560c1df270784def965ceca4971f53a4c4a64eacf17f29f26",
+    "archived_sha256": "77b8f8fe4a2c0be88a55b77a54b93c44878d9944f3fb18998e439c74fee6d011",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/052.json": {
+    "original_sha256": "1b5c36d254cd29e293b3525ea121894bb8be535cf88938095ba15431bc839cc1",
+    "archived_sha256": "31091ecb4e38edbe13d2f5483284c81c9133a00a66ef7427de65dfc6e18b759a",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/025.json": {
+    "original_sha256": "386f8e15d5ddaf89c7209c5eb939266f57c1ea9ebdb8b4ac5cf3a056bd432aa1",
+    "archived_sha256": "538e8f9bec95f21da8a333d4eea3e739e1b13d5310bb99696a66a528483f5470",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/033.json": {
+    "original_sha256": "762c93de61eef86a382ecdaba3dd789e85d18db1c0611b896f8949afcde9a66e",
+    "archived_sha256": "e5cc8350388c432c0a8f022a517d6f0a746da91d9d30af29cefdc638e8be41db",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/048.json": {
+    "original_sha256": "1d000d40638aa0d92d3aa9eed145365bb8c2a129149225971391676f713dc848",
+    "archived_sha256": "15413a58325acf6288477a7a04750c2afed0b76baa28609070e29904afdf2512",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/009.json": {
+    "original_sha256": "b455a9f0913b0fbf55ee5b7f27e7678b823b698690086694be7d113ebd4b12d0",
+    "archived_sha256": "b5ff658fb6806ef441c805acc222696532c274ee4a013234cb371f009fe4b771",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/008.json": {
+    "original_sha256": "205119712fe8bf3b2fde2864107f5fbe77702d1656b6e5c52fd00254cfbccb16",
+    "archived_sha256": "ff0d9ed4716fedb79da5563f9776b3d0386b282757f9c43bcfc21e72b088b461",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/049.json": {
+    "original_sha256": "af1c1d437c24478d325ad09a9b86f8e22db533a6831303292f48b8405ca3c1b3",
+    "archived_sha256": "271f6e4a90c8f7c7cd59b02db5b727a94a2f05d8418421739447b5d635aa0cab",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/032.json": {
+    "original_sha256": "bd1ae9adfa762dd11ac7089d54ed4c6a34f0d0974d2a04a285cc7cf5a299d46c",
+    "archived_sha256": "03e8f64e28f82f999b1e4542a8d342334b34118c94f5010b29c4f17ea9136ac3",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/024.json": {
+    "original_sha256": "c289d7235ea11bbf042d17caf198bca85c7e83463cc1ab2b4ce96ce14e27b84b",
+    "archived_sha256": "2b73478eebe1c373231eaa95e4773636c900cf8aef30f8185eed229d6a37d525",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/053.json": {
+    "original_sha256": "503fe323ce054e6881cec6b194ef2d8e8057bb9719ff16754eba2e8667455ebf",
+    "archived_sha256": "0570aeff50ba84e7ef9e1529e7027fee728d7c08b7369e7d7b8a33bec9706e74",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/004.json": {
+    "original_sha256": "8ea3ba58a0ec6cc9212f94eed492c2d5771046f709ae285fcdd5a7ce005ba62d",
+    "archived_sha256": "cc3012340b238fa5b01d2ed1057442cf3cc4f5b01063b001b5bdd640fe4df89d",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/012.json": {
+    "original_sha256": "7a72cbe4c213c6e0749ab502215c54e20a37e3137844d9cf00245a1a1cde5392",
+    "archived_sha256": "ce70c0a8f5fd52667023198f29592629003f60330acd42f00c5d670422c70d77",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/045.json": {
+    "original_sha256": "f5a1d3a69ebb5a8196e9bda2e4da779b6d8036e28b77206078e14b703fe98041",
+    "archived_sha256": "b636ed1df57a8a5f3be0378fd9614d7527ab4308f0d0e44500c5a2ef7ac285f9",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/responses/028.json": {
+    "original_sha256": "02993b8613b87f0d910092a3431c26d5dfef0ceda0a81ba3b38fe60c9bbcd384",
+    "archived_sha256": "eba28fd2990175d6a941c59063106ff96f8f2e389c6ed82ee0df790edb973f9d",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/050.json": {
+    "original_sha256": "d9c6f77335f15ce15b7d026e58c134a87ff65a7978497fcc7dbcc677e9834c5f",
+    "archived_sha256": "2d715376f7c19d89f7104ddc98664000c074beaef482ffba8fcea88bdb391490",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/007.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/011.json": {
+    "original_sha256": "32789f2c7d9696597972270dd68b57ad3e6a74f586784b77eaecfaf7157f9064",
+    "archived_sha256": "81793d0ce43f21e92753ae2ca1cb0f04c0526fcacfbd970e3d1d542a1210c1c6",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/046.json": {
+    "original_sha256": "481686260e40522aea997ce4857089c5538c7267f556c012d2fa371112d9a1f7",
+    "archived_sha256": "f68beee09229666a40ca4327e14a4b60b6db1199ab5d492f4b210fdc88a108a3",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/031.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/027.json": {
+    "original_sha256": "872da112b13eb0ccd7afa86d0f887a6015c171bb5109f6d8ccd34a309f2d42dc",
+    "archived_sha256": "e8dfa6e01eec50c748454be597b39f0e1a6897ec7864541681930cab1eb8bec7",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/026.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/030.json": {
+    "original_sha256": "71ef06761167449623785337431c5db6e4d5c0dfe1434cb5fc7927a2c3707e8e",
+    "archived_sha256": "ccd8c218c36bb9355fb89a72ba5ef6d962f894f132f59b1275c73c9c1e7138b4",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/047.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/010.json": {
+    "original_sha256": "c410c929c768bfe5cc55feef352782ee1242ca03cef9a333bc0b8f86ec0dd400",
+    "archived_sha256": "6695f1d2f121fb17b22d6c0a81425091e14c5343ace6f15aae83abed653ecd67",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/006.json": {
+    "original_sha256": "fb4158b1ed1afb2264f9e084b5afb6e2c8ac8ad3c5e355f118640ffc384dd102",
+    "archived_sha256": "5064d30fde6a62f64113f37487cf74f94c2591464cfe22733bb582799ae81b80",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/051.json": {
+    "original_sha256": "c9ea15c6e00bc12d4d8b637732e33c40ccab983fb5c478bcc6d935326f9411b8",
+    "archived_sha256": "120b52684f763cdf0586068dfc1de68da7f8daf5a1a6860ef1dec89bd05b5973",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/037.json": {
+    "original_sha256": "8a8ac0d3d5070847cd633ed9e3db5e64a1b709bf78168a8aa9aa244d5e3b695e",
+    "archived_sha256": "66d5fb48c9c74f39059bbb5ca183065b12db456e5d70b81eb550dd15f527e742",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/021.json": {
+    "original_sha256": "23b4f46c26a3e41141da69d8a6714a67b2fffa52f36269977a39016bd354d985",
+    "archived_sha256": "ee932e4ba188a0ca4590ed98b6128cf4c664fa10f728148a5a5f1fd3e1b036a6",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/001.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/017.json": {
+    "original_sha256": "8a8ac0d3d5070847cd633ed9e3db5e64a1b709bf78168a8aa9aa244d5e3b695e",
+    "archived_sha256": "66d5fb48c9c74f39059bbb5ca183065b12db456e5d70b81eb550dd15f527e742",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/040.json": {
+    "original_sha256": "9922d13309b98c2abf2420d54bf4ff3782fde2ab7b45b791360431e29396e946",
+    "archived_sha256": "72167a8e12c255a469a220dd7f8190289c47a7309d5e0c17e2b181a5255af7d1",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/041.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/016.json": {
+    "original_sha256": "23d157bc65e76f673970b20a51119a0b3ae6afbe2bf12b1952985af080660645",
+    "archived_sha256": "00b40b1008360f2d6d030219f9ec23dd7e1673860a9dbc37f4d41e2ae90b916d",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/020.json": {
+    "original_sha256": "cc6a1f21e4c6aeb67a8e11027cf2980d69e2be4bccf3b0a5ec74ac19749ecb33",
+    "archived_sha256": "35a5ec2f99f1b0cc514f550f0824f7bedbc3356f47a561cd0126effa55898d15",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/036.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/023.json": {
+    "original_sha256": "a760b3220b5783890307730fe2ae323cc14ba7da664197850f7ecfe636c4b1a6",
+    "archived_sha256": "3b6edc0270a817291a05d572401e6fb0782015f953de5e8f0cd703899662cc9b",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/035.json": {
+    "original_sha256": "fb4158b1ed1afb2264f9e084b5afb6e2c8ac8ad3c5e355f118640ffc384dd102",
+    "archived_sha256": "5064d30fde6a62f64113f37487cf74f94c2591464cfe22733bb582799ae81b80",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/019.json": {
+    "original_sha256": "778f6f58e7f7c13ef9b624da982af2780a561ed326fd14e04effad3137fc8340",
+    "archived_sha256": "72d5382b85df5c74eab477ed6fa0f097388cbb7d2edada9352dc703b7f1b3b71",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/039.json": {
+    "original_sha256": "6d61fd8d21364acd3568d10c84c78287553b9aa9c6f13fb5b972c8c859d4452f",
+    "archived_sha256": "de3fd8f455e1d61ff370d6b8d31063d5288fda3ae0203397b58e49f1e74614bf",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/042.json": {
+    "original_sha256": "c521af6fd5a1b768c6beb4609f6cef50438f0c3c20c08032a578a38f369583fa",
+    "archived_sha256": "e11e8c59207b3fed3782499c0e03a33333e700b007defdd46cd6b3482c828b3a",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/015.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/003.json": {
+    "original_sha256": "83301adf0fb9f4f1307a3456034d613863f0f3950d5b7030250c02c5da87d533",
+    "archived_sha256": "2eef170662b5e885415c8b1813e1ea1d1448b190b1b9c45d2e20953c010b5606",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/054.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/055.json": {
+    "original_sha256": "843cbf394796fa3007490d6dfe2b39223e47e7f9ba37c9e8b05a52e392b72f9e",
+    "archived_sha256": "dab3a4af38094ea29d8d190c0271d9e99ca5a48de685f6a445899806aaff1110",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/002.json": {
+    "original_sha256": "4a63173ceed8186fbe555cba04f0163def851ad6cf63c040f947a2296c08fe3c",
+    "archived_sha256": "4c0d6b3097b863df379fe0ff8f0b51b3781d56155297d3278a67868b358215c7",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/014.json": {
+    "original_sha256": "9922d13309b98c2abf2420d54bf4ff3782fde2ab7b45b791360431e29396e946",
+    "archived_sha256": "72167a8e12c255a469a220dd7f8190289c47a7309d5e0c17e2b181a5255af7d1",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/043.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/038.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/018.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/034.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/022.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/029.json": {
+    "original_sha256": "715de0d7b5094dc9162d2b1c04c25a5bf6d771be142ed92359394cd396ae3003",
+    "archived_sha256": "9d0df1e47ce3e371d00c50f88287d555ff4b9a3a10086ec949c4093cf68c9bf4",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/044.json": {
+    "original_sha256": "23b4f46c26a3e41141da69d8a6714a67b2fffa52f36269977a39016bd354d985",
+    "archived_sha256": "ee932e4ba188a0ca4590ed98b6128cf4c664fa10f728148a5a5f1fd3e1b036a6",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/013.json": {
+    "original_sha256": "7a5fd42479cb18faabafcfc747181f36df019adee725fe7f34a0e177be7197f5",
+    "archived_sha256": "639d001a218645901f710251ae52d6bf562b8f07964dcdbc65c3106272f86635",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/005.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/052.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/025.json": {
+    "original_sha256": "23b4f46c26a3e41141da69d8a6714a67b2fffa52f36269977a39016bd354d985",
+    "archived_sha256": "ee932e4ba188a0ca4590ed98b6128cf4c664fa10f728148a5a5f1fd3e1b036a6",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/033.json": {
+    "original_sha256": "c9ea15c6e00bc12d4d8b637732e33c40ccab983fb5c478bcc6d935326f9411b8",
+    "archived_sha256": "120b52684f763cdf0586068dfc1de68da7f8daf5a1a6860ef1dec89bd05b5973",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/048.json": {
+    "original_sha256": "23b4f46c26a3e41141da69d8a6714a67b2fffa52f36269977a39016bd354d985",
+    "archived_sha256": "ee932e4ba188a0ca4590ed98b6128cf4c664fa10f728148a5a5f1fd3e1b036a6",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/009.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/008.json": {
+    "original_sha256": "8a8ac0d3d5070847cd633ed9e3db5e64a1b709bf78168a8aa9aa244d5e3b695e",
+    "archived_sha256": "66d5fb48c9c74f39059bbb5ca183065b12db456e5d70b81eb550dd15f527e742",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/049.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/032.json": {
+    "original_sha256": "9ab5e9ae63142f32f2e5c0d735fbd3d52a869f085c2fdc03875a762bb9bbb123",
+    "archived_sha256": "659777fd27c0fbd64a921dfa0348c5f44baf18eec447885ad5e203453dbdbc76",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/024.json": {
+    "original_sha256": "1131eba65c56ece672c57c65de64211fc82308bf56e624c3b8d00f07c4e4ad97",
+    "archived_sha256": "e280917745450b467e4aa8fcf062ccca4883b6e0d3564d25e3ffd75834a26940",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/053.json": {
+    "original_sha256": "c521af6fd5a1b768c6beb4609f6cef50438f0c3c20c08032a578a38f369583fa",
+    "archived_sha256": "e11e8c59207b3fed3782499c0e03a33333e700b007defdd46cd6b3482c828b3a",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/004.json": {
+    "original_sha256": "c9ea15c6e00bc12d4d8b637732e33c40ccab983fb5c478bcc6d935326f9411b8",
+    "archived_sha256": "120b52684f763cdf0586068dfc1de68da7f8daf5a1a6860ef1dec89bd05b5973",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/012.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/045.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "initial/desktop/done/028.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "before-resize-fix/setup.ps1": {
+    "original_sha256": "3798c938e968d7e35fe9d31dde51e72ac4ec847cc9a1c86e705d919a6ce8d300",
+    "archived_sha256": "3798c938e968d7e35fe9d31dde51e72ac4ec847cc9a1c86e705d919a6ce8d300",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "before-resize-fix/native-driver-start.log": {
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "before-resize-fix/copy-final-driver.ps1": {
+    "original_sha256": "538b8411b8116a06feb9389d77eb6dd036e9055385ee8daf4722ab04e1443e47",
+    "archived_sha256": "538b8411b8116a06feb9389d77eb6dd036e9055385ee8daf4722ab04e1443e47",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "before-resize-fix/sessions.json": {
+    "original_sha256": "567d45937d0070d11f30f1e4d323d9c36577844be2118488591c3540e3d7955b",
+    "archived_sha256": "71da839acd669b67ea26fceb45b955fbdaeed835ca97a654849a52dbd64820ba",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "before-resize-fix/go-vet.log": {
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "before-resize-fix/go-test.log": {
+    "original_sha256": "14ad03be61851cedab663e36b37e5d1e6cc65577b7a4d7beb8b7571a8d655f86",
+    "archived_sha256": "14ad03be61851cedab663e36b37e5d1e6cc65577b7a4d7beb8b7571a8d655f86",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "before-resize-fix/start-driver.ps1": {
+    "original_sha256": "122730a679ed37a3252d17405473535cd441b255dae1c931e54b17d874eed243",
+    "archived_sha256": "122730a679ed37a3252d17405473535cd441b255dae1c931e54b17d874eed243",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "before-resize-fix/source-before.json": {
+    "original_sha256": "be6a3acb089f3378a70db120eb8058f9b8cec7968560e80a08004518ebc595ce",
+    "archived_sha256": "be6a3acb089f3378a70db120eb8058f9b8cec7968560e80a08004518ebc595ce",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "before-resize-fix/flow.ps1": {
+    "original_sha256": "17a317e97bfd7db157a21775d7160ad028a227bf27deabf0af6c79e292be1cf2",
+    "archived_sha256": "17a317e97bfd7db157a21775d7160ad028a227bf27deabf0af6c79e292be1cf2",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "before-resize-fix/ui-tests.log": {
+    "original_sha256": "5e4516c386bac3d9669e057783ee5c2a0ffbec9f59cc366105dd402fa6ef29b6",
+    "archived_sha256": "81320165cad2036c11f0d5a010111008c67ad2e9604c0bbcb07b63f691dc0555",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "before-resize-fix/mod-verify.log": {
+    "original_sha256": "b4537ed75f533f993f371954de47e42a793b8e5b0587577de7e27fb3e50696bd",
+    "archived_sha256": "b4537ed75f533f993f371954de47e42a793b8e5b0587577de7e27fb3e50696bd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "before-resize-fix/native-setup.log": {
+    "original_sha256": "14410337a21dd3d5070571aed9717e87e240612ed83a903b9bdb85c88d579d96",
+    "archived_sha256": "2ae13e4bd4a9af7d92b79aa8ed9e052c496ebb1ae31d89d4bd30e0a20410e9ff",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "before-resize-fix/native-copy-metadata-probe.log": {
+    "original_sha256": "89c9e9cb7e1b0314a413a61aca76824755a5599d73bbe703db739a7b394bcd41",
+    "archived_sha256": "73f70bcefcbeaba82e493e6d9d74484e7e52520786b52abdf83ed8a6a652f7e3",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "before-resize-fix/green-copy-resize-cursor.log": {
+    "original_sha256": "7cca3cc1c7c2dc0b83551692dd6355b6be8c707adc1b31b1a52568be970e719f",
+    "archived_sha256": "7cca3cc1c7c2dc0b83551692dd6355b6be8c707adc1b31b1a52568be970e719f",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "before-resize-fix/native-flow.log": {
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "before-resize-fix/terminal-tests.log": {
+    "original_sha256": "873852e4355a83d93962cd089514f05684f3146540d7d8ef2586445679f3f538",
+    "archived_sha256": "c99fa5986a4e0c1cb6c0ca537a73086616bfa6d88d4c5322ab51c1156f9ac2c2",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "before-resize-fix/build-reproduction.json": {
+    "original_sha256": "4e70a6fba149ae31612806cee286f5a19345f710a6e93739a77253e5d05a63bf",
+    "archived_sha256": "4e70a6fba149ae31612806cee286f5a19345f710a6e93739a77253e5d05a63bf",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "before-resize-fix/go-race.log": {
+    "original_sha256": "b61f5cf6ec3eb06d184daff989fad75963a09ea9e29ba8bdf07c01d75175ac1a",
+    "archived_sha256": "b61f5cf6ec3eb06d184daff989fad75963a09ea9e29ba8bdf07c01d75175ac1a",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "before-resize-fix/inspect.ps1": {
+    "original_sha256": "40b56a90bf70f96a7ae17611d455608184a0328d8a4d9bd04a9930b334ef3f93",
+    "archived_sha256": "40b56a90bf70f96a7ae17611d455608184a0328d8a4d9bd04a9930b334ef3f93",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "before-resize-fix/audit.ps1": {
+    "original_sha256": "4287be820970db5bf74a1036043e9bdad80cfc5c038b65c902e1a9648098c2af",
+    "archived_sha256": "4287be820970db5bf74a1036043e9bdad80cfc5c038b65c902e1a9648098c2af",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "before-resize-fix/native-inspect-failure.log": {
+    "original_sha256": "b932d595dd263d81462b87967fa17d989a60665d6de28b56ee001d10c8c74bb4",
+    "archived_sha256": "94e653faff11399d444e3b0e42b9189e2918334173e683368d696fe0b094ed35",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "before-resize-fix/probe-copy-metadata.ps1": {
+    "original_sha256": "ab58bab72d7a8b9a3f6ace9b73e5491b2f323c670ac6a29c154e3210f88ede79",
+    "archived_sha256": "ab58bab72d7a8b9a3f6ace9b73e5491b2f323c670ac6a29c154e3210f88ede79",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "before-resize-fix/red-copy-resize-cursor.log": {
+    "original_sha256": "10e1165a6c61a8976506ec57c7e9a6a8de9739cf905d28cc8296a7e7ba9d9728",
+    "archived_sha256": "10e1165a6c61a8976506ec57c7e9a6a8de9739cf905d28cc8296a7e7ba9d9728",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "before-resize-fix/cleanup.ps1": {
+    "original_sha256": "15c33be3b62aba02b7568f15ea8a1638844432b6d085c382236f35b5b95591af",
+    "archived_sha256": "15c33be3b62aba02b7568f15ea8a1638844432b6d085c382236f35b5b95591af",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "before-resize-fix/receipt.json": {
+    "original_sha256": "3fc909b9068c6df71c249f06a8f986e1339abbbf828935cd1f25660d1bb40e79",
+    "archived_sha256": "f54163b63d964d44621a06d0c2b16b686496a2aee20d2d6a945e5b3dd94b397a",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/resume-flow.ps1": {
+    "original_sha256": "982bdfa0075c54fe879e5354ce010d9f16129f97297d09efdfdda4e726585836",
+    "archived_sha256": "982bdfa0075c54fe879e5354ce010d9f16129f97297d09efdfdda4e726585836",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/receipt-before-resize-fix.json": {
+    "original_sha256": "3fc909b9068c6df71c249f06a8f986e1339abbbf828935cd1f25660d1bb40e79",
+    "archived_sha256": "f54163b63d964d44621a06d0c2b16b686496a2aee20d2d6a945e5b3dd94b397a",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/native-cleanup.log": {
+    "original_sha256": "05015e3e5330066bd11abd0641590261c57483a6309c99a1664637d7ce6073a5",
+    "archived_sha256": "62280c701829a8a6fc76fdfeba9e318a3031f118ec17c0f54cfb06cb48a5f55d",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/sessions.json": {
+    "original_sha256": "567d45937d0070d11f30f1e4d323d9c36577844be2118488591c3540e3d7955b",
+    "archived_sha256": "71da839acd669b67ea26fceb45b955fbdaeed835ca97a654849a52dbd64820ba",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/go-vet.log": {
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/ui-tests-final2.log": {
+    "original_sha256": "4e3acc47135aab0d96cb1d492bc494099920c6752110acb4d37b19392a1cf309",
+    "archived_sha256": "13674f98dedd29dcc05677652bd37c80c963c5f257c6d2d4a8bf29e59323b045",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/go-test.log": {
+    "original_sha256": "45625cc405407a85bc37b7e78cf5c02cf8cb7b1669e52331931d3f939cf9f54b",
+    "archived_sha256": "45625cc405407a85bc37b7e78cf5c02cf8cb7b1669e52331931d3f939cf9f54b",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/flow-failure.json": {
+    "original_sha256": "6642b1bcf64c1ebb42082c23e3d037b4ace4bc2081e0b207c69a58c13c35f7ea",
+    "archived_sha256": "f103f52ac497aaecbfd5c30f7d5ce439609c41ddc37f4c652e011ed7769885fb",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/source-before.json": {
+    "original_sha256": "4dba83af89fdc522b04e41800ebce7712cc84b7fe198c6dab1f63b9872d4373d",
+    "archived_sha256": "4dba83af89fdc522b04e41800ebce7712cc84b7fe198c6dab1f63b9872d4373d",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/copy-metadata-probe.json": {
+    "original_sha256": "c106c88ee75c2b742284ec1501c6f9a93772b5a866c57d00e6cbd611bc20b4c0",
+    "archived_sha256": "4f0ff98131632180b04e96ee1c5d4564aeebc2cfb17649546b04b076fec0ed8d",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/native-refresh-tests.log": {
+    "original_sha256": "b93535ea92d4632a03a152205a9a4a477db20bf1039cfe7c019c9179f399c8b2",
+    "archived_sha256": "8a93e8d3ebd764dc71c9ce1c0c36b3953698954e968ccb4f0a52013fa81f6d8e",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/resume-after-exit-guard.ps1": {
+    "original_sha256": "ecb2e2898a4f9025a03ad0cdbb74c87f187b0c92591f7143ef8faf060ab387f4",
+    "archived_sha256": "ecb2e2898a4f9025a03ad0cdbb74c87f187b0c92591f7143ef8faf060ab387f4",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/mod-verify.log": {
+    "original_sha256": "b4537ed75f533f993f371954de47e42a793b8e5b0587577de7e27fb3e50696bd",
+    "archived_sha256": "b4537ed75f533f993f371954de47e42a793b8e5b0587577de7e27fb3e50696bd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/inspect-exit.ps1": {
+    "original_sha256": "7806c6c83a6d8e5f1777cb0e946c1bb1ffc600031022d6d0d369c6cd2113673a",
+    "archived_sha256": "7806c6c83a6d8e5f1777cb0e946c1bb1ffc600031022d6d0d369c6cd2113673a",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/replaced-ui-process.json": {
+    "original_sha256": "c5e5a394abb1ae700177bf8b596340211856b19001b1b3be5efbdbcbd3748554",
+    "archived_sha256": "a8971214f055fa0e7a916f07dc5180149ce567943e3a58d3f67bab2e4638b5cf",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/shells-before-ui-replacement.json": {
+    "original_sha256": "5e18d2a4f47f5838c2d06b1db19c6991418658f3b250a554fcb9ab107d373048",
+    "archived_sha256": "a5545833be84c6f697818b7a952180dc4355cf911d6c79e7091fde90bfb195fc",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/terminal-tests-final2.log": {
+    "original_sha256": "d429ee6b7fbb0fc84b066ccb0c7ca5de0c5084a0f8f7236cbd7d6c9e6314956a",
+    "archived_sha256": "5d62830c69f077b6f66385a5b81316afabaa48ffaf48f4096bc6d7f0cf4ba405",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/cleanup.json": {
+    "original_sha256": "d2095285792a11773793e64fede58cd6b5fcde54cd11b58ee5a857bbb0d7ffaa",
+    "archived_sha256": "a4f1522187c718f00e4ed837b915374026a30c3e835f12ea02e4d09eddd286b4",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/native-audit.log": {
+    "original_sha256": "841aed276fa1c002049ea4abc73d13fd109974e4fb05014afcf0f10227df0ad2",
+    "archived_sha256": "f7837bc8d509ab993384e4292751f4114ebffe96867664d697e79b2dc809b3ff",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/exit-guard-failure.json": {
+    "original_sha256": "6642b1bcf64c1ebb42082c23e3d037b4ace4bc2081e0b207c69a58c13c35f7ea",
+    "archived_sha256": "f103f52ac497aaecbfd5c30f7d5ce439609c41ddc37f4c652e011ed7769885fb",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/build-reproduction.json": {
+    "original_sha256": "1a50e4ff2920f15fb6213bdbd0ded10bca82ade38b385f4793b164882480b780",
+    "archived_sha256": "1a50e4ff2920f15fb6213bdbd0ded10bca82ade38b385f4793b164882480b780",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/flow-result.json": {
+    "original_sha256": "107c38ed27a07cd520213cd89e0bf33e361839e4bffb80086f1f1b726e668ea2",
+    "archived_sha256": "c892f59129c7e0a7f7bf4e601a56b8afe37009f4a057b220c3d3612b6f552174",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/go-race.log": {
+    "original_sha256": "d8434b516596d8197e2e5890e01488d80952aecde56d977bdfb4c1a171fe38e0",
+    "archived_sha256": "d8434b516596d8197e2e5890e01488d80952aecde56d977bdfb4c1a171fe38e0",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/native-resume-after-exit-guard.log": {
+    "original_sha256": "ca34350b5f68be25a84308c684e9d6de08e007a23f0f5101bd91e16c53674567",
+    "archived_sha256": "716ccb0307c6d7aba99aa9333ed6e3dfc2405ebe646e0e8431dfaa068ca391ef",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/refresh-tests.ps1": {
+    "original_sha256": "6cf96740f4d254885826d8f03eec2ccd9a11d5a1def429cbaf2364842bcf8ef8",
+    "archived_sha256": "6cf96740f4d254885826d8f03eec2ccd9a11d5a1def429cbaf2364842bcf8ef8",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/audit.ps1": {
+    "original_sha256": "bf5241fd92a402c8b3187cefa20db68b72046c94d0c1526de87e5bbb43b96c6d",
+    "archived_sha256": "bf5241fd92a402c8b3187cefa20db68b72046c94d0c1526de87e5bbb43b96c6d",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/native-resume-flow.log": {
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/final-audit.json": {
+    "original_sha256": "647db1a67cb016014d8a8d5c8a75b909af6901f08c012c4c40a2b8f44b3db1bb",
+    "archived_sha256": "b6d840ec781fc5815d748188b471b0180f05b13375f21e8b1382c358e7a8d52a",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/cleanup.ps1": {
+    "original_sha256": "d867632c9f1cac8d08b751b4aa0c5b4a234f9e508ab2f957239d965529f7b7f6",
+    "archived_sha256": "d867632c9f1cac8d08b751b4aa0c5b4a234f9e508ab2f957239d965529f7b7f6",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/receipt.json": {
+    "original_sha256": "8ccee7639135dde1f89ce09beb752b5f5e39d3e38ed7a1d71e1c6969bb4c3099",
+    "archived_sha256": "4a20d553c9a472857f775815f7b87048e9faaea117b4f59e864f890e5aebdcf4",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/native-inspect-exit.log": {
+    "original_sha256": "d6e5e5ea32d16a9bf07b18056bb81c1c068bc4b53c44f7403e1c8f4dcc1063b6",
+    "archived_sha256": "d119153a6f5a90ebc958e7f31090747a08d8ae66280e4f63e2894229e0f1e87c",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/clipboard-restored.json": {
+    "original_sha256": "628dc191b7ea95e1d43062ea1c1dd33876cbc2f90c4f87a8a421d73a394b3524",
+    "archived_sha256": "51a235e05538f54dedda3db9a4211d12be0a9b220b2edcb5870f9a0a23825108",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/a-draft-after-copy-public.png": {
+    "original_sha256": "3f3bf6125d97ab61583ce2d3a357df12de4451ca0bf8fec3fedd79a1d93e273b",
+    "archived_sha256": "3f3bf6125d97ab61583ce2d3a357df12de4451ca0bf8fec3fedd79a1d93e273b",
+    "transformation": "none"
+  },
+  "final2/desktop/a-original-draft-public.png": {
+    "original_sha256": "b1fd617ca13fdf571c5678e7e504da9429b546fa181abfec2eae85528b66d895",
+    "archived_sha256": "b1fd617ca13fdf571c5678e7e504da9429b546fa181abfec2eae85528b66d895",
+    "transformation": "none"
+  },
+  "final2/desktop/native-line-selected-public.png": {
+    "original_sha256": "cb0cb9d9c91f7687358ec24f1610074698537ac9822334e96f1d24287b539454",
+    "archived_sha256": "cb0cb9d9c91f7687358ec24f1610074698537ac9822334e96f1d24287b539454",
+    "transformation": "none"
+  },
+  "final2/desktop/a-explicit-command-after-copy-public.png": {
+    "original_sha256": "c7b909ea6e153cd15c073689079f36ff5e7acfdabedf0bb0493dd1d2c9dd4ded",
+    "archived_sha256": "c7b909ea6e153cd15c073689079f36ff5e7acfdabedf0bb0493dd1d2c9dd4ded",
+    "transformation": "none"
+  },
+  "final2/desktop/search-unicode-prompt-public.png": {
+    "original_sha256": "6d894e18ec191963c06f891c4b41eab8c2263acadf048d076f85a1b3dce74442",
+    "archived_sha256": "6d894e18ec191963c06f891c4b41eab8c2263acadf048d076f85a1b3dce74442",
+    "transformation": "none"
+  },
+  "final2/desktop/search-resumed-63-public.png": {
+    "original_sha256": "959899ca5b9c064dff1311c8bc89b67b46ea3314ce27df367835367d18fd89f8",
+    "archived_sha256": "959899ca5b9c064dff1311c8bc89b67b46ea3314ce27df367835367d18fd89f8",
+    "transformation": "none"
+  },
+  "final2/desktop/ready.json": {
+    "original_sha256": "0a396516f0a6792fa19162f79cdadd168ee1a813372dfde5dacdd6ebedd29c3f",
+    "archived_sha256": "a67e1a69f876f0b14a9bbc4ff4df3eb9f28ee5150f4eb73a430ff2bf264b2a4d",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/115.json": {
+    "original_sha256": "01d6fceb5609fa778fabf6e30fa771aacd47822ced8d6fb6919fef9215a12d9d",
+    "archived_sha256": "5a970623ea957a729c51576f1ad006977cdb5c7e2d9ef1c8c246197950405b56",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/050.json": {
+    "original_sha256": "f549789fd80dac3c30033d119bf780bd7eaf0d3cf26c0909884559e5d7be3995",
+    "archived_sha256": "f2bf36f0289c576000f806bf7e77d07673ad79305fe913515f6992308d525472",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/142.json": {
+    "original_sha256": "c744c4459fc482374cff7f0a41659afe41d04c19ee6a2498632da68cb38b48a5",
+    "archived_sha256": "ee892e3b16fe3a7af1469f01355234576c39e4803aec5ffd4c1ac2a1c625337a",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/007.json": {
+    "original_sha256": "decacea559f88e7478526ca0f40b617f91a659de5c4ccd4a613ff6f5cb0a4527",
+    "archived_sha256": "285e03337b5d3361bade20dd8c4e45464e32af920ddeb0873f9f28ab8f680261",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/011.json": {
+    "original_sha256": "d3583cde286a0fd6f62326a3694baabef3130f99cce77e9a6269dfeed9ceec75",
+    "archived_sha256": "f1fa3c91ae9451604a8292f0db3ff5fef2c3bf31804171a55504266b6d426130",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/103.json": {
+    "original_sha256": "d3f726e16a6a54aa0b8183b58a61eecd0c51c8dbdb6617183251c299be7e73eb",
+    "archived_sha256": "6efc7b403e671a376bb48592574db9f80c97ba04971f247c89dc3cd2ad918a7f",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/046.json": {
+    "original_sha256": "7584d0007d2b4bc45d7f860c0ea8b1c7ac247b108c50780b849b6057686bd8a3",
+    "archived_sha256": "5893af306207f48374e5a5d4eff235c9aec040568f78bbed87c156e3d14ff432",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/085.json": {
+    "original_sha256": "f91336c4d9029363f0b2c279f4098f04ba11350a6959062a8fbc031473b380cc",
+    "archived_sha256": "c1d87d189c14304d18f89bd19858606845d328c9af8bfa6369c2771e6c0784ad",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/093.json": {
+    "original_sha256": "64ca53da8187191043eb3f8009403736a8e5eac59da147870f5a9dd1632d83dc",
+    "archived_sha256": "2795fdef4489346c00a61f4f82396ea98d154317abffabac52fb3c6c435cda31",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/139.json": {
+    "original_sha256": "06ee58e948d69592c9728300c9241908887e3f4193689ec454b712a34c776977",
+    "archived_sha256": "f46559c403d1ad2b40acb3394169e53192c164b51ed40bce8a07c7b368abd20c",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/119.json": {
+    "original_sha256": "dde9334facd03297b06baa2c22aca3b3edd249cbd662969e49c7aa872c9d2058",
+    "archived_sha256": "d6b39a77a646fa65cf7f9adc77fee61d05881e7b0ff1f466473b2766665039cd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/031.json": {
+    "original_sha256": "d8e8d8e56c021d5a38cc02403e26098d7bc7ef879065c4f2613e5c250a25b97b",
+    "archived_sha256": "beb3b7837e939bd7d8b33cd0e9e07deac98d9a1245941a15791d0c60cec31d39",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/066.json": {
+    "original_sha256": "f8b1b4ede2559365e46065b235cf3b230199e00ee415c32a7251f5282c191555",
+    "archived_sha256": "63465d9fafc5bdb051719d45e912163f9a83ae2b1b06ca05ffec8b5de70222d9",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/089.json": {
+    "original_sha256": "946a89d4cbf54ec8e6bce1b17f75dcf7958ca3ae99f012e88d236c1c5468f4a8",
+    "archived_sha256": "5d9b6f23b0ae1bcf0e7f190587f039d8dd053f2fc8567cc1fd2a90b71983754c",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/123.json": {
+    "original_sha256": "4c9f03fac47305c25cc52e9b0b5ad8f6316e7622b6cc9b50ba3351296744878d",
+    "archived_sha256": "d06ebdda6ae6069cc060421ff4e09ed560191cccb4515f2efe5d53eaf36a4685",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/070.json": {
+    "original_sha256": "86e9bce9b5a87f5a1242c904eebe44bad2861f4c5abeb3e1f019b48a2cef2246",
+    "archived_sha256": "0763df3efe8070c18f9b95628a9f3bab608a1c5d5d52c7cd13df3a312e1a5437",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/135.json": {
+    "original_sha256": "6ee78450a8becb39a127ddf56844290690b15d2a28901cce6850343a4defe539",
+    "archived_sha256": "f35180a55007f52e879d6513a92fdc17f8a11544e707766e904561ce05bebd85",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/027.json": {
+    "original_sha256": "dd7226101e237f4664188be14580f4cff364f6d1f25d1f6d24f426ce1577803a",
+    "archived_sha256": "1a3a391dc248c32cbc5d41ba4dd9cdd0bbb3f1f961c3073f9e0cc9c0e4baae55",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/026.json": {
+    "original_sha256": "6cad04f3e57ec38dc27bb2d5d93e5d5185b99430c9f65f93f6016fe0ee93423b",
+    "archived_sha256": "462b777b7c4d4682e394ceb39700d4490d45f3d06be703fca3c9d670a2366842",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/071.json": {
+    "original_sha256": "501ef3fd462a2d91159e1a8e37235b9d6f49dfa70b33989c74cfcc6d8f33a16e",
+    "archived_sha256": "c632742176e361f9c8e3c0188d015d117c6760522c6550d2153418b0be67ae37",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/134.json": {
+    "original_sha256": "918d4d346f4511300dbe4194452431b55ee1aa74d2095668524eadfcf193c1b6",
+    "archived_sha256": "ef0e3e89182f90885ed73db2034e9efdafd98da0896f4135c4c95a7e2adb8a87",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/067.json": {
+    "original_sha256": "e2f087c8a215d94d5b30b38f7a4c8f954944ebf9a5c93f95fa02fdfdec6252c9",
+    "archived_sha256": "108dbea63d67bf989e3c47a9f00131fdfe31c04a23c7457a12cd83e55b2fa3a8",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/088.json": {
+    "original_sha256": "9b1cf61efdfba3bf5491b62b99f2d336f8c27ca456795efa54fa22108fa08984",
+    "archived_sha256": "e11c367719752fa8746f5fa0a4aa7ce96a817cf7ab9092ae3ea3f3c69f59abc9",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/122.json": {
+    "original_sha256": "3a71331cd98f2d28d441ab7420f25436f7841e9fe4bdad469015f9b4e991359b",
+    "archived_sha256": "b11e578bfde08b7d684ebfae0cf2cd2801862591ba2d0a4f889e1d0204fb31b3",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/030.json": {
+    "original_sha256": "3d8a69826efc0dc06a6aae5d5d19a172d2ed07060885cbf53782052356155e07",
+    "archived_sha256": "9ad93845102bf4348c2626b01339a375e224d3a0c22a217ae007043e9c216250",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/118.json": {
+    "original_sha256": "64200d5fe7affce94607d28dfd9472f2fc1c62c794d0a1fb9f8b60793ea740b1",
+    "archived_sha256": "482f238e4714d5c7b899c3f728a7594fd5ab5f075c99563fbacd332e661613e3",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/092.json": {
+    "original_sha256": "a6cbbde7dfecbae012494383463ded77cd4ab53aee9cf6da44bcb57e011b6bc9",
+    "archived_sha256": "e042694410ad7cc79bc384e4d640c63a201c8b78a6afa1d68c5e2653fe3de771",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/138.json": {
+    "original_sha256": "49a55d56529f8a67ea1af89bba6d77e5ce4dd97a05de5aa1cd72c92b0846b839",
+    "archived_sha256": "c7cba6adffa0c3b943d4676e856413575aa60b434c1280c7ab0ffd5f27488e57",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/084.json": {
+    "original_sha256": "314edc7d9451193f0cd9fa00b1f531b903ecd41cff6c6be28d03f9677701a374",
+    "archived_sha256": "2810da6d67546ac659e9c9539bc8877551098a56628c9eed80e07bfcc0f10039",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/102.json": {
+    "original_sha256": "923dac5aff0029ebfca52ddb02acb8824927657f220bec151d826bd851501dca",
+    "archived_sha256": "ea06f32219003d9e6543de27f5f533f9fa1ee4c8720993308fdfdb77d90211cc",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/047.json": {
+    "original_sha256": "398776bac07385baf6a1eedb99f35fb459097440e8e6bf219bc2aa21e6b3fde6",
+    "archived_sha256": "4fd74b432daf0a4f6aeef36b2c4f2d997bc554d09c9797a5fe91b30b8b9423ab",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/010.json": {
+    "original_sha256": "c6253f8ea52cc059dbec55af9169f8d32ba7f7e4aa48b857ad930b4a083167f2",
+    "archived_sha256": "d8227f96bd0dc230340fbebfdd16f58214dd4177196d5ca75edbc1c0dd69f6ee",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/143.json": {
+    "original_sha256": "df7db7a490f32d302afd0f180ea7a740d8f1ed25d0711cebb08b39775917975c",
+    "archived_sha256": "3da0d1dab2dbc64c776b582919168f58fa825065cee929ca428f2d51daa693ad",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/006.json": {
+    "original_sha256": "706fb054ea16863f7b4bbd3ae68b71639724b6fddd50acdf492663bddfcb6d21",
+    "archived_sha256": "9c20e7959b40b4fd42cffba115674a6cd5cb5b39c991c2f3c15b73c92a35594e",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/114.json": {
+    "original_sha256": "4c3ce5859dc35d56af25a07a9c7a1d437a04c38452d4a0426950dd8a69863098",
+    "archived_sha256": "8a4198b3779040b5290fcb801999b523e3291a40a5b9ae4e0c1b73e7bc0f3f31",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/051.json": {
+    "original_sha256": "943ed0750a528dd0b03239a36b5e3bbfbe5ae4eacaf66f2e2a66a084e79f14cd",
+    "archived_sha256": "bf97945b9e5352fdc9f92d1ecfa4ae6a033c40fb56b2e4466291d3d07ed2b4d5",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/148.json": {
+    "original_sha256": "2aeb6f01320eaec370f6905396489e39f5cbb01629db14ae646cc3dccba0fe4e",
+    "archived_sha256": "a845cf359e4d582ac40aad543de4c1496a503553996444992b36daaa7c324455",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/109.json": {
+    "original_sha256": "d62b4a3aa612aa35a24d779cff1667886f21b3100a5b04c9d19db0ace818582e",
+    "archived_sha256": "9e45d0c07e0c9b85a7065b3d886e75590a91069be94e07a2c971a5bfdd8caf0b",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/037.json": {
+    "original_sha256": "5a58c085a74ea94f06e93d54c2f12503f109f54f80b096257bbec4428630385d",
+    "archived_sha256": "27c5be09b0f5950cc9273f40dafaa77b242ea436ad557d180529cc4c6e6db343",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/060.json": {
+    "original_sha256": "2e5b43e0a17ad6f5fe82eec12bf4bd551bf22af48bca44561a74e75c3fb97f64",
+    "archived_sha256": "6071ec58d37f89b5b60dcce8352897c9a743c0ded674a60651170eaa4fcc7fa3",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/125.json": {
+    "original_sha256": "b151e06195993911381a9f6169ded38aef036e153c65a76cefe1a3af0e3346a5",
+    "archived_sha256": "969b763c7e8e969b5699684c9cbd041872d517ce59dd2a91a4f683202e536e9c",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/076.json": {
+    "original_sha256": "9f9bef761ebacb475df96808992a079022e24bd1947fcab3c8d3f726be98b35e",
+    "archived_sha256": "23e11f8d3ccecd419818811e5b38f77b01735cecc07888c8808ef7a569e0fd41",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/133.json": {
+    "original_sha256": "a2e9cb9c42311ddbe22fc88ff932d74638717658107b9bed64674133f2e2508a",
+    "archived_sha256": "a447413432e62bd94e35f7dce4f75ba0af704ea5a67e70ef5571644180da9feb",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/099.json": {
+    "original_sha256": "6c1c680811bbb7fd8d338c6e74ca43274c425ce41fc3841e19b3766df10183bd",
+    "archived_sha256": "34a3c59ba20cd63c17acdd5a4e6c1c89e248d6d265170fdc5cc856ea097cba83",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/021.json": {
+    "original_sha256": "6224ee317258130d1c61d2d70c77d6514fb982917a3ee1c7fa1eb970faf63aa5",
+    "archived_sha256": "7d075aff16e6988a1e7d306c0cb2df2174665179b8cd836bf7b84dde9fb7ed82",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/113.json": {
+    "original_sha256": "54d277e02588e5b80d23e95abcfeba8d1a36b9a932d3d422a58e1e23ee5a3d85",
+    "archived_sha256": "dfbc48be817e3c9c32561a87505e982bc883d9fcfe0149023b3d006730fa2cb9",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/056.json": {
+    "original_sha256": "dd309dfaeea7b513707b71b5e461dc89567abe1d08170bb175fc7fe7c20b0c52",
+    "archived_sha256": "0d1a858885ddc403c247972b1f36f1996169a692712b2a7d40e000f0f1bda349",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/144.json": {
+    "original_sha256": "e0e043d2dfb757f1a24fb89e21fdf65b1cefa7377b157fc87ba01c1da149754a",
+    "archived_sha256": "17df23d9a998c90122ab4ac14a5b1d9fcd660bc1134c557e5f338790fdf1a93c",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/001.json": {
+    "original_sha256": "bd90e0e0786f531426bd5c65f0b4a5d0992641061c97dd579c6b9b8c5ec750ca",
+    "archived_sha256": "806da73c7683c49fe93ba16a10b7bdb4781b89f93fe134ef138bd896799e98a7",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/017.json": {
+    "original_sha256": "c3670f9d9308bebb9b0a1768aa1eb81ec31a5901baa230e6c18045ea318a28fc",
+    "archived_sha256": "a071a057605c86a80162119b9b56224ce833145add63fc312a9c70db69ee912f",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/105.json": {
+    "original_sha256": "dfcd56e44ef7ca0c007479c9573c9cac283f6802d2a915fe059370e328b0c878",
+    "archived_sha256": "f00ba19a432b1a3761ada55b89521217c99d7cffb36f3a4b23d7b731a633ca76",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/040.json": {
+    "original_sha256": "ab35104f6608f01f20334df6acf4dbafdc7ec3e84af0026e8f86ce8cbd220b2a",
+    "archived_sha256": "dd4f17ff9057472d4837cc7a427b97179562c526a52bf206f3b72e063d5133f9",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/129.json": {
+    "original_sha256": "deb0f0acd8155bfb2e387f0f88b0011f1ad713b1afdaf4d4f5dbb1bc2d69b841",
+    "archived_sha256": "68a633da57b702a1772092812ff805d044f06a188c5f5a8b37b5caf361c52c4f",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/083.json": {
+    "original_sha256": "c6097eb4daf193c187abedeb84c2af79e67ba888109dcdb7b5159fda71737cc1",
+    "archived_sha256": "66dcc81dea9cbcee3a6dc00b6446ee6c720811c747121edb4dad0a1f2456d094",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/095.json": {
+    "original_sha256": "9b49008f82f49daec0d93b01ff83e71b8f99138e2fd5b58dedc3576891ecd52c",
+    "archived_sha256": "69c3c485635061e9ce14a9c0059bbbc1cdfff21673b4950e510a6bfa1c6114f1",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/094.json": {
+    "original_sha256": "d94e301ab479f8c8b1632e00a45ad0bb252bbfbf07952e5233b05b8a57b42b86",
+    "archived_sha256": "cede846e13540434f9c6f9cc3661e12c53a799cb4161a6ff7360644388996084",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/128.json": {
+    "original_sha256": "2aa24f3aedc29aee3091fe2b99ce86fd66c082cd5b0c421eb879b53b52b4644a",
+    "archived_sha256": "fd9354364b9b36d33d1e99e0ea07256cb59f1fc8b9ea1f4292a3e4a391216e13",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/082.json": {
+    "original_sha256": "11a3de4a697bdf4107e5121adc44ee7030e0deba115ecd5dc78cd8256ffcb215",
+    "archived_sha256": "a74d6c50702848b735a2b7338df70697d660bb2249db6b388bb46521ce9370b4",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/104.json": {
+    "original_sha256": "d6355ddcf598b6ff78d3721bee8e75d04c06c89d2fa39663072a84b6dcbe8e85",
+    "archived_sha256": "7326181959c07cafa4a48c48aba26125ff403a95002793ebe60f99695e001989",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/041.json": {
+    "original_sha256": "614ba04aa4a601a5033dfcde4c55f6bb6004012391b3e871b32598dc5466614b",
+    "archived_sha256": "63bf37f640cc4827476e17465ffa4d98a5ab9d6d98f80406bb213a7a14429294",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/016.json": {
+    "original_sha256": "040179f85ab7a291635cb9eb7d424d893ec02a45c467fcebb046072632419fee",
+    "archived_sha256": "cdd670c1b10ee66c24d1a783308d546aea59407d1fb0cdae834d5866542b1e6d",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/145.json": {
+    "original_sha256": "0bd743d3b244b7a275fc851d1ddfd957e469f95a4e1ef0487192d08a13723470",
+    "archived_sha256": "e32b3147b672a7c679f72f3bef210c767d3ce8ac55c6a0df38bd047eb6675825",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/112.json": {
+    "original_sha256": "2cae6bbeded3b4e9ec1b2e5e91bcec9a45c121cd1740d184124f75f728804be2",
+    "archived_sha256": "e03b374310dfb79d4be2bed31e5021d6947cb9fb987d4399708d1e046a1e0b71",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/057.json": {
+    "original_sha256": "6261aedfee06d56d76ce295479a9e7af81ed88c8fc9f5d6ae096eed4c5609ab9",
+    "archived_sha256": "1ec663681c4a90c800f2997bf5ff7cd617d99ceedc985af1da4e774521d5b033",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/020.json": {
+    "original_sha256": "59733f113572ee6d4004c431fc68a2bfd196c9ecad20271e3187ef0ce56d9d48",
+    "archived_sha256": "942a0980c444d325f3d827e887192a1dc60deb7a63e4ab651af2d094f4587de3",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/077.json": {
+    "original_sha256": "90e905be231190e13367dd2e9d2cae818b05d1b674decf5409828c9df5d1c680",
+    "archived_sha256": "a1ff1e754379f45d9318c97fe502908bcdef0634ce6a7a30654660a1554888e2",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/132.json": {
+    "original_sha256": "ea3787d93d8a188f8ba0e979f9ab18463d2a08eb32e96a1ddc5d519c4ca0877c",
+    "archived_sha256": "7082aa596228a55948706848e4b52a032a4796ca7a98be033128dbc1f654760b",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/098.json": {
+    "original_sha256": "57b63d780ae525a934c0de26bbca79b8d594ccbee1b345cdfc527bad1cfdc514",
+    "archived_sha256": "0f0bb835a5acc66690fe783fff33ae3fae23d054d12f6dbe9e2184e50c993429",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/061.json": {
+    "original_sha256": "a0eec5f5f4ec93d65843d443b314ab65ff6a8e880adbd67d0c546a0e77296dd0",
+    "archived_sha256": "02cd8e2de4bb7acecdab7986d3590432c5fbc03411ac79abea8d6d93bcaef155",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/124.json": {
+    "original_sha256": "4d3eeb034b4a83dd850f204e194e70fbab4d35080701284fc9615ab8f4277afe",
+    "archived_sha256": "e38fd81519b3de6b52743f71e61d9121c35cdb166b17508b9f500de90987fded",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/036.json": {
+    "original_sha256": "5821a2353618d92839acdd5397beb3ac202d3ee4744b3eb26be3b69684259211",
+    "archived_sha256": "ec94eb9662cf7f0dddf0409d267aba348c03edba6029c10d2af21b5322f807bd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/108.json": {
+    "original_sha256": "77c10e0b74bb414c0535f8c6148dc8d06651530d54c6d0defe4d0fa073ada8cd",
+    "archived_sha256": "bbd3807aba83b51f000948764b536f6a79a6dcb5e50482b0fc0c9a35e2e02247",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/149.json": {
+    "original_sha256": "e6722e61e36305d0a0113151ec9612ea66a997003e7f6783b096b480cf73aeb8",
+    "archived_sha256": "e56d52dd1ca74c58ae9c02661cae3a45617cf9bd3836ef6137d574dd646e0718",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/023.json": {
+    "original_sha256": "66f299a270d6da776c5c6f0cccb8e99fc25d49003f677da94e5c7d88862ee382",
+    "archived_sha256": "f8fb2b8906a644fa6a37fd7301b10965a47cdbb342dbc7eded8cb5d847d16afa",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/131.json": {
+    "original_sha256": "2dcb9ecec3a70f09b42607566614c465332825878eb6a51bf381aa0bce5f856c",
+    "archived_sha256": "8ca12890b0a2c00788fabc438abe8a9515e2d4495ffa852f78de14e141ccfe0a",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/074.json": {
+    "original_sha256": "e100f77201c6b09c3b81b530cfd24a51ad6569ccdeec842b1fc45ee976e7f351",
+    "archived_sha256": "39898a37048e968bf5b4152e651bc4f50fd1c109eda1aff3c3d0f25b161a116f",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/127.json": {
+    "original_sha256": "0bd747b9d291b54f17560bee1b0592ecc29e83e1bfa6067ce8d1ab0379b68186",
+    "archived_sha256": "3fec247c94108cb7012a1306872fc5c026ade3390c2f4af9c1c1df4e7c0c3139",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/062.json": {
+    "original_sha256": "2f3cab9e15706c6b7411b1d32eb5439902e75a212eab1913b7090f3a43a9fafe",
+    "archived_sha256": "c5c4013e7dda87ac4452068d4b8fdf983f639c03a1801451646e2ef781e74888",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/035.json": {
+    "original_sha256": "6432da056a44da5a2c69a14e4b42b63c02704201bba7e72379fc1a8cd322a178",
+    "archived_sha256": "a3e30421a28083e56021c3546124989f86bc0680ddf9cd400d45a04a26696763",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/019.json": {
+    "original_sha256": "8e903f6c6f432734c9cdb912313680d67e8c744e8606decc40d74d0700c240a7",
+    "archived_sha256": "bf853dd129c44cf33839ea7ecd6345a3b6db3da44be9bcc90f7bace8abc7b4af",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/058.json": {
+    "original_sha256": "b50b0ebeffba81908c49701dfb264f260f51435b982fe835a0f805b3c8168c81",
+    "archived_sha256": "b0eaec5cef1f702423461bbbda2e55dd1739e964c3d4b30ed907cdb762196611",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/097.json": {
+    "original_sha256": "3da16c6542fd55dbca6e7f31579c7eef1e059c07011ef44f56c25ef23fc1f809",
+    "archived_sha256": "a57fcfa5e7262b6525d2c972846d0466811e3952e8e9940b740b1cc416310b30",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/078.json": {
+    "original_sha256": "3caa2cf2789679d4951fcc0518a2f336ef7dd3a91803dfdde2e7eedf96f42e47",
+    "archived_sha256": "73043bafc95a7575b3012d1dd665846c7e1d5157d10dcea9b2e66a78231e65b1",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/081.json": {
+    "original_sha256": "148389f5cb0c2df5cb8f87470a41823355eb325311bad283fabf5d01994c3be8",
+    "archived_sha256": "7a01b9367831dd34ddacfd7c13db1dc8486392c87720356ce692e6dcc2780ab5",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/039.json": {
+    "original_sha256": "58c8f8d825ecb713064785dfb86fb03a3bdafbf9fe02203c08810a3ce24172ed",
+    "archived_sha256": "898e429e49885c208d94622c9d13a3ed9495444fe99283a2a3143378c669b573",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/042.json": {
+    "original_sha256": "8de55d0b3ad443cb594e1af228a1b4c0c298014bb40fd366bd28e9a56effecee",
+    "archived_sha256": "60877b82eb9fbc563c93d5d18b30dbf75f636a24f8452978e309063fc3f311b0",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/107.json": {
+    "original_sha256": "1b712105fa3f88c766834f007008ae354a9a201321fc3277c47f55c19bece6f9",
+    "archived_sha256": "b07c05fb39c081fac527a005e426f253fe9755e1377055cf5e1a8dfc0a794341",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/015.json": {
+    "original_sha256": "46cb1213806c1975dc24d93c13137c48a0de5fd003994884736fdce42146f33f",
+    "archived_sha256": "2bb0719bc9cbe9cabfac5f485cd912dc3c601dc4c5d5f2af4625c09baff4985d",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/150.json": {
+    "original_sha256": "e4cd0b786859cb6e8f94ae6ec7ac65333f1458d0cf6e6375ed16bf5049572383",
+    "archived_sha256": "a82074837fafa8ed2b43455af89afd346a7cc5796f7641acb89ec9aa2174f800",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/003.json": {
+    "original_sha256": "35a1cc8671e343915032a7d7cfccfa7fc8d32e218d6c55efac582fcb27812fe2",
+    "archived_sha256": "4fedb702121db532a51b9f3509b00216d483752a9ba9157c18b41f0a280342be",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/146.json": {
+    "original_sha256": "d60cb451c393203d765cb2fd3c5dc3c97e41581354f0bd0009de949c3c8cb43d",
+    "archived_sha256": "01b61bc57f9ff6dc716fb553708b7ceacbb5191c715304594c345c84b0f294d4",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/054.json": {
+    "original_sha256": "74d2efb055805cb993ad0f7fb4133f5744e088be2e733a29a6322508eeb691d9",
+    "archived_sha256": "1b3d4e47c5cf3e8e954b6bbdcd7328fa12c124f0b6392a506f4503e434609f60",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/111.json": {
+    "original_sha256": "39695d27b0ece4ef72d9635ddb6befc1ce77c9338a688352e64736ae1cc67228",
+    "archived_sha256": "9d0b46b19b0b4bacd00768a72c067fdf5b75e1a6029778390042a9222a0bf20b",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/055.json": {
+    "original_sha256": "586df6100be389f9f7fe0f9ee3bfb455fbe81b67d25a5aa39d09a317d2c7b1b7",
+    "archived_sha256": "ffcac1d7314100247e93f1a6d6ba779c2ffcd9c2c994388b56ca27892405f02b",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/110.json": {
+    "original_sha256": "5d3e39566ec571368141a8d470a828d6b24103a1ef3ff90b7d10175794568f0a",
+    "archived_sha256": "a434ba79885e9ffc6787edd413c6db83ed881041a2c8263481c8bc526d01b62d",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/002.json": {
+    "original_sha256": "69436c7162dbf418e18942c8bed2938c7b37d9898eb107ae71087180895c5ca2",
+    "archived_sha256": "0f8e3c4b03975d377a3cc988bfff8a7ab26c6d8f1455a7bd8a2d9bdbce54044b",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/147.json": {
+    "original_sha256": "734a83fec3767f80509e232fdfd679a3e6c97c30027d6e3c5a5782fc2fd18504",
+    "archived_sha256": "dec844ed73c6f241ba6f639c6bdbdfc70720c04512933046500d18354c9628eb",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/014.json": {
+    "original_sha256": "cd9a5e016d0bc06bfa8692f9e6e655d47aa58e5a2b7c50e9149833e610fab7ac",
+    "archived_sha256": "291fbe2523bc1c697048eaff169a9cf1e9f7f60b8056a609c5912e7bc540bb5b",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/043.json": {
+    "original_sha256": "ef16433021db93e99fe8ac6fefd7b3fe8877e45fb357d7163cd404145ff1803b",
+    "archived_sha256": "74e813a282ec909e08690deb134e5d67a5a4cf2ea41780be705190addaf58c9d",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/106.json": {
+    "original_sha256": "20a5e19102d16dad302ded998d55b749515ecf8766e23f25249a9b808e2ec6bd",
+    "archived_sha256": "4b6b1689c87de5c8a0affc8175ec45916b13424f26c3ee92af63d81095adb19d",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/038.json": {
+    "original_sha256": "eb63770dcfcff965d7a05b471f0c0fdc50c6cb9911a08b119b7f19389a814583",
+    "archived_sha256": "777120321fbf9e760f41ba0707305d856ceed98d065f5efb3f84c3cdef77e55a",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/080.json": {
+    "original_sha256": "f45ba456d17bcbc5f5277842e34bf56510e49520230e9cde1eba158fde41771b",
+    "archived_sha256": "c78d31cb0143e2cc3d2be5f92550d1fbf1bc5919d9d243edff33c4816fb1fef9",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/096.json": {
+    "original_sha256": "95f4685edd31f9e8953295348f7881286309a2bc911a90200d23f1ce660f7d7e",
+    "archived_sha256": "f4a35537ad2193435a0d262196c3f63291901f478bd35cb5d3ad19dd08e40a85",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/079.json": {
+    "original_sha256": "f91f2d301a58acd05f74c19ced67900b1a226eabfc6c524338108cb731497aaa",
+    "archived_sha256": "dd298fd1354442fbe7cf573c599bce3b98041130d898993f05929d3ca05e1b3e",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/059.json": {
+    "original_sha256": "6aa5e4d2c6461535abefcb9d6dcd2d365e27e685e5ac5523104fcbeadc314557",
+    "archived_sha256": "4757bf748d661f10318581bc43d42909a64a4a61acc6da9b29e559838a426da3",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/018.json": {
+    "original_sha256": "42f64b1ad7242bc615b4e5391c15406549fd27840cb1b1e9bdded670db30e910",
+    "archived_sha256": "44fd5049ef5b919478c812fefea9a9818ae1cd805f85c159651388880705cdb7",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/034.json": {
+    "original_sha256": "7f845e622e2836b34053cf2a40d7f7f0ba183ae1da643f5570f5eb6de5769a88",
+    "archived_sha256": "1390f2d914f2df7bf29cefdb12109782a107783e50f71198cb3440949ee253d0",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/126.json": {
+    "original_sha256": "aa45e2065b19c6d198fa31d7f18af604fe594a799b25a63722b1b32f4cc6beb5",
+    "archived_sha256": "2624f497ca9c163b1380b5320fa1bcfe34e76fd6dff0ef0be40fe98f9b911b89",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/063.json": {
+    "original_sha256": "dc2a40013caf5b87c6bf3b75da9f106ab51310a8dea57c3bfbbd6fb279ad83bd",
+    "archived_sha256": "5c9609956fb047388f65508768356272d71faa16ee057e607aed24a95615f72c",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/130.json": {
+    "original_sha256": "5c1d8f51c6cb6472af5a425632b3309540b62becdc4d2df18944b52ceee7cafc",
+    "archived_sha256": "abf4a70f46c464ef1f52a633fb49cbe6c62294fcd0d8de2712762e3396447828",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/075.json": {
+    "original_sha256": "2af625fba009361000f42c3889bedf76defbfc8b5fdbca96ed5613e5eac4d346",
+    "archived_sha256": "e5a6538b776eb51f926b52ce7fffc2de03e8b89a2208ab5464e515e4a16c7a79",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/022.json": {
+    "original_sha256": "1a59b8c924f43829c447a538972208da0cda5ddd0adf8637530af7bdbf28a7dc",
+    "archived_sha256": "4f382e6561cab958a184057f2edb76dfdce9de3fa56273ce633d0fafb84c8f71",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/029.json": {
+    "original_sha256": "721b099f39b66c6c2b8fba394c392404a29bb3a36611decc90bc78c3c72f4bc2",
+    "archived_sha256": "eb821b91b990130ed75e869408b20624a015cc0dd176beaa8155646434024a02",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/091.json": {
+    "original_sha256": "e4da5ece1363e0a05fe53cde5176ec781fecc246cd66cbd30aec451eb45605f8",
+    "archived_sha256": "b56c5967070a40db8f373908439722c7214f1bcccc030710c3f505b0ce72ed51",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/087.json": {
+    "original_sha256": "f292c11a6cbe27fe908c0936495175469f6497037a897540e3bcfc06078476a9",
+    "archived_sha256": "079f65372b956689e7a97f0218afc2aac96bfd65edce33c92a4fa61987ff0653",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/068.json": {
+    "original_sha256": "4b71646ba182991c5feaedc3d1c3c259ba8492d92139555b881058fa72db64f6",
+    "archived_sha256": "7504fb15aab02bf8cb182e33ade50559baeb8ca1f0445e5c1306c4604cb6818f",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/044.json": {
+    "original_sha256": "546ec93db8443259082b05bc6f6a54aaa2d9141c629a102fae67e341027d2a48",
+    "archived_sha256": "0749ce1b3b1c759d0bc537b31f0434922955613240d752ab83bb801d58a5dd95",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/101.json": {
+    "original_sha256": "ba4999dfda13ce6234abe2a15b12fb96c5b21699f6709f5f8262358bc9231f7c",
+    "archived_sha256": "1a7a30bc49f3e57904c5131d3ab6a875bc37157af654cddcf8bd30276e5299fc",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/013.json": {
+    "original_sha256": "416f29cbf8767eb7b4aae254a085a84ef0adf15b4a698b8926a163514e6ffe23",
+    "archived_sha256": "cd3cf4b708f3a5dfcb97406290ade22bd1c9410040bbaec2c7b4a1e475549ab7",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/005.json": {
+    "original_sha256": "838171a24bc65b2ee67d799ceba40b405844c606d01f06de7be0f786eec3cb29",
+    "archived_sha256": "d74d30ee7899adbeb5aba941ed27b333cb83a1836abe8e6b33c9a671d51bcd32",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/140.json": {
+    "original_sha256": "b205cc3309bb152a1f8c8c9faeb5f42e3e89ca0835d8c39ae58bb5f53bec9b44",
+    "archived_sha256": "b3ee915437c78842ff8207842822055c7f3d5501277b659a00742a63d1dc6961",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/052.json": {
+    "original_sha256": "d2f3e2fef19b6ff678bb6a4f37cda730c5f47f10d28ff6ae9f5550a95b242c1a",
+    "archived_sha256": "5db383ea261b2f574e5d478b10a53dda872a1daaf9904665dde90b8d87791cc6",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/117.json": {
+    "original_sha256": "8d833ff93b39c6ae75568bf0958c256f38222125f4daadd7c2f6b081de6aba3f",
+    "archived_sha256": "13a22c3189f462607cba90f4b147b03da8847e4811615a3499f95878d09c95ad",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/025.json": {
+    "original_sha256": "bdf6e0a6e358c34d20f0d57185cc68c3a61478b33725c5ecd68978cc2911239a",
+    "archived_sha256": "545b5d29fc3e27bdee7e6edcac9904f649dd42e6f98bf36abf82a795ee5eb26f",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/137.json": {
+    "original_sha256": "9e1725adabdfa86e49f036656c041b6ea0499a5de28f026bda1f55c6a32e86ef",
+    "archived_sha256": "2bf0109f4fc9c08cda352e51bad3297093506b8d0868df9854dccde08121b3d2",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/072.json": {
+    "original_sha256": "a143d340cecba688177f6ce4998cc0473f35154b4353a29f815a6ac9ade63640",
+    "archived_sha256": "f0debb6f571aac4df18cc4b458b5cc7ac36df2ac9cd338142c08680a0b6d8fcb",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/121.json": {
+    "original_sha256": "ff64135ef547b576b360248f9362c0c1ae35f5d13c1036013fde398d0ddc32ed",
+    "archived_sha256": "22b8384de89de5141e2b73466878aeaf90a8506f0e145262997b567f6cfbe3bf",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/064.json": {
+    "original_sha256": "2dcd116561bfb0266e3352df494fc49471aac866708595cd141615e33210fc97",
+    "archived_sha256": "a7d4e9528146422989107f9192befe1e39f113c0a6629dd993bedcf3e5a136f3",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/033.json": {
+    "original_sha256": "5fde80586c693dc4a1cc52c1ad76dde09c0b2fbc7151b5176c15f89d56fdac13",
+    "archived_sha256": "f114d31ee2466cdfee9cfa4750c594b6f32f4b2a3bd66c249fc8ea8237c9533b",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/048.json": {
+    "original_sha256": "942f3409ae526b814bcebfa22d268fdc95e34b5c747540d57118fe79cc1968a9",
+    "archived_sha256": "6af8088ae0b07f7c4e674a4c0c32b9afc1721b8c861a66fa119ad3b67a5c52a6",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/009.json": {
+    "original_sha256": "2cbbca758a0cbe397d75ada0834fd07a81a63ce29254eb5340015b3b80f5b64a",
+    "archived_sha256": "fe8798d5794aa8183db3cdaf1e9ee57273b81e7618a7fe65f7e0418de22d0b01",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/008.json": {
+    "original_sha256": "e8cac960181dc6bad18643ca9b2b0e5611231088f72073265a2b0486f657067e",
+    "archived_sha256": "b630dc55eb6ac0c85fb99a39192fdca1d7d9b24d50834895a3e5ed561840d405",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/049.json": {
+    "original_sha256": "743e9b9555c91f515f2fa2611dd1c64c5c60146a8bac9ce9dd3f46d6b41775c9",
+    "archived_sha256": "5c8ea3a3c93d8930f49909b12ec213b349c8978a481dfe96cdcf0efa593307d0",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/032.json": {
+    "original_sha256": "60a119f0b4f6b56768ef65eb8cd27047b46346e34c5dcdc80355dd7ab3375a4c",
+    "archived_sha256": "82db4409b6ba3cfcb739012211a03a4cee5c232d21696e64491fb309c34a37c4",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/120.json": {
+    "original_sha256": "df20ff68cb0141c1e0a3598eb43f66f4ebd5c14a13a4616d671cd6556ae937d5",
+    "archived_sha256": "23dc6cd8e4fcafdc4597dc4ed9ab6a6d6acbc28d643db5577016c9641be9cca9",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/065.json": {
+    "original_sha256": "34d23005525a0ac247552bc20e59b22126eb004055dbdcbd4300b6209deb72cd",
+    "archived_sha256": "2cffa1fde9acc5e039847880a5b29d1458891db8286cf16a890e8a6ddec9fea6",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/136.json": {
+    "original_sha256": "6f0ad04288c1ff25f17e611cdeaff2c7d977beec9ab921ebf45e3a74f0fef1f8",
+    "archived_sha256": "20095eeff7257d2a1035af1a29bbb6cf3dafcf00c1372933fc770ec1268a0e43",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/073.json": {
+    "original_sha256": "5af30895cdff40f30ab1e1fb7bebe492497aa2bcf76fb726235fbc3fddd9cf4f",
+    "archived_sha256": "c4ff0ac7449d92b0c9787e1427dfa7755d5f0c8c243530c886d6116951b8e2db",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/024.json": {
+    "original_sha256": "197166e8d62c457413d2f3fbcadc4571de906965568cab6b39b9c876f4e2c947",
+    "archived_sha256": "586635288e142a25c5b037873f8f6cf80a4e76fd9aef801db43cd61a257264a3",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/053.json": {
+    "original_sha256": "6a42629c712c69e1426eefbdb0ded130dac9f605d57183916433a625fc2ef20b",
+    "archived_sha256": "9dd7b0309e037ae5170967fc0902528b8f07dc425ad5430f26f65bdfe4ef5558",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/116.json": {
+    "original_sha256": "6b56bd71fc34671e57ddd921aabb2a0c08b8df213dd73b14a07dd41a37e4c401",
+    "archived_sha256": "8efce9ae1e447a10783db264f7cf4d28ff05a21300f497ab3717074f0c8122c5",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/004.json": {
+    "original_sha256": "ab36957faced27d57a783393948a04fb8727fed7b0e55838832d23819531c64a",
+    "archived_sha256": "b5c2339d6d5b59a978fca79cb8c53d009a51a7d2197a083a89eb3d0fd06dcea2",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/141.json": {
+    "original_sha256": "e4db3da2cfcadbecc49ae0ebff9662017b17882a116c8b4fc64bc819efea51ba",
+    "archived_sha256": "364aad037cdc3dc98173dc351c38e20e2fd8bd63109ba0bc2b8b380705a3f3cf",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/012.json": {
+    "original_sha256": "3ee433724d32ac94ace9e50505a18710953403424526945b7656b123229f03b7",
+    "archived_sha256": "f830f93603da501a7febc9cb5e0fcfb63619e5cf61412bf6c833d678105a3060",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/045.json": {
+    "original_sha256": "8f3dda201d10aa27689ec80e2bbe65f1bec62655380a2b2e60d1f8b1ba5f0641",
+    "archived_sha256": "31d614eb25db54a531d5c1d4b053b6d966aa42e7f6a3a9a2e19b6e3a5b7c5b28",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/100.json": {
+    "original_sha256": "d97a1a204deccfaf78e76a14e4f72038d1e8cc45fff1fbf090bc4244fff46e20",
+    "archived_sha256": "8854b5a03d8bfc21b60790992fabaed60fda16d44b3ab86163424f7df4299312",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/086.json": {
+    "original_sha256": "a0d67eaef097d80c5fd8c570a92d862b21e5b289cae3045539c0d5c6f965ea4d",
+    "archived_sha256": "8ef9dd751bed85ae8ee5a3249767237acf4f1c6be6f648653dcb148fbb051755",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/069.json": {
+    "original_sha256": "2d1f690e3dbde738e48e4bed896e86db879416e9b23fbe466d81e1b626f8bfec",
+    "archived_sha256": "fdbc03524935e52bcaf278d4cbd7f0920abc674a7253f2d06c07eaa9ae15496f",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/090.json": {
+    "original_sha256": "23cd7e016ce8a907d127ba6b050287dba290b8f21fd47e9a1811b91cf9651514",
+    "archived_sha256": "c67082eece19a0a7baa81364190b748bf913ddfa673703477fcf661045ca0f70",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/responses/028.json": {
+    "original_sha256": "46ca777f130dd2d413d87ef57abaee3666e1a862c429e8cfd0e0520c1dba8c24",
+    "archived_sha256": "72c48013d340df25f6ccc9f5238c6fe964f66007e99e04c7a97f7d6b9cf77b15",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/115.json": {
+    "original_sha256": "cc6a1f21e4c6aeb67a8e11027cf2980d69e2be4bccf3b0a5ec74ac19749ecb33",
+    "archived_sha256": "35a5ec2f99f1b0cc514f550f0824f7bedbc3356f47a561cd0126effa55898d15",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/050.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/142.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/007.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/011.json": {
+    "original_sha256": "32789f2c7d9696597972270dd68b57ad3e6a74f586784b77eaecfaf7157f9064",
+    "archived_sha256": "81793d0ce43f21e92753ae2ca1cb0f04c0526fcacfbd970e3d1d542a1210c1c6",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/103.json": {
+    "original_sha256": "e92ae98a186d8989d21659a466dae7e3219806286de615db6d6fe6170ee5f6ce",
+    "archived_sha256": "36d4335acf190830f7d250d6c5b8faabda66193fa07b89398fe56bf9c7b52299",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/046.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/085.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/093.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/139.json": {
+    "original_sha256": "23b4f46c26a3e41141da69d8a6714a67b2fffa52f36269977a39016bd354d985",
+    "archived_sha256": "ee932e4ba188a0ca4590ed98b6128cf4c664fa10f728148a5a5f1fd3e1b036a6",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/119.json": {
+    "original_sha256": "1131eba65c56ece672c57c65de64211fc82308bf56e624c3b8d00f07c4e4ad97",
+    "archived_sha256": "e280917745450b467e4aa8fcf062ccca4883b6e0d3564d25e3ffd75834a26940",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/031.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/066.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/089.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/123.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/070.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/135.json": {
+    "original_sha256": "9922d13309b98c2abf2420d54bf4ff3782fde2ab7b45b791360431e29396e946",
+    "archived_sha256": "72167a8e12c255a469a220dd7f8190289c47a7309d5e0c17e2b181a5255af7d1",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/027.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/026.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/071.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/134.json": {
+    "original_sha256": "6d61fd8d21364acd3568d10c84c78287553b9aa9c6f13fb5b972c8c859d4452f",
+    "archived_sha256": "de3fd8f455e1d61ff370d6b8d31063d5288fda3ae0203397b58e49f1e74614bf",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/067.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/088.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/122.json": {
+    "original_sha256": "872da112b13eb0ccd7afa86d0f887a6015c171bb5109f6d8ccd34a309f2d42dc",
+    "archived_sha256": "e8dfa6e01eec50c748454be597b39f0e1a6897ec7864541681930cab1eb8bec7",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/030.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/118.json": {
+    "original_sha256": "a760b3220b5783890307730fe2ae323cc14ba7da664197850f7ecfe636c4b1a6",
+    "archived_sha256": "3b6edc0270a817291a05d572401e6fb0782015f953de5e8f0cd703899662cc9b",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/092.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/138.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/084.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/102.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/047.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/010.json": {
+    "original_sha256": "c410c929c768bfe5cc55feef352782ee1242ca03cef9a333bc0b8f86ec0dd400",
+    "archived_sha256": "6695f1d2f121fb17b22d6c0a81425091e14c5343ace6f15aae83abed653ecd67",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/143.json": {
+    "original_sha256": "23b4f46c26a3e41141da69d8a6714a67b2fffa52f36269977a39016bd354d985",
+    "archived_sha256": "ee932e4ba188a0ca4590ed98b6128cf4c664fa10f728148a5a5f1fd3e1b036a6",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/006.json": {
+    "original_sha256": "fb4158b1ed1afb2264f9e084b5afb6e2c8ac8ad3c5e355f118640ffc384dd102",
+    "archived_sha256": "5064d30fde6a62f64113f37487cf74f94c2591464cfe22733bb582799ae81b80",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/114.json": {
+    "original_sha256": "778f6f58e7f7c13ef9b624da982af2780a561ed326fd14e04effad3137fc8340",
+    "archived_sha256": "72d5382b85df5c74eab477ed6fa0f097388cbb7d2edada9352dc703b7f1b3b71",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/051.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/148.json": {
+    "original_sha256": "c521af6fd5a1b768c6beb4609f6cef50438f0c3c20c08032a578a38f369583fa",
+    "archived_sha256": "e11e8c59207b3fed3782499c0e03a33333e700b007defdd46cd6b3482c828b3a",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/109.json": {
+    "original_sha256": "9922d13309b98c2abf2420d54bf4ff3782fde2ab7b45b791360431e29396e946",
+    "archived_sha256": "72167a8e12c255a469a220dd7f8190289c47a7309d5e0c17e2b181a5255af7d1",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/037.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/060.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/125.json": {
+    "original_sha256": "71ef06761167449623785337431c5db6e4d5c0dfe1434cb5fc7927a2c3707e8e",
+    "archived_sha256": "ccd8c218c36bb9355fb89a72ba5ef6d962f894f132f59b1275c73c9c1e7138b4",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/076.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/133.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/099.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/021.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/113.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/056.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/144.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/001.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/017.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/105.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/040.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/129.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/083.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/095.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/094.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/128.json": {
+    "original_sha256": "c9ea15c6e00bc12d4d8b637732e33c40ccab983fb5c478bcc6d935326f9411b8",
+    "archived_sha256": "120b52684f763cdf0586068dfc1de68da7f8daf5a1a6860ef1dec89bd05b5973",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/082.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/104.json": {
+    "original_sha256": "23b4f46c26a3e41141da69d8a6714a67b2fffa52f36269977a39016bd354d985",
+    "archived_sha256": "ee932e4ba188a0ca4590ed98b6128cf4c664fa10f728148a5a5f1fd3e1b036a6",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/041.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/016.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/145.json": {
+    "original_sha256": "d9c6f77335f15ce15b7d026e58c134a87ff65a7978497fcc7dbcc677e9834c5f",
+    "archived_sha256": "2d715376f7c19d89f7104ddc98664000c074beaef482ffba8fcea88bdb391490",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/112.json": {
+    "original_sha256": "8a8ac0d3d5070847cd633ed9e3db5e64a1b709bf78168a8aa9aa244d5e3b695e",
+    "archived_sha256": "66d5fb48c9c74f39059bbb5ca183065b12db456e5d70b81eb550dd15f527e742",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/057.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/020.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/077.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/132.json": {
+    "original_sha256": "8a8ac0d3d5070847cd633ed9e3db5e64a1b709bf78168a8aa9aa244d5e3b695e",
+    "archived_sha256": "66d5fb48c9c74f39059bbb5ca183065b12db456e5d70b81eb550dd15f527e742",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/098.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/061.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/124.json": {
+    "original_sha256": "715de0d7b5094dc9162d2b1c04c25a5bf6d771be142ed92359394cd396ae3003",
+    "archived_sha256": "9d0df1e47ce3e371d00c50f88287d555ff4b9a3a10086ec949c4093cf68c9bf4",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/036.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/108.json": {
+    "original_sha256": "26752f56092457f36e904459a60b431cf835687475ed69d38e4dc9a158007845",
+    "archived_sha256": "bd6f855fdd0b48aa73cd59cc2a3a025aed622ab9a795ad71a27ddd5e29e0f8be",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/149.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/023.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/131.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/074.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/127.json": {
+    "original_sha256": "9ab5e9ae63142f32f2e5c0d735fbd3d52a869f085c2fdc03875a762bb9bbb123",
+    "archived_sha256": "659777fd27c0fbd64a921dfa0348c5f44baf18eec447885ad5e203453dbdbc76",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/062.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/035.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/019.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/058.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/097.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/078.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/081.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/039.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/042.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/107.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/015.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/150.json": {
+    "original_sha256": "843cbf394796fa3007490d6dfe2b39223e47e7f9ba37c9e8b05a52e392b72f9e",
+    "archived_sha256": "dab3a4af38094ea29d8d190c0271d9e99ca5a48de685f6a445899806aaff1110",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/003.json": {
+    "original_sha256": "83301adf0fb9f4f1307a3456034d613863f0f3950d5b7030250c02c5da87d533",
+    "archived_sha256": "2eef170662b5e885415c8b1813e1ea1d1448b190b1b9c45d2e20953c010b5606",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/146.json": {
+    "original_sha256": "c9ea15c6e00bc12d4d8b637732e33c40ccab983fb5c478bcc6d935326f9411b8",
+    "archived_sha256": "120b52684f763cdf0586068dfc1de68da7f8daf5a1a6860ef1dec89bd05b5973",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/054.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/111.json": {
+    "original_sha256": "23d157bc65e76f673970b20a51119a0b3ae6afbe2bf12b1952985af080660645",
+    "archived_sha256": "00b40b1008360f2d6d030219f9ec23dd7e1673860a9dbc37f4d41e2ae90b916d",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/055.json": {
+    "original_sha256": "2b7e3823fe43a68b076cfa2f48fadbdd3baf9fa01e1fe13bfecd6b5894e2cad3",
+    "archived_sha256": "a720111075aec835aaed21a706e2c68cc4b8fb8a131836900f1310d9bb0009cd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/110.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/002.json": {
+    "original_sha256": "4a63173ceed8186fbe555cba04f0163def851ad6cf63c040f947a2296c08fe3c",
+    "archived_sha256": "4c0d6b3097b863df379fe0ff8f0b51b3781d56155297d3278a67868b358215c7",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/147.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/014.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/043.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/106.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/038.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/080.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/096.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/079.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/059.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/018.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/034.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/126.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/063.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/130.json": {
+    "original_sha256": "fb4158b1ed1afb2264f9e084b5afb6e2c8ac8ad3c5e355f118640ffc384dd102",
+    "archived_sha256": "5064d30fde6a62f64113f37487cf74f94c2591464cfe22733bb582799ae81b80",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/075.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/022.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/029.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/091.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/087.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/068.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/044.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/101.json": {
+    "original_sha256": "c521af6fd5a1b768c6beb4609f6cef50438f0c3c20c08032a578a38f369583fa",
+    "archived_sha256": "e11e8c59207b3fed3782499c0e03a33333e700b007defdd46cd6b3482c828b3a",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/013.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/005.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/140.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/052.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/117.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/025.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/137.json": {
+    "original_sha256": "c521af6fd5a1b768c6beb4609f6cef50438f0c3c20c08032a578a38f369583fa",
+    "archived_sha256": "e11e8c59207b3fed3782499c0e03a33333e700b007defdd46cd6b3482c828b3a",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/072.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/121.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/064.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/033.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/048.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/009.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/008.json": {
+    "original_sha256": "8a8ac0d3d5070847cd633ed9e3db5e64a1b709bf78168a8aa9aa244d5e3b695e",
+    "archived_sha256": "66d5fb48c9c74f39059bbb5ca183065b12db456e5d70b81eb550dd15f527e742",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/049.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/032.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/120.json": {
+    "original_sha256": "23b4f46c26a3e41141da69d8a6714a67b2fffa52f36269977a39016bd354d985",
+    "archived_sha256": "ee932e4ba188a0ca4590ed98b6128cf4c664fa10f728148a5a5f1fd3e1b036a6",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/065.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/136.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/073.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/024.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/053.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/116.json": {
+    "original_sha256": "23b4f46c26a3e41141da69d8a6714a67b2fffa52f36269977a39016bd354d985",
+    "archived_sha256": "ee932e4ba188a0ca4590ed98b6128cf4c664fa10f728148a5a5f1fd3e1b036a6",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/004.json": {
+    "original_sha256": "c9ea15c6e00bc12d4d8b637732e33c40ccab983fb5c478bcc6d935326f9411b8",
+    "archived_sha256": "120b52684f763cdf0586068dfc1de68da7f8daf5a1a6860ef1dec89bd05b5973",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/141.json": {
+    "original_sha256": "481686260e40522aea997ce4857089c5538c7267f556c012d2fa371112d9a1f7",
+    "archived_sha256": "f68beee09229666a40ca4327e14a4b60b6db1199ab5d492f4b210fdc88a108a3",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/012.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/045.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/100.json": {
+    "original_sha256": "9922d13309b98c2abf2420d54bf4ff3782fde2ab7b45b791360431e29396e946",
+    "archived_sha256": "72167a8e12c255a469a220dd7f8190289c47a7309d5e0c17e2b181a5255af7d1",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/086.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/069.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/090.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  },
+  "final2/desktop/done/028.json": {
+    "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+    "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+    "transformation": "UTF-8/LF, private test-user/home/repository placeholders"
+  }
+}

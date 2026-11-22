@@ -1,0 +1,5 @@
+--- FAIL: TestPSMuxResizeCanHideStaleCopyCursorWithoutDiscardingSearch (0.00s)
+    copy_test.go:221: a pre-resize copy cursor discarded an otherwise valid search frame: native copy metadata exceeds screen bounds
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/terminal	2.044s
+FAIL

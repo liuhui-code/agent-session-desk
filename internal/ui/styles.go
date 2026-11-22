@@ -12,9 +12,11 @@ import (
 	"strings"
 
 	"charm.land/lipgloss/v2"
+	"github.com/liuhui-code/agent-session-desk/internal/terminal"
 )
 
 type styles struct {
+	copy                                                                                                                  terminal.CopyStyles
 	settingsBox, settingsTitle, settingsText, settingsHint, settingsChoice, settingsRadio, settingsFocused, settingsError lipgloss.Style
 	sidebarSelected, sidebarMetadataSelected                                                                              lipgloss.Style
 	separatorDrag                                                                                                         lipgloss.Style
@@ -28,6 +30,7 @@ type styles struct {
 
 func newStyles(t designTokens) styles {
 	return styles{
+		copy:                    newCopyStyles(t),
 		settingsRadio:           lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.surface),
 		settingsBox:             lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.colors.cyan).Background(t.colors.bg).Padding(t.sidebar.settingsPaddingY, t.sidebar.settingsPaddingX),
 		settingsTitle:           lipgloss.NewStyle().Foreground(t.colors.cyan).Background(t.colors.bg).Bold(t.bold),
@@ -77,4 +80,11 @@ func formInputStyles(t designTokens) textinput.Styles {
 	prompt := lipgloss.NewStyle().Foreground(t.colors.cyan).Background(t.colors.surface)
 	state := textinput.StyleState{Text: text, Placeholder: dim, Suggestion: dim, Prompt: prompt}
 	return textinput.Styles{Focused: state, Blurred: state, Cursor: textinput.CursorStyle{Color: t.colors.cyan, Shape: t.dialog.cursorShape, Blink: t.dialog.cursorBlink}}
+}
+
+func newCopyStyles(t designTokens) terminal.CopyStyles {
+	style := func(background string) terminal.Run {
+		return terminal.Run{Foreground: t.copy.foreground, Background: background}
+	}
+	return terminal.CopyStyles{Selection: style(t.copy.selection), Highlights: [4]terminal.Run{style(t.copy.match), style(t.copy.current), style(t.copy.mark), {Foreground: t.copy.mark, Background: t.copy.foreground}}}
 }

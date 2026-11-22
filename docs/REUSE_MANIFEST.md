@@ -90,3 +90,5 @@ Bubbles 2.2.2 textinput 通过模块使用，未复制组件源码。v2 表单�
 继续使用相同固定 Agent Deck 来源和 MIT 许可，没有新增源或依赖。`workspace_view.go`／`design_tokens.go` 对齐实际 `home_view_frame.go` 的终端框与页脚行带；设置外宽改为 66，新建外宽改为 86，以适配 v1／稳定 v2 的 Width 语义差异。`launch_dialog.go`／`launch_dialog_view.go` 保留 `newdialog.go` 的普通／首次上下 padding 2／1，并在打开时固定首次状态。窄窗帮助选择为产品有界适配，继续保留 F6 和通用终端输入归属。原 source SHA 未改变；机器清单更新修改点，实际原始单元格、失败和 Windows 前后图见[报告](testing/results/2026-11-23-upstream-visual-comparison.md)。不将上游 v1 构建作为产品依赖，也不宣称完整视觉接受。
 
 2026-11-23 Tab 排序：`workspace_order.go` 与 `workspace_tabs.go` 的 View ID 顺序调整、固定可见槽位与输入归属保护为本产品实现；固定上游没有该 Tab 栏，不新增第三方来源或依赖。已有派生 `workspace_mouse.go`／`home_view_frame.go` 只接入产品导航与帮助，原始 source SHA 不变，见[排序报告](testing/results/2026-11-23-tab-order.md)。
+
+2026-11-23 原生复制／搜索：核对固定 Agent Deck `embedded_terminal.go` 的 OSC52、容量／最新待处理语义，以及固定 psmux 3.4.0 来源 `20aa1d7254ee93f64dafa059ef89341d9767470a` 的 copy-mode、布局选区／光标／命中／提示与 clipboard_osc52 协议。Go 适配、渲染和跨 Tab 事件桥自行实现；没有复制 Rust、引入上游 VT 或新的 Go 依赖。既有派生 `design_tokens.go`／`styles.go`／`home_view_frame.go` 增加角色与帮助；原文件哈希／归属不变，来源核验与必要差异见[报告](testing/results/2026-11-23-native-copy-search.md)。

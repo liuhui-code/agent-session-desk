@@ -1,0 +1,5 @@
+--- FAIL: TestNativeSelectionPaintsWholeUnicodeGraphemesAndKeepsAttributes (0.00s)
+    copy_render_test.go:18: selection is invisible, splits wide glyphs or drops bold: "\x1b[1mA中文Z\x1b[0m  "
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/terminal	0.817s
+FAIL

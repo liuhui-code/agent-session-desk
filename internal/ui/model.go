@@ -48,6 +48,7 @@ type pollMsg struct{ generation uint64 }
 // Model implements the stable Bubble Tea v2 API. Mutable UI state is touched
 // only by Init/Update; asynchronous commands return values, never mutate it.
 type Model struct {
+	clipboardGeneration    uint64
 	sidebarDensity         string
 	saveSidebarDensity     func(context.Context, string) error
 	sidebarPreferenceError error

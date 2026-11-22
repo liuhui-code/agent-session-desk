@@ -1,0 +1,5 @@
+--- FAIL: TestWorkspaceNativeCopyCursorIsVisibleWithoutRestoringLiveCursor (0.01s)
+    workspace_copy_test.go:244: copy cursor not projected independently of hidden live cursor: <nil>
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.862s
+FAIL

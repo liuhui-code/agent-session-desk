@@ -1,0 +1,5 @@
+--- FAIL: TestPSMuxRetainsNativeSelectionAndSearchHighlights (0.00s)
+    copy_test.go:199: native copy decorations were discarded: {Width:8 Height:2 Cursor:{X:3 Y:1 Visible:false Shape:0} Rows:[{Runs:[{Text:PS>  Foreground:default Background:default Flags:0 Width:1}]} {Runs:[{Text:中文 Foreground:#7aa2f7 Background:default Flags:2 Width:2}]}] AlternateScreen:false WantsMouse:false CopyMode:true ScrollbackOffset:0 Status: CopyPrompt:<nil> Selection:<nil> CopyCursor:<nil> CopyHighlights:[]}
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/terminal	1.225s
+FAIL

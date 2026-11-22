@@ -83,6 +83,12 @@ func startWorkspaceWriter(ctx context.Context, conn terminal.Connection, inputs 
 					err = conn.Refresh(ctx)
 				case "scroll":
 					err = conn.Scroll(ctx, action.x, action.y, action.up)
+				case "copy-mode":
+					if native, ok := conn.(terminal.CopyModeConnection); ok {
+						err = native.EnterCopyMode(ctx)
+					} else {
+						err = fmt.Errorf("当前连接不支持原生选择／搜索")
+					}
 				default:
 					err = fmt.Errorf("未知终端输入类型")
 				}

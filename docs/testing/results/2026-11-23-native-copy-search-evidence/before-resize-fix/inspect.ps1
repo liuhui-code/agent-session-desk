@@ -1,0 +1,4 @@
+$ErrorActionPreference='Stop';[Console]::OutputEncoding=[Text.UTF8Encoding]::new($false)
+$root=Join-Path $env:USERPROFILE 'asd-acceptance-20261122/copy-final-20261123';$task=Get-ScheduledTask AsdCopyFinal20261123 -ErrorAction SilentlyContinue
+$last=Get-ChildItem (Join-Path $root 'desktop/responses') -Filter '*.json'|Sort-Object Name|Select-Object -Last 1
+@{task_state=[string]$task.State;last_response=if($last){[IO.File]::ReadAllText($last.FullName)};failure=if(Test-Path (Join-Path $root 'flow-failure.json')){[IO.File]::ReadAllText((Join-Path $root 'flow-failure.json'))};driver_error=if(Test-Path (Join-Path $root 'desktop/driver-error.json')){[IO.File]::ReadAllText((Join-Path $root 'desktop/driver-error.json'))}}|ConvertTo-Json -Depth 5

@@ -14,3 +14,9 @@ type Connection interface {
 	Scroll(context.Context, int, int, bool) error
 	Close() error
 }
+
+// CopyModeConnection is an optional native copy/search capability. The server
+// owns its bounded history, selection and key bindings; this adds no log copy.
+type CopyModeConnection interface {
+	EnterCopyMode(context.Context) error
+}

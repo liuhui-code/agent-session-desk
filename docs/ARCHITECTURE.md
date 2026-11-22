@@ -184,3 +184,5 @@ M0 只把版本化发现标记放在产品私有后端 user option 中，绑定 
 ## M1 最小元数据补充（2026-11-22）
 
 实际落地的存储与协调边界见 [ADR-0009](adr/0009-session-run-metadata.md)：CLI/TUI 共享 manager，实际后端提供实时状态，SQLite 保存最小 Session/Run 元数据。`history` 独立查询元数据且状态恒 unknown；历史不参与控制目标选择。SQL 事务不跨后台进程副作用，已启动但提交失败时报告身份并禁止盲目重复 start。消息、退出码、日志与恢复对话继续按原阶段实现。
+
+原生复制／搜索补充（2026-11-23）：[ADR-0018](adr/0018-native-copy-search-and-host-clipboard.md) 由后端保存历史与选择，产品只渲染最新屏幕及受验证的提示／选区／光标／命中。复制事件单独有界、跨 Tab 串行发到外层终端；不读取用户剪贴板，不进 SQLite，不形成 agent 消息或接收／完成证据。原始 VT 仍不得穿透执行，完整兼容与资源状态见[实际报告](testing/results/2026-11-23-native-copy-search.md)。

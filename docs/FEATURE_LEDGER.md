@@ -98,6 +98,8 @@
 
 - **M1 输出记录进展（2026-11-22）：**record 显式保存重验目标的屏幕快照，output 按原 Run 离线读回；每作用域／Run 2 份、同库 32 份，正文 64 KiB／文件 512 KiB 为工程硬边界，不是性能预算。固定 complete=false，不冒充完整流或对话；并发轮转、未知文件／NTFS junction 拒绝和停止后读取见 [ADR-0013](adr/0013-bounded-screen-output-records.md) 与[实际报告](testing/results/2026-11-22-m1-output-records.md)。连续日志、完整磁盘故障与实际 agent 兼容仍待做。
 
+- **原生选择／搜索进展（2026-11-23）：**管理 v 经原 pane 进入后端复制模式，显示原生选区／命中／复制光标及 UTF-8 提示光标；有界剪贴板事件独立于屏幕合并，跨 Tab 串行发往外层终端。"已发送"不推定系统已保存；无额外历史、查询或消息状态。见 [复制／搜索报告](testing/results/2026-11-23-native-copy-search.md) 与 [ADR-0018](adr/0018-native-copy-search-and-host-clipboard.md)，仍实现中／未发布。
+
 ### FL-003：上游体验还原与代码复用
 
 测试设计：[FL-003 用例与映射](testing/COVERAGE.md#fl-003)；目录保留 designed/not_run 基线，局部执行见下方实际证据。
@@ -115,6 +117,8 @@
 - **实际画面对照跟进（2026-11-23）：**固定上游实际帧与 Windows 前后产品对照，修正框／页脚行带、66／86 列外宽和首次／普通留白；82 个原生 UI 顶层／235 个含子测试通过，A→B→A 保留输入与两条原 Session/Run。六个参考帧逐行一致，两个 49 列末格缺口保留；详见[实际画面对照](testing/results/2026-11-23-upstream-visual-comparison.md)。保持实现中／未发布，用户视觉接受、真实 agent、完整交互与资源门槛不提升。
 
 - **Tab 排序进展（2026-11-23）：**标题拖动与管理模式 `[`／`]` 调整当前 UI 的 Tab 顺序；活动 View、Session/Run 和排空中的输入目标保持身份，终端字符不截获。可见槽位固定，其他输入／缩放／释放结束手势；不自动滚到隐藏项或持久保存顺序。[行为与原生证据](testing/results/2026-11-23-tab-order.md)单独记录，仍实现中／未发布。
+
+- **原生选择／搜索进展（2026-11-23）：**管理 v 经原 pane 进入后端复制模式，显示原生选区／命中／复制光标及 UTF-8 提示光标；有界剪贴板事件独立于屏幕合并，跨 Tab 串行发往外层终端。"已发送"不推定系统已保存；无额外历史、查询或消息状态。见 [复制／搜索报告](testing/results/2026-11-23-native-copy-search.md) 与 [ADR-0018](adr/0018-native-copy-search-and-host-clipboard.md)，仍实现中／未发布。
 
 ### FL-004：多会话组织
 
@@ -162,6 +166,8 @@
 - **验收：**按明确目标和范围读取，结果包含来源；读取不向目标发送按键；引用消息保留提交时的实际文本；历史已轮转或存在缺口时明确返回边界。
 - **依据：**[FR-06](PRODUCT_PLAN.md)、[ADR-0004](adr/0004-cli-agents-and-session-messaging.md)。
 - **实现与验收证据：**未提供。
+
+- **原生选择／搜索进展（2026-11-23）：**管理 v 经原 pane 进入后端复制模式，显示原生选区／命中／复制光标及 UTF-8 提示光标；有界剪贴板事件独立于屏幕合并，跨 Tab 串行发往外层终端。"已发送"不推定系统已保存；无额外历史、查询或消息状态。见 [复制／搜索报告](testing/results/2026-11-23-native-copy-search.md) 与 [ADR-0018](adr/0018-native-copy-search-and-host-clipboard.md)，仍实现中／未发布。
 
 ### FL-008：跨会话显式投递
 
@@ -227,6 +233,8 @@
 - **实际画面对照跟进（2026-11-23）：**固定上游实际帧与 Windows 前后产品对照，修正框／页脚行带、66／86 列外宽和首次／普通留白；82 个原生 UI 顶层／235 个含子测试通过，A→B→A 保留输入与两条原 Session/Run。六个参考帧逐行一致，两个 49 列末格缺口保留；详见[实际画面对照](testing/results/2026-11-23-upstream-visual-comparison.md)。保持实现中／未发布，用户视觉接受、真实 agent、完整交互与资源门槛不提升。
 
 - **Tab 排序进展（2026-11-23）：**标题拖动与管理模式 `[`／`]` 调整当前 UI 的 Tab 顺序；活动 View、Session/Run 和排空中的输入目标保持身份，终端字符不截获。可见槽位固定，其他输入／缩放／释放结束手势；不自动滚到隐藏项或持久保存顺序。[行为与原生证据](testing/results/2026-11-23-tab-order.md)单独记录，仍实现中／未发布。
+
+- **原生选择／搜索进展（2026-11-23）：**管理 v 经原 pane 进入后端复制模式，显示原生选区／命中／复制光标及 UTF-8 提示光标；有界剪贴板事件独立于屏幕合并，跨 Tab 串行发往外层终端。"已发送"不推定系统已保存；无额外历史、查询或消息状态。见 [复制／搜索报告](testing/results/2026-11-23-native-copy-search.md) 与 [ADR-0018](adr/0018-native-copy-search-and-host-clipboard.md)，仍实现中／未发布。
 
 ### FL-013：异常、重试和运行变化
 
@@ -300,11 +308,13 @@
 - **范围与边界：**首版计划能力，活动 Tab 直接显示并操作对应终端，保留 Tab 导航；agent、普通交互 shell 与 CLI 共用终端原生输入。侧栏布局按上游体验与 Tab 主导航适配，不强制额外常驻重复列表。全屏 attach 可辅助使用，不能代替本能力。
 - **验收：**Windows 实机验证 A→B→A、输入／光标／终端状态保留、IME、鼠标、alternate screen、resize 与 Ctrl+C；切换不向后台会话写入。关闭／重开 Tab 接回存活 Run，显式停止另行操作。屏幕模型、输入路径与资源成本独立留证，具体终端集成方案实施前验证。
 - **依据：**[ADR-0014](adr/0014-upstream-ui-tabs-and-general-terminals.md)；替代 ADR-0002 的后置约束。
-- **实现与验收证据：**[原生终端传输切片](testing/results/2026-11-22-native-terminal-transport.md)已实现并有两项限定 Windows 后端结果，支持当前屏幕／光标、字面输入、粘贴与回车分离、resize、断开重连。[ADR-0016 的首个 Tab UI](testing/results/2026-11-23-tab-workspaces.md)已接入活动终端、真实光标、串行输入、切换／关闭／重开与通用创建表单，并有普通 shell 桌面局部证据。后续已有 [Microsoft 拼音组合](testing/results/2026-11-23-ime-composition.md)和[基础历史滚轮](testing/results/2026-11-23-workspace-scroll.md)的限定实测；其他 IME／焦点组合、子程序鼠标、完整选择复制／搜索、上游视觉接受、Tab 顺序持久化与资源预算仍开放，不构成整条验收。
+- **实现与验收证据：**[原生终端传输切片](testing/results/2026-11-22-native-terminal-transport.md)已实现并有两项限定 Windows 后端结果，支持当前屏幕／光标、字面输入、粘贴与回车分离、resize、断开重连。[ADR-0016 的首个 Tab UI](testing/results/2026-11-23-tab-workspaces.md)已接入活动终端、真实光标、串行输入、切换／关闭／重开与通用创建表单，并有普通 shell 桌面局部证据。后续已有 [Microsoft 拼音组合](testing/results/2026-11-23-ime-composition.md)和[基础历史滚轮](testing/results/2026-11-23-workspace-scroll.md)的限定实测；其他 IME／焦点组合、子程序鼠标、鼠标选择、复制／搜索完整矩阵、上游视觉接受、Tab 顺序持久化与资源预算仍开放，不构成整条验收。
 
 - **实际画面对照跟进（2026-11-23）：**固定上游实际帧与 Windows 前后产品对照，修正框／页脚行带、66／86 列外宽和首次／普通留白；82 个原生 UI 顶层／235 个含子测试通过，A→B→A 保留输入与两条原 Session/Run。六个参考帧逐行一致，两个 49 列末格缺口保留；详见[实际画面对照](testing/results/2026-11-23-upstream-visual-comparison.md)。保持实现中／未发布，用户视觉接受、真实 agent、完整交互与资源门槛不提升。
 
 - **Tab 排序进展（2026-11-23）：**标题拖动与管理模式 `[`／`]` 调整当前 UI 的 Tab 顺序；活动 View、Session/Run 和排空中的输入目标保持身份，终端字符不截获。可见槽位固定，其他输入／缩放／释放结束手势；不自动滚到隐藏项或持久保存顺序。[行为与原生证据](testing/results/2026-11-23-tab-order.md)单独记录，仍实现中／未发布。
+
+- **原生选择／搜索进展（2026-11-23）：**管理 v 经原 pane 进入后端复制模式，显示原生选区／命中／复制光标及 UTF-8 提示光标；有界剪贴板事件独立于屏幕合并，跨 Tab 串行发往外层终端。"已发送"不推定系统已保存；无额外历史、查询或消息状态。见 [复制／搜索报告](testing/results/2026-11-23-native-copy-search.md) 与 [ADR-0018](adr/0018-native-copy-search-and-host-clipboard.md)，仍实现中／未发布。
 
 ### FL-019：依赖升级与复用来源
 
@@ -316,6 +326,8 @@
 - **实现与验收证据：**[go.mod](../go.mod)/[go.sum](../go.sum)、[逐文件复用清单](REUSE_MANIFEST.md)、[原始许可和 NOTICE](../THIRD_PARTY_NOTICES.md)已落地；已有稳定 v2 构建与 Windows 常规检查记录。原生工作流固定官方 psmux 归档及 exe 哈希，记录被测提交和源码前后指纹；版本探测的横幅解析与发行物来源认证分别处理。发行物许可收集、原创整体许可、完整 Windows UI 回归及后续升级验收仍待做。见[首批迁入证据](testing/results/2026-11-21-m0-source-migration.md)与[Windows 执行报告](testing/results/2026-11-21-m0-native-windows.md)。
 
 - **实际画面对照跟进（2026-11-23）：**固定上游实际帧与 Windows 前后产品对照，修正框／页脚行带、66／86 列外宽和首次／普通留白；82 个原生 UI 顶层／235 个含子测试通过，A→B→A 保留输入与两条原 Session/Run。六个参考帧逐行一致，两个 49 列末格缺口保留；详见[实际画面对照](testing/results/2026-11-23-upstream-visual-comparison.md)。保持实现中／未发布，用户视觉接受、真实 agent、完整交互与资源门槛不提升。
+
+- **原生选择／搜索进展（2026-11-23）：**管理 v 经原 pane 进入后端复制模式，显示原生选区／命中／复制光标及 UTF-8 提示光标；有界剪贴板事件独立于屏幕合并，跨 Tab 串行发往外层终端。"已发送"不推定系统已保存；无额外历史、查询或消息状态。见 [复制／搜索报告](testing/results/2026-11-23-native-copy-search.md) 与 [ADR-0018](adr/0018-native-copy-search-and-host-clipboard.md)，仍实现中／未发布。
 
 ### FL-020：人工介入提醒
 
@@ -421,3 +433,5 @@ M1 恢复补充（2026-11-22）：按用户继续完成 M1 的授权实现 metad
 2026-11-23 实际上游对照：FL-003/012/018/019 增加真实来源帧、Windows 前后构建、四组 RED→GREEN 与 82 项原生 UI 顶层结果；框／页脚行带和 v1→v2 外宽差异已修复。编码失败、缩放／连接拒绝及 49 列末格缺口全部保留，完整视觉接受仍开放。见[实际画面对照](testing/results/2026-11-23-upstream-visual-comparison.md)。
 
 2026-11-23 Tab 排序：FL-003/004/012/018 增加本产品 Tab 拖动／键盘顺序调整及原目标输入隔离；不改变上游来源、终端托管或发布状态，见[报告](testing/results/2026-11-23-tab-order.md)。
+
+2026-11-23 原生选择／搜索：FL-002/003/007/012/018/019 补充原 pane 语义入口、受限复制 UI 元数据、OSC52 与跨 Tab 串行事件；实际结果和剩余矩阵见[复制／搜索报告](testing/results/2026-11-23-native-copy-search.md)，339 项目录状态与发布门槛不提升。

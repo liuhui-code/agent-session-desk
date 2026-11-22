@@ -1,0 +1,5 @@
+--- FAIL: TestWorkspaceForwardsClipboardThroughActualTeaProgramInOrder (3.00s)
+    workspace_copy_test.go:88: validated clipboard text never reached the real Tea output path
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	3.845s
+FAIL

@@ -1,0 +1,5 @@
+--- FAIL: TestWorkspaceForwardsClipboardThroughActualTeaProgramInOrder (3.00s)
+    workspace_copy_test.go:100: clipboard not observed; opened=[] output="\x1b[?1049h\x1b[?25l\x1b[?2004h\x1b[?1002h\x1b[?1006h\x1b]10;#c0caf5\a\x1b]11;#1a1b26\a\x1b[H\x1b[2J"
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	3.862s
+FAIL
