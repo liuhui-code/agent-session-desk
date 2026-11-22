@@ -39,3 +39,5 @@ Tab 内交互需要可持续取得终端屏幕、光标、颜色并写入按键�
 
 - [固定 psmux 客户端](https://github.com/psmux/psmux/blob/20aa1d7254ee93f64dafa059ef89341d9767470a/src/client.rs)、[连接协议](https://github.com/psmux/psmux/blob/20aa1d7254ee93f64dafa059ef89341d9767470a/src/server/connection.rs)、[屏幕样式段](https://github.com/psmux/psmux/blob/20aa1d7254ee93f64dafa059ef89341d9767470a/src/layout.rs)、[私有端点路径](https://github.com/psmux/psmux/blob/20aa1d7254ee93f64dafa059ef89341d9767470a/src/paths.rs)。
 - [ADR-0014](0014-upstream-ui-tabs-and-general-terminals.md)、[原生 Windows 测试规范](../testing/NATIVE_WINDOWS.md)。
+
+2026-11-23 补充：ADR-0016 接入首个 Tab UI。原生缩放／长行探针捕获 `cols=54, cursor_col=54, rows=9, cursor_row=8` 的右边界状态；此前将列等于宽度视为非法会误断开。适配器仅接受这一个右边界待换行位置并将显示光标夹至最后单元格；列大于宽度、行等于／大于高度、身份和文本边界仍拒绝。首轮失败、原始帧、RED→GREEN 与复验见[Tab 报告](../testing/results/2026-11-23-tab-workspaces.md)。不因单个已观察协议状态放宽其他帧合同。

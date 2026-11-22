@@ -3,6 +3,7 @@ package terminal
 import (
 	"encoding/json"
 	"errors"
+	"fmt"
 	"unicode"
 	"unicode/utf8"
 )
@@ -37,8 +38,8 @@ func (c *PSMux) readScreen() (Screen, error) {
 		if frame.Session != c.options.Session || p.Type != "leaf" || p.ID != c.options.Pane || !p.Active {
 			return Screen{}, errors.New("terminal Session/pane changed; reconnect explicitly")
 		}
-		if !validSize(p.Cols, p.Rows) || p.CursorCol < 0 || p.CursorCol >= p.Cols || p.CursorRow < 0 || p.CursorRow >= p.Rows || len(p.Runs) > p.Rows {
-			return Screen{}, errors.New("terminal frame exceeds screen bounds")
+		if !validSize(p.Cols, p.Rows) || p.CursorCol < 0 || p.CursorCol > p.Cols || p.CursorRow < 0 || p.CursorRow >= p.Rows || len(p.Runs) > p.Rows {
+			return Screen{}, fmt.Errorf("terminal frame exceeds screen bounds (size=%dx%d cursor=%d,%d rows=%d)", p.Cols, p.Rows, p.CursorCol, p.CursorRow, len(p.Runs))
 		}
 		for _, row := range p.Runs {
 			if len(row.Runs) > p.Cols {
@@ -57,7 +58,10 @@ func (c *PSMux) readScreen() (Screen, error) {
 				}
 			}
 		}
-		return Screen{Width: p.Cols, Height: p.Rows, Cursor: Cursor{p.CursorCol, p.CursorRow, !p.Hidden, p.Shape}, Rows: p.Runs, AlternateScreen: p.Alternate, WantsMouse: p.Mouse}, nil
+		// The pinned native server can expose col==cols at the right margin
+		// while wrap is pending. Display that one-past-column state on the last
+		// cell; larger columns and all out-of-range rows remain rejected.
+		return Screen{Width: p.Cols, Height: p.Rows, Cursor: Cursor{min(p.CursorCol, p.Cols-1), p.CursorRow, !p.Hidden, p.Shape}, Rows: p.Runs, AlternateScreen: p.Alternate, WantsMouse: p.Mouse}, nil
 	}
 	if c.scanner.Err() != nil {
 		return Screen{}, errors.New("terminal stream read failed or exceeded frame limit")

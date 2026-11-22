@@ -244,12 +244,13 @@ func TestPSMuxNativeStyleRunMaySpanTheWholeRow(t *testing.T) {
 
 func TestPSMuxRejectsChangedIdentityAndUnsafeNativeFrames(t *testing.T) {
 	for name, frame := range map[string]string{
-		"session":        strings.Replace(firstFrame, `"session_name":"asd_test"`, `"session_name":"another"`, 1),
-		"pane":           strings.Replace(firstFrame, `"id":7`, `"id":8`, 1),
-		"split":          strings.Replace(firstFrame, `"type":"leaf"`, `"type":"split"`, 1),
-		"control text":   strings.Replace(firstFrame, `PS> `, `\u001b]52;unsafe`, 1),
-		"row overflow":   strings.Replace(firstFrame, `"width":1`, `"width":9`, 1),
-		"cursor outside": strings.Replace(firstFrame, `"cursor_col":3`, `"cursor_col":8`, 1),
+		"session":            strings.Replace(firstFrame, `"session_name":"asd_test"`, `"session_name":"another"`, 1),
+		"pane":               strings.Replace(firstFrame, `"id":7`, `"id":8`, 1),
+		"split":              strings.Replace(firstFrame, `"type":"leaf"`, `"type":"split"`, 1),
+		"control text":       strings.Replace(firstFrame, `PS> `, `\u001b]52;unsafe`, 1),
+		"row overflow":       strings.Replace(firstFrame, `"width":1`, `"width":9`, 1),
+		"cursor outside":     strings.Replace(firstFrame, `"cursor_col":3`, `"cursor_col":9`, 1),
+		"cursor row outside": strings.Replace(firstFrame, `"cursor_row":1`, `"cursor_row":2`, 1),
 	} {
 		t.Run(name, func(t *testing.T) {
 			client, server := net.Pipe()
@@ -315,5 +316,33 @@ func TestPSMuxRefreshGetsScreenWithoutResizingOrWritingInput(t *testing.T) {
 	}
 	if screen.Rows[0].Runs[0].Text != "new " {
 		t.Fatal("refresh did not deliver current screen")
+	}
+}
+
+func TestPSMuxRightMarginPendingWrapKeepsCursorInsideViewport(t *testing.T) {
+	client, server := net.Pipe()
+	defer server.Close()
+	go func() {
+		r := bufio.NewReader(server)
+		_, _ = r.ReadString('\n')
+		_, _ = fmt.Fprint(server, "OK\n")
+		for range 4 {
+			_, _ = r.ReadString('\n')
+		}
+		_, _ = fmt.Fprintln(server, strings.Replace(firstFrame, `"cursor_col":3`, `"cursor_col":8`, 1))
+	}()
+	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
+	defer cancel()
+	live, err := terminal.OpenPSMux(ctx, client, terminal.PSMuxOptions{Key: "synthetic-key", Session: "asd_test", Pane: 7, Width: 8, Height: 2})
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer live.Close()
+	screen, err := live.Next(ctx)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if screen.Cursor.X != 7 || screen.Cursor.Y != 1 {
+		t.Fatalf("pending-wrap cursor escaped viewport: %+v", screen.Cursor)
 	}
 }

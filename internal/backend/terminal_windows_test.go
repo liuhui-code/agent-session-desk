@@ -72,7 +72,7 @@ func TestWindowsPsmuxNativeTerminalScreenInputResizeAndReconnect(t *testing.T) {
 	fixtureEvent(t, h.ctx, report, "input", "ASD_REOPENED")
 }
 
-func waitTerminalScreen(t *testing.T, parent context.Context, live *terminal.PSMux, width, height int) {
+func waitTerminalScreen(t *testing.T, parent context.Context, live terminal.Connection, width, height int) {
 	t.Helper()
 	ctx, cancel := context.WithTimeout(parent, 10*time.Second)
 	defer cancel()

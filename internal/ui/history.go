@@ -48,6 +48,9 @@ func (m *Model) closeHistory() tea.Cmd {
 	m.history.rows = nil
 	m.history.err = nil
 	m.history.cursor = 0
+	if m.workspace != nil {
+		return m.connectWorkspace()
+	}
 	return m.loadPreview()
 }
 func (m *Model) loadHistory() tea.Cmd {

@@ -24,7 +24,7 @@
 | tmux | **3.8** 作为本轮 Unix 对照基线 | 后续按平台验证的外部后台 |
 | SQLite / TOML | 稳定技术方向已选 | Go 驱动/解析库及精确版本在实现前固定 |
 
-版本表保留 **2026-11-21 的选型快照和验证目标**。首个实现提交已建立 [go.mod](../../go.mod) / [go.sum](../../go.sum)：Go 1.27.4、Bubble Tea 2.1.2、Lip Gloss 2.1.1、x/ansi 0.11.9 是当前构建基线；Bubbles 未实际使用，因此未引入。SQLite 驱动仍待选择；2026-11-22 的 [ADR-0007](0007-explicit-launch-configuration.md) 固定 TOML 解析器 BurntSushi/toml v1.6.0 和首个配置合同。外部可执行文件另以[Windows 依赖锁定记录](../../tools/ci/windows-dependencies.json)固定官方 psmux 归档与 exe 哈希，发布时再次核查。实际范围见[源码迁入报告](../testing/results/2026-11-21-m0-source-migration.md)与[Windows 执行报告](../testing/results/2026-11-21-m0-native-windows.md)。
+版本表保留 **2026-11-21 的选型快照和验证目标**。首个实现提交已建立 [go.mod](../../go.mod) / [go.sum](../../go.sum)：Go 1.27.4、Bubble Tea 2.1.2、Lip Gloss 2.1.1、x/ansi 0.11.9 是当前构建基线；Bubbles 在首轮未实际使用；2026-11-23 按 ADR-0016 的创建表单需要引入 2.2.2 textinput。SQLite 驱动仍待选择；2026-11-22 的 [ADR-0007](0007-explicit-launch-configuration.md) 固定 TOML 解析器 BurntSushi/toml v1.6.0 和首个配置合同。外部可执行文件另以[Windows 依赖锁定记录](../../tools/ci/windows-dependencies.json)固定官方 psmux 归档与 exe 哈希，发布时再次核查。实际范围见[源码迁入报告](../testing/results/2026-11-21-m0-source-migration.md)与[Windows 执行报告](../testing/results/2026-11-21-m0-native-windows.md)。
 
 ### v1 → v2 迁移要求
 
@@ -77,3 +77,5 @@ Windows runner 已通过普通 Go 测试、race、vet、目录校验和原生程
 ### M1 存储依赖细化（2026-11-22）
 
 [ADR-0009](0009-session-run-metadata.md) 固定 modernc.org/sqlite v1.62.0（内嵌 SQLite 3.54.1）及驱动要求的 libc v1.80.1。新增模块同时引入 go.mod 中的传递版本变化，常规／race／原生 Windows 验证独立记录。纯 Go 构建避免产品额外 C 工具链要求，不自动证明资源或掉电恢复通过。
+
+2026-11-23 实现补充：Bubbles 2.2.2 的依赖要求使 MVS 将 runewidth 升至 0.0.31、uniseg 升至 `v0.4.8-0.20261110175422-3a370411ca06`，另引入 clipboard 0.1.4。uniseg 是上游稳定组件要求的预发布传递依赖，按 go.sum 精确锁定并记录风险，不能描述为全链路稳定版本。主框架仍使用本 ADR 的稳定 v2 基线；字宽、布局和 Windows 输入结果见[ADR-0016](0016-tab-workspaces-and-input-ownership.md)及其执行报告。

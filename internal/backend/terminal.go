@@ -18,7 +18,9 @@ import (
 // OpenTerminal connects to an existing psmux-owned terminal. It never starts or
 // replaces an agent, shell, server, or pseudoconsole. Unix keeps the explicit
 // full-screen attach path until a separate native terminal adapter is verified.
-func (b *Backend) OpenTerminal(ctx context.Context, s session.Session, width, height int) (*terminal.PSMux, error) {
+func (b *Backend) SupportsTerminal() bool { return b.kind == "psmux" }
+
+func (b *Backend) OpenTerminal(ctx context.Context, s session.Session, width, height int) (terminal.Connection, error) {
 	if b.kind != "psmux" {
 		return nil, errors.New("Tab terminal transport is currently verified only for psmux 3.4.0")
 	}

@@ -1,0 +1,8 @@
+Owned foreground identity mismatch
+����λ�� ��:13 �ַ�: 118
++ ... tc() -ne $ready.filetime){throw 'Owned foreground identity mismatch'}
++                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OperationStopped: (Owned foreground identity mismatch:String) [], RuntimeException
+    + FullyQualifiedErrorId : Owned foreground identity mismatch
+ 
+

@@ -3,7 +3,7 @@
 // Source: internal/ui/home_view_frame.go at
 // 80494e527393b7ead00da30018e6ee7e60e9d7a0.
 // Modified for Agent Session Desk: retain responsive dual/stacked/single
-// layout, panel titles and exact-size helpers; remove embedded terminal,
+// layout, panel titles and exact-size helpers; route product Tab terminals, remove
 // filter/account/system panels and v1 renderer controls; use Bubble Tea v2.
 // See third_party/agent-deck/LICENSE and THIRD_PARTY_NOTICES.md.
 
@@ -20,6 +20,22 @@ import (
 )
 
 func (m *Model) View() tea.View {
+	if m.workspace != nil && m.launch != nil {
+		content, cursor := m.renderLaunchDialog()
+		view := tea.NewView(content)
+		view.AltScreen = true
+		view.BackgroundColor, view.ForegroundColor = m.tokens.colors.bg, m.tokens.colors.text
+		view.Cursor = cursor
+		return view
+	}
+	if m.workspace != nil && !m.history.open && !m.help {
+		view := tea.NewView(m.renderWorkspace())
+		view.AltScreen = true
+		view.BackgroundColor, view.ForegroundColor = m.tokens.colors.bg, m.tokens.colors.text
+		view.MouseMode = tea.MouseModeCellMotion
+		view.Cursor = m.workspaceCursor()
+		return view
+	}
 	view := tea.NewView(m.renderFrame())
 	view.AltScreen = true
 	return view
@@ -214,6 +230,18 @@ func (m *Model) renderHelpBar() string {
 }
 
 func (m *Model) renderHelp(height int) string {
+	if m.workspace != nil {
+		content := m.renderPanelTitle("使用方法", m.width) + m.tokens.sectionBreak() +
+			"活动 Tab 直接操作终端；q 和 Ctrl+C 交给程序。\n" +
+			"F6 切换管理／终端焦点；Ctrl+PgUp/PgDn 切 Tab。\n" +
+			"管理模式：↑↓ 选择，Enter 打开，n 新建，x 关闭视图。\n" +
+			"关闭 Tab 或退出管理器不会停止运行实例。\n" +
+			"h 只读历史；r 重查连接；a 辅助全屏进入。\n" +
+			"辅助全屏模式：Ctrl+b 后按 d 返回。\n" +
+			"粘贴使用外层终端快捷键；是否执行仍由目标程序决定。\n" +
+			"Esc / ? 返回；管理模式 q 退出。"
+		return ensureExactHeight(content, height)
+	}
 	content := m.renderPanelTitle("使用方法", m.width) + m.tokens.sectionBreak() +
 		"在另一个终端创建会话：\n" +
 		m.styles.text.Render(m.tokens.itemGap()+"asd start --name 开发 -- codex") + "\n" +

@@ -1,0 +1,8 @@
+$ErrorActionPreference='Stop'
+$name='AsdTabsScanProbe20261123'
+$previous=Get-ScheduledTask -TaskName $name -ErrorAction SilentlyContinue;if($previous){if($previous.State -eq 'Running'){throw 'Paste task still running'};Unregister-ScheduledTask -TaskName $name -Confirm:$false}
+$code='try { & ([ScriptBlock]::Create([IO.File]::ReadAllText((Join-Path $env:USERPROFILE "asd-acceptance-20261122/scan-probe.ps1")))) } catch { $_ | Out-String | Set-Content (Join-Path $env:USERPROFILE "asd-acceptance-20261122/tabs-ui-20261123/desktop/scan-probe-error.txt") }'
+$a=New-ScheduledTaskAction -Execute powershell.exe -Argument ('-NoProfile -WindowStyle Hidden -STA -EncodedCommand '+[Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($code)))
+$p=New-ScheduledTaskPrincipal -UserId ([Security.Principal.WindowsIdentity]::GetCurrent().User.Value) -LogonType Interactive -RunLevel Limited
+Register-ScheduledTask -TaskName $name -Action $a -Principal $p -Settings (New-ScheduledTaskSettingsSet -ExecutionTimeLimit (New-TimeSpan -Minutes 22))|Out-Null
+Start-ScheduledTask $name

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "date": "2026-11-21",
-  "scope": "First M0 selective source migration. This manifest is not a release dependency SBOM.",
+  "date": "2026-11-23",
+  "scope": "Selective M0 source migration plus ADR-0016 Tab layout and generic CLI dialog adaptations; not a release dependency SBOM.",
   "original_project_license": "pending O-010",
   "source_files": [
     {
@@ -98,6 +98,62 @@
       ],
       "mode": "selectively_adapted",
       "modifications": "Type-safe design tokens; original palette values and attribution retained. See ADR-0008."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/home_view_frame.go",
+      "source_sha256": "e06fd64336964e6855695bc4190f540a503b483fa796fd8d20b7b07adf9bc6c4",
+      "destination_file": "internal/ui/workspace_view.go",
+      "license": "MIT",
+      "parts": [
+        "embedded terminal rounded frame and exact viewport layout"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "Stable Charm v2, design tokens, product Tab identities, bounded viewport and generic CLI fields; see ADR-0016 and file headers."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/split_config.go",
+      "source_sha256": "4c830a0bf8e543bbdf12b4166d48042198b5d6ae0d4f82d3ae2566ed2f3dc011",
+      "destination_file": "internal/ui/workspace_view.go",
+      "license": "MIT",
+      "parts": [
+        "35% sessions and 18% embedded sidebar proportions; pane minimum"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "Stable Charm v2, design tokens, product Tab identities, bounded viewport and generic CLI fields; see ADR-0016 and file headers."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/newdialog.go",
+      "source_sha256": "46bf00ebc78acff15ff9f5b0d8f4beb055b2472e35f535f44529f8729a7a0c57",
+      "destination_file": "internal/ui/launch_dialog.go",
+      "license": "MIT",
+      "parts": [
+        "generic dialog input/focus and submission structure"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "Stable Charm v2, design tokens, product Tab identities, bounded viewport and generic CLI fields; see ADR-0016 and file headers."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/newdialog.go",
+      "source_sha256": "46bf00ebc78acff15ff9f5b0d8f4beb055b2472e35f535f44529f8729a7a0c57",
+      "destination_file": "internal/ui/launch_dialog_view.go",
+      "license": "MIT",
+      "parts": [
+        "dialog width, centered origin, rounded padded overlay"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "Stable Charm v2, design tokens, product Tab identities, bounded viewport and generic CLI fields; see ADR-0016 and file headers."
     }
   ],
   "preserved_notices": [

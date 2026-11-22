@@ -5,6 +5,7 @@
 package ui
 
 import (
+	tea "charm.land/bubbletea/v2"
 	"image/color"
 	"strings"
 
@@ -15,10 +16,24 @@ import (
 // there is no mutable global theme, file watcher or runtime theme format yet.
 // Zero/one in viewport algorithms are counts, not additional style choices.
 type designTokens struct {
-	colors palette
-	layout layoutTokens
-	marks  markTokens
-	bold   bool
+	dialog    dialogTokens
+	colors    palette
+	workspace workspaceTokens
+	layout    layoutTokens
+	marks     markTokens
+	bold      bool
+}
+
+type dialogTokens struct {
+	preferredWidth, minWidth, gutter, paddingX, paddingY, titleGap, fieldGap int
+	dimBackdrop                                                              bool
+	cursorShape                                                              tea.CursorShape
+	cursorBlink                                                              bool
+}
+
+type workspaceTokens struct {
+	sidebarPercent, compactPercent, minPane, tabPadding int
+	border                                              lipgloss.Border
 }
 
 type palette struct{ bg, surface, border, text, dim, accent, cyan, red color.Color }
@@ -35,6 +50,8 @@ type markTokens struct{ rule, divider, selected, ellipsis, menuDot, above, below
 
 func defaultDesignTokens() designTokens {
 	return designTokens{
+		dialog:    dialogTokens{preferredWidth: 84, minWidth: 44, gutter: 10, paddingX: 4, paddingY: 1, titleGap: 1, fieldGap: 1, dimBackdrop: true, cursorShape: tea.CursorBar, cursorBlink: true},
+		workspace: workspaceTokens{sidebarPercent: 35, compactPercent: 18, minPane: 8, tabPadding: 1, border: lipgloss.RoundedBorder()},
 		colors: palette{
 			bg: lipgloss.Color("#1a1b26"), surface: lipgloss.Color("#24283b"),
 			border: lipgloss.Color("#414868"), text: lipgloss.Color("#c0caf5"),

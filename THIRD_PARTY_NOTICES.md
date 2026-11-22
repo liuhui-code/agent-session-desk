@@ -9,7 +9,7 @@
 - Copyright (c) 2025 Ashesh Goplani
 - 许可证：[MIT 原文](third_party/agent-deck/LICENSE)
 - 选择性迁入位置：`internal/ui/` 中带有来源头部的样式、布局与列表文件。
-- 本项目修改：精简依赖与业务模型，迁移到 Charm v2，保留列表/预览/简短提示的交互；详细对应关系见[复用清单](docs/REUSE_MANIFEST.md)。
+- 本项目修改：精简依赖与业务模型，迁移到 Charm v2，保留列表/预览/简短提示的交互；ADR-0016 另改编圆角终端布局、侧栏比例与通用创建表单；详细对应关系见[复用清单](docs/REUSE_MANIFEST.md)。
 
 ## Agent Manager
 
@@ -34,3 +34,5 @@ Go 模块由 `go.mod` 与 `go.sum` 锁定，通过模块系统取得，没有复
 新增直接依赖 `github.com/BurntSushi/toml v1.6.0`：MIT，Copyright (c) 2013 TOML authors；[固定版本许可](https://github.com/BurntSushi/toml/blob/v1.6.0/COPYING)。通过模块使用，未复制其解析器源码；发行物仍须收集实际依赖许可。Agent Deck 调色板从 styles.go 移到 design_tokens.go 后沿用原归属。
 
 M1 新增直接依赖 `modernc.org/sqlite v1.62.0`：BSD-3-Clause，Copyright (c) 2017 The Sqlite Authors；[固定版本 LICENSE](https://gitlab.com/cznic/sqlite/-/blob/v1.62.0/LICENSE)。内嵌 SQLite 3.54.1 的 public-domain 声明与模块内第三方归属需随发行物收集；libc v1.80.1 和全部传递依赖以 go.mod/go.sum 为准。通过模块系统使用，未复制其驱动源码。
+
+ADR-0016 新增直接依赖 `charm.land/bubbles/v2 v2.2.2`：MIT，Copyright (c) 2020–2026 Charmbracelet, Inc.；[固定版本许可](https://github.com/charmbracelet/bubbles/blob/v2.2.2/LICENSE)。通过模块使用 textinput，无组件源码复制；clipboard、runewidth、uniseg 等间接依赖的实际版本和许可随发行物另行收集。

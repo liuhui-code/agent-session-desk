@@ -64,3 +64,7 @@ ASMGR 与 AoE 本轮没有迁入源码。psmux / tmux 作为外部程序，仅�
 2026-11-22：派生调色板从 styles.go 移到 [design_tokens.go](../internal/ui/design_tokens.go)，新增文件头及机器清单条目保留相同上游快照和 source SHA。响应式尺寸、间距与标记集中管理，styles.go 组合角色样式；默认值不构成新视觉方案接受。Go 后端命令 helper 与资源采集脚本 process helper 仅拆文件以满足 500 行限制，无行为扩展；见 [本轮报告](testing/results/2026-11-22-m1-config-tokens.md)。
 
 2026-11-22：派生 home_view_frame.go 增加历史视图路由、历史计数、h 帮助提示；历史状态／详情是本地连接代码，继续复用既有 token 和角色样式，不引入新上游源或依赖。尺寸／宽字符回归与 Windows 局部检查见[历史 UI 报告](testing/results/2026-11-22-m1-history-ui.md)。
+
+2026-11-23：按 ADR-0016 新增选择性改编：`workspace_view.go` 取自固定 Agent Deck `home_view_frame.go` 的圆角终端框与精确尺寸思路，以及 `split_config.go` 的 35%／18%／8 列默认几何；`launch_dialog.go`、`launch_dialog_view.go` 取自同提交 `newdialog.go` 的居中宽度、表单焦点与圆角覆盖布局。原始 SHA-256 已写入机器清单。Tab / Session / Run 绑定、串行输入、连接取消和通用 CLI 字段属于本项目连接代码；没有迁入上游 agent／worktree 业务。此前“未迁入表单”的表述描述首轮切片，当前只新增本段列出的通用表单子集。比例拖动、列表密度和分组搜索仍未迁入。
+
+Bubbles 2.2.2 textinput 通过模块使用，未复制组件源码。v2 表单使用真实光标并将样式覆盖到 design tokens；runewidth、uniseg 及 clipboard 的传递依赖变化见 TECH_STACK。上游只作为固定来源，不使用其 v1 依赖，也不以这次迁入声明完整视觉还原。

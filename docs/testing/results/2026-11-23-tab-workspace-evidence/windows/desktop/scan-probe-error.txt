@@ -1,0 +1,8 @@
+Get-Process : �Ҳ������̱�ʶ��Ϊ 10316 �Ľ��̡�
+����λ�� ��:38 �ַ�: 4
++ $p=Get-Process -Id $r.pid
++    ~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (10316:Int32) [Get-Process], ProcessCommandException
+    + FullyQualifiedErrorId : NoProcessFoundForGivenId,Microsoft.PowerShell.Commands.GetProcessCommand
+ 
+

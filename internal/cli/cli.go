@@ -55,7 +55,9 @@ Start options:
   --env KEY=value      Per-launch override; repeat as needed
   --template NAME      Start a named template from --config instead of EXE
 
-Inside the manager: arrows/j/k select, Enter attaches, r refreshes, ? help, q quits.
+Windows Tab workspace: type in the terminal; F6 switches management focus, Ctrl+PgUp/PgDn switches Tabs.
+Management focus: arrows/j/k select, Enter opens, n creates, x closes only the Tab, r retries, ? help, q quits.
+Unix development / auxiliary mode: arrows select, Enter attaches; a explicitly attaches from Tab management.
 Inside the terminal: cancel IME composition, switch to English input, then Ctrl+b and d detach back to the manager.
 Press h for read-only metadata history; Enter shows details and Esc returns.
 Quitting the manager keeps backend sessions; stop explicitly ends the selected Run.

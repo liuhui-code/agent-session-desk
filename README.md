@@ -124,4 +124,4 @@ M1 元数据恢复增加离线 `metadata check / backup / restore`，只读检�
 
 M1 输出记录支持 `record SESSION_ID` 显式保存有限画面、`output RUN_ID` 离线读取；固定标记为不完整屏幕快照，按原 Run 保留，见[用法与边界](docs/OUTPUT_RECORDS.md)。
 
-ADR-0014 的首个技术切片已按 [ADR-0015](docs/adr/0015-pinned-psmux-native-terminal-client.md) 实现原生 psmux 屏幕／输入／resize／重连适配；fixture 与普通 shell 的[两项 Windows 局部证据](docs/testing/results/2026-11-22-native-terminal-transport.md)已记录。TUI 仍为旧界面，Tab、上游体验还原和键鼠／IME 尚待接入。
+ADR-0014 的首个技术切片已按 [ADR-0015](docs/adr/0015-pinned-psmux-native-terminal-client.md) 实现原生 psmux 屏幕／输入／resize／重连适配；fixture 与普通 shell 的[两项 Windows 局部证据](docs/testing/results/2026-11-22-native-terminal-transport.md)已记录。[ADR-0016](docs/adr/0016-tab-workspaces-and-input-ownership.md) 已接入首个 psmux Tab UI：终端直接输入，F6 切换管理焦点，Ctrl+PgUp/PgDn 切 Tab，管理模式 n 新建、x 关视图、Enter 重开；退出 UI 不停止 Run。Unix tmux 保留旧辅助路径。普通 shell 的[局部桌面证据](docs/testing/results/2026-11-23-tab-workspaces.md)不等于完整上游还原、IME、鼠标、资源或真实 agent 验收。

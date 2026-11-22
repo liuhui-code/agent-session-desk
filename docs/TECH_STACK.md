@@ -8,14 +8,14 @@
 
 ## 1. 技术栈与目标版本
 
-以下保留已接受的**目标版本快照**。本轮已建立产品 [go.mod](../go.mod) / [go.sum](../go.sum)，使用 Go 1.27.4、Bubble Tea 2.1.2、Lip Gloss 2.1.1 与 x/ansi 0.11.9；未使用 Bubbles 组件，因此没有引入该模块。外部终端程序、存储库和后续功能的状态分别记录，不能把模块锁定视为 Windows 兼容验收。实际验证分别见[源码迁入报告](testing/results/2026-11-21-m0-source-migration.md)和[Windows 执行报告](testing/results/2026-11-21-m0-native-windows.md)。
+以下保留已接受的**目标版本快照**。本轮已建立产品 [go.mod](../go.mod) / [go.sum](../go.sum)，使用 Go 1.27.4、Bubble Tea 2.1.2、Lip Gloss 2.1.1 与 x/ansi 0.11.9；2026-11-23 的 Tab 创建表单按需引入 Bubbles 2.2.2 textinput。外部终端程序、存储库和后续功能的状态分别记录，不能把模块锁定视为 Windows 兼容验收。实际验证分别见[源码迁入报告](testing/results/2026-11-21-m0-source-migration.md)和[Windows 执行报告](testing/results/2026-11-21-m0-native-windows.md)。
 
 | 层次 | 选择 / 目标基线 | 用途与边界 |
 | --- | --- | --- |
 | 语言与构建 | **Go 1.27.4** | TUI、管理 CLI 和共享业务核心；保持官方支持的版本线 |
 | TUI 框架 | **Bubble Tea 2.1.2** | 事件、状态更新、绘制与终端交接；`charm.land/bubbletea/v2` |
 | 样式与布局 | **Lip Gloss 2.1.1** | 主题、布局、文字样式；`charm.land/lipgloss/v2` |
-| 辅助 UI 组件 | **Bubbles 2.2.2，按需；本轮未引入** | 后续实际需要输入等组件时使用；`charm.land/bubbles/v2` |
+| 辅助 UI 组件 | **Bubbles 2.2.2，已按需引入 textinput** | 创建表单输入使用；`charm.land/bubbles/v2` |
 | 界面代码来源 | Agent Deck 固定源码快照 | 已迁入样式、列表、布局和宽字符截断的 4 个派生文件；新建表单、分组/搜索等未迁入 |
 | Windows 适配来源 | Agent Manager 固定源码快照 | 已选择性迁入 psmux 平台、目标定位及参数处理；部分原生后端场景已有记录，完整兼容验收待完成 |
 | Windows 终端后台 | **psmux 3.4.0 正式发布** | 持有终端、会话与子进程；默认后端方向已接受，M0 验证决定能否进入实现基线 |
@@ -107,3 +107,5 @@ M0 已有“列表/预览 → 自定义命令 → 全屏 attach → 返回”的
 实现时锁定 Go 模块和外部程序版本，发布前复查维护与兼容情况。主要方向改变通过新 ADR，补丁升级按受影响功能回归并更新台账。完整版本维护规则见 [ADR-0005](adr/0005-dependency-lifecycle-and-upgrades.md)。
 
 2026-11-22 补充：UI 样式统一由类型化 design tokens 管理，当前默认值与组件角色入口见 [ADR-0008](adr/0008-ui-design-tokens.md)。
+
+2026-11-23 依赖变化：Bubbles 2.2.2 为正式发布，但其模块要求使 MVS 选中 `github.com/mattn/go-runewidth v0.0.31`、`github.com/rivo/uniseg v0.4.8-0.20261110175422-3a370411ca06`，并加入 `github.com/atotto/clipboard v0.1.4`。uniseg 是精确锁定的预发布提交，不能称为稳定发行；不据此更改主框架稳定版本策略。表单使用真实光标并覆盖组件样式至 design tokens；应用本身不主动读取剪贴板，接收外层终端的粘贴事件。实际测试见[Tab 工作区报告](testing/results/2026-11-23-tab-workspaces.md)。

@@ -1,0 +1,33 @@
+package ui
+
+import tea "charm.land/bubbletea/v2"
+
+func (m *Model) workspaceClick(msg tea.MouseClickMsg) tea.Cmd {
+	w := m.workspace
+	if msg.Button != tea.MouseLeft || w.transition != workspaceIdle {
+		return nil
+	}
+	if msg.Y == 1 {
+		for _, cell := range m.workspaceTabCells() {
+			if msg.X >= cell.x && msg.X < cell.x+cell.width {
+				w.focused = true
+				if cell.index == w.active {
+					return m.workspaceSize()
+				}
+				return m.activateWorkspace(cell.index)
+			}
+		}
+	}
+	g := m.workspaceGeometry()
+	if msg.X >= g.x && msg.X < g.x+g.width && msg.Y >= g.y && msg.Y < g.y+g.height {
+		if !w.focused {
+			w.focused = true
+			return m.workspaceSize()
+		}
+	}
+	if g.left > 0 && msg.X >= 0 && msg.X < g.left && msg.Y >= g.y-1 && msg.Y < g.y+g.height {
+		w.focused = false
+		return m.workspaceSize()
+	}
+	return nil
+}

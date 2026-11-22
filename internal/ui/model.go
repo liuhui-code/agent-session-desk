@@ -1,5 +1,5 @@
-// Package ui contains the management screen only. The terminal backend owns
-// interactive agent I/O; this model never forwards manager keys to an agent.
+// Package ui provides Tab workspaces and management views. Terminal input is
+// forwarded only while the selected native terminal owns focus.
 package ui
 
 import (
@@ -48,12 +48,14 @@ type pollMsg struct{ generation uint64 }
 // Model implements the stable Bubble Tea v2 API. Mutable UI state is touched
 // only by Init/Update; asynchronous commands return values, never mutate it.
 type Model struct {
-	ctx     context.Context
-	cancel  context.CancelFunc
-	service Service
-	styles  styles
-	tokens  designTokens
-	history historyState
+	launch    *launchDialog
+	ctx       context.Context
+	cancel    context.CancelFunc
+	service   Service
+	styles    styles
+	tokens    designTokens
+	history   historyState
+	workspace *workspaceState
 
 	width, height      int
 	sessions           []session.Session
@@ -83,13 +85,25 @@ func New(ctx context.Context, service Service) *Model {
 
 func newModelWithTokens(ctx context.Context, service Service, tokens designTokens) *Model {
 	ctx, cancel := context.WithCancel(ctx)
-	return &Model{ctx: ctx, cancel: cancel, service: service, tokens: tokens, styles: newStyles(tokens)}
+	m := &Model{ctx: ctx, cancel: cancel, service: service, tokens: tokens, styles: newStyles(tokens)}
+	if service, ok := service.(workspaceService); ok {
+		capability, explicit := service.(interface{ SupportsTerminal() bool })
+		if !explicit || capability.SupportsTerminal() {
+			m.workspace = &workspaceState{service: service, focused: true}
+		}
+	}
+	return m
 }
 
 // Close releases pending reads. Call it after Program.Run even if the program
 // exits because of an external error or signal. It does not stop a session.
 func (m *Model) Close() {
 	m.closed = true
+	if m.workspace != nil {
+		m.workspace.disconnect()
+		m.workspace.buffered = nil
+	}
+	m.launch = nil
 	m.cancelHistory()
 	m.cancel()
 	if m.previewCancel != nil {
@@ -105,11 +119,22 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	if m.closed {
 		return m, nil
 	}
+	if m.workspace != nil {
+		if cmd, handled := m.launchEvent(msg); handled {
+			return m, cmd
+		}
+		if cmd, handled := m.workspaceEvent(msg); handled {
+			return m, cmd
+		}
+	}
 	switch msg := msg.(type) {
 	case historyMsg:
 		return m, m.historyResult(msg)
 	case tea.WindowSizeMsg:
 		m.width, m.height = max(0, msg.Width), max(0, msg.Height)
+		if m.workspace != nil {
+			return m, m.workspaceSize()
+		}
 		if !m.previewVisible() {
 			m.invalidatePreview()
 		}
@@ -141,6 +166,9 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		if hadSelection != hasSelection || (hasSelection && !sameRun(selected, next)) {
 			m.invalidatePreview()
 		}
+		if m.workspace != nil {
+			return m, m.workspaceSessions()
+		}
 		return m, m.loadPreview()
 	case previewMsg:
 		// There is at most one outstanding capture. A cancelled capture is
@@ -170,7 +198,7 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			return m, nil
 		}
 		m.pollPending = false
-		return m, tea.Batch(m.loadSessions(), m.loadPreview(), m.schedulePoll())
+		return m, tea.Batch(m.loadSessions(), m.loadPreview(), m.refreshWorkspace(), m.schedulePoll())
 	case attachReadyMsg:
 		if msg.err != nil || msg.cmd == nil {
 			if msg.err == nil {
@@ -199,9 +227,15 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			if m.help {
 				m.invalidatePreview()
 			}
+			if m.workspace != nil && !m.help {
+				return m, m.connectWorkspace()
+			}
 			return m, m.loadPreview()
 		case "esc":
 			m.help = false
+			if m.workspace != nil {
+				return m, m.connectWorkspace()
+			}
 			return m, m.loadPreview()
 		case "r":
 			m.status = ""
@@ -270,6 +304,9 @@ func (m *Model) loadSessions() tea.Cmd {
 }
 
 func (m *Model) loadPreview() tea.Cmd {
+	if m.workspace != nil {
+		return nil
+	}
 	s, ok := m.selected()
 	if !ok || m.previewBusy || m.attaching || m.closed || m.listErr != nil || !m.previewVisible() {
 		return nil

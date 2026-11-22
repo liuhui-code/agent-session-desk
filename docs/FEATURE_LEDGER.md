@@ -1,6 +1,6 @@
 # Feature Ledger
 
-更新时间：2026-11-22。用途：持续记录用户能力的范围、实现状态与验收证据。
+更新时间：2026-11-23。用途：持续记录用户能力的范围、实现状态与验收证据。
 
 **已有首批 M0 源码迁入及 Linux／Windows 局部自动化证据；五项可控原生后端场景在指定 Windows Server 2025 runner 通过，尚无已验收/已发布功能。** 列表、预览、CLI 启动、终端适配与身份边界保持实现中，已有受控短资源实验，完整 Windows 交互、资源预算、长稳与验收未完成。设计资料、代码存在、交叉编译和实际执行分别记录，范围及历史失败见[源码迁入报告](testing/results/2026-11-21-m0-source-migration.md)和[Windows 执行报告](testing/results/2026-11-21-m0-native-windows.md)。
 
@@ -26,7 +26,7 @@
 ## 2. 当前设计边界
 
 - 主界面尽可能还原固定 Agent Deck 上游的布局、比例、交互、颜色、间距与状态样式；通过 design tokens 和可追溯源码迁移实现，必要差异逐项说明。现有 [v0.1 四屏设计](UI_DESIGN.md)保留为探索记录，用户已反馈过于杂乱，**不作为实现基线**。
-- 首版以产品内 Tab 为主要会话入口，活动 Tab 直接操作终端，操作时保留 Tab 导航；列表／分组／搜索辅助组织。现有全屏 attach 可作显式辅助模式，不满足默认 Tab 体验。FL-018 从后置纳入首版；ADR-0015 仅实现终端传输，Tab UI 尚未实现。
+- 首版以产品内 Tab 为主要会话入口，活动 Tab 直接操作终端，操作时保留 Tab 导航；列表／分组／搜索辅助组织。现有全屏 attach 可作显式辅助模式，不满足默认 Tab 体验。FL-018 从后置纳入首版；ADR-0016 已接入首个 psmux Tab UI，完整还原与验收仍开放。
 - Windows 终端托管优先采用 psmux；其版本、实际命令能力和输入行为必须通过 M0 验证。UI、核心和终端后端保持可替换边界。
 - 自定义 agent、普通交互 shell 和普通 CLI 均属于管理范围，共用 executable/args/cwd/env 启动与终端原生输入；不增加独立聊天框作为日常输入入口。专用协议与增强适配不构成基础接入门槛。
 - 人工介入提醒按可信事件显示待批准、待回答或待检查；已查看不等于已解决。全屏 attach 中的通知不改写终端画面或输入，UI 退出后的持续监测必须有明确运行的消费者，见 FL-020。
@@ -43,7 +43,7 @@
 - [ADR-0006：人工介入状态与分层提醒](adr/0006-human-attention-and-notifications.md)
 - [ADR-0014：上游体验、Tab 与通用终端](adr/0014-upstream-ui-tabs-and-general-terminals.md)（部分替代旧界面约束）
 
-**2026-11-22 范围变更：**下列 FL-001/002/003/004/012 的现有局部代码继续记为实现中，但 Tab 工作区、上游体验完整还原及普通 shell 工作流尚无通过证据。ADR-0014 文档更新时 FL-018 为计划；其后的 ADR-0015 后端切片使其进入实现中，但没有实现 Tab UI。既有报告只证明当时被测列表／attach 路径；新要求详见 ADR-0014。
+**2026-11-22 范围变更：**下列 FL-001/002/003/004/012 的现有局部代码继续记为实现中，但 Tab 工作区、上游体验完整还原及普通 shell 工作流尚无通过证据。ADR-0014 文档更新时 FL-018 为计划；其后的 ADR-0015 后端切片使其进入实现中；ADR-0016 再接入活动 Tab、终端输入／光标和创建表单，仍不是完整验收。既有报告只证明当时被测列表／attach 路径；新要求详见 ADR-0014。
 
 ## 3. 能力总表
 
@@ -68,7 +68,7 @@
 | FL-015 | 有界资源：多会话和持续输出下内存可控 | 产品质量标准 | M0 基线、M1 至 M4 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[短资源实验](testing/results/2026-11-21-m0-windows-resources.md) / 未发布 |
 | FL-016 | Windows 兼容门槛：核心流程原生运行 | FR-01、FR-02、FR-05、FR-07、FR-11 | M0、M4 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md)、[短资源实验](testing/results/2026-11-21-m0-windows-resources.md) / 未发布 |
 | FL-017 | 可安装预览版：用户可独立完成完整流程 | 全部首版需求 | M4 | 计划 | 未提供 / 未发布 |
-| FL-018 | Tab 内完整终端：操作 agent 与普通命令行时保留 Tab 导航 | FR-02、FR-11 | M1 单 Tab、M2 多 Tab（首版） | 实现中 | [终端传输局部证据](testing/results/2026-11-22-native-terminal-transport.md)；Tab UI 尚未连接 / 未发布 |
+| FL-018 | Tab 内完整终端：操作 agent 与普通命令行时保留 Tab 导航 | FR-02、FR-11 | M1 单 Tab、M2 多 Tab（首版） | 实现中 | [终端传输局部证据](testing/results/2026-11-22-native-terminal-transport.md)；[Tab UI 局部证据](testing/results/2026-11-23-tab-workspaces.md)，仍待完整验收 / 未发布 |
 | FL-019 | 依赖与复用可追溯：持续获得可维护的实现基线 | 架构与发布质量 | M0 至 M4 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md) / 未发布 |
 | FL-020 | 人工介入提醒：及时发现并定位待批准、待回答与待检查事项 | FR-14；关联 FR-04、FR-08、FR-11、FR-12 | M2 界面与 attach、M3 后台、M4 发布复验 | 计划 | 未提供 / 未发布 |
 
@@ -288,7 +288,7 @@
 - **范围与边界：**首版计划能力，活动 Tab 直接显示并操作对应终端，保留 Tab 导航；agent、普通交互 shell 与 CLI 共用终端原生输入。侧栏布局按上游体验与 Tab 主导航适配，不强制额外常驻重复列表。全屏 attach 可辅助使用，不能代替本能力。
 - **验收：**Windows 实机验证 A→B→A、输入／光标／终端状态保留、IME、鼠标、alternate screen、resize 与 Ctrl+C；切换不向后台会话写入。关闭／重开 Tab 接回存活 Run，显式停止另行操作。屏幕模型、输入路径与资源成本独立留证，具体终端集成方案实施前验证。
 - **依据：**[ADR-0014](adr/0014-upstream-ui-tabs-and-general-terminals.md)；替代 ADR-0002 的后置约束。
-- **实现与验收证据：**[原生终端传输切片](testing/results/2026-11-22-native-terminal-transport.md)已实现并有两项限定 Windows 后端结果，支持当前屏幕／光标、字面输入、粘贴与回车分离、resize、断开重连。尚未连接 TUI Tab，不构成前述默认工作区、焦点、IME、鼠标或资源验收。
+- **实现与验收证据：**[原生终端传输切片](testing/results/2026-11-22-native-terminal-transport.md)已实现并有两项限定 Windows 后端结果，支持当前屏幕／光标、字面输入、粘贴与回车分离、resize、断开重连。[ADR-0016 的首个 Tab UI](testing/results/2026-11-23-tab-workspaces.md) 已接入活动终端、真实光标、串行输入、切换／关闭／重开与通用创建表单，并有普通 shell 桌面局部证据。IME 组合、子程序鼠标／滚动、完整上游交互、Tab 排序与新资源预算仍开放，不构成整条验收。
 
 ### FL-019：依赖升级与复用来源
 
@@ -377,3 +377,5 @@ M1 恢复补充（2026-11-22）：按用户继续完成 M1 的授权实现 metad
 2026-11-22 产品方向更新：用户明确上游体验尽可能还原、Tab 主导航、agent 与普通 shell／CLI 共用终端输入。ADR-0014 部分替代 0001/0002 并扩展 0004；FL-018 从后置改为首版计划，其余相关条目保留实际实现状态。FR/FL/TC 编号保持稳定；测试预期更新但仍 designed/not_run。本次仅文档核验，见[变更报告](testing/results/2026-11-22-tab-terminal-direction.md)，不新增产品或 Windows 通过结论。
 
 2026-11-22 终端传输切片：ADR-0015 固定 psmux 3.4.0 原生持久客户端适配，取得带样式／光标屏幕并支持指定 pane 输入、显式粘贴／提交、resize 与断开重连。FL-018 转为实现中，仅指后端代码；FL-001/002/005/006/012/015/016 保留实现中。两项限定 Windows 原生测试验证 fixture 和普通 PowerShell 的连续命令、未提交输入恢复；首轮样式段宽度失败与后续复验见[实际报告](testing/results/2026-11-22-native-terminal-transport.md)。TUI Tab、上游界面还原、焦点／IME／鼠标、A→B→A 和资源仍未完成，旧界面未改变，真实 agent 仍待测。
+
+2026-11-23 Tab 工作区切片：ADR-0016 接入一个活动 psmux 客户端，恢复真实终端输入／光标和可见 Tab，增加焦点、串行写入与切换排空、关闭／重开、JSON 参数创建表单。普通 shell 的桌面 A→B→A、中文粘贴与显式 Enter、连续命令、UI 退出／重开及创建有局部证据；首次 Ctrl+V 驱动假设、尺寸观测路径错误、真实右边界帧拒绝和复验均保留。FL-001/002/003/004/005/006/012/015/016/018/019 仍为实现中；完整上游体验、IME、子程序鼠标、滚动、排序、资源和真实 agent 门槛未关闭。详见[执行报告](testing/results/2026-11-23-tab-workspaces.md)，339 项设计用例不改为通过，未发布。
