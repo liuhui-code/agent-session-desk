@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "base_commit": "2fecc0a6f477da1d22d84b2648e4b986985e0e3a",
+  "scope": "uncommitted M1 metadata candidate; final files identified individually, not a claimed build of the eventual Git commit",
+  "toolchain": "go version go1.27.4 darwin/amd64",
+  "build": {
+    "GOOS": "windows",
+    "GOARCH": "amd64",
+    "CGO_ENABLED": "0",
+    "flags": [
+      "-trimpath"
+    ]
+  },
+  "source_sha256": {
+    "go.mod": "29426cb9a3f519ebfb187b8b4f87da4937ec1ee9780776a86040d637d37c41fd",
+    "go.sum": "33d84642da69164f671c1f9be7181e67ced12e5673f8f4f52411b9224cd2a665",
+    "cmd/asd/main.go": "f8a910eed8f4ac1702f92f2e16a406376cc67890f4e36904a256615e53fa7da0",
+    "cmd/asd-fixture/main.go": "a6b9e214b601c35e02c450ebf0eddd3d3c2b9f5484cc56cbb61a918e76cbcef1",
+    "cmd/asd-fixture/main_test.go": "a6e27d112995f66f24fb6b6019913cfd0bd4650bd97c2409ef217019771ad527",
+    "internal/backend/backend.go": "6c818d789ab0b202040ace64f2cbdb14e1a5fc433554eda756df4db6eccf03ed",
+    "internal/backend/backend_test.go": "213509608613a2445c04ae1e4843ffee13e26c6d5801fc77a7fe53cc2333f9fd",
+    "internal/backend/command.go": "a385feb1c95deec7f7e6e3f5dc5129f8903e2953572c6795698fdcf401892ef8",
+    "internal/backend/integration_windows_test.go": "a4b97fd1d332c5949dcc61df1c4461c75b5229af4c3e463e907858afc9a78be9",
+    "internal/backend/location.go": "99ec7eb4c913dc86459313c9c854f1b0093a41baa050e56fe273d35e469238f9",
+    "internal/backend/process_unix.go": "4d9efe24bc5f644bef0d17cfbfed61d5e8eedb88f1fe119ba6f43a7a3815e6b2",
+    "internal/backend/process_windows.go": "a7d15b9b51f1d68d3fb83d053811a7dcf7360e8b205aeee4164a4c32252b4bfe",
+    "internal/backend/psmux_contract.go": "f7b34f2b879ce638f8a3a4ab7e257eb8d51e6e292ab520fcd07ccb0da77c5165",
+    "internal/backend/transport.go": "732b854ec6111893928f9e1e0b657d5932bb0d6ea178cdf7cf044f4aba63cc06",
+    "internal/cli/cli.go": "8646394c18dc7d08cdcff435131e5dc8038cddf350bd0c68fb57fb48ebe50da7",
+    "internal/cli/cli_test.go": "9b13fdacc42446fbcc5d493f49f2539fe16cadda9b397452c74696f887fce692",
+    "internal/cli/config_rejection_test.go": "f5c147a07090c3a58a32bb7a156bee3750b1accff862c5c48afee80bb8c6833f",
+    "internal/cli/config_start_test.go": "bf8e3dcfbb5d5d50d9d97f86115ecf0c9e5edf1860fb97b08636a0886fefecd2",
+    "internal/cli/history.go": "4b85f0ea32da21db4ed8adf975e80685938e2b6802713e8aa4a1e3858bb26721",
+    "internal/cli/history_test.go": "ee840c23baad4fa65344e619ff2fa8928cdf22094b0473e4dc9d9c0391c3717e",
+    "internal/cli/start.go": "21c322c9383aa4e407af1e23cd6493de12a55a972d37718fe976c29c98f6339d",
+    "internal/config/config.go": "7e088b9068ba63270d5d38c1f4c3e079cf43be5184b04f9666be9ed7961ae5a1",
+    "internal/config/config_test.go": "dfb92897b1186aef355e8898b4d4d6007c98fea2bf1b595e0aad6f0f09311816",
+    "internal/manager/manager.go": "688fcf9dbed50e699f9d0ada6fd382a7269648912cdced9e1771b4f8549f67c6",
+    "internal/manager/manager_test.go": "cd2c8afea7192b97276205a3b825dd0a89f1d181f0c3b9b3e568d539cc1b2910",
+    "internal/session/launch.go": "8938bacb7a303944529244177804484457a59a164a04627f297f6f9929c3a43c",
+    "internal/session/launch_test.go": "1ee77ae9320e48b2e0ad2529fe116182ab877e149c8256523030c3825638c04b",
+    "internal/session/session.go": "3d9dd0fcec805a21cabf1e7bea0c3231ecc3720520b55d97a093a5446ce2de31",
+    "internal/store/concurrency_test.go": "7a2bd61e2d858deda9a5c5990862e71e83afa2e519aafdfa59e6f44a331f67f3",
+    "internal/store/schema_test.go": "892b5610505b0f65c44ae772be03c5d36b3a4f6d8e13117efdcdcf9287617641",
+    "internal/store/store.go": "b571f44b3c09ac61667a23f0fc5d56b5395dbe87bcefced4bb11fb9c2f69422a",
+    "internal/store/store_test.go": "1e71d4a13c22173b136b15d89298a4abe264c76c0e355775ec87948cdeef3397",
+    "internal/ui/cellwidth.go": "ef5d9ed1a9e70bf44bdf47d9bb07eb14fec95ab3cc331a00c8d1b28b502720bc",
+    "internal/ui/design_tokens.go": "4c68fc47f2d8968c5aa3b05824e5b86e7c0f016f20be532cd7c632fa9c3e245d",
+    "internal/ui/home_view_frame.go": "c07b276ff8168aa7acc88b966cc90e522d957ce20ade1305b691e201b06f46f3",
+    "internal/ui/home_view_list.go": "09c4a730d08cc37814c8321f941366d7bf8449f0beafd5432841b5d8dc706546",
+    "internal/ui/model.go": "3d2a64ae4dd48d20de335540241682556213d17b335bf6e200f178314d2b1762",
+    "internal/ui/model_test.go": "9626a6472336ea9e4971aee990b18a91d5dca416a1f746f8952da26d01cc5b65",
+    "internal/ui/styles.go": "e248f90eb2366dc75847c1c8c3e2d642cd1c2d7d22ddacbfd1d1245699c200f8",
+    "internal/ui/text.go": "0ef6aa91424d9bb00a9c6fffd2b47f86327986ec8500a6110bc612b7124a0aa7",
+    "internal/ui/tokens_test.go": "2ece8d27f58b54c3acdfd6ba2b7b0abcfd281ba2a6a13f06a5030f661471c226",
+    "internal/ui/view_test.go": "caf0dca194d2be785b0a412aea434af34cb8edb333ab7f0f0bf1e3cbad11bdec"
+  },
+  "candidate_sha256": {
+    "asd.exe": "a176373bcc07a1ad19aa7165017f892741488473b168be439e15917b0f8c9a16",
+    "asd-fixture.exe": "a9a9f25cd30b96860125478dc5ef5ff76fdade454cfa5c503e5d1e35ef8cb2e4",
+    "store-tests.exe": "cbde09b6f623e23648784e28739af3bbf7e5d157ae808bc1a1d64ef7dea9adfb"
+  },
+  "scripts_sha256": {
+    "tools/ci/windows-config.ps1": "2fd23d7427524e225cce148e1cf648d5eba4d63ce5beecfa54582dd461d1baaa",
+    "tools/ci/windows-metadata.ps1": "6d2559201b953385803747dfdbddc26c1322ea2347837aa166e6bce47398dad7"
+  }
+}

@@ -84,3 +84,7 @@ UI 当前只保留选中会话的屏幕文本，设置 64 KiB/200 行的防御�
 - [SQLite 官方说明](https://sqlite.org/about.html)
 - [TOML 官方规范](https://toml.io/en/)
 - [Windows 进程内存计数](https://learn.microsoft.com/en-us/windows/win32/api/psapi/ns-psapi-process_memory_counters_ex)
+
+## M1 元数据细化（2026-11-22）
+
+[ADR-0007](0007-explicit-launch-configuration.md) 实现只读 TOML 启动配置；[ADR-0009](0009-session-run-metadata.md) 固定首个 SQLite 驱动、最小 Session/Run 事务、作用域和有界历史读取。消息、输出落盘、升级迁移和完整资源门槛继续保留，不能把连接／缓存设置当作已测量预算。

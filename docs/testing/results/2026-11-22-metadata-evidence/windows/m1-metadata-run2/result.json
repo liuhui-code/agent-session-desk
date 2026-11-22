@@ -1,0 +1,30 @@
+{
+  "utc": "2026-11-22T07:00:20.7103501Z",
+  "os": "Microsoft Windows NT 10.0.19045.0",
+  "product_sha256": "e2d5923a1b2a273a3bec57049b6ff47f25fd0498c1fc6078c1d61f7376ec0e25",
+  "checks": [
+    {
+      "result": "passed",
+      "count": 2,
+      "name": "reopen/offline-history/confirmed-stop"
+    },
+    {
+      "result": "passed",
+      "name": "namespace-isolation"
+    },
+    {
+      "result": "passed",
+      "name": "history-limit"
+    },
+    {
+      "result": "passed",
+      "name": "live-list-empty"
+    },
+    {
+      "result": "passed",
+      "sha256": "8ee8831ae00629a0aadb4d1503a434ae52cfe3cd0edc8ce65fdbcd91bee76bf1",
+      "name": "native-SQLite-tests"
+    }
+  ],
+  "failure": null
+}

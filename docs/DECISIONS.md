@@ -51,7 +51,7 @@
 | O-005 | 最低系统版本与发布架构 | 用真实 Windows/终端/agent 组合验证后声明 |
 | O-006 | 首批目标 agent | 由实际使用命令确定；不把品牌注册表作为通用接入门槛 |
 | O-007 | 输出保存方向已定，具体预算待定 | 有界缓存与文件轮转；采集连续性、保留上限、清理、导出和索引待验证 |
-| O-008 | 存储方向已定，库与 IPC 待定 | SQLite/TOML/文件职责已选；TOML 只读启动合同见 ADR-0007，SQLite 驱动、事务、保存迁移及 M3 Host IPC 待实施 |
+| O-008 | 存储方向已定，库与 IPC 待定 | SQLite/TOML/文件职责已选；TOML 只读启动合同见 ADR-0007，SQLite 最小 Session/Run 驱动／事务见 ADR-0009；保存迁移、消息和 M3 Host IPC 待实施 |
 | O-009 | 输入模式已定，键位与交接待验证 | 管理模式与全屏 attach 分离，发送按需打开；实际快捷键、焦点与输入占用规则需回归 |
 | O-010 | 许可证 | 原创部分的整体许可仍待决定；首批第三方源码已逐项保留 MIT、Apache-2.0 与 NOTICE，见[归属声明](../THIRD_PARTY_NOTICES.md) |
 | O-011 | 工作目录隔离 | 初版手动选择 cwd；自动 worktree 与整合流程后置评估 |
@@ -91,3 +91,7 @@ M0 使用后端 user option 做存活终端的发现，不建立临时 JSON 文�
 ### 2026-11-22：基础 agent 接入范围澄清
 
 用户确认通过自定义 CLI 命令直接拉起，沿用通用 executable/args/cwd/env 及 TOML 模板，不新增逐品牌适配开发阶段。补充 ADR-0004 与 FL-001，下一实现切片推进 M1 最小元数据存储；真实 CLI 验收和 Windows 门槛继续保留。
+
+### 2026-11-22：M1 最小元数据
+
+[ADR-0009](adr/0009-session-run-metadata.md) 固定 SQLite 驱动与最小两表事务、作用域和 history 合同。启动／停止与数据库非原子，保留后端已产生副作用时的准确身份和错误；数据库记录不成为在线证据，不自动启动 agent。实际状态见 [FL-005/011/013](FEATURE_LEDGER.md) 与[执行报告](testing/results/2026-11-22-m1-metadata.md)。

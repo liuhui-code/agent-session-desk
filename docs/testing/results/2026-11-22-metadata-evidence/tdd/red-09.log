@@ -1,0 +1,5 @@
+--- FAIL: TestDiscoveryPersistsWithoutResolvingDisconnectOrMissingRun (0.01s)
+    manager_test.go:119: disconnect/missing invented exit: []store.Record{} <nil>
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/manager	1.284s
+FAIL

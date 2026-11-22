@@ -37,7 +37,7 @@
 
 当前局部进展（2026-11-22）：显式只读 TOML 启动模板及 CLI 覆盖已有实现与 [Windows fixture 证据](testing/results/2026-11-22-m1-config-tokens.md)。真实 agent、配置保存及最小记录存储仍未完成，M0 剩余门槛继续保留。
 
-下一实现切片：M1 最小会话元数据存储，先确定 SQLite 驱动、schema 和事务合同。agent 接入沿用现有自定义 CLI／TOML 模板，不另建品牌适配阶段；真实 CLI 仅作为通用启动流程的验收样本，既有 Windows 回归门槛保留。
+最小会话元数据切片已实现：SQLite 驱动、schema v1 和事务合同见 [ADR-0009](adr/0009-session-run-metadata.md)，局部验证见[实际报告](testing/results/2026-11-22-m1-metadata.md)。后续优先补齐退出证据与历史查看流程，完整迁移／异常恢复仍需验证。agent 接入沿用现有自定义 CLI／TOML 模板，不另建品牌适配阶段；真实 CLI 仅作为通用启动流程的验收样本，既有 Windows 回归门槛保留。
 
 交付物：启动配置、Session/Run 身份、工作目录和环境处理、终端预览与全屏 attach、停止和失败说明，以及最小记录存储。会话核心随 TUI 或管理命令运行；本阶段不强制启动自有常驻 Host。
 

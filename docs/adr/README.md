@@ -26,6 +26,8 @@ ADR 保存重要选择的背景、决定、替代方案、代价和重新评估�
 | [0007](0007-explicit-launch-configuration.md) | 显式 TOML 只读启动模板与严格 schema | 已接受 | CLI、局部 Go 测试与 Windows fixture 原生证据；保存／迁移及真实 agent 待做 |
 | [0008](0008-ui-design-tokens.md) | 产品 UI 样式统一由设计 tokens 管理 | 已接受 | 当前样式集中、渲染和尺寸回归；新版本 Windows 视觉接受待做 |
 
+| [0009](0009-session-run-metadata.md) | SQLite 最小 Session/Run 元数据、独立历史与非原子副作用 | 已接受 | 最小实现、Go 检查与 Windows 局部执行；完整恢复、迁移和资源门槛待做 |
+
 ## 维护规则
 
 1. 新决定使用下一个连续编号，复制[模板](template.md)，已有编号不重用。

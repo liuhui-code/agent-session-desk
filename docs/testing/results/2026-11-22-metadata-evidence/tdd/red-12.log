@@ -1,0 +1,5 @@
+--- FAIL: TestRepeatedDiscoveryDoesNotNeedWriterLock (1.02s)
+    schema_test.go:117: unchanged discovery took a writer lock: database is locked (5) (SQLITE_BUSY)
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/store	2.077s
+FAIL

@@ -12,7 +12,6 @@ import (
 	"os/exec"
 	"path/filepath"
 	"regexp"
-	"runtime"
 	"sort"
 	"strconv"
 	"strings"
@@ -56,9 +55,9 @@ type Backend struct {
 // New prepares only product-owned paths. It neither starts a server nor changes
 // the user's global multiplexer configuration. All operations remain experimental.
 func New(opts Options) (*Backend, error) {
-	kind := "tmux"
-	if runtime.GOOS == "windows" {
-		kind = "psmux"
+	kind, dir, err := Location(opts)
+	if err != nil {
+		return nil, err
 	}
 	if opts.Binary == "" {
 		opts.Binary = kind
@@ -71,24 +70,6 @@ func New(opts Options) (*Backend, error) {
 	if err != nil {
 		return nil, err
 	}
-	if opts.Namespace == "" {
-		opts.Namespace = "asd-m0"
-	}
-	if !namespacePattern.MatchString(opts.Namespace) {
-		return nil, errors.New("namespace must start with asd- and contain 1–48 letters, digits, underscores or hyphens after it")
-	}
-	if opts.RuntimeDir == "" {
-		base, err := os.UserCacheDir()
-		if err != nil {
-			return nil, fmt.Errorf("find application cache directory: %w", err)
-		}
-		opts.RuntimeDir = filepath.Join(base, "agent-session-desk", "m0")
-	}
-	dir, err := filepath.Abs(opts.RuntimeDir)
-	if err != nil {
-		return nil, err
-	}
-	dir = filepath.Join(dir, opts.Namespace)
 	if err := os.MkdirAll(dir, 0700); err != nil {
 		return nil, fmt.Errorf("prepare backend directory: %w", err)
 	}
@@ -100,7 +81,7 @@ func New(opts Options) (*Backend, error) {
 	if err := ensureConfig(config, body); err != nil {
 		return nil, err
 	}
-	return &Backend{bin: bin, kind: kind, dataDir: dir, config: config, namespace: opts.Namespace}, nil
+	return &Backend{bin: bin, kind: kind, dataDir: dir, config: config, namespace: filepath.Base(dir)}, nil
 }
 
 func ensureConfig(path, body string) error {

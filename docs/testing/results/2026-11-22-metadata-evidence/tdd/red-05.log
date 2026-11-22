@@ -1,0 +1,5 @@
+--- FAIL: TestHistoryReadIsBounded (0.01s)
+    store_test.go:132: unbounded limit accepted: -1
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/store	1.500s
+FAIL

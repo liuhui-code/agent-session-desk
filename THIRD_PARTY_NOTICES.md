@@ -32,3 +32,5 @@ ASMGR 与 Agent of Empires 在这一切片中仅作为流程/视觉参考，没�
 Go 模块由 `go.mod` 与 `go.sum` 锁定，通过模块系统取得，没有复制进本仓库。发布包必须另外收集并核对实际包含的直接、间接依赖许可证，不能用本文件代替发行物审计。
 
 新增直接依赖 `github.com/BurntSushi/toml v1.6.0`：MIT，Copyright (c) 2013 TOML authors；[固定版本许可](https://github.com/BurntSushi/toml/blob/v1.6.0/COPYING)。通过模块使用，未复制其解析器源码；发行物仍须收集实际依赖许可。Agent Deck 调色板从 styles.go 移到 design_tokens.go 后沿用原归属。
+
+M1 新增直接依赖 `modernc.org/sqlite v1.62.0`：BSD-3-Clause，Copyright (c) 2017 The Sqlite Authors；[固定版本 LICENSE](https://gitlab.com/cznic/sqlite/-/blob/v1.62.0/LICENSE)。内嵌 SQLite 3.54.1 的 public-domain 声明与模块内第三方归属需随发行物收集；libc v1.80.1 和全部传递依赖以 go.mod/go.sum 为准。通过模块系统使用，未复制其驱动源码。

@@ -31,7 +31,7 @@
     "TBD-DIAGNOSTICS": {"title": "诊断导出与脱敏范围", "question": "哪些启动字段、路径和日志默认进入诊断，哪些脱敏？用户选择和可分享模板的范围如何说明？", "stage": "M4", "status": "open", "related": ["O-007", "O-008"]},
     "TBD-INSTANCE-SCOPE": {"title": "实例与消费者作用域", "question": "多个 TUI/CLI 指向同一或不同数据目录时，Host 单实例、namespace、启动竞争及消费者归属如何协调？", "stage": "M3", "status": "open", "related": ["O-008"]},
     "TBD-IPC-TRUST": {"title": "本机控制入口信任范围", "question": "选定 IPC 后，哪些本机调用者可读、发、停？如何核对来源、作用域、过期 endpoint 与拒绝结果？", "stage": "M3", "status": "open", "related": ["O-008"]},
-    "TBD-LIFECYCLE": {"title": "停止、重启与创建恢复", "question": "正常停止、等待、强制升级及子进程范围是什么？并发重启如何仲裁，创建意图/后端创建/元数据提交间崩溃如何恢复？", "stage": "M1", "status": "open", "related": ["O-004", "O-008", "O-009"]},
+    "TBD-LIFECYCLE": {"title": "停止、重启与创建恢复", "question": "正常停止、等待、强制升级及子进程范围是什么？并发重启如何仲裁，创建意图/后端创建/元数据提交间崩溃如何恢复？ ADR-0009 已细化最小元数据、非原子副作用和禁止盲目重复启动；完整创建恢复与重启仲裁仍未决。", "stage": "M1", "status": "open", "related": ["O-004", "O-008", "O-009"]},
     "TBD-MSG-CANCEL": {"title": "消息取消边界", "question": "queued、已领取、部分写入和完整写入阶段各能取消什么？竞争请求的返回值与界面文案如何表达？", "stage": "M3", "status": "open", "related": ["O-008", "O-009"]},
     "TBD-MSG-IDEMPOTENCY": {"title": "请求幂等键与冲突", "question": "幂等键作用域、载荷指纹与有效范围如何定义？相同键但正文/目标不同如何返回冲突？", "stage": "M3", "status": "open", "related": ["O-008"]},
     "TBD-MSG-TTL": {"title": "消息有效期与时间来源", "question": "是否需要 TTL？若启用，到期时刻、边界比较、时钟来源、重启恢复及用户可见状态是什么？", "stage": "M3", "status": "open", "related": ["O-008", "O-009"]},

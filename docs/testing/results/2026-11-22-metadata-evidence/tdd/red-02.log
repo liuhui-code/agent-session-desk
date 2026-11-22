@@ -1,0 +1,5 @@
+--- FAIL: TestScopeAndIdentityConflictsCannotOverwriteOrLeaveHalfRecords (0.01s)
+    store_test.go:64: Run identity rebound to a different Session
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/store	1.031s
+FAIL

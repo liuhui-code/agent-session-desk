@@ -1,0 +1,106 @@
+[
+  {
+    "args": [
+      "--config",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-metadata-run3\\fixture-case\\agents.toml",
+      "start",
+      "--template",
+      "dev"
+    ],
+    "code": 0,
+    "stdout": "{\r\n  \"session_id\": \"992a4903e6fbb93d989d6c7754f65a93\",\r\n  \"run_id\": \"88d5fff52dd986343520094992dbbcba\",\r\n  \"backend_id\": \"asd_992a4903e6fbb93d989d6c7754f65a93_88d5fff52dd986343520094992dbbcba\",\r\n  \"title\": \"模板\",\r\n  \"command\": \"C:\\\\Users\\\\liu xun yuan\\\\asd-acceptance-20261122\\\\asd-fixture.exe\",\r\n  \"terminal_state\": \"available\"\r\n}\r\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "--config",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-metadata-run3\\fixture-case\\agents.toml",
+      "start",
+      "--template",
+      "dev",
+      "--cwd",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-metadata-run3\\fixture-case",
+      "--name",
+      "覆盖",
+      "--env",
+      "ASD_CONFIG_VALUE=CLI value"
+    ],
+    "code": 0,
+    "stdout": "{\r\n  \"session_id\": \"f7d7afd695a965f3dfa4adb0563baba3\",\r\n  \"run_id\": \"958831db4dc4a9d63ee7153ca75a4d6d\",\r\n  \"backend_id\": \"asd_f7d7afd695a965f3dfa4adb0563baba3_958831db4dc4a9d63ee7153ca75a4d6d\",\r\n  \"title\": \"覆盖\",\r\n  \"command\": \"C:\\\\Users\\\\liu xun yuan\\\\asd-acceptance-20261122\\\\asd-fixture.exe\",\r\n  \"terminal_state\": \"available\"\r\n}\r\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "list",
+      "--json"
+    ],
+    "code": 0,
+    "stdout": "[\r\n  {\r\n    \"session_id\": \"992a4903e6fbb93d989d6c7754f65a93\",\r\n    \"run_id\": \"88d5fff52dd986343520094992dbbcba\",\r\n    \"backend_id\": \"asd_992a4903e6fbb93d989d6c7754f65a93_88d5fff52dd986343520094992dbbcba\",\r\n    \"title\": \"模板\",\r\n    \"command\": \"C:\\\\Users\\\\liu xun yuan\\\\asd-acceptance-20261122\\\\asd-fixture.exe\",\r\n    \"terminal_state\": \"available\"\r\n  },\r\n  {\r\n    \"session_id\": \"f7d7afd695a965f3dfa4adb0563baba3\",\r\n    \"run_id\": \"958831db4dc4a9d63ee7153ca75a4d6d\",\r\n    \"backend_id\": \"asd_f7d7afd695a965f3dfa4adb0563baba3_958831db4dc4a9d63ee7153ca75a4d6d\",\r\n    \"title\": \"覆盖\",\r\n    \"command\": \"C:\\\\Users\\\\liu xun yuan\\\\asd-acceptance-20261122\\\\asd-fixture.exe\",\r\n    \"terminal_state\": \"available\"\r\n  }\r\n]\r\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "--config",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-metadata-run3\\fixture-case\\agents.toml",
+      "start",
+      "--template",
+      "dev"
+    ],
+    "code": 1,
+    "stdout": "",
+    "stderr": "asd: configuration schema_version must be 1\r\n"
+  },
+  {
+    "args": [
+      "--config",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-metadata-run3\\fixture-case\\agents.toml",
+      "start",
+      "--template",
+      "dev"
+    ],
+    "code": 1,
+    "stdout": "",
+    "stderr": "asd: configuration contains unknown fields\r\n"
+  },
+  {
+    "args": [
+      "--config",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\m1-metadata-run3\\fixture-case\\agents.toml",
+      "start",
+      "--template",
+      "dev",
+      "--",
+      "C:\\Users\\liu xun yuan\\asd-acceptance-20261122\\asd-fixture.exe"
+    ],
+    "code": 1,
+    "stdout": "",
+    "stderr": "asd: --template cannot be combined with an explicit executable\r\n"
+  },
+  {
+    "args": [
+      "list",
+      "--json"
+    ],
+    "code": 0,
+    "stdout": "[\r\n  {\r\n    \"session_id\": \"992a4903e6fbb93d989d6c7754f65a93\",\r\n    \"run_id\": \"88d5fff52dd986343520094992dbbcba\",\r\n    \"backend_id\": \"asd_992a4903e6fbb93d989d6c7754f65a93_88d5fff52dd986343520094992dbbcba\",\r\n    \"title\": \"模板\",\r\n    \"command\": \"C:\\\\Users\\\\liu xun yuan\\\\asd-acceptance-20261122\\\\asd-fixture.exe\",\r\n    \"terminal_state\": \"available\"\r\n  },\r\n  {\r\n    \"session_id\": \"f7d7afd695a965f3dfa4adb0563baba3\",\r\n    \"run_id\": \"958831db4dc4a9d63ee7153ca75a4d6d\",\r\n    \"backend_id\": \"asd_f7d7afd695a965f3dfa4adb0563baba3_958831db4dc4a9d63ee7153ca75a4d6d\",\r\n    \"title\": \"覆盖\",\r\n    \"command\": \"C:\\\\Users\\\\liu xun yuan\\\\asd-acceptance-20261122\\\\asd-fixture.exe\",\r\n    \"terminal_state\": \"available\"\r\n  }\r\n]\r\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "stop",
+      "992a4903e6fbb93d989d6c7754f65a93"
+    ],
+    "code": 0,
+    "stdout": "{\r\n  \"session_id\": \"992a4903e6fbb93d989d6c7754f65a93\",\r\n  \"run_id\": \"88d5fff52dd986343520094992dbbcba\",\r\n  \"result\": \"backend_session_stopped\"\r\n}\r\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "stop",
+      "f7d7afd695a965f3dfa4adb0563baba3"
+    ],
+    "code": 0,
+    "stdout": "{\r\n  \"session_id\": \"f7d7afd695a965f3dfa4adb0563baba3\",\r\n  \"run_id\": \"958831db4dc4a9d63ee7153ca75a4d6d\",\r\n  \"result\": \"backend_session_stopped\"\r\n}\r\n",
+    "stderr": ""
+  }
+]

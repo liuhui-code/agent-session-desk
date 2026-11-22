@@ -1,0 +1,6 @@
+--- FAIL: TestUnrecognizedOrCorruptDatabaseIsPreserved (0.02s)
+    --- FAIL: TestUnrecognizedOrCorruptDatabaseIsPreserved/missing-table (0.00s)
+        schema_test.go:52: unrecognized database accepted
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/store	1.049s
+FAIL

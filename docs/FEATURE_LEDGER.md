@@ -58,7 +58,7 @@
 | FL-008 | 跨会话显式投递：把指令交给明确目标 | FR-07 | M3 | 计划 | 未提供 / 未发布 |
 | FL-009 | 按能力排队与自动投递：避免向未知状态盲目注入 | FR-08 | M3 | 计划 | 未提供 / 未发布 |
 | FL-010 | Agent 控制 CLI：让有工具能力的 agent 主动协作 | FR-09 | M3 | 计划 | 未提供 / 未发布 |
-| FL-011 | 历史与恢复边界：知道接回、重启与续聊的区别 | FR-10 | M1、M2 | 计划 | 未提供 / 未发布 |
+| FL-011 | 历史与恢复边界：知道接回、重启与续聊的区别 | FR-10 | M1、M2 | 实现中 | [最小元数据证据](testing/results/2026-11-22-m1-metadata.md) / 未发布 |
 | FL-012 | 焦点与草稿：输入不串用，切换不丢失管理器草稿 | FR-11 | M1、M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md) / 未发布 |
 | FL-013 | 异常、重试和运行变化：保留不确定性并避免误投 | FR-12 | M1 至 M3 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md) / 未发布 |
 | FL-014 | 请求与回复关联：按消息查询合作结果 | FR-13 | M3 | 计划 | 未提供 / 未发布 |
@@ -109,12 +109,14 @@
 
 ### FL-005：稳定身份
 
-测试设计：[FL-005 用例与映射](testing/COVERAGE.md#fl-005)；当前仅设计，未执行。
+测试设计：[FL-005 用例与映射](testing/COVERAGE.md#fl-005)；目录保留 designed/not_run 基线，局部执行见实际报告。
 
 - **范围与边界：**分离 Session、Run、视图与后台 session/pane 标识；名称和排序可变，消息用稳定 ID 寻址。终端后台存活、shell 存活与 agent 的实际生命周期分别判断。
 - **验收：**重命名、排序、关闭再打开视图后，读取和投递仍定位原 Session；重新启动生成新 Run；旧消息仍绑定原 Run，不能因底层编号复用而转投。
 - **依据：**[FR-04](PRODUCT_PLAN.md)、[ADR-0004](adr/0004-cli-agents-and-session-messaging.md)。
 - **实现与验收证据：**[独立 Session/Run DTO](../internal/session/session.go)与随机 ID、后端元数据和初始 pane 绑定已实现；预览/attach/stop 前重新核对目标。Windows 可控场景已核对新 Backend／独立产品进程重新发现同一 Session/Run，以及错误 Run 的访问拒绝。原 pane 非活动时仍读取原 pane；删除其所在窗口后，另一 pane 继续接收测试输入，产品 Preview/Attach 拒绝原目标。实现采用单个完整 pane 目标，捕获后无法确认原 pane 时丢弃快照；这些证据不构成后端原子快照保证。持久记录、重启同一 Session 和消息绑定仍待做。见[源码局部证据](testing/results/2026-11-21-m0-source-migration.md)及[Windows 修复与运行记录](testing/results/2026-11-21-m0-native-windows.md)。
+- **M1 元数据局部证据（2026-11-22）：**SQLite Session/Run 两表事务、跨作用域隔离、重复发现保留原身份、独立 `history`、显式停止确认已实现；历史不提供在线／任务状态，不参与自动启动。数据库与后台副作用分离，提交失败保留准确 ID 和不确定性。见 [ADR-0009](adr/0009-session-run-metadata.md)、[实际报告](testing/results/2026-11-22-m1-metadata.md)。完整恢复、重命名／归档、原对话 resume、迁移与故障矩阵仍待做。
+
 
 ### FL-006：后台托管与重新连接
 
@@ -163,12 +165,14 @@
 
 ### FL-011：历史与恢复边界
 
-测试设计：[FL-011 用例与映射](testing/COVERAGE.md#fl-011)；当前仅设计，未执行。
+测试设计：[FL-011 用例与映射](testing/COVERAGE.md#fl-011)；目录保留 designed/not_run 基线，局部执行见实际报告。
 
 - **范围与边界：**保存会话和运行记录，分别提供查看历史、接回活 Run、启动新 Run。原生对话恢复只有具备经过验证的适配能力时出现，不作为通用 CLI 保证。
 - **验收：**已退出会话没有活跃输入假象；查看记录不会启动 agent；重启生成新 Run；没有 resume 能力时不宣称续接原模型上下文。
 - **依据：**[FR-10](PRODUCT_PLAN.md)、[ADR-0002](adr/0002-terminal-backends-and-attach.md)、[ADR-0004](adr/0004-cli-agents-and-session-messaging.md)。
 - **实现与验收证据：**未提供。
+- **M1 元数据局部证据（2026-11-22）：**SQLite Session/Run 两表事务、跨作用域隔离、重复发现保留原身份、独立 `history`、显式停止确认已实现；历史不提供在线／任务状态，不参与自动启动。数据库与后台副作用分离，提交失败保留准确 ID 和不确定性。见 [ADR-0009](adr/0009-session-run-metadata.md)、[实际报告](testing/results/2026-11-22-m1-metadata.md)。完整恢复、重命名／归档、原对话 resume、迁移与故障矩阵仍待做。
+
 
 ### FL-012：焦点与草稿
 
@@ -181,12 +185,14 @@
 
 ### FL-013：异常、重试和运行变化
 
-测试设计：[FL-013 用例与映射](testing/COVERAGE.md#fl-013)；当前仅设计，未执行。
+测试设计：[FL-013 用例与映射](testing/COVERAGE.md#fl-013)；目录保留 designed/not_run 基线，局部执行见实际报告。
 
 - **范围与边界：**呈现启动失败、agent 退出、后台断开、写入结果不确定；请求建立有幂等键，投递保留目标 Run。管理器去重不等于任意 agent 的 exactly-once 执行。
 - **验收：**同一请求重试不重复建立收件项；写入后失连保留不确定状态且不自动重放。覆盖 Host 在终端写入后、回执落盘前崩溃的恢复场景，无法证明未写入的尝试保留 unknown，不因数据库仍显示旧状态而自动重放。目标 Run 改变后旧消息暂停；显式重绑不会伪造接收/完成回执。
 - **依据：**[FR-12](PRODUCT_PLAN.md)、[ADR-0004](adr/0004-cli-agents-and-session-messaging.md)。
 - **实现与验收证据：**启动前验证、明确超时、部分创建失败后的精确清理、清理结果未知和目标变化拒绝已有实现与子进程合同测试。Windows 场景已覆盖选定非法启动输入、错误 Run 拒绝及快速非零退出后保留屏幕；退出码来自 fixture 独立记录，不声称产品已提供准确 agent 退出码。消息重试、幂等与 Host 崩溃窗口尚未实现。见[源码局部证据](testing/results/2026-11-21-m0-source-migration.md)与[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md)。
+- **M1 元数据局部证据（2026-11-22）：**SQLite Session/Run 两表事务、跨作用域隔离、重复发现保留原身份、独立 `history`、显式停止确认已实现；历史不提供在线／任务状态，不参与自动启动。数据库与后台副作用分离，提交失败保留准确 ID 和不确定性。见 [ADR-0009](adr/0009-session-run-metadata.md)、[实际报告](testing/results/2026-11-22-m1-metadata.md)。完整恢复、重命名／归档、原对话 resume、迁移与故障矩阵仍待做。
+
 
 ### FL-014：请求与回复关联
 
@@ -304,3 +310,5 @@ SSH 局部执行补充（2026-11-22）：Windows 10 build 19045 上使用实际�
 配置与样式补充（2026-11-22）：FL-001 增加显式 TOML 模板／CLI 覆盖，FL-003 集中 UI design tokens；均保持实现中、未发布。[实际报告](testing/results/2026-11-22-m1-config-tokens.md)关联 ADR-0007/0008。
 
 接入范围澄清（2026-11-22）：用户确认基础接入即自定义 CLI 命令拉起，沿用已实现的直接启动／TOML 模板。FL-001 实现和验收状态不变；真实 CLI 样本验证保留，下一实现切片推进 M1 最小会话元数据存储。
+
+元数据局部实现补充（2026-11-22）：FL-005/011/013 增加 SQLite 与原生 Windows 局部证据，FL-011 进入实现中；339 项设计状态和完整 M0/M1 门槛保持不变。

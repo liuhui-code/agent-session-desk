@@ -54,7 +54,7 @@
 | [阶段路线图](docs/ROADMAP.md) | M0–M4 阶段、交付物和进入下一阶段的条件 |
 | [技术选型](docs/TECH_STACK.md) | 已接受的技术方向、版本快照、维护状态与待验证项 |
 | [架构说明](docs/ARCHITECTURE.md) | 模块、终端托管、会话身份、消息与恢复语义 |
-| [ADR](docs/adr/README.md) | 六项架构决定的背景、取舍、代价和重新评估条件 |
+| [ADR](docs/adr/README.md) | 架构决定的背景、取舍、代价和重新评估条件 |
 | [Feature Ledger](docs/FEATURE_LEDGER.md) | 20 项能力、需求映射、状态与验收证据 |
 | [测试设计与用例库](docs/testing/README.md) | 339 项设计基线与独立执行报告；设计覆盖和实际测试分别记录 |
 | [M0 开发指南](docs/M0_DEVELOPMENT.md) | 构建、CLI 用法、Windows 验证步骤和已知限制 |
@@ -111,3 +111,5 @@
 文档基线更新：2026-11-21。决策接受与软件实现分别记录，实际完成状态以 Feature Ledger 的证据为准。
 
 2026-11-22 后续切片：已实现[只读 TOML 启动模板](docs/LAUNCH_CONFIG.md)与[集中 UI design tokens](docs/adr/0008-ui-design-tokens.md)。局部证据见[执行报告](docs/testing/results/2026-11-22-m1-config-tokens.md)；M0/M1 整体验收仍未完成。
+
+M1 最小元数据切片：已加入 [Session/Run 元数据与 history](docs/METADATA.md)，重开后核对实际后台，历史不自动变为在线；[ADR-0009](docs/adr/0009-session-run-metadata.md) 与[实际证据](docs/testing/results/2026-11-22-m1-metadata.md)单独记录。

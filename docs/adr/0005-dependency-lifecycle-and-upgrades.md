@@ -73,3 +73,7 @@ Windows runner 已通过普通 Go 测试、race、vet、目录校验和原生程
 - [Bubbles v2 迁移指南](https://github.com/charmbracelet/bubbles/blob/main/UPGRADE_GUIDE_V2.md)
 - [psmux v3.4.0](https://github.com/psmux/psmux/releases/tag/v3.4.0)
 - [tmux 3.8](https://github.com/tmux/tmux/releases/tag/3.8)
+
+### M1 存储依赖细化（2026-11-22）
+
+[ADR-0009](0009-session-run-metadata.md) 固定 modernc.org/sqlite v1.62.0（内嵌 SQLite 3.54.1）及驱动要求的 libc v1.80.1。新增模块同时引入 go.mod 中的传递版本变化，常规／race／原生 Windows 验证独立记录。纯 Go 构建避免产品额外 C 工具链要求，不自动证明资源或掉电恢复通过。

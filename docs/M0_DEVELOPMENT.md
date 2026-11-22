@@ -145,3 +145,7 @@ Linux/macOS 的 tmux 路径仅用于开发对照，要求 3.8，不表示已经�
 ## M1 首个后续切片
 
 `asd --config PATH start --template NAME` 可从显式 TOML 启动；格式及覆盖规则见[启动模板](LAUNCH_CONFIG.md)。这不改变上述 M0 验证边界。UI 调整入口统一为 [design_tokens.go](../internal/ui/design_tokens.go)，角色样式在 styles.go 组合，见 [ADR-0008](adr/0008-ui-design-tokens.md)。
+
+## M1 元数据入口（2026-11-22）
+
+新建／发现的后台会话写入最小 SQLite 元数据，`asd history --limit 20` 可独立读取；实时 list/preview/attach/stop 继续按实际后台寻址。持久目录、scope 和失败处理见[元数据使用说明](METADATA.md)，本节不修改先前 M0 执行记录或宣称整体阶段完成。

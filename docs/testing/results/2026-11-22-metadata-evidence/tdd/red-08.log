@@ -1,0 +1,8 @@
+--- FAIL: TestMetadataFailureBeforeAndAfterExternalStartIsExplicit (0.01s)
+    --- FAIL: TestMetadataFailureBeforeAndAfterExternalStartIsExplicit/false (0.00s)
+        manager_test.go:87: created terminal with unavailable metadata
+    --- FAIL: TestMetadataFailureBeforeAndAfterExternalStartIsExplicit/true (0.00s)
+        manager_test.go:90: ambiguous creation hidden or process killed: sql: database is closed
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/manager	1.466s
+FAIL

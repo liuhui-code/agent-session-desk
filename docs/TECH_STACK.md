@@ -21,7 +21,7 @@
 | Windows 终端后台 | **psmux 3.4.0 正式发布** | 持有终端、会话与子进程；默认后端方向已接受，M0 验证决定能否进入实现基线 |
 | Windows 底层终端能力 | **ConPTY，经 psmux 使用** | 首版不重复开发自己的 ConPTY 宿主 |
 | macOS/Linux 后台 | **tmux 3.8** 对照基线 | 后续适配与验收；不是 Windows 安装前提 |
-| 本地状态与消息 | **SQLite 3，未实现** | Session、Run、队列、回执与迁移；Go 驱动和具体嵌入版本待选 |
+| 本地状态与消息 | **SQLite 3.54.1，最小元数据已实现** | modernc.org/sqlite v1.62.0、libc v1.80.1；Session/Run 与独立 history，见 [ADR-0009](adr/0009-session-run-metadata.md)。队列、回执与升级迁移待做 |
 | 配置 | **TOML，首个只读启动切片已实现** | BurntSushi/toml v1.6.0、TOML 1.1.0、schema_version=1；[ADR-0007](adr/0007-explicit-launch-configuration.md)。主题／偏好文件和保存待做 |
 | 输出保存 | **有界文件记录 + 内存尾部缓存** | 当前仅有限屏幕捕获及选中预览缓存；文件轮转、分页和连续日志未实现 |
 | Agent 接入 | **CLI-first** | executable、args、cwd、env；专用协议是可选增强 |
@@ -40,7 +40,7 @@
 | psmux | 有正式发布与持续维护 | 固定稳定 tag、对应 commit 与实际二进制哈希；Windows 兼容另行实测 |
 | ConPTY | Microsoft 当前终端路线包含 VT 与 pseudoconsole | 通过后台使用；API 存在不等于本产品支持所有旧 Windows 版本 |
 | tmux | 官方仍发布稳定版本 | 作为 Unix 后端，不用于补足原生 Windows 支持 |
-| SQLite | 官方发布年表持续更新 | 采用本地存储方向；驱动及版本还需比较构建、事务和资源成本 |
+| SQLite | 官方发布年表持续更新 | 最小驱动与事务已由 ADR-0009 固定，完整恢复及资源成本继续验证 |
 | TOML | 官方当前规范为 v1.1.0 | 配置格式可以继续采用；规范版本与 Go 解析库版本分别记录 |
 
 官方依据：[Charm v2 正式发布说明](https://charm.land/blog/v2/)、[Go 支持政策](https://go.dev/doc/devel/release)、[Microsoft 终端路线](https://learn.microsoft.com/en-us/windows/console/ecosystem-roadmap)、[SQLite 发布年表](https://www.sqlite.org/chronology.html)、[TOML v1.1.0](https://toml.io/en/v1.1.0)。维护活跃不等于本项目已经稳定、省内存或支持 Windows。
@@ -84,13 +84,13 @@ Windows 自动化通过[依赖锁定记录](../tools/ci/windows-dependencies.jso
 
 架构拓扑与输入语义见 [ARCHITECTURE.md](ARCHITECTURE.md)。此前 [v0.1 UI 图稿](UI_DESIGN.md)保留为未采纳的探索记录。
 
-当前 M0 只把少量 Session/Run 标识写入后端 user options，用于发现仍存活的托管终端。这不是产品历史、SQLite 元数据仓库或模型上下文恢复，后台丢失后不承诺保留这些记录。已有预览/子进程输出防御性上限、取消机制和 Windows 短资源观察，但尚无完整进程生命周期计量、已接受的性能预算或长稳结论；后续存储与 Host 方向保持不变。
+首批 M0 只把少量 Session/Run 标识写入后端 user options，用于发现仍存活的托管终端。这不是产品历史、SQLite 元数据仓库或模型上下文恢复，后台丢失后不承诺保留这些记录。已有预览/子进程输出防御性上限、取消机制和 Windows 短资源观察，但尚无完整进程生命周期计量、已接受的性能预算或长稳结论；M1 最小 SQLite 元数据已另按 ADR-0009 落地；消息、日志、完整恢复与 Host 方向保持不变。2026-11-22 的 M1 已增加独立 SQLite 元数据，见 ADR-0009；上述 M0 发现标签的职责未改变。
 
 ## 6. 尚未固定的实现细节
 
 以下不阻止接受总体方向，但必须在相应实现前关闭：
 
-- SQLite Go 驱动、嵌入版本、事务/锁策略与数据迁移。
+- SQLite 消息、升级迁移、磁盘保留与完整恢复合同；最小驱动、嵌入版本和事务策略见 ADR-0009。
 - TOML 启动配置已按 ADR-0007 固定解析器、语法及首版只读 schema；保存、迁移与主题文件仍待实现。
 - M3 Host 的本机 IPC、启动/退出方式、单实例与恢复机制。
 - Windows 最低构建、CPU 架构、Windows Terminal、shell 与 agent 支持矩阵。

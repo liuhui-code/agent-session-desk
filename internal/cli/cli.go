@@ -15,6 +15,7 @@ import (
 
 	tea "charm.land/bubbletea/v2"
 	"github.com/liuhui-code/agent-session-desk/internal/backend"
+	"github.com/liuhui-code/agent-session-desk/internal/manager"
 	"github.com/liuhui-code/agent-session-desk/internal/session"
 	"github.com/liuhui-code/agent-session-desk/internal/ui"
 )
@@ -27,6 +28,8 @@ Usage:
   asd [global options]                         Open the session manager
   asd [global options] doctor                  Probe the terminal backend
   asd [global options] start [options] -- EXE [ARG...]
+  asd [global options] history [--limit N]      Read recorded metadata as JSON
+  asd [global options] history [--limit N]     Read recorded metadata as JSON
   asd [global options] list [--json]            List live backend records
   asd [global options] preview SESSION_ID      Read a bounded snapshot as JSON
   asd [global options] attach SESSION_ID       Enter a full-screen terminal
@@ -37,6 +40,8 @@ Global options (before the subcommand):
   --backend PATH       psmux on Windows; tmux for Unix development
   --runtime-dir DIR    Product-owned backend data/config directory
   --namespace NAME     Isolated product backend namespace
+  --state-dir DIR      Persistent metadata directory
+  --state-dir DIR      Persistent metadata directory
   --config PATH        Explicit TOML launch configuration (start --template only)
 
 Start options:
@@ -49,8 +54,8 @@ Inside the manager: arrows/j/k select, Enter attaches, r refreshes, ? help, q qu
 Inside the terminal: cancel IME composition, switch to English input, then Ctrl+b and d detach back to the manager.
 Quitting the manager keeps backend sessions; stop explicitly ends the selected Run.
 
-This is a development slice. Native Windows acceptance, durable session storage,
-cross-session messaging and attention notifications are not completed.
+This is a development slice. Recorded metadata does not establish liveness.
+Complete Windows acceptance, conversation storage, messaging and notifications remain unfinished.
 `
 
 type envFlags []string
@@ -77,10 +82,11 @@ func run(ctx context.Context, args []string, input io.Reader, output, errorOutpu
 	flags := flag.NewFlagSet("asd", flag.ContinueOnError)
 	flags.SetOutput(errorOutput)
 	var options backend.Options
-	var configPath string
+	var configPath, stateDir string
 	flags.StringVar(&options.Binary, "backend", "", "terminal backend executable")
 	flags.StringVar(&options.RuntimeDir, "runtime-dir", "", "product runtime directory")
 	flags.StringVar(&options.Namespace, "namespace", "", "product namespace")
+	flags.StringVar(&stateDir, "state-dir", "", "persistent metadata directory")
 	flags.StringVar(&configPath, "config", "", "explicit TOML launch configuration")
 	flags.Usage = func() { fmt.Fprint(output, usage) }
 	if err := flags.Parse(args); err != nil {
@@ -102,7 +108,7 @@ func run(ctx context.Context, args []string, input io.Reader, output, errorOutpu
 		fmt.Fprintln(output, "Agent Session Desk", Version)
 		return nil
 	}
-	if command != "" && command != "doctor" && command != "start" && command != "list" && command != "preview" && command != "attach" && command != "stop" {
+	if command != "" && command != "doctor" && command != "start" && command != "list" && command != "preview" && command != "attach" && command != "stop" && command != "history" {
 		return fmt.Errorf("unknown command %q; run asd help", command)
 	}
 	if configPath != "" && command != "start" {
@@ -112,7 +118,13 @@ func run(ctx context.Context, args []string, input io.Reader, output, errorOutpu
 	var launch session.Launch
 	var err error
 	jsonList := false
+	limit := 100
 	switch command {
+	case "history":
+		limit, err = historyLimit(commandArgs, errorOutput)
+		if err != nil {
+			return err
+		}
 	case "start":
 		launch, err = parseLaunchWithConfig(commandArgs, configPath, output, errorOutput)
 		if err != nil {
@@ -137,11 +149,23 @@ func run(ctx context.Context, args []string, input io.Reader, output, errorOutpu
 			return fmt.Errorf("%s accepts no arguments", command)
 		}
 	}
-	service, err := backend.New(options)
+	if command == "history" {
+		metadata, e := openMetadata(ctx, options, stateDir)
+		if e != nil {
+			return e
+		}
+		defer metadata.Close()
+		rows, e := metadata.History(ctx, limit)
+		if e != nil {
+			return e
+		}
+		return writeJSON(output, rows)
+	}
+	terminal, err := backend.New(options)
 	if err != nil {
 		return err
 	}
-	info, err := service.Probe(ctx)
+	info, err := terminal.Probe(ctx)
 	if err != nil {
 		return err
 	}
@@ -156,6 +180,12 @@ func run(ctx context.Context, args []string, input io.Reader, output, errorOutpu
 		}{info.Name, info.Version, info.Experimental, false, false,
 			"Version probe only; record official binary hash and run native Windows acceptance separately."})
 	}
+	metadata, err := openMetadata(ctx, options, stateDir)
+	if err != nil {
+		return err
+	}
+	defer metadata.Close()
+	service := manager.New(terminal, metadata)
 	if command == "" {
 		model := ui.New(ctx, service)
 		defer model.Close()
@@ -241,7 +271,7 @@ func findSession(sessions []session.Session, id string) (session.Session, error)
 	if found != nil {
 		return *found, nil
 	}
-	return session.Session{}, fmt.Errorf("session %s is not present in this backend; no historical record or implicit restart is available in M0", id)
+	return session.Session{}, fmt.Errorf("session %s is not present in this backend; use asd history for metadata; no implicit restart is available", id)
 }
 
 func validID(id string) bool {

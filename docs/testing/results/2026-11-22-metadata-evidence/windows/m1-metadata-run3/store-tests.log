@@ -1,0 +1,27 @@
+=== RUN   TestConcurrentConnectionsKeepAllCommittedIdentities
+--- PASS: TestConcurrentConnectionsKeepAllCommittedIdentities (0.11s)
+=== RUN   TestUnrecognizedOrCorruptDatabaseIsPreserved
+=== RUN   TestUnrecognizedOrCorruptDatabaseIsPreserved/corrupt
+=== RUN   TestUnrecognizedOrCorruptDatabaseIsPreserved/foreign
+=== RUN   TestUnrecognizedOrCorruptDatabaseIsPreserved/future
+=== RUN   TestUnrecognizedOrCorruptDatabaseIsPreserved/missing-table
+--- PASS: TestUnrecognizedOrCorruptDatabaseIsPreserved (0.17s)
+    --- PASS: TestUnrecognizedOrCorruptDatabaseIsPreserved/corrupt (0.01s)
+    --- PASS: TestUnrecognizedOrCorruptDatabaseIsPreserved/foreign (0.05s)
+    --- PASS: TestUnrecognizedOrCorruptDatabaseIsPreserved/future (0.07s)
+    --- PASS: TestUnrecognizedOrCorruptDatabaseIsPreserved/missing-table (0.03s)
+=== RUN   TestBusyPreflightFailsWithinBoundWithoutChangingHistory
+--- PASS: TestBusyPreflightFailsWithinBoundWithoutChangingHistory (1.07s)
+=== RUN   TestRepeatedDiscoveryDoesNotNeedWriterLock
+--- PASS: TestRepeatedDiscoveryDoesNotNeedWriterLock (0.03s)
+=== RUN   TestMetadataSurvivesReopenWithoutClaimingLiveness
+--- PASS: TestMetadataSurvivesReopenWithoutClaimingLiveness (0.03s)
+=== RUN   TestScopeAndIdentityConflictsCannotOverwriteOrLeaveHalfRecords
+--- PASS: TestScopeAndIdentityConflictsCannotOverwriteOrLeaveHalfRecords (0.05s)
+=== RUN   TestConfirmedStopKeepsHistoryAndChecksExactRun
+--- PASS: TestConfirmedStopKeepsHistoryAndChecksExactRun (0.05s)
+=== RUN   TestHistoryReadIsBounded
+--- PASS: TestHistoryReadIsBounded (0.02s)
+=== RUN   TestInvalidIdentityCannotBecomePersistentMetadata
+--- PASS: TestInvalidIdentityCannotBecomePersistentMetadata (0.03s)
+PASS

@@ -1,0 +1,6 @@
+# github.com/liuhui-code/agent-session-desk/internal/store_test [github.com/liuhui-code/agent-session-desk/internal/store.test]
+internal/store/store_test.go:98:14: db.MarkStopped undefined (type *store.Store has no field or method MarkStopped)
+internal/store/store_test.go:101:14: db.MarkStopped undefined (type *store.Store has no field or method MarkStopped)
+internal/store/store_test.go:111:14: db.MarkStopped undefined (type *store.Store has no field or method MarkStopped)
+FAIL	github.com/liuhui-code/agent-session-desk/internal/store [build failed]
+FAIL

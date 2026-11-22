@@ -1,0 +1,5 @@
+--- FAIL: TestInvalidIdentityCannotBecomePersistentMetadata (0.01s)
+    store_test.go:158: invalid metadata accepted: empty-session
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/store	1.585s
+FAIL
