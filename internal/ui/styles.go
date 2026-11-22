@@ -15,6 +15,7 @@ import (
 )
 
 type styles struct {
+	sidebarSelected, sidebarMetadataSelected                       lipgloss.Style
 	separatorDrag                                                  lipgloss.Style
 	formTitle, formText, formHint, formError                       lipgloss.Style
 	dialog, backdrop                                               lipgloss.Style
@@ -26,18 +27,20 @@ type styles struct {
 
 func newStyles(t designTokens) styles {
 	return styles{
-		separatorDrag:   lipgloss.NewStyle().Foreground(t.colors.accent),
-		formTitle:       lipgloss.NewStyle().Foreground(t.colors.cyan).Background(t.colors.surface).Bold(t.bold),
-		formText:        lipgloss.NewStyle().Foreground(t.colors.text).Background(t.colors.surface),
-		formHint:        lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.surface),
-		formError:       lipgloss.NewStyle().Foreground(t.colors.red).Background(t.colors.surface).Bold(t.bold),
-		dialog:          lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.colors.cyan).Background(t.colors.surface).Padding(t.dialog.paddingY, t.dialog.paddingX),
-		backdrop:        lipgloss.NewStyle().Faint(t.dialog.dimBackdrop),
-		formInput:       formInputStyles(t),
-		tab:             lipgloss.NewStyle().Foreground(t.colors.text).Background(t.colors.surface).PaddingLeft(t.workspace.tabPadding).PaddingRight(t.workspace.tabPadding),
-		tabActive:       lipgloss.NewStyle().Foreground(t.colors.bg).Background(t.colors.accent).Bold(t.bold).PaddingLeft(t.workspace.tabPadding).PaddingRight(t.workspace.tabPadding),
-		terminalFrame:   lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.colors.border),
-		terminalFocused: lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.colors.accent),
+		sidebarSelected:         lipgloss.NewStyle().Foreground(t.colors.text).Background(t.colors.surface),
+		sidebarMetadataSelected: lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.surface),
+		separatorDrag:           lipgloss.NewStyle().Foreground(t.colors.accent),
+		formTitle:               lipgloss.NewStyle().Foreground(t.colors.cyan).Background(t.colors.surface).Bold(t.bold),
+		formText:                lipgloss.NewStyle().Foreground(t.colors.text).Background(t.colors.surface),
+		formHint:                lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.surface),
+		formError:               lipgloss.NewStyle().Foreground(t.colors.red).Background(t.colors.surface).Bold(t.bold),
+		dialog:                  lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.colors.cyan).Background(t.colors.surface).Padding(t.dialog.paddingY, t.dialog.paddingX),
+		backdrop:                lipgloss.NewStyle().Faint(t.dialog.dimBackdrop),
+		formInput:               formInputStyles(t),
+		tab:                     lipgloss.NewStyle().Foreground(t.colors.text).Background(t.colors.surface).PaddingLeft(t.workspace.tabPadding).PaddingRight(t.workspace.tabPadding),
+		tabActive:               lipgloss.NewStyle().Foreground(t.colors.bg).Background(t.colors.accent).Bold(t.bold).PaddingLeft(t.workspace.tabPadding).PaddingRight(t.workspace.tabPadding),
+		terminalFrame:           lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.colors.border),
+		terminalFocused:         lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.colors.accent),
 		title: lipgloss.NewStyle().Bold(t.bold).
 			Foreground(t.colors.accent),
 		highlight: lipgloss.NewStyle().Foreground(t.colors.bg).

@@ -1,0 +1,5 @@
+--- FAIL: TestWorkspaceSidebarMetadataClickSelectsItsOwnSession (0.01s)
+    workspace_sidebar_test.go:57: metadata click did not select its own card
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.851s
+FAIL

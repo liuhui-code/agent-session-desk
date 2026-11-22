@@ -1,0 +1,29 @@
+--- FAIL: TestWorkspaceSidebarDefaultCardsSeparateTerminalMetadata (0.01s)
+    workspace_sidebar_test.go:31: terminal metadata did not occupy its own card line:
+        Agent Session Desk                                                                                                2 会话
+         开发 ×    评审 ×                                                                                                     + 
+                                                                                                                                
+        会话                                       │ ╭─────────────────────────────────────────────────────────────────────────╮
+        ────────────────────────────────────────── │ │shell marker first                                                       │
+        ┃ 开发                                     │ │                                                                         │
+          ╰ 可连接 · C:\Synthetic Tools\PowerShel… │ │                                                                         │
+          评审                                     │ │                                                                         │
+          ╰ 可连接                                 │ │                                                                         │
+                                                   │ │                                                                         │
+                                                   │ │                                                                         │
+                                                   │ │                                                                         │
+                                                   │ │                                                                         │
+                                                   │ │                                                                         │
+                                                   │ │                                                                         │
+                                                   │ │                                                                         │
+                                                   │ │                                                                         │
+                                                   │ │                                                                         │
+                                                   │ │                                                                         │
+                                                   │ │                                                                         │
+                                                   │ │                                                                         │
+                                                   │ ╰─────────────────────────────────────────────────────────────────────────╯
+                                                                                                                                
+        管理模式 · Enter 终端 · n 新建 · x 关Tab · <> 比例 · = 默认 · ? 帮助 · q 退出 · F6 终端                                 
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	1.488s
+FAIL

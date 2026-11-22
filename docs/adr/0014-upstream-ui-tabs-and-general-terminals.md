@@ -2,7 +2,7 @@
 
 - 日期：2026-11-22
 - 状态：已接受（Accepted），依据用户明确要求更新 ADR 与 Feature Ledger
-- 实现与验证状态：本次仅更新产品决定和验收设计；现有代码仍为列表／预览与全屏 attach，Tab 工作区、完整上游体验和普通 shell 工作流未实现或验收
+- 实现与验证状态：首次接受时只确定产品方向；后续 ADR-0015/0016 已接入 psmux Tab、原终端输入、普通 shell 创建与默认 compact 侧栏卡片，并有局部 Windows 证据。完整上游还原、真实 agent、其他后端 Tab 和发布仍未验收，具体范围见本 ADR 后续进展及 Feature Ledger。
 - 关联需求：FR-01、FR-02、FR-03、FR-04、FR-05、FR-10、FR-11；关联能力：FL-001/002/003/004/005/006/011/012/018/019
 - 部分替代：[ADR-0001](0001-architecture-and-reuse.md) 的最小列表／预览界面约束、[ADR-0002](0002-terminal-backends-and-attach.md) 的默认全屏交接及隐藏 Tab／内嵌交互后置约束；扩展 [ADR-0004](0004-cli-agents-and-session-messaging.md) 的基础管理对象至普通终端
 
@@ -62,3 +62,5 @@ Tab 内完整交互增加终端屏幕模型、焦点、尺寸和资源验证工�
 - [ADR-0008：design tokens](0008-ui-design-tokens.md)、[Feature Ledger](../FEATURE_LEDGER.md)、[产品计划](../PRODUCT_PLAN.md)。
 
 2026-11-22 技术验证进展：[ADR-0015](0015-pinned-psmux-native-terminal-client.md) 已固定原生 psmux 客户端传输方案，并有 fixture／普通 shell 的局部 Windows 证据。Tab TUI 与视觉交互尚未连接，完整验收要求不变。
+
+默认侧栏还原补充（2026-11-23）：迁入固定上游 compact 默认两行卡片、28 列退化阈值、活动／选择标记与 surface 高亮；Session/Run 卡片的所有行共享窗口和鼠标命中计算。元信息使用已有终端观察和程序文件名，未引入上游 agent ready/busy 推断、分组或新模型字段。full／minimal／auto 设置与持久化仍待迁移，用户视觉接受仍开放。来源、失败和局部实测见[报告](../testing/results/2026-11-23-workspace-sidebar-cards.md)；产品决定及终端所有权未改变。

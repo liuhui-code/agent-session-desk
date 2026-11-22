@@ -1,0 +1,8 @@
+--- FAIL: TestWorkspaceListClickSelectsThenEnterOpensExactRun (0.02s)
+    --- FAIL: TestWorkspaceListClickSelectsThenEnterOpensExactRun/60 (0.01s)
+        workspace_list_mouse_test.go:34: no visible list row for "评审"
+--- FAIL: TestWorkspaceListMouseUsesVisibleRowsAndIgnoresIndicators (0.01s)
+    workspace_list_mouse_test.go:85: no visible list row for "task-14"
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	2.283s
+FAIL

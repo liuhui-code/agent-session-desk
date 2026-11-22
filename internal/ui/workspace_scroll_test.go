@@ -26,7 +26,7 @@ func TestWorkspaceWheelScrollsOnlyTheTerminalUnderPointer(t *testing.T) {
 		defer stream.mu.Unlock()
 		return strings.Contains(strings.Join(stream.writes, ","), "scroll:true,3,1")
 	})
-	if strings.Contains(ansi.Strip(h.m.View().Content), "› 评审") {
+	if strings.Contains(ansi.Strip(h.m.View().Content), "▶ 评审") {
 		t.Fatal("terminal wheel moved the list selection")
 	}
 }
@@ -53,13 +53,13 @@ func TestWorkspaceListWheelSelectsWithoutSendingTerminalKeys(t *testing.T) {
 			h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 			var y int
 			for row, line := range strings.Split(ansi.Strip(h.m.View().Content), "\n") {
-				if strings.HasPrefix(line, "› 开发") {
+				if strings.HasPrefix(line, "┃ 开发") {
 					y = row
 					break
 				}
 			}
 			h.send(tea.MouseWheelMsg{X: 3, Y: y, Button: tea.MouseWheelDown})
-			if !strings.Contains(ansi.Strip(h.m.View().Content), "› 评审") || h.m.View().Cursor != nil {
+			if !strings.Contains(ansi.Strip(h.m.View().Content), "▶ 评审") || h.m.View().Cursor != nil {
 				t.Fatal("list wheel did not navigate in management focus")
 			}
 			h.until(func() bool { return h.m.workspace.pending == 0 })

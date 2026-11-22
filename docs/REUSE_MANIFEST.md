@@ -76,3 +76,7 @@ Bubbles 2.2.2 textinput 通过模块使用，未复制组件源码。v2 表单�
 2026-11-23：`workspace_mouse.go` 从固定 `home.go`／`handleMouse` 选择性改编单击选择、同条目双击激活和分隔符优先，500ms 阈值进入 design_tokens.go。完整 Session/Run、共享扁平列表窗口、v2 鼠标消息及 Tab 打开为产品适配；不复制 group／agent 业务。新增来源哈希和目标文件见机器清单，实际双 shell 证据见[报告](testing/results/2026-11-23-workspace-list-mouse.md)。
 
 2026-11-23：`workspace_scroll.go` 从固定 `home.go` 的区域滚轮路由选择性改编，沿用 MIT／版权及相同原始 SHA；新增目标已记入机器清单。后端改用固定 psmux 的语义 pane-scroll 与原生历史而非复制本地历史，v2 事件／产品几何／有界 FIFO 为本地适配；Rust 源码仅核对内部协议，未复制实现。见[实际报告](testing/results/2026-11-23-workspace-scroll.md)。
+
+### 2026-11-23 默认侧栏卡片
+
+继续从固定 Agent Deck `80494e527393b7ead00da30018e6ee7e60e9d7a0` 的 `internal/ui/embedded_sidebar.go`（MIT）适配默认 compact 卡片、28 列退化、`▶`／`┃` 标记、surface 高亮与共享行高测量；目标为 `workspace_sidebar.go`、`home_view_list.go`、`workspace_mouse.go`、`design_tokens.go` 和 `styles.go`。默认 compact 的依据另核对 `internal/session/userconfig.go`；精确 SHA-256／Git blob 见[实际报告](testing/results/2026-11-23-workspace-sidebar-cards.md)。仅保留本产品 Session/Run、终端观察与程序文件名；未迁入分组、品牌、agent 状态猜测、其他密度设置或配置写入。逐文件登记在 `third_party/reuse-manifest.json`。

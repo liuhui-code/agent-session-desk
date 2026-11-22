@@ -1,0 +1,29 @@
+--- FAIL: TestWorkspaceListClickSelectsThenEnterOpensExactRun (0.02s)
+    --- FAIL: TestWorkspaceListClickSelectsThenEnterOpensExactRun/120 (0.01s)
+        workspace_list_mouse_test.go:36: click did not select the visible session in management focus
+    --- FAIL: TestWorkspaceListClickSelectsThenEnterOpensExactRun/60 (0.01s)
+        workspace_list_mouse_test.go:34: no visible list row for "评审"
+    --- FAIL: TestWorkspaceListClickSelectsThenEnterOpensExactRun/40 (0.00s)
+        workspace_list_mouse_test.go:36: click did not select the visible session in management focus
+--- FAIL: TestWorkspaceListMouseUsesVisibleRowsAndIgnoresIndicators (0.01s)
+    workspace_list_mouse_test.go:85: no visible list row for "task-14"
+--- FAIL: TestWorkspaceListDoubleClickOpensWithoutInjectingEnter (0.01s)
+    workspace_list_mouse_test.go:128: no visible list row for "评审"
+--- FAIL: TestWorkspaceListDoubleClickDoesNotActivateAReplacementRun (0.01s)
+    workspace_list_mouse_test.go:161: no visible list row for "评审重启"
+--- FAIL: TestWorkspaceListDoubleClickWhileConnectingKeepsManagementFocus (0.00s)
+    workspace_list_mouse_test.go:179: no visible list row for "评审"
+--- FAIL: TestWorkspaceNarrowManagementShowsStackedListAndTerminal (0.01s)
+    workspace_responsive_test.go:21: narrow management hides session navigation or terminal
+--- FAIL: TestWorkspaceVeryNarrowManagementSelectsFromSingleList (0.01s)
+    workspace_responsive_test.go:37: single-list management layout not shown below fifty columns
+--- FAIL: TestWorkspaceListWheelSelectsWithoutSendingTerminalKeys (0.02s)
+    --- FAIL: TestWorkspaceListWheelSelectsWithoutSendingTerminalKeys/120 (0.01s)
+        workspace_scroll_test.go:63: list wheel did not navigate in management focus
+    --- FAIL: TestWorkspaceListWheelSelectsWithoutSendingTerminalKeys/60 (0.01s)
+        workspace_scroll_test.go:63: list wheel did not navigate in management focus
+    --- FAIL: TestWorkspaceListWheelSelectsWithoutSendingTerminalKeys/40 (0.01s)
+        workspace_scroll_test.go:63: list wheel did not navigate in management focus
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	2.094s
+FAIL

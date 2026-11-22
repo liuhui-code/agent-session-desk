@@ -17,11 +17,11 @@ func TestWorkspaceNarrowManagementShowsStackedListAndTerminal(t *testing.T) {
 	h.send(tea.WindowSizeMsg{Width: 60, Height: 24})
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	view := ansi.Strip(h.m.View().Content)
-	if !strings.Contains(view, "› 开发") || !strings.Contains(view, "shell marker first") {
+	if !strings.Contains(view, "┃ 开发") || !strings.Contains(view, "shell marker first") {
 		t.Fatal("narrow management hides session navigation or terminal")
 	}
 	h.send(tea.KeyPressMsg{Code: tea.KeyEnter})
-	if h.m.View().Cursor == nil || strings.Contains(ansi.Strip(h.m.View().Content), "› 开发") {
+	if h.m.View().Cursor == nil || strings.Contains(ansi.Strip(h.m.View().Content), "┃ 开发") {
 		t.Fatal("terminal focus does not expand back to full content area")
 	}
 }
@@ -33,7 +33,7 @@ func TestWorkspaceVeryNarrowManagementSelectsFromSingleList(t *testing.T) {
 	h.send(tea.WindowSizeMsg{Width: 40, Height: 24})
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	view := ansi.Strip(h.m.View().Content)
-	if !strings.Contains(view, "› 开发") || strings.Contains(view, "shell marker first") {
+	if !strings.Contains(view, "┃ 开发") || strings.Contains(view, "shell marker first") {
 		t.Fatal("single-list management layout not shown below fifty columns")
 	}
 	h.send(tea.KeyPressMsg{Code: tea.KeyPgDown, Mod: tea.ModCtrl})

@@ -59,8 +59,9 @@ func (m *Model) workspaceClick(msg tea.MouseClickMsg) tea.Cmd {
 	listTop := g.y - g.above - m.styles.terminalFrame.GetBorderTopSize() + m.tokens.layout.headingRows
 	listHeight := max(0, g.listHeight-m.tokens.layout.headingRows)
 	if msg.X >= 0 && msg.X < g.listWidth && msg.Y >= listTop && msg.Y < listTop+listHeight {
-		window := m.sessionListWindow(listHeight)
-		index := window.start + msg.Y - listTop - window.leading
+		rowLines := m.workspaceSidebarRows(g.listWidth, listHeight)
+		window := m.sessionListWindowForRows(listHeight, rowLines)
+		index := window.start + (msg.Y-listTop-window.leading)/rowLines
 		w.focused = false
 		m.status = ""
 		if msg.Y >= listTop+window.leading && index < window.end {

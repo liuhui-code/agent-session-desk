@@ -23,14 +23,18 @@ type sessionListWindow struct {
 }
 
 func (m *Model) sessionListWindow(height int) sessionListWindow {
+	return m.sessionListWindowForRows(height, 1)
+}
+
+func (m *Model) sessionListWindowForRows(height, rowLines int) sessionListWindow {
 	if height <= 0 || len(m.sessions) == 0 {
 		return sessionListWindow{}
 	}
-	viewOffset := m.viewOffset
-	lineBudget := height - m.tokens.layout.indicatorRows // reserve the below indicator as upstream does
-	if lineBudget < 1 {
-		lineBudget = 1
+	if len(m.sessions)*rowLines <= height {
+		return sessionListWindow{end: len(m.sessions)}
 	}
+	viewOffset := m.viewOffset
+	lineBudget := max(1, (height-m.tokens.layout.indicatorRows)/rowLines)
 	if m.cursor < viewOffset {
 		viewOffset = m.cursor
 	}
@@ -39,8 +43,8 @@ func (m *Model) sessionListWindow(height int) sessionListWindow {
 	}
 	// The above indicator also occupies a row. Ensure the selected item is
 	// visible after reserving it, including at two-row and one-row boundaries.
-	if viewOffset > 0 && height >= m.tokens.layout.aboveMinHeight {
-		lineBudget--
+	if viewOffset > 0 && height >= max(m.tokens.layout.aboveMinHeight, rowLines+2*m.tokens.layout.indicatorRows) {
+		lineBudget = max(1, (height-2*m.tokens.layout.indicatorRows)/rowLines)
 		viewOffset = max(viewOffset, m.cursor-lineBudget+1)
 		return sessionListWindow{start: viewOffset, end: min(len(m.sessions), viewOffset+lineBudget), leading: 1}
 	}
@@ -56,6 +60,9 @@ func (m *Model) renderSessionList(width, height int) string {
 			return m.styles.dim.Render("正在读取会话…")
 		}
 		return m.styles.dim.Render("暂无会话" + m.tokens.sectionBreak() + "? 查看创建方法")
+	}
+	if m.workspace != nil {
+		return m.renderWorkspaceSidebar(width, height)
 	}
 	var b strings.Builder
 	window := m.sessionListWindow(height)

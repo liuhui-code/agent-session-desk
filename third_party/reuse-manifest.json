@@ -199,6 +199,76 @@
       ],
       "mode": "selectively_adapted",
       "modifications": "Stable Bubble Tea v2 wheel events; shared Tab list/terminal geometry; list wheel changes management selection while terminal wheel uses serialized native psmux pane-scroll instead of local history duplication."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/embedded_sidebar.go",
+      "source_sha256": "f4539e560f61c760b5bc3fc7a30bc7c3ab78ff371262239464a178fa78c835d0",
+      "destination_file": "internal/ui/workspace_sidebar.go",
+      "license": "MIT",
+      "parts": [
+        "default compact card, 28-column fallback, active/selected markers, surface highlight and shared row-height measurement"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "Flat local Session/Run cards with observed terminal availability and executable basename only; default compact density. Full/minimal/auto settings and persistence remain pending."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/embedded_sidebar.go",
+      "source_sha256": "f4539e560f61c760b5bc3fc7a30bc7c3ab78ff371262239464a178fa78c835d0",
+      "destination_file": "internal/ui/design_tokens.go",
+      "license": "MIT",
+      "parts": [
+        "default compact card, 28-column fallback, active/selected markers, surface highlight and shared row-height measurement"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "Flat local Session/Run cards with observed terminal availability and executable basename only; default compact density. Full/minimal/auto settings and persistence remain pending."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/embedded_sidebar.go",
+      "source_sha256": "f4539e560f61c760b5bc3fc7a30bc7c3ab78ff371262239464a178fa78c835d0",
+      "destination_file": "internal/ui/home_view_list.go",
+      "license": "MIT",
+      "parts": [
+        "default compact card, 28-column fallback, active/selected markers, surface highlight and shared row-height measurement"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "Flat local Session/Run cards with observed terminal availability and executable basename only; default compact density. Full/minimal/auto settings and persistence remain pending."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/embedded_sidebar.go",
+      "source_sha256": "f4539e560f61c760b5bc3fc7a30bc7c3ab78ff371262239464a178fa78c835d0",
+      "destination_file": "internal/ui/workspace_mouse.go",
+      "license": "MIT",
+      "parts": [
+        "default compact card, 28-column fallback, active/selected markers, surface highlight and shared row-height measurement"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "Flat local Session/Run cards with observed terminal availability and executable basename only; default compact density. Full/minimal/auto settings and persistence remain pending."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/embedded_sidebar.go",
+      "source_sha256": "f4539e560f61c760b5bc3fc7a30bc7c3ab78ff371262239464a178fa78c835d0",
+      "destination_file": "internal/ui/styles.go",
+      "license": "MIT",
+      "parts": [
+        "default compact card, 28-column fallback, active/selected markers, surface highlight and shared row-height measurement"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "Flat local Session/Run cards with observed terminal availability and executable basename only; default compact density. Full/minimal/auto settings and persistence remain pending."
     }
   ],
   "preserved_notices": [

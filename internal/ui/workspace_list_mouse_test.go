@@ -15,7 +15,7 @@ import (
 func clickWorkspaceListRow(t *testing.T, h *workspaceHarness, title string) {
 	t.Helper()
 	for y, line := range strings.Split(ansi.Strip(h.m.View().Content), "\n") {
-		if strings.HasPrefix(line, "  "+title) || strings.HasPrefix(line, "› "+title) {
+		if strings.HasPrefix(line, "  "+title) || strings.HasPrefix(line, "▶ "+title) || strings.HasPrefix(line, "┃ "+title) {
 			h.send(tea.MouseClickMsg{X: 3, Y: y, Button: tea.MouseLeft})
 			return
 		}
@@ -32,7 +32,7 @@ func TestWorkspaceListClickSelectsThenEnterOpensExactRun(t *testing.T) {
 			h.send(tea.WindowSizeMsg{Width: width, Height: 24})
 			h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 			clickWorkspaceListRow(t, h, "评审")
-			if !strings.Contains(ansi.Strip(h.m.View().Content), "› 评审") || h.m.View().Cursor != nil {
+			if !strings.Contains(ansi.Strip(h.m.View().Content), "▶ 评审") || h.m.View().Cursor != nil {
 				t.Fatal("click did not select the visible session in management focus")
 			}
 			service.mu.Lock()
@@ -76,7 +76,7 @@ func TestWorkspaceListMouseUsesVisibleRowsAndIgnoresIndicators(t *testing.T) {
 	}}}
 	h := newWorkspaceHarness(t, service)
 	h.until(func() bool { return strings.Contains(h.m.View().Content, "shell marker first") })
-	h.send(tea.WindowSizeMsg{Width: 120, Height: 12})
+	h.send(tea.WindowSizeMsg{Width: 120, Height: 14})
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	for i := 0; i < 15; i++ {
 		h.send(tea.KeyPressMsg{Code: tea.KeyDown})
@@ -84,7 +84,7 @@ func TestWorkspaceListMouseUsesVisibleRowsAndIgnoresIndicators(t *testing.T) {
 	before := ansi.Strip(h.m.View().Content)
 	clickWorkspaceListRow(t, h, "task-14")
 	after := ansi.Strip(h.m.View().Content)
-	if !strings.Contains(after, "› task-14") {
+	if !strings.Contains(after, "▶ task-14") {
 		t.Fatal("scrolled click selected a different row")
 	}
 	beforeY, afterY := -1, -1
@@ -107,7 +107,7 @@ func TestWorkspaceListMouseUsesVisibleRowsAndIgnoresIndicators(t *testing.T) {
 			if strings.Contains(line, marker) {
 				found = true
 				h.send(tea.MouseClickMsg{X: 3, Y: y, Button: tea.MouseLeft})
-				if !strings.Contains(ansi.Strip(h.m.View().Content), "› task-14") {
+				if !strings.Contains(ansi.Strip(h.m.View().Content), "▶ task-14") {
 					t.Fatalf("%s indicator selected a session", marker)
 				}
 				break
@@ -159,7 +159,7 @@ func TestWorkspaceListDoubleClickDoesNotActivateAReplacementRun(t *testing.T) {
 	h.send(pollMsg{generation: h.m.pollGeneration})
 	h.until(func() bool { return strings.Contains(h.m.View().Content, "评审重启") })
 	clickWorkspaceListRow(t, h, "评审重启")
-	if h.m.View().Cursor != nil || !strings.Contains(ansi.Strip(h.m.View().Content), "› 评审重启") {
+	if h.m.View().Cursor != nil || !strings.Contains(ansi.Strip(h.m.View().Content), "▶ 评审重启") {
 		t.Fatal("two different Runs were treated as one double click")
 	}
 	service.mu.Lock()
