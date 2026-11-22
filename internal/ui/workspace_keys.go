@@ -108,6 +108,8 @@ func (m *Model) workspaceKey(msg tea.KeyPressMsg) tea.Cmd {
 		return m.navigateWorkspace(workspaceLaunch)
 	case "?":
 		return m.navigateWorkspace(workspaceHelp)
+	case "S":
+		return m.navigateWorkspace(workspaceSettings)
 	}
 	return nil
 }

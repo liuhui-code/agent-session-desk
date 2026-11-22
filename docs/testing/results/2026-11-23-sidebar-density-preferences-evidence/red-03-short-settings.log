@@ -1,0 +1,13 @@
+--- FAIL: TestWorkspaceDensitySettingsSelectedChoiceRemainsVisibleInShortNarrowView (0.01s)
+    workspace_density_test.go:52: selected choice cropped from short settings view:
+        ╭─────────────────────────╮
+        │                         │
+        │  设置                   │
+        │                         │
+        │  侧栏密度               │
+        │   Full   Compact   Min  │
+        │                         │
+        ╰─────────────────────────╯
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.853s
+FAIL

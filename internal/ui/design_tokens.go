@@ -27,8 +27,11 @@ type designTokens struct {
 }
 
 type sidebarTokens struct {
-	cardMinWidth, cardRows                int
-	selected, active, metadata, separator string
+	radioUnselected                                                       string
+	cardMinWidth, cardRows                                                int
+	fullRows, settingsWidth, settingsPaddingX, settingsPaddingY, radioGap int
+	selected, active, metadata, metadataMiddle, separator, radioMarker    string
+	underlineChoice                                                       bool
 }
 
 type dialogTokens struct {
@@ -61,7 +64,7 @@ type markTokens struct{ rule, divider, selected, ellipsis, menuDot, above, below
 
 func defaultDesignTokens() designTokens {
 	return designTokens{
-		sidebar:   sidebarTokens{cardMinWidth: 28, cardRows: 2, selected: "▶ ", active: "┃ ", metadata: "  ╰ ", separator: " · "},
+		sidebar:   sidebarTokens{cardMinWidth: 28, cardRows: 2, fullRows: 3, selected: "▶ ", active: "┃ ", metadata: "  ╰ ", metadataMiddle: "  │ ", separator: " · ", settingsWidth: 64, settingsPaddingX: 2, settingsPaddingY: 1, radioGap: 2, radioMarker: ">", radioUnselected: " ", underlineChoice: true},
 		dialog:    dialogTokens{preferredWidth: 84, minWidth: 44, gutter: 10, paddingX: 4, paddingY: 1, titleGap: 1, fieldGap: 1, dimBackdrop: true, cursorShape: tea.CursorBar, cursorBlink: true},
 		workspace: workspaceTokens{sidebarPercent: 35, compactPercent: 18, minPane: 8, tabPadding: 1, maxTabWidth: 32, splitStep: 5, minSplitPercent: 10, maxSplitPercent: 90, dividerGrabSlop: 2, minTerminalRows: 3, splitNoticeDuration: 1500 * time.Millisecond, doubleClickInterval: 500 * time.Millisecond, border: lipgloss.RoundedBorder()},
 		colors: palette{

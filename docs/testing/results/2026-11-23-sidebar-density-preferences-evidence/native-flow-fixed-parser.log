@@ -1,0 +1,75 @@
+{
+    "preference":  "schema_version = 1\nsidebar_density = \"full\"\n",
+    "outputs":  {
+                    "b-after-density.txt":  "B2:8120",
+                    "a-density.txt":  "A:18332",
+                    "b-density.txt":  "B:8120"
+                },
+    "checks":  [
+                   "terminal S remains literal",
+                   "management-only settings",
+                   "Full Compact Minimal Auto choice and save",
+                   "native read-only replacement refusal preserves Full and cleans temp",
+                   "full card metadata hit testing",
+                   "Auto current-budget resize",
+                   "no settings paste or submission",
+                   "A-B-A original drafts and processes",
+                   "UI close/reopen restores Full and original Session/Run"
+               ],
+    "result":  "passed",
+    "before":  {
+                   "value":  [
+                                 {
+                                     "session_id":  "b26fc725d1db5a6169dff9b998906ede",
+                                     "run_id":  "c966c7c47300681b789c051aaca4f6f6",
+                                     "backend_id":  "asd_b26fc725d1db5a6169dff9b998906ede_c966c7c47300681b789c051aaca4f6f6",
+                                     "title":  "Density Shell A",
+                                     "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                     "terminal_state":  "available"
+                                 },
+                                 {
+                                     "session_id":  "d8a67fcff0de0f8d06df569d0196c7d5",
+                                     "run_id":  "934ea6b46760ff0ade083a63e4b29477",
+                                     "backend_id":  "asd_d8a67fcff0de0f8d06df569d0196c7d5_934ea6b46760ff0ade083a63e4b29477",
+                                     "title":  "Density Shell B",
+                                     "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                     "terminal_state":  "available"
+                                 }
+                             ],
+                   "Count":  2
+               },
+    "after":  {
+                  "value":  [
+                                {
+                                    "session_id":  "b26fc725d1db5a6169dff9b998906ede",
+                                    "run_id":  "c966c7c47300681b789c051aaca4f6f6",
+                                    "backend_id":  "asd_b26fc725d1db5a6169dff9b998906ede_c966c7c47300681b789c051aaca4f6f6",
+                                    "title":  "Density Shell A",
+                                    "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                    "terminal_state":  "available"
+                                },
+                                {
+                                    "session_id":  "d8a67fcff0de0f8d06df569d0196c7d5",
+                                    "run_id":  "934ea6b46760ff0ade083a63e4b29477",
+                                    "backend_id":  "asd_d8a67fcff0de0f8d06df569d0196c7d5_934ea6b46760ff0ade083a63e4b29477",
+                                    "title":  "Density Shell B",
+                                    "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                    "terminal_state":  "available"
+                                }
+                            ],
+                  "Count":  2
+              },
+    "shell_processes":  [
+                            {
+                                "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                "pid":  18332,
+                                "filetime":  134398532170012786
+                            },
+                            {
+                                "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                "pid":  8120,
+                                "filetime":  134398532172441348
+                            }
+                        ]
+}
+

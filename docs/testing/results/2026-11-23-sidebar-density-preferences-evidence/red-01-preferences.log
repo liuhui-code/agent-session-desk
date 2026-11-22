@@ -1,0 +1,7 @@
+# github.com/liuhui-code/agent-session-desk/internal/config_test [github.com/liuhui-code/agent-session-desk/internal/config.test]
+internal/config/ui_test.go:13:22: undefined: config.LoadUI
+internal/config/ui_test.go:16:18: undefined: config.SaveUI
+internal/config/ui_test.go:16:37: undefined: config.UISettings
+internal/config/ui_test.go:17:19: undefined: config.LoadUI
+FAIL	github.com/liuhui-code/agent-session-desk/internal/config [build failed]
+FAIL

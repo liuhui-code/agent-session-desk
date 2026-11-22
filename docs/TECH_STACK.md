@@ -22,7 +22,7 @@
 | Windows 底层终端能力 | **ConPTY，经 psmux 使用** | 首版不重复开发自己的 ConPTY 宿主 |
 | macOS/Linux 后台 | **tmux 3.8** 对照基线 | 后续适配与验收；不是 Windows 安装前提 |
 | 本地状态与消息 | **SQLite 3.54.1，最小元数据已实现** | modernc.org/sqlite v1.62.0、libc v1.80.1；Session/Run、独立 history 和 [schema v2 pane 观测](adr/0010-pane-exit-observations.md)；v1→v2 追加迁移和离线检查／非覆盖快照恢复已实现（ADR-0012），队列、回执与完整升级恢复待做 |
-| 配置 | **TOML，首个只读启动切片已实现** | BurntSushi/toml v1.6.0、TOML 1.1.0、schema_version=1；[ADR-0007](adr/0007-explicit-launch-configuration.md)。主题／偏好文件和保存待做 |
+| 配置 | **TOML，首个只读启动切片已实现** | BurntSushi/toml v1.6.0、TOML 1.1.0、schema_version=1；[ADR-0007](adr/0007-explicit-launch-configuration.md)。独立侧栏偏好见 [ADR-0017](adr/0017-sidebar-density-preferences.md)，启动模板保存／迁移及主题文件仍待做 |
 | 输出保存 | **有界文件记录 + 内存尾部缓存** | 已有显式屏幕记录文件与按 Run／全库数量轮转（ADR-0013），仍有选中预览缓存；分页、连续全流日志和完整资源预算未完成 |
 | 终端／Agent 接入 | **CLI-first** | agent、普通交互 shell 和 CLI 共用 executable、args、cwd、env 与终端原生输入；专用协议是可选增强 |
 | 人工介入与提醒 | **共享核心事件与可替换平台通知出口** | UI 标记、待处理入口与可选 Windows 通知；Go API/注册/激活、事件接口与预算待 M2–M4 验证，不预先引入 .NET 运行时依赖 |
@@ -91,7 +91,7 @@ Windows 自动化通过[依赖锁定记录](../tools/ci/windows-dependencies.jso
 以下不阻止接受总体方向，但必须在相应实现前关闭：
 
 - SQLite 消息、升级迁移、磁盘保留与完整恢复合同；最小驱动、嵌入版本和事务策略见 ADR-0009。
-- TOML 启动配置已按 ADR-0007 固定解析器、语法及首版只读 schema；保存、迁移与主题文件仍待实现。
+- TOML 启动配置已按 ADR-0007 固定解析器、语法及首版只读 schema；独立侧栏偏好由 ADR-0017 接入，启动模板保存／迁移与主题文件仍待实现。
 - M3 Host 的本机 IPC、启动/退出方式、单实例与恢复机制。
 - Windows 最低构建、CPU 架构、Windows Terminal、shell 与 agent 支持矩阵。
 - 最终快捷键、默认日志保留与缓存限额、可量化内存/响应预算。

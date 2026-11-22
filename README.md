@@ -137,3 +137,5 @@ Tab 终端支持[原生历史滚动](docs/testing/results/2026-11-23-workspace-s
 此前 Tab 的[系统宿主资源复测](docs/testing/results/2026-11-23-tab-resources.md)失败：UTC 覆盖误判修复后，第三轮仍因 F6 未确认管理焦点而安全退出，未盲发 q。旧列表 UI 的资源结果没有替代新 Tab。
 
 后续[宿主分界与复测](docs/testing/results/2026-11-23-tab-resource-host.md)已定位该 Windows 10 系统 ConPTY 的 VT 输入条件；使用显式测量宿主候选后，同一正式产品完成 7 场景／22 阶段／280 快照与 7 次正常清理。产品后端未随之采用 SDK；缺测、完整时长、预算、目标 agent 与视觉验收继续单独保留，旧失败不改写。
+
+侧栏设置（psmux Tab）：管理焦点下 `S` 打开，`←→`／`h/l` 调整 Full／Compact／Minimal／Auto，空格轮换，改变后即时保存，`Esc`／`S` 返回。偏好保存在元数据目录的独立 `ui.toml`，随 `--state-dir` 隔离；显式启动模板保持只读。终端焦点仍将这些键交给程序。保存错误保留旧有效值，不阻止返回管理；实际范围见[验证报告](docs/testing/results/2026-11-23-sidebar-density-preferences.md)。

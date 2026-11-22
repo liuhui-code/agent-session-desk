@@ -80,3 +80,7 @@ Bubbles 2.2.2 textinput 通过模块使用，未复制组件源码。v2 表单�
 ### 2026-11-23 默认侧栏卡片
 
 继续从固定 Agent Deck `80494e527393b7ead00da30018e6ee7e60e9d7a0` 的 `internal/ui/embedded_sidebar.go`（MIT）适配默认 compact 卡片、28 列退化、`▶`／`┃` 标记、surface 高亮与共享行高测量；目标为 `workspace_sidebar.go`、`home_view_list.go`、`workspace_mouse.go`、`design_tokens.go` 和 `styles.go`。默认 compact 的依据另核对 `internal/session/userconfig.go`；精确 SHA-256／Git blob 见[实际报告](testing/results/2026-11-23-workspace-sidebar-cards.md)。仅保留本产品 Session/Run、终端观察与程序文件名；未迁入分组、品牌、agent 状态猜测、其他密度设置或配置写入。逐文件登记在 `third_party/reuse-manifest.json`。
+
+### 2026-11-23 四种侧栏密度与设置
+
+固定 Agent Deck `80494e527393b7ead00da30018e6ee7e60e9d7a0`（MIT）的 `embedded_sidebar.go` 继续适配 full／compact／minimal／auto、元信息有界换行和共享测量；`settings_panel.go`、`hotkeys.go` 适配密度顺序、radio 标记／下划线、设置圆角／配色、S、左右／h/l、Space 即时调整和 Esc/S 返回，全部经 tokens。目标文件包括 `sidebar_settings.go`、`workspace_sidebar.go`、`workspace_keys.go`、`styles.go` 和 `design_tokens.go`；JSON 逐文件清单已更新。独立 ui.toml 格式／有界临时文件发布与异步串行保存为本产品实现，不搬用上游整个配置写入或其他业务设置。来源 Git blob／SHA-256 与本轮 Windows 证据见[报告](testing/results/2026-11-23-sidebar-density-preferences.md)。

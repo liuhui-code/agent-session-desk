@@ -53,7 +53,7 @@
 | --- | --- | --- | --- | --- | --- |
 | FL-001 | 自定义 CLI 启动：接入 agent、普通 shell 与 CLI | FR-01 | M0 预验证、M1 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md) / 未发布 |
 | FL-002 | 原生终端交互：在 Tab 中输入并操作原有 CLI | FR-02、FR-11 | M0、M1 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md) / 未发布 |
-| FL-003 | 上游体验还原与代码复用：保留布局比例、交互和配色 | FR-03、FR-11 | M0、M1、M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[短资源实验](testing/results/2026-11-21-m0-windows-resources.md)、[只读历史 UI](testing/results/2026-11-22-m1-history-ui.md)；[默认侧栏卡片](testing/results/2026-11-23-workspace-sidebar-cards.md)；[Tab 资源失败](testing/results/2026-11-23-tab-resources.md)／[显式宿主短复测](testing/results/2026-11-23-tab-resource-host.md) / 未发布 |
+| FL-003 | 上游体验还原与代码复用：保留布局比例、交互和配色 | FR-03、FR-11 | M0、M1、M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[短资源实验](testing/results/2026-11-21-m0-windows-resources.md)、[只读历史 UI](testing/results/2026-11-22-m1-history-ui.md)；[默认侧栏卡片](testing/results/2026-11-23-workspace-sidebar-cards.md)／[四种密度与偏好](testing/results/2026-11-23-sidebar-density-preferences.md)；[Tab 资源失败](testing/results/2026-11-23-tab-resources.md)／[显式宿主短复测](testing/results/2026-11-23-tab-resource-host.md) / 未发布 |
 | FL-004 | Tab 多会话组织：查找、切换、停止和归档 | FR-03 | M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md) / 未发布 |
 | FL-005 | 稳定身份：重命名、排序后仍控制正确对象 | FR-04 | M1、M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md) / 未发布 |
 | FL-006 | 后台托管与重新连接：关闭界面后任务继续 | FR-05 | M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md)、[短资源实验](testing/results/2026-11-21-m0-windows-resources.md)；[Tab 资源失败](testing/results/2026-11-23-tab-resources.md)／[显式宿主短复测](testing/results/2026-11-23-tab-resource-host.md) / 未发布 |
@@ -109,7 +109,7 @@
 
 - **TUI 历史局部进展（2026-11-22）：**h 按需读取最近 100 条，Enter 只读详情，独立选择与刷新按 Run ID 保留；关闭取消、迟到结果丢弃、错误及窄窗口边界有回归。历史不 attach、不重启、不推定当前状态；详见 [ADR-0011](adr/0011-read-only-tui-history.md) 和[实际报告](testing/results/2026-11-22-m1-history-ui.md)。完整历史、归档／恢复和发布仍待做。
 
-- **默认侧栏还原（2026-11-23）：**固定上游的 compact 默认值对应两行卡片，28 列以下退到单行；标题、观察到的终端状态／程序文件名分层，活动 Run 与管理选择分开标记，选中／活动使用 surface 背景。渲染、滚动窗口和鼠标按同一行高计算，元信息行选择所属 Session，不切换或提交输入。实际源码与本轮结果见[报告](testing/results/2026-11-23-workspace-sidebar-cards.md)。其余密度设置、配置持久化、完整同尺寸上游对照及用户视觉接受仍未完成；不提升发布状态。
+- **默认侧栏还原（2026-11-23）：**固定上游的 compact 默认值对应两行卡片，28 列以下退到单行；标题、观察到的终端状态／程序文件名分层，活动 Run 与管理选择分开标记，选中／活动使用 surface 背景。渲染、滚动窗口和鼠标按同一行高计算，元信息行选择所属 Session，不切换或提交输入。实际源码与本轮结果见[报告](testing/results/2026-11-23-workspace-sidebar-cards.md)。四种密度设置与独立偏好随后由 [ADR-0017](adr/0017-sidebar-density-preferences.md) 接入，见[后续报告](testing/results/2026-11-23-sidebar-density-preferences.md)；完整同尺寸上游对照及用户视觉接受仍未完成，不提升发布状态。
 
 
 ### FL-004：多会话组织

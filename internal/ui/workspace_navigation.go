@@ -31,6 +31,8 @@ func (m *Model) finishWorkspaceNavigation() tea.Cmd {
 		return m.attach()
 	case workspaceLaunch:
 		return m.openLaunchDialog()
+	case workspaceSettings:
+		m.openDensitySettings()
 	}
 	return nil
 }

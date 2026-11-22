@@ -15,18 +15,27 @@ import (
 )
 
 type styles struct {
-	sidebarSelected, sidebarMetadataSelected                       lipgloss.Style
-	separatorDrag                                                  lipgloss.Style
-	formTitle, formText, formHint, formError                       lipgloss.Style
-	dialog, backdrop                                               lipgloss.Style
-	formInput                                                      textinput.Styles
-	tab, tabActive, terminalFrame, terminalFocused                 lipgloss.Style
-	title, highlight, dim, error, text, key, separator, panelTitle lipgloss.Style
-	menuDot, menuGap                                               string
+	settingsBox, settingsTitle, settingsText, settingsHint, settingsChoice, settingsRadio, settingsFocused, settingsError lipgloss.Style
+	sidebarSelected, sidebarMetadataSelected                                                                              lipgloss.Style
+	separatorDrag                                                                                                         lipgloss.Style
+	formTitle, formText, formHint, formError                                                                              lipgloss.Style
+	dialog, backdrop                                                                                                      lipgloss.Style
+	formInput                                                                                                             textinput.Styles
+	tab, tabActive, terminalFrame, terminalFocused                                                                        lipgloss.Style
+	title, highlight, dim, error, text, key, separator, panelTitle                                                        lipgloss.Style
+	menuDot, menuGap                                                                                                      string
 }
 
 func newStyles(t designTokens) styles {
 	return styles{
+		settingsRadio:           lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.surface),
+		settingsBox:             lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.colors.cyan).Background(t.colors.bg).Padding(t.sidebar.settingsPaddingY, t.sidebar.settingsPaddingX),
+		settingsTitle:           lipgloss.NewStyle().Foreground(t.colors.cyan).Background(t.colors.bg).Bold(t.bold),
+		settingsText:            lipgloss.NewStyle().Foreground(t.colors.text).Background(t.colors.bg),
+		settingsHint:            lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.bg),
+		settingsChoice:          lipgloss.NewStyle().Foreground(t.colors.accent).Background(t.colors.surface).Bold(t.bold).Underline(t.sidebar.underlineChoice),
+		settingsFocused:         lipgloss.NewStyle().Foreground(t.colors.text).Background(t.colors.surface),
+		settingsError:           lipgloss.NewStyle().Foreground(t.colors.red).Background(t.colors.bg),
 		sidebarSelected:         lipgloss.NewStyle().Foreground(t.colors.text).Background(t.colors.surface),
 		sidebarMetadataSelected: lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.surface),
 		separatorDrag:           lipgloss.NewStyle().Foreground(t.colors.accent),

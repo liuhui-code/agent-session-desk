@@ -28,3 +28,5 @@ CLI 显式 `--name`、`--cwd`、重复 `--env KEY=value` 覆盖模板；相对 C
 - [精确依赖](../../go.mod)、[实现](../../internal/config/config.go)、[用法](../LAUNCH_CONFIG.md)
 - [v1.6.0 发布与 TOML 1.1 支持](https://github.com/BurntSushi/toml/releases/tag/v1.6.0)
 - [固定版本文档及许可](https://github.com/BurntSushi/toml/tree/v1.6.0)
+
+界面偏好补充：后续 [ADR-0017](0017-sidebar-density-preferences.md) 单独保存侧栏密度到状态目录 `ui.toml`；不写回本 ADR 的启动模板，不改变 `--config` 的只读、显式选择或参数边界。模板保存／迁移仍开放。

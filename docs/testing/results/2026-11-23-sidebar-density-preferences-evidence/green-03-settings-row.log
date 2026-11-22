@@ -1,0 +1,5 @@
+# github.com/liuhui-code/agent-session-desk/internal/ui [github.com/liuhui-code/agent-session-desk/internal/ui.test]
+internal/ui/design_tokens.go:66: unknown field radioUnselected in struct literal of type sidebarTokens
+internal/ui/sidebar_settings.go:150:54: t.sidebar.radioUnselected undefined (type sidebarTokens has no field or method radioUnselected)
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui [build failed]
+FAIL

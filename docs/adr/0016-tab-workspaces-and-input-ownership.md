@@ -53,3 +53,5 @@ IME 验证补充：不修改产品代码，限定 Windows 10／Microsoft 拼音�
 输入分界后续：同一控制台的独立原始读取器在 native 模式收到 F6、VT 模式丢失；固定 SDK measurement host 恢复 VT F6，并使同一正式产品确认管理焦点、正常 q。新的 0／1／5／10 与直接对照短基线完成，具体宿主、失败、缺口与成本见[报告](../testing/results/2026-11-23-tab-resource-host.md)。仅增加测量工具显式选项，产品输入归属和后端未改；不能据此推定系统宿主中的其他 VT 程序兼容，或将上游诊断开关升级为生产支持。
 
 默认侧栏卡片补充（2026-11-23）：固定上游 compact 默认对应两行，28 列以下退到单行；活动终端和管理选择分别用 `┃`／`▶`，选中／活动使用 surface。渲染、窗口和鼠标共用卡片高度，元信息行选中所属 Session，不打开或提交终端输入；仅显示已有终端观察和程序文件名，不推断 agent 状态。其他密度设置及配置持久化仍待迁移。[来源与实测](../testing/results/2026-11-23-workspace-sidebar-cards.md)不代表完整视觉接受或发布验收。
+
+四种密度与设置后续（2026-11-23）：[ADR-0017](0017-sidebar-density-preferences.md) 接入 full／compact／minimal／auto、管理 S 设置、即时保存与独立 `ui.toml`。启动模板仍只读，终端键／草稿与 Run 身份不因设置改变。[实际报告](../testing/results/2026-11-23-sidebar-density-preferences.md)包含原生只读保存拒绝、Auto 缩放和 UI 重开选择恢复；不提升完整上游视觉、真实 agent 或发布状态。

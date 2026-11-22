@@ -20,6 +20,12 @@ import (
 )
 
 func (m *Model) View() tea.View {
+	if m.workspace != nil && m.densitySettings != nil {
+		view := tea.NewView(m.renderDensitySettings())
+		view.AltScreen = true
+		view.BackgroundColor, view.ForegroundColor = m.tokens.colors.bg, m.tokens.colors.text
+		return view
+	}
 	if m.workspace != nil && m.launch != nil {
 		content, cursor := m.renderLaunchDialog()
 		view := tea.NewView(content)
@@ -236,6 +242,7 @@ func (m *Model) renderHelp(height int) string {
 			"F6 切换管理／终端焦点；Ctrl+PgUp/PgDn 切 Tab。\n" +
 			"管理模式：↑↓ 选择，Enter 打开，n 新建，x 关闭视图。\n" +
 			"关闭 Tab 或退出管理器不会停止运行实例。\n" +
+			"S 侧栏设置；←→/空格即时保存，Esc/S 返回。\n" +
 			"h 只读历史；r 重查连接；a 辅助全屏进入。\n" +
 			"辅助全屏模式：Ctrl+b 后按 d 返回。\n" +
 			"粘贴使用外层终端快捷键；是否执行仍由目标程序决定。\n" +

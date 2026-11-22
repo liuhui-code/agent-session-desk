@@ -12,6 +12,7 @@ import (
 	"strings"
 
 	"charm.land/lipgloss/v2"
+	"github.com/charmbracelet/x/ansi"
 	"github.com/liuhui-code/agent-session-desk/internal/session"
 )
 
@@ -35,7 +36,22 @@ func (m *Model) workspaceSidebarRows(width, height int) int {
 	if width < m.tokens.sidebar.cardMinWidth {
 		return 1
 	}
-	return max(1, min(height, m.tokens.sidebar.cardRows))
+	rows := m.tokens.sidebar.cardRows
+	switch m.sidebarDensity {
+	case "full":
+		rows = m.tokens.sidebar.fullRows
+	case "minimal":
+		rows = 1
+	case "auto":
+		rows = 1
+		for candidate := m.tokens.sidebar.fullRows; candidate > 1; candidate-- {
+			if len(m.sessions)*candidate <= height {
+				rows = candidate
+				break
+			}
+		}
+	}
+	return max(1, min(height, rows))
 }
 
 func (m *Model) workspaceSidebarCard(index, width, rowLines int) []string {
@@ -75,7 +91,23 @@ func (m *Model) workspaceSidebarCard(index, width, rowLines int) []string {
 			command = command[strings.LastIndexAny(command, `/\`)+1:]
 			metadata += m.tokens.sidebar.separator + command
 		}
-		lines = append(lines, metadataStyle.Render(fit(m.tokens.sidebar.metadata+metadata)))
+		count := rowLines - 1
+		metadataWidth := max(1, width-lipgloss.Width(m.tokens.sidebar.metadata))
+		wrapped := strings.Split(ansi.Wrap(metadata, metadataWidth, ""), "\n")
+		if len(wrapped) > count {
+			wrapped[count-1] = cellTruncate(strings.Join(wrapped[count-1:], " "), metadataWidth, m.tokens.marks.ellipsis)
+			wrapped = wrapped[:count]
+		}
+		for i := 0; i < count; i++ {
+			prefix, text := m.tokens.sidebar.metadataMiddle, ""
+			if i == count-1 {
+				prefix = m.tokens.sidebar.metadata
+			}
+			if i < len(wrapped) {
+				text = wrapped[i]
+			}
+			lines = append(lines, metadataStyle.Render(fit(prefix+text)))
+		}
 	}
 	return lines
 }

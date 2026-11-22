@@ -1,0 +1,5 @@
+--- FAIL: TestUIPreferencesRejectCaseVariantSchemaKeys (0.00s)
+    ui_test.go:82: case-variant keys were accepted as the current schema
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/config	0.786s
+FAIL

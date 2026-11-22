@@ -209,10 +209,10 @@
       "destination_file": "internal/ui/workspace_sidebar.go",
       "license": "MIT",
       "parts": [
-        "default compact card, 28-column fallback, active/selected markers, surface highlight and shared row-height measurement"
+        "full/compact/minimal/auto cards, 28-column fallback, bounded wrapped metadata, active/selected markers, surface highlight and shared row-height measurement"
       ],
       "mode": "selectively_adapted",
-      "modifications": "Flat local Session/Run cards with observed terminal availability and executable basename only; default compact density. Full/minimal/auto settings and persistence remain pending."
+      "modifications": "Flat local Session/Run cards; observed terminal availability and executable basename only. Auto reads only current item count and geometry. No inferred agent status or branding."
     },
     {
       "project": "agent-deck",
@@ -223,10 +223,10 @@
       "destination_file": "internal/ui/design_tokens.go",
       "license": "MIT",
       "parts": [
-        "default compact card, 28-column fallback, active/selected markers, surface highlight and shared row-height measurement"
+        "full/compact/minimal/auto cards, 28-column fallback, bounded wrapped metadata, active/selected markers, surface highlight and shared row-height measurement"
       ],
       "mode": "selectively_adapted",
-      "modifications": "Flat local Session/Run cards with observed terminal availability and executable basename only; default compact density. Full/minimal/auto settings and persistence remain pending."
+      "modifications": "Flat local Session/Run cards; observed terminal availability and executable basename only. Auto reads only current item count and geometry. No inferred agent status or branding."
     },
     {
       "project": "agent-deck",
@@ -237,10 +237,10 @@
       "destination_file": "internal/ui/home_view_list.go",
       "license": "MIT",
       "parts": [
-        "default compact card, 28-column fallback, active/selected markers, surface highlight and shared row-height measurement"
+        "full/compact/minimal/auto cards, 28-column fallback, bounded wrapped metadata, active/selected markers, surface highlight and shared row-height measurement"
       ],
       "mode": "selectively_adapted",
-      "modifications": "Flat local Session/Run cards with observed terminal availability and executable basename only; default compact density. Full/minimal/auto settings and persistence remain pending."
+      "modifications": "Flat local Session/Run cards; observed terminal availability and executable basename only. Auto reads only current item count and geometry. No inferred agent status or branding."
     },
     {
       "project": "agent-deck",
@@ -251,10 +251,10 @@
       "destination_file": "internal/ui/workspace_mouse.go",
       "license": "MIT",
       "parts": [
-        "default compact card, 28-column fallback, active/selected markers, surface highlight and shared row-height measurement"
+        "full/compact/minimal/auto cards, 28-column fallback, bounded wrapped metadata, active/selected markers, surface highlight and shared row-height measurement"
       ],
       "mode": "selectively_adapted",
-      "modifications": "Flat local Session/Run cards with observed terminal availability and executable basename only; default compact density. Full/minimal/auto settings and persistence remain pending."
+      "modifications": "Flat local Session/Run cards; observed terminal availability and executable basename only. Auto reads only current item count and geometry. No inferred agent status or branding."
     },
     {
       "project": "agent-deck",
@@ -265,10 +265,80 @@
       "destination_file": "internal/ui/styles.go",
       "license": "MIT",
       "parts": [
-        "default compact card, 28-column fallback, active/selected markers, surface highlight and shared row-height measurement"
+        "full/compact/minimal/auto cards, 28-column fallback, bounded wrapped metadata, active/selected markers, surface highlight and shared row-height measurement"
       ],
       "mode": "selectively_adapted",
-      "modifications": "Flat local Session/Run cards with observed terminal availability and executable basename only; default compact density. Full/minimal/auto settings and persistence remain pending."
+      "modifications": "Flat local Session/Run cards; observed terminal availability and executable basename only. Auto reads only current item count and geometry. No inferred agent status or branding."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/settings_panel.go",
+      "source_sha256": "142a7d454853138309ca84edbe1d50f05db2fe61fc36186bb2163d00939aa8c4",
+      "destination_file": "internal/ui/sidebar_settings.go",
+      "license": "MIT",
+      "parts": [
+        "sidebar density radio order, left/right and h/l adjustment, Space cycling, Esc/S close, cyan rounded settings box and focus marker"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "Stable v2, token-only styling, density-only settings, serial asynchronous saves to a separate ui.toml; narrow radio shows current choice. Upstream unrelated settings and whole configuration writes are not migrated."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/settings_panel.go",
+      "source_sha256": "142a7d454853138309ca84edbe1d50f05db2fe61fc36186bb2163d00939aa8c4",
+      "destination_file": "internal/ui/design_tokens.go",
+      "license": "MIT",
+      "parts": [
+        "sidebar density radio order, left/right and h/l adjustment, Space cycling, Esc/S close, cyan rounded settings box and focus marker"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "Stable v2, token-only styling, density-only settings, serial asynchronous saves to a separate ui.toml; narrow radio shows current choice. Upstream unrelated settings and whole configuration writes are not migrated."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/settings_panel.go",
+      "source_sha256": "142a7d454853138309ca84edbe1d50f05db2fe61fc36186bb2163d00939aa8c4",
+      "destination_file": "internal/ui/styles.go",
+      "license": "MIT",
+      "parts": [
+        "sidebar density radio order, left/right and h/l adjustment, Space cycling, Esc/S close, cyan rounded settings box and focus marker"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "Stable v2, token-only styling, density-only settings, serial asynchronous saves to a separate ui.toml; narrow radio shows current choice. Upstream unrelated settings and whole configuration writes are not migrated."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/hotkeys.go",
+      "source_sha256": "f0d6dec8348c486406a1293c55349075f358e44c5b2f52b2fab133a4f0a3c5a9",
+      "destination_file": "internal/ui/workspace_keys.go",
+      "license": "MIT",
+      "parts": [
+        "management settings hotkey S"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "Stable v2, token-only styling, density-only settings, serial asynchronous saves to a separate ui.toml; narrow radio shows current choice. Upstream unrelated settings and whole configuration writes are not migrated."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/hotkeys.go",
+      "source_sha256": "f0d6dec8348c486406a1293c55349075f358e44c5b2f52b2fab133a4f0a3c5a9",
+      "destination_file": "internal/ui/sidebar_settings.go",
+      "license": "MIT",
+      "parts": [
+        "management settings hotkey S"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "Stable v2, token-only styling, density-only settings, serial asynchronous saves to a separate ui.toml; narrow radio shows current choice. Upstream unrelated settings and whole configuration writes are not migrated."
     }
   ],
   "preserved_notices": [

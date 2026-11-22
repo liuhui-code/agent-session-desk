@@ -209,7 +209,7 @@ func run(ctx context.Context, args []string, input io.Reader, output, errorOutpu
 	defer metadata.Close()
 	service := manager.New(terminal, metadata)
 	if command == "" {
-		model := ui.New(ctx, service)
+		model := ui.NewWithOptions(ctx, service, loadUIOptions(options, stateDir))
 		defer model.Close()
 		_, err := tea.NewProgram(model, tea.WithContext(ctx), tea.WithInput(input), tea.WithOutput(output)).Run()
 		return err

@@ -48,14 +48,18 @@ type pollMsg struct{ generation uint64 }
 // Model implements the stable Bubble Tea v2 API. Mutable UI state is touched
 // only by Init/Update; asynchronous commands return values, never mutate it.
 type Model struct {
-	launch    *launchDialog
-	ctx       context.Context
-	cancel    context.CancelFunc
-	service   Service
-	styles    styles
-	tokens    designTokens
-	history   historyState
-	workspace *workspaceState
+	sidebarDensity         string
+	saveSidebarDensity     func(context.Context, string) error
+	sidebarPreferenceError error
+	densitySettings        *densitySettings
+	launch                 *launchDialog
+	ctx                    context.Context
+	cancel                 context.CancelFunc
+	service                Service
+	styles                 styles
+	tokens                 designTokens
+	history                historyState
+	workspace              *workspaceState
 
 	width, height      int
 	sessions           []session.Session
@@ -86,6 +90,7 @@ func New(ctx context.Context, service Service) *Model {
 func newModelWithTokens(ctx context.Context, service Service, tokens designTokens) *Model {
 	ctx, cancel := context.WithCancel(ctx)
 	m := &Model{ctx: ctx, cancel: cancel, service: service, tokens: tokens, styles: newStyles(tokens)}
+	m.sidebarDensity = "compact"
 	if service, ok := service.(workspaceService); ok {
 		capability, explicit := service.(interface{ SupportsTerminal() bool })
 		if !explicit || capability.SupportsTerminal() {
@@ -104,6 +109,7 @@ func (m *Model) Close() {
 		m.workspace.buffered = nil
 	}
 	m.launch = nil
+	m.densitySettings = nil
 	m.cancelHistory()
 	m.cancel()
 	if m.previewCancel != nil {
@@ -120,6 +126,9 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		return m, nil
 	}
 	if m.workspace != nil {
+		if cmd, handled := m.densitySettingsEvent(msg); handled {
+			return m, cmd
+		}
 		if cmd, handled := m.launchEvent(msg); handled {
 			return m, cmd
 		}

@@ -145,10 +145,14 @@ type workspaceHarness struct {
 	cancel   context.CancelFunc
 }
 
-func newWorkspaceHarness(t *testing.T, service Service) *workspaceHarness {
+func newWorkspaceHarness(t *testing.T, service Service, options ...Options) *workspaceHarness {
 	t.Helper()
 	ctx, cancel := context.WithCancel(context.Background())
-	h := &workspaceHarness{t: t, m: New(ctx, service), messages: make(chan tea.Msg, 32), ctx: ctx, cancel: cancel}
+	settings := Options{}
+	if len(options) > 0 {
+		settings = options[0]
+	}
+	h := &workspaceHarness{t: t, m: NewWithOptions(ctx, service, settings), messages: make(chan tea.Msg, 32), ctx: ctx, cancel: cancel}
 	t.Cleanup(func() { h.m.Close(); cancel() })
 	h.send(tea.WindowSizeMsg{Width: 120, Height: 32})
 	h.run(h.m.Init())
