@@ -202,3 +202,5 @@ M0 只把版本化发现标记放在产品私有后端 user option 中，绑定 
 2026-11-24：[ADR-0029](adr/0029-native-copy-pointer-gestures.md) 接入原生复制模式内的无修饰左键按下／拖动／释放，经既有 FIFO 使用原 pane 内容坐标；跨控件不转管理手势，模式／尺寸／视图失效取消且不合成释放。协议由固定后端解释，CopyMode 观察不是模式锁；普通终端直接拖选、目标程序鼠标及完整鼠标接受继续开放。[本地证据](testing/results/2026-11-24-copy-pointer.md)与 Windows／实体鼠标未执行分开记账，依赖／tokens／存储不变。
 
 2026-11-24：[ADR-0030](adr/0030-direct-terminal-drag-selection.md) 将未声明 WantsMouse 的实时终端左拖选接入原 pane 的 copy-drag-begin；单击／同格微动不发输入，首次实际运动才交接，仍由后端保存选区与历史。延迟模式帧及观察退出、原锚点、原 FIFO 和可选能力沿[本地报告](testing/results/2026-11-24-direct-drag.md)记账；首次运动即冻结是平台适配，Windows／实体鼠标、程序鼠标和完整体验继续开放，存储／tokens／依赖不变。
+
+2026-11-24：[ADR-0031](adr/0031-program-left-mouse-routing.md) 接入声明 WantsMouse 的实时程序左键路径；原 pane 内容坐标、原 FIFO、跨控件夹取和一个保留释放位置，主动键／粘贴／滚轮／导航／缩放先释放原程序，原生选区仍不合成复制。外部模式／尺寸失效保留未知，不转投；[本地报告](testing/results/2026-11-24-program-mouse.md)不代表 VT／Win32、实体鼠标或完整程序接受，其他按钮／修饰／悬停继续开放，存储／tokens／依赖不变。

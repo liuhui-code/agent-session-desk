@@ -134,3 +134,5 @@ Bubbles 2.2.2 textinput 通过模块使用，未复制组件源码。v2 表单�
 2026-11-24 ADR-0029：固定 psmux `20aa1d7254ee93f64dafa059ef89341d9767470a`／MIT 的 server/connection.rs、server/mod.rs、window_ops.rs、client.rs 仅为 pane-mouse 协议／原生选择语义核对；Go pointer.go 和 workspace_copy_pointer.go 独立编写，未复制 Rust。精确源哈希与范围见[报告](testing/results/2026-11-24-copy-pointer.md)。无新增复用许可证或依赖。
 
 2026-11-24 ADR-0030：固定 psmux `20aa1d7254ee93f64dafa059ef89341d9767470a`／MIT 的 copy-drag-begin 解析／交接和 copy_mode.rs 仅为协议与原生冻结模式参考。Go direct_drag.go 与 UI 起始状态独立实现，不复制 Rust、不迁入本地 VT／历史；六份精确来源哈希见[报告](testing/results/2026-11-24-direct-drag.md)，无新许可证或依赖。
+
+2026-11-24 ADR-0031：继续以固定 psmux `20aa1d7254ee93f64dafa059ef89341d9767470a`／MIT 的 pane-mouse 和 window_ops.rs 模式／注入为协议参考；workspace_program_pointer.go 的 UI 归属、队列保留与主动释放独立编写，无 Rust 复制或新依赖。六份固定来源哈希与[本地报告](testing/results/2026-11-24-program-mouse.md)单列，不宣称原生注入兼容。

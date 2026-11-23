@@ -1,0 +1,5 @@
+--- FAIL: TestProgramMouseKeepsOneReleaseSlotUnderMotionPressure (0.00s)
+    workspace_program_pointer_lifecycle_test.go:28: no bounded release reserve: 64
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.803s
+FAIL

@@ -22,3 +22,5 @@
 固定协议来源：[解析](https://github.com/psmux/psmux/blob/20aa1d7254ee93f64dafa059ef89341d9767470a/src/server/connection.rs)、[后端手势](https://github.com/psmux/psmux/blob/20aa1d7254ee93f64dafa059ef89341d9767470a/src/window_ops.rs)。实际本地范围见[报告](../testing/results/2026-11-24-copy-pointer.md)。
 
 2026-11-24：[ADR-0030](0030-direct-terminal-drag-selection.md) 部分扩展／替代第 1、3 项开始条件：未声明鼠标的实时终端首次实际拖动可交接原生选择，按下／单击不发送。其他取消、输入归属和验证边界保留；[实际本地报告](../testing/results/2026-11-24-direct-drag.md)不提升本记录原有原生接受范围。
+
+2026-11-24：[ADR-0031](0031-program-left-mouse-routing.md) 增加程序左键手势。第 5 项原生选区取消不合成释放继续有效；程序按下则在主动导航／输入前沿原 FIFO 有界释放一次，外部模式失效仍保持未知。详见[本地报告](../testing/results/2026-11-24-program-mouse.md)，不提升原生／完整鼠标接受范围。

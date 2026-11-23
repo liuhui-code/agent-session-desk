@@ -16,3 +16,5 @@
 ## 依据与验证
 
 固定 [协议解析](https://github.com/psmux/psmux/blob/20aa1d7254ee93f64dafa059ef89341d9767470a/src/server/connection.rs)、[选区交接](https://github.com/psmux/psmux/blob/20aa1d7254ee93f64dafa059ef89341d9767470a/src/window_ops.rs)、[客户端](https://github.com/psmux/psmux/blob/20aa1d7254ee93f64dafa059ef89341d9767470a/src/client.rs)仅核对协议，Go 独立实现，不复制 Rust 或升级依赖。Context7 master 资料不能证明稳定发行物；本地流合同、模型、真实后端、实体鼠标和系统剪贴板分别记录。
+
+2026-11-24：[ADR-0031](0031-program-left-mouse-routing.md) 实现第 5 项尚缺的程序左键路径；直接选择仍不接管 WantsMouse 程序。右／中键、修饰、悬停及真实程序接受继续开放；[本地报告](../testing/results/2026-11-24-program-mouse.md)单列。

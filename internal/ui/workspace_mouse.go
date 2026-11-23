@@ -33,6 +33,9 @@ func (m *Model) workspaceClickNow(msg tea.MouseClickMsg) tea.Cmd {
 	}
 	w.split.dragging = false
 	w.split.hovered = false
+	if cmd, handled := m.startProgramPointer(msg); handled {
+		return cmd
+	}
 	if cmd, handled := m.startCopyPointer(msg); handled {
 		return cmd
 	}

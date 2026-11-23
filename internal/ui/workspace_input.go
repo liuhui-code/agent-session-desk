@@ -42,6 +42,10 @@ func (m *Model) workspaceWrite(action workspaceInput) tea.Cmd {
 		return nil
 	}
 	action.reply = make(chan error, 1)
+	if w.programPointer != nil && len(w.inputs) >= cap(w.inputs)-1 {
+		m.status = "程序鼠标输入队列已满；保留原目标释放位置"
+		return nil
+	}
 	select {
 	case w.inputs <- action:
 		w.pending++

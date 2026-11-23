@@ -9,7 +9,7 @@ package ui
 import tea "charm.land/bubbletea/v2"
 
 func (m *Model) workspaceWheel(msg tea.MouseWheelMsg) tea.Cmd {
-	return tea.Batch(m.finishWorkspaceSplit(), m.workspaceWheelNow(msg))
+	return tea.Batch(m.finishProgramPointer(), m.finishWorkspaceSplit(), m.workspaceWheelNow(msg))
 }
 
 func (m *Model) workspaceWheelNow(msg tea.MouseWheelMsg) tea.Cmd {

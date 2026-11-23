@@ -1,0 +1,5 @@
+--- FAIL: TestProgramMouseSwitchReleasesOriginalBeforeNewRunInput (0.00s)
+    workspace_program_pointer_test.go:61: old Run not released before switch: "pointer:down,3,2;pointer:drag,8,2"
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.802s
+FAIL

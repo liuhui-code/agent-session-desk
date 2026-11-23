@@ -37,6 +37,7 @@ const (
 )
 
 type workspaceState struct {
+	programPointer             *workspaceProgramPointer
 	copyPointer                *workspaceCopyPointer
 	visibleCopy                *visiblePaneCopy
 	pendingClipboard           *workspaceClipboard
@@ -79,6 +80,7 @@ type workspaceResized struct {
 }
 
 func (w *workspaceState) disconnect() {
+	w.programPointer = nil
 	w.copyPointer = nil
 	if w.visibleCopy != nil {
 		w.visibleCopy.cancel()
@@ -166,19 +168,20 @@ func (m *Model) connectWorkspace() tea.Cmd {
 
 func (m *Model) workspaceSize() tea.Cmd {
 	w := m.workspace
+	release := m.finishProgramPointer()
 	w.copyPointer = nil
 	w.split.hovered = false
 	if w.conn == nil {
 		if !w.busy && w.err == nil {
-			return m.workspaceSessions()
+			return tea.Batch(release, m.workspaceSessions())
 		}
-		return nil
+		return release
 	}
 	g := m.workspaceGeometry()
 	if g.width < 1 || g.height < 1 {
-		return nil
+		return release
 	}
-	return m.workspaceWrite(workspaceInput{kind: "resize", width: g.width, height: g.height})
+	return tea.Batch(release, m.workspaceWrite(workspaceInput{kind: "resize", width: g.width, height: g.height}))
 }
 
 func (m *Model) readWorkspace() tea.Cmd {
@@ -203,6 +206,9 @@ func (m *Model) workspaceEvent(msg tea.Msg) (tea.Cmd, bool) {
 		return nil, true
 	case tea.MouseMotionMsg:
 		if !m.attaching && !m.history.open && !m.help && m.launch == nil {
+			if cmd, handled := m.moveProgramPointer(msg); handled {
+				return cmd, true
+			}
 			if cmd, handled := m.moveCopyPointer(msg); handled {
 				return cmd, true
 			}
@@ -214,6 +220,9 @@ func (m *Model) workspaceEvent(msg tea.Msg) (tea.Cmd, bool) {
 		return nil, true
 	case tea.MouseReleaseMsg:
 		if !m.attaching && !m.history.open && !m.help && m.launch == nil {
+			if cmd, handled := m.releaseProgramPointer(msg); handled {
+				return cmd, true
+			}
 			if cmd, handled := m.releaseCopyPointer(msg); handled {
 				return cmd, true
 			}
@@ -229,12 +238,13 @@ func (m *Model) workspaceEvent(msg tea.Msg) (tea.Cmd, bool) {
 		}
 		return nil, true
 	case tea.PasteMsg:
+		release := m.finishProgramPointer()
 		w.copyPointer = nil
 		w.tabDrag = workspaceTabDrag{}
 		if !m.attaching && !m.history.open && !m.help && w.focused && len(w.tabs) > 0 && w.transition != workspaceQuit && w.transition != workspaceClose {
-			return m.workspaceWrite(workspaceInput{kind: "paste", text: msg.Content}), true
+			return tea.Batch(release, m.workspaceWrite(workspaceInput{kind: "paste", text: msg.Content})), true
 		}
-		return nil, true
+		return release, true
 	case tea.KeyPressMsg:
 		if m.attaching {
 			return nil, true
@@ -336,6 +346,10 @@ func (m *Model) workspaceEvent(msg tea.Msg) (tea.Cmd, bool) {
 		}
 		w.readBusy = false
 		w.screen = msg.screen
+		if w.programPointer != nil && !m.programPointerCurrent(w.programPointer) {
+			w.programPointer = nil
+			m.status = "程序鼠标手势已失效；释放结果未知，请核对原程序"
+		}
 		if w.copyPointer != nil && w.screen.CopyMode {
 			w.copyPointer.observed = true
 		}

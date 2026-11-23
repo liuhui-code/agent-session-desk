@@ -1,0 +1,5 @@
+--- FAIL: TestProgramMouseExternalScreenGrowthThenRestoreCannotResumeGesture (0.00s)
+    workspace_program_pointer_test.go:80: unknown external geometry resumed/released old gesture: "pointer:down,3,2;pointer:up,9,2"
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.797s
+FAIL
