@@ -1,0 +1,25 @@
+package ui
+import("encoding/json";"os";"strings";"testing";"github.com/asheshgoplani/agent-deck/internal/session";"github.com/charmbracelet/x/ansi";"github.com/charmbracelet/lipgloss";"github.com/muesli/termenv")
+func TestASDLongCardReference(t *testing.T){
+ lipgloss.SetColorProfile(termenv.TrueColor)
+ var cases []struct{Name,Title,Command,Mode string;Width,Rows,Level int}
+ b,e:=os.ReadFile("/private/tmp/asd-long-cards-20261124/card-cases.json");if e!=nil{t.Fatal(e)};if e=json.Unmarshal(b,&cases);e!=nil{t.Fatal(e)}
+ frames:=[]map[string]interface{}{}
+ for _,c:=range cases{
+  indent:=strings.Repeat("  ",max(0,c.Level-1));gutter:="  ";marker:="  ";if c.Mode=="selected"{marker="▶ "};if c.Mode=="active"{gutter="";marker="┃ "}
+  prefix:=gutter+indent+marker
+  crop:=fitCellWidth(prefix+c.Title,c.Width)
+  // The actual source card has agent glyph/tool fields that the product does
+  // not claim. Keep its raw component frame alongside the shared crop rule.
+  density:=session.SidebarDensityFull;if c.Rows==1{density=session.SidebarDensityMinimal}else if c.Rows==2{density=session.SidebarDensityCompact}
+  inst:=&session.Instance{ID:"synthetic",Title:c.Title,Tool:"shell"};h:=&Home{sidebarDensity:density,embeddedLayout:true};if c.Mode=="active"{h.compactSidebar=true;h.embeddedMode=true;h.insertModeSessionID=inst.ID}
+  var raw strings.Builder;h.renderEmbeddedSessionItem(&raw,session.Item{Type:session.ItemTypeSession,Session:inst,Level:c.Level},c.Mode=="selected",sessionRenderState{title:c.Title,tool:"shell",status:session.StatusIdle},c.Width)
+  metadataWidth:=max(1,c.Width-cellWidth(gutter+indent+"  ╰ "))
+  wrapped:=wrapSidebarMetadata("可连接 · "+c.Command,metadataWidth,c.Rows-1)
+  metaRows:=[]string{};metaRaw:=[]string{}
+  for i:=0;i<c.Rows-1;i++{connector:="  │ ";if i==c.Rows-2{connector="  ╰ "};text:="";if i<len(wrapped){text=wrapped[i]};line:=renderSidebarMetadataLine(gutter+indent+connector,text,c.Width,c.Mode!="plain");plain:=ansi.Strip(line);metaRaw=append(metaRaw,line);metaRows=append(metaRows,plain+strings.Repeat(" ",max(0,c.Width-cellWidth(plain))))}
+  frames=append(frames,map[string]interface{}{"name":c.Name,"width":c.Width,"crop":crop,"crop_width":cellWidth(crop),"crop_padded_for_product_surface":crop+strings.Repeat(" ",max(0,c.Width-cellWidth(crop))),"metadata_lines":wrapped,"metadata_width":metadataWidth,"metadata_rows_padded":metaRows,"metadata_component_rows":metaRaw,"source_component":raw.String(),"source_component_width":cellWidth(strings.Split(raw.String(),"\n")[0]),"normalization":"crop uses product prefix, without source agent status/tool glyph; product pads any final unused cell"})
+  if ansi.StringWidth(crop)>c.Width{t.Fatal("source crop overflows")}
+ }
+ b,e=json.MarshalIndent(frames,"","  ");if e!=nil{t.Fatal(e)};if e=os.WriteFile("/private/tmp/asd-long-cards-20261124/upstream-frames.json",b,0600);e!=nil{t.Fatal(e)}
+}

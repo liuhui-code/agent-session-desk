@@ -1,0 +1,10 @@
+[
+ {"name":"ascii-crop","title":"abcdefghijklmnopqrstuvwxyz0123456789","command":"tool.exe","width":28,"rows":1,"level":1,"mode":"selected"},
+ {"name":"ascii-active","title":"abcdefghijklmnopqrstuvwxyz0123456789","command":"tool.exe","width":27,"rows":1,"level":1,"mode":"active"},
+ {"name":"cjk-gap","title":"中文任务中文任务中文任务中文任务中文任务中文任务","command":"工作程序.exe","width":29,"rows":2,"level":2,"mode":"selected"},
+ {"name":"combining","title":"éééééééééééééééééééééééééééééééééééééééééééééééééé","command":"long-long-long-long-program.exe","width":42,"rows":3,"level":3,"mode":"active"},
+ {"name":"keycaps-selected","title":"1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣","command":"1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣.exe","width":28,"rows":3,"level":2,"mode":"selected"},
+ {"name":"keycaps-plain","title":"1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣","command":"1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣.exe","width":29,"rows":3,"level":2,"mode":"plain"},
+ {"name":"zwj","title":"👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻","command":"zwj-program.exe","width":42,"rows":3,"level":1,"mode":"active"},
+ {"name":"deep-level","title":"long nested task long nested task","command":"nested-program.exe","width":28,"rows":3,"level":8,"mode":"selected"}
+]

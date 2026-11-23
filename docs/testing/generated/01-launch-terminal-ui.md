@@ -1951,7 +1951,7 @@
 
 - 功能：[FL-003](../COVERAGE.md#fl-003)
 - 需求：[FR-03](../COVERAGE.md#fr-03)、[FR-11](../COVERAGE.md#fr-11)
-- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0005](../../adr/0005-dependency-lifecycle-and-upgrades.md)、[ADR-0023](../../adr/0023-persistent-groups-and-membership.md)
+- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0005](../../adr/0005-dependency-lifecycle-and-upgrades.md)、[ADR-0023](../../adr/0023-persistent-groups-and-membership.md)、[ADR-0016](../../adr/0016-tab-workspaces-and-input-ownership.md)
 - 优先级 / 阶段 / 层次：P1 / M2 / windows_e2e
 - 类型：boundary、usability、compatibility
 - 设计 / 执行：`designed / not_run`
@@ -1970,12 +1970,14 @@
 1. 加载空名错误样本、长英文/中文/emoji 名称及相似前缀名称的数据。
 2. 在正常与窄窗口查看列表、状态和完整名称入口。
 3. 打开空的分组、新建和搜索表单，在宽／窄视口查看中文占位提示和真实光标，再输入文字核对原字段值。
+4. 使用长 ASCII／CJK／组合字符／keycap／ZWJ 标题、超长目录路径及同前缀名称，在四种卡片密度下缩放并点击元信息后 Enter 打开。对照固定源首行裁切和元信息末行；另测路径控制序列。
 
 #### 预期与不变量
 
 - 名称按显示规则截断/换行且不破坏列边界，当前选择与运行状态仍可辨认。
 - 查看详情能取得实际名称/稳定身份，不凭截断文本将同名前缀会话混为一项。
 - 空中文占位提示不输出 NUL／破坏单元格边界；显示适配不改变 Value、焦点、真实 Cursor 或实际终端输入。
+- 卡片首行沿源空尾裁切，元信息独立省略，完整行背景和宽高不溢出。原命令路径不变，程序标签先去控制序列再取完整路径 basename 后有界显示；可见重名仍有身份提示。选中／点击／Enter 绑定原 Session/Run，原终端草稿不被提交／重放；源文字合同、原始组件与真实桌面分别记账。
 
 #### 需要的证据
 
@@ -1989,7 +1991,7 @@
 
 - 功能：[FL-003](../COVERAGE.md#fl-003)
 - 需求：[FR-03](../COVERAGE.md#fr-03)、[FR-11](../COVERAGE.md#fr-11)
-- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0005](../../adr/0005-dependency-lifecycle-and-upgrades.md)、[ADR-0017](../../adr/0017-sidebar-density-preferences.md)、[ADR-0022](../../adr/0022-default-group-sidebar-navigation.md)、[ADR-0023](../../adr/0023-persistent-groups-and-membership.md)、[ADR-0027](../../adr/0027-persistent-workspace-split.md)
+- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0005](../../adr/0005-dependency-lifecycle-and-upgrades.md)、[ADR-0017](../../adr/0017-sidebar-density-preferences.md)、[ADR-0022](../../adr/0022-default-group-sidebar-navigation.md)、[ADR-0023](../../adr/0023-persistent-groups-and-membership.md)、[ADR-0027](../../adr/0027-persistent-workspace-split.md)、[ADR-0016](../../adr/0016-tab-workspaces-and-input-ownership.md)
 - 优先级 / 阶段 / 层次：P1 / M0 / windows_e2e
 - 类型：boundary、usability
 - 设计 / 执行：`designed / not_run`
@@ -2010,6 +2012,7 @@
 3. 在 grouped／flat 与四种密度下缩放窗口，点击组标题／会话元信息，滚动至末尾并 Enter 打开目标。
 4. 创建嵌套组，在 g 名称／目录及 M 移动列表中缩放、切字段、滚动选择；核对真实光标和末项可见。
 5. 调整并保存侧栏比例，拖动中观测磁盘不变；用无按钮松开／漏松开后移动等结束，再重开。穿插其他偏好保存、旧回执、写失败和等待退出。
+6. 使用长 ASCII／CJK／组合字符／keycap／ZWJ 标题、超长目录路径及同前缀名称，在四种卡片密度下缩放并点击元信息后 Enter 打开。对照固定源首行裁切和元信息末行；另测路径控制序列。
 
 #### 预期与不变量
 
@@ -2018,6 +2021,7 @@
 - 侧栏设置短窄窗口保留当前选项和保存错误；Auto 按当前会话项与可用空间重算，不振荡。最低全局支持尺寸仍按 O-009 另行决定。
 - 一行组标题与 1–3 行卡片共用渲染命中矩形，缩放或滚动不导致打开相邻 Session。
 - ui.toml v4 的 0 自动／10–90 手动保持选择；旧 v1–v3 加载不改写，显式保存才升级，旧版拒读 v4。拖动结束仅保存最后预览一次，不依赖松开坐标；运动预览不夹带进其他整份保存，旧成功不回退较新比例，失败恢复旧有效值、显示错误并取消等待退出。终端键仍只输入原 Run。
+- 卡片首行沿源空尾裁切，元信息独立省略，完整行背景和宽高不溢出。原命令路径不变，程序标签先去控制序列再取完整路径 basename 后有界显示；可见重名仍有身份提示。选中／点击／Enter 绑定原 Session/Run，原终端草稿不被提交／重放；源文字合同、原始组件与真实桌面分别记账。
 
 #### 需要的证据
 
@@ -2249,12 +2253,14 @@
 4. 以固定上游实际帧校对工作区边框／页脚行带、设置和新建外宽、首次／普通上下留白，以及 27／49／63 列帮助与焦点提示。
 5. 按管理／终端／组／空白／连接／错误／长字段／悬停／拖动状态与八组宽高生成实际主界面帧；比较嵌套卡片背景和分隔符可见单元格角色，而非仅搜索 ANSI 字符串，独立记录 v1/v2 的精确序列化差异。
 6. 在新建四字段、会话／组改名、分组名称／目录和搜索中输入长 ASCII 及中文／组合字符／ZWJ emoji／keycap；分别停在末尾和中部，120→63→49→27 列及 12 行往返缩放后继续编辑。
+7. 使用长 ASCII／CJK／组合字符／keycap／ZWJ 标题、超长目录路径及同前缀名称，在四种卡片密度下缩放并点击元信息后 Enter 打开。对照固定源首行裁切和元信息末行；另测路径控制序列。
 
 #### 预期与不变量
 
 - v2 View 返回与声明式终端状态生效，布局不丢失主体或叠加旧帧。
 - 上游体验为还原基线；v1→稳定 v2 外宽语义等必要差异逐项说明并评审，未经接受的视觉裁剪保留待改。
 - 缩放保留完整字段值、逻辑插入位置和焦点；可容纳的字段中原插入位置与可见真实光标一致，末尾不落到裁剪／边框。keycap 视图按完整 grapheme 投影，不静默改写组件 rune 插入位置；模型、原生套件、隔离 ConPTY 和真实桌面证据分开记账。
+- 卡片首行沿源空尾裁切，元信息独立省略，完整行背景和宽高不溢出。原命令路径不变，程序标签先去控制序列再取完整路径 basename 后有界显示；可见重名仍有身份提示。选中／点击／Enter 绑定原 Session/Run，原终端草稿不被提交／重放；源文字合同、原始组件与真实桌面分别记账。
 
 #### 需要的证据
 

@@ -1,0 +1,15 @@
+package ui
+import("context";"encoding/json";"os";"strings";"testing";"github.com/charmbracelet/x/ansi";"github.com/liuhui-code/agent-session-desk/internal/session")
+func TestASDLongCardFrames(t *testing.T){
+ var cases []struct{Name,Title,Command,Mode string;Width,Rows,Level int}
+ b,e:=os.ReadFile("/private/tmp/asd-long-cards-20261124/card-cases.json");if e!=nil{t.Fatal(e)};if e=json.Unmarshal(b,&cases);e!=nil{t.Fatal(e)}
+ frames:=[]map[string]interface{}{}
+ for _,c:=range cases{
+  m:=New(context.Background(),&workspaceFixture{});m.sessions=[]session.Session{{ID:"synthetic",RunID:"original-run",Title:c.Title,Command:c.Command,TerminalState:session.TerminalAvailable}};m.cursor=-1;m.workspace.focused=false
+  if c.Mode=="selected"{m.cursor=0};if c.Mode=="active"{m.workspace.focused=true;m.workspace.tabs=[]workspaceTab{{viewID:1,session:m.sessions[0]}}}
+  lines:=m.workspaceSidebarCard(0,c.Width,c.Rows,c.Level);plain:=[]string{};widths:=[]int{}
+  for _,line:=range lines{plain=append(plain,ansi.Strip(line));widths=append(widths,ansi.StringWidth(line))}
+  frames=append(frames,map[string]interface{}{"name":c.Name,"width":c.Width,"rows":c.Rows,"mode":c.Mode,"plain":plain,"content":strings.Join(lines,"\n"),"line_widths":widths});m.Close()
+ }
+ out:=os.Getenv("ASD_CARD_OUTPUT");if out==""{t.Fatal("explicit output path required")};b,e=json.MarshalIndent(frames,"","  ");if e!=nil{t.Fatal(e)};if e=os.WriteFile(out,b,0600);e!=nil{t.Fatal(e)}
+}

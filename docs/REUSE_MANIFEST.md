@@ -126,3 +126,5 @@ Bubbles 2.2.2 textinput 通过模块使用，未复制组件源码。v2 表单�
 2026-11-24 显式停止：ADR-0026 从同固定 Agent Deck `80494e527393b7ead00da30018e6ee7e60e9d7a0` 的 `internal/ui/confirm_dialog.go` 选择性改编默认取消、左右按钮／h/l/Tab、红框与警告布局至 `session_stop.go`／`session_stop_view.go`；MIT 原版权保持。产品停止保留历史、核对完整原 Run、输入排空、单次回执与窄窗审阅门槛独立实现。固定来源五导航状态与平台证据见[报告](testing/results/2026-11-24-session-stop.md)；不迁入上游删除注册、容器／worktree 或 v1 依赖。
 
 2026-11-24 比例持久化：ADR-0027 继续改编同固定 Agent Deck `80494e527393b7ead00da30018e6ee7e60e9d7a0` 的 split_config.go，并选择性适配 home_keys_main.go 的拖动结束、无按钮松开／移动收尾；目标 workspace_split.go 保留 MIT 原版权。来源写 preview_pct 到主配置，产品用互补 sidebar_percent 和独立 ui.toml v4，沿既有串行快照／失败可见合同。不迁入 source 主配置模型或 Charm v1。来源精确 SHA、七状态及本地范围见[报告](testing/results/2026-11-24-split-preferences.md)。
+
+2026-11-24 长卡片修正：同固定 Agent Deck `80494e527393b7ead00da30018e6ee7e60e9d7a0` 的 embedded_sidebar.go／cellwidth.go 已登记 MIT 来源继续适用；workspace_sidebar.go 恢复首行 fitCellWidth 的空尾裁切与元信息独立末行省略。源组件与裁切／换行八状态见[报告](testing/results/2026-11-24-long-cards.md)；产品冲突身份后缀、背景末格填齐、通用程序标签为明确适配。session_title.go 仅增加内部尾符参数保留既有其他标签策略，路径标签修正不迁入源码品牌／agent 状态或新依赖。

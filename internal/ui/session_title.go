@@ -11,12 +11,16 @@ import (
 // Names remain presentation data. When their visible forms collide, reserve
 // room for a distinguishing Session ID prefix; controls still bind full IDs.
 func (m *Model) sessionTitle(v session.Session, peers []session.Session, width int) string {
+	return m.sessionTitleWithTail(v, peers, width, m.tokens.marks.ellipsis)
+}
+
+func (m *Model) sessionTitleWithTail(v session.Session, peers []session.Session, width int, tail string) string {
 	width = max(0, width)
 	name := sessionName(v)
-	short := cellTruncate(name, width, m.tokens.marks.ellipsis)
+	short := cellTruncate(name, width, tail)
 	collision := false
 	for _, p := range peers {
-		if p.ID != v.ID && cellTruncate(sessionName(p), width, m.tokens.marks.ellipsis) == short {
+		if p.ID != v.ID && cellTruncate(sessionName(p), width, tail) == short {
 			collision = true
 			break
 		}
@@ -43,7 +47,7 @@ func (m *Model) sessionTitle(v session.Session, peers []session.Session, width i
 	if suffixWidth >= width {
 		return ansi.Cut(suffix, max(0, suffixWidth-width), suffixWidth)
 	}
-	return cellTruncate(name, width-suffixWidth, m.tokens.marks.ellipsis) + suffix
+	return cellTruncate(name, width-suffixWidth, tail) + suffix
 }
 
 func sessionName(v session.Session) string {

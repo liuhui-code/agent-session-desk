@@ -1,0 +1,84 @@
+{
+  "scope": "inert text crop/wrap with product prefixes, ANSI stripped and explicit final-cell padding; not original full-frame/RGB equivalence",
+  "cases": [
+    {
+      "name": "ascii-crop",
+      "title_before": false,
+      "title_after": true,
+      "metadata_before": true,
+      "metadata_after": true,
+      "source_final_pad_cells": 0,
+      "all_widths_exact": true
+    },
+    {
+      "name": "ascii-active",
+      "title_before": false,
+      "title_after": true,
+      "metadata_before": true,
+      "metadata_after": true,
+      "source_final_pad_cells": 0,
+      "all_widths_exact": true
+    },
+    {
+      "name": "cjk-gap",
+      "title_before": false,
+      "title_after": true,
+      "metadata_before": true,
+      "metadata_after": true,
+      "source_final_pad_cells": 1,
+      "all_widths_exact": true
+    },
+    {
+      "name": "combining",
+      "title_before": false,
+      "title_after": true,
+      "metadata_before": true,
+      "metadata_after": true,
+      "source_final_pad_cells": 0,
+      "all_widths_exact": true
+    },
+    {
+      "name": "keycaps-selected",
+      "title_before": false,
+      "title_after": true,
+      "metadata_before": false,
+      "metadata_after": true,
+      "source_final_pad_cells": 0,
+      "all_widths_exact": true
+    },
+    {
+      "name": "keycaps-plain",
+      "title_before": false,
+      "title_after": true,
+      "metadata_before": false,
+      "metadata_after": true,
+      "source_final_pad_cells": 1,
+      "all_widths_exact": true
+    },
+    {
+      "name": "zwj",
+      "title_before": true,
+      "title_after": true,
+      "metadata_before": true,
+      "metadata_after": true,
+      "source_final_pad_cells": 0,
+      "all_widths_exact": true
+    },
+    {
+      "name": "deep-level",
+      "title_before": false,
+      "title_after": true,
+      "metadata_before": true,
+      "metadata_after": true,
+      "source_final_pad_cells": 0,
+      "all_widths_exact": true
+    }
+  ],
+  "summary": {
+    "title_before": 1,
+    "title_after": 8,
+    "metadata_before": 6,
+    "metadata_after": 8,
+    "all_widths_exact": 8
+  }
+}

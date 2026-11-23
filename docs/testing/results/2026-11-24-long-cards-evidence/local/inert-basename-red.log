@@ -1,0 +1,5 @@
+--- FAIL: TestExecutableDisplaySanitizesEscapesBeforeFindingTheBasename (0.00s)
+    workspace_long_cards_test.go:159: control sequence changed executable label: "  ▶ One                                   \n    ╰ 可连接 · false.exe                  "
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.845s
+FAIL

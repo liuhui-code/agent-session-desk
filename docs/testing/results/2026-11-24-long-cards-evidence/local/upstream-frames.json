@@ -1,0 +1,164 @@
+[
+  {
+    "crop": "  ▶ abcdefghijklmnopqrstuvwx",
+    "crop_padded_for_product_surface": "  ▶ abcdefghijklmnopqrstuvwx",
+    "crop_width": 28,
+    "metadata_component_rows": [],
+    "metadata_lines": null,
+    "metadata_rows_padded": [],
+    "metadata_width": 22,
+    "name": "ascii-crop",
+    "normalization": "crop uses product prefix, without source agent status/tool glyph; product pads any final unused cell",
+    "source_component": "\u001b[38;2;192;202;245;48;2;36;40;59m  ▶ ○ 🐚 abcdefghijklmnopqrs\u001b[0m\n",
+    "source_component_width": 28,
+    "width": 28
+  },
+  {
+    "crop": "┃ abcdefghijklmnopqrstuvwxy",
+    "crop_padded_for_product_surface": "┃ abcdefghijklmnopqrstuvwxy",
+    "crop_width": 27,
+    "metadata_component_rows": [],
+    "metadata_lines": null,
+    "metadata_rows_padded": [],
+    "metadata_width": 23,
+    "name": "ascii-active",
+    "normalization": "crop uses product prefix, without source agent status/tool glyph; product pads any final unused cell",
+    "source_component": "\u001b[38;2;192;202;245;48;2;36;40;59m┃ ○ 🐚 abcdefghijklmnopqrst\u001b[0m\n",
+    "source_component_width": 27,
+    "width": 27
+  },
+  {
+    "crop": "    ▶ 中文任务中文任务中文任",
+    "crop_padded_for_product_surface": "    ▶ 中文任务中文任务中文任 ",
+    "crop_width": 28,
+    "metadata_component_rows": [
+      "\u001b[38;2;120;127;160;48;2;36;40;59m      ╰ 可连接 · 工作程序.exe\u001b[0m"
+    ],
+    "metadata_lines": [
+      "可连接 · 工作程序.exe"
+    ],
+    "metadata_rows_padded": [
+      "      ╰ 可连接 · 工作程序.exe"
+    ],
+    "metadata_width": 21,
+    "name": "cjk-gap",
+    "normalization": "crop uses product prefix, without source agent status/tool glyph; product pads any final unused cell",
+    "source_component": "\u001b[38;2;192;202;245;48;2;36;40;59m    ▶ ○ 中文任务中文任务中文\u001b[0m\n\u001b[38;2;120;127;160;48;2;36;40;59m      ╰ idle · shell         \u001b[0m\n",
+    "source_component_width": 28,
+    "width": 29
+  },
+  {
+    "crop": "    ┃ éééééééééééééééééééééééééééééééééééé",
+    "crop_padded_for_product_surface": "    ┃ éééééééééééééééééééééééééééééééééééé",
+    "crop_width": 42,
+    "metadata_component_rows": [
+      "\u001b[38;2;120;127;160;48;2;36;40;59m      │ 可连接 · long-long-long-long-     \u001b[0m",
+      "\u001b[38;2;120;127;160;48;2;36;40;59m      ╰ program.exe                       \u001b[0m"
+    ],
+    "metadata_lines": [
+      "可连接 · long-long-long-long-",
+      "program.exe"
+    ],
+    "metadata_rows_padded": [
+      "      │ 可连接 · long-long-long-long-     ",
+      "      ╰ program.exe                       "
+    ],
+    "metadata_width": 34,
+    "name": "combining",
+    "normalization": "crop uses product prefix, without source agent status/tool glyph; product pads any final unused cell",
+    "source_component": "\u001b[38;2;192;202;245;48;2;36;40;59m    ┃ ○ éééééééééééééééééééééééééééééééééé\u001b[0m\n\u001b[38;2;120;127;160;48;2;36;40;59m      │ idle · shell                      \u001b[0m\n\u001b[38;2;120;127;160;48;2;36;40;59m      ╰                                   \u001b[0m\n",
+    "source_component_width": 42,
+    "width": 42
+  },
+  {
+    "crop": "    ▶ 1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣",
+    "crop_padded_for_product_surface": "    ▶ 1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣",
+    "crop_width": 28,
+    "metadata_component_rows": [
+      "\u001b[38;2;120;127;160;48;2;36;40;59m      │ 可连接 ·            \u001b[0m",
+      "\u001b[38;2;120;127;160;48;2;36;40;59m      ╰ 1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣\u001b[0m"
+    ],
+    "metadata_lines": [
+      "可连接 ·",
+      "1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣.exe"
+    ],
+    "metadata_rows_padded": [
+      "      │ 可连接 ·            ",
+      "      ╰ 1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣"
+    ],
+    "metadata_width": 20,
+    "name": "keycaps-selected",
+    "normalization": "crop uses product prefix, without source agent status/tool glyph; product pads any final unused cell",
+    "source_component": "\u001b[38;2;192;202;245;48;2;36;40;59m    ▶ ○ 1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣\u001b[0m\n\u001b[38;2;120;127;160;48;2;36;40;59m      │ idle · shell        \u001b[0m\n\u001b[38;2;120;127;160;48;2;36;40;59m      ╰                     \u001b[0m\n",
+    "source_component_width": 28,
+    "width": 28
+  },
+  {
+    "crop": "      1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣",
+    "crop_padded_for_product_surface": "      1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣ ",
+    "crop_width": 28,
+    "metadata_component_rows": [
+      "\u001b[38;2;120;127;160m      │ 可连接 ·             \u001b[0m",
+      "\u001b[38;2;120;127;160m      ╰ 1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣\u001b[0m"
+    ],
+    "metadata_lines": [
+      "可连接 ·",
+      "1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣.exe"
+    ],
+    "metadata_rows_padded": [
+      "      │ 可连接 ·             ",
+      "      ╰ 1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣ "
+    ],
+    "metadata_width": 21,
+    "name": "keycaps-plain",
+    "normalization": "crop uses product prefix, without source agent status/tool glyph; product pads any final unused cell",
+    "source_component": "\u001b[38;2;192;202;245m      \u001b[38;2;120;127;160m○\u001b[0m \u001b[38;2;192;202;245m1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣\u001b[0m\u001b[0m\n\u001b[38;2;120;127;160m      │ idle · shell         \u001b[0m\n\u001b[38;2;120;127;160m      ╰                      \u001b[0m\n",
+    "source_component_width": 28,
+    "width": 29
+  },
+  {
+    "crop": "┃ 👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻  ",
+    "crop_padded_for_product_surface": "┃ 👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻  ",
+    "crop_width": 42,
+    "metadata_component_rows": [
+      "\u001b[38;2;120;127;160;48;2;36;40;59m  │ 可连接 · zwj-program.exe              \u001b[0m",
+      "\u001b[38;2;120;127;160;48;2;36;40;59m  ╰                                       \u001b[0m"
+    ],
+    "metadata_lines": [
+      "可连接 · zwj-program.exe"
+    ],
+    "metadata_rows_padded": [
+      "  │ 可连接 · zwj-program.exe              ",
+      "  ╰                                       "
+    ],
+    "metadata_width": 38,
+    "name": "zwj",
+    "normalization": "crop uses product prefix, without source agent status/tool glyph; product pads any final unused cell",
+    "source_component": "\u001b[38;2;192;202;245;48;2;36;40;59m┃ ○ 👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻\u001b[0m\n\u001b[38;2;120;127;160;48;2;36;40;59m  │ idle · shell                          \u001b[0m\n\u001b[38;2;120;127;160;48;2;36;40;59m  ╰                                       \u001b[0m\n",
+    "source_component_width": 42,
+    "width": 42
+  },
+  {
+    "crop": "                ▶ long neste",
+    "crop_padded_for_product_surface": "                ▶ long neste",
+    "crop_width": 28,
+    "metadata_component_rows": [
+      "\u001b[38;2;120;127;160;48;2;36;40;59m                  │ 可连接 ·\u001b[0m",
+      "\u001b[38;2;120;127;160;48;2;36;40;59m                  ╰ nested-…\u001b[0m"
+    ],
+    "metadata_lines": [
+      "可连接 ·",
+      "nested-…"
+    ],
+    "metadata_rows_padded": [
+      "                  │ 可连接 ·",
+      "                  ╰ nested-…"
+    ],
+    "metadata_width": 8,
+    "name": "deep-level",
+    "normalization": "crop uses product prefix, without source agent status/tool glyph; product pads any final unused cell",
+    "source_component": "\u001b[38;2;192;202;245;48;2;36;40;59m                ▶ ○ long nes\u001b[0m\n\u001b[38;2;120;127;160;48;2;36;40;59m                  │ idle ·  \u001b[0m\n\u001b[38;2;120;127;160;48;2;36;40;59m                  ╰ shell   \u001b[0m\n",
+    "source_component_width": 28,
+    "width": 28
+  }
+]

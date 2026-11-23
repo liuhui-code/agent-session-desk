@@ -90,9 +90,11 @@ func (m *Model) workspaceSidebarCard(index, width, rowLines, level int) []string
 	// Adding it after Render leaves holes in selected/active nested rows.
 	gutter += strings.Repeat(" ", max(0, level-1)*m.tokens.sidebar.indentWidth)
 	prefix = gutter + prefix
-	title := m.sessionTitle(s, m.sessions, max(0, width-lipgloss.Width(prefix)))
+	// The pinned card crops its first line without a tail; metadata wrapping
+	// owns its separate ellipsis. Keep product collision identity suffixes.
+	title := m.sessionTitleWithTail(s, m.sessions, max(0, width-lipgloss.Width(prefix)), "")
 	fit := func(text string) string {
-		text = cellTruncate(text, width, m.tokens.marks.ellipsis)
+		text = cellTruncate(text, width, "")
 		return text + strings.Repeat(" ", max(0, width-lipgloss.Width(text)))
 	}
 	titleStyle, metadataStyle := m.styles.text, m.styles.dim
@@ -106,11 +108,15 @@ func (m *Model) workspaceSidebarCard(index, width, rowLines, level int) []string
 			state = session.TerminalUnknown
 		}
 		metadata := terminalLabel(state)
-		if command := label(s.Command); command != "" {
+		if command := plainText(s.Command); command != "" {
 			// Display the executable name, not a machine-specific launch path.
 			// Both separators are recognized for cross-platform metadata views.
-			command = command[strings.LastIndexAny(command, `/\`)+1:]
-			metadata += m.tokens.sidebar.separator + command
+			// Strip controls before splitting, then bound just the basename so
+			// a long directory or an OSC URI cannot become the program label.
+			command = label(command[strings.LastIndexAny(command, `/\`)+1:])
+			if command != "" {
+				metadata += m.tokens.sidebar.separator + command
+			}
 		}
 		count := rowLines - 1
 		metadataWidth := max(1, width-lipgloss.Width(gutter+m.tokens.sidebar.metadata))

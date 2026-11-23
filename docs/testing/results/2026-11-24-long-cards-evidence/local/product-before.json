@@ -1,0 +1,128 @@
+[
+  {
+    "content": "\u001b[38;2;192;202;245;48;2;36;40;59m  ▶ abcdefghijklmnopqrstuvw…\u001b[m",
+    "line_widths": [
+      28
+    ],
+    "mode": "selected",
+    "name": "ascii-crop",
+    "plain": [
+      "  ▶ abcdefghijklmnopqrstuvw…"
+    ],
+    "rows": 1,
+    "width": 28
+  },
+  {
+    "content": "\u001b[38;2;192;202;245;48;2;36;40;59m┃ abcdefghijklmnopqrstuvwx…\u001b[m",
+    "line_widths": [
+      27
+    ],
+    "mode": "active",
+    "name": "ascii-active",
+    "plain": [
+      "┃ abcdefghijklmnopqrstuvwx…"
+    ],
+    "rows": 1,
+    "width": 27
+  },
+  {
+    "content": "\u001b[38;2;192;202;245;48;2;36;40;59m    ▶ 中文任务中文任务中文任…\u001b[m\n\u001b[38;2;120;127;160;48;2;36;40;59m      ╰ 可连接 · 工作程序.exe\u001b[m",
+    "line_widths": [
+      29,
+      29
+    ],
+    "mode": "selected",
+    "name": "cjk-gap",
+    "plain": [
+      "    ▶ 中文任务中文任务中文任…",
+      "      ╰ 可连接 · 工作程序.exe"
+    ],
+    "rows": 2,
+    "width": 29
+  },
+  {
+    "content": "\u001b[38;2;192;202;245;48;2;36;40;59m    ┃ ééééééééééééééééééééééééééééééééééé…\u001b[m\n\u001b[38;2;120;127;160;48;2;36;40;59m      │ 可连接 · long-long-long-long-     \u001b[m\n\u001b[38;2;120;127;160;48;2;36;40;59m      ╰ program.exe                       \u001b[m",
+    "line_widths": [
+      42,
+      42,
+      42
+    ],
+    "mode": "active",
+    "name": "combining",
+    "plain": [
+      "    ┃ ééééééééééééééééééééééééééééééééééé…",
+      "      │ 可连接 · long-long-long-long-     ",
+      "      ╰ program.exe                       "
+    ],
+    "rows": 3,
+    "width": 42
+  },
+  {
+    "content": "\u001b[38;2;192;202;245;48;2;36;40;59m    ▶ 1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣… \u001b[m\n\u001b[38;2;120;127;160;48;2;36;40;59m      │ 可连接 ·            \u001b[m\n\u001b[38;2;120;127;160;48;2;36;40;59m      ╰ 1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣… \u001b[m",
+    "line_widths": [
+      28,
+      28,
+      28
+    ],
+    "mode": "selected",
+    "name": "keycaps-selected",
+    "plain": [
+      "    ▶ 1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣… ",
+      "      │ 可连接 ·            ",
+      "      ╰ 1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣… "
+    ],
+    "rows": 3,
+    "width": 28
+  },
+  {
+    "content": "\u001b[38;2;192;202;245m      1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣…\u001b[m\n\u001b[38;2;120;127;160m      │ 可连接 ·             \u001b[m\n\u001b[38;2;120;127;160m      ╰ 1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣…\u001b[m",
+    "line_widths": [
+      29,
+      29,
+      29
+    ],
+    "mode": "plain",
+    "name": "keycaps-plain",
+    "plain": [
+      "      1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣…",
+      "      │ 可连接 ·             ",
+      "      ╰ 1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣…"
+    ],
+    "rows": 3,
+    "width": 29
+  },
+  {
+    "content": "\u001b[38;2;192;202;245;48;2;36;40;59m┃ 👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻  \u001b[m\n\u001b[38;2;120;127;160;48;2;36;40;59m  │ 可连接 · zwj-program.exe              \u001b[m\n\u001b[38;2;120;127;160;48;2;36;40;59m  ╰                                       \u001b[m",
+    "line_widths": [
+      42,
+      42,
+      42
+    ],
+    "mode": "active",
+    "name": "zwj",
+    "plain": [
+      "┃ 👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻👩‍💻  ",
+      "  │ 可连接 · zwj-program.exe              ",
+      "  ╰                                       "
+    ],
+    "rows": 3,
+    "width": 42
+  },
+  {
+    "content": "\u001b[38;2;192;202;245;48;2;36;40;59m                ▶ long nest…\u001b[m\n\u001b[38;2;120;127;160;48;2;36;40;59m                  │ 可连接 ·\u001b[m\n\u001b[38;2;120;127;160;48;2;36;40;59m                  ╰ nested-…\u001b[m",
+    "line_widths": [
+      28,
+      28,
+      28
+    ],
+    "mode": "selected",
+    "name": "deep-level",
+    "plain": [
+      "                ▶ long nest…",
+      "                  │ 可连接 ·",
+      "                  ╰ nested-…"
+    ],
+    "rows": 3,
+    "width": 28
+  }
+]

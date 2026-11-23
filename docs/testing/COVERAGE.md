@@ -304,7 +304,7 @@
 | [ADR-0013](../adr/0013-bounded-screen-output-records.md) | 0 |
 | [ADR-0014](../adr/0014-upstream-ui-tabs-and-general-terminals.md) | 16 |
 | [ADR-0015](../adr/0015-pinned-psmux-native-terminal-client.md) | 4 |
-| [ADR-0016](../adr/0016-tab-workspaces-and-input-ownership.md) | 9 |
+| [ADR-0016](../adr/0016-tab-workspaces-and-input-ownership.md) | 11 |
 | [ADR-0017](../adr/0017-sidebar-density-preferences.md) | 6 |
 | [ADR-0018](../adr/0018-native-copy-search-and-host-clipboard.md) | 2 |
 | [ADR-0019](../adr/0019-explicit-windows-terminal-bundle.md) | 3 |

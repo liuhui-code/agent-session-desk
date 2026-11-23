@@ -8,6 +8,8 @@
 
 管理焦点用 `Shift/Ctrl+↑↓`、`K/J` 或 `+/-` 调整并保存所选会话的同组顺序，组标题仍调整同级组，默认组固定首位；终端焦点的同名键仍交给原程序。详见[组排序验证](docs/testing/results/2026-11-23-group-order.md)及[会话排序验证](docs/testing/results/2026-11-24-session-order.md)。
 
+侧栏长标题按固定上游列裁切，元信息独立换行；程序标签从完整路径中提取实际文件名，同名／裁切后重名仍保留身份提示。长 Unicode、高亮和缩放点击的[局部验证](docs/testing/results/2026-11-24-long-cards.md)不代替完整桌面接受。
+
 管理焦点 `<`／`>` 调整并保存侧栏比例，拖动结束时保存最后位置；`=` 保存自动比例，随管理／终端焦点恢复 35%／18%。独立 `ui.toml v4` 保留手动比例，v1–v3 只读加载后在显式修改时升级；保存失败恢复最后有效选择并显示错误，退出等待已接受保存。详见[比例保存验证](docs/testing/results/2026-11-24-split-preferences.md)。
 
 管理焦点选中会话按 `d` 打开停止确认，默认取消；明确确认前重新核对原 Session／Run 和名称。停止会终止该终端及程序，保留 Tab 视图、名称、分组和历史；`x` 仅关闭视图。详见[停止合同](docs/adr/0026-explicit-session-stop.md)与[局部验证](docs/testing/results/2026-11-24-session-stop.md)。

@@ -219,10 +219,11 @@
       "license": "MIT",
       "parts": [
         "full/compact/minimal/auto cards, 28-column fallback, bounded wrapped metadata, active/selected markers, surface highlight and shared row-height measurement",
-        "full-sidebar hotkey gutter; compact sidebar omits it"
+        "full-sidebar hotkey gutter; compact sidebar omits it",
+        "2026-11-24: fitCellWidth empty-tail title crop and independent metadata final-line truncation"
       ],
       "mode": "selectively_adapted",
-      "modifications": "Flat local Session/Run cards; observed terminal availability and executable basename only. Auto reads only current item count and geometry. No inferred agent status or branding. ADR-0022 restores only implicit default-group navigation; custom group metadata is not migrated. Nested product-group indentation is now inside each highlighted card row, preserving the source full surface through title/metadata; no new upstream group data model."
+      "modifications": "Flat local Session/Run cards; observed terminal availability and executable basename only. Auto reads only current item count and geometry. No inferred agent status or branding. ADR-0022 restores only implicit default-group navigation; custom group metadata is not migrated. Nested product-group indentation is now inside each highlighted card row, preserving the source full surface through title/metadata; no new upstream group data model. Long cards retain complete product surface padding, collision identity suffixes and bounded inert executable basename projection; source/product text normalization is explicit, not full-frame or RGB equivalence."
     },
     {
       "project": "agent-deck",
