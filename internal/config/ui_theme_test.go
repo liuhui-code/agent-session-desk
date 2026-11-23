@@ -33,7 +33,7 @@ func TestUIThemeV5LoadsAndRoundTripsWithoutLosingOtherPreferences(t *testing.T) 
 		t.Fatalf("theme/settings roundtrip: %+v %v", after, e)
 	}
 	b, e := os.ReadFile(p)
-	if e != nil || !strings.Contains(string(b), `theme = "light"`) || !strings.Contains(string(b), "schema_version = 6") {
+	if e != nil || !strings.Contains(string(b), `theme = "light"`) || !strings.Contains(string(b), "schema_version = 7") {
 		t.Fatal("save lost theme")
 	}
 }
@@ -59,7 +59,7 @@ func TestUIThemeLegacyLoadsReadOnlyAndUpgradesOnlyOnExplicitSave(t *testing.T) {
 				t.Fatal(e)
 			}
 			b, e = os.ReadFile(p)
-			if e != nil || !strings.Contains(string(b), "schema_version = 6") || !strings.Contains(string(b), `theme = "light"`) {
+			if e != nil || !strings.Contains(string(b), "schema_version = 7") || !strings.Contains(string(b), `theme = "light"`) {
 				t.Fatal("explicit save did not upgrade theme")
 			}
 		})
@@ -67,7 +67,7 @@ func TestUIThemeLegacyLoadsReadOnlyAndUpgradesOnlyOnExplicitSave(t *testing.T) {
 }
 
 func TestUIThemeRejectsInvalidFilesWithoutReplacingOrExposingContent(t *testing.T) {
-	for _, text := range []string{"schema_version=1\ntheme='light'", "schema_version=2\ntheme='light'", "schema_version=3\ntheme='light'", "schema_version=4\ntheme='light'", "schema_version=7\ntheme='light'", "schema_version=5\ntheme=''", "schema_version=5\ntheme='system'", "schema_version=5\ntheme='LIGHT'", "schema_version=5\ntheme=true", "schema_version=5\ntheme=['light']", "schema_version=5\ntheme='PRIVATE-SYNTHETIC'"} {
+	for _, text := range []string{"schema_version=1\ntheme='light'", "schema_version=2\ntheme='light'", "schema_version=3\ntheme='light'", "schema_version=4\ntheme='light'", "schema_version=8\ntheme='light'", "schema_version=5\ntheme=''", "schema_version=5\ntheme='system'", "schema_version=5\ntheme='LIGHT'", "schema_version=5\ntheme=true", "schema_version=5\ntheme=['light']", "schema_version=5\ntheme='PRIVATE-SYNTHETIC'"} {
 		t.Run(text, func(t *testing.T) {
 			p := filepath.Join(t.TempDir(), "ui.toml")
 			if e := os.WriteFile(p, []byte(text), 0600); e != nil {

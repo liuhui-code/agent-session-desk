@@ -14,6 +14,7 @@ import (
 const maxUIPreferenceBytes = 16 * 1024 // Defensive bound for UI preferences, not a resource budget.
 
 type UISettings struct {
+	Footer                string `toml:"footer"`
 	Theme                 string `toml:"theme"`
 	SidebarPercent        int    `toml:"sidebar_percent"`
 	SidebarDensity        string `toml:"sidebar_density"`
@@ -74,7 +75,7 @@ func LoadUI(path string) (UISettings, error) {
 	if err != nil {
 		return defaults, fmt.Errorf("界面设置 TOML 或字段类型无效")
 	}
-	if (doc.Version < 1 || doc.Version > 6) || len(meta.Undecoded()) != 0 {
+	if (doc.Version < 1 || doc.Version > 7) || len(meta.Undecoded()) != 0 {
 		return defaults, fmt.Errorf("界面设置版本或字段不受支持")
 	}
 	for _, key := range meta.Keys() {
@@ -91,6 +92,9 @@ func LoadUI(path string) (UISettings, error) {
 		if doc.Version >= 5 && len(key) == 1 && key[0] == "theme" {
 			allowed = true
 		}
+		if doc.Version >= 7 && len(key) == 1 && key[0] == "footer" {
+			allowed = true
+		}
 		if !allowed {
 			return defaults, fmt.Errorf("界面设置版本或字段不受支持")
 		}
@@ -102,6 +106,9 @@ func LoadUI(path string) (UISettings, error) {
 		return defaults, fmt.Errorf("界面主题或对应版本不受支持")
 	}
 	doc.SidebarDensity = NormalizeSidebarDensity(doc.SidebarDensity)
+	if doc.Footer != "" {
+		doc.Footer = NormalizeFooter(doc.Footer)
+	}
 	doc.SidebarMode = NormalizeSidebarMode(doc.SidebarMode)
 	doc.CollapsedGroups, err = normalizeGroupFolds(doc.CollapsedGroups)
 	if err != nil {
@@ -154,11 +161,16 @@ func SaveUI(path string, settings UISettings) error {
 	if err = temp.Chmod(0600); err != nil {
 		return err
 	}
-	if _, err = fmt.Fprintf(temp, "schema_version = 6\nsidebar_density = %q\nsidebar_mode = %q\ndefault_group_collapsed = %t\ncollapsed_groups = %q\nsidebar_percent = %d\n", normalized, mode, settings.DefaultGroupCollapsed, folds, settings.SidebarPercent); err != nil {
+	if _, err = fmt.Fprintf(temp, "schema_version = 7\nsidebar_density = %q\nsidebar_mode = %q\ndefault_group_collapsed = %t\ncollapsed_groups = %q\nsidebar_percent = %d\n", normalized, mode, settings.DefaultGroupCollapsed, folds, settings.SidebarPercent); err != nil {
 		return err
 	}
 	if settings.Theme != "" {
 		if _, err = fmt.Fprintf(temp, "theme = %q\n", settings.Theme); err != nil {
+			return err
+		}
+	}
+	if settings.Footer != "" {
+		if _, err = fmt.Fprintf(temp, "footer = %q\n", NormalizeFooter(settings.Footer)); err != nil {
 			return err
 		}
 	}

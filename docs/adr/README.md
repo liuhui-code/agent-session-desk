@@ -61,3 +61,4 @@ ADR-0014 依据用户 2026-11-22 的明确要求接受，部分替代 0001/0002 
 5. 发布兼容性和完成状态必须指向实际代码、测试、构建或发布证据，不能用 ADR 的 Accepted 状态代替。
 6. 所有决定保留在版本历史中。许可证、平台能力和资源开销按具体采用版本核查。
 | [0033](0033-observed-system-ui-theme.md) | System 主题、ui.toml v6 及单阶段只读观察 | 已接受 | [本地生命周期／配置](../testing/results/2026-11-24-system-theme.md)；Windows 通知／清理、桌面视觉与完整接受开放 |
+| [0034](0034-configured-footer-modes.md) | 页脚四模式、通用提示及 ui.toml v7 | 已接受 | [本地及来源对照](../testing/results/2026-11-24-footer-modes.md)；精确 RGB 差异、Windows 与完整体验仍开放 |

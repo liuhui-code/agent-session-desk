@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "date": "2026-11-24",
-  "scope": "Selective UI/platform migration through ADR-0033; full upstream experience and release acceptance remain open.",
+  "scope": "Selective UI/platform migration through ADR-0034; full upstream experience and release acceptance remain open.",
   "original_project_license": "pending O-010",
   "source_files": [
     {
@@ -878,6 +878,34 @@
       ],
       "mode": "selectively_adapted",
       "modifications": "ADR-0033: strict terminal declaration takes sustained priority. Windows adaptation uses fixed DWORD reads, thread-agnostic registration, latest-only observations and callback join before handle teardown. No new dependency."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/session/userconfig.go",
+      "source_sha256": "e0755ee9e49e80ced9727034ff6161de413059f9ea4445e79fd2ff2eccb3b1dc",
+      "destination_file": "internal/config/ui_footer.go",
+      "license": "MIT",
+      "parts": [
+        "Footer constants and GetFooter normalization"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "ADR-0034: localized supported product actions, token-only style/fitting, UI preference v7 and explicit terminal-focus ownership. No provider restart/fork/status business migration."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/home_view_frame.go",
+      "source_sha256": "e06fd64336964e6855695bc4190f540a503b483fa796fd8d20b7b07adf9bc6c4",
+      "destination_file": "internal/ui/workspace_footer_curated.go",
+      "license": "MIT",
+      "parts": [
+        "curatedHint, fitCuratedHints, maxCuratedContextHints and renderHelpBar routing/formatting intent"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "ADR-0034: localized supported product actions, token-only style/fitting, UI preference v7 and explicit terminal-focus ownership. No provider restart/fork/status business migration."
     }
   ],
   "preserved_notices": [

@@ -16,6 +16,7 @@ import (
 )
 
 type styles struct {
+	footerCuratedKey                                                                                                          lipgloss.Style
 	settingsSection, settingsFocusMarker, settingsChoiceIdle, settingsRadioIdle                                               lipgloss.Style
 	footerContext, footerKey, footerFullKey, footerDescription, footerSeparator, footerBadge, footerCompactBadge              lipgloss.Style
 	helpBox, helpTitle, helpSection, helpKey, helpText, helpHint, helpNote, helpTab, helpScroll                               lipgloss.Style
@@ -42,6 +43,7 @@ type styles struct {
 
 func newStyles(t designTokens) styles {
 	return styles{
+		footerCuratedKey:        lipgloss.NewStyle().Foreground(t.colors.dim).Bold(t.bold),
 		footerContext:           lipgloss.NewStyle().Foreground(t.footer.contextColor).Bold(t.bold),
 		footerKey:               lipgloss.NewStyle().Foreground(t.colors.bg).Background(t.colors.accent).Bold(t.bold),
 		footerFullKey:           lipgloss.NewStyle().Foreground(t.colors.bg).Background(t.colors.accent).Bold(t.bold).PaddingLeft(t.footer.fullKeyPadding).PaddingRight(t.footer.fullKeyPadding),

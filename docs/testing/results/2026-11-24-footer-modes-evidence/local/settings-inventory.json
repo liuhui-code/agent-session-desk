@@ -1,0 +1,202 @@
+[
+  {
+    "source": "SettingTheme",
+    "state": "局部实现",
+    "mapping": "Dark／Light／System；Windows 视觉、通知／清理未验。"
+  },
+  {
+    "source": "SettingDefaultTool",
+    "state": "通用配置适配",
+    "mapping": "用自定义 executable／args／cwd 和只读启动模板；不引入品牌工具选择。"
+  },
+  {
+    "source": "SettingDangerousMode",
+    "state": "品牌策略不迁入",
+    "mapping": "沿用户命令行参数；不创建来源品牌的审批绕过设置。"
+  },
+  {
+    "source": "SettingClaudeConfigDir",
+    "state": "品牌账户不迁入",
+    "mapping": "通用 cwd／env 配置不等于该品牌配置目录管理。"
+  },
+  {
+    "source": "SettingClaudeDefaultAccount",
+    "state": "品牌账户不迁入",
+    "mapping": "当前无账户服务。"
+  },
+  {
+    "source": "SettingGeminiYoloMode",
+    "state": "品牌策略不迁入",
+    "mapping": "由明确用户命令行参数决定。"
+  },
+  {
+    "source": "SettingCodexYoloMode",
+    "state": "品牌策略不迁入",
+    "mapping": "由明确用户命令行参数决定。"
+  },
+  {
+    "source": "SettingHermesYoloMode",
+    "state": "品牌策略不迁入",
+    "mapping": "由明确用户命令行参数决定。"
+  },
+  {
+    "source": "SettingCheckForUpdates",
+    "state": "未接入",
+    "mapping": "分发／升级策略属发布门槛，不显示无效开关。"
+  },
+  {
+    "source": "SettingAutoUpdate",
+    "state": "未接入",
+    "mapping": "产品发布和原生升级尚未验收。"
+  },
+  {
+    "source": "SettingAutoInstall",
+    "state": "未接入",
+    "mapping": "不因 UI 还原自动安装来源工具。"
+  },
+  {
+    "source": "SettingAutoRestart",
+    "state": "未接入",
+    "mapping": "不得把未知 Run 状态或不确定执行自动重放。"
+  },
+  {
+    "source": "SettingLogMaxSize",
+    "state": "存储合同适配",
+    "mapping": "采用有界屏幕记录；不是来源连续输出日志。"
+  },
+  {
+    "source": "SettingLogMaxLines",
+    "state": "存储合同适配",
+    "mapping": "现有文件字节数／保留数量合同；来源行数设置未迁入。"
+  },
+  {
+    "source": "SettingRemoveOrphans",
+    "state": "未接入",
+    "mapping": "进程归属核对和清理必须遵守产品后端边界。"
+  },
+  {
+    "source": "SettingGlobalSearchEnabled",
+    "state": "来源业务不迁入",
+    "mapping": "来源全局 Recall 检索不等于当前会话名称搜索。"
+  },
+  {
+    "source": "SettingSearchTier",
+    "state": "来源业务不迁入",
+    "mapping": "无品牌会话转录搜索层级。"
+  },
+  {
+    "source": "SettingRecentDays",
+    "state": "来源业务不迁入",
+    "mapping": "当前历史限最近 100 条，不假称完整历史日期查询。"
+  },
+  {
+    "source": "SettingShowOutput",
+    "state": "待续核对",
+    "mapping": "Tab 内原生输入／显示为主工作区，不能由来源预览开关隐藏；辅助预览开关尚未接入。"
+  },
+  {
+    "source": "SettingShowAnalytics",
+    "state": "来源业务不迁入",
+    "mapping": "当前不采集品牌 analytics。"
+  },
+  {
+    "source": "SettingShowNotes",
+    "state": "来源业务不迁入",
+    "mapping": "当前无来源 notes 子系统。"
+  },
+  {
+    "source": "SettingNotesOutputSplit",
+    "state": "来源业务不迁入",
+    "mapping": "无 notes／output 双面板，不能用无效比例凑界面。"
+  },
+  {
+    "source": "SettingMaintenanceEnabled",
+    "state": "未接入",
+    "mapping": "只实现已验证的有界轮换／离线恢复，不移入来源自动维护。"
+  },
+  {
+    "source": "SettingStatsEnabled",
+    "state": "未接入",
+    "mapping": "尚无产品运行时系统监测面板；资源预算另验，不新增无关后台采样。"
+  },
+  {
+    "source": "SettingStatsRefresh",
+    "state": "未接入",
+    "mapping": "依赖系统监测能力与资源预算。"
+  },
+  {
+    "source": "SettingStatsFormat",
+    "state": "未接入",
+    "mapping": "依赖系统监测能力。"
+  },
+  {
+    "source": "SettingStatsShowCPU",
+    "state": "未接入",
+    "mapping": "依赖系统监测能力。"
+  },
+  {
+    "source": "SettingStatsShowRAM",
+    "state": "未接入",
+    "mapping": "依赖系统监测能力。"
+  },
+  {
+    "source": "SettingStatsShowDisk",
+    "state": "未接入",
+    "mapping": "依赖系统监测能力。"
+  },
+  {
+    "source": "SettingStatsShowNetwork",
+    "state": "未接入",
+    "mapping": "依赖系统监测能力。"
+  },
+  {
+    "source": "SettingStatsShowGPU",
+    "state": "未接入",
+    "mapping": "依赖系统监测能力。"
+  },
+  {
+    "source": "SettingStatsShowLoad",
+    "state": "未接入",
+    "mapping": "依赖系统监测能力，平台含义另证。"
+  },
+  {
+    "source": "SettingSyncTitle",
+    "state": "待续核对",
+    "mapping": "终端宿主标题同步未接入；不能将用户显示名与 pane 标题合并身份。"
+  },
+  {
+    "source": "SettingShowSessionTimestamps",
+    "state": "待续核对",
+    "mapping": "当前不提供来源时间戳显示开关；只能展示有真实来源的时间。"
+  },
+  {
+    "source": "SettingShowPaneTitles",
+    "state": "待续核对",
+    "mapping": "当前 Tab 使用产品稳定显示名；pane 标题开关未接入。"
+  },
+  {
+    "source": "SettingShowOnlyInstalledTools",
+    "state": "品牌工具不迁入",
+    "mapping": "不扫描品牌工具目录；自定义 CLI 配置继续可用。"
+  },
+  {
+    "source": "SettingVisibleTools",
+    "state": "品牌工具不迁入",
+    "mapping": "通用终端新建不依赖品牌工具清单。"
+  },
+  {
+    "source": "SettingEmbeddedTerminal",
+    "state": "产品主导航适配",
+    "mapping": "psmux Tab 为主；辅助 attach／其他后端合同另记，不让开关退回旧预览主流程。"
+  },
+  {
+    "source": "SettingSidebarDensity",
+    "state": "局部实现",
+    "mapping": "Full／Compact／Minimal／Auto；完整桌面接受开放。"
+  },
+  {
+    "source": "SettingPrivacy",
+    "state": "来源业务不迁入",
+    "mapping": "未迁入来源 telemetry 服务；不呈现对应无效状态。"
+  }
+]

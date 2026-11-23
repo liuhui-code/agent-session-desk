@@ -9,6 +9,7 @@ import (
 	"strings"
 
 	"charm.land/lipgloss/v2"
+	"github.com/liuhui-code/agent-session-desk/internal/config"
 	"github.com/liuhui-code/agent-session-desk/internal/session"
 )
 
@@ -62,10 +63,14 @@ func (m *Model) renderManagementFooter() string {
 		}
 		return ""
 	}
-	minimal := m.width < t.compactBelow
+	mode := config.NormalizeFooter(m.preferences.saved.Footer)
+	if mode == "curated" {
+		return m.renderCuratedFooter()
+	}
+	minimal := mode == "minimal" || (mode == "full" && m.width < t.compactBelow)
 	keyStyle := m.styles.footerKey
 	rightGutter := t.compactRightGutter
-	if m.width > t.fullAbove {
+	if mode == "full" && m.width > t.fullAbove {
 		keyStyle = m.styles.footerFullKey
 		rightGutter = t.fullRightGutter
 	}

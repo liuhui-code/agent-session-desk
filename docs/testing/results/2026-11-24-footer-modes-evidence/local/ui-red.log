@@ -1,0 +1,5 @@
+--- FAIL: TestWorkspaceCuratedFooterUsesThreeRelevantActionsThenSettingsAndHelp (0.00s)
+    workspace_footer_modes_test.go:19: curated mode is not rendered: "管理模式:  Enter  打开  n  新建  r  改名  M  移动                                      ↑↓ 选择 │ F6 终端 │ ? 帮助 │ / 搜索 │ S 设置 │ Alt+V 分组/平铺 │ q 退出"
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.867s
+FAIL

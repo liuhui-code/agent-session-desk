@@ -33,7 +33,7 @@ func TestUIPreferencesPersistAcrossLoadsAndReplaceExistingChoice(t *testing.T) {
 
 func TestUIPreferencesRefuseToOverwriteUnrecognizedOrInvalidFiles(t *testing.T) {
 	for _, contents := range []string{
-		"schema_version=7\nsidebar_density='full'\n",
+		"schema_version=8\nsidebar_density='full'\n",
 		"schema_version=1\nother='PRIVATE-SYNTHETIC-VALUE'\n",
 		"schema_version=1\nsidebar_density=42\n",
 		"schema_version=1\nsidebar_density='unterminated",

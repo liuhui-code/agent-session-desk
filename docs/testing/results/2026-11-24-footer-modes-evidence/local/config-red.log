@@ -1,0 +1,5 @@
+--- FAIL: TestUIFooterV7LoadsAndRoundTripsModeWithoutChangingOtherPreferences (0.00s)
+    ui_footer_test.go:18: valid v7 footer unavailable: 界面设置版本或字段不受支持
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/config	1.406s
+FAIL

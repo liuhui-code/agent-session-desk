@@ -1,0 +1,8 @@
+--- FAIL: TestWorkspaceFooterCanForceCompactOrMinimalAtWideWidths (0.00s)
+    --- FAIL: TestWorkspaceFooterCanForceCompactOrMinimalAtWideWidths/compact (0.00s)
+        workspace_footer_modes_test.go:39: forced tier retained full-tier padded key chip
+    --- FAIL: TestWorkspaceFooterCanForceCompactOrMinimalAtWideWidths/minimal (0.00s)
+        workspace_footer_modes_test.go:39: forced tier retained full-tier padded key chip
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.812s
+FAIL

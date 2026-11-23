@@ -151,3 +151,5 @@ M0 使用后端 user option 做存活终端的发现，不建立临时 JSON 文�
 2026-11-24：[ADR-0032](adr/0032-persisted-dark-light-ui-themes.md) 接固定 Tokyo Night Dark／Light、主题首行／密度次行和 ui.toml v5 可选 theme；v1–v4 只读载入，显式保存升级，旧读写路径拒绝 v5。整份偏好串行、成功后应用、失败保留旧配色，原 Session/Run 与显式终端属性不变。[本地 20 色／120 帧与旧源码证据](testing/results/2026-11-24-themes.md)单列；System／完整面板、Windows 视觉和发布继续开放，SQLite v5／依赖不变。
 
 2026-11-24：[ADR-0033](adr/0033-observed-system-ui-theme.md) 接受有界 System 主题观察与显示配色分离；ui.toml v6 保存选择，Windows 只读通知，不查询终端背景、不写 OS 设置。Dark/Light 停止旧阶段；上下文退出清理，关闭完成后重建。实现证据见[报告](testing/results/2026-11-24-system-theme.md)，原生 Windows／完整体验与发布仍开放。
+
+2026-11-24：[ADR-0034](adr/0034-configured-footer-modes.md) 接配置页脚四模式与 ui.toml v7；来源本来仅配置入口，不添加虚构面板行。curated 只列支持的三个上下文动作及最后设置／帮助，终端焦点提示不随管理页脚模式隐藏。实现与剩余 RGB／平台门槛见[报告](testing/results/2026-11-24-footer-modes.md)；[40 项设置盘点](design/SETTINGS_PARITY_AUDIT.md)保留待接入项，不等于完整面板已还原。

@@ -1,0 +1,16 @@
+{
+  "result": "passed_local_evidence_consistency",
+  "artifacts": 43,
+  "source_fingerprints": 268,
+  "checks": 5,
+  "synthetic_frames": 112,
+  "source_component_frames": 144,
+  "product_component_frames": 144,
+  "normalization_cases": 7,
+  "exact_style_matches": 3,
+  "exact_style_differences": 3,
+  "source_settings_inventoried": 40,
+  "old_reader_writer_rejection_verified": true,
+  "windows": "not_run",
+  "scope": "not full source UI, exact RGB equality, native Windows, real agent or complete visual/release acceptance"
+}

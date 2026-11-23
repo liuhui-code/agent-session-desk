@@ -20,6 +20,7 @@ type Options struct {
 	// connection is never received because the UI has already exited.
 	OpenSystemTheme        func(context.Context) (appearance.Connection, error)
 	Theme                  string
+	Footer                 string
 	SidebarPercent         int
 	SidebarDensity         string
 	SidebarMode            string
@@ -48,7 +49,10 @@ func NewWithOptions(ctx context.Context, service Service, options Options) *Mode
 	m.sidebarMode = config.NormalizeSidebarMode(options.SidebarMode)
 	m.sidebarCollapsed = options.DefaultGroupCollapsed
 	m.saveUISettings = options.SaveUISettings
-	m.preferences.saved = config.UISettings{Theme: options.Theme, SidebarPercent: options.SidebarPercent, SidebarDensity: m.sidebarDensity, SidebarMode: m.sidebarMode, DefaultGroupCollapsed: m.sidebarCollapsed, CollapsedGroups: options.CollapsedGroups}
+	if options.Footer != "" {
+		options.Footer = config.NormalizeFooter(options.Footer)
+	}
+	m.preferences.saved = config.UISettings{Footer: options.Footer, Theme: options.Theme, SidebarPercent: options.SidebarPercent, SidebarDensity: m.sidebarDensity, SidebarMode: m.sidebarMode, DefaultGroupCollapsed: m.sidebarCollapsed, CollapsedGroups: options.CollapsedGroups}
 	m.preferences.wanted = m.preferences.saved
 	m.preferences.accepted = m.preferences.saved
 	m.collapsedGroups = map[string]bool{}

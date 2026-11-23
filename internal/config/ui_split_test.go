@@ -27,7 +27,7 @@ func TestUISplitV4RoundTripsManualAndAutoWithOtherPreferences(t *testing.T) {
 		if e != nil {
 			t.Fatal(e)
 		}
-		for _, value := range []string{"schema_version = 6", "sidebar_percent = " + pct, `sidebar_density = "full"`, `sidebar_mode = "flat"`, `default_group_collapsed = true`, `collapsed_groups = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"`} {
+		for _, value := range []string{"schema_version = 7", "sidebar_percent = " + pct, `sidebar_density = "full"`, `sidebar_mode = "flat"`, `default_group_collapsed = true`, `collapsed_groups = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"`} {
 			if !strings.Contains(string(b), value) {
 				t.Fatalf("lost preference %s: %s", value, b)
 			}
@@ -36,7 +36,7 @@ func TestUISplitV4RoundTripsManualAndAutoWithOtherPreferences(t *testing.T) {
 }
 
 func TestUISplitRejectsInvalidOrVersionMismatchedValuesWithoutReplacing(t *testing.T) {
-	for _, entry := range []struct{ version, value string }{{"4", "-1"}, {"4", "1"}, {"4", "9"}, {"4", "91"}, {"4", "100"}, {"4", "1.5"}, {"4", "true"}, {"4", "'40'"}, {"4", "9223372036854775808"}, {"3", "40"}, {"2", "0"}, {"1", "40"}, {"7", "40"}} {
+	for _, entry := range []struct{ version, value string }{{"4", "-1"}, {"4", "1"}, {"4", "9"}, {"4", "91"}, {"4", "100"}, {"4", "1.5"}, {"4", "true"}, {"4", "'40'"}, {"4", "9223372036854775808"}, {"3", "40"}, {"2", "0"}, {"1", "40"}, {"8", "40"}} {
 		t.Run(entry.version+"/"+entry.value, func(t *testing.T) {
 			path := filepath.Join(t.TempDir(), "ui.toml")
 			original := "schema_version=" + entry.version + "\nsidebar_density='minimal'\nsidebar_percent=" + entry.value + "\n"

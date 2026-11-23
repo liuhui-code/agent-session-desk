@@ -1,0 +1,17 @@
+package ui
+import("context";"encoding/json";"os";"strings";"testing";"github.com/liuhui-code/agent-session-desk/internal/config")
+func TestASDFooterModesProduct(t *testing.T){
+ var frames,roles,normalized []map[string]any
+ for _,raw:=range []string{"","full","curated","compact","minimal"," MINIMAL ","unknown"}{normalized=append(normalized,map[string]any{"raw":raw,"effective":config.NormalizeFooter(raw)})}
+ for _,theme:=range []string{"dark","light"}{
+  m:=NewWithOptions(context.Background(),newGroupedFixture(),Options{Theme:theme})
+  roles=append(roles,map[string]any{"theme":theme,"author_dim":"#"+colorHex(m.tokens.colors.dim),"curated":m.styles.footerCuratedKey.Render("Enter")+" "+m.styles.dim.Render("Open"),"compact":m.styles.footerKey.Render("Enter")+" "+m.styles.footerDescription.Render("Open"),"full":m.styles.footerFullKey.Render("Enter")+" "+m.styles.footerDescription.Render("Open")});m.Close()
+  for _,width:=range []int{49,50,63,70,101,160}{for _,mode:=range []string{"full","compact","minimal","curated"}{for _,state:=range []string{"empty","group","session"}{
+   m:=NewWithOptions(context.Background(),newGroupedFixture(),Options{Theme:theme,Footer:mode,SidebarMode:"flat"})
+   m.width,m.height=width,32;m.sessions=sampleSessions();m.cursor=0;m.workspace.focused=false
+   if state=="group"{m.sidebarMode="grouped";m.cursor=-1};if state=="empty"{m.sessions=nil;m.cursor=0}
+   frames=append(frames,map[string]any{"theme":theme,"columns":width,"mode":mode,"state":state,"content":strings.Split(m.View().Content,"\n")[30]});m.Close()
+  }}}
+ }
+ b,e:=json.MarshalIndent(map[string]any{"frames":frames,"roles":roles,"normalization":normalized},"","  ");if e!=nil{t.Fatal(e)};if e=os.WriteFile(os.Getenv("ASD_FOOTER_REFERENCE_OUT"),b,0600);e!=nil{t.Fatal(e)}
+}

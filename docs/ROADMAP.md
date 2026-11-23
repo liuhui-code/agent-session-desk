@@ -196,3 +196,5 @@ M1 收尾按[验收清单](testing/M1_ACCEPTANCE.md)推进；显式有界屏幕�
 2026-11-24：[ADR-0032](adr/0032-persisted-dark-light-ui-themes.md) 接固定 Tokyo Night Dark／Light、主题首行／密度次行和 ui.toml v5 可选 theme；v1–v4 只读载入，显式保存升级，旧读写路径拒绝 v5。整份偏好串行、成功后应用、失败保留旧配色，原 Session/Run 与显式终端属性不变。[本地 20 色／120 帧与旧源码证据](testing/results/2026-11-24-themes.md)单列；System／完整面板、Windows 视觉和发布继续开放，SQLite v5／依赖不变。
 
 2026-11-24：U20 的 System 局部切片按 [ADR-0033](adr/0033-observed-system-ui-theme.md) 接入终端声明／Windows 只读通知、ui.toml v6、未知回退与重试；[本地证据](testing/results/2026-11-24-system-theme.md)不替代 Windows 通知、桌面视觉和清理验证。完整设置／来源整帧、普通 CLI／真实 agent／IME／鼠标及发布门槛保持开放。
+
+2026-11-24：U14/U20 的[页脚四模式](testing/results/2026-11-24-footer-modes.md)及 [40 项来源设置盘点](design/SETTINGS_PARITY_AUDIT.md)已补本地切片。来源和产品参考帧、模型及平台分列，3 组精确 RGB 差异仍留档。后续继续通用时间戳／pane／宿主标题、目录建议与未完成键鼠／IME／同尺寸桌面接受；不以来源品牌业务不迁入关闭整体范围。

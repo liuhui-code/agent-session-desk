@@ -208,3 +208,5 @@ M0 只把版本化发现标记放在产品私有后端 user option 中，绑定 
 2026-11-24：[ADR-0032](adr/0032-persisted-dark-light-ui-themes.md) 接固定 Tokyo Night Dark／Light、主题首行／密度次行和 ui.toml v5 可选 theme；v1–v4 只读载入，显式保存升级，旧读写路径拒绝 v5。整份偏好串行、成功后应用、失败保留旧配色，原 Session/Run 与显式终端属性不变。[本地 20 色／120 帧与旧源码证据](testing/results/2026-11-24-themes.md)单列；System／完整面板、Windows 视觉和发布继续开放，SQLite v5／依赖不变。
 
 2026-11-24：[ADR-0033](adr/0033-observed-system-ui-theme.md) 将用户主题选择和最后可靠配色分离；每个 UI 一个可取消的 System 观察阶段，一个待消费最新观测及一个 Next，等待关闭完成才重建。有效终端声明不建 OS watcher；Windows 用既有 x/sys 只读 HKCU 通知。事件先于模态输入分派，更新当前表单样式不重建输入模型；不写偏好、终端或数据库。[本地证据](testing/results/2026-11-24-system-theme.md)与 Windows 门槛独立。
+
+2026-11-24：[ADR-0034](adr/0034-configured-footer-modes.md) 的 footer 是整份 UISettings 的可选字符串，既有保存快照原样保留；CLI 到 Model 显式传递，渲染只读 saved 偏好，不持有新进程／缓存／事件源。配置 v7 与 SQLite v5 分离，完整平台接受见[报告](testing/results/2026-11-24-footer-modes.md)。

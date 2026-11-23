@@ -1,0 +1,620 @@
+{
+  "result": "observed_exact_sgr_comparison",
+  "source_frames": 144,
+  "product_frames": 144,
+  "normalization_cases": 7,
+  "normalization_matches": true,
+  "roles": [
+    {
+      "theme": "dark",
+      "role": "full",
+      "matches": false,
+      "cells": 12,
+      "differences": [
+        {
+          "cell": 0,
+          "source": {
+            "text": " ",
+            "background": [
+              121,
+              162,
+              247
+            ],
+            "foreground": null,
+            "bold": false
+          },
+          "product": {
+            "text": " ",
+            "background": [
+              122,
+              162,
+              247
+            ],
+            "foreground": null,
+            "bold": false
+          }
+        },
+        {
+          "cell": 1,
+          "source": {
+            "text": "E",
+            "background": [
+              121,
+              162,
+              247
+            ],
+            "foreground": [
+              26,
+              27,
+              38
+            ],
+            "bold": true
+          },
+          "product": {
+            "text": "E",
+            "background": [
+              122,
+              162,
+              247
+            ],
+            "foreground": [
+              26,
+              27,
+              38
+            ],
+            "bold": true
+          }
+        },
+        {
+          "cell": 2,
+          "source": {
+            "text": "n",
+            "background": [
+              121,
+              162,
+              247
+            ],
+            "foreground": [
+              26,
+              27,
+              38
+            ],
+            "bold": true
+          },
+          "product": {
+            "text": "n",
+            "background": [
+              122,
+              162,
+              247
+            ],
+            "foreground": [
+              26,
+              27,
+              38
+            ],
+            "bold": true
+          }
+        },
+        {
+          "cell": 3,
+          "source": {
+            "text": "t",
+            "background": [
+              121,
+              162,
+              247
+            ],
+            "foreground": [
+              26,
+              27,
+              38
+            ],
+            "bold": true
+          },
+          "product": {
+            "text": "t",
+            "background": [
+              122,
+              162,
+              247
+            ],
+            "foreground": [
+              26,
+              27,
+              38
+            ],
+            "bold": true
+          }
+        },
+        {
+          "cell": 4,
+          "source": {
+            "text": "e",
+            "background": [
+              121,
+              162,
+              247
+            ],
+            "foreground": [
+              26,
+              27,
+              38
+            ],
+            "bold": true
+          },
+          "product": {
+            "text": "e",
+            "background": [
+              122,
+              162,
+              247
+            ],
+            "foreground": [
+              26,
+              27,
+              38
+            ],
+            "bold": true
+          }
+        },
+        {
+          "cell": 5,
+          "source": {
+            "text": "r",
+            "background": [
+              121,
+              162,
+              247
+            ],
+            "foreground": [
+              26,
+              27,
+              38
+            ],
+            "bold": true
+          },
+          "product": {
+            "text": "r",
+            "background": [
+              122,
+              162,
+              247
+            ],
+            "foreground": [
+              26,
+              27,
+              38
+            ],
+            "bold": true
+          }
+        },
+        {
+          "cell": 6,
+          "source": {
+            "text": " ",
+            "background": [
+              121,
+              162,
+              247
+            ],
+            "foreground": null,
+            "bold": false
+          },
+          "product": {
+            "text": " ",
+            "background": [
+              122,
+              162,
+              247
+            ],
+            "foreground": null,
+            "bold": false
+          }
+        }
+      ]
+    },
+    {
+      "theme": "dark",
+      "role": "compact",
+      "matches": false,
+      "cells": 10,
+      "differences": [
+        {
+          "cell": 0,
+          "source": {
+            "text": "E",
+            "background": [
+              121,
+              162,
+              247
+            ],
+            "foreground": [
+              26,
+              27,
+              38
+            ],
+            "bold": true
+          },
+          "product": {
+            "text": "E",
+            "background": [
+              122,
+              162,
+              247
+            ],
+            "foreground": [
+              26,
+              27,
+              38
+            ],
+            "bold": true
+          }
+        },
+        {
+          "cell": 1,
+          "source": {
+            "text": "n",
+            "background": [
+              121,
+              162,
+              247
+            ],
+            "foreground": [
+              26,
+              27,
+              38
+            ],
+            "bold": true
+          },
+          "product": {
+            "text": "n",
+            "background": [
+              122,
+              162,
+              247
+            ],
+            "foreground": [
+              26,
+              27,
+              38
+            ],
+            "bold": true
+          }
+        },
+        {
+          "cell": 2,
+          "source": {
+            "text": "t",
+            "background": [
+              121,
+              162,
+              247
+            ],
+            "foreground": [
+              26,
+              27,
+              38
+            ],
+            "bold": true
+          },
+          "product": {
+            "text": "t",
+            "background": [
+              122,
+              162,
+              247
+            ],
+            "foreground": [
+              26,
+              27,
+              38
+            ],
+            "bold": true
+          }
+        },
+        {
+          "cell": 3,
+          "source": {
+            "text": "e",
+            "background": [
+              121,
+              162,
+              247
+            ],
+            "foreground": [
+              26,
+              27,
+              38
+            ],
+            "bold": true
+          },
+          "product": {
+            "text": "e",
+            "background": [
+              122,
+              162,
+              247
+            ],
+            "foreground": [
+              26,
+              27,
+              38
+            ],
+            "bold": true
+          }
+        },
+        {
+          "cell": 4,
+          "source": {
+            "text": "r",
+            "background": [
+              121,
+              162,
+              247
+            ],
+            "foreground": [
+              26,
+              27,
+              38
+            ],
+            "bold": true
+          },
+          "product": {
+            "text": "r",
+            "background": [
+              122,
+              162,
+              247
+            ],
+            "foreground": [
+              26,
+              27,
+              38
+            ],
+            "bold": true
+          }
+        }
+      ]
+    },
+    {
+      "theme": "dark",
+      "role": "curated",
+      "matches": true,
+      "cells": 10,
+      "differences": []
+    },
+    {
+      "theme": "light",
+      "role": "full",
+      "matches": true,
+      "cells": 12,
+      "differences": []
+    },
+    {
+      "theme": "light",
+      "role": "compact",
+      "matches": true,
+      "cells": 10,
+      "differences": []
+    },
+    {
+      "theme": "light",
+      "role": "curated",
+      "matches": false,
+      "cells": 10,
+      "differences": [
+        {
+          "cell": 0,
+          "source": {
+            "text": "E",
+            "background": null,
+            "foreground": [
+              105,
+              109,
+              124
+            ],
+            "bold": true
+          },
+          "product": {
+            "text": "E",
+            "background": null,
+            "foreground": [
+              106,
+              109,
+              124
+            ],
+            "bold": true
+          }
+        },
+        {
+          "cell": 1,
+          "source": {
+            "text": "n",
+            "background": null,
+            "foreground": [
+              105,
+              109,
+              124
+            ],
+            "bold": true
+          },
+          "product": {
+            "text": "n",
+            "background": null,
+            "foreground": [
+              106,
+              109,
+              124
+            ],
+            "bold": true
+          }
+        },
+        {
+          "cell": 2,
+          "source": {
+            "text": "t",
+            "background": null,
+            "foreground": [
+              105,
+              109,
+              124
+            ],
+            "bold": true
+          },
+          "product": {
+            "text": "t",
+            "background": null,
+            "foreground": [
+              106,
+              109,
+              124
+            ],
+            "bold": true
+          }
+        },
+        {
+          "cell": 3,
+          "source": {
+            "text": "e",
+            "background": null,
+            "foreground": [
+              105,
+              109,
+              124
+            ],
+            "bold": true
+          },
+          "product": {
+            "text": "e",
+            "background": null,
+            "foreground": [
+              106,
+              109,
+              124
+            ],
+            "bold": true
+          }
+        },
+        {
+          "cell": 4,
+          "source": {
+            "text": "r",
+            "background": null,
+            "foreground": [
+              105,
+              109,
+              124
+            ],
+            "bold": true
+          },
+          "product": {
+            "text": "r",
+            "background": null,
+            "foreground": [
+              106,
+              109,
+              124
+            ],
+            "bold": true
+          }
+        },
+        {
+          "cell": 6,
+          "source": {
+            "text": "O",
+            "background": null,
+            "foreground": [
+              105,
+              109,
+              124
+            ],
+            "bold": false
+          },
+          "product": {
+            "text": "O",
+            "background": null,
+            "foreground": [
+              106,
+              109,
+              124
+            ],
+            "bold": false
+          }
+        },
+        {
+          "cell": 7,
+          "source": {
+            "text": "p",
+            "background": null,
+            "foreground": [
+              105,
+              109,
+              124
+            ],
+            "bold": false
+          },
+          "product": {
+            "text": "p",
+            "background": null,
+            "foreground": [
+              106,
+              109,
+              124
+            ],
+            "bold": false
+          }
+        },
+        {
+          "cell": 8,
+          "source": {
+            "text": "e",
+            "background": null,
+            "foreground": [
+              105,
+              109,
+              124
+            ],
+            "bold": false
+          },
+          "product": {
+            "text": "e",
+            "background": null,
+            "foreground": [
+              106,
+              109,
+              124
+            ],
+            "bold": false
+          }
+        },
+        {
+          "cell": 9,
+          "source": {
+            "text": "n",
+            "background": null,
+            "foreground": [
+              105,
+              109,
+              124
+            ],
+            "bold": false
+          },
+          "product": {
+            "text": "n",
+            "background": null,
+            "foreground": [
+              106,
+              109,
+              124
+            ],
+            "bold": false
+          }
+        }
+      ]
+    }
+  ],
+  "matching_roles": 3,
+  "total_roles": 6,
+  "scope": "ASCII styled role comparison only; localized actions and source/product frame content differ. Exact RGB differences remain open; no tolerance applied, no full-frame or desktop acceptance."
+}

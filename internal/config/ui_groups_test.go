@@ -32,7 +32,7 @@ func TestUIV3GroupFoldsPersistWithLegacyReadOnlyLoading(t *testing.T) {
 		t.Fatalf("lost folds/density: %+v %v", loaded, err)
 	}
 	data, err := os.ReadFile(path)
-	if err != nil || !strings.Contains(string(data), "schema_version = 6") {
+	if err != nil || !strings.Contains(string(data), "schema_version = 7") {
 		t.Fatalf("not current v4: %s %v", data, err)
 	}
 	before := string(data)
