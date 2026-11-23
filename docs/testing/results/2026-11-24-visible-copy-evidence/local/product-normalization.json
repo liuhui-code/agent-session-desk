@@ -1,0 +1,62 @@
+[
+  {
+    "capture_encoding_valid": true,
+    "name": "ansi-link",
+    "raw_utf8_valid": true,
+    "text": "https://example.test/path\nsecond\tvalue"
+  },
+  {
+    "capture_encoding_valid": true,
+    "name": "osc-crlf",
+    "raw_utf8_valid": true,
+    "text": "first\n\nthird"
+  },
+  {
+    "capture_encoding_valid": true,
+    "name": "controls",
+    "raw_utf8_valid": true,
+    "text": "abc"
+  },
+  {
+    "capture_encoding_valid": true,
+    "name": "paste-CSI",
+    "raw_utf8_valid": true,
+    "text": "https://example.test"
+  },
+  {
+    "capture_encoding_valid": true,
+    "name": "string-controls",
+    "raw_utf8_valid": true,
+    "text": "visible"
+  },
+  {
+    "capture_encoding_valid": true,
+    "name": "osc-ST",
+    "raw_utf8_valid": true,
+    "text": "visible"
+  },
+  {
+    "capture_encoding_valid": true,
+    "name": "raw-C1",
+    "raw_utf8_valid": false,
+    "text": "redvisible"
+  },
+  {
+    "capture_encoding_valid": true,
+    "name": "truncated-control",
+    "raw_utf8_valid": true,
+    "text": "visible"
+  },
+  {
+    "capture_encoding_valid": true,
+    "name": "empty",
+    "raw_utf8_valid": true,
+    "text": ""
+  },
+  {
+    "capture_encoding_valid": true,
+    "name": "unicode-indent",
+    "raw_utf8_valid": true,
+    "text": "\n  中文1️⃣é👩‍💻\tlink\n\n  second"
+  }
+]

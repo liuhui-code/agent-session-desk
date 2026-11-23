@@ -1515,7 +1515,7 @@
 
 - 功能：[FL-002](../COVERAGE.md#fl-002)、[FL-016](../COVERAGE.md#fl-016)、[FL-018](../COVERAGE.md#fl-018)
 - 需求：[FR-02](../COVERAGE.md#fr-02)、[FR-11](../COVERAGE.md#fr-11)
-- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0014](../../adr/0014-upstream-ui-tabs-and-general-terminals.md)、[ADR-0015](../../adr/0015-pinned-psmux-native-terminal-client.md)、[ADR-0016](../../adr/0016-tab-workspaces-and-input-ownership.md)、[ADR-0018](../../adr/0018-native-copy-search-and-host-clipboard.md)、[ADR-0019](../../adr/0019-explicit-windows-terminal-bundle.md)
+- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0014](../../adr/0014-upstream-ui-tabs-and-general-terminals.md)、[ADR-0015](../../adr/0015-pinned-psmux-native-terminal-client.md)、[ADR-0016](../../adr/0016-tab-workspaces-and-input-ownership.md)、[ADR-0018](../../adr/0018-native-copy-search-and-host-clipboard.md)、[ADR-0019](../../adr/0019-explicit-windows-terminal-bundle.md)、[ADR-0028](../../adr/0028-explicit-visible-pane-copy.md)
 - 优先级 / 阶段 / 层次：P0 / M0 / windows_e2e
 - 类型：boundary、compatibility
 - 设计 / 执行：`designed / not_run`
@@ -1534,6 +1534,7 @@
 1. 在 Tab 终端及显式辅助 attach 中把终端依次变为宽、窄、高、矮窗口，fixture 报告实际行列；分别覆盖首次连接前已输出和确定初始尺寸后才输出。
 2. 在主屏幕输出独立可核对、短于最窄宽度的连续编号和 Unicode 标记；使用 120×32→94×25→61×18→94×25，先核对首次缩高前后的实时 capture，再在复制／搜索模式中重复缩放。
 3. 快速重复 resize 后停止，检查最终尺寸、光标和交互；分别核对冻结复制画面与背后实时 capture 的编号，不以搜索能找到某一行代替历史完整。
+4. 管理 V 复制所选 B、活动 Tab 保持 A；穿插原生复制事件、切 Tab、原 Run 替换、重复同代次旧完成及超限／C1／损坏文字；观察实际 OSC52 请求与子程序输入。
 
 #### 预期与不变量
 
@@ -1541,6 +1542,7 @@
 - 中间 resize 可合并但不能破坏后续输入；无异常退出或错位残留。
 - 未达到声明的历史保留上限时，受控编号在实时 capture 中保持顺序、没有缺失或重复；复制快照与实时历史分别核对，主屏幕和 alternate screen 的保留边界分别记录。
 - 每帧尺寸、Session/Run 和原 pane 可核对；若固定后端已丢失数据，报告失败和边界，不通过客户端补写历史或把可见快照的连续性当作完整保留。
+- 新鲜捕获只读原 pane 当前页，不用旧预览、历史或 manager 装饰；空／超限／截断／损坏文字不提交，C1 控制沿源规范化。V 终端焦点保持原文字；两个复制来源最多单 host 提交，独立令牌拒绝旧回执，排队目标重核，未发送旧代次不重放。请求输出不是系统剪贴板已保存，原生桌面另验。
 
 #### 需要的证据
 
@@ -2188,7 +2190,7 @@
 
 - 功能：[FL-003](../COVERAGE.md#fl-003)
 - 需求：[FR-03](../COVERAGE.md#fr-03)、[FR-11](../COVERAGE.md#fr-11)
-- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0005](../../adr/0005-dependency-lifecycle-and-upgrades.md)、[ADR-0017](../../adr/0017-sidebar-density-preferences.md)、[ADR-0022](../../adr/0022-default-group-sidebar-navigation.md)、[ADR-0027](../../adr/0027-persistent-workspace-split.md)
+- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0005](../../adr/0005-dependency-lifecycle-and-upgrades.md)、[ADR-0017](../../adr/0017-sidebar-density-preferences.md)、[ADR-0022](../../adr/0022-default-group-sidebar-navigation.md)、[ADR-0027](../../adr/0027-persistent-workspace-split.md)、[ADR-0028](../../adr/0028-explicit-visible-pane-copy.md)
 - 优先级 / 阶段 / 层次：P0 / M0 / contract
 - 类型：compatibility、boundary
 - 设计 / 执行：`designed / not_run`
@@ -2209,6 +2211,7 @@
 3. 延迟折叠保存，连续左键及 Alt+V 往返；在终端焦点按 Alt+V，核对目标实际输入。
 4. 记录 Caps Lock／输入布局，对照 Unicode、SendKeys 和原生 VK 的实际控制台字符及框架 Code/Text/Mod/String；分别在管理与终端焦点核对大写 S，并还原锁定状态。
 5. 调整并保存侧栏比例，拖动中观测磁盘不变；用无按钮松开／漏松开后移动等结束，再重开。穿插其他偏好保存、旧回执、写失败和等待退出。
+6. 管理 V 复制所选 B、活动 Tab 保持 A；穿插原生复制事件、切 Tab、原 Run 替换、重复同代次旧完成及超限／C1／损坏文字；观察实际 OSC52 请求与子程序输入。
 
 #### 预期与不变量
 
@@ -2218,6 +2221,7 @@
 - 重复左键保持折叠意图；快速选择最后状态有序保存；终端 Alt+V 不切管理侧栏。
 - 实际文本 S 与 s 按声明的大小写合同处理；VT 的 shift+s 不作为硬件 Shift 证据；输入前端未交付或日志缺口保留未决，不新增猜测别名。
 - ui.toml v4 的 0 自动／10–90 手动保持选择；旧 v1–v3 加载不改写，显式保存才升级，旧版拒读 v4。拖动结束仅保存最后预览一次，不依赖松开坐标；运动预览不夹带进其他整份保存，旧成功不回退较新比例，失败恢复旧有效值、显示错误并取消等待退出。终端键仍只输入原 Run。
+- 新鲜捕获只读原 pane 当前页，不用旧预览、历史或 manager 装饰；空／超限／截断／损坏文字不提交，C1 控制沿源规范化。V 终端焦点保持原文字；两个复制来源最多单 host 提交，独立令牌拒绝旧回执，排队目标重核，未发送旧代次不重放。请求输出不是系统剪贴板已保存，原生桌面另验。
 
 #### 需要的证据
 

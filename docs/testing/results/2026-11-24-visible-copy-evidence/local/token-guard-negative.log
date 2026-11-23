@@ -1,0 +1,5 @@
+--- FAIL: TestClipboardOldCompletionCannotReleaseANewerRequestInSameView (0.00s)
+    workspace_visible_copy_lifecycle_test.go:131: old completion released a newer copy
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.814s
+FAIL

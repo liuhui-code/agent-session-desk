@@ -1,0 +1,82 @@
+[
+  {
+    "capture_calls": 1,
+    "clipboard_callback_calls": 1,
+    "empty": false,
+    "line_count": 2,
+    "name": "ansi-link",
+    "text": "https://example.test/path\nsecond\tvalue"
+  },
+  {
+    "capture_calls": 1,
+    "clipboard_callback_calls": 1,
+    "empty": false,
+    "line_count": 3,
+    "name": "osc-crlf",
+    "text": "first\n\nthird"
+  },
+  {
+    "capture_calls": 1,
+    "clipboard_callback_calls": 1,
+    "empty": false,
+    "line_count": 1,
+    "name": "controls",
+    "text": "abc"
+  },
+  {
+    "capture_calls": 1,
+    "clipboard_callback_calls": 1,
+    "empty": false,
+    "line_count": 1,
+    "name": "paste-CSI",
+    "text": "https://example.test"
+  },
+  {
+    "capture_calls": 1,
+    "clipboard_callback_calls": 1,
+    "empty": false,
+    "line_count": 1,
+    "name": "string-controls",
+    "text": "visible"
+  },
+  {
+    "capture_calls": 1,
+    "clipboard_callback_calls": 1,
+    "empty": false,
+    "line_count": 1,
+    "name": "osc-ST",
+    "text": "visible"
+  },
+  {
+    "capture_calls": 1,
+    "clipboard_callback_calls": 1,
+    "empty": false,
+    "line_count": 1,
+    "name": "raw-C1",
+    "text": "redvisible"
+  },
+  {
+    "capture_calls": 1,
+    "clipboard_callback_calls": 1,
+    "empty": false,
+    "line_count": 1,
+    "name": "truncated-control",
+    "text": "visible"
+  },
+  {
+    "capture_calls": 1,
+    "clipboard_callback_calls": 0,
+    "empty": true,
+    "line_count": 0,
+    "name": "empty",
+    "text": ""
+  },
+  {
+    "capture_calls": 1,
+    "clipboard_callback_calls": 1,
+    "empty": false,
+    "line_count": 4,
+    "name": "unicode-indent",
+    "text": "\n  中文1️⃣é👩‍💻\tlink\n\n  second"
+  }
+]

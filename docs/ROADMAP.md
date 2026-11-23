@@ -184,3 +184,5 @@ M1 收尾按[验收清单](testing/M1_ACCEPTANCE.md)推进；显式有界屏幕�
 2026-11-24：[ADR-0027](adr/0027-persistent-workspace-split.md) 将工作区比例纳入 ui.toml v4：0 自动，10–90 手动，键即时保存，拖动中仅预览、结束时保存，丢失松开沿固定来源收尾。与密度／导航／折叠共用串行快照，旧回执不覆盖较新选择；保存失败可见回滚并取消等待退出。v1–v3 不因读取改写，启动模板／SQLite v5／模块依赖／design tokens 不变。[本地／固定来源证据](testing/results/2026-11-24-split-preferences.md)与未执行的 Windows 门槛分开，完整还原和发布仍开放。
 
 2026-11-24 U06 长卡片：沿 ADR-0016 修正上游空尾裁切、独立元信息省略号和完整 executable 的文件名投影；本地源合同、Unicode／完整背景、四密度缩放／身份点击证据见[报告](testing/results/2026-11-24-long-cards.md)。本轮没有 Windows 运行；U06 完整桌面接受、U18 鼠标／可见页复制、U20 设置／主题和其他原有门槛仍开放。
+
+2026-11-24：[ADR-0028](adr/0028-explicit-visible-pane-copy.md) 新增管理 V 复制所选原 pane 的新鲜可见页。直接只读捕获不带历史／缓存，原目标前后复核；Manager 委派不读写元数据。显式复制与原生选区事件共享串行 OSC52、独立完成令牌与有界待提交内容，未发送的旧代次取消；只提示发出请求，不声称系统剪贴板保存。依赖／tokens／SQLite v5／ui.toml v4 不变。[本地及固定源证据](testing/results/2026-11-24-visible-copy.md)与 Windows／桌面未执行分别记录，完整体验和发布开放。

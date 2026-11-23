@@ -40,6 +40,9 @@ func (m *Model) managementFooterHints() (primary, secondary []footerHint) {
 		}
 	} else if _, ok := m.selected(); ok {
 		secondary = append(secondary, footerHint{"r", name})
+		if _, ok := m.service.(visiblePaneService); ok {
+			secondary = append(secondary, footerHint{"V", "复制页"})
+		}
 		if _, ok := m.service.(groupService); ok {
 			secondary = append(secondary, footerHint{"M", "移动"})
 		}

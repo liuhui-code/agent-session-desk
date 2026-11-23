@@ -41,12 +41,10 @@ ADR 保存重要选择的背景、决定、替代方案、代价和重新评估�
 | [0022](0022-default-group-sidebar-navigation.md) | 默认分组侧栏、混合行高命中与 ui.toml v2 串行偏好 | 已接受 | [模型](../testing/results/2026-11-23-sidebar-navigation.md)／[限定桌面](../testing/results/2026-11-23-sidebar-navigation-desktop.md)分别记账；[实际 S 路由](../testing/results/2026-11-23-uppercase-s-diagnosis.md)局部核对，Caps 关闭前端、自定义组与完整接受开放 |
 | [0023](0023-persistent-groups-and-membership.md) | 稳定分组身份、嵌套创建／移动／改名／排序及 SQLite v4／ui.toml v3 | 已接受 | 已接入元数据与 Tab 侧栏；[模型](../testing/results/2026-11-23-custom-groups.md)／[来源及三 shell 桌面](../testing/results/2026-11-23-groups-desktop.md)分别记账，[组改名](../testing/results/2026-11-23-group-rename.md)与[组排序](../testing/results/2026-11-23-group-order.md)另记，删除由 ADR-0024 细化，完整体验仍开放 |
 | [0024](0024-group-removal-and-member-preservation.md) | 删除组结构、保留逻辑成员与原终端 | 已接受 | 默认取消、完整影响预览与事务收纳；[实际报告](../testing/results/2026-11-23-group-removal.md)单独记录局部实现和验证，完整体验与发布仍开放 |
-
 | [0025](0025-persistent-session-order.md) | 同组 Session 行持久排序、完整复验快照及 SQLite v5 | 已接受 | 局部实现与原生／隔离 ConPTY 证据见[报告](../testing/results/2026-11-24-session-order.md)，完整体验开放 |
-
 | [0026](0026-explicit-session-stop.md) | Session 行显式停止、默认取消、原目标复核及单次回执 | 已接受 | 局部实现与证据见[报告](../testing/results/2026-11-24-session-stop.md)；原生复验及完整体验门槛分别记录 |
-
 | [0027](0027-persistent-workspace-split.md) | ui.toml v4 比例选择、拖动预览与串行保存 | 已接受 | [本地／固定来源证据](../testing/results/2026-11-24-split-preferences.md)单列；原生／完整桌面接受开放 |
+| [0028](0028-explicit-visible-pane-copy.md) | 所选原 pane 新鲜可见页复制、独立请求令牌与串行 OSC52 | 已接受 | [本地／固定源与实际 Tea 输出](../testing/results/2026-11-24-visible-copy.md)单列；系统剪贴板／原生接受开放 |
 
 ADR-0014 依据用户 2026-11-22 的明确要求接受，部分替代 0001/0002 的界面约束并扩展 0004 的管理对象。原有运行证据不升级为新路径通过。
 

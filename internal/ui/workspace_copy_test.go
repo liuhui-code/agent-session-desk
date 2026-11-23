@@ -68,6 +68,7 @@ func TestWorkspaceFinishesIssuedClipboardBeforeReadingNewTabCopies(t *testing.T)
 	if issued == nil {
 		t.Fatal("copy A was not submitted")
 	}
+	issuedToken := h.m.clipboard.inflight.token
 	h.send(tea.KeyPressMsg{Code: tea.KeyPgDown, Mod: tea.ModCtrl})
 	h.until(func() bool { return strings.Contains(h.m.View().Content, "shell marker second") })
 	select {
@@ -75,7 +76,7 @@ func TestWorkspaceFinishesIssuedClipboardBeforeReadingNewTabCopies(t *testing.T)
 		t.Fatalf("new Tab clipboard started before A submission completed: %s", target)
 	case <-time.After(30 * time.Millisecond):
 	}
-	_, release := h.m.Update(workspaceClipboardSent{generation: old})
+	_, release := h.m.Update(workspaceClipboardSent{token: issuedToken})
 	if release == nil {
 		t.Fatal("A completion did not release the current clipboard reader")
 	}
@@ -88,7 +89,7 @@ func TestWorkspaceFinishesIssuedClipboardBeforeReadingNewTabCopies(t *testing.T)
 	case <-time.After(time.Second):
 		t.Fatal("current Tab clipboard reader did not resume")
 	}
-	_, duplicate := h.m.Update(workspaceClipboardSent{generation: old})
+	_, duplicate := h.m.Update(workspaceClipboardSent{token: issuedToken})
 	if duplicate != nil {
 		t.Fatal("duplicate completion started a second reader")
 	}
@@ -227,7 +228,7 @@ func TestWorkspaceOldClipboardEventCannotReachNewTab(t *testing.T) {
 	if cmd != nil {
 		t.Fatal("old terminal event emitted a host clipboard command")
 	}
-	_, cmd = h.m.Update(workspaceClipboardSent{generation: old})
+	_, cmd = h.m.Update(workspaceClipboardSent{token: old})
 	if cmd != nil {
 		t.Fatal("old copy acknowledgement restarted a reader on the new Tab")
 	}

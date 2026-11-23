@@ -127,3 +127,5 @@ M0 已有“列表/预览 → 自定义命令 → 全屏 attach → 返回”的
 2026-11-24：[ADR-0026](adr/0026-explicit-session-stop.md) 增加管理 Session 行 `d` 的停止确认，复用固定来源确认样式并默认取消；确认前重新发现并核对原 Session／Run／名称，单次提交，未知结果不自动重放。后端停止和元数据停止确认仍非原子事务；Tab x／UI 退出继续保留进程，显式停止保留逻辑身份／历史。schema v5、ui.toml v3、依赖与 tokens 不变。实现和平台证据见[报告](testing/results/2026-11-24-session-stop.md)，完整接受仍开放。
 
 2026-11-24：[ADR-0027](adr/0027-persistent-workspace-split.md) 将工作区比例纳入 ui.toml v4：0 自动，10–90 手动，键即时保存，拖动中仅预览、结束时保存，丢失松开沿固定来源收尾。与密度／导航／折叠共用串行快照，旧回执不覆盖较新选择；保存失败可见回滚并取消等待退出。v1–v3 不因读取改写，启动模板／SQLite v5／模块依赖／design tokens 不变。[本地／固定来源证据](testing/results/2026-11-24-split-preferences.md)与未执行的 Windows 门槛分开，完整还原和发布仍开放。
+
+2026-11-24：[ADR-0028](adr/0028-explicit-visible-pane-copy.md) 新增管理 V 复制所选原 pane 的新鲜可见页。直接只读捕获不带历史／缓存，原目标前后复核；Manager 委派不读写元数据。显式复制与原生选区事件共享串行 OSC52、独立完成令牌与有界待提交内容，未发送的旧代次取消；只提示发出请求，不声称系统剪贴板保存。依赖／tokens／SQLite v5／ui.toml v4 不变。[本地及固定源证据](testing/results/2026-11-24-visible-copy.md)与 Windows／桌面未执行分别记录，完整体验和发布开放。

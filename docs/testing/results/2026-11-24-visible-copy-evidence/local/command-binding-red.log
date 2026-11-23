@@ -1,0 +1,7 @@
+--- FAIL: TestVisibleCaptureRejectsIncompleteOrChangedOriginalWithoutCopying (0.17s)
+    --- FAIL: TestVisibleCaptureRejectsIncompleteOrChangedOriginalWithoutCopying/changed-command-before (0.09s)
+        visible_copy_test.go:106: invalid visible capture escaped: {Text:fixture output
+             Truncated:false} <nil>
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/backend	1.301s
+FAIL

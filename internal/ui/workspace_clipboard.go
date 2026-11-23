@@ -1,6 +1,8 @@
 package ui
 
 import (
+	"fmt"
+	"math"
 	"strings"
 	"unicode/utf8"
 
@@ -13,11 +15,19 @@ type workspaceClipboard struct {
 	text       string
 	err        error
 }
-type workspaceClipboardSent struct{ generation uint64 }
+type workspaceClipboardSent struct{ token uint64 }
+type hostClipboardRequest struct {
+	token, generation uint64
+	notice            string
+}
+type hostClipboardState struct {
+	serial   uint64
+	inflight *hostClipboardRequest
+}
 
 func (m *Model) readWorkspaceClipboard() tea.Cmd {
 	w := m.workspace
-	if m.clipboardGeneration != 0 || w.clipboardReading {
+	if m.clipboard.inflight != nil || w.clipboardReading || w.visibleCopy != nil {
 		return nil
 	}
 	source, ok := w.conn.(terminal.ClipboardSource)
@@ -26,13 +36,44 @@ func (m *Model) readWorkspaceClipboard() tea.Cmd {
 	}
 	generation, ctx := w.generation, w.ctx
 	w.clipboardReading = true
-	return func() tea.Msg {
-		text, err := source.NextClipboard(ctx)
-		return workspaceClipboard{generation, text, err}
-	}
+	return func() tea.Msg { text, e := source.NextClipboard(ctx); return workspaceClipboard{generation, text, e} }
 }
-
+func (m *Model) submitHostClipboard(text string, generation uint64, notice string) tea.Cmd {
+	if m.clipboard.serial == math.MaxUint64 {
+		m.status = "复制请求编号已耗尽；请重新打开界面"
+		return nil
+	}
+	m.clipboard.serial++
+	token := m.clipboard.serial
+	m.clipboard.inflight = &hostClipboardRequest{token, generation, notice}
+	m.status = "正在向终端发送复制请求…"
+	return tea.Sequence(tea.SetClipboard(text), func() tea.Msg { return workspaceClipboardSent{token} })
+}
+func (m *Model) drainWorkspaceClipboard() tea.Cmd {
+	w := m.workspace
+	if m.clipboard.inflight != nil {
+		return nil
+	}
+	if op := w.visibleCopy; op != nil && op.ready {
+		w.visibleCopy = nil
+		if op.generation == w.generation && m.visibleCopyTargetCurrent(op.target) {
+			notice := fmt.Sprintf("已向终端发送复制请求（可见页 %d 行，%s）", strings.Count(op.payload, "\n")+1, label(op.target.Title))
+			return m.submitHostClipboard(op.payload, op.generation, notice)
+		}
+		m.status = "原 Session/Run 已变化；未发送旧可见页"
+	}
+	if pending := w.pendingClipboard; pending != nil {
+		w.pendingClipboard = nil
+		if pending.generation == w.generation && w.conn != nil {
+			return m.submitHostClipboard(pending.text, pending.generation, "已向终端发送复制请求")
+		}
+	}
+	return m.readWorkspaceClipboard()
+}
 func (m *Model) workspaceClipboardEvent(msg tea.Msg) (tea.Cmd, bool) {
+	if cmd, handled := m.visiblePaneEvent(msg); handled {
+		return cmd, true
+	}
 	w := m.workspace
 	switch msg := msg.(type) {
 	case workspaceClipboard:
@@ -47,20 +88,21 @@ func (m *Model) workspaceClipboardEvent(msg tea.Msg) (tea.Cmd, bool) {
 		if len(msg.text) == 0 || len(msg.text) > terminal.MaxClipboardBytes || !utf8.ValidString(msg.text) || strings.IndexByte(msg.text, 0) >= 0 {
 			return m.readWorkspaceClipboard(), true
 		}
-		generation := w.generation
-		m.clipboardGeneration = generation
-		// Sequence submits one host copy before accepting the next event.
-		// At most one latest pending payload lives in the terminal adapter.
-		return tea.Sequence(tea.SetClipboard(msg.text), func() tea.Msg { return workspaceClipboardSent{generation} }), true
-	case workspaceClipboardSent:
-		if m.clipboardGeneration == 0 || msg.generation != m.clipboardGeneration {
+		if m.clipboard.inflight != nil || (w.visibleCopy != nil && w.visibleCopy.ready) {
+			w.pendingClipboard = &msg
 			return nil, true
 		}
-		m.clipboardGeneration = 0
-		if msg.generation == w.generation && w.conn != nil {
-			m.status = "已向终端发送复制请求"
+		return m.submitHostClipboard(msg.text, w.generation, "已向终端发送复制请求"), true
+	case workspaceClipboardSent:
+		current := m.clipboard.inflight
+		if current == nil || msg.token != current.token {
+			return nil, true
 		}
-		return m.readWorkspaceClipboard(), true
+		m.clipboard.inflight = nil
+		if current.generation == w.generation {
+			m.status = current.notice
+		}
+		return m.drainWorkspaceClipboard(), true
 	}
 	return nil, false
 }

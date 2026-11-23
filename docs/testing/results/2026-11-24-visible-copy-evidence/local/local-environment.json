@@ -1,0 +1,15 @@
+{
+  "go_env": [
+    "go1.27.4",
+    "darwin",
+    "amd64",
+    "1"
+  ],
+  "host": "Darwin 25.6.0 x86_64",
+  "baseline_commit": "a9c1bd6ede77f01af9ea6822994be4f0907632a7",
+  "upstream_HOME_changed": false,
+  "upstream_XDG_roots": "four task scratch roots",
+  "upstream_personal_files_network": "denied by additional OS sandbox",
+  "real_clipboard_api_called_by_tests": false,
+  "scope": "local subprocess contracts, injected source callbacks, Tea output to memory and cross-builds only"
+}

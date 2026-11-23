@@ -1,0 +1,10 @@
+--- FAIL: TestVisibleCopyNormalizesPreservesLayoutAndRejectsBadCaptures (0.00s)
+    --- FAIL: TestVisibleCopyNormalizesPreservesLayoutAndRejectsBadCaptures/C1-controls (0.00s)
+        workspace_visible_copy_lifecycle_test.go:47: valid capture not submitted
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	1.565s
+--- FAIL: TestVisibleCaptureAcceptsC1VTControlsWithoutTreatingThemAsTextEncodingDamage (0.07s)
+    visible_copy_test.go:123: source-supported VT control form refused: visible capture exceeded bounds or has invalid UTF-8; not copied
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/backend	0.827s
+FAIL

@@ -1,0 +1,8 @@
+package ui
+import("encoding/base64";"encoding/json";"os";"testing";"unicode/utf8";"github.com/liuhui-code/agent-session-desk/internal/terminal")
+func TestASDVisibleCopyNormalization(t *testing.T){
+ var cases []struct{Name string;Raw string `json:"raw_base64"`};b,e:=os.ReadFile("/private/tmp/asd-visible-copy-20261124/normalization-cases.json");if e!=nil{t.Fatal(e)};if e=json.Unmarshal(b,&cases);e!=nil{t.Fatal(e)}
+ result:=[]map[string]interface{}{}
+ for _,c:=range cases{raw,e:=base64.StdEncoding.DecodeString(c.Raw);if e!=nil{t.Fatal(e)};result=append(result,map[string]interface{}{"name":c.Name,"text":normalizeVisiblePane(string(raw)),"raw_utf8_valid":utf8.Valid(raw),"capture_encoding_valid":terminal.ValidCaptureEncoding(string(raw))})}
+ b,e=json.MarshalIndent(result,"","  ");if e!=nil{t.Fatal(e)};if e=os.WriteFile("/private/tmp/asd-visible-copy-20261124/product-normalization.json",b,0600);e!=nil{t.Fatal(e)}
+}

@@ -1,0 +1,5 @@
+--- FAIL: TestVisibleCopyWaitsForNativeSubmissionAndRechecksQueuedTarget (0.00s)
+    workspace_visible_copy_lifecycle_test.go:151: queued old Run copied after target replacement
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.806s
+FAIL

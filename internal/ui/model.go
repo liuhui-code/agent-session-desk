@@ -72,7 +72,7 @@ type Model struct {
 	rename                           *sessionRename
 	renameTarget                     *session.Session
 	search                           *sessionSearch
-	clipboardGeneration              uint64
+	clipboard                        hostClipboardState
 	sidebarDensity                   string
 	saveSidebarDensity               func(context.Context, string) error
 	sidebarPreferenceError           error

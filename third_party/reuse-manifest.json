@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "date": "2026-11-24",
-  "scope": "Selective UI/platform migration through ADR-0027; full upstream experience and release acceptance remain open.",
+  "scope": "Selective UI/platform migration through ADR-0028; full upstream experience and release acceptance remain open.",
   "original_project_license": "pending O-010",
   "source_files": [
     {
@@ -788,6 +788,21 @@
       ],
       "mode": "selectively_adapted",
       "modifications": "ADR-0027: v2 split events and serialized independent preference snapshots; shared user-event finalization, original Tab/Run and bounded terminal resize path retained."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/pane_copy.go",
+      "source_sha256": "73042087f2e691b2c660c2f191815557816070af364f944cfb361efe8c2c83b3",
+      "destination_file": "internal/ui/workspace_visible_copy.go",
+      "license": "MIT",
+      "parts": [
+        "normalizeVisiblePane whitespace/control normalization",
+        "selected local pane copy intent; capture separate from preview/history"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "ADR-0028: original Session/Run/pane and queued target checks, bounded VT-aware capture, workspace cancellation and the existing serialized OSC52 writer. No upstream clipboard fallback or v1 dependency copied."
     }
   ],
   "preserved_notices": [

@@ -128,3 +128,5 @@ Bubbles 2.2.2 textinput 通过模块使用，未复制组件源码。v2 表单�
 2026-11-24 比例持久化：ADR-0027 继续改编同固定 Agent Deck `80494e527393b7ead00da30018e6ee7e60e9d7a0` 的 split_config.go，并选择性适配 home_keys_main.go 的拖动结束、无按钮松开／移动收尾；目标 workspace_split.go 保留 MIT 原版权。来源写 preview_pct 到主配置，产品用互补 sidebar_percent 和独立 ui.toml v4，沿既有串行快照／失败可见合同。不迁入 source 主配置模型或 Charm v1。来源精确 SHA、七状态及本地范围见[报告](testing/results/2026-11-24-split-preferences.md)。
 
 2026-11-24 长卡片修正：同固定 Agent Deck `80494e527393b7ead00da30018e6ee7e60e9d7a0` 的 embedded_sidebar.go／cellwidth.go 已登记 MIT 来源继续适用；workspace_sidebar.go 恢复首行 fitCellWidth 的空尾裁切与元信息独立末行省略。源组件与裁切／换行八状态见[报告](testing/results/2026-11-24-long-cards.md)；产品冲突身份后缀、背景末格填齐、通用程序标签为明确适配。session_title.go 仅增加内部尾符参数保留既有其他标签策略，路径标签修正不迁入源码品牌／agent 状态或新依赖。
+
+2026-11-24 可见页复制：ADR-0028 选择性改编同固定 Agent Deck `80494e527393b7ead00da30018e6ee7e60e9d7a0`／MIT 的 pane_copy.go 规范化和所选会话复制意图，home.go／hotkeys.go 的 V 为键位参考，tmux_capture.go 仅核对新鲜捕获参数。目标 workspace_visible_copy.go 保留原版权。Manager 原 pane 核对、编码／字节边界、取消和串行请求令牌为本产品实现，不迁入源 native clipboard fallback 或 v1 依赖。十组规范化／注入回调与实际 Tea 输出分别见[报告](testing/results/2026-11-24-visible-copy.md)。

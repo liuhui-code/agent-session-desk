@@ -1,0 +1,9 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "### The Update Method\n\nSource: https://github.com/charmbracelet/bubbletea/blob/main/tutorials/commands/README.md\n\n## The Update Method\n\nInternally, `Cmd`s run asynchronously in a goroutine. The `Msg` they return is\ncollected and sent to our update function for handling. Remember those message\ntypes we made earlier when we were making the `checkServer` command? We handle\nthem here. This makes dealing with many asynchronous operations very easy.\n\n--------------------------------\n\n### One More Thing About Commands\n\nSource: https://github.com/charmbracelet/bubbletea/blob/main/tutorials/commands/README.md\n\nAnd that’s that. There’s one more thing that is helpful to know about\n`Cmd`s, though.\n\n## One More Thing About Commands\n\n`Cmd`s are defined in Bubble Tea as `type Cmd func() Msg`. So they’re just\nfunctions that don’t take any arguments and return a `Msg`, which can be\nany type. If you need to pass arguments to a command, you just make a function\nthat returns a command. For example:\n\n--------------------------------\n\n### Renamed APIs\n\nSource: https://github.com/charmbracelet/bubbletea/blob/main/UPGRADE_GUIDE_V2.md\n\n## Renamed APIs\n\n| v1 | v2 | Notes |\n|---|---|---|\n| `tea.Sequentially(...)` | `tea.Sequence(...)` | `Sequentially` was already deprecated in v1 |\n| `tea.WindowSize()` | `tea.RequestWindowSize` | Now returns `Msg` directly, not a `Cmd` |"
+    }
+  ]
+}
+

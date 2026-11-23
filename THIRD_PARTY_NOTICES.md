@@ -70,3 +70,5 @@ ADR-0024 从同一固定提交选择性适配 `confirm_dialog.go`／`home_keys_d
 2026-11-24 ADR-0027：继续选择性适配同固定 Agent Deck／MIT 的 split_config.go 比例键、拖动预览及 home_keys_main.go 的 endDividerDrag／无按钮松开和漏松开收尾至 workspace_split.go。独立 ui.toml v4、整份串行保存、可见失败回滚和 Tab／终端尺寸通道为本产品适配，不迁入 v1 依赖或上游主配置模型。精确 SHA 和来源七状态见[报告](docs/testing/results/2026-11-24-split-preferences.md)。
 
 2026-11-24 长卡片继续按同固定 Agent Deck／MIT 的 embedded_sidebar.go 与 cellwidth.go 修正首行空尾裁切、元信息独立末行省略；目标为既有 workspace_sidebar.go，原版权及源指纹不变。通用 executable 标签、稳定身份提示和完整背景填齐属于本产品适配；无新的上游依赖。
+
+2026-11-24 ADR-0028：同固定 Agent Deck／MIT 的 pane_copy.go 所选可见页复制与去控制／右侧及底部空白规范化，选择性改编至 workspace_visible_copy.go；home.go／hotkeys.go 的 V 交互与 tmux_capture.go 的新鲜捕获仅作固定参考。原版权及精确源哈希保留；原目标复核、限额、工作区取消和独立串行请求令牌为本产品适配，无新框架或 clipboard fallback 依赖。

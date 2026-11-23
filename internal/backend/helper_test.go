@@ -123,6 +123,10 @@ func fakeBackend(args []string) int {
 			state.Missing = true
 			save()
 		}
+		if metadata := os.Getenv("ASD_TEST_METADATA_AFTER_CAPTURE"); metadata != "" {
+			state.Metadata = metadata
+			save()
+		}
 	case "kill-session":
 		if flag("-t") != state.Name {
 			return 96

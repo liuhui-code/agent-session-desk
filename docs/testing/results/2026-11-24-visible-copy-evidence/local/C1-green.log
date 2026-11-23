@@ -1,0 +1,8 @@
+ok  	github.com/liuhui-code/agent-session-desk/internal/ui	0.938s
+--- FAIL: TestVisibleCaptureRejectsIncompleteOrChangedOriginalWithoutCopying (0.54s)
+    --- FAIL: TestVisibleCaptureRejectsIncompleteOrChangedOriginalWithoutCopying/invalid-utf8 (0.09s)
+        visible_copy_test.go:106: invalid visible capture escaped: {Text:\xff Truncated:false} <nil>
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/backend	2.260s
+ok  	github.com/liuhui-code/agent-session-desk/internal/manager	2.370s
+FAIL

@@ -37,6 +37,8 @@ const (
 )
 
 type workspaceState struct {
+	visibleCopy                *visiblePaneCopy
+	pendingClipboard           *workspaceClipboard
 	clipboardReading           bool
 	tabDrag                    workspaceTabDrag
 	listClick                  workspaceListClick
@@ -76,6 +78,11 @@ type workspaceResized struct {
 }
 
 func (w *workspaceState) disconnect() {
+	if w.visibleCopy != nil {
+		w.visibleCopy.cancel()
+		w.visibleCopy = nil
+	}
+	w.pendingClipboard = nil
 	w.clipboardReading = false
 	w.tabDrag = workspaceTabDrag{}
 	w.split.dragging = false

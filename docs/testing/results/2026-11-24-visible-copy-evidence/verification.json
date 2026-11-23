@@ -1,0 +1,12 @@
+{
+  "result": "passed_local_evidence_consistency",
+  "artifacts": 53,
+  "source_fingerprints": 236,
+  "normalization_cases": 10,
+  "source_injected_clipboard_callbacks": 9,
+  "checks": 5,
+  "prior_full_failure_retained": true,
+  "escaped_diagnostic_logs": 2,
+  "windows": "not_run",
+  "scope": "not native pane execution, real clipboard/desktop, physical modifiers, agent, resource or release acceptance"
+}

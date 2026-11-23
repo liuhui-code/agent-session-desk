@@ -1,0 +1,75 @@
+{
+  "scope": "pure normalization + injected source capture/clipboard callback, not real tmux or system clipboard execution",
+  "cases": [
+    {
+      "name": "ansi-link",
+      "text_matches": true,
+      "capture_encoding_valid": true,
+      "source_capture_calls": 1,
+      "source_clipboard_callback_calls": 1
+    },
+    {
+      "name": "osc-crlf",
+      "text_matches": true,
+      "capture_encoding_valid": true,
+      "source_capture_calls": 1,
+      "source_clipboard_callback_calls": 1
+    },
+    {
+      "name": "controls",
+      "text_matches": true,
+      "capture_encoding_valid": true,
+      "source_capture_calls": 1,
+      "source_clipboard_callback_calls": 1
+    },
+    {
+      "name": "paste-CSI",
+      "text_matches": true,
+      "capture_encoding_valid": true,
+      "source_capture_calls": 1,
+      "source_clipboard_callback_calls": 1
+    },
+    {
+      "name": "string-controls",
+      "text_matches": true,
+      "capture_encoding_valid": true,
+      "source_capture_calls": 1,
+      "source_clipboard_callback_calls": 1
+    },
+    {
+      "name": "osc-ST",
+      "text_matches": true,
+      "capture_encoding_valid": true,
+      "source_capture_calls": 1,
+      "source_clipboard_callback_calls": 1
+    },
+    {
+      "name": "raw-C1",
+      "text_matches": true,
+      "capture_encoding_valid": true,
+      "source_capture_calls": 1,
+      "source_clipboard_callback_calls": 1
+    },
+    {
+      "name": "truncated-control",
+      "text_matches": true,
+      "capture_encoding_valid": true,
+      "source_capture_calls": 1,
+      "source_clipboard_callback_calls": 1
+    },
+    {
+      "name": "empty",
+      "text_matches": true,
+      "capture_encoding_valid": true,
+      "source_capture_calls": 1,
+      "source_clipboard_callback_calls": 0
+    },
+    {
+      "name": "unicode-indent",
+      "text_matches": true,
+      "capture_encoding_valid": true,
+      "source_capture_calls": 1,
+      "source_clipboard_callback_calls": 1
+    }
+  ]
+}

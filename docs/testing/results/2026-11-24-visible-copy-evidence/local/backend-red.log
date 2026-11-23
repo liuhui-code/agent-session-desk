@@ -1,0 +1,5 @@
+--- FAIL: TestVisibleCaptureUsesFreshOriginalPaneWithoutHistoryOrTerminalEffects (0.04s)
+    visible_copy_test.go:19: backend has no fresh visible-page capture
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/backend	1.187s
+FAIL
