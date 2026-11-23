@@ -1,0 +1,74 @@
+{
+    "tasks_absent":  [
+                         "AsdSidebarKeyContinuation220261123",
+                         "AsdSidebarKeyContinuation20261123",
+                         "AsdSidebarKeySetup20261123",
+                         "AsdSidebarKeyDesktop20261123",
+                         "AsdSidebarKeyLayoutQuery20261123",
+                         "AsdSidebarKeyCapsBefore20261123",
+                         "AsdSidebarKeyCapsOff20261123",
+                         "AsdSidebarKeyCapsCurrent20261123",
+                         "AsdSidebarKeyCapsFinal20261123",
+                         "AsdSidebarKeyCapsAftercontrol20261123"
+                     ],
+    "scope":  "Registered original identities and known private image paths only; no machine-global cleanup claim; owned target and outer launcher PSReadLine history were isolated before input; no user history content archived",
+    "clipboard":  {
+                      "restored":  true,
+                      "original_text_logged":  false,
+                      "text_restored":  true,
+                      "nontext_content_verified":  false,
+                      "format_names_restored":  true,
+                      "utc":  "2026-11-23T03:23:52.5305929Z"
+                  },
+    "utc":  "2026-11-23T03:26:07.2617881Z",
+    "remaining_sessions":  "[]",
+    "private_images_alive":  0,
+    "settings_sha256":  "1499307ABEBA68C23F9EB38A4C636F81172475B6B2B535BC0B11DCD9547241F8",
+    "caps_verified_before_window_close":  true,
+    "stops":  [
+                  {
+                      "run_id":  "35a83017e60f2228a086445b585fce55",
+                      "session_id":  "a2ca905b0ee8fd9c181591c5d2e4e7ea",
+                      "result":  "{\r\n  \"session_id\": \"a2ca905b0ee8fd9c181591c5d2e4e7ea\",\r\n  \"run_id\": \"35a83017e60f2228a086445b585fce55\",\r\n  \"result\": \"backend_session_stopped\"\r\n}\r\n"
+                  }
+              ],
+    "caps_before":  true,
+    "result":  "passed",
+    "original_processes":  [
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                   "pid":  8976,
+                                   "filetime":  134398763066911417,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-sidebar-key-diag.exe",
+                                   "pid":  1856,
+                                   "filetime":  134398763528502946,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-key-s-instrumented.exe",
+                                   "pid":  19532,
+                                   "filetime":  134398766423875328,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-sidebar-key-diag.exe",
+                                   "pid":  7052,
+                                   "filetime":  134398778219766111,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe",
+                                   "pid":  772,
+                                   "filetime":  134398763517976708,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               }
+                           ]
+}

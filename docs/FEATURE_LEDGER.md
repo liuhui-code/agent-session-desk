@@ -122,7 +122,7 @@
 
 - **原生选择／搜索进展（2026-11-23）：**管理 v 经原 pane 进入后端复制模式，显示原生选区／命中／复制光标及 UTF-8 提示光标；有界剪贴板事件独立于屏幕合并，跨 Tab 串行发往外层终端。"已发送"不推定系统已保存；无额外历史、查询或消息状态。见 [复制／搜索报告](testing/results/2026-11-23-native-copy-search.md) 与 [ADR-0018](adr/0018-native-copy-search-and-host-clipboard.md)，仍实现中／未发布。
 
-- **默认组导航局部进展（2026-11-23）：**[ADR-0022](adr/0022-default-group-sidebar-navigation.md) 恢复隐式默认组、折叠、Alt+V 平铺切换和混合行高命中，ui.toml v2 将密度／模式／折叠交给同一串行写入队列。本机与 Windows 原生模型结果见[首轮报告](testing/results/2026-11-23-sidebar-navigation.md)；原产品随后完成双 shell 的[限定桌面流程](testing/results/2026-11-23-sidebar-navigation-desktop.md)，保留大写 S 的输入路径未决。自定义组、完整视觉／键盘与发布仍开放，保持实现中，不提升设计目录状态。
+- **默认组导航局部进展（2026-11-23）：**[ADR-0022](adr/0022-default-group-sidebar-navigation.md) 恢复隐式默认组、折叠、Alt+V 平铺切换和混合行高命中，ui.toml v2 将密度／模式／折叠交给同一串行写入队列。本机与 Windows 原生模型结果见[首轮报告](testing/results/2026-11-23-sidebar-navigation.md)；原产品随后完成双 shell 的[限定桌面流程](testing/results/2026-11-23-sidebar-navigation-desktop.md)，大写键后续[边界诊断](testing/results/2026-11-23-uppercase-s-diagnosis.md)已核对实际收到 S 的动作及原终端隔离，Caps 关闭的输入前端和一张截图／UIA差异保留。自定义组、完整视觉／键盘与发布仍开放，保持实现中，不提升设计目录状态。
 
 ### FL-004：多会话组织
 
@@ -135,7 +135,7 @@
 
 - **Tab 排序进展（2026-11-23）：**标题拖动与管理模式 `[`／`]` 调整当前 UI 的 Tab 顺序；活动 View、Session/Run 和排空中的输入目标保持身份，终端字符不截获。可见槽位固定，其他输入／缩放／释放结束手势；不自动滚到隐藏项或持久保存顺序。[行为与原生证据](testing/results/2026-11-23-tab-order.md)单独记录，仍实现中／未发布。
 
-- **默认组导航局部进展（2026-11-23）：**[ADR-0022](adr/0022-default-group-sidebar-navigation.md) 恢复隐式默认组、折叠、Alt+V 平铺切换和混合行高命中，ui.toml v2 将密度／模式／折叠交给同一串行写入队列。本机与 Windows 原生模型结果见[首轮报告](testing/results/2026-11-23-sidebar-navigation.md)；原产品随后完成双 shell 的[限定桌面流程](testing/results/2026-11-23-sidebar-navigation-desktop.md)，保留大写 S 的输入路径未决。自定义组、完整视觉／键盘与发布仍开放，保持实现中，不提升设计目录状态。
+- **默认组导航局部进展（2026-11-23）：**[ADR-0022](adr/0022-default-group-sidebar-navigation.md) 恢复隐式默认组、折叠、Alt+V 平铺切换和混合行高命中，ui.toml v2 将密度／模式／折叠交给同一串行写入队列。本机与 Windows 原生模型结果见[首轮报告](testing/results/2026-11-23-sidebar-navigation.md)；原产品随后完成双 shell 的[限定桌面流程](testing/results/2026-11-23-sidebar-navigation-desktop.md)，大写键后续[边界诊断](testing/results/2026-11-23-uppercase-s-diagnosis.md)已核对实际收到 S 的动作及原终端隔离，Caps 关闭的输入前端和一张截图／UIA差异保留。自定义组、完整视觉／键盘与发布仍开放，保持实现中，不提升设计目录状态。
 
 ### FL-005：稳定身份
 
@@ -242,7 +242,7 @@
 
 - **原生选择／搜索进展（2026-11-23）：**管理 v 经原 pane 进入后端复制模式，显示原生选区／命中／复制光标及 UTF-8 提示光标；有界剪贴板事件独立于屏幕合并，跨 Tab 串行发往外层终端。"已发送"不推定系统已保存；无额外历史、查询或消息状态。见 [复制／搜索报告](testing/results/2026-11-23-native-copy-search.md) 与 [ADR-0018](adr/0018-native-copy-search-and-host-clipboard.md)，仍实现中／未发布。
 
-- **默认组导航局部进展（2026-11-23）：**[ADR-0022](adr/0022-default-group-sidebar-navigation.md) 恢复隐式默认组、折叠、Alt+V 平铺切换和混合行高命中，ui.toml v2 将密度／模式／折叠交给同一串行写入队列。本机与 Windows 原生模型结果见[首轮报告](testing/results/2026-11-23-sidebar-navigation.md)；原产品随后完成双 shell 的[限定桌面流程](testing/results/2026-11-23-sidebar-navigation-desktop.md)，保留大写 S 的输入路径未决。自定义组、完整视觉／键盘与发布仍开放，保持实现中，不提升设计目录状态。
+- **默认组导航局部进展（2026-11-23）：**[ADR-0022](adr/0022-default-group-sidebar-navigation.md) 恢复隐式默认组、折叠、Alt+V 平铺切换和混合行高命中，ui.toml v2 将密度／模式／折叠交给同一串行写入队列。本机与 Windows 原生模型结果见[首轮报告](testing/results/2026-11-23-sidebar-navigation.md)；原产品随后完成双 shell 的[限定桌面流程](testing/results/2026-11-23-sidebar-navigation-desktop.md)，大写键后续[边界诊断](testing/results/2026-11-23-uppercase-s-diagnosis.md)已核对实际收到 S 的动作及原终端隔离，Caps 关闭的输入前端和一张截图／UIA差异保留。自定义组、完整视觉／键盘与发布仍开放，保持实现中，不提升设计目录状态。
 
 ### FL-013：异常、重试和运行变化
 
@@ -328,7 +328,7 @@
 
 - **历史缩高阻断与候选（2026-11-23）：**官方 psmux 3.4.0 首次缩高会丢原生历史，直接后端和 parser 均已复现；冻结页连续不证明实时历史完整。独立补丁候选五轮／20 次实时 capture 及七个原生后端顶层／13 个含子测试通过，仍未纳入产品／安装依赖。失败、来源、最终清理和适用范围见[报告](testing/results/2026-11-23-resize-history.md)；本能力保持实现中／未发布，默认依赖的完整历史门槛未通过。
 
-- **默认组导航局部进展（2026-11-23）：**[ADR-0022](adr/0022-default-group-sidebar-navigation.md) 恢复隐式默认组、折叠、Alt+V 平铺切换和混合行高命中，ui.toml v2 将密度／模式／折叠交给同一串行写入队列。本机与 Windows 原生模型结果见[首轮报告](testing/results/2026-11-23-sidebar-navigation.md)；原产品随后完成双 shell 的[限定桌面流程](testing/results/2026-11-23-sidebar-navigation-desktop.md)，保留大写 S 的输入路径未决。自定义组、完整视觉／键盘与发布仍开放，保持实现中，不提升设计目录状态。
+- **默认组导航局部进展（2026-11-23）：**[ADR-0022](adr/0022-default-group-sidebar-navigation.md) 恢复隐式默认组、折叠、Alt+V 平铺切换和混合行高命中，ui.toml v2 将密度／模式／折叠交给同一串行写入队列。本机与 Windows 原生模型结果见[首轮报告](testing/results/2026-11-23-sidebar-navigation.md)；原产品随后完成双 shell 的[限定桌面流程](testing/results/2026-11-23-sidebar-navigation-desktop.md)，大写键后续[边界诊断](testing/results/2026-11-23-uppercase-s-diagnosis.md)已核对实际收到 S 的动作及原终端隔离，Caps 关闭的输入前端和一张截图／UIA差异保留。自定义组、完整视觉／键盘与发布仍开放，保持实现中，不提升设计目录状态。
 
 ### FL-019：依赖升级与复用来源
 
@@ -345,7 +345,7 @@
 
 - **实验补丁归属：**固定 psmux 来源、唯一改动、原样 MIT／版权及源／产物哈希见[缩高历史报告](testing/results/2026-11-23-resize-history.md)和复用清单；不包含完整后端源码或二进制，不自动应用到安装依赖。候选接纳、版本与发行来源政策仍待单列决定。
 
-- **默认组导航局部进展（2026-11-23）：**[ADR-0022](adr/0022-default-group-sidebar-navigation.md) 恢复隐式默认组、折叠、Alt+V 平铺切换和混合行高命中，ui.toml v2 将密度／模式／折叠交给同一串行写入队列。本机与 Windows 原生模型结果见[首轮报告](testing/results/2026-11-23-sidebar-navigation.md)；原产品随后完成双 shell 的[限定桌面流程](testing/results/2026-11-23-sidebar-navigation-desktop.md)，保留大写 S 的输入路径未决。自定义组、完整视觉／键盘与发布仍开放，保持实现中，不提升设计目录状态。
+- **默认组导航局部进展（2026-11-23）：**[ADR-0022](adr/0022-default-group-sidebar-navigation.md) 恢复隐式默认组、折叠、Alt+V 平铺切换和混合行高命中，ui.toml v2 将密度／模式／折叠交给同一串行写入队列。本机与 Windows 原生模型结果见[首轮报告](testing/results/2026-11-23-sidebar-navigation.md)；原产品随后完成双 shell 的[限定桌面流程](testing/results/2026-11-23-sidebar-navigation-desktop.md)，大写键后续[边界诊断](testing/results/2026-11-23-uppercase-s-diagnosis.md)已核对实际收到 S 的动作及原终端隔离，Caps 关闭的输入前端和一张截图／UIA差异保留。自定义组、完整视觉／键盘与发布仍开放，保持实现中，不提升设计目录状态。
 
 ### FL-020：人工介入提醒
 
@@ -382,6 +382,8 @@
 7. 发布时列明本版本包含的 FL 编号、仍后置的能力和未通过的环境。首版发布须通过 FL-016 的 Windows 门槛及其他适用验收。
 
 ## 7. 变更记录
+
+2026-11-23 大写 S：不改产品键处理，补充控制台／解码边界和原产品 Caps 开启状态的原生按键复验。实际 S 可进入管理设置或原终端；Caps 关闭 Shift 输入未见记录、旧轮缺少 Caps／原生采样及一张截图呈现差异均保留，见[报告](testing/results/2026-11-23-uppercase-s-diagnosis.md)。各 FL、339 设计基线和发布状态不提升。
 
 2026-11-23：FL-003/004/012/018/019 补充默认分组导航的限定桌面证据，产品源码不变。283 回执包含 198 次只读轮询；13 次原生完整 capture、17 次偏好快照与五原身份清理通过。SendKeys 大写 S 未决，Unicode 替代路径不作该键通过；状态与设计基线不提升。
 

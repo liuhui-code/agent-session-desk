@@ -1,0 +1,51 @@
+//go:build windows
+
+package ui
+
+import (
+	tea "charm.land/bubbletea/v2"
+	"encoding/json"
+	"os"
+	"path/filepath"
+	"strings"
+	"time"
+)
+
+func asdAppendKeyLog(filename string, record map[string]any) {
+	root := os.Getenv("ASD_KEY_DIAG_ROOT")
+	if root == "" {
+		return
+	}
+	phase, _ := os.ReadFile(filepath.Join(root, "diag-step.txt"))
+	record["tag"] = "[DEBUG-keyS]"
+	record["phase"] = strings.TrimSpace(string(phase))
+	record["utc"] = time.Now().UTC().Format(time.RFC3339Nano)
+	record["pid"] = os.Getpid()
+	f, err := os.OpenFile(filepath.Join(root, filename), os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0600)
+	if err != nil {
+		return
+	}
+	defer f.Close()
+	_ = json.NewEncoder(f).Encode(record)
+}
+func (m *Model) asdRecordDecodedKey(msg tea.Msg) {
+	var key tea.Key
+	kind := ""
+	switch v := msg.(type) {
+	case tea.KeyPressMsg:
+		key = v.Key()
+		kind = "press"
+	case tea.KeyReleaseMsg:
+		key = v.Key()
+		kind = "release"
+	default:
+		return
+	}
+	focused := false
+	transition := 0
+	if m.workspace != nil {
+		focused = m.workspace.focused
+		transition = int(m.workspace.transition)
+	}
+	asdAppendKeyLog("decoded-key-events.jsonl", map[string]any{"event": kind, "key": key, "string": key.String(), "keystroke": key.Keystroke(), "terminal_focused": focused, "settings_open": m.densitySettings != nil, "transition": transition})
+}

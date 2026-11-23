@@ -10,7 +10,7 @@
 
 2026-11-22 技术进展：[ADR-0015](adr/0015-pinned-psmux-native-terminal-client.md) 已实现固定 psmux 原生终端传输，并通过 fixture／普通 PowerShell 的两项局部原生测试；ADR-0016 在 2026-11-23 接入首个 psmux Tab UI，并有普通 shell 的[局部桌面证据](testing/results/2026-11-23-tab-workspaces.md)。完整上游视觉／交互、IME、子程序鼠标、滚动／排序与资源门槛保持开放。
 
-2026-11-23 导航进展：[ADR-0022](adr/0022-default-group-sidebar-navigation.md) 已实现默认组／折叠／平铺和偏好串行保存，本机及 Windows 模型局部结果见[报告](testing/results/2026-11-23-sidebar-navigation.md)。随后已完成原产品的[限定双 shell 桌面流程](testing/results/2026-11-23-sidebar-navigation-desktop.md)，保留 SendKeys 大写 S 未决。下一步先诊断事件路径，再接入自定义组创建与移动，继续统一上游差异与最终资源／发布门槛；阶段状态不提升。
+2026-11-23 导航进展：[ADR-0022](adr/0022-default-group-sidebar-navigation.md) 已实现默认组／折叠／平铺和偏好串行保存，本机及 Windows 模型局部结果见[报告](testing/results/2026-11-23-sidebar-navigation.md)。随后已完成原产品的[限定双 shell 桌面流程](testing/results/2026-11-23-sidebar-navigation-desktop.md)，保留 SendKeys 大写 S 未决。[事件诊断](testing/results/2026-11-23-uppercase-s-diagnosis.md)随后核对了实际大写 S 的管理／终端路由；Caps 关闭的输入前端并列保留在 IME 门槛中。下一步接入自定义组创建与移动，继续统一上游差异与最终资源／发布门槛；阶段状态不提升。
 
 ## M0：视觉基线与 Windows 可行性
 

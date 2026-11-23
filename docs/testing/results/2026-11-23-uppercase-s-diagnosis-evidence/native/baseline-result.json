@@ -1,0 +1,45 @@
+{
+    "scope":  "Unmodified original product, same keyboard layout, SendKeys versus Unicode S; no language/caps changes",
+    "shells":  [
+                   {
+                       "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                       "filetime":  134398763066911417,
+                       "pid":  8976,
+                       "label":  "Copy A"
+                   }
+               ],
+    "result":  "observed",
+    "sequence":  62,
+    "ui_processes":  [
+                         {
+                             "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-sidebar-key-diag.exe",
+                             "pid":  1856,
+                             "filetime":  134398763528502946,
+                             "session":  2
+                         }
+                     ],
+    "utc":  "2026-11-23T02:59:26.8973886Z",
+    "trials":  [
+                   {
+                       "sendkeys_wait_milliseconds":  3988,
+                       "trial":  1,
+                       "unicode_opened_settings":  true,
+                       "sendkeys_opened_settings":  false,
+                       "sendkeys_capture_sequence":  15
+                   },
+                   {
+                       "sendkeys_wait_milliseconds":  4178,
+                       "trial":  2,
+                       "unicode_opened_settings":  true,
+                       "sendkeys_opened_settings":  false,
+                       "sendkeys_capture_sequence":  34
+                   },
+                   {
+                       "sendkeys_wait_milliseconds":  3882,
+                       "trial":  3,
+                       "unicode_opened_settings":  true,
+                       "sendkeys_opened_settings":  false,
+                       "sendkeys_capture_sequence":  53
+                   }
+               ]
+}

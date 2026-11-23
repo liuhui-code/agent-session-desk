@@ -508,6 +508,13 @@
       "path": "third_party/vt100-psmux/LICENSE",
       "sha256": "53a04b0a11073f3d0183c31a4b7bdf9a3f68d453adeec136e59e5a9d9a554370",
       "copied_verbatim": true
+    },
+    {
+      "project": "ultraviolet",
+      "commit": "6b8d4baf91b4c933e6613b0eefc8f180f6eda002",
+      "path": "third_party/ultraviolet/LICENSE",
+      "sha256": "8a77c755a1d1fbdc932e86f0449549121820b6f4cc1234b12fcfc8d38013c1de",
+      "copied_verbatim": true
     }
   ],
   "reference_only": [
@@ -526,6 +533,17 @@
       "license": "MIT",
       "mode": "experimental_patch_only",
       "modifications": "Keep displaced main-screen rows in bounded native history before height shrink; not applied by product or installer."
+    },
+    {
+      "project": "ultraviolet",
+      "repository": "https://github.com/charmbracelet/ultraviolet",
+      "commit": "6b8d4baf91b4c933e6613b0eefc8f180f6eda002",
+      "source_file": "terminal_reader_windows.go",
+      "source_sha256": "4022cce38469b8d610bcb9ee0e75c3b9d1721b30e3de67ce9bd8d2c9b1b61358",
+      "destination_file": "docs/testing/results/2026-11-23-uppercase-s-diagnosis-evidence/local/terminal_reader_windows.go.txt",
+      "license": "MIT",
+      "mode": "diagnostic_overlay_only",
+      "modifications": "One tagged key-record observation call; only a temporary exact module copy/modfile/overlay builds it. Normal dependency and product source unchanged."
     }
   ]
 }

@@ -1,0 +1,97 @@
+{
+    "task_state":  "Running",
+    "files":  {
+                  "caps-current.json":  {
+                                            "loaded_layouts":  [
+                                                                   134481924
+                                                               ],
+                                            "pid":  772,
+                                            "imm_conversion_available":  false,
+                                            "imm_open":  null,
+                                            "filetime":  134398763517976708,
+                                            "result":  "observed",
+                                            "imm_context_available":  false,
+                                            "utc":  "2026-11-23T03:16:22.6825337Z",
+                                            "capsLock":  false,
+                                            "thread":  5428,
+                                            "layout":  134481924,
+                                            "imm_conversion":  0,
+                                            "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe",
+                                            "imm_sentence":  0,
+                                            "foreground_owned":  false
+                                        },
+                  "caps-before.json":  {
+                                           "loaded_layouts":  [
+                                                                  134481924
+                                                              ],
+                                           "pid":  772,
+                                           "imm_conversion_available":  false,
+                                           "imm_open":  null,
+                                           "filetime":  134398763517976708,
+                                           "result":  "observed",
+                                           "imm_context_available":  false,
+                                           "utc":  "2026-11-23T03:12:09.4169825Z",
+                                           "capsLock":  true,
+                                           "thread":  5428,
+                                           "layout":  134481924,
+                                           "imm_conversion":  0,
+                                           "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe",
+                                           "imm_sentence":  0,
+                                           "foreground_owned":  false
+                                       },
+                  "caps-off.json":  {
+                                        "loaded_layouts":  [
+                                                               134481924
+                                                           ],
+                                        "pid":  772,
+                                        "imm_conversion_available":  false,
+                                        "imm_open":  null,
+                                        "filetime":  134398763517976708,
+                                        "result":  "observed",
+                                        "imm_context_available":  false,
+                                        "utc":  "2026-11-23T03:16:06.7455125Z",
+                                        "capsLock":  false,
+                                        "thread":  5428,
+                                        "layout":  134481924,
+                                        "imm_conversion":  0,
+                                        "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe",
+                                        "imm_sentence":  0,
+                                        "foreground_owned":  false
+                                    },
+                  "caps-final.json":  {
+                                          "loaded_layouts":  [
+                                                                 134481924
+                                                             ],
+                                          "pid":  772,
+                                          "imm_conversion_available":  false,
+                                          "imm_open":  null,
+                                          "filetime":  134398763517976708,
+                                          "result":  "observed",
+                                          "imm_context_available":  false,
+                                          "utc":  "2026-11-23T03:16:26.3861057Z",
+                                          "capsLock":  true,
+                                          "thread":  5428,
+                                          "layout":  134481924,
+                                          "imm_conversion":  0,
+                                          "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe",
+                                          "imm_sentence":  0,
+                                          "foreground_owned":  false
+                                      },
+                  "regression-failure.json":  {
+                                                  "stack":  "在 WaitText、\u003c无文件\u003e 中: 第 32 行\r\n在 Trial、\u003c无文件\u003e 中: 第 94 行\r\n在 \u003cScriptBlock\u003e、\u003c无文件\u003e 中: 第 111 行\r\n在 \u003cScriptBlock\u003e、\u003c无文件\u003e 中: 第 1 行",
+                                                  "error":  "Expected screen not observed: 侧栏密度",
+                                                  "result":  "failed",
+                                                  "sequence":  227,
+                                                  "caps_may_have_changed":  false
+                                              }
+              },
+    "last":  {
+                 "ok":  true,
+                 "utc":  "2026-11-23T03:16:24.8612923Z",
+                 "command":  {
+                                 "kind":  "physical",
+                                 "text":  "\u0014"
+                             }
+             },
+    "last_response":  "227.json"
+}

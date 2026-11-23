@@ -2,6 +2,8 @@
 
 日期：2026-11-23；产品基于 `22e086cec283c692fb3f0235de5eb18d8492f63e`。本轮不改产品源码，继续验证 [ADR-0022](../../adr/0022-default-group-sidebar-navigation.md) 的默认分组／平铺、折叠、混合行高命中与 ui.toml v2。**限定桌面流程完成；SendKeys 大写 S 未打开设置的差异保留未决，不宣称完整键盘、上游视觉或发布通过。** 自定义组创建／移动仍待实现。
 
+后续[按键边界诊断](2026-11-23-uppercase-s-diagnosis.md)在新复现中区分了实际 `s` 与 `S`，并在未修改产品核对后者的设置／终端路由。原轮未记录 Caps／原生事件，故保留原现象，不回填当时确切原因；Caps 关闭的输入前端仍未验收。
+
 ## 环境与产物
 
 Windows 10 build 19045，普通桌面 Session 2／非管理员任务。Windows Terminal 1.25.3131.0、PowerShell 7.7.0；UI Automation 观测字体为 Consolas。使用 [ADR-0019](../../adr/0019-explicit-windows-terminal-bundle.md) 的显式固定开发 bundle，仍未改变官方 psmux 默认发行物、安装哈希或发布支持矩阵。

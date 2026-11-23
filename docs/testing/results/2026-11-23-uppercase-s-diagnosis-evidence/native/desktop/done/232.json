@@ -1,0 +1,4 @@
+{
+    "kind":  "paste",
+    "text":  "Remove-Item Env:ASD_KEY_DIAG_ROOT -ErrorAction SilentlyContinue; \u0026 \u0027C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-sidebar-key-diag.exe\u0027 --terminal-bundle \u0027C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\terminal-bundle-20261123\\bundle\u0027 --runtime-dir \u0027C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\sidebar-key-diagnosis-20261123\\runtime\u0027 --namespace asd-sidebar-key-diag --state-dir \u0027C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\sidebar-key-diagnosis-20261123\\state\u0027"
+}

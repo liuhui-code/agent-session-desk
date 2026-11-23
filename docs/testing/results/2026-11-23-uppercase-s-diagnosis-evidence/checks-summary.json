@@ -1,0 +1,126 @@
+{
+  "result": "bounded_uppercase_text_routing_verified",
+  "artifacts": 665,
+  "unchanged_source_fingerprints": 152,
+  "receipts": 269,
+  "action_kinds": {
+    "resize": 1,
+    "state": 192,
+    "keys": 37,
+    "capture": 13,
+    "text": 9,
+    "paste": 2,
+    "shiftS": 4,
+    "physical": 10,
+    "finish": 1
+  },
+  "baseline_trials": [
+    {
+      "sendkeys_wait_milliseconds": 3988,
+      "trial": 1,
+      "unicode_opened_settings": true,
+      "sendkeys_opened_settings": false,
+      "sendkeys_capture_sequence": 15
+    },
+    {
+      "sendkeys_wait_milliseconds": 4178,
+      "trial": 2,
+      "unicode_opened_settings": true,
+      "sendkeys_opened_settings": false,
+      "sendkeys_capture_sequence": 34
+    },
+    {
+      "sendkeys_wait_milliseconds": 3882,
+      "trial": 3,
+      "unicode_opened_settings": true,
+      "sendkeys_opened_settings": false,
+      "sendkeys_capture_sequence": 53
+    }
+  ],
+  "boundary_matrix": [
+    {
+      "phase": "sendkeys-1",
+      "recorded_char": "s",
+      "decoded_text": "s",
+      "expected_setting_match": false
+    },
+    {
+      "phase": "sendkeys-2",
+      "recorded_char": "s",
+      "decoded_text": "s",
+      "expected_setting_match": false
+    },
+    {
+      "phase": "sendkeys-3",
+      "recorded_char": "s",
+      "decoded_text": "s",
+      "expected_setting_match": false
+    },
+    {
+      "phase": "unicode-1",
+      "recorded_char": "S",
+      "decoded_text": "S",
+      "expected_setting_match": true
+    },
+    {
+      "phase": "unicode-2",
+      "recorded_char": "S",
+      "decoded_text": "S",
+      "expected_setting_match": true
+    },
+    {
+      "phase": "unicode-3",
+      "recorded_char": "S",
+      "decoded_text": "S",
+      "expected_setting_match": true
+    },
+    {
+      "phase": "held-shift-1",
+      "recorded_char": "s",
+      "decoded_text": "s",
+      "expected_setting_match": false
+    },
+    {
+      "phase": "held-shift-2",
+      "recorded_char": "s",
+      "decoded_text": "s",
+      "expected_setting_match": false
+    },
+    {
+      "phase": "held-shift-3",
+      "recorded_char": "s",
+      "decoded_text": "s",
+      "expected_setting_match": false
+    },
+    {
+      "phase": "caps-on-physical-1",
+      "recorded_char": "S",
+      "decoded_text": "S",
+      "expected_setting_match": true
+    },
+    {
+      "phase": "caps-on-physical-2",
+      "recorded_char": "S",
+      "decoded_text": "S",
+      "expected_setting_match": true
+    },
+    {
+      "phase": "caps-on-physical-3",
+      "recorded_char": "S",
+      "decoded_text": "S",
+      "expected_setting_match": true
+    }
+  ],
+  "raw_records": 162,
+  "decoded_records": 27,
+  "caps_off_shift_records_observed": 0,
+  "green_caps_on_trials": 6,
+  "complete_numbered_captures": 5,
+  "original_processes_ended": 5,
+  "tasks_absent": 10,
+  "caps_restored": true,
+  "private_images_alive": 0,
+  "unmodified_pngs": 13,
+  "visual_gap": "caps-on-physical-1 PNG remains manager while adjacent UIA reports settings; not used as settings-image acceptance",
+  "open_gate": "Caps-off Shift path absent from the recorded console/decode logs; full IME/physical keyboard acceptance remains open"
+}

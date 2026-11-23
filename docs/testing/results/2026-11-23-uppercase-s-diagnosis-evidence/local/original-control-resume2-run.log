@@ -1,0 +1,188 @@
+{
+    "caps_before":  {
+                        "loaded_layouts":  [
+                                               134481924
+                                           ],
+                        "pid":  772,
+                        "imm_conversion_available":  false,
+                        "imm_open":  null,
+                        "filetime":  134398763517976708,
+                        "result":  "observed",
+                        "imm_context_available":  false,
+                        "utc":  "2026-11-23T03:12:09.4169825Z",
+                        "capsLock":  true,
+                        "thread":  5428,
+                        "layout":  134481924,
+                        "imm_conversion":  0,
+                        "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe",
+                        "imm_sentence":  0,
+                        "foreground_owned":  false
+                    },
+    "sequence":  269,
+    "caps_restored":  {
+                          "loaded_layouts":  [
+                                                 134481924
+                                             ],
+                          "pid":  772,
+                          "imm_conversion_available":  false,
+                          "imm_open":  null,
+                          "filetime":  134398763517976708,
+                          "result":  "observed",
+                          "imm_context_available":  false,
+                          "utc":  "2026-11-23T03:16:26.3861057Z",
+                          "capsLock":  true,
+                          "thread":  5428,
+                          "layout":  134481924,
+                          "imm_conversion":  0,
+                          "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe",
+                          "imm_sentence":  0,
+                          "foreground_owned":  false
+                      },
+    "before_processes":  [
+                             {
+                                 "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                 "filetime":  134398763066911417,
+                                 "pid":  8976,
+                                 "label":  "Copy A"
+                             }
+                         ],
+    "result":  "passed",
+    "trials":  [
+                   {
+                       "reconstructed_from_actual_receipts":  true,
+                       "capsLock":  true,
+                       "used_shift":  false,
+                       "sequence":  165,
+                       "phase":  "caps-on-physical-1",
+                       "opened_settings":  true
+                   },
+                   {
+                       "reconstructed_from_actual_receipts":  true,
+                       "capsLock":  true,
+                       "used_shift":  false,
+                       "sequence":  171,
+                       "phase":  "caps-on-physical-2",
+                       "opened_settings":  true
+                   },
+                   {
+                       "reconstructed_from_actual_receipts":  true,
+                       "capsLock":  true,
+                       "used_shift":  false,
+                       "sequence":  176,
+                       "phase":  "caps-on-physical-3",
+                       "opened_settings":  true
+                   },
+                   {
+                       "phase":  "original-caps-aware-1",
+                       "capsLock":  true,
+                       "used_shift":  false,
+                       "opened_settings":  true,
+                       "sequence":  240
+                   },
+                   {
+                       "phase":  "original-caps-aware-2",
+                       "capsLock":  true,
+                       "used_shift":  false,
+                       "opened_settings":  true,
+                       "sequence":  245
+                   },
+                   {
+                       "phase":  "original-caps-aware-3",
+                       "capsLock":  true,
+                       "used_shift":  false,
+                       "opened_settings":  true,
+                       "sequence":  250
+                   }
+               ],
+    "after":  {
+                  "value":  [
+                                {
+                                    "session_id":  "a2ca905b0ee8fd9c181591c5d2e4e7ea",
+                                    "run_id":  "35a83017e60f2228a086445b585fce55",
+                                    "backend_id":  "asd_a2ca905b0ee8fd9c181591c5d2e4e7ea_35a83017e60f2228a086445b585fce55",
+                                    "title":  "Copy A",
+                                    "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                    "terminal_state":  "available"
+                                }
+                            ],
+                  "Count":  1
+              },
+    "before":  {
+                   "session_id":  "a2ca905b0ee8fd9c181591c5d2e4e7ea",
+                   "run_id":  "35a83017e60f2228a086445b585fce55",
+                   "backend_id":  "asd_a2ca905b0ee8fd9c181591c5d2e4e7ea_35a83017e60f2228a086445b585fce55",
+                   "title":  "Copy A",
+                   "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                   "terminal_state":  "available"
+               },
+    "utc":  "2026-11-23T03:23:52.5415535Z",
+    "ui_processes":  [
+                         {
+                             "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-sidebar-key-diag.exe",
+                             "pid":  1856,
+                             "filetime":  134398763528502946,
+                             "session":  2
+                         },
+                         {
+                             "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-key-s-instrumented.exe",
+                             "pid":  19532,
+                             "filetime":  134398766423875328,
+                             "session":  2
+                         },
+                         {
+                             "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-sidebar-key-diag.exe",
+                             "pid":  7052,
+                             "filetime":  134398778219766111,
+                             "session":  2
+                         }
+                     ],
+    "caps_after_control":  {
+                               "loaded_layouts":  [
+                                                      134481924
+                                                  ],
+                               "pid":  772,
+                               "imm_conversion_available":  false,
+                               "imm_open":  null,
+                               "filetime":  134398763517976708,
+                               "result":  "observed",
+                               "imm_context_available":  false,
+                               "utc":  "2026-11-23T03:23:50.4490703Z",
+                               "capsLock":  true,
+                               "thread":  5428,
+                               "layout":  134481924,
+                               "imm_conversion":  0,
+                               "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe",
+                               "imm_sentence":  0,
+                               "foreground_owned":  false
+                           },
+    "scope":  "Original Caps-on uppercase S control and terminal isolation passed. Caps-off Shift+S was intercepted before console and remains a broader IME gate; no product fix or layout change.",
+    "after_processes":  [
+                            {
+                                "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                "filetime":  134398763066911417,
+                                "pid":  8976,
+                                "label":  "Copy A"
+                            }
+                        ],
+    "caps_off_shift_delivered_no_app_key":  true,
+    "caps_off":  {
+                     "loaded_layouts":  [
+                                            134481924
+                                        ],
+                     "pid":  772,
+                     "imm_conversion_available":  false,
+                     "imm_open":  null,
+                     "filetime":  134398763517976708,
+                     "result":  "observed",
+                     "imm_context_available":  false,
+                     "utc":  "2026-11-23T03:16:06.7455125Z",
+                     "capsLock":  false,
+                     "thread":  5428,
+                     "layout":  134481924,
+                     "imm_conversion":  0,
+                     "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe",
+                     "imm_sentence":  0,
+                     "foreground_owned":  false
+                 }
+}
+

@@ -1,0 +1,4 @@
+$ErrorActionPreference='Stop';[Console]::OutputEncoding=[Text.UTF8Encoding]::new($false)
+$base=Join-Path $env:USERPROFILE 'asd-acceptance-20261122';$root=Join-Path $base 'sidebar-key-diagnosis-20261123'
+$errorFile=Join-Path $root 'desktop/driver-continuation-error.json'
+@{original_task=[string](Get-ScheduledTask 'AsdSidebarKeyDesktop20261123').State;continuation_task=[string](Get-ScheduledTask 'AsdSidebarKeyContinuation20261123').State;error=$(if(Test-Path $errorFile){[IO.File]::ReadAllText($errorFile)|ConvertFrom-Json}else{$null});pending=@(Get-ChildItem (Join-Path $root 'desktop/commands') -Filter '*.json'|Select-Object -ExpandProperty Name);last_response=(Get-ChildItem (Join-Path $root 'desktop/responses') -Filter '*.json'|Sort-Object Name|Select-Object -Last 1).Name}|ConvertTo-Json -Depth 6

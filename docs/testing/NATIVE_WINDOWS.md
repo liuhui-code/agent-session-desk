@@ -80,3 +80,11 @@ Hosted runner 是 **Windows Server 2025**，标签会随镜像更新；实际 Im
 ## 6. 独立历史缩高诊断
 
 [`windows-history-resize.ps1`](../../tools/ci/windows-history-resize.ps1) 为 opt-in、单合成会话／新目录的完整性诊断；每个实时 capture 必须严格保留编号 1–40，默认缺失／重复即非零退出，冻结画面另行保留。启动参数与安全清理见[复现说明](../../tools/experiments/psmux-resize-history/README.md)。官方 3.4.0 失败、独立候选通过及中间 harness 失败见[实际报告](results/2026-11-23-resize-history.md)。它不进入现有 hosted CI，也不自动替换官方固定哈希；没有新的 Windows 桌面或发布接受。
+
+## 大小写快捷键的观测
+
+测试记录 Caps Lock、输入布局与实际交付字符。SendKeys 的参数 `S` 不单独证明终端收到大写 S；VK 路径也必须考虑 Caps／Shift 组合及 IME 前端。Unicode 文本、剪贴板和原生 VK 分开记账，不互相替代物理键证据；VT 解码的 Mod／Keystroke 不能反推硬件修饰键。
+
+收到实际 S 时核对管理设置；终端焦点下核对原 pane 的精确草稿和 Session/Run，不让管理键泄漏。键在控制台／框架边界缺失时保留未决，不把缺失记作成功或修改产品来猜测输入。临时切换锁定键须保存、核验并恢复原状态；不为测试擅自安装新输入布局。
+
+本轮精确复现、临时日志 overlay、原产品复验和恢复范围见[大写 S 报告](results/2026-11-23-uppercase-s-diagnosis.md)，与完整 IME／键盘和发布门槛分开。

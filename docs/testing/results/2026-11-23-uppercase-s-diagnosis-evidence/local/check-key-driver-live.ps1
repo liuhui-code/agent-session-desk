@@ -1,0 +1,5 @@
+$ErrorActionPreference='Stop';[Console]::OutputEncoding=[Text.UTF8Encoding]::new($false)
+$base=Join-Path $env:USERPROFILE 'asd-acceptance-20261122';$root=Join-Path $base 'sidebar-key-diagnosis-20261123'
+$task=Get-ScheduledTask 'AsdSidebarKeyDesktop20261123'
+$pending=@(Get-ChildItem (Join-Path $root 'desktop/commands') -Filter '*.json'|Select-Object -ExpandProperty Name)
+@{task_state=[string]$task.State;last_result=(Get-ScheduledTaskInfo 'AsdSidebarKeyDesktop20261123').LastTaskResult;pending=$pending;last_response=(Get-ChildItem (Join-Path $root 'desktop/responses') -Filter '*.json'|Sort-Object Name|Select-Object -Last 1).Name;clipboard_restored_file=(Test-Path (Join-Path $root 'desktop/clipboard-restored.json'));processes=@(Get-CimInstance Win32_Process|Where-Object{$_.ExecutablePath -eq (Join-Path $base 'asd-key-s-instrumented.exe') -or $_.ExecutablePath -eq (Join-Path $base 'terminal/terminal-1.25.3131.0/WindowsTerminal.exe')}|Select-Object ProcessId,ExecutablePath,CreationDate)}|ConvertTo-Json -Depth 6

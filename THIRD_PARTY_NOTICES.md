@@ -48,3 +48,5 @@ ADR-0020 新增选择性改编 Agent Deck 同一固定 MIT 提交的 `internal/u
 ADR-0021 选择性改编同一固定提交的 `internal/ui/group_dialog.go` 重命名预填／CursorEnd／Enter-Esc 和居中弹窗，以及 `styles.go` 的紫色、surface 与留白；`home.go` 管理 r 作为交互参考。产品独立显示名、版本冲突、身份与输入排空由本项目实现，不迁入上游分组／远程模型或 v1 依赖。原 MIT 许可继续适用，来源指纹见复用清单及重命名报告。
 
 ADR-0022 继续选择性改编同固定 Agent Deck 提交的 home.go／home_flatitems.go 默认组导航、home_view_list.go 组标题及 embedded_sidebar.go 快捷键留位，styles.go 组样式经本项目 tokens 组合；MIT／原版权保持。目标文件及精确来源见机器复用清单；未迁入上游完整分组树或 v1 依赖。
+
+大写 S 诊断仅以临时 overlay 复制既有 Ultraviolet 依赖的 `terminal_reader_windows.go`，固定提交 `6b8d4baf91b4c933e6613b0eefc8f180f6eda002`，MIT／Copyright (c) 2025 Charmbracelet, Inc。保留[原样许可](third_party/ultraviolet/LICENSE)及机器清单中的精确指纹；修改仅是观测调用，源码以 `.go.txt` 留在诊断证据中，不替换正式依赖或随产品安装。详见[诊断报告](docs/testing/results/2026-11-23-uppercase-s-diagnosis.md)。
