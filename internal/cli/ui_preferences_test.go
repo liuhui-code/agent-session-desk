@@ -13,7 +13,7 @@ import (
 func TestUILaunchOptionsCarryAndSaveManualSplitWithoutChangingOtherState(t *testing.T) {
 	dir := t.TempDir()
 	path := filepath.Join(dir, "ui.toml")
-	settings := config.UISettings{SidebarDensity: "minimal", SidebarMode: "flat", SidebarPercent: 45, DefaultGroupCollapsed: true}
+	settings := config.UISettings{Theme: "light", SidebarDensity: "minimal", SidebarMode: "flat", SidebarPercent: 45, DefaultGroupCollapsed: true}
 	if e := config.SaveUI(path, settings); e != nil {
 		t.Fatal(e)
 	}
@@ -22,7 +22,7 @@ func TestUILaunchOptionsCarryAndSaveManualSplitWithoutChangingOtherState(t *test
 		t.Fatal(e)
 	}
 	opts := loadUIOptions(backend.Options{RuntimeDir: t.TempDir(), Namespace: "asd-ui-prefs"}, dir)
-	if opts.SidebarPreferenceError != nil || opts.SidebarPercent != 45 || opts.SidebarDensity != "minimal" || opts.SidebarMode != "flat" || !opts.DefaultGroupCollapsed {
+	if opts.Theme != "light" || opts.SidebarPreferenceError != nil || opts.SidebarPercent != 45 || opts.SidebarDensity != "minimal" || opts.SidebarMode != "flat" || !opts.DefaultGroupCollapsed {
 		t.Fatalf("launch lost prefs: %+v", opts)
 	}
 	settings.SidebarPercent = 0

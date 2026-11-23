@@ -1,7 +1,7 @@
 // Portions adapted from Agent Deck, Copyright (c) 2025 Ashesh Goplani.
 // SPDX-License-Identifier: MIT
 // Source: internal/ui/settings_panel.go and hotkeys.go at
-// 80494e527393b7ead00da30018e6ee7e60e9d7a0. Modified: only sidebar density,
+// 80494e527393b7ead00da30018e6ee7e60e9d7a0. Modified: theme/density subset,
 // v2 messages, token styling and asynchronous serialized preference saves.
 // See third_party/agent-deck/LICENSE and THIRD_PARTY_NOTICES.md.
 package ui
@@ -11,11 +11,11 @@ import (
 	"strings"
 
 	tea "charm.land/bubbletea/v2"
-	"charm.land/lipgloss/v2"
 	"github.com/liuhui-code/agent-session-desk/internal/config"
 )
 
 type Options struct {
+	Theme                  string
 	SidebarPercent         int
 	SidebarDensity         string
 	SidebarMode            string
@@ -28,6 +28,10 @@ type Options struct {
 
 func NewWithOptions(ctx context.Context, service Service, options Options) *Model {
 	m := New(ctx, service)
+	if !config.ValidUITheme(options.Theme) {
+		options.Theme = ""
+	}
+	m.applyUITheme(options.Theme)
 	if !config.ValidSidebarPercent(options.SidebarPercent) {
 		options.SidebarPercent = 0
 	}
@@ -39,7 +43,7 @@ func NewWithOptions(ctx context.Context, service Service, options Options) *Mode
 	m.sidebarMode = config.NormalizeSidebarMode(options.SidebarMode)
 	m.sidebarCollapsed = options.DefaultGroupCollapsed
 	m.saveUISettings = options.SaveUISettings
-	m.preferences.saved = config.UISettings{SidebarPercent: options.SidebarPercent, SidebarDensity: m.sidebarDensity, SidebarMode: m.sidebarMode, DefaultGroupCollapsed: m.sidebarCollapsed, CollapsedGroups: options.CollapsedGroups}
+	m.preferences.saved = config.UISettings{Theme: options.Theme, SidebarPercent: options.SidebarPercent, SidebarDensity: m.sidebarDensity, SidebarMode: m.sidebarMode, DefaultGroupCollapsed: m.sidebarCollapsed, CollapsedGroups: options.CollapsedGroups}
 	m.preferences.wanted = m.preferences.saved
 	m.preferences.accepted = m.preferences.saved
 	m.collapsedGroups = map[string]bool{}
@@ -60,15 +64,20 @@ func NewWithOptions(ctx context.Context, service Service, options Options) *Mode
 }
 
 var sidebarDensities = [...]string{"full", "compact", "minimal", "auto"}
+var uiThemes = [...]string{"dark", "light"}
 
 type densitySettings struct {
-	choice        int
-	busy, closing bool
-	err           error
+	choice           int
+	themeChoice, row int
+	busy, closing    bool
+	err              error
 }
 
 func (m *Model) openDensitySettings() {
 	d := &densitySettings{err: m.sidebarPreferenceError}
+	if effectiveUITheme(m.preferences.saved.Theme) == "light" {
+		d.themeChoice = 1
+	}
 	for i, value := range sidebarDensities {
 		if value == m.sidebarDensity {
 			d.choice = i
@@ -87,13 +96,21 @@ func (m *Model) saveDensityChoice() tea.Cmd {
 	if d.busy {
 		return nil
 	}
-	value := sidebarDensities[d.choice]
-	if value == m.sidebarDensity {
+	if sidebarDensities[d.choice] == m.sidebarDensity && uiThemes[d.themeChoice] == effectiveUITheme(m.preferences.saved.Theme) {
 		return nil
 	}
 	d.busy, d.err = true, nil
-	m.preferences.wanted.SidebarDensity = value
+	m.preferences.wanted = m.settingsChoice()
 	return m.saveUIPreferences()
+}
+
+func (m *Model) settingsChoice() config.UISettings {
+	wanted, d := m.preferences.wanted, m.densitySettings
+	wanted.SidebarDensity = sidebarDensities[d.choice]
+	if effectiveUITheme(wanted.Theme) != uiThemes[d.themeChoice] {
+		wanted.Theme = uiThemes[d.themeChoice]
+	}
+	return wanted
 }
 func (m *Model) densitySettingsEvent(msg tea.Msg) (tea.Cmd, bool) {
 	d := m.densitySettings
@@ -116,11 +133,32 @@ func (m *Model) densitySettingsEvent(msg tea.Msg) (tea.Cmd, bool) {
 			}
 			return m.closeDensitySettings(), true
 		case "left", "h":
-			d.choice = max(0, d.choice-1)
+			if d.row == 0 {
+				d.themeChoice = max(0, d.themeChoice-1)
+			} else {
+				d.choice = max(0, d.choice-1)
+			}
 		case "right", "l":
-			d.choice = min(len(sidebarDensities)-1, d.choice+1)
+			if d.row == 0 {
+				d.themeChoice = min(len(uiThemes)-1, d.themeChoice+1)
+			} else {
+				d.choice = min(len(sidebarDensities)-1, d.choice+1)
+			}
 		case "space":
-			d.choice = (d.choice + 1) % len(sidebarDensities)
+			if d.row == 0 {
+				d.themeChoice = (d.themeChoice + 1) % len(uiThemes)
+			} else {
+				d.choice = (d.choice + 1) % len(sidebarDensities)
+			}
+		case "up", "k":
+			d.row = max(0, d.row-1)
+			return nil, true
+		case "down", "j":
+			d.row = min(1, d.row+1)
+			return nil, true
+		case "tab":
+			d.row = (d.row + 1) % 2
+			return nil, true
 		default:
 			return nil, true
 		}
@@ -129,59 +167,4 @@ func (m *Model) densitySettingsEvent(msg tea.Msg) (tea.Cmd, bool) {
 		return nil, true
 	}
 	return nil, false
-}
-
-func (m *Model) renderDensitySettings() string {
-	if m.width <= 0 || m.height <= 0 {
-		return ""
-	}
-	d, t := m.densitySettings, m.tokens
-	width := max(1, min(t.sidebar.settingsWidth, m.width))
-	contentWidth := max(1, width-m.styles.settingsBox.GetHorizontalFrameSize())
-	var choices []string
-	names := []string{"Full", "Compact", "Minimal", "Auto"}
-	for i, name := range names {
-		style, prefix := m.styles.settingsRadio, t.sidebar.radioUnselected
-		if i == d.choice {
-			style, prefix = m.styles.settingsChoice, t.sidebar.radioMarker
-		}
-		choices = append(choices, style.Render(prefix+name))
-	}
-	radio := strings.Join(choices, m.styles.settingsFocused.Render(strings.Repeat(" ", t.sidebar.radioGap)))
-	labelText := m.styles.settingsFocused.Render("侧栏密度: ")
-	if lipgloss.Width(labelText)+lipgloss.Width(radio) > contentWidth {
-		radio = m.styles.settingsChoice.Render(t.sidebar.radioMarker + names[d.choice])
-	}
-	row := labelText + radio
-	row += m.styles.settingsFocused.Render(strings.Repeat(" ", max(0, contentWidth-lipgloss.Width(row))))
-	lines := []string{m.styles.settingsTitle.Render("设置")}
-	for range t.dialog.titleGap {
-		lines = append(lines, "")
-	}
-	lines = append(lines, row, m.styles.settingsHint.Render("每会话 3 / 2 / 1 行；Auto 按空间选择"), m.styles.settingsHint.Render("←→ / h/l 选择 · 空格轮换 · Esc/S 返回"))
-	if d.busy {
-		lines = append(lines, m.styles.settingsHint.Render("正在保存…"))
-	}
-	if d.err != nil {
-		lines = append(lines, m.styles.settingsError.Render("未保存："+label(d.err.Error())))
-	}
-	maxRows := max(1, m.height-m.styles.settingsBox.GetVerticalFrameSize())
-	if len(lines) > maxRows {
-		lines = []string{row}
-		if d.err != nil {
-			lines = append(lines, m.styles.settingsError.Render("未保存："+label(d.err.Error())))
-		}
-		if d.busy {
-			lines = append(lines, m.styles.settingsHint.Render("正在保存…"))
-		}
-		lines = append(lines, m.styles.settingsHint.Render("←→ 选择 · Esc 返回"))
-	}
-	for i, line := range lines {
-		lines[i] = line + m.styles.settingsText.Render(strings.Repeat(" ", max(0, contentWidth-lipgloss.Width(line))))
-	}
-	content := fitFrame(strings.Join(lines, "\n"), contentWidth, min(len(lines), maxRows))
-	box := m.styles.settingsBox.Width(width).Render(content)
-	bw, bh := lipgloss.Size(box)
-	x, y := max(0, (m.width-bw)/2), max(0, (m.height-bh)/2)
-	return overlayLaunchDialog(fitFrame("", m.width, m.height), box, x, y, m.width, m.height)
 }

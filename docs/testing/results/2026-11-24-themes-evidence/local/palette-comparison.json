@@ -1,0 +1,145 @@
+{
+  "scope": "20 exact fixed-source RGB role values; not a full frame/RGB screenshot or Windows test",
+  "cases": [
+    {
+      "theme": "dark",
+      "role": "accent",
+      "source": "#7aa2f7",
+      "product": "#7aa2f7",
+      "matches": true
+    },
+    {
+      "theme": "dark",
+      "role": "bg",
+      "source": "#1a1b26",
+      "product": "#1a1b26",
+      "matches": true
+    },
+    {
+      "theme": "dark",
+      "role": "border",
+      "source": "#414868",
+      "product": "#414868",
+      "matches": true
+    },
+    {
+      "theme": "dark",
+      "role": "cyan",
+      "source": "#7dcfff",
+      "product": "#7dcfff",
+      "matches": true
+    },
+    {
+      "theme": "dark",
+      "role": "dim",
+      "source": "#787fa0",
+      "product": "#787fa0",
+      "matches": true
+    },
+    {
+      "theme": "dark",
+      "role": "purple",
+      "source": "#bb9af7",
+      "product": "#bb9af7",
+      "matches": true
+    },
+    {
+      "theme": "dark",
+      "role": "red",
+      "source": "#f7768e",
+      "product": "#f7768e",
+      "matches": true
+    },
+    {
+      "theme": "dark",
+      "role": "surface",
+      "source": "#24283b",
+      "product": "#24283b",
+      "matches": true
+    },
+    {
+      "theme": "dark",
+      "role": "text",
+      "source": "#c0caf5",
+      "product": "#c0caf5",
+      "matches": true
+    },
+    {
+      "theme": "dark",
+      "role": "yellow",
+      "source": "#e0af68",
+      "product": "#e0af68",
+      "matches": true
+    },
+    {
+      "theme": "light",
+      "role": "accent",
+      "source": "#34548a",
+      "product": "#34548a",
+      "matches": true
+    },
+    {
+      "theme": "light",
+      "role": "bg",
+      "source": "#d5d6db",
+      "product": "#d5d6db",
+      "matches": true
+    },
+    {
+      "theme": "light",
+      "role": "border",
+      "source": "#9699a3",
+      "product": "#9699a3",
+      "matches": true
+    },
+    {
+      "theme": "light",
+      "role": "cyan",
+      "source": "#166775",
+      "product": "#166775",
+      "matches": true
+    },
+    {
+      "theme": "light",
+      "role": "dim",
+      "source": "#6a6d7c",
+      "product": "#6a6d7c",
+      "matches": true
+    },
+    {
+      "theme": "light",
+      "role": "purple",
+      "source": "#7847bd",
+      "product": "#7847bd",
+      "matches": true
+    },
+    {
+      "theme": "light",
+      "role": "red",
+      "source": "#8c4351",
+      "product": "#8c4351",
+      "matches": true
+    },
+    {
+      "theme": "light",
+      "role": "surface",
+      "source": "#e9e9ec",
+      "product": "#e9e9ec",
+      "matches": true
+    },
+    {
+      "theme": "light",
+      "role": "text",
+      "source": "#343b58",
+      "product": "#343b58",
+      "matches": true
+    },
+    {
+      "theme": "light",
+      "role": "yellow",
+      "source": "#8f5e15",
+      "product": "#8f5e15",
+      "matches": true
+    }
+  ]
+}

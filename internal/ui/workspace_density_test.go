@@ -19,6 +19,7 @@ func TestWorkspaceDensitySettingsApplyFullCardsWithoutTerminalInput(t *testing.T
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	h.send(tea.KeyPressMsg{Code: 'S', Text: "S"})
 	h.until(func() bool { return strings.Contains(ansi.Strip(h.m.View().Content), "侧栏密度") })
+	h.send(tea.KeyPressMsg{Code: tea.KeyDown}) // Theme is now the first settings row.
 	h.send(tea.KeyPressMsg{Code: tea.KeyLeft})
 	h.send(tea.KeyPressMsg{Code: tea.KeyEscape})
 	h.until(func() bool { return !strings.Contains(ansi.Strip(h.m.View().Content), "侧栏密度") })
@@ -45,6 +46,7 @@ func TestWorkspaceDensitySettingsSelectedChoiceRemainsVisibleInShortNarrowView(t
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	h.send(tea.KeyPressMsg{Code: 'S', Text: "S"})
 	h.until(func() bool { return strings.Contains(ansi.Strip(h.m.View().Content), "侧栏密度") })
+	h.send(tea.KeyPressMsg{Code: tea.KeyDown}) // Theme is now the first settings row.
 	h.send(tea.KeyPressMsg{Code: tea.KeyRight})
 	h.send(tea.KeyPressMsg{Code: tea.KeyRight})
 	h.until(func() bool { return h.m.sidebarDensity == "auto" })
@@ -72,6 +74,7 @@ func TestWorkspaceDensitySavesSerializeLatestChoiceBeforeClosing(t *testing.T) {
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	h.send(tea.KeyPressMsg{Code: 'S', Text: "S"})
 	h.until(func() bool { return strings.Contains(h.m.View().Content, "侧栏密度") })
+	h.send(tea.KeyPressMsg{Code: tea.KeyDown}) // Theme is now the first settings row.
 	h.send(tea.KeyPressMsg{Code: tea.KeyLeft})
 	select {
 	case got := <-started:
@@ -132,6 +135,7 @@ func TestWorkspaceDensitySaveFailureKeepsAppliedChoiceAndVisibleError(t *testing
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	h.send(tea.KeyPressMsg{Code: 'S', Text: "S"})
 	h.until(func() bool { return strings.Contains(h.m.View().Content, "侧栏密度") })
+	h.send(tea.KeyPressMsg{Code: tea.KeyDown}) // Theme is now the first settings row.
 	h.send(tea.KeyPressMsg{Code: tea.KeyLeft})
 	h.until(func() bool { return strings.Contains(h.m.View().Content, "未保存") })
 	h.send(tea.WindowSizeMsg{Width: 27, Height: 8})
@@ -164,6 +168,7 @@ func TestWorkspaceDensityOpeningWaitsForAcceptedTerminalWrite(t *testing.T) {
 	}
 	close(gate)
 	h.until(func() bool { return strings.Contains(h.m.View().Content, "侧栏密度") })
+	h.send(tea.KeyPressMsg{Code: tea.KeyDown}) // Theme is now the first settings row.
 	h.send(tea.PasteMsg{Content: "never sent"})
 	h.send(tea.MouseClickMsg{X: 90, Y: 10, Button: tea.MouseLeft})
 	h.send(pollMsg{generation: h.m.pollGeneration})
@@ -219,6 +224,7 @@ func TestWorkspaceDensitySpaceCyclesFromAutoToFull(t *testing.T) {
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	h.send(tea.KeyPressMsg{Code: 'S', Text: "S"})
 	h.until(func() bool { return strings.Contains(h.m.View().Content, "侧栏密度") })
+	h.send(tea.KeyPressMsg{Code: tea.KeyDown}) // Theme is now the first settings row.
 	h.send(tea.KeyPressMsg{Code: tea.KeySpace, Text: " "})
 	h.until(func() bool { return h.m.sidebarDensity == "full" })
 	if !strings.Contains(ansi.Strip(h.m.View().Content), ">Full") {

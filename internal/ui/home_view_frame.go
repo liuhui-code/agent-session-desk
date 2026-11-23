@@ -86,6 +86,7 @@ func (m *Model) View() tea.View {
 	}
 	view := tea.NewView(m.renderFrame())
 	view.AltScreen = true
+	view.BackgroundColor, view.ForegroundColor = m.tokens.colors.bg, m.tokens.colors.text
 	return view
 }
 

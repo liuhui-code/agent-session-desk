@@ -1,0 +1,7 @@
+package ui
+import("encoding/json";"os";"testing")
+func TestASDThemePaletteReference(t *testing.T){
+ var result []map[string]any
+ for _,name:=range []string{"dark","light"}{InitTheme(name);result=append(result,map[string]any{"theme":name,"colors":map[string]string{"bg":string(ColorBg),"surface":string(ColorSurface),"border":string(ColorBorder),"text":string(ColorText),"dim":string(ColorTextDim),"accent":string(ColorAccent),"cyan":string(ColorCyan),"red":string(ColorRed),"yellow":string(ColorYellow),"purple":string(ColorPurple)}})}
+ b,e:=json.MarshalIndent(result,"","  ");if e!=nil{t.Fatal(e)};if e=os.WriteFile(os.Getenv("ASD_THEME_REFERENCE_OUT"),b,0600);e!=nil{t.Fatal(e)}
+}

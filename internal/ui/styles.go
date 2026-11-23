@@ -16,6 +16,7 @@ import (
 )
 
 type styles struct {
+	settingsSection, settingsFocusMarker, settingsChoiceIdle, settingsRadioIdle                                               lipgloss.Style
 	footerContext, footerKey, footerFullKey, footerDescription, footerSeparator, footerBadge, footerCompactBadge              lipgloss.Style
 	helpBox, helpTitle, helpSection, helpKey, helpText, helpHint, helpNote, helpTab, helpScroll                               lipgloss.Style
 	confirmBox, confirmNoticeBox, confirmTitle, confirmNoticeTitle, confirmWarning, confirmDetails, confirmHint, confirmError lipgloss.Style
@@ -94,6 +95,10 @@ func newStyles(t designTokens) styles {
 		searchHint:              lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.bg),
 		copy:                    newCopyStyles(t),
 		settingsRadio:           lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.surface),
+		settingsRadioIdle:       lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.bg),
+		settingsChoiceIdle:      lipgloss.NewStyle().Foreground(t.colors.accent).Background(t.colors.bg).Bold(t.bold),
+		settingsFocusMarker:     lipgloss.NewStyle().Foreground(t.colors.accent).Background(t.colors.surface).Bold(t.bold),
+		settingsSection:         lipgloss.NewStyle().Foreground(t.colors.accent).Background(t.colors.bg).Bold(t.bold),
 		settingsBox:             lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.colors.cyan).Background(t.colors.bg).Padding(t.sidebar.settingsPaddingY, t.sidebar.settingsPaddingX),
 		settingsTitle:           lipgloss.NewStyle().Foreground(t.colors.cyan).Background(t.colors.bg).Bold(t.bold),
 		settingsText:            lipgloss.NewStyle().Foreground(t.colors.text).Background(t.colors.bg),

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "date": "2026-11-24",
-  "scope": "Selective UI/platform migration through ADR-0031; full upstream experience and release acceptance remain open.",
+  "scope": "Selective UI/platform migration through ADR-0032; full upstream experience and release acceptance remain open.",
   "original_project_license": "pending O-010",
   "source_files": [
     {
@@ -101,7 +101,8 @@
         "darkColors palette moved from local styles.go",
         "ADR-0024 confirmation red/yellow/blue palette and token-managed box/button styles",
         "HelpOverlay purple border/key, accent title, cyan section, dim italic footer and yellow scroll roles",
-        "default full/compact/minimal footer chips and yellow native-input mode badge roles"
+        "default full/compact/minimal footer chips and yellow native-input mode badge roles",
+        "ADR-0032 Tokyo Night Light/Dark used-role palettes and per-model role rebinding"
       ],
       "mode": "selectively_adapted",
       "modifications": "Type-safe design tokens; original palette values and attribution retained. See ADR-0008."
@@ -290,10 +291,11 @@
       "destination_file": "internal/ui/sidebar_settings.go",
       "license": "MIT",
       "parts": [
-        "sidebar density radio order, left/right and h/l adjustment, Space cycling, Esc/S close, cyan rounded settings box and focus marker"
+        "sidebar density radio order, left/right and h/l adjustment, Space cycling, Esc/S close, cyan rounded settings box and focus marker",
+        "ADR-0032 theme-first/density-second subset, focus marker and radio row treatment"
       ],
       "mode": "selectively_adapted",
-      "modifications": "Stable v2, token-only styling, density-only settings, serial asynchronous saves to a separate ui.toml; narrow radio shows current choice. Upstream unrelated settings and whole configuration writes are not migrated."
+      "modifications": "Stable v2, token-only styling, theme/density settings, serial asynchronous saves to a separate ui.toml; narrow radio shows current choice. Upstream unrelated settings and whole configuration writes are not migrated. ADR-0032 adds Dark/Light and row navigation with separate ui.toml v5 serialized saves; System, watchers and full settings remain open."
     },
     {
       "project": "agent-deck",
@@ -304,10 +306,11 @@
       "destination_file": "internal/ui/design_tokens.go",
       "license": "MIT",
       "parts": [
-        "sidebar density radio order, left/right and h/l adjustment, Space cycling, Esc/S close, cyan rounded settings box and focus marker"
+        "sidebar density radio order, left/right and h/l adjustment, Space cycling, Esc/S close, cyan rounded settings box and focus marker",
+        "ADR-0032 theme-first/density-second subset, focus marker and radio row treatment"
       ],
       "mode": "selectively_adapted",
-      "modifications": "Stable v2, token-only styling, density-only settings, serial asynchronous saves to a separate ui.toml; narrow radio shows current choice. Upstream unrelated settings and whole configuration writes are not migrated. Actual pinned-source frame comparison: workspace bands, outer settings/new widths 66/86, regular/first padding 2/1; stable-v2 and bounded narrow-view adaptations. See 2026-11-23-upstream-visual-comparison report."
+      "modifications": "Stable v2, token-only styling, theme/density settings, serial asynchronous saves to a separate ui.toml; narrow radio shows current choice. Upstream unrelated settings and whole configuration writes are not migrated. Actual pinned-source frame comparison: workspace bands, outer settings/new widths 66/86, regular/first padding 2/1; stable-v2 and bounded narrow-view adaptations. See 2026-11-23-upstream-visual-comparison report. ADR-0032 adds Dark/Light and row navigation with separate ui.toml v5 serialized saves; System, watchers and full settings remain open."
     },
     {
       "project": "agent-deck",
@@ -318,10 +321,11 @@
       "destination_file": "internal/ui/styles.go",
       "license": "MIT",
       "parts": [
-        "sidebar density radio order, left/right and h/l adjustment, Space cycling, Esc/S close, cyan rounded settings box and focus marker"
+        "sidebar density radio order, left/right and h/l adjustment, Space cycling, Esc/S close, cyan rounded settings box and focus marker",
+        "ADR-0032 theme-first/density-second subset, focus marker and radio row treatment"
       ],
       "mode": "selectively_adapted",
-      "modifications": "Stable v2, token-only styling, density-only settings, serial asynchronous saves to a separate ui.toml; narrow radio shows current choice. Upstream unrelated settings and whole configuration writes are not migrated."
+      "modifications": "Stable v2, token-only styling, theme/density settings, serial asynchronous saves to a separate ui.toml; narrow radio shows current choice. Upstream unrelated settings and whole configuration writes are not migrated. ADR-0032 adds Dark/Light and row navigation with separate ui.toml v5 serialized saves; System, watchers and full settings remain open."
     },
     {
       "project": "agent-deck",
@@ -335,7 +339,7 @@
         "management settings hotkey S"
       ],
       "mode": "selectively_adapted",
-      "modifications": "Stable v2, token-only styling, density-only settings, serial asynchronous saves to a separate ui.toml; narrow radio shows current choice. Upstream unrelated settings and whole configuration writes are not migrated."
+      "modifications": "Stable v2, token-only styling, theme/density settings, serial asynchronous saves to a separate ui.toml; narrow radio shows current choice. Upstream unrelated settings and whole configuration writes are not migrated."
     },
     {
       "project": "agent-deck",
@@ -349,7 +353,7 @@
         "management settings hotkey S"
       ],
       "mode": "selectively_adapted",
-      "modifications": "Stable v2, token-only styling, density-only settings, serial asynchronous saves to a separate ui.toml; narrow radio shows current choice. Upstream unrelated settings and whole configuration writes are not migrated."
+      "modifications": "Stable v2, token-only styling, theme/density settings, serial asynchronous saves to a separate ui.toml; narrow radio shows current choice. Upstream unrelated settings and whole configuration writes are not migrated."
     },
     {
       "project": "agent-deck",
@@ -803,6 +807,21 @@
       ],
       "mode": "selectively_adapted",
       "modifications": "ADR-0028: original Session/Run/pane and queued target checks, bounded VT-aware capture, workspace cancellation and the existing serialized OSC52 writer. No upstream clipboard fallback or v1 dependency copied."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/settings_panel.go",
+      "source_sha256": "142a7d454853138309ca84edbe1d50f05db2fe61fc36186bb2163d00939aa8c4",
+      "destination_file": "internal/ui/sidebar_settings_view.go",
+      "license": "MIT",
+      "parts": [
+        "radio selection/underline, accent row marker and focused surface band",
+        "responsive rounded settings shell"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "ADR-0032: v2 token-only theme/density subset; bounded selected-row fallback and save status, not the whole upstream settings panel."
     }
   ],
   "preserved_notices": [

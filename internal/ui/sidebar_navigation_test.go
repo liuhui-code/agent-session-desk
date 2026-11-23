@@ -120,6 +120,7 @@ func TestSidebarNavigationAndDensityShareOneSerializedPreferenceWriter(t *testin
 	}
 	h.send(tea.KeyPressMsg{Code: 'S', Text: "S"})
 	h.until(func() bool { return strings.Contains(h.m.View().Content, "侧栏密度") })
+	h.send(tea.KeyPressMsg{Code: tea.KeyDown}) // Theme is now the first settings row.
 	h.send(tea.KeyPressMsg{Code: tea.KeyLeft})
 	h.send(tea.KeyPressMsg{Code: tea.KeyEscape})
 	select {

@@ -2196,7 +2196,7 @@
 
 - 功能：[FL-003](../COVERAGE.md#fl-003)
 - 需求：[FR-03](../COVERAGE.md#fr-03)、[FR-11](../COVERAGE.md#fr-11)
-- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0005](../../adr/0005-dependency-lifecycle-and-upgrades.md)、[ADR-0017](../../adr/0017-sidebar-density-preferences.md)、[ADR-0022](../../adr/0022-default-group-sidebar-navigation.md)、[ADR-0027](../../adr/0027-persistent-workspace-split.md)、[ADR-0028](../../adr/0028-explicit-visible-pane-copy.md)
+- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0005](../../adr/0005-dependency-lifecycle-and-upgrades.md)、[ADR-0017](../../adr/0017-sidebar-density-preferences.md)、[ADR-0022](../../adr/0022-default-group-sidebar-navigation.md)、[ADR-0027](../../adr/0027-persistent-workspace-split.md)、[ADR-0028](../../adr/0028-explicit-visible-pane-copy.md)、[ADR-0032](../../adr/0032-persisted-dark-light-ui-themes.md)
 - 优先级 / 阶段 / 层次：P0 / M0 / contract
 - 类型：compatibility、boundary
 - 设计 / 执行：`designed / not_run`
@@ -2218,6 +2218,7 @@
 4. 记录 Caps Lock／输入布局，对照 Unicode、SendKeys 和原生 VK 的实际控制台字符及框架 Code/Text/Mod/String；分别在管理与终端焦点核对大写 S，并还原锁定状态。
 5. 调整并保存侧栏比例，拖动中观测磁盘不变；用无按钮松开／漏松开后移动等结束，再重开。穿插其他偏好保存、旧回执、写失败和等待退出。
 6. 管理 V 复制所选 B、活动 Tab 保持 A；穿插原生复制事件、切 Tab、原 Run 替换、重复同代次旧完成及超限／C1／损坏文字；观察实际 OSC52 请求与子程序输入。
+7. 管理 S 进入主题首行／密度次行，切 Dark/Light 并快速混合密度选择、等待关闭／写失败／旧回执；旧 v1–v4 只读与 v5 显式保存重开，核对原 Run 和显式终端颜色，分开记录模型与真实桌面。
 
 #### 预期与不变量
 
@@ -2228,6 +2229,7 @@
 - 实际文本 S 与 s 按声明的大小写合同处理；VT 的 shift+s 不作为硬件 Shift 证据；输入前端未交付或日志缺口保留未决，不新增猜测别名。
 - ui.toml v4 的 0 自动／10–90 手动保持选择；旧 v1–v3 加载不改写，显式保存才升级，旧版拒读 v4。拖动结束仅保存最后预览一次，不依赖松开坐标；运动预览不夹带进其他整份保存，旧成功不回退较新比例，失败恢复旧有效值、显示错误并取消等待退出。终端键仍只输入原 Run。
 - 新鲜捕获只读原 pane 当前页，不用旧预览、历史或 manager 装饰；空／超限／截断／损坏文字不提交，C1 控制沿源规范化。V 终端焦点保持原文字；两个复制来源最多单 host 提交，独立令牌拒绝旧回执，排队目标重核，未发送旧代次不重放。请求输出不是系统剪贴板已保存，原生桌面另验。
+- 主题与密度串行整份保存，成功后应用，失败保留旧配色、可见错误且取消等待关闭；旧密度接口不能假存主题，旧程序拒读 v5。20 个颜色值及合成帧不是完整视觉或 Windows 恢复接受；System／其他适用设置保持未实现，原终端显式属性和身份不变。
 
 #### 需要的证据
 
@@ -2284,7 +2286,7 @@
 
 - 功能：[FL-003](../COVERAGE.md#fl-003)
 - 需求：[FR-03](../COVERAGE.md#fr-03)、[FR-11](../COVERAGE.md#fr-11)
-- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0005](../../adr/0005-dependency-lifecycle-and-upgrades.md)
+- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0005](../../adr/0005-dependency-lifecycle-and-upgrades.md)、[ADR-0032](../../adr/0032-persisted-dark-light-ui-themes.md)
 - 优先级 / 阶段 / 层次：P1 / M0 / windows_e2e
 - 类型：compatibility、boundary
 - 设计 / 执行：`designed / not_run`
@@ -2302,11 +2304,13 @@
 
 1. 在使用到的 Bubbles v2 输入组件内粘贴中文/多行文本，切换焦点并触发重绘。
 2. 切换已支持主题/终端颜色能力，检查输入框和错误样式。
+3. 管理 S 进入主题首行／密度次行，切 Dark/Light 并快速混合密度选择、等待关闭／写失败／旧回执；旧 v1–v4 只读与 v5 显式保存重开，核对原 Run 和显式终端颜色，分开记录模型与真实桌面。
 
 #### 预期与不变量
 
 - 组件行为与已定输入合同一致，无 v1/v2 消息类型不匹配导致的吞键或重复输入。
 - 颜色适配不会让文本消失或布局改变成不可操作状态。
+- 主题与密度串行整份保存，成功后应用，失败保留旧配色、可见错误且取消等待关闭；旧密度接口不能假存主题，旧程序拒读 v5。20 个颜色值及合成帧不是完整视觉或 Windows 恢复接受；System／其他适用设置保持未实现，原终端显式属性和身份不变。
 
 #### 需要的证据
 
@@ -2320,7 +2324,7 @@
 
 - 功能：[FL-003](../COVERAGE.md#fl-003)
 - 需求：[FR-03](../COVERAGE.md#fr-03)、[FR-11](../COVERAGE.md#fr-11)
-- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0005](../../adr/0005-dependency-lifecycle-and-upgrades.md)、[ADR-0014](../../adr/0014-upstream-ui-tabs-and-general-terminals.md)
+- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0005](../../adr/0005-dependency-lifecycle-and-upgrades.md)、[ADR-0014](../../adr/0014-upstream-ui-tabs-and-general-terminals.md)、[ADR-0032](../../adr/0032-persisted-dark-light-ui-themes.md)
 - 优先级 / 阶段 / 层次：P1 / M0 / manual
 - 类型：usability、compatibility
 - 设计 / 执行：`designed / not_run`
@@ -2340,6 +2344,7 @@
 2. 展示新建、Tab 切换、普通 shell／CLI 与 agent 原生输入、弹窗和辅助 attach 返回流程。
 3. 列出来源文件／上游提交／修改点与必要差异，由用户评审布局比例、颜色、间距、键鼠及焦点交互。
 4. 若采用来源终端单元格回放，保留原始 ANSI／文本／光标与哈希，显式核验编码、实际列行、字体主题及逐行结果；编码错误和末格差异不能算作一致。
+5. 管理 S 进入主题首行／密度次行，切 Dark/Light 并快速混合密度选择、等待关闭／写失败／旧回执；旧 v1–v4 只读与 v5 显式保存重开，核对原 Run 和显式终端颜色，分开记录模型与真实桌面。
 
 #### 预期与不变量
 
@@ -2347,6 +2352,7 @@
 - 记录接受/需修改项与对应版本；来源清单能证明实际复用范围，不声称未统计的复用比例。
 - 逐项记录还原结果与差异原因；仅沿用配色或局部布局代码不构成完整体验还原，缺少真实 agent 时明确保留待测。
 - 来源运行平台、回放、真实 Windows 产品与用户评审分别留证；不以静态回放或 fixture 推定上游 Windows、真实 agent 或完整视觉通过。
+- 主题与密度串行整份保存，成功后应用，失败保留旧配色、可见错误且取消等待关闭；旧密度接口不能假存主题，旧程序拒读 v5。20 个颜色值及合成帧不是完整视觉或 Windows 恢复接受；System／其他适用设置保持未实现，原终端显式属性和身份不变。
 
 #### 需要的证据
 

@@ -1,0 +1,7 @@
+package ui
+import("encoding/json";"os";"context";"testing")
+func TestASDProductThemePalette(t *testing.T){
+ var result []map[string]any
+ for _,name:=range []string{"dark","light"}{m:=NewWithOptions(context.Background(),directDragFixture(),Options{Theme:name});c:=m.tokens.colors;result=append(result,map[string]any{"theme":name,"colors":map[string]string{"bg":"#"+colorHex(c.bg),"surface":"#"+colorHex(c.surface),"border":"#"+colorHex(c.border),"text":"#"+colorHex(c.text),"dim":"#"+colorHex(c.dim),"accent":"#"+colorHex(c.accent),"cyan":"#"+colorHex(c.cyan),"red":"#"+colorHex(c.red),"yellow":"#"+colorHex(c.yellow),"purple":"#"+colorHex(m.tokens.footer.contextColor)}});m.Close()}
+ b,e:=json.MarshalIndent(result,"","  ");if e!=nil{t.Fatal(e)};if e=os.WriteFile(os.Getenv("ASD_THEME_REFERENCE_OUT"),b,0600);e!=nil{t.Fatal(e)}
+}

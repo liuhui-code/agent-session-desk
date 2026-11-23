@@ -14,7 +14,7 @@ import (
 )
 
 // This is the single style definition site. Tokens are copied into each model;
-// there is no mutable global theme, file watcher or runtime theme format yet.
+// there is no mutable global palette, file watcher or arbitrary theme format.
 // Zero/one in viewport algorithms are counts, not additional style choices.
 type designTokens struct {
 	footer    footerTokens
@@ -93,6 +93,7 @@ type sidebarTokens struct {
 	fullRows, settingsWidth, settingsPaddingX, settingsPaddingY, radioGap           int
 	selected, active, metadata, metadataMiddle, separator, radioMarker              string
 	underlineChoice                                                                 bool
+	settingsFocusedPrefix, settingsIdlePrefix                                       string
 }
 
 type dialogTokens struct {
@@ -131,26 +132,22 @@ type markTokens struct {
 }
 
 func defaultDesignTokens() designTokens {
+	colors, purple := themePalette("dark")
 	return designTokens{
-		footer:  footerTokens{fullRightGutter: 2, compactRightGutter: 1, compactBelow: 70, fullAbove: 100, fullKeyPadding: 1, labelGap: 1, hintGap: 1, blockGap: 2, separator: " │ ", inlineSeparator: " · ", targetPrefix: "→ ", contextSuffix: ":", badgePrefix: " -- ", badgeSuffix: " -- ", badgePadding: 1, contextColor: lipgloss.Color("#bb9af7")},
-		help:    helpTokens{hintItalic: true, shortWidth: 58, fullWidth: 72, wideWidth: 82, wideAt: 100, minWidth: 37, gutter: 8, paddingX: 2, paddingY: 1, shortKeyWidth: 9, keyWidth: 14, compactKeyWidth: 10, compactBelow: 47, shortIndent: 1, rowIndent: 2, columnGap: 1, sectionGap: 1, footerGap: 1, screenReserve: 8, minContentRows: 10, pageStep: 10, keyColor: lipgloss.Color("#bb9af7"), above: "▲ 上方还有", below: "▼ 下方还有", separator: " │ "},
+		footer:  footerTokens{fullRightGutter: 2, compactRightGutter: 1, compactBelow: 70, fullAbove: 100, fullKeyPadding: 1, labelGap: 1, hintGap: 1, blockGap: 2, separator: " │ ", inlineSeparator: " · ", targetPrefix: "→ ", contextSuffix: ":", badgePrefix: " -- ", badgeSuffix: " -- ", badgePadding: 1, contextColor: purple},
+		help:    helpTokens{hintItalic: true, shortWidth: 58, fullWidth: 72, wideWidth: 82, wideAt: 100, minWidth: 37, gutter: 8, paddingX: 2, paddingY: 1, shortKeyWidth: 9, keyWidth: 14, compactKeyWidth: 10, compactBelow: 47, shortIndent: 1, rowIndent: 2, columnGap: 1, sectionGap: 1, footerGap: 1, screenReserve: 8, minContentRows: 10, pageStep: 10, keyColor: purple, above: "▲ 上方还有", below: "▼ 下方还有", separator: " │ "},
 		confirm: confirmTokens{preferredWidth: 52, responsiveBelow: 60, narrowGutter: 8, paddingX: 2, paddingY: 1, sectionGap: 1, buttonPadding: 2, buttonGap: 2, nameIndent: 2, titlePrefix: "⚠  ", bullet: "• ", focusedPrefix: "▸ ", idlePrefix: "  ", nameOpen: "\"", nameClose: "\""},
 		group:   groupTokens{placeholderColor: lipgloss.Color("240"), labelWidth: 14, inputWidth: 30, choicePadding: 1, modeSeparator: " ─── ", modeOpen: "[", modeClose: "]"},
 		// Pinned group_dialog.go: v1 Width 44/30 excludes the two border cells.
-		rename: renameTokens{preferredWidth: 46, minWidth: 32, gutter: 8, inputWidth: 32, paddingX: 2, paddingY: 1, prompt: "> ", warningPrefix: "⚠ ", borderColor: lipgloss.Color("#bb9af7")},
+		rename: renameTokens{preferredWidth: 46, minWidth: 32, gutter: 8, inputWidth: 32, paddingX: 2, paddingY: 1, prompt: "> ", warningPrefix: "⚠ ", borderColor: purple},
 		// Pinned search.go: v1 Width 60/30 includes padding, excludes border.
 		search: searchTokens{preferredWidth: 62, minWidth: 32, responsiveBelow: 70, gutter: 8, paddingX: 2, paddingY: 1, inputPaddingX: 1, inputRightGap: 4, resultPadding: 2, maxResults: 10, prompt: "> ", selected: "› ", titlePrefix: "🔍 ", programPrefix: " (", programSuffix: ")", countColor: lipgloss.Color("241"), placeholderColor: lipgloss.Color("240"), hintItalic: true},
 		// Pinned native copy-mode defaults; interpreted as character attributes.
 		copy:      copyTokens{foreground: "idx:0", selection: "idx:3", match: "idx:6", current: "idx:5", mark: "idx:1", cursorShape: tea.CursorBlock},
-		sidebar:   sidebarTokens{cardMinWidth: 28, cardRows: 2, fullRows: 3, selected: "▶ ", active: "┃ ", metadata: "  ╰ ", metadataMiddle: "  │ ", separator: " · ", settingsWidth: 66, settingsPaddingX: 2, settingsPaddingY: 1, radioGap: 2, radioMarker: ">", radioUnselected: " ", underlineChoice: true, groupExpanded: "▾", groupCollapsed: "▸", rootShortcut: "1·", groupCountPrefix: " (", groupCountSuffix: ")", groupGutter: 2, indentWidth: 2, rootShortcutSuffix: "·"},
+		sidebar:   sidebarTokens{cardMinWidth: 28, cardRows: 2, fullRows: 3, selected: "▶ ", active: "┃ ", metadata: "  ╰ ", metadataMiddle: "  │ ", separator: " · ", settingsWidth: 66, settingsPaddingX: 2, settingsPaddingY: 1, radioGap: 2, radioMarker: ">", radioUnselected: " ", underlineChoice: true, settingsFocusedPrefix: "▶ ", settingsIdlePrefix: "  ", groupExpanded: "▾", groupCollapsed: "▸", rootShortcut: "1·", groupCountPrefix: " (", groupCountSuffix: ")", groupGutter: 2, indentWidth: 2, rootShortcutSuffix: "·"},
 		dialog:    dialogTokens{preferredWidth: 86, minWidth: 44, gutter: 10, paddingX: 4, paddingY: 2, firstPaddingY: 1, titleGap: 1, fieldGap: 1, dimBackdrop: true, cursorShape: tea.CursorBar, cursorBlink: true},
 		workspace: workspaceTokens{footerRuleRows: 1, footerBottomGapRows: 1, sidebarPercent: 35, compactPercent: 18, minPane: 8, tabPadding: 1, maxTabWidth: 32, splitStep: 5, minSplitPercent: 10, maxSplitPercent: 90, dividerGrabSlop: 2, minTerminalRows: 3, splitNoticeDuration: 1500 * time.Millisecond, doubleClickInterval: 500 * time.Millisecond, border: lipgloss.RoundedBorder()},
-		colors: palette{
-			bg: lipgloss.Color("#1a1b26"), surface: lipgloss.Color("#24283b"),
-			border: lipgloss.Color("#414868"), text: lipgloss.Color("#c0caf5"),
-			dim: lipgloss.Color("#787fa0"), accent: lipgloss.Color("#7aa2f7"),
-			cyan: lipgloss.Color("#7dcfff"), red: lipgloss.Color("#f7768e"), yellow: lipgloss.Color("#e0af68"),
-		},
+		colors:    colors,
 		layout: layoutTokens{
 			singleBelow: 50, stackedBelow: 80, minFrameHeight: 5, minPreviewHeight: 10,
 			frameGap: 1, headingRows: 2, captionGap: 1,
@@ -162,6 +159,21 @@ func defaultDesignTokens() designTokens {
 		marks: markTokens{rule: "─", divider: "│", dividerHandle: "┃", selected: "›", ellipsis: "…", menuDot: "·", add: "+", close: "×", above: "⋮", below: "⋮", identityOpen: " [", identityClose: "]", identityPrefixLength: 6},
 		bold:  true,
 	}
+}
+
+// Both palettes are the pinned styles.go values for the roles this product uses.
+func themePalette(theme string) (palette, color.Color) {
+	if theme == "light" {
+		return palette{bg: lipgloss.Color("#d5d6db"), surface: lipgloss.Color("#e9e9ec"), border: lipgloss.Color("#9699a3"), text: lipgloss.Color("#343b58"), dim: lipgloss.Color("#6a6d7c"), accent: lipgloss.Color("#34548a"), cyan: lipgloss.Color("#166775"), red: lipgloss.Color("#8c4351"), yellow: lipgloss.Color("#8f5e15")}, lipgloss.Color("#7847bd")
+	}
+	return palette{bg: lipgloss.Color("#1a1b26"), surface: lipgloss.Color("#24283b"), border: lipgloss.Color("#414868"), text: lipgloss.Color("#c0caf5"), dim: lipgloss.Color("#787fa0"), accent: lipgloss.Color("#7aa2f7"), cyan: lipgloss.Color("#7dcfff"), red: lipgloss.Color("#f7768e"), yellow: lipgloss.Color("#e0af68")}, lipgloss.Color("#bb9af7")
+}
+
+func (t designTokens) withTheme(theme string) designTokens {
+	colors, purple := themePalette(theme)
+	t.colors = colors
+	t.footer.contextColor, t.help.keyColor, t.rename.borderColor = purple, purple, purple
+	return t
 }
 
 func (t designTokens) itemGap() string      { return strings.Repeat(" ", t.layout.itemGap) }

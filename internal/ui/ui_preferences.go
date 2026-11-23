@@ -1,6 +1,7 @@
 package ui
 
 import (
+	"errors"
 	"strings"
 
 	tea "charm.land/bubbletea/v2"
@@ -47,11 +48,13 @@ func (m *Model) writeUIPreferences() tea.Cmd {
 	p.generation++
 	p.writing = p.accepted
 	snapshot, generation := p.writing, p.generation
-	save, densitySave, ctx, previousDensity := m.saveUISettings, m.saveSidebarDensity, m.ctx, p.saved.SidebarDensity
+	save, densitySave, ctx, previousDensity, previousTheme := m.saveUISettings, m.saveSidebarDensity, m.ctx, p.saved.SidebarDensity, p.saved.Theme
 	return func() tea.Msg {
 		var err error
 		if save != nil {
 			err = save(ctx, snapshot)
+		} else if snapshot.Theme != previousTheme {
+			err = errors.New("当前保存接口不支持主题；未保存")
 		} else if densitySave != nil && snapshot.SidebarDensity != previousDensity {
 			err = densitySave(ctx, snapshot.SidebarDensity)
 		}
@@ -83,10 +86,11 @@ func (m *Model) uiPreferencesEvent(msg tea.Msg) (tea.Cmd, bool) {
 		p.accepted = p.wanted
 		p.retainForgottenFolds()
 		m.sidebarDensity = p.saved.SidebarDensity
+		m.applyUITheme(p.saved.Theme)
 		m.applySidebarNavigation(p.wanted)
 		resize := m.restoreWorkspaceSplit(p.saved.SidebarPercent)
 		m.sidebarPreferenceError = r.err
-		m.status = "管理模式 · 侧栏偏好未保存：" + label(r.err.Error())
+		m.status = "管理模式 · 界面偏好未保存：" + label(r.err.Error())
 		if m.workspace.transition == workspaceQuit {
 			m.workspace.transition = workspaceIdle
 		}
@@ -98,17 +102,18 @@ func (m *Model) uiPreferencesEvent(msg tea.Msg) (tea.Cmd, bool) {
 	p.saved = r.settings
 	p.retainForgottenFolds()
 	m.sidebarDensity = r.settings.SidebarDensity
+	m.applyUITheme(r.settings.Theme)
 	if r.settings.SidebarMode == p.wanted.SidebarMode && r.settings.DefaultGroupCollapsed == p.wanted.DefaultGroupCollapsed && r.settings.CollapsedGroups == p.wanted.CollapsedGroups {
 		m.applySidebarNavigation(r.settings)
 	}
 	m.sidebarPreferenceError = nil
-	if strings.HasPrefix(m.status, "管理模式 · 侧栏偏好未保存：") || strings.HasPrefix(m.status, "界面设置未载入") {
+	if strings.HasPrefix(m.status, "管理模式 · 界面偏好未保存：") || strings.HasPrefix(m.status, "界面设置未载入") {
 		m.status = ""
 	}
 	if d := m.densitySettings; d != nil {
 		d.busy, d.err = false, nil
-		if sidebarDensities[d.choice] != m.sidebarDensity {
-			p.wanted.SidebarDensity = sidebarDensities[d.choice]
+		if sidebarDensities[d.choice] != m.sidebarDensity || uiThemes[d.themeChoice] != effectiveUITheme(r.settings.Theme) {
+			p.wanted = m.settingsChoice()
 			p.accepted = p.wanted
 			d.busy = true
 			queued = true

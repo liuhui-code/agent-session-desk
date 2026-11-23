@@ -136,3 +136,5 @@ Bubbles 2.2.2 textinput 通过模块使用，未复制组件源码。v2 表单�
 2026-11-24 ADR-0030：固定 psmux `20aa1d7254ee93f64dafa059ef89341d9767470a`／MIT 的 copy-drag-begin 解析／交接和 copy_mode.rs 仅为协议与原生冻结模式参考。Go direct_drag.go 与 UI 起始状态独立实现，不复制 Rust、不迁入本地 VT／历史；六份精确来源哈希见[报告](testing/results/2026-11-24-direct-drag.md)，无新许可证或依赖。
 
 2026-11-24 ADR-0031：继续以固定 psmux `20aa1d7254ee93f64dafa059ef89341d9767470a`／MIT 的 pane-mouse 和 window_ops.rs 模式／注入为协议参考；workspace_program_pointer.go 的 UI 归属、队列保留与主动释放独立编写，无 Rust 复制或新依赖。六份固定来源哈希与[本地报告](testing/results/2026-11-24-program-mouse.md)单列，不宣称原生注入兼容。
+
+2026-11-24 ADR-0032：同固定 Agent Deck `80494e527393b7ead00da30018e6ee7e60e9d7a0`／MIT 的 styles.go 暗／亮十个已用颜色角色进入 design_tokens.go；settings_panel.go 的主题／密度顺序、radio 与行焦点改编至 sidebar_settings*.go。ui.toml v5、模型局部样式和成功后应用为独立适配，不迁入全局 theme watcher、完整用户配置或业务设置。精确源 SHA、实际 InitTheme 20 色对照与范围见[报告](testing/results/2026-11-24-themes.md)。

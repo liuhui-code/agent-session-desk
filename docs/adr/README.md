@@ -48,6 +48,7 @@ ADR 保存重要选择的背景、决定、替代方案、代价和重新评估�
 | [0029](0029-native-copy-pointer-gestures.md) | 原生复制模式鼠标手势、内容坐标与视图失效 | 已接受 | [本地流合同／模型](../testing/results/2026-11-24-copy-pointer.md)单列；原生／实体鼠标与完整体验开放 |
 | [0030](0030-direct-terminal-drag-selection.md) | 实时终端拖选、原锚点及原生交接观察 | 已接受 | [本地流合同／模型](../testing/results/2026-11-24-direct-drag.md)单列；原生后端／实体鼠标与完整体验开放 |
 | [0031](0031-program-left-mouse-routing.md) | 目标程序左键归属、有界原目标释放与未知模式 | 已接受 | [本地合同／模型](../testing/results/2026-11-24-program-mouse.md)单列；真实程序／实体鼠标和完整体验开放 |
+| [0032](0032-persisted-dark-light-ui-themes.md) | 暗／亮主题、两行设置及 ui.toml v5 | 已接受 | [本地配色／模型／旧读写](../testing/results/2026-11-24-themes.md)单列；System／完整面板与平台视觉接受开放 |
 
 ADR-0014 依据用户 2026-11-22 的明确要求接受，部分替代 0001/0002 的界面约束并扩展 0004 的管理对象。原有运行证据不升级为新路径通过。
 

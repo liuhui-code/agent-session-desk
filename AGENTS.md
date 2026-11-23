@@ -119,3 +119,5 @@ Session-order final follow-up: the first membership receipt left old order field
 2026-11-24 U18 直接拖选：ADR-0030 部分扩展 ADR-0029 的开始条件。未声明 WantsMouse 的已聚焦实时终端按下只存原锚点，首次不同格运动用 copy-drag-begin 交接原 pane；单击／微动不发输入。原生选区／历史仍由后端持有，无额外 VT。接受写入不是进入模式证据；延迟实时帧容许原队列继续，观察退出后不可续接。旧锚点遇到外部模式、鼠标声明、提示或尺寸变化即取消，原队列排空后才切 Run。六个新顶层／12 含子模型及内存流合同见 docs/testing/results/2026-11-24-direct-drag.md；首次运动冻结是明确平台适配，原生／实体鼠标与程序鼠标、系统剪贴板和完整体验仍开放，旧上传授权缺口不绕过。
 
 2026-11-24 U18 程序左键：ADR-0031 接声明 WantsMouse 的实时程序左按／拖／释放，原 pane 内容坐标夹取、一个活动手势和 FIFO。主动键／粘贴／滚轮／切 Tab／管理视图／resize 前释放原程序一次；64 等待位留一个给释放，过量 motion 拒绝。原生选区取消仍不合成 up；外部模式／提示／实际屏幕尺寸改变只清除并提示未知，不转投。九顶层／27 含子模型、切换／屏幕增长 RED 和保留位故障注入见 docs/testing/results/2026-11-24-program-mouse.md；原生 VT／Win32 按住状态、真实程序、右／中／修饰／悬停和完整鼠标体验仍开放，旧上传授权不绕过。
+
+2026-11-24 U20：ADR-0032 接 Tokyo Night Dark/Light 与主题首行／密度次行，ui.toml v5 可选 theme（省略暗色）；v1–v4 读取不改写，显式保存升级，旧原读写拒 v5。串行整份保存成功后应用，失败保留旧配色并取消等待关闭，旧密度回调拒绝主题写入。所有颜色仍在 design_tokens.go，模型独立，无 watcher／新依赖，原终端显式属性及 Run 不变。20 个固定源颜色值、120 个模型帧、保存竞争和旧源码拒读见 docs/testing/results/2026-11-24-themes.md；System／完整设置面板、实际 Windows 视觉与恢复、真实程序和发布仍开放，旧上传授权不绕过。

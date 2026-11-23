@@ -14,6 +14,7 @@ import (
 const maxUIPreferenceBytes = 16 * 1024 // Defensive bound for UI preferences, not a resource budget.
 
 type UISettings struct {
+	Theme                 string `toml:"theme"`
 	SidebarPercent        int    `toml:"sidebar_percent"`
 	SidebarDensity        string `toml:"sidebar_density"`
 	SidebarMode           string `toml:"sidebar_mode"`
@@ -73,7 +74,7 @@ func LoadUI(path string) (UISettings, error) {
 	if err != nil {
 		return defaults, fmt.Errorf("界面设置 TOML 或字段类型无效")
 	}
-	if (doc.Version < 1 || doc.Version > 4) || len(meta.Undecoded()) != 0 {
+	if (doc.Version < 1 || doc.Version > 5) || len(meta.Undecoded()) != 0 {
 		return defaults, fmt.Errorf("界面设置版本或字段不受支持")
 	}
 	for _, key := range meta.Keys() {
@@ -84,7 +85,10 @@ func LoadUI(path string) (UISettings, error) {
 		if doc.Version >= 3 && len(key) == 1 && key[0] == "collapsed_groups" {
 			allowed = true
 		}
-		if doc.Version == 4 && len(key) == 1 && key[0] == "sidebar_percent" {
+		if doc.Version >= 4 && len(key) == 1 && key[0] == "sidebar_percent" {
+			allowed = true
+		}
+		if doc.Version == 5 && len(key) == 1 && key[0] == "theme" {
 			allowed = true
 		}
 		if !allowed {
@@ -93,6 +97,9 @@ func LoadUI(path string) (UISettings, error) {
 	}
 	if !ValidSidebarPercent(doc.SidebarPercent) {
 		return defaults, fmt.Errorf("侧栏比例必须为自动（0）或 10–90 的整数")
+	}
+	if !ValidUITheme(doc.Theme) || (meta.IsDefined("theme") && doc.Theme == "") {
+		return defaults, fmt.Errorf("界面主题必须为 dark 或 light")
 	}
 	doc.SidebarDensity = NormalizeSidebarDensity(doc.SidebarDensity)
 	doc.SidebarMode = NormalizeSidebarMode(doc.SidebarMode)
@@ -107,6 +114,9 @@ func LoadUI(path string) (UISettings, error) {
 // rename. Concurrent valid preference writers use last successful writer wins;
 // this is not a transaction with metadata or a power-loss durability claim.
 func SaveUI(path string, settings UISettings) error {
+	if !ValidUITheme(settings.Theme) {
+		return fmt.Errorf("界面主题必须为 dark 或 light")
+	}
 	if !ValidSidebarPercent(settings.SidebarPercent) {
 		return fmt.Errorf("侧栏比例必须为自动（0）或 10–90 的整数")
 	}
@@ -144,8 +154,13 @@ func SaveUI(path string, settings UISettings) error {
 	if err = temp.Chmod(0600); err != nil {
 		return err
 	}
-	if _, err = fmt.Fprintf(temp, "schema_version = 4\nsidebar_density = %q\nsidebar_mode = %q\ndefault_group_collapsed = %t\ncollapsed_groups = %q\nsidebar_percent = %d\n", normalized, mode, settings.DefaultGroupCollapsed, folds, settings.SidebarPercent); err != nil {
+	if _, err = fmt.Fprintf(temp, "schema_version = 5\nsidebar_density = %q\nsidebar_mode = %q\ndefault_group_collapsed = %t\ncollapsed_groups = %q\nsidebar_percent = %d\n", normalized, mode, settings.DefaultGroupCollapsed, folds, settings.SidebarPercent); err != nil {
 		return err
+	}
+	if settings.Theme != "" {
+		if _, err = fmt.Fprintf(temp, "theme = %q\n", settings.Theme); err != nil {
+			return err
+		}
 	}
 	if err = temp.Sync(); err != nil {
 		return err
@@ -163,8 +178,11 @@ func SaveUI(path string, settings UISettings) error {
 	return os.Rename(name, path)
 }
 
-// ValidSidebarPercent is the persisted v4 contract, not a new rendering size.
+// ValidSidebarPercent is the contract introduced in v4, not a rendering size.
 // Zero retains focus-dependent automatic geometry; manual values are bounded.
 func ValidSidebarPercent(value int) bool {
 	return value == 0 || (value >= 10 && value <= 90)
 }
+
+// Empty is the internal/default dark preference, serialized by omitting theme.
+func ValidUITheme(value string) bool { return value == "" || value == "dark" || value == "light" }

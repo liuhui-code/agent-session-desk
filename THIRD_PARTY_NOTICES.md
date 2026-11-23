@@ -72,3 +72,5 @@ ADR-0024 从同一固定提交选择性适配 `confirm_dialog.go`／`home_keys_d
 2026-11-24 长卡片继续按同固定 Agent Deck／MIT 的 embedded_sidebar.go 与 cellwidth.go 修正首行空尾裁切、元信息独立末行省略；目标为既有 workspace_sidebar.go，原版权及源指纹不变。通用 executable 标签、稳定身份提示和完整背景填齐属于本产品适配；无新的上游依赖。
 
 2026-11-24 ADR-0028：同固定 Agent Deck／MIT 的 pane_copy.go 所选可见页复制与去控制／右侧及底部空白规范化，选择性改编至 workspace_visible_copy.go；home.go／hotkeys.go 的 V 交互与 tmux_capture.go 的新鲜捕获仅作固定参考。原版权及精确源哈希保留；原目标复核、限额、工作区取消和独立串行请求令牌为本产品适配，无新框架或 clipboard fallback 依赖。
+
+2026-11-24 ADR-0032：同固定 Agent Deck／MIT 的 Tokyo Night Light 与 Dark 已用颜色角色，以及 settings_panel.go 的主题首行、radio／行焦点结构，选择性改编至 design_tokens.go 和 sidebar_settings*.go，保留原版权。独立 v5 偏好、模型局部样式与串行保存为产品适配；无完整配置、主题监视器或新依赖。来源指纹及实际对照见[报告](docs/testing/results/2026-11-24-themes.md)。

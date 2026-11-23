@@ -135,3 +135,5 @@ M0 已有“列表/预览 → 自定义命令 → 全屏 attach → 返回”的
 2026-11-24：[ADR-0030](adr/0030-direct-terminal-drag-selection.md) 将未声明 WantsMouse 的实时终端左拖选接入原 pane 的 copy-drag-begin；单击／同格微动不发输入，首次实际运动才交接，仍由后端保存选区与历史。延迟模式帧及观察退出、原锚点、原 FIFO 和可选能力沿[本地报告](testing/results/2026-11-24-direct-drag.md)记账；首次运动即冻结是平台适配，Windows／实体鼠标、程序鼠标和完整体验继续开放，存储／tokens／依赖不变。
 
 2026-11-24：[ADR-0031](adr/0031-program-left-mouse-routing.md) 接入声明 WantsMouse 的实时程序左键路径；原 pane 内容坐标、原 FIFO、跨控件夹取和一个保留释放位置，主动键／粘贴／滚轮／导航／缩放先释放原程序，原生选区仍不合成复制。外部模式／尺寸失效保留未知，不转投；[本地报告](testing/results/2026-11-24-program-mouse.md)不代表 VT／Win32、实体鼠标或完整程序接受，其他按钮／修饰／悬停继续开放，存储／tokens／依赖不变。
+
+2026-11-24：[ADR-0032](adr/0032-persisted-dark-light-ui-themes.md) 接固定 Tokyo Night Dark／Light、主题首行／密度次行和 ui.toml v5 可选 theme；v1–v4 只读载入，显式保存升级，旧读写路径拒绝 v5。整份偏好串行、成功后应用、失败保留旧配色，原 Session/Run 与显式终端属性不变。[本地 20 色／120 帧与旧源码证据](testing/results/2026-11-24-themes.md)单列；System／完整面板、Windows 视觉和发布继续开放，SQLite v5／依赖不变。
