@@ -1,0 +1,6 @@
+--- FAIL: TestCopyPointerCancellationNeverSynthesizesRelease (0.00s)
+    --- FAIL: TestCopyPointerCancellationNeverSynthesizesRelease/screen-size (0.00s)
+        workspace_copy_pointer_test.go:161: cancelled gesture continued/copied: "pointer:down,3,2;pointer:up,8,2"
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.804s
+FAIL

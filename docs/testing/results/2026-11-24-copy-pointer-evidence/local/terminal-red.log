@@ -1,0 +1,5 @@
+--- FAIL: TestPSMuxLeftPointerTargetsOriginalPaneInOrder (0.00s)
+    pointer_test.go:44: original pane has no native left-pointer transport
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/terminal	1.744s
+FAIL

@@ -171,3 +171,5 @@ Tab 管理模式现可按 `/` 搜索当前会话，选择后接回原 Run；查�
 自定义组的 SQLite v4 迁移、备份／恢复与实际检查见[分组报告](docs/testing/results/2026-11-23-custom-groups.md)及 [ADR-0023](docs/adr/0023-persistent-groups-and-membership.md)。组改名、同级组排序和 [ADR-0024 删除／收纳](docs/adr/0024-group-removal-and-member-preservation.md)已有独立局部证据；会话手动排序随后由 [ADR-0025](docs/adr/0025-persistent-session-order.md) 接入局部实现；完整上游体验接受、真实 agent 和发布仍未完成。
 
 分组后续完成[固定来源弹窗对照与三 shell 桌面流程](docs/testing/results/2026-11-23-groups-desktop.md)，核对组内实际目录、原 Run／草稿、窄屏和 UI 重开；另修复中文表单占位提示的 NUL 显示。组编辑及整体验收继续开放。
+
+进入原生复制模式（管理焦点 `v`）后，可在已聚焦的终端内容内左键拖选并释放，由后端处理选区与复制。切 Tab／缩放等会取消本地手势，不自动补发释放；可用 Esc 取消保留的原生选区。普通终端直接拖选与程序鼠标仍待接入，详见[局部验证](docs/testing/results/2026-11-24-copy-pointer.md)。

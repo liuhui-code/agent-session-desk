@@ -1,0 +1,12 @@
+{
+  "commit": "20aa1d7254ee93f64dafa059ef89341d9767470a",
+  "scope": "exact source review only; no Rust production source copied or source/native tests executed",
+  "files": {
+    "src/server/connection.rs": "bdc00f141140cb9de613ef6f829abfaf84180f9c654355c179377dacc0fed30d",
+    "src/server/mod.rs": "ae4cc7ed52f54a05472ceb2deaf76b577dbe4833a28f20e8aafc365ab5c07b8e",
+    "src/window_ops.rs": "20e365a257c13c6f8d257279aa1cf135d6ecf4cfd8d3c52d5628fd29f59fe48d",
+    "src/client.rs": "ea8533eace46156d86e89e77e2454e6b403032d5ec54c68aae1bce907e9a5cc3",
+    "LICENSE": "08da43448469783a5b56d903e29c071383d7c201b9644287f98531e76083b959"
+  },
+  "second_local_snapshot_matches": true
+}

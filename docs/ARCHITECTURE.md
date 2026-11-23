@@ -198,3 +198,5 @@ M0 只把版本化发现标记放在产品私有后端 user option 中，绑定 
 2026-11-24：[ADR-0027](adr/0027-persistent-workspace-split.md) 将工作区比例纳入 ui.toml v4：0 自动，10–90 手动，键即时保存，拖动中仅预览、结束时保存，丢失松开沿固定来源收尾。与密度／导航／折叠共用串行快照，旧回执不覆盖较新选择；保存失败可见回滚并取消等待退出。v1–v3 不因读取改写，启动模板／SQLite v5／模块依赖／design tokens 不变。[本地／固定来源证据](testing/results/2026-11-24-split-preferences.md)与未执行的 Windows 门槛分开，完整还原和发布仍开放。
 
 2026-11-24：[ADR-0028](adr/0028-explicit-visible-pane-copy.md) 新增管理 V 复制所选原 pane 的新鲜可见页。直接只读捕获不带历史／缓存，原目标前后复核；Manager 委派不读写元数据。显式复制与原生选区事件共享串行 OSC52、独立完成令牌与有界待提交内容，未发送的旧代次取消；只提示发出请求，不声称系统剪贴板保存。依赖／tokens／SQLite v5／ui.toml v4 不变。[本地及固定源证据](testing/results/2026-11-24-visible-copy.md)与 Windows／桌面未执行分别记录，完整体验和发布开放。
+
+2026-11-24：[ADR-0029](adr/0029-native-copy-pointer-gestures.md) 接入原生复制模式内的无修饰左键按下／拖动／释放，经既有 FIFO 使用原 pane 内容坐标；跨控件不转管理手势，模式／尺寸／视图失效取消且不合成释放。协议由固定后端解释，CopyMode 观察不是模式锁；普通终端直接拖选、目标程序鼠标及完整鼠标接受继续开放。[本地证据](testing/results/2026-11-24-copy-pointer.md)与 Windows／实体鼠标未执行分开记账，依赖／tokens／存储不变。

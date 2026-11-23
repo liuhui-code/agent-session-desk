@@ -83,6 +83,12 @@ func startWorkspaceWriter(ctx context.Context, conn terminal.Connection, inputs 
 					err = conn.Refresh(ctx)
 				case "scroll":
 					err = conn.Scroll(ctx, action.x, action.y, action.up)
+				case "pointer":
+					if native, ok := conn.(terminal.PointerConnection); ok {
+						err = native.Pointer(ctx, action.text, action.x, action.y)
+					} else {
+						err = fmt.Errorf("当前连接不支持原生鼠标")
+					}
 				case "copy-mode":
 					if native, ok := conn.(terminal.CopyModeConnection); ok {
 						err = native.EnterCopyMode(ctx)

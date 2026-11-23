@@ -37,6 +37,7 @@ const (
 )
 
 type workspaceState struct {
+	copyPointer                *workspaceCopyPointer
 	visibleCopy                *visiblePaneCopy
 	pendingClipboard           *workspaceClipboard
 	clipboardReading           bool
@@ -78,6 +79,7 @@ type workspaceResized struct {
 }
 
 func (w *workspaceState) disconnect() {
+	w.copyPointer = nil
 	if w.visibleCopy != nil {
 		w.visibleCopy.cancel()
 		w.visibleCopy = nil
@@ -164,6 +166,7 @@ func (m *Model) connectWorkspace() tea.Cmd {
 
 func (m *Model) workspaceSize() tea.Cmd {
 	w := m.workspace
+	w.copyPointer = nil
 	w.split.hovered = false
 	if w.conn == nil {
 		if !w.busy && w.err == nil {
@@ -200,6 +203,9 @@ func (m *Model) workspaceEvent(msg tea.Msg) (tea.Cmd, bool) {
 		return nil, true
 	case tea.MouseMotionMsg:
 		if !m.attaching && !m.history.open && !m.help && m.launch == nil {
+			if cmd, handled := m.moveCopyPointer(msg); handled {
+				return cmd, true
+			}
 			if m.workspaceTabMotion(msg) {
 				return nil, true
 			}
@@ -208,6 +214,9 @@ func (m *Model) workspaceEvent(msg tea.Msg) (tea.Cmd, bool) {
 		return nil, true
 	case tea.MouseReleaseMsg:
 		if !m.attaching && !m.history.open && !m.help && m.launch == nil {
+			if cmd, handled := m.releaseCopyPointer(msg); handled {
+				return cmd, true
+			}
 			if m.workspaceTabRelease(msg) {
 				return nil, true
 			}
@@ -220,6 +229,7 @@ func (m *Model) workspaceEvent(msg tea.Msg) (tea.Cmd, bool) {
 		}
 		return nil, true
 	case tea.PasteMsg:
+		w.copyPointer = nil
 		w.tabDrag = workspaceTabDrag{}
 		if !m.attaching && !m.history.open && !m.help && w.focused && len(w.tabs) > 0 && w.transition != workspaceQuit && w.transition != workspaceClose {
 			return m.workspaceWrite(workspaceInput{kind: "paste", text: msg.Content}), true
@@ -326,6 +336,9 @@ func (m *Model) workspaceEvent(msg tea.Msg) (tea.Cmd, bool) {
 		}
 		w.readBusy = false
 		w.screen = msg.screen
+		if w.copyPointer != nil && !m.copyPointerCurrent() {
+			w.copyPointer = nil
+		}
 		if m.launch != nil {
 			return nil, true
 		}

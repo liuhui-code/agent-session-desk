@@ -33,6 +33,9 @@ func (m *Model) workspaceClickNow(msg tea.MouseClickMsg) tea.Cmd {
 	}
 	w.split.dragging = false
 	w.split.hovered = false
+	if cmd, handled := m.startCopyPointer(msg); handled {
+		return cmd
+	}
 	if msg.Y == 1 {
 		button := m.workspaceNewTabCell()
 		if msg.X >= button.x && msg.X < button.x+button.width {

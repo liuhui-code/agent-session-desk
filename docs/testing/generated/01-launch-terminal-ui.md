@@ -1747,7 +1747,7 @@
 
 - 功能：[FL-002](../COVERAGE.md#fl-002)、[FL-016](../COVERAGE.md#fl-016)
 - 需求：[FR-02](../COVERAGE.md#fr-02)、[FR-11](../COVERAGE.md#fr-11)
-- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0014](../../adr/0014-upstream-ui-tabs-and-general-terminals.md)、[ADR-0015](../../adr/0015-pinned-psmux-native-terminal-client.md)、[ADR-0016](../../adr/0016-tab-workspaces-and-input-ownership.md)
+- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0014](../../adr/0014-upstream-ui-tabs-and-general-terminals.md)、[ADR-0015](../../adr/0015-pinned-psmux-native-terminal-client.md)、[ADR-0016](../../adr/0016-tab-workspaces-and-input-ownership.md)、[ADR-0029](../../adr/0029-native-copy-pointer-gestures.md)
 - 优先级 / 阶段 / 层次：P1 / M0 / manual
 - 类型：compatibility、usability
 - 设计 / 执行：`designed / not_run`
@@ -1765,11 +1765,13 @@
 
 1. 分别在 Tab 终端内容区域、会话列表和管理控件中点击／滚动，再用显式辅助全屏 attach 独立对照。
 2. 在普通 shell 输出历史与声明支持鼠标的 FX-VT 目标中分别滚动；核对原生复制模式、返回实时输出和当前焦点，关闭目标鼠标模式后重复并记录事件。
+3. 原生复制模式内左键按下／拖动／释放，越过 Tab／侧栏边缘；穿插切 Tab、resize、画面尺寸变小再恢复、模式退出、搜索提示及重复释放，核对原 pane 与原队列。
 
 #### 预期与不变量
 
 - 会话列表／管理控件的选择与滚动不向 CLI 发送鼠标包或上下箭头；Tab 终端内容区域与辅助 attach 按后台／目标已记录的能力处理，鼠标指针区域与键盘管理焦点分别核对。
 - 不支持的组合明确记录，不把浏览器交互稿视作鼠标兼容结果。
+- 仅已聚焦原生内容开始无修饰左键手势；内容零基坐标，经原 FIFO，不伪造键盘。手势越界不转管理操作；模式／视图／尺寸失效清除，恢复不续接，不合成释放或自动复制。CopyMode 观察不是锁，外部并发模式解释与实体鼠标／系统剪贴板独立记录；正常终端直接拖选与程序鼠标不以本地通过认定已验收。
 
 #### 需要的证据
 

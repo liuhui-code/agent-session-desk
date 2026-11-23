@@ -1,0 +1,5 @@
+--- FAIL: TestCopyPointerSendsContentCoordinatesInOrderWithoutKeyboardInput (0.00s)
+    workspace_copy_pointer_test.go:53: native selection gesture missing or wrong: ""
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.807s
+FAIL

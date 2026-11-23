@@ -1,0 +1,6 @@
+{
+  "host": "macOS-26.6.2-x86_64-i386-64bit",
+  "baseline": "9d6cb1c520c07c156d770f4b9ecebfa7110e85ab",
+  "go": "1.27.4",
+  "scope": "memory pipe protocol and Go model-service tests; no live psmux or system clipboard"
+}

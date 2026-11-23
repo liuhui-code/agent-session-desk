@@ -45,6 +45,7 @@ ADR 保存重要选择的背景、决定、替代方案、代价和重新评估�
 | [0026](0026-explicit-session-stop.md) | Session 行显式停止、默认取消、原目标复核及单次回执 | 已接受 | 局部实现与证据见[报告](../testing/results/2026-11-24-session-stop.md)；原生复验及完整体验门槛分别记录 |
 | [0027](0027-persistent-workspace-split.md) | ui.toml v4 比例选择、拖动预览与串行保存 | 已接受 | [本地／固定来源证据](../testing/results/2026-11-24-split-preferences.md)单列；原生／完整桌面接受开放 |
 | [0028](0028-explicit-visible-pane-copy.md) | 所选原 pane 新鲜可见页复制、独立请求令牌与串行 OSC52 | 已接受 | [本地／固定源与实际 Tea 输出](../testing/results/2026-11-24-visible-copy.md)单列；系统剪贴板／原生接受开放 |
+| [0029](0029-native-copy-pointer-gestures.md) | 原生复制模式鼠标手势、内容坐标与视图失效 | 已接受 | [本地流合同／模型](../testing/results/2026-11-24-copy-pointer.md)单列；原生／实体鼠标与完整体验开放 |
 
 ADR-0014 依据用户 2026-11-22 的明确要求接受，部分替代 0001/0002 的界面约束并扩展 0004 的管理对象。原有运行证据不升级为新路径通过。
 
