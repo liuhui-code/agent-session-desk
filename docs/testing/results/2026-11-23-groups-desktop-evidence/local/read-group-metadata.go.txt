@@ -1,0 +1,35 @@
+// Read-only validation helper; no terminal calls, initialization or migration.
+package main
+import (
+ "context"
+ "database/sql"
+ "encoding/json"
+ "fmt"
+ "net/url"
+ "os"
+ "path/filepath"
+ "strings"
+ "time"
+ _ "modernc.org/sqlite"
+)
+type Group struct{Scope,ID,ParentID,Name,DefaultDir string;Revision,Order int64}
+type Member struct{Scope,SessionID,GroupID string;Revision int64}
+type Run struct{Scope,ID,SessionID,BackendID,Command string;RecordedNS int64;StoppedNS *int64}
+func main(){if err:=run();err!=nil{fmt.Fprintln(os.Stderr,err);os.Exit(1)}}
+func run()error{
+ if len(os.Args)!=2{return fmt.Errorf("one existing metadata path required")}
+ path,err:=filepath.Abs(os.Args[1]);if err!=nil{return err};info,err:=os.Stat(path);if err!=nil{return err};if !info.Mode().IsRegular(){return fmt.Errorf("regular file required")}
+ p:=filepath.ToSlash(path);if !strings.HasPrefix(p,"/"){p="/"+p};u:=url.URL{Scheme:"file",Path:p};u.RawQuery=url.Values{"mode":{"ro"},"_pragma":{"busy_timeout(1000)","query_only(1)"}}.Encode()
+ db,err:=sql.Open("sqlite",u.String());if err!=nil{return err};defer db.Close();db.SetMaxOpenConns(1)
+ ctx,cancel:=context.WithTimeout(context.Background(),5*time.Second);defer cancel()
+ tx,err:=db.BeginTx(ctx,&sql.TxOptions{ReadOnly:true});if err!=nil{return err};defer tx.Rollback()
+ var app,version int;if err=tx.QueryRowContext(ctx,"PRAGMA application_id").Scan(&app);err!=nil{return err};if err=tx.QueryRowContext(ctx,"PRAGMA user_version").Scan(&version);err!=nil{return err};if app!=0x41534431||version!=4{return fmt.Errorf("expected product metadata v4")}
+ result:=struct{Version int;Groups []Group;Members []Member;Runs []Run}{Version:version,Groups:[]Group{},Members:[]Member{},Runs:[]Run{}}
+ rows,err:=tx.QueryContext(ctx,`SELECT scope,id,coalesce(parent_id,''),name,default_dir,revision,ordinal FROM groups ORDER BY scope,ordinal,id`);if err!=nil{return err}
+ for rows.Next(){var g Group;if err=rows.Scan(&g.Scope,&g.ID,&g.ParentID,&g.Name,&g.DefaultDir,&g.Revision,&g.Order);err!=nil{rows.Close();return err};result.Groups=append(result.Groups,g)};err=rows.Err();rows.Close();if err!=nil{return err}
+ rows,err=tx.QueryContext(ctx,`SELECT scope,session_id,group_id,revision FROM session_groups ORDER BY scope,session_id`);if err!=nil{return err}
+ for rows.Next(){var m Member;if err=rows.Scan(&m.Scope,&m.SessionID,&m.GroupID,&m.Revision);err!=nil{rows.Close();return err};result.Members=append(result.Members,m)};err=rows.Err();rows.Close();if err!=nil{return err}
+ rows,err=tx.QueryContext(ctx,`SELECT r.scope,r.id,r.session_id,r.backend_id,s.command,r.recorded_ns,r.stopped_ns FROM runs r JOIN sessions s ON s.scope=r.scope AND s.id=r.session_id ORDER BY r.scope,r.id`);if err!=nil{return err}
+ for rows.Next(){var r Run;if err=rows.Scan(&r.Scope,&r.ID,&r.SessionID,&r.BackendID,&r.Command,&r.RecordedNS,&r.StoppedNS);err!=nil{rows.Close();return err};result.Runs=append(result.Runs,r)};err=rows.Err();rows.Close();if err!=nil{return err}
+ if err=tx.Commit();err!=nil{return err};return json.NewEncoder(os.Stdout).Encode(result)
+}

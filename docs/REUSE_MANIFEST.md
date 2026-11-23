@@ -104,3 +104,5 @@ Bubbles 2.2.2 textinput 通过模块使用，未复制组件源码。v2 表单�
 2026-11-23 大写 S 诊断：既有 Ultraviolet 固定依赖的控制台读取文件仅通过临时精确副本／modfile／overlay 插入一处日志调用，主模块、缓存与产品输入逻辑均未修改。该诊断源码和 MIT 许可独立登记，不计入 UI 新迁入功能或发布依赖变更，见[报告](testing/results/2026-11-23-uppercase-s-diagnosis.md)。
 
 2026-11-23 持久自定义组：ADR-0023 从同固定 Agent Deck 提交选择性改编 `internal/session/groups.go` 的名称清理，以及 `group_dialog.go`／`home.go` 的 g 上下文、根组／子组、名称／默认目录字段、Tab／↑↓ 和 M 选择目标组。目标为 `internal/session/group.go`、`internal/ui/group_dialog.go`、`group_dialog_view.go`，既有组标题／导航／卡片延伸为嵌套树。14 单元格标签、响应式字段、紫色框、accent 模式／选项和灰色占位均经 v2／tokens 适配。稳定 ID、SQLite v4、成员 CAS、事务快照、ui.toml v3 和输入排空是本产品连接规则；来源的路径补全／最近目录下拉、远程／worktree、组改名／删除／重排未随本切片迁入。来源 SHA／Git blob 见[报告](testing/results/2026-11-23-custom-groups.md)及机器清单；MIT 与原版权保持。
+
+分组来源复验：通过最小 TestMain／overlay 在隔离环境实际调用同固定 GroupDialog，保留 15 来源帧及源码 SHA；未迁入该 helper 或上游原 TestMain 清理。产品 v2 中文占位显示适配仅移除空 View 的生成 NUL，不改依赖或输入。来源／产品必要差异和实际 Windows 界面见[后续报告](testing/results/2026-11-23-groups-desktop.md)。

@@ -155,3 +155,5 @@ Windows x64 显式开发配置现可通过 `--terminal-bundle` 选择固定历�
 Tab 管理模式现可按 `/` 搜索当前会话，选择后接回原 Run；查询与终端原生输入隔离。布局、配色、三条普通 shell 的实际 Windows 流程及剩余范围见[本地会话搜索报告](docs/testing/results/2026-11-23-session-search.md)。
 
 自定义组的 SQLite v4 迁移、备份／恢复与实际检查见[分组报告](docs/testing/results/2026-11-23-custom-groups.md)及 [ADR-0023](docs/adr/0023-persistent-groups-and-membership.md)。组重命名／删除／重排、新桌面完整流程和上游画面对照仍未完成，不提升整体验收。
+
+分组后续完成[固定来源弹窗对照与三 shell 桌面流程](docs/testing/results/2026-11-23-groups-desktop.md)，核对组内实际目录、原 Run／草稿、窄屏和 UI 重开；另修复中文表单占位提示的 NUL 显示。组编辑及整体验收继续开放。

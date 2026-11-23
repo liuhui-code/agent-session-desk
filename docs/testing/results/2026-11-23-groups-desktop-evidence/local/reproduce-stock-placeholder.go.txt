@@ -1,0 +1,4 @@
+// Diagnostic only: render pinned stock component without the product adapter.
+package main
+import("encoding/json";"os";"strings";"charm.land/bubbles/v2/textinput")
+func main(){input:=textinput.New();input.SetVirtualCursor(false);input.Placeholder="搜索会话…";input.SetWidth(30);input.Focus();view:=input.View();_ = json.NewEncoder(os.Stdout).Encode(struct{Raw string `json:"raw"`;NULCount int `json:"nul_count"`;Value string `json:"value"`;CursorX int `json:"cursor_x"`}{view,strings.Count(view,"\x00"),input.Value(),input.Cursor().X})}

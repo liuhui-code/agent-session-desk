@@ -39,7 +39,7 @@ ADR 保存重要选择的背景、决定、替代方案、代价和重新评估�
 | [0020](0020-local-session-search.md) | 上游本地会话搜索、原 Run 选择与输入隔离 | 已接受 | 本地／原生模型与桌面结果见[报告](../testing/results/2026-11-23-session-search.md)；分组、重命名、完整视觉与发布开放 |
 | [0021](0021-persistent-session-display-names.md) | SQLite v3 会话显示名、版本冲突及上游重命名弹窗 | 已接受 | 本机／原生 Windows 与限定桌面证据见[报告](../testing/results/2026-11-23-session-rename.md)；完整视觉／IME／发布开放 |
 | [0022](0022-default-group-sidebar-navigation.md) | 默认分组侧栏、混合行高命中与 ui.toml v2 串行偏好 | 已接受 | [模型](../testing/results/2026-11-23-sidebar-navigation.md)／[限定桌面](../testing/results/2026-11-23-sidebar-navigation-desktop.md)分别记账；[实际 S 路由](../testing/results/2026-11-23-uppercase-s-diagnosis.md)局部核对，Caps 关闭前端、自定义组与完整接受开放 |
-| [0023](0023-persistent-groups-and-membership.md) | 稳定分组身份、嵌套创建／移动及 SQLite v4／ui.toml v3 | 已接受 | 已接入元数据与 Tab 侧栏；本机／Windows 模型及桌面范围见[报告](../testing/results/2026-11-23-custom-groups.md)，完整组编辑／体验接受仍开放 |
+| [0023](0023-persistent-groups-and-membership.md) | 稳定分组身份、嵌套创建／移动及 SQLite v4／ui.toml v3 | 已接受 | 已接入元数据与 Tab 侧栏；[模型](../testing/results/2026-11-23-custom-groups.md)／[来源及三 shell 桌面](../testing/results/2026-11-23-groups-desktop.md)分别记账，完整组编辑／体验接受仍开放 |
 
 ADR-0014 依据用户 2026-11-22 的明确要求接受，部分替代 0001/0002 的界面约束并扩展 0004 的管理对象。原有运行证据不升级为新路径通过。
 

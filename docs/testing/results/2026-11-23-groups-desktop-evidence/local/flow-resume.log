@@ -1,0 +1,130 @@
+{
+    "child_group":  {
+                        "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-workspace-desktop-20261123\\runtime\\asd-group-desktop",
+                        "ID":  "72649863e6f73acf4f7fac1322355574",
+                        "ParentID":  "02177d3ccda107e934e2bfdc9c467309",
+                        "Name":  "审核",
+                        "DefaultDir":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-workspace-desktop-20261123\\work\\review-default",
+                        "Revision":  1,
+                        "Order":  0
+                    },
+    "commands":  174,
+    "result":  "passed",
+    "before_processes":  [
+                             {
+                                 "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                 "pid":  9988,
+                                 "cwd":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-workspace-desktop-20261123\\work",
+                                 "label":  "Copy A",
+                                 "filetime":  134398821408420920
+                             },
+                             {
+                                 "pid":  12932,
+                                 "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                 "cwd":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-workspace-desktop-20261123\\work",
+                                 "label":  "Copy B",
+                                 "filetime":  134398821413368285
+                             }
+                         ],
+    "after":  [
+                  {
+                      "group_id":  "72649863e6f73acf4f7fac1322355574",
+                      "group_revision":  1,
+                      "session_id":  "c1a7282b7ad1d905cede7bc74556c4dd",
+                      "run_id":  "ffffd39867a6cec28ac7cb5205344a60",
+                      "backend_id":  "asd_c1a7282b7ad1d905cede7bc74556c4dd_ffffd39867a6cec28ac7cb5205344a60",
+                      "title":  "Copy A",
+                      "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                      "terminal_state":  "available"
+                  },
+                  {
+                      "group_id":  "02177d3ccda107e934e2bfdc9c467309",
+                      "group_revision":  1,
+                      "session_id":  "acbc5cb8d765f3686b7b1781e960338c",
+                      "run_id":  "775ed513fc85c05301ad5184430775bc",
+                      "backend_id":  "asd_acbc5cb8d765f3686b7b1781e960338c_775ed513fc85c05301ad5184430775bc",
+                      "title":  "Copy B",
+                      "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                      "terminal_state":  "available"
+                  },
+                  {
+                      "group_id":  "72649863e6f73acf4f7fac1322355574",
+                      "group_revision":  1,
+                      "session_id":  "098c510dca51c2b4b1ce511c11e5386d",
+                      "run_id":  "c77a79fe0a5e11b0fa16716c25e43731",
+                      "backend_id":  "asd_098c510dca51c2b4b1ce511c11e5386d_c77a79fe0a5e11b0fa16716c25e43731",
+                      "title":  "Group C",
+                      "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                      "terminal_state":  "available"
+                  }
+              ],
+    "before":  [
+                   {
+                       "session_id":  "c1a7282b7ad1d905cede7bc74556c4dd",
+                       "run_id":  "ffffd39867a6cec28ac7cb5205344a60",
+                       "backend_id":  "asd_c1a7282b7ad1d905cede7bc74556c4dd_ffffd39867a6cec28ac7cb5205344a60",
+                       "title":  "Copy A",
+                       "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                       "terminal_state":  "available"
+                   },
+                   {
+                       "session_id":  "acbc5cb8d765f3686b7b1781e960338c",
+                       "run_id":  "775ed513fc85c05301ad5184430775bc",
+                       "backend_id":  "asd_acbc5cb8d765f3686b7b1781e960338c_775ed513fc85c05301ad5184430775bc",
+                       "title":  "Copy B",
+                       "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                       "terminal_state":  "available"
+                   }
+               ],
+    "utc":  "2026-11-23T04:38:42.1400609Z",
+    "ui_processes":  [
+                         {
+                             "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-group-desktop.exe",
+                             "pid":  20436,
+                             "filetime":  134398821785481813,
+                             "session":  2
+                         },
+                         {
+                             "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-group-desktop.exe",
+                             "pid":  16436,
+                             "filetime":  134398823159118140,
+                             "session":  2
+                         }
+                     ],
+    "scope":  "Three ordinary shells, actual group creation/move/default directory, snapshots/reopen, 120/63/49 columns and original drafts. Unicode text input is not physical uppercase or IME-composition acceptance.",
+    "metadata_snapshots":  8,
+    "preference_snapshots":  8,
+    "after_processes":  [
+                            {
+                                "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                "pid":  9988,
+                                "cwd":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-workspace-desktop-20261123\\work",
+                                "label":  "Copy A",
+                                "filetime":  134398821408420920
+                            },
+                            {
+                                "pid":  12932,
+                                "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                "cwd":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-workspace-desktop-20261123\\work",
+                                "label":  "Copy B",
+                                "filetime":  134398821413368285
+                            },
+                            {
+                                "filetime":  134398821995015934,
+                                "pid":  20100,
+                                "cwd":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-workspace-desktop-20261123\\work\\review-default",
+                                "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                "label":  "Group C"
+                            }
+                        ],
+    "root_group":  {
+                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-workspace-desktop-20261123\\runtime\\asd-group-desktop",
+                       "ID":  "02177d3ccda107e934e2bfdc9c467309",
+                       "ParentID":  "",
+                       "Name":  "项目 甲",
+                       "DefaultDir":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-workspace-desktop-20261123\\work\\root-default",
+                       "Revision":  1,
+                       "Order":  1
+                   }
+}
+

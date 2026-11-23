@@ -1,0 +1,83 @@
+{
+    "tasks_absent":  [
+                         "AsdGroupWorkspaceSetup20261123",
+                         "AsdGroupWorkspaceDesktop20261123"
+                     ],
+    "clipboard":  {
+                      "text_restored":  true,
+                      "restored":  true,
+                      "original_text_logged":  false,
+                      "utc":  "2026-11-23T04:38:42.1360725Z",
+                      "format_names_restored":  true,
+                      "caps_after":  true,
+                      "caps_before":  true,
+                      "nontext_content_verified":  false
+                  },
+    "utc":  "2026-11-23T04:39:38.5994176Z",
+    "remaining_sessions":  "[]",
+    "private_images_alive":  0,
+    "settings_sha256":  "1499307ABEBA68C23F9EB38A4C636F81172475B6B2B535BC0B11DCD9547241F8",
+    "scope":  "Registered original identities and known private image paths only; no machine-global cleanup claim; owned target and outer launcher PSReadLine history were isolated before input; no user history content archived",
+    "stops":  [
+                  {
+                      "run_id":  "ffffd39867a6cec28ac7cb5205344a60",
+                      "session_id":  "c1a7282b7ad1d905cede7bc74556c4dd",
+                      "result":  "{\r\n  \"session_id\": \"c1a7282b7ad1d905cede7bc74556c4dd\",\r\n  \"run_id\": \"ffffd39867a6cec28ac7cb5205344a60\",\r\n  \"result\": \"backend_session_stopped\"\r\n}\r\n"
+                  },
+                  {
+                      "run_id":  "775ed513fc85c05301ad5184430775bc",
+                      "session_id":  "acbc5cb8d765f3686b7b1781e960338c",
+                      "result":  "{\r\n  \"session_id\": \"acbc5cb8d765f3686b7b1781e960338c\",\r\n  \"run_id\": \"775ed513fc85c05301ad5184430775bc\",\r\n  \"result\": \"backend_session_stopped\"\r\n}\r\n"
+                  },
+                  {
+                      "run_id":  "c77a79fe0a5e11b0fa16716c25e43731",
+                      "session_id":  "098c510dca51c2b4b1ce511c11e5386d",
+                      "result":  "{\r\n  \"session_id\": \"098c510dca51c2b4b1ce511c11e5386d\",\r\n  \"run_id\": \"c77a79fe0a5e11b0fa16716c25e43731\",\r\n  \"result\": \"backend_session_stopped\"\r\n}\r\n"
+                  }
+              ],
+    "result":  "passed",
+    "original_processes":  [
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                   "pid":  9988,
+                                   "filetime":  134398821408420920,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                   "pid":  12932,
+                                   "filetime":  134398821413368285,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                   "pid":  20100,
+                                   "filetime":  134398821995015934,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-group-desktop.exe",
+                                   "pid":  20436,
+                                   "filetime":  134398821785481813,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-group-desktop.exe",
+                                   "pid":  16436,
+                                   "filetime":  134398823159118140,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe",
+                                   "pid":  20108,
+                                   "filetime":  134398821773973755,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               }
+                           ]
+}

@@ -22,3 +22,6 @@ docs/testing/results/2026-11-23-uppercase-s-diagnosis-evidence/** -text -whitesp
 
 # Preserve checksummed group TDD and native model transcripts.
 docs/testing/results/2026-11-23-custom-groups-evidence/** -text -whitespace
+
+# Preserve checksummed group desktop captures and exact component frames.
+docs/testing/results/2026-11-23-groups-desktop-evidence/** -text -whitespace

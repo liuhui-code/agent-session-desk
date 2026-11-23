@@ -36,7 +36,7 @@ func (m *Model) renderSessionSearch() (string, *tea.Cursor) {
 	}
 	d, t := m.search, m.tokens.search
 	width, contentWidth, inputWidth := m.sessionSearchWidths()
-	input := strings.Split(m.styles.searchInput.Width(inputWidth).Render(d.input.View()), "\n")
+	input := strings.Split(m.styles.searchInput.Width(inputWidth).Render(inputView(d.input)), "\n")
 	head := []string{m.styles.searchTitle.Render(t.titlePrefix + "本地会话搜索"), ""}
 	inputStart := len(head)
 	head = append(head, input...)

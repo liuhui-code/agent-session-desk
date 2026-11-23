@@ -1,0 +1,35 @@
+[
+  {
+    "command": [
+      "go",
+      "test",
+      "./..."
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "go",
+      "test",
+      "-race",
+      "./..."
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "go",
+      "vet",
+      "./..."
+    ],
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "go",
+      "mod",
+      "verify"
+    ],
+    "exit_code": 0
+  }
+]

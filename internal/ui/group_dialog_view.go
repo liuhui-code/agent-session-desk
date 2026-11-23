@@ -76,7 +76,7 @@ func (m *Model) renderGroupDialog() (string, *tea.Cursor) {
 		inputRow = len(lines) + d.focus
 		for i, name := range []string{"名称:", "默认目录:"} {
 			labelText := fitFrame(name, t.group.labelWidth, 1)
-			lines = append(lines, center(m.styles.groupLabel.Render(labelText)+fitFrame(d.inputs[i].View(), fieldWidth, 1)))
+			lines = append(lines, center(m.styles.groupLabel.Render(labelText)+fitFrame(inputView(d.inputs[i]), fieldWidth, 1)))
 		}
 	} else {
 		budget := max(1, m.height-m.styles.renameBox.GetVerticalFrameSize()-6) // title/blank/error/blank/hint plus one clipping indicator

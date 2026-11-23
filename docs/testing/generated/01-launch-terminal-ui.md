@@ -1941,7 +1941,7 @@
 
 - 功能：[FL-003](../COVERAGE.md#fl-003)
 - 需求：[FR-03](../COVERAGE.md#fr-03)、[FR-11](../COVERAGE.md#fr-11)
-- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0005](../../adr/0005-dependency-lifecycle-and-upgrades.md)
+- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0005](../../adr/0005-dependency-lifecycle-and-upgrades.md)、[ADR-0023](../../adr/0023-persistent-groups-and-membership.md)
 - 优先级 / 阶段 / 层次：P1 / M2 / windows_e2e
 - 类型：boundary、usability、compatibility
 - 设计 / 执行：`designed / not_run`
@@ -1959,11 +1959,13 @@
 
 1. 加载空名错误样本、长英文/中文/emoji 名称及相似前缀名称的数据。
 2. 在正常与窄窗口查看列表、状态和完整名称入口。
+3. 打开空的分组、新建和搜索表单，在宽／窄视口查看中文占位提示和真实光标，再输入文字核对原字段值。
 
 #### 预期与不变量
 
 - 名称按显示规则截断/换行且不破坏列边界，当前选择与运行状态仍可辨认。
 - 查看详情能取得实际名称/稳定身份，不凭截断文本将同名前缀会话混为一项。
+- 空中文占位提示不输出 NUL／破坏单元格边界；显示适配不改变 Value、焦点、真实 Cursor 或实际终端输入。
 
 #### 需要的证据
 

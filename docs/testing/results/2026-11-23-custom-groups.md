@@ -2,6 +2,8 @@
 
 日期：2026-11-23；基于 `931ece9ac98a7f9482c69f44ab5466d4a07440fd`，实现、报告与证据一同提交，精确版本以该文件的 Git 记录及源码指纹核对。决定见 [ADR-0023](../../adr/0023-persistent-groups-and-membership.md)。当前已把自定义根组／子组、成员移动和持久化接入 psmux Tab 侧栏；**本轮新的真实桌面流程、来源组件画面对照尚未执行**，组重命名／删除／重排仍未实现。FL-001/003/004/005/011/012/013/018/019 保持实现中／未发布，完整上游体验和阶段验收未关闭。
 
+后续证据：[分组弹窗来源对照与 Windows 桌面验证](2026-11-23-groups-desktop.md)增加新的实际三 shell 流程及占位提示显示修复；本报告保留原模型执行范围，不回填为当时桌面通过。
+
 ## 来源和行为
 
 固定 Agent Deck `80494e527393b7ead00da30018e6ee7e60e9d7a0`，MIT，来源工作树干净。`internal/session/groups.go` 的名称清理、`internal/ui/group_dialog.go` 的字段／移动列表、`home.go` 的 g／M 上下文，以及此前组标题／卡片／导航，按稳定 Charm v2 适配。SHA-256／Git blob 见[来源指纹](2026-11-23-custom-groups-evidence/local/upstream-source.json)，逐文件登记在复用清单；没有把上游 v1 变成发布依赖。

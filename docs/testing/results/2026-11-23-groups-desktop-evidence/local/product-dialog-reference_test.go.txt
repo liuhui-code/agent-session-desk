@@ -1,0 +1,18 @@
+package ui
+import("context";"encoding/json";"os";"testing";"github.com/liuhui-code/agent-session-desk/internal/session")
+func TestASDGroupProductFrames(t *testing.T){
+ var frames []map[string]any
+ groups:=[]session.Group{{ID:"default",Name:"我的会话",Revision:1},{ID:"11111111111111111111111111111111",Name:"项目",Revision:1},{ID:"22222222222222222222222222222222",ParentID:"11111111111111111111111111111111",Name:"审核",Revision:1}}
+ for _,size:=range [][2]int{{120,32},{63,25},{49,25}}{for _,mode:=range []string{"root","subgroup","move"}{for _,field:=range []int{0,1}{
+  if mode=="move"&&field==1{continue}
+  m:=New(context.Background(),&workspaceFixture{});m.width,m.height=size[0],size[1];m.groups=groups;m.sessions=sampleSessions()
+  d:=&groupDialog{contextID:groups[1].ID,groups:groups,move:mode=="move"}
+  if mode=="subgroup"{d.parentID=groups[1].ID};m.groupIntent=d;m.openGroupDialog()
+  if mode!="move"&&field==1{d.inputs[0].Blur();d.focus=1;d.inputs[1].Focus()}
+  content,cursor:=m.renderGroupDialog()
+  frames=append(frames,map[string]any{"columns":size[0],"rows":size[1],"mode":mode,"field":field,"content":content,"cursor":cursor})
+  m.Close()
+ }}}
+ data,err:=json.MarshalIndent(frames,"","  ");if err!=nil{t.Fatal(err)}
+ if err=os.WriteFile("/private/tmp/asd-groups-desktop-20261123/product-dialog-frames.json",data,0600);err!=nil{t.Fatal(err)}
+}

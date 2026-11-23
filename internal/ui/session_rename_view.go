@@ -38,7 +38,7 @@ func (m *Model) renderSessionRename() (string, *tea.Cursor) {
 		// the plain trailing spaces produced by PlaceHorizontal.
 		return m.styles.formText.Render(strings.Repeat(" ", left)) + s + m.styles.formText.Render(strings.Repeat(" ", padding-left))
 	}
-	input := center(fitFrame(d.input.View(), inputWidth, 1))
+	input := center(fitFrame(inputView(d.input), inputWidth, 1))
 	errLine := ""
 	if d.err != nil {
 		errLine = m.styles.formError.Render(t.warningPrefix + label(d.err.Error()))

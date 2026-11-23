@@ -1,0 +1,10 @@
+--- FAIL: TestEmptyChineseFormPlaceholdersNeverEmitNULAndKeepTheirRealCursor (0.02s)
+    --- FAIL: TestEmptyChineseFormPlaceholdersNeverEmitNULAndKeepTheirRealCursor/group (0.01s)
+        input_placeholder_test.go:30: group placeholder emits NUL at [120 32]
+    --- FAIL: TestEmptyChineseFormPlaceholdersNeverEmitNULAndKeepTheirRealCursor/launch (0.01s)
+        input_placeholder_test.go:30: launch placeholder emits NUL at [120 32]
+    --- FAIL: TestEmptyChineseFormPlaceholdersNeverEmitNULAndKeepTheirRealCursor/search (0.01s)
+        input_placeholder_test.go:30: search placeholder emits NUL at [120 32]
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	1.454s
+FAIL

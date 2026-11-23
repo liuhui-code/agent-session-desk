@@ -311,6 +311,6 @@
 | [ADR-0020](../adr/0020-local-session-search.md) | 1 |
 | [ADR-0021](../adr/0021-persistent-session-display-names.md) | 4 |
 | [ADR-0022](../adr/0022-default-group-sidebar-navigation.md) | 6 |
-| [ADR-0023](../adr/0023-persistent-groups-and-membership.md) | 5 |
+| [ADR-0023](../adr/0023-persistent-groups-and-membership.md) | 6 |
 
 FL-018 按 ADR-0014 纳入首版计划；沿用原 TC-DEFER 编号，不代表已实现或已验收。

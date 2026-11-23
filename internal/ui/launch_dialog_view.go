@@ -58,7 +58,7 @@ func (m *Model) renderLaunchDialog() (string, *tea.Cursor) {
 		if i == d.focus {
 			cursorRow = len(lines)
 		}
-		lines = append(lines, d.fields[i].View())
+		lines = append(lines, inputView(d.fields[i]))
 		for range t.fieldGap {
 			lines = append(lines, "")
 		}
