@@ -1,0 +1,54 @@
+package ui
+
+import (
+ "context"
+ "encoding/json"
+ "errors"
+ "os"
+ "strings"
+ "testing"
+
+ "github.com/liuhui-code/agent-session-desk/internal/session"
+ "github.com/liuhui-code/agent-session-desk/internal/terminal"
+)
+
+func mainParityModel() *Model {
+ m:=New(context.Background(),newGroupedFixture())
+ m.sidebarMode,m.sidebarDensity="grouped","full"
+ m.groups=[]session.Group{{ID:session.DefaultGroupID,Name:"Default"},{ID:"root",Name:"Project"},{ID:"nested",ParentID:"root",Name:"Review"},{ID:"deep",ParentID:"nested",Name:"Deep"}}
+ m.sessions=sampleSessions();m.sessions[0].Title="Review A";m.sessions[0].GroupID="nested";m.sessions[0].Command="shell"
+ m.sessions[1].Title="Review B";m.sessions[1].Command="shell"
+ m.workspace.tabs=[]workspaceTab{{viewID:1,session:m.sessions[0]},{viewID:2,session:m.sessions[1]}}
+ m.cursor=0;m.workspace.focused=false
+ return m
+}
+
+func TestASDMainProduct(t *testing.T) {
+ var cards,frames []map[string]any
+ for _,width:=range []int{28,42,63} {for _,level:=range []int{1,2,3} {for _,mode:=range []string{"plain","selected","active"} {
+  m:=mainParityModel();m.sessions[0].GroupID=[]string{session.DefaultGroupID,"nested","deep"}[level-1];m.cursor=-1
+  if mode=="selected" {m.cursor=0};if mode=="active" {m.workspace.focused=true}else{m.workspace.tabs=nil}
+  lines:=strings.Split(m.renderWorkspaceSidebar(width,24),"\n");var content string
+  for _,hit:=range m.sidebarNavigationWindow(width,24).rows {if hit.index==0 {content=strings.Join(lines[hit.top:hit.top+hit.height],"\n")+"\n"}}
+  if content=="" {t.Fatal("missing synthetic card")};cards=append(cards,map[string]any{"columns":width,"level":level,"mode":mode,"content":content});m.Close()
+ }}}
+ for _,size:=range [][2]int{{160,32},{120,32},{80,16},{79,25},{63,25},{50,12},{49,25},{120,12}} {
+  for _,mode:=range []string{"management","terminal","group","empty","connecting","error","long-fields","hover","drag"} {
+   m:=mainParityModel();m.width,m.height=size[0],size[1];m.sidebarDensity="compact"
+   m.workspace.screen=terminal.Screen{Width:10,Height:1,Rows:[]terminal.Row{{Runs:[]terminal.Run{{Text:"SYNTHETIC",Width:9}}}}}
+   switch mode {
+   case "terminal":m.workspace.focused=true
+   case "group":m.cursor=-1;m.selectedGroupID="nested"
+   case "empty":m.sessions=nil;m.workspace.tabs=nil
+   case "connecting":m.workspace.busy=true
+   case "error":m.workspace.err=errors.New("synthetic disconnected")
+   case "long-fields":m.sessions[0].Title=strings.Repeat("Review 中文 ",12);m.sessions[0].Command="C:/Synthetic/"+strings.Repeat("command",16)+".exe";m.workspace.tabs[0].session=m.sessions[0]
+   case "hover":m.workspace.split.hovered=true
+   case "drag":m.workspace.split.dragging=true
+   }
+   g:=m.workspaceGeometry();frames=append(frames,map[string]any{"columns":size[0],"rows":size[1],"mode":mode,"content":m.View().Content,"mouse_mode":m.View().MouseMode,"geometry":map[string]int{"list_width":g.listWidth,"list_height":g.listHeight,"terminal_x":g.x,"terminal_y":g.y,"terminal_width":g.width,"terminal_height":g.height}});m.Close()
+  }
+ }
+ b,e:=json.MarshalIndent(map[string]any{"cards":cards,"frames":frames,"scope":"Static actual product renderer with synthetic state, no actual terminal input/cursor or Windows execution claim"},"","  ");if e!=nil{t.Fatal(e)}
+ if e=os.WriteFile(os.Getenv("ASD_MAIN_REFERENCE_OUT"),b,0600);e!=nil{t.Fatal(e)}
+}

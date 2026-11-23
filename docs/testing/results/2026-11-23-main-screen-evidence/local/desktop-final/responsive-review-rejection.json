@@ -1,0 +1,6 @@
+{
+  "attempt_executed": false,
+  "reason": "Automatic review interpreted RowSize 63 25 as replaying resize; tool invocation was rejected before even local generation",
+  "evidence": "RowSize definition calls StateText only; StateText publishes kind=state, never kind=resize. Definitions inspected before safer alternative.",
+  "safer_alternative": "Explicit inline read-only state/columns/footer-rule validation before screenshot; further new planned 49/120 viewport actions remain authorized."
+}

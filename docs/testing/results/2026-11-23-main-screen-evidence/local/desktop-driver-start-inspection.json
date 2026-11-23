@@ -1,0 +1,47 @@
+{
+    "processes":  [
+
+                  ],
+    "root_files":  [
+                       "flow-failure.json",
+                       "receipt.json",
+                       "sessions.json",
+                       "settings.before",
+                       "ui-v3-before.toml",
+                       "driver-error.json",
+                       "001.json",
+                       ".registry_sweep",
+                       "asd-main-parity__asd_288416f6fe35e2878ea5f90acb8fc2e7_3aa239ad1522737cca62d88e3d174465.key",
+                       "asd-main-parity__asd_288416f6fe35e2878ea5f90acb8fc2e7_3aa239ad1522737cca62d88e3d174465.pid",
+                       "asd-main-parity__asd_288416f6fe35e2878ea5f90acb8fc2e7_3aa239ad1522737cca62d88e3d174465.port",
+                       "asd-main-parity__asd_288416f6fe35e2878ea5f90acb8fc2e7_3aa239ad1522737cca62d88e3d174465.sid",
+                       "asd-main-parity__asd_dacedd64479c7a85b7caf5b96ed67909_53fad251e834e8060ef9471a5b8aeb0b.key",
+                       "asd-main-parity__asd_dacedd64479c7a85b7caf5b96ed67909_53fad251e834e8060ef9471a5b8aeb0b.pid",
+                       "asd-main-parity__asd_dacedd64479c7a85b7caf5b96ed67909_53fad251e834e8060ef9471a5b8aeb0b.port",
+                       "asd-main-parity__asd_dacedd64479c7a85b7caf5b96ed67909_53fad251e834e8060ef9471a5b8aeb0b.sid",
+                       "next_session_id",
+                       "psmux-m0.conf",
+                       "asd-main-parity-71521992d75d7268",
+                       "14740",
+                       "18740",
+                       "metadata.sqlite3",
+                       "ui.toml",
+                       "alt-app.ps1",
+                       "Copy_A.identity.json",
+                       "Copy_B.identity.json",
+                       "prompt.ps1"
+                   ],
+    "observations":  [
+                         {
+                             "file":  "desktop/driver-error.json",
+                             "data":  "{\r\n    \"stack\":  \"在 \\u003cScriptBlock\\u003e、\\u003c无文件\\u003e 中: 第 65 行\\r\\n在 \\u003cScriptBlock\\u003e、\\u003c无文件\\u003e 中: 第 1 行\",\r\n    \"error\":  \"使用“0”个参数调用“GetDataObject”时发生异常:“所请求的剪贴板操作失败。”\",\r\n    \"utc\":  \"2026-11-23T12:28:22.6460253Z\"\r\n}\r\n"
+                         },
+                         {
+                             "file":  "flow-failure.json",
+                             "data":  "{\r\n    \"stack\":  \"在 Action、\\u003c无文件\\u003e 中: 第 20 行\\r\\n在 InvokeVisual、\\u003c无文件\\u003e 中: 第 23 行\\r\\n在 StateText、\\u003c无文件\\u003e 中: 第 28 行\\r\\n在 WaitText、\\u003c无文件\\u003e 中: 第 31 行\\r\\n在 \\u003cScriptBlock\\u003e、\\u003c无文件\\u003e 中: 第 100 行\\r\\n在 \\u003cScriptBlock\\u003e、\\u003c无文件\\u003e 中: 第 1 行\",\r\n    \"error\":  \"Driver response timeout\",\r\n    \"result\":  \"failed\",\r\n    \"sequence\":  1\r\n}\r\n"
+                         }
+                     ],
+    "task_state":  "Ready",
+    "utc":  "2026-11-23T12:32:52.8850061Z",
+    "last_task_result":  1
+}

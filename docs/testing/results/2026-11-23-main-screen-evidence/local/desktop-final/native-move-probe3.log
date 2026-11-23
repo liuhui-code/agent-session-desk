@@ -1,0 +1,25 @@
+{
+    "scope":  "Mouse-only absolute SendInput over the registered synthetic divider, no keyboard/clipboard/content capture",
+    "trace":  "[MAIN-MOUSE-PROBE] Click x=43 y=2 button=1 focused=false left=42\n[MAIN-MOUSE-PROBE] Release x=43 y=2 button=1 focused=false left=42\n[MAIN-MOUSE-PROBE] Motion x=43 y=2 button=0 focused=false left=42\n[MAIN-MOUSE-PROBE] Motion x=0 y=2 button=0 focused=false left=42\n",
+    "utc":  "2026-11-23T17:18:16.9416015Z",
+    "result":  "observed",
+    "points":  [
+                   {
+                       "sent":  1,
+                       "column":  43,
+                       "point":  [
+                                     522,
+                                     218
+                                 ]
+                   },
+                   {
+                       "sent":  1,
+                       "column":  0,
+                       "point":  [
+                                     134,
+                                     218
+                                 ]
+                   }
+               ]
+}
+

@@ -1,0 +1,5 @@
+=== RUN   TestASDMainReference
+agentpaths: resolved agent-deck path under the real home (<LOCAL_TEST_HOME>/.agent-deck); this touches REAL user data. If this is a test, it is NOT sandboxed; call testutil.IsolateHome() in TestMain and run with a temp HOME+XDG (2026-06-04 data-loss incident, S4).
+--- PASS: TestASDMainReference (0.01s)
+PASS
+ok  	github.com/asheshgoplani/agent-deck/internal/ui	1.777s

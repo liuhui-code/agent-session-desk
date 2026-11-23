@@ -1,0 +1,7 @@
+{
+  "first_card_run": "passed with real-home path warning; external sandbox denies personal file data reads/writes and outbound networking",
+  "second_command": "not executed: automatic approval rejected real-home risk",
+  "safer_alternative": "Leave HOME/CODEX_HOME untouched; all four XDG roots point to fresh /private/tmp roots, AGENT_DECK_TEST_HOME_ISOLATED=1 makes any real-home fallback fail closed; retain original OS sandbox",
+  "sandbox_sha256": "eed96355da364343656cf061c66d6bec5af771454522d7fae4ba8f41bb4d386a",
+  "safer_alternative_outcome": "Executed successfully with explicit temporary XDG and retained OS sandbox; legacy real-home fallback warning still emitted, upstream test guard refuses that resolved path. Preserve warning; do not claim warning-free upstream environment."
+}

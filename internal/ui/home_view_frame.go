@@ -74,7 +74,7 @@ func (m *Model) View() tea.View {
 		view := tea.NewView(m.renderWorkspace())
 		view.AltScreen = true
 		view.BackgroundColor, view.ForegroundColor = m.tokens.colors.bg, m.tokens.colors.text
-		view.MouseMode = tea.MouseModeCellMotion
+		view.MouseMode = tea.MouseModeAllMotion
 		view.Cursor = m.workspaceCursor()
 		return view
 	}

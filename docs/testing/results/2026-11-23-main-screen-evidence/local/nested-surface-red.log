@@ -1,0 +1,20 @@
+--- FAIL: TestNestedSessionCardHighlightIncludesIndentationAtEveryDensity (0.00s)
+    --- FAIL: TestNestedSessionCardHighlightIncludesIndentationAtEveryDensity/minimal/focused=false (0.00s)
+        workspace_main_parity_test.go:46: highlight hole at nested card (0,4): got "default" want 36,40,59
+    --- FAIL: TestNestedSessionCardHighlightIncludesIndentationAtEveryDensity/minimal/focused=true (0.00s)
+        workspace_main_parity_test.go:46: highlight hole at nested card (0,4): got "default" want 36,40,59
+    --- FAIL: TestNestedSessionCardHighlightIncludesIndentationAtEveryDensity/compact/focused=false (0.00s)
+        workspace_main_parity_test.go:46: highlight hole at nested card (0,5): got "default" want 36,40,59
+    --- FAIL: TestNestedSessionCardHighlightIncludesIndentationAtEveryDensity/compact/focused=true (0.00s)
+        workspace_main_parity_test.go:46: highlight hole at nested card (0,5): got "default" want 36,40,59
+    --- FAIL: TestNestedSessionCardHighlightIncludesIndentationAtEveryDensity/full/focused=false (0.00s)
+        workspace_main_parity_test.go:46: highlight hole at nested card (0,6): got "default" want 36,40,59
+    --- FAIL: TestNestedSessionCardHighlightIncludesIndentationAtEveryDensity/full/focused=true (0.00s)
+        workspace_main_parity_test.go:46: highlight hole at nested card (0,6): got "default" want 36,40,59
+    --- FAIL: TestNestedSessionCardHighlightIncludesIndentationAtEveryDensity/auto/focused=false (0.00s)
+        workspace_main_parity_test.go:46: highlight hole at nested card (0,6): got "default" want 36,40,59
+    --- FAIL: TestNestedSessionCardHighlightIncludesIndentationAtEveryDensity/auto/focused=true (0.00s)
+        workspace_main_parity_test.go:46: highlight hole at nested card (0,6): got "default" want 36,40,59
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.967s
+FAIL

@@ -1,0 +1,4 @@
+$ErrorActionPreference='Stop';[Console]::OutputEncoding=[Text.UTF8Encoding]::new($false)
+$base=Join-Path $env:USERPROFILE 'asd-acceptance-20261122';$root=Join-Path $base 'main-allmotion-desktop-20261123';$dir=Join-Path $root 'desktop-native'
+$f=Get-ChildItem (Join-Path $dir 'responses') -Filter '*.json'|Sort-Object Name|Select-Object -Last 1;$v=[IO.File]::ReadAllText($f.FullName)|ConvertFrom-Json;$failure=[IO.File]::ReadAllText((Join-Path $root 'native-resume-failure.json'))|ConvertFrom-Json
+@{utc=[DateTime]::UtcNow.ToString('o');task_state=[string](Get-ScheduledTask 'AsdMainAllMotionDesktop20261123').State;last_response=$f.Name;command_kind=$v.command.kind;rect=$v.state.rect;management=($v.state.text -match '管理模式');failure=$failure;ui_processes=([IO.File]::ReadAllText((Join-Path $root 'ui-identities.json'))|ConvertFrom-Json);screenshots=@(Get-ChildItem $dir -Filter '*public.png'|Select-Object -ExpandProperty Name)}|ConvertTo-Json -Depth 7

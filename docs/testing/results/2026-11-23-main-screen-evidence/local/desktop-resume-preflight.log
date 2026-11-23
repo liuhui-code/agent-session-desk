@@ -1,0 +1,28 @@
+{
+    "accepted_actions":  0,
+    "new_command_directory":  "desktop-run2",
+    "queued_readonly":  1,
+    "utc":  "2026-11-23T12:38:16.9938665Z",
+    "original_shells":  [
+                            {
+                                "label":  "Copy A",
+                                "pid":  20292,
+                                "cwd":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\main-parity-desktop-20261123\\work",
+                                "filetime":  134399103258067559,
+                                "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe"
+                            },
+                            {
+                                "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                "pid":  14044,
+                                "filetime":  134399103263299313,
+                                "label":  "Copy B",
+                                "cwd":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\main-parity-desktop-20261123\\work"
+                            }
+                        ],
+    "old_task_result":  1,
+    "replayed_mutations":  0,
+    "clipboard_scope":  "First driver had no captured backup/restoration result; corrected driver fails closed before any window/input when backup unavailable",
+    "result":  "passed",
+    "old_task_state":  "Ready"
+}
+

@@ -1,0 +1,9 @@
+{
+  "context7_library_id": "/websites/pkg_go_dev_github_com_charmbracelet_bubbletea",
+  "context7_returned_version": "v2.0.0-beta.6, not a stable 2.1.2-specific result",
+  "context7_source": "https://pkg.go.dev/github.com/charmbracelet/bubbletea/v2@v2.0.0-beta.6#MouseMode",
+  "summary": "CellMotion reports button-held drag; AllMotion also reports no-button movement. Confirmed separately against actual pinned stable tea.go 2.1.2; dependency unchanged.",
+  "pinned_file": "charm.land/bubbletea/v2@v2.1.2/tea.go",
+  "pinned_file_sha256": "d559d60a2f32ad7588acbb770c61b47a11bad45152e45548f564df551971c4a7",
+  "upstream_entry": "cmd/agent-deck/main.go enables WithMouseAllMotion for embedded layout, CellMotion for nonembedded; UI-only changes do not forward hover to terminal"
+}

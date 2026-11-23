@@ -1,0 +1,37 @@
+package ui
+
+import (
+ "encoding/json"
+ "os"
+ "strings"
+ "testing"
+ "github.com/asheshgoplani/agent-deck/internal/session"
+ "github.com/charmbracelet/lipgloss"
+ "github.com/muesli/termenv"
+)
+
+func TestASDMainReference(t *testing.T) {
+ lipgloss.SetColorProfile(termenv.TrueColor)
+ var frames []map[string]any
+ for _, width := range []int{28,42,63} {
+  for _, level := range []int{1,2,3} {
+   for _, mode := range []string{"plain","selected","active"} {
+    inst := &session.Instance{ID:"synthetic-original",Title:"Review A",Tool:"shell"}
+    h := &Home{sidebarDensity:session.SidebarDensityFull,embeddedLayout:true}
+    if mode=="active" { h.embeddedMode=true;h.insertModeSessionID=inst.ID }
+    var b strings.Builder
+    h.renderEmbeddedSessionItem(&b,session.Item{Type:session.ItemTypeSession,Session:inst,Level:level},mode=="selected",sessionRenderState{title:inst.Title,tool:inst.Tool,status:session.StatusIdle},width)
+    frames=append(frames,map[string]any{"columns":width,"level":level,"mode":mode,"content":b.String()})
+   }
+  }
+ }
+ var dividers []map[string]any
+ for _,mode:=range []string{"management","terminal","hover","drag"} {
+  h:=&Home{width:120,height:32,embeddedLayout:true,hotkeys:resolveHotkeys(nil),footerMode:(session.UISettings{}).GetFooter()}
+  h.embeddedMode=mode=="terminal";h.hoverDivider=mode=="hover";h.draggingDivider=mode=="drag"
+  left,right:=h.splitPaneWidths()
+  dividers=append(dividers,map[string]any{"mode":mode,"left":left,"right":right,"content":h.renderDualColumnLayout(27)})
+ }
+ b,e:=json.MarshalIndent(map[string]any{"frames":frames,"dividers":dividers,"scope":"Unmodified pinned card and dual layout renderers; source status/tool are not product state claims"},"","  ");if e!=nil{t.Fatal(e)}
+ if e=os.WriteFile("/private/tmp/asd-main-parity-20261123/upstream-main-reference.json",b,0600);e!=nil{t.Fatal(e)}
+}

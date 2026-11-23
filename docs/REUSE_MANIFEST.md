@@ -116,3 +116,5 @@ Bubbles 2.2.2 textinput 通过模块使用，未复制组件源码。v2 表单�
 2026-11-23 帮助还原：从同固定 Agent Deck 提交的 help.go 选择性迁入五键／全部、分区键列、滚动／关闭与首尾页布局，cellwidth.go 的宽度规则转为 v2 外宽。目标为 help_overlay.go／help_overlay_view.go 和 tokens/styles；通用 CLI／Tab 命令说明为本产品范围，未显示不支持的 agent／账户／远程入口。中文按单元格换行、来源末页空行和每个内部背景单元格实际复验；原生、前后桌面与必要差异见[报告](testing/results/2026-11-23-help-parity.md)。固定 SHA、MIT 与机器清单同步，完整体验及事件矩阵仍开放。
 
 2026-11-23 底栏／粘贴：从同固定提交的 home_view_frame.go／insert_mode.go 选择性适配默认 full、宽度分级、键／说明角色、右侧退出锚点及黄色模式／活动目标；目标为 workspace_footer.go 与既有 tokens/styles。固定 help.go 的 Paste 标记按键实际关闭帮助，v2 PasteMsg 对应整段消费并关闭。保留 F6／Tab 和通用终端文案适配；不引入 v1 依赖。作者 #7aa2f7 保持不变，实际 v1／v2 红通道 121／122 序列化差异单独记录。来源 SHA、MIT、精确目标和[来源／原生／桌面报告](testing/results/2026-11-23-footer-input-parity.md)同步；整体体验仍未接受。
+
+2026-11-23 主界面角色：同固定 embedded_sidebar.go 的选中／活动卡片将嵌套缩进纳入整行 surface，home_view_frame.go 的终端蓝色、悬停／拖动蓝色粗线迁到既有 workspace_*、tokens。产品稳定组、F6 焦点及 transient hover 为明确适配，不迁入来源 group 数据或 v1 依赖。27 组卡片／四种分隔符的实际组件和 72 个产品状态帧见[报告](testing/results/2026-11-23-main-screen-parity.md)；桌面驱动受阻与来源测试隔离警告／审批拒绝均保留，没有整体接受结论。

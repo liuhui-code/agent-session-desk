@@ -12,12 +12,12 @@ import (
 )
 
 type workspaceSplit struct {
-	dragging, moved bool
-	dragStart       int
-	override        bool
-	percent         int
-	noticeUntil     time.Time
-	noticePending   bool
+	dragging, moved, hovered bool
+	dragStart                int
+	override                 bool
+	percent                  int
+	noticeUntil              time.Time
+	noticePending            bool
 }
 type workspaceSplitTick struct{}
 
@@ -105,6 +105,7 @@ func (m *Model) workspaceSplitMouseX(x int) tea.Cmd {
 }
 func (m *Model) workspaceSplitMotion(msg tea.MouseMotionMsg) tea.Cmd {
 	s := &m.workspace.split
+	s.hovered = msg.Button == tea.MouseNone && m.workspaceDividerHit(msg.X, msg.Y)
 	if !s.dragging {
 		return nil
 	}
@@ -122,6 +123,7 @@ func (m *Model) workspaceSplitMotion(msg tea.MouseMotionMsg) tea.Cmd {
 }
 func (m *Model) workspaceSplitRelease(msg tea.MouseReleaseMsg) tea.Cmd {
 	s := &m.workspace.split
+	s.hovered = m.workspaceDividerHit(msg.X, msg.Y)
 	if !s.dragging {
 		return nil
 	}

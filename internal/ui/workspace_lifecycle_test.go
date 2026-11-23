@@ -73,7 +73,7 @@ func TestWorkspaceClickSelectsVisibleTabWithoutSendingInput(t *testing.T) {
 	h.until(func() bool { return strings.Contains(h.m.View().Content, "shell marker first") })
 	h.send(tea.MouseClickMsg{X: 10, Y: 1, Button: tea.MouseLeft})
 	h.until(func() bool { return strings.Contains(h.m.View().Content, "shell marker second") })
-	if h.m.View().MouseMode != tea.MouseModeCellMotion {
+	if h.m.View().MouseMode != tea.MouseModeAllMotion {
 		t.Fatal("mouse events not enabled")
 	}
 }

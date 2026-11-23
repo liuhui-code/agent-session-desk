@@ -15,6 +15,7 @@ func (m *Model) workspaceWheel(msg tea.MouseWheelMsg) tea.Cmd {
 		return nil
 	}
 	w.split.dragging = false
+	w.split.hovered = false
 	w.listClick = workspaceListClick{}
 	delta := 1
 	switch msg.Button {

@@ -41,7 +41,7 @@
         "renderSingleColumnLayout"
       ],
       "mode": "selectively_adapted",
-      "modifications": "See docs/REUSE_MANIFEST.md and file header. Product Tab reorder routing/help added; ordering itself is local product logic, not an upstream Tab feature."
+      "modifications": "See docs/REUSE_MANIFEST.md and file header. Product Tab reorder routing/help added; ordering itself is local product logic, not an upstream Tab feature. Workspace View requests stable-v2 AllMotion for no-button divider hover; non-workspace/modal input modes remain local to their views. Declaration RED/GREEN and final native suite are separate from the earlier blocked desktop build."
     },
     {
       "project": "agent-deck",
@@ -115,10 +115,11 @@
       "destination_file": "internal/ui/workspace_view.go",
       "license": "MIT",
       "parts": [
-        "embedded terminal rounded frame and exact viewport layout"
+        "embedded terminal rounded frame and exact viewport layout",
+        "management/terminal divider color and hover/drag thick handle"
       ],
       "mode": "selectively_adapted",
-      "modifications": "Stable Charm v2, design tokens, product Tab identities, bounded viewport and generic CLI fields; see ADR-0016 and file headers. Responsive management stacked/single-list layouts; terminal focus expands the native viewport; minimum native content rows and hidden refresh suppression are product adaptations. Actual pinned-source frame comparison: workspace bands, outer settings/new widths 66/86, regular/first padding 2/1; stable-v2 and bounded narrow-view adaptations. See 2026-11-23-upstream-visual-comparison report."
+      "modifications": "Stable Charm v2, design tokens, product Tab identities, bounded viewport and generic CLI fields; see ADR-0016 and file headers. Responsive management stacked/single-list layouts; terminal focus expands the native viewport; minimum native content rows and hidden refresh suppression are product adaptations. Actual pinned-source frame comparison: workspace bands, outer settings/new widths 66/86, regular/first padding 2/1; stable-v2 and bounded narrow-view adaptations. See 2026-11-23-upstream-visual-comparison report. Main-screen follow-up restores source terminal accent and hover/drag handle; transient hover clears on geometry/disconnect and has no terminal effects. See 2026-11-23-main-screen-parity report."
     },
     {
       "project": "agent-deck",
@@ -220,7 +221,7 @@
         "full-sidebar hotkey gutter; compact sidebar omits it"
       ],
       "mode": "selectively_adapted",
-      "modifications": "Flat local Session/Run cards; observed terminal availability and executable basename only. Auto reads only current item count and geometry. No inferred agent status or branding. ADR-0022 restores only implicit default-group navigation; custom group metadata is not migrated."
+      "modifications": "Flat local Session/Run cards; observed terminal availability and executable basename only. Auto reads only current item count and geometry. No inferred agent status or branding. ADR-0022 restores only implicit default-group navigation; custom group metadata is not migrated. Nested product-group indentation is now inside each highlighted card row, preserving the source full surface through title/metadata; no new upstream group data model."
     },
     {
       "project": "agent-deck",

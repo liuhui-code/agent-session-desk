@@ -1,0 +1,37 @@
+{
+    "observations":  [
+                         {
+                             "file":  "desktop/driver-error.json",
+                             "data":  "{\r\n    \"stack\":  \"在 \\u003cScriptBlock\\u003e、\\u003c无文件\\u003e 中: 第 65 行\\r\\n在 \\u003cScriptBlock\\u003e、\\u003c无文件\\u003e 中: 第 1 行\",\r\n    \"error\":  \"使用“0”个参数调用“GetDataObject”时发生异常:“所请求的剪贴板操作失败。”\",\r\n    \"utc\":  \"2026-11-23T12:28:22.6460253Z\"\r\n}\r\n"
+                         },
+                         {
+                             "file":  "desktop-run2/driver-error.json",
+                             "data":  "{\r\n    \"stack\":  \"在 Guard、\\u003c无文件\\u003e 中: 第 40 行\\r\\n在 Capture、\\u003c无文件\\u003e 中: 第 54 行\\r\\n在 \\u003cScriptBlock\\u003e、\\u003c无文件\\u003e 中: 第 76 行\\r\\n在 \\u003cScriptBlock\\u003e、\\u003c无文件\\u003e 中: 第 1 行\",\r\n    \"error\":  \"Foreground changed; input refused\",\r\n    \"utc\":  \"2026-11-23T12:47:49.8440589Z\"\r\n}\r\n"
+                         },
+                         {
+                             "file":  "desktop-run2/input-environment.json",
+                             "data":  "{\r\n    \"clipboard_operations\":  0,\r\n    \"scope\":  \"This run excludes clipboard APIs entirely; no inference about the first failed driver clipboard state\",\r\n    \"caps_before\":  true,\r\n    \"clipboard_restoration_claimed\":  false,\r\n    \"caps_after\":  true,\r\n    \"original_text_logged\":  false,\r\n    \"utc\":  \"2026-11-23T12:47:49.8979136Z\"\r\n}\r\n"
+                         },
+                         {
+                             "file":  "flow-failure.json",
+                             "data":  "{\r\n    \"stack\":  \"在 Action、\\u003c无文件\\u003e 中: 第 20 行\\r\\n在 InvokeVisual、\\u003c无文件\\u003e 中: 第 23 行\\r\\n在 StateText、\\u003c无文件\\u003e 中: 第 28 行\\r\\n在 WaitText、\\u003c无文件\\u003e 中: 第 31 行\\r\\n在 \\u003cScriptBlock\\u003e、\\u003c无文件\\u003e 中: 第 100 行\\r\\n在 \\u003cScriptBlock\\u003e、\\u003c无文件\\u003e 中: 第 1 行\",\r\n    \"error\":  \"Driver response timeout\",\r\n    \"result\":  \"failed\",\r\n    \"sequence\":  1\r\n}\r\n"
+                         }
+                     ],
+    "desktop_run2_files":  [
+                               "driver-error.json",
+                               "input-environment.json"
+                           ],
+    "processes":  [
+                      {
+                          "ProcessId":  8240,
+                          "ExecutablePath":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe"
+                      },
+                      {
+                          "ProcessId":  19580,
+                          "ExecutablePath":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-main-parity.exe"
+                      }
+                  ],
+    "task_state":  "Ready",
+    "utc":  "2026-11-23T12:51:32.0794326Z",
+    "last_task_result":  0
+}

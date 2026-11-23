@@ -11,11 +11,11 @@
 | 项 | 来源行为／位置 | 产品当前行为与证据 | 剩余差异与下一步 |
 | --- | --- | --- | --- |
 | U01 标题／汇总 | home_view_frame.go 的标题、工具／状态汇总 | workspace_view.go 显示产品名和会话数 | 通用产品标题适配；来源与产品业务汇总不同，不能凭颜色相同认定整体一致；P2 同尺寸评审 |
-| U02 管理／终端比例 | split_config.go：35%／18%，最小面板与三列分隔 | tokens、workspace_split.go 已迁入；[实测](../testing/results/2026-11-23-workspace-split.md) | 比例交互已有局部证据；关闭重开尚未持久化手动比例，见 U15 |
-| U03 响应式 | home_view_frame.go：宽双栏、50–79 上下、<50 单列 | workspace_view.go 结合原生终端焦点展开，Tab 保留；[实测](../testing/results/2026-11-23-workspace-responsive.md) | Tab／原生终端为必要适配；长字段和低高度、缩放锚定仍 P1 待核对 |
-| U04 框／留白／页脚行带 | home_view_frame.go 精确宽高、圆角框和面板标题 | [实际帧对照](../testing/results/2026-11-23-upstream-visual-comparison.md)已修正框和页脚位置 | 六个参考帧逐行一致只覆盖该报告状态；两个 49 列末格差异仍保留，整体颜色／字重／状态矩阵待评审 |
+| U02 管理／终端比例 | split_config.go：35%／18%，最小面板与三列分隔 | tokens、workspace_split.go 已迁入；[实测](../testing/results/2026-11-23-workspace-split.md)；[主界面角色](../testing/results/2026-11-23-main-screen-parity.md)恢复终端蓝色和悬停／拖动粗线 | 比例交互已有局部证据，新角色已有来源／模型／原生 UI 及正式构建限定桌面；早期前台阻断与探针修正分别保留；关闭重开尚未持久化手动比例，见 U15 |
+| U03 响应式 | home_view_frame.go：宽双栏、50–79 上下、<50 单列 | workspace_view.go 结合原生终端焦点展开，Tab 保留；[实测](../testing/results/2026-11-23-workspace-responsive.md)；[72 个状态帧](../testing/results/2026-11-23-main-screen-parity.md)覆盖八组尺寸 | Tab／原生终端为必要适配；72 帧只证合成尺寸边界，后轮另完成 120／160／63／49／12 行；长字段、其他状态和完整缩放锚定仍 P1 待核对 |
+| U04 框／留白／页脚行带 | home_view_frame.go 精确宽高、圆角框和面板标题 | [实际帧对照](../testing/results/2026-11-23-upstream-visual-comparison.md)修正框／页脚；[主界面审计](../testing/results/2026-11-23-main-screen-parity.md)补分隔符及状态帧 | 六个旧参考帧逐行一致只覆盖该报告状态；两个 49 列末格差异仍保留，新角色及后轮限定桌面不是完整逐格／RGB 一致，整体视觉仍待评审 |
 | U05 Tab 主导航 | 本产品明确要求，不能声称来源有相同 Tab 栏 | workspace_tabbar.go／workspace_order.go；新增、关闭、切换、拖动／键盘排序已有独立报告 | 原 View/Session/Run 保持；Tab 顺序／关闭状态未持久化，隐藏 Tab 不自动拖动滚动；P2 |
-| U06 列表卡片／密度 | embedded_sidebar.go：四密度、28 列退化、活动／选中角色 | workspace_sidebar.go／sidebar_window.go；[卡片](../testing/results/2026-11-23-workspace-sidebar-cards.md)与[偏好](../testing/results/2026-11-23-sidebar-density-preferences.md)已有局部结果 | 程序名／终端可连接性替代来源 agent 状态，未知必须保留；长标题、目录与鼠标窗口继续 P1 核对 |
+| U06 列表卡片／密度 | embedded_sidebar.go：四密度、28 列退化、活动／选中角色 | workspace_sidebar.go／sidebar_window.go；[卡片](../testing/results/2026-11-23-workspace-sidebar-cards.md)与[偏好](../testing/results/2026-11-23-sidebar-density-preferences.md)；[27 组来源卡片](../testing/results/2026-11-23-main-screen-parity.md)修复嵌套缩进背景缺口 | 程序名／终端可连接性替代来源 agent 状态，未知必须保留；108 格背景缺口已由来源／模型及后轮正式桌面核对；公开三张宽屏 PNG。长标题、目录与鼠标窗口继续 P1 核对 |
 | U07 分组导航／创建／移动 | group_dialog.go／home.go／embedded_sidebar.go | sidebar_navigation.go、group_dialog*.go；[三 shell 来源／桌面](../testing/results/2026-11-23-groups-desktop.md) | 稳定 Group ID 替代路径身份；无远程／worktree 业务；目录建议／最近目录下拉尚未迁入，P2 |
 | U08 会话／组改名 | group_dialog.go 的预填与紫色框 | session_rename*.go、group_dialog*.go；[会话](../testing/results/2026-11-23-session-rename.md)与[组](../testing/results/2026-11-23-group-rename.md)独立实测 | 原身份、光标、并发版本为产品边界；完整长字段／IME 编辑矩阵 P1 待验 |
 | U09 组排序 | home.go、session/groups.go 的同父移动及保存 | group_order.go／store/group_order.go；[实测](../testing/results/2026-11-23-group-order.md) | 默认组固定首位，完整兄弟 CAS 与异步退出屏障是明确适配；不包含会话手动排序 |
@@ -36,7 +36,7 @@
 ## 推进和验收顺序
 
 1. U13/U14 已有局部来源／模型／Windows 证据；继续保留其他 IME、页脚设置模式和状态矩阵，避免以局部通过关闭整体。
-2. 集中复查 U01–U06 的同尺寸主界面；使用同一公开合成数据、实际列／行和固定字体／主题，分别记录管理焦点、终端焦点、空白、连接中、错误、窄窗。来源静态回放不是产品交互通过。
+2. U01–U06 已补 72 个合成主界面状态帧和卡片／分隔符角色修复；恢复测试桌面前台后，继续用相同数据、实际列／行和固定字体／主题完成真实画面及交互核对。旧根前台受阻、后轮正式构建已有 269 回执及限定鼠标／缩放；来源组件和静态帧不能替代完整接受。
 3. 对 U03/U06/U08/U11/U12 做长字段和缩放锚定；再补 U16 会话手动排序、U19 显式停止 UI 及 U18 鼠标／可见页复制。每项以一条行为 RED→GREEN 推进，必要的数据／保存合同先补 ADR。
 4. 继续 U15/U20 与剩余输入／宿主矩阵。普通 shell 连续命令、普通 CLI、真实 agent 的新建→输入→A/B/A→改名／排序→关重开→退出重连均分别证明；用户视觉接受和最终资源／发布门槛保持独立。
 

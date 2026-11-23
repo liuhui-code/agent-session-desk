@@ -94,10 +94,14 @@ func (m *Model) renderWorkspace() string {
 	if g.left > 0 {
 		left := m.renderPanelTitle(m.sidebarTitle(), g.left) + "\n" + m.renderSessionList(g.left, max(0, g.bodyHeight-m.tokens.layout.headingRows))
 		separatorStyle := m.styles.separator
-		if w.split.dragging {
+		if w.focused || w.split.hovered || w.split.dragging {
 			separatorStyle = m.styles.separatorDrag
 		}
-		separator := separatorStyle.Render(m.tokens.divider())
+		divider := m.tokens.divider()
+		if w.split.hovered || w.split.dragging {
+			divider = m.tokens.dividerWith(m.tokens.marks.dividerHandle)
+		}
+		separator := separatorStyle.Render(divider)
 		body = lipgloss.JoinHorizontal(lipgloss.Top, fitFrame(left, g.left, g.bodyHeight), strings.TrimSuffix(strings.Repeat(separator+"\n", g.bodyHeight), "\n"), right)
 	}
 	if g.above > 0 {

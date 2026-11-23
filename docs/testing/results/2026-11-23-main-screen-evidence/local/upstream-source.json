@@ -1,0 +1,46 @@
+{
+  "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+  "status": "",
+  "files": {
+    "internal/ui/embedded_sidebar.go": {
+      "sha256": "f4539e560f61c760b5bc3fc7a30bc7c3ab78ff371262239464a178fa78c835d0",
+      "blob": "ccd6a51df0b3d8caa8abd217bf8721db7fdc8dd7"
+    },
+    "internal/ui/home_view_frame.go": {
+      "sha256": "e06fd64336964e6855695bc4190f540a503b483fa796fd8d20b7b07adf9bc6c4",
+      "blob": "50a5e230a50a3e651a828caff09a5ac2d8af1d7e"
+    },
+    "internal/ui/home.go": {
+      "sha256": "982178adb5c0ef2e27ff316a1f2383b47e261a965a3e6ac2fd50bf0c199dede9",
+      "blob": "25983bc59e61ee8c962a51d1923e740616df3e5e"
+    },
+    "internal/ui/split_config.go": {
+      "sha256": "4c830a0bf8e543bbdf12b4166d48042198b5d6ae0d4f82d3ae2566ed2f3dc011",
+      "blob": "b931fcfedf056f05e922c2f6ea573b92277e7f8a"
+    },
+    "internal/ui/styles.go": {
+      "sha256": "3c64963b3b0788bb7278d64e221d5ced30ff9c7d42d65cd5c6030b229c999bee",
+      "blob": "1cbd549d6b21140d9c576c268e10a1e56661bf62"
+    },
+    "internal/ui/home_status.go": {
+      "sha256": "3f5b740109653dac55929aba240df5fdff20fe17256b44d6457c389acc9a81d5",
+      "blob": "46e5040c69222ad264da19497b070ac4732be5d0"
+    },
+    "internal/ui/insert_mode.go": {
+      "sha256": "478d4d81c42dcbe4ecd70840eb1442239e9903eac973c6680efd103ec763397f",
+      "blob": "20f97cd0e08e54140ab38622446c78394468ec72"
+    },
+    "internal/ui/cellwidth.go": {
+      "sha256": "6f6453882c62e2d966e5e8f4557ba55c49cae4f54cd7e0a29ecba8228874ec7d",
+      "blob": "4adfd80c048bb266f1721d942824b5a728f0dce0"
+    },
+    "internal/session/userconfig.go": {
+      "sha256": "e0755ee9e49e80ced9727034ff6161de413059f9ea4445e79fd2ff2eccb3b1dc",
+      "blob": "bd662da79c851545b9303a85b2ca8622983a192e"
+    },
+    "cmd/agent-deck/main.go": {
+      "sha256": "eb4d11089993461c6af00be4a370add8d3fc325e7d5a8890ffd6763389b7f71d",
+      "blob": "f81d46e6bb618877b5f672a1bc043e3b5643d96e"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+    "settings_sha256":  "1499307ABEBA68C23F9EB38A4C636F81172475B6B2B535BC0B11DCD9547241F8",
+    "archive_bytes":  570130,
+    "result":  "passed_bounded_cleanup",
+    "forced_product_ends":  0,
+    "native_captures":  16,
+    "archive_sha256":  "D088965A06BDF464C21B3E81F1C906B82770E7D39D0996EBA8E9A88CD825F96B",
+    "protocol":  [
+                     {
+                         "directory":  "desktop",
+                         "done":  74,
+                         "responses":  74
+                     },
+                     {
+                         "directory":  "desktop-continuation",
+                         "done":  75,
+                         "responses":  75
+                     },
+                     {
+                         "directory":  "desktop-native",
+                         "done":  120,
+                         "responses":  120
+                     }
+                 ],
+    "originals_ended":  7
+}

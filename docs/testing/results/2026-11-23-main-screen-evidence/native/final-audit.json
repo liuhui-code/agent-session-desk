@@ -1,0 +1,63 @@
+{
+    "settings_sha256":  "1499307ABEBA68C23F9EB38A4C636F81172475B6B2B535BC0B11DCD9547241F8",
+    "run2_clipboard_operations":  0,
+    "accepted_ui_actions":  0,
+    "result":  "cleanup_passed_desktop_blocked",
+    "original_processes":  [
+                               {
+                                   "original_ended":  true,
+                                   "pid":  20292,
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                   "kind":  "Copy_A",
+                                   "filetime":  134399103258067559,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "original_ended":  true,
+                                   "pid":  14044,
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                   "kind":  "Copy_B",
+                                   "filetime":  134399103263299313,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "original_ended":  true,
+                                   "pid":  19580,
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-main-parity.exe",
+                                   "kind":  "manager",
+                                   "filetime":  134399116701844044,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "original_ended":  true,
+                                   "pid":  8240,
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe",
+                                   "kind":  "terminal",
+                                   "filetime":  134399116689246694,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "original_ended":  true,
+                                   "pid":  13228,
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                   "kind":  "outer-launcher",
+                                   "filetime":  134399116695237985,
+                                   "pid_reused":  false
+                               }
+                           ],
+    "close_window_requested":  true,
+    "utc":  "2026-11-23T13:13:54.5265759Z",
+    "preferences_unchanged":  true,
+    "remaining_sessions":  "[]",
+    "first_clipboard_restoration":  "unknown: backup failed and first cleanup had no restoration result",
+    "desktop_result":  "blocked: foreground guard refused input before ready",
+    "scope":  "Cleanup of exact five registered originals, not normal manager q or desktop acceptance",
+    "forced_count":  0,
+    "private_images_alive":  0,
+    "tasks_absent":  [
+                         "AsdMainParitySetup20261123",
+                         "AsdMainParityDesktop20261123",
+                         "AsdMainParityRead20261123",
+                         "AsdMainParityClose20261123"
+                     ]
+}

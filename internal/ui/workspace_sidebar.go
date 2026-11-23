@@ -28,11 +28,7 @@ func (m *Model) renderWorkspaceSidebar(width, height int) string {
 			lines = append(lines, m.renderSidebarGroupAt(hit.groupID, hit.level, width))
 			continue
 		}
-		indent := strings.Repeat(" ", max(0, hit.level-1)*m.tokens.sidebar.indentWidth)
-		card := m.workspaceSidebarCard(hit.index, max(0, width-len(indent)), rowLines)
-		for i := range card {
-			card[i] = indent + card[i]
-		}
+		card := m.workspaceSidebarCard(hit.index, width, rowLines, hit.level)
 		lines = append(lines, card[:hit.height]...)
 	}
 	if remaining := window.remaining; remaining > 0 && height > len(lines) {
@@ -74,7 +70,7 @@ func (m *Model) workspaceSidebarRows(width, height int) int {
 	return max(1, min(height, rows))
 }
 
-func (m *Model) workspaceSidebarCard(index, width, rowLines int) []string {
+func (m *Model) workspaceSidebarCard(index, width, rowLines, level int) []string {
 	s := m.sessions[index]
 	prefix := strings.Repeat(" ", m.tokens.layout.rowPrefixWidth)
 	selected := index == m.cursor
@@ -90,6 +86,9 @@ func (m *Model) workspaceSidebarCard(index, width, rowLines int) []string {
 	if !w.focused {
 		gutter = strings.Repeat(" ", m.tokens.sidebar.groupGutter)
 	}
+	// Indentation is part of the card surface, as in the pinned renderer.
+	// Adding it after Render leaves holes in selected/active nested rows.
+	gutter += strings.Repeat(" ", max(0, level-1)*m.tokens.sidebar.indentWidth)
 	prefix = gutter + prefix
 	title := m.sessionTitle(s, m.sessions, max(0, width-lipgloss.Width(prefix)))
 	fit := func(text string) string {

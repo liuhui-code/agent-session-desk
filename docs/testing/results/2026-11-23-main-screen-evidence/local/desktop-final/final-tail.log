@@ -1,0 +1,100 @@
+{
+    "after":  [
+                  {
+                      "group_id":  "0b4dddf99146051ef2927b2690988235",
+                      "group_revision":  1,
+                      "session_id":  "1c15da050a5512a89587836c9199a281",
+                      "run_id":  "1c9444ec1f57028213afe30310443005",
+                      "backend_id":  "asd_1c15da050a5512a89587836c9199a281_1c9444ec1f57028213afe30310443005",
+                      "title":  "Copy A",
+                      "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                      "terminal_state":  "available"
+                  },
+                  {
+                      "session_id":  "bbead02a3fa81fa4ae3ef72d6c81f542",
+                      "run_id":  "9af9b02512104c3052e7fc115df5539d",
+                      "backend_id":  "asd_bbead02a3fa81fa4ae3ef72d6c81f542_9af9b02512104c3052e7fc115df5539d",
+                      "title":  "Copy B",
+                      "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                      "terminal_state":  "available"
+                  }
+              ],
+    "native_captures":  16,
+    "preferences_after":  "9D0983A1D9890A463F19CF70B3D33E85ADB93DDD83D2ED11C96EB8323B243A6A",
+    "utc":  "2026-11-23T17:39:48.8578063Z",
+    "ui_processes":  [
+                         {
+                             "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-main-allmotion.exe",
+                             "pid":  20072,
+                             "filetime":  134399202890231036,
+                             "session":  2
+                         },
+                         {
+                             "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-main-allmotion.exe",
+                             "pid":  13128,
+                             "filetime":  134399283872801161,
+                             "session":  2
+                         },
+                         {
+                             "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-main-allmotion.exe",
+                             "pid":  16904,
+                             "filetime":  134399291837391842,
+                             "session":  2
+                         }
+                     ],
+    "commands":  269,
+    "preferences_before":  "9D0983A1D9890A463F19CF70B3D33E85ADB93DDD83D2ED11C96EB8323B243A6A",
+    "before_processes":  [
+                             {
+                                 "filetime":  134399197701437925,
+                                 "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                 "cwd":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\main-allmotion-desktop-20261123\\work",
+                                 "pid":  17676,
+                                 "label":  "Copy A"
+                             },
+                             {
+                                 "label":  "Copy B",
+                                 "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                 "filetime":  134399197707022157,
+                                 "pid":  18220,
+                                 "cwd":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\main-allmotion-desktop-20261123\\work"
+                             }
+                         ],
+    "before":  [
+                   {
+                       "session_id":  "1c15da050a5512a89587836c9199a281",
+                       "run_id":  "1c9444ec1f57028213afe30310443005",
+                       "backend_id":  "asd_1c15da050a5512a89587836c9199a281_1c9444ec1f57028213afe30310443005",
+                       "title":  "Copy A",
+                       "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                       "terminal_state":  "available"
+                   },
+                   {
+                       "session_id":  "bbead02a3fa81fa4ae3ef72d6c81f542",
+                       "run_id":  "9af9b02512104c3052e7fc115df5539d",
+                       "backend_id":  "asd_bbead02a3fa81fa4ae3ef72d6c81f542_9af9b02512104c3052e7fc115df5539d",
+                       "title":  "Copy B",
+                       "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                       "terminal_state":  "available"
+                   }
+               ],
+    "after_processes":  [
+                            {
+                                "filetime":  134399197701437925,
+                                "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                "cwd":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\main-allmotion-desktop-20261123\\work",
+                                "pid":  17676,
+                                "label":  "Copy A"
+                            },
+                            {
+                                "label":  "Copy B",
+                                "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                "filetime":  134399197707022157,
+                                "pid":  18220,
+                                "cwd":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\main-allmotion-desktop-20261123\\work"
+                            }
+                        ],
+    "scope":  "Actual two-shell nested creation/move, selected versus active, 120/160/63/49 columns and 12 rows, divider hover/press/release, original drafts and 40 retained output lines across UI restart. No real agent or complete visual acceptance.",
+    "result":  "passed"
+}
+

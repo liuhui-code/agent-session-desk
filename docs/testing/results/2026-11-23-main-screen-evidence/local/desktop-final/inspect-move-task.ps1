@@ -1,0 +1,3 @@
+$ErrorActionPreference='Stop';[Console]::OutputEncoding=[Text.UTF8Encoding]::new($false)
+$base=Join-Path $env:USERPROFILE 'asd-acceptance-20261122';$root=Join-Path $base 'main-allmotion-desktop-20261123';$name='AsdMainAllMotionMove20261123';$t=Get-ScheduledTask $name;$i=Get-ScheduledTaskInfo $t
+@{utc=[DateTime]::UtcNow.ToString('o');state=[string]$t.State;result=$i.LastTaskResult;trace=[IO.File]::ReadAllText((Join-Path $root 'mouse-trace.log'));result_exists=(Test-Path (Join-Path $root 'native-move-probe.json'));driver_state=[string](Get-ScheduledTask 'AsdMainAllMotionDesktop20261123').State}|ConvertTo-Json

@@ -1,0 +1,23 @@
+{
+    "scope":  "Public synthetic metadata/fixture-only lines. All terminal text/tree removed from protocol, all raw capture body removed. Only four inspected candidate public PNGs exported; other screenshots remain local due script-external output. No assertion who produced it or that there was no interference.",
+    "protocol":  [
+                     {
+                         "directory":  "desktop",
+                         "done":  74,
+                         "responses":  74
+                     },
+                     {
+                         "directory":  "desktop-continuation",
+                         "done":  75,
+                         "responses":  75
+                     },
+                     {
+                         "directory":  "desktop-native",
+                         "done":  120,
+                         "responses":  120
+                     }
+                 ],
+    "raw_observations_sha256":  "461a4a0ed19ab31cedb0546e98993862a98662863095159e59a929ef4484d8b4",
+    "capture_count":  16,
+    "clipboard_api_calls":  0
+}

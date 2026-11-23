@@ -1,0 +1,9 @@
+package ui
+import("fmt";"os";"sync")
+var mainTraceMu sync.Mutex
+var mainTraceCount int
+func traceMainMouse(kind string,x,y,button int,focused bool,left int){
+ mainTraceMu.Lock();defer mainTraceMu.Unlock();if mainTraceCount>=64{return};mainTraceCount++
+ p:=os.Getenv("ASD_MAIN_MOUSE_TRACE");if p==""{return};f,e:=os.OpenFile(p,os.O_CREATE|os.O_APPEND|os.O_WRONLY,0600);if e!=nil{return};defer f.Close()
+ fmt.Fprintf(f,"[MAIN-MOUSE-PROBE] %s x=%d y=%d button=%d focused=%t left=%d\n",kind,x,y,button,focused,left)
+}

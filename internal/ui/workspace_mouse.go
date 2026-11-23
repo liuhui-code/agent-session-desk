@@ -28,6 +28,7 @@ func (m *Model) workspaceClick(msg tea.MouseClickMsg) tea.Cmd {
 		return nil
 	}
 	w.split.dragging = false
+	w.split.hovered = false
 	if msg.Y == 1 {
 		button := m.workspaceNewTabCell()
 		if msg.X >= button.x && msg.X < button.x+button.width {

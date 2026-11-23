@@ -1,0 +1,42 @@
+{
+  "result": "passed_bounded_evidence_consistency",
+  "artifacts": 743,
+  "go_module_fingerprints": 209,
+  "historical_reference_mains": 2,
+  "historical_nested_module_files": 4,
+  "source_card_pairs": 27,
+  "background_cells": 3591,
+  "old_holes": 108,
+  "new_holes": 0,
+  "divider_roles": 4,
+  "known_serialization_differences": 3,
+  "product_main_frames": 72,
+  "final_native_ui": [
+    173,
+    365
+  ],
+  "earlier_desktop": "blocked, zero accepted UI actions",
+  "final_desktop": {
+    "protocol_receipts": 269,
+    "actions": {
+      "state": 187,
+      "text": 16,
+      "keys": 31,
+      "clickNavRow": 2,
+      "divider": 15,
+      "capture": 12,
+      "resize": 5,
+      "finish": 1
+    },
+    "native_captures": 16,
+    "public_png": 3,
+    "registered_originals_ended": 7,
+    "forced_product_ends": 0,
+    "controller_replacements": 1,
+    "replayed_mutations": 0
+  },
+  "first_clipboard_restoration": "unknown",
+  "final_clipboard_api_calls": 0,
+  "privacy": "Script-external terminal body excluded, no author or no-interference inference; embedded source JSON hashes refer to decoded UTF-8 text",
+  "scope": "Bounded source/model/native-test and formal desktop evidence, not complete fidelity, real-agent, resource or release acceptance"
+}

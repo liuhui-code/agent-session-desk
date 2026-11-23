@@ -1,0 +1,28 @@
+{
+  "observed_failures": [
+    {
+      "stage": "reference helper compilation",
+      "detail": "New returns *Model; initial helper returned &m (**Model), corrected to m; original helper preserved"
+    },
+    {
+      "stage": "optional analysis import",
+      "detail": "wcwidth unavailable; no dependency installed, comparator uses explicit fixture East Asian widths"
+    },
+    {
+      "stage": "unexecuted success-export recipe edit",
+      "detail": "Substring replacement did not match because whitelist included ready.json; no export performed at that stage"
+    },
+    {
+      "stage": "first archive",
+      "detail": "Allowlist rejected empty .NET ZIP directory entries extracted as zero-byte files; verifier then found no manifest, no product test failure"
+    }
+  ],
+  "normalized_empty_directory_entries": [
+    "desktop/done/",
+    "desktop/responses/",
+    "desktop-run2/commands/",
+    "desktop-run2/done/",
+    "desktop-run2/responses/"
+  ],
+  "scope": "Observed tooling failures, not raw stderr; product/source/native/desktop outcomes remain separate"
+}

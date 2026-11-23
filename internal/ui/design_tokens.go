@@ -125,6 +125,7 @@ type layoutTokens struct {
 }
 type markTokens struct {
 	rule, divider, selected, ellipsis, menuDot, above, below, add, close string
+	dividerHandle                                                        string
 	identityOpen, identityClose                                          string
 	identityPrefixLength                                                 int
 }
@@ -158,7 +159,7 @@ func defaultDesignTokens() designTokens {
 			statusHelpWidth: 18, suffixBelow: 22, indicatorRows: 1, aboveMinHeight: 3,
 			headerMinGap: 1, itemGap: 2, menuGap: 1, dividerPadding: 1, rowPrefixWidth: 2,
 		},
-		marks: markTokens{rule: "─", divider: "│", selected: "›", ellipsis: "…", menuDot: "·", add: "+", close: "×", above: "⋮", below: "⋮", identityOpen: " [", identityClose: "]", identityPrefixLength: 6},
+		marks: markTokens{rule: "─", divider: "│", dividerHandle: "┃", selected: "›", ellipsis: "…", menuDot: "·", add: "+", close: "×", above: "⋮", below: "⋮", identityOpen: " [", identityClose: "]", identityPrefixLength: 6},
 		bold:  true,
 	}
 }
@@ -166,8 +167,11 @@ func defaultDesignTokens() designTokens {
 func (t designTokens) itemGap() string      { return strings.Repeat(" ", t.layout.itemGap) }
 func (t designTokens) sectionBreak() string { return strings.Repeat("\n", t.layout.frameGap+1) }
 func (t designTokens) divider() string {
+	return t.dividerWith(t.marks.divider)
+}
+func (t designTokens) dividerWith(glyph string) string {
 	pad := strings.Repeat(" ", t.layout.dividerPadding)
-	return pad + t.marks.divider + pad
+	return pad + glyph + pad
 }
 
 const previewTabWidth = 4

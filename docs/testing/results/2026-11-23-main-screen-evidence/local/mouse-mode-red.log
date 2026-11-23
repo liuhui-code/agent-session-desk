@@ -1,0 +1,5 @@
+--- FAIL: TestWorkspaceDividerMatchesSourceFocusHoverAndDragRoles (0.00s)
+    workspace_main_parity_test.go:66: divider hover needs no-button motion reporting in the actual View
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	2.529s
+FAIL

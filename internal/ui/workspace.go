@@ -78,6 +78,7 @@ func (w *workspaceState) disconnect() {
 	w.clipboardReading = false
 	w.tabDrag = workspaceTabDrag{}
 	w.split.dragging = false
+	w.split.hovered = false
 	w.generation++
 	if w.cancel != nil {
 		w.cancel()
@@ -155,6 +156,7 @@ func (m *Model) connectWorkspace() tea.Cmd {
 
 func (m *Model) workspaceSize() tea.Cmd {
 	w := m.workspace
+	w.split.hovered = false
 	if w.conn == nil {
 		if !w.busy && w.err == nil {
 			return m.workspaceSessions()

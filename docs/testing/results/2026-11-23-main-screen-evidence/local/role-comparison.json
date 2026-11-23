@@ -1,0 +1,148 @@
+{
+  "result": "passed",
+  "source_card_pairs": 27,
+  "card_background_cells": 3591,
+  "highlight_cells": 2394,
+  "before_holes": 108,
+  "after_holes": 0,
+  "divider_roles": [
+    {
+      "mode": "management",
+      "source_cell": {
+        "text": "│",
+        "foreground": [
+          65,
+          72,
+          104
+        ],
+        "background": null
+      },
+      "product_cell": {
+        "text": "│",
+        "foreground": [
+          65,
+          72,
+          104
+        ],
+        "background": null
+      },
+      "source_list_width": 42,
+      "product_list_width": 42
+    },
+    {
+      "mode": "terminal",
+      "source_cell": {
+        "text": "│",
+        "foreground": [
+          121,
+          162,
+          247
+        ],
+        "background": null
+      },
+      "product_cell": {
+        "text": "│",
+        "foreground": [
+          122,
+          162,
+          247
+        ],
+        "background": null
+      },
+      "source_list_width": 42,
+      "product_list_width": 21
+    },
+    {
+      "mode": "hover",
+      "source_cell": {
+        "text": "┃",
+        "foreground": [
+          121,
+          162,
+          247
+        ],
+        "background": null
+      },
+      "product_cell": {
+        "text": "┃",
+        "foreground": [
+          122,
+          162,
+          247
+        ],
+        "background": null
+      },
+      "source_list_width": 42,
+      "product_list_width": 42
+    },
+    {
+      "mode": "drag",
+      "source_cell": {
+        "text": "┃",
+        "foreground": [
+          121,
+          162,
+          247
+        ],
+        "background": null
+      },
+      "product_cell": {
+        "text": "┃",
+        "foreground": [
+          122,
+          162,
+          247
+        ],
+        "background": null
+      },
+      "source_list_width": 42,
+      "product_list_width": 42
+    }
+  ],
+  "before_divider_differences": [
+    "terminal",
+    "hover",
+    "drag"
+  ],
+  "known_accent_serialization_delta_modes": [
+    "terminal",
+    "hover",
+    "drag"
+  ],
+  "product_main_frames": 72,
+  "static_sizes": [
+    [
+      49,
+      25
+    ],
+    [
+      50,
+      12
+    ],
+    [
+      63,
+      25
+    ],
+    [
+      79,
+      25
+    ],
+    [
+      80,
+      16
+    ],
+    [
+      120,
+      12
+    ],
+    [
+      120,
+      32
+    ],
+    [
+      160,
+      32
+    ]
+  ],
+  "scope": "Actual renderers with synthetic state; background and specific divider cells only, no whole-frame equality, Windows or real-agent claim. Source terminal divider case uses explicit noncompact 35% while product input mode uses 18%; prior actual source compact frames remain separate."
+}

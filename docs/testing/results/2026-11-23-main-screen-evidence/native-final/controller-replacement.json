@@ -1,0 +1,11 @@
+{
+    "scope":  "Only exact controller process stopped, no mouse button held and no queued command",
+    "stopped_controller":  {
+                               "path":  "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                               "pid":  15596,
+                               "filetime":  134399242958386079
+                           },
+    "utc":  "2026-11-23T17:21:18.1920926Z",
+    "reason":  "Replace idle SetCursorPos controller with native SendInput movement; no Run/UI/window restarted",
+    "last_sequence":  149
+}

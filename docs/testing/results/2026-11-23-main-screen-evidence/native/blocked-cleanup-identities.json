@@ -1,0 +1,45 @@
+{
+    "scope":  "Two original shells plus uniquely scoped one manager, one private terminal and its encoded synthetic launcher; exact PID/FILETIME/image/session registration before cleanup",
+    "accepted_ui_actions":  0,
+    "ui_task_state":  "Ready",
+    "result":  "registered",
+    "ui_task_result":  0,
+    "utc":  "2026-11-23T13:02:54.6494832Z",
+    "identities":  [
+                       {
+                           "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                           "pid":  20292,
+                           "filetime":  134399103258067559,
+                           "session":  2,
+                           "kind":  "Copy_A"
+                       },
+                       {
+                           "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                           "pid":  14044,
+                           "filetime":  134399103263299313,
+                           "session":  2,
+                           "kind":  "Copy_B"
+                       },
+                       {
+                           "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-main-parity.exe",
+                           "pid":  19580,
+                           "filetime":  134399116701844044,
+                           "session":  2,
+                           "kind":  "manager"
+                       },
+                       {
+                           "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe",
+                           "pid":  8240,
+                           "filetime":  134399116689246694,
+                           "session":  2,
+                           "kind":  "terminal"
+                       },
+                       {
+                           "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                           "pid":  13228,
+                           "filetime":  134399116695237985,
+                           "session":  2,
+                           "kind":  "outer-launcher"
+                       }
+                   ]
+}

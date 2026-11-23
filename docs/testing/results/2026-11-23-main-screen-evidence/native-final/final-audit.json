@@ -1,0 +1,97 @@
+{
+    "settings_sha256":  "1499307ABEBA68C23F9EB38A4C636F81172475B6B2B535BC0B11DCD9547241F8",
+    "original_processes":  [
+                               {
+                                   "original_ended":  true,
+                                   "pid":  17676,
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                   "kind":  "Copy_A",
+                                   "filetime":  134399197701437925,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "original_ended":  true,
+                                   "pid":  18220,
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                   "kind":  "Copy_B",
+                                   "filetime":  134399197707022157,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "original_ended":  true,
+                                   "pid":  20072,
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-main-allmotion.exe",
+                                   "kind":  "formal-ui",
+                                   "filetime":  134399202890231036,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "original_ended":  true,
+                                   "pid":  13128,
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-main-allmotion.exe",
+                                   "kind":  "formal-ui",
+                                   "filetime":  134399283872801161,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "original_ended":  true,
+                                   "pid":  16904,
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-main-allmotion.exe",
+                                   "kind":  "formal-ui",
+                                   "filetime":  134399291837391842,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "original_ended":  true,
+                                   "pid":  16536,
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-main-mouse-probe.exe",
+                                   "kind":  "mouse-diagnostic-ui",
+                                   "filetime":  134399269349223466,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "original_ended":  true,
+                                   "pid":  19712,
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe",
+                                   "kind":  "terminal",
+                                   "filetime":  134399202876592478,
+                                   "pid_reused":  false
+                               }
+                           ],
+    "result":  "passed_bounded_cleanup",
+    "private_images_alive":  0,
+    "forced_product_ends":  0,
+    "utc":  "2026-11-23T17:42:32.6259219Z",
+    "remaining_sessions":  "[]",
+    "controller_replacements":  1,
+    "scope":  "Seven registered originals ended; one idle test controller was explicitly replaced separately. Script-external terminal content excluded, not a no-interference or whole-machine cleanup claim.",
+    "tasks_absent":  [
+                         "AsdMainAllMotionSetup20261123",
+                         "AsdMainAllMotionDesktop20261123",
+                         "AsdMainAllMotionMove20261123",
+                         "AsdMainAllMotionMove2_20261123",
+                         "AsdMainAllMotionMove3_20261123"
+                     ],
+    "stops":  [
+                  {
+                      "run_id":  "1c9444ec1f57028213afe30310443005",
+                      "session_id":  "1c15da050a5512a89587836c9199a281",
+                      "result":  "{\r\n  \"session_id\": \"1c15da050a5512a89587836c9199a281\",\r\n  \"run_id\": \"1c9444ec1f57028213afe30310443005\",\r\n  \"result\": \"backend_session_stopped\"\r\n}\r\n"
+                  },
+                  {
+                      "run_id":  "9af9b02512104c3052e7fc115df5539d",
+                      "session_id":  "bbead02a3fa81fa4ae3ef72d6c81f542",
+                      "result":  "{\r\n  \"session_id\": \"bbead02a3fa81fa4ae3ef72d6c81f542\",\r\n  \"run_id\": \"9af9b02512104c3052e7fc115df5539d\",\r\n  \"result\": \"backend_session_stopped\"\r\n}\r\n"
+                  }
+              ],
+    "remaining_synthetic_launchers":  0,
+    "input_environment":  {
+                              "clipboard_operations":  0,
+                              "scope":  "This fresh final-build desktop run excludes clipboard APIs entirely; prior failed root remains separate",
+                              "caps_before":  false,
+                              "clipboard_restoration_claimed":  false,
+                              "caps_after":  false,
+                              "original_text_logged":  false,
+                              "utc":  "2026-11-23T17:39:48.7680473Z"
+                          }
+}

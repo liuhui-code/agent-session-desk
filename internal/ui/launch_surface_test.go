@@ -41,6 +41,14 @@ func TestLaunchDialogSurfaceFillsTrailingLabelCells(t *testing.T) {
 // Track generated SGR in one row; this checks visible fill after child styles
 // reset, not whether a particular Style constructor has a Background property.
 func testBackgroundAt(row string, x int) string {
+	return testColorAt(row, x, 48, 49)
+}
+
+func testForegroundAt(row string, x int) string {
+	return testColorAt(row, x, 38, 39)
+}
+
+func testColorAt(row string, x, role, reset int) string {
 	matches := regexp.MustCompile(`\x1b\[([0-9;]*)m`).FindAllStringSubmatchIndex(row, -1)
 	bg := "default"
 	cell, offset := 0, 0
@@ -61,17 +69,17 @@ func testBackgroundAt(row string, x int) string {
 		}
 		for i := 0; i < len(codes); i++ {
 			switch codes[i] {
-			case 0, 49:
+			case 0, reset:
 				bg = "default"
 			case 38, 48:
 				kind := codes[i]
 				if i+4 < len(codes) && codes[i+1] == 2 {
-					if kind == 48 {
+					if kind == role {
 						bg = fmt.Sprintf("%d,%d,%d", codes[i+2], codes[i+3], codes[i+4])
 					}
 					i += 4
 				} else if i+2 < len(codes) && codes[i+1] == 5 {
-					if kind == 48 {
+					if kind == role {
 						bg = fmt.Sprintf("idx:%d", codes[i+2])
 					}
 					i += 2
