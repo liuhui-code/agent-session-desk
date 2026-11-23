@@ -1,0 +1,6 @@
+{
+  "stage": "archived verifier startup",
+  "evidence": "Observed exec traceback; first verifier source preserved",
+  "error": "ModuleNotFoundError: No module named 'tomllib'",
+  "correction": "Use standard json/re to validate only the five scalar fields in these actual ui.toml receipts; do not install another dependency or claim general TOML parsing. No product/native tests repeated."
+}

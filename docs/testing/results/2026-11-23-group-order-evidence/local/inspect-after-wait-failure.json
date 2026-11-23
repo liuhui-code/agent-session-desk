@@ -1,0 +1,172 @@
+{
+    "state":  {
+                  "fontNames":  [
+                                    "System.__ComObject",
+                                    "Consolas"
+                                ],
+                  "text":  "ASD isolated desktop acceptance\nAgent Session Desk                                                                                                2 会话\r\n Copy A ×    Copy B ×                                                                                                 + \r\n会话 分组                                  │ ╭─────────────────────────────────────────────────────────────────────────╮\r\n────────────────────────────────────────── │ │history line 18                                                          │\r\n1·▾ 我的会话 (1)                           │ │history line 19                                                          │\r\n    Copy B                                 │ │history line 20                                                          │\r\n    ╰ 可连接 · pwsh.exe                    │ │history line 21                                                          │\r\n▶ ▾ 项目 乙 (0)                            │ │history line 22                                                          │\r\n3·▾ 项目 甲 (0)                            │ │history line 23                                                          │\r\n    ▾ 审核 (1)                             │ │history line 24                                                          │\r\n    ┃ Copy A                               │ │history line 25                                                          │\r\n      ╰ 可连接 · pwsh.exe                  │ │history line 26                                                          │\r\n    ▾ 实现 (0)                             │ │history line 27                                                          │\r\n                                           │ │history line 28                                                          │\r\n                                           │ │history line 29                                                          │\r\n                                           │ │history line 30                                                          │\r\n                                           │ │history line 31                                                          │\r\n                                           │ │history line 32                                                          │\r\n                                           │ │history line 33                                                          │\r\n                                           │ │history line 34                                                          │\r\n                                           │ │history line 35                                                          │\r\n                                           │ │history line 36                                                          │\r\n                                           │ │history line 37                                                          │\r\n                                           │ │history line 38                                                          │\r\n                                           │ │history line 39                                                          │\r\n                                           │ │history line 40                                                          │\r\n                                           │ │COPY_READY Copy A                                                        │\r\n                                           │ │\u003e Write-Output (\u0027ORDER_A:\u0027+$PID) # KJ+-                                  │\r\n                                           │ ╰─────────────────────────────────────────────────────────────────────────╯\r\n────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────\r\n管理模式 · Enter 打开 · Alt+V 分组/平铺 · / 搜索 · r 改名 · n 新建 · x 关Tab · S 设置 · ? · q · F6                      \r\n",
+                  "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe",
+                  "filetime":  134398855600200382,
+                  "rect":  [
+                               174,
+                               182,
+                               1113,
+                               657
+                           ],
+                  "caps_lock":  true,
+                  "session":  2,
+                  "tree":  [
+                               {
+                                   "name":  "",
+                                   "type":  "ControlType.Pane"
+                               },
+                               {
+                                   "name":  "",
+                                   "type":  "ControlType.Pane"
+                               },
+                               {
+                                   "name":  "",
+                                   "type":  "ControlType.Tab"
+                               },
+                               {
+                                   "name":  "",
+                                   "type":  "ControlType.List"
+                               },
+                               {
+                                   "name":  "ASD isolated desktop acceptance",
+                                   "type":  "ControlType.TabItem"
+                               },
+                               {
+                                   "name":  "ASD isolated desktop acceptance",
+                                   "type":  "ControlType.Text"
+                               },
+                               {
+                                   "name":  "关闭标签页",
+                                   "type":  "ControlType.Button"
+                               },
+                               {
+                                   "name":  "新建标签页",
+                                   "type":  "ControlType.SplitButton"
+                               },
+                               {
+                                   "name":  "",
+                                   "type":  "ControlType.Custom"
+                               },
+                               {
+                                   "name":  "ASD isolated desktop acceptance",
+                                   "type":  "ControlType.Text"
+                               },
+                               {
+                                   "name":  "垂直",
+                                   "type":  "ControlType.ScrollBar"
+                               },
+                               {
+                                   "name":  "垂直小幅下降",
+                                   "type":  "ControlType.Button"
+                               },
+                               {
+                                   "name":  "垂直大幅下降",
+                                   "type":  "ControlType.Button"
+                               },
+                               {
+                                   "name":  "垂直大幅增长",
+                                   "type":  "ControlType.Button"
+                               },
+                               {
+                                   "name":  "垂直小幅增长",
+                                   "type":  "ControlType.Button"
+                               }
+                           ],
+                  "pid":  11136,
+                  "keyboardLayout":  134481924
+              },
+    "failure":  {
+                    "stack":  "在 WaitText、\u003c无文件\u003e 中: 第 32 行\r\n在 \u003cScriptBlock\u003e、\u003c无文件\u003e 中: 第 141 行\r\n在 \u003cScriptBlock\u003e、\u003c无文件\u003e 中: 第 1 行",
+                    "error":  "Expected screen not observed: 2·[▾▸] 项目 乙",
+                    "result":  "failed",
+                    "sequence":  87
+                },
+    "command":  {
+                    "kind":  "state"
+                },
+    "metadata":  {
+                     "Version":  4,
+                     "Groups":  [
+                                    {
+                                        "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                        "ID":  "21a7c615e1f7e40a0298d71bf9e8b9e8",
+                                        "ParentID":  "acab574305f918226a0860ace0fcde6b",
+                                        "Name":  "审核",
+                                        "DefaultDir":  "",
+                                        "Revision":  1,
+                                        "Order":  0
+                                    },
+                                    {
+                                        "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                        "ID":  "default",
+                                        "ParentID":  "",
+                                        "Name":  "我的会话",
+                                        "DefaultDir":  "",
+                                        "Revision":  1,
+                                        "Order":  0
+                                    },
+                                    {
+                                        "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                        "ID":  "804b2f9c837620e276bfc0af44f73be4",
+                                        "ParentID":  "",
+                                        "Name":  "项目 乙",
+                                        "DefaultDir":  "",
+                                        "Revision":  2,
+                                        "Order":  1
+                                    },
+                                    {
+                                        "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                        "ID":  "d74503fe31ed792edf560cfc10ed3af4",
+                                        "ParentID":  "acab574305f918226a0860ace0fcde6b",
+                                        "Name":  "实现",
+                                        "DefaultDir":  "",
+                                        "Revision":  1,
+                                        "Order":  1
+                                    },
+                                    {
+                                        "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                        "ID":  "acab574305f918226a0860ace0fcde6b",
+                                        "ParentID":  "",
+                                        "Name":  "项目 甲",
+                                        "DefaultDir":  "",
+                                        "Revision":  2,
+                                        "Order":  2
+                                    }
+                                ],
+                     "Members":  [
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "SessionID":  "671528018c839c9d22ae8c1f08786947",
+                                         "GroupID":  "21a7c615e1f7e40a0298d71bf9e8b9e8",
+                                         "Revision":  1
+                                     }
+                                 ],
+                     "Runs":  [
+                                  {
+                                      "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                      "ID":  "92c38fc0870ef1c1e04a12e6f27b1572",
+                                      "SessionID":  "24f433fc9ce81007f582d94991fa6e9f",
+                                      "BackendID":  "asd_24f433fc9ce81007f582d94991fa6e9f_92c38fc0870ef1c1e04a12e6f27b1572",
+                                      "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                      "RecordedNS":  1795411856773613600,
+                                      "StoppedNS":  null
+                                  },
+                                  {
+                                      "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                      "ID":  "acd742b548e77f5ae8471a7fbf686959",
+                                      "SessionID":  "671528018c839c9d22ae8c1f08786947",
+                                      "BackendID":  "asd_671528018c839c9d22ae8c1f08786947_acd742b548e77f5ae8471a7fbf686959",
+                                      "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                      "RecordedNS":  1795411856219856000,
+                                      "StoppedNS":  null
+                                  }
+                              ]
+                 },
+    "last_response":  "087.json",
+    "task_state":  "Running"
+}

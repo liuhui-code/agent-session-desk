@@ -1,0 +1,5 @@
+--- FAIL: TestGroupOrderKeepsDefaultFirstWhenLegacySiblingsHaveEqualOrdinals (0.01s)
+    group_order_test.go:33: equal orders displaced reserved default: [{ID:11111111111111111111111111111111 ParentID: Name:11111111111111111111111111111111 DefaultDir: Revision:1 Order:0} {ID:22222222222222222222222222222222 ParentID: Name:22222222222222222222222222222222 DefaultDir: Revision:1 Order:0} {ID:default ParentID: Name:我的会话 DefaultDir: Revision:1 Order:0}] <nil>
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/store	0.969s
+FAIL

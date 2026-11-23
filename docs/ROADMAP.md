@@ -162,3 +162,5 @@ M1 收尾按[验收清单](testing/M1_ACCEPTANCE.md)推进；显式有界屏幕�
 2026-11-23 终端可靠性跟进：[ADR-0019](adr/0019-explicit-windows-terminal-bundle.md) 接入显式 Windows x64 开发 bundle，实际加载核验及原生／桌面结果见[报告](testing/results/2026-11-23-terminal-bundle.md)。此切片后仍需子程序鼠标、完整上游视觉、同一新配置的资源复测、真实 agent 和发布验收，不推进队列／通知来替代当前工作区门槛。
 
 2026-11-23 组重命名切片：沿 ADR-0023 接入组标题 r 的来源弹窗与持久名称／版本，保持 SQLite v4、ui.toml v3 及原 Group/Session/Run 身份；没有依赖或终端所有权变化。实际结果见[报告](testing/results/2026-11-23-group-rename.md)，删除／排序、完整界面接受及发布仍待完成。
+
+2026-11-23 同级组排序：ADR-0023 增补完整兄弟快照／版本核对、归一化交换及异步保存／退出屏障；SQLite v4 与 ui.toml v3 不变，没有依赖或终端所有权变化。[实际报告](testing/results/2026-11-23-group-order.md)单列，Session 手动排序、组删除和整体接受仍未完成。

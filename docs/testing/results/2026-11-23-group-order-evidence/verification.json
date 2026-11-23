@@ -1,0 +1,36 @@
+{
+  "result": "passed",
+  "artifacts": 407,
+  "source_fingerprints": 185,
+  "native_packages": {
+    "store": [
+      58,
+      84
+    ],
+    "manager": [
+      15,
+      17
+    ],
+    "ui": [
+      145,
+      327
+    ]
+  },
+  "actions": {
+    "state": 87,
+    "paste": 3,
+    "text": 23,
+    "keys": 36,
+    "capture": 7,
+    "resize": 3,
+    "finish": 1
+  },
+  "screenshots": 7,
+  "source_order_snapshots": 4,
+  "root_swaps": 8,
+  "child_swaps": 1,
+  "native_captures": 10,
+  "metadata_snapshots": 18,
+  "original_processes_ended": 5,
+  "scope": "Bounded archived evidence consistency; no new product execution or full acceptance"
+}

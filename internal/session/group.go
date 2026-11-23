@@ -29,6 +29,13 @@ type Workspace struct {
 	Groups   []Group   `json:"groups"`
 }
 
+// GroupOrder captures the sibling positions the caller actually observed.
+// Names and positions are not terminal or Session/Run addresses.
+type GroupOrder struct {
+	TargetID string
+	Siblings []Group
+}
+
 func GroupOf(v Session) string {
 	if v.GroupID == "" {
 		return DefaultGroupID

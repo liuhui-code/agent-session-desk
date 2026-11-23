@@ -1,0 +1,5 @@
+--- FAIL: TestGroupOrderFailureCancelsQuitAndRequiresAFreshSnapshotBeforeAnotherEdit (0.00s)
+    group_order_test.go:56: ambiguous edit was accepted again before fresh metadata
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.966s
+FAIL

@@ -1,0 +1,71 @@
+{
+    "tasks_absent":  [
+                         "AsdGroupOrderSetup20261123",
+                         "AsdGroupOrderDesktop20261123"
+                     ],
+    "clipboard":  {
+                      "text_restored":  true,
+                      "restored":  true,
+                      "original_text_logged":  false,
+                      "utc":  "2026-11-23T05:35:00.8057968Z",
+                      "format_names_restored":  true,
+                      "caps_after":  true,
+                      "caps_before":  true,
+                      "nontext_content_verified":  false
+                  },
+    "utc":  "2026-11-23T05:35:43.8202701Z",
+    "remaining_sessions":  "[]",
+    "private_images_alive":  0,
+    "settings_sha256":  "1499307ABEBA68C23F9EB38A4C636F81172475B6B2B535BC0B11DCD9547241F8",
+    "scope":  "Registered original identities and known private image paths only; no machine-global cleanup claim; owned target and outer launcher PSReadLine history were isolated before input; no user history content archived",
+    "stops":  [
+                  {
+                      "run_id":  "acd742b548e77f5ae8471a7fbf686959",
+                      "session_id":  "671528018c839c9d22ae8c1f08786947",
+                      "result":  "{\r\n  \"session_id\": \"671528018c839c9d22ae8c1f08786947\",\r\n  \"run_id\": \"acd742b548e77f5ae8471a7fbf686959\",\r\n  \"result\": \"backend_session_stopped\"\r\n}\r\n"
+                  },
+                  {
+                      "run_id":  "92c38fc0870ef1c1e04a12e6f27b1572",
+                      "session_id":  "24f433fc9ce81007f582d94991fa6e9f",
+                      "result":  "{\r\n  \"session_id\": \"24f433fc9ce81007f582d94991fa6e9f\",\r\n  \"run_id\": \"92c38fc0870ef1c1e04a12e6f27b1572\",\r\n  \"result\": \"backend_session_stopped\"\r\n}\r\n"
+                  }
+              ],
+    "result":  "passed",
+    "original_processes":  [
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                   "pid":  13588,
+                                   "filetime":  134398854560709288,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                   "pid":  17616,
+                                   "filetime":  134398854565605909,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-group-order.exe",
+                                   "pid":  18172,
+                                   "filetime":  134398855610816669,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-group-order.exe",
+                                   "pid":  18908,
+                                   "filetime":  134398856964452328,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe",
+                                   "pid":  11136,
+                                   "filetime":  134398855600200382,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               }
+                           ]
+}

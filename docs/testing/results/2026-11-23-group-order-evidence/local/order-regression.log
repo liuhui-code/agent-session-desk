@@ -1,0 +1,22 @@
+=== RUN   TestGroupOrderRejectsStaleSiblingEditsInsertionsAndABA
+--- PASS: TestGroupOrderRejectsStaleSiblingEditsInsertionsAndABA (0.02s)
+=== RUN   TestGroupOrderConcurrentConnectionsOnlyOneCommits
+--- PASS: TestGroupOrderConcurrentConnectionsOnlyOneCommits (0.01s)
+=== RUN   TestGroupOrderPinnedBoundariesAndMalformedSnapshotsDoNotWrite
+--- PASS: TestGroupOrderPinnedBoundariesAndMalformedSnapshotsDoNotWrite (0.01s)
+=== RUN   TestGroupOrderRollsBackAllWritesOnFailureAndRevisionExhaustion
+--- PASS: TestGroupOrderRollsBackAllWritesOnFailureAndRevisionExhaustion (0.01s)
+=== RUN   TestGroupOrderKeepsDefaultFirstWhenLegacySiblingsHaveEqualOrdinals
+--- PASS: TestGroupOrderKeepsDefaultFirstWhenLegacySiblingsHaveEqualOrdinals (0.01s)
+=== RUN   TestGroupOrderSkipsExpandedDescendantsAndPersistsTheOriginalTree
+--- PASS: TestGroupOrderSkipsExpandedDescendantsAndPersistsTheOriginalTree (0.01s)
+PASS
+ok  	github.com/liuhui-code/agent-session-desk/internal/store	1.541s
+=== RUN   TestGroupOrderNeedsNoTerminalAndKeepsTheOriginalSiblingIdentities
+--- PASS: TestGroupOrderNeedsNoTerminalAndKeepsTheOriginalSiblingIdentities (0.01s)
+PASS
+ok  	github.com/liuhui-code/agent-session-desk/internal/manager	3.004s
+=== RUN   TestGroupOrderMovesAmongSiblingsAndKeepsFoldedGroupTabAndTerminalDraft
+--- PASS: TestGroupOrderMovesAmongSiblingsAndKeepsFoldedGroupTabAndTerminalDraft (0.01s)
+PASS
+ok  	github.com/liuhui-code/agent-session-desk/internal/ui	2.239s

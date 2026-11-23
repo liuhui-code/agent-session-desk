@@ -117,3 +117,5 @@ M0 已有“列表/预览 → 自定义命令 → 全屏 attach → 返回”的
 2026-11-23 显式终端开发配置：[ADR-0019](adr/0019-explicit-windows-terminal-bundle.md) 允许 `--terminal-bundle` 固定补丁后端＋Microsoft SDK，并在创建／接入时验证实际宿主，保留官方默认路径和失败边界。x/sys v0.49.0 从已有间接依赖改为直接使用，没有升级版本。参见[实际接入报告](testing/results/2026-11-23-terminal-bundle.md)；不宣称跨权限、完整 Windows 或发布通过。
 
 2026-11-23 组重命名切片：沿 ADR-0023 接入组标题 r 的来源弹窗与持久名称／版本，保持 SQLite v4、ui.toml v3 及原 Group/Session/Run 身份；没有依赖或终端所有权变化。实际结果见[报告](testing/results/2026-11-23-group-rename.md)，删除／排序、完整界面接受及发布仍待完成。
+
+2026-11-23 同级组排序：ADR-0023 增补完整兄弟快照／版本核对、归一化交换及异步保存／退出屏障；SQLite v4 与 ui.toml v3 不变，没有依赖或终端所有权变化。[实际报告](testing/results/2026-11-23-group-order.md)单列，Session 手动排序、组删除和整体接受仍未完成。

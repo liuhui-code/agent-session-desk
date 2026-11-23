@@ -1,0 +1,188 @@
+{
+    "root_B":  {
+                   "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                   "ID":  "804b2f9c837620e276bfc0af44f73be4",
+                   "ParentID":  "",
+                   "Name":  "项目 乙",
+                   "DefaultDir":  "",
+                   "Revision":  1,
+                   "Order":  2
+               },
+    "before":  [
+                   {
+                       "session_id":  "671528018c839c9d22ae8c1f08786947",
+                       "run_id":  "acd742b548e77f5ae8471a7fbf686959",
+                       "backend_id":  "asd_671528018c839c9d22ae8c1f08786947_acd742b548e77f5ae8471a7fbf686959",
+                       "title":  "Copy A",
+                       "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                       "terminal_state":  "available"
+                   },
+                   {
+                       "session_id":  "24f433fc9ce81007f582d94991fa6e9f",
+                       "run_id":  "92c38fc0870ef1c1e04a12e6f27b1572",
+                       "backend_id":  "asd_24f433fc9ce81007f582d94991fa6e9f_92c38fc0870ef1c1e04a12e6f27b1572",
+                       "title":  "Copy B",
+                       "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                       "terminal_state":  "available"
+                   }
+               ],
+    "root_swaps":  8,
+    "implementation":  {
+                           "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                           "ID":  "d74503fe31ed792edf560cfc10ed3af4",
+                           "ParentID":  "acab574305f918226a0860ace0fcde6b",
+                           "Name":  "实现",
+                           "DefaultDir":  "",
+                           "Revision":  1,
+                           "Order":  1
+                       },
+    "ui_processes":  [
+                         {
+                             "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-group-order.exe",
+                             "pid":  18172,
+                             "filetime":  134398855610816669,
+                             "session":  2
+                         },
+                         {
+                             "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-group-order.exe",
+                             "pid":  18908,
+                             "filetime":  134398856964452328,
+                             "session":  2
+                         }
+                     ],
+    "before_processes":  [
+                             {
+                                 "cwd":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\work",
+                                 "pid":  13588,
+                                 "filetime":  134398854560709288,
+                                 "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                 "label":  "Copy A"
+                             },
+                             {
+                                 "filetime":  134398854565605909,
+                                 "pid":  17616,
+                                 "label":  "Copy B",
+                                 "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                 "cwd":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\work"
+                             }
+                         ],
+    "after":  [
+                  {
+                      "group_id":  "21a7c615e1f7e40a0298d71bf9e8b9e8",
+                      "group_revision":  1,
+                      "session_id":  "671528018c839c9d22ae8c1f08786947",
+                      "run_id":  "acd742b548e77f5ae8471a7fbf686959",
+                      "backend_id":  "asd_671528018c839c9d22ae8c1f08786947_acd742b548e77f5ae8471a7fbf686959",
+                      "title":  "Copy A",
+                      "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                      "terminal_state":  "available"
+                  },
+                  {
+                      "session_id":  "24f433fc9ce81007f582d94991fa6e9f",
+                      "run_id":  "92c38fc0870ef1c1e04a12e6f27b1572",
+                      "backend_id":  "asd_24f433fc9ce81007f582d94991fa6e9f_92c38fc0870ef1c1e04a12e6f27b1572",
+                      "title":  "Copy B",
+                      "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                      "terminal_state":  "available"
+                  }
+              ],
+    "root_aliases":  [
+                         "K",
+                         "J",
+                         "ctrl+up",
+                         "ctrl+down",
+                         "shift+up",
+                         "shift+down",
+                         "+",
+                         "-"
+                     ],
+    "scope":  "Two ordinary shells; root aliases, expanded-subtree skipping, child swap, pinned/boundary no-op, 120/63/49 columns, snapshot/reopen, original drafts/PIDs. Unicode literals are not physical uppercase or IME-composition acceptance; async fault barriers tested in UI models separately.",
+    "after_processes":  [
+                            {
+                                "cwd":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\work",
+                                "pid":  13588,
+                                "filetime":  134398854560709288,
+                                "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                "label":  "Copy A"
+                            },
+                            {
+                                "filetime":  134398854565605909,
+                                "pid":  17616,
+                                "label":  "Copy B",
+                                "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                "cwd":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\work"
+                            }
+                        ],
+    "metadata_snapshots":  18,
+    "commands":  160,
+    "utc":  "2026-11-23T05:35:00.8087898Z",
+    "preference_snapshots":  2,
+    "root_A":  {
+                   "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                   "ID":  "acab574305f918226a0860ace0fcde6b",
+                   "ParentID":  "",
+                   "Name":  "项目 甲",
+                   "DefaultDir":  "",
+                   "Revision":  1,
+                   "Order":  1
+               },
+    "child_swaps":  1,
+    "review":  {
+                   "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                   "ID":  "21a7c615e1f7e40a0298d71bf9e8b9e8",
+                   "ParentID":  "acab574305f918226a0860ace0fcde6b",
+                   "Name":  "审核",
+                   "DefaultDir":  "",
+                   "Revision":  1,
+                   "Order":  0
+               },
+    "final_groups":  [
+                         {
+                             "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                             "ID":  "d74503fe31ed792edf560cfc10ed3af4",
+                             "ParentID":  "acab574305f918226a0860ace0fcde6b",
+                             "Name":  "实现",
+                             "DefaultDir":  "",
+                             "Revision":  2,
+                             "Order":  0
+                         },
+                         {
+                             "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                             "ID":  "default",
+                             "ParentID":  "",
+                             "Name":  "我的会话",
+                             "DefaultDir":  "",
+                             "Revision":  1,
+                             "Order":  0
+                         },
+                         {
+                             "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                             "ID":  "21a7c615e1f7e40a0298d71bf9e8b9e8",
+                             "ParentID":  "acab574305f918226a0860ace0fcde6b",
+                             "Name":  "审核",
+                             "DefaultDir":  "",
+                             "Revision":  2,
+                             "Order":  1
+                         },
+                         {
+                             "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                             "ID":  "acab574305f918226a0860ace0fcde6b",
+                             "ParentID":  "",
+                             "Name":  "项目 甲",
+                             "DefaultDir":  "",
+                             "Revision":  9,
+                             "Order":  1
+                         },
+                         {
+                             "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                             "ID":  "804b2f9c837620e276bfc0af44f73be4",
+                             "ParentID":  "",
+                             "Name":  "项目 乙",
+                             "DefaultDir":  "",
+                             "Revision":  9,
+                             "Order":  2
+                         }
+                     ],
+    "result":  "passed"
+}
+

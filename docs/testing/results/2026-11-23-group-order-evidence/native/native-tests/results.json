@@ -1,0 +1,32 @@
+[
+    {
+        "binary_sha256":  "13CA3E5DD411B12F66BF983099BE489CFD36BF872DA26D831DDDFD4704B3C15B",
+        "remaining_exact_image":  0,
+        "skip":  0,
+        "exit_code":  0,
+        "fail":  0,
+        "all_pass":  84,
+        "top_level_pass":  58,
+        "package":  "store"
+    },
+    {
+        "binary_sha256":  "4D8DB6C10BFD3671619D77FE4C1C2D83EF5170C593E1BBBA0407EB18413695A8",
+        "remaining_exact_image":  0,
+        "skip":  0,
+        "exit_code":  0,
+        "fail":  0,
+        "all_pass":  17,
+        "top_level_pass":  15,
+        "package":  "manager"
+    },
+    {
+        "binary_sha256":  "B0B9B52E4A86F096FE779818D80C946DB3BF16D69FAF1B9A0333CACBCBEBE019",
+        "remaining_exact_image":  0,
+        "skip":  0,
+        "exit_code":  0,
+        "fail":  0,
+        "all_pass":  327,
+        "top_level_pass":  145,
+        "package":  "ui"
+    }
+]

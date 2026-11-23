@@ -1,0 +1,88 @@
+{
+    "ok":  true,
+    "utc":  "2026-11-23T05:32:58.3012521Z",
+    "state":  {
+                  "fontNames":  [
+                                    "System.__ComObject",
+                                    "Consolas"
+                                ],
+                  "text":  "ASD isolated desktop acceptance\nAgent Session Desk                                                                                                2 会话\r\n Copy A ×    Copy B ×                                                                                                 + \r\n会话 分组                                  │ ╭─────────────────────────────────────────────────────────────────────────╮\r\n────────────────────────────────────────── │ │正在连接原终端…                                                          │\r\n1·▾ 我的会话 (2)                           │ │                                                                         │\r\n  ┃ Copy A                                 │ │                                                                         │\r\n    ╰ 可连接 · pwsh.exe                    │ │                                                                         │\r\n    Copy B                                 │ │                                                                         │\r\n    ╰ 可连接 · pwsh.exe                    │ │                                                                         │\r\n2·▾ 项目 甲 (0)                            │ │                                                                         │\r\n    ▾ 审核 (0)                             │ │                                                                         │\r\n▶ ▾ 项目 乙 (0)                            │ │                                                                         │\r\n                                           │ │                                                                         │\r\n                                           │ │                                                                         │\r\n                                           │ │                                                                         │\r\n                                           │ │                                                                         │\r\n                                           │ │                                                                         │\r\n                                           │ │                                                                         │\r\n                                           │ │                                                                         │\r\n                                           │ │                                                                         │\r\n                                           │ │                                                                         │\r\n                                           │ │                                                                         │\r\n                                           │ │                                                                         │\r\n                                           │ │                                                                         │\r\n                                           │ │                                                                         │\r\n                                           │ │                                                                         │\r\n                                           │ │                                                                         │\r\n                                           │ │                                                                         │\r\n                                           │ ╰─────────────────────────────────────────────────────────────────────────╯\r\n────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────\r\n管理模式 · Enter 打开 · Alt+V 分组/平铺 · / 搜索 · r 改名 · n 新建 · x 关Tab · S 设置 · ? · q · F6                      \r\n",
+                  "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe",
+                  "filetime":  134398855600200382,
+                  "rect":  [
+                               174,
+                               182,
+                               1113,
+                               657
+                           ],
+                  "caps_lock":  true,
+                  "session":  2,
+                  "tree":  [
+                               {
+                                   "name":  "",
+                                   "type":  "ControlType.Pane"
+                               },
+                               {
+                                   "name":  "",
+                                   "type":  "ControlType.Pane"
+                               },
+                               {
+                                   "name":  "",
+                                   "type":  "ControlType.Tab"
+                               },
+                               {
+                                   "name":  "",
+                                   "type":  "ControlType.List"
+                               },
+                               {
+                                   "name":  "ASD isolated desktop acceptance",
+                                   "type":  "ControlType.TabItem"
+                               },
+                               {
+                                   "name":  "ASD isolated desktop acceptance",
+                                   "type":  "ControlType.Text"
+                               },
+                               {
+                                   "name":  "关闭标签页",
+                                   "type":  "ControlType.Button"
+                               },
+                               {
+                                   "name":  "新建标签页",
+                                   "type":  "ControlType.SplitButton"
+                               },
+                               {
+                                   "name":  "",
+                                   "type":  "ControlType.Custom"
+                               },
+                               {
+                                   "name":  "ASD isolated desktop acceptance",
+                                   "type":  "ControlType.Text"
+                               },
+                               {
+                                   "name":  "垂直",
+                                   "type":  "ControlType.ScrollBar"
+                               },
+                               {
+                                   "name":  "垂直小幅下降",
+                                   "type":  "ControlType.Button"
+                               },
+                               {
+                                   "name":  "垂直大幅下降",
+                                   "type":  "ControlType.Button"
+                               },
+                               {
+                                   "name":  "垂直大幅增长",
+                                   "type":  "ControlType.Button"
+                               },
+                               {
+                                   "name":  "垂直小幅增长",
+                                   "type":  "ControlType.Button"
+                               }
+                           ],
+                  "pid":  11136,
+                  "keyboardLayout":  134481924
+              },
+    "command":  {
+                    "kind":  "state"
+                }
+}

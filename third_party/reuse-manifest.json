@@ -535,6 +535,36 @@
       ],
       "mode": "selectively_adapted",
       "modifications": "ADR-0023: stable product Group IDs, scoped SQLite tree/membership and CAS; v2 real cursor/total widths, Chinese labels, token styles, bounded viewports and original Run/input fences. No filesystem path IDs, upstream remote/worktree/provider model or v1 production dependency."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/session/groups.go",
+      "source_sha256": "ca70187d03745fe6adae0db00f4a660dce13df677c2f83afb783f9099c23ba8f",
+      "destination_file": "internal/store/group_order.go",
+      "license": "MIT",
+      "parts": [
+        "moveGroupAmongSiblings sibling filtering",
+        "normalize sibling Order before swap"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "ADR-0023: stable Group IDs and scoped whole-sibling metadata/version CAS; reserved default root stays first; single-flight async results, current selection and independent terminal/preferences/quit barriers. No Session/remote reorder or new production dependency."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/home.go",
+      "source_sha256": "982178adb5c0ef2e27ff316a1f2383b47e261a965a3e6ac2fd50bf0c199dede9",
+      "destination_file": "internal/ui/group_order.go",
+      "license": "MIT",
+      "parts": [
+        "Shift/Ctrl+Up/Down, K/J and +/- group header interaction",
+        "stable selected group and explicit persisted reorder intent"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "ADR-0023: stable Group IDs and scoped whole-sibling metadata/version CAS; reserved default root stays first; single-flight async results, current selection and independent terminal/preferences/quit barriers. No Session/remote reorder or new production dependency."
     }
   ],
   "preserved_notices": [

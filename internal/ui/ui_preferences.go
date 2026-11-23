@@ -59,6 +59,9 @@ func (m *Model) uiPreferencesEvent(msg tea.Msg) (tea.Cmd, bool) {
 	queued := p.queued
 	p.queued = false
 	if r.err != nil {
+		if m.groupOrder != nil {
+			m.groupOrder.quitting = false
+		}
 		p.wanted = p.saved
 		m.sidebarDensity = p.saved.SidebarDensity
 		m.applySidebarNavigation(p.saved)

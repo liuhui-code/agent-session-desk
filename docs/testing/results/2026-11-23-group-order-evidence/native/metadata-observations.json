@@ -1,0 +1,1386 @@
+[
+    {
+        "value":  {
+                      "Version":  4,
+                      "Groups":  [
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "default",
+                                         "ParentID":  "",
+                                         "Name":  "我的会话",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "acab574305f918226a0860ace0fcde6b",
+                                         "ParentID":  "",
+                                         "Name":  "项目 甲",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  1
+                                     }
+                                 ],
+                      "Members":  [
+
+                                  ],
+                      "Runs":  [
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                       "ID":  "92c38fc0870ef1c1e04a12e6f27b1572",
+                                       "SessionID":  "24f433fc9ce81007f582d94991fa6e9f",
+                                       "BackendID":  "asd_24f433fc9ce81007f582d94991fa6e9f_92c38fc0870ef1c1e04a12e6f27b1572",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795411856773613600,
+                                       "StoppedNS":  null
+                                   },
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                       "ID":  "acd742b548e77f5ae8471a7fbf686959",
+                                       "SessionID":  "671528018c839c9d22ae8c1f08786947",
+                                       "BackendID":  "asd_671528018c839c9d22ae8c1f08786947_acd742b548e77f5ae8471a7fbf686959",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795411856219856000,
+                                       "StoppedNS":  null
+                                   }
+                               ]
+                  },
+        "label":  "root-A-created"
+    },
+    {
+        "value":  {
+                      "Version":  4,
+                      "Groups":  [
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "21a7c615e1f7e40a0298d71bf9e8b9e8",
+                                         "ParentID":  "acab574305f918226a0860ace0fcde6b",
+                                         "Name":  "审核",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "default",
+                                         "ParentID":  "",
+                                         "Name":  "我的会话",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "acab574305f918226a0860ace0fcde6b",
+                                         "ParentID":  "",
+                                         "Name":  "项目 甲",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  1
+                                     }
+                                 ],
+                      "Members":  [
+
+                                  ],
+                      "Runs":  [
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                       "ID":  "92c38fc0870ef1c1e04a12e6f27b1572",
+                                       "SessionID":  "24f433fc9ce81007f582d94991fa6e9f",
+                                       "BackendID":  "asd_24f433fc9ce81007f582d94991fa6e9f_92c38fc0870ef1c1e04a12e6f27b1572",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795411856773613600,
+                                       "StoppedNS":  null
+                                   },
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                       "ID":  "acd742b548e77f5ae8471a7fbf686959",
+                                       "SessionID":  "671528018c839c9d22ae8c1f08786947",
+                                       "BackendID":  "asd_671528018c839c9d22ae8c1f08786947_acd742b548e77f5ae8471a7fbf686959",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795411856219856000,
+                                       "StoppedNS":  null
+                                   }
+                               ]
+                  },
+        "label":  "review-created"
+    },
+    {
+        "value":  {
+                      "Version":  4,
+                      "Groups":  [
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "21a7c615e1f7e40a0298d71bf9e8b9e8",
+                                         "ParentID":  "acab574305f918226a0860ace0fcde6b",
+                                         "Name":  "审核",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "default",
+                                         "ParentID":  "",
+                                         "Name":  "我的会话",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "acab574305f918226a0860ace0fcde6b",
+                                         "ParentID":  "",
+                                         "Name":  "项目 甲",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  1
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "804b2f9c837620e276bfc0af44f73be4",
+                                         "ParentID":  "",
+                                         "Name":  "项目 乙",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  2
+                                     }
+                                 ],
+                      "Members":  [
+
+                                  ],
+                      "Runs":  [
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                       "ID":  "92c38fc0870ef1c1e04a12e6f27b1572",
+                                       "SessionID":  "24f433fc9ce81007f582d94991fa6e9f",
+                                       "BackendID":  "asd_24f433fc9ce81007f582d94991fa6e9f_92c38fc0870ef1c1e04a12e6f27b1572",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795411856773613600,
+                                       "StoppedNS":  null
+                                   },
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                       "ID":  "acd742b548e77f5ae8471a7fbf686959",
+                                       "SessionID":  "671528018c839c9d22ae8c1f08786947",
+                                       "BackendID":  "asd_671528018c839c9d22ae8c1f08786947_acd742b548e77f5ae8471a7fbf686959",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795411856219856000,
+                                       "StoppedNS":  null
+                                   }
+                               ]
+                  },
+        "label":  "root-B-created"
+    },
+    {
+        "value":  {
+                      "Version":  4,
+                      "Groups":  [
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "21a7c615e1f7e40a0298d71bf9e8b9e8",
+                                         "ParentID":  "acab574305f918226a0860ace0fcde6b",
+                                         "Name":  "审核",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "default",
+                                         "ParentID":  "",
+                                         "Name":  "我的会话",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "acab574305f918226a0860ace0fcde6b",
+                                         "ParentID":  "",
+                                         "Name":  "项目 甲",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  1
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "d74503fe31ed792edf560cfc10ed3af4",
+                                         "ParentID":  "acab574305f918226a0860ace0fcde6b",
+                                         "Name":  "实现",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  1
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "804b2f9c837620e276bfc0af44f73be4",
+                                         "ParentID":  "",
+                                         "Name":  "项目 乙",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  2
+                                     }
+                                 ],
+                      "Members":  [
+
+                                  ],
+                      "Runs":  [
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                       "ID":  "92c38fc0870ef1c1e04a12e6f27b1572",
+                                       "SessionID":  "24f433fc9ce81007f582d94991fa6e9f",
+                                       "BackendID":  "asd_24f433fc9ce81007f582d94991fa6e9f_92c38fc0870ef1c1e04a12e6f27b1572",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795411856773613600,
+                                       "StoppedNS":  null
+                                   },
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                       "ID":  "acd742b548e77f5ae8471a7fbf686959",
+                                       "SessionID":  "671528018c839c9d22ae8c1f08786947",
+                                       "BackendID":  "asd_671528018c839c9d22ae8c1f08786947_acd742b548e77f5ae8471a7fbf686959",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795411856219856000,
+                                       "StoppedNS":  null
+                                   }
+                               ]
+                  },
+        "label":  "implementation-created"
+    },
+    {
+        "value":  {
+                      "Version":  4,
+                      "Groups":  [
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "21a7c615e1f7e40a0298d71bf9e8b9e8",
+                                         "ParentID":  "acab574305f918226a0860ace0fcde6b",
+                                         "Name":  "审核",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "default",
+                                         "ParentID":  "",
+                                         "Name":  "我的会话",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "acab574305f918226a0860ace0fcde6b",
+                                         "ParentID":  "",
+                                         "Name":  "项目 甲",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  1
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "d74503fe31ed792edf560cfc10ed3af4",
+                                         "ParentID":  "acab574305f918226a0860ace0fcde6b",
+                                         "Name":  "实现",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  1
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "804b2f9c837620e276bfc0af44f73be4",
+                                         "ParentID":  "",
+                                         "Name":  "项目 乙",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  2
+                                     }
+                                 ],
+                      "Members":  [
+                                      {
+                                          "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                          "SessionID":  "671528018c839c9d22ae8c1f08786947",
+                                          "GroupID":  "21a7c615e1f7e40a0298d71bf9e8b9e8",
+                                          "Revision":  1
+                                      }
+                                  ],
+                      "Runs":  [
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                       "ID":  "92c38fc0870ef1c1e04a12e6f27b1572",
+                                       "SessionID":  "24f433fc9ce81007f582d94991fa6e9f",
+                                       "BackendID":  "asd_24f433fc9ce81007f582d94991fa6e9f_92c38fc0870ef1c1e04a12e6f27b1572",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795411856773613600,
+                                       "StoppedNS":  null
+                                   },
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                       "ID":  "acd742b548e77f5ae8471a7fbf686959",
+                                       "SessionID":  "671528018c839c9d22ae8c1f08786947",
+                                       "BackendID":  "asd_671528018c839c9d22ae8c1f08786947_acd742b548e77f5ae8471a7fbf686959",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795411856219856000,
+                                       "StoppedNS":  null
+                                   }
+                               ]
+                  },
+        "label":  "before-order"
+    },
+    {
+        "value":  {
+                      "Version":  4,
+                      "Groups":  [
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "21a7c615e1f7e40a0298d71bf9e8b9e8",
+                                         "ParentID":  "acab574305f918226a0860ace0fcde6b",
+                                         "Name":  "审核",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "default",
+                                         "ParentID":  "",
+                                         "Name":  "我的会话",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "acab574305f918226a0860ace0fcde6b",
+                                         "ParentID":  "",
+                                         "Name":  "项目 甲",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  1
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "d74503fe31ed792edf560cfc10ed3af4",
+                                         "ParentID":  "acab574305f918226a0860ace0fcde6b",
+                                         "Name":  "实现",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  1
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "804b2f9c837620e276bfc0af44f73be4",
+                                         "ParentID":  "",
+                                         "Name":  "项目 乙",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  2
+                                     }
+                                 ],
+                      "Members":  [
+                                      {
+                                          "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                          "SessionID":  "671528018c839c9d22ae8c1f08786947",
+                                          "GroupID":  "21a7c615e1f7e40a0298d71bf9e8b9e8",
+                                          "Revision":  1
+                                      }
+                                  ],
+                      "Runs":  [
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                       "ID":  "92c38fc0870ef1c1e04a12e6f27b1572",
+                                       "SessionID":  "24f433fc9ce81007f582d94991fa6e9f",
+                                       "BackendID":  "asd_24f433fc9ce81007f582d94991fa6e9f_92c38fc0870ef1c1e04a12e6f27b1572",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795411856773613600,
+                                       "StoppedNS":  null
+                                   },
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                       "ID":  "acd742b548e77f5ae8471a7fbf686959",
+                                       "SessionID":  "671528018c839c9d22ae8c1f08786947",
+                                       "BackendID":  "asd_671528018c839c9d22ae8c1f08786947_acd742b548e77f5ae8471a7fbf686959",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795411856219856000,
+                                       "StoppedNS":  null
+                                   }
+                               ]
+                  },
+        "label":  "initial-contract"
+    },
+    {
+        "value":  {
+                      "Version":  4,
+                      "Groups":  [
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "21a7c615e1f7e40a0298d71bf9e8b9e8",
+                                         "ParentID":  "acab574305f918226a0860ace0fcde6b",
+                                         "Name":  "审核",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "default",
+                                         "ParentID":  "",
+                                         "Name":  "我的会话",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "804b2f9c837620e276bfc0af44f73be4",
+                                         "ParentID":  "",
+                                         "Name":  "项目 乙",
+                                         "DefaultDir":  "",
+                                         "Revision":  2,
+                                         "Order":  1
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "d74503fe31ed792edf560cfc10ed3af4",
+                                         "ParentID":  "acab574305f918226a0860ace0fcde6b",
+                                         "Name":  "实现",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  1
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "acab574305f918226a0860ace0fcde6b",
+                                         "ParentID":  "",
+                                         "Name":  "项目 甲",
+                                         "DefaultDir":  "",
+                                         "Revision":  2,
+                                         "Order":  2
+                                     }
+                                 ],
+                      "Members":  [
+                                      {
+                                          "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                          "SessionID":  "671528018c839c9d22ae8c1f08786947",
+                                          "GroupID":  "21a7c615e1f7e40a0298d71bf9e8b9e8",
+                                          "Revision":  1
+                                      }
+                                  ],
+                      "Runs":  [
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                       "ID":  "92c38fc0870ef1c1e04a12e6f27b1572",
+                                       "SessionID":  "24f433fc9ce81007f582d94991fa6e9f",
+                                       "BackendID":  "asd_24f433fc9ce81007f582d94991fa6e9f_92c38fc0870ef1c1e04a12e6f27b1572",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795411856773613600,
+                                       "StoppedNS":  null
+                                   },
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                       "ID":  "acd742b548e77f5ae8471a7fbf686959",
+                                       "SessionID":  "671528018c839c9d22ae8c1f08786947",
+                                       "BackendID":  "asd_671528018c839c9d22ae8c1f08786947_acd742b548e77f5ae8471a7fbf686959",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795411856219856000,
+                                       "StoppedNS":  null
+                                   }
+                               ]
+                  },
+        "label":  "K-root-up"
+    },
+    {
+        "value":  {
+                      "Version":  4,
+                      "Groups":  [
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "21a7c615e1f7e40a0298d71bf9e8b9e8",
+                                         "ParentID":  "acab574305f918226a0860ace0fcde6b",
+                                         "Name":  "审核",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "default",
+                                         "ParentID":  "",
+                                         "Name":  "我的会话",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "acab574305f918226a0860ace0fcde6b",
+                                         "ParentID":  "",
+                                         "Name":  "项目 甲",
+                                         "DefaultDir":  "",
+                                         "Revision":  3,
+                                         "Order":  1
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "d74503fe31ed792edf560cfc10ed3af4",
+                                         "ParentID":  "acab574305f918226a0860ace0fcde6b",
+                                         "Name":  "实现",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  1
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "804b2f9c837620e276bfc0af44f73be4",
+                                         "ParentID":  "",
+                                         "Name":  "项目 乙",
+                                         "DefaultDir":  "",
+                                         "Revision":  3,
+                                         "Order":  2
+                                     }
+                                 ],
+                      "Members":  [
+                                      {
+                                          "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                          "SessionID":  "671528018c839c9d22ae8c1f08786947",
+                                          "GroupID":  "21a7c615e1f7e40a0298d71bf9e8b9e8",
+                                          "Revision":  1
+                                      }
+                                  ],
+                      "Runs":  [
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                       "ID":  "92c38fc0870ef1c1e04a12e6f27b1572",
+                                       "SessionID":  "24f433fc9ce81007f582d94991fa6e9f",
+                                       "BackendID":  "asd_24f433fc9ce81007f582d94991fa6e9f_92c38fc0870ef1c1e04a12e6f27b1572",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795411856773613600,
+                                       "StoppedNS":  null
+                                   },
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                       "ID":  "acd742b548e77f5ae8471a7fbf686959",
+                                       "SessionID":  "671528018c839c9d22ae8c1f08786947",
+                                       "BackendID":  "asd_671528018c839c9d22ae8c1f08786947_acd742b548e77f5ae8471a7fbf686959",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795411856219856000,
+                                       "StoppedNS":  null
+                                   }
+                               ]
+                  },
+        "label":  "J-root-down"
+    },
+    {
+        "value":  {
+                      "Version":  4,
+                      "Groups":  [
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "21a7c615e1f7e40a0298d71bf9e8b9e8",
+                                         "ParentID":  "acab574305f918226a0860ace0fcde6b",
+                                         "Name":  "审核",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "default",
+                                         "ParentID":  "",
+                                         "Name":  "我的会话",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "804b2f9c837620e276bfc0af44f73be4",
+                                         "ParentID":  "",
+                                         "Name":  "项目 乙",
+                                         "DefaultDir":  "",
+                                         "Revision":  4,
+                                         "Order":  1
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "d74503fe31ed792edf560cfc10ed3af4",
+                                         "ParentID":  "acab574305f918226a0860ace0fcde6b",
+                                         "Name":  "实现",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  1
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "acab574305f918226a0860ace0fcde6b",
+                                         "ParentID":  "",
+                                         "Name":  "项目 甲",
+                                         "DefaultDir":  "",
+                                         "Revision":  4,
+                                         "Order":  2
+                                     }
+                                 ],
+                      "Members":  [
+                                      {
+                                          "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                          "SessionID":  "671528018c839c9d22ae8c1f08786947",
+                                          "GroupID":  "21a7c615e1f7e40a0298d71bf9e8b9e8",
+                                          "Revision":  1
+                                      }
+                                  ],
+                      "Runs":  [
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                       "ID":  "92c38fc0870ef1c1e04a12e6f27b1572",
+                                       "SessionID":  "24f433fc9ce81007f582d94991fa6e9f",
+                                       "BackendID":  "asd_24f433fc9ce81007f582d94991fa6e9f_92c38fc0870ef1c1e04a12e6f27b1572",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795411856773613600,
+                                       "StoppedNS":  null
+                                   },
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                       "ID":  "acd742b548e77f5ae8471a7fbf686959",
+                                       "SessionID":  "671528018c839c9d22ae8c1f08786947",
+                                       "BackendID":  "asd_671528018c839c9d22ae8c1f08786947_acd742b548e77f5ae8471a7fbf686959",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795411856219856000,
+                                       "StoppedNS":  null
+                                   }
+                               ]
+                  },
+        "label":  "ctrl-up-root"
+    },
+    {
+        "value":  {
+                      "Version":  4,
+                      "Groups":  [
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "21a7c615e1f7e40a0298d71bf9e8b9e8",
+                                         "ParentID":  "acab574305f918226a0860ace0fcde6b",
+                                         "Name":  "审核",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "default",
+                                         "ParentID":  "",
+                                         "Name":  "我的会话",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "acab574305f918226a0860ace0fcde6b",
+                                         "ParentID":  "",
+                                         "Name":  "项目 甲",
+                                         "DefaultDir":  "",
+                                         "Revision":  5,
+                                         "Order":  1
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "d74503fe31ed792edf560cfc10ed3af4",
+                                         "ParentID":  "acab574305f918226a0860ace0fcde6b",
+                                         "Name":  "实现",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  1
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "804b2f9c837620e276bfc0af44f73be4",
+                                         "ParentID":  "",
+                                         "Name":  "项目 乙",
+                                         "DefaultDir":  "",
+                                         "Revision":  5,
+                                         "Order":  2
+                                     }
+                                 ],
+                      "Members":  [
+                                      {
+                                          "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                          "SessionID":  "671528018c839c9d22ae8c1f08786947",
+                                          "GroupID":  "21a7c615e1f7e40a0298d71bf9e8b9e8",
+                                          "Revision":  1
+                                      }
+                                  ],
+                      "Runs":  [
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                       "ID":  "92c38fc0870ef1c1e04a12e6f27b1572",
+                                       "SessionID":  "24f433fc9ce81007f582d94991fa6e9f",
+                                       "BackendID":  "asd_24f433fc9ce81007f582d94991fa6e9f_92c38fc0870ef1c1e04a12e6f27b1572",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795411856773613600,
+                                       "StoppedNS":  null
+                                   },
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                       "ID":  "acd742b548e77f5ae8471a7fbf686959",
+                                       "SessionID":  "671528018c839c9d22ae8c1f08786947",
+                                       "BackendID":  "asd_671528018c839c9d22ae8c1f08786947_acd742b548e77f5ae8471a7fbf686959",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795411856219856000,
+                                       "StoppedNS":  null
+                                   }
+                               ]
+                  },
+        "label":  "ctrl-down-root"
+    },
+    {
+        "value":  {
+                      "Version":  4,
+                      "Groups":  [
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "21a7c615e1f7e40a0298d71bf9e8b9e8",
+                                         "ParentID":  "acab574305f918226a0860ace0fcde6b",
+                                         "Name":  "审核",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "default",
+                                         "ParentID":  "",
+                                         "Name":  "我的会话",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "804b2f9c837620e276bfc0af44f73be4",
+                                         "ParentID":  "",
+                                         "Name":  "项目 乙",
+                                         "DefaultDir":  "",
+                                         "Revision":  6,
+                                         "Order":  1
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "d74503fe31ed792edf560cfc10ed3af4",
+                                         "ParentID":  "acab574305f918226a0860ace0fcde6b",
+                                         "Name":  "实现",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  1
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "acab574305f918226a0860ace0fcde6b",
+                                         "ParentID":  "",
+                                         "Name":  "项目 甲",
+                                         "DefaultDir":  "",
+                                         "Revision":  6,
+                                         "Order":  2
+                                     }
+                                 ],
+                      "Members":  [
+                                      {
+                                          "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                          "SessionID":  "671528018c839c9d22ae8c1f08786947",
+                                          "GroupID":  "21a7c615e1f7e40a0298d71bf9e8b9e8",
+                                          "Revision":  1
+                                      }
+                                  ],
+                      "Runs":  [
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                       "ID":  "92c38fc0870ef1c1e04a12e6f27b1572",
+                                       "SessionID":  "24f433fc9ce81007f582d94991fa6e9f",
+                                       "BackendID":  "asd_24f433fc9ce81007f582d94991fa6e9f_92c38fc0870ef1c1e04a12e6f27b1572",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795411856773613600,
+                                       "StoppedNS":  null
+                                   },
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                       "ID":  "acd742b548e77f5ae8471a7fbf686959",
+                                       "SessionID":  "671528018c839c9d22ae8c1f08786947",
+                                       "BackendID":  "asd_671528018c839c9d22ae8c1f08786947_acd742b548e77f5ae8471a7fbf686959",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795411856219856000,
+                                       "StoppedNS":  null
+                                   }
+                               ]
+                  },
+        "label":  "shift-up-root"
+    },
+    {
+        "value":  {
+                      "Version":  4,
+                      "Groups":  [
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "21a7c615e1f7e40a0298d71bf9e8b9e8",
+                                         "ParentID":  "acab574305f918226a0860ace0fcde6b",
+                                         "Name":  "审核",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "default",
+                                         "ParentID":  "",
+                                         "Name":  "我的会话",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "acab574305f918226a0860ace0fcde6b",
+                                         "ParentID":  "",
+                                         "Name":  "项目 甲",
+                                         "DefaultDir":  "",
+                                         "Revision":  7,
+                                         "Order":  1
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "d74503fe31ed792edf560cfc10ed3af4",
+                                         "ParentID":  "acab574305f918226a0860ace0fcde6b",
+                                         "Name":  "实现",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  1
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "804b2f9c837620e276bfc0af44f73be4",
+                                         "ParentID":  "",
+                                         "Name":  "项目 乙",
+                                         "DefaultDir":  "",
+                                         "Revision":  7,
+                                         "Order":  2
+                                     }
+                                 ],
+                      "Members":  [
+                                      {
+                                          "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                          "SessionID":  "671528018c839c9d22ae8c1f08786947",
+                                          "GroupID":  "21a7c615e1f7e40a0298d71bf9e8b9e8",
+                                          "Revision":  1
+                                      }
+                                  ],
+                      "Runs":  [
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                       "ID":  "92c38fc0870ef1c1e04a12e6f27b1572",
+                                       "SessionID":  "24f433fc9ce81007f582d94991fa6e9f",
+                                       "BackendID":  "asd_24f433fc9ce81007f582d94991fa6e9f_92c38fc0870ef1c1e04a12e6f27b1572",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795411856773613600,
+                                       "StoppedNS":  null
+                                   },
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                       "ID":  "acd742b548e77f5ae8471a7fbf686959",
+                                       "SessionID":  "671528018c839c9d22ae8c1f08786947",
+                                       "BackendID":  "asd_671528018c839c9d22ae8c1f08786947_acd742b548e77f5ae8471a7fbf686959",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795411856219856000,
+                                       "StoppedNS":  null
+                                   }
+                               ]
+                  },
+        "label":  "shift-down-root"
+    },
+    {
+        "value":  {
+                      "Version":  4,
+                      "Groups":  [
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "21a7c615e1f7e40a0298d71bf9e8b9e8",
+                                         "ParentID":  "acab574305f918226a0860ace0fcde6b",
+                                         "Name":  "审核",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "default",
+                                         "ParentID":  "",
+                                         "Name":  "我的会话",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "804b2f9c837620e276bfc0af44f73be4",
+                                         "ParentID":  "",
+                                         "Name":  "项目 乙",
+                                         "DefaultDir":  "",
+                                         "Revision":  8,
+                                         "Order":  1
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "d74503fe31ed792edf560cfc10ed3af4",
+                                         "ParentID":  "acab574305f918226a0860ace0fcde6b",
+                                         "Name":  "实现",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  1
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "acab574305f918226a0860ace0fcde6b",
+                                         "ParentID":  "",
+                                         "Name":  "项目 甲",
+                                         "DefaultDir":  "",
+                                         "Revision":  8,
+                                         "Order":  2
+                                     }
+                                 ],
+                      "Members":  [
+                                      {
+                                          "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                          "SessionID":  "671528018c839c9d22ae8c1f08786947",
+                                          "GroupID":  "21a7c615e1f7e40a0298d71bf9e8b9e8",
+                                          "Revision":  1
+                                      }
+                                  ],
+                      "Runs":  [
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                       "ID":  "92c38fc0870ef1c1e04a12e6f27b1572",
+                                       "SessionID":  "24f433fc9ce81007f582d94991fa6e9f",
+                                       "BackendID":  "asd_24f433fc9ce81007f582d94991fa6e9f_92c38fc0870ef1c1e04a12e6f27b1572",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795411856773613600,
+                                       "StoppedNS":  null
+                                   },
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                       "ID":  "acd742b548e77f5ae8471a7fbf686959",
+                                       "SessionID":  "671528018c839c9d22ae8c1f08786947",
+                                       "BackendID":  "asd_671528018c839c9d22ae8c1f08786947_acd742b548e77f5ae8471a7fbf686959",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795411856219856000,
+                                       "StoppedNS":  null
+                                   }
+                               ]
+                  },
+        "label":  "plus-root-up"
+    },
+    {
+        "value":  {
+                      "Version":  4,
+                      "Groups":  [
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "21a7c615e1f7e40a0298d71bf9e8b9e8",
+                                         "ParentID":  "acab574305f918226a0860ace0fcde6b",
+                                         "Name":  "审核",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "default",
+                                         "ParentID":  "",
+                                         "Name":  "我的会话",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "acab574305f918226a0860ace0fcde6b",
+                                         "ParentID":  "",
+                                         "Name":  "项目 甲",
+                                         "DefaultDir":  "",
+                                         "Revision":  9,
+                                         "Order":  1
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "d74503fe31ed792edf560cfc10ed3af4",
+                                         "ParentID":  "acab574305f918226a0860ace0fcde6b",
+                                         "Name":  "实现",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  1
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "804b2f9c837620e276bfc0af44f73be4",
+                                         "ParentID":  "",
+                                         "Name":  "项目 乙",
+                                         "DefaultDir":  "",
+                                         "Revision":  9,
+                                         "Order":  2
+                                     }
+                                 ],
+                      "Members":  [
+                                      {
+                                          "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                          "SessionID":  "671528018c839c9d22ae8c1f08786947",
+                                          "GroupID":  "21a7c615e1f7e40a0298d71bf9e8b9e8",
+                                          "Revision":  1
+                                      }
+                                  ],
+                      "Runs":  [
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                       "ID":  "92c38fc0870ef1c1e04a12e6f27b1572",
+                                       "SessionID":  "24f433fc9ce81007f582d94991fa6e9f",
+                                       "BackendID":  "asd_24f433fc9ce81007f582d94991fa6e9f_92c38fc0870ef1c1e04a12e6f27b1572",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795411856773613600,
+                                       "StoppedNS":  null
+                                   },
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                       "ID":  "acd742b548e77f5ae8471a7fbf686959",
+                                       "SessionID":  "671528018c839c9d22ae8c1f08786947",
+                                       "BackendID":  "asd_671528018c839c9d22ae8c1f08786947_acd742b548e77f5ae8471a7fbf686959",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795411856219856000,
+                                       "StoppedNS":  null
+                                   }
+                               ]
+                  },
+        "label":  "minus-root-down"
+    },
+    {
+        "value":  {
+                      "Version":  4,
+                      "Groups":  [
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "21a7c615e1f7e40a0298d71bf9e8b9e8",
+                                         "ParentID":  "acab574305f918226a0860ace0fcde6b",
+                                         "Name":  "审核",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "default",
+                                         "ParentID":  "",
+                                         "Name":  "我的会话",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "acab574305f918226a0860ace0fcde6b",
+                                         "ParentID":  "",
+                                         "Name":  "项目 甲",
+                                         "DefaultDir":  "",
+                                         "Revision":  9,
+                                         "Order":  1
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "d74503fe31ed792edf560cfc10ed3af4",
+                                         "ParentID":  "acab574305f918226a0860ace0fcde6b",
+                                         "Name":  "实现",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  1
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "804b2f9c837620e276bfc0af44f73be4",
+                                         "ParentID":  "",
+                                         "Name":  "项目 乙",
+                                         "DefaultDir":  "",
+                                         "Revision":  9,
+                                         "Order":  2
+                                     }
+                                 ],
+                      "Members":  [
+                                      {
+                                          "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                          "SessionID":  "671528018c839c9d22ae8c1f08786947",
+                                          "GroupID":  "21a7c615e1f7e40a0298d71bf9e8b9e8",
+                                          "Revision":  1
+                                      }
+                                  ],
+                      "Runs":  [
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                       "ID":  "92c38fc0870ef1c1e04a12e6f27b1572",
+                                       "SessionID":  "24f433fc9ce81007f582d94991fa6e9f",
+                                       "BackendID":  "asd_24f433fc9ce81007f582d94991fa6e9f_92c38fc0870ef1c1e04a12e6f27b1572",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795411856773613600,
+                                       "StoppedNS":  null
+                                   },
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                       "ID":  "acd742b548e77f5ae8471a7fbf686959",
+                                       "SessionID":  "671528018c839c9d22ae8c1f08786947",
+                                       "BackendID":  "asd_671528018c839c9d22ae8c1f08786947_acd742b548e77f5ae8471a7fbf686959",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795411856219856000,
+                                       "StoppedNS":  null
+                                   }
+                               ]
+                  },
+        "label":  "pinned-and-boundary-noop"
+    },
+    {
+        "value":  {
+                      "Version":  4,
+                      "Groups":  [
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "d74503fe31ed792edf560cfc10ed3af4",
+                                         "ParentID":  "acab574305f918226a0860ace0fcde6b",
+                                         "Name":  "实现",
+                                         "DefaultDir":  "",
+                                         "Revision":  2,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "default",
+                                         "ParentID":  "",
+                                         "Name":  "我的会话",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "21a7c615e1f7e40a0298d71bf9e8b9e8",
+                                         "ParentID":  "acab574305f918226a0860ace0fcde6b",
+                                         "Name":  "审核",
+                                         "DefaultDir":  "",
+                                         "Revision":  2,
+                                         "Order":  1
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "acab574305f918226a0860ace0fcde6b",
+                                         "ParentID":  "",
+                                         "Name":  "项目 甲",
+                                         "DefaultDir":  "",
+                                         "Revision":  9,
+                                         "Order":  1
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "804b2f9c837620e276bfc0af44f73be4",
+                                         "ParentID":  "",
+                                         "Name":  "项目 乙",
+                                         "DefaultDir":  "",
+                                         "Revision":  9,
+                                         "Order":  2
+                                     }
+                                 ],
+                      "Members":  [
+                                      {
+                                          "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                          "SessionID":  "671528018c839c9d22ae8c1f08786947",
+                                          "GroupID":  "21a7c615e1f7e40a0298d71bf9e8b9e8",
+                                          "Revision":  1
+                                      }
+                                  ],
+                      "Runs":  [
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                       "ID":  "92c38fc0870ef1c1e04a12e6f27b1572",
+                                       "SessionID":  "24f433fc9ce81007f582d94991fa6e9f",
+                                       "BackendID":  "asd_24f433fc9ce81007f582d94991fa6e9f_92c38fc0870ef1c1e04a12e6f27b1572",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795411856773613600,
+                                       "StoppedNS":  null
+                                   },
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                       "ID":  "acd742b548e77f5ae8471a7fbf686959",
+                                       "SessionID":  "671528018c839c9d22ae8c1f08786947",
+                                       "BackendID":  "asd_671528018c839c9d22ae8c1f08786947_acd742b548e77f5ae8471a7fbf686959",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795411856219856000,
+                                       "StoppedNS":  null
+                                   }
+                               ]
+                  },
+        "label":  "child-K-up"
+    },
+    {
+        "value":  {
+                      "Version":  4,
+                      "Groups":  [
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "d74503fe31ed792edf560cfc10ed3af4",
+                                         "ParentID":  "acab574305f918226a0860ace0fcde6b",
+                                         "Name":  "实现",
+                                         "DefaultDir":  "",
+                                         "Revision":  2,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "default",
+                                         "ParentID":  "",
+                                         "Name":  "我的会话",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "21a7c615e1f7e40a0298d71bf9e8b9e8",
+                                         "ParentID":  "acab574305f918226a0860ace0fcde6b",
+                                         "Name":  "审核",
+                                         "DefaultDir":  "",
+                                         "Revision":  2,
+                                         "Order":  1
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "acab574305f918226a0860ace0fcde6b",
+                                         "ParentID":  "",
+                                         "Name":  "项目 甲",
+                                         "DefaultDir":  "",
+                                         "Revision":  9,
+                                         "Order":  1
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "804b2f9c837620e276bfc0af44f73be4",
+                                         "ParentID":  "",
+                                         "Name":  "项目 乙",
+                                         "DefaultDir":  "",
+                                         "Revision":  9,
+                                         "Order":  2
+                                     }
+                                 ],
+                      "Members":  [
+                                      {
+                                          "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                          "SessionID":  "671528018c839c9d22ae8c1f08786947",
+                                          "GroupID":  "21a7c615e1f7e40a0298d71bf9e8b9e8",
+                                          "Revision":  1
+                                      }
+                                  ],
+                      "Runs":  [
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                       "ID":  "92c38fc0870ef1c1e04a12e6f27b1572",
+                                       "SessionID":  "24f433fc9ce81007f582d94991fa6e9f",
+                                       "BackendID":  "asd_24f433fc9ce81007f582d94991fa6e9f_92c38fc0870ef1c1e04a12e6f27b1572",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795411856773613600,
+                                       "StoppedNS":  null
+                                   },
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                       "ID":  "acd742b548e77f5ae8471a7fbf686959",
+                                       "SessionID":  "671528018c839c9d22ae8c1f08786947",
+                                       "BackendID":  "asd_671528018c839c9d22ae8c1f08786947_acd742b548e77f5ae8471a7fbf686959",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795411856219856000,
+                                       "StoppedNS":  null
+                                   }
+                               ]
+                  },
+        "label":  "backup-order"
+    },
+    {
+        "value":  {
+                      "Version":  4,
+                      "Groups":  [
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "d74503fe31ed792edf560cfc10ed3af4",
+                                         "ParentID":  "acab574305f918226a0860ace0fcde6b",
+                                         "Name":  "实现",
+                                         "DefaultDir":  "",
+                                         "Revision":  2,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "default",
+                                         "ParentID":  "",
+                                         "Name":  "我的会话",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "21a7c615e1f7e40a0298d71bf9e8b9e8",
+                                         "ParentID":  "acab574305f918226a0860ace0fcde6b",
+                                         "Name":  "审核",
+                                         "DefaultDir":  "",
+                                         "Revision":  2,
+                                         "Order":  1
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "acab574305f918226a0860ace0fcde6b",
+                                         "ParentID":  "",
+                                         "Name":  "项目 甲",
+                                         "DefaultDir":  "",
+                                         "Revision":  9,
+                                         "Order":  1
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                         "ID":  "804b2f9c837620e276bfc0af44f73be4",
+                                         "ParentID":  "",
+                                         "Name":  "项目 乙",
+                                         "DefaultDir":  "",
+                                         "Revision":  9,
+                                         "Order":  2
+                                     }
+                                 ],
+                      "Members":  [
+                                      {
+                                          "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                          "SessionID":  "671528018c839c9d22ae8c1f08786947",
+                                          "GroupID":  "21a7c615e1f7e40a0298d71bf9e8b9e8",
+                                          "Revision":  1
+                                      }
+                                  ],
+                      "Runs":  [
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                       "ID":  "92c38fc0870ef1c1e04a12e6f27b1572",
+                                       "SessionID":  "24f433fc9ce81007f582d94991fa6e9f",
+                                       "BackendID":  "asd_24f433fc9ce81007f582d94991fa6e9f_92c38fc0870ef1c1e04a12e6f27b1572",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795411856773613600,
+                                       "StoppedNS":  null
+                                   },
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-order-desktop-20261123\\runtime\\asd-group-order",
+                                       "ID":  "acd742b548e77f5ae8471a7fbf686959",
+                                       "SessionID":  "671528018c839c9d22ae8c1f08786947",
+                                       "BackendID":  "asd_671528018c839c9d22ae8c1f08786947_acd742b548e77f5ae8471a7fbf686959",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795411856219856000,
+                                       "StoppedNS":  null
+                                   }
+                               ]
+                  },
+        "label":  "reopened-order"
+    }
+]

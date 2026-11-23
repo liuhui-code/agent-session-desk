@@ -69,6 +69,9 @@ func (s *Store) groups(ctx context.Context, q rowsReader) ([]session.Group, erro
 	visit = func(parent string) {
 		children := byParent[parent]
 		sort.SliceStable(children, func(i, j int) bool {
+			if children[i].ID == session.DefaultGroupID || children[j].ID == session.DefaultGroupID {
+				return children[i].ID == session.DefaultGroupID && children[j].ID != session.DefaultGroupID
+			}
 			if children[i].Order == children[j].Order {
 				return children[i].ID < children[j].ID
 			}

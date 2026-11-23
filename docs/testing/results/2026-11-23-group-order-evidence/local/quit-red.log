@@ -1,0 +1,7 @@
+--- FAIL: TestGroupOrderQuitIsCancelledWhenPreferencesFailBeforeOrderAcknowledgement (0.00s)
+    group_order_lifecycle_test.go:103: order acknowledgement hid preference failure and quit
+--- FAIL: TestGroupOrderQuitIsCancelledWhenTerminalFailsBeforeOrderAcknowledgement (0.00s)
+    group_order_lifecycle_test.go:122: order acknowledgement hid terminal failure and quit
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.970s
+FAIL

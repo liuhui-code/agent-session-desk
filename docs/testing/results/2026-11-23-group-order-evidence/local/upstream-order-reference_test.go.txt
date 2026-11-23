@@ -1,0 +1,12 @@
+package session
+import("encoding/json";"os";"testing")
+func TestASDGroupOrderReference(t *testing.T){
+ tree:=&GroupTree{Groups:map[string]*Group{},Expanded:map[string]bool{}}
+ for _,g:=range []*Group{{Path:DefaultGroupPath,Name:DefaultGroupName,Order:0},{Path:"first",Name:"first",Order:1},{Path:"first/review",Name:"review",Order:0},{Path:"first/implementation",Name:"implementation",Order:1},{Path:"second",Name:"second",Order:2}} {tree.Groups[g.Path]=g}
+ tree.rebuildGroupList()
+ var snapshots []map[string]any
+ capture:=func(label string){var rows []map[string]any;for _,g:=range tree.GroupList {rows=append(rows,map[string]any{"path":g.Path,"order":g.Order})};snapshots=append(snapshots,map[string]any{"label":label,"groups":rows})}
+ capture("initial");tree.MoveGroupUp("second");capture("root-up");tree.MoveGroupDown("second");capture("root-down");tree.MoveGroupUp("first/implementation");capture("child-up")
+ data,err:=json.MarshalIndent(snapshots,"","  ");if err!=nil{t.Fatal(err)}
+ if err=os.WriteFile("/private/tmp/asd-group-order-20261123/upstream-order-snapshots.json",data,0600);err!=nil{t.Fatal(err)}
+}

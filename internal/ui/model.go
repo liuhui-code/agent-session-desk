@@ -50,6 +50,8 @@ type pollMsg struct{ generation uint64 }
 // Model implements the stable Bubble Tea v2 API. Mutable UI state is touched
 // only by Init/Update; asynchronous commands return values, never mutate it.
 type Model struct {
+	groupOrder             *groupOrderMutation
+	groupOrderFailed       bool
 	groupDialog            *groupDialog
 	groupIntent            *groupDialog
 	launchGroup            session.Group
@@ -129,6 +131,7 @@ func (m *Model) Close() {
 	}
 	m.launch = nil
 	m.groupDialog, m.groupIntent = nil, nil
+	m.groupOrder = nil
 	m.search = nil
 	m.rename = nil
 	m.renameTarget = nil
@@ -149,6 +152,9 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		return m, nil
 	}
 	if m.workspace != nil {
+		if cmd, handled := m.groupOrderEvent(msg); handled {
+			return m, cmd
+		}
 		if cmd, handled := m.groupDialogEvent(msg); handled {
 			return m, cmd
 		}
@@ -200,6 +206,7 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			m.invalidatePreview()
 			return m, nil
 		}
+		m.groupOrderFailed = false
 		selected, hadSelection := m.selected()
 		m.sessions = msg.sessions
 		m.groups = msg.groups

@@ -42,6 +42,10 @@ func (m *Manager) RenameGroup(ctx context.Context, expected session.Group, name 
 	return m.metadata.RenameGroup(ctx, expected, name)
 }
 
+func (m *Manager) ReorderGroup(ctx context.Context, expected session.GroupOrder, delta int) ([]session.Group, error) {
+	return m.metadata.ReorderGroup(ctx, expected, delta)
+}
+
 func (m *Manager) MoveToGroup(ctx context.Context, expected session.Session, target string) (session.Session, error) {
 	view, err := m.Workspace(ctx)
 	if err != nil {

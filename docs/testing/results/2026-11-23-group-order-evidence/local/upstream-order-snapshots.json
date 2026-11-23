@@ -1,0 +1,102 @@
+[
+  {
+    "groups": [
+      {
+        "order": 0,
+        "path": "my-sessions"
+      },
+      {
+        "order": 1,
+        "path": "first"
+      },
+      {
+        "order": 0,
+        "path": "first/review"
+      },
+      {
+        "order": 1,
+        "path": "first/implementation"
+      },
+      {
+        "order": 2,
+        "path": "second"
+      }
+    ],
+    "label": "initial"
+  },
+  {
+    "groups": [
+      {
+        "order": 0,
+        "path": "my-sessions"
+      },
+      {
+        "order": 1,
+        "path": "second"
+      },
+      {
+        "order": 2,
+        "path": "first"
+      },
+      {
+        "order": 0,
+        "path": "first/review"
+      },
+      {
+        "order": 1,
+        "path": "first/implementation"
+      }
+    ],
+    "label": "root-up"
+  },
+  {
+    "groups": [
+      {
+        "order": 0,
+        "path": "my-sessions"
+      },
+      {
+        "order": 1,
+        "path": "first"
+      },
+      {
+        "order": 0,
+        "path": "first/review"
+      },
+      {
+        "order": 1,
+        "path": "first/implementation"
+      },
+      {
+        "order": 2,
+        "path": "second"
+      }
+    ],
+    "label": "root-down"
+  },
+  {
+    "groups": [
+      {
+        "order": 0,
+        "path": "my-sessions"
+      },
+      {
+        "order": 1,
+        "path": "first"
+      },
+      {
+        "order": 0,
+        "path": "first/implementation"
+      },
+      {
+        "order": 1,
+        "path": "first/review"
+      },
+      {
+        "order": 2,
+        "path": "second"
+      }
+    ],
+    "label": "child-up"
+  }
+]

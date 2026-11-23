@@ -1,0 +1,5 @@
+# github.com/liuhui-code/agent-session-desk/internal/store_test [github.com/liuhui-code/agent-session-desk/internal/store.test]
+internal/store/group_order_test.go:29:22: undefined: session.GroupOrder
+internal/store/group_order_test.go:30:21: db.ReorderGroup undefined (type *store.Store has no field or method ReorderGroup)
+FAIL	github.com/liuhui-code/agent-session-desk/internal/store [build failed]
+FAIL

@@ -1,0 +1,2859 @@
+{
+  "base_commit": "ffd4d79",
+  "product_source_state": "base plus archived Go/module fingerprints",
+  "zip_sha256": "426cea23781c915172797cba8cda40bada06e3625cd61b996c5f172329d713a2",
+  "zip_bytes": 717265,
+  "scope": "Sibling group order, native test executables and two shell desktop flow; not full acceptance",
+  "redaction": "Known local/test usernames and paths only; original PNGs unchanged",
+  "artifacts": [
+    {
+      "path": "native/desktop/clipboard-restored.json",
+      "original_sha256": "b726661d434325e31a727adb7515d9dca56ca22009a206af25dd0f7b3c639497",
+      "archived_sha256": "3ab2b2ee730097b4803f89a220323e717b2754a45bccf05485a7ca38069f931e",
+      "bytes": 261,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/001.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/002.json",
+      "original_sha256": "f067af64e1b6c2ce38e70329136147a71fe422d0def2e77615e527c4bab90f6d",
+      "archived_sha256": "762a32dd4f2922e5d9747d4648ae814aee4c40ca75eda314165f0f7f9c85aa77",
+      "bytes": 84,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/003.json",
+      "original_sha256": "01a2b5215f08937a76e09b4d148d4328aaab87d32294b1b80fe4d456f8fd7fd9",
+      "archived_sha256": "9980a9505f4a462422402c43299f7f024a3f71c24d20b9433987b8b66c31d4d1",
+      "bytes": 44,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/004.json",
+      "original_sha256": "71ef06761167449623785337431c5db6e4d5c0dfe1434cb5fc7927a2c3707e8e",
+      "archived_sha256": "ccd8c218c36bb9355fb89a72ba5ef6d962f894f132f59b1275c73c9c1e7138b4",
+      "bytes": 47,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/005.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/006.json",
+      "original_sha256": "7e9f336fb6823ad954ed50b912f9ad99e0cd8756767ea20b230a2270c6f530bc",
+      "archived_sha256": "ad43c7961e3eb5ceddc6eda09c559b821e87b3ad0c4fd41f2e9bf4fbb89fbfa8",
+      "bytes": 81,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/007.json",
+      "original_sha256": "481686260e40522aea997ce4857089c5538c7267f556c012d2fa371112d9a1f7",
+      "archived_sha256": "f68beee09229666a40ca4327e14a4b60b6db1199ab5d492f4b210fdc88a108a3",
+      "bytes": 47,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/008.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/009.json",
+      "original_sha256": "c9ea15c6e00bc12d4d8b637732e33c40ccab983fb5c478bcc6d935326f9411b8",
+      "archived_sha256": "120b52684f763cdf0586068dfc1de68da7f8daf5a1a6860ef1dec89bd05b5973",
+      "bytes": 44,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/010.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/011.json",
+      "original_sha256": "bb82e1c1b2011ca38a4ced3503e8ae9c3dadb26c068b192cb5cc60aef1d4600f",
+      "archived_sha256": "9da280b4bea37ea4266db6fd2dc6aa88598090090b830762125bca472a021cb0",
+      "bytes": 41,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/012.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/013.json",
+      "original_sha256": "beb394820fae727344b7acbda28379563aedec293fd566ceed6c6fc41fc52fa1",
+      "archived_sha256": "fef4a2a88f93138c526bf8e347d636fcb9bc3388c7cf28ab6af11a953b0dfab7",
+      "bytes": 50,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/014.json",
+      "original_sha256": "23b4f46c26a3e41141da69d8a6714a67b2fffa52f36269977a39016bd354d985",
+      "archived_sha256": "ee932e4ba188a0ca4590ed98b6128cf4c664fa10f728148a5a5f1fd3e1b036a6",
+      "bytes": 47,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/015.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/016.json",
+      "original_sha256": "bb82e1c1b2011ca38a4ced3503e8ae9c3dadb26c068b192cb5cc60aef1d4600f",
+      "archived_sha256": "9da280b4bea37ea4266db6fd2dc6aa88598090090b830762125bca472a021cb0",
+      "bytes": 41,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/017.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/018.json",
+      "original_sha256": "52971a8b9eb18e864e85c1ce22ee5eb27f98d8af35d8c26f849e2c3361c563dc",
+      "archived_sha256": "5152c76bf24500709874646f5fe65aeabaf286d2a5ec05f197d1a989b5a5a8e9",
+      "bytes": 46,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/019.json",
+      "original_sha256": "23b4f46c26a3e41141da69d8a6714a67b2fffa52f36269977a39016bd354d985",
+      "archived_sha256": "ee932e4ba188a0ca4590ed98b6128cf4c664fa10f728148a5a5f1fd3e1b036a6",
+      "bytes": 47,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/020.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/021.json",
+      "original_sha256": "bb82e1c1b2011ca38a4ced3503e8ae9c3dadb26c068b192cb5cc60aef1d4600f",
+      "archived_sha256": "9da280b4bea37ea4266db6fd2dc6aa88598090090b830762125bca472a021cb0",
+      "bytes": 41,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/022.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/023.json",
+      "original_sha256": "29c91cceaf49a3821942db7cd82dcd2f54221bdbfcffb4832438f9c17050d2b1",
+      "archived_sha256": "1c39b6d290f7acd0b34fce70d6c84b2662d2c43a975736ec22b9be25fe57a74f",
+      "bytes": 44,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/024.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/025.json",
+      "original_sha256": "bbca295e1d892e0a6a80f108ee395bd47fdac801efcaf2cb3f72096ab8bc42a1",
+      "archived_sha256": "802eb07d3f66b929a8d40e9cd655e1463936df6b8e034d80004eb4a350f3fcdf",
+      "bytes": 50,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/026.json",
+      "original_sha256": "23b4f46c26a3e41141da69d8a6714a67b2fffa52f36269977a39016bd354d985",
+      "archived_sha256": "ee932e4ba188a0ca4590ed98b6128cf4c664fa10f728148a5a5f1fd3e1b036a6",
+      "bytes": 47,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/027.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/028.json",
+      "original_sha256": "d2ee7fc1e7ad58defe977f5b66816e2ac4c1fd9e4485e9cb679b6dd71a21165b",
+      "archived_sha256": "028455022b297113c2d2dda14d781087fc66cbb96ba6664abb2c2d14b2a201c1",
+      "bytes": 41,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/029.json",
+      "original_sha256": "bb82e1c1b2011ca38a4ced3503e8ae9c3dadb26c068b192cb5cc60aef1d4600f",
+      "archived_sha256": "9da280b4bea37ea4266db6fd2dc6aa88598090090b830762125bca472a021cb0",
+      "bytes": 41,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/030.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/031.json",
+      "original_sha256": "6c4b1a3422e918594a8bcbede537a29e4b966ac583d929f449ae4f4ffd3dac84",
+      "archived_sha256": "49527a77f29446ed375585c2f5a03fd4fc82e5b0f99a556b8622461308432a4f",
+      "bytes": 46,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/032.json",
+      "original_sha256": "23b4f46c26a3e41141da69d8a6714a67b2fffa52f36269977a39016bd354d985",
+      "archived_sha256": "ee932e4ba188a0ca4590ed98b6128cf4c664fa10f728148a5a5f1fd3e1b036a6",
+      "bytes": 47,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/033.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/034.json",
+      "original_sha256": "b5e2167c25b7f57f1c4b5a7a260727dd5944ce7e66f0cbb63e47f2fb3faadd5f",
+      "archived_sha256": "e8f705866a9f9e1eb3fa8413842f05509c2f1b77b3431685936fc6b69563d698",
+      "bytes": 46,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/035.json",
+      "original_sha256": "cc471c1382d65b746d2d3b568b790629530687c8c337f5061dfeac44b05ffd98",
+      "archived_sha256": "bc1c961e7fe37079ff81b052db42943460dc189d8281f576ede56936efeee624",
+      "bytes": 46,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/036.json",
+      "original_sha256": "3acec4948f316a4b859d9791e015ddb94ca75826ee2929fffd1b06317a7bae4e",
+      "archived_sha256": "7679598199222be36b6c3fd326de226fe1585a309e24a35c070abbbd91969d21",
+      "bytes": 41,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/037.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/038.json",
+      "original_sha256": "cc471c1382d65b746d2d3b568b790629530687c8c337f5061dfeac44b05ffd98",
+      "archived_sha256": "bc1c961e7fe37079ff81b052db42943460dc189d8281f576ede56936efeee624",
+      "bytes": 46,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/039.json",
+      "original_sha256": "cc471c1382d65b746d2d3b568b790629530687c8c337f5061dfeac44b05ffd98",
+      "archived_sha256": "bc1c961e7fe37079ff81b052db42943460dc189d8281f576ede56936efeee624",
+      "bytes": 46,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/040.json",
+      "original_sha256": "23b4f46c26a3e41141da69d8a6714a67b2fffa52f36269977a39016bd354d985",
+      "archived_sha256": "ee932e4ba188a0ca4590ed98b6128cf4c664fa10f728148a5a5f1fd3e1b036a6",
+      "bytes": 47,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/041.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/042.json",
+      "original_sha256": "fdd92a28d7c802181f21744a2745ceab0fd52002e004dd70b338aee2bc540bc8",
+      "archived_sha256": "6fd7820cbb6333723a0f80754ca92ff184aa4c8ff850eba1e84d6cda40e409e3",
+      "bytes": 76,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/043.json",
+      "original_sha256": "51513ca13372c5a77ec532728c093c1dd173dd568b2ec659390f53fda314cb84",
+      "archived_sha256": "f285d05f833b38f8591556529c47dc9e881db9fe2ab561deaa64468c47b4f1ef",
+      "bytes": 41,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/044.json",
+      "original_sha256": "58ecd5512494b74566aa95dd938af847c5fa84a6be2d4c1c72e32e4055af9718",
+      "archived_sha256": "f9b3270caf510371e2709b5d75ea094f17d12f325520d61cbf01402c814287b1",
+      "bytes": 41,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/045.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/046.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/047.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/048.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/049.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/050.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/051.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/052.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/053.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/054.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/055.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/056.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/057.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/058.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/059.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/060.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/061.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/062.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/063.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/064.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/065.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/066.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/067.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/068.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/069.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/070.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/071.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/072.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/073.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/074.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/075.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/076.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/077.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/078.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/079.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/080.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/081.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/082.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/083.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/084.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/085.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/086.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/087.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/088.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/089.json",
+      "original_sha256": "159abf3906518a496211cddce1bc2ae1faa3e89f0e049a48830dd44ad07f2df3",
+      "archived_sha256": "a1d7e13230b8dca184027d39eb75ddac80712a3b4e391cbd343eafd65d88c477",
+      "bytes": 70,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/090.json",
+      "original_sha256": "182ce79368745d34af159dc5276484159cec879ecad31d4be1ccbdf7840e6ab4",
+      "archived_sha256": "9c81d59f35fe174cc34aadd4eac74a6024744cc2457f499524655d95c4f0da10",
+      "bytes": 46,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/091.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/092.json",
+      "original_sha256": "3ac09773c81b363e72f22b4bd644c0882cf4e6fc8c3a26f230525dd69bc3a920",
+      "archived_sha256": "d629b784e70469a74c8f2445f6d28bc7970b6c6655ce93c2575cced262098c60",
+      "bytes": 41,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/093.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/094.json",
+      "original_sha256": "e58d1161458309d74d4fe3b78168edc647ac1058eeb11f9a94b5e1e36380c00d",
+      "archived_sha256": "f43bd10361e29b807c8eeff43d0c02838564316b026977b6e987c50567a9942a",
+      "bytes": 45,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/095.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/096.json",
+      "original_sha256": "8cc75a3054c721aec014ef25d69b25a4fc1e28c655d71f25144ae2383fea403b",
+      "archived_sha256": "a640963bca81c4d5d87ea66831411930f875bfef9473a92ba5630ad184e034fd",
+      "bytes": 47,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/097.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/098.json",
+      "original_sha256": "2290802f66bd1fd1da6de0ea8ff0e9849e9d0cdf3e9bbdb71eb917f122c9a636",
+      "archived_sha256": "363ee02dd8fb06357cc0d49242b6d145a70db869a05425908868f5667c54128f",
+      "bytes": 45,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/099.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/100.json",
+      "original_sha256": "44aa1b4dbd1ce25d15164572fe35b1f1c2b0186f06912b18ba1c56d61a8ca77f",
+      "archived_sha256": "e05b876125585fb952ccae9bdfed972d1ecedf3cbe8bff2fc27b82d20448b7e3",
+      "bytes": 47,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/101.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/102.json",
+      "original_sha256": "dd9cb2d62f63f1593988fe13912b028e40f63e8a3c167e81260efcfaa29b267c",
+      "archived_sha256": "445deb5ec2f129d3f7deb1ca765233d43b02e6581317747555f8a61bf026ed0b",
+      "bytes": 41,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/103.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/104.json",
+      "original_sha256": "79764ab7faf7db12c52694d938c2bb2ef23d0a7afc7895e9028f3836a79761ad",
+      "archived_sha256": "59fe42416685f47b10ff89128e6435f9593eff25c216f3ec75c6f8082408bd1d",
+      "bytes": 41,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/105.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/106.json",
+      "original_sha256": "d130c0e7ba29b1993c87d939095f10b6a2314d3b6a6469e0549d41bed25866a7",
+      "archived_sha256": "9caf9667d53446d4c4320a7b79e2ce91152456055aa5dcdf716c322a84cd28d6",
+      "bytes": 74,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/107.json",
+      "original_sha256": "d9c50b11f51a9b33172ce95f46beb826c591451f2c41c04268e17c2a95f1d2fe",
+      "archived_sha256": "d3649568e459b8a116f94a3113ad2179e91600c5a3a90eda63047dccb68b8dda",
+      "bytes": 41,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/108.json",
+      "original_sha256": "58ecd5512494b74566aa95dd938af847c5fa84a6be2d4c1c72e32e4055af9718",
+      "archived_sha256": "f9b3270caf510371e2709b5d75ea094f17d12f325520d61cbf01402c814287b1",
+      "bytes": 41,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/109.json",
+      "original_sha256": "3ac09773c81b363e72f22b4bd644c0882cf4e6fc8c3a26f230525dd69bc3a920",
+      "archived_sha256": "d629b784e70469a74c8f2445f6d28bc7970b6c6655ce93c2575cced262098c60",
+      "bytes": 41,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/110.json",
+      "original_sha256": "d2ee7fc1e7ad58defe977f5b66816e2ac4c1fd9e4485e9cb679b6dd71a21165b",
+      "archived_sha256": "028455022b297113c2d2dda14d781087fc66cbb96ba6664abb2c2d14b2a201c1",
+      "bytes": 41,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/111.json",
+      "original_sha256": "58ecd5512494b74566aa95dd938af847c5fa84a6be2d4c1c72e32e4055af9718",
+      "archived_sha256": "f9b3270caf510371e2709b5d75ea094f17d12f325520d61cbf01402c814287b1",
+      "bytes": 41,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/112.json",
+      "original_sha256": "51513ca13372c5a77ec532728c093c1dd173dd568b2ec659390f53fda314cb84",
+      "archived_sha256": "f285d05f833b38f8591556529c47dc9e881db9fe2ab561deaa64468c47b4f1ef",
+      "bytes": 41,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/113.json",
+      "original_sha256": "3ac09773c81b363e72f22b4bd644c0882cf4e6fc8c3a26f230525dd69bc3a920",
+      "archived_sha256": "d629b784e70469a74c8f2445f6d28bc7970b6c6655ce93c2575cced262098c60",
+      "bytes": 41,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/114.json",
+      "original_sha256": "d2ee7fc1e7ad58defe977f5b66816e2ac4c1fd9e4485e9cb679b6dd71a21165b",
+      "archived_sha256": "028455022b297113c2d2dda14d781087fc66cbb96ba6664abb2c2d14b2a201c1",
+      "bytes": 41,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/115.json",
+      "original_sha256": "cc471c1382d65b746d2d3b568b790629530687c8c337f5061dfeac44b05ffd98",
+      "archived_sha256": "bc1c961e7fe37079ff81b052db42943460dc189d8281f576ede56936efeee624",
+      "bytes": 46,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/116.json",
+      "original_sha256": "cc471c1382d65b746d2d3b568b790629530687c8c337f5061dfeac44b05ffd98",
+      "archived_sha256": "bc1c961e7fe37079ff81b052db42943460dc189d8281f576ede56936efeee624",
+      "bytes": 46,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/117.json",
+      "original_sha256": "cc471c1382d65b746d2d3b568b790629530687c8c337f5061dfeac44b05ffd98",
+      "archived_sha256": "bc1c961e7fe37079ff81b052db42943460dc189d8281f576ede56936efeee624",
+      "bytes": 46,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/118.json",
+      "original_sha256": "58ecd5512494b74566aa95dd938af847c5fa84a6be2d4c1c72e32e4055af9718",
+      "archived_sha256": "f9b3270caf510371e2709b5d75ea094f17d12f325520d61cbf01402c814287b1",
+      "bytes": 41,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/119.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/120.json",
+      "original_sha256": "c8e22da8a2a01e81ffc635d0434759234cd9830442b678edc1314b2a27c6eb54",
+      "archived_sha256": "ee49204029879d802860446d6732b0b3edaf36be15208f634ed3c38692fb2701",
+      "bytes": 69,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/121.json",
+      "original_sha256": "32789f2c7d9696597972270dd68b57ad3e6a74f586784b77eaecfaf7157f9064",
+      "archived_sha256": "81793d0ce43f21e92753ae2ca1cb0f04c0526fcacfbd970e3d1d542a1210c1c6",
+      "bytes": 64,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/122.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/123.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/124.json",
+      "original_sha256": "6bedaefdcc236ccf335b920c12bc8d7741144dd8d1599a878abd847f43c28d83",
+      "archived_sha256": "a66a56086894eee5f444b65971465e1085b31f3562d23d71711e0d70a0d7b483",
+      "bytes": 67,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/125.json",
+      "original_sha256": "0c491f3da86c77a3b89f779d187b128d7aedfb59faab206a69802c79b4ada4f8",
+      "archived_sha256": "6a4b84d48ed43855c70d340baf4f70afee8dd8c0f24ab853f0d20c24da0b0f3a",
+      "bytes": 64,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/126.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/127.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/128.json",
+      "original_sha256": "2d6067b4501d560b8b043f86625e9da4ea583afff04fadf8606b73f3f81f3638",
+      "archived_sha256": "2ab9ca4c154babb17eb1cc4c48979607e6ef7722e27e51f380c1d997021cb4d2",
+      "bytes": 67,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/129.json",
+      "original_sha256": "23d157bc65e76f673970b20a51119a0b3ae6afbe2bf12b1952985af080660645",
+      "archived_sha256": "00b40b1008360f2d6d030219f9ec23dd7e1673860a9dbc37f4d41e2ae90b916d",
+      "bytes": 65,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/130.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/131.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/132.json",
+      "original_sha256": "d2ee7fc1e7ad58defe977f5b66816e2ac4c1fd9e4485e9cb679b6dd71a21165b",
+      "archived_sha256": "028455022b297113c2d2dda14d781087fc66cbb96ba6664abb2c2d14b2a201c1",
+      "bytes": 41,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/133.json",
+      "original_sha256": "182ce79368745d34af159dc5276484159cec879ecad31d4be1ccbdf7840e6ab4",
+      "archived_sha256": "9c81d59f35fe174cc34aadd4eac74a6024744cc2457f499524655d95c4f0da10",
+      "bytes": 46,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/134.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/135.json",
+      "original_sha256": "c521af6fd5a1b768c6beb4609f6cef50438f0c3c20c08032a578a38f369583fa",
+      "archived_sha256": "e11e8c59207b3fed3782499c0e03a33333e700b007defdd46cd6b3482c828b3a",
+      "bytes": 41,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/136.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/137.json",
+      "original_sha256": "e86524f2a335dde4130f9d782b54fc38109c19cb9f6d2daf7a0bfe9488469c9e",
+      "archived_sha256": "a0f1edce90bdaa1de37da104cb93f2909ac8e5595d12840a841ecc214f777766",
+      "bytes": 522,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/138.json",
+      "original_sha256": "23b4f46c26a3e41141da69d8a6714a67b2fffa52f36269977a39016bd354d985",
+      "archived_sha256": "ee932e4ba188a0ca4590ed98b6128cf4c664fa10f728148a5a5f1fd3e1b036a6",
+      "bytes": 47,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/139.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/140.json",
+      "original_sha256": "c9ea15c6e00bc12d4d8b637732e33c40ccab983fb5c478bcc6d935326f9411b8",
+      "archived_sha256": "120b52684f763cdf0586068dfc1de68da7f8daf5a1a6860ef1dec89bd05b5973",
+      "bytes": 44,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/141.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/142.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/143.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/144.json",
+      "original_sha256": "0f738e740a38f1e9669930ba06a5ba40a6e72be19a93c8de7dfbfa6770cbb60a",
+      "archived_sha256": "0af338ed2f1bbaadf32daef279315c0aa139596d5e3013e27df7a6c0b8778596",
+      "bytes": 74,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/145.json",
+      "original_sha256": "1e12c57f5916ba3dbdaa1690878cbbaa2b6a46de3e29c8d767100267be600519",
+      "archived_sha256": "083b5d99c29af0d14bfba41aa3cfd1b6ff626967b5047891dee77f55331e69a0",
+      "bytes": 41,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/146.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/147.json",
+      "original_sha256": "2262db63b475b2238da24b5fa7ee23c3089d5bb11f3497cfb5c8feb50d215d08",
+      "archived_sha256": "9b9bbca7ce5b8a9c7811823098a8bf885ccdff0661255816b81b61f2c53f98c0",
+      "bytes": 46,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/148.json",
+      "original_sha256": "23b4f46c26a3e41141da69d8a6714a67b2fffa52f36269977a39016bd354d985",
+      "archived_sha256": "ee932e4ba188a0ca4590ed98b6128cf4c664fa10f728148a5a5f1fd3e1b036a6",
+      "bytes": 47,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/149.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/150.json",
+      "original_sha256": "23b4f46c26a3e41141da69d8a6714a67b2fffa52f36269977a39016bd354d985",
+      "archived_sha256": "ee932e4ba188a0ca4590ed98b6128cf4c664fa10f728148a5a5f1fd3e1b036a6",
+      "bytes": 47,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/151.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/152.json",
+      "original_sha256": "71ef06761167449623785337431c5db6e4d5c0dfe1434cb5fc7927a2c3707e8e",
+      "archived_sha256": "ccd8c218c36bb9355fb89a72ba5ef6d962f894f132f59b1275c73c9c1e7138b4",
+      "bytes": 47,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/153.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/154.json",
+      "original_sha256": "23b4f46c26a3e41141da69d8a6714a67b2fffa52f36269977a39016bd354d985",
+      "archived_sha256": "ee932e4ba188a0ca4590ed98b6128cf4c664fa10f728148a5a5f1fd3e1b036a6",
+      "bytes": 47,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/155.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/156.json",
+      "original_sha256": "c9ea15c6e00bc12d4d8b637732e33c40ccab983fb5c478bcc6d935326f9411b8",
+      "archived_sha256": "120b52684f763cdf0586068dfc1de68da7f8daf5a1a6860ef1dec89bd05b5973",
+      "bytes": 44,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/157.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/158.json",
+      "original_sha256": "c521af6fd5a1b768c6beb4609f6cef50438f0c3c20c08032a578a38f369583fa",
+      "archived_sha256": "e11e8c59207b3fed3782499c0e03a33333e700b007defdd46cd6b3482c828b3a",
+      "bytes": 41,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/159.json",
+      "original_sha256": "3ae0152c6aefd3b682e75a1bf31b657a0c25a7c65a499890a3673c2267e4a5ed",
+      "archived_sha256": "f5ac10b1c204642e60e32189d506a0d43450314faa0d16e0a3c73a3fb5ca1ddd",
+      "bytes": 24,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/done/160.json",
+      "original_sha256": "843cbf394796fa3007490d6dfe2b39223e47e7f9ba37c9e8b05a52e392b72f9e",
+      "archived_sha256": "dab3a4af38094ea29d8d190c0271d9e99ca5a48de685f6a445899806aaff1110",
+      "bytes": 25,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/order-child-up-120-public.png",
+      "original_sha256": "be5b9affc340f0ff2a0fa47d8e008acf2a7f5eda919b55e5bb3bf10ed160e39f",
+      "archived_sha256": "be5b9affc340f0ff2a0fa47d8e008acf2a7f5eda919b55e5bb3bf10ed160e39f",
+      "bytes": 97966,
+      "transformation": "unchanged PNG"
+    },
+    {
+      "path": "native/desktop/order-eight-aliases-120-public.png",
+      "original_sha256": "cb718f0a38fb5b7e4da469f771ba88bd8e798fd4fd115b8a830ab7f0434cd9f9",
+      "archived_sha256": "cb718f0a38fb5b7e4da469f771ba88bd8e798fd4fd115b8a830ab7f0434cd9f9",
+      "bytes": 97919,
+      "transformation": "unchanged PNG"
+    },
+    {
+      "path": "native/desktop/order-folded-reopen-120-public.png",
+      "original_sha256": "f489d0ed0f0f1cb4c19149e5c17a3a7ff8c9b0113b0c54d002c79ab233e14b36",
+      "archived_sha256": "f489d0ed0f0f1cb4c19149e5c17a3a7ff8c9b0113b0c54d002c79ab233e14b36",
+      "bytes": 91180,
+      "transformation": "unchanged PNG"
+    },
+    {
+      "path": "native/desktop/order-grouped-49-public.png",
+      "original_sha256": "c70cbc2e70790461ea01a8c757837a0051c6637b471d91df8fbf13e4f8aa6635",
+      "archived_sha256": "c70cbc2e70790461ea01a8c757837a0051c6637b471d91df8fbf13e4f8aa6635",
+      "bytes": 49145,
+      "transformation": "unchanged PNG"
+    },
+    {
+      "path": "native/desktop/order-grouped-63-public.png",
+      "original_sha256": "6aa02beb7db1ec0904d7854c9a4882f32a4f2910e0657476ea2a1f0e0d23e6c9",
+      "archived_sha256": "6aa02beb7db1ec0904d7854c9a4882f32a4f2910e0657476ea2a1f0e0d23e6c9",
+      "bytes": 59352,
+      "transformation": "unchanged PNG"
+    },
+    {
+      "path": "native/desktop/order-initial-subtree-120-public.png",
+      "original_sha256": "9e1a5f2f490ed6c07c86256519c656308b17ace20250af5934d1fbf672022f69",
+      "archived_sha256": "9e1a5f2f490ed6c07c86256519c656308b17ace20250af5934d1fbf672022f69",
+      "bytes": 97719,
+      "transformation": "unchanged PNG"
+    },
+    {
+      "path": "native/desktop/order-root-K-up-120-public.png",
+      "original_sha256": "61f6e29a44c9efc27ecd3f66dd0b438fac8d5158ea1830d2768bea4d19561ff1",
+      "archived_sha256": "61f6e29a44c9efc27ecd3f66dd0b438fac8d5158ea1830d2768bea4d19561ff1",
+      "bytes": 97839,
+      "transformation": "unchanged PNG"
+    },
+    {
+      "path": "native/desktop/ready.json",
+      "original_sha256": "31097e1f1feee3be04d5b2f6963740a55c7ae615f70ee0e77be299b2abbc48c8",
+      "archived_sha256": "13e2eac3a722db5ad81fa483b127621426543ebaf2be7c925213b2adec2c4a5a",
+      "bytes": 2759,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/001.json",
+      "original_sha256": "1022ef99dd647401a36a1ce261edf6526935cddc18f7cbd3234749062b3c4e09",
+      "archived_sha256": "d2dd8c440496c1599a884df26cff9b86951f32ef07c391006c8395ab638024ed",
+      "bytes": 8603,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/002.json",
+      "original_sha256": "b1bbaef49b88f5d95e52a6181a35498f8a9c543b48a95497b07de973520905c5",
+      "archived_sha256": "f12626bd9d166804b401d47414ad867d33ce24e66678136c1e9c0c22912ef7dc",
+      "bytes": 214,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/003.json",
+      "original_sha256": "33da7c721979acfa94684754b234fe34a7d054d588cdb62ada1263f033c0c8cd",
+      "archived_sha256": "cf61874e540be5eb0edaea69fa738fb34f9247f55dc23fccdaf41bd6ee4fb050",
+      "bytes": 174,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/004.json",
+      "original_sha256": "87492c83b9faab43c61b743b3018f985bb4ca2150a39db0618a6fed37f982d50",
+      "archived_sha256": "c6db5e8bdb18920c3aa227c48d0bb92900aa3845060175b348f085d2b1088d8b",
+      "bytes": 177,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/005.json",
+      "original_sha256": "28bff1483c6fb9a02ef9069671de36ae0cba0a7c9e6d821422e8f96af26419d2",
+      "archived_sha256": "6d27ebce2c01370be20c921e66eadb3605e26da214e09bdd8dffb88172053a26",
+      "bytes": 8603,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/006.json",
+      "original_sha256": "a24d2d1259caec333fa68b23b5e4e1da6101fb25bfec22512bd8e3c5b13fc7c2",
+      "archived_sha256": "065fdebd5857718ea3621e1f75aa79445788911651f9abcd58459d1900c17290",
+      "bytes": 211,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/007.json",
+      "original_sha256": "916845fa0405d28cf7300016ef985aded3ff4b106466c82b13677be0f1d76849",
+      "archived_sha256": "6f9bf490ea7f413ac3d0c7a71a8f64c53388adc891c998818adfd9ea5d33c315",
+      "bytes": 177,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/008.json",
+      "original_sha256": "7877958a20ad37e14d4ab4b4db07b325fa992d96c38efe0cc8373e986bdd7658",
+      "archived_sha256": "7a8de8021fa9345f5c609965e5522b542cd395a4155fa1f76e31c28d133ebcd6",
+      "bytes": 8613,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/009.json",
+      "original_sha256": "f23c453daded905d75ed0f7bcea001433373a82793b96205af5c558b5b520d6b",
+      "archived_sha256": "1cae72f59a06733a330043398a4e0334fc66a6399756b3b5422b5882ddb20ecf",
+      "bytes": 174,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/010.json",
+      "original_sha256": "75674cc31ad61eb2c2bb4162e49268b389c62d96adef4a78faf486a40e80d623",
+      "archived_sha256": "a90389180ce6ff43878d8f2aa6012b1eaa96119f3013f8a219cd2d79b07adb09",
+      "bytes": 8603,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/011.json",
+      "original_sha256": "e30611cba40d8fe9cd5cfc1e3a7cd52c292e14d01f25203560bd6fe872c663f4",
+      "archived_sha256": "b3ec0903b88ded302ad03c25e2bad3ddc52cf5891a706dbd14bda9bf81fd0efb",
+      "bytes": 171,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/012.json",
+      "original_sha256": "eed6ba8d7f2f4699aa561c3ae5f8c3b73e238e9b6624c747a29037e34859acdf",
+      "archived_sha256": "a08a578d7ece6ae8012137b07005ab23aa582dc288087d3dbfa0caf5d07e39aa",
+      "bytes": 6915,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/013.json",
+      "original_sha256": "3a9760eaf97ff2a8a85ef6e81b2715bbd76682a04b8b6cfd28481be5a5e1abc5",
+      "archived_sha256": "03882bf7763ca4694fc7233c0367841ba25585d951cd862b150e68d3202436e6",
+      "bytes": 180,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/014.json",
+      "original_sha256": "bf26163cc3ccc4df307c52bc86d30c249036f2d4dfc46ebda370247f90456f63",
+      "archived_sha256": "8e31857c776096fe9a597e4a55da3d07b8d96e63f97ef9064cfacba97ac4f5c2",
+      "bytes": 177,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/015.json",
+      "original_sha256": "98ed4d7c3321fac179b25faed651bede8a37dcf481f45528c1d51dc7b1ab533c",
+      "archived_sha256": "5a9df7875dcbe88dbfb66a64967cf6c889ffcd9fba93b2584396b3ccdb2b4dfc",
+      "bytes": 8604,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/016.json",
+      "original_sha256": "0c78c1f0cf5c7317864019f1ce8c528a2334eaee8b2a4da4ee6049d055b9e0dc",
+      "archived_sha256": "275e65ada7b8819b91fd72b0812668596e245dd3ce0dc4c661b129bfb95c1f00",
+      "bytes": 171,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/017.json",
+      "original_sha256": "48c4ab682646f4c4b975008fcae06ba099e47f762d625b4d022b9a82d9d224b9",
+      "archived_sha256": "30a3b30b3ea8d150c3046d872dabea075bd22098600d62eff8e574c0d88b7b8e",
+      "bytes": 7052,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/018.json",
+      "original_sha256": "17b1b33102915be06ce2281f845aefcc1e49912f4b36f1443d995c3ac211a9f4",
+      "archived_sha256": "ad1ca48339982ba1321c00c8d43ada24308b25f191b951a40e468738ec23d8af",
+      "bytes": 176,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/019.json",
+      "original_sha256": "8ab77d5276fd38e5a8241de24488ccf138b965d42293ddca36076a1cd57eb5ac",
+      "archived_sha256": "5da4abf4bec8d6ce823ac21be35232da69800279bce94eb91bcfff006b512690",
+      "bytes": 177,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/020.json",
+      "original_sha256": "84ac9e32a2c0b054955161fe542b04a7feca420f22f9f83f7cdb6b801a722b4b",
+      "archived_sha256": "a116938fea9a6c3763f008f956b05b7e7ca230bcd628c5bc9abfc2a3514a0d93",
+      "bytes": 8609,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/021.json",
+      "original_sha256": "fed9693c056396225f943ef677379820d19e589fd241e0e816592625bde1f0fd",
+      "archived_sha256": "bf7b6ed8610bd938978a28c609c64fd384841c51097b702a50cb8e98794ace24",
+      "bytes": 171,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/022.json",
+      "original_sha256": "a790d5502f7d81b3be0e5d1d9f81991b640f339368ca40458f9ee4cb37813356",
+      "archived_sha256": "96dfec7fe63e9716fe3ace1beb448b5aa82ccde27f76e878424c394d9c4085eb",
+      "bytes": 7054,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/023.json",
+      "original_sha256": "943fb11a1f91115d212e69b89d38976f87ecfdf14a4f8141a4fac7f722c8ba61",
+      "archived_sha256": "150d7986387a22d0122e6ffea5c414f3630bcfa3f2895d7f81e7f82765b3bbaa",
+      "bytes": 174,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/024.json",
+      "original_sha256": "8fc699d2496884a431d3f2d351ad6b37fa20b70e7db04eb959c0cad1da554769",
+      "archived_sha256": "057446023cae98e0195778e54f1f07ae49d394ff2d1bd8f028d6a45430289e7c",
+      "bytes": 6915,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/025.json",
+      "original_sha256": "e37ac76d95a21a86ef3c2440dfef576d550c15b00723f5761a935c6c2dad5752",
+      "archived_sha256": "34c34e122b8b3ed32ee012c77a8b33300d59aadfade9132b2d783a23047999e7",
+      "bytes": 180,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/026.json",
+      "original_sha256": "d9eeaba320c2509953dc8e9016a9e332dc95a6e7e60abd694fd51dd4c6d22940",
+      "archived_sha256": "ea186678897307eee67de0fffd49af272dfca2a5c55e36158c36cda77f68f2bc",
+      "bytes": 177,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/027.json",
+      "original_sha256": "f65dfad87de423b462f8a50efee806dfbd652b5323c05b74f50bac962a1024d0",
+      "archived_sha256": "a81db1d5686cbf118405d0d09713055fdbf49ebd9fdd78d8ccc9eb09bd91bc41",
+      "bytes": 8614,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/028.json",
+      "original_sha256": "5af447e4034e384157ccf2bc251e0f6e50f4b4aded22179ee70768fd8d57b000",
+      "archived_sha256": "fd915248d365a502d5d419b44f52a1ad3c4a5cf0b597b8760961514be2710e85",
+      "bytes": 171,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/029.json",
+      "original_sha256": "d6462ff681874478ee675bb7a3419cc7e66aee814796dca01a22ca8d8c583a71",
+      "archived_sha256": "199a7f43b18cb02e97dcac144a102fa1727a59739631027013209da6bef25a9c",
+      "bytes": 171,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/030.json",
+      "original_sha256": "083755eb4a9ad330a75a367807856bf67aa3c065c20dae39db76109b7a5f7bf5",
+      "archived_sha256": "7348b837726240a71cfab1884c798885ee2c5fd51a1fed2a7201ba93b4d10fd2",
+      "bytes": 7052,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/031.json",
+      "original_sha256": "b1f083195d8f9fa0190592215c269e81a4bfe83d108799581cf24f69085c9013",
+      "archived_sha256": "730fd5fe244743cec963da43e03706ec972111dae74e78f8b4f4b7d9da73e4a8",
+      "bytes": 176,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/032.json",
+      "original_sha256": "184bb642071e6919a9564f8b03eb4be21c9b96717ddec036be735431be47f56a",
+      "archived_sha256": "5a4e0b186c113d152026e4d064b62b3965ba9a86cfb9d6acc153a8fd1e17a1df",
+      "bytes": 177,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/033.json",
+      "original_sha256": "3179a86f4e4a375672ce5283d13e333410db322cf8ddf9a411e6936bf876eef4",
+      "archived_sha256": "eaa7e4599d62048b09223a14d1f20e092f029406d322e713c06c8891dcb0a887",
+      "bytes": 8625,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/034.json",
+      "original_sha256": "a2fdc7bf767839d5964b76be208479bd68166f592c85215233bab272f243f574",
+      "archived_sha256": "2ca70ede49b963e93f1f5a064e6012d5680d7a8e5fb5dd037bd4be40c715ddde",
+      "bytes": 176,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/035.json",
+      "original_sha256": "297448e6f05609c22f0fd52963b6b91ea17805ef4bf0eb39483220bb7cb27e8c",
+      "archived_sha256": "478d767d2f1bfe97fbefd9c1fe5d09c701ba9cb28cf1850241cc90b0e9461c2f",
+      "bytes": 176,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/036.json",
+      "original_sha256": "5fca46cb4df43d9b7d573606ea27e27d7be335721556e14796b23eab35da8ede",
+      "archived_sha256": "b344d5418408bb32635626dce246af6fa4e3df599aee37795e8f49e513fa1882",
+      "bytes": 171,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/037.json",
+      "original_sha256": "f01474d6cb724168f40f18508f6659b1addd8db9c8cb1fe29d9efd89a2fc5675",
+      "archived_sha256": "c11dce174c4ea6c2e1ebb6003889202a09b73ebc2df557d26fd43282178b1c83",
+      "bytes": 7031,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/038.json",
+      "original_sha256": "08e1b17e2be9fd99149eccafbbd728d0044cc590f94607483f69ae2fde113ac0",
+      "archived_sha256": "51c65cc8bd25da836e5db9302fd4453f9c32b3eb829f42cdccb747830015c5ab",
+      "bytes": 176,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/039.json",
+      "original_sha256": "0b2280a05343ad13216b90b713d4ebd25ab54977cb951789da8f0bbc56093745",
+      "archived_sha256": "c795f848d3c6627de6d8d48c091231fed241b4bad346cc2c22eee00dccc065e7",
+      "bytes": 176,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/040.json",
+      "original_sha256": "bf05853eda5380c8fed12050c66da6e03dc5b28024b95f6f68f59417e5cd8b55",
+      "archived_sha256": "1bed32a536b4327baf329ea0eb346ff7e52762ad896234c3e31b4262d0813d2a",
+      "bytes": 177,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/041.json",
+      "original_sha256": "b970c19bb76aae7fd7acfcc9ae66d40d63f9d8ea4570ac455bc67b6d26a17710",
+      "archived_sha256": "5c7a62976e2f7e54b7946c48f3e50ec8295edd23b4262f3b99df9ab279ece0cf",
+      "bytes": 8617,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/042.json",
+      "original_sha256": "ef2e15c51ae8f1ee36d7edc49671e6fa4a7910ab1c4a72f02dff58f60867093e",
+      "archived_sha256": "3b8522d30c64226bf0be6961ade784890201c3f39cc994b1666be645702824bb",
+      "bytes": 8691,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/043.json",
+      "original_sha256": "17d620e3edd294d9a15cd02224f5962ccb70c3b5ba44d083b195a36cb0835460",
+      "archived_sha256": "e1c6a821a14aed19fe699f01c2b959c6d7dc0c3f0fa5e1da1e55b85b5989f4f4",
+      "bytes": 171,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/044.json",
+      "original_sha256": "9db9f7d99d5351d184d1eae4c4d9415448d7f5accd8b46b48bd3f6d2a0a2cbf2",
+      "archived_sha256": "ca62bc443d61cc0a392843444ff59be4d400211414b0a635718b01fe707fe515",
+      "bytes": 171,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/045.json",
+      "original_sha256": "9f260e777ea553f68650a02bbbfd20746fb5a697c1e4bf788f613556222c057f",
+      "archived_sha256": "789c8a83cb37c9287d90e35e9f2b0630b397837f681abd8490238b64296902ae",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/046.json",
+      "original_sha256": "9c4cbdc72bf3e13a2dbb8985a528c1705d4f5952ca1945346098a1748ef73173",
+      "archived_sha256": "17ea7b860b31e2d72e80fff733d3b30a05d1555e1ce64090c75209309a9fe70c",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/047.json",
+      "original_sha256": "9d445a4b7e881b61e2f7e248af2045f232bbd2f0073093c68eac0a34be0f69cd",
+      "archived_sha256": "4afa690a6d48960b11ba0783d8e53ca8294994c07d512b92e56e19cfb3592888",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/048.json",
+      "original_sha256": "778eb8bc4571098c8f5d672631db21b019268367887dfeefca27f09f0e2bda81",
+      "archived_sha256": "a33a6bd4a49b60659297c49ed7a1bc9655385bda7189e2a195e9bbf9116866d3",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/049.json",
+      "original_sha256": "bcd2fa92a7bb7390b0baeebdfdccba3def7f227f6aa313956220b15b9baf47bb",
+      "archived_sha256": "546d752b9f9141d175c09fe7c4d9ea07e55c02e248325f3f1297bee8d60d6ccd",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/050.json",
+      "original_sha256": "8e1f2ef6b088563838f3d2f32a8f299e23b6e0d995d5bd17a4471666c1f1eb9e",
+      "archived_sha256": "fc6849d0c8bbd1ba12bcbeb3677fd4bf9fef4acda788a96353dfe50f5af4c90a",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/051.json",
+      "original_sha256": "0c1dfd1c1881425814442c18bad7455a370c1d6b102908a477de911491a7c8c0",
+      "archived_sha256": "bbd15d5fae4ab2b86a44ad6361af0a88555d6ff7aba1f7ff5336050005f2e977",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/052.json",
+      "original_sha256": "31352363463d0a496b85265c8055237b47b4a648297149649afe2fbede1f7177",
+      "archived_sha256": "7a771309c08cd64bbb246c92dc887911da437c5308ba519ff72f39695e7c4032",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/053.json",
+      "original_sha256": "128358175753e0a5be4105a495d18808b73bb956d3298b46817c6606116089cf",
+      "archived_sha256": "d575672deaa2a518c9524548b65e6702c877f5d1b0d8f226bdf326c459e493e5",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/054.json",
+      "original_sha256": "ff9e9342ccca98214e4caba9fd60555467fa1210a0fa65ebc675fda76aae238c",
+      "archived_sha256": "f9d30f75682e703067587455671e4a64c40436d4ad4e3a92f4190040a212f2bf",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/055.json",
+      "original_sha256": "f4ce5bba5194d2230161abf89c11c561589adf34603a6a30d9146dddf2f5fc8a",
+      "archived_sha256": "b0308e09df83767e1ff2ef99c98ac34c60048ba852c0cbd39166daf8243559ac",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/056.json",
+      "original_sha256": "81b353228a027bac376e0789673ea7f119a13dbbb5ca1dd50691cf0edebc34fe",
+      "archived_sha256": "f5ccb0eb8c3fc630e63875c246751e5e4caa72d8a22a40c205a82d954901e03c",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/057.json",
+      "original_sha256": "a0752014f72a07ad654593ce6c6dcb227dfd6c0b4b49bc9b95289f2c9e9a6bfe",
+      "archived_sha256": "c5edd580ce98430ee57abd00c94afd0cdb7811a8ab5fc87ddcc818f8a5fbba4b",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/058.json",
+      "original_sha256": "dade2083a3df7da66e6b3903ed009df292ae744a34f1ca026ba8593b5fac33b7",
+      "archived_sha256": "92813b48513b54be30d6ca8b6c42915ff3cb0b9f8aae7066d80527718d25f27d",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/059.json",
+      "original_sha256": "c36cd0fac1464dc59ecd36a95cd5cf21fb57ac3392e715b2c6dc505a683a951e",
+      "archived_sha256": "809d7f71b19f6b4a6c85e94a4fac048919dbb63978520865ebe8ff116b685158",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/060.json",
+      "original_sha256": "1588d1589ca64b0800eeeec4275acfafd7d38b3dce86764b073052e8012e023b",
+      "archived_sha256": "d7612727bf55e51a9b2b5251d25394b165ad857d12f413d224f6253fcec68afb",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/061.json",
+      "original_sha256": "a6dd4e3b430acfc08bf717ae649e9102abcfee32f68f98a9af07e0e8796d04e6",
+      "archived_sha256": "3e3b3b99cdf317a127b4c707d9796e4cc2721a55f72f15937f19faabd501c0f8",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/062.json",
+      "original_sha256": "cdd928737bfc249ab50b1c4b0cf7b604c5dcc9f1825749de10cbd7dbe638d801",
+      "archived_sha256": "9a78a16378d5e59071dc6f69141d332804f1382f1e47a14a27c00f91463e10c9",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/063.json",
+      "original_sha256": "7acd1d9e3df4136f085d69c905a6ecd9e433b430fe8fd8139134faed413624e5",
+      "archived_sha256": "018b0ca447aefc74a0bbadcb1f108ac1c2a124226546d7ffcd6a47ae5c4d569a",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/064.json",
+      "original_sha256": "025f051a7464575177e565d2fc93c16ae1f2d7bbb99049f7be9ee5956ea6ead5",
+      "archived_sha256": "5704e56201a313231eca73a3c60ec8f1e57df62916edcba2b9b9ac2a245742a0",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/065.json",
+      "original_sha256": "2b2c89268499957167fb137d542a88bff5a3eb8e46745afeb5c315df1dd6af41",
+      "archived_sha256": "7d1a3ce0f2cb2120e7dae428483c75c5464877b00b02beb88625e7c912c7c842",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/066.json",
+      "original_sha256": "d5e29433ca0b56e38268988c04a3ecc6625c7c3cc2f80b0b3bc5438e971f90cc",
+      "archived_sha256": "d8b6a67a5f04a05f518dbb45f98d7a1a61e2e84c14e8654ff4d3e3d0e09e3dfe",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/067.json",
+      "original_sha256": "a99f061c1b56fef8e18031bba4c073be1d9374c13ae35dedd970bc92eb43c28d",
+      "archived_sha256": "35a6ab13138b91b0579ff8f358311c0e25504962b3c482d32dee253ff1f77c63",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/068.json",
+      "original_sha256": "edca7234f8c6b97c28c12c4ba53e90724166a1b048cceb862b729a4af0f4720a",
+      "archived_sha256": "4959ad6c090ad5da0a4fd8d766876c781b4fc66d398d6869f95d8c4f86f91596",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/069.json",
+      "original_sha256": "a85ef64906a1c4fe5e67cd7ea40d7858bc965574ee1b93024651ced6f9410cba",
+      "archived_sha256": "5519f0880f14cfd96acd89568394ce529d1a38fde225fdd449bf4c78cb955b54",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/070.json",
+      "original_sha256": "fc7cef7482d1388c98cc7227e5bb7df29951dc7bc291866afc1e1e3b45ffae36",
+      "archived_sha256": "8e4d0e529d0acece8714a2b866c22dab812bba23371406f9e1db356c2e831d60",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/071.json",
+      "original_sha256": "54c261fedbeb861f51648adad9a4c4da841f75c954bff27190f674723a1ef966",
+      "archived_sha256": "e10513b445532056ce5235eeb2bd1c23adba4814ef1f390316556e5e4653c591",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/072.json",
+      "original_sha256": "767154ebef081aaecd33b2c1bb3737637c3bd9b9081f17072b438573e6bafa9f",
+      "archived_sha256": "92388d8385b57887f7a399655740bbc4253767458bb2f5e3d0c8be71a5c66035",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/073.json",
+      "original_sha256": "dc95a162ee9fff4d7db28b17c5913f99a818739132ccd53aadf6ef98345edb8e",
+      "archived_sha256": "70731ec1b03de9c2261770ab113cb8baae6ac6fb89188126d3812d0373ad9912",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/074.json",
+      "original_sha256": "0c6c2af3cce51306d49b6850dbcf550105828902ca098c9d060a27a974d1a02e",
+      "archived_sha256": "c6588cd75894bbd13ff7cd6456da2ff480f7c8df70aa9159f49f35a231577721",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/075.json",
+      "original_sha256": "a18329f9f2bc6329492c3f7e84b67d80380150af5a9d3dc225b4a369ca225979",
+      "archived_sha256": "515a305597088cf40642bb454215183083d3c6dd84ac4057910db073b5988f4b",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/076.json",
+      "original_sha256": "5fc0307b97b3f8c00cf475d6cf057d1c105e792893659a1b75b6a22e347cca2b",
+      "archived_sha256": "9734143746481107651f8325925dd0638a45623409afd8537668ed5659dfb221",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/077.json",
+      "original_sha256": "9b0951b9e4c2f32845a566cdf3576e931fb2e21479badbfa127eb7eed3851552",
+      "archived_sha256": "a62ff223271f01c3c543bd0a6c65e6415746a40e3f0eb3ea19ff7da31008dcec",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/078.json",
+      "original_sha256": "8aa12a4d027b23e53e184219d2f94538883059c0db01817aba003148844d9b6c",
+      "archived_sha256": "0efd661cd35cc64a110ff742c2cf2b12b884cc4859235bf0be6882dc76ee2dfd",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/079.json",
+      "original_sha256": "27b446f4a63613e6f097e6a3a412e40be5fae47ec530dd1472071f450478c70b",
+      "archived_sha256": "8529f7dd204a1ff15dc63ca2fb543b5b51d00e6ce5df149cc10e868d3610fcb7",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/080.json",
+      "original_sha256": "a2abfa101d85c18bd2ca4427202af3091abadcbcfe63bc0983b00b9ea8623ab3",
+      "archived_sha256": "ebd393c5ab3fd39b6f1e3e87ef120d6323b27bc0c3e05daee35fa06bc2cefc61",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/081.json",
+      "original_sha256": "11b65e4702013a6e9a9fe282bb15e98372be5094a7511cabccc60709a56567b2",
+      "archived_sha256": "174fa07bcbd5db270e162da8aaa6adaf3402d034f648feae5dd2e599e8a83834",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/082.json",
+      "original_sha256": "557022758fd011b395082ce322dd038189f54855e6e2e60d9ca7d8c4452a84f7",
+      "archived_sha256": "8527cf0f2002cdc3d1dec7057ee6a518853582ecefae89eacf7afaa2c56985d2",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/083.json",
+      "original_sha256": "c54bf577ae4de134ddf526083d4843c94e0a38cb5ca9c1d82837c2c8375c0fed",
+      "archived_sha256": "2a9a55886ae57dffae705d0ce18d86c91c807535909411084e8396c4fb6859bc",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/084.json",
+      "original_sha256": "873da5f9d7a7cc369d6717b43b9afba2085cc102243c2e790109f86106e8ff5b",
+      "archived_sha256": "d80882800a2f3cf64feae296157af32fa0886c0540eb7c0d9aaa438401dabd88",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/085.json",
+      "original_sha256": "fd1ba4c201461f5cfd02e8b724cbd476b83582964356f939bd5e53811fa17b69",
+      "archived_sha256": "3f1b24b1478a3547c57c5a641bc6f5e384b52dbe093f6a0cfed23f68142649c8",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/086.json",
+      "original_sha256": "ea82997b085b26776c73141d909548f0dbb3824f581f098780ec9e9f7eea95c7",
+      "archived_sha256": "f9d1b26c7f8da7320b320829cfb1291c32161e4a36b5fb57c513198fcd89ace0",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/087.json",
+      "original_sha256": "c5dd75b6710410ae594e42c086cd680214629b2993b5aaada9c3671b2b301a97",
+      "archived_sha256": "1dfdfba3fe1cf27331c6ab2751ca7371d2a96bb79e568e120edfcc57baf28cfe",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/088.json",
+      "original_sha256": "0167d8bd49025ca603fc9a0acb68adc8004332a9983356319e382f60a1abb7c3",
+      "archived_sha256": "76b8b73c4b84100a22905b90b68d702d7145cd5a14034f0f9b129a0553b796ea",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/089.json",
+      "original_sha256": "430a25a33a48fc0c5f89b0f6fb070e07d67334c56b2c48a6a6497605b4cc09ed",
+      "archived_sha256": "d5af3a201bc698b4d9e9a6f1f92d77026471b0a55ea93ddb5bf7e74642ffd063",
+      "bytes": 8686,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/090.json",
+      "original_sha256": "bcb46b30006d5703ec95c1e0da5e0c20b70d1a911db34d9faff7640845d28eb0",
+      "archived_sha256": "d10e742ccfc8d4245c76759fd65792c766b9812890421b18da57334229baa9a5",
+      "bytes": 176,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/091.json",
+      "original_sha256": "45a84148f34ff395c87c716272adbed3b874f9b0bdcbb6dadba540df6ca2d82e",
+      "archived_sha256": "8405d827b304079bb8a14663cba1f8b5b966dc3b8f10d54dd173dd7ddc22d751",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/092.json",
+      "original_sha256": "08b169562d1285d6911fc9746a45d9b5a233426e37b6d5d26fbb4a953e1805ca",
+      "archived_sha256": "14dccbc85af96cc1f80692f342e438541a63e050bcfe17c984222c7d72fb84d2",
+      "bytes": 171,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/093.json",
+      "original_sha256": "ed214fb5c881d8922ef6c87c5f867870340d69e8f7d33b6970e0f60fdc2a359a",
+      "archived_sha256": "7422ddffdd202a8e37d7422f6e18c04417a09df714cf520c419b9f6a829b6f79",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/094.json",
+      "original_sha256": "15480e009101e93c7813bb0ccbaa9b6fea3f6b439156742a076d1e7ee094dce6",
+      "archived_sha256": "f8020e79648fa1ca47f0c4f8382fa070baec485f10ad8271c0f408130e23c5e5",
+      "bytes": 175,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/095.json",
+      "original_sha256": "d14afcfb520604037f26dc7a90e4cb22606be74bcca879a98bc13ac0f2f22bcb",
+      "archived_sha256": "4afd6229f75cd33fffcdbfc5f455dcfb430da2d1c5c044fe3fa265521f191b50",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/096.json",
+      "original_sha256": "f2821ba30213b83fa5fb46eaf1114bdb9fabb443ff30dc198eb0a3a438fd75a2",
+      "archived_sha256": "77cd865e10624219cf742d6aeb95e6e1348f3219548da3fe202581592ffb6734",
+      "bytes": 177,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/097.json",
+      "original_sha256": "effa0967343c934a003038edcf3afce0f256df20ad4dfff7820eea8c79919ecf",
+      "archived_sha256": "9c9cce861d3106818900e2b6a4f16ce0f95f408c48bf70ef3957303e3bbbe2de",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/098.json",
+      "original_sha256": "778b53ca36abcbc17cf8c3ec334bf1c1e97411859787110ac54cdeb51c5303dd",
+      "archived_sha256": "96b65a56eb2d8149e7ccaaccf0a4ebc664accfeaa5d6963da20f3059fa32adce",
+      "bytes": 175,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/099.json",
+      "original_sha256": "a83cc924151acc6164afe99daad0cc297b44324604f1acbe04a2312b532dd101",
+      "archived_sha256": "814d870bd23367769a3fd42bac318de583e5c6c64a79d9bc5845a3097913eee7",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/100.json",
+      "original_sha256": "8239125503220c45b8bfe17e1fdb7058029730b631fb3d461a43da63b4b5473f",
+      "archived_sha256": "4d639c0bc15610a7f8fb25014d4aacf26dfdf78fa476673cac45ef514d6af418",
+      "bytes": 177,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/101.json",
+      "original_sha256": "f8b6fb723196acc47b1679c3aceded40c342e1c6239e2574026892a7f8de19c5",
+      "archived_sha256": "4556edf90c2a66e22d50293d90154980c1075d55382a76aa85f726a0e23fa000",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/102.json",
+      "original_sha256": "9bf0d78d47b9b69e3127c5ecfba1694fa8c72242425b85cfa2f3d1defbf0f615",
+      "archived_sha256": "8c14829d928477969b90dc70c67e840edaad2726fd02b3484fc83b95e9dbd17a",
+      "bytes": 171,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/103.json",
+      "original_sha256": "c3f04a78d980030fe11cb5c09147e8249773888c4abb4665eb420b426dd47725",
+      "archived_sha256": "643b37491874d797d3089906cd9058a05a576114eff78c13c56537465a08b1bb",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/104.json",
+      "original_sha256": "5bcffc522275b1a46a820a0ffbcdbef318d1d912f3116f1542fd72ec8b0c2434",
+      "archived_sha256": "1c6ae25c6044d2374337a763134bb3be9ec4fa556f002e01afba314de8912446",
+      "bytes": 171,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/105.json",
+      "original_sha256": "9e7da5d685e946b361f74c4747f64ea590f0efb4a6e78eeef06350f0415a8b1e",
+      "archived_sha256": "0b485e0bf4ba1f423241a518cd6441678fb82ddc100bd9a6a2305f8d4d6b4331",
+      "bytes": 8624,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/106.json",
+      "original_sha256": "d3de4d5d1b4690afd37bd085ccd765ed91544d6e618ba644e6867d1c08f636a8",
+      "archived_sha256": "cad99be7cd16b1536c0560ca2ddecd1190606332eff89a96926b4f9b9bdf434b",
+      "bytes": 8690,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/107.json",
+      "original_sha256": "ebd73c7a928e0f2d15c05268ac07d36f161f1f98efc12a75ee79aab3a04572fa",
+      "archived_sha256": "0c08c2f6ce359fe89a5e5d56abd096791bf416cd7ac724f8eaf19320605b5721",
+      "bytes": 171,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/108.json",
+      "original_sha256": "79c6381c81501aaca400a496e62b8835f38249205f9dcdeb2bfc8ddc6b8c69f4",
+      "archived_sha256": "bfd954e5d6ac30daacbaaec24a472fe6888ee450c1b003037151dce5a51bc927",
+      "bytes": 171,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/109.json",
+      "original_sha256": "f43d58bfdf6eabfaccd41a203df63ba69e240626eb7fe731740601e0604b45f5",
+      "archived_sha256": "b699daa035d0f7d73d29029f36f5685cb14f89a45b3dc4840df92b662363f891",
+      "bytes": 171,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/110.json",
+      "original_sha256": "0574e7b160a90441536b695efa163fd3e1ea12f04f11dfd5cc90961d5ca1784b",
+      "archived_sha256": "20dc6dad1b862ece79e5e36c2678327ef9c39f815128e6caa7cbc83af359b229",
+      "bytes": 171,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/111.json",
+      "original_sha256": "940d36f5c99d0d1fdcbbfe3ebc483de30aeb12ad8b7f9d53798edd82670296e6",
+      "archived_sha256": "3ed6e92e59cca242ec9dffc50e658c1c948aedaa462ba3bc283e42eeabf7a82f",
+      "bytes": 171,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/112.json",
+      "original_sha256": "3fe96d6377ab1109436d6a57f9492b74f019165602fdf5a81d7b6058709400c0",
+      "archived_sha256": "026bb646beb3499ea8a875a8c51193063f79ba961aeda7ff9dc752c3414e41d5",
+      "bytes": 171,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/113.json",
+      "original_sha256": "e66b09f5a603106914a096c6f2dcb1e264e4dd2cc013d36036759b3b3cdd0a5b",
+      "archived_sha256": "856c55c50c14524c955f6dc90b46ab22ca7ac5503e6ea9bafb5017a65cf9498d",
+      "bytes": 171,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/114.json",
+      "original_sha256": "befff4db66397be1a7cd896196f61226df1c15ff60a1ed3c8131b464818d09d7",
+      "archived_sha256": "89579be053cc7e81e06f78c3c40cbf9ec13f17e92585b3d133692579998c3d86",
+      "bytes": 171,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/115.json",
+      "original_sha256": "a5e4a18e933ba47208bc23e563516c153ed80714d93b4ae8139bb647fd506399",
+      "archived_sha256": "01b9a4a4584cc9e07a3bb88d6b4d4582596701b98879e2f64d8bbb6c5bba8b23",
+      "bytes": 176,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/116.json",
+      "original_sha256": "52000fe2d6d35634d2542626e091384547c15c8cb7eb17f65b40c7a292d69458",
+      "archived_sha256": "a11f6c63241accab158c3cd4dd503be9da8ad572800a2d824f689f222ccc6dc3",
+      "bytes": 176,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/117.json",
+      "original_sha256": "2c7b92f4beb4ac19da1ba97a7ad941697b5f9d8ae8a3994b289aa4fdfc905546",
+      "archived_sha256": "00c1eac02eafb0947bd3ef58468971b81014fbaa5f5ddebfec7f5afa84a953d3",
+      "bytes": 176,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/118.json",
+      "original_sha256": "183b28c02653cb7f3d3b7e4cfffc9a4a576db0b3eb7de37ee15cb8918d5806ca",
+      "archived_sha256": "276b575cd7eb9da8f42d8f3721ffd385c86cfef5574d05cc40d721eb83525a72",
+      "bytes": 171,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/119.json",
+      "original_sha256": "a09789290d3330b09fe37e21ff538970f242f0c99263eb03b4d33c6d7d7ba7e0",
+      "archived_sha256": "51b425f9fe507b1859b1aa8750cee8350792e0c1e204767b264ce3d987b76767",
+      "bytes": 8625,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/120.json",
+      "original_sha256": "24ec7d38e3a40f2faa316e8bb18fa1309d520493d3f7e632576dc91a3155d388",
+      "archived_sha256": "c6da792b08829ff895bb30088cdde593b20d19c089f241eee58eee51726d4142",
+      "bytes": 8686,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/121.json",
+      "original_sha256": "df726a7444b999b17ede73f466e3f0e6ebea3284819b13141a99860c315ee24e",
+      "archived_sha256": "856a776267ff8757e328f09b71b6214a7618ec6b7f63042f5db73357347e15d4",
+      "bytes": 210,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/122.json",
+      "original_sha256": "b3af40b9bfbcd368d2f22099dea6ba3491d3aa5f26f83a8aef8dc236fdae1fcc",
+      "archived_sha256": "2d4dfc3df5222a3107edffdc9cae10538078449c8acb0d399376e69939a3574e",
+      "bytes": 6115,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/123.json",
+      "original_sha256": "3d1933b6e011b31c816f054b9990a32d987e706bab81b9dc3d95211577627b40",
+      "archived_sha256": "f2956a18f086e9cb7a4c699a9a0072684eeb15ce4c15767f1e62bd521c56d504",
+      "bytes": 6115,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/124.json",
+      "original_sha256": "e40d0b7ad43a3cb6a070201b2a0d1f9baed65be619be8fce0fc8e4cb488c9b69",
+      "archived_sha256": "3218a715db1da1a1c93a2eb93d1a1ff3ee058eb20523932aaf838e808c28729a",
+      "bytes": 6174,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/125.json",
+      "original_sha256": "98052e35c1f7f5c9b366b458b1d67ae4ebcc9ed1fbbad2ba3c4203285bb2fbec",
+      "archived_sha256": "59df0cd953db7f22045f2abe1a77cc0609e17fbf52b817a1c5c79a1fdbb2133c",
+      "bytes": 210,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/126.json",
+      "original_sha256": "3c007b5cfe182f0e2fee845f21d5110080a0329515473ac0a50da6c49f3eff12",
+      "archived_sha256": "f170c62ce4deb700b89097163791d0f3b42afb899d7471cc0eaccc0e3f55a850",
+      "bytes": 5434,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/127.json",
+      "original_sha256": "962ec2b89e44ac6f85105e0a2e0b085f7157bb2da3f092f24e891e1b781317ac",
+      "archived_sha256": "12a8a0cd2e017fabec9cda5d0dc3df628ebb5200c680849b3e92442aa7763e17",
+      "bytes": 5434,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/128.json",
+      "original_sha256": "6d46a2018e76387db7ce346d4f19bbb29599d4118053590a416fe7e5950c6415",
+      "archived_sha256": "6b6f70df4183c09be6510045af1bef689d25f1a362ede028b76f116d0f718bfa",
+      "bytes": 5493,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/129.json",
+      "original_sha256": "a10c57c8a0cd93922890e59757fac00ffadc63ad48a64db13092cb9691ff7991",
+      "archived_sha256": "389d0652a3336640f86b3c259b820debf9e62a29afda6151112806bac134119c",
+      "bytes": 211,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/130.json",
+      "original_sha256": "e46f84239f779990bd0073fe62e0ef508e6d0a23415c882764acba5626eda67c",
+      "archived_sha256": "c1baee75cc398accdab2a4a9e25ae74aceb3e92742b5c341d1822f0910881665",
+      "bytes": 8623,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/131.json",
+      "original_sha256": "2f6eccb76ea8d85c097e5c3d55085723af261c964c880fe89c404e5954a68eb6",
+      "archived_sha256": "1f1f754e1d05dc0e2d16e0aaa667a25b6ddf835e415b6877e5a276d436886cf8",
+      "bytes": 8623,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/132.json",
+      "original_sha256": "16a1517a1ab87f49ca8b99a7faebf77671ae5fc2e47cd91e2252c7e838570dc9",
+      "archived_sha256": "0a46c2f7ca9973a91adf4862ca34f6fb8bb3566bfa443ed5b8bb87add269f03d",
+      "bytes": 171,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/133.json",
+      "original_sha256": "8d291c6520135beb1cabaa5e8fa1ca780203c101edce6b294f2daef704aba0f7",
+      "archived_sha256": "5dcb62ff2df0a9a5523a3652f588fa89c7aee2d781d2c6e38d5625cf9d1748dd",
+      "bytes": 176,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/134.json",
+      "original_sha256": "0c8dbdaa3d43ad94c3fd125572dbffe1ac24f4c1bf60e347ddefd6817a9df344",
+      "archived_sha256": "b8fdff33e059425cae905d117963b31c634da6ef4febfadb30af216aeb4dee11",
+      "bytes": 8606,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/135.json",
+      "original_sha256": "38d257bda6066618e49fb43b097513b755ae104605298ebcdc7d487ba4cf921f",
+      "archived_sha256": "5488188e08c70bdd6123a9a17a475481bdc8dab3823eec849df8a5d1e1e655d6",
+      "bytes": 171,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/136.json",
+      "original_sha256": "ff6163ca6780ec891357356d5e649931473f8c7cbb3810ad312ae127346f6da4",
+      "archived_sha256": "96e33e61d4881a75d12538f379f6c3229048b1dc49678a46180f1a250f371fc4",
+      "bytes": 4045,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/137.json",
+      "original_sha256": "985df71eb8e2ebedee60e7689abaa52d305ac84278e8238585d160307d0e21e7",
+      "archived_sha256": "942a220d6813aa3667d7c15af0757eb86442f5b65529ddf16ef9f496f521d5fc",
+      "bytes": 652,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/138.json",
+      "original_sha256": "a57fafa647f0757107450bd44cf15fb15211fba337e1cf5b9e0228f3daa649bb",
+      "archived_sha256": "4c0e3b0229751c53d40902efe086f687970378f208eb89892c352075eda412de",
+      "bytes": 177,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/139.json",
+      "original_sha256": "8d610802156090ef1f55b71d64ee6c7b8d732f8085f771ef2e4ec14b31ba4b62",
+      "archived_sha256": "e9fddb41420ebe63309454cde04959031bba6835bd9e108fa3e47b7e558ac502",
+      "bytes": 8614,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/140.json",
+      "original_sha256": "dccb154af0b2acc9a12e8544bfcf641605aad403cf6238c49a6745fb60f3f9be",
+      "archived_sha256": "9dd818ca47b244b0ad0c8565b60b03473e0615cdaf671846847c67e6605637a8",
+      "bytes": 174,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/141.json",
+      "original_sha256": "7b98b7dd16889e52665eaa751e5a250f46999010890a36c4f75e450076e70670",
+      "archived_sha256": "891ffa14fa7e36a81c33e1e7ce4e707de87091faf1b762247c4d4c261c003657",
+      "bytes": 8606,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/142.json",
+      "original_sha256": "ba480b7ea66715c2e4d3de7ef646f54e3f2eeb58f3a0604b56f795e7c2741969",
+      "archived_sha256": "ad03c6d46366c1f744f96a9cc36064d12bcf90ab24706b4fdce7c4ddd7f755bb",
+      "bytes": 8606,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/143.json",
+      "original_sha256": "f8d671740df9ce6906660826cd3b580200654ff690ec65f654cf91de8ec874be",
+      "archived_sha256": "c2c0dabbbad3859f6e1ef50bc98203699f71297acf0ccf9b2a08dc5250876862",
+      "bytes": 8606,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/144.json",
+      "original_sha256": "a2e1019468fd3823619475f4faa952132d1e870d2d1e2f591b93272f865c7ee4",
+      "archived_sha256": "af546211a18b2645b18b41d82ce3089d430286defb34c31b1e52a2893ae2df5a",
+      "bytes": 8672,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/145.json",
+      "original_sha256": "f22f9199122bed5fe969d10d243349d8e617b3b3419d38b6d59616e51040a05d",
+      "archived_sha256": "86e6696e0a5b320849e339a05c387663617ddbb4cde958bd6a60391aba69c8fc",
+      "bytes": 171,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/146.json",
+      "original_sha256": "825ce3b56f9d6b5831ceba53ea0123119930a1d3d794e4cde0e3b19226f172ca",
+      "archived_sha256": "b0afb175620b63c6e81793f66081ac6b6a8b2b72436044da63084fd3724560c2",
+      "bytes": 7314,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/147.json",
+      "original_sha256": "ba8307f3dfe2f6f6887fef7253135cde10345400c0691898456e79324f8741bb",
+      "archived_sha256": "0b866d7ecfe61c1206cde11e051195f21cb58f900488cbaca45c57191df9a351",
+      "bytes": 176,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/148.json",
+      "original_sha256": "c33b6e5e565a80f72eb14327dd2df11b15b775cef5fe3f7e0d23a7dd24b3a641",
+      "archived_sha256": "1fb00f16a85023e652a3f2234abcd7c4217629064e5431f5075a5fd2286b1643",
+      "bytes": 177,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/149.json",
+      "original_sha256": "292d2fb702baec738af5da8875a66ec1cc54661b506064b74eabc761ac3c4735",
+      "archived_sha256": "e3f51890a1855bbe76735aece91ae40cad48e4d7c2822e4aa84b1a3a8fa27f05",
+      "bytes": 8629,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/150.json",
+      "original_sha256": "4ee1075b621b60d3cb3836ca6ccc6ee7dfb3614f23055c4f980d0aae1d848ae8",
+      "archived_sha256": "cad2929255aa93ccc0b3504a96435b91e49d7818910d5c7e8724f6b977227117",
+      "bytes": 177,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/151.json",
+      "original_sha256": "92de1c08de62219d059173c95ed50c27c58c9ffb1bbfa578088b0b82b6c1d553",
+      "archived_sha256": "0301dc7d13312c26e68ace12113d8fd7d9bfea521b1efa6d9111c7dd9d59b516",
+      "bytes": 8634,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/152.json",
+      "original_sha256": "b0d6266f84e3d305b47f69880eb27ca1963c7786c063b422139d3520efc4ac13",
+      "archived_sha256": "41a040f4727d4a0801545f04e91ef56e7d47ae693ada0c5cfb1c9ba6b7dd2454",
+      "bytes": 177,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/153.json",
+      "original_sha256": "11216442fd66787d669677c8d1981bc621368f2fac4138bcda363bba5aaf1613",
+      "archived_sha256": "3499cdea7b15d5edc7ced00f48fd6c37b2fe8fe8d4f36fe8fcabe86d531e40c9",
+      "bytes": 8629,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/154.json",
+      "original_sha256": "b279f558b91674077c28db8e02bd08c1abc5f68301bbb4c5955d5f4993094fa8",
+      "archived_sha256": "d3cd2a5fe9c6bfc2d71f20d949a1f6c20b7944fa037575f9a3f9d7d63c0a6364",
+      "bytes": 177,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/155.json",
+      "original_sha256": "4110f6a705123c72ca338f7be497f34c6f42481d20ceaf93ae0df674b3a82471",
+      "archived_sha256": "3fe492160a6ee4356a61210929564690486a7c787e1f79ac1403c2ed587a98c9",
+      "bytes": 8634,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/156.json",
+      "original_sha256": "1c006c90ab4be17bd00d6dc83f41c3618136016911805eff72214d7848b48ef2",
+      "archived_sha256": "1b9cb2af667b55f94913d781a63d4e5c19a1786eb9003ee5b36c20640e9b495f",
+      "bytes": 174,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/157.json",
+      "original_sha256": "b0847fc6525db939504ab8c409cdb4c7a48981d52630d7fbca481ec0bfa4892e",
+      "archived_sha256": "78d52e894101b680c8d401b5115de53d5b189014c047b3018bc4623c6e457122",
+      "bytes": 8626,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/158.json",
+      "original_sha256": "d5b34c7a2eb455257c771f5abc496413aa1f7b90942e6c114f7f8a39ee2af7d2",
+      "archived_sha256": "8925a50fe5ef0cf20eb3d4e7acadb70216173f13559ba1df8bd1017b3cccdf07",
+      "bytes": 171,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/159.json",
+      "original_sha256": "3eb0bc7b34b6f62925e419c8edd8306ac44f730773b9aa16b301ebf8f7838770",
+      "archived_sha256": "734e36332de2badbf68d4c4b471b6041690bc6a55e91f62084d7d35bc4c56f1c",
+      "bytes": 4636,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/desktop/responses/160.json",
+      "original_sha256": "32a6d062fa1fa47b6ddd2837483808e106d987b9f852dc99f5bd2182b5dca24e",
+      "archived_sha256": "ef90508b683d0269a847edbb0753e1aaefa8e8057ed262d5cede295983e46cf9",
+      "bytes": 4658,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/final-audit.json",
+      "original_sha256": "1932439db10b60d9185ec1043dd8afd76c9c1e826cb0e8aa98846df4edaaefa5",
+      "archived_sha256": "1d2acb25ef1a3f5f16119566fa7e390e1046f3e5988c6690902df26be992c0ca",
+      "bytes": 4073,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/flow-failure-first.json",
+      "original_sha256": "748770d7f03b370cfc1a68016c546a3fa07b30cf8922fa9d624e98daff33f0fb",
+      "archived_sha256": "06d4882f4d302b72d59d386e25ee2d681fc97b4e1e7708d3b3d36c4ec6f2e0d3",
+      "bytes": 331,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/flow-failure.json",
+      "original_sha256": "748770d7f03b370cfc1a68016c546a3fa07b30cf8922fa9d624e98daff33f0fb",
+      "archived_sha256": "06d4882f4d302b72d59d386e25ee2d681fc97b4e1e7708d3b3d36c4ec6f2e0d3",
+      "bytes": 331,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/flow-result.json",
+      "original_sha256": "6f2a5062b7fb2332e2cfce7fd5b75516c82342ca80d447846794bdb8e89a5dd8",
+      "archived_sha256": "d09cd6b18e384d1d03591ca9dd3e36940ebaab904306a8f83f946ecac0dc85c8",
+      "bytes": 10239,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/flow-resume.json",
+      "original_sha256": "c6364a1b12e34b17dd195cf4a2276eb59715f31bc31ff160b30d6736656ccb42",
+      "archived_sha256": "5b5b26424ca117f8c8b83c08f9a548d1723b1ef836a70b69c56e92d2a2f66722",
+      "bytes": 339,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/metadata-observations.json",
+      "original_sha256": "c5d23b191755ca5cc959b582e5e4f952d32e4089e9b96531e92cb081032ead5b",
+      "archived_sha256": "f66c643992d4982ebf21693378eee2fea4524977cc0c6e9ed7d2c10cfd8708f5",
+      "bytes": 94930,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/native-observations.json",
+      "original_sha256": "f24b3618e9763aee1a23e2fbfa3024e7492900fb7fb65725fddce82892c7e199",
+      "archived_sha256": "8ec5ef5817dd0dcdc7677d23cbb31da9eaf4217d5721474f442b2ed709ab890e",
+      "bytes": 40779,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/native-tests/manager-tests.log",
+      "original_sha256": "4da331d38606c8789aa06ca3a8ef8a135a6f8d3d3fd78d95d7d4fd41e7e3183c",
+      "archived_sha256": "637168aae5f88bf8a9b83d2d92c67400eb327ed34f301424047c548ee6cfd4bc",
+      "bytes": 2521,
+      "transformation": "utf-16 to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/native-tests/outcome.json",
+      "original_sha256": "9a4cfa6e58e904def3d352046e00786e052905f33a01ddc49d9d64dbac21b673",
+      "archived_sha256": "22a8ee2c10e65f6334ae5fff32a51106f6599077a1375958de5ed203abe0517e",
+      "bytes": 1496,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/native-tests/results.json",
+      "original_sha256": "11fae74b0ac6ca5082a0fff6f5275a49c31d8d79706a284ae040aa34d62a67c8",
+      "archived_sha256": "59781bc0db55584b52516f1300f06d6d664391932f97c77ad3d04cbe2a788007",
+      "bytes": 883,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/native-tests/store-tests.log",
+      "original_sha256": "798053ed9458a51beaf2349a66455d45008c3d7e54221438049e12d126a6aa8b",
+      "archived_sha256": "8d166de99b61e95752c1a29d134ca32851a8e15794d6c500509e6750932d154f",
+      "bytes": 12199,
+      "transformation": "utf-16 to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/native-tests/ui-tests.log",
+      "original_sha256": "03a66bab72821429cdb57beb33e6c5e2cb2b54f362c3241df87ece7559445046",
+      "archived_sha256": "e867362049110b4137c6285221fb70087cb6f9af968db29e60a2f9bc4d531022",
+      "bytes": 44765,
+      "transformation": "utf-16 to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/preferences.json",
+      "original_sha256": "8440e2c60407aaf942e193a3cd374b3305661b211b4c0667ebdba312db6a914b",
+      "archived_sha256": "868f40cd0720bac795586c50874700f0a12f6c921935549c2e6ced4e63faf095",
+      "bytes": 894,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/receipt.json",
+      "original_sha256": "2a0337348816febbc1af041bbd87c36a8e553fc4ba73754601fc53cbcc5b1d8f",
+      "archived_sha256": "300af3b26fe5a787036595495bb2d8899aba6154e4cbae609a5d5c0cef459139",
+      "bytes": 547,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/sessions.json",
+      "original_sha256": "bde275bfa2cbfccddc79f790e8eba753778a53f406696ccb6f973f429cfd62f5",
+      "archived_sha256": "cb6a686f47310825784a39ac807140d0d83774c6e262b1f742f06b52be5491cb",
+      "bytes": 775,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/setup-outcome.json",
+      "original_sha256": "6a1afad1a69ee1c5472f685a42e5bdbbc688b0bff06ceb3e1386833ac580fcab",
+      "archived_sha256": "316c6525f1a13ede6016daaa410bc125b5cc8fd016a372b33b0893ac7d7c9f47",
+      "bytes": 79,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/ui-final.toml",
+      "original_sha256": "31d10a3a40b4b1f65abd68ef4030e02c357c9c134b70e95d737f306a71ee4e56",
+      "archived_sha256": "31d10a3a40b4b1f65abd68ef4030e02c357c9c134b70e95d737f306a71ee4e56",
+      "bytes": 191,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/ui-identities.json",
+      "original_sha256": "afdec4001b91ef266dddb2442b236d70c884b1a3dfdb9bda27036f95b8469456",
+      "archived_sha256": "3689a524bd21fdf23dbf91f45f2687b65b25981ff52dece80b5f390e6073fd30",
+      "bytes": 395,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/ui-v1-before.toml",
+      "original_sha256": "4303756c350bddb8bc3a0d3ea9fd911e00b6dcc543cfc5fc8fd78dada0ee2983",
+      "archived_sha256": "4303756c350bddb8bc3a0d3ea9fd911e00b6dcc543cfc5fc8fd78dada0ee2983",
+      "bytes": 47,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/work/Copy_A.identity.json",
+      "original_sha256": "70eda9d5a05debd86907f0ef621802f8f22bd6924ea772e501b0420cd7989e69",
+      "archived_sha256": "d381000feab3916ffc59e1644f9d2e3ec578364451e750b70a357e0ac868cc9f",
+      "bytes": 264,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/work/Copy_B.identity.json",
+      "original_sha256": "dad717d71b18b923a53e2bbac4ea5a2f7e75550045869b4b0f3d0ed5b1bd2a81",
+      "archived_sha256": "580060751519a9196c7fbc9dddb77e23f1981853fe764479dfe18a8a81418972",
+      "bytes": 264,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/work/alt-app.ps1",
+      "original_sha256": "70ef6b3518e4f62fde7a665ea24fc3b297059bde7c10a0e41c9bc29da89c652f",
+      "archived_sha256": "1592f1fbf92dd6fe26c1c83bf42bed8e7132006ed6cde7df959622032af9aa1a",
+      "bytes": 512,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "native/work/prompt.ps1",
+      "original_sha256": "1e01a562a51d5c676be73ae28973560464a6e2b8721a35f7227f0c58434a6eaf",
+      "archived_sha256": "f4eecbad2f33ddfaf11fd6108caf98a037608f201ff6f75fd97c9b7e1ac16234",
+      "bytes": 569,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/store-red.log",
+      "original_sha256": "301ece6091f5f3a4880ebc9af8115b26585d2b775e65fd81ffa1abd7f24c9000",
+      "archived_sha256": "301ece6091f5f3a4880ebc9af8115b26585d2b775e65fd81ffa1abd7f24c9000",
+      "bytes": 406,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/store-green.log",
+      "original_sha256": "0831b96678dc11662f4abe4b6d161e5399b2a6b35ab711cea5abf59648f08741",
+      "archived_sha256": "0831b96678dc11662f4abe4b6d161e5399b2a6b35ab711cea5abf59648f08741",
+      "bytes": 69,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/ties-red.log",
+      "original_sha256": "a5ee592e0ea9476811308f0f47ad54d6c9a6968d79f2ab08b532a112134e4f47",
+      "archived_sha256": "a5ee592e0ea9476811308f0f47ad54d6c9a6968d79f2ab08b532a112134e4f47",
+      "bytes": 547,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/ties-green.log",
+      "original_sha256": "161df9ee339c0b19a89fa30155799898ad316d1e0311ba091db6f538c4ab4b25",
+      "archived_sha256": "161df9ee339c0b19a89fa30155799898ad316d1e0311ba091db6f538c4ab4b25",
+      "bytes": 69,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/manager-red.log",
+      "original_sha256": "3b7cf56c92bbab20fa490a5cfd32fdeb96c88c95bfbc2d47a57ef5bbfa62819e",
+      "archived_sha256": "3b7cf56c92bbab20fa490a5cfd32fdeb96c88c95bfbc2d47a57ef5bbfa62819e",
+      "bytes": 345,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/ui-red.log",
+      "original_sha256": "572a8a878daba0492d2f8844725559cebbf34bd6e1cf15e281878c02ca220cf1",
+      "archived_sha256": "572a8a878daba0492d2f8844725559cebbf34bd6e1cf15e281878c02ca220cf1",
+      "bytes": 261,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/ui-behavior-red.log",
+      "original_sha256": "ec666ba4efcda7f27b51a27dfb607bc6c21464df38ad28109b2a5b48811820e8",
+      "archived_sha256": "ec666ba4efcda7f27b51a27dfb607bc6c21464df38ad28109b2a5b48811820e8",
+      "bytes": 7582,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/vertical-green.log",
+      "original_sha256": "a938eebaf694f06f215cc5a528ab521a5c82716dd748e82203b44b7f5b0d4938",
+      "archived_sha256": "a938eebaf694f06f215cc5a528ab521a5c82716dd748e82203b44b7f5b0d4938",
+      "bytes": 206,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/failure-red.log",
+      "original_sha256": "d894cbc2ce7115b1f7ff1b3e8eec792bae9c49f098d4a7e0dc6794213e42f207",
+      "archived_sha256": "d894cbc2ce7115b1f7ff1b3e8eec792bae9c49f098d4a7e0dc6794213e42f207",
+      "bytes": 253,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/failure-green.log",
+      "original_sha256": "f9e57df70700cc238d4f488f8abf19856969d5a025d4aa1f10b55cdf149b1c66",
+      "archived_sha256": "f9e57df70700cc238d4f488f8abf19856969d5a025d4aa1f10b55cdf149b1c66",
+      "bytes": 66,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/quit-red.log",
+      "original_sha256": "94cb9beac3a4236585337fe1a44ffccdf8b629ab3cbcd49b8dea456dc15f2c52",
+      "archived_sha256": "94cb9beac3a4236585337fe1a44ffccdf8b629ab3cbcd49b8dea456dc15f2c52",
+      "bytes": 444,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/quit-green.log",
+      "original_sha256": "dd09006abdc1f1ce9b15bc229dcc27e0d0d39ff6afb830a73227d60f353ec491",
+      "archived_sha256": "dd09006abdc1f1ce9b15bc229dcc27e0d0d39ff6afb830a73227d60f353ec491",
+      "bytes": 66,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/order-regression.log",
+      "original_sha256": "a2e890fb775bf13b0ee05d4e91d017e0eab694ce8aaf3f02e7d4a444e38dcd0f",
+      "archived_sha256": "a2e890fb775bf13b0ee05d4e91d017e0eab694ce8aaf3f02e7d4a444e38dcd0f",
+      "bytes": 1443,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/order-regression-final.log",
+      "original_sha256": "22a7831368df15b5dac16a00011d3f70dd24eb67a5fa2ea5fa4e8911f513283e",
+      "archived_sha256": "22a7831368df15b5dac16a00011d3f70dd24eb67a5fa2ea5fa4e8911f513283e",
+      "bytes": 4055,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/order-final.log",
+      "original_sha256": "46a3eceb78c1e0e41823a67af2a0c85f6e20c4d1e1f85f934699d9ba7a2842e0",
+      "archived_sha256": "46a3eceb78c1e0e41823a67af2a0c85f6e20c4d1e1f85f934699d9ba7a2842e0",
+      "bytes": 206,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/go-test.log",
+      "original_sha256": "fbeb4fc8815f8ad8f87b8ef664f9839d46a8513d23e8a6ae23ef9052dd7bf1a3",
+      "archived_sha256": "fbeb4fc8815f8ad8f87b8ef664f9839d46a8513d23e8a6ae23ef9052dd7bf1a3",
+      "bytes": 707,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/go-race.log",
+      "original_sha256": "c0ddcc5ef838f13c90a34097e05f9cf2f7355a28494842c86d2f35375b9b2700",
+      "archived_sha256": "c0ddcc5ef838f13c90a34097e05f9cf2f7355a28494842c86d2f35375b9b2700",
+      "bytes": 708,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/go-vet.log",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/go-mod-verify.log",
+      "original_sha256": "b4537ed75f533f993f371954de47e42a793b8e5b0587577de7e27fb3e50696bd",
+      "archived_sha256": "b4537ed75f533f993f371954de47e42a793b8e5b0587577de7e27fb3e50696bd",
+      "bytes": 21,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/catalog-check.log",
+      "original_sha256": "cdec900bd74cfee5510513fc5f909ef9c985ba8dce1f94feee309dd2ffc03197",
+      "archived_sha256": "cdec900bd74cfee5510513fc5f909ef9c985ba8dce1f94feee309dd2ffc03197",
+      "bytes": 257,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/source-limits.log",
+      "original_sha256": "cd968af2e2a36b7b2224a66edf651b2396cbf82f744ea46ef87b96920d88366d",
+      "archived_sha256": "cd968af2e2a36b7b2224a66edf651b2396cbf82f744ea46ef87b96920d88366d",
+      "bytes": 47,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/product-build-info.txt",
+      "original_sha256": "d30590039ecfc13bdf87c01b63371596b122dc3d21603136ceced0ee7b311654",
+      "archived_sha256": "d30590039ecfc13bdf87c01b63371596b122dc3d21603136ceced0ee7b311654",
+      "bytes": 2944,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/upstream-reference.log",
+      "original_sha256": "f641821e5b9c47ddd88e50c945a689c1d0d9a1cb760fabfe2e3e4451572c3832",
+      "archived_sha256": "f641821e5b9c47ddd88e50c945a689c1d0d9a1cb760fabfe2e3e4451572c3832",
+      "bytes": 65,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/upstream-source.json",
+      "original_sha256": "c6b31e2354e8a8f5c5c4f1813ff645a60f23aa9a8c283e87031f75ea2f392876",
+      "archived_sha256": "c6b31e2354e8a8f5c5c4f1813ff645a60f23aa9a8c283e87031f75ea2f392876",
+      "bytes": 660,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/source-fingerprints.json",
+      "original_sha256": "c45c22a65e7d0c11400659dc92033c9bdc2c6321443d4b553b7de2ce42b4cc9f",
+      "archived_sha256": "c45c22a65e7d0c11400659dc92033c9bdc2c6321443d4b553b7de2ce42b4cc9f",
+      "bytes": 19396,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/binary-hashes.json",
+      "original_sha256": "1cc29ca0f268328ffcc18d23afaa09a55f525ae6acaf9c27bf6981a102e81fd3",
+      "archived_sha256": "1cc29ca0f268328ffcc18d23afaa09a55f525ae6acaf9c27bf6981a102e81fd3",
+      "bytes": 380,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/upstream-order-snapshots.json",
+      "original_sha256": "7d68c03a0b5f95fc76d67f1319013a0d6ee35e8c1d46927ad933aef99642c37e",
+      "archived_sha256": "7d68c03a0b5f95fc76d67f1319013a0d6ee35e8c1d46927ad933aef99642c37e",
+      "bytes": 1557,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/upstream-order-reference_test.go.txt",
+      "original_sha256": "b113e5596fc0f610af686b5f8379328c4ce8e908039005cd8f00448784ab2200",
+      "archived_sha256": "b113e5596fc0f610af686b5f8379328c4ce8e908039005cd8f00448784ab2200",
+      "bytes": 1117,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/upstream-order-overlay.json",
+      "original_sha256": "036ce186bc2f61afb62f5374f38cdb215b41a42ba741b39fdd6bd9a5ef9903c0",
+      "archived_sha256": "036ce186bc2f61afb62f5374f38cdb215b41a42ba741b39fdd6bd9a5ef9903c0",
+      "bytes": 145406,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/upstream-unused-tests.go.txt",
+      "original_sha256": "92c3713b459f197f75045f660391ead5dae2493e3f44f09a82e33854025b790e",
+      "archived_sha256": "92c3713b459f197f75045f660391ead5dae2493e3f44f09a82e33854025b790e",
+      "bytes": 16,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/upstream-reference-main.go.txt",
+      "original_sha256": "72787004f150f5286b09372da1c67afed39cd58c42db10aba36a7b498b74d270",
+      "archived_sha256": "72787004f150f5286b09372da1c67afed39cd58c42db10aba36a7b498b74d270",
+      "bytes": 85,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/native-run.log",
+      "original_sha256": "7489b318046ca5d568917a876605f4ed8d1f9e3d68462125ba7ff3671170a15e",
+      "archived_sha256": "f9d3d2df43648191abdac1ee2ea11de16664661fe267c1e3121d10daef30479b",
+      "bytes": 1497,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/run-group-order-tests.ps1",
+      "original_sha256": "35ee2ed56acbd9e9689585f271ac36df050eb30a1decd2312f8df16773ec9daf",
+      "archived_sha256": "35ee2ed56acbd9e9689585f271ac36df050eb30a1decd2312f8df16773ec9daf",
+      "bytes": 3397,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/setup-group-order-desktop.ps1",
+      "original_sha256": "ec97f7e439bb294022d070874f53a5de67f14eb57023ed398e25636e6fcc7ae3",
+      "archived_sha256": "ec97f7e439bb294022d070874f53a5de67f14eb57023ed398e25636e6fcc7ae3",
+      "bytes": 5503,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/start-group-order-setup.ps1",
+      "original_sha256": "0d9f9c73ccb1e3f499c2ad235e92d1e3e16cf7ef832bde537b7789a72eff35d5",
+      "archived_sha256": "0d9f9c73ccb1e3f499c2ad235e92d1e3e16cf7ef832bde537b7789a72eff35d5",
+      "bytes": 2091,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/start-group-order-desktop.ps1",
+      "original_sha256": "e445798150afdb6173fd7d83035a06ee501ff80e249576498911e44aa78ec049",
+      "archived_sha256": "e445798150afdb6173fd7d83035a06ee501ff80e249576498911e44aa78ec049",
+      "bytes": 942,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/group-order-desktop-driver.ps1",
+      "original_sha256": "91932f6788d9ecf27779cc74eea45851bb12c51f5fb847c49b43c4bce7bfe7d6",
+      "archived_sha256": "91932f6788d9ecf27779cc74eea45851bb12c51f5fb847c49b43c4bce7bfe7d6",
+      "bytes": 15533,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/group-order-flow-first.ps1",
+      "original_sha256": "9b10ac8edec6da5e4073092e2584963ab22c10fd045302035ed4ada6d631688a",
+      "archived_sha256": "9b10ac8edec6da5e4073092e2584963ab22c10fd045302035ed4ada6d631688a",
+      "bytes": 19755,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/group-order-flow-fixed.ps1",
+      "original_sha256": "8ce3416324985aa0b2cb6f708f64f7a79e322e92f8776d1b574fa2275e4283c4",
+      "archived_sha256": "8ce3416324985aa0b2cb6f708f64f7a79e322e92f8776d1b574fa2275e4283c4",
+      "bytes": 20134,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/group-order-flow-resume.ps1",
+      "original_sha256": "24eea91c35571d857ea3cd1bca90894d3dbdc1c400dba2fb201a13aba68a3959",
+      "archived_sha256": "24eea91c35571d857ea3cd1bca90894d3dbdc1c400dba2fb201a13aba68a3959",
+      "bytes": 20449,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/inspect-group-order.ps1",
+      "original_sha256": "c6a1f18c5295466db0143ea353f518daea2b5e0de53fff40e879cc9ded4df8e7",
+      "archived_sha256": "c6a1f18c5295466db0143ea353f518daea2b5e0de53fff40e879cc9ded4df8e7",
+      "bytes": 831,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/inspect-after-wait-failure.json",
+      "original_sha256": "20ac9976148db761207e9b8e3d2401cc5a9d17aaaa5c39f581e925409d49f3a9",
+      "archived_sha256": "3c6ecfe4207a9673b2a214a8855bef94b03ecdf27e6e526ec1f23bc745bbdc54",
+      "bytes": 14527,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/preflight-group-order.ps1",
+      "original_sha256": "5214682c00289267a4e36f9077faeeac93236f5002d7865bd423acd8e42f4c57",
+      "archived_sha256": "5214682c00289267a4e36f9077faeeac93236f5002d7865bd423acd8e42f4c57",
+      "bytes": 1222,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/desktop-preflight.log",
+      "original_sha256": "388919d786add8dcb59c6ae091ec2ae809b04aa091939c70159199f2249c4776",
+      "archived_sha256": "c92a051f5a392660750edabf3dda3630ab17dec63cc1fb0010bcb0dad881f5ed",
+      "bytes": 310,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/desktop-setup.log",
+      "original_sha256": "481b4bcfb826b32b50085c6cfdda4d1563b0e3403c3f89b09710bec73c52c226",
+      "archived_sha256": "d502d9c0b9ecdfc678bd0d355c21f4b3855b574c96126f83e6b8e4248c6e659f",
+      "bytes": 80,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/desktop-start.log",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/desktop-flow.log",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/desktop-resume.log",
+      "original_sha256": "75af9268f146d2ff825661c6792b334918aa5af2ccb93f08533447006dcb9536",
+      "archived_sha256": "499279817f7fc07dba33ed40bec0aa920e2fdb37e6a136e9155022d3d7662cfc",
+      "bytes": 10240,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/cleanup-export-group-order.ps1",
+      "original_sha256": "aa8e19dca0ffaed5b9e769e6ea2a34b2770a7a704d6bf77d531b70c97fce2ea8",
+      "archived_sha256": "aa8e19dca0ffaed5b9e769e6ea2a34b2770a7a704d6bf77d531b70c97fce2ea8",
+      "bytes": 6756,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/cleanup-export.log",
+      "original_sha256": "1d2389179b37b2c2be8c450f374276c0ef331383c582e070f6ece0a51ef43ca0",
+      "archived_sha256": "2c2603d94882bf9f5a7dc915e72a02262f19b1329a231d148a17cecacc057764",
+      "bytes": 309,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/archive-group-order.py",
+      "original_sha256": "fb45a8bb3261e2d561aaf60f1224e554c9dae790e4a908b31b4895900141c012",
+      "archived_sha256": "e66c977ea03662b3a9f91432d4833e05c648f29081352019c2fa9f46fd9ac85c",
+      "bytes": 3905,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/verify-group-order.py",
+      "original_sha256": "2bf58ef1f40fbfbd02faf5049bf5e19356ce59431128c9da5d8aad3c77ccfa7b",
+      "archived_sha256": "2bf58ef1f40fbfbd02faf5049bf5e19356ce59431128c9da5d8aad3c77ccfa7b",
+      "bytes": 10856,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/verify-group-order-first.py",
+      "original_sha256": "0418a2a7b0a1ebf59dbdc48f6117054053c212edda08da6c749d47f6f4bb8a8f",
+      "archived_sha256": "0418a2a7b0a1ebf59dbdc48f6117054053c212edda08da6c749d47f6f4bb8a8f",
+      "bytes": 10588,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/verification-first-failure.json",
+      "original_sha256": "a0d4cd55d07566bc4d5278bcf13343f7189866bac9d6dc1e739a42f984e2b717",
+      "archived_sha256": "a0d4cd55d07566bc4d5278bcf13343f7189866bac9d6dc1e739a42f984e2b717",
+      "bytes": 391,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    },
+    {
+      "path": "local/reference.sb",
+      "original_sha256": "eed96355da364343656cf061c66d6bec5af771454522d7fae4ba8f41bb4d386a",
+      "archived_sha256": "2b2f3e9bdad8a7bed8c4fda3f44cabeee7dd8101bfbccaa413a188acc81e214a",
+      "bytes": 244,
+      "transformation": "utf-8-sig to UTF-8/LF; known local/test usernames and paths redacted"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+=== RUN   TestGroupOrderNeedsNoTerminalAndKeepsTheOriginalSiblingIdentities
+--- PASS: TestGroupOrderNeedsNoTerminalAndKeepsTheOriginalSiblingIdentities (0.04s)
+=== RUN   TestGroupRenameNeedsNoTerminalAndKeepsOriginalTree
+--- PASS: TestGroupRenameNeedsNoTerminalAndKeepsOriginalTree (0.03s)
+=== RUN   TestWorkspaceGroupMovePersistsWithoutTerminalMutation
+--- PASS: TestWorkspaceGroupMovePersistsWithoutTerminalMutation (0.06s)
+=== RUN   TestGroupedLaunchValidatesBeforeStartAndCommitsRunWithMembership
+--- PASS: TestGroupedLaunchValidatesBeforeStartAndCommitsRunWithMembership (0.05s)
+=== RUN   TestGroupedLaunchMetadataFailureRollsBackRunAndNeverRetriesOrStopsTheTerminal
+--- PASS: TestGroupedLaunchMetadataFailureRollsBackRunAndNeverRetriesOrStopsTheTerminal (0.04s)
+=== RUN   TestStartPersistsBeforeReportingSuccess
+--- PASS: TestStartPersistsBeforeReportingSuccess (0.03s)
+=== RUN   TestMetadataFailureBeforeAndAfterExternalStartIsExplicit
+=== RUN   TestMetadataFailureBeforeAndAfterExternalStartIsExplicit/false
+=== RUN   TestMetadataFailureBeforeAndAfterExternalStartIsExplicit/true
+--- PASS: TestMetadataFailureBeforeAndAfterExternalStartIsExplicit (0.03s)
+    --- PASS: TestMetadataFailureBeforeAndAfterExternalStartIsExplicit/false (0.02s)
+    --- PASS: TestMetadataFailureBeforeAndAfterExternalStartIsExplicit/true (0.02s)
+=== RUN   TestDiscoveryPersistsWithoutResolvingDisconnectOrMissingRun
+--- PASS: TestDiscoveryPersistsWithoutResolvingDisconnectOrMissingRun (0.03s)
+=== RUN   TestPaneExitObservationSurvivesMissingBackendWithoutClaimingAgentOutcome
+--- PASS: TestPaneExitObservationSurvivesMissingBackendWithoutClaimingAgentOutcome (0.04s)
+=== RUN   TestHistoryDoesNotNeedTerminalAndRetainsMetadataSemantics
+--- PASS: TestHistoryDoesNotNeedTerminalAndRetainsMetadataSemantics (0.03s)
+=== RUN   TestExplicitOutputCaptureUsesBackendAndPersistenceWithoutControlEffects
+--- PASS: TestExplicitOutputCaptureUsesBackendAndPersistenceWithoutControlEffects (0.04s)
+=== RUN   TestRenameRejectsStaleRevisionEvenAfterNameReturnsToOriginal
+--- PASS: TestRenameRejectsStaleRevisionEvenAfterNameReturnsToOriginal (0.04s)
+=== RUN   TestRenamePersistsDisplayNameWithoutChangingBackendRun
+--- PASS: TestRenamePersistsDisplayNameWithoutChangingBackendRun (0.04s)
+=== RUN   TestRenameRefusesTargetNoLongerDiscovered
+--- PASS: TestRenameRefusesTargetNoLongerDiscovered (0.03s)
+=== RUN   TestOpenTerminalForwardsStableRunWithoutStartingOrStopping
+--- PASS: TestOpenTerminalForwardsStableRunWithoutStartingOrStopping (0.00s)
+PASS

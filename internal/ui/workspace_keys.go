@@ -38,6 +38,13 @@ func (m *Model) workspaceKey(msg tea.KeyPressMsg) tea.Cmd {
 	if w.focused && len(w.tabs) > 0 {
 		return m.workspaceTerminalKey(msg)
 	}
+	if m.groupOrder != nil {
+		switch msg.String() {
+		case "shift+up", "ctrl+up", "+", "K", "shift+down", "ctrl+down", "-", "J", "g", "M", "r", "n", "a", "h", "?", "S":
+			m.status = "管理模式 · 正在保存分组顺序；完成后可继续操作"
+			return nil
+		}
+	}
 	if cmd, handled := m.sidebarNavigationKey(msg); handled {
 		return cmd
 	}
@@ -45,6 +52,10 @@ func (m *Model) workspaceKey(msg tea.KeyPressMsg) tea.Cmd {
 		return cmd
 	}
 	switch msg.String() {
+	case "shift+up", "ctrl+up", "+", "K":
+		return m.reorderSelectedGroup(-1)
+	case "shift+down", "ctrl+down", "-", "J":
+		return m.reorderSelectedGroup(1)
 	case "/":
 		return m.navigateWorkspace(workspaceSearch)
 	case "v":
@@ -65,6 +76,11 @@ func (m *Model) workspaceKey(msg tea.KeyPressMsg) tea.Cmd {
 		}
 		return nil
 	case "q", "ctrl+c":
+		if m.groupOrder != nil {
+			m.groupOrder.quitting = true
+			m.status = "管理模式 · 正在保存分组顺序后退出…"
+			return nil
+		}
 		if m.preferences.busy {
 			w.transition = workspaceQuit
 			m.status = "管理模式 · 正在保存已选择的侧栏偏好后退出…"
