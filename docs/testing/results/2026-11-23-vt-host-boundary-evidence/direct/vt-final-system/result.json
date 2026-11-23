@@ -1,0 +1,55 @@
+{
+    "before_attach_seed":  true,
+    "input_method":  "hex",
+    "utf8_input":  false,
+    "normal_input":  {
+                         "mode_available":  true,
+                         "input_mode":  503,
+                         "units":  [
+                                       65,
+                                       76,
+                                       84,
+                                       36755,
+                                       20837,
+                                       0
+                                   ],
+                         "input_codepage":  936,
+                         "text":  "ALT输入\u0000"
+                     },
+    "namespace":  "asd-vt-a56cd7983757",
+    "original_ended":  true,
+    "session":  "vt-e69050d4bb8f4f75bd9d9e4930c1635b",
+    "sdk_requested":  false,
+    "case":  "vt-final-system",
+    "alt_input":  {
+                      "columns":  61,
+                      "units":  [
+                                    65,
+                                    76,
+                                    84,
+                                    36755,
+                                    20837,
+                                    0
+                                ],
+                      "input_mode":  503,
+                      "rows":  18,
+                      "mode_available":  true,
+                      "text":  "ALT输入\u0000",
+                      "input_codepage":  936
+                  },
+    "result":  "observed-incomplete",
+    "alt_input_exact":  false,
+    "utc":  "2026-11-22T23:55:01.2277092Z",
+    "normal_input_exact":  false,
+    "host_files":  [
+
+                   ],
+    "backend_sha256":  "ca9753a059a6926bb5ad1d9fee81513507a6133d3efa5eefcf2423e33f348937",
+    "identity":  {
+                     "filetime":  134398653013156613,
+                     "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                     "pid":  20060
+                 },
+    "resize":  true,
+    "history_complete":  false
+}

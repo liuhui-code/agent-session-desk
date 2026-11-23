@@ -1,0 +1,240 @@
+{
+    "scope":  "Only enumerated owned synthetic probes; no global image-name cleanup",
+    "utc":  "2026-11-23T00:05:19.6330840Z",
+    "cases":  [
+                  {
+                      "case":  "vt-boundary-candidate-system1",
+                      "identities":  [
+                                         {
+                                             "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                             "pid":  19152,
+                                             "filetime":  134398643433165328,
+                                             "original_ended":  true
+                                         }
+                                     ],
+                      "result_present":  true,
+                      "private_registry_live_originals":  0
+                  },
+                  {
+                      "case":  "vt-boundary-candidate-system2",
+                      "identities":  [
+                                         {
+                                             "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                             "pid":  9296,
+                                             "filetime":  134398643468763581,
+                                             "original_ended":  true
+                                         }
+                                     ],
+                      "result_present":  true,
+                      "private_registry_live_originals":  0
+                  },
+                  {
+                      "case":  "vt-boundary-candidate-paste",
+                      "identities":  [
+                                         {
+                                             "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                             "pid":  11236,
+                                             "filetime":  134398646492006477,
+                                             "original_ended":  true
+                                         }
+                                     ],
+                      "result_present":  true,
+                      "private_registry_live_originals":  0
+                  },
+                  {
+                      "case":  "vt-boundary-candidate-utf8",
+                      "identities":  [
+                                         {
+                                             "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                             "pid":  468,
+                                             "filetime":  134398646524574576,
+                                             "original_ended":  true
+                                         }
+                                     ],
+                      "result_present":  true,
+                      "private_registry_live_originals":  0
+                  },
+                  {
+                      "case":  "vt-boundary-candidate-noresize",
+                      "identities":  [
+                                         {
+                                             "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                             "pid":  10636,
+                                             "filetime":  134398646558587213,
+                                             "original_ended":  true
+                                         }
+                                     ],
+                      "result_present":  true,
+                      "private_registry_live_originals":  0
+                  },
+                  {
+                      "case":  "vt-boundary-candidate-sdk",
+                      "identities":  [
+
+                                     ],
+                      "result_present":  false,
+                      "private_registry_live_originals":  0
+                  },
+                  {
+                      "case":  "vt-boundary-candidate-sdk2",
+                      "identities":  [
+                                         {
+                                             "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                             "pid":  984,
+                                             "filetime":  134398646591540922,
+                                             "original_ended":  true
+                                         }
+                                     ],
+                      "result_present":  true,
+                      "private_registry_live_originals":  0
+                  },
+                  {
+                      "case":  "vt-boundary-candidate-sdk3",
+                      "identities":  [
+                                         {
+                                             "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                             "pid":  6132,
+                                             "filetime":  134398648420488299,
+                                             "original_ended":  true
+                                         }
+                                     ],
+                      "result_present":  true,
+                      "private_registry_live_originals":  0
+                  },
+                  {
+                      "case":  "vt-boundary-official-system",
+                      "identities":  [
+                                         {
+                                             "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                             "pid":  12528,
+                                             "filetime":  134398648467446225,
+                                             "original_ended":  true
+                                         }
+                                     ],
+                      "result_present":  true,
+                      "private_registry_live_originals":  0
+                  },
+                  {
+                      "case":  "vt-boundary-candidate-sdk4",
+                      "identities":  [
+                                         {
+                                             "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                             "pid":  16408,
+                                             "filetime":  134398649909168254,
+                                             "original_ended":  true
+                                         }
+                                     ],
+                      "result_present":  true,
+                      "private_registry_live_originals":  0
+                  },
+                  {
+                      "case":  "vt-boundary-official-sdk",
+                      "identities":  [
+                                         {
+                                             "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                             "pid":  6120,
+                                             "filetime":  134398649955924357,
+                                             "original_ended":  true
+                                         }
+                                     ],
+                      "result_present":  true,
+                      "private_registry_live_originals":  0
+                  },
+                  {
+                      "case":  "vt-boundary-official-sdk-detached",
+                      "identities":  [
+                                         {
+                                             "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                             "pid":  16320,
+                                             "filetime":  134398650003364727,
+                                             "original_ended":  true
+                                         }
+                                     ],
+                      "result_present":  true,
+                      "private_registry_live_originals":  0
+                  },
+                  {
+                      "case":  "vt-boundary-candidate-sdk-detached",
+                      "identities":  [
+                                         {
+                                             "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                             "pid":  1756,
+                                             "filetime":  134398650032437081,
+                                             "original_ended":  true
+                                         }
+                                     ],
+                      "result_present":  true,
+                      "private_registry_live_originals":  0
+                  },
+                  {
+                      "case":  "vt-final-system",
+                      "identities":  [
+                                         {
+                                             "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                             "pid":  20060,
+                                             "filetime":  134398653013156613,
+                                             "original_ended":  true
+                                         }
+                                     ],
+                      "result_present":  true,
+                      "private_registry_live_originals":  0
+                  },
+                  {
+                      "case":  "vt-final-sdk",
+                      "identities":  [
+                                         {
+                                             "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                             "pid":  17880,
+                                             "filetime":  134398653551496406,
+                                             "original_ended":  true
+                                         }
+                                     ],
+                      "result_present":  true,
+                      "private_registry_live_originals":  0
+                  },
+                  {
+                      "case":  "vt-final-sdk2",
+                      "identities":  [
+                                         {
+                                             "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                             "pid":  9884,
+                                             "filetime":  134398655657080020,
+                                             "original_ended":  true
+                                         },
+                                         {
+                                             "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\history-backend-candidate\\psmux.exe",
+                                             "pid":  12376,
+                                             "filetime":  134398655656443816,
+                                             "original_ended":  true
+                                         }
+                                     ],
+                      "result_present":  true,
+                      "private_registry_live_originals":  0
+                  },
+                  {
+                      "case":  "vt-final-sdk3",
+                      "identities":  [
+                                         {
+                                             "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                             "pid":  11144,
+                                             "filetime":  134398657003286896,
+                                             "original_ended":  true
+                                         },
+                                         {
+                                             "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\history-backend-candidate\\psmux.exe",
+                                             "pid":  17588,
+                                             "filetime":  134398657002647770,
+                                             "original_ended":  true
+                                         },
+                                         {
+                                             "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\f6-reader-20261123\\candidate-native\\OpenConsole.exe",
+                                             "pid":  17532,
+                                             "filetime":  134398657003232167,
+                                             "original_ended":  true
+                                         }
+                                     ],
+                      "result_present":  true,
+                      "private_registry_live_originals":  0
+                  }
+              ]
+}

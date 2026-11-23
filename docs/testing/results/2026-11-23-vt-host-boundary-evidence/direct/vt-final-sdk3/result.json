@@ -1,0 +1,96 @@
+{
+  "normal_input": {
+    "mode_available": true,
+    "input_codepage": 936,
+    "text": "ALT输入α",
+    "input_mode": 503,
+    "units": [
+      65,
+      76,
+      84,
+      36755,
+      20837,
+      945
+    ]
+  },
+  "result": "complete-in-probe",
+  "sdk_host_candidates": [
+    {
+      "pid": 15564,
+      "path": "C:\\Windows\\system32\\conhost.exe",
+      "name": "conhost.exe",
+      "parent_pid": 17588
+    },
+    {
+      "pid": 17532,
+      "path": "\\\\?\\C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\f6-reader-20261123\\candidate-native\\OpenConsole.exe",
+      "name": "OpenConsole.exe",
+      "parent_pid": 17588
+    },
+    {
+      "pid": 11144,
+      "path": "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+      "name": "pwsh.exe",
+      "parent_pid": 17588
+    }
+  ],
+  "resize": true,
+  "server_identity": {
+    "filetime": 134398657002647770,
+    "pid": 17588,
+    "path": "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\history-backend-candidate\\psmux.exe"
+  },
+  "utc": "2026-11-23T00:01:40.2453191Z",
+  "loaded_sdk_host": {
+    "filetime": 134398657003232167,
+    "pid": 17532,
+    "path": "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\f6-reader-20261123\\candidate-native\\OpenConsole.exe",
+    "parent_pid": 17588
+  },
+  "alt_input": {
+    "input_mode": 503,
+    "rows": 18,
+    "columns": 61,
+    "input_codepage": 936,
+    "units": [
+      65,
+      76,
+      84,
+      36755,
+      20837,
+      945
+    ],
+    "mode_available": true,
+    "text": "ALT输入α"
+  },
+  "sdk_requested": true,
+  "loaded_sdk_module": "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\f6-reader-20261123\\candidate-native\\conpty.dll",
+  "history_complete": true,
+  "namespace": "asd-vt-43dad42accbe",
+  "backend_sha256": "ca9753a059a6926bb5ad1d9fee81513507a6133d3efa5eefcf2423e33f348937",
+  "case": "vt-final-sdk3",
+  "utf8_input": false,
+  "input_method": "hex",
+  "identity": {
+    "filetime": 134398657003286896,
+    "path": "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+    "pid": 11144
+  },
+  "session": "vt-4fc444dd4b4b4aa59df6103cd0b9e4d9",
+  "original_ended": true,
+  "normal_input_exact": true,
+  "host_files": [
+    {
+      "signer": "CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+      "path": "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\f6-reader-20261123\\candidate-native\\conpty.dll",
+      "sha256": "e971856f89748dc3b458125e9afdd79b5e9574a7c937676116d3cbbd3b71f492"
+    },
+    {
+      "signer": "CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US",
+      "path": "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\f6-reader-20261123\\candidate-native\\OpenConsole.exe",
+      "sha256": "b17e48b07ef153b420f0a6e178bacd31fb4c3390e21ae746586213fc0719a775"
+    }
+  ],
+  "before_attach_seed": true,
+  "alt_input_exact": true
+}

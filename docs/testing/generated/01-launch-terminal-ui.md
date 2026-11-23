@@ -1159,9 +1159,9 @@
 
 **ASCII、中文及组合字符输入保真**
 
-- 功能：[FL-002](../COVERAGE.md#fl-002)、[FL-016](../COVERAGE.md#fl-016)
+- 功能：[FL-002](../COVERAGE.md#fl-002)、[FL-016](../COVERAGE.md#fl-016)、[FL-018](../COVERAGE.md#fl-018)
 - 需求：[FR-02](../COVERAGE.md#fr-02)、[FR-11](../COVERAGE.md#fr-11)
-- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0014](../../adr/0014-upstream-ui-tabs-and-general-terminals.md)、[ADR-0015](../../adr/0015-pinned-psmux-native-terminal-client.md)、[ADR-0016](../../adr/0016-tab-workspaces-and-input-ownership.md)
 - 优先级 / 阶段 / 层次：P0 / M0 / windows_e2e
 - 类型：compatibility、boundary
 - 设计 / 执行：`designed / not_run`
@@ -1179,11 +1179,13 @@
 
 1. 在 echo 目标中依次输入参数矩阵文本并提交。
 2. 按定义的提交边界比较实际文本码点、字符顺序和回显。
+3. 分别使用终端字面输入与粘贴向独立 Console.ReadLine／原始键读取器发送 ALT输入α；在普通主屏和受控 alternate screen 比较 UTF-16 码元，同时记录实际宿主、输入模式和代码页，不把回显相似当作收件正确。
 
 #### 预期与不变量
 
 - 正文无乱码、重复、丢字或意外规范化；提交动作不混入正文。
 - 管理器预览中的宽度截断不改变真实 agent 收到的输入。
+- 末字 α 必须为码元 945，不能被 NUL、替换字符或其他字符取代；改代码页或只验证 PSReadLine 不代替目标读取方式的验收。
 
 #### 需要的证据
 
@@ -1470,9 +1472,9 @@
 
 **alternate screen 进入退出与历史区分**
 
-- 功能：[FL-002](../COVERAGE.md#fl-002)、[FL-016](../COVERAGE.md#fl-016)
+- 功能：[FL-002](../COVERAGE.md#fl-002)、[FL-016](../COVERAGE.md#fl-016)、[FL-018](../COVERAGE.md#fl-018)
 - 需求：[FR-02](../COVERAGE.md#fr-02)、[FR-11](../COVERAGE.md#fr-11)
-- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0014](../../adr/0014-upstream-ui-tabs-and-general-terminals.md)、[ADR-0015](../../adr/0015-pinned-psmux-native-terminal-client.md)、[ADR-0016](../../adr/0016-tab-workspaces-and-input-ownership.md)
 - 优先级 / 阶段 / 层次：P1 / M0 / windows_e2e
 - 类型：state、compatibility
 - 设计 / 执行：`designed / not_run`
@@ -1490,11 +1492,14 @@
 
 1. FX-VT 先输出主屏标记，再进入 alternate screen 绘制表格并退出。
 2. 在两个屏幕状态分别切回管理预览，再重新 attach。
+3. 主屏输出 40 条短编号后进入 alternate screen，在 94×25→61×18 缩放后返回，分别核对实时 capture、独立收件及子程序报告尺寸，并与不缩放对照。
 
 #### 预期与不变量
 
 - 活动屏幕状态正确；退出 alternate screen 后恢复对应主屏内容，不混合两套画面。
 - 保存/预览记录标识其实际来源，不把全屏重绘误当作完整聊天历史。
+- 未达到历史限额时编号 1–40 无缺失或重复；已知缺行后的视图／管理器重开仅证明残存状态保留，不能提升为完整历史通过。
+- 固定后端的 alternate_screen 启发式提示不单独作为真实模式证据；记录受控 VT、原进程身份和独立观测。
 
 #### 需要的证据
 

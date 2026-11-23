@@ -1,0 +1,197 @@
+{
+    "input_method":  "paste",
+    "utf8_input":  false,
+    "normal_input":  {
+                         "input_mode":  503,
+                         "mode_available":  true,
+                         "text":  "ALT输入\u0000",
+                         "units":  [
+                                       65,
+                                       76,
+                                       84,
+                                       36755,
+                                       20837,
+                                       0
+                                   ],
+                         "input_codepage":  936
+                     },
+    "namespace":  "asd-vt-5539cc353312",
+    "original_ended":  true,
+    "session":  "vt-f954f093041c4ff1be9d2375017797c0",
+    "sdk_requested":  false,
+    "case":  "candidate-paste",
+    "alt_input":  {
+                      "mode_available":  true,
+                      "text":  "ALT输入\u0000",
+                      "input_codepage":  936,
+                      "rows":  18,
+                      "input_mode":  503,
+                      "units":  [
+                                    65,
+                                    76,
+                                    84,
+                                    36755,
+                                    20837,
+                                    0
+                                ],
+                      "columns":  61
+                  },
+    "result":  "observed-incomplete",
+    "alt_input_exact":  false,
+    "utc":  "2026-11-22T23:44:09.1183080Z",
+    "normal_input_exact":  false,
+    "host_files":  [
+
+                   ],
+    "official":  false,
+    "backend_sha256":  "ca9753a059a6926bb5ad1d9fee81513507a6133d3efa5eefcf2423e33f348937",
+    "identity":  {
+                     "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                     "filetime":  134398646492006477,
+                     "pid":  11236
+                 },
+    "resize":  true,
+    "history_complete":  false
+}
+{
+    "input_method":  "hex",
+    "utf8_input":  true,
+    "normal_input":  {
+                         "text":  "ALT@@\u0000",
+                         "units":  [
+                                       65,
+                                       76,
+                                       84,
+                                       64,
+                                       64,
+                                       0
+                                   ],
+                         "input_codepage":  65001,
+                         "input_mode":  503,
+                         "mode_available":  true
+                     },
+    "namespace":  "asd-vt-42b7a6fedb88",
+    "original_ended":  true,
+    "session":  "vt-35dc101db3ae4870a227e176a0cc9073",
+    "sdk_requested":  false,
+    "case":  "candidate-utf8",
+    "alt_input":  {
+                      "input_mode":  503,
+                      "columns":  61,
+                      "rows":  18,
+                      "input_codepage":  65001,
+                      "text":  "ALT��\u0000",
+                      "units":  [
+                                    65,
+                                    76,
+                                    84,
+                                    65533,
+                                    65533,
+                                    0
+                                ],
+                      "mode_available":  true
+                  },
+    "result":  "observed-incomplete",
+    "alt_input_exact":  false,
+    "utc":  "2026-11-22T23:44:12.3797258Z",
+    "normal_input_exact":  false,
+    "host_files":  [
+
+                   ],
+    "official":  false,
+    "backend_sha256":  "ca9753a059a6926bb5ad1d9fee81513507a6133d3efa5eefcf2423e33f348937",
+    "identity":  {
+                     "pid":  468,
+                     "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                     "filetime":  134398646524574576
+                 },
+    "resize":  true,
+    "history_complete":  false
+}
+{
+    "input_method":  "hex",
+    "utf8_input":  false,
+    "normal_input":  {
+                         "mode_available":  true,
+                         "input_codepage":  936,
+                         "text":  "ALT输入\u0000",
+                         "input_mode":  503,
+                         "units":  [
+                                       65,
+                                       76,
+                                       84,
+                                       36755,
+                                       20837,
+                                       0
+                                   ]
+                     },
+    "namespace":  "asd-vt-d24ec5ddef4c",
+    "original_ended":  true,
+    "session":  "vt-8201208bbe85483ab23c673f406d0b29",
+    "sdk_requested":  false,
+    "case":  "candidate-noresize",
+    "alt_input":  {
+                      "input_mode":  503,
+                      "columns":  94,
+                      "mode_available":  true,
+                      "text":  "ALT输入\u0000",
+                      "units":  [
+                                    65,
+                                    76,
+                                    84,
+                                    36755,
+                                    20837,
+                                    0
+                                ],
+                      "rows":  25,
+                      "input_codepage":  936
+                  },
+    "result":  "observed-incomplete",
+    "alt_input_exact":  false,
+    "utc":  "2026-11-22T23:44:15.7812933Z",
+    "normal_input_exact":  false,
+    "host_files":  [
+
+                   ],
+    "official":  false,
+    "backend_sha256":  "ca9753a059a6926bb5ad1d9fee81513507a6133d3efa5eefcf2423e33f348937",
+    "identity":  {
+                     "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                     "pid":  10636,
+                     "filetime":  134398646558587213
+                 },
+    "resize":  false,
+    "history_complete":  true
+}
+{
+    "input_method":  "hex",
+    "utf8_input":  false,
+    "namespace":  "asd-vt-ea1a0c5fb9db",
+    "original_ended":  true,
+    "session":  "vt-97cf68bbb07d4a08ba47df69bc76db8f",
+    "sdk_requested":  true,
+    "case":  "candidate-sdk2",
+    "result":  "harness-failed",
+    "utc":  "2026-11-22T23:44:19.0377369Z",
+    "host_files":  [
+                       {
+                           "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\f6-reader-20261123\\candidate-native\\conpty.dll",
+                           "sha256":  "e971856f89748dc3b458125e9afdd79b5e9574a7c937676116d3cbbd3b71f492",
+                           "signer":  "CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"
+                       },
+                       {
+                           "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\f6-reader-20261123\\candidate-native\\OpenConsole.exe",
+                           "sha256":  "b17e48b07ef153b420f0a6e178bacd31fb4c3390e21ae746586213fc0719a775",
+                           "signer":  "CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"
+                       }
+                   ],
+    "official":  false,
+    "backend_sha256":  "ca9753a059a6926bb5ad1d9fee81513507a6133d3efa5eefcf2423e33f348937",
+    "identity":  {
+                     "pid":  984,
+                     "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                     "filetime":  134398646591540922
+                 },
+    "resize":  true,
+    "error":  "无法将值“12428:134398646590522514”转换为类型“System.Int32”。错误:“输入字符串的格式不正确。”"
+}

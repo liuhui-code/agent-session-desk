@@ -92,7 +92,7 @@
 | [FL-015](#fl-015) | 46 | 8 | 38 | 0 |
 | [FL-016](#fl-016) | 71 | 47 | 24 | 0 |
 | [FL-017](#fl-017) | 18 | 9 | 9 | 0 |
-| [FL-018](#fl-018) | 3 | 1 | 2 | 0 |
+| [FL-018](#fl-018) | 5 | 3 | 2 | 0 |
 | [FL-019](#fl-019) | 6 | 5 | 1 | 0 |
 | [FL-020](#fl-020) | 58 | 31 | 27 | 0 |
 
@@ -183,7 +183,7 @@
 
 ### FL-018
 
-[TC-TRM-014](generated/01-launch-terminal-ui.md#tc-trm-014)、[TC-DEFER-001](generated/04-resilience-resources-release.md#tc-defer-001)、[TC-DEFER-002](generated/04-resilience-resources-release.md#tc-defer-002)
+[TC-TRM-005](generated/01-launch-terminal-ui.md#tc-trm-005)、[TC-TRM-013](generated/01-launch-terminal-ui.md#tc-trm-013)、[TC-TRM-014](generated/01-launch-terminal-ui.md#tc-trm-014)、[TC-DEFER-001](generated/04-resilience-resources-release.md#tc-defer-001)、[TC-DEFER-002](generated/04-resilience-resources-release.md#tc-defer-002)
 
 
 ### FL-019
@@ -302,9 +302,9 @@
 | [ADR-0011](../adr/0011-read-only-tui-history.md) | 0 |
 | [ADR-0012](../adr/0012-metadata-checkpoint-recovery.md) | 0 |
 | [ADR-0013](../adr/0013-bounded-screen-output-records.md) | 0 |
-| [ADR-0014](../adr/0014-upstream-ui-tabs-and-general-terminals.md) | 13 |
-| [ADR-0015](../adr/0015-pinned-psmux-native-terminal-client.md) | 2 |
-| [ADR-0016](../adr/0016-tab-workspaces-and-input-ownership.md) | 6 |
+| [ADR-0014](../adr/0014-upstream-ui-tabs-and-general-terminals.md) | 15 |
+| [ADR-0015](../adr/0015-pinned-psmux-native-terminal-client.md) | 4 |
+| [ADR-0016](../adr/0016-tab-workspaces-and-input-ownership.md) | 8 |
 | [ADR-0017](../adr/0017-sidebar-density-preferences.md) | 6 |
 | [ADR-0018](../adr/0018-native-copy-search-and-host-clipboard.md) | 2 |
 

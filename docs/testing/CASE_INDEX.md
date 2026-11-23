@@ -36,7 +36,7 @@
 | [TC-TRM-002](generated/01-launch-terminal-ui.md#tc-trm-002) | 正常离开 attach 后终端模式恢复 | FL-002、FL-016 | P0 | M0 | windows_e2e | 依据明确 |
 | [TC-TRM-003](generated/01-launch-terminal-ui.md#tc-trm-003) | attach 客户端异常退出恢复管理器 | FL-002、FL-016 | P0 | M0 | windows_e2e | 依据明确 |
 | [TC-TRM-004](generated/01-launch-terminal-ui.md#tc-trm-004) | 目标在 attach 建立前退出 | FL-002、FL-016 | P0 | M0 | windows_e2e | 依据明确 |
-| [TC-TRM-005](generated/01-launch-terminal-ui.md#tc-trm-005) | ASCII、中文及组合字符输入保真 | FL-002、FL-016 | P0 | M0 | windows_e2e | 依据明确 |
+| [TC-TRM-005](generated/01-launch-terminal-ui.md#tc-trm-005) | ASCII、中文及组合字符输入保真 | FL-002、FL-016、FL-018 | P0 | M0 | windows_e2e | 依据明确 |
 | [TC-TRM-006](generated/01-launch-terminal-ui.md#tc-trm-006) | 中文输入法候选确认与取消 | FL-002、FL-016 | P0 | M0 | manual | 依据明确 |
 | [TC-TRM-007](generated/01-launch-terminal-ui.md#tc-trm-007) | 多行粘贴与显式提交边界 | FL-002、FL-016 | P0 | M0 | windows_e2e | 依据明确 |
 | [TC-TRM-008](generated/01-launch-terminal-ui.md#tc-trm-008) | 不支持 bracketed paste 的目标降级 | FL-002、FL-016 | P1 | M0 | windows_e2e | 待决策 |
@@ -44,7 +44,7 @@
 | [TC-TRM-010](generated/01-launch-terminal-ui.md#tc-trm-010) | 长粘贴跨缓冲分块仍完整 | FL-002、FL-016 | P1 | M0 | windows_e2e | 待决策 |
 | [TC-TRM-011](generated/01-launch-terminal-ui.md#tc-trm-011) | 颜色、光标定位与擦除序列 | FL-002、FL-016 | P1 | M0 | windows_e2e | 依据明确 |
 | [TC-TRM-012](generated/01-launch-terminal-ui.md#tc-trm-012) | UTF-8 与 ANSI 序列跨读取块 | FL-002、FL-016 | P1 | M0 | windows_e2e | 依据明确 |
-| [TC-TRM-013](generated/01-launch-terminal-ui.md#tc-trm-013) | alternate screen 进入退出与历史区分 | FL-002、FL-016 | P1 | M0 | windows_e2e | 依据明确 |
+| [TC-TRM-013](generated/01-launch-terminal-ui.md#tc-trm-013) | alternate screen 进入退出与历史区分 | FL-002、FL-016、FL-018 | P1 | M0 | windows_e2e | 依据明确 |
 | [TC-TRM-014](generated/01-launch-terminal-ui.md#tc-trm-014) | 窗口缩放连续传递且最终尺寸正确 | FL-002、FL-016、FL-018 | P0 | M0 | windows_e2e | 依据明确 |
 | [TC-TRM-015](generated/01-launch-terminal-ui.md#tc-trm-015) | 被动预览不得改变活跃 attach 尺寸 | FL-002、FL-016 | P0 | M2 | windows_e2e | 依据明确 |
 | [TC-TRM-016](generated/01-launch-terminal-ui.md#tc-trm-016) | 单行超过终端宽度的显示与滚动 | FL-002、FL-016 | P1 | M0 | windows_e2e | 依据明确 |

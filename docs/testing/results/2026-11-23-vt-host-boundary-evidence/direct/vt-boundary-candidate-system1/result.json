@@ -1,0 +1,52 @@
+{
+    "host_files":  [
+
+                   ],
+    "normal_input":  {
+                         "mode_available":  true,
+                         "text":  "ALT输入\u0000",
+                         "input_mode":  503,
+                         "input_codepage":  936,
+                         "units":  [
+                                       65,
+                                       76,
+                                       84,
+                                       36755,
+                                       20837,
+                                       0
+                                   ]
+                     },
+    "namespace":  "asd-vt-bc09fbf92372",
+    "original_ended":  true,
+    "session":  "vt-f21d7ae4ff0a45acb184be817f680817",
+    "sdk_requested":  false,
+    "case":  "candidate-system1",
+    "alt_input":  {
+                      "input_codepage":  936,
+                      "columns":  61,
+                      "units":  [
+                                    65,
+                                    76,
+                                    84,
+                                    36755,
+                                    20837,
+                                    0
+                                ],
+                      "rows":  18,
+                      "text":  "ALT输入\u0000",
+                      "mode_available":  true,
+                      "input_mode":  503
+                  },
+    "result":  "observed-incomplete",
+    "alt_input_exact":  false,
+    "utc":  "2026-11-22T23:39:03.2339636Z",
+    "normal_input_exact":  false,
+    "identity":  {
+                     "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                     "pid":  19152,
+                     "filetime":  134398643433165328
+                 },
+    "official":  false,
+    "backend_sha256":  "ca9753a059a6926bb5ad1d9fee81513507a6133d3efa5eefcf2423e33f348937",
+    "history_complete":  false
+}

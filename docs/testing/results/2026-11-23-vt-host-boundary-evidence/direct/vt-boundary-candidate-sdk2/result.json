@@ -1,0 +1,32 @@
+{
+    "input_method":  "hex",
+    "utf8_input":  false,
+    "namespace":  "asd-vt-ea1a0c5fb9db",
+    "original_ended":  true,
+    "session":  "vt-97cf68bbb07d4a08ba47df69bc76db8f",
+    "sdk_requested":  true,
+    "case":  "candidate-sdk2",
+    "result":  "harness-failed",
+    "utc":  "2026-11-22T23:44:19.0377369Z",
+    "host_files":  [
+                       {
+                           "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\f6-reader-20261123\\candidate-native\\conpty.dll",
+                           "sha256":  "e971856f89748dc3b458125e9afdd79b5e9574a7c937676116d3cbbd3b71f492",
+                           "signer":  "CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"
+                       },
+                       {
+                           "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\f6-reader-20261123\\candidate-native\\OpenConsole.exe",
+                           "sha256":  "b17e48b07ef153b420f0a6e178bacd31fb4c3390e21ae746586213fc0719a775",
+                           "signer":  "CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"
+                       }
+                   ],
+    "official":  false,
+    "backend_sha256":  "ca9753a059a6926bb5ad1d9fee81513507a6133d3efa5eefcf2423e33f348937",
+    "identity":  {
+                     "pid":  984,
+                     "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                     "filetime":  134398646591540922
+                 },
+    "resize":  true,
+    "error":  "无法将值“12428:134398646590522514”转换为类型“System.Int32”。错误:“输入字符串的格式不正确。”"
+}

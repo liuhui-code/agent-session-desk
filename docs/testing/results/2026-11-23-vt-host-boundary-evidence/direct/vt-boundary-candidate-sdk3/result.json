@@ -1,0 +1,65 @@
+{
+    "input_method":  "hex",
+    "utf8_input":  false,
+    "normal_input":  {
+                         "input_mode":  503,
+                         "input_codepage":  936,
+                         "units":  [
+                                       65,
+                                       76,
+                                       84,
+                                       36755,
+                                       20837,
+                                       945
+                                   ],
+                         "text":  "ALT输入α",
+                         "mode_available":  true
+                     },
+    "namespace":  "asd-vt-7c10384ae646",
+    "original_ended":  true,
+    "session":  "vt-de8adb0789fd4c28b7943470b9bdbc29",
+    "sdk_requested":  true,
+    "case":  "candidate-sdk3",
+    "alt_input":  {
+                      "columns":  61,
+                      "input_codepage":  936,
+                      "text":  "ALT输入α",
+                      "units":  [
+                                    65,
+                                    76,
+                                    84,
+                                    36755,
+                                    20837,
+                                    945
+                                ],
+                      "rows":  18,
+                      "input_mode":  503,
+                      "mode_available":  true
+                  },
+    "result":  "complete-in-probe",
+    "loaded_sdk_module":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\f6-reader-20261123\\candidate-native\\conpty.dll",
+    "utc":  "2026-11-22T23:47:21.9662763Z",
+    "normal_input_exact":  true,
+    "host_files":  [
+                       {
+                           "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\f6-reader-20261123\\candidate-native\\conpty.dll",
+                           "sha256":  "e971856f89748dc3b458125e9afdd79b5e9574a7c937676116d3cbbd3b71f492",
+                           "signer":  "CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"
+                       },
+                       {
+                           "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\f6-reader-20261123\\candidate-native\\OpenConsole.exe",
+                           "sha256":  "b17e48b07ef153b420f0a6e178bacd31fb4c3390e21ae746586213fc0719a775",
+                           "signer":  "CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"
+                       }
+                   ],
+    "official":  false,
+    "backend_sha256":  "ca9753a059a6926bb5ad1d9fee81513507a6133d3efa5eefcf2423e33f348937",
+    "identity":  {
+                     "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                     "filetime":  134398648420488299,
+                     "pid":  6132
+                 },
+    "resize":  true,
+    "history_complete":  true,
+    "alt_input_exact":  true
+}
