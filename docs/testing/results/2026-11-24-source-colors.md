@@ -36,3 +36,5 @@ Agent Deck MIT 通知继续保留。转换链的四个锁定模块均为 MIT；�
 Context7 匹配 Lip Gloss 主库，返回[官方 v2 升级指南](https://github.com/charmbracelet/lipgloss/blob/main/UPGRADE_GUIDE_V2.md)中 color.Color 的样式接口与主分支颜色解析；可选版本只列 beta，本轮没有依赖它。确切行为依据本地锁定 v2.1.1 及固定来源转换链的实际代码／输出，未以主分支文档取代版本实测。
 
 没有改变框架的终端色彩能力检测；16／256 色转换、真实字体／Windows Terminal／恢复、来源整帧和用户视觉接受仍开放。本轮未进行远程上传、SSH、CUA、剪贴板或系统设置动作。此前上传因目的地／二进制载荷授权不足被自动审批拒绝，授权仍未明确；本地配色与交叉构建不能填补原生、真实 agent／IME／鼠标、资源或完整发布门槛。
+
+后续：[颜色能力验证](2026-11-24-color-profiles.md)补实际 v1/v2 渲染器的有限模式、框架事件与默认色包输出；本报告原 TrueColor／未执行范围保留，不回填真实平台接受。

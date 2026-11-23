@@ -14,7 +14,7 @@ func TestDesignTokensReachVisibleListAndHelp(t *testing.T) {
 	m.tokens.marks.below = "v"
 	m.tokens.marks.menuDot = ":"
 	m.tokens.layout.menuGap = 3
-	m.styles = newStyles(m.tokens)
+	m.styles = newStyles(m.tokens, m.colorProfile)
 	m.sessions = append(m.sessions, m.sessions...)
 	m.sessions = append(m.sessions, m.sessions...)
 	m.sessions = append(m.sessions, m.sessions...)

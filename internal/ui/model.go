@@ -10,6 +10,7 @@ import (
 
 	tea "charm.land/bubbletea/v2"
 
+	"github.com/charmbracelet/colorprofile"
 	"github.com/liuhui-code/agent-session-desk/internal/config"
 	"github.com/liuhui-code/agent-session-desk/internal/session"
 )
@@ -51,6 +52,7 @@ type pollMsg struct{ generation uint64 }
 // Model implements the stable Bubble Tea v2 API. Mutable UI state is touched
 // only by Init/Update; asynchronous commands return values, never mutate it.
 type Model struct {
+	colorProfile                     colorprofile.Profile
 	systemTheme                      systemThemeState
 	sessionStop, sessionStopIntent   *sessionStopDialog
 	orderStamps                      map[string]string
@@ -116,7 +118,7 @@ func New(ctx context.Context, service Service) *Model {
 
 func newModelWithTokens(ctx context.Context, service Service, tokens designTokens) *Model {
 	ctx, cancel := context.WithCancel(ctx)
-	m := &Model{ctx: ctx, cancel: cancel, service: service, tokens: tokens, styles: newStyles(tokens)}
+	m := &Model{ctx: ctx, cancel: cancel, service: service, tokens: tokens, styles: newStyles(tokens, colorprofile.Unknown)}
 	m.sidebarDensity = "compact"
 	m.sidebarMode = "grouped"
 	m.preferences.saved = config.UISettings{SidebarDensity: "compact", SidebarMode: "grouped"}
@@ -165,6 +167,9 @@ func (m *Model) Init() tea.Cmd {
 
 func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	if m.closed {
+		return m, nil
+	}
+	if m.colorProfileEvent(msg) {
 		return m, nil
 	}
 	if cmd, handled := m.systemThemeEvent(msg); handled {

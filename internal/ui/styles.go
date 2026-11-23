@@ -12,6 +12,7 @@ import (
 	"strings"
 
 	"charm.land/lipgloss/v2"
+	"github.com/charmbracelet/colorprofile"
 	"github.com/liuhui-code/agent-session-desk/internal/terminal"
 )
 
@@ -41,8 +42,8 @@ type styles struct {
 	menuDot, menuGap                                                                                                          string
 }
 
-func newStyles(t designTokens) styles {
-	t = t.forDisplay()
+func newStyles(t designTokens, profile colorprofile.Profile) styles {
+	t = t.forDisplay(profile)
 	return styles{
 		footerCuratedKey:        lipgloss.NewStyle().Foreground(t.colors.dim).Bold(t.bold),
 		footerContext:           lipgloss.NewStyle().Foreground(t.footer.contextColor).Bold(t.bold),

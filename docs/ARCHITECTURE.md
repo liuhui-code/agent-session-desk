@@ -212,3 +212,5 @@ M0 只把版本化发现标记放在产品私有后端 user option 中，绑定 
 2026-11-24：[ADR-0034](adr/0034-configured-footer-modes.md) 的 footer 是整份 UISettings 的可选字符串，既有保存快照原样保留；CLI 到 Model 显式传递，渲染只读 saved 偏好，不持有新进程／缓存／事件源。配置 v7 与 SQLite v5 分离，完整平台接受见[报告](testing/results/2026-11-24-footer-modes.md)。
 
 2026-11-24：[ADR-0035](adr/0035-pinned-source-display-colors.md) 将固定主题的作者配色与实际显示值分离：Model 保留原 tokens，newStyles 使用显示副本；两个已测角色显式映射，不引入旧库转换器、额外依赖或全局可变配色。终端 Run 属性与 ui.toml v7／SQLite v5 不变。[精确角色验证](testing/results/2026-11-24-source-colors.md)不覆盖 16／256 色或真实平台。
+
+2026-11-24：[ADR-0036](adr/0036-framework-color-profile-display.md) 接框架 ColorProfileMsg，独立于 Session／Run 与主题来源，先于模态输入仅重建显示 styles，保留文字／位置／焦点，不保存或写终端。未知保留 TrueColor 样式回退但不请求 RGB 默认色；已知能力用 token 显示副本，有限模式保留来源索引及无色样式。View 默认色仅已知 TrueColor 请求，复位交由既有框架；[实际包输出证据](testing/results/2026-11-24-color-profiles.md)不等于用户原运行时色值恢复。

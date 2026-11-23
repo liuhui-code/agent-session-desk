@@ -1,0 +1,42 @@
+[
+  {
+    "module": "charm.land/bubbletea/v2",
+    "version": "v2.1.2",
+    "license": "MIT",
+    "sha256": {
+      "profile.go": "226076bae79f5be55660b155f9f2aa5af187dde3e5a22fb47fcda32df34d9f42",
+      "options.go": "471e565161da961989dd429bf8259bbc8c4fc5281655e0ad3a82ce613e6c5b26",
+      "cursed_renderer.go": "3bb31a17c5c1125c10a21a9c9bedaa3b8c8ff7ab693e945f9b6d1ceba01c73e5",
+      "LICENSE": "373b3931e66627aadcfebd7771df93f3439203147e587a924508c63e20184d7f"
+    }
+  },
+  {
+    "module": "github.com/charmbracelet/colorprofile",
+    "version": "v0.4.3",
+    "license": "MIT",
+    "sha256": {
+      "profile.go": "8a86a5a4401ef1ed1b0ddbf04bdf27f2c45f72de8d25368c0e5762cd046d6aa5",
+      "LICENSE": "57d6eeeb336030b89c0e0d12cf869f84b97a481cd00b350ef21fca995da5a39a"
+    }
+  },
+  {
+    "module": "github.com/charmbracelet/x/ansi",
+    "version": "v0.11.9",
+    "license": "MIT",
+    "sha256": {
+      "color.go": "133c221fd98b88312d41a07bcc4049572a7f79b41d641ca87e4730ede7d8d3d8",
+      "background.go": "3e30a01a7b0ac56aec0800ae6fb16cb8343119222bd3afc348606ae209feaafb",
+      "LICENSE": "0baa4a5942a801d93f4050d2bc0039d8c037105fcd335230d118eec99a11782b"
+    }
+  },
+  {
+    "module": "github.com/charmbracelet/bubbletea",
+    "version": "v1.3.10",
+    "license": "MIT",
+    "sha256": {
+      "options.go": "4f78a834d8f82ca45dda6f292bcc54b53f198c089a059d207ff02f8e606891ca",
+      "standard_renderer.go": "fe30321708716b962f78965cab407c4edccac2bc22f9dd5e72ac506420a1b4d6",
+      "LICENSE": "69793670485e4ae8bf28fcbe5639141f604256d5bb6c1862571f3a32823fa221"
+    }
+  }
+]

@@ -80,3 +80,5 @@ ADR-0024 从同一固定提交选择性适配 `confirm_dialog.go`／`home_keys_d
 2026-11-24 ADR-0034：同固定 Agent Deck `80494e527393b7ead00da30018e6ee7e60e9d7a0`／MIT 的 userconfig.go GetFooter 与 home_view_frame.go 页脚路由、curatedHint／fitCuratedHints／三项上限，选择性适配至 ui_footer.go、workspace_footer*.go 与 tokens/styles。ui.toml v7、通用动作、中文文本及终端焦点提示不随管理模式变化为产品适配。未增加模块。精确源指纹、隔离实际 helper、144＋144 参考状态及未消除的 RGB 差异见[报告](docs/testing/results/2026-11-24-footer-modes.md)。
 
 2026-11-24 ADR-0035：固定 Agent Deck `80494e527393b7ead00da30018e6ee7e60e9d7a0`／MIT 主题的实际 TrueColor 输出被测量为 20 角色；两个与作者值不同的显示数据在 design_tokens.go 中显式记录，作者配色与原终端属性不改。Lip Gloss v1.1.0／termenv v0.16.0／go-colorful v1.4.1 的锁定转换链与 MIT 许可只作诊断参考，没有复制其转换实现或新增模块。来源 SHA、许可证指纹、实际 helper、失败及精确角色对照见[报告](docs/testing/results/2026-11-24-source-colors.md)；16／256 色和平台接受另验。
+
+2026-11-24 ADR-0036：同固定 Agent Deck `80494e527393b7ead00da30018e6ee7e60e9d7a0`／MIT 的 20 主题角色及索引 240／241，按真实 v1 渲染器测量 ANSI／ANSI256 索引，作为 design_tokens.go 的固定显示数据；不是复制旧库转换器。来源与产品四能力各 30 项比较、正常退出及默认色包输出见[报告](docs/testing/results/2026-11-24-color-profiles.md)。已有 MIT colorprofile v0.4.3 改为直接声明，版本／模块集合及 go.sum 不变；真实终端与平台接受另记。

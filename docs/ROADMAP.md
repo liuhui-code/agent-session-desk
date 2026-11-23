@@ -200,3 +200,5 @@ M1 收尾按[验收清单](testing/M1_ACCEPTANCE.md)推进；显式有界屏幕�
 2026-11-24：U14/U20 的[页脚四模式](testing/results/2026-11-24-footer-modes.md)及 [40 项来源设置盘点](design/SETTINGS_PARITY_AUDIT.md)已补本地切片。来源和产品参考帧、模型及平台分列，3 组精确 RGB 差异仍留档。后续继续通用时间戳／pane／宿主标题、目录建议与未完成键鼠／IME／同尺寸桌面接受；不以来源品牌业务不迁入关闭整体范围。
 
 2026-11-24：按 [ADR-0035](adr/0035-pinned-source-display-colors.md) 局部关闭前轮三组 TrueColor 样式差异；[本地 20 配色角色和 6 组合](testing/results/2026-11-24-source-colors.md)精确一致，原作者 tokens／原终端属性保留。16／256 色、Windows 字体／恢复、原来源完整交互、真实 agent 和最终发布仍待验收。
+
+2026-11-24：按 [ADR-0036](adr/0036-framework-color-profile-display.md) 补有限颜色能力显示，固定 120 项的来源／产品真实渲染器对照从 64 项一致推进到 120 项一致；[证据](testing/results/2026-11-24-color-profiles.md)包括模态／原 Run 和输入保留、默认色请求／复位。真实终端的自定义调色板、默认色恢复、Windows／字体／完整交互与发布继续开放。

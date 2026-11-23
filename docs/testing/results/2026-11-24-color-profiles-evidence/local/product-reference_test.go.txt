@@ -1,0 +1,53 @@
+package ui
+
+import (
+ "bytes"
+ "context"
+ "encoding/json"
+ "fmt"
+ "image/color"
+ "os"
+ "strings"
+ "sync"
+ "testing"
+ "time"
+ tea "charm.land/bubbletea/v2"
+ "charm.land/lipgloss/v2"
+ "github.com/charmbracelet/colorprofile"
+)
+
+type asdProfileProductModel struct{content string}
+func (m asdProfileProductModel) Init()tea.Cmd{return nil}
+func (m asdProfileProductModel) Update(tea.Msg)(tea.Model,tea.Cmd){return m,nil}
+func (m asdProfileProductModel) View()tea.View{v:=tea.NewView(m.content);v.AltScreen=true;return v}
+type asdProfileProductOutput struct{mu sync.Mutex;data bytes.Buffer;wake chan struct{}}
+func (o *asdProfileProductOutput) Write(p []byte)(int,error){o.mu.Lock();n,e:=o.data.Write(p);o.mu.Unlock();select{case o.wake<-struct{}{}:default:};return n,e}
+func (o *asdProfileProductOutput) snapshot()string{o.mu.Lock();defer o.mu.Unlock();return o.data.String()}
+func asdCaptureProduct(t *testing.T,content string,profile colorprofile.Profile)string{
+ t.Helper();out:=&asdProfileProductOutput{wake:make(chan struct{},1)}
+ p:=tea.NewProgram(asdProfileProductModel{content},tea.WithInput(nil),tea.WithOutput(out),tea.WithWindowSize(120,40),tea.WithEnvironment([]string{"TERM=xterm-256color"}),tea.WithoutSignalHandler(),tea.WithColorProfile(profile))
+ done:=make(chan error,1);go func(){_,e:=p.Run();done<-e}()
+ defer func(){
+  p.Quit()
+  select{case e:= <-done:if e!=nil{t.Errorf("renderer exit: %v",e)};case <-time.After(3*time.Second):p.Kill();<-done;t.Error("renderer did not quit normally")}
+ }()
+ timer:=time.NewTimer(3*time.Second);defer timer.Stop()
+ for{captured:=out.snapshot();if strings.Contains(captured,"ASD_PROFILE_DONE"){return captured};select{case <-out.wake:case <-timer.C:t.Fatalf("product renderer did not complete: %q",captured)}}
+}
+func TestASDColorProfilesProduct(t *testing.T){
+ var results []map[string]any
+ for _,profile:=range []struct{name string;value colorprofile.Profile}{{"truecolor",colorprofile.TrueColor},{"ansi256",colorprofile.ANSI256},{"ansi",colorprofile.ANSI},{"ascii",colorprofile.ASCII}}{
+  var rows []string;var labels []map[string]any
+  for _,theme:=range []string{"dark","light"}{
+   m:=NewWithOptions(context.Background(),newGroupedFixture(),Options{Theme:theme})
+   m.Update(tea.ColorProfileMsg{Profile:profile.value})
+   colors:=[]struct{name string;color color.Color}{{"bg",m.styles.footerKey.GetForeground()},{"surface",m.styles.dialog.GetBackground()},{"border",m.styles.separator.GetForeground()},{"text",m.styles.text.GetForeground()},{"dim",m.styles.dim.GetForeground()},{"accent",m.styles.key.GetForeground()},{"cyan",m.styles.panelTitle.GetForeground()},{"red",m.styles.error.GetForeground()},{"yellow",m.styles.footerBadge.GetBackground()},{"purple",m.styles.footerContext.GetForeground()},{"placeholder",m.styles.groupInput.Focused.Placeholder.GetForeground()},{"count",m.styles.searchCount.GetForeground()}}
+   for _,role:=range colors{tag:=fmt.Sprintf("P%02d",len(labels));text:=lipgloss.NewStyle().Foreground(role.color).Background(role.color).Bold(m.styles.title.GetBold()).Render("X");rows=append(rows,tag+"|"+text+"|");labels=append(labels,map[string]any{"tag":tag,"theme":theme,"role":role.name,"kind":"palette","text":"X","rendered":text})}
+   for _,role:=range []struct{name,text string}{{"full",m.styles.footerFullKey.Render("Enter")+" "+m.styles.footerDescription.Render("Open")},{"compact",m.styles.footerKey.Render("Enter")+" "+m.styles.footerDescription.Render("Open")},{"curated",m.styles.footerCuratedKey.Render("Enter")+" "+m.styles.dim.Render("Open")}}{tag:=fmt.Sprintf("P%02d",len(labels));rows=append(rows,tag+"|"+role.text+"|");labels=append(labels,map[string]any{"tag":tag,"theme":theme,"role":role.name,"kind":"combined","rendered":role.text})}
+   m.Close()
+  }
+  content:=strings.Join(append(rows,"ASD_PROFILE_DONE"),"\n");captured:=asdCaptureProduct(t,content,profile.value)
+  results=append(results,map[string]any{"profile":profile.name,"labels":labels,"content":content,"actual_program_output":captured})
+ }
+ b,e:=json.MarshalIndent(results,"","  ");if e!=nil{t.Fatal(e)};if e=os.WriteFile(os.Getenv("ASD_PROFILE_REFERENCE_OUT"),b,0600);e!=nil{t.Fatal(e)}
+}

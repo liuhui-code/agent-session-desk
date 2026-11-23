@@ -28,7 +28,7 @@ func (m *Model) openSessionSearch() tea.Cmd {
 	d.input.Placeholder = "搜索会话…"
 	d.input.Prompt = m.tokens.search.prompt
 	d.input.SetVirtualCursor(false)
-	d.input.SetStyles(searchInputStyles(m.tokens))
+	d.input.SetStyles(searchInputStyles(m.tokens.forDisplay(m.colorProfile)))
 	d.input.KeyMap.Paste.SetEnabled(false)
 	m.search = d
 	m.workspace.focused = false

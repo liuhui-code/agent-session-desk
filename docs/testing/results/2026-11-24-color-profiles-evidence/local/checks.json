@@ -1,0 +1,58 @@
+[
+  {
+    "check": "go-test",
+    "command": [
+      "go",
+      "test",
+      "./..."
+    ],
+    "exit_code": 0,
+    "start_utc": "2026-11-23T22:50:20.763527+00:00",
+    "end_utc": "2026-11-23T22:50:23.459830+00:00"
+  },
+  {
+    "check": "go-race",
+    "command": [
+      "go",
+      "test",
+      "-race",
+      "./..."
+    ],
+    "exit_code": 0,
+    "start_utc": "2026-11-23T22:50:23.460331+00:00",
+    "end_utc": "2026-11-23T22:50:28.721258+00:00"
+  },
+  {
+    "check": "go-vet",
+    "command": [
+      "go",
+      "vet",
+      "./..."
+    ],
+    "exit_code": 0,
+    "start_utc": "2026-11-23T22:50:28.721787+00:00",
+    "end_utc": "2026-11-23T22:50:29.344702+00:00"
+  },
+  {
+    "check": "go-mod-verify",
+    "command": [
+      "go",
+      "mod",
+      "verify"
+    ],
+    "exit_code": 0,
+    "start_utc": "2026-11-23T22:50:29.345286+00:00",
+    "end_utc": "2026-11-23T22:50:31.313538+00:00"
+  },
+  {
+    "check": "source-limits",
+    "command": [
+      "python3",
+      "-B",
+      "tools/ci/check_source_limits.py"
+    ],
+    "exit_code": 0,
+    "start_utc": "2026-11-23T22:50:31.314048+00:00",
+    "end_utc": "2026-11-23T22:50:31.923551+00:00"
+  }
+]

@@ -1,0 +1,966 @@
+[
+  {
+    "actual_program_output": "\u001b[?1049h\u001b[?25l\u001b[?2004h\u001b[H\u001b[2JP00|\u001b[38;2;26;27;38;48;2;26;27;38;1mX\u001b[m|\nP01|\u001b[38;2;36;40;59;48;2;36;40;59;1mX\u001b[m|\nP02|\u001b[38;2;65;72;104;48;2;65;72;104;1mX\u001b[m|\nP03|\u001b[38;2;192;202;245;48;2;192;202;245;1mX\u001b[m|\nP04|\u001b[38;2;120;127;160;48;2;120;127;160;1mX\u001b[m|\nP05|\u001b[38;2;121;162;247;48;2;121;162;247;1mX\u001b[m|\nP06|\u001b[38;2;125;207;255;48;2;125;207;255;1mX\u001b[m|\nP07|\u001b[38;2;247;118;142;48;2;247;118;142;1mX\u001b[m|\nP08|\u001b[38;2;224;175;104;48;2;224;175;104;1mX\u001b[m|\nP09|\u001b[38;2;187;154;247;48;2;187;154;247;1mX\u001b[m|\nP10|\u001b[38;5;240;48;5;240;1mX\u001b[m|\nP11|\u001b[38;5;241;48;5;241;1mX\u001b[m|\nP12|\u001b[48;2;121;162;247m \u001b[38;2;26;27;38;1mEnter\u001b[39;22m \u001b[m \u001b[38;2;192;202;245mOpen\u001b[m|\nP13|\u001b[38;2;26;27;38;48;2;121;162;247;1mEnter\u001b[m \u001b[38;2;192;202;245mOpen\u001b[m|\nP14|\u001b[38;2;120;127;160;1mEnter\u001b[m \u001b[38;2;120;127;160mOpen\u001b[m|\nP15|\u001b[38;2;213;214;219;48;2;213;214;219;1mX\u001b[m|\nP16|\u001b[38;2;233;233;236;48;2;233;233;236;1mX\u001b[m|\nP17|\u001b[38;2;150;153;163;48;2;150;153;163;1mX\u001b[m|\nP18|\u001b[38;2;52;59;88;48;2;52;59;88;1mX\u001b[m|\nP19|\u001b[38;2;105;109;124;48;2;105;109;124;1mX\u001b[m|\nP20|\u001b[38;2;52;84;138;48;2;52;84;138;1mX\u001b[m|\nP21|\u001b[38;2;22;103;117;48;2;22;103;117;1mX\u001b[m|\nP22|\u001b[38;2;140;67;81;48;2;140;67;81;1mX\u001b[m|\nP23|\u001b[38;2;143;94;21;48;2;143;94;21;1mX\u001b[m|\nP24|\u001b[38;2;120;71;189;48;2;120;71;189;1mX\u001b[m|\nP25|\u001b[38;5;240;48;5;240;1mX\u001b[m|\nP26|\u001b[38;5;241;48;5;241;1mX\u001b[m|\nP27|\u001b[48;2;52;84;138m \u001b[38;2;213;214;219;1mEnter\u001b[39;22m \u001b[m \u001b[38;2;52;59;88mOpen\u001b[m|\nP28|\u001b[38;2;213;214;219;48;2;52;84;138;1mEnter\u001b[m \u001b[38;2;52;59;88mOpen\u001b[m|\nP29|\u001b[38;2;105;109;124;1mEnter\u001b[m \u001b[38;2;105;109;124mOpen\u001b[m|\nASD_PROFILE_DONE",
+    "content": "P00|\u001b[1;38;2;26;27;38;48;2;26;27;38mX\u001b[m|\nP01|\u001b[1;38;2;36;40;59;48;2;36;40;59mX\u001b[m|\nP02|\u001b[1;38;2;65;72;104;48;2;65;72;104mX\u001b[m|\nP03|\u001b[1;38;2;192;202;245;48;2;192;202;245mX\u001b[m|\nP04|\u001b[1;38;2;120;127;160;48;2;120;127;160mX\u001b[m|\nP05|\u001b[1;38;2;121;162;247;48;2;121;162;247mX\u001b[m|\nP06|\u001b[1;38;2;125;207;255;48;2;125;207;255mX\u001b[m|\nP07|\u001b[1;38;2;247;118;142;48;2;247;118;142mX\u001b[m|\nP08|\u001b[1;38;2;224;175;104;48;2;224;175;104mX\u001b[m|\nP09|\u001b[1;38;2;187;154;247;48;2;187;154;247mX\u001b[m|\nP10|\u001b[1;38;5;240;48;5;240mX\u001b[m|\nP11|\u001b[1;38;5;241;48;5;241mX\u001b[m|\nP12|\u001b[48;2;121;162;247m \u001b[m\u001b[1;38;2;26;27;38;48;2;121;162;247mEnter\u001b[m\u001b[48;2;121;162;247m \u001b[m \u001b[38;2;192;202;245mOpen\u001b[m|\nP13|\u001b[1;38;2;26;27;38;48;2;121;162;247mEnter\u001b[m \u001b[38;2;192;202;245mOpen\u001b[m|\nP14|\u001b[1;38;2;120;127;160mEnter\u001b[m \u001b[38;2;120;127;160mOpen\u001b[m|\nP15|\u001b[1;38;2;213;214;219;48;2;213;214;219mX\u001b[m|\nP16|\u001b[1;38;2;233;233;236;48;2;233;233;236mX\u001b[m|\nP17|\u001b[1;38;2;150;153;163;48;2;150;153;163mX\u001b[m|\nP18|\u001b[1;38;2;52;59;88;48;2;52;59;88mX\u001b[m|\nP19|\u001b[1;38;2;105;109;124;48;2;105;109;124mX\u001b[m|\nP20|\u001b[1;38;2;52;84;138;48;2;52;84;138mX\u001b[m|\nP21|\u001b[1;38;2;22;103;117;48;2;22;103;117mX\u001b[m|\nP22|\u001b[1;38;2;140;67;81;48;2;140;67;81mX\u001b[m|\nP23|\u001b[1;38;2;143;94;21;48;2;143;94;21mX\u001b[m|\nP24|\u001b[1;38;2;120;71;189;48;2;120;71;189mX\u001b[m|\nP25|\u001b[1;38;5;240;48;5;240mX\u001b[m|\nP26|\u001b[1;38;5;241;48;5;241mX\u001b[m|\nP27|\u001b[48;2;52;84;138m \u001b[m\u001b[1;38;2;213;214;219;48;2;52;84;138mEnter\u001b[m\u001b[48;2;52;84;138m \u001b[m \u001b[38;2;52;59;88mOpen\u001b[m|\nP28|\u001b[1;38;2;213;214;219;48;2;52;84;138mEnter\u001b[m \u001b[38;2;52;59;88mOpen\u001b[m|\nP29|\u001b[1;38;2;105;109;124mEnter\u001b[m \u001b[38;2;105;109;124mOpen\u001b[m|\nASD_PROFILE_DONE",
+    "labels": [
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;38;2;26;27;38;48;2;26;27;38mX\u001b[m",
+        "role": "bg",
+        "tag": "P00",
+        "text": "X",
+        "theme": "dark"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;38;2;36;40;59;48;2;36;40;59mX\u001b[m",
+        "role": "surface",
+        "tag": "P01",
+        "text": "X",
+        "theme": "dark"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;38;2;65;72;104;48;2;65;72;104mX\u001b[m",
+        "role": "border",
+        "tag": "P02",
+        "text": "X",
+        "theme": "dark"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;38;2;192;202;245;48;2;192;202;245mX\u001b[m",
+        "role": "text",
+        "tag": "P03",
+        "text": "X",
+        "theme": "dark"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;38;2;120;127;160;48;2;120;127;160mX\u001b[m",
+        "role": "dim",
+        "tag": "P04",
+        "text": "X",
+        "theme": "dark"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;38;2;121;162;247;48;2;121;162;247mX\u001b[m",
+        "role": "accent",
+        "tag": "P05",
+        "text": "X",
+        "theme": "dark"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;38;2;125;207;255;48;2;125;207;255mX\u001b[m",
+        "role": "cyan",
+        "tag": "P06",
+        "text": "X",
+        "theme": "dark"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;38;2;247;118;142;48;2;247;118;142mX\u001b[m",
+        "role": "red",
+        "tag": "P07",
+        "text": "X",
+        "theme": "dark"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;38;2;224;175;104;48;2;224;175;104mX\u001b[m",
+        "role": "yellow",
+        "tag": "P08",
+        "text": "X",
+        "theme": "dark"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;38;2;187;154;247;48;2;187;154;247mX\u001b[m",
+        "role": "purple",
+        "tag": "P09",
+        "text": "X",
+        "theme": "dark"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;38;5;240;48;5;240mX\u001b[m",
+        "role": "placeholder",
+        "tag": "P10",
+        "text": "X",
+        "theme": "dark"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;38;5;241;48;5;241mX\u001b[m",
+        "role": "count",
+        "tag": "P11",
+        "text": "X",
+        "theme": "dark"
+      },
+      {
+        "kind": "combined",
+        "rendered": "\u001b[48;2;121;162;247m \u001b[m\u001b[1;38;2;26;27;38;48;2;121;162;247mEnter\u001b[m\u001b[48;2;121;162;247m \u001b[m \u001b[38;2;192;202;245mOpen\u001b[m",
+        "role": "full",
+        "tag": "P12",
+        "theme": "dark"
+      },
+      {
+        "kind": "combined",
+        "rendered": "\u001b[1;38;2;26;27;38;48;2;121;162;247mEnter\u001b[m \u001b[38;2;192;202;245mOpen\u001b[m",
+        "role": "compact",
+        "tag": "P13",
+        "theme": "dark"
+      },
+      {
+        "kind": "combined",
+        "rendered": "\u001b[1;38;2;120;127;160mEnter\u001b[m \u001b[38;2;120;127;160mOpen\u001b[m",
+        "role": "curated",
+        "tag": "P14",
+        "theme": "dark"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;38;2;213;214;219;48;2;213;214;219mX\u001b[m",
+        "role": "bg",
+        "tag": "P15",
+        "text": "X",
+        "theme": "light"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;38;2;233;233;236;48;2;233;233;236mX\u001b[m",
+        "role": "surface",
+        "tag": "P16",
+        "text": "X",
+        "theme": "light"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;38;2;150;153;163;48;2;150;153;163mX\u001b[m",
+        "role": "border",
+        "tag": "P17",
+        "text": "X",
+        "theme": "light"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;38;2;52;59;88;48;2;52;59;88mX\u001b[m",
+        "role": "text",
+        "tag": "P18",
+        "text": "X",
+        "theme": "light"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;38;2;105;109;124;48;2;105;109;124mX\u001b[m",
+        "role": "dim",
+        "tag": "P19",
+        "text": "X",
+        "theme": "light"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;38;2;52;84;138;48;2;52;84;138mX\u001b[m",
+        "role": "accent",
+        "tag": "P20",
+        "text": "X",
+        "theme": "light"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;38;2;22;103;117;48;2;22;103;117mX\u001b[m",
+        "role": "cyan",
+        "tag": "P21",
+        "text": "X",
+        "theme": "light"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;38;2;140;67;81;48;2;140;67;81mX\u001b[m",
+        "role": "red",
+        "tag": "P22",
+        "text": "X",
+        "theme": "light"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;38;2;143;94;21;48;2;143;94;21mX\u001b[m",
+        "role": "yellow",
+        "tag": "P23",
+        "text": "X",
+        "theme": "light"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;38;2;120;71;189;48;2;120;71;189mX\u001b[m",
+        "role": "purple",
+        "tag": "P24",
+        "text": "X",
+        "theme": "light"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;38;5;240;48;5;240mX\u001b[m",
+        "role": "placeholder",
+        "tag": "P25",
+        "text": "X",
+        "theme": "light"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;38;5;241;48;5;241mX\u001b[m",
+        "role": "count",
+        "tag": "P26",
+        "text": "X",
+        "theme": "light"
+      },
+      {
+        "kind": "combined",
+        "rendered": "\u001b[48;2;52;84;138m \u001b[m\u001b[1;38;2;213;214;219;48;2;52;84;138mEnter\u001b[m\u001b[48;2;52;84;138m \u001b[m \u001b[38;2;52;59;88mOpen\u001b[m",
+        "role": "full",
+        "tag": "P27",
+        "theme": "light"
+      },
+      {
+        "kind": "combined",
+        "rendered": "\u001b[1;38;2;213;214;219;48;2;52;84;138mEnter\u001b[m \u001b[38;2;52;59;88mOpen\u001b[m",
+        "role": "compact",
+        "tag": "P28",
+        "theme": "light"
+      },
+      {
+        "kind": "combined",
+        "rendered": "\u001b[1;38;2;105;109;124mEnter\u001b[m \u001b[38;2;105;109;124mOpen\u001b[m",
+        "role": "curated",
+        "tag": "P29",
+        "theme": "light"
+      }
+    ],
+    "profile": "truecolor"
+  },
+  {
+    "actual_program_output": "\u001b[?1049h\u001b[?25l\u001b[?2004h\u001b[H\u001b[2JP00|\u001b[38;5;232;48;5;232;1mX\u001b[m|\nP01|\u001b[38;5;17;48;5;17;1mX\u001b[m|\nP02|\u001b[38;5;59;48;5;59;1mX\u001b[m|\nP03|\u001b[38;5;153;48;5;153;1mX\u001b[m|\nP04|\u001b[38;5;103;48;5;103;1mX\u001b[m|\nP05|\u001b[38;5;111;48;5;111;1mX\u001b[m|\nP06|\u001b[38;5;117;48;5;117;1mX\u001b[m|\nP07|\u001b[38;5;210;48;5;210;1mX\u001b[m|\nP08|\u001b[38;5;179;48;5;179;1mX\u001b[m|\nP09|\u001b[38;5;141;48;5;141;1mX\u001b[m|\nP10|\u001b[38;5;240;48;5;240;1mX\u001b[m|\nP11|\u001b[38;5;241;48;5;241;1mX\u001b[m|\nP12|\u001b[48;5;111m \u001b[38;5;232;1mEnter\u001b[39;22m \u001b[m \u001b[38;5;153mOpen\u001b[m|\nP13|\u001b[38;5;232;48;5;111;1mEnter\u001b[m \u001b[38;5;153mOpen\u001b[m|\nP14|\u001b[38;5;103;1mEnter\u001b[m \u001b[38;5;103mOpen\u001b[m|\nP15|\u001b[38;5;188;48;5;188;1mX\u001b[m|\nP16|\u001b[38;5;189;48;5;189;1mX\u001b[m|\nP17|\u001b[38;5;103;48;5;103;1mX\u001b[m|\nP18|\u001b[38;5;59;48;5;59;1mX\u001b[m|\nP19|\u001b[38;5;60;48;5;60;1mX\u001b[m|\nP20|\u001b[38;5;60;48;5;60;1mX\u001b[m|\nP21|\u001b[38;5;24;48;5;24;1mX\u001b[m|\nP22|\u001b[38;5;95;48;5;95;1mX\u001b[m|\nP23|\u001b[38;5;94;48;5;94;1mX\u001b[m|\nP24|\u001b[38;5;97;48;5;97;1mX\u001b[m|\nP25|\u001b[38;5;240;48;5;240;1mX\u001b[m|\nP26|\u001b[38;5;241;48;5;241;1mX\u001b[m|\nP27|\u001b[48;5;60m \u001b[38;5;188;1mEnter\u001b[39;22m \u001b[m \u001b[38;5;59mOpen\u001b[m|\nP28|\u001b[38;5;188;48;5;60;1mEnter\u001b[m \u001b[38;5;59mOpen\u001b[m|\nP29|\u001b[38;5;60;1mEnter\u001b[m \u001b[38;5;60mOpen\u001b[m|\nASD_PROFILE_DONE",
+    "content": "P00|\u001b[1;38;5;232;48;5;232mX\u001b[m|\nP01|\u001b[1;38;5;17;48;5;17mX\u001b[m|\nP02|\u001b[1;38;5;59;48;5;59mX\u001b[m|\nP03|\u001b[1;38;5;153;48;5;153mX\u001b[m|\nP04|\u001b[1;38;5;103;48;5;103mX\u001b[m|\nP05|\u001b[1;38;5;111;48;5;111mX\u001b[m|\nP06|\u001b[1;38;5;117;48;5;117mX\u001b[m|\nP07|\u001b[1;38;5;210;48;5;210mX\u001b[m|\nP08|\u001b[1;38;5;179;48;5;179mX\u001b[m|\nP09|\u001b[1;38;5;141;48;5;141mX\u001b[m|\nP10|\u001b[1;38;5;240;48;5;240mX\u001b[m|\nP11|\u001b[1;38;5;241;48;5;241mX\u001b[m|\nP12|\u001b[48;5;111m \u001b[m\u001b[1;38;5;232;48;5;111mEnter\u001b[m\u001b[48;5;111m \u001b[m \u001b[38;5;153mOpen\u001b[m|\nP13|\u001b[1;38;5;232;48;5;111mEnter\u001b[m \u001b[38;5;153mOpen\u001b[m|\nP14|\u001b[1;38;5;103mEnter\u001b[m \u001b[38;5;103mOpen\u001b[m|\nP15|\u001b[1;38;5;188;48;5;188mX\u001b[m|\nP16|\u001b[1;38;5;189;48;5;189mX\u001b[m|\nP17|\u001b[1;38;5;103;48;5;103mX\u001b[m|\nP18|\u001b[1;38;5;59;48;5;59mX\u001b[m|\nP19|\u001b[1;38;5;60;48;5;60mX\u001b[m|\nP20|\u001b[1;38;5;60;48;5;60mX\u001b[m|\nP21|\u001b[1;38;5;24;48;5;24mX\u001b[m|\nP22|\u001b[1;38;5;95;48;5;95mX\u001b[m|\nP23|\u001b[1;38;5;94;48;5;94mX\u001b[m|\nP24|\u001b[1;38;5;97;48;5;97mX\u001b[m|\nP25|\u001b[1;38;5;240;48;5;240mX\u001b[m|\nP26|\u001b[1;38;5;241;48;5;241mX\u001b[m|\nP27|\u001b[48;5;60m \u001b[m\u001b[1;38;5;188;48;5;60mEnter\u001b[m\u001b[48;5;60m \u001b[m \u001b[38;5;59mOpen\u001b[m|\nP28|\u001b[1;38;5;188;48;5;60mEnter\u001b[m \u001b[38;5;59mOpen\u001b[m|\nP29|\u001b[1;38;5;60mEnter\u001b[m \u001b[38;5;60mOpen\u001b[m|\nASD_PROFILE_DONE",
+    "labels": [
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;38;5;232;48;5;232mX\u001b[m",
+        "role": "bg",
+        "tag": "P00",
+        "text": "X",
+        "theme": "dark"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;38;5;17;48;5;17mX\u001b[m",
+        "role": "surface",
+        "tag": "P01",
+        "text": "X",
+        "theme": "dark"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;38;5;59;48;5;59mX\u001b[m",
+        "role": "border",
+        "tag": "P02",
+        "text": "X",
+        "theme": "dark"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;38;5;153;48;5;153mX\u001b[m",
+        "role": "text",
+        "tag": "P03",
+        "text": "X",
+        "theme": "dark"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;38;5;103;48;5;103mX\u001b[m",
+        "role": "dim",
+        "tag": "P04",
+        "text": "X",
+        "theme": "dark"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;38;5;111;48;5;111mX\u001b[m",
+        "role": "accent",
+        "tag": "P05",
+        "text": "X",
+        "theme": "dark"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;38;5;117;48;5;117mX\u001b[m",
+        "role": "cyan",
+        "tag": "P06",
+        "text": "X",
+        "theme": "dark"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;38;5;210;48;5;210mX\u001b[m",
+        "role": "red",
+        "tag": "P07",
+        "text": "X",
+        "theme": "dark"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;38;5;179;48;5;179mX\u001b[m",
+        "role": "yellow",
+        "tag": "P08",
+        "text": "X",
+        "theme": "dark"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;38;5;141;48;5;141mX\u001b[m",
+        "role": "purple",
+        "tag": "P09",
+        "text": "X",
+        "theme": "dark"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;38;5;240;48;5;240mX\u001b[m",
+        "role": "placeholder",
+        "tag": "P10",
+        "text": "X",
+        "theme": "dark"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;38;5;241;48;5;241mX\u001b[m",
+        "role": "count",
+        "tag": "P11",
+        "text": "X",
+        "theme": "dark"
+      },
+      {
+        "kind": "combined",
+        "rendered": "\u001b[48;5;111m \u001b[m\u001b[1;38;5;232;48;5;111mEnter\u001b[m\u001b[48;5;111m \u001b[m \u001b[38;5;153mOpen\u001b[m",
+        "role": "full",
+        "tag": "P12",
+        "theme": "dark"
+      },
+      {
+        "kind": "combined",
+        "rendered": "\u001b[1;38;5;232;48;5;111mEnter\u001b[m \u001b[38;5;153mOpen\u001b[m",
+        "role": "compact",
+        "tag": "P13",
+        "theme": "dark"
+      },
+      {
+        "kind": "combined",
+        "rendered": "\u001b[1;38;5;103mEnter\u001b[m \u001b[38;5;103mOpen\u001b[m",
+        "role": "curated",
+        "tag": "P14",
+        "theme": "dark"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;38;5;188;48;5;188mX\u001b[m",
+        "role": "bg",
+        "tag": "P15",
+        "text": "X",
+        "theme": "light"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;38;5;189;48;5;189mX\u001b[m",
+        "role": "surface",
+        "tag": "P16",
+        "text": "X",
+        "theme": "light"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;38;5;103;48;5;103mX\u001b[m",
+        "role": "border",
+        "tag": "P17",
+        "text": "X",
+        "theme": "light"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;38;5;59;48;5;59mX\u001b[m",
+        "role": "text",
+        "tag": "P18",
+        "text": "X",
+        "theme": "light"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;38;5;60;48;5;60mX\u001b[m",
+        "role": "dim",
+        "tag": "P19",
+        "text": "X",
+        "theme": "light"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;38;5;60;48;5;60mX\u001b[m",
+        "role": "accent",
+        "tag": "P20",
+        "text": "X",
+        "theme": "light"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;38;5;24;48;5;24mX\u001b[m",
+        "role": "cyan",
+        "tag": "P21",
+        "text": "X",
+        "theme": "light"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;38;5;95;48;5;95mX\u001b[m",
+        "role": "red",
+        "tag": "P22",
+        "text": "X",
+        "theme": "light"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;38;5;94;48;5;94mX\u001b[m",
+        "role": "yellow",
+        "tag": "P23",
+        "text": "X",
+        "theme": "light"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;38;5;97;48;5;97mX\u001b[m",
+        "role": "purple",
+        "tag": "P24",
+        "text": "X",
+        "theme": "light"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;38;5;240;48;5;240mX\u001b[m",
+        "role": "placeholder",
+        "tag": "P25",
+        "text": "X",
+        "theme": "light"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;38;5;241;48;5;241mX\u001b[m",
+        "role": "count",
+        "tag": "P26",
+        "text": "X",
+        "theme": "light"
+      },
+      {
+        "kind": "combined",
+        "rendered": "\u001b[48;5;60m \u001b[m\u001b[1;38;5;188;48;5;60mEnter\u001b[m\u001b[48;5;60m \u001b[m \u001b[38;5;59mOpen\u001b[m",
+        "role": "full",
+        "tag": "P27",
+        "theme": "light"
+      },
+      {
+        "kind": "combined",
+        "rendered": "\u001b[1;38;5;188;48;5;60mEnter\u001b[m \u001b[38;5;59mOpen\u001b[m",
+        "role": "compact",
+        "tag": "P28",
+        "theme": "light"
+      },
+      {
+        "kind": "combined",
+        "rendered": "\u001b[1;38;5;60mEnter\u001b[m \u001b[38;5;60mOpen\u001b[m",
+        "role": "curated",
+        "tag": "P29",
+        "theme": "light"
+      }
+    ],
+    "profile": "ansi256"
+  },
+  {
+    "actual_program_output": "\u001b[?1049h\u001b[?25l\u001b[?2004h\u001b[H\u001b[2JP00|\u001b[30;40;1mX\u001b[m|\nP01|\u001b[34;44;1mX\u001b[m|\nP02|\u001b[90;100;1mX\u001b[m|\nP03|\u001b[96;106;1mX\u001b[m|\nP04|\u001b[94;104;1mX\u001b[m|\nP05|\u001b[94;104;1mX\u001b[m|\nP06|\u001b[96;106;1mX\u001b[m|\nP07|\u001b[91;101;1mX\u001b[m|\nP08|\u001b[33;43;1mX\u001b[m|\nP09|\u001b[95;105;1mX\u001b[m|\nP10|\u001b[90;100;1mX\u001b[m|\nP11|\u001b[90;100;1mX\u001b[m|\nP12|\u001b[104m \u001b[30;1mEnter\u001b[39;22m \u001b[m \u001b[96mOpen\u001b[m|\nP13|\u001b[30;104;1mEnter\u001b[m \u001b[96mOpen\u001b[m|\nP14|\u001b[94;1mEnter\u001b[m \u001b[94mOpen\u001b[m|\nP15|\u001b[37;47;1mX\u001b[m|\nP16|\u001b[95;105;1mX\u001b[m|\nP17|\u001b[94;104;1mX\u001b[m|\nP18|\u001b[90;100;1mX\u001b[m|\nP19|\u001b[94;104;1mX\u001b[m|\nP20|\u001b[94;104;1mX\u001b[m|\nP21|\u001b[94;104;1mX\u001b[m|\nP22|\u001b[90;100;1mX\u001b[m|\nP23|\u001b[33;43;1mX\u001b[m|\nP24|\u001b[94;104;1mX\u001b[m|\nP25|\u001b[90;100;1mX\u001b[m|\nP26|\u001b[90;100;1mX\u001b[m|\nP27|\u001b[104m \u001b[37;1mEnter\u001b[39;22m \u001b[m \u001b[90mOpen\u001b[m|\nP28|\u001b[37;104;1mEnter\u001b[m \u001b[90mOpen\u001b[m|\nP29|\u001b[94;1mEnter\u001b[m \u001b[94mOpen\u001b[m|\nASD_PROFILE_DONE",
+    "content": "P00|\u001b[1;30;40mX\u001b[m|\nP01|\u001b[1;34;44mX\u001b[m|\nP02|\u001b[1;90;100mX\u001b[m|\nP03|\u001b[1;96;106mX\u001b[m|\nP04|\u001b[1;94;104mX\u001b[m|\nP05|\u001b[1;94;104mX\u001b[m|\nP06|\u001b[1;96;106mX\u001b[m|\nP07|\u001b[1;91;101mX\u001b[m|\nP08|\u001b[1;33;43mX\u001b[m|\nP09|\u001b[1;95;105mX\u001b[m|\nP10|\u001b[1;90;100mX\u001b[m|\nP11|\u001b[1;90;100mX\u001b[m|\nP12|\u001b[104m \u001b[m\u001b[1;30;104mEnter\u001b[m\u001b[104m \u001b[m \u001b[96mOpen\u001b[m|\nP13|\u001b[1;30;104mEnter\u001b[m \u001b[96mOpen\u001b[m|\nP14|\u001b[1;94mEnter\u001b[m \u001b[94mOpen\u001b[m|\nP15|\u001b[1;37;47mX\u001b[m|\nP16|\u001b[1;95;105mX\u001b[m|\nP17|\u001b[1;94;104mX\u001b[m|\nP18|\u001b[1;90;100mX\u001b[m|\nP19|\u001b[1;94;104mX\u001b[m|\nP20|\u001b[1;94;104mX\u001b[m|\nP21|\u001b[1;94;104mX\u001b[m|\nP22|\u001b[1;90;100mX\u001b[m|\nP23|\u001b[1;33;43mX\u001b[m|\nP24|\u001b[1;94;104mX\u001b[m|\nP25|\u001b[1;90;100mX\u001b[m|\nP26|\u001b[1;90;100mX\u001b[m|\nP27|\u001b[104m \u001b[m\u001b[1;37;104mEnter\u001b[m\u001b[104m \u001b[m \u001b[90mOpen\u001b[m|\nP28|\u001b[1;37;104mEnter\u001b[m \u001b[90mOpen\u001b[m|\nP29|\u001b[1;94mEnter\u001b[m \u001b[94mOpen\u001b[m|\nASD_PROFILE_DONE",
+    "labels": [
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;30;40mX\u001b[m",
+        "role": "bg",
+        "tag": "P00",
+        "text": "X",
+        "theme": "dark"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;34;44mX\u001b[m",
+        "role": "surface",
+        "tag": "P01",
+        "text": "X",
+        "theme": "dark"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;90;100mX\u001b[m",
+        "role": "border",
+        "tag": "P02",
+        "text": "X",
+        "theme": "dark"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;96;106mX\u001b[m",
+        "role": "text",
+        "tag": "P03",
+        "text": "X",
+        "theme": "dark"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;94;104mX\u001b[m",
+        "role": "dim",
+        "tag": "P04",
+        "text": "X",
+        "theme": "dark"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;94;104mX\u001b[m",
+        "role": "accent",
+        "tag": "P05",
+        "text": "X",
+        "theme": "dark"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;96;106mX\u001b[m",
+        "role": "cyan",
+        "tag": "P06",
+        "text": "X",
+        "theme": "dark"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;91;101mX\u001b[m",
+        "role": "red",
+        "tag": "P07",
+        "text": "X",
+        "theme": "dark"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;33;43mX\u001b[m",
+        "role": "yellow",
+        "tag": "P08",
+        "text": "X",
+        "theme": "dark"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;95;105mX\u001b[m",
+        "role": "purple",
+        "tag": "P09",
+        "text": "X",
+        "theme": "dark"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;90;100mX\u001b[m",
+        "role": "placeholder",
+        "tag": "P10",
+        "text": "X",
+        "theme": "dark"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;90;100mX\u001b[m",
+        "role": "count",
+        "tag": "P11",
+        "text": "X",
+        "theme": "dark"
+      },
+      {
+        "kind": "combined",
+        "rendered": "\u001b[104m \u001b[m\u001b[1;30;104mEnter\u001b[m\u001b[104m \u001b[m \u001b[96mOpen\u001b[m",
+        "role": "full",
+        "tag": "P12",
+        "theme": "dark"
+      },
+      {
+        "kind": "combined",
+        "rendered": "\u001b[1;30;104mEnter\u001b[m \u001b[96mOpen\u001b[m",
+        "role": "compact",
+        "tag": "P13",
+        "theme": "dark"
+      },
+      {
+        "kind": "combined",
+        "rendered": "\u001b[1;94mEnter\u001b[m \u001b[94mOpen\u001b[m",
+        "role": "curated",
+        "tag": "P14",
+        "theme": "dark"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;37;47mX\u001b[m",
+        "role": "bg",
+        "tag": "P15",
+        "text": "X",
+        "theme": "light"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;95;105mX\u001b[m",
+        "role": "surface",
+        "tag": "P16",
+        "text": "X",
+        "theme": "light"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;94;104mX\u001b[m",
+        "role": "border",
+        "tag": "P17",
+        "text": "X",
+        "theme": "light"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;90;100mX\u001b[m",
+        "role": "text",
+        "tag": "P18",
+        "text": "X",
+        "theme": "light"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;94;104mX\u001b[m",
+        "role": "dim",
+        "tag": "P19",
+        "text": "X",
+        "theme": "light"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;94;104mX\u001b[m",
+        "role": "accent",
+        "tag": "P20",
+        "text": "X",
+        "theme": "light"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;94;104mX\u001b[m",
+        "role": "cyan",
+        "tag": "P21",
+        "text": "X",
+        "theme": "light"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;90;100mX\u001b[m",
+        "role": "red",
+        "tag": "P22",
+        "text": "X",
+        "theme": "light"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;33;43mX\u001b[m",
+        "role": "yellow",
+        "tag": "P23",
+        "text": "X",
+        "theme": "light"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;94;104mX\u001b[m",
+        "role": "purple",
+        "tag": "P24",
+        "text": "X",
+        "theme": "light"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;90;100mX\u001b[m",
+        "role": "placeholder",
+        "tag": "P25",
+        "text": "X",
+        "theme": "light"
+      },
+      {
+        "kind": "palette",
+        "rendered": "\u001b[1;90;100mX\u001b[m",
+        "role": "count",
+        "tag": "P26",
+        "text": "X",
+        "theme": "light"
+      },
+      {
+        "kind": "combined",
+        "rendered": "\u001b[104m \u001b[m\u001b[1;37;104mEnter\u001b[m\u001b[104m \u001b[m \u001b[90mOpen\u001b[m",
+        "role": "full",
+        "tag": "P27",
+        "theme": "light"
+      },
+      {
+        "kind": "combined",
+        "rendered": "\u001b[1;37;104mEnter\u001b[m \u001b[90mOpen\u001b[m",
+        "role": "compact",
+        "tag": "P28",
+        "theme": "light"
+      },
+      {
+        "kind": "combined",
+        "rendered": "\u001b[1;94mEnter\u001b[m \u001b[94mOpen\u001b[m",
+        "role": "curated",
+        "tag": "P29",
+        "theme": "light"
+      }
+    ],
+    "profile": "ansi"
+  },
+  {
+    "actual_program_output": "\u001b[?1049h\u001b[?25l\u001b[?2004h\u001b[H\u001b[2JP00|X|\nP01|X|\nP02|X|\nP03|X|\nP04|X|\nP05|X|\nP06|X|\nP07|X|\nP08|X|\nP09|X|\nP10|X|\nP11|X|\nP12| Enter  Open|\nP13|Enter Open|\nP14|Enter Open|\nP15|X|\nP16|X|\nP17|X|\nP18|X|\nP19|X|\nP20|X|\nP21|X|\nP22|X|\nP23|X|\nP24|X|\nP25|X|\nP26|X|\nP27| Enter  Open|\nP28|Enter Open|\nP29|Enter Open|\nASD_PROFILE_DONE",
+    "content": "P00|X|\nP01|X|\nP02|X|\nP03|X|\nP04|X|\nP05|X|\nP06|X|\nP07|X|\nP08|X|\nP09|X|\nP10|X|\nP11|X|\nP12| Enter  Open|\nP13|Enter Open|\nP14|Enter Open|\nP15|X|\nP16|X|\nP17|X|\nP18|X|\nP19|X|\nP20|X|\nP21|X|\nP22|X|\nP23|X|\nP24|X|\nP25|X|\nP26|X|\nP27| Enter  Open|\nP28|Enter Open|\nP29|Enter Open|\nASD_PROFILE_DONE",
+    "labels": [
+      {
+        "kind": "palette",
+        "rendered": "X",
+        "role": "bg",
+        "tag": "P00",
+        "text": "X",
+        "theme": "dark"
+      },
+      {
+        "kind": "palette",
+        "rendered": "X",
+        "role": "surface",
+        "tag": "P01",
+        "text": "X",
+        "theme": "dark"
+      },
+      {
+        "kind": "palette",
+        "rendered": "X",
+        "role": "border",
+        "tag": "P02",
+        "text": "X",
+        "theme": "dark"
+      },
+      {
+        "kind": "palette",
+        "rendered": "X",
+        "role": "text",
+        "tag": "P03",
+        "text": "X",
+        "theme": "dark"
+      },
+      {
+        "kind": "palette",
+        "rendered": "X",
+        "role": "dim",
+        "tag": "P04",
+        "text": "X",
+        "theme": "dark"
+      },
+      {
+        "kind": "palette",
+        "rendered": "X",
+        "role": "accent",
+        "tag": "P05",
+        "text": "X",
+        "theme": "dark"
+      },
+      {
+        "kind": "palette",
+        "rendered": "X",
+        "role": "cyan",
+        "tag": "P06",
+        "text": "X",
+        "theme": "dark"
+      },
+      {
+        "kind": "palette",
+        "rendered": "X",
+        "role": "red",
+        "tag": "P07",
+        "text": "X",
+        "theme": "dark"
+      },
+      {
+        "kind": "palette",
+        "rendered": "X",
+        "role": "yellow",
+        "tag": "P08",
+        "text": "X",
+        "theme": "dark"
+      },
+      {
+        "kind": "palette",
+        "rendered": "X",
+        "role": "purple",
+        "tag": "P09",
+        "text": "X",
+        "theme": "dark"
+      },
+      {
+        "kind": "palette",
+        "rendered": "X",
+        "role": "placeholder",
+        "tag": "P10",
+        "text": "X",
+        "theme": "dark"
+      },
+      {
+        "kind": "palette",
+        "rendered": "X",
+        "role": "count",
+        "tag": "P11",
+        "text": "X",
+        "theme": "dark"
+      },
+      {
+        "kind": "combined",
+        "rendered": " Enter  Open",
+        "role": "full",
+        "tag": "P12",
+        "theme": "dark"
+      },
+      {
+        "kind": "combined",
+        "rendered": "Enter Open",
+        "role": "compact",
+        "tag": "P13",
+        "theme": "dark"
+      },
+      {
+        "kind": "combined",
+        "rendered": "Enter Open",
+        "role": "curated",
+        "tag": "P14",
+        "theme": "dark"
+      },
+      {
+        "kind": "palette",
+        "rendered": "X",
+        "role": "bg",
+        "tag": "P15",
+        "text": "X",
+        "theme": "light"
+      },
+      {
+        "kind": "palette",
+        "rendered": "X",
+        "role": "surface",
+        "tag": "P16",
+        "text": "X",
+        "theme": "light"
+      },
+      {
+        "kind": "palette",
+        "rendered": "X",
+        "role": "border",
+        "tag": "P17",
+        "text": "X",
+        "theme": "light"
+      },
+      {
+        "kind": "palette",
+        "rendered": "X",
+        "role": "text",
+        "tag": "P18",
+        "text": "X",
+        "theme": "light"
+      },
+      {
+        "kind": "palette",
+        "rendered": "X",
+        "role": "dim",
+        "tag": "P19",
+        "text": "X",
+        "theme": "light"
+      },
+      {
+        "kind": "palette",
+        "rendered": "X",
+        "role": "accent",
+        "tag": "P20",
+        "text": "X",
+        "theme": "light"
+      },
+      {
+        "kind": "palette",
+        "rendered": "X",
+        "role": "cyan",
+        "tag": "P21",
+        "text": "X",
+        "theme": "light"
+      },
+      {
+        "kind": "palette",
+        "rendered": "X",
+        "role": "red",
+        "tag": "P22",
+        "text": "X",
+        "theme": "light"
+      },
+      {
+        "kind": "palette",
+        "rendered": "X",
+        "role": "yellow",
+        "tag": "P23",
+        "text": "X",
+        "theme": "light"
+      },
+      {
+        "kind": "palette",
+        "rendered": "X",
+        "role": "purple",
+        "tag": "P24",
+        "text": "X",
+        "theme": "light"
+      },
+      {
+        "kind": "palette",
+        "rendered": "X",
+        "role": "placeholder",
+        "tag": "P25",
+        "text": "X",
+        "theme": "light"
+      },
+      {
+        "kind": "palette",
+        "rendered": "X",
+        "role": "count",
+        "tag": "P26",
+        "text": "X",
+        "theme": "light"
+      },
+      {
+        "kind": "combined",
+        "rendered": " Enter  Open",
+        "role": "full",
+        "tag": "P27",
+        "theme": "light"
+      },
+      {
+        "kind": "combined",
+        "rendered": "Enter Open",
+        "role": "compact",
+        "tag": "P28",
+        "theme": "light"
+      },
+      {
+        "kind": "combined",
+        "rendered": "Enter Open",
+        "role": "curated",
+        "tag": "P29",
+        "theme": "light"
+      }
+    ],
+    "profile": "ascii"
+  }
+]

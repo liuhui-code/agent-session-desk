@@ -1869,7 +1869,7 @@
 
 - 功能：[FL-003](../COVERAGE.md#fl-003)
 - 需求：[FR-03](../COVERAGE.md#fr-03)、[FR-11](../COVERAGE.md#fr-11)
-- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0014](../../adr/0014-upstream-ui-tabs-and-general-terminals.md)、[ADR-0017](../../adr/0017-sidebar-density-preferences.md)、[ADR-0022](../../adr/0022-default-group-sidebar-navigation.md)、[ADR-0027](../../adr/0027-persistent-workspace-split.md)、[ADR-0034](../../adr/0034-configured-footer-modes.md)、[ADR-0035](../../adr/0035-pinned-source-display-colors.md)
+- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0014](../../adr/0014-upstream-ui-tabs-and-general-terminals.md)、[ADR-0017](../../adr/0017-sidebar-density-preferences.md)、[ADR-0022](../../adr/0022-default-group-sidebar-navigation.md)、[ADR-0027](../../adr/0027-persistent-workspace-split.md)、[ADR-0034](../../adr/0034-configured-footer-modes.md)、[ADR-0035](../../adr/0035-pinned-source-display-colors.md)、[ADR-0036](../../adr/0036-framework-color-profile-display.md)
 - 优先级 / 阶段 / 层次：P1 / M0 / manual
 - 类型：usability、functional
 - 设计 / 执行：`designed / not_run`
@@ -1896,6 +1896,7 @@
 9. 调整并保存侧栏比例，拖动中观测磁盘不变；用无按钮松开／漏松开后移动等结束，再重开。穿插其他偏好保存、旧回执、写失败和等待退出。
 10. 通过隔离 ui.toml v7 配置 full／compact／minimal／curated，50 列前后、70／100／101／160 列及组／空列表／不可连接行核对；修改主题／密度后重开，测试终端焦点 S／方向键仍属程序。
 11. 在固定来源和产品 TrueColor helper 中分别读取作者色值与实际显示值，逐单元格对照两主题 20 角色及 6 组合；再在真实 View 同时显示原终端 RGB／索引属性，分开检查管理样式和终端内容。
+12. 固定 TrueColor／ANSI256／ANSI／ASCII，在来源与产品真实渲染器禁用输入、只写内存，对照 24 颜色／6 组合；再向实际 Model 报告能力，往返有限能力／TrueColor，检查模态、原 Run／草稿和默认色请求／复位包。
 
 #### 预期与不变量
 
@@ -1911,6 +1912,7 @@
 - ui.toml 自 v4 的 0 自动／10–90 手动合同保持；旧 v1–v6 加载不改写，显式保存升级 v7，旧 max-v6 读写拒绝 v7。拖动结束仅保存最后预览一次，不依赖松开坐标；运动预览不夹带进其他整份保存，旧成功不回退较新比例，失败恢复旧有效值、显示错误并取消等待退出。终端键仍只输入原 Run。
 - 默认 full 仍宽度自适应，compact／minimal 强制对应层级，curated 最多三个真实上下文动作并保留最后 S／?；窄于 50 列沿既有提示。配置经其他整份保存保留，旧 v1–v6 只读／显式升级且旧程序拒读 v7；来源配置归一化与精确 SGR 差异单列，不把 112 模型帧或 144 来源参考状态当作 Windows／整帧接受。
 - 作者 20 色保持；仅样式构造的 token 显示副本映射 Dark accent／Light dim 两个已测来源值，20 角色和 6 组合精确匹配，不使用 RGB 容差。原终端 RGB／索引颜色、身份与输入不改；16／256 色、Windows／字体／恢复和整体视觉仍需独立证据，前轮差异档案保留。
+- 四能力各 30 项固定显示角色精确一致，ANSI／256 比较调色板索引而非用户终端的绝对 RGB；无色去管理属性，作者 tokens 与原终端屏幕属性不改。有限模式不请求 RGB 默认色，未知／坏能力不覆盖已知值；默认色包复位不冒充实际恢复，用户自定义调色板／Windows／完整视觉仍需独立执行。
 
 #### 需要的证据
 
@@ -2292,7 +2294,7 @@
 
 - 功能：[FL-003](../COVERAGE.md#fl-003)
 - 需求：[FR-03](../COVERAGE.md#fr-03)、[FR-11](../COVERAGE.md#fr-11)
-- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0005](../../adr/0005-dependency-lifecycle-and-upgrades.md)、[ADR-0032](../../adr/0032-persisted-dark-light-ui-themes.md)、[ADR-0033](../../adr/0033-observed-system-ui-theme.md)、[ADR-0034](../../adr/0034-configured-footer-modes.md)、[ADR-0035](../../adr/0035-pinned-source-display-colors.md)
+- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0005](../../adr/0005-dependency-lifecycle-and-upgrades.md)、[ADR-0032](../../adr/0032-persisted-dark-light-ui-themes.md)、[ADR-0033](../../adr/0033-observed-system-ui-theme.md)、[ADR-0034](../../adr/0034-configured-footer-modes.md)、[ADR-0035](../../adr/0035-pinned-source-display-colors.md)、[ADR-0036](../../adr/0036-framework-color-profile-display.md)
 - 优先级 / 阶段 / 层次：P1 / M0 / windows_e2e
 - 类型：compatibility、boundary
 - 设计 / 执行：`designed / not_run`
@@ -2314,6 +2316,7 @@
 4. System 在合法／非法 COLORFGBG 和 Windows 隔离测试键下验证初值与变更通知；快速切到显式主题再切回，延迟打开／关闭并重放旧回执。真实 OS 主题／桌面改变须另授权，不以测试键代替。
 5. 通过隔离 ui.toml v7 配置 full／compact／minimal／curated，50 列前后、70／100／101／160 列及组／空列表／不可连接行核对；修改主题／密度后重开，测试终端焦点 S／方向键仍属程序。
 6. 在固定来源和产品 TrueColor helper 中分别读取作者色值与实际显示值，逐单元格对照两主题 20 角色及 6 组合；再在真实 View 同时显示原终端 RGB／索引属性，分开检查管理样式和终端内容。
+7. 固定 TrueColor／ANSI256／ANSI／ASCII，在来源与产品真实渲染器禁用输入、只写内存，对照 24 颜色／6 组合；再向实际 Model 报告能力，往返有限能力／TrueColor，检查模态、原 Run／草稿和默认色请求／复位包。
 
 #### 预期与不变量
 
@@ -2323,6 +2326,7 @@
 - 每 UI 一阶段、一待消费最新观测、一读取，关闭完成才重建；旧／重复结果无效。未知保留最后配色／首次 Dark，错误不泄露来源数据；观测不保存解析主题或写终端，打开表单文字／光标／焦点保留。COLORFGBG 持续优先是明确源差异；原生／桌面证据独立。
 - 默认 full 仍宽度自适应，compact／minimal 强制对应层级，curated 最多三个真实上下文动作并保留最后 S／?；窄于 50 列沿既有提示。配置经其他整份保存保留，旧 v1–v6 只读／显式升级且旧程序拒读 v7；来源配置归一化与精确 SGR 差异单列，不把 112 模型帧或 144 来源参考状态当作 Windows／整帧接受。
 - 作者 20 色保持；仅样式构造的 token 显示副本映射 Dark accent／Light dim 两个已测来源值，20 角色和 6 组合精确匹配，不使用 RGB 容差。原终端 RGB／索引颜色、身份与输入不改；16／256 色、Windows／字体／恢复和整体视觉仍需独立证据，前轮差异档案保留。
+- 四能力各 30 项固定显示角色精确一致，ANSI／256 比较调色板索引而非用户终端的绝对 RGB；无色去管理属性，作者 tokens 与原终端屏幕属性不改。有限模式不请求 RGB 默认色，未知／坏能力不覆盖已知值；默认色包复位不冒充实际恢复，用户自定义调色板／Windows／完整视觉仍需独立执行。
 
 #### 需要的证据
 
@@ -2336,7 +2340,7 @@
 
 - 功能：[FL-003](../COVERAGE.md#fl-003)
 - 需求：[FR-03](../COVERAGE.md#fr-03)、[FR-11](../COVERAGE.md#fr-11)
-- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0005](../../adr/0005-dependency-lifecycle-and-upgrades.md)、[ADR-0014](../../adr/0014-upstream-ui-tabs-and-general-terminals.md)、[ADR-0032](../../adr/0032-persisted-dark-light-ui-themes.md)、[ADR-0033](../../adr/0033-observed-system-ui-theme.md)、[ADR-0034](../../adr/0034-configured-footer-modes.md)、[ADR-0035](../../adr/0035-pinned-source-display-colors.md)
+- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0005](../../adr/0005-dependency-lifecycle-and-upgrades.md)、[ADR-0014](../../adr/0014-upstream-ui-tabs-and-general-terminals.md)、[ADR-0032](../../adr/0032-persisted-dark-light-ui-themes.md)、[ADR-0033](../../adr/0033-observed-system-ui-theme.md)、[ADR-0034](../../adr/0034-configured-footer-modes.md)、[ADR-0035](../../adr/0035-pinned-source-display-colors.md)、[ADR-0036](../../adr/0036-framework-color-profile-display.md)
 - 优先级 / 阶段 / 层次：P1 / M0 / manual
 - 类型：usability、compatibility
 - 设计 / 执行：`designed / not_run`
@@ -2360,6 +2364,7 @@
 6. System 在合法／非法 COLORFGBG 和 Windows 隔离测试键下验证初值与变更通知；快速切到显式主题再切回，延迟打开／关闭并重放旧回执。真实 OS 主题／桌面改变须另授权，不以测试键代替。
 7. 通过隔离 ui.toml v7 配置 full／compact／minimal／curated，50 列前后、70／100／101／160 列及组／空列表／不可连接行核对；修改主题／密度后重开，测试终端焦点 S／方向键仍属程序。
 8. 在固定来源和产品 TrueColor helper 中分别读取作者色值与实际显示值，逐单元格对照两主题 20 角色及 6 组合；再在真实 View 同时显示原终端 RGB／索引属性，分开检查管理样式和终端内容。
+9. 固定 TrueColor／ANSI256／ANSI／ASCII，在来源与产品真实渲染器禁用输入、只写内存，对照 24 颜色／6 组合；再向实际 Model 报告能力，往返有限能力／TrueColor，检查模态、原 Run／草稿和默认色请求／复位包。
 
 #### 预期与不变量
 
@@ -2371,6 +2376,7 @@
 - 每 UI 一阶段、一待消费最新观测、一读取，关闭完成才重建；旧／重复结果无效。未知保留最后配色／首次 Dark，错误不泄露来源数据；观测不保存解析主题或写终端，打开表单文字／光标／焦点保留。COLORFGBG 持续优先是明确源差异；原生／桌面证据独立。
 - 默认 full 仍宽度自适应，compact／minimal 强制对应层级，curated 最多三个真实上下文动作并保留最后 S／?；窄于 50 列沿既有提示。配置经其他整份保存保留，旧 v1–v6 只读／显式升级且旧程序拒读 v7；来源配置归一化与精确 SGR 差异单列，不把 112 模型帧或 144 来源参考状态当作 Windows／整帧接受。
 - 作者 20 色保持；仅样式构造的 token 显示副本映射 Dark accent／Light dim 两个已测来源值，20 角色和 6 组合精确匹配，不使用 RGB 容差。原终端 RGB／索引颜色、身份与输入不改；16／256 色、Windows／字体／恢复和整体视觉仍需独立证据，前轮差异档案保留。
+- 四能力各 30 项固定显示角色精确一致，ANSI／256 比较调色板索引而非用户终端的绝对 RGB；无色去管理属性，作者 tokens 与原终端屏幕属性不改。有限模式不请求 RGB 默认色，未知／坏能力不覆盖已知值；默认色包复位不冒充实际恢复，用户自定义调色板／Windows／完整视觉仍需独立执行。
 
 #### 需要的证据
 

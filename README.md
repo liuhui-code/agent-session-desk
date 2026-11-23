@@ -177,3 +177,5 @@ Tab 管理模式现可按 `/` 搜索当前会话，选择后接回原 Run；查�
 页脚模式：在独立 `ui.toml v7` 中可选 `footer = "full"`、`"compact"`、`"minimal"` 或 `"curated"`；修改后重开 UI。默认 full 随宽度分级，compact 固定键＋说明，minimal 固定仅键，curated 只列少量上下文及设置／帮助。小于 50 列仍用窄窗提示，终端焦点继续保留黄色模式／F6。大小写和首尾空白归一化，未知值回退 full；其他设置保存保留该选择。详见[验证和边界](docs/testing/results/2026-11-24-footer-modes.md)。
 
 固定主题使用来源实际 TrueColor 显示值；作者配色保留，程序自身的终端颜色不变。[精确配色验证](docs/testing/results/2026-11-24-source-colors.md)与 Windows／字体／色彩降级接受分别记录。
+
+界面随终端报告的颜色能力使用来源的 TrueColor、256／16 色或无色显示；有限颜色模式不请求 RGB 默认色。能力改变不影响当前会话和输入，具体复验及真实终端限制见[颜色能力报告](docs/testing/results/2026-11-24-color-profiles.md)。

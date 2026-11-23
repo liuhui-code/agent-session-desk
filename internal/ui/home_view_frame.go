@@ -23,26 +23,26 @@ func (m *Model) View() tea.View {
 	if m.workspace != nil && m.help {
 		view := tea.NewView(m.renderHelpOverlay())
 		view.AltScreen = true
-		view.BackgroundColor, view.ForegroundColor = m.tokens.colors.bg, m.tokens.colors.text
+		m.applyViewColors(&view)
 		return view
 	}
 	if m.workspace != nil && m.sessionStop != nil {
 		view := tea.NewView(m.renderSessionStop())
 		view.AltScreen = true
-		view.BackgroundColor, view.ForegroundColor = m.tokens.colors.bg, m.tokens.colors.text
+		m.applyViewColors(&view)
 		return view
 	}
 	if m.workspace != nil && m.groupRemoval != nil {
 		view := tea.NewView(m.renderGroupRemoval())
 		view.AltScreen = true
-		view.BackgroundColor, view.ForegroundColor = m.tokens.colors.bg, m.tokens.colors.text
+		m.applyViewColors(&view)
 		return view
 	}
 	if m.workspace != nil && m.groupDialog != nil {
 		content, cursor := m.renderGroupDialog()
 		view := tea.NewView(content)
 		view.AltScreen = true
-		view.BackgroundColor, view.ForegroundColor = m.tokens.colors.bg, m.tokens.colors.text
+		m.applyViewColors(&view)
 		view.Cursor = cursor
 		return view
 	}
@@ -50,7 +50,7 @@ func (m *Model) View() tea.View {
 		content, cursor := m.renderSessionRename()
 		view := tea.NewView(content)
 		view.AltScreen = true
-		view.BackgroundColor, view.ForegroundColor = m.tokens.colors.bg, m.tokens.colors.text
+		m.applyViewColors(&view)
 		view.Cursor = cursor
 		return view
 	}
@@ -58,35 +58,35 @@ func (m *Model) View() tea.View {
 		content, cursor := m.renderSessionSearch()
 		view := tea.NewView(content)
 		view.AltScreen = true
-		view.BackgroundColor, view.ForegroundColor = m.tokens.colors.bg, m.tokens.colors.text
+		m.applyViewColors(&view)
 		view.Cursor = cursor
 		return view
 	}
 	if m.workspace != nil && m.densitySettings != nil {
 		view := tea.NewView(m.renderDensitySettings())
 		view.AltScreen = true
-		view.BackgroundColor, view.ForegroundColor = m.tokens.colors.bg, m.tokens.colors.text
+		m.applyViewColors(&view)
 		return view
 	}
 	if m.workspace != nil && m.launch != nil {
 		content, cursor := m.renderLaunchDialog()
 		view := tea.NewView(content)
 		view.AltScreen = true
-		view.BackgroundColor, view.ForegroundColor = m.tokens.colors.bg, m.tokens.colors.text
+		m.applyViewColors(&view)
 		view.Cursor = cursor
 		return view
 	}
 	if m.workspace != nil && !m.history.open && !m.help {
 		view := tea.NewView(m.renderWorkspace())
 		view.AltScreen = true
-		view.BackgroundColor, view.ForegroundColor = m.tokens.colors.bg, m.tokens.colors.text
+		m.applyViewColors(&view)
 		view.MouseMode = tea.MouseModeAllMotion
 		view.Cursor = m.workspaceCursor()
 		return view
 	}
 	view := tea.NewView(m.renderFrame())
 	view.AltScreen = true
-	view.BackgroundColor, view.ForegroundColor = m.tokens.colors.bg, m.tokens.colors.text
+	m.applyViewColors(&view)
 	return view
 }
 

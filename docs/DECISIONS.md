@@ -155,3 +155,5 @@ M0 使用后端 user option 做存活终端的发现，不建立临时 JSON 文�
 2026-11-24：[ADR-0034](adr/0034-configured-footer-modes.md) 接配置页脚四模式与 ui.toml v7；来源本来仅配置入口，不添加虚构面板行。curated 只列支持的三个上下文动作及最后设置／帮助，终端焦点提示不随管理页脚模式隐藏。实现与剩余 RGB／平台门槛见[报告](testing/results/2026-11-24-footer-modes.md)；[40 项设置盘点](design/SETTINGS_PARITY_AUDIT.md)保留待接入项，不等于完整面板已还原。
 
 2026-11-24：[ADR-0035](adr/0035-pinned-source-display-colors.md) 选择记录固定来源的两个实际 TrueColor 显示值，保留作者色值，不用 RGB 容差或旧 v1 依赖关闭差异。显示副本只用于管理样式；原终端 RGB／索引属性不映射。实际范围见[报告](testing/results/2026-11-24-source-colors.md)，整体视觉／平台接受不提升。
+
+2026-11-24：[ADR-0036](adr/0036-framework-color-profile-display.md) 采用框架报告的颜色能力与固定来源索引数据，无色模式去管理样式属性；原终端屏幕属性不重写。默认色请求限于已知 TrueColor，其他能力不猜测 RGB 默认色；实际恢复另验。[本地 120 角色与包输出](testing/results/2026-11-24-color-profiles.md)不替代真实终端或 Windows。

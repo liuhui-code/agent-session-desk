@@ -6,6 +6,8 @@ import (
 	"strings"
 	"testing"
 
+	tea "charm.land/bubbletea/v2"
+	"github.com/charmbracelet/colorprofile"
 	"github.com/charmbracelet/x/ansi"
 )
 
@@ -14,6 +16,7 @@ func TestThemesKeepModelsIndependentAndRetainLayoutTokens(t *testing.T) {
 	defer dark.Close()
 	light := NewWithOptions(context.Background(), directDragFixture(), Options{Theme: "light"})
 	defer light.Close()
+	light.Update(tea.ColorProfileMsg{Profile: colorprofile.TrueColor})
 	if colorHex(dark.tokens.colors.bg) != "1a1b26" || colorHex(light.tokens.colors.bg) != "d5d6db" || colorHex(dark.styles.text.GetForeground()) != "c0caf5" || colorHex(light.styles.text.GetForeground()) != "343b58" {
 		t.Fatal("model palettes shared or styles stale")
 	}

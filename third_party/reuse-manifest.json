@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "date": "2026-11-24",
-  "scope": "Selective UI/platform migration through ADR-0035; full upstream experience and release acceptance remain open.",
+  "scope": "Selective UI/platform migration through ADR-0036; full upstream experience and release acceptance remain open.",
   "original_project_license": "pending O-010",
   "source_files": [
     {
@@ -103,10 +103,11 @@
         "HelpOverlay purple border/key, accent title, cyan section, dim italic footer and yellow scroll roles",
         "default full/compact/minimal footer chips and yellow native-input mode badge roles",
         "ADR-0032 Tokyo Night Light/Dark used-role palettes and per-model role rebinding",
-        "ADR-0035 measured source TrueColor display values for Dark accent and Light dim; authored roles retained"
+        "ADR-0035 measured source TrueColor display values for Dark accent and Light dim; authored roles retained",
+        "ADR-0036 measured fixed-source ANSI/ANSI256 palette and indexed auxiliary display data"
       ],
       "mode": "selectively_adapted",
-      "modifications": "Type-safe design tokens; original palette values and attribution retained. See ADR-0008. ADR-0035 uses two measured display mappings in a local token copy, not a v1 color-conversion implementation."
+      "modifications": "Type-safe design tokens; original palette values and attribution retained. See ADR-0008. ADR-0035 uses two measured display mappings in a local token copy, not a v1 color-conversion implementation. ADR-0036 selects measured indices from framework capability; monochrome styling removes UI attributes without rewriting native screen data."
     },
     {
       "project": "agent-deck",

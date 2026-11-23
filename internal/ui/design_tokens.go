@@ -6,6 +6,7 @@ package ui
 
 import (
 	tea "charm.land/bubbletea/v2"
+	"github.com/charmbracelet/colorprofile"
 	"image/color"
 	"strings"
 	"time"
@@ -180,8 +181,11 @@ func (t designTokens) withTheme(theme string) designTokens {
 // Pinned TrueColor observations, not replacement authored palette values:
 // Agent Deck 80494e5 via Lip Gloss 1.1.0/termenv 0.16.0 truncates these two
 // channels. Keep the measured display adaptation local to style construction.
-// See ADR-0035; terminal cells and indexed colors never pass through this map.
-func (t designTokens) forDisplay() designTokens {
+// See ADR-0035/0036; only UI tokens pass through, never native screen attributes.
+func (t designTokens) forDisplay(profile colorprofile.Profile) designTokens {
+	if profile == colorprofile.ANSI || profile == colorprofile.ANSI256 || profile == colorprofile.ASCII || profile == colorprofile.NoTTY {
+		return t.forLimitedDisplay(profile)
+	}
 	if t.colors.accent == lipgloss.Color("#7aa2f7") {
 		t.colors.accent = lipgloss.Color("#79a2f7")
 	}
@@ -207,4 +211,53 @@ func (t designTokens) chromeRows() int { return 2 + 2*t.layout.frameGap }
 
 func (t designTokens) workspaceChromeRows() int {
 	return 3 + t.workspace.headerGapRows + t.workspace.footerGapRows + t.workspace.footerRuleRows + t.workspace.footerBottomGapRows
+}
+
+// Data measured from the fixed source renderer, not a general RGB converter.
+func sourceIndexedColor(value color.Color, profile colorprofile.Profile) color.Color {
+	if profile == colorprofile.ASCII || profile == colorprofile.NoTTY {
+		return nil
+	}
+	for _, rule := range [...]struct{ authored, ansi, ansi256 string }{
+		{"#166775", "12", "24"},
+		{"#1a1b26", "0", "232"},
+		{"#24283b", "4", "17"},
+		{"#343b58", "8", "59"},
+		{"#34548a", "12", "60"},
+		{"#414868", "8", "59"},
+		{"#6a6d7c", "12", "60"},
+		{"#7847bd", "12", "97"},
+		{"#787fa0", "12", "103"},
+		{"#7aa2f7", "12", "111"},
+		{"#7dcfff", "14", "117"},
+		{"#8c4351", "8", "95"},
+		{"#8f5e15", "3", "94"},
+		{"#9699a3", "12", "103"},
+		{"#bb9af7", "13", "141"},
+		{"#c0caf5", "14", "153"},
+		{"#d5d6db", "7", "188"},
+		{"#e0af68", "3", "179"},
+		{"#e9e9ec", "13", "189"},
+		{"#f7768e", "9", "210"},
+		{"240", "8", "240"},
+		{"241", "8", "241"},
+	} {
+		if value == lipgloss.Color(rule.authored) {
+			if profile == colorprofile.ANSI {
+				return lipgloss.Color(rule.ansi)
+			}
+			return lipgloss.Color(rule.ansi256)
+		}
+	}
+	return value
+}
+
+func (t designTokens) forLimitedDisplay(profile colorprofile.Profile) designTokens {
+	for _, value := range []*color.Color{&t.colors.bg, &t.colors.surface, &t.colors.border, &t.colors.text, &t.colors.dim, &t.colors.accent, &t.colors.cyan, &t.colors.red, &t.colors.yellow, &t.footer.contextColor, &t.help.keyColor, &t.rename.borderColor, &t.group.placeholderColor, &t.search.placeholderColor, &t.search.countColor} {
+		*value = sourceIndexedColor(*value, profile)
+	}
+	if profile == colorprofile.ASCII || profile == colorprofile.NoTTY {
+		t.bold, t.help.hintItalic, t.search.hintItalic, t.sidebar.underlineChoice = false, false, false, false
+	}
+	return t
 }

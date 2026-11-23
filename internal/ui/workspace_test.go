@@ -9,6 +9,7 @@ import (
 	"time"
 
 	tea "charm.land/bubbletea/v2"
+	"github.com/charmbracelet/colorprofile"
 	"github.com/charmbracelet/x/ansi"
 	"github.com/liuhui-code/agent-session-desk/internal/session"
 	"github.com/liuhui-code/agent-session-desk/internal/terminal"
@@ -155,6 +156,7 @@ func newWorkspaceHarness(t *testing.T, service Service, options ...Options) *wor
 	h := &workspaceHarness{t: t, m: NewWithOptions(ctx, service, settings), messages: make(chan tea.Msg, 32), ctx: ctx, cancel: cancel}
 	t.Cleanup(func() { h.m.Close(); cancel() })
 	h.send(tea.WindowSizeMsg{Width: 120, Height: 32})
+	h.send(tea.ColorProfileMsg{Profile: colorprofile.TrueColor})
 	h.run(h.m.Init())
 	return h
 }

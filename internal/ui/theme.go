@@ -29,7 +29,11 @@ func (m *Model) drawUITheme() {
 		value = "dark"
 	}
 	m.tokens = m.tokens.withTheme(value)
-	m.styles = newStyles(m.tokens)
+	m.restyleUI()
+}
+
+func (m *Model) restyleUI() {
+	m.styles = newStyles(m.tokens, m.colorProfile)
 	// SetStyles keeps the widget's value, cursor and focus intact.
 	if m.launch != nil {
 		for i := range m.launch.fields {
@@ -40,7 +44,7 @@ func (m *Model) drawUITheme() {
 		m.rename.input.SetStyles(m.styles.renameInput)
 	}
 	if m.search != nil {
-		m.search.input.SetStyles(searchInputStyles(m.tokens))
+		m.search.input.SetStyles(searchInputStyles(m.tokens.forDisplay(m.colorProfile)))
 	}
 	if m.groupDialog != nil {
 		for i := range m.groupDialog.inputs {

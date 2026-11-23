@@ -1,0 +1,6 @@
+# github.com/liuhui-code/agent-session-desk/internal/ui [github.com/liuhui-code/agent-session-desk/internal/ui.test]
+internal/ui/tokens_test.go:17:23: not enough arguments in call to newStyles
+	have (designTokens)
+	want (designTokens, colorprofile.Profile)
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui [build failed]
+FAIL

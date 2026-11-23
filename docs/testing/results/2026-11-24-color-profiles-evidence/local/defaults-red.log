@@ -1,0 +1,5 @@
+--- FAIL: TestRGBDefaultColorsRequireKnownTrueColorAndClearOnLimitedProfiles (0.00s)
+    color_profile_test.go:50: Unknown requested RGB default colors
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.790s
+FAIL

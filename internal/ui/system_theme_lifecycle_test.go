@@ -9,6 +9,7 @@ import (
 
 	"charm.land/bubbles/v2/textinput"
 	tea "charm.land/bubbletea/v2"
+	"github.com/charmbracelet/colorprofile"
 	"github.com/liuhui-code/agent-session-desk/internal/appearance"
 )
 
@@ -42,6 +43,7 @@ func themeEvent(t *testing.T, m *Model, msg tea.Msg) tea.Cmd {
 func themeModel(t *testing.T, open func(context.Context) (appearance.Connection, error)) *Model {
 	t.Helper()
 	m := NewWithOptions(context.Background(), nil, Options{Theme: "system", OpenSystemTheme: open})
+	m.Update(tea.ColorProfileMsg{Profile: colorprofile.TrueColor})
 	t.Cleanup(m.Close)
 	return m
 }

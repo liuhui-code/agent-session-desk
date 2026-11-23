@@ -1,0 +1,49 @@
+package ui
+
+import (
+ "bytes"
+ "encoding/json"
+ "fmt"
+ "os"
+ "strings"
+ "sync"
+ "testing"
+ "time"
+ tea "github.com/charmbracelet/bubbletea"
+ "github.com/charmbracelet/lipgloss"
+ "github.com/muesli/termenv"
+)
+
+type asdProfileSourceModel struct{content string}
+func (m asdProfileSourceModel) Init()tea.Cmd{return func()tea.Msg{return tea.WindowSizeMsg{Width:120,Height:40}}}
+func (m asdProfileSourceModel) Update(tea.Msg)(tea.Model,tea.Cmd){return m,nil}
+func (m asdProfileSourceModel) View()string{return m.content}
+type asdProfileSourceOutput struct{mu sync.Mutex;data bytes.Buffer;wake chan struct{}}
+func (o *asdProfileSourceOutput) Write(p []byte)(int,error){o.mu.Lock();n,e:=o.data.Write(p);o.mu.Unlock();select{case o.wake<-struct{}{}:default:};return n,e}
+func (o *asdProfileSourceOutput) snapshot()string{o.mu.Lock();defer o.mu.Unlock();return o.data.String()}
+func asdCaptureSource(t *testing.T,content string)string{
+ t.Helper();out:=&asdProfileSourceOutput{wake:make(chan struct{},1)}
+ p:=tea.NewProgram(asdProfileSourceModel{content},tea.WithInput(nil),tea.WithOutput(out),tea.WithEnvironment([]string{"TERM=xterm-256color"}),tea.WithoutSignalHandler(),tea.WithAltScreen())
+ done:=make(chan error,1);go func(){_,e:=p.Run();done<-e}()
+ defer func(){
+  p.Quit()
+  select{case e:= <-done:if e!=nil{t.Errorf("renderer exit: %v",e)};case <-time.After(3*time.Second):p.Kill();<-done;t.Error("renderer did not quit normally")}
+ }()
+ timer:=time.NewTimer(3*time.Second);defer timer.Stop()
+ for{captured:=out.snapshot();if strings.Contains(captured,"ASD_PROFILE_DONE"){return captured};select{case <-out.wake:case <-timer.C:t.Fatalf("source renderer did not complete: %q",captured)}}
+}
+func TestASDColorProfilesSource(t *testing.T){
+ var results []map[string]any
+ for _,profile:=range []struct{name string;value termenv.Profile}{{"truecolor",termenv.TrueColor},{"ansi256",termenv.ANSI256},{"ansi",termenv.ANSI},{"ascii",termenv.Ascii}}{
+  lipgloss.SetColorProfile(profile.value)
+  var rows []string;var labels []map[string]any
+  for _,theme:=range []string{"dark","light"}{InitTheme(theme)
+   colors:=[]struct{name string;color lipgloss.Color}{{"bg",ColorBg},{"surface",ColorSurface},{"border",ColorBorder},{"text",ColorText},{"dim",ColorTextDim},{"accent",ColorAccent},{"cyan",ColorCyan},{"red",ColorRed},{"yellow",ColorYellow},{"purple",ColorPurple},{"placeholder",lipgloss.Color("240")},{"count",lipgloss.Color("241")}}
+   for _,role:=range colors{tag:=fmt.Sprintf("P%02d",len(labels));text:=lipgloss.NewStyle().Foreground(role.color).Background(role.color).Bold(true).Render("X");rows=append(rows,tag+"|"+text+"|");labels=append(labels,map[string]any{"tag":tag,"theme":theme,"role":role.name,"kind":"palette","text":"X","authored":string(role.color),"rendered":text})}
+   h:=&Home{};for _,role:=range []struct{name,text string}{{"full",h.helpKey("Enter","Open")},{"compact",h.helpKeyShort("Enter","Open")},{"curated",h.curatedHint(footerHint{key:"Enter",label:"Open"})}}{tag:=fmt.Sprintf("P%02d",len(labels));rows=append(rows,tag+"|"+role.text+"|");labels=append(labels,map[string]any{"tag":tag,"theme":theme,"role":role.name,"kind":"combined","rendered":role.text})}
+  }
+  content:=strings.Join(append(rows,"ASD_PROFILE_DONE"),"\n");captured:=asdCaptureSource(t,content)
+  results=append(results,map[string]any{"profile":profile.name,"labels":labels,"content":content,"actual_program_output":captured})
+ }
+ b,e:=json.MarshalIndent(results,"","  ");if e!=nil{t.Fatal(e)};if e=os.WriteFile(os.Getenv("ASD_PROFILE_REFERENCE_OUT"),b,0600);e!=nil{t.Fatal(e)}
+}

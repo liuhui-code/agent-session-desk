@@ -1,0 +1,22 @@
+=== RUN   TestTeaColorCapabilityChangesEmitDefaultResetsAndKnownTrueColorRequests
+--- PASS: TestTeaColorCapabilityChangesEmitDefaultResetsAndKnownTrueColorRequests (0.05s)
+=== RUN   TestReportedANSI256UsesPinnedSourcePaletteWithoutChangingAuthorTokens
+--- PASS: TestReportedANSI256UsesPinnedSourcePaletteWithoutChangingAuthorTokens (0.00s)
+=== RUN   TestColorProfileEventsKeepActiveRunInputAndPreferences
+--- PASS: TestColorProfileEventsKeepActiveRunInputAndPreferences (0.00s)
+=== RUN   TestColorProfileRestylesModalWithoutResettingInputOrAcceptingUnknown
+--- PASS: TestColorProfileRestylesModalWithoutResettingInputOrAcceptingUnknown (0.00s)
+=== RUN   TestLimitedColorProgramsNeverRequestRGBDefaults
+=== RUN   TestLimitedColorProgramsNeverRequestRGBDefaults/ANSI256
+=== RUN   TestLimitedColorProgramsNeverRequestRGBDefaults/ANSI
+=== RUN   TestLimitedColorProgramsNeverRequestRGBDefaults/Ascii
+=== RUN   TestLimitedColorProgramsNeverRequestRGBDefaults/NoTTY
+--- PASS: TestLimitedColorProgramsNeverRequestRGBDefaults (0.09s)
+    --- PASS: TestLimitedColorProgramsNeverRequestRGBDefaults/ANSI256 (0.02s)
+    --- PASS: TestLimitedColorProgramsNeverRequestRGBDefaults/ANSI (0.02s)
+    --- PASS: TestLimitedColorProgramsNeverRequestRGBDefaults/Ascii (0.02s)
+    --- PASS: TestLimitedColorProgramsNeverRequestRGBDefaults/NoTTY (0.02s)
+=== RUN   TestRGBDefaultColorsRequireKnownTrueColorAndClearOnLimitedProfiles
+--- PASS: TestRGBDefaultColorsRequireKnownTrueColorAndClearOnLimitedProfiles (0.00s)
+PASS
+ok  	github.com/liuhui-code/agent-session-desk/internal/ui	1.323s

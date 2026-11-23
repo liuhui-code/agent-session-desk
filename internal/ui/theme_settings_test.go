@@ -10,6 +10,7 @@ import (
 	"testing"
 
 	tea "charm.land/bubbletea/v2"
+	"github.com/charmbracelet/colorprofile"
 	"github.com/liuhui-code/agent-session-desk/internal/config"
 	"github.com/liuhui-code/agent-session-desk/internal/session"
 	"github.com/liuhui-code/agent-session-desk/internal/terminal"
@@ -62,6 +63,7 @@ func TestThemeSettingsSaveLightPaletteAndRestoreOnNewModelWithoutTerminalInput(t
 	}
 	reopened := NewWithOptions(context.Background(), s, Options{Theme: settings.Theme})
 	defer reopened.Close()
+	reopened.Update(tea.ColorProfileMsg{Profile: colorprofile.TrueColor})
 	if colorHex(reopened.View().BackgroundColor) != "d5d6db" {
 		t.Fatal("new model did not restore saved light palette")
 	}
