@@ -82,3 +82,5 @@ FULL 同步设置和进程强杀回归不等于物理断电验收。完整升级
 [ADR-0025](adr/0025-persistent-session-order.md) 为逻辑 Session 保存同组位置／版本，分组归属与原 Run 不改。管理 Shift/Ctrl+↑↓、K/J 或 +/- 与同组相邻行交换，边界不跨组；Tab 排序仍独立。新建／移入排在已有手动位置之后，移组清除旧位置，删除组收纳由外键清除原组位置；历史页仍按 Run 时间查询。平铺只交换同组槽位。
 
 v1–v4 通过同一事务升级；v5 的 check／backup／restore 包含位置，输出仍排除。旧二进制不支持 v5，不直接降级打开；保留升级前快照。未确认提交显示错误并重查，不自动重试；管理退出等待排序／原输入／偏好完成。实际验证与限制见[报告](testing/results/2026-11-24-session-order.md)。
+
+2026-11-24：[ADR-0026](adr/0026-explicit-session-stop.md) 增加管理 Session 行 `d` 的停止确认，复用固定来源确认样式并默认取消；确认前重新发现并核对原 Session／Run／名称，单次提交，未知结果不自动重放。后端停止和元数据停止确认仍非原子事务；Tab x／UI 退出继续保留进程，显式停止保留逻辑身份／历史。schema v5、ui.toml v3、依赖与 tokens 不变。实现和平台证据见[报告](testing/results/2026-11-24-session-stop.md)，完整接受仍开放。

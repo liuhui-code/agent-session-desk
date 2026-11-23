@@ -101,6 +101,8 @@
 
 ### FL-002：原生终端交互（保留 attach 辅助路径）
 
+ADR-0026 局部进展：[显式停止原 Run](testing/results/2026-11-24-session-stop.md)；默认取消、原目标复核、保留历史，实际平台范围另记。
+
 测试设计：[FL-002 用例与映射](testing/COVERAGE.md#fl-002)；当前仅设计，未执行。
 
 - **范围与边界：**活动 Tab 内完整操作 agent、普通 shell 和 CLI，保留 Tab 导航，输入交给目标程序自身的行编辑／提示符；全屏 attach 仅作为显式辅助路径。被动预览不持续改写正在使用的终端尺寸。实现方案与 Windows 合同按 ADR-0014 验证。
@@ -138,6 +140,8 @@
 
 ### FL-004：多会话组织
 
+ADR-0026 局部进展：[显式停止原 Run](testing/results/2026-11-24-session-stop.md)；默认取消、原目标复核、保留历史，实际平台范围另记。
+
 测试设计：[FL-004 用例与映射](testing/COVERAGE.md#fl-004)；当前仅设计，未执行。
 
 - **范围与边界：**新建、命名、分组、搜索、切换、停止、归档；停止运行、关闭视图和收纳记录分别操作。默认以 Tab 承担创建、选择、切换和重开入口，列表／分组／搜索辅助组织；Tab 不承担寻址身份，关闭 Tab 不停止 Run。
@@ -150,6 +154,8 @@
 - **默认组导航局部进展（2026-11-23）：**[ADR-0022](adr/0022-default-group-sidebar-navigation.md) 恢复隐式默认组、折叠、Alt+V 平铺切换和混合行高命中，ui.toml v2 将密度／模式／折叠交给同一串行写入队列。本机与 Windows 原生模型结果见[首轮报告](testing/results/2026-11-23-sidebar-navigation.md)；原产品随后完成双 shell 的[限定桌面流程](testing/results/2026-11-23-sidebar-navigation-desktop.md)，大写键后续[边界诊断](testing/results/2026-11-23-uppercase-s-diagnosis.md)已核对实际收到 S 的动作及原终端隔离，Caps 关闭的输入前端和一张截图／UIA差异保留。自定义组、完整视觉／键盘与发布仍开放，保持实现中，不提升设计目录状态。
 
 ### FL-005：稳定身份
+
+ADR-0026 局部进展：[显式停止原 Run](testing/results/2026-11-24-session-stop.md)；默认取消、原目标复核、保留历史，实际平台范围另记。
 
 测试设计：[FL-005 用例与映射](testing/COVERAGE.md#fl-005)；目录保留 designed/not_run 基线，局部执行见实际报告。
 
@@ -168,6 +174,8 @@
 - **M1 元数据恢复进展（2026-11-22）：**离线检查、全部作用域快照和非覆盖恢复已实现；校验后发布，保留原身份／时间，不从恢复记录启动进程。真实 SQLite 写事务强杀、v1 只读检查与原生 Windows 合同见 [ADR-0012](adr/0012-metadata-checkpoint-recovery.md) 和[执行报告](testing/results/2026-11-22-m1-metadata-recovery.md)。本轮使用自定义命令／目录的受控 CLI；实际 agent 当前不可用，物理断电及完整阶段验收仍待做。
 
 ### FL-006：后台托管与重新连接
+
+ADR-0026 局部进展：[显式停止原 Run](testing/results/2026-11-24-session-stop.md)；默认取消、原目标复核、保留历史，实际平台范围另记。
 
 测试设计：[FL-006 用例与映射](testing/COVERAGE.md#fl-006)；目录保留 designed/not_run 基线，局部实际执行见下方证据。
 
@@ -216,6 +224,8 @@
 
 ### FL-011：历史与恢复边界
 
+ADR-0026 局部进展：[显式停止原 Run](testing/results/2026-11-24-session-stop.md)；默认取消、原目标复核、保留历史，实际平台范围另记。
+
 测试设计：[FL-011 用例与映射](testing/COVERAGE.md#fl-011)；目录保留 designed/not_run 基线，局部执行见实际报告。
 
 - **范围与边界：**保存会话和运行记录，分别提供查看历史、接回活 Run、启动新 Run。原生对话恢复只有具备经过验证的适配能力时出现，不作为通用 CLI 保证。
@@ -238,6 +248,8 @@
 
 ### FL-012：焦点与草稿
 
+ADR-0026 局部进展：[显式停止原 Run](testing/results/2026-11-24-session-stop.md)；默认取消、原目标复核、保留历史，实际平台范围另记。
+
 测试设计：[FL-012 用例与映射](testing/COVERAGE.md#fl-012)；目录保留 designed/not_run 基线，局部执行见实际报告。
 
 - **范围与边界：**明确 Tab 导航、管理表单与活动终端的焦点，辅助全屏 attach 单独交接；表单、通信草稿按 Session 保留，agent 与普通 shell／CLI 的实时输入由子终端原程序管理，不新增日常聊天输入框。Tab 切换必须保留子终端未提交输入。最终按键绑定依据 Windows/输入法/agent 冲突验证，不沿用概念图中的未确认键位。
@@ -257,6 +269,8 @@
 - **默认组导航局部进展（2026-11-23）：**[ADR-0022](adr/0022-default-group-sidebar-navigation.md) 恢复隐式默认组、折叠、Alt+V 平铺切换和混合行高命中，ui.toml v2 将密度／模式／折叠交给同一串行写入队列。本机与 Windows 原生模型结果见[首轮报告](testing/results/2026-11-23-sidebar-navigation.md)；原产品随后完成双 shell 的[限定桌面流程](testing/results/2026-11-23-sidebar-navigation-desktop.md)，大写键后续[边界诊断](testing/results/2026-11-23-uppercase-s-diagnosis.md)已核对实际收到 S 的动作及原终端隔离，Caps 关闭的输入前端和一张截图／UIA差异保留。自定义组、完整视觉／键盘与发布仍开放，保持实现中，不提升设计目录状态。
 
 ### FL-013：异常、重试和运行变化
+
+ADR-0026 局部进展：[显式停止原 Run](testing/results/2026-11-24-session-stop.md)；默认取消、原目标复核、保留历史，实际平台范围另记。
 
 测试设计：[FL-013 用例与映射](testing/COVERAGE.md#fl-013)；目录保留 designed/not_run 基线，局部执行见实际报告。
 
@@ -325,6 +339,8 @@
 
 ### FL-018：Tab 内完整终端与持续导航
 
+ADR-0026 局部进展：[显式停止原 Run](testing/results/2026-11-24-session-stop.md)；默认取消、原目标复核、保留历史，实际平台范围另记。
+
 测试设计：[FL-018 用例与映射](testing/COVERAGE.md#fl-018)；目录保留 designed/not_run 基线，局部实际执行见下方证据。
 
 - **范围与边界：**首版计划能力，活动 Tab 直接显示并操作对应终端，保留 Tab 导航；agent、普通交互 shell 与 CLI 共用终端原生输入。侧栏布局按上游体验与 Tab 主导航适配，不强制额外常驻重复列表。全屏 attach 可辅助使用，不能代替本能力。
@@ -343,6 +359,8 @@
 - **默认组导航局部进展（2026-11-23）：**[ADR-0022](adr/0022-default-group-sidebar-navigation.md) 恢复隐式默认组、折叠、Alt+V 平铺切换和混合行高命中，ui.toml v2 将密度／模式／折叠交给同一串行写入队列。本机与 Windows 原生模型结果见[首轮报告](testing/results/2026-11-23-sidebar-navigation.md)；原产品随后完成双 shell 的[限定桌面流程](testing/results/2026-11-23-sidebar-navigation-desktop.md)，大写键后续[边界诊断](testing/results/2026-11-23-uppercase-s-diagnosis.md)已核对实际收到 S 的动作及原终端隔离，Caps 关闭的输入前端和一张截图／UIA差异保留。自定义组、完整视觉／键盘与发布仍开放，保持实现中，不提升设计目录状态。
 
 ### FL-019：依赖升级与复用来源
+
+ADR-0026 局部进展：[显式停止原 Run](testing/results/2026-11-24-session-stop.md)；默认取消、原目标复核、保留历史，实际平台范围另记。
 
 测试设计：[FL-019 用例与映射](testing/COVERAGE.md#fl-019)；当前仅设计，未执行。
 
@@ -491,3 +509,5 @@ M1 恢复补充（2026-11-22）：按用户继续完成 M1 的授权实现 metad
 2026-11-24 长字段：新建四字段、会话／组改名、分组名称／目录和搜索共用尺寸重算；为真实光标预留一格，固定 Bubbles 2.2.2 的 SetWidth 不刷新滚动窗口问题由保留逻辑位置的重算适配。keycap 显示使用整 grapheme 与 x/ansi 单元格宽度，光标仍对应原 rune 插入位置，不改 Value、业务验证、终端输入或依赖。实际模型／Windows 原生及隔离 ConPTY 结果见[报告](testing/results/2026-11-24-long-fields.md)；本轮没有新的 Windows Terminal 桌面／IME 或整体视觉接受，U16/U19 等仍开放。各 FL 保持实现中／未发布，339 项设计基线不因本轮局部结果升级。
 
 2026-11-24 会话排序：[ADR-0025](adr/0025-persistent-session-order.md) 接入同组会话的 Shift/Ctrl+↑↓、K/J、+/-，SQLite v5 独立位置／版本及按组流式快照摘要，保留 Tab／原 Run 和输入。旧 v1–v4 事务迁移、只读检查／快照恢复与异步退出屏障单独验证；ui.toml 仍 v3。实际范围见[报告](testing/results/2026-11-24-session-order.md)，整体上游接受、真实 agent、输入／资源及发布门槛不提升。各 FL 保持实现中／未发布；339 个 catalog 用例保留设计基线。
+
+2026-11-24 显式停止：FL-002/004/005/006/011/012/013/018/019 按 [ADR-0026](adr/0026-explicit-session-stop.md) 接入 Session 行 d、默认取消、输入排空、原目标／名称复核、单次提交与结果不确定提示，保留 Tab 和历史；来源确认框与产品模型实际证据见[报告](testing/results/2026-11-24-session-stop.md)。原生复验授权和执行状态单列，全部能力仍实现中／未发布，不升级为完整停止策略或目标 agent 验收。

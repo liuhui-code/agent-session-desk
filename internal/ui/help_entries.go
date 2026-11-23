@@ -13,6 +13,7 @@ func workspaceHelpSections() []helpSection {
 			{"Enter", "打开所选会话的原 Run"},
 			{"n / + 按钮", "新建 agent、shell 或普通 CLI"},
 			{"x / × 按钮", "仅关闭 Tab，保留后台运行"},
+			{"d（管理焦点）", "确认后停止所选会话；Tab 与历史保留"},
 			{"[ / ]", "左右移动活动 Tab；也可拖动标题"},
 			{"粘贴", "使用外层终端的粘贴快捷键"},
 			{"q / Ctrl+C", "终端焦点时交给目标程序"},

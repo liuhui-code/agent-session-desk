@@ -26,6 +26,12 @@ func (m *Model) View() tea.View {
 		view.BackgroundColor, view.ForegroundColor = m.tokens.colors.bg, m.tokens.colors.text
 		return view
 	}
+	if m.workspace != nil && m.sessionStop != nil {
+		view := tea.NewView(m.renderSessionStop())
+		view.AltScreen = true
+		view.BackgroundColor, view.ForegroundColor = m.tokens.colors.bg, m.tokens.colors.text
+		return view
+	}
 	if m.workspace != nil && m.groupRemoval != nil {
 		view := tea.NewView(m.renderGroupRemoval())
 		view.AltScreen = true

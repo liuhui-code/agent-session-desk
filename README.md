@@ -8,6 +8,8 @@
 
 管理焦点用 `Shift/Ctrl+↑↓`、`K/J` 或 `+/-` 调整并保存所选会话的同组顺序，组标题仍调整同级组，默认组固定首位；终端焦点的同名键仍交给原程序。详见[组排序验证](docs/testing/results/2026-11-23-group-order.md)及[会话排序验证](docs/testing/results/2026-11-24-session-order.md)。
 
+管理焦点选中会话按 `d` 打开停止确认，默认取消；明确确认前重新核对原 Session／Run 和名称。停止会终止该终端及程序，保留 Tab 视图、名称、分组和历史；`x` 仅关闭视图。详见[停止合同](docs/adr/0026-explicit-session-stop.md)与[局部验证](docs/testing/results/2026-11-24-session-stop.md)。
+
 管理焦点选中组标题按 `d`，核对将删除的组结构和成员数量；默认取消，明确确认后将成员移入默认组，保留原 Tab、终端及历史。默认组不能删除。详见[删除组验证](docs/testing/results/2026-11-23-group-removal.md)。
 
 管理 `?` 打开居中的“五键入门”，`Tab` 切换全部快捷键；完整页可用方向键／j/k、翻页键和 Home/End 滚动。帮助中的其他按键及整段粘贴只关闭帮助，不同时执行原动作或写入终端。底栏按宽度保留键／说明层级，终端模式显示实际活动目标；过窄时省略目标标题，保留导航。整体还原的当前差异见[逐项清单](docs/design/UI_PARITY_AUDIT.md)。

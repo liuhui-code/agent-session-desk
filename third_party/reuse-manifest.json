@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "date": "2026-11-24",
-  "scope": "Selective UI/platform migration through ADR-0024, plus fixed-source help parity under ADR-0014/0016; full upstream experience and release acceptance remain open.",
+  "scope": "Selective UI/platform migration through ADR-0026; full upstream experience and release acceptance remain open.",
   "original_project_license": "pending O-010",
   "source_files": [
     {
@@ -741,6 +741,36 @@
         "MoveSessionUp/Down sibling swap and ordinal normalization"
       ],
       "modifications": "ADR-0025 scoped positions/stamp CAS, async quit barrier, no child-session/archive or terminal mutation."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/confirm_dialog.go",
+      "source_sha256": "5d5df5387ac73ba9fc5b27f6c5493356aea928f1d02e30ce8c33a9feeb5380a8",
+      "destination_file": "internal/ui/session_stop.go",
+      "license": "MIT",
+      "parts": [
+        "default cancel and arrow/h/l/Tab confirmation navigation",
+        "red confirmation layout and warning/button roles"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "ADR-0026: stop original named Run while retaining metadata/history; input drain, one-shot asynchronous outcome, token-only geometry and readable-review gate."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/confirm_dialog.go",
+      "source_sha256": "5d5df5387ac73ba9fc5b27f6c5493356aea928f1d02e30ce8c33a9feeb5380a8",
+      "destination_file": "internal/ui/session_stop_view.go",
+      "license": "MIT",
+      "parts": [
+        "default cancel and arrow/h/l/Tab confirmation navigation",
+        "red confirmation layout and warning/button roles"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "ADR-0026: stop original named Run while retaining metadata/history; input drain, one-shot asynchronous outcome, token-only geometry and readable-review gate."
     }
   ],
   "preserved_notices": [

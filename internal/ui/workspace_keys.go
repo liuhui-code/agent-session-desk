@@ -53,7 +53,10 @@ func (m *Model) workspaceKey(msg tea.KeyPressMsg) tea.Cmd {
 	}
 	switch msg.String() {
 	case "d":
-		return m.beginGroupRemoval()
+		if m.sidebarGroupSelected() {
+			return m.beginGroupRemoval()
+		}
+		return m.beginSessionStop()
 	case "shift+up", "ctrl+up", "+", "K":
 		return m.reorderSelectedSession(-1)
 	case "shift+down", "ctrl+down", "-", "J":

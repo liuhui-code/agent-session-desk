@@ -44,6 +44,8 @@ ADR 保存重要选择的背景、决定、替代方案、代价和重新评估�
 
 | [0025](0025-persistent-session-order.md) | 同组 Session 行持久排序、完整复验快照及 SQLite v5 | 已接受 | 局部实现与原生／隔离 ConPTY 证据见[报告](../testing/results/2026-11-24-session-order.md)，完整体验开放 |
 
+| [0026](0026-explicit-session-stop.md) | Session 行显式停止、默认取消、原目标复核及单次回执 | 已接受 | 局部实现与证据见[报告](../testing/results/2026-11-24-session-stop.md)；原生复验及完整体验门槛分别记录 |
+
 ADR-0014 依据用户 2026-11-22 的明确要求接受，部分替代 0001/0002 的界面约束并扩展 0004 的管理对象。原有运行证据不升级为新路径通过。
 
 ## 维护规则

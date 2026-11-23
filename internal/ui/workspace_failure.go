@@ -3,6 +3,7 @@ package ui
 // Failure ends this view's input authority. Keep only its already observed
 // screen for read-only inspection; unsent input is never replayed on retry.
 func (m *Model) failWorkspace(err error) {
+	m.sessionStopIntent = nil
 	if m.sessionOrder != nil {
 		m.sessionOrder.quitting = false
 	}

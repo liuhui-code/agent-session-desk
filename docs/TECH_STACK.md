@@ -123,3 +123,5 @@ M0 已有“列表/预览 → 自定义命令 → 全屏 attach → 返回”的
 2026-11-23 删除组切片：[ADR-0024](adr/0024-group-removal-and-member-preservation.md) 细化来源默认取消、默认组保护、包含历史成员的只读影响预览和完整组树／成员版本印记。单事务收纳到默认组后删除子树结构，Session/Run/输出和终端不删；偏好仅清理实际删除 ID，不与数据库宣称原子。SQLite v4、ui.toml v3 和依赖不变，实际范围见[报告](testing/results/2026-11-23-group-removal.md)。后续优先逐屏梳理上游差异、补会话手动排序与完整日常终端流程，最终视觉／真实 agent／资源和发布门槛继续开放。
 
 2026-11-24 会话排序：[ADR-0025](adr/0025-persistent-session-order.md) 接入同组会话的 Shift/Ctrl+↑↓、K/J、+/-，SQLite v5 独立位置／版本及按组流式快照摘要，保留 Tab／原 Run 和输入。旧 v1–v4 事务迁移、只读检查／快照恢复与异步退出屏障单独验证；ui.toml 仍 v3。实际范围见[报告](testing/results/2026-11-24-session-order.md)，整体上游接受、真实 agent、输入／资源及发布门槛不提升。
+
+2026-11-24：[ADR-0026](adr/0026-explicit-session-stop.md) 增加管理 Session 行 `d` 的停止确认，复用固定来源确认样式并默认取消；确认前重新发现并核对原 Session／Run／名称，单次提交，未知结果不自动重放。后端停止和元数据停止确认仍非原子事务；Tab x／UI 退出继续保留进程，显式停止保留逻辑身份／历史。schema v5、ui.toml v3、依赖与 tokens 不变。实现和平台证据见[报告](testing/results/2026-11-24-session-stop.md)，完整接受仍开放。

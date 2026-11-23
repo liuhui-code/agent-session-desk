@@ -1,0 +1,14 @@
+{
+  "status": "not_run",
+  "upload_started": false,
+  "native_test_started": false,
+  "console_flow_started": false,
+  "reason": "Automatic approval rejected scp: destination and binary payload authorization insufficient; explicit user approval requested and pending. No alternate transport attempted.",
+  "destination": "windows-pc:asd-acceptance-20261122/",
+  "planned_payload": [
+    "asd-session-stop.exe",
+    "session-stop-manager.exe",
+    "session-stop-ui.exe"
+  ],
+  "scope": "local cross-builds and prepared scripts are not native Windows evidence"
+}

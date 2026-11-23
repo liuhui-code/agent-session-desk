@@ -51,6 +51,8 @@ func (m *Model) finishWorkspaceNavigation() tea.Cmd {
 		return m.openGroupDialog()
 	case workspaceRemoval:
 		return m.openGroupRemoval()
+	case workspaceStop:
+		return m.openSessionStop()
 	}
 	return nil
 }

@@ -192,3 +192,5 @@ M0 只把版本化发现标记放在产品私有后端 user option 中，绑定 
 分组扩展见 [ADR-0023](adr/0023-persistent-groups-and-membership.md)：schema v4 追加作用域内稳定 `groups` 树和 `session_groups` 单调成员版本，当前逻辑归属与原 Run 启动快照分离。Manager 先记录原始发现，再在同一只读元数据事务投影名称／组树／成员；移动在独立事务核对完整原目标和预期成员版本。组内启动先校验组，再创建外部终端，最后原子提交 Run 与初始成员；失败不会假定进程未创建。侧栏用同一可见树做键盘、渲染和鼠标命中，Tab／终端输入身份不随移动改变。
 
 2026-11-24：[ADR-0025](adr/0025-persistent-session-order.md) 将同组 Session 行顺序保存到 SQLite v5 独立位置表，按组流式摘要和完整行版本核对提交。UI 排序与 Tab 顺序／终端生命周期分离，异步退出继续等待已接受输入与偏好；当前 ui.toml 仍 v3，历史查询仍按 Run 时间。实际范围见[排序报告](testing/results/2026-11-24-session-order.md)。
+
+2026-11-24：[ADR-0026](adr/0026-explicit-session-stop.md) 增加管理 Session 行 `d` 的停止确认，复用固定来源确认样式并默认取消；确认前重新发现并核对原 Session／Run／名称，单次提交，未知结果不自动重放。后端停止和元数据停止确认仍非原子事务；Tab x／UI 退出继续保留进程，显式停止保留逻辑身份／历史。schema v5、ui.toml v3、依赖与 tokens 不变。实现和平台证据见[报告](testing/results/2026-11-24-session-stop.md)，完整接受仍开放。

@@ -316,7 +316,7 @@
 
 - 功能：[FL-004](../COVERAGE.md#fl-004)、[FL-005](../COVERAGE.md#fl-005)
 - 需求：[FR-03](../COVERAGE.md#fr-03)、[FR-04](../COVERAGE.md#fr-04)
-- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0026](../../adr/0026-explicit-session-stop.md)
 - 优先级 / 阶段 / 层次：P0 / M2 / integration
 - 类型：state、concurrency
 - 设计 / 执行：`designed / not_run`
@@ -333,12 +333,14 @@
 
 1. 在操作前触发排序、分组或过滤结果更新，改变 B 的行号。
 2. 执行进入或停止动作，并读取目标操作记录。
+3. 管理焦点在会话行 d 核对完整名称、程序与原 Session/Run；先验证默认取消，再明确确认；另测输入未排空、名称 ABA、未知状态、过期回执和不可容纳完整提示的窗口。
 
 #### 预期与不变量
 
 - 动作绑定明确选中的 session_id，而不是旧行索引。
 - 如果 B 已不在可操作集合中，必须重新确定目标或拒绝动作，不回退为同一行的 C。
 - 未选择的会话不收到输入或停止命令。
+- 显式停止是后端终止，区别于 Tab x／退出 UI；提交至多一次，确认前新鲜发现与原目标复核。名称／Run 变化拒绝，错误后只允许返回核对，不重放；保留逻辑身份／历史与停止确认，不能推定 agent 完成、完整子进程清理或跨资源原子性。
 
 #### 需要的证据
 
@@ -1063,7 +1065,7 @@
 
 - 功能：[FL-004](../COVERAGE.md#fl-004)、[FL-006](../COVERAGE.md#fl-006)、[FL-013](../COVERAGE.md#fl-013)
 - 需求：[FR-03](../COVERAGE.md#fr-03)、[FR-05](../COVERAGE.md#fr-05)、[FR-12](../COVERAGE.md#fr-12)
-- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0026](../../adr/0026-explicit-session-stop.md)
 - 优先级 / 阶段 / 层次：P0 / M2 / integration
 - 类型：functional、state
 - 设计 / 执行：`designed / not_run`
@@ -1080,12 +1082,14 @@
 
 1. 明确对 A 的当前 Run 执行停止。
 2. 观察退出事件及 B 的后续检查点。
+3. 管理焦点在会话行 d 核对完整名称、程序与原 Session/Run；先验证默认取消，再明确确认；另测输入未排空、名称 ABA、未知状态、过期回执和不可容纳完整提示的窗口。
 
 #### 预期与不变量
 
 - 只有 A 的目标 Run 被停止，保留其记录与退出证据。
 - B 和管理器所在 shell 不被结束。
 - 停止成功必须有对应退出证据，命令提交成功本身不足以证明退出。
+- 显式停止是后端终止，区别于 Tab x／退出 UI；提交至多一次，确认前新鲜发现与原目标复核。名称／Run 变化拒绝，错误后只允许返回核对，不重放；保留逻辑身份／历史与停止确认，不能推定 agent 完成、完整子进程清理或跨资源原子性。
 
 #### 需要的证据
 
@@ -1136,7 +1140,7 @@
 
 - 功能：[FL-005](../COVERAGE.md#fl-005)、[FL-013](../COVERAGE.md#fl-013)
 - 需求：[FR-04](../COVERAGE.md#fr-04)、[FR-12](../COVERAGE.md#fr-12)
-- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0026](../../adr/0026-explicit-session-stop.md)
 - 优先级 / 阶段 / 层次：P0 / M2 / contract
 - 类型：concurrency、state
 - 设计 / 执行：`designed / not_run`
@@ -1153,12 +1157,14 @@
 
 1. 暂停旧停止请求，让 R1 退出并明确启动 R2。
 2. 恢复旧停止请求，观察实际目标。
+3. 管理焦点在会话行 d 核对完整名称、程序与原 Session/Run；先验证默认取消，再明确确认；另测输入未排空、名称 ABA、未知状态、过期回执和不可容纳完整提示的窗口。
 
 #### 预期与不变量
 
 - 旧请求发现 generation 不匹配时不向 R2 发出终止。
 - R2 继续提供后续检查点；R1 的停止结果保留原目标。
 - 界面不会把 R2 的存活状态写回 R1。
+- 显式停止是后端终止，区别于 Tab x／退出 UI；提交至多一次，确认前新鲜发现与原目标复核。名称／Run 变化拒绝，错误后只允许返回核对，不重放；保留逻辑身份／历史与停止确认，不能推定 agent 完成、完整子进程清理或跨资源原子性。
 
 #### 需要的证据
 

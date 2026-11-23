@@ -1,0 +1,16 @@
+package ui
+import (
+ "encoding/json"
+ "os"
+ "testing"
+ tea "github.com/charmbracelet/bubbletea"
+)
+func TestASDStopConfirmationReference(t *testing.T) {
+ d:=NewConfirmDialog();d.SetSize(120,32);d.ShowDeleteSession("original-id","Stop B",false,false)
+ states:=[]map[string]interface{}{}
+ capture:=func(name string){states=append(states,map[string]interface{}{"state":name,"focused":d.GetFocusedButton(),"target_id":d.GetTargetID(),"view":d.View()})}
+ capture("initial-cancel");if d.GetFocusedButton()!=1{t.Fatal("not default cancel")}
+ for _,step:=range []struct{r rune;focus int;name string}{{'h',0,"left-stop"},{'l',1,"right-cancel"},{'h',0,"left-again"}} {d.Update(tea.KeyMsg{Type:tea.KeyRunes,Runes:[]rune{step.r}});capture(step.name);if d.GetFocusedButton()!=step.focus{t.Fatal("navigation differs")}}
+ d.Update(tea.KeyMsg{Type:tea.KeyTab});capture("tab-cancel");if d.GetFocusedButton()!=1||d.GetTargetID()!="original-id"{t.Fatal("target changed")}
+ b,e:=json.MarshalIndent(states,"","  ");if e!=nil{t.Fatal(e)};if e=os.WriteFile("/private/tmp/asd-session-stop-20261124/upstream-states.json",b,0600);e!=nil{t.Fatal(e)}
+}

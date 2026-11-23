@@ -1,0 +1,22 @@
+--- FAIL: TestReviewedStopRejectsChangedTargetBeforeTerminalEffect (0.06s)
+    --- FAIL: TestReviewedStopRejectsChangedTargetBeforeTerminalEffect/same (0.01s)
+        session_stop_test.go:37: manager has no reviewed Session stop
+    --- FAIL: TestReviewedStopRejectsChangedTargetBeforeTerminalEffect/missing (0.01s)
+        session_stop_test.go:37: manager has no reviewed Session stop
+    --- FAIL: TestReviewedStopRejectsChangedTargetBeforeTerminalEffect/run (0.01s)
+        session_stop_test.go:37: manager has no reviewed Session stop
+    --- FAIL: TestReviewedStopRejectsChangedTargetBeforeTerminalEffect/backend (0.01s)
+        session_stop_test.go:37: manager has no reviewed Session stop
+    --- FAIL: TestReviewedStopRejectsChangedTargetBeforeTerminalEffect/command (0.01s)
+        session_stop_test.go:37: manager has no reviewed Session stop
+    --- FAIL: TestReviewedStopRejectsChangedTargetBeforeTerminalEffect/name (0.01s)
+        session_stop_test.go:37: manager has no reviewed Session stop
+    --- FAIL: TestReviewedStopRejectsChangedTargetBeforeTerminalEffect/unknown (0.01s)
+        session_stop_test.go:37: manager has no reviewed Session stop
+    --- FAIL: TestReviewedStopRejectsChangedTargetBeforeTerminalEffect/duplicate (0.01s)
+        session_stop_test.go:37: manager has no reviewed Session stop
+    --- FAIL: TestReviewedStopRejectsChangedTargetBeforeTerminalEffect/exited (0.01s)
+        session_stop_test.go:37: manager has no reviewed Session stop
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/manager	1.245s
+FAIL

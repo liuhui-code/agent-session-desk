@@ -28,7 +28,7 @@
 | U16 会话行手动排序 | home.go 对 Session 调用 MoveSessionUp/Down | [ADR-0025／局部复验](../testing/results/2026-11-24-session-order.md)：同组行交换、SQLite v5、完整摘要／行版本 CAS，原 Tab／Run 不变 | 已实现局部切片；平铺同组槽位、无来源父子 Session／归档分区是明确适配。原生／隔离 ConPTY 与真实桌面分开记账，完整源体验／键盘接受仍开放 |
 | U17 原生输入／光标 | embedded_terminal.go 转发终端输入并绘制真实光标 | workspace_input.go、internal/terminal；[Tab](../testing/results/2026-11-23-tab-workspaces.md)、[IME](../testing/results/2026-11-23-ime-composition.md)局部结果 | 不新增聊天框；管理键／实际子程序键及其他 IME 候选中切焦点 P1 待验 |
 | U18 滚动／选择／复制／搜索 | embedded_terminal.go、home.go 的复制语义 | workspace_scroll.go／workspace_clipboard.go；[原生复制搜索](../testing/results/2026-11-23-native-copy-search.md) | 委托 psmux 原生历史是必要适配；鼠标选择、来源 V 可见页复制尚未迁入；目标程序鼠标仍 P1 待验 |
-| U19 Session 停止／移除 | home.go／confirm_dialog.go 对 Session 的显式确认与移除 | Manager／CLI 有明确 Stop；当前 Tab x 只关视图，组 d 只改容器 | **P1 待补管理 UI**；需核对原 Session/Run 并区分停止、关闭、归档／删除历史，不照搬来源删除记录掩盖差异 |
+| U19 Session 停止／移除 | home.go／confirm_dialog.go 对 Session 的显式确认与移除 | [ADR-0026／局部实现](../testing/results/2026-11-24-session-stop.md)：Session 行 d 停止确认，默认取消；组 d、Tab x 保留各自语义 | 名称／Run 复核、单次回执与保留历史是明确适配；原生实际运行、完整桌面／目标 agent 与视觉接受另记，归档／删除历史仍不提供 |
 | U20 设置／主题 | settings_panel.go：密度及其他设置；styles.go 包含暗／亮主题 | 当前 S 为侧栏密度；tokens 为暗色基线，未提供主题选择 | 完整设置面板／亮色体验未还原；账户／远程等业务不自动纳入。适用外观项 P2 继续盘点，不能把全部未迁项都称为无关 |
 | U21 历史与错误 | 来源业务有不同的 Session／Recall 模型 | history*.go／workspace_failure.go：只读记录、断开只读旧屏幕、无自动重放 | 本产品身份／历史边界为必要适配；历史画面与 Tab 导航视觉仍需同尺寸核对，不把屏幕当会话上下文 |
 | U22 宿主与真实程序 | 来源 tmux／VT 与本产品 Windows 路径不同 | [宿主边界](../testing/results/2026-11-23-vt-host-boundary.md)、[显式 bundle](../testing/results/2026-11-23-terminal-bundle.md)有实际失败／候选结果 | **P1 持续门槛**：目标 agent 未安装，不能用 shell 代替；其他 IME／鼠标／alternate-screen／无 WSL 及最终资源／发布仍待验证 |
@@ -43,3 +43,5 @@
 新差异追加到本表，保留编号和失败依据；不得通过删掉缺口、放宽“还原”定义或把来源不支持的产品 Tab 误算成来源帧一致来关闭项目。实现／验收状态仍由 [Feature Ledger](../FEATURE_LEDGER.md)负责。
 
 2026-11-24：U03/U08/U11/U12 的表单长字段修正见独立报告；不把隔离 ConPTY 当作 Windows Terminal 字体／IME／桌面证据，U06 长卡片、U16 会话排序、U19 停止入口及其他差异不关闭。
+
+2026-11-24：U19 已接入显式停止 UI 与原目标复核，实际证据见独立报告；实现不代表全部停止策略、真实桌面或完整上游接受。

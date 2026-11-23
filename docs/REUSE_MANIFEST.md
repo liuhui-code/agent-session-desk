@@ -122,3 +122,5 @@ Bubbles 2.2.2 textinput 通过模块使用，未复制组件源码。v2 表单�
 2026-11-24 长字段适配：既有固定 Agent Deck `80494e527393b7ead00da30018e6ee7e60e9d7a0`／MIT 的 newdialog.go、group_dialog.go、search.go 派生视图改用共享输入尺寸／光标入口；`input_view.go` 的重算和 keycap 显示投影是本项目稳定 v2 适配，没有新增上游源码或依赖。原来源哈希／版权不变，实际范围见[报告](testing/results/2026-11-24-long-fields.md)。
 
 2026-11-24 Session 排序：从同固定 Agent Deck `80494e527393b7ead00da30018e6ee7e60e9d7a0`／MIT 的 home.go 键分派和 groups.go MoveSessionUp/Down 的同组交换／归一化选择性改编至 `internal/ui/session_order.go`／`internal/store/session_order.go`；无父子 Session 或归档业务迁入。SQLite v5、CAS 摘要／版本、平铺槽位与异步退出屏障是本产品适配。来源哈希与六状态实测见[报告](testing/results/2026-11-24-session-order.md)，无生产依赖变化。
+
+2026-11-24 显式停止：ADR-0026 从同固定 Agent Deck `80494e527393b7ead00da30018e6ee7e60e9d7a0` 的 `internal/ui/confirm_dialog.go` 选择性改编默认取消、左右按钮／h/l/Tab、红框与警告布局至 `session_stop.go`／`session_stop_view.go`；MIT 原版权保持。产品停止保留历史、核对完整原 Run、输入排空、单次回执与窄窗审阅门槛独立实现。固定来源五导航状态与平台证据见[报告](testing/results/2026-11-24-session-stop.md)；不迁入上游删除注册、容器／worktree 或 v1 依赖。

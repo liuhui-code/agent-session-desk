@@ -1,0 +1,5 @@
+--- FAIL: TestSessionStopDefaultsToCancelAndStopsSelectedNotActiveRunOnce (0.00s)
+    session_stop_test.go:43: selected Session d has no stop confirmation
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.797s
+FAIL
