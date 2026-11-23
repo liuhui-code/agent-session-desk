@@ -22,6 +22,9 @@ func TestUIThemeV5LoadsAndRoundTripsWithoutLosingOtherPreferences(t *testing.T) 
 	if s.Theme != "light" {
 		t.Fatal("loaded theme was discarded")
 	}
+	if b, e := os.ReadFile(p); e != nil || string(b) != text {
+		t.Fatal("v5 load rewrote the original document")
+	}
 	if e = config.SaveUI(p, s); e != nil {
 		t.Fatal(e)
 	}
@@ -30,7 +33,7 @@ func TestUIThemeV5LoadsAndRoundTripsWithoutLosingOtherPreferences(t *testing.T) 
 		t.Fatalf("theme/settings roundtrip: %+v %v", after, e)
 	}
 	b, e := os.ReadFile(p)
-	if e != nil || !strings.Contains(string(b), `theme = "light"`) {
+	if e != nil || !strings.Contains(string(b), `theme = "light"`) || !strings.Contains(string(b), "schema_version = 6") {
 		t.Fatal("save lost theme")
 	}
 }
@@ -56,7 +59,7 @@ func TestUIThemeLegacyLoadsReadOnlyAndUpgradesOnlyOnExplicitSave(t *testing.T) {
 				t.Fatal(e)
 			}
 			b, e = os.ReadFile(p)
-			if e != nil || !strings.Contains(string(b), "schema_version = 5") || !strings.Contains(string(b), `theme = "light"`) {
+			if e != nil || !strings.Contains(string(b), "schema_version = 6") || !strings.Contains(string(b), `theme = "light"`) {
 				t.Fatal("explicit save did not upgrade theme")
 			}
 		})
@@ -64,7 +67,7 @@ func TestUIThemeLegacyLoadsReadOnlyAndUpgradesOnlyOnExplicitSave(t *testing.T) {
 }
 
 func TestUIThemeRejectsInvalidFilesWithoutReplacingOrExposingContent(t *testing.T) {
-	for _, text := range []string{"schema_version=1\ntheme='light'", "schema_version=2\ntheme='light'", "schema_version=3\ntheme='light'", "schema_version=4\ntheme='light'", "schema_version=6\ntheme='light'", "schema_version=5\ntheme=''", "schema_version=5\ntheme='system'", "schema_version=5\ntheme='LIGHT'", "schema_version=5\ntheme=true", "schema_version=5\ntheme=['light']", "schema_version=5\ntheme='PRIVATE-SYNTHETIC'"} {
+	for _, text := range []string{"schema_version=1\ntheme='light'", "schema_version=2\ntheme='light'", "schema_version=3\ntheme='light'", "schema_version=4\ntheme='light'", "schema_version=7\ntheme='light'", "schema_version=5\ntheme=''", "schema_version=5\ntheme='system'", "schema_version=5\ntheme='LIGHT'", "schema_version=5\ntheme=true", "schema_version=5\ntheme=['light']", "schema_version=5\ntheme='PRIVATE-SYNTHETIC'"} {
 		t.Run(text, func(t *testing.T) {
 			p := filepath.Join(t.TempDir(), "ui.toml")
 			if e := os.WriteFile(p, []byte(text), 0600); e != nil {
@@ -87,7 +90,7 @@ func TestUIThemeRejectsInvalidFilesWithoutReplacingOrExposingContent(t *testing.
 
 func TestUIThemeDefaultAndExplicitDarkRoundTripAndRejectBadWrites(t *testing.T) {
 	p := filepath.Join(t.TempDir(), "ui.toml")
-	for _, theme := range []string{"", "dark", "light"} {
+	for _, theme := range []string{"", "dark", "light", "system"} {
 		s := config.UISettings{SidebarDensity: "compact", SidebarMode: "flat", Theme: theme}
 		if e := config.SaveUI(p, s); e != nil {
 			t.Fatal(e)
@@ -101,7 +104,7 @@ func TestUIThemeDefaultAndExplicitDarkRoundTripAndRejectBadWrites(t *testing.T) 
 	if e != nil {
 		t.Fatal(e)
 	}
-	for _, theme := range []string{"system", "LIGHT", " light", "private-synthetic"} {
+	for _, theme := range []string{"SYSTEM", "LIGHT", " light", "private-synthetic"} {
 		if e := config.SaveUI(p, config.UISettings{SidebarDensity: "compact", Theme: theme}); e == nil {
 			t.Fatal("invalid write accepted")
 		}

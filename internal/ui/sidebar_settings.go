@@ -11,10 +11,14 @@ import (
 	"strings"
 
 	tea "charm.land/bubbletea/v2"
+	"github.com/liuhui-code/agent-session-desk/internal/appearance"
 	"github.com/liuhui-code/agent-session-desk/internal/config"
 )
 
 type Options struct {
+	// An injected provider must bind all resources to ctx, even if its returned
+	// connection is never received because the UI has already exited.
+	OpenSystemTheme        func(context.Context) (appearance.Connection, error)
 	Theme                  string
 	SidebarPercent         int
 	SidebarDensity         string
@@ -28,6 +32,7 @@ type Options struct {
 
 func NewWithOptions(ctx context.Context, service Service, options Options) *Model {
 	m := New(ctx, service)
+	m.systemTheme.open = options.OpenSystemTheme
 	if !config.ValidUITheme(options.Theme) {
 		options.Theme = ""
 	}
@@ -64,7 +69,7 @@ func NewWithOptions(ctx context.Context, service Service, options Options) *Mode
 }
 
 var sidebarDensities = [...]string{"full", "compact", "minimal", "auto"}
-var uiThemes = [...]string{"dark", "light"}
+var uiThemes = [...]string{"dark", "light", "system"}
 
 type densitySettings struct {
 	choice           int
@@ -75,8 +80,10 @@ type densitySettings struct {
 
 func (m *Model) openDensitySettings() {
 	d := &densitySettings{err: m.sidebarPreferenceError}
-	if effectiveUITheme(m.preferences.saved.Theme) == "light" {
-		d.themeChoice = 1
+	for i, theme := range uiThemes {
+		if effectiveUITheme(m.preferences.saved.Theme) == theme {
+			d.themeChoice = i
+		}
 	}
 	for i, value := range sidebarDensities {
 		if value == m.sidebarDensity {
@@ -126,6 +133,8 @@ func (m *Model) densitySettingsEvent(msg tea.Msg) (tea.Cmd, bool) {
 			return nil, true
 		}
 		switch msg.String() {
+		case "r":
+			return m.retrySystemTheme(), true
 		case "esc", "S":
 			if d.busy {
 				d.closing = true

@@ -12,7 +12,7 @@ import (
 
 func (m *Model) settingsRow(row, width int, compact bool) string {
 	d, t := m.densitySettings, m.tokens
-	names, selected, labelText := []string{"Dark", "Light"}, d.themeChoice, ""
+	names, selected, labelText := []string{"Dark", "Light", "System"}, d.themeChoice, ""
 	if compact {
 		labelText = "主题: "
 	}
@@ -53,6 +53,9 @@ func (m *Model) renderDensitySettings() string {
 		lines = append(lines, "")
 	}
 	lines = append(lines, m.styles.settingsSection.Render("主题"), m.settingsRow(0, contentWidth, false))
+	if caption := m.systemThemeCaption(); caption != "" {
+		lines = append(lines, m.styles.settingsHint.Render(caption))
+	}
 	for range t.dialog.fieldGap {
 		lines = append(lines, "")
 	}
@@ -68,6 +71,9 @@ func (m *Model) renderDensitySettings() string {
 		lines = []string{m.settingsRow(d.row, contentWidth, true)}
 		if d.err != nil {
 			lines = append(lines, m.styles.settingsError.Render("未保存："+label(d.err.Error())))
+		}
+		if caption := m.systemThemeCaption(); caption != "" {
+			lines = append(lines, m.styles.settingsHint.Render(caption))
 		}
 		if d.busy {
 			lines = append(lines, m.styles.settingsHint.Render("正在保存…"))

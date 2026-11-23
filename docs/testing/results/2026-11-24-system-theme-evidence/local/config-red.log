@@ -1,0 +1,5 @@
+--- FAIL: TestUISystemThemeV6RoundTripsPreferenceWithoutResolvingIt (0.00s)
+    ui_system_theme_test.go:20: System preference unavailable: {Theme: SidebarPercent:0 SidebarDensity:compact SidebarMode:grouped DefaultGroupCollapsed:false CollapsedGroups:} 界面设置版本或字段不受支持
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/config	1.127s
+FAIL

@@ -74,3 +74,5 @@ ADR-0024 从同一固定提交选择性适配 `confirm_dialog.go`／`home_keys_d
 2026-11-24 ADR-0028：同固定 Agent Deck／MIT 的 pane_copy.go 所选可见页复制与去控制／右侧及底部空白规范化，选择性改编至 workspace_visible_copy.go；home.go／hotkeys.go 的 V 交互与 tmux_capture.go 的新鲜捕获仅作固定参考。原版权及精确源哈希保留；原目标复核、限额、工作区取消和独立串行请求令牌为本产品适配，无新框架或 clipboard fallback 依赖。
 
 2026-11-24 ADR-0032：同固定 Agent Deck／MIT 的 Tokyo Night Light 与 Dark 已用颜色角色，以及 settings_panel.go 的主题首行、radio／行焦点结构，选择性改编至 design_tokens.go 和 sidebar_settings*.go，保留原版权。独立 v5 偏好、模型局部样式与串行保存为产品适配；无完整配置、主题监视器或新依赖。来源指纹及实际对照见[报告](docs/testing/results/2026-11-24-themes.md)。
+
+2026-11-24 ADR-0033：固定 Agent Deck `80494e527393b7ead00da30018e6ee7e60e9d7a0`／MIT 的 ResolveTheme 终端声明优先意图及 theme_watcher.go 事件观察模式选择性适配；严格 0–15 解析、持续声明优先和单 Model 阶段屏障为产品差异。Windows HKCU 应用主题读取／注册表事件生命周期选择性改编自 dark-mode-go `v0.0.2`，提交 `cfb25c8db9bff8e2e1f993e90f26326d4e68ed44`／MIT（Copyright 2025 Thiago Kenji Okada），完整许可在 third_party/dark-mode-go/LICENSE。固定四字节 DWORD、线程无关的一次注册／事件后重注册、最新观测和取消回调完成后关句柄为独立适配。不增加该模块依赖，沿既有 x/sys v0.49.0。精确 SHA／实际本地范围见[报告](docs/testing/results/2026-11-24-system-theme.md)；未执行来源 UI 或原生 Windows，不构成整机检测／清理接受。

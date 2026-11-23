@@ -18,3 +18,5 @@
 配置读写／旧版、固定源码调色板对照、真实 v2 模型／保存顺序、窄短布局、原生屏幕和 Session／Run 连续性分别记账。保持 Windows 上传授权缺口，不以本地配色或交叉构建宣告 Windows、系统跟随或完整上游体验接受。
 
 固定 [配色](https://github.com/asheshgoplani/agent-deck/blob/80494e527393b7ead00da30018e6ee7e60e9d7a0/internal/ui/styles.go)／[设置](https://github.com/asheshgoplani/agent-deck/blob/80494e527393b7ead00da30018e6ee7e60e9d7a0/internal/ui/settings_panel.go)；实际范围见[本地报告](../testing/results/2026-11-24-themes.md)。
+
+后续：[ADR-0033](0033-observed-system-ui-theme.md) 扩展 System 与 ui.toml v6；本 ADR 的 Dark/Light、成功保存后应用、模型局部样式及原终端边界继续有效。原 v5／120 帧证据保持其当时范围。

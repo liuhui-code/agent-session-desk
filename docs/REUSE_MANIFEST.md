@@ -138,3 +138,5 @@ Bubbles 2.2.2 textinput 通过模块使用，未复制组件源码。v2 表单�
 2026-11-24 ADR-0031：继续以固定 psmux `20aa1d7254ee93f64dafa059ef89341d9767470a`／MIT 的 pane-mouse 和 window_ops.rs 模式／注入为协议参考；workspace_program_pointer.go 的 UI 归属、队列保留与主动释放独立编写，无 Rust 复制或新依赖。六份固定来源哈希与[本地报告](testing/results/2026-11-24-program-mouse.md)单列，不宣称原生注入兼容。
 
 2026-11-24 ADR-0032：同固定 Agent Deck `80494e527393b7ead00da30018e6ee7e60e9d7a0`／MIT 的 styles.go 暗／亮十个已用颜色角色进入 design_tokens.go；settings_panel.go 的主题／密度顺序、radio 与行焦点改编至 sidebar_settings*.go。ui.toml v5、模型局部样式和成功后应用为独立适配，不迁入全局 theme watcher、完整用户配置或业务设置。精确源 SHA、实际 InitTheme 20 色对照与范围见[报告](testing/results/2026-11-24-themes.md)。
+
+2026-11-24 ADR-0033：固定 Agent Deck `80494e527393b7ead00da30018e6ee7e60e9d7a0`／MIT 的 ResolveTheme 终端声明优先意图及 theme_watcher.go 事件观察模式选择性适配；严格 0–15 解析、持续声明优先和单 Model 阶段屏障为产品差异。Windows HKCU 应用主题读取／注册表事件生命周期选择性改编自 dark-mode-go `v0.0.2`，提交 `cfb25c8db9bff8e2e1f993e90f26326d4e68ed44`／MIT（Copyright 2025 Thiago Kenji Okada），完整许可在 third_party/dark-mode-go/LICENSE。固定四字节 DWORD、线程无关的一次注册／事件后重注册、最新观测和取消回调完成后关句柄为独立适配。不增加该模块依赖，沿既有 x/sys v0.49.0。精确 SHA／实际本地范围见[报告](testing/results/2026-11-24-system-theme.md)；未执行来源 UI 或原生 Windows，不构成整机检测／清理接受。

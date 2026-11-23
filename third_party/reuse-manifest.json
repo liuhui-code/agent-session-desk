@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "date": "2026-11-24",
-  "scope": "Selective UI/platform migration through ADR-0032; full upstream experience and release acceptance remain open.",
+  "scope": "Selective UI/platform migration through ADR-0033; full upstream experience and release acceptance remain open.",
   "original_project_license": "pending O-010",
   "source_files": [
     {
@@ -822,6 +822,62 @@
       ],
       "mode": "selectively_adapted",
       "modifications": "ADR-0032: v2 token-only theme/density subset; bounded selected-row fallback and save status, not the whole upstream settings panel."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/session/userconfig.go",
+      "source_sha256": "e0755ee9e49e80ced9727034ff6161de413059f9ea4445e79fd2ff2eccb3b1dc",
+      "destination_file": "internal/appearance/appearance.go",
+      "license": "MIT",
+      "parts": [
+        "ResolveTheme terminal declaration priority, adapted to strict bounded parsing and sustained priority"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "ADR-0033: strict terminal declaration takes sustained priority. Windows adaptation uses fixed DWORD reads, thread-agnostic registration, latest-only observations and callback join before handle teardown. No new dependency."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/theme_watcher.go",
+      "source_sha256": "211d857b86197e1a8ffd9168159a7aba12cf48ed109d90eac3f70d3b49125d1a",
+      "destination_file": "internal/ui/system_theme.go",
+      "license": "MIT",
+      "parts": [
+        "event-driven theme observation intent; stage and latest-only lifecycle are product adaptations"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "ADR-0033: strict terminal declaration takes sustained priority. Windows adaptation uses fixed DWORD reads, thread-agnostic registration, latest-only observations and callback join before handle teardown. No new dependency."
+    },
+    {
+      "project": "dark-mode-go",
+      "repository": "https://github.com/thiagokokada/dark-mode-go",
+      "commit": "cfb25c8db9bff8e2e1f993e90f26326d4e68ed44",
+      "source_file": "is_dark_mode_windows.go",
+      "source_sha256": "612dc4af97b17dee2c27c5e7ec5aa582df5bc2b9c285be3f5fb17991df6d3332",
+      "destination_file": "internal/appearance/system_windows.go",
+      "license": "MIT",
+      "parts": [
+        "read-only HKCU application theme lookup"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "ADR-0033: strict terminal declaration takes sustained priority. Windows adaptation uses fixed DWORD reads, thread-agnostic registration, latest-only observations and callback join before handle teardown. No new dependency."
+    },
+    {
+      "project": "dark-mode-go",
+      "repository": "https://github.com/thiagokokada/dark-mode-go",
+      "commit": "cfb25c8db9bff8e2e1f993e90f26326d4e68ed44",
+      "source_file": "watch_dark_mode_windows.go",
+      "source_sha256": "836f89b5032dc4777794303c7b42e11bf9019cd46b67258e0c945f88f23a9446",
+      "destination_file": "internal/appearance/system_windows.go",
+      "license": "MIT",
+      "parts": [
+        "native notification/event lifecycle"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "ADR-0033: strict terminal declaration takes sustained priority. Windows adaptation uses fixed DWORD reads, thread-agnostic registration, latest-only observations and callback join before handle teardown. No new dependency."
     }
   ],
   "preserved_notices": [
@@ -865,6 +921,13 @@
       "commit": "6b8d4baf91b4c933e6613b0eefc8f180f6eda002",
       "path": "third_party/ultraviolet/LICENSE",
       "sha256": "8a77c755a1d1fbdc932e86f0449549121820b6f4cc1234b12fcfc8d38013c1de",
+      "copied_verbatim": true
+    },
+    {
+      "project": "dark-mode-go",
+      "commit": "cfb25c8db9bff8e2e1f993e90f26326d4e68ed44",
+      "path": "third_party/dark-mode-go/LICENSE",
+      "sha256": "41a38ec3e59827c667b162a499a88e5577a11e5dda9777a17b7c1c13b4376d97",
       "copied_verbatim": true
     }
   ],

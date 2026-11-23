@@ -1,0 +1,5 @@
+--- FAIL: TestTerminalDeclarationProducesOneKnownThemeThenStopsOnContext (0.00s)
+    appearance_test.go:16: valid terminal declaration unavailable: native system appearance is unavailable on this platform
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/appearance	1.129s
+FAIL

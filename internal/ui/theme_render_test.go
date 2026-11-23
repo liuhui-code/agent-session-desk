@@ -35,7 +35,7 @@ func TestThemesKeepModelsIndependentAndRetainLayoutTokens(t *testing.T) {
 }
 
 func TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames(t *testing.T) {
-	for _, theme := range []string{"dark", "light"} {
+	for _, theme := range []string{"dark", "light", "system"} {
 		for _, width := range []int{8, 12, 27, 49, 80, 120} {
 			for _, height := range []int{1, 5, 8, 12, 24} {
 				for _, row := range []int{0, 1} {
@@ -61,6 +61,8 @@ func TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames(t *testing.T) {
 								want = ">Dark"
 								if theme == "light" {
 									want = ">Light"
+								} else if theme == "system" {
+									want = ">System"
 								}
 							}
 							if !strings.Contains(ansi.Strip(view), want) {

@@ -1,0 +1,13 @@
+{
+  "context7": "resolve matched golang/sys v0.49.0; two query-docs attempts returned no matching documentation; primary sources used as fallback",
+  "references": [
+    "https://pkg.go.dev/golang.org/x/sys@v0.49.0/windows/registry",
+    "https://learn.microsoft.com/en-us/windows/win32/api/winreg/nf-winreg-regnotifychangekeyvalue"
+  ],
+  "source_module": "golang.org/x/sys v0.49.0",
+  "sha256": {
+    "registry/value.go": "abf23b1dc18dbb3d54ea1e113794cf6d564c2dd1f946e7159f9aadabb8a1a1a5",
+    "types_windows.go": "97dfc2cc0606e42b3bec07fb8c669098cff7ac1a25441df4aafef27dc40fc886",
+    "zsyscall_windows.go": "c40bdeba110bf46782feb55976a00c88c2ae51d8c812de5ae023326eeb083c92"
+  }
+}

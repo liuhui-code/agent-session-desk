@@ -74,7 +74,7 @@ func LoadUI(path string) (UISettings, error) {
 	if err != nil {
 		return defaults, fmt.Errorf("界面设置 TOML 或字段类型无效")
 	}
-	if (doc.Version < 1 || doc.Version > 5) || len(meta.Undecoded()) != 0 {
+	if (doc.Version < 1 || doc.Version > 6) || len(meta.Undecoded()) != 0 {
 		return defaults, fmt.Errorf("界面设置版本或字段不受支持")
 	}
 	for _, key := range meta.Keys() {
@@ -88,7 +88,7 @@ func LoadUI(path string) (UISettings, error) {
 		if doc.Version >= 4 && len(key) == 1 && key[0] == "sidebar_percent" {
 			allowed = true
 		}
-		if doc.Version == 5 && len(key) == 1 && key[0] == "theme" {
+		if doc.Version >= 5 && len(key) == 1 && key[0] == "theme" {
 			allowed = true
 		}
 		if !allowed {
@@ -98,8 +98,8 @@ func LoadUI(path string) (UISettings, error) {
 	if !ValidSidebarPercent(doc.SidebarPercent) {
 		return defaults, fmt.Errorf("侧栏比例必须为自动（0）或 10–90 的整数")
 	}
-	if !ValidUITheme(doc.Theme) || (meta.IsDefined("theme") && doc.Theme == "") {
-		return defaults, fmt.Errorf("界面主题必须为 dark 或 light")
+	if !ValidUITheme(doc.Theme) || (meta.IsDefined("theme") && doc.Theme == "") || (doc.Version < 6 && doc.Theme == "system") {
+		return defaults, fmt.Errorf("界面主题或对应版本不受支持")
 	}
 	doc.SidebarDensity = NormalizeSidebarDensity(doc.SidebarDensity)
 	doc.SidebarMode = NormalizeSidebarMode(doc.SidebarMode)
@@ -115,7 +115,7 @@ func LoadUI(path string) (UISettings, error) {
 // this is not a transaction with metadata or a power-loss durability claim.
 func SaveUI(path string, settings UISettings) error {
 	if !ValidUITheme(settings.Theme) {
-		return fmt.Errorf("界面主题必须为 dark 或 light")
+		return fmt.Errorf("界面主题必须为 dark、light 或 system")
 	}
 	if !ValidSidebarPercent(settings.SidebarPercent) {
 		return fmt.Errorf("侧栏比例必须为自动（0）或 10–90 的整数")
@@ -154,7 +154,7 @@ func SaveUI(path string, settings UISettings) error {
 	if err = temp.Chmod(0600); err != nil {
 		return err
 	}
-	if _, err = fmt.Fprintf(temp, "schema_version = 5\nsidebar_density = %q\nsidebar_mode = %q\ndefault_group_collapsed = %t\ncollapsed_groups = %q\nsidebar_percent = %d\n", normalized, mode, settings.DefaultGroupCollapsed, folds, settings.SidebarPercent); err != nil {
+	if _, err = fmt.Fprintf(temp, "schema_version = 6\nsidebar_density = %q\nsidebar_mode = %q\ndefault_group_collapsed = %t\ncollapsed_groups = %q\nsidebar_percent = %d\n", normalized, mode, settings.DefaultGroupCollapsed, folds, settings.SidebarPercent); err != nil {
 		return err
 	}
 	if settings.Theme != "" {
@@ -185,4 +185,6 @@ func ValidSidebarPercent(value int) bool {
 }
 
 // Empty is the internal/default dark preference, serialized by omitting theme.
-func ValidUITheme(value string) bool { return value == "" || value == "dark" || value == "light" }
+func ValidUITheme(value string) bool {
+	return value == "" || value == "dark" || value == "light" || value == "system"
+}

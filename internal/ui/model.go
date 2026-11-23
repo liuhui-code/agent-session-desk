@@ -51,6 +51,7 @@ type pollMsg struct{ generation uint64 }
 // Model implements the stable Bubble Tea v2 API. Mutable UI state is touched
 // only by Init/Update; asynchronous commands return values, never mutate it.
 type Model struct {
+	systemTheme                      systemThemeState
 	sessionStop, sessionStopIntent   *sessionStopDialog
 	orderStamps                      map[string]string
 	sessionOrder                     *sessionOrderMutation
@@ -159,12 +160,15 @@ func (m *Model) Close() {
 }
 
 func (m *Model) Init() tea.Cmd {
-	return tea.Batch(m.loadSessions(), m.schedulePoll())
+	return tea.Batch(m.loadSessions(), m.schedulePoll(), m.syncSystemTheme())
 }
 
 func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	if m.closed {
 		return m, nil
+	}
+	if cmd, handled := m.systemThemeEvent(msg); handled {
+		return m, cmd
 	}
 	if m.workspace != nil {
 		if cmd, handled := m.sessionStopEvent(msg); handled {

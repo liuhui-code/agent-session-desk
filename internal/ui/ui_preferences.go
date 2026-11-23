@@ -97,12 +97,13 @@ func (m *Model) uiPreferencesEvent(msg tea.Msg) (tea.Cmd, bool) {
 		if d := m.densitySettings; d != nil {
 			d.busy, d.closing, d.err = false, false, r.err
 		}
-		return resize, true
+		return tea.Batch(resize, m.syncSystemTheme()), true
 	}
 	p.saved = r.settings
 	p.retainForgottenFolds()
 	m.sidebarDensity = r.settings.SidebarDensity
 	m.applyUITheme(r.settings.Theme)
+	themeCmd := m.syncSystemTheme()
 	if r.settings.SidebarMode == p.wanted.SidebarMode && r.settings.DefaultGroupCollapsed == p.wanted.DefaultGroupCollapsed && r.settings.CollapsedGroups == p.wanted.CollapsedGroups {
 		m.applySidebarNavigation(r.settings)
 	}
@@ -125,12 +126,12 @@ func (m *Model) uiPreferencesEvent(msg tea.Msg) (tea.Cmd, bool) {
 	}
 	if !p.busy && m.workspace.transition == workspaceQuit {
 		m.workspace.transition = workspaceIdle
-		return m.workspaceKey(tea.KeyPressMsg{Code: 'q', Text: "q"}), true
+		return tea.Batch(themeCmd, cmd, m.workspaceKey(tea.KeyPressMsg{Code: 'q', Text: "q"})), true
 	}
 	if d := m.densitySettings; d != nil && d.closing && !p.busy {
-		return m.closeDensitySettings(), true
+		return tea.Batch(themeCmd, cmd, m.closeDensitySettings()), true
 	}
-	return cmd, true
+	return tea.Batch(themeCmd, cmd), true
 }
 func (m *Model) applySidebarNavigation(settings config.UISettings) {
 	changed := m.sidebarMode != settings.SidebarMode || m.sidebarCollapsed != settings.DefaultGroupCollapsed || strings.Join(sortedCollapsedIDs(m.collapsedGroups), ",") != settings.CollapsedGroups

@@ -1,0 +1,8 @@
+ok  	github.com/liuhui-code/agent-session-desk/internal/appearance	0.993s
+--- FAIL: TestUISplitRejectsInvalidOrVersionMismatchedValuesWithoutReplacing (0.02s)
+    --- FAIL: TestUISplitRejectsInvalidOrVersionMismatchedValuesWithoutReplacing/6/40 (0.00s)
+        ui_split_test.go:47: invalid split loaded
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/config	2.261s
+ok  	github.com/liuhui-code/agent-session-desk/internal/ui	7.711s
+FAIL

@@ -1,0 +1,9 @@
+{
+  "status": "not_run",
+  "upload_attempted": false,
+  "native_executed": false,
+  "desktop_executed": false,
+  "system_settings_written": false,
+  "reason": "Earlier destination/binary upload auto-review rejection unresolved; no alternate transport attempted",
+  "native_test": "ASD_NATIVE_APPEARANCE=1; TestWindowsAppearanceIsolatedKeyNotificationsAndCleanup; task-owned isolated registry key only; not executed"
+}
