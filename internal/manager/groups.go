@@ -3,7 +3,6 @@ package manager
 import (
 	"context"
 	"fmt"
-	"sort"
 
 	"github.com/liuhui-code/agent-session-desk/internal/session"
 )
@@ -24,13 +23,6 @@ func (m *Manager) Workspace(ctx context.Context) (session.Workspace, error) {
 	if err != nil {
 		return session.Workspace{}, err
 	}
-	sort.SliceStable(view.Sessions, func(i, j int) bool {
-		a, b := view.Sessions[i], view.Sessions[j]
-		if a.Title == b.Title {
-			return a.ID < b.ID
-		}
-		return a.Title < b.Title
-	})
 	return view, nil
 }
 

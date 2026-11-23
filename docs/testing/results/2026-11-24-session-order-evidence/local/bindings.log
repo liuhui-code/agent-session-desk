@@ -1,0 +1,20 @@
+=== RUN   TestSessionOrderAllSourceKeysKeepSelectionAndNoOpBoundaries
+=== RUN   TestSessionOrderAllSourceKeysKeepSelectionAndNoOpBoundaries/K
+=== RUN   TestSessionOrderAllSourceKeysKeepSelectionAndNoOpBoundaries/+
+=== RUN   TestSessionOrderAllSourceKeysKeepSelectionAndNoOpBoundaries/shift+up
+=== RUN   TestSessionOrderAllSourceKeysKeepSelectionAndNoOpBoundaries/ctrl+up
+=== RUN   TestSessionOrderAllSourceKeysKeepSelectionAndNoOpBoundaries/J
+=== RUN   TestSessionOrderAllSourceKeysKeepSelectionAndNoOpBoundaries/-
+=== RUN   TestSessionOrderAllSourceKeysKeepSelectionAndNoOpBoundaries/shift+down
+=== RUN   TestSessionOrderAllSourceKeysKeepSelectionAndNoOpBoundaries/ctrl+down
+--- PASS: TestSessionOrderAllSourceKeysKeepSelectionAndNoOpBoundaries (0.00s)
+    --- PASS: TestSessionOrderAllSourceKeysKeepSelectionAndNoOpBoundaries/K (0.00s)
+    --- PASS: TestSessionOrderAllSourceKeysKeepSelectionAndNoOpBoundaries/+ (0.00s)
+    --- PASS: TestSessionOrderAllSourceKeysKeepSelectionAndNoOpBoundaries/shift+up (0.00s)
+    --- PASS: TestSessionOrderAllSourceKeysKeepSelectionAndNoOpBoundaries/ctrl+up (0.00s)
+    --- PASS: TestSessionOrderAllSourceKeysKeepSelectionAndNoOpBoundaries/J (0.00s)
+    --- PASS: TestSessionOrderAllSourceKeysKeepSelectionAndNoOpBoundaries/- (0.00s)
+    --- PASS: TestSessionOrderAllSourceKeysKeepSelectionAndNoOpBoundaries/shift+down (0.00s)
+    --- PASS: TestSessionOrderAllSourceKeysKeepSelectionAndNoOpBoundaries/ctrl+down (0.00s)
+PASS
+ok  	github.com/liuhui-code/agent-session-desk/internal/ui	1.242s

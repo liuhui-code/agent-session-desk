@@ -72,6 +72,9 @@ func (m *Model) uiPreferencesEvent(msg tea.Msg) (tea.Cmd, bool) {
 	queued := p.queued
 	p.queued = false
 	if r.err != nil {
+		if m.sessionOrder != nil {
+			m.sessionOrder.quitting = false
+		}
 		if m.groupOrder != nil {
 			m.groupOrder.quitting = false
 		}

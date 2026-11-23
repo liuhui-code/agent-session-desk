@@ -120,3 +120,5 @@ Bubbles 2.2.2 textinput 通过模块使用，未复制组件源码。v2 表单�
 2026-11-23 主界面角色：同固定 embedded_sidebar.go 的选中／活动卡片将嵌套缩进纳入整行 surface，home_view_frame.go 的终端蓝色、悬停／拖动蓝色粗线迁到既有 workspace_*、tokens。产品稳定组、F6 焦点及 transient hover 为明确适配，不迁入来源 group 数据或 v1 依赖。27 组卡片／四种分隔符的实际组件和 72 个产品状态帧见[报告](testing/results/2026-11-23-main-screen-parity.md)；桌面驱动受阻与来源测试隔离警告／审批拒绝均保留，没有整体接受结论。
 
 2026-11-24 长字段适配：既有固定 Agent Deck `80494e527393b7ead00da30018e6ee7e60e9d7a0`／MIT 的 newdialog.go、group_dialog.go、search.go 派生视图改用共享输入尺寸／光标入口；`input_view.go` 的重算和 keycap 显示投影是本项目稳定 v2 适配，没有新增上游源码或依赖。原来源哈希／版权不变，实际范围见[报告](testing/results/2026-11-24-long-fields.md)。
+
+2026-11-24 Session 排序：从同固定 Agent Deck `80494e527393b7ead00da30018e6ee7e60e9d7a0`／MIT 的 home.go 键分派和 groups.go MoveSessionUp/Down 的同组交换／归一化选择性改编至 `internal/ui/session_order.go`／`internal/store/session_order.go`；无父子 Session 或归档业务迁入。SQLite v5、CAS 摘要／版本、平铺槽位与异步退出屏障是本产品适配。来源哈希与六状态实测见[报告](testing/results/2026-11-24-session-order.md)，无生产依赖变化。

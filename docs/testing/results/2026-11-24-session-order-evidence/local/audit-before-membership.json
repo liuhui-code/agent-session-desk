@@ -1,0 +1,176 @@
+{
+    "registered_remaining":  0,
+    "read_only":  true,
+    "utc":  "2026-11-23T18:57:33.5137074Z",
+    "registry":  [
+                     {
+                         "attempt":  1,
+                         "pid":  10560,
+                         "filetime":  134399335093377377,
+                         "original_ended":  true
+                     },
+                     {
+                         "attempt":  2,
+                         "pid":  17784,
+                         "filetime":  134399336287122220,
+                         "original_ended":  true
+                     },
+                     {
+                         "attempt":  3,
+                         "pid":  12796,
+                         "filetime":  134399337276869979,
+                         "original_ended":  true
+                     },
+                     {
+                         "attempt":  3,
+                         "pid":  19840,
+                         "filetime":  134399337305885260,
+                         "original_ended":  true
+                     }
+                 ],
+    "registry_remaining":  0,
+    "remaining_exact_images":  0,
+    "images":  [
+                   {
+                       "remaining":  0,
+                       "path":  "%USERPROFILE%\\asd-acceptance-20261122\\asd-session-order.exe"
+                   },
+                   {
+                       "remaining":  0,
+                       "path":  "%USERPROFILE%\\asd-acceptance-20261122\\session-order-session.exe"
+                   },
+                   {
+                       "remaining":  0,
+                       "path":  "%USERPROFILE%\\asd-acceptance-20261122\\session-order-store.exe"
+                   },
+                   {
+                       "remaining":  0,
+                       "path":  "%USERPROFILE%\\asd-acceptance-20261122\\session-order-manager.exe"
+                   },
+                   {
+                       "remaining":  0,
+                       "path":  "%USERPROFILE%\\asd-acceptance-20261122\\session-order-ui.exe"
+                   }
+               ],
+    "registered":  [
+                       {
+                           "attempt":  1,
+                           "pid":  17928,
+                           "filetime":  134399335081910148,
+                           "original_ended":  true,
+                           "kind":  "shell-A"
+                       },
+                       {
+                           "attempt":  1,
+                           "pid":  18664,
+                           "filetime":  134399335085677605,
+                           "original_ended":  true,
+                           "kind":  "shell-B"
+                       },
+                       {
+                           "attempt":  1,
+                           "pid":  1600,
+                           "filetime":  134399335094555751,
+                           "original_ended":  true,
+                           "kind":  "manager-ui1"
+                       },
+                       {
+                           "attempt":  1,
+                           "pid":  10560,
+                           "filetime":  134399335093377377,
+                           "original_ended":  true,
+                           "kind":  "driver-ui1"
+                       },
+                       {
+                           "attempt":  1,
+                           "pid":  1872,
+                           "filetime":  134399335123024438,
+                           "original_ended":  true,
+                           "kind":  "manager-ui2"
+                       },
+                       {
+                           "attempt":  2,
+                           "pid":  6388,
+                           "filetime":  134399336275430403,
+                           "original_ended":  true,
+                           "kind":  "shell-A"
+                       },
+                       {
+                           "attempt":  2,
+                           "pid":  8344,
+                           "filetime":  134399336278766336,
+                           "original_ended":  true,
+                           "kind":  "shell-B"
+                       },
+                       {
+                           "attempt":  2,
+                           "pid":  6640,
+                           "filetime":  134399336287777888,
+                           "original_ended":  true,
+                           "kind":  "manager-ui1"
+                       },
+                       {
+                           "attempt":  2,
+                           "pid":  17784,
+                           "filetime":  134399336287122220,
+                           "original_ended":  true,
+                           "kind":  "driver-ui1"
+                       },
+                       {
+                           "attempt":  2,
+                           "pid":  7476,
+                           "filetime":  134399336316388073,
+                           "original_ended":  true,
+                           "kind":  "manager-ui2"
+                       },
+                       {
+                           "attempt":  2,
+                           "pid":  3444,
+                           "filetime":  134399336315749124,
+                           "original_ended":  true,
+                           "kind":  "driver-ui2"
+                       },
+                       {
+                           "attempt":  3,
+                           "pid":  19412,
+                           "filetime":  134399337265371956,
+                           "original_ended":  true,
+                           "kind":  "shell-A"
+                       },
+                       {
+                           "attempt":  3,
+                           "pid":  17024,
+                           "filetime":  134399337268734160,
+                           "original_ended":  true,
+                           "kind":  "shell-B"
+                       },
+                       {
+                           "attempt":  3,
+                           "pid":  15352,
+                           "filetime":  134399337277516732,
+                           "original_ended":  true,
+                           "kind":  "manager-ui1"
+                       },
+                       {
+                           "attempt":  3,
+                           "pid":  12796,
+                           "filetime":  134399337276869979,
+                           "original_ended":  true,
+                           "kind":  "driver-ui1"
+                       },
+                       {
+                           "attempt":  3,
+                           "pid":  2812,
+                           "filetime":  134399337306521424,
+                           "original_ended":  true,
+                           "kind":  "manager-ui2"
+                       },
+                       {
+                           "attempt":  3,
+                           "pid":  19840,
+                           "filetime":  134399337305885260,
+                           "original_ended":  true,
+                           "kind":  "driver-ui2"
+                       }
+                   ]
+}

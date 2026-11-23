@@ -21,7 +21,7 @@
 | Windows 终端后台 | **psmux 3.4.0 正式发布** | 持有终端、会话与子进程；默认后端方向已接受，M0 验证决定能否进入实现基线 |
 | Windows 底层终端能力 | **ConPTY，经 psmux 使用** | 首版不重复开发自己的 ConPTY 宿主 |
 | macOS/Linux 后台 | **tmux 3.8** 对照基线 | 后续适配与验收；不是 Windows 安装前提 |
-| 本地状态与消息 | **SQLite 3.54.1，最小元数据已实现** | modernc.org/sqlite v1.62.0、libc v1.80.1；Session/Run、独立 history、[v2 pane 观测](adr/0010-pane-exit-observations.md)及 [v3 显示名／版本](adr/0021-persistent-session-display-names.md)；后续 [v4 持久组／成员版本](adr/0023-persistent-groups-and-membership.md)、v1/v2/v3→v4 事务迁移及离线检查／非覆盖快照恢复已接入，队列、回执与完整升级恢复待做 |
+| 本地状态与消息 | **SQLite 3.54.1，最小元数据已实现** | modernc.org/sqlite v1.62.0、libc v1.80.1；Session/Run、独立 history、[v2 pane 观测](adr/0010-pane-exit-observations.md)及 [v3 显示名／版本](adr/0021-persistent-session-display-names.md)；后续 [v4 持久组／成员版本](adr/0023-persistent-groups-and-membership.md)、[v5 同组会话排序／完整摘要 CAS](adr/0025-persistent-session-order.md)、v1–v4→v5 事务迁移及离线检查／非覆盖快照恢复已接入，队列、回执与完整升级恢复待做 |
 | 配置 | **TOML，首个只读启动切片已实现** | BurntSushi/toml v1.6.0、TOML 1.1.0、schema_version=1；[ADR-0007](adr/0007-explicit-launch-configuration.md)。独立侧栏偏好见 [ADR-0017](adr/0017-sidebar-density-preferences.md)，启动模板保存／迁移及主题文件仍待做 |
 | 输出保存 | **有界文件记录 + 内存尾部缓存** | 已有显式屏幕记录文件与按 Run／全库数量轮转（ADR-0013），仍有选中预览缓存；分页、连续全流日志和完整资源预算未完成 |
 | 终端／Agent 接入 | **CLI-first** | agent、普通交互 shell 和 CLI 共用 executable、args、cwd、env 与终端原生输入；专用协议是可选增强 |
@@ -121,3 +121,5 @@ M0 已有“列表/预览 → 自定义命令 → 全屏 attach → 返回”的
 2026-11-23 同级组排序：ADR-0023 增补完整兄弟快照／版本核对、归一化交换及异步保存／退出屏障；SQLite v4 与 ui.toml v3 不变，没有依赖或终端所有权变化。[实际报告](testing/results/2026-11-23-group-order.md)单列，Session 手动排序、组删除和整体接受仍未完成。
 
 2026-11-23 删除组切片：[ADR-0024](adr/0024-group-removal-and-member-preservation.md) 细化来源默认取消、默认组保护、包含历史成员的只读影响预览和完整组树／成员版本印记。单事务收纳到默认组后删除子树结构，Session/Run/输出和终端不删；偏好仅清理实际删除 ID，不与数据库宣称原子。SQLite v4、ui.toml v3 和依赖不变，实际范围见[报告](testing/results/2026-11-23-group-removal.md)。后续优先逐屏梳理上游差异、补会话手动排序与完整日常终端流程，最终视觉／真实 agent／资源和发布门槛继续开放。
+
+2026-11-24 会话排序：[ADR-0025](adr/0025-persistent-session-order.md) 接入同组会话的 Shift/Ctrl+↑↓、K/J、+/-，SQLite v5 独立位置／版本及按组流式快照摘要，保留 Tab／原 Run 和输入。旧 v1–v4 事务迁移、只读检查／快照恢复与异步退出屏障单独验证；ui.toml 仍 v3。实际范围见[报告](testing/results/2026-11-24-session-order.md)，整体上游接受、真实 agent、输入／资源及发布门槛不提升。

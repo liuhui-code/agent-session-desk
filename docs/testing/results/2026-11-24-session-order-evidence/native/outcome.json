@@ -1,0 +1,46 @@
+{
+    "utc":  "2026-11-23T18:51:34.7892725Z",
+    "results":  [
+                    {
+                        "binary_sha256":  "2C72DFE4FEB9046683D6F8F4613F3A72447B1F05DEB73CB66ACEB4CD46D4BAFD",
+                        "remaining_exact_image":  0,
+                        "skip":  0,
+                        "exit_code":  0,
+                        "fail":  0,
+                        "all_pass":  9,
+                        "top_level_pass":  9,
+                        "package":  "session"
+                    },
+                    {
+                        "binary_sha256":  "137EAE404A7E7CBBA9411FB84727DD2842E62039291CBD45856EC2723FDEA49C",
+                        "remaining_exact_image":  0,
+                        "skip":  0,
+                        "exit_code":  0,
+                        "fail":  0,
+                        "all_pass":  115,
+                        "top_level_pass":  73,
+                        "package":  "store"
+                    },
+                    {
+                        "binary_sha256":  "DB4DAFCB20786B460DE7DE514D8F7BFDEA7BAFBA517A09BB41462B5D50F4DEEE",
+                        "remaining_exact_image":  0,
+                        "skip":  0,
+                        "exit_code":  0,
+                        "fail":  0,
+                        "all_pass":  19,
+                        "top_level_pass":  17,
+                        "package":  "manager"
+                    },
+                    {
+                        "binary_sha256":  "32BD9E393DFBCA0EE2A19E6558AFA0940B8158FA461378B2849121EF8D97D05E",
+                        "remaining_exact_image":  0,
+                        "skip":  0,
+                        "exit_code":  0,
+                        "fail":  0,
+                        "all_pass":  427,
+                        "top_level_pass":  181,
+                        "package":  "ui"
+                    }
+                ],
+    "windows":  "Microsoft Windows NT 10.0.19045.0"
+}

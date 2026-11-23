@@ -42,7 +42,7 @@ func validateMetadata(ctx context.Context, db *sql.DB) (int, error) {
 	if err = tx.QueryRowContext(ctx, "PRAGMA user_version").Scan(&version); err != nil {
 		return 0, err
 	}
-	if app != 0x41534431 || (version != 1 && version != 2 && version != 3 && version != 4) {
+	if app != 0x41534431 || (version != 1 && version != 2 && version != 3 && version != 4 && version != 5) {
 		return 0, fmt.Errorf("unsupported metadata application/schema; source preserved")
 	}
 	var integrity string
@@ -69,6 +69,9 @@ func validateMetadata(ctx context.Context, db *sql.DB) (int, error) {
 	if version >= 4 {
 		queries = append(queries, groupColumns, membershipColumns)
 	}
+	if version >= 5 {
+		queries = append(queries, positionColumns)
+	}
 	for _, query := range queries {
 		rows, e := tx.QueryContext(ctx, query)
 		if e != nil {
@@ -93,6 +96,11 @@ func validateMetadata(ctx context.Context, db *sql.DB) (int, error) {
 	}
 	if version >= 4 {
 		if err = validateGroupScopes(ctx, tx); err != nil {
+			return 0, err
+		}
+	}
+	if version >= 5 {
+		if err = validatePositions(ctx, tx); err != nil {
 			return 0, err
 		}
 	}

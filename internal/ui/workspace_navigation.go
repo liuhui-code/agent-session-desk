@@ -5,6 +5,10 @@ import tea "charm.land/bubbletea/v2"
 // Management navigation waits for writes already accepted by this view. It
 // never retries an uncertain write or transfers it to another Run.
 func (m *Model) navigateWorkspace(target workspaceTransition) tea.Cmd {
+	if m.groupOrder != nil || m.sessionOrder != nil {
+		m.status = "管理模式 · 正在保存排序；完成后可继续操作"
+		return nil
+	}
 	w := m.workspace
 	if w.transition != workspaceIdle {
 		return nil

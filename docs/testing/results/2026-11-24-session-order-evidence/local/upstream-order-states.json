@@ -1,0 +1,56 @@
+[
+  {
+    "a_order": 0,
+    "b_order": 1,
+    "ids": [
+      "a",
+      "b"
+    ],
+    "state": "initial"
+  },
+  {
+    "a_order": 0,
+    "b_order": 1,
+    "ids": [
+      "a",
+      "b"
+    ],
+    "state": "up-boundary"
+  },
+  {
+    "a_order": 1,
+    "b_order": 0,
+    "ids": [
+      "b",
+      "a"
+    ],
+    "state": "swap-up"
+  },
+  {
+    "a_order": 1,
+    "b_order": 0,
+    "ids": [
+      "b",
+      "a"
+    ],
+    "state": "rebuild"
+  },
+  {
+    "a_order": 0,
+    "b_order": 1,
+    "ids": [
+      "a",
+      "b"
+    ],
+    "state": "swap-down"
+  },
+  {
+    "a_order": 0,
+    "b_order": 1,
+    "ids": [
+      "a",
+      "b"
+    ],
+    "state": "down-boundary"
+  }
+]

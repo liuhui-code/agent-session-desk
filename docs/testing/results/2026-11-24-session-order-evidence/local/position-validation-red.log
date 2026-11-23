@@ -1,0 +1,6 @@
+=== RUN   TestSessionOrderMigrationConflictRollsBackAndCorruptPositionIsRejected
+    session_order_migration_test.go:156: workspace accepted inconsistent position group
+--- FAIL: TestSessionOrderMigrationConflictRollsBackAndCorruptPositionIsRejected (0.04s)
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/store	0.918s
+FAIL

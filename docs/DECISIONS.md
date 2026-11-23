@@ -133,3 +133,5 @@ M0 使用后端 user option 做存活终端的发现，不建立临时 JSON 文�
 2026-11-24 后续证据：最终工作区 AllMotion 声明经实际 SendInput 移动验证，恢复正式构建后完成限定 269 回执／16 capture 桌面，不用模型或诊断版替代产品。源代码边界不变，测试控制器修正、旧失败、非脚本正文剔除及首次剪贴板未知仍保留；完整视觉、其他输入／资源和发布未接受。
 
 2026-11-24 长字段：新建四字段、会话／组改名、分组名称／目录和搜索共用尺寸重算；为真实光标预留一格，固定 Bubbles 2.2.2 的 SetWidth 不刷新滚动窗口问题由保留逻辑位置的重算适配。keycap 显示使用整 grapheme 与 x/ansi 单元格宽度，光标仍对应原 rune 插入位置，不改 Value、业务验证、终端输入或依赖。实际模型／Windows 原生及隔离 ConPTY 结果见[报告](testing/results/2026-11-24-long-fields.md)；本轮没有新的 Windows Terminal 桌面／IME 或整体视觉接受，U16/U19 等仍开放。
+
+2026-11-24 会话排序：[ADR-0025](adr/0025-persistent-session-order.md) 接入同组会话的 Shift/Ctrl+↑↓、K/J、+/-，SQLite v5 独立位置／版本及按组流式快照摘要，保留 Tab／原 Run 和输入。旧 v1–v4 事务迁移、只读检查／快照恢复与异步退出屏障单独验证；ui.toml 仍 v3。实际范围见[报告](testing/results/2026-11-24-session-order.md)，整体上游接受、真实 agent、输入／资源及发布门槛不提升。

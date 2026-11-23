@@ -1,0 +1,122 @@
+[
+    {
+        "utc":  "2026-11-23T18:53:49.2148453Z",
+        "details":  {
+                        "value":  "Write-Output (\u0027ORDER_A:\u0027+$PID)"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-23T18:53:49.5228642Z",
+        "details":  {
+                        "value":  "C-PageDown"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-23T18:53:49.7836061Z",
+        "details":  {
+                        "value":  "Write-Output (\u0027ORDER_B:\u0027+$PID)"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-23T18:53:50.0570274Z",
+        "details":  {
+                        "value":  "F6"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-23T18:53:50.2004134Z",
+        "details":  {
+                        "value":  "K"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-23T18:53:50.4797848Z",
+        "details":  {
+                        "value":  "J"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-23T18:53:50.7212181Z",
+        "details":  {
+                        "value":  "K"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-23T18:53:50.9799634Z",
+        "details":  {
+                        "value":  "q"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-23T18:53:51.0003285Z",
+        "details":  {
+                        "exit_code":  0,
+                        "pid":  6640
+                    },
+        "kind":  "manager-exited"
+    },
+    {
+        "utc":  "2026-11-23T18:53:52.0125108Z",
+        "details":  {
+                        "value":  "F6"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-23T18:53:52.1762462Z",
+        "details":  {
+                        "value":  "Down"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-23T18:53:52.1960804Z",
+        "details":  {
+                        "value":  "Enter"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-23T18:53:52.3783173Z",
+        "details":  {
+                        "value":  "Enter"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-23T18:53:52.6312528Z",
+        "details":  {
+                        "value":  "F6"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-23T18:53:52.7887614Z",
+        "details":  {
+                        "value":  "C-PageUp"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-23T18:53:52.8083978Z",
+        "details":  {
+                        "value":  "F6"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-23T18:54:02.8993097Z",
+        "details":  {
+                        "error":  "Expected screen missing: 终端模式; no action replayed"
+                    },
+        "kind":  "failure"
+    }
+]

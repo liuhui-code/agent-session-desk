@@ -25,8 +25,9 @@ type Group struct {
 }
 
 type Workspace struct {
-	Sessions []Session `json:"sessions"`
-	Groups   []Group   `json:"groups"`
+	OrderStamps map[string]string `json:"order_stamps,omitempty"`
+	Sessions    []Session         `json:"sessions"`
+	Groups      []Group           `json:"groups"`
 }
 
 // GroupOrder captures the sibling positions the caller actually observed.

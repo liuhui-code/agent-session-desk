@@ -713,6 +713,34 @@
       ],
       "mode": "selectively_adapted",
       "modifications": "ADR-0014/0016: token-only stable-v2 styles, localized actual supported commands, F6/Tab navigation kept reachable, original active Tab identity, single-row cell fitting and contextual group/unavailable-terminal hints; source authored palette preserved with explicitly observed v1/v2 RGB emission difference. Configurable curated/compact/minimal preference modes remain separate."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/home.go",
+      "source_sha256": "982178adb5c0ef2e27ff316a1f2383b47e261a965a3e6ac2fd50bf0c199dede9",
+      "license": "MIT",
+      "destination_file": "internal/ui/session_order.go",
+      "mode": "selectively_adapted",
+      "parts": [
+        "management reorder bindings and selected Session identity"
+      ],
+      "modifications": "ADR-0025 scoped positions/stamp CAS, async quit barrier, no child-session/archive or terminal mutation."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/session/groups.go",
+      "source_sha256": "ca70187d03745fe6adae0db00f4a660dce13df677c2f83afb783f9099c23ba8f",
+      "license": "MIT",
+      "destination_file": "internal/store/session_order.go",
+      "mode": "selectively_adapted",
+      "parts": [
+        "MoveSessionUp/Down sibling swap and ordinal normalization"
+      ],
+      "modifications": "ADR-0025 scoped positions/stamp CAS, async quit barrier, no child-session/archive or terminal mutation."
     }
   ],
   "preserved_notices": [

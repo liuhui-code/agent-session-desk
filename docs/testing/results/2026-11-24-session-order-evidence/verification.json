@@ -1,0 +1,38 @@
+{
+  "result": "passed_bounded_evidence_consistency",
+  "artifacts": 215,
+  "source_fingerprints": 222,
+  "upstream_reference_states": 6,
+  "native_final": {
+    "session": [
+      9,
+      9
+    ],
+    "store": [
+      73,
+      115
+    ],
+    "manager": [
+      17,
+      19
+    ],
+    "ui": [
+      182,
+      428
+    ]
+  },
+  "prior_ui": [
+    181,
+    427
+  ],
+  "final_console": {
+    "events": 32,
+    "captures": 12,
+    "forced_product_ends": 0,
+    "manager_exits_zero": 2,
+    "clipboard_api_calls": 0
+  },
+  "registered_originals_ended": 24,
+  "earlier_incomplete_registrations_preserved": true,
+  "scope": "not full upstream, desktop, physical modifiers, IME, real-agent, resource or release acceptance"
+}

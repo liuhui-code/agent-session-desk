@@ -1,0 +1,6 @@
+=== RUN   TestSessionOrderRejectsMetadataInsertionAfterDiscoveryWithoutReplaying
+    session_order_edges_test.go:269: metadata-only new member did not invalidate reviewed group: <nil>
+--- FAIL: TestSessionOrderRejectsMetadataInsertionAfterDiscoveryWithoutReplaying (0.02s)
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/store	0.844s
+FAIL

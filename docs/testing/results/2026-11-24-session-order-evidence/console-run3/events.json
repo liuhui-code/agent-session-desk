@@ -1,0 +1,144 @@
+[
+    {
+        "utc":  "2026-11-23T18:55:28.1953707Z",
+        "details":  {
+                        "value":  "Write-Output (\u0027ORDER_A:\u0027+$PID)"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-23T18:55:28.4933898Z",
+        "details":  {
+                        "value":  "C-PageDown"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-23T18:55:28.7619054Z",
+        "details":  {
+                        "value":  "Write-Output (\u0027ORDER_B:\u0027+$PID)"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-23T18:55:29.0382578Z",
+        "details":  {
+                        "value":  "F6"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-23T18:55:29.1907239Z",
+        "details":  {
+                        "value":  "K"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-23T18:55:29.4735262Z",
+        "details":  {
+                        "value":  "J"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-23T18:55:29.7336165Z",
+        "details":  {
+                        "value":  "K"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-23T18:55:29.9714133Z",
+        "details":  {
+                        "value":  "q"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-23T18:55:30.0069174Z",
+        "details":  {
+                        "exit_code":  0,
+                        "pid":  15352
+                    },
+        "kind":  "manager-exited"
+    },
+    {
+        "utc":  "2026-11-23T18:55:31.0207084Z",
+        "details":  {
+                        "value":  "F6"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-23T18:55:31.1747836Z",
+        "details":  {
+                        "value":  "Down"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-23T18:55:31.1942219Z",
+        "details":  {
+                        "value":  "Enter"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-23T18:55:31.3734901Z",
+        "details":  {
+                        "value":  "Enter"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-23T18:55:31.5744799Z",
+        "details":  {
+                        "value":  "F6"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-23T18:55:31.7172336Z",
+        "details":  {
+                        "value":  "C-PageUp"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-23T18:55:32.0101591Z",
+        "details":  {
+                        "value":  "F6"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-23T18:55:32.2320671Z",
+        "details":  {
+                        "value":  "Enter"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-23T18:55:32.4640369Z",
+        "details":  {
+                        "value":  "F6"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-23T18:55:32.5203551Z",
+        "details":  {
+                        "value":  "q"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-23T18:55:32.5378025Z",
+        "details":  {
+                        "exit_code":  0,
+                        "pid":  2812
+                    },
+        "kind":  "manager-exited"
+    }
+]

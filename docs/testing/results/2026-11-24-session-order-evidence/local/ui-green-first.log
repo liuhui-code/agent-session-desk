@@ -1,0 +1,40 @@
+=== RUN   TestGroupOrderQuitWaitsForMetadataAcceptedInputAndPreferences
+--- PASS: TestGroupOrderQuitWaitsForMetadataAcceptedInputAndPreferences (0.00s)
+=== RUN   TestGroupOrderQuitIsCancelledWhenPreferencesFailBeforeOrderAcknowledgement
+--- PASS: TestGroupOrderQuitIsCancelledWhenPreferencesFailBeforeOrderAcknowledgement (0.00s)
+=== RUN   TestGroupOrderQuitIsCancelledWhenTerminalFailsBeforeOrderAcknowledgement
+--- PASS: TestGroupOrderQuitIsCancelledWhenTerminalFailsBeforeOrderAcknowledgement (0.00s)
+=== RUN   TestGroupOrderFailureCancelsQuitAndRequiresAFreshSnapshotBeforeAnotherEdit
+--- PASS: TestGroupOrderFailureCancelsQuitAndRequiresAFreshSnapshotBeforeAnotherEdit (0.00s)
+=== RUN   TestGroupOrderMovesAmongSiblingsAndKeepsFoldedGroupTabAndTerminalDraft
+--- PASS: TestGroupOrderMovesAmongSiblingsAndKeepsFoldedGroupTabAndTerminalDraft (0.01s)
+=== RUN   TestGroupOrderSourceAliasesOnlyReorderSelectedGroupHeaders
+=== RUN   TestGroupOrderSourceAliasesOnlyReorderSelectedGroupHeaders/K
+=== RUN   TestGroupOrderSourceAliasesOnlyReorderSelectedGroupHeaders/plus
+=== RUN   TestGroupOrderSourceAliasesOnlyReorderSelectedGroupHeaders/ctrl-up
+=== RUN   TestGroupOrderSourceAliasesOnlyReorderSelectedGroupHeaders/shift-up
+=== RUN   TestGroupOrderSourceAliasesOnlyReorderSelectedGroupHeaders/J
+=== RUN   TestGroupOrderSourceAliasesOnlyReorderSelectedGroupHeaders/minus
+=== RUN   TestGroupOrderSourceAliasesOnlyReorderSelectedGroupHeaders/ctrl-down
+=== RUN   TestGroupOrderSourceAliasesOnlyReorderSelectedGroupHeaders/shift-down
+--- PASS: TestGroupOrderSourceAliasesOnlyReorderSelectedGroupHeaders (0.00s)
+    --- PASS: TestGroupOrderSourceAliasesOnlyReorderSelectedGroupHeaders/K (0.00s)
+    --- PASS: TestGroupOrderSourceAliasesOnlyReorderSelectedGroupHeaders/plus (0.00s)
+    --- PASS: TestGroupOrderSourceAliasesOnlyReorderSelectedGroupHeaders/ctrl-up (0.00s)
+    --- PASS: TestGroupOrderSourceAliasesOnlyReorderSelectedGroupHeaders/shift-up (0.00s)
+    --- PASS: TestGroupOrderSourceAliasesOnlyReorderSelectedGroupHeaders/J (0.00s)
+    --- PASS: TestGroupOrderSourceAliasesOnlyReorderSelectedGroupHeaders/minus (0.00s)
+    --- PASS: TestGroupOrderSourceAliasesOnlyReorderSelectedGroupHeaders/ctrl-down (0.00s)
+    --- PASS: TestGroupOrderSourceAliasesOnlyReorderSelectedGroupHeaders/shift-down (0.00s)
+=== RUN   TestGroupOrderTerminalAliasesRemainOriginalInput
+--- PASS: TestGroupOrderTerminalAliasesRemainOriginalInput (0.00s)
+=== RUN   TestGroupOrderPendingOperationDoesNotQueueStaleEditsOrStealNewSelection
+--- PASS: TestGroupOrderPendingOperationDoesNotQueueStaleEditsOrStealNewSelection (0.00s)
+=== RUN   TestGroupOrderAcknowledgementKeepsNewerObservedMetadataAndDropsOldOperation
+--- PASS: TestGroupOrderAcknowledgementKeepsNewerObservedMetadataAndDropsOldOperation (0.00s)
+=== RUN   TestGroupOrderAcknowledgementDoesNotRecreateAnObservedRemovedSubtree
+--- PASS: TestGroupOrderAcknowledgementDoesNotRecreateAnObservedRemovedSubtree (0.00s)
+=== RUN   TestSessionRowOrderFollowsSelectionWithoutMovingTabsOrSendingInput
+--- PASS: TestSessionRowOrderFollowsSelectionWithoutMovingTabsOrSendingInput (0.01s)
+PASS
+ok  	github.com/liuhui-code/agent-session-desk/internal/ui	0.914s

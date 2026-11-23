@@ -80,7 +80,7 @@ func TestV3GroupMigrationAndSnapshotPreserveOriginalEvidence(t *testing.T) {
 		t.Fatalf("lost original Run evidence: %+v %v", rows, err)
 	}
 	check, err = store.Check(ctx, restored)
-	if err != nil || check.SchemaVersion != 4 {
-		t.Fatalf("v4 check: %+v %v", check, err)
+	if err != nil || check.SchemaVersion != 5 {
+		t.Fatalf("current schema check: %+v %v", check, err)
 	}
 }

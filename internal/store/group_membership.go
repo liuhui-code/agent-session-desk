@@ -33,9 +33,13 @@ func (s *Store) workspace(ctx context.Context, q rowsReader, items []session.Ses
 	result := session.Workspace{Groups: groups, Sessions: append([]session.Session(nil), items...)}
 	for i := range result.Sessions {
 		v := &result.Sessions[i]
-		err = q.QueryRowContext(ctx, `SELECT coalesce(n.title,s.title),coalesce(n.revision,0),coalesce(g.group_id,''),coalesce(g.revision,0) FROM sessions s LEFT JOIN session_names n ON n.scope=s.scope AND n.session_id=s.id LEFT JOIN session_groups g ON g.scope=s.scope AND g.session_id=s.id WHERE s.scope=? AND s.id=?`, s.scope, v.ID).Scan(&v.Title, &v.TitleRevision, &v.GroupID, &v.GroupRevision)
+		var positionGroup string
+		err = q.QueryRowContext(ctx, `SELECT coalesce(n.title,s.title),coalesce(n.revision,0),coalesce(g.group_id,''),coalesce(g.revision,0),coalesce(p.ordinal,0),coalesce(p.revision,0),coalesce(p.group_id,'') FROM sessions s LEFT JOIN session_names n ON n.scope=s.scope AND n.session_id=s.id LEFT JOIN session_groups g ON g.scope=s.scope AND g.session_id=s.id LEFT JOIN session_positions p ON p.scope=s.scope AND p.session_id=s.id WHERE s.scope=? AND s.id=?`, s.scope, v.ID).Scan(&v.Title, &v.TitleRevision, &v.GroupID, &v.GroupRevision, &v.Order, &v.OrderRevision, &positionGroup)
 		if err != nil {
 			return session.Workspace{}, err
+		}
+		if v.Order < 0 || v.OrderRevision < 0 || (v.OrderRevision == 0 && v.Order != 0) || (v.OrderRevision > 0 && positionGroup != session.GroupOf(*v)) {
+			return session.Workspace{}, fmt.Errorf("invalid stored session position")
 		}
 		if v.TitleRevision < 0 {
 			return session.Workspace{}, fmt.Errorf("invalid stored name revision")
@@ -62,6 +66,11 @@ func (s *Store) workspace(ctx context.Context, q rowsReader, items []session.Ses
 			v.GroupID = ""
 		}
 	}
+	result.OrderStamps, err = s.sessionOrderStamps(ctx, q, groups)
+	if err != nil {
+		return session.Workspace{}, err
+	}
+	session.SortSessions(result.Sessions)
 	return result, nil
 }
 
@@ -108,6 +117,10 @@ func (s *Store) MoveToGroup(ctx context.Context, expected session.Session, targe
 	if err != nil {
 		return session.Session{}, err
 	}
+	if err = s.clearSessionPosition(ctx, tx, expected.ID); err != nil {
+		return session.Session{}, err
+	}
+	result.Order, result.OrderRevision = 0, 0
 	if err = tx.Commit(); err != nil {
 		return session.Session{}, fmt.Errorf("membership commit not confirmed; refresh before another move: %w", err)
 	}

@@ -98,7 +98,7 @@ func (s *Store) initialize(ctx context.Context) error {
 			return err
 		}
 		version = 3
-	} else if app != applicationID || (version != 1 && version != 2 && version != 3 && version != 4) {
+	} else if app != applicationID || (version != 1 && version != 2 && version != 3 && version != 4 && version != 5) {
 		return fmt.Errorf("unsupported metadata application/schema; file preserved")
 	}
 	var journal string
@@ -131,6 +131,12 @@ func (s *Store) initialize(ctx context.Context) error {
 		if _, err = tx.ExecContext(ctx, groupSchema+" PRAGMA user_version=4;"); err != nil {
 			return err
 		}
+		version = 4
+	}
+	if version == 4 {
+		if _, err = tx.ExecContext(ctx, positionSchema+" PRAGMA user_version=5;"); err != nil {
+			return err
+		}
 	}
 	if _, err = tx.ExecContext(ctx, `INSERT INTO groups VALUES(?,'default',NULL,'我的会话','',1,0) ON CONFLICT(scope,id) DO NOTHING`, s.scope); err != nil {
 		return err
@@ -149,7 +155,7 @@ func (s *Store) initialize(ctx context.Context) error {
 	if err = rows.Close(); err != nil {
 		return err
 	}
-	for _, query := range []string{groupColumns, membershipColumns} {
+	for _, query := range []string{groupColumns, membershipColumns, positionColumns} {
 		rows, err = tx.QueryContext(ctx, query)
 		if err != nil {
 			return err
@@ -159,6 +165,9 @@ func (s *Store) initialize(ctx context.Context) error {
 		}
 	}
 	if _, err = s.groups(ctx, tx); err != nil {
+		return err
+	}
+	if err = validatePositions(ctx, tx); err != nil {
 		return err
 	}
 	return tx.Commit()
@@ -178,7 +187,7 @@ func (s *Store) SaveInGroup(ctx context.Context, v session.Session, groupID stri
 }
 
 func (s *Store) save(ctx context.Context, v session.Session, initialGroup string) error {
-	if v.TitleRevision != 0 || v.GroupID != "" || v.GroupRevision != 0 {
+	if v.TitleRevision != 0 || v.GroupID != "" || v.GroupRevision != 0 || v.Order != 0 || v.OrderRevision != 0 {
 		return fmt.Errorf("discovery must contain the original backend launch snapshot")
 	}
 	if err := validateExit(v); err != nil {

@@ -1,0 +1,11 @@
+--- FAIL: TestV3GroupMigrationAndSnapshotPreserveOriginalEvidence (0.08s)
+    groups_migration_test.go:84: v4 check: {SchemaVersion:5 Integrity:ok ForeignKeys:ok} <nil>
+--- FAIL: TestV2UpgradeAndNamedSnapshotPreserveOriginalRunEvidence (0.02s)
+    names_migration_test.go:68: current schema check: {SchemaVersion:5 Integrity:ok ForeignKeys:ok} <nil>
+--- FAIL: TestV1SnapshotRestoresThroughNormalMigrationWithoutChangingBackup (0.01s)
+    recovery_test.go:242: migration: store.CheckResult{SchemaVersion:5, Integrity:"ok", ForeignKeys:"ok"} <nil>
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/store	9.927s
+ok  	github.com/liuhui-code/agent-session-desk/internal/manager	1.569s
+ok  	github.com/liuhui-code/agent-session-desk/internal/ui	4.997s
+FAIL

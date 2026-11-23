@@ -1,0 +1,7 @@
+asd-long-field-final.exe : asd: unsupported metadata application/schema; source preserved
+所在位置 行:61 字符: 1
++ & $legacy @g metadata check > (Join-Path $root 'legacy-v5-check.out') ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (asd: unsupporte...ource preserved:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 

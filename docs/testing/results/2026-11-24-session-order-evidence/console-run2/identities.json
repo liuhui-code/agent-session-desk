@@ -1,0 +1,44 @@
+[
+    {
+        "path":  "%USERPROFILE%\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+        "pid":  6388,
+        "filetime":  134399336275430403,
+        "handle_retained":  true,
+        "kind":  "shell-A"
+    },
+    {
+        "path":  "%USERPROFILE%\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+        "pid":  8344,
+        "filetime":  134399336278766336,
+        "handle_retained":  true,
+        "kind":  "shell-B"
+    },
+    {
+        "path":  "%USERPROFILE%\\asd-acceptance-20261122\\asd-session-order.exe",
+        "pid":  6640,
+        "filetime":  134399336287777888,
+        "handle_retained":  true,
+        "kind":  "manager-ui1"
+    },
+    {
+        "path":  "%USERPROFILE%\\asd-acceptance-20261122\\terminal-bundle-20261123\\bundle\\psmux.exe",
+        "pid":  17784,
+        "filetime":  134399336287122220,
+        "handle_retained":  true,
+        "kind":  "driver-ui1"
+    },
+    {
+        "path":  "%USERPROFILE%\\asd-acceptance-20261122\\asd-session-order.exe",
+        "pid":  7476,
+        "filetime":  134399336316388073,
+        "handle_retained":  true,
+        "kind":  "manager-ui2"
+    },
+    {
+        "path":  "%USERPROFILE%\\asd-acceptance-20261122\\terminal-bundle-20261123\\bundle\\psmux.exe",
+        "pid":  3444,
+        "filetime":  134399336315749124,
+        "handle_retained":  true,
+        "kind":  "driver-ui2"
+    }
+]

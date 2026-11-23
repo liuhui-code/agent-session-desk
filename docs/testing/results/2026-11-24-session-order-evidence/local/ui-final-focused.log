@@ -1,0 +1,32 @@
+=== RUN   TestSessionOrderQuitWaitsForMetadataInputAndPreferenceAndNeverReplays
+--- PASS: TestSessionOrderQuitWaitsForMetadataInputAndPreferenceAndNeverReplays (0.00s)
+=== RUN   TestSessionOrderFailureAndOtherFailuresCancelPendingQuit
+=== RUN   TestSessionOrderFailureAndOtherFailuresCancelPendingQuit/metadata
+=== RUN   TestSessionOrderFailureAndOtherFailuresCancelPendingQuit/terminal
+=== RUN   TestSessionOrderFailureAndOtherFailuresCancelPendingQuit/preferences
+--- PASS: TestSessionOrderFailureAndOtherFailuresCancelPendingQuit (0.00s)
+    --- PASS: TestSessionOrderFailureAndOtherFailuresCancelPendingQuit/metadata (0.00s)
+    --- PASS: TestSessionOrderFailureAndOtherFailuresCancelPendingQuit/terminal (0.00s)
+    --- PASS: TestSessionOrderFailureAndOtherFailuresCancelPendingQuit/preferences (0.00s)
+=== RUN   TestSessionOrderLateResultCannotApplyToChangedRowsOrRestoreMissingRows
+=== RUN   TestSessionOrderLateResultCannotApplyToChangedRowsOrRestoreMissingRows/missing
+=== RUN   TestSessionOrderLateResultCannotApplyToChangedRowsOrRestoreMissingRows/run
+=== RUN   TestSessionOrderLateResultCannotApplyToChangedRowsOrRestoreMissingRows/backend
+=== RUN   TestSessionOrderLateResultCannotApplyToChangedRowsOrRestoreMissingRows/command
+=== RUN   TestSessionOrderLateResultCannotApplyToChangedRowsOrRestoreMissingRows/name
+=== RUN   TestSessionOrderLateResultCannotApplyToChangedRowsOrRestoreMissingRows/membership
+=== RUN   TestSessionOrderLateResultCannotApplyToChangedRowsOrRestoreMissingRows/newer-position
+--- PASS: TestSessionOrderLateResultCannotApplyToChangedRowsOrRestoreMissingRows (0.00s)
+    --- PASS: TestSessionOrderLateResultCannotApplyToChangedRowsOrRestoreMissingRows/missing (0.00s)
+    --- PASS: TestSessionOrderLateResultCannotApplyToChangedRowsOrRestoreMissingRows/run (0.00s)
+    --- PASS: TestSessionOrderLateResultCannotApplyToChangedRowsOrRestoreMissingRows/backend (0.00s)
+    --- PASS: TestSessionOrderLateResultCannotApplyToChangedRowsOrRestoreMissingRows/command (0.00s)
+    --- PASS: TestSessionOrderLateResultCannotApplyToChangedRowsOrRestoreMissingRows/name (0.00s)
+    --- PASS: TestSessionOrderLateResultCannotApplyToChangedRowsOrRestoreMissingRows/membership (0.00s)
+    --- PASS: TestSessionOrderLateResultCannotApplyToChangedRowsOrRestoreMissingRows/newer-position (0.00s)
+=== RUN   TestSessionOrderKeepsTerminalKeysAndBlocksMouseNewWhileSaving
+--- PASS: TestSessionOrderKeepsTerminalKeysAndBlocksMouseNewWhileSaving (0.00s)
+=== RUN   TestSessionRowOrderFollowsSelectionWithoutMovingTabsOrSendingInput
+--- PASS: TestSessionRowOrderFollowsSelectionWithoutMovingTabsOrSendingInput (0.01s)
+PASS
+ok  	github.com/liuhui-code/agent-session-desk/internal/ui	0.898s

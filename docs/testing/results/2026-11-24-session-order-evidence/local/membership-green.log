@@ -1,0 +1,32 @@
+=== RUN   TestGroupRemovalDefaultNoticeAndTerminalLettersNeverMutateMetadata
+--- PASS: TestGroupRemovalDefaultNoticeAndTerminalLettersNeverMutateMetadata (0.00s)
+=== RUN   TestGroupRemovalLoadingCancelAndStalePreviewNeverDeferConfirmation
+--- PASS: TestGroupRemovalLoadingCancelAndStalePreviewNeverDeferConfirmation (0.00s)
+=== RUN   TestGroupRemovalWaitsForAcceptedInputAndBusyConfirmationOnlyCommitsOnce
+--- PASS: TestGroupRemovalWaitsForAcceptedInputAndBusyConfirmationOnlyCommitsOnce (0.00s)
+=== RUN   TestGroupRemovalFailuresStayVisibleAndNeverResubmit
+=== RUN   TestGroupRemovalFailuresStayVisibleAndNeverResubmit/preview
+=== RUN   TestGroupRemovalFailuresStayVisibleAndNeverResubmit/commit
+--- PASS: TestGroupRemovalFailuresStayVisibleAndNeverResubmit (0.00s)
+    --- PASS: TestGroupRemovalFailuresStayVisibleAndNeverResubmit/preview (0.00s)
+    --- PASS: TestGroupRemovalFailuresStayVisibleAndNeverResubmit/commit (0.00s)
+=== RUN   TestGroupRemovalAcknowledgementPreservesANewerObservedRunAndMembership
+--- PASS: TestGroupRemovalAcknowledgementPreservesANewerObservedRunAndMembership (0.00s)
+=== RUN   TestGroupRemovalCleansOnlyDeletedFoldIdsAndPreservesUnknownScopePreferences
+--- PASS: TestGroupRemovalCleansOnlyDeletedFoldIdsAndPreservesUnknownScopePreferences (0.00s)
+=== RUN   TestGroupRemovalCleanupDoesNotPersistAnotherTabsTemporaryExpansion
+--- PASS: TestGroupRemovalCleanupDoesNotPersistAnotherTabsTemporaryExpansion (0.00s)
+=== RUN   TestGroupRemovalPreferenceFailureDoesNotRestoreDeletedFoldsOrRetryTheRemoval
+--- PASS: TestGroupRemovalPreferenceFailureDoesNotRestoreDeletedFoldsOrRetryTheRemoval (0.00s)
+=== RUN   TestGroupRemovalNeverConfirmsWhenTheCompleteReviewDoesNotFit
+--- PASS: TestGroupRemovalNeverConfirmsWhenTheCompleteReviewDoesNotFit (0.01s)
+=== RUN   TestGroupRemovalDefaultsToCancelThenCollectsMembersWithoutChangingOriginalTabsOrInput
+--- PASS: TestGroupRemovalDefaultsToCancelThenCollectsMembersWithoutChangingOriginalTabsOrInput (0.01s)
+=== RUN   TestGroupMoveRejectsAnOriginalRunReplacedWhileTheDialogWasOpen
+--- PASS: TestGroupMoveRejectsAnOriginalRunReplacedWhileTheDialogWasOpen (0.01s)
+=== RUN   TestGroupMoveSuccessRejectsPreCommitDiscoveryAndDoesNotDuplicateTheTab
+--- PASS: TestGroupMoveSuccessRejectsPreCommitDiscoveryAndDoesNotDuplicateTheTab (0.01s)
+=== RUN   TestMembershipAcknowledgementResetsOldGroupPositionWithoutUndoingNewerSort
+--- PASS: TestMembershipAcknowledgementResetsOldGroupPositionWithoutUndoingNewerSort (0.00s)
+PASS
+ok  	github.com/liuhui-code/agent-session-desk/internal/ui	0.841s

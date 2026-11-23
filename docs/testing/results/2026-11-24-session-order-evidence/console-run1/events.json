@@ -1,0 +1,73 @@
+[
+    {
+        "utc":  "2026-11-23T18:51:49.9104559Z",
+        "details":  {
+                        "value":  "Write-Output (\u0027ORDER_A:\u0027+$PID)"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-23T18:51:50.2325557Z",
+        "details":  {
+                        "value":  "C-PageDown"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-23T18:51:50.4933746Z",
+        "details":  {
+                        "value":  "Write-Output (\u0027ORDER_B:\u0027+$PID)"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-23T18:51:50.7778657Z",
+        "details":  {
+                        "value":  "F6"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-23T18:51:50.8177094Z",
+        "details":  {
+                        "value":  "K"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-23T18:51:51.1156384Z",
+        "details":  {
+                        "value":  "J"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-23T18:51:51.3499280Z",
+        "details":  {
+                        "value":  "K"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-23T18:51:51.5923958Z",
+        "details":  {
+                        "value":  "q"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-23T18:51:51.6185377Z",
+        "details":  {
+                        "exit_code":  0,
+                        "pid":  1600
+                    },
+        "kind":  "manager-exited"
+    },
+    {
+        "utc":  "2026-11-23T18:51:52.3610701Z",
+        "details":  {
+                        "error":  "Driver registry mismatch"
+                    },
+        "kind":  "failure"
+    }
+]

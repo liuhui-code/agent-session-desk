@@ -269,7 +269,7 @@
 
 - 功能：[FL-004](../COVERAGE.md#fl-004)、[FL-005](../COVERAGE.md#fl-005)
 - 需求：[FR-03](../COVERAGE.md#fr-03)、[FR-04](../COVERAGE.md#fr-04)
-- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0014](../../adr/0014-upstream-ui-tabs-and-general-terminals.md)、[ADR-0016](../../adr/0016-tab-workspaces-and-input-ownership.md)、[ADR-0020](../../adr/0020-local-session-search.md)
+- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0014](../../adr/0014-upstream-ui-tabs-and-general-terminals.md)、[ADR-0016](../../adr/0016-tab-workspaces-and-input-ownership.md)、[ADR-0020](../../adr/0020-local-session-search.md)、[ADR-0025](../../adr/0025-persistent-session-order.md)
 - 优先级 / 阶段 / 层次：P1 / M2 / integration
 - 类型：functional、boundary
 - 设计 / 执行：`designed / not_run`
@@ -289,6 +289,7 @@
 3. 验证 Unicode 小写、首尾空白裁剪、1–3 rune 精确子串、4–5 rune 一个编辑、更长两个编辑；精确子串优先、同分稳定，不做 NFC/NFD 归一化。
 4. 搜索期间模拟发现重排和选中 Run 替换：前者保留原选择，后者清除选择直到明确重选；以慢写入验证进入弹窗前先完成已接受输入。
 5. 原生 Tab 中保留 shell 草稿后搜索、取消、零结果 Enter 与选择；核对普通／中文查询、120／63／49 列和界面重开。
+6. 选中组内会话用 Shift/Ctrl+↑↓、K/J、+/- 排序，往返平铺／分组、刷新、退出重开；排序时在原终端输入并分别延迟元数据、已接受输入和偏好保存后请求退出。两连接并发、ABA、发现后元数据新增成员、移组、删除收纳及 v4→v5／备份恢复分别核对。
 
 #### 预期与不变量
 
@@ -297,6 +298,7 @@
 - 无结果时不能沿用不可见旧选中行执行停止或进入。
 - 终端／原生复制模式的斜杠仍交给目标；管理搜索窗消费自己的键鼠／粘贴，q 是查询正文，Esc/Ctrl+C 返回管理焦点。
 - Run 替换不将 Enter 自动转到首项或同名新 Run；零结果／不可交互项不进入，不自动启动／停止。
+- 会话只在同组行间交换，平铺保留其他组槽位；原 Session/Run、活动 Tab／草稿不改。完整同组摘要和行版本拒绝过期集合／替换／ABA，任一写入失败整体回滚，未知结果不自动重试；保存和已接受输入／偏好完成才退出，任一失败取消该次退出。
 
 #### 需要的证据
 

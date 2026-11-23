@@ -34,7 +34,7 @@ func (m *Model) reorderSelectedGroup(delta int) tea.Cmd {
 		return nil
 	}
 	service, ok := m.service.(groupOrderService)
-	if !ok || m.groupOrder != nil || m.listErr != nil || !m.sidebarGroupSelected() || m.workspace.transition != workspaceIdle {
+	if !ok || m.groupOrder != nil || m.sessionOrder != nil || m.listErr != nil || !m.sidebarGroupSelected() || m.workspace.transition != workspaceIdle {
 		return nil
 	}
 	target := m.selectedGroup()

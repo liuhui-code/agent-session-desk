@@ -4,9 +4,9 @@
 
 当前 psmux Tab 工作区支持拖动标题排序；管理模式 `[`／`]` 左右移动活动 Tab，终端中的同名字符仍交给原程序。顺序只在本次 UI 有效，关闭／重开视图保持原 Run，具体范围见[排序验证](docs/testing/results/2026-11-23-tab-order.md)。
 
-管理模式 `r` 重命名所选会话或分组，`Ctrl+R` 刷新；连接失败时 `r` 重试。会话名称独立保存，列表、Tab、搜索和离线历史使用当前显示名，原终端身份与启动快照不变；会话同名增加简短身份标记。当前数据库为 schema v4，旧程序不能直接读取新 schema。分组改名保留稳定 ID、成员和折叠状态，默认组也可改显示名；同级重名／旧版本提交拒绝。实际验证与剩余范围见[会话重命名](docs/testing/results/2026-11-23-session-rename.md)及[组重命名](docs/testing/results/2026-11-23-group-rename.md)。
+管理模式 `r` 重命名所选会话或分组，`Ctrl+R` 刷新；连接失败时 `r` 重试。会话名称独立保存，列表、Tab、搜索和离线历史使用当前显示名，原终端身份与启动快照不变；会话同名增加简短身份标记。当前数据库为 schema v5，旧程序不能直接读取新 schema。分组改名保留稳定 ID、成员和折叠状态，默认组也可改显示名；同级重名／旧版本提交拒绝。实际验证与剩余范围见[会话重命名](docs/testing/results/2026-11-23-session-rename.md)及[组重命名](docs/testing/results/2026-11-23-group-rename.md)。
 
-管理焦点选中组标题后，用 `Shift/Ctrl+↑↓`、`K/J` 或 `+/-` 调整并保存同级顺序，默认组固定首位；终端焦点的同名键仍交给原程序。详见[组排序验证](docs/testing/results/2026-11-23-group-order.md)。
+管理焦点用 `Shift/Ctrl+↑↓`、`K/J` 或 `+/-` 调整并保存所选会话的同组顺序，组标题仍调整同级组，默认组固定首位；终端焦点的同名键仍交给原程序。详见[组排序验证](docs/testing/results/2026-11-23-group-order.md)及[会话排序验证](docs/testing/results/2026-11-24-session-order.md)。
 
 管理焦点选中组标题按 `d`，核对将删除的组结构和成员数量；默认取消，明确确认后将成员移入默认组，保留原 Tab、终端及历史。默认组不能删除。详见[删除组验证](docs/testing/results/2026-11-23-group-removal.md)。
 
@@ -160,6 +160,6 @@ Windows x64 显式开发配置现可通过 `--terminal-bundle` 选择固定历�
 
 Tab 管理模式现可按 `/` 搜索当前会话，选择后接回原 Run；查询与终端原生输入隔离。布局、配色、三条普通 shell 的实际 Windows 流程及剩余范围见[本地会话搜索报告](docs/testing/results/2026-11-23-session-search.md)。
 
-自定义组的 SQLite v4 迁移、备份／恢复与实际检查见[分组报告](docs/testing/results/2026-11-23-custom-groups.md)及 [ADR-0023](docs/adr/0023-persistent-groups-and-membership.md)。组改名、同级组排序和 [ADR-0024 删除／收纳](docs/adr/0024-group-removal-and-member-preservation.md)已有独立局部证据；会话手动排序、完整上游体验接受、真实 agent 和发布仍未完成。
+自定义组的 SQLite v4 迁移、备份／恢复与实际检查见[分组报告](docs/testing/results/2026-11-23-custom-groups.md)及 [ADR-0023](docs/adr/0023-persistent-groups-and-membership.md)。组改名、同级组排序和 [ADR-0024 删除／收纳](docs/adr/0024-group-removal-and-member-preservation.md)已有独立局部证据；会话手动排序随后由 [ADR-0025](docs/adr/0025-persistent-session-order.md) 接入局部实现；完整上游体验接受、真实 agent 和发布仍未完成。
 
 分组后续完成[固定来源弹窗对照与三 shell 桌面流程](docs/testing/results/2026-11-23-groups-desktop.md)，核对组内实际目录、原 Run／草稿、窄屏和 UI 重开；另修复中文表单占位提示的 NUL 显示。组编辑及整体验收继续开放。

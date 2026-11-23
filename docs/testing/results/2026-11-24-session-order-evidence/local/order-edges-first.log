@@ -1,0 +1,32 @@
+=== RUN   TestSessionOrderRejectsStaleSnapshotsABAAndObservedSetChanges
+=== RUN   TestSessionOrderRejectsStaleSnapshotsABAAndObservedSetChanges/missing
+=== RUN   TestSessionOrderRejectsStaleSnapshotsABAAndObservedSetChanges/inserted
+=== RUN   TestSessionOrderRejectsStaleSnapshotsABAAndObservedSetChanges/replacement
+=== RUN   TestSessionOrderRejectsStaleSnapshotsABAAndObservedSetChanges/rename
+=== RUN   TestSessionOrderRejectsStaleSnapshotsABAAndObservedSetChanges/membership
+=== RUN   TestSessionOrderRejectsStaleSnapshotsABAAndObservedSetChanges/stopped
+=== RUN   TestSessionOrderRejectsStaleSnapshotsABAAndObservedSetChanges/duplicate
+=== RUN   TestSessionOrderRejectsStaleSnapshotsABAAndObservedSetChanges/foreign
+--- PASS: TestSessionOrderRejectsStaleSnapshotsABAAndObservedSetChanges (0.08s)
+    --- PASS: TestSessionOrderRejectsStaleSnapshotsABAAndObservedSetChanges/missing (0.01s)
+    --- PASS: TestSessionOrderRejectsStaleSnapshotsABAAndObservedSetChanges/inserted (0.01s)
+    --- PASS: TestSessionOrderRejectsStaleSnapshotsABAAndObservedSetChanges/replacement (0.01s)
+    --- PASS: TestSessionOrderRejectsStaleSnapshotsABAAndObservedSetChanges/rename (0.01s)
+    --- PASS: TestSessionOrderRejectsStaleSnapshotsABAAndObservedSetChanges/membership (0.01s)
+    --- PASS: TestSessionOrderRejectsStaleSnapshotsABAAndObservedSetChanges/stopped (0.01s)
+    --- PASS: TestSessionOrderRejectsStaleSnapshotsABAAndObservedSetChanges/duplicate (0.01s)
+    --- PASS: TestSessionOrderRejectsStaleSnapshotsABAAndObservedSetChanges/foreign (0.01s)
+=== RUN   TestSessionOrderBoundariesNoWriteAndTransactionalFailure
+--- PASS: TestSessionOrderBoundariesNoWriteAndTransactionalFailure (0.02s)
+=== RUN   TestSessionOrderConcurrentConnectionsOnlyOneCommits
+--- PASS: TestSessionOrderConcurrentConnectionsOnlyOneCommits (0.01s)
+=== RUN   TestSessionOrderNewAndMovedMembersFollowManualRowsAndRemovalClearsOldPositions
+--- PASS: TestSessionOrderNewAndMovedMembersFollowManualRowsAndRemovalClearsOldPositions (0.02s)
+=== RUN   TestSessionOrderPersistsOriginalRowsAcrossDiscoveryAndReopen
+--- PASS: TestSessionOrderPersistsOriginalRowsAcrossDiscoveryAndReopen (0.01s)
+PASS
+ok  	github.com/liuhui-code/agent-session-desk/internal/store	0.982s
+=== RUN   TestSessionOrderRevalidatesDiscoveryAndNeverStartsOrStopsTerminals
+--- PASS: TestSessionOrderRevalidatesDiscoveryAndNeverStartsOrStopsTerminals (0.01s)
+PASS
+ok  	github.com/liuhui-code/agent-session-desk/internal/manager	1.739s

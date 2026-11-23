@@ -1,0 +1,6 @@
+=== RUN   TestSessionOrderPersistsOriginalRowsAcrossDiscoveryAndReopen
+    session_order_test.go:39: Session rows have no persistent reorder operation
+--- FAIL: TestSessionOrderPersistsOriginalRowsAcrossDiscoveryAndReopen (0.01s)
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/store	1.259s
+FAIL

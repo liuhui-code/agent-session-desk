@@ -25,10 +25,11 @@ type Service interface {
 }
 
 type sessionsMsg struct {
-	generation uint64
-	sessions   []session.Session
-	groups     []session.Group
-	err        error
+	orderStamps map[string]string
+	generation  uint64
+	sessions    []session.Session
+	groups      []session.Group
+	err         error
 }
 
 type previewMsg struct {
@@ -50,6 +51,9 @@ type pollMsg struct{ generation uint64 }
 // Model implements the stable Bubble Tea v2 API. Mutable UI state is touched
 // only by Init/Update; asynchronous commands return values, never mutate it.
 type Model struct {
+	orderStamps                      map[string]string
+	sessionOrder                     *sessionOrderMutation
+	sessionOrderFailed               bool
 	groupRemoval, groupRemovalIntent *groupRemovalDialog
 	groupOrder                       *groupOrderMutation
 	groupOrderFailed                 bool
@@ -136,6 +140,7 @@ func (m *Model) Close() {
 	m.launch = nil
 	m.groupDialog, m.groupIntent = nil, nil
 	m.groupOrder = nil
+	m.sessionOrder = nil
 	if m.groupRemoval != nil && m.groupRemoval.cancel != nil {
 		m.groupRemoval.cancel()
 	}
@@ -164,6 +169,9 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			return m, cmd
 		}
 		if cmd, handled := m.groupRemovalEvent(msg); handled {
+			return m, cmd
+		}
+		if cmd, handled := m.sessionOrderEvent(msg); handled {
 			return m, cmd
 		}
 		if cmd, handled := m.groupOrderEvent(msg); handled {
@@ -221,9 +229,11 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			return m, nil
 		}
 		m.groupOrderFailed = false
+		m.sessionOrderFailed = false
 		selected, hadSelection := m.selected()
 		m.sessions = msg.sessions
 		m.groups = msg.groups
+		m.orderStamps = msg.orderStamps
 		m.groupsObserved++
 		m.syncSessionSearch(true)
 		m.cursor = min(m.cursor, max(0, len(m.sessions)-1))
@@ -381,7 +391,7 @@ func (m *Model) loadSessions() tea.Cmd {
 		defer cancel()
 		if service, ok := m.service.(groupService); ok {
 			view, err := service.Workspace(ctx)
-			return sessionsMsg{generation: generation, sessions: view.Sessions, groups: view.Groups, err: err}
+			return sessionsMsg{generation: generation, sessions: view.Sessions, groups: view.Groups, orderStamps: view.OrderStamps, err: err}
 		}
 		sessions, err := m.service.List(ctx)
 		return sessionsMsg{generation: generation, sessions: sessions, err: err}

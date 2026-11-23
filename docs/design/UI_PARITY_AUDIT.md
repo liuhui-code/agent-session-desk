@@ -25,7 +25,7 @@
 | U13 帮助 | help.go：五键入门、Tab 全部、分区双列、滚动及任意其他键关闭 | help_overlay*.go 已有[前后桌面结果](../testing/results/2026-11-23-help-parity.md)；[来源十种粘贴／实际输入](../testing/results/2026-11-23-footer-input-parity.md)纠正 v2 忽略粘贴偏差 | 短／全粘贴整段消费并关闭，鼠标消费不关闭，原草稿保留；只列真实已支持键。其他键鼠／IME 和整体视觉接受仍开放 |
 | U14 页脚层级 | home_view_frame.go 实际默认 full、宽度分级、键／说明角色；insert_mode.go 黄色模式／目标 | workspace_footer.go 与 tokens/styles 已恢复角色、上下文、退出锚点及实际活动标题；[来源／原生及桌面](../testing/results/2026-11-23-footer-input-parity.md)；最终 49 列不留 ID 尾缀 | 193 回执完整输入流程与标签修复后 52 回执分开记账；保留 v1/v2 精确 RGB 差异。来源页脚设置模式、错误／复制状态矩阵与整体视觉接受仍 P1/P2 待核对 |
 | U15 比例持久化 | split_config.go 将用户选择保存 | workspace_split.go 只保留当前 UI 状态，`=` 恢复自动 | **P2 待迁入**；应扩展现有独立 ui.toml／串行保存，不写启动模板，先定义自动与手动比例合同 |
-| U16 会话行手动排序 | home.go 对 Session 调用 MoveSessionUp/Down | 当前同名键只处理组，管理列表仍按发现／投影次序 | **P1 待实现**；需稳定 Session 排序元数据／历史和刷新合同，不能用 Tab 顺序冒充列表排序 |
+| U16 会话行手动排序 | home.go 对 Session 调用 MoveSessionUp/Down | [ADR-0025／局部复验](../testing/results/2026-11-24-session-order.md)：同组行交换、SQLite v5、完整摘要／行版本 CAS，原 Tab／Run 不变 | 已实现局部切片；平铺同组槽位、无来源父子 Session／归档分区是明确适配。原生／隔离 ConPTY 与真实桌面分开记账，完整源体验／键盘接受仍开放 |
 | U17 原生输入／光标 | embedded_terminal.go 转发终端输入并绘制真实光标 | workspace_input.go、internal/terminal；[Tab](../testing/results/2026-11-23-tab-workspaces.md)、[IME](../testing/results/2026-11-23-ime-composition.md)局部结果 | 不新增聊天框；管理键／实际子程序键及其他 IME 候选中切焦点 P1 待验 |
 | U18 滚动／选择／复制／搜索 | embedded_terminal.go、home.go 的复制语义 | workspace_scroll.go／workspace_clipboard.go；[原生复制搜索](../testing/results/2026-11-23-native-copy-search.md) | 委托 psmux 原生历史是必要适配；鼠标选择、来源 V 可见页复制尚未迁入；目标程序鼠标仍 P1 待验 |
 | U19 Session 停止／移除 | home.go／confirm_dialog.go 对 Session 的显式确认与移除 | Manager／CLI 有明确 Stop；当前 Tab x 只关视图，组 d 只改容器 | **P1 待补管理 UI**；需核对原 Session/Run 并区分停止、关闭、归档／删除历史，不照搬来源删除记录掩盖差异 |

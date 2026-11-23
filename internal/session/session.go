@@ -22,6 +22,8 @@ const (
 // Command is display-only (the executable), never a reconstructed shell command.
 // An available terminal does not establish that an agent is busy or ready.
 type Session struct {
+	Order         int64         `json:"order,omitempty"`
+	OrderRevision int64         `json:"order_revision,omitempty"`
 	GroupID       string        `json:"group_id,omitempty"`
 	GroupRevision int64         `json:"group_revision,omitempty"`
 	ID            string        `json:"session_id"`

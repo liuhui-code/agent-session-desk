@@ -39,7 +39,7 @@ type groupRemovalResult struct {
 }
 
 func (m *Model) beginGroupRemoval() tea.Cmd {
-	if _, ok := m.service.(groupRemovalService); !ok || !m.sidebarGroupSelected() || m.workspace.transition != workspaceIdle || m.groupOrder != nil {
+	if _, ok := m.service.(groupRemovalService); !ok || !m.sidebarGroupSelected() || m.workspace.transition != workspaceIdle || m.groupOrder != nil || m.sessionOrder != nil {
 		return nil
 	}
 	m.groupRemovalIntent = &groupRemovalDialog{target: m.selectedGroup(), focus: 1}

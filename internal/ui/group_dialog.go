@@ -274,8 +274,12 @@ func (m *Model) submitGroupDialog() tea.Cmd {
 	}
 }
 func (m *Model) acceptGroupMembership(moved session.Session) {
+	selected, hadSelection := m.selected()
 	apply := func(v *session.Session) {
 		if v.ID == moved.ID && v.GroupRevision <= moved.GroupRevision {
+			if v.GroupRevision < moved.GroupRevision || session.GroupOf(*v) != session.GroupOf(moved) {
+				v.Order, v.OrderRevision = 0, 0
+			}
 			v.GroupID, v.GroupRevision = moved.GroupID, moved.GroupRevision
 		}
 	}
@@ -285,4 +289,14 @@ func (m *Model) acceptGroupMembership(moved session.Session) {
 	for i := range m.workspace.tabs {
 		apply(&m.workspace.tabs[i].session)
 	}
+	session.SortSessions(m.sessions)
+	if hadSelection {
+		for i, v := range m.sessions {
+			if sameRun(v, selected) {
+				m.cursor = i
+				break
+			}
+		}
+	}
+	m.workspace.listClick = workspaceListClick{}
 }

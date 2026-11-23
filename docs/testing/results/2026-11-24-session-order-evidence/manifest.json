@@ -1,0 +1,1511 @@
+{
+  "baseline_commit": "c9bf8e4f41431f1e8aff756995584325c1157a39",
+  "scope": "Persistent same-group Session order, scoped metadata CAS, v5 migration/recovery, model/native and isolated ConPTY evidence; full fidelity/desktop/real-agent/resource/release gates remain open",
+  "artifacts": [
+    {
+      "path": "local/store-red.log",
+      "original_sha256": "de6de1992e2933ff7e57c0bbb7aa10e91460acfd9898508ea78341e23ea176b5",
+      "archived_sha256": "de6de1992e2933ff7e57c0bbb7aa10e91460acfd9898508ea78341e23ea176b5",
+      "bytes": 309,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/store-green.log",
+      "original_sha256": "77f097a3694d2b9b30e493ae96225ffcbb67a628cd1b5206794662f227ad8aac",
+      "archived_sha256": "77f097a3694d2b9b30e493ae96225ffcbb67a628cd1b5206794662f227ad8aac",
+      "bytes": 224,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/ui-red.log",
+      "original_sha256": "f2591802dd0aa491ba0076803715e864e8598973f2885faac0fa08a78639a084",
+      "archived_sha256": "f2591802dd0aa491ba0076803715e864e8598973f2885faac0fa08a78639a084",
+      "bytes": 7960,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/ui-green-first.log",
+      "original_sha256": "583e3712ec4f7f8cf3d9f3c2c83fb956cdc404fac01fb007a605335981b50cbb",
+      "archived_sha256": "583e3712ec4f7f8cf3d9f3c2c83fb956cdc404fac01fb007a605335981b50cbb",
+      "bytes": 3181,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/broad-first.log",
+      "original_sha256": "e419d41a72973dafc77c4a7e59c8ed381efa883628d9798d140d7a00a6009db3",
+      "archived_sha256": "e419d41a72973dafc77c4a7e59c8ed381efa883628d9798d140d7a00a6009db3",
+      "bytes": 762,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/broad-second.log",
+      "original_sha256": "9537ac03d45c0af3979c498341fe764ae2e824a5caf96c5feae93b29ad231351",
+      "archived_sha256": "9537ac03d45c0af3979c498341fe764ae2e824a5caf96c5feae93b29ad231351",
+      "bytes": 278,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/order-edges-first.log",
+      "original_sha256": "595fffcf3d1f89316f7b96c315c7820b5b9ad515d6d4503aacfedb1273fb7d96",
+      "archived_sha256": "595fffcf3d1f89316f7b96c315c7820b5b9ad515d6d4503aacfedb1273fb7d96",
+      "bytes": 2468,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/position-validation-red.log",
+      "original_sha256": "7887d4ebfb56570cfcc87d315a51f871a949e0c8eaf2bb94441122cef027fb83",
+      "archived_sha256": "7887d4ebfb56570cfcc87d315a51f871a949e0c8eaf2bb94441122cef027fb83",
+      "bytes": 337,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/stamp-first.log",
+      "original_sha256": "5c886d22db1f7f7dbabf240fe87bd35b651b69ff870d9fd42153f69d8946bca5",
+      "archived_sha256": "5c886d22db1f7f7dbabf240fe87bd35b651b69ff870d9fd42153f69d8946bca5",
+      "bytes": 278,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/stamp-red.log",
+      "original_sha256": "2713d8afc63b7cff7cb175b5138654d135625edc818f1fc9c8babc9fbf96dc57",
+      "archived_sha256": "2713d8afc63b7cff7cb175b5138654d135625edc818f1fc9c8babc9fbf96dc57",
+      "bytes": 352,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/stamp-green.log",
+      "original_sha256": "3f904c6a73004693150f62e74ff56a51ca3b47b58378c9da9b3755c92d1b52c0",
+      "archived_sha256": "3f904c6a73004693150f62e74ff56a51ca3b47b58378c9da9b3755c92d1b52c0",
+      "bytes": 244,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/ui-final-focused.log",
+      "original_sha256": "b60717b9475ef2348e6cbee54d80367ce83a53745eb9c339dec22797eb10259f",
+      "archived_sha256": "b60717b9475ef2348e6cbee54d80367ce83a53745eb9c339dec22797eb10259f",
+      "bytes": 2699,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/bindings.log",
+      "original_sha256": "1ad19218d2b7369e00abe02178ca6987d74b432d2d56df5ff2a4c45838f180a5",
+      "archived_sha256": "1ad19218d2b7369e00abe02178ca6987d74b432d2d56df5ff2a4c45838f180a5",
+      "bytes": 1527,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/membership-red.log",
+      "original_sha256": "754e49534095dc9d06b99e56ec70b8285a0d5caa2c342bfff9f32f1bbdfd4d10",
+      "archived_sha256": "754e49534095dc9d06b99e56ec70b8285a0d5caa2c342bfff9f32f1bbdfd4d10",
+      "bytes": 338,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/membership-green.log",
+      "original_sha256": "590656968ee3b43c180e29b4321487cbb4a6b8ab8f0ac78557bfe1ae61f45811",
+      "archived_sha256": "590656968ee3b43c180e29b4321487cbb4a6b8ab8f0ac78557bfe1ae61f45811",
+      "bytes": 2547,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/go-test.log",
+      "original_sha256": "0f4dd0c71b814600f6238b30cce15da49eb2d0ecfbdc318ff67f962a80c05c2e",
+      "archived_sha256": "0f4dd0c71b814600f6238b30cce15da49eb2d0ecfbdc318ff67f962a80c05c2e",
+      "bytes": 712,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/go-race.log",
+      "original_sha256": "c3490f63aa3b03de325f5cf2f93bbb2c44d3db38f7bb6fd63847c573daa8c025",
+      "archived_sha256": "c3490f63aa3b03de325f5cf2f93bbb2c44d3db38f7bb6fd63847c573daa8c025",
+      "bytes": 713,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/go-vet.log",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/go-mod-verify.log",
+      "original_sha256": "b4537ed75f533f993f371954de47e42a793b8e5b0587577de7e27fb3e50696bd",
+      "archived_sha256": "b4537ed75f533f993f371954de47e42a793b8e5b0587577de7e27fb3e50696bd",
+      "bytes": 21,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/source-limits.log",
+      "original_sha256": "cd968af2e2a36b7b2224a66edf651b2396cbf82f744ea46ef87b96920d88366d",
+      "archived_sha256": "cd968af2e2a36b7b2224a66edf651b2396cbf82f744ea46ef87b96920d88366d",
+      "bytes": 47,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/catalog-check.log",
+      "original_sha256": "cdec900bd74cfee5510513fc5f909ef9c985ba8dce1f94feee309dd2ffc03197",
+      "archived_sha256": "cdec900bd74cfee5510513fc5f909ef9c985ba8dce1f94feee309dd2ffc03197",
+      "bytes": 257,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/upstream-order.log",
+      "original_sha256": "2b81bea1d6638ef49c0bf16e55cfea0e1589df1691e1e29292524187d034101b",
+      "archived_sha256": "2b81bea1d6638ef49c0bf16e55cfea0e1589df1691e1e29292524187d034101b",
+      "bytes": 264,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/upstream-reference.log",
+      "original_sha256": "c01ef37c3615001550300b131f322b4ddff525406a09b649c7e8971ca9e4871e",
+      "archived_sha256": "c01ef37c3615001550300b131f322b4ddff525406a09b649c7e8971ca9e4871e",
+      "bytes": 156,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/checks.json",
+      "original_sha256": "8cd46e4041b9684a97f08740e4c6052c66943e8bc7ab0e357d619c808e293cbe",
+      "archived_sha256": "8cd46e4041b9684a97f08740e4c6052c66943e8bc7ab0e357d619c808e293cbe",
+      "bytes": 1425,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/binary-hashes.json",
+      "original_sha256": "af253653349a64267211a1a027d5ae05453a5ea2f11ff9b400ff62b5a5d138cb",
+      "archived_sha256": "af253653349a64267211a1a027d5ae05453a5ea2f11ff9b400ff62b5a5d138cb",
+      "bytes": 487,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/binary-hashes-before-membership.json",
+      "original_sha256": "143780469f3f0197fbdf93f9dcac6121b5fb4b338c6eb5997b00b0a7af461508",
+      "archived_sha256": "143780469f3f0197fbdf93f9dcac6121b5fb4b338c6eb5997b00b0a7af461508",
+      "bytes": 487,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/source-fingerprints.json",
+      "original_sha256": "be92351a794d8b26ff85caa3dc7fd88876785157213f970593e5eb26608e6241",
+      "archived_sha256": "be92351a794d8b26ff85caa3dc7fd88876785157213f970593e5eb26608e6241",
+      "bytes": 23595,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/source-fingerprints-before-membership.json",
+      "original_sha256": "aee3441f16b54c0503f04b0f5e821e4cb3144b7a25d71855a159765cd1d4dadd",
+      "archived_sha256": "aee3441f16b54c0503f04b0f5e821e4cb3144b7a25d71855a159765cd1d4dadd",
+      "bytes": 23595,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/membership-source-delta.json",
+      "original_sha256": "b63eb792460d48bf27d802947254c7f22c6e6279db2347240b0383ffad3eba1d",
+      "archived_sha256": "b63eb792460d48bf27d802947254c7f22c6e6279db2347240b0383ffad3eba1d",
+      "bytes": 423,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/upstream-source.json",
+      "original_sha256": "4d00042639d99dbd10692dec62773d0357c906322ef0579df5805b11babb691a",
+      "archived_sha256": "4d00042639d99dbd10692dec62773d0357c906322ef0579df5805b11babb691a",
+      "bytes": 322,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/upstream-order-states.json",
+      "original_sha256": "94f2c024d63a8e241e5701109001a8890b2eec097268bf49d4f65b89d8219a51",
+      "archived_sha256": "94f2c024d63a8e241e5701109001a8890b2eec097268bf49d4f65b89d8219a51",
+      "bytes": 668,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/upstream-overlay.json",
+      "original_sha256": "07d1eae7864a68b47d70aacbc1b0b311b8f6be2a2767e494d8310e8479751785",
+      "archived_sha256": "aa87b49ca66089a48670ae8a09f9ccd247c54870be709d0f266f78dd13af89b8",
+      "bytes": 127413,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/context7-docs.json",
+      "original_sha256": "80fb04cd32a484be0c89ec23cf5741b6fbb0fab543631886de99697886cb1293",
+      "archived_sha256": "80fb04cd32a484be0c89ec23cf5741b6fbb0fab543631886de99697886cb1293",
+      "bytes": 4732,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/final-audit.json",
+      "original_sha256": "ee766b31f0d66de7948b54c5490683087da71de1504b3bae297da9e1faa5fbff",
+      "archived_sha256": "9c365ee3f7799a226f028c561a47f63f687a5b4cf4016bed28441e02100debca",
+      "bytes": 10524,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/audit-before-membership.json",
+      "original_sha256": "76249a1116528c2a20064d35b34d778de4e85d45c35ebee4c50cc87189a63cc1",
+      "archived_sha256": "3a03fe77f5e9164bc6a7075a7f8ab85de1b3f52ddededb605807e7265391e5dd",
+      "bytes": 7309,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/group-dialog-before-membership.go.txt",
+      "original_sha256": "0622ab8282cee9c0f24c5c0b9f805e2b3c0743a1379c6d63ee07f5c85f270f42",
+      "archived_sha256": "0622ab8282cee9c0f24c5c0b9f805e2b3c0743a1379c6d63ee07f5c85f270f42",
+      "bytes": 7549,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/order-stamp-guard.go.txt",
+      "original_sha256": "4961a6aee6f8ca368da17218b544c00f4a951ce69f635a1e1466b201a4f88897",
+      "archived_sha256": "4961a6aee6f8ca368da17218b544c00f4a951ce69f635a1e1466b201a4f88897",
+      "bytes": 4472,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/checks.py",
+      "original_sha256": "f12b23e305956df115a0a94358d856e51a18d79433271f0bf123214fdafd01fb",
+      "archived_sha256": "5d1a6fa2da1906ff0ea96f1efa3b1c0a21490e7aaae8fe230d2a265155fb1d32",
+      "bytes": 870,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/build.py",
+      "original_sha256": "b76458a5adbd015187a1b0844cd7ff86d71c9675db8c7d3ed74e3ee8b8c6ff5d",
+      "archived_sha256": "c8aec96a19c7666921b6ed59b2a04208453b4994b906ec39a2aef44e26e9c4a0",
+      "bytes": 687,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/run-session-order-tests.ps1",
+      "original_sha256": "194b847a07772b3395972ad690b621217df0928a438b9041799d4ae25f6949f7",
+      "archived_sha256": "194b847a07772b3395972ad690b621217df0928a438b9041799d4ae25f6949f7",
+      "bytes": 1991,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/run-session-order-tests-final.ps1",
+      "original_sha256": "3941f2ff36b41de120b1835032ccecc02ea6cc54ae06b8ee9908ceb5a2599df5",
+      "archived_sha256": "3941f2ff36b41de120b1835032ccecc02ea6cc54ae06b8ee9908ceb5a2599df5",
+      "bytes": 1584,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/run-session-order-console-run1.ps1",
+      "original_sha256": "933f960e923bc9f6e7e73afeb798c4b59e765c347d8bf208e58cccbd55d22ded",
+      "archived_sha256": "933f960e923bc9f6e7e73afeb798c4b59e765c347d8bf208e58cccbd55d22ded",
+      "bytes": 12660,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/run-session-order-console-run2.ps1",
+      "original_sha256": "67a16a8d145187218d7f539d778e5eb23d4ad251549e607951f58fe3fc117412",
+      "archived_sha256": "67a16a8d145187218d7f539d778e5eb23d4ad251549e607951f58fe3fc117412",
+      "bytes": 13264,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/run-session-order-console-run3.ps1",
+      "original_sha256": "aadf7b33d27ab4cb95f570d025c6112c9111b1974ec082e3123bd502d7cbed8b",
+      "archived_sha256": "aadf7b33d27ab4cb95f570d025c6112c9111b1974ec082e3123bd502d7cbed8b",
+      "bytes": 13325,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/run-session-order-console-run4.ps1",
+      "original_sha256": "45a6aeb5ef5f927419e8be2f1672d8d6e508c5de8b9a868389e2314c4a8edbee",
+      "archived_sha256": "45a6aeb5ef5f927419e8be2f1672d8d6e508c5de8b9a868389e2314c4a8edbee",
+      "bytes": 14780,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/run-session-order-console.ps1",
+      "original_sha256": "f55522d514720f3e866360f7abbe47845e206e3afd09533f5b9ae0d6368f575b",
+      "archived_sha256": "f55522d514720f3e866360f7abbe47845e206e3afd09533f5b9ae0d6368f575b",
+      "bytes": 15233,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/audit-session-order-first.ps1",
+      "original_sha256": "856e27163669c81365eeb22fc96c7a8594eb3e8f7437680d931c960cbdfc8155",
+      "archived_sha256": "856e27163669c81365eeb22fc96c7a8594eb3e8f7437680d931c960cbdfc8155",
+      "bytes": 2336,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/audit-session-order.ps1",
+      "original_sha256": "887b679d55473543c4929c21642c33aa8200009895e94cd88f50b304741a1f34",
+      "archived_sha256": "887b679d55473543c4929c21642c33aa8200009895e94cd88f50b304741a1f34",
+      "bytes": 4529,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/verify-session-order.py",
+      "original_sha256": "236865d00141f0f4aa2b73110b84191b08b77b215321af986a3342dc7c4de4f1",
+      "archived_sha256": "236865d00141f0f4aa2b73110b84191b08b77b215321af986a3342dc7c4de4f1",
+      "bytes": 8387,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/upstream-order-reference_test.go.txt",
+      "original_sha256": "31bfc5f7771e1fd610f43d668dc908e22159732c337be8535442b3c9e9c8e4aa",
+      "archived_sha256": "31bfc5f7771e1fd610f43d668dc908e22159732c337be8535442b3c9e9c8e4aa",
+      "bytes": 1297,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/unused-upstream-tests.go.txt",
+      "original_sha256": "92c3713b459f197f75045f660391ead5dae2493e3f44f09a82e33854025b790e",
+      "archived_sha256": "92c3713b459f197f75045f660391ead5dae2493e3f44f09a82e33854025b790e",
+      "bytes": 16,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "local/upstream-reference.sb",
+      "original_sha256": "eed96355da364343656cf061c66d6bec5af771454522d7fae4ba8f41bb4d386a",
+      "archived_sha256": "99db02071a6b79f40c6f652d3f7ee2a7ffceb0555857034ea98883ee5a949c10",
+      "bytes": 242,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "native/manager.log",
+      "original_sha256": "4c8592add955748d40a85b23fa8256b894692d34ba5679b1945642b0ddf057f8",
+      "archived_sha256": "630a6ddd9489cf2720b77aea853a7fb90d3289da64eb3292485ec310c23647b3",
+      "bytes": 2868,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "native/outcome.json",
+      "original_sha256": "6ed4fdc5cfe9081a813144d04d753ea560e10a71bcc7755e103d3900c7f6a339",
+      "archived_sha256": "e8bf176676dc3c44200bd47aa939f311f74080b508e7ee8b7d1c5decf5b695db",
+      "bytes": 1996,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "native/session.log",
+      "original_sha256": "4e97dfa5d754b1016e7f9a24e9c8f524f1f59dae88dd5d20cae46e5ce649be97",
+      "archived_sha256": "bd60d3e2d4f91afa5e40a61e136584316e224bb92daa6a87255039054b5425ec",
+      "bytes": 1272,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "native/store.log",
+      "original_sha256": "d34cd9f6757ab115936f7b12e7cf2da6e6442e974f0aa07094ad86ad22c990bd",
+      "archived_sha256": "c67d516f46c2e1a5686cc98cc0ca3a6df5fd9dad5f1f2dafc0c01ececb70e681",
+      "bytes": 17772,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "native/ui.log",
+      "original_sha256": "90c639d463acf6a498986b41f35bf13763535268a0d7ac47ed515f5be42e87c2",
+      "archived_sha256": "25c70d022f8aba2b9877eba25f85326b9d611f9457af4bae76780493afa2195c",
+      "bytes": 64552,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "native-final/outcome.json",
+      "original_sha256": "4274e785e175b13773bb5849e9fc4e439f9e9c87902f02c7773b619901bdbc0b",
+      "archived_sha256": "4f732ea23591a7933853951bdc0f906d14b0ba13a0374a596c000a24992c6bdf",
+      "bytes": 604,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "native-final/ui.log",
+      "original_sha256": "15c34af7e62aa7fd1562591ae1349e0da37428bbe7c07fc560102d958e0003f5",
+      "archived_sha256": "eafc39ca1396c2d34eeace87f2f45fab0749178f5fce4f8840c875184e241991",
+      "bytes": 64732,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run1/A.identity.json",
+      "original_sha256": "8b9f34fc6476d464b5248aeb1c698e7f4c2b2476a22c5df91684562bdcacf3f8",
+      "archived_sha256": "f1008d2f2d6052fcfe3c1cad17ce7b045ebdf7758153cf6b06836412a5895215",
+      "bytes": 144,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run1/B.identity.json",
+      "original_sha256": "7ed1fde18305d2e260d04edd1921fa234ccc4b72f4bef74e958dc9f9085d68d5",
+      "archived_sha256": "998ae79cbeb51333653b8760c3c2c68fe55ea062f2dfc903556a6e80471b0dc5",
+      "bytes": 144,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run1/backup-result.json",
+      "original_sha256": "ed9fb2ec3c81c484d7dd493fe4176a037e92807cc5c3ac2684f55c3255b0bcad",
+      "archived_sha256": "bb5087388a88adfa2e35f84863c54c61f1d427be5b1f380ce709d9a6962cb8ae",
+      "bytes": 180,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run1/capture-001.json",
+      "original_sha256": "363b550a979fb29392569ba52de30e4988c00a6f77f7de976791df7bfb12965b",
+      "archived_sha256": "d4192095954c341372468140c23ee5a7235b5b86c90ce1c5ad23299faaca8fd1",
+      "bytes": 4711,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run1/capture-002.json",
+      "original_sha256": "be3e2577f378119e42ee2250f47e62c4408160f033f4e4a5912521e16105483f",
+      "archived_sha256": "5316d9ecc6dd96bd7b808958124ab253586e47be743e2c8d6ca6df07cb3d3ef8",
+      "bytes": 4711,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run1/capture-003.json",
+      "original_sha256": "30885b787ea361762b8fd1e8093e10830f1a049b6c0b229145a0cf9afcdc5e97",
+      "archived_sha256": "b63e554a2db09e2a66ca92a25d5d0831f97c46537bec306556b5f5480c09959e",
+      "bytes": 4770,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run1/capture-004.json",
+      "original_sha256": "25a0a21f8adb336f2f6775cc6d01cef8c24053e6ca23bc6e782372867cd35aee",
+      "archived_sha256": "8103a14925f2d2b4d648606441af60e93293cb84227f65b4ebca8d6e59a78467",
+      "bytes": 4772,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run1/capture-005.json",
+      "original_sha256": "2f56e30f523a50ab6053198bcdb16adef254def71ea4bf49d6e35132f299685e",
+      "archived_sha256": "16603a9918b23cc967d8b157c7190ab4da5bff47e41fe79e39c4df10cf2b7fdd",
+      "bytes": 4776,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run1/events.json",
+      "original_sha256": "d4a8bda0ada1a9edf78d4ad8c5d942eba6f674ca3bf8a0d9447e3634080952bc",
+      "archived_sha256": "9d3b5d4f66bb950749bfce42fd8fb262948bd43139ae2007861f186a53095670",
+      "bytes": 1917,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run1/history-after.json",
+      "original_sha256": "2f979b246ed4afc1293c62de3b40fb8ce85b867f22b4c1a01749ed6a59564a3a",
+      "archived_sha256": "4561d5de19bdd731b7697afd079d75247d2a49a74dedd1e6d6b0bbd1f15769e3",
+      "bytes": 867,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run1/history-before.json",
+      "original_sha256": "2f979b246ed4afc1293c62de3b40fb8ce85b867f22b4c1a01749ed6a59564a3a",
+      "archived_sha256": "4561d5de19bdd731b7697afd079d75247d2a49a74dedd1e6d6b0bbd1f15769e3",
+      "bytes": 867,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run1/identities.json",
+      "original_sha256": "fb71f1011459f2719796486cfe286399a23954fe250dea613cda5bc516e1f4b6",
+      "archived_sha256": "280d124a9115188c3b0c9e3564e2687b178b7c47d9c444ec591b9d0924e1a75b",
+      "bytes": 1159,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run1/legacy-v5-check.err",
+      "original_sha256": "feda60ca3cec8a1b742ab114b88b3ae612487464fc5e0093b578aae0d39a0c2d",
+      "archived_sha256": "18db9d497916c781375f8b3b46108ed78f530405f1668c5f5ade89eb796c72ec",
+      "bytes": 433,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run1/legacy-v5-check.out",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run1/legacy-v5-rejection.json",
+      "original_sha256": "28f38aaed4f49d3aa213e061be2a8c44bdf3b7df9778310b69ff7b6d57633f54",
+      "archived_sha256": "0d82eee4193555da8ff6c4a56176e2deab3f7368aea70741ed652f989ef240d5",
+      "bytes": 208,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run1/metadata-after.json",
+      "original_sha256": "9955cf75b246ed2fa91806520d0bc84f540d0459fe10813f6d88d3fc688c0983",
+      "archived_sha256": "f2a1fc6e0feadc0510565a17919cca4282fe9f486541fa13f4d1992adc70ce2c",
+      "bytes": 85,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run1/metadata-before.json",
+      "original_sha256": "abccb991a4898f2c232e0e8a22c933a0d58892a62c6dd9ea047f774ab90d203e",
+      "archived_sha256": "518c1f76a41c22b0d72bd420e8779e96cd63f17898987f8252ef1a58be100710",
+      "bytes": 85,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run1/order-down.json",
+      "original_sha256": "181bd1a83d0432df42910cf6d6a5daa8b7354e23a1a4dc7a5aa03b123be44ce4",
+      "archived_sha256": "74b2768db955d432a9c3f9b01300fac835737ef511e9480ed44a49da163ef42c",
+      "bytes": 845,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run1/order-final.json",
+      "original_sha256": "da87ad0f8ebd6092e21ac7287bf23562cd086273cf522f7a1b407a1f02671e7a",
+      "archived_sha256": "ff8b4c27897f19a86a9a2d1b27a41d9f45c36cd8d629fdf2fb973a053f34627e",
+      "bytes": 845,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run1/order-up.json",
+      "original_sha256": "9f00744f4be20edb498e91daec80de63efcfcea8ba8f0cf7ad311f9b1fb8a2e1",
+      "archived_sha256": "0898eb679c392ddb86822885b7936f81f471aa2cd0d140a751bd812a5c0e8ef7",
+      "bytes": 845,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run1/outcome.json",
+      "original_sha256": "d286f1c85bf38a5772ee21dd65efb17b4a57f65a4c40480904f1771aa43320b5",
+      "archived_sha256": "efa35ac53e391b312b9dd4647ff53fb6243e07c6516a415914b750e8dfe457f5",
+      "bytes": 1719,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run1/psmux.conf",
+      "original_sha256": "d0667dffdf25b5602e8d1078bbef8791ad04d2897c5ec50e1a5a20a0183673a8",
+      "archived_sha256": "d0667dffdf25b5602e8d1078bbef8791ad04d2897c5ec50e1a5a20a0183673a8",
+      "bytes": 60,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run1/restore-result.json",
+      "original_sha256": "b12440a13b51b1d545eadf6c9e36e5c643304c219967859d5a7ef551ac5066ab",
+      "archived_sha256": "9ece7f91ba517231d0de25556f2d4bf92dcdccd43bfbe698909348ca4e794109",
+      "bytes": 193,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run1/restored-order.json",
+      "original_sha256": "da87ad0f8ebd6092e21ac7287bf23562cd086273cf522f7a1b407a1f02671e7a",
+      "archived_sha256": "ff8b4c27897f19a86a9a2d1b27a41d9f45c36cd8d629fdf2fb973a053f34627e",
+      "bytes": 845,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run1/sessions-before.json",
+      "original_sha256": "392f3fc31d35469ea736fb27f2e04b74163326180ab7102298e1d3428e08609c",
+      "archived_sha256": "79526c9fe1d39e91c36b3c7aacdfa71905c5154c58b403e7c148e6011b68c863",
+      "bytes": 761,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run1/shell.ps1",
+      "original_sha256": "b5c4d3c52a4283d1e1a2568f0bab7580fe38c9ba082ba2afee681245f2d7dadd",
+      "archived_sha256": "d77e6e2b8b308d42f1c251cfb6df2f67236abae6e8e28496c57e1119ad989347",
+      "bytes": 388,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run1/stop-6fb72b9743a54340719fa5a91128a71a.json",
+      "original_sha256": "7ab35dd32f2b03fb949f87ae18279c220bba40dcc858face53f2ce480bf12f50",
+      "archived_sha256": "1261b5a156481c3abe795fab8c6d10dc6331bc4213e321e6ac91a95552077af1",
+      "bytes": 147,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run1/stop-be14bfa9ba51a0c599ef09a1f1d6e950.json",
+      "original_sha256": "1991ed24905104612b18b01ef9e2f186599eae411516b982fff6992b698fe875",
+      "archived_sha256": "a743b083aa221b132afb2d91888d5c3a561364e4b9a8b5441108e8e01b2b63a0",
+      "bytes": 147,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run1/ui1-host.json",
+      "original_sha256": "daf335cbbc6d86d7a4cd9962c6409c9d04c4a75a4b4483ce7c526721e2825998",
+      "archived_sha256": "50382f2545b8d521487b852f32687b0906cfd2a2e30195aead6918708fab90ce",
+      "bytes": 232,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run2/A.history.txt",
+      "original_sha256": "3e474cb1e0b56adbd843979f412adc336202b51d2f58474ba93c7178cc02f258",
+      "archived_sha256": "3e474cb1e0b56adbd843979f412adc336202b51d2f58474ba93c7178cc02f258",
+      "bytes": 32,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run2/A.identity.json",
+      "original_sha256": "78c4a37b39a73a53089d2fa976ea22abd03c778bd03108bbc46e27c0359424b3",
+      "archived_sha256": "20b922227060443d2cbb88169f219f772426b94b0fee2ed920899eff7bc44b0e",
+      "bytes": 143,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run2/B.identity.json",
+      "original_sha256": "fd0c6605839c704dd207097fe69ec020526ab9f26d6e76514daea3200ac0973c",
+      "archived_sha256": "48b0a270973948b37958a74414c7b06fcaf729fc0a7a987adceaa1db5203da00",
+      "bytes": 143,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run2/backup-result.json",
+      "original_sha256": "51752b4bbe3b724a80bc6569ae1ae7e1ab4f08afc7d28ecee7c0cac19a63723f",
+      "archived_sha256": "e30ba1e89da885036b35adcef5ebac4526d0bb39fc68900901beb39d483a2933",
+      "bytes": 185,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run2/capture-001.json",
+      "original_sha256": "363b550a979fb29392569ba52de30e4988c00a6f77f7de976791df7bfb12965b",
+      "archived_sha256": "d4192095954c341372468140c23ee5a7235b5b86c90ce1c5ad23299faaca8fd1",
+      "bytes": 4711,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run2/capture-002.json",
+      "original_sha256": "be3e2577f378119e42ee2250f47e62c4408160f033f4e4a5912521e16105483f",
+      "archived_sha256": "5316d9ecc6dd96bd7b808958124ab253586e47be743e2c8d6ca6df07cb3d3ef8",
+      "bytes": 4711,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run2/capture-003.json",
+      "original_sha256": "30885b787ea361762b8fd1e8093e10830f1a049b6c0b229145a0cf9afcdc5e97",
+      "archived_sha256": "b63e554a2db09e2a66ca92a25d5d0831f97c46537bec306556b5f5480c09959e",
+      "bytes": 4770,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run2/capture-004.json",
+      "original_sha256": "25a0a21f8adb336f2f6775cc6d01cef8c24053e6ca23bc6e782372867cd35aee",
+      "archived_sha256": "8103a14925f2d2b4d648606441af60e93293cb84227f65b4ebca8d6e59a78467",
+      "bytes": 4772,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run2/capture-005.json",
+      "original_sha256": "2f56e30f523a50ab6053198bcdb16adef254def71ea4bf49d6e35132f299685e",
+      "archived_sha256": "16603a9918b23cc967d8b157c7190ab4da5bff47e41fe79e39c4df10cf2b7fdd",
+      "bytes": 4776,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run2/capture-006.json",
+      "original_sha256": "8030b1e759dc1b2d0c711325cee42283a86129fc16ac33c1ac7aa0fcb11ade52",
+      "archived_sha256": "2d3172fd20a8bcea6be6580dc0a51aa2caf554dacde706e505eeb88bd88a12e0",
+      "bytes": 4720,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run2/capture-007.json",
+      "original_sha256": "2eee0b6b0891347935202d0692745a8de3c491a1bbe2778ea102850abf2054d4",
+      "archived_sha256": "7a76bb67207d27889407d5423c67852cc6fafb46a41a044b28e16afb15601d6f",
+      "bytes": 4729,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run2/capture-008.json",
+      "original_sha256": "618b1a00dc4198a99b25a25191618a42dd44a5fd62a4f0da442892079f7dcfd1",
+      "archived_sha256": "521b427c046f35ac91e78abae278abe98e73b2086b3f814d5787d3069eb45103",
+      "bytes": 4726,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run2/events.json",
+      "original_sha256": "cfc02fdacc162bc82c90fc2250392864807252c5fad7a1ad88f90b7d7f259d5e",
+      "archived_sha256": "7d6b955f9dbb7f6e8488386e6430bd1b64821979162a0cb53511f5c6352e280c",
+      "bytes": 3189,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run2/failed-screen.txt",
+      "original_sha256": "c6a587e26e05a3913f3960da89f5495d3cf59713599e1636582aa8033a1f7541",
+      "archived_sha256": "c6a587e26e05a3913f3960da89f5495d3cf59713599e1636582aa8033a1f7541",
+      "bytes": 4515,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run2/history-after.json",
+      "original_sha256": "e45d3465a574ab287a85c3bf83348e55bab314d4113211ceeed5308f00e22cf8",
+      "archived_sha256": "86c54569ad32956ea3690f4dcc8ff5f8ec2b4f4f59d6bdecbb28a68a59c4da8a",
+      "bytes": 867,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run2/history-before.json",
+      "original_sha256": "e45d3465a574ab287a85c3bf83348e55bab314d4113211ceeed5308f00e22cf8",
+      "archived_sha256": "86c54569ad32956ea3690f4dcc8ff5f8ec2b4f4f59d6bdecbb28a68a59c4da8a",
+      "bytes": 867,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run2/identities.json",
+      "original_sha256": "7879c3c3163bd2b7a11ec15b1fc839abba9eab4d1e58b71bf941dc20a7c5b4ac",
+      "archived_sha256": "5609f4ce306c18bc11aa8ca0ec67e4da27493eb15bebbe347cc91a19fd9e869e",
+      "bytes": 1408,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run2/legacy-v5-check.err",
+      "original_sha256": "a50b0fb7dd1048d12b3fee1674ccba06c7d785a76112ddfd34993e67b92234bd",
+      "archived_sha256": "31f7c955ff716a12123b7d5a5963dea9449a9be2d49cd77243f670b50ce9e459",
+      "bytes": 433,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run2/legacy-v5-check.out",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run2/legacy-v5-rejection.json",
+      "original_sha256": "e480f760f1caef6e08ecae91e3296c28e87a3c21ecbc25a4148fc75d3d62bbfc",
+      "archived_sha256": "3c06dfe90e3431471acf487a4cc540977d029bc2a2589c77f6e79d7ff7fd8546",
+      "bytes": 208,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run2/metadata-after.json",
+      "original_sha256": "9955cf75b246ed2fa91806520d0bc84f540d0459fe10813f6d88d3fc688c0983",
+      "archived_sha256": "f2a1fc6e0feadc0510565a17919cca4282fe9f486541fa13f4d1992adc70ce2c",
+      "bytes": 85,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run2/metadata-before.json",
+      "original_sha256": "abccb991a4898f2c232e0e8a22c933a0d58892a62c6dd9ea047f774ab90d203e",
+      "archived_sha256": "518c1f76a41c22b0d72bd420e8779e96cd63f17898987f8252ef1a58be100710",
+      "bytes": 85,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run2/order-down.json",
+      "original_sha256": "153f707bc1cefa06716f9cf35fc4ce37e9d786dd33ca57fb73eafbfb96a3640b",
+      "archived_sha256": "a03c8541b4f154e66df857c3944ed93bd582c897b9e1311c687a8ae68a31b63c",
+      "bytes": 845,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run2/order-final.json",
+      "original_sha256": "a87646ec9a41ad167ed47ffe64ef59aed1bb020ed2691e594ec2e27e9a7bce9a",
+      "archived_sha256": "30fdbae35aa9ef78babe21cf30ad724500819ff3a0d5f429067bd177e32ea085",
+      "bytes": 845,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run2/order-up.json",
+      "original_sha256": "5805998dd0419d4daa2c4a337da0bacc3237181e1e5a3ee8b9a52438b790b093",
+      "archived_sha256": "c6c2e1deab921665d0b8ea7d0d97935cb5071123775a7916219797a19da9c81b",
+      "bytes": 845,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run2/outcome.json",
+      "original_sha256": "f77d23197325ddc2ce41f7d10fdc9fc215310e5dd4f10686d9df31ce1b33cf97",
+      "archived_sha256": "cb04f4b687b7f7a98a6badea31644b4d58f769d07e48b3b871de324c7eef24b3",
+      "bytes": 1970,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run2/psmux.conf",
+      "original_sha256": "d0667dffdf25b5602e8d1078bbef8791ad04d2897c5ec50e1a5a20a0183673a8",
+      "archived_sha256": "d0667dffdf25b5602e8d1078bbef8791ad04d2897c5ec50e1a5a20a0183673a8",
+      "bytes": 60,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run2/restore-result.json",
+      "original_sha256": "c1501450b5975ee1e924b54f8ea56d23d7ba1c9707c68cf140a6498d0d28337d",
+      "archived_sha256": "db377e306fc435eb60b4b04c1534936389e0f98acf985996b01e6443c2d5e168",
+      "bytes": 198,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run2/restored-order.json",
+      "original_sha256": "a87646ec9a41ad167ed47ffe64ef59aed1bb020ed2691e594ec2e27e9a7bce9a",
+      "archived_sha256": "30fdbae35aa9ef78babe21cf30ad724500819ff3a0d5f429067bd177e32ea085",
+      "bytes": 845,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run2/sessions-before.json",
+      "original_sha256": "a12efc6721e4f12e5dc8d908da93a89cb1e0497bfb174844ad9fa7fb672f4409",
+      "archived_sha256": "16a1014e6258db37adda9e13e08fed71c8aee87a113ced36e10540ddcdfa8f66",
+      "bytes": 761,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run2/shell.ps1",
+      "original_sha256": "b5c4d3c52a4283d1e1a2568f0bab7580fe38c9ba082ba2afee681245f2d7dadd",
+      "archived_sha256": "d77e6e2b8b308d42f1c251cfb6df2f67236abae6e8e28496c57e1119ad989347",
+      "bytes": 388,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run2/stop-1e51d8ea49d628d33f82f3e56d1c7b1b.json",
+      "original_sha256": "8f6614f8d3f8350f4d9f33ec7473f0a7ca40531946f70b4926dd4f947c849bf3",
+      "archived_sha256": "1887dfd04e8f0ef3c9fa34223a3598eb24ef948524d26bb5fa3d77c316d367f8",
+      "bytes": 147,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run2/stop-b837abba418b6d8dba291d79799c67ec.json",
+      "original_sha256": "cbd988e77220e41da201851cd06b41960396d37d86602b3ccc1364c3fd808546",
+      "archived_sha256": "6a0a4cf74140b28ca9db370b15655626858f8c73f4a77b57bfb38abc8061259b",
+      "bytes": 147,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run2/ui1-host.json",
+      "original_sha256": "0e82ab2873595fec22182690f0643bff5e0f2abd6cafd2e6fd3736f15f2141ca",
+      "archived_sha256": "3eee3ad3954aa885e01a3cb0a5f86f355043fe7509051176fe2352bf5fedcfc4",
+      "bytes": 232,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run2/ui2-host.json",
+      "original_sha256": "425077a8685ba7fe55afb7556edd51b18ec2f0ed41cad82eb2eb2ade98839358",
+      "archived_sha256": "31807dd1b5f6a64b5825a99d66486bc25c0fbfdfd90cc9e53b180919843c20a0",
+      "bytes": 231,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run3/A.history.txt",
+      "original_sha256": "3e474cb1e0b56adbd843979f412adc336202b51d2f58474ba93c7178cc02f258",
+      "archived_sha256": "3e474cb1e0b56adbd843979f412adc336202b51d2f58474ba93c7178cc02f258",
+      "bytes": 32,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run3/A.identity.json",
+      "original_sha256": "4f803aa57490ced917d683eb0e1e78f7c2e2d7e9725f88b63fb4163b974a11cd",
+      "archived_sha256": "102edb60c06f6b6edeff2257177e6f2378368fb02ac6204acffe0485e3c4a0e0",
+      "bytes": 144,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run3/B.history.txt",
+      "original_sha256": "1a8354833bfdff397d78e24ba0d166d5f440ab336391bd6f416e73ca3091fea0",
+      "archived_sha256": "1a8354833bfdff397d78e24ba0d166d5f440ab336391bd6f416e73ca3091fea0",
+      "bytes": 32,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run3/B.identity.json",
+      "original_sha256": "28685dbde58fd63de8292914cf0444fe84d18df113d997f8937f0af704476610",
+      "archived_sha256": "fb08c3f7cb8e63addffb72f4a77cd9ed11dd530a7715e0067a74c4ca0e33fc56",
+      "bytes": 144,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run3/backup-result.json",
+      "original_sha256": "abb330823213af9c485f6afd927da6e48e5b31178643eddbd148e64d0b8e5805",
+      "archived_sha256": "8d0f27e6ff1feca3d530a91d1e6c3dd81b449ccabba1507dff75b48b695a544f",
+      "bytes": 185,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run3/capture-001.json",
+      "original_sha256": "363b550a979fb29392569ba52de30e4988c00a6f77f7de976791df7bfb12965b",
+      "archived_sha256": "d4192095954c341372468140c23ee5a7235b5b86c90ce1c5ad23299faaca8fd1",
+      "bytes": 4711,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run3/capture-002.json",
+      "original_sha256": "be3e2577f378119e42ee2250f47e62c4408160f033f4e4a5912521e16105483f",
+      "archived_sha256": "5316d9ecc6dd96bd7b808958124ab253586e47be743e2c8d6ca6df07cb3d3ef8",
+      "bytes": 4711,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run3/capture-003.json",
+      "original_sha256": "30885b787ea361762b8fd1e8093e10830f1a049b6c0b229145a0cf9afcdc5e97",
+      "archived_sha256": "b63e554a2db09e2a66ca92a25d5d0831f97c46537bec306556b5f5480c09959e",
+      "bytes": 4770,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run3/capture-004.json",
+      "original_sha256": "25a0a21f8adb336f2f6775cc6d01cef8c24053e6ca23bc6e782372867cd35aee",
+      "archived_sha256": "8103a14925f2d2b4d648606441af60e93293cb84227f65b4ebca8d6e59a78467",
+      "bytes": 4772,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run3/capture-005.json",
+      "original_sha256": "2f56e30f523a50ab6053198bcdb16adef254def71ea4bf49d6e35132f299685e",
+      "archived_sha256": "16603a9918b23cc967d8b157c7190ab4da5bff47e41fe79e39c4df10cf2b7fdd",
+      "bytes": 4776,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run3/capture-006.json",
+      "original_sha256": "8030b1e759dc1b2d0c711325cee42283a86129fc16ac33c1ac7aa0fcb11ade52",
+      "archived_sha256": "2d3172fd20a8bcea6be6580dc0a51aa2caf554dacde706e505eeb88bd88a12e0",
+      "bytes": 4720,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run3/capture-007.json",
+      "original_sha256": "2eee0b6b0891347935202d0692745a8de3c491a1bbe2778ea102850abf2054d4",
+      "archived_sha256": "7a76bb67207d27889407d5423c67852cc6fafb46a41a044b28e16afb15601d6f",
+      "bytes": 4729,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run3/capture-008.json",
+      "original_sha256": "fe6b6496debf4dce4bb353d11c64080fc9907b318ece835685871a390269f30a",
+      "archived_sha256": "b894909006aad6b6c8793cfa7c315b132abb379c246e1599399d1d2cfa0e9d89",
+      "bytes": 4726,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run3/capture-009.json",
+      "original_sha256": "868d84fbee58e7a3cd20cd4e9e68bfa45d5e14e8e83e0a2cfb3040700e438ca4",
+      "archived_sha256": "8710d0e17b2eb87d085363dc2b1ffa62f1bf6187628945d8ddbad8480c990821",
+      "bytes": 4726,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run3/events.json",
+      "original_sha256": "47445a8b4387e3389206371e64757591d94b3a832bc473ccd0342f4ac6b99935",
+      "archived_sha256": "d416d795ac495db9c953a8e8b45c399fa45d5ee667d1eb624ef967618c20c6f5",
+      "bytes": 3709,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run3/history-after.json",
+      "original_sha256": "bbe4e439b0ff01728e96fd6435d6c11671cfa0549c7a179f7addb8f818af3f9f",
+      "archived_sha256": "54dbadf299c7b6856ebfe2a0e20b75fc2e1c16230a2fee95fa063915d9b64aeb",
+      "bytes": 867,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run3/history-before.json",
+      "original_sha256": "bbe4e439b0ff01728e96fd6435d6c11671cfa0549c7a179f7addb8f818af3f9f",
+      "archived_sha256": "54dbadf299c7b6856ebfe2a0e20b75fc2e1c16230a2fee95fa063915d9b64aeb",
+      "bytes": 867,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run3/identities.json",
+      "original_sha256": "4d8534e09aa76f769de29f9016c47e8e35aadc882866287b128f21bab1c294c7",
+      "archived_sha256": "d3178cce139535ff20e13b51ad4d4cd611b78f2b71b2a85329c41de3a3817cb3",
+      "bytes": 1412,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run3/legacy-v5-check.err",
+      "original_sha256": "a50b0fb7dd1048d12b3fee1674ccba06c7d785a76112ddfd34993e67b92234bd",
+      "archived_sha256": "31f7c955ff716a12123b7d5a5963dea9449a9be2d49cd77243f670b50ce9e459",
+      "bytes": 433,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run3/legacy-v5-check.out",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run3/legacy-v5-rejection.json",
+      "original_sha256": "b3aa3a6789908456dec7b0a66c83cca1fc2feddecc05f96acfbc4161abc5888c",
+      "archived_sha256": "b9ffaa1d5f57ad156e0bd57a6b0183395ac5c0c6970feaf29fc0ee262267cfed",
+      "bytes": 208,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run3/metadata-after.json",
+      "original_sha256": "9955cf75b246ed2fa91806520d0bc84f540d0459fe10813f6d88d3fc688c0983",
+      "archived_sha256": "f2a1fc6e0feadc0510565a17919cca4282fe9f486541fa13f4d1992adc70ce2c",
+      "bytes": 85,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run3/metadata-before.json",
+      "original_sha256": "abccb991a4898f2c232e0e8a22c933a0d58892a62c6dd9ea047f774ab90d203e",
+      "archived_sha256": "518c1f76a41c22b0d72bd420e8779e96cd63f17898987f8252ef1a58be100710",
+      "bytes": 85,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run3/order-down.json",
+      "original_sha256": "90290b0f5a6582ae83c491c48630ce3a4a1e8fd1cbf513c2bf65a4887250b0a6",
+      "archived_sha256": "f448550459eca7c113adeea7ed26ae93f9a93e4b603138627bd191c608dba4e4",
+      "bytes": 845,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run3/order-final.json",
+      "original_sha256": "09e96c923570f15047c931b096766e57bc7d11a877e7453cea622cebc874bc54",
+      "archived_sha256": "2e1471b543669f2d587d23978a9372d4a7e8703a6e25f88c1c0df5679d3b8306",
+      "bytes": 845,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run3/order-up.json",
+      "original_sha256": "92a86e209607a4872706c2355ac8af9ee0615477895d6eb2042e6e32d9e3fd40",
+      "archived_sha256": "08b5373374a13957ab340113ed833d3ec90180997cdc08c3c6a8f9f097cc77e6",
+      "bytes": 845,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run3/outcome.json",
+      "original_sha256": "da1eed33b679149e3d91523b9c7db7fa53d9d9a5b2b1c6d9faa3a980abd8510c",
+      "archived_sha256": "d133f76de612d167f619fbda62c8c1f127d589717c99038025f260303a771624",
+      "bytes": 1974,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run3/psmux.conf",
+      "original_sha256": "d0667dffdf25b5602e8d1078bbef8791ad04d2897c5ec50e1a5a20a0183673a8",
+      "archived_sha256": "d0667dffdf25b5602e8d1078bbef8791ad04d2897c5ec50e1a5a20a0183673a8",
+      "bytes": 60,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run3/restore-result.json",
+      "original_sha256": "9fb611f1a8df7d3155326647d646adec7570d6aa160a0f342c0a57a80c513459",
+      "archived_sha256": "496f098629be59da9d7bf7af227a0fed0f1b4d84d522d81f45dd81e09bd98e1a",
+      "bytes": 198,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run3/restored-order.json",
+      "original_sha256": "09e96c923570f15047c931b096766e57bc7d11a877e7453cea622cebc874bc54",
+      "archived_sha256": "2e1471b543669f2d587d23978a9372d4a7e8703a6e25f88c1c0df5679d3b8306",
+      "bytes": 845,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run3/sessions-after.json",
+      "original_sha256": "09e96c923570f15047c931b096766e57bc7d11a877e7453cea622cebc874bc54",
+      "archived_sha256": "2e1471b543669f2d587d23978a9372d4a7e8703a6e25f88c1c0df5679d3b8306",
+      "bytes": 845,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run3/sessions-before.json",
+      "original_sha256": "56a29edf1c319556748f338fc2d7b0bf23ec7b59b7a9ae8c8f614dd91ba31ed2",
+      "archived_sha256": "0dda2bd36e22855e3a2fbdfdc0c96edca07143e5ece4178ef48793f4505bd357",
+      "bytes": 761,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run3/shell.ps1",
+      "original_sha256": "b5c4d3c52a4283d1e1a2568f0bab7580fe38c9ba082ba2afee681245f2d7dadd",
+      "archived_sha256": "d77e6e2b8b308d42f1c251cfb6df2f67236abae6e8e28496c57e1119ad989347",
+      "bytes": 388,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run3/stop-72bf4214a30de5cd52a159fa103b3a6a.json",
+      "original_sha256": "c21ca2c9e0996c4344af97a9df1f450c7c61c19c64324b7d9be5b591ce0443f3",
+      "archived_sha256": "8b4a27a0dd15464edf10dc48f9918cc4d991c6acbb9dad78182df0b6e8a98cb3",
+      "bytes": 147,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run3/stop-cd4a5496b300ea6d49696e0610c860cd.json",
+      "original_sha256": "9d7ba82bfeac0415e5a5f461c5881e56690e4f319d632006355e7bc788274dfa",
+      "archived_sha256": "a31a50d31650da55ee06335e78e37e9a93f54842352741121b34762061260272",
+      "bytes": 147,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run3/ui1-host.json",
+      "original_sha256": "a3aefd0d4a69a115e1ab4e74de39ef934db7369290177ea0301fc0a851107e12",
+      "archived_sha256": "2b8120d320ca7fd5bd13204e49d749ced787ae9c216a1a63eaf5d24280afbbd1",
+      "bytes": 232,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run3/ui2-host.json",
+      "original_sha256": "22b62d7facad5247117b261196a00780551741797d96c1d535638fcd88800a8e",
+      "archived_sha256": "0cf62c5f3bd17258c4c8da52290028203aec8d6f2087872705a2b90e20fde204",
+      "bytes": 232,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run4/A.identity.json",
+      "original_sha256": "f496355d40483d04035f3224d2cd3edec58d88999407d405627b4a09b96e856d",
+      "archived_sha256": "7a820385b79bbc45f48566866a6824ea491ca445f231f748f7cb383f1c80ff79",
+      "bytes": 144,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run4/B.identity.json",
+      "original_sha256": "f3110814f8afb32d09afff50b02f4f4098fe5554d78b3a7580e6b01a0d386aa2",
+      "archived_sha256": "177fb21fd92e4fc4a1e355332b7597f9fa2c7aa04b26fb2c894832cefa370726",
+      "bytes": 144,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run4/events.json",
+      "original_sha256": "96828610014f4bbecdd1a523136915f0229b5cf60b6807ab365bdec7642c552c",
+      "archived_sha256": "2c8e9a7f9b9e444fca1796b797598bd1698b2e9e5814cd15c12b31cd284bdbf6",
+      "bytes": 385,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run4/history-before.json",
+      "original_sha256": "26767d524b6d2c102bdfef8a1ce89a8cb65b8c3855a01f1e84c458e537c7d5c0",
+      "archived_sha256": "a6df8fc0d338d88d68cbb1bcee826d99055768565eda0fd4da69125415633fc9",
+      "bytes": 867,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run4/identities.json",
+      "original_sha256": "30e6151676e53d8b4a3cd8dbeccce3da0d6a91b1de21039de43f019a3634b612",
+      "archived_sha256": "e491c2da85c8cb2da64c0ca8536da53993ecd5977a30c4a1c5074ca7890dec23",
+      "bytes": 192,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run4/metadata-before.json",
+      "original_sha256": "abccb991a4898f2c232e0e8a22c933a0d58892a62c6dd9ea047f774ab90d203e",
+      "archived_sha256": "518c1f76a41c22b0d72bd420e8779e96cd63f17898987f8252ef1a58be100710",
+      "bytes": 85,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run4/outcome.json",
+      "original_sha256": "a2f7d39099252f2542ca823be3fc1c2ac3ec05e8ff589e5b283cc123ec08012c",
+      "archived_sha256": "d3cd9a7f835db7725507bb48058ae378bc1ba197301d1aa8edfafe60113be693",
+      "bytes": 705,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run4/psmux.conf",
+      "original_sha256": "d0667dffdf25b5602e8d1078bbef8791ad04d2897c5ec50e1a5a20a0183673a8",
+      "archived_sha256": "d0667dffdf25b5602e8d1078bbef8791ad04d2897c5ec50e1a5a20a0183673a8",
+      "bytes": 60,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run4/sessions-before.json",
+      "original_sha256": "77effe38f1d388c8d8a2346b5de49817bfbd5ebbe36f5b2638e2e4a07118a2f5",
+      "archived_sha256": "d51450b0cf9d478cb7b9ffab7aef672a7745f5438ad9545ee5e05dead08d5bd0",
+      "bytes": 761,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run4/shell.ps1",
+      "original_sha256": "b5c4d3c52a4283d1e1a2568f0bab7580fe38c9ba082ba2afee681245f2d7dadd",
+      "archived_sha256": "d77e6e2b8b308d42f1c251cfb6df2f67236abae6e8e28496c57e1119ad989347",
+      "bytes": 388,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run4/stop-4d444805e3734405193b9f1b46c36359.json",
+      "original_sha256": "6197c9bf1beaaf6384e028d40b2d9b4cb7b7b595ec67ebc973ecedacb7fe7b6c",
+      "archived_sha256": "4cc8dd7e5362c8009f58212fb07495704bf5a454f528f6d4bdf5825c726641f7",
+      "bytes": 147,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run4/stop-b72138fac8878279009de10b607ab25c.json",
+      "original_sha256": "7f35c726771ebc684b8ba97ce38dce26e8fcdadc2d013a5b1f908075ac62e4e8",
+      "archived_sha256": "46ec64c7efe041628c87c05ecf6e3932ab5376357d3c0b4791ba7a16c83ef35b",
+      "bytes": 147,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run5/A.history.txt",
+      "original_sha256": "3e474cb1e0b56adbd843979f412adc336202b51d2f58474ba93c7178cc02f258",
+      "archived_sha256": "3e474cb1e0b56adbd843979f412adc336202b51d2f58474ba93c7178cc02f258",
+      "bytes": 32,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run5/A.identity.json",
+      "original_sha256": "e90bef5dcd767b513a0f52ef51f6804eb0b1de2d3d4322abec17b41f123eb973",
+      "archived_sha256": "8098e914504e028d11155517227a1d608e40c3fe31bab45c7c6d401b686f3417",
+      "bytes": 142,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run5/B.history.txt",
+      "original_sha256": "1a8354833bfdff397d78e24ba0d166d5f440ab336391bd6f416e73ca3091fea0",
+      "archived_sha256": "1a8354833bfdff397d78e24ba0d166d5f440ab336391bd6f416e73ca3091fea0",
+      "bytes": 32,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run5/B.identity.json",
+      "original_sha256": "a64f3a0bbc37f7a97fa554ade9d2c2ba02f02ab9784b7090a28d35d4f2c4c456",
+      "archived_sha256": "5cd20de5e98798da157c52f6a6f5657e09e70682bb917ae7ac0e045cd491cd2b",
+      "bytes": 142,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run5/backup-result.json",
+      "original_sha256": "7aed683ab22e4b118a2842d3e826586040562925a66cd0a51236273a8761a9dd",
+      "archived_sha256": "578199a721486233602d7b06972699735357952860b17dd41113455e478995ac",
+      "bytes": 185,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run5/capture-001.json",
+      "original_sha256": "363b550a979fb29392569ba52de30e4988c00a6f77f7de976791df7bfb12965b",
+      "archived_sha256": "d4192095954c341372468140c23ee5a7235b5b86c90ce1c5ad23299faaca8fd1",
+      "bytes": 4711,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run5/capture-002.json",
+      "original_sha256": "be3e2577f378119e42ee2250f47e62c4408160f033f4e4a5912521e16105483f",
+      "archived_sha256": "5316d9ecc6dd96bd7b808958124ab253586e47be743e2c8d6ca6df07cb3d3ef8",
+      "bytes": 4711,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run5/capture-003.json",
+      "original_sha256": "30885b787ea361762b8fd1e8093e10830f1a049b6c0b229145a0cf9afcdc5e97",
+      "archived_sha256": "b63e554a2db09e2a66ca92a25d5d0831f97c46537bec306556b5f5480c09959e",
+      "bytes": 4770,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run5/capture-004.json",
+      "original_sha256": "25a0a21f8adb336f2f6775cc6d01cef8c24053e6ca23bc6e782372867cd35aee",
+      "archived_sha256": "8103a14925f2d2b4d648606441af60e93293cb84227f65b4ebca8d6e59a78467",
+      "bytes": 4772,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run5/capture-005.json",
+      "original_sha256": "2f56e30f523a50ab6053198bcdb16adef254def71ea4bf49d6e35132f299685e",
+      "archived_sha256": "16603a9918b23cc967d8b157c7190ab4da5bff47e41fe79e39c4df10cf2b7fdd",
+      "bytes": 4776,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run5/capture-006.json",
+      "original_sha256": "c6b0d3854b4f8f5907472128eeea70b2df2a6be1dd49f18b38a5b687a1f9809d",
+      "archived_sha256": "b38050666397a4d17af923f0006438826503d3eab9bcfc2f2251299fa498288b",
+      "bytes": 4776,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run5/capture-007.json",
+      "original_sha256": "4f15d91036280628e7ae7a362494df04872668703383fe8a71260a61be907b8c",
+      "archived_sha256": "d4659aa4f9ab324675bdd4b637d1ab5522101dc5568a2c65d8d0c59bf07e7888",
+      "bytes": 4785,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run5/capture-008.json",
+      "original_sha256": "15eccac7051235f964382b0f7cebfe6ed024b18df2d8cdb7ad41c86eb49f354b",
+      "archived_sha256": "1e82525bb2e235217576e0824222e277fe5b6ef950a9770e76368b1778096b76",
+      "bytes": 4782,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run5/capture-009.json",
+      "original_sha256": "40cf894d02beaa3e82183b5930ae7672018301231cb250ede08b9123e87783e3",
+      "archived_sha256": "a904a22274534ab13a30ba2108f46231ca91113d31d594369193cce88a57328d",
+      "bytes": 4722,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run5/capture-010.json",
+      "original_sha256": "d534a05dce2ad3e87e699e6dc218c09db8bab7120aeb7c75e3e6fd31d8d9d5a3",
+      "archived_sha256": "bed90cb3298e974bdc725eb027c7e65f6ecb35c25fcbd1864f4d82addbb9c01a",
+      "bytes": 4732,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run5/capture-011.json",
+      "original_sha256": "7fbbe22be955092870e1fd20475c60ac6c421f4fe0b743bc36fddb90c8cf5e3f",
+      "archived_sha256": "bb6cfab13df89de102fa8d4e4ad195c46c01781d5f6942c888ec83e2269cf0ef",
+      "bytes": 4729,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run5/capture-012.json",
+      "original_sha256": "4e8a55af239cbd4413cf5e63b39674bf384338b5b719c632d89558fab1fdb8c9",
+      "archived_sha256": "8e0a19cbfb68bbf2857e4739a4cd01191619710b6d343e3270ab205ac13380ae",
+      "bytes": 4729,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run5/events.json",
+      "original_sha256": "05bb33dd4683c4e6146d29d3c1cd277fea2cca3356c5de7a54039887ad43292e",
+      "archived_sha256": "c595d70f22b6c9eb6e74f9aa7ac5e19c9f4c2fe1bd3c9b0f0ea4c8c2e985b0ab",
+      "bytes": 5826,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run5/history-after.json",
+      "original_sha256": "133144dd320d8400f7a0124fd248028beedd7d06c1bacaa2592263f66203ece0",
+      "archived_sha256": "28dccb95c2aca3b7dc9cb3122493e122bbdd690d2a5aed1fcd42093994ba5261",
+      "bytes": 895,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run5/history-before.json",
+      "original_sha256": "d1d34fa164bbc535d70db18648da259490976c4afaad05e33be19da1f4742781",
+      "archived_sha256": "d255be7848109e2f953b9a93076636d85591ce732e2e8337de6315eb4936e839",
+      "bytes": 867,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run5/identities.json",
+      "original_sha256": "323e63dab833ce866fa22cf1e911581857363b63eb4f0ddb185bc3eb43545790",
+      "archived_sha256": "92116464fe20c6020afc5dd922060c40665f2eddb4fb45191f89918bdb65fbc1",
+      "bytes": 1412,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run5/legacy-v5-check.err",
+      "original_sha256": "47816182a7e270cd7d0cf98793cfb4b5cdb31526974553a8e490ba6c620617cd",
+      "archived_sha256": "7c949d6c7dd52816d2c139b82e42ceaf9bca8f8a57d55ac9f82e2397d159f351",
+      "bytes": 433,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run5/legacy-v5-check.out",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run5/legacy-v5-rejection.json",
+      "original_sha256": "d4b72f8e72c1adb9e6e8788c73f46ec789241a50609c7cb4b79098a755c655be",
+      "archived_sha256": "62a1b8d527a0bd84362b434b9436316da28717c912816d350ced3b4f6dd1e75e",
+      "bytes": 208,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run5/metadata-after.json",
+      "original_sha256": "9955cf75b246ed2fa91806520d0bc84f540d0459fe10813f6d88d3fc688c0983",
+      "archived_sha256": "f2a1fc6e0feadc0510565a17919cca4282fe9f486541fa13f4d1992adc70ce2c",
+      "bytes": 85,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run5/metadata-before.json",
+      "original_sha256": "abccb991a4898f2c232e0e8a22c933a0d58892a62c6dd9ea047f774ab90d203e",
+      "archived_sha256": "518c1f76a41c22b0d72bd420e8779e96cd63f17898987f8252ef1a58be100710",
+      "bytes": 85,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run5/moved-back-order.json",
+      "original_sha256": "72d8d7738308c1d501f59552ec5e15fc03ae76f4c57621307d1d119b20becd69",
+      "archived_sha256": "3e2bf5fca9d4184b16d1bf0bfbe94648b68b468ac36ec01cb624d7cc050aac8e",
+      "bytes": 845,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run5/moved-to-other.json",
+      "original_sha256": "69f77278f0299a2b2d2918163a33434921afcfd0f48ca9670afaa1bba36fc3b3",
+      "archived_sha256": "b7aa8dfacd012a72f531d988ea8d80d6669dda651e780b277e2b3ae5afc78473",
+      "bytes": 903,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run5/order-before-membership.json",
+      "original_sha256": "237d23b59fbc2d5f69b655590095edae1d8054223d196a7b69cfa6a022a54e24",
+      "archived_sha256": "aced7366312bab30453be75d3ab2c3ffa0e3f951ded0ca1a6edf547ea62fae25",
+      "bytes": 845,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run5/order-down.json",
+      "original_sha256": "da1da84c176a72f09a52e3d453e0bf4c4a3149644116f1c2515dc70dd14da654",
+      "archived_sha256": "ff6b63982da239fcd8f04fa0d8add6f983626c80abe3da0da546e3ae338574be",
+      "bytes": 845,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run5/order-final.json",
+      "original_sha256": "a5aa79f8e1c553cf059e613a666a106f792723f30c1813a103f6df3a64dc172f",
+      "archived_sha256": "df78c19a297b01cc59915b97dd7c2469138821442cdfeeb702e9bb3c2932fca0",
+      "bytes": 876,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run5/order-up.json",
+      "original_sha256": "1bb4f24bca83f49efaebf349dab1eedd3739c8b847f812d585c132b4b0f8022a",
+      "archived_sha256": "fb4ffc494a5684d42b59ee0894d9e19e5fa7c8807ba9e89b48ec2f23257b449e",
+      "bytes": 845,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run5/outcome.json",
+      "original_sha256": "c125d00eb73f46f89b2a8ef716fa58e891ea3e28870bb8682f99bbd40cd9102e",
+      "archived_sha256": "e9d3f3ff03a8883c76a45e0f134ba0e7f350947f36782b48b5cef02457b60e39",
+      "bytes": 1975,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run5/psmux.conf",
+      "original_sha256": "d0667dffdf25b5602e8d1078bbef8791ad04d2897c5ec50e1a5a20a0183673a8",
+      "archived_sha256": "d0667dffdf25b5602e8d1078bbef8791ad04d2897c5ec50e1a5a20a0183673a8",
+      "bytes": 60,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run5/restore-result.json",
+      "original_sha256": "8cd9442fdeab2d8f442bbce06936326e3f9e63d7bc727426bb89507a6bd8e624",
+      "archived_sha256": "96a0ce0cd3b4c9ac75cb94c297578d56fd620ece0f5bafdd219c823aca69d25e",
+      "bytes": 198,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run5/restored-order.json",
+      "original_sha256": "a5aa79f8e1c553cf059e613a666a106f792723f30c1813a103f6df3a64dc172f",
+      "archived_sha256": "df78c19a297b01cc59915b97dd7c2469138821442cdfeeb702e9bb3c2932fca0",
+      "bytes": 876,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run5/sessions-after.json",
+      "original_sha256": "a5aa79f8e1c553cf059e613a666a106f792723f30c1813a103f6df3a64dc172f",
+      "archived_sha256": "df78c19a297b01cc59915b97dd7c2469138821442cdfeeb702e9bb3c2932fca0",
+      "bytes": 876,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run5/sessions-before.json",
+      "original_sha256": "91b5948642194cb3e75ec38072c9d7d65a382ea5c13abcc502700aee76ed238c",
+      "archived_sha256": "62e21639839ce59336481f7b64db3d820d1a615ad0b2e3882d69587b4d84f595",
+      "bytes": 761,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run5/shell.ps1",
+      "original_sha256": "333c6ef75ec9de04c612bc2feb48c8c6f2c9cfdc30a290e5623d5cf60a5a0bb3",
+      "archived_sha256": "0bed9341ffeec6e5d152671c3dfe8b10e6cabdd9f0c1ad0dfdf6947292246af0",
+      "bytes": 512,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run5/stop-4860d178e5b548ddbcaae4a017bbbe7d.json",
+      "original_sha256": "2cac506f8510209e34cd035b7473364f9684ba28445798b1fa6272e8bb778f3a",
+      "archived_sha256": "2ed3d337c4b5f7adcb097ead135e2506d5c9a391a05c86a74e6fce0647325e40",
+      "bytes": 147,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run5/stop-b26a971390fb464054640584120c6588.json",
+      "original_sha256": "becff7219d62e38fec8ac81c66c03faf6faa860be4f8cd5012fefb5f78f66686",
+      "archived_sha256": "39be8860955e19737c0b78da5bded912663b63666bbc3210440943197071109d",
+      "bytes": 147,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run5/ui1-host.json",
+      "original_sha256": "4077f589965eded5fdb51196eee388dda07b6c413b77f4f63208474ea14e7555",
+      "archived_sha256": "fd187de92c69e402085bc1f3440f32e008796658326621bba77346882bbbbe81",
+      "bytes": 232,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    },
+    {
+      "path": "console-run5/ui2-host.json",
+      "original_sha256": "faba34a3c9a58f2113399fd6c2323ca3bbb04b0a30bff05993ad8574321ca059",
+      "archived_sha256": "54b8afd6458c6a9ca693d969a658e1aa883e0a9e2e1369b8a19df579f5932949",
+      "bytes": 232,
+      "normalization": "UTF-8 without BOM; known user/local paths replaced; terminal content contains only isolated synthetic fixtures"
+    }
+  ]
+}

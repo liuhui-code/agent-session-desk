@@ -1,0 +1,5 @@
+go: downloading github.com/stretchr/testify v1.12.1
+# github.com/asheshgoplani/agent-deck/internal/session
+internal/session/analytics_test.go:10:2: module lookup disabled by GOPROXY=off
+FAIL	github.com/asheshgoplani/agent-deck/internal/session [setup failed]
+FAIL
