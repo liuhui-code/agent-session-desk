@@ -39,6 +39,7 @@ const (
 type workspaceState struct {
 	directories                directoryState
 	programPointer             *workspaceProgramPointer
+	programHover               workspaceProgramHover
 	copyPointer                *workspaceCopyPointer
 	visibleCopy                *visiblePaneCopy
 	pendingClipboard           *workspaceClipboard
@@ -82,6 +83,7 @@ type workspaceResized struct {
 
 func (w *workspaceState) disconnect() {
 	w.programPointer = nil
+	w.programHover = workspaceProgramHover{}
 	w.copyPointer = nil
 	if w.visibleCopy != nil {
 		w.visibleCopy.cancel()
@@ -194,6 +196,9 @@ func (m *Model) readWorkspace() tea.Cmd {
 
 func (m *Model) workspaceEvent(msg tea.Msg) (tea.Cmd, bool) {
 	w := m.workspace
+	if cmd, handled := m.programHoverEvent(msg); handled {
+		return cmd, true
+	}
 	if cmd, handled := m.workspaceClipboardEvent(msg); handled {
 		return cmd, true
 	}
@@ -347,6 +352,7 @@ func (m *Model) workspaceEvent(msg tea.Msg) (tea.Cmd, bool) {
 		}
 		w.readBusy = false
 		w.screen = msg.screen
+		m.validateProgramHover()
 		if w.programPointer != nil && !m.programPointerCurrent(w.programPointer) {
 			w.programPointer = nil
 			m.status = "程序鼠标手势已失效；释放结果未知，请核对原程序"

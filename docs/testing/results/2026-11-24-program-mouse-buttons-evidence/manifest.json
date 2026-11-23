@@ -1,0 +1,192 @@
+{
+  "schema_version": 1,
+  "scope": "Go protocol memory-pipe and controlled UI model evidence; not real backend, terminal, desktop or native Windows",
+  "artifacts": [
+    {
+      "path": "local/wire-red.log",
+      "sha256": "2b135ac2523c4828a2ec3c1dedc980757e225d96e033556427e5e5dd3949a5cf",
+      "original_sha256": "2b135ac2523c4828a2ec3c1dedc980757e225d96e033556427e5e5dd3949a5cf",
+      "workspace_path_normalized": false
+    },
+    {
+      "path": "local/wire-green.log",
+      "sha256": "f4088dac60ad0136204a136ee537d6df5f3f7df3e32df248cdec2ffe65eedfe5",
+      "original_sha256": "f4088dac60ad0136204a136ee537d6df5f3f7df3e32df248cdec2ffe65eedfe5",
+      "workspace_path_normalized": false
+    },
+    {
+      "path": "local/buttons-red.log",
+      "sha256": "8e9dc60d0e998ff0eac61684798638415d252e1b87da3f5c63c2c89c35782132",
+      "original_sha256": "8e9dc60d0e998ff0eac61684798638415d252e1b87da3f5c63c2c89c35782132",
+      "workspace_path_normalized": false
+    },
+    {
+      "path": "local/buttons-green.log",
+      "sha256": "5082786be82f1049168bdb47d314436375346945c75a2ef930832a9947a6439d",
+      "original_sha256": "5082786be82f1049168bdb47d314436375346945c75a2ef930832a9947a6439d",
+      "workspace_path_normalized": false
+    },
+    {
+      "path": "local/hover-red.log",
+      "sha256": "5814c1a18d3e18b470aaad95e66bc220fab08d2dd027dfd1e3ba04686dbbace4",
+      "original_sha256": "5814c1a18d3e18b470aaad95e66bc220fab08d2dd027dfd1e3ba04686dbbace4",
+      "workspace_path_normalized": false
+    },
+    {
+      "path": "local/hover-green.log",
+      "sha256": "83edeb86d5b67339c1978063f73a474fb001dd5ab4dc93a4c7a50a42371db75f",
+      "original_sha256": "83edeb86d5b67339c1978063f73a474fb001dd5ab4dc93a4c7a50a42371db75f",
+      "workspace_path_normalized": false
+    },
+    {
+      "path": "local/matrix-first.log",
+      "sha256": "5cfa841716f4fbfdaaf38f61e4ba084f4b20a8c28696556c221cededf05c0130",
+      "original_sha256": "5cfa841716f4fbfdaaf38f61e4ba084f4b20a8c28696556c221cededf05c0130",
+      "workspace_path_normalized": false
+    },
+    {
+      "path": "local/hover-cancel-red.log",
+      "sha256": "c0509566aebc0e522e0c9d84181d0491a4aa7a03f904810518e93fcdcc5c0142",
+      "original_sha256": "c0509566aebc0e522e0c9d84181d0491a4aa7a03f904810518e93fcdcc5c0142",
+      "workspace_path_normalized": false
+    },
+    {
+      "path": "local/hover-cancel-green.log",
+      "sha256": "ee42a150a0548d4eb018c35fc84bd6ba8fdd542bf89a0daf2de0d5150eecdbc1",
+      "original_sha256": "ee42a150a0548d4eb018c35fc84bd6ba8fdd542bf89a0daf2de0d5150eecdbc1",
+      "workspace_path_normalized": false
+    },
+    {
+      "path": "local/lifecycle-first.log",
+      "sha256": "852e91b4dae5687f9dd9ba381b17ddca5981e0d0fbea8b547475f37978185074",
+      "original_sha256": "852e91b4dae5687f9dd9ba381b17ddca5981e0d0fbea8b547475f37978185074",
+      "workspace_path_normalized": false
+    },
+    {
+      "path": "local/protocol-sources.json",
+      "sha256": "095d8cfdf0ab1a6c820407e67ce65b48391b09a4e936430aa5e7f104c00ff87d",
+      "original_sha256": "095d8cfdf0ab1a6c820407e67ce65b48391b09a4e936430aa5e7f104c00ff87d",
+      "workspace_path_normalized": false
+    },
+    {
+      "path": "local/framework-sources.json",
+      "sha256": "0942ef2ff38c5ab0b031502a9b91723dec384b38cc258e64fcdbd9e9790aa149",
+      "original_sha256": "0942ef2ff38c5ab0b031502a9b91723dec384b38cc258e64fcdbd9e9790aa149",
+      "workspace_path_normalized": false
+    },
+    {
+      "path": "local/context7-resolve.json",
+      "sha256": "5f8bd384013edaa8d31152ae1fab738fc8b3321b8add87d47851e936b472db68",
+      "original_sha256": "5f8bd384013edaa8d31152ae1fab738fc8b3321b8add87d47851e936b472db68",
+      "workspace_path_normalized": false
+    },
+    {
+      "path": "local/context7-docs.json",
+      "sha256": "f7f248a971a94f8712b5861afdd9dfde210f8f406c8d2f86e7d9f45e1fc8de66",
+      "original_sha256": "f7f248a971a94f8712b5861afdd9dfde210f8f406c8d2f86e7d9f45e1fc8de66",
+      "workspace_path_normalized": false
+    },
+    {
+      "path": "local/environment.json",
+      "sha256": "5ed5edaab3bead1f486384cbbf29a791c0a03e47915e3c4cf50c9c95c5192563",
+      "original_sha256": "5ed5edaab3bead1f486384cbbf29a791c0a03e47915e3c4cf50c9c95c5192563",
+      "workspace_path_normalized": false
+    },
+    {
+      "path": "local/windows-status.json",
+      "sha256": "485b0266df7a2dc8cdd3c33f82e061c37adfda62b1c844ec1469976394cdd4d3",
+      "original_sha256": "485b0266df7a2dc8cdd3c33f82e061c37adfda62b1c844ec1469976394cdd4d3",
+      "workspace_path_normalized": false
+    },
+    {
+      "path": "local/checks.py",
+      "sha256": "020b29b79df99defb9765086028b323fcc9b02491cd0ebdeb48b131ded19b14a",
+      "original_sha256": "020b29b79df99defb9765086028b323fcc9b02491cd0ebdeb48b131ded19b14a",
+      "workspace_path_normalized": false
+    },
+    {
+      "path": "local/checks.json",
+      "sha256": "59a4cb4a379a1071220f24f133379a421addc91874ef4b56bc82783bfcd85af5",
+      "original_sha256": "59a4cb4a379a1071220f24f133379a421addc91874ef4b56bc82783bfcd85af5",
+      "workspace_path_normalized": false
+    },
+    {
+      "path": "local/go-test.log",
+      "sha256": "45cf0c6311dac4c063e776b45fc7ccdf8740e07fc078dd30c1418ea1f9d87b79",
+      "original_sha256": "45cf0c6311dac4c063e776b45fc7ccdf8740e07fc078dd30c1418ea1f9d87b79",
+      "workspace_path_normalized": false
+    },
+    {
+      "path": "local/go-race.log",
+      "sha256": "545ab41d163d8918eaa086b8c0d9b8cf1e38c7a52735d7bb5107b6982da8fc3e",
+      "original_sha256": "545ab41d163d8918eaa086b8c0d9b8cf1e38c7a52735d7bb5107b6982da8fc3e",
+      "workspace_path_normalized": false
+    },
+    {
+      "path": "local/go-vet.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "workspace_path_normalized": false
+    },
+    {
+      "path": "local/go-mod-verify.log",
+      "sha256": "b4537ed75f533f993f371954de47e42a793b8e5b0587577de7e27fb3e50696bd",
+      "original_sha256": "b4537ed75f533f993f371954de47e42a793b8e5b0587577de7e27fb3e50696bd",
+      "workspace_path_normalized": false
+    },
+    {
+      "path": "local/source-limits.log",
+      "sha256": "cd968af2e2a36b7b2224a66edf651b2396cbf82f744ea46ef87b96920d88366d",
+      "original_sha256": "cd968af2e2a36b7b2224a66edf651b2396cbf82f744ea46ef87b96920d88366d",
+      "workspace_path_normalized": false
+    },
+    {
+      "path": "local/catalog-render.log",
+      "sha256": "9a70ad6aeca5079f5e0cc6220b5aea58942128ef9baeb2f8e58429ac1d3bde84",
+      "original_sha256": "9a70ad6aeca5079f5e0cc6220b5aea58942128ef9baeb2f8e58429ac1d3bde84",
+      "workspace_path_normalized": false
+    },
+    {
+      "path": "local/catalog-check.log",
+      "sha256": "cdec900bd74cfee5510513fc5f909ef9c985ba8dce1f94feee309dd2ffc03197",
+      "original_sha256": "cdec900bd74cfee5510513fc5f909ef9c985ba8dce1f94feee309dd2ffc03197",
+      "workspace_path_normalized": false
+    },
+    {
+      "path": "local/source-fingerprints.json",
+      "sha256": "8a7e9e6501efe4a21e5f6ff0797fc49704c0c93ba112774b26ef399651acd6d1",
+      "original_sha256": "8a7e9e6501efe4a21e5f6ff0797fc49704c0c93ba112774b26ef399651acd6d1",
+      "workspace_path_normalized": false
+    },
+    {
+      "path": "local/build.py",
+      "sha256": "e233e4c9793085892bd9a7bbb9af3545c626c5dd78807e8c88aa9197eead392e",
+      "original_sha256": "e233e4c9793085892bd9a7bbb9af3545c626c5dd78807e8c88aa9197eead392e",
+      "workspace_path_normalized": false
+    },
+    {
+      "path": "local/binary-hashes.json",
+      "sha256": "a37781a6a5749b7778707d1122185d4db5089abd832f317d57ce01946306cc2e",
+      "original_sha256": "a37781a6a5749b7778707d1122185d4db5089abd832f317d57ce01946306cc2e",
+      "workspace_path_normalized": false
+    },
+    {
+      "path": "local/candidate-payload-check.json",
+      "sha256": "76627f4a2de43f654c87552435047795386edf6a3bd41c981a99d4a9bbe7fe53",
+      "original_sha256": "76627f4a2de43f654c87552435047795386edf6a3bd41c981a99d4a9bbe7fe53",
+      "workspace_path_normalized": false
+    },
+    {
+      "path": "local/archive.py",
+      "sha256": "57e539c2805387afc996f6ee04ed1d4a7e9ae602391dc6b46684d555a00686bb",
+      "original_sha256": "57e539c2805387afc996f6ee04ed1d4a7e9ae602391dc6b46684d555a00686bb",
+      "workspace_path_normalized": false
+    },
+    {
+      "path": "local/verify-program-mouse-buttons.py",
+      "sha256": "c5ee8b4f535054048fbe2b16d01cb331a9933b7b74a6e0f1de28b47370f59829",
+      "original_sha256": "c5ee8b4f535054048fbe2b16d01cb331a9933b7b74a6e0f1de28b47370f59829",
+      "workspace_path_normalized": false
+    }
+  ]
+}

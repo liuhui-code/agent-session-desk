@@ -204,3 +204,5 @@ M1 收尾按[验收清单](testing/M1_ACCEPTANCE.md)推进；显式有界屏幕�
 2026-11-24：按 [ADR-0036](adr/0036-framework-color-profile-display.md) 补有限颜色能力显示，固定 120 项的来源／产品真实渲染器对照从 64 项一致推进到 120 项一致；[证据](testing/results/2026-11-24-color-profiles.md)包括模态／原 Run 和输入保留、默认色请求／复位。真实终端的自定义调色板、默认色恢复、Windows／字体／完整交互与发布继续开放。
 
 2026-11-24 目录还原进展：[ADR-0037](adr/0037-directory-pickers-and-bounded-recents.md) 新建／分组路径选择、有界最近目录和本地来源对照见[报告](testing/results/2026-11-24-directory-pickers.md)。继续 Windows 原生／桌面、真实 agent、输入与视觉接受；env／模板 UI、完整状态矩阵、资源及发布门槛仍开放，不提升阶段状态。
+
+2026-11-24：[ADR-0038](adr/0038-program-mouse-buttons-and-motion.md) 补程序三按钮／修饰与无修饰悬停的本地路径，原 pane／FIFO、释放保留及迟到回执有独立[报告](testing/results/2026-11-24-program-mouse-buttons.md)。普通 shell／CLI／真实 agent 的 Windows 整条流程、后端模式竞争、宿主按钮状态与资源／视觉接受继续开放，不提升阶段状态。

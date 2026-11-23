@@ -25,16 +25,20 @@ func (m *Model) workspaceClick(msg tea.MouseClickMsg) tea.Cmd {
 
 func (m *Model) workspaceClickNow(msg tea.MouseClickMsg) tea.Cmd {
 	w := m.workspace
+	w.programHover.latest = nil
 	w.tabDrag = workspaceTabDrag{}
 	previous := w.listClick
 	w.listClick = workspaceListClick{}
-	if msg.Button != tea.MouseLeft || w.transition != workspaceIdle {
+	if w.transition != workspaceIdle {
 		return nil
 	}
 	w.split.dragging = false
 	w.split.hovered = false
 	if cmd, handled := m.startProgramPointer(msg); handled {
 		return cmd
+	}
+	if msg.Button != tea.MouseLeft {
+		return nil
 	}
 	if cmd, handled := m.startCopyPointer(msg); handled {
 		return cmd

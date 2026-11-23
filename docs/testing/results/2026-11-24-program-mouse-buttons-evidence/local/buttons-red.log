@@ -1,0 +1,5 @@
+--- FAIL: TestProgramMouseRightGestureKeepsModifiersAndOriginalTarget (0.00s)
+    workspace_program_mouse_buttons_test.go:28: right Shift+Ctrl gesture missing: ""
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.806s
+FAIL

@@ -85,7 +85,7 @@ func TestProgramMouseDeliberateActionsReleaseBeforeTheirOwnInput(t *testing.T) {
 			case "no-button":
 				h.send(tea.MouseMotionMsg{X: g.x + 20, Y: g.y + 2, Button: tea.MouseNone})
 			case "modified-motion":
-				h.send(tea.MouseMotionMsg{X: g.x + 20, Y: g.y + 2, Button: tea.MouseLeft, Mod: tea.ModAlt})
+				h.send(tea.MouseMotionMsg{X: g.x + 20, Y: g.y + 2, Button: tea.MouseLeft, Mod: tea.ModSuper})
 			}
 			h.until(func() bool { return h.m.workspace.pending == 0 })
 			if action == "help" {
@@ -152,11 +152,11 @@ func TestProgramMouseStartsOnlyInUnmodifiedFocusedProgramContent(t *testing.T) {
 				click.X = 0
 				click.Y = 1
 			case "modified":
-				click.Mod = tea.ModShift
+				click.Mod = tea.ModSuper
 			case "prompt":
 				h.m.workspace.screen.CopyPrompt = &terminal.CopyPrompt{Text: "Search:", LabelBytes: 7, CursorBytes: 7}
 			case "right":
-				click.Button = tea.MouseRight
+				click.Button = tea.MouseBackward
 			}
 			h.send(click)
 			h.send(tea.MouseReleaseMsg{X: g.x + 3, Y: g.y + 2, Button: tea.MouseLeft})

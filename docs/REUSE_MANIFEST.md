@@ -150,3 +150,7 @@ Bubbles 2.2.2 textinput 通过模块使用，未复制组件源码。v2 表单�
 ## ADR-0037 目录选择与建议缓存
 
 固定 Agent Deck 同一 MIT 提交的 pathfuzzy.go、session/utils.go、group_dialog.go、newdialog.go 选择性适配至 internal/pathsuggest 与 internal/ui/path_picker*.go，保留原版权。来源实际 helper 的 48 个合成状态、产品 128 帧及 80 项候选文字样式见[报告](testing/results/2026-11-24-directory-pickers.md)。单扫描／新旧查询与弹窗身份、按 scope 缓存和小视口恢复编辑为产品适配；来源同尺寸布局、Windows 和完整应用未接受。新增模块 sahilm/fuzzy v0.1.3（MIT，`8aadc77d46cf09f5dc529d41358a94a24516c0b6`），只通过模块使用，许可原样在 third_party/sahilm-fuzzy/LICENSE；不复制其匹配器或迁入旧 Charm UI。精确源 SHA、模块校验和及许可见机器清单和报告证据。
+
+## ADR-0038 程序鼠标输入扩展
+
+本轮新增 Go Mouse 能力、UI 三按钮／修饰及有界悬停是本项目实现，没有迁入新 Rust 或 UI 源码。仅核对固定 psmux `20aa1d7254ee93f64dafa059ef89341d9767470a` 的 pane-mouse 解析／派发／注入和锁定 Bubble Tea 2.1.2／Ultraviolet 事件类型；现有 MIT 归属保持。两份独立本地快照的六份协议源文件哈希、框架指纹和实际边界见[报告](testing/results/2026-11-24-program-mouse-buttons.md)，不将 source review 算作原生执行。

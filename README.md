@@ -172,7 +172,7 @@ Tab 管理模式现可按 `/` 搜索当前会话，选择后接回原 Run；查�
 
 分组后续完成[固定来源弹窗对照与三 shell 桌面流程](docs/testing/results/2026-11-23-groups-desktop.md)，核对组内实际目录、原 Run／草稿、窄屏和 UI 重开；另修复中文表单占位提示的 NUL 显示。组编辑及整体验收继续开放。
 
-未声明鼠标的实时终端可直接左键拖选，按下／单击和同格微动不发输入，首次实际拖动才交给原生选区；管理焦点 `v` 进入原生复制模式后也可拖选。切 Tab／缩放等取消本地手势，不自动补发释放；可用 Esc 取消保留的原生选区。声明鼠标的程序已接左按／左拖／左释放，切 Tab 等主动操作前先沿原队列释放；外部模式变化时保留未知，详见[程序左键本地验证](docs/testing/results/2026-11-24-program-mouse.md)。右／中键、修饰与悬停仍未接入，Windows 程序鼠标和实际选区／剪贴板仍待验证，见[直接拖选](docs/testing/results/2026-11-24-direct-drag.md)与[原生模式](docs/testing/results/2026-11-24-copy-pointer.md)。
+未声明鼠标的实时终端可直接左键拖选，按下／单击和同格微动不发输入，首次实际拖动才交给原生选区；管理焦点 `v` 进入原生复制模式后也可拖选。切 Tab／缩放等取消本地手势，不自动补发释放；可用 Esc 取消保留的原生选区。声明鼠标的程序已接左／中／右单按钮按下、拖动、释放与 Shift／Alt／Ctrl，切 Tab 等主动操作前先沿原队列释放；外部模式变化时保留未知，详见[程序左键本地验证](docs/testing/results/2026-11-24-program-mouse.md)。无按钮／无修饰运动已通过原 pane 转发，由后台判断 any-event 跟踪；中间位置有界合并。修饰悬停、多按钮和弦仍未接入，Windows 程序鼠标和实际选区／剪贴板仍待验证，见[程序按钮／悬停本地验证](docs/testing/results/2026-11-24-program-mouse-buttons.md)、[直接拖选](docs/testing/results/2026-11-24-direct-drag.md)与[原生模式](docs/testing/results/2026-11-24-copy-pointer.md)。
 
 页脚模式：在独立 `ui.toml v7` 中可选 `footer = "full"`、`"compact"`、`"minimal"` 或 `"curated"`；修改后重开 UI。默认 full 随宽度分级，compact 固定键＋说明，minimal 固定仅键，curated 只列少量上下文及设置／帮助。小于 50 列仍用窄窗提示，终端焦点继续保留黄色模式／F6。大小写和首尾空白归一化，未知值回退 full；其他设置保存保留该选择。详见[验证和边界](docs/testing/results/2026-11-24-footer-modes.md)。
 

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "date": "2026-11-24",
-  "scope": "Selective UI/platform migration through ADR-0037; full upstream experience and release acceptance remain open.",
+  "scope": "Selective UI/platform migration through ADR-0038; full upstream experience and release acceptance remain open.",
   "original_project_license": "pending O-010",
   "source_files": [
     {
@@ -1090,6 +1090,24 @@
       "mode": "module_dependency_no_source_copy",
       "go_sum": "h1:juByESSS32nVD81vr6tHmKmA/8zde7gE+x5CLxrzXPU=",
       "go_mod_sum": "h1:au6//VbVSqu6DFrkL2CfjlJ5iURpNCPeE+1GwY3XsT8="
+    }
+  ],
+  "protocol_references": [
+    {
+      "project": "psmux",
+      "repository": "https://github.com/psmux/psmux",
+      "commit": "20aa1d7254ee93f64dafa059ef89341d9767470a",
+      "mode": "source_review_only_no_new_code_copied",
+      "license": "MIT",
+      "sha256": {
+        "src/server/connection.rs": "bdc00f141140cb9de613ef6f829abfaf84180f9c654355c179377dacc0fed30d",
+        "src/server/mod.rs": "ae4cc7ed52f54a05472ceb2deaf76b577dbe4833a28f20e8aafc365ab5c07b8e",
+        "src/window_ops.rs": "20e365a257c13c6f8d257279aa1cf135d6ecf4cfd8d3c52d5628fd29f59fe48d",
+        "src/client.rs": "ea8533eace46156d86e89e77e2454e6b403032d5ec54c68aae1bce907e9a5cc3",
+        "src/copy_mode.rs": "e71c1d3b728b17a32ef53ee4af595deefa464e3514c4a121fd32bfb8aa752106",
+        "LICENSE": "08da43448469783a5b56d903e29c071383d7c201b9644287f98531e76083b959"
+      },
+      "report": "docs/testing/results/2026-11-24-program-mouse-buttons.md"
     }
   ]
 }

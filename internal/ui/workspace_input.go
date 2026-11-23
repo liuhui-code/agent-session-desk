@@ -12,11 +12,14 @@ const workspaceInputCapacity = 64 // defensive input bound, not an agent queue
 
 type workspaceInput struct {
 	kind, text       string
+	button           string
+	modifiers        uint8
 	width, height    int
 	x, y             int
 	anchorX, anchorY int
 	up               bool
 	reply            chan error
+	hover            *workspaceProgramPointer
 }
 type workspaceInputDone struct {
 	generation uint64
@@ -57,9 +60,9 @@ func (m *Model) workspaceWrite(action workspaceInput) tea.Cmd {
 	return func() tea.Msg {
 		select {
 		case err := <-action.reply:
-			return workspaceInputDone{generation, err}
+			return workspacePointerReceipt(generation, err, action.hover)
 		case <-ctx.Done():
-			return workspaceInputDone{generation, ctx.Err()}
+			return workspacePointerReceipt(generation, ctx.Err(), action.hover)
 		}
 	}
 }
@@ -88,6 +91,14 @@ func startWorkspaceWriter(ctx context.Context, conn terminal.Connection, inputs 
 					err = conn.Refresh(ctx)
 				case "scroll":
 					err = conn.Scroll(ctx, action.x, action.y, action.up)
+				case "program-mouse":
+					if native, ok := conn.(terminal.ProgramMouseConnection); ok {
+						err = native.Mouse(ctx, action.text, action.button, action.modifiers, action.x, action.y)
+					} else if native, ok := conn.(terminal.PointerConnection); ok && action.button == "left" && action.modifiers == 0 {
+						err = native.Pointer(ctx, action.text, action.x, action.y)
+					} else {
+						err = fmt.Errorf("当前连接不支持此程序鼠标事件")
+					}
 				case "pointer":
 					if native, ok := conn.(terminal.PointerConnection); ok {
 						err = native.Pointer(ctx, action.text, action.x, action.y)

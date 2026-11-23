@@ -1,0 +1,5 @@
+--- FAIL: TestUnsupportedHoverCancelsTheQueuedUnmodifiedPosition (0.00s)
+    workspace_program_hover_test.go:61: stale pending hover survived unsupported event: "mouse:move,none,0,1,2;mouse:move,none,0,5,2"
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.857s
+FAIL

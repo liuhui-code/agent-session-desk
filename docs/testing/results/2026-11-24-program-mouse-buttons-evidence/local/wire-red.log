@@ -1,0 +1,5 @@
+--- FAIL: TestPSMuxProgramMousePreservesRightButtonAndModifiers (0.00s)
+    mouse_test.go:46: program mouse has no button/modifier transport
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/terminal	1.966s
+FAIL

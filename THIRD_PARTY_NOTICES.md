@@ -84,3 +84,5 @@ ADR-0024 从同一固定提交选择性适配 `confirm_dialog.go`／`home_keys_d
 2026-11-24 ADR-0036：同固定 Agent Deck `80494e527393b7ead00da30018e6ee7e60e9d7a0`／MIT 的 20 主题角色及索引 240／241，按真实 v1 渲染器测量 ANSI／ANSI256 索引，作为 design_tokens.go 的固定显示数据；不是复制旧库转换器。来源与产品四能力各 30 项比较、正常退出及默认色包输出见[报告](docs/testing/results/2026-11-24-color-profiles.md)。已有 MIT colorprofile v0.4.3 改为直接声明，版本／模块集合及 go.sum 不变；真实终端与平台接受另记。
 
 2026-11-24 ADR-0037：继续选择性适配固定 Agent Deck 80494e527393b7ead00da30018e6ee7e60e9d7a0／MIT 的 pathfuzzy.go、session/utils.go、group_dialog.go 与 newdialog.go 目录建议；异步单扫描、作用域最近目录缓存与 Windows 路径边界为产品适配。新增直接模块 sahilm/fuzzy v0.1.3，固定提交 8aadc77d46cf09f5dc529d41358a94a24516c0b6，MIT／Copyright (c) 2017 Sahil Muthoo，完整许可在 third_party/sahilm-fuzzy/LICENSE；不引入旧 Charm UI 依赖。
+
+2026-11-24 ADR-0038：固定 psmux `20aa1d7254ee93f64dafa059ef89341d9767470a`／MIT 的 pane-mouse 仅作三按钮、修饰与悬停的协议核对；Bubble Tea 2.1.2 与既有 Ultraviolet 类型通过已锁定模块使用。新 Go 路由／有界合并为本项目实现，没有复制 Rust、增加 UI 来源或改变依赖，原许可／归属保持。精确来源与限制见[报告](docs/testing/results/2026-11-24-program-mouse-buttons.md)。

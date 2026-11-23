@@ -65,3 +65,4 @@ ADR-0014 依据用户 2026-11-22 的明确要求接受，部分替代 0001/0002 
 | [0035](0035-pinned-source-display-colors.md) | 作者配色与固定来源 TrueColor 显示副本 | 已接受 | [20 角色／6 组合精确对照](../testing/results/2026-11-24-source-colors.md)；16／256 色、Windows 与完整视觉开放 |
 | [0036](0036-framework-color-profile-display.md) | 框架颜色能力、来源有限索引及默认色请求 | 已接受 | [120 角色／真实渲染器内存输出](../testing/results/2026-11-24-color-profiles.md)；真实调色板／恢复、Windows 与整体视觉开放 |
 | [0037](0037-directory-pickers-and-bounded-recents.md) | 目录建议、单扫描及按 scope 隔离的最近目录缓存 | 已接受 | [本地组件／文件系统复验](../testing/results/2026-11-24-directory-pickers.md)；原生路径／实体输入和完整体验仍开放 |
+| [0038](0038-program-mouse-buttons-and-motion.md) | 程序三按钮／修饰和有界悬停 | 已接受 | [本地协议／模型](../testing/results/2026-11-24-program-mouse-buttons.md)；原生 VT／Win32、实体鼠标及完整体验开放 |

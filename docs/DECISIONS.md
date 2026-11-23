@@ -159,3 +159,5 @@ M0 使用后端 user option 做存活终端的发现，不建立临时 JSON 文�
 2026-11-24：[ADR-0036](adr/0036-framework-color-profile-display.md) 采用框架报告的颜色能力与固定来源索引数据，无色模式去管理样式属性；原终端屏幕属性不重写。默认色请求限于已知 TrueColor，其他能力不猜测 RGB 默认色；实际恢复另验。[本地 120 角色与包输出](testing/results/2026-11-24-color-profiles.md)不替代真实终端或 Windows。
 
 2026-11-24：[ADR-0037](adr/0037-directory-pickers-and-bounded-recents.md) 还原新建／分组各自目录选择语义，单扫描、有界候选及独立最近目录建议缓存；不更改 Session/Run 历史和终端输入。明确成功启动后异步记提示，失败不重启；[来源组件与本地证据](testing/results/2026-11-24-directory-pickers.md)不替代 Windows 或完整接受。
+
+2026-11-24：[ADR-0038](adr/0038-program-mouse-buttons-and-motion.md) 扩展声明 WantsMouse 的程序输入至三按钮与 Shift／Alt／Ctrl，并以一个已接受／一个最新位置合并无修饰悬停；复制选区保留既有左键规则。固定后台修饰悬停 gate 和旧宿主 record bypass 限制明确保留，不以[Go 协议／模型](testing/results/2026-11-24-program-mouse-buttons.md)冒充程序处理或原生兼容。
