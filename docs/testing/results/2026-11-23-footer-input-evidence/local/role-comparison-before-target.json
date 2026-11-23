@@ -1,0 +1,25 @@
+{
+  "result": "passed",
+  "source_default_footer": "full",
+  "source_frame_count": 24,
+  "product_frame_count": 24,
+  "paste_cases": 10,
+  "role_cells": {
+    "role_full": 12,
+    "role_compact": 10,
+    "role_badge": 17
+  },
+  "known_accent_serialization_cells": 12,
+  "authored_accent": "#7aa2f7",
+  "source_emitted_accent": [
+    121,
+    162,
+    247
+  ],
+  "product_emitted_accent": [
+    122,
+    162,
+    247
+  ],
+  "scope": "Visible formatter roles match except the explicitly recorded one-channel v1/v2 serialization difference; localized footer content and Tab controls differ, not full-frame equality"
+}

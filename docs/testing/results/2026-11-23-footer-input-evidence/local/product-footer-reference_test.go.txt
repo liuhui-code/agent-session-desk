@@ -1,0 +1,14 @@
+package ui
+import("context";"encoding/json";"os";"strings";"testing")
+func TestASDFooterInputProduct(t *testing.T){
+ var frames []map[string]any
+ for _,width:=range []int{49,63,80,100,120,160}{for _,mode:=range []string{"empty","group","session","terminal"}{
+  m:=New(context.Background(),newGroupedFixture());m.width,m.height=width,32;m.sessions=sampleSessions();m.sidebarMode="grouped";m.cursor=0
+  m.workspace.tabs=[]workspaceTab{{viewID:1,session:m.sessions[0]}};m.workspace.focused=mode=="terminal"
+  if mode=="group"{m.cursor=-1};if mode=="empty"{m.sessions=nil;m.cursor=0;m.sidebarMode="flat";m.workspace.tabs=nil}
+  view:=m.View().Content;frames=append(frames,map[string]any{"columns":width,"mode":mode,"content":view,"footer":strings.Split(view,"\n")[30]});m.Close()
+ }}
+ m:=New(context.Background(),newGroupedFixture());tkn:=m.tokens.footer
+ out:=map[string]any{"frames":frames,"role_full":m.styles.footerFullKey.Render("Enter")+" "+m.styles.footerDescription.Render("Open"),"role_compact":m.styles.footerKey.Render("Enter")+" "+m.styles.footerDescription.Render("Open"),"role_badge":m.styles.footerBadge.Render(tkn.badgePrefix+"SESSION"+tkn.badgeSuffix)};m.Close()
+ b,e:=json.MarshalIndent(out,"","  ");if e!=nil{t.Fatal(e)};if e=os.WriteFile("/private/tmp/asd-footer-input-20261123/product-reference.json",b,0600);e!=nil{t.Fatal(e)}
+}

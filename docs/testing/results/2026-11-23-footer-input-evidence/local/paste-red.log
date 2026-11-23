@@ -1,0 +1,5 @@
+--- FAIL: TestWorkspaceHelpPasteClosesWithoutInterpretingOrForwardingPayload (0.00s)
+    help_paste_test.go:22: help did not consume paste as close only: all=false payload="n"
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.957s
+FAIL

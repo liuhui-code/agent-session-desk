@@ -1,0 +1,5 @@
+--- FAIL: TestWorkspaceFullFooterKeepsQuitAtSourceRightGutter (0.00s)
+    workspace_footer_test.go:92: source full-tier quit/right-gutter anchor missing: width=160 "管理模式:  Enter  打开  n  新建  r  改名  M  移动                                        ↑↓ 选择 │ F6 终端 │ ? 帮助 │ q 退出 │ / 搜索 │ S 设置 │ Alt+V 分组/平铺"
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	2.242s
+FAIL

@@ -1,0 +1,92 @@
+{
+    "after":  [
+                  {
+                      "session_id":  "2202f5420f1401cc836431cd6ede55e7",
+                      "run_id":  "08b197001b75de84c34d26f04ffd979e",
+                      "backend_id":  "asd_2202f5420f1401cc836431cd6ede55e7_08b197001b75de84c34d26f04ffd979e",
+                      "title":  "Copy A",
+                      "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                      "terminal_state":  "available"
+                  },
+                  {
+                      "session_id":  "19fc2e54dd81d083a8208726c839b830",
+                      "run_id":  "58d18ea2727ef71e8a8ff748c8a342d4",
+                      "backend_id":  "asd_19fc2e54dd81d083a8208726c839b830_58d18ea2727ef71e8a8ff748c8a342d4",
+                      "title":  "Copy B",
+                      "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                      "terminal_state":  "available"
+                  }
+              ],
+    "native_captures":  9,
+    "preferences_after":  "405367883A35B859111BA79FBE715E0455F103B82F3A914B358B9DD98F671D65",
+    "utc":  "2026-11-23T11:00:14.3720224Z",
+    "ui_processes":  [
+                         {
+                             "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-footer-label.exe",
+                             "pid":  17784,
+                             "filetime":  134399041980174673,
+                             "session":  2
+                         },
+                         {
+                             "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-footer-label.exe",
+                             "pid":  11148,
+                             "filetime":  134399052095731184,
+                             "session":  2
+                         }
+                     ],
+    "commands":  52,
+    "preferences_before":  "405367883A35B859111BA79FBE715E0455F103B82F3A914B358B9DD98F671D65",
+    "before_processes":  [
+                             {
+                                 "filetime":  134399033694793626,
+                                 "pid":  10416,
+                                 "label":  "Copy A",
+                                 "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                 "cwd":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\footer-label-desktop-20261123\\work"
+                             },
+                             {
+                                 "cwd":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\footer-label-desktop-20261123\\work",
+                                 "pid":  19780,
+                                 "label":  "Copy B",
+                                 "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                 "filetime":  134399033699514922
+                             }
+                         ],
+    "before":  [
+                   {
+                       "session_id":  "2202f5420f1401cc836431cd6ede55e7",
+                       "run_id":  "08b197001b75de84c34d26f04ffd979e",
+                       "backend_id":  "asd_2202f5420f1401cc836431cd6ede55e7_08b197001b75de84c34d26f04ffd979e",
+                       "title":  "Copy A",
+                       "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                       "terminal_state":  "available"
+                   },
+                   {
+                       "session_id":  "19fc2e54dd81d083a8208726c839b830",
+                       "run_id":  "58d18ea2727ef71e8a8ff748c8a342d4",
+                       "backend_id":  "asd_19fc2e54dd81d083a8208726c839b830_58d18ea2727ef71e8a8ff748c8a342d4",
+                       "title":  "Copy B",
+                       "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                       "terminal_state":  "available"
+                   }
+               ],
+    "after_processes":  [
+                            {
+                                "filetime":  134399033694793626,
+                                "pid":  10416,
+                                "label":  "Copy A",
+                                "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                "cwd":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\footer-label-desktop-20261123\\work"
+                            },
+                            {
+                                "cwd":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\footer-label-desktop-20261123\\work",
+                                "pid":  19780,
+                                "label":  "Copy B",
+                                "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                "filetime":  134399033699514922
+                            }
+                        ],
+    "scope":  "Bounded final label repair: two ordinary PowerShells, 49/120 columns, omit partial IDs while retaining navigation; wide original active names; original drafts/PIDs and UI restart; final explicit Enter. Prior full input flow is a separate build/evidence set.",
+    "result":  "passed"
+}
+

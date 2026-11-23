@@ -1,0 +1,27 @@
+{
+  "dependency": "github.com/muesli/termenv v0.16.0",
+  "function": "RGBColor.Sequence",
+  "source_file_sha256": "b57c71c72c8194d622838cdc1fdd5c6ced855e76b6d3dfff919f7c24017fb32f",
+  "conversion": "uint8(f.R * 255)",
+  "authored_hex": "#7aa2f7",
+  "observed_source_rgb": [
+    121,
+    162,
+    247
+  ],
+  "observed_product_rgb": [
+    122,
+    162,
+    247
+  ],
+  "decision": "Preserve authored theme tokens and accepted v2 baseline; record exact emission difference, never claim RGB identity or use generic color tolerance.",
+  "context7": {
+    "library_id": "/charmbracelet/lipgloss",
+    "resolve": "High reputation, exact library name; catalog had no 2.1.1-specific entry",
+    "documentation": [
+      "https://github.com/charmbracelet/lipgloss/blob/main/color.go",
+      "https://github.com/charmbracelet/lipgloss/blob/main/UPGRADE_GUIDE_V2.md"
+    ],
+    "scope": "Current general hex/color-profile migration guidance only; pinned dependency code and actual outputs establish the numerical observation, not current main documentation."
+  }
+}

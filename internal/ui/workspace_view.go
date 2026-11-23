@@ -108,9 +108,9 @@ func (m *Model) renderWorkspace() string {
 			body += strings.Repeat("\n", m.tokens.layout.stackedGap+1) + right
 		}
 	}
-	footer := m.styles.dim.Render(m.workspaceFooterText(true))
+	footer := m.renderTerminalFooter()
 	if !w.focused {
-		footer = m.styles.dim.Render(m.workspaceFooterText(false))
+		footer = m.renderManagementFooter()
 	} else if w.screen.CopyMode {
 		text := fmt.Sprintf("滚动历史 · %d 行 · 空格选择 · Enter 复制 · / 搜索 · Esc/q 返回", w.screen.ScrollbackOffset)
 		if w.screen.Status != "" {
@@ -173,24 +173,4 @@ func (m *Model) workspaceCursor() *tea.Cursor {
 		cursor.Shape, cursor.Blink = m.tokens.copy.cursorShape, m.tokens.copy.cursorBlink
 	}
 	return cursor
-}
-
-// Keep the original footer's reachable help/quit hints when the full command
-// legend no longer fits. Match actual cell widths rather than a new breakpoint.
-func (m *Model) workspaceFooterText(terminalFocus bool) string {
-	choices := []string{
-		"管理模式 · Enter 打开 · Alt+V 分组/平铺 · / 搜索 · r 改名 · n 新建 · x 关Tab · S 设置 · ? · q · F6",
-		"管理模式 · Enter 终端 · / 搜索 · r 改名 · n 新建 · S 设置 · ? · q · F6",
-		"管理模式 · / 搜索 · ? · q · F6",
-		"管理模式 · ? · q · F6",
-	}
-	if terminalFocus {
-		choices = []string{"终端模式 · F6 管理 · Ctrl+PgUp/PgDn 切换 Tab", "终端模式 · F6 管理 · Ctrl+PgUp/PgDn", "终端模式 · F6 管理"}
-	}
-	for _, text := range choices {
-		if lipgloss.Width(text) <= m.width {
-			return text
-		}
-	}
-	return cellTruncate(choices[len(choices)-1], m.width, m.tokens.marks.ellipsis)
 }

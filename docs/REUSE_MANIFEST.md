@@ -114,3 +114,5 @@ Bubbles 2.2.2 textinput 通过模块使用，未复制组件源码。v2 表单�
 2026-11-23 删除组：同固定提交的 confirm_dialog.go／home_keys_dialogs.go 的默认 Cancel、红框／黄警告、按钮和 d/y/n/方向键，以及 home.go／session/groups.go 的默认组保护、子树删除和成员收纳语义，选择性适配到 ui/group_removal*.go、store/group_removal.go 与 tokens/styles。九对实际来源／产品组件帧保留外宽及来源留白，中文换行造成一至两行高度差；完整作用域预览印记、离线逻辑成员、SQLite 事务及偏好保存屏障为产品规则。来源 SHA／blob、MIT 和实际范围见[报告](testing/results/2026-11-23-group-removal.md)及机器清单；没有迁入来源路径身份或终端停止行为。
 
 2026-11-23 帮助还原：从同固定 Agent Deck 提交的 help.go 选择性迁入五键／全部、分区键列、滚动／关闭与首尾页布局，cellwidth.go 的宽度规则转为 v2 外宽。目标为 help_overlay.go／help_overlay_view.go 和 tokens/styles；通用 CLI／Tab 命令说明为本产品范围，未显示不支持的 agent／账户／远程入口。中文按单元格换行、来源末页空行和每个内部背景单元格实际复验；原生、前后桌面与必要差异见[报告](testing/results/2026-11-23-help-parity.md)。固定 SHA、MIT 与机器清单同步，完整体验及事件矩阵仍开放。
+
+2026-11-23 底栏／粘贴：从同固定提交的 home_view_frame.go／insert_mode.go 选择性适配默认 full、宽度分级、键／说明角色、右侧退出锚点及黄色模式／活动目标；目标为 workspace_footer.go 与既有 tokens/styles。固定 help.go 的 Paste 标记按键实际关闭帮助，v2 PasteMsg 对应整段消费并关闭。保留 F6／Tab 和通用终端文案适配；不引入 v1 依赖。作者 #7aa2f7 保持不变，实际 v1／v2 红通道 121／122 序列化差异单独记录。来源 SHA、MIT、精确目标和[来源／原生／桌面报告](testing/results/2026-11-23-footer-input-parity.md)同步；整体体验仍未接受。

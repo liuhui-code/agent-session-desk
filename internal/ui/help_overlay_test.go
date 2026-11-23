@@ -33,7 +33,7 @@ func TestWorkspaceHelpOpensSourceStyleShortCard(t *testing.T) {
 	h.until(func() bool { return h.m.workspace.conn != nil && !h.m.workspace.busy })
 }
 
-func TestWorkspaceHelpConsumesPasteMouseAndClosingKeysOnce(t *testing.T) {
+func TestWorkspaceHelpConsumesMouseAndClosingKeysOnce(t *testing.T) {
 	service := &workspaceFixture{fakeService: fakeService{list: func(context.Context) ([]session.Session, error) { return sampleSessions(), nil }}}
 	h := newWorkspaceHarness(t, service)
 	h.until(func() bool { return h.m.workspace.conn != nil && !h.m.workspace.busy })
@@ -41,11 +41,10 @@ func TestWorkspaceHelpConsumesPasteMouseAndClosingKeysOnce(t *testing.T) {
 	for _, key := range []tea.KeyPressMsg{{Code: 'n', Text: "n"}, {Code: 'q', Text: "q"}, {Code: tea.KeyF6}, {Code: tea.KeyPgDown, Mod: tea.ModCtrl}, {Code: 'c', Mod: tea.ModCtrl}, {Code: tea.KeyEnter}} {
 		h.send(tea.KeyPressMsg{Code: '?', Text: "?"})
 		h.until(func() bool { return h.m.help && h.m.workspace.conn == nil })
-		h.send(tea.PasteMsg{Content: "must never reach the terminal"})
 		h.send(tea.MouseClickMsg{X: 5, Y: 1, Button: tea.MouseLeft})
 		h.send(tea.MouseWheelMsg{X: 30, Y: 10, Button: tea.MouseWheelDown})
 		if !h.m.help {
-			t.Fatal("paste or mouse dismissed help")
+			t.Fatal("mouse dismissed help")
 		}
 		h.send(key)
 		if h.m.closed || h.m.help || h.m.launch != nil || h.m.workspace.focused || h.m.workspace.active != 0 {

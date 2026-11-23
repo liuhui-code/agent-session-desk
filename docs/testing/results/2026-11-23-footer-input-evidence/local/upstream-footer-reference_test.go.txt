@@ -1,0 +1,20 @@
+package ui
+import("encoding/json";"os";"testing";tea "github.com/charmbracelet/bubbletea";"github.com/charmbracelet/lipgloss";"github.com/muesli/termenv";"github.com/asheshgoplani/agent-deck/internal/session")
+func TestASDFooterInputReference(t *testing.T){
+ lipgloss.SetColorProfile(termenv.TrueColor)
+ var frames []map[string]any
+ for _,width:=range []int{49,63,80,100,120,160}{for _,mode:=range []string{"empty","group","session","terminal"}{
+  h:=&Home{width:width,hotkeys:resolveHotkeys(nil),footerMode:(session.UISettings{}).GetFooter()}
+  instance:=&session.Instance{ID:"original-a",Title:"Copy A",Tool:"shell"};h.instances=[]*session.Instance{instance}
+  if mode=="group"{h.flatItems=[]session.Item{{Type:session.ItemTypeGroup}}};if mode=="session"{h.flatItems=[]session.Item{{Type:session.ItemTypeSession,Session:instance}}}
+  content:="";if mode=="terminal"{h.embeddedMode=true;h.insertModeSessionID=instance.ID;content=h.renderInsertModeBar()}else{content=h.renderHelpBar()}
+  frames=append(frames,map[string]any{"columns":width,"mode":mode,"content":content})
+ }}
+ var pastes []map[string]any
+ for _,all:=range []bool{false,true}{for _,text:=range []string{"n", "q", "j", "\t", "line one\nline two"}{
+  h:=NewHelpOverlay();h.SetSize(120,32);h.Show();if all{h.ShowAll()};h.Update(tea.KeyMsg{Type:tea.KeyRunes,Runes:[]rune(text),Paste:true})
+  pastes=append(pastes,map[string]any{"all":all,"text":text,"visible":h.IsVisible(),"offset":h.scrollOffset,"all_after":h.allKeys})
+ }}
+ out:=map[string]any{"default_footer":(session.UISettings{}).GetFooter(),"frames":frames,"paste_cases":pastes,"role_full":(&Home{}).helpKey("Enter","Open"),"role_compact":(&Home{}).helpKeyShort("Enter","Open")}
+ b,e:=json.MarshalIndent(out,"","  ");if e!=nil{t.Fatal(e)};if e=os.WriteFile("/private/tmp/asd-footer-input-20261123/upstream-reference.json",b,0600);e!=nil{t.Fatal(e)}
+}

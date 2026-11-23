@@ -1,0 +1,17 @@
+{
+    "reason":  "First x already closed A; connection completion cleared its transient status before the old wait. Continue with the intended second close only.",
+    "original_driver_pid":  10004,
+    "original_driver_filetime":  134398946605874415,
+    "previous_completed_sequence":  154,
+    "replayed_mutations":  0,
+    "remaining_tab":  "Copy B",
+    "accepted_first_close_original":  {
+                                          "session_id":  "0525d665eb34327f5b665abc2bf05f0c",
+                                          "run_id":  "6d9109e4703e654263848c8fd69dd38f",
+                                          "backend_id":  "asd_0525d665eb34327f5b665abc2bf05f0c_6d9109e4703e654263848c8fd69dd38f",
+                                          "title":  "Copy A",
+                                          "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                          "terminal_state":  "available"
+                                      },
+    "fresh_state_sequence":  155
+}

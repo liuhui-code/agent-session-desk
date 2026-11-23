@@ -1,0 +1,8 @@
+{
+  "result": "failed before any new UI command",
+  "error": "Previous original captures incomplete",
+  "cause": "PowerShell 5 @((... | ConvertFrom-Json)) wraps an Object[] as one outer element. Direct assignment has 4 observations and 12 preferences.",
+  "last_completed_sequence_before_and_after": 154,
+  "evidence": "resume-shape.json; original driver PID/FILETIME and Running state were independently observed",
+  "fix": "Direct ConvertFrom-Json assignment; retain all original observations and preferences, then resume after fresh guarded state."
+}

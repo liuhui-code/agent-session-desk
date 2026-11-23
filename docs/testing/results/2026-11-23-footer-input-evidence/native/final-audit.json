@@ -1,0 +1,71 @@
+{
+    "tasks_absent":  [
+                         "AsdFooterLabelSetup20261123",
+                         "AsdFooterLabelDesktop20261123"
+                     ],
+    "clipboard":  {
+                      "text_restored":  true,
+                      "restored":  true,
+                      "original_text_logged":  false,
+                      "utc":  "2026-11-23T11:00:14.3720224Z",
+                      "format_names_restored":  true,
+                      "caps_after":  true,
+                      "caps_before":  true,
+                      "nontext_content_verified":  false
+                  },
+    "utc":  "2026-11-23T11:01:00.2802653Z",
+    "remaining_sessions":  "[]",
+    "private_images_alive":  0,
+    "settings_sha256":  "1499307ABEBA68C23F9EB38A4C636F81172475B6B2B535BC0B11DCD9547241F8",
+    "scope":  "Registered original identities and known private image paths only; no machine-global cleanup claim; owned target and outer launcher PSReadLine history were isolated before input; no user history content archived",
+    "stops":  [
+                  {
+                      "run_id":  "08b197001b75de84c34d26f04ffd979e",
+                      "session_id":  "2202f5420f1401cc836431cd6ede55e7",
+                      "result":  "{\r\n  \"session_id\": \"2202f5420f1401cc836431cd6ede55e7\",\r\n  \"run_id\": \"08b197001b75de84c34d26f04ffd979e\",\r\n  \"result\": \"backend_session_stopped\"\r\n}\r\n"
+                  },
+                  {
+                      "run_id":  "58d18ea2727ef71e8a8ff748c8a342d4",
+                      "session_id":  "19fc2e54dd81d083a8208726c839b830",
+                      "result":  "{\r\n  \"session_id\": \"19fc2e54dd81d083a8208726c839b830\",\r\n  \"run_id\": \"58d18ea2727ef71e8a8ff748c8a342d4\",\r\n  \"result\": \"backend_session_stopped\"\r\n}\r\n"
+                  }
+              ],
+    "result":  "passed",
+    "original_processes":  [
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                   "pid":  10416,
+                                   "filetime":  134399033694793626,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                   "pid":  19780,
+                                   "filetime":  134399033699514922,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-footer-label.exe",
+                                   "pid":  17784,
+                                   "filetime":  134399041980174673,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-footer-label.exe",
+                                   "pid":  11148,
+                                   "filetime":  134399052095731184,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe",
+                                   "pid":  10756,
+                                   "filetime":  134399041968757619,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               }
+                           ]
+}

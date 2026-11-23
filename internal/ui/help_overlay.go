@@ -47,7 +47,12 @@ func (m *Model) helpEvent(msg tea.Msg) (tea.Cmd, bool) {
 		}
 		m.help = false
 		return m.connectWorkspace(), true
-	case tea.PasteMsg, tea.MouseClickMsg, tea.MouseReleaseMsg, tea.MouseMotionMsg, tea.MouseWheelMsg:
+	case tea.PasteMsg:
+		// The pinned v1 overlay treats a bracketed paste as one closing key.
+		// Consume its payload here; it is neither a navigation key nor CLI input.
+		m.help = false
+		return m.connectWorkspace(), true
+	case tea.MouseClickMsg, tea.MouseReleaseMsg, tea.MouseMotionMsg, tea.MouseWheelMsg:
 		return nil, true
 	}
 	return nil, false

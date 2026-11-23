@@ -1,0 +1,5 @@
+--- FAIL: TestWorkspaceTerminalFooterUsesSourceYellowBadgeAndNamesTheActiveRun (0.01s)
+    workspace_footer_test.go:48: terminal badge/target missing: "终端模式 · F6 管理 · Ctrl+PgUp/PgDn 切换 Tab                                                                            "
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.947s
+FAIL

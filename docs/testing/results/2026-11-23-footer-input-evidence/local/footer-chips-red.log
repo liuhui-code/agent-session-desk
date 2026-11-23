@@ -1,0 +1,5 @@
+--- FAIL: TestWorkspaceManagementFooterUsesSourceKeyChipsAtWideCompactAndMinimalWidths (0.00s)
+    workspace_footer_test.go:24: 120 footer key lost source accent chip: default want 122,162,247
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.942s
+FAIL

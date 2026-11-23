@@ -1,0 +1,19 @@
+{
+  "source": "read-only inspection of original remote flow-failure.json",
+  "failure": {
+    "stack": "在 WaitText、<无文件> 中: 第 32 行\r\n在 <ScriptBlock>、<无文件> 中: 第 106 行\r\n在 <ScriptBlock>、<无文件> 中: 第 1 行",
+    "error": "Expected screen not observed: Tab 已关闭",
+    "result": "failed",
+    "sequence": 154
+  },
+  "last_response": "154.json",
+  "driver_processes": [
+    {
+      "path": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "pid": 10004,
+      "filetime": 134398946605874415,
+      "session": 2
+    }
+  ],
+  "task_state": "Running"
+}

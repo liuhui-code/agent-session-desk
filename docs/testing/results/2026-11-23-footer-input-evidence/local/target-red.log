@@ -1,0 +1,5 @@
+--- FAIL: TestWorkspaceNarrowTerminalFooterOmitsUnrenderableTargetInsteadOfAnIDSuffix (0.00s)
+    workspace_footer_test.go:106: narrow footer displays a target fragment or loses navigation: "  -- 终端模式 --   → t]  F6 管理 · Ctrl+PgUp/PgDn"
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	2.324s
+FAIL

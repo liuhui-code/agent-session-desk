@@ -22,8 +22,8 @@
 | U10 删除组 | confirm_dialog.go／home_keys_dialogs.go：默认取消、子树删除并收纳成员 | group_removal*.go；[实测](../testing/results/2026-11-23-group-removal.md) | 历史成员、完整预览印记／事务为必要适配；中文换行高度差保留，失败英文细节尚未统一文案，P2 |
 | U11 会话搜索 | search.go／discovery.go：居中框、输入框与选中结果 | session_search*.go；[来源及 Windows](../testing/results/2026-11-23-session-search.md) | 只查本地名称／程序，不伪造 Recall／agent 状态；完整 IME／长字段 P1 待验 |
 | U12 新建表单 | newdialog.go 的居中宽度、圆角／焦点／间距 | launch_dialog*.go；通用 executable／cwd／JSON args；[几何修正](../testing/results/2026-11-23-upstream-visual-comparison.md) | 通用命令是用户要求的适配；env 编辑／模板保存和来源目录建议未接入，不能宣称所有配置入口已还原 |
-| U13 帮助 | help.go：五键入门、Tab 全部、分区双列、滚动及任意其他键关闭 | 审计起点为不可滚动整页文字；help_overlay*.go 已有[来源／原生及修复前后桌面结果](../testing/results/2026-11-23-help-parity.md) | 默认短／全、尾页可达、背景填充与关闭键隔离已有局部证据；只列真实已支持键。完整键鼠／粘贴事件矩阵、其他 IME 及整体视觉接受仍开放 |
-| U14 页脚层级 | home_view_frame.go：按宽度筛选，键／说明不同样式 | workspace_view.go 已按实际宽度选择提示，但整体使用 dim，缺少来源键色层级 | **P1 待修复**：沿来源 key/desc 角色，保留 F6／帮助可达；错误和复制提示需独立核对 |
+| U13 帮助 | help.go：五键入门、Tab 全部、分区双列、滚动及任意其他键关闭 | help_overlay*.go 已有[前后桌面结果](../testing/results/2026-11-23-help-parity.md)；[来源十种粘贴／实际输入](../testing/results/2026-11-23-footer-input-parity.md)纠正 v2 忽略粘贴偏差 | 短／全粘贴整段消费并关闭，鼠标消费不关闭，原草稿保留；只列真实已支持键。其他键鼠／IME 和整体视觉接受仍开放 |
+| U14 页脚层级 | home_view_frame.go 实际默认 full、宽度分级、键／说明角色；insert_mode.go 黄色模式／目标 | workspace_footer.go 与 tokens/styles 已恢复角色、上下文、退出锚点及实际活动标题；[来源／原生及桌面](../testing/results/2026-11-23-footer-input-parity.md)；最终 49 列不留 ID 尾缀 | 193 回执完整输入流程与标签修复后 52 回执分开记账；保留 v1/v2 精确 RGB 差异。来源页脚设置模式、错误／复制状态矩阵与整体视觉接受仍 P1/P2 待核对 |
 | U15 比例持久化 | split_config.go 将用户选择保存 | workspace_split.go 只保留当前 UI 状态，`=` 恢复自动 | **P2 待迁入**；应扩展现有独立 ui.toml／串行保存，不写启动模板，先定义自动与手动比例合同 |
 | U16 会话行手动排序 | home.go 对 Session 调用 MoveSessionUp/Down | 当前同名键只处理组，管理列表仍按发现／投影次序 | **P1 待实现**；需稳定 Session 排序元数据／历史和刷新合同，不能用 Tab 顺序冒充列表排序 |
 | U17 原生输入／光标 | embedded_terminal.go 转发终端输入并绘制真实光标 | workspace_input.go、internal/terminal；[Tab](../testing/results/2026-11-23-tab-workspaces.md)、[IME](../testing/results/2026-11-23-ime-composition.md)局部结果 | 不新增聊天框；管理键／实际子程序键及其他 IME 候选中切焦点 P1 待验 |
@@ -35,8 +35,8 @@
 
 ## 推进和验收顺序
 
-1. 收尾 U13 帮助，让当前能力可发现、可滚动且不误消费按键；补来源组件、当前 Windows 产品及原终端草稿证据。
-2. 修复 U14 页脚键色层级，集中复查 U01–U06 的同尺寸主界面；使用同一公开合成数据、实际列／行和固定字体／主题，分别记录管理焦点、终端焦点、空白、连接中、错误、窄窗。来源静态回放不是产品交互通过。
+1. U13/U14 已有局部来源／模型／Windows 证据；继续保留其他 IME、页脚设置模式和状态矩阵，避免以局部通过关闭整体。
+2. 集中复查 U01–U06 的同尺寸主界面；使用同一公开合成数据、实际列／行和固定字体／主题，分别记录管理焦点、终端焦点、空白、连接中、错误、窄窗。来源静态回放不是产品交互通过。
 3. 对 U03/U06/U08/U11/U12 做长字段和缩放锚定；再补 U16 会话手动排序、U19 显式停止 UI 及 U18 鼠标／可见页复制。每项以一条行为 RED→GREEN 推进，必要的数据／保存合同先补 ADR。
 4. 继续 U15/U20 与剩余输入／宿主矩阵。普通 shell 连续命令、普通 CLI、真实 agent 的新建→输入→A/B/A→改名／排序→关重开→退出重连均分别证明；用户视觉接受和最终资源／发布门槛保持独立。
 

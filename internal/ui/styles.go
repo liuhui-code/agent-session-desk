@@ -16,6 +16,7 @@ import (
 )
 
 type styles struct {
+	footerContext, footerKey, footerFullKey, footerDescription, footerSeparator, footerBadge, footerCompactBadge              lipgloss.Style
 	helpBox, helpTitle, helpSection, helpKey, helpText, helpHint, helpNote, helpTab, helpScroll                               lipgloss.Style
 	confirmBox, confirmNoticeBox, confirmTitle, confirmNoticeTitle, confirmWarning, confirmDetails, confirmHint, confirmError lipgloss.Style
 	confirmDelete, confirmDeleteFocused, confirmCancel, confirmCancelFocused                                                  lipgloss.Style
@@ -40,6 +41,13 @@ type styles struct {
 
 func newStyles(t designTokens) styles {
 	return styles{
+		footerContext:           lipgloss.NewStyle().Foreground(t.footer.contextColor).Bold(t.bold),
+		footerKey:               lipgloss.NewStyle().Foreground(t.colors.bg).Background(t.colors.accent).Bold(t.bold),
+		footerFullKey:           lipgloss.NewStyle().Foreground(t.colors.bg).Background(t.colors.accent).Bold(t.bold).PaddingLeft(t.footer.fullKeyPadding).PaddingRight(t.footer.fullKeyPadding),
+		footerDescription:       lipgloss.NewStyle().Foreground(t.colors.text),
+		footerSeparator:         lipgloss.NewStyle().Foreground(t.colors.border),
+		footerBadge:             lipgloss.NewStyle().Foreground(t.colors.bg).Background(t.colors.yellow).Bold(t.bold).PaddingLeft(t.footer.badgePadding).PaddingRight(t.footer.badgePadding),
+		footerCompactBadge:      lipgloss.NewStyle().Foreground(t.colors.bg).Background(t.colors.yellow).Bold(t.bold),
 		helpBox:                 lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.help.keyColor).Background(t.colors.surface).Padding(t.help.paddingY, t.help.paddingX),
 		helpTitle:               lipgloss.NewStyle().Foreground(t.colors.accent).Background(t.colors.surface).Bold(t.bold),
 		helpSection:             lipgloss.NewStyle().Foreground(t.colors.cyan).Background(t.colors.surface).Bold(t.bold),

@@ -37,3 +37,6 @@ docs/testing/results/2026-11-23-help-parity-evidence/** -text -whitespace
 
 # Preserve checksummed sibling-order evidence and original screenshots.
 docs/testing/results/2026-11-23-group-order-evidence/** -text -whitespace
+
+# Preserve checksummed footer/input receipts, source frames and original PNGs.
+docs/testing/results/2026-11-23-footer-input-evidence/** -text -whitespace

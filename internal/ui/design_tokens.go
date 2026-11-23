@@ -17,6 +17,7 @@ import (
 // there is no mutable global theme, file watcher or runtime theme format yet.
 // Zero/one in viewport algorithms are counts, not additional style choices.
 type designTokens struct {
+	footer    footerTokens
 	help      helpTokens
 	confirm   confirmTokens
 	group     groupTokens
@@ -30,6 +31,14 @@ type designTokens struct {
 	layout    layoutTokens
 	marks     markTokens
 	bold      bool
+}
+
+type footerTokens struct {
+	fullRightGutter, compactRightGutter                                               int
+	compactBelow, fullAbove, fullKeyPadding, labelGap, hintGap, blockGap              int
+	separator, inlineSeparator, targetPrefix, contextSuffix, badgePrefix, badgeSuffix string
+	badgePadding                                                                      int
+	contextColor                                                                      color.Color
 }
 
 type helpTokens struct {
@@ -122,6 +131,7 @@ type markTokens struct {
 
 func defaultDesignTokens() designTokens {
 	return designTokens{
+		footer:  footerTokens{fullRightGutter: 2, compactRightGutter: 1, compactBelow: 70, fullAbove: 100, fullKeyPadding: 1, labelGap: 1, hintGap: 1, blockGap: 2, separator: " │ ", inlineSeparator: " · ", targetPrefix: "→ ", contextSuffix: ":", badgePrefix: " -- ", badgeSuffix: " -- ", badgePadding: 1, contextColor: lipgloss.Color("#bb9af7")},
 		help:    helpTokens{hintItalic: true, shortWidth: 58, fullWidth: 72, wideWidth: 82, wideAt: 100, minWidth: 37, gutter: 8, paddingX: 2, paddingY: 1, shortKeyWidth: 9, keyWidth: 14, compactKeyWidth: 10, compactBelow: 47, shortIndent: 1, rowIndent: 2, columnGap: 1, sectionGap: 1, footerGap: 1, screenReserve: 8, minContentRows: 10, pageStep: 10, keyColor: lipgloss.Color("#bb9af7"), above: "▲ 上方还有", below: "▼ 下方还有", separator: " │ "},
 		confirm: confirmTokens{preferredWidth: 52, responsiveBelow: 60, narrowGutter: 8, paddingX: 2, paddingY: 1, sectionGap: 1, buttonPadding: 2, buttonGap: 2, nameIndent: 2, titlePrefix: "⚠  ", bullet: "• ", focusedPrefix: "▸ ", idlePrefix: "  ", nameOpen: "\"", nameClose: "\""},
 		group:   groupTokens{placeholderColor: lipgloss.Color("240"), labelWidth: 14, inputWidth: 30, choicePadding: 1, modeSeparator: " ─── ", modeOpen: "[", modeClose: "]"},

@@ -1,0 +1,95 @@
+{
+    "commands":  193,
+    "preferences_after":  "405367883a35b859111ba79fbe715e0455f103b82f3a914b358b9dd98f671d65",
+    "result":  "passed",
+    "before_processes":  [
+                             {
+                                 "pid":  9328,
+                                 "filetime":  134398944914824572,
+                                 "cwd":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\footer-input-desktop-20261123\\work",
+                                 "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                 "label":  "Copy A"
+                             },
+                             {
+                                 "pid":  1640,
+                                 "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                 "cwd":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\footer-input-desktop-20261123\\work",
+                                 "label":  "Copy B",
+                                 "filetime":  134398944920145949
+                             }
+                         ],
+    "after":  [
+                  {
+                      "session_id":  "0525d665eb34327f5b665abc2bf05f0c",
+                      "run_id":  "6d9109e4703e654263848c8fd69dd38f",
+                      "backend_id":  "asd_0525d665eb34327f5b665abc2bf05f0c_6d9109e4703e654263848c8fd69dd38f",
+                      "title":  "Copy A",
+                      "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                      "terminal_state":  "available"
+                  },
+                  {
+                      "session_id":  "480346fea3672492351e30930dc30189",
+                      "run_id":  "1f267f0c506167630abc7f51be23e9f4",
+                      "backend_id":  "asd_480346fea3672492351e30930dc30189_1f267f0c506167630abc7f51be23e9f4",
+                      "title":  "Copy B",
+                      "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                      "terminal_state":  "available"
+                  }
+              ],
+    "before":  [
+                   {
+                       "session_id":  "0525d665eb34327f5b665abc2bf05f0c",
+                       "run_id":  "6d9109e4703e654263848c8fd69dd38f",
+                       "backend_id":  "asd_0525d665eb34327f5b665abc2bf05f0c_6d9109e4703e654263848c8fd69dd38f",
+                       "title":  "Copy A",
+                       "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                       "terminal_state":  "available"
+                   },
+                   {
+                       "session_id":  "480346fea3672492351e30930dc30189",
+                       "run_id":  "1f267f0c506167630abc7f51be23e9f4",
+                       "backend_id":  "asd_480346fea3672492351e30930dc30189_1f267f0c506167630abc7f51be23e9f4",
+                       "title":  "Copy B",
+                       "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                       "terminal_state":  "available"
+                   }
+               ],
+    "utc":  "2026-11-23T08:42:51.5065667Z",
+    "ui_processes":  [
+                         {
+                             "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-footer-input.exe",
+                             "pid":  17172,
+                             "filetime":  134398946652792719,
+                             "session":  2
+                         },
+                         {
+                             "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-footer-input.exe",
+                             "pid":  7800,
+                             "filetime":  134398969675808997,
+                             "session":  2
+                         }
+                     ],
+    "native_captures":  12,
+    "explicit_fold_toggles":  2,
+    "preferences_before":  "405367883a35b859111ba79fbe715e0455f103b82f3a914b358b9dd98f671d65",
+    "scope":  "Two original PowerShells; management footer/group fold contexts, 120/160/80/100/101/63/49 widths, yellow active target badge; ten source-matching help pastes consumed as close; Tab close/reopen and UI restart; preserved original drafts/PIDs; final explicit Enter. No whole-frame source/real-agent/IME/release claim.",
+    "after_processes":  [
+                            {
+                                "pid":  9328,
+                                "filetime":  134398944914824572,
+                                "cwd":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\footer-input-desktop-20261123\\work",
+                                "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                "label":  "Copy A"
+                            },
+                            {
+                                "pid":  1640,
+                                "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                "cwd":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\footer-input-desktop-20261123\\work",
+                                "label":  "Copy B",
+                                "filetime":  134398944920145949
+                            }
+                        ],
+    "preference_snapshots":  13,
+    "help_paste_cases":  10
+}
+

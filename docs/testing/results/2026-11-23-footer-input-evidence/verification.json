@@ -1,0 +1,43 @@
+{
+  "result": "passed",
+  "artifacts": 640,
+  "source_fingerprints": 204,
+  "source_product_frame_pairs": 24,
+  "source_paste_cases": 10,
+  "final_native_ui": [
+    171,
+    355
+  ],
+  "known_rgb_serialization_cells": 12,
+  "full_flow": {
+    "commands": 193,
+    "actions": {
+      "state": 112,
+      "paste": 13,
+      "text": 19,
+      "capture": 17,
+      "keys": 24,
+      "resize": 7,
+      "finish": 1
+    },
+    "captures": 12,
+    "screenshots": 17,
+    "replayed_mutations": 0
+  },
+  "final_label_flow": {
+    "commands": 52,
+    "actions": {
+      "state": 24,
+      "paste": 3,
+      "keys": 11,
+      "capture": 5,
+      "resize": 4,
+      "text": 4,
+      "finish": 1
+    },
+    "captures": 9,
+    "screenshots": 5
+  },
+  "original_processes_ended_per_flow": 5,
+  "scope": "Bounded evidence consistency only; final label and earlier full-input build are distinct, no full UI/release acceptance"
+}

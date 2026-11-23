@@ -18,7 +18,8 @@
         "MenuKey",
         "group name, count, hotkey and selected group color/bold roles",
         "ADR-0024 confirmation red/yellow/blue palette and token-managed box/button styles",
-        "HelpOverlay purple border/key, accent title, cyan section, dim italic footer and yellow scroll roles"
+        "HelpOverlay purple border/key, accent title, cyan section, dim italic footer and yellow scroll roles",
+        "default full/compact/minimal footer chips and yellow native-input mode badge roles"
       ],
       "mode": "selectively_adapted",
       "modifications": "See docs/REUSE_MANIFEST.md and file header. ADR-0022 restores only implicit default-group navigation; custom group metadata is not migrated."
@@ -99,7 +100,8 @@
       "parts": [
         "darkColors palette moved from local styles.go",
         "ADR-0024 confirmation red/yellow/blue palette and token-managed box/button styles",
-        "HelpOverlay purple border/key, accent title, cyan section, dim italic footer and yellow scroll roles"
+        "HelpOverlay purple border/key, accent title, cyan section, dim italic footer and yellow scroll roles",
+        "default full/compact/minimal footer chips and yellow native-input mode badge roles"
       ],
       "mode": "selectively_adapted",
       "modifications": "Type-safe design tokens; original palette values and attribution retained. See ADR-0008."
@@ -653,7 +655,7 @@
         "short/all toggle, navigation aliases and close-only key consumption"
       ],
       "mode": "selectively_adapted",
-      "modifications": "ADR-0014/0016 help parity: product Tab/F6 keys and only supported local commands; stable v2 events/total widths, token-managed purple/surface styles, cell-aware localized wrapping, bounded tiny viewports and existing native input-drain/disconnect/reconnect path. No source agent/account/remote controls or extra terminal history."
+      "modifications": "ADR-0014/0016 help parity: product Tab/F6 keys and only supported local commands; stable v2 events/total widths, token-managed purple/surface styles, cell-aware localized wrapping, bounded tiny viewports and existing native input-drain/disconnect/reconnect path. No source agent/account/remote controls or extra terminal history. Follow-up actual source validation: bracketed paste closes help as one consumed event, never replays navigation or terminal payload."
     },
     {
       "project": "agent-deck",
@@ -682,6 +684,34 @@
       ],
       "mode": "selectively_adapted",
       "modifications": "ADR-0014/0016 help parity: product Tab/F6 keys and only supported local commands; stable v2 events/total widths, token-managed purple/surface styles, cell-aware localized wrapping, bounded tiny viewports and existing native input-drain/disconnect/reconnect path. No source agent/account/remote controls or extra terminal history."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/home_view_frame.go",
+      "source_sha256": "e06fd64336964e6855695bc4190f540a503b483fa796fd8d20b7b07adf9bc6c4",
+      "destination_file": "internal/ui/workspace_footer.go",
+      "license": "MIT",
+      "parts": [
+        "default full/width-adaptive footer roles, helpKey/helpKeyShort, contextual priority and right-side quit fitting"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "ADR-0014/0016: token-only stable-v2 styles, localized actual supported commands, F6/Tab navigation kept reachable, original active Tab identity, single-row cell fitting and contextual group/unavailable-terminal hints; source authored palette preserved with explicitly observed v1/v2 RGB emission difference. Configurable curated/compact/minimal preference modes remain separate."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/insert_mode.go",
+      "source_sha256": "478d4d81c42dcbe4ecd70840eb1442239e9903eac973c6680efd103ec763397f",
+      "destination_file": "internal/ui/workspace_footer.go",
+      "license": "MIT",
+      "parts": [
+        "renderInsertModeBar yellow mode badge and actual target title"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "ADR-0014/0016: token-only stable-v2 styles, localized actual supported commands, F6/Tab navigation kept reachable, original active Tab identity, single-row cell fitting and contextual group/unavailable-terminal hints; source authored palette preserved with explicitly observed v1/v2 RGB emission difference. Configurable curated/compact/minimal preference modes remain separate."
     }
   ],
   "preserved_notices": [
