@@ -1,0 +1,5 @@
+--- FAIL: TestWorkspaceHelpFillsEveryInteriorCellWithSurface (0.00s)
+    help_surface_test.go:29: 120x32 all=false offset=0 row=10 cell=42 shows default, want surface 36,40,59
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	2.233s
+FAIL

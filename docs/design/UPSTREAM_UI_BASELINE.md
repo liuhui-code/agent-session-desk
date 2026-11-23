@@ -1,6 +1,6 @@
 # 固定上游界面还原基线
 
-日期：2026-11-22。依据 [ADR-0014](../adr/0014-upstream-ui-tabs-and-general-terminals.md)。本文件记录已核对的源码行为和实施缺口，不是用户视觉接受或产品截图。
+更新日期：2026-11-23。依据 [ADR-0014](../adr/0014-upstream-ui-tabs-and-general-terminals.md)。本文件记录已核对的源码行为和实施缺口，不是用户视觉接受或产品截图。完整工作项统一见[整体差异清单](UI_PARITY_AUDIT.md)，避免将分散的历史切片当作全部体验已完成。
 
 主要来源为 Agent Deck `80494e527393b7ead00da30018e6ee7e60e9d7a0`。完整归属和已迁入范围见[复用清单](../REUSE_MANIFEST.md)。本轮读取的原文件哈希见[来源指纹](../testing/results/2026-11-22-terminal-transport-evidence/source-manifest.json)；没有将上游整个应用或 v1 依赖作为本项目构建基线。
 
@@ -13,7 +13,7 @@
 | 面板和终端框 | `home_view_frame.go`：标题加下划线占两行；内嵌终端使用强调色圆角边框，并对宽高精确约束 | ADR-0016 已恢复终端圆角框、焦点和真实光标，全部 chrome 样式经 tokens；仍需完整对照 |
 | 调色板 | `styles.go`：Tokyo Night 的 bg `#1a1b26`、surface `#24283b`、border `#414868`、text `#c0caf5`、dim `#787fa0`、accent `#7aa2f7`、cyan `#7dcfff`、red `#f7768e` | 这些基础色已存在；完整层级、选中／焦点、背景、间距和弹窗不能因颜色相同就视为还原 |
 | 列表密度 | `embedded_sidebar.go`：minimal/full 等密度对应 1–3 行；不足 28 列时可退化，auto 根据可见项与空间选择密度 | 已迁入默认 compact 两行卡片、28 列以下单行、`▶` 选择／`┃` 活动终端与 surface 高亮；元信息仅用终端可连接性和程序文件名，不推定 agent 状态。[ADR-0017](../adr/0017-sidebar-density-preferences.md) 已继续接入四种密度设置与独立 ui.toml，完整同尺寸视觉接受仍开放 |
-| 分组导航 | 默认 grouped；Alt+V 平铺切换，根组数字跳转，组标题一行、展开／折叠；完整侧栏预留快捷键 gutter | ADR-0022 已恢复隐式“我的会话”与模式／折叠偏好、混合行高命中；h 保留历史是明确差异。创建／移动／嵌套组未完成；[模型](../testing/results/2026-11-23-sidebar-navigation.md)及[限定桌面](../testing/results/2026-11-23-sidebar-navigation-desktop.md)已分别留证，大写 S 事件路径和同尺寸接受仍待做 |
+| 分组导航 | 默认 grouped；Alt+V 平铺切换，根组数字跳转，组标题一行、展开／折叠；完整侧栏预留快捷键 gutter | ADR-0022 已恢复默认组与模式／折叠偏好、混合行高命中；h 保留历史是明确差异。ADR-0023/0024 后续已有[创建／移动／嵌套](../testing/results/2026-11-23-groups-desktop.md)、[组改名](../testing/results/2026-11-23-group-rename.md)、[组排序](../testing/results/2026-11-23-group-order.md)及[删除／收纳](../testing/results/2026-11-23-group-removal.md)局部证据；大写 S 有限定路径诊断，完整同尺寸接受仍开放 |
 | 终端输入 | `embedded_terminal.go`：通过子终端输入，VT 模型维护屏幕、尺寸与真实光标 | Windows 已接入 psmux 原生屏幕、真实光标和焦点输入；Microsoft 拼音基础组合／确认／取消已取得局部实机证据；其他 IME／焦点切换和子程序鼠标仍待验证；基础原生历史滚动已有局部实机证据，无额外日常聊天框 |
 | Tab 主工作区 | 本产品明确要求；不是声称固定上游已有完全相同的 Tab 工作流 | 保留 Tab/View、Session、Run 区别；Tab 的新增、切换、排序、关闭／重开不改变受管理 Run，必要差异逐项留证 |
 

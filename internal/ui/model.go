@@ -89,6 +89,7 @@ type Model struct {
 	listCancel         context.CancelFunc
 	listErr            error
 	help               bool
+	helpPage           helpPage
 	attaching          bool
 	closed             bool
 	status             string
@@ -159,6 +160,9 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		return m, nil
 	}
 	if m.workspace != nil {
+		if cmd, handled := m.helpEvent(msg); handled {
+			return m, cmd
+		}
 		if cmd, handled := m.groupRemovalEvent(msg); handled {
 			return m, cmd
 		}

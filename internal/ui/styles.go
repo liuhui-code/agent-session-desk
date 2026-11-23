@@ -16,6 +16,7 @@ import (
 )
 
 type styles struct {
+	helpBox, helpTitle, helpSection, helpKey, helpText, helpHint, helpNote, helpTab, helpScroll                               lipgloss.Style
 	confirmBox, confirmNoticeBox, confirmTitle, confirmNoticeTitle, confirmWarning, confirmDetails, confirmHint, confirmError lipgloss.Style
 	confirmDelete, confirmDeleteFocused, confirmCancel, confirmCancelFocused                                                  lipgloss.Style
 	groupInput                                                                                                                textinput.Styles
@@ -39,6 +40,15 @@ type styles struct {
 
 func newStyles(t designTokens) styles {
 	return styles{
+		helpBox:                 lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.help.keyColor).Background(t.colors.surface).Padding(t.help.paddingY, t.help.paddingX),
+		helpTitle:               lipgloss.NewStyle().Foreground(t.colors.accent).Background(t.colors.surface).Bold(t.bold),
+		helpSection:             lipgloss.NewStyle().Foreground(t.colors.cyan).Background(t.colors.surface).Bold(t.bold),
+		helpKey:                 lipgloss.NewStyle().Foreground(t.help.keyColor).Background(t.colors.surface),
+		helpText:                lipgloss.NewStyle().Foreground(t.colors.text).Background(t.colors.surface),
+		helpHint:                lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.surface).Italic(t.help.hintItalic),
+		helpNote:                lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.surface),
+		helpTab:                 lipgloss.NewStyle().Foreground(t.colors.cyan).Background(t.colors.surface),
+		helpScroll:              lipgloss.NewStyle().Foreground(t.colors.yellow).Background(t.colors.surface).Bold(t.bold),
 		confirmBox:              lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.colors.red).Background(t.colors.bg).Padding(t.confirm.paddingY, t.confirm.paddingX),
 		confirmNoticeBox:        lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.colors.yellow).Background(t.colors.bg).Padding(t.confirm.paddingY, t.confirm.paddingX),
 		confirmTitle:            lipgloss.NewStyle().Foreground(t.colors.red).Background(t.colors.bg).Bold(t.bold).MarginBottom(t.confirm.sectionGap),

@@ -1,0 +1,13 @@
+package ui
+import("encoding/json";"os";"testing";tea "github.com/charmbracelet/bubbletea";"github.com/charmbracelet/lipgloss";"github.com/muesli/termenv")
+func TestASDHelpReference(t *testing.T){
+ lipgloss.SetColorProfile(termenv.TrueColor);var frames []map[string]any
+ for _,size:=range [][2]int{{120,32},{63,25},{49,25}}{for _,mode:=range []string{"short","full-first","full-last"}{
+  h:=NewHelpOverlay();h.SetEmbeddedLayout(true);h.SetSize(size[0],size[1]);h.Show()
+  if mode!="short"{h.Update(tea.KeyMsg{Type:tea.KeyTab})};if mode=="full-last"{h.Update(tea.KeyMsg{Type:tea.KeyEnd})}
+  frames=append(frames,map[string]any{"columns":size[0],"rows":size[1],"mode":mode,"content":h.View(),"all":h.allKeys,"offset":h.scrollOffset})
+ }}
+ h:=NewHelpOverlay();h.SetSize(120,32);h.Show();h.Update(tea.KeyMsg{Type:tea.KeyTab});h.Update(tea.KeyMsg{Type:tea.KeyEnd});h.View();end:=h.scrollOffset;h.Update(tea.KeyMsg{Type:tea.KeyRunes,Runes:[]rune{'q'}})
+ out:=map[string]any{"frames":frames,"tab_selected_all":h.allKeys,"end_offset":end,"q_closed":!h.IsVisible()}
+ b,e:=json.MarshalIndent(out,"","  ");if e!=nil{t.Fatal(e)};if e=os.WriteFile("/private/tmp/asd-help-parity-20261123/upstream-help-frames.json",b,0600);e!=nil{t.Fatal(e)}
+}

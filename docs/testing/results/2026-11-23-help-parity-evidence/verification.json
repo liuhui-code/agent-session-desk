@@ -1,0 +1,44 @@
+{
+  "result": "passed",
+  "artifacts": 612,
+  "source_fingerprints": 201,
+  "source_product_component_pairs": 9,
+  "final_surface_cells": 10174,
+  "surface_gaps_before": 2763,
+  "surface_gaps_final": 0,
+  "native_ui_final": [
+    164,
+    348
+  ],
+  "desktop_before_surface": {
+    "actions": {
+      "state": 50,
+      "paste": 4,
+      "text": 17,
+      "keys": 32,
+      "capture": 10,
+      "resize": 4,
+      "finish": 1
+    },
+    "commands": 118,
+    "screenshots": 10,
+    "native_captures": 13,
+    "original_processes_ended": 5
+  },
+  "desktop_final": {
+    "actions": {
+      "state": 51,
+      "paste": 4,
+      "text": 17,
+      "keys": 32,
+      "capture": 10,
+      "resize": 4,
+      "finish": 1
+    },
+    "commands": 119,
+    "screenshots": 10,
+    "native_captures": 13,
+    "original_processes_ended": 5
+  },
+  "scope": "Bounded archived evidence consistency; no new product execution or overall acceptance"
+}

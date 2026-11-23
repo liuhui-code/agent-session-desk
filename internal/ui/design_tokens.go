@@ -17,6 +17,7 @@ import (
 // there is no mutable global theme, file watcher or runtime theme format yet.
 // Zero/one in viewport algorithms are counts, not additional style choices.
 type designTokens struct {
+	help      helpTokens
 	confirm   confirmTokens
 	group     groupTokens
 	rename    renameTokens
@@ -29,6 +30,15 @@ type designTokens struct {
 	layout    layoutTokens
 	marks     markTokens
 	bold      bool
+}
+
+type helpTokens struct {
+	hintItalic                                                                                        bool
+	shortWidth, fullWidth, wideWidth, wideAt, minWidth, gutter                                        int
+	paddingX, paddingY, shortKeyWidth, keyWidth, compactKeyWidth, compactBelow                        int
+	shortIndent, rowIndent, columnGap, sectionGap, footerGap, screenReserve, minContentRows, pageStep int
+	keyColor                                                                                          color.Color
+	above, below, separator                                                                           string
 }
 
 type confirmTokens struct {
@@ -112,6 +122,7 @@ type markTokens struct {
 
 func defaultDesignTokens() designTokens {
 	return designTokens{
+		help:    helpTokens{hintItalic: true, shortWidth: 58, fullWidth: 72, wideWidth: 82, wideAt: 100, minWidth: 37, gutter: 8, paddingX: 2, paddingY: 1, shortKeyWidth: 9, keyWidth: 14, compactKeyWidth: 10, compactBelow: 47, shortIndent: 1, rowIndent: 2, columnGap: 1, sectionGap: 1, footerGap: 1, screenReserve: 8, minContentRows: 10, pageStep: 10, keyColor: lipgloss.Color("#bb9af7"), above: "▲ 上方还有", below: "▼ 下方还有", separator: " │ "},
 		confirm: confirmTokens{preferredWidth: 52, responsiveBelow: 60, narrowGutter: 8, paddingX: 2, paddingY: 1, sectionGap: 1, buttonPadding: 2, buttonGap: 2, nameIndent: 2, titlePrefix: "⚠  ", bullet: "• ", focusedPrefix: "▸ ", idlePrefix: "  ", nameOpen: "\"", nameClose: "\""},
 		group:   groupTokens{placeholderColor: lipgloss.Color("240"), labelWidth: 14, inputWidth: 30, choicePadding: 1, modeSeparator: " ─── ", modeOpen: "[", modeClose: "]"},
 		// Pinned group_dialog.go: v1 Width 44/30 excludes the two border cells.

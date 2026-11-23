@@ -32,6 +32,7 @@ func (m *Model) finishWorkspaceNavigation() tea.Cmd {
 		return m.openHistory()
 	case workspaceHelp:
 		m.help = true
+		m.helpPage = helpPage{}
 	case workspaceAttach:
 		return m.attach()
 	case workspaceLaunch:

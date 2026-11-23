@@ -20,6 +20,12 @@ import (
 )
 
 func (m *Model) View() tea.View {
+	if m.workspace != nil && m.help {
+		view := tea.NewView(m.renderHelpOverlay())
+		view.AltScreen = true
+		view.BackgroundColor, view.ForegroundColor = m.tokens.colors.bg, m.tokens.colors.text
+		return view
+	}
 	if m.workspace != nil && m.groupRemoval != nil {
 		view := tea.NewView(m.renderGroupRemoval())
 		view.AltScreen = true
@@ -266,27 +272,6 @@ func (m *Model) renderHelpBar() string {
 }
 
 func (m *Model) renderHelp(height int) string {
-	if m.workspace != nil {
-		content := m.renderPanelTitle("使用方法", m.width) + m.tokens.sectionBreak() +
-			"活动 Tab 直接操作终端；q 和 Ctrl+C 交给程序。\n" +
-			"F6 切换管理／终端焦点；Ctrl+PgUp/PgDn 切 Tab。\n" +
-			"管理模式：↑↓ 选择，Enter 打开，n 新建，x 关闭视图。\n" +
-			"Alt+V 切换分组／平铺；1–9 选择根组。\n" +
-			"组标题 Enter/→/Tab 展开折叠；← 返回组并折叠。\n" +
-			"g 创建根组／子组，Tab 切名称／目录、↑↓ 切层级；M 移动会话。\n" +
-			"管理 / 搜索会话；↑↓ 选择，Enter 打开原 Run，Esc 取消。\n" +
-			"拖动 Tab 标题排序；管理模式 [ / ] 左右移动活动 Tab。\n" +
-			"管理 v 进入原生选择／搜索；空格选择、Enter 复制、/ 搜索。\n" +
-			"关闭 Tab 或退出管理器不会停止运行实例。\n" +
-			"S 侧栏设置；←→/空格即时保存，Esc/S 返回。\n" +
-			"r 重命名所选会话或组；Ctrl+R 刷新，连接失败时 r 重试。\n" +
-			"组标题 Shift/Ctrl+↑↓、K/J 或 +/- 调整同级顺序并保存。\n" +
-			"h 只读历史；a 辅助全屏进入。\n" +
-			"辅助全屏模式：Ctrl+b 后按 d 返回。\n" +
-			"粘贴使用外层终端快捷键；是否执行仍由目标程序决定。\n" +
-			"Esc / ? 返回；管理模式 q 退出。"
-		return ensureExactHeight(content, height)
-	}
 	content := m.renderPanelTitle("使用方法", m.width) + m.tokens.sectionBreak() +
 		"在另一个终端创建会话：\n" +
 		m.styles.text.Render(m.tokens.itemGap()+"asd start --name 开发 -- codex") + "\n" +

@@ -54,3 +54,5 @@ ADR-0022 继续选择性改编同固定 Agent Deck 提交的 home.go／home_flat
 ADR-0023 继续选择性适配同固定 Agent Deck 的 `internal/session/groups.go` 名称清理及 `internal/ui/group_dialog.go`／`home.go` 分组创建、根组／子组上下文、默认目录字段与移动弹窗；组标题／卡片／导航沿既有来源扩展。保留 MIT 及原版权，逐文件 SHA 在复用清单。产品使用独立稳定身份、元数据和 v2 输入，不继承上游路径寻址／远程模型或 v1 发布依赖。
 
 ADR-0024 从同一固定提交选择性适配 `confirm_dialog.go`／`home_keys_dialogs.go` 的删除确认、配色和默认取消，以及 `home.go`／`session/groups.go` 的默认组保护、子树删除和成员收纳。目标为 `internal/ui/group_removal*.go`、`internal/store/group_removal.go` 和既有 tokens/styles；MIT 原版权与精确来源继续保留，成员身份／事务和并发拒绝由本产品实现。
+
+帮助还原继续从同固定 Agent Deck 提交选择性适配 `internal/ui/help.go` 的短／全列表、分区键列、导航／关闭及首尾页布局，`cellwidth.go` 的对话框宽度适配；目标为 `help_overlay*.go` 与既有 tokens/styles。产品仅列已支持的本地 Tab／通用终端键，中文按单元格换行，显式填充列间及行尾背景，保留 MIT 及精确来源。

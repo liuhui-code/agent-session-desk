@@ -1,0 +1,91 @@
+{
+    "after":  [
+                  {
+                      "session_id":  "85b80023f188871750b15cb57e298ffa",
+                      "run_id":  "9e882d53cc1a2624756c834f24c523c0",
+                      "backend_id":  "asd_85b80023f188871750b15cb57e298ffa_9e882d53cc1a2624756c834f24c523c0",
+                      "title":  "Copy A",
+                      "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                      "terminal_state":  "available"
+                  },
+                  {
+                      "session_id":  "492769037da3dfb41a80bfb12df45414",
+                      "run_id":  "18cc75d90b2778abbb4e8068415e2484",
+                      "backend_id":  "asd_492769037da3dfb41a80bfb12df45414_18cc75d90b2778abbb4e8068415e2484",
+                      "title":  "Copy B",
+                      "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                      "terminal_state":  "available"
+                  }
+              ],
+    "native_captures":  13,
+    "preferences_after":  "405367883A35B859111BA79FBE715E0455F103B82F3A914B358B9DD98F671D65",
+    "utc":  "2026-11-23T06:59:35.9995706Z",
+    "ui_processes":  [
+                         {
+                             "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-help-parity-style.exe",
+                             "pid":  3688,
+                             "filetime":  134398906471257448,
+                             "session":  2
+                         },
+                         {
+                             "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-help-parity-style.exe",
+                             "pid":  3880,
+                             "filetime":  134398907710765941,
+                             "session":  2
+                         }
+                     ],
+    "commands":  119,
+    "preferences_before":  "405367883A35B859111BA79FBE715E0455F103B82F3A914B358B9DD98F671D65",
+    "before_processes":  [
+                             {
+                                 "cwd":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\help-parity-style-desktop-20261123\\work",
+                                 "filetime":  134398905919718492,
+                                 "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                 "label":  "Copy A",
+                                 "pid":  12716
+                             },
+                             {
+                                 "label":  "Copy B",
+                                 "filetime":  134398905924478067,
+                                 "pid":  6640,
+                                 "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                 "cwd":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\help-parity-style-desktop-20261123\\work"
+                             }
+                         ],
+    "before":  [
+                   {
+                       "session_id":  "85b80023f188871750b15cb57e298ffa",
+                       "run_id":  "9e882d53cc1a2624756c834f24c523c0",
+                       "backend_id":  "asd_85b80023f188871750b15cb57e298ffa_9e882d53cc1a2624756c834f24c523c0",
+                       "title":  "Copy A",
+                       "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                       "terminal_state":  "available"
+                   },
+                   {
+                       "session_id":  "492769037da3dfb41a80bfb12df45414",
+                       "run_id":  "18cc75d90b2778abbb4e8068415e2484",
+                       "backend_id":  "asd_492769037da3dfb41a80bfb12df45414_18cc75d90b2778abbb4e8068415e2484",
+                       "title":  "Copy B",
+                       "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                       "terminal_state":  "available"
+                   }
+               ],
+    "after_processes":  [
+                            {
+                                "cwd":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\help-parity-style-desktop-20261123\\work",
+                                "filetime":  134398905919718492,
+                                "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                "label":  "Copy A",
+                                "pid":  12716
+                            },
+                            {
+                                "label":  "Copy B",
+                                "filetime":  134398905924478067,
+                                "pid":  6640,
+                                "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                "cwd":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\help-parity-style-desktop-20261123\\work"
+                            }
+                        ],
+    "scope":  "Two ordinary PowerShells; short/full help, navigation aliases and final page, 120/63/49/short height, literal terminal ?nq and modal paste/key isolation, unchanged preferences, original drafts/PIDs, UI restart and final explicit Enter. No real-agent/IME/general release claim.",
+    "result":  "passed"
+}

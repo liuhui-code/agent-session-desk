@@ -112,3 +112,5 @@ Bubbles 2.2.2 textinput 通过模块使用，未复制组件源码。v2 表单�
 2026-11-23 同级组排序：从相同固定 Agent Deck 提交适配 home.go 的八种管理别名、组身份选择与显式保存语义，以及 session/groups.go 的 moveGroupAmongSiblings 同父过滤、ordinal 归一化与交换。目标为 ui/group_order.go 及 store/group_order.go；组 ID／SQLite CAS、默认组保留首位、版本和异步退出／错误屏障为本产品规则。来源实际执行与必要差异见[报告](testing/results/2026-11-23-group-order.md)，MIT 头和机器清单同步；来源 Session／remote 排序不随此切片迁入。
 
 2026-11-23 删除组：同固定提交的 confirm_dialog.go／home_keys_dialogs.go 的默认 Cancel、红框／黄警告、按钮和 d/y/n/方向键，以及 home.go／session/groups.go 的默认组保护、子树删除和成员收纳语义，选择性适配到 ui/group_removal*.go、store/group_removal.go 与 tokens/styles。九对实际来源／产品组件帧保留外宽及来源留白，中文换行造成一至两行高度差；完整作用域预览印记、离线逻辑成员、SQLite 事务及偏好保存屏障为产品规则。来源 SHA／blob、MIT 和实际范围见[报告](testing/results/2026-11-23-group-removal.md)及机器清单；没有迁入来源路径身份或终端停止行为。
+
+2026-11-23 帮助还原：从同固定 Agent Deck 提交的 help.go 选择性迁入五键／全部、分区键列、滚动／关闭与首尾页布局，cellwidth.go 的宽度规则转为 v2 外宽。目标为 help_overlay.go／help_overlay_view.go 和 tokens/styles；通用 CLI／Tab 命令说明为本产品范围，未显示不支持的 agent／账户／远程入口。中文按单元格换行、来源末页空行和每个内部背景单元格实际复验；原生、前后桌面与必要差异见[报告](testing/results/2026-11-23-help-parity.md)。固定 SHA、MIT 与机器清单同步，完整体验及事件矩阵仍开放。

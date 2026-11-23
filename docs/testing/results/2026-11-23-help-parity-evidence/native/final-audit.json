@@ -1,0 +1,71 @@
+{
+    "tasks_absent":  [
+                         "AsdHelpParityStyleSetup20261123",
+                         "AsdHelpParityStyleDesktop20261123"
+                     ],
+    "clipboard":  {
+                      "text_restored":  true,
+                      "restored":  true,
+                      "original_text_logged":  false,
+                      "utc":  "2026-11-23T06:59:35.9786246Z",
+                      "format_names_restored":  true,
+                      "caps_after":  true,
+                      "caps_before":  true,
+                      "nontext_content_verified":  false
+                  },
+    "utc":  "2026-11-23T07:01:28.8227595Z",
+    "remaining_sessions":  "[]",
+    "private_images_alive":  0,
+    "settings_sha256":  "1499307ABEBA68C23F9EB38A4C636F81172475B6B2B535BC0B11DCD9547241F8",
+    "scope":  "Registered original identities and known private image paths only; no machine-global cleanup claim; owned target and outer launcher PSReadLine history were isolated before input; no user history content archived",
+    "stops":  [
+                  {
+                      "run_id":  "9e882d53cc1a2624756c834f24c523c0",
+                      "session_id":  "85b80023f188871750b15cb57e298ffa",
+                      "result":  "{\r\n  \"session_id\": \"85b80023f188871750b15cb57e298ffa\",\r\n  \"run_id\": \"9e882d53cc1a2624756c834f24c523c0\",\r\n  \"result\": \"backend_session_stopped\"\r\n}\r\n"
+                  },
+                  {
+                      "run_id":  "18cc75d90b2778abbb4e8068415e2484",
+                      "session_id":  "492769037da3dfb41a80bfb12df45414",
+                      "result":  "{\r\n  \"session_id\": \"492769037da3dfb41a80bfb12df45414\",\r\n  \"run_id\": \"18cc75d90b2778abbb4e8068415e2484\",\r\n  \"result\": \"backend_session_stopped\"\r\n}\r\n"
+                  }
+              ],
+    "result":  "passed",
+    "original_processes":  [
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                   "pid":  12716,
+                                   "filetime":  134398905919718492,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                   "pid":  6640,
+                                   "filetime":  134398905924478067,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-help-parity-style.exe",
+                                   "pid":  3688,
+                                   "filetime":  134398906471257448,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-help-parity-style.exe",
+                                   "pid":  3880,
+                                   "filetime":  134398907710765941,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe",
+                                   "pid":  18228,
+                                   "filetime":  134398906460785522,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               }
+                           ]
+}

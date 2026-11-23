@@ -1,0 +1,88 @@
+{
+    "ok":  true,
+    "utc":  "2026-11-23T06:59:20.5098975Z",
+    "state":  {
+                  "fontNames":  [
+                                    "System.__ComObject",
+                                    "Consolas"
+                                ],
+                  "text":  "ASD isolated desktop acceptance\n                                                               \r\n    ╭─────────────────────────────────────────────────────╮    \r\n    │                                                     │    \r\n    │                                                     │    \r\n    │  全部快捷键                                         │    \r\n    │                                                     │    \r\n    │  Tab 与终端                                         │    \r\n    │    F6             切换管理／终端焦点                │    \r\n    │    Ctrl+PgUp /    切换 Tab，保留原终端草稿          │    \r\n    │    Ctrl+PgDn                                        │    \r\n    │    Enter          打开所选会话的原 Run              │    \r\n    │    n / + 按钮     新建 agent、shell 或普通 CLI      │    \r\n    │    x / × 按钮     仅关闭 Tab，保留后台运行          │    \r\n    │    [ / ]          左右移动活动 Tab；也可拖动标题    │    \r\n    │    粘贴           使用外层终端的粘贴快捷键          │    \r\n    │    q / Ctrl+C     终端焦点时交给目标程序            │    \r\n    │                                                     │    \r\n    │  选择与查找（管理焦点）                             │    \r\n    │    ↑ / ↓ / k / j  选择列表项；鼠标单击选择、双击打  │    \r\n    │  ▼ 下方还有                                         │    \r\n    │                                                     │    \r\n    │  j/k 滚动 · Tab 五键入门 · 其他键关闭               │    \r\n    │                                                     │    \r\n    ╰─────────────────────────────────────────────────────╯    \r\n",
+                  "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe",
+                  "filetime":  134398906460785522,
+                  "rect":  [
+                               40,
+                               40,
+                               600,
+                               539
+                           ],
+                  "caps_lock":  true,
+                  "session":  2,
+                  "tree":  [
+                               {
+                                   "name":  "",
+                                   "type":  "ControlType.Pane"
+                               },
+                               {
+                                   "name":  "",
+                                   "type":  "ControlType.Pane"
+                               },
+                               {
+                                   "name":  "",
+                                   "type":  "ControlType.Tab"
+                               },
+                               {
+                                   "name":  "",
+                                   "type":  "ControlType.List"
+                               },
+                               {
+                                   "name":  "ASD isolated desktop acceptance",
+                                   "type":  "ControlType.TabItem"
+                               },
+                               {
+                                   "name":  "ASD isolated desktop acceptance",
+                                   "type":  "ControlType.Text"
+                               },
+                               {
+                                   "name":  "关闭标签页",
+                                   "type":  "ControlType.Button"
+                               },
+                               {
+                                   "name":  "新建标签页",
+                                   "type":  "ControlType.SplitButton"
+                               },
+                               {
+                                   "name":  "",
+                                   "type":  "ControlType.Custom"
+                               },
+                               {
+                                   "name":  "ASD isolated desktop acceptance",
+                                   "type":  "ControlType.Text"
+                               },
+                               {
+                                   "name":  "垂直",
+                                   "type":  "ControlType.ScrollBar"
+                               },
+                               {
+                                   "name":  "垂直小幅下降",
+                                   "type":  "ControlType.Button"
+                               },
+                               {
+                                   "name":  "垂直大幅下降",
+                                   "type":  "ControlType.Button"
+                               },
+                               {
+                                   "name":  "垂直大幅增长",
+                                   "type":  "ControlType.Button"
+                               },
+                               {
+                                   "name":  "垂直小幅增长",
+                                   "type":  "ControlType.Button"
+                               }
+                           ],
+                  "pid":  18228,
+                  "keyboardLayout":  134481924
+              },
+    "command":  {
+                    "kind":  "state"
+                }
+}

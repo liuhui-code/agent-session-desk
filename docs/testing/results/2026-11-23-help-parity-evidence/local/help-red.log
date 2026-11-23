@@ -1,0 +1,37 @@
+--- FAIL: TestWorkspaceHelpOpensSourceStyleShortCard (0.01s)
+    help_overlay_test.go:22: help did not open the centered source-style short card:
+        Agent Session Desk                                                                                                2 会话
+                                                                                                                                
+        使用方法                                                                                                                
+        ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                                                
+        活动 Tab 直接操作终端；q 和 Ctrl+C 交给程序。                                                                           
+        F6 切换管理／终端焦点；Ctrl+PgUp/PgDn 切 Tab。                                                                          
+        管理模式：↑↓ 选择，Enter 打开，n 新建，x 关闭视图。                                                                     
+        Alt+V 切换分组／平铺；1–9 选择根组。                                                                                    
+        组标题 Enter/→/Tab 展开折叠；← 返回组并折叠。                                                                           
+        g 创建根组／子组，Tab 切名称／目录、↑↓ 切层级；M 移动会话。                                                             
+        管理 / 搜索会话；↑↓ 选择，Enter 打开原 Run，Esc 取消。                                                                  
+        拖动 Tab 标题排序；管理模式 [ / ] 左右移动活动 Tab。                                                                    
+        管理 v 进入原生选择／搜索；空格选择、Enter 复制、/ 搜索。                                                               
+        关闭 Tab 或退出管理器不会停止运行实例。                                                                                 
+        S 侧栏设置；←→/空格即时保存，Esc/S 返回。                                                                               
+        r 重命名所选会话或组；Ctrl+R 刷新，连接失败时 r 重试。                                                                  
+        组标题 Shift/Ctrl+↑↓、K/J 或 +/- 调整同级顺序并保存。                                                                   
+        h 只读历史；a 辅助全屏进入。                                                                                            
+        辅助全屏模式：Ctrl+b 后按 d 返回。                                                                                      
+        粘贴使用外层终端快捷键；是否执行仍由目标程序决定。                                                                      
+        Esc / ? 返回；管理模式 q 退出。                                                                                         
+                                                                                                                                
+                                                                                                                                
+                                                                                                                                
+                                                                                                                                
+                                                                                                                                
+                                                                                                                                
+                                                                                                                                
+                                                                                                                                
+                                                                                                                                
+        ↑↓ · 选择  Enter · 进入  h · 历史  r · 刷新  ? · 帮助  q · 退出                                                         
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	1.876s
+FAIL

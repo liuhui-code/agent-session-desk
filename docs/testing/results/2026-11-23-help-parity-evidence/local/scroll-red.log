@@ -1,0 +1,30 @@
+--- FAIL: TestWorkspaceFullHelpScrollsToTheLastRowAndBack (0.00s)
+    help_overlay_test.go:48: full help tail is unreachable or still claims more rows:
+        Agent Session Desk                         2 会话
+         开发 ×    评审 ×                              + 
+        会话 平铺                                        
+        ─────────────────────────────────────────────────
+          ┃ 开发                                         
+            ╰ 可连接                                     
+            评审                                         
+            ╰ 可连接                                     
+                                                         
+                                                         
+                                                         
+                                                         
+                                                         
+                                                         
+                                                         
+                                                         
+                                                         
+                                                         
+                                                         
+                                                         
+                                                         
+                                                         
+        ─────────────────────────────────────────────────
+        管理模式 · / 搜索 · ? · q · F6                   
+                                                         
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.937s
+FAIL

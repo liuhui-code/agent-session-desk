@@ -123,3 +123,5 @@ M0 使用后端 user option 做存活终端的发现，不建立临时 JSON 文�
 2026-11-23 同级组排序：ADR-0023 增补完整兄弟快照／版本核对、归一化交换及异步保存／退出屏障；SQLite v4 与 ui.toml v3 不变，没有依赖或终端所有权变化。[实际报告](testing/results/2026-11-23-group-order.md)单列，Session 手动排序、组删除和整体接受仍未完成。
 
 2026-11-23 删除组切片：[ADR-0024](adr/0024-group-removal-and-member-preservation.md) 细化来源默认取消、默认组保护、包含历史成员的只读影响预览和完整组树／成员版本印记。单事务收纳到默认组后删除子树结构，Session/Run/输出和终端不删；偏好仅清理实际删除 ID，不与数据库宣称原子。SQLite v4、ui.toml v3 和依赖不变，实际范围见[报告](testing/results/2026-11-23-group-removal.md)。后续优先逐屏梳理上游差异、补会话手动排序与完整日常终端流程，最终视觉／真实 agent／资源和发布门槛继续开放。
+
+2026-11-23 帮助还原：沿 ADR-0014/0016 的既有授权迁入固定 help.go 的五键／全部、滚动与关闭语义，通用 CLI／Tab 键明确适配；没有新的依赖、终端所有权或存储决定。布局／色层、来源差异、原生和桌面证据见[报告](testing/results/2026-11-23-help-parity.md)，整体范围按[差异清单](design/UI_PARITY_AUDIT.md)继续追踪。

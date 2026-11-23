@@ -1,0 +1,88 @@
+{
+    "ok":  true,
+    "utc":  "2026-11-23T06:59:25.2292439Z",
+    "state":  {
+                  "fontNames":  [
+                                    "System.__ComObject",
+                                    "Consolas"
+                                ],
+                  "text":  "ASD isolated desktop acceptance\nAgent Session Desk                         2 会话\r\n Copy A ×    Copy B ×                          + \r\n会话 分组                                        \r\n─────────────────────────────────────────────────\r\n1·▾ 我的会话 (2)                                 \r\n  ┃ Copy A                                       \r\n    ╰ 可连接 · pwsh.exe                          \r\n    Copy B                                       \r\n    ╰ 可连接 · pwsh.exe                          \r\n                                                 \r\n                                                 \r\n                                                 \r\n                                                 \r\n                                                 \r\n                                                 \r\n                                                 \r\n                                                 \r\n                                                 \r\n                                                 \r\n                                                 \r\n                                                 \r\n                                                 \r\n─────────────────────────────────────────────────\r\n管理模式 · / 搜索 · ? · q · F6                   \r\n",
+                  "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe",
+                  "filetime":  134398906460785522,
+                  "rect":  [
+                               40,
+                               40,
+                               473,
+                               539
+                           ],
+                  "caps_lock":  true,
+                  "session":  2,
+                  "tree":  [
+                               {
+                                   "name":  "",
+                                   "type":  "ControlType.Pane"
+                               },
+                               {
+                                   "name":  "",
+                                   "type":  "ControlType.Pane"
+                               },
+                               {
+                                   "name":  "",
+                                   "type":  "ControlType.Tab"
+                               },
+                               {
+                                   "name":  "",
+                                   "type":  "ControlType.List"
+                               },
+                               {
+                                   "name":  "ASD isolated desktop acceptance",
+                                   "type":  "ControlType.TabItem"
+                               },
+                               {
+                                   "name":  "ASD isolated desktop acceptance",
+                                   "type":  "ControlType.Text"
+                               },
+                               {
+                                   "name":  "关闭标签页",
+                                   "type":  "ControlType.Button"
+                               },
+                               {
+                                   "name":  "新建标签页",
+                                   "type":  "ControlType.SplitButton"
+                               },
+                               {
+                                   "name":  "",
+                                   "type":  "ControlType.Custom"
+                               },
+                               {
+                                   "name":  "ASD isolated desktop acceptance",
+                                   "type":  "ControlType.Text"
+                               },
+                               {
+                                   "name":  "垂直",
+                                   "type":  "ControlType.ScrollBar"
+                               },
+                               {
+                                   "name":  "垂直小幅下降",
+                                   "type":  "ControlType.Button"
+                               },
+                               {
+                                   "name":  "垂直大幅下降",
+                                   "type":  "ControlType.Button"
+                               },
+                               {
+                                   "name":  "垂直大幅增长",
+                                   "type":  "ControlType.Button"
+                               },
+                               {
+                                   "name":  "垂直小幅增长",
+                                   "type":  "ControlType.Button"
+                               }
+                           ],
+                  "pid":  18228,
+                  "keyboardLayout":  134481924
+              },
+    "command":  {
+                    "kind":  "state"
+                }
+}

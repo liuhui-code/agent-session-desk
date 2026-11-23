@@ -1,0 +1,9 @@
+package ui
+import("context";"encoding/json";"os";"testing")
+func TestASDHelpProductFrames(t *testing.T){var frames []map[string]any
+ for _,size:=range [][2]int{{120,32},{63,25},{49,25}}{for _,mode:=range []string{"short","full-first","full-last"}{
+  m:=New(context.Background(),&workspaceFixture{});m.width,m.height=size[0],size[1];m.help=true;m.helpPage.all=mode!="short";if mode=="full-last"{m.helpPage.offset=9999}
+  frames=append(frames,map[string]any{"columns":size[0],"rows":size[1],"mode":mode,"content":m.View().Content});m.Close()
+ }}
+ b,e:=json.MarshalIndent(frames,"","  ");if e!=nil{t.Fatal(e)};if e=os.WriteFile("/private/tmp/asd-help-parity-20261123/product-help-frames.json",b,0600);e!=nil{t.Fatal(e)}
+}

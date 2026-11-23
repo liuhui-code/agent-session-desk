@@ -1,0 +1,88 @@
+{
+    "ok":  true,
+    "utc":  "2026-11-23T06:59:19.3738080Z",
+    "state":  {
+                  "fontNames":  [
+                                    "System.__ComObject",
+                                    "Consolas"
+                                ],
+                  "text":  "ASD isolated desktop acceptance\n                                                                                                                        \r\n                   ╭────────────────────────────────────────────────────────────────────────────────╮                   \r\n                   │                                                                                │                   \r\n                   │  ▲ 上方还有                                                                    │                   \r\n                   │    1–9            选择根组                                                     │                   \r\n                   │    Enter / → /    组标题展开／折叠；← 返回组并折叠                             │                   \r\n                   │    Tab                                                                         │                   \r\n                   │    g              创建根组／子组，可设默认目录                                 │                   \r\n                   │    M              将所选会话移动到组                                           │                   \r\n                   │    Shift/Ctrl+↑↓  调整同级组顺序并保存                                         │                   \r\n                   │    / K / J / + / -                                                             │                   \r\n                   │    d              预览删除组及子组，成员收纳到默认组；默认取消                 │                   \r\n                   │                                                                                │                   \r\n                   │  界面、历史与辅助入口                                                          │                   \r\n                   │    S              侧栏密度设置，选择即时保存                                   │                   \r\n                   │    \u003c / \u003e          管理焦点调整侧栏比例；也可拖动分隔符                         │                   \r\n                   │    =              恢复自动比例                                                 │                   \r\n                   │    h              只读历史，不向终端输入                                       │                   \r\n                   │    v              进入原生选择／搜索；空格选择、Enter 复制、/ 搜索             │                   \r\n                   │    滚轮           按指针区域滚动列表或原生终端历史                             │                   \r\n                   │    a              辅助全屏 attach；Ctrl+b 后按 d 返回                          │                   \r\n                   │    ?              打开五键入门，Tab 查看全部快捷键                             │                   \r\n                   │    q / Ctrl+C     管理焦点退出界面，保留后台运行                               │                   \r\n                   │                                                                                │                   \r\n                   │  Agent Session Desk                                                            │                   \r\n                   │  关闭 Tab 不停止 Run                                                           │                   \r\n                   │                                                                                │                   \r\n                   │  j/k 滚动 · Tab 五键入门 · 其他键关闭                                          │                   \r\n                   │                                                                                │                   \r\n                   ╰────────────────────────────────────────────────────────────────────────────────╯                   \r\n",
+                  "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe",
+                  "filetime":  134398906460785522,
+                  "rect":  [
+                               18,
+                               26,
+                               1113,
+                               657
+                           ],
+                  "caps_lock":  true,
+                  "session":  2,
+                  "tree":  [
+                               {
+                                   "name":  "",
+                                   "type":  "ControlType.Pane"
+                               },
+                               {
+                                   "name":  "",
+                                   "type":  "ControlType.Pane"
+                               },
+                               {
+                                   "name":  "",
+                                   "type":  "ControlType.Tab"
+                               },
+                               {
+                                   "name":  "",
+                                   "type":  "ControlType.List"
+                               },
+                               {
+                                   "name":  "ASD isolated desktop acceptance",
+                                   "type":  "ControlType.TabItem"
+                               },
+                               {
+                                   "name":  "ASD isolated desktop acceptance",
+                                   "type":  "ControlType.Text"
+                               },
+                               {
+                                   "name":  "关闭标签页",
+                                   "type":  "ControlType.Button"
+                               },
+                               {
+                                   "name":  "新建标签页",
+                                   "type":  "ControlType.SplitButton"
+                               },
+                               {
+                                   "name":  "",
+                                   "type":  "ControlType.Custom"
+                               },
+                               {
+                                   "name":  "ASD isolated desktop acceptance",
+                                   "type":  "ControlType.Text"
+                               },
+                               {
+                                   "name":  "垂直",
+                                   "type":  "ControlType.ScrollBar"
+                               },
+                               {
+                                   "name":  "垂直小幅下降",
+                                   "type":  "ControlType.Button"
+                               },
+                               {
+                                   "name":  "垂直大幅下降",
+                                   "type":  "ControlType.Button"
+                               },
+                               {
+                                   "name":  "垂直大幅增长",
+                                   "type":  "ControlType.Button"
+                               },
+                               {
+                                   "name":  "垂直小幅增长",
+                                   "type":  "ControlType.Button"
+                               }
+                           ],
+                  "pid":  18228,
+                  "keyboardLayout":  134481924
+              },
+    "command":  {
+                    "kind":  "state"
+                }
+}

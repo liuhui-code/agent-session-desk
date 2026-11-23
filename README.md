@@ -10,6 +10,8 @@
 
 管理焦点选中组标题按 `d`，核对将删除的组结构和成员数量；默认取消，明确确认后将成员移入默认组，保留原 Tab、终端及历史。默认组不能删除。详见[删除组验证](docs/testing/results/2026-11-23-group-removal.md)。
 
+管理 `?` 打开居中的“五键入门”，`Tab` 切换全部快捷键；完整页可用方向键／j/k、翻页键和 Home/End 滚动。帮助中的其他按键只关闭帮助，不同时执行原动作。整体还原的当前差异见[逐项清单](docs/design/UI_PARITY_AUDIT.md)。
+
 通过一条 CLI 命令启动本地 agent，在清晰、美观的 TUI 中管理多个会话，并让会话能够读取彼此的输出、传递任务和返回结果。
 
 > 当前阶段：**M0 首批源码迁入已落地，五项 Windows 原生后端场景已在指定 Windows Server 2025 runner 通过；完整验收仍待完成。** 已有 Go / Charm v2 开发切片，包含 psmux Tab 工作区、原生终端输入、通用 CLI 创建、辅助列表／预览及全屏 attach；不是已发布的软件版本。运行方法见 [M0 开发指南](docs/M0_DEVELOPMENT.md)，证据分别记录在[源码迁入报告](docs/testing/results/2026-11-21-m0-source-migration.md)和[Windows 执行报告](docs/testing/results/2026-11-21-m0-native-windows.md)。另已完成 0/1/5/10 会话的[原生 Windows 短资源实验](docs/testing/results/2026-11-21-m0-windows-resources.md)，含真实 TUI 启停、重开与直接程序对照。桌面交互、资源预算、长稳和发布仍需独立验收。项目名称与原创部分的许可证仍待定。

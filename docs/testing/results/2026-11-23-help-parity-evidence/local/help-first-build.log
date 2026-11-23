@@ -1,0 +1,7 @@
+# github.com/liuhui-code/agent-session-desk/internal/ui [github.com/liuhui-code/agent-session-desk/internal/ui.test]
+internal/ui/model.go:133:34: undefined: msg
+internal/ui/model.go:134:11: too many return values
+	have (*Model, tea.Cmd)
+	want ()
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui [build failed]
+FAIL

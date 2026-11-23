@@ -1,0 +1,5 @@
+--- FAIL: TestWorkspaceHelpLastPageMatchesSourceTrailingRow (0.00s)
+    help_overlay_test.go:138: 120x32 source omits the final bottom indicator row: first=30 last=30
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	1.440s
+FAIL
