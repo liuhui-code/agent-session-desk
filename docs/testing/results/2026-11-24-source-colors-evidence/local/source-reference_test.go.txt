@@ -1,0 +1,21 @@
+package ui
+import("encoding/json";"os";"testing";"github.com/charmbracelet/lipgloss";"github.com/muesli/termenv";"github.com/asheshgoplani/agent-deck/internal/session")
+func TestASDSourceColorsReference(t *testing.T){
+ lipgloss.SetColorProfile(termenv.TrueColor)
+ var frames,roles,normalized,palette []map[string]any
+ for _,raw:=range []string{"","full","curated","compact","minimal"," MINIMAL ","unknown"}{normalized=append(normalized,map[string]any{"raw":raw,"effective":(session.UISettings{Footer:raw}).GetFooter()})}
+ for _,theme:=range []string{"dark","light"}{InitTheme(theme)
+  colors:=map[string]lipgloss.Color{"bg":ColorBg,"surface":ColorSurface,"border":ColorBorder,"text":ColorText,"dim":ColorTextDim,"accent":ColorAccent,"cyan":ColorCyan,"red":ColorRed,"yellow":ColorYellow,"purple":ColorPurple}
+  for name,c:=range colors {palette=append(palette,map[string]any{"theme":theme,"role":name,"authored":string(c),"rendered":lipgloss.NewStyle().Foreground(c).Background(c).Bold(true).Render("X")})}
+
+  h:=&Home{};roles=append(roles,map[string]any{"theme":theme,"author_dim":string(ColorComment),"curated":h.curatedHint(footerHint{key:"Enter",label:"Open"}),"compact":h.helpKeyShort("Enter","Open"),"full":h.helpKey("Enter","Open")})
+  for _,width:=range []int{49,50,63,70,101,160}{for _,mode:=range []string{"full","compact","minimal","curated"}{for _,state:=range []string{"empty","group","session"}{
+   h:=&Home{width:width,hotkeys:resolveHotkeys(nil),footerMode:mode}
+   instance:=&session.Instance{ID:"synthetic-a",Title:"Synthetic",Tool:"shell"};h.instances=[]*session.Instance{instance}
+   if state=="group"{h.flatItems=[]session.Item{{Type:session.ItemTypeGroup,Group:&session.Group{Expanded:true}}}}
+   if state=="session"{h.flatItems=[]session.Item{{Type:session.ItemTypeSession,Session:instance}}}
+   frames=append(frames,map[string]any{"theme":theme,"columns":width,"mode":mode,"state":state,"content":h.renderHelpBar()})
+  }}}
+ }
+ b,e:=json.MarshalIndent(map[string]any{"palette":palette,"frames":frames,"roles":roles,"normalization":normalized},"","  ");if e!=nil{t.Fatal(e)};if e=os.WriteFile(os.Getenv("ASD_FOOTER_REFERENCE_OUT"),b,0600);e!=nil{t.Fatal(e)}
+}

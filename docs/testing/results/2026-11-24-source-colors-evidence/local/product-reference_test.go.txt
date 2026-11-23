@@ -1,0 +1,21 @@
+package ui
+import("context";"encoding/json";"os";"strings";"testing";"image/color";"charm.land/lipgloss/v2";"github.com/liuhui-code/agent-session-desk/internal/config")
+func TestASDSourceColorsProduct(t *testing.T){
+ var frames,roles,normalized,palette []map[string]any
+ for _,raw:=range []string{"","full","curated","compact","minimal"," MINIMAL ","unknown"}{normalized=append(normalized,map[string]any{"raw":raw,"effective":config.NormalizeFooter(raw)})}
+ for _,theme:=range []string{"dark","light"}{
+  m:=NewWithOptions(context.Background(),newGroupedFixture(),Options{Theme:theme})
+  authored:=map[string]color.Color{"bg":m.tokens.colors.bg,"surface":m.tokens.colors.surface,"border":m.tokens.colors.border,"text":m.tokens.colors.text,"dim":m.tokens.colors.dim,"accent":m.tokens.colors.accent,"cyan":m.tokens.colors.cyan,"red":m.tokens.colors.red,"yellow":m.tokens.colors.yellow,"purple":m.tokens.footer.contextColor}
+  displayed:=map[string]color.Color{"bg":m.styles.footerKey.GetForeground(),"surface":m.styles.dialog.GetBackground(),"border":m.styles.separator.GetForeground(),"text":m.styles.text.GetForeground(),"dim":m.styles.dim.GetForeground(),"accent":m.styles.key.GetForeground(),"cyan":m.styles.panelTitle.GetForeground(),"red":m.styles.error.GetForeground(),"yellow":m.styles.footerBadge.GetBackground(),"purple":m.styles.footerContext.GetForeground()}
+  for name,c:=range displayed {palette=append(palette,map[string]any{"theme":theme,"role":name,"authored":"#"+colorHex(authored[name]),"rendered":lipgloss.NewStyle().Foreground(c).Background(c).Bold(true).Render("X")})}
+
+  roles=append(roles,map[string]any{"theme":theme,"author_dim":"#"+colorHex(m.tokens.colors.dim),"curated":m.styles.footerCuratedKey.Render("Enter")+" "+m.styles.dim.Render("Open"),"compact":m.styles.footerKey.Render("Enter")+" "+m.styles.footerDescription.Render("Open"),"full":m.styles.footerFullKey.Render("Enter")+" "+m.styles.footerDescription.Render("Open")});m.Close()
+  for _,width:=range []int{49,50,63,70,101,160}{for _,mode:=range []string{"full","compact","minimal","curated"}{for _,state:=range []string{"empty","group","session"}{
+   m:=NewWithOptions(context.Background(),newGroupedFixture(),Options{Theme:theme,Footer:mode,SidebarMode:"flat"})
+   m.width,m.height=width,32;m.sessions=sampleSessions();m.cursor=0;m.workspace.focused=false
+   if state=="group"{m.sidebarMode="grouped";m.cursor=-1};if state=="empty"{m.sessions=nil;m.cursor=0}
+   frames=append(frames,map[string]any{"theme":theme,"columns":width,"mode":mode,"state":state,"content":strings.Split(m.View().Content,"\n")[30]});m.Close()
+  }}}
+ }
+ b,e:=json.MarshalIndent(map[string]any{"palette":palette,"frames":frames,"roles":roles,"normalization":normalized},"","  ");if e!=nil{t.Fatal(e)};if e=os.WriteFile(os.Getenv("ASD_FOOTER_REFERENCE_OUT"),b,0600);e!=nil{t.Fatal(e)}
+}

@@ -18,8 +18,8 @@ func TestWorkspaceManagementFooterUsesSourceKeyChipsAtWideCompactAndMinimalWidth
 	h := newWorkspaceHarness(t, service)
 	h.until(func() bool { return h.m.workspace.conn != nil && !h.m.workspace.busy })
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
-	r, g, b, _ := h.m.tokens.colors.accent.RGBA()
-	want := fmt.Sprintf("%d,%d,%d", r>>8, g>>8, b>>8)
+	// Exact pinned source output; authored accent remains #7aa2f7.
+	want := "121,162,247"
 	for _, width := range []int{120, 80, 63} {
 		h.send(tea.WindowSizeMsg{Width: width, Height: 32})
 		line := strings.Split(h.m.View().Content, "\n")[30]

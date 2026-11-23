@@ -41,3 +41,5 @@ Dark curated、Light compact／full 三组一致。没有改作者色值去凑�
 来源执行保持 HOME 不改，四个 XDG 根指向任务目录并预置合成配置，最小环境白名单、GOPROXY off；额外 OS sandbox 禁止真实用户目录文件访问、出站网络及 security／pbpaste／osascript。旧 reader／writer 用基线原 ui.go 的本地 overlay 执行。归档中的工作区路径替换为 `<WORKSPACE>`，原始与归档 SHA 分列；不把归一化配置说成原执行字节。
 
 此前 U19 二进制上传被自动审批以目的地／载荷明确授权不足拒绝，该授权仍未答复。本轮没有远程上传、SSH、CUA、系统剪贴板或系统设置动作，没有换传输绕过。Windows 原生／实体输入、System 通知／清理、真实 agent、目录建议、通用展示开关、错误状态矩阵、完整同尺寸视觉和发布门槛继续开放。
+
+后续：[显示配色修复](2026-11-24-source-colors.md)在新基线上局部关闭本报告记录的三组 TrueColor 样式差异；本报告的原始输出、失败与未执行范围保留。

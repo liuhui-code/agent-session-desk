@@ -74,11 +74,11 @@ func TestWorkspaceDividerMatchesSourceFocusHoverAndDragRoles(t *testing.T) {
 			t.Fatalf("divider glyph: %q", ansi.Strip(cell))
 		}
 		c := m.tokens.colors.border
-		if bright {
-			c = m.tokens.colors.accent
-		}
 		r, gc, b, _ := c.RGBA()
 		want := fmt.Sprintf("%d,%d,%d", r>>8, gc>>8, b>>8)
+		if bright {
+			want = "121,162,247"
+		} // Pinned source display RGB.
 		if got := testForegroundAt(line, g.left+1); got != want {
 			t.Fatalf("divider role differs: got %s want %s", got, want)
 		}

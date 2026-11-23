@@ -177,6 +177,20 @@ func (t designTokens) withTheme(theme string) designTokens {
 	return t
 }
 
+// Pinned TrueColor observations, not replacement authored palette values:
+// Agent Deck 80494e5 via Lip Gloss 1.1.0/termenv 0.16.0 truncates these two
+// channels. Keep the measured display adaptation local to style construction.
+// See ADR-0035; terminal cells and indexed colors never pass through this map.
+func (t designTokens) forDisplay() designTokens {
+	if t.colors.accent == lipgloss.Color("#7aa2f7") {
+		t.colors.accent = lipgloss.Color("#79a2f7")
+	}
+	if t.colors.dim == lipgloss.Color("#6a6d7c") {
+		t.colors.dim = lipgloss.Color("#696d7c")
+	}
+	return t
+}
+
 func (t designTokens) itemGap() string      { return strings.Repeat(" ", t.layout.itemGap) }
 func (t designTokens) sectionBreak() string { return strings.Repeat("\n", t.layout.frameGap+1) }
 func (t designTokens) divider() string {

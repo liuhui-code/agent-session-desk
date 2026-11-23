@@ -62,3 +62,4 @@ ADR-0014 依据用户 2026-11-22 的明确要求接受，部分替代 0001/0002 
 6. 所有决定保留在版本历史中。许可证、平台能力和资源开销按具体采用版本核查。
 | [0033](0033-observed-system-ui-theme.md) | System 主题、ui.toml v6 及单阶段只读观察 | 已接受 | [本地生命周期／配置](../testing/results/2026-11-24-system-theme.md)；Windows 通知／清理、桌面视觉与完整接受开放 |
 | [0034](0034-configured-footer-modes.md) | 页脚四模式、通用提示及 ui.toml v7 | 已接受 | [本地及来源对照](../testing/results/2026-11-24-footer-modes.md)；精确 RGB 差异、Windows 与完整体验仍开放 |
+| [0035](0035-pinned-source-display-colors.md) | 作者配色与固定来源 TrueColor 显示副本 | 已接受 | [20 角色／6 组合精确对照](../testing/results/2026-11-24-source-colors.md)；16／256 色、Windows 与完整视觉开放 |

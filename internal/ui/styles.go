@@ -42,6 +42,7 @@ type styles struct {
 }
 
 func newStyles(t designTokens) styles {
+	t = t.forDisplay()
 	return styles{
 		footerCuratedKey:        lipgloss.NewStyle().Foreground(t.colors.dim).Bold(t.bold),
 		footerContext:           lipgloss.NewStyle().Foreground(t.footer.contextColor).Bold(t.bold),

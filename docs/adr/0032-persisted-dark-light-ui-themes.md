@@ -20,3 +20,5 @@
 固定 [配色](https://github.com/asheshgoplani/agent-deck/blob/80494e527393b7ead00da30018e6ee7e60e9d7a0/internal/ui/styles.go)／[设置](https://github.com/asheshgoplani/agent-deck/blob/80494e527393b7ead00da30018e6ee7e60e9d7a0/internal/ui/settings_panel.go)；实际范围见[本地报告](../testing/results/2026-11-24-themes.md)。
 
 后续：[ADR-0033](0033-observed-system-ui-theme.md) 扩展 System 与 ui.toml v6；本 ADR 的 Dark/Light、成功保存后应用、模型局部样式及原终端边界继续有效。原 v5／120 帧证据保持其当时范围。
+
+后续：[ADR-0035](0035-pinned-source-display-colors.md) 保留作者色值，并在 token 显示副本中校正固定来源两个 TrueColor 角色；前轮三组输出差异已有独立本地复验，原报告／平台范围不改写。

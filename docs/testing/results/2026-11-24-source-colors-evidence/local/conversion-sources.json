@@ -1,0 +1,42 @@
+[
+  {
+    "module": "github.com/muesli/termenv",
+    "version": "v0.16.0",
+    "role": "diagnosis_only_no_implementation_copied",
+    "license": "MIT",
+    "sha256": {
+      "color.go": "b57c71c72c8194d622838cdc1fdd5c6ced855e76b6d3dfff919f7c24017fb32f",
+      "LICENSE": "233e8cf9a812999ccee4d3edb270b0f11ab3539658e680bcb873604915ca5038"
+    }
+  },
+  {
+    "module": "github.com/lucasb-eyer/go-colorful",
+    "version": "v1.4.1",
+    "role": "diagnosis_only_no_implementation_copied",
+    "license": "MIT",
+    "sha256": {
+      "colors.go": "c4fcf429553ae8eeb2eace0f8465f72bdc0ff761a6b2e7abb59efcd60048e548",
+      "LICENSE": "1e4cf2a117516ec1b54041d68ed4f5d331878b04de3386f4790e7b5b9c04e1ec"
+    }
+  },
+  {
+    "module": "github.com/charmbracelet/lipgloss",
+    "version": "v1.1.0",
+    "role": "diagnosis_only_no_implementation_copied",
+    "license": "MIT",
+    "sha256": {
+      "color.go": "845b5efc19bed5224143eb28aaf687a87cd359b7f77176feea8d786962ea4681",
+      "LICENSE": "699cffa88b62691ea09706d356e5ee0982e87ca2b1c58ca682f27d6ae87f9efc"
+    }
+  },
+  {
+    "module": "charm.land/lipgloss/v2",
+    "version": "v2.1.1",
+    "role": "diagnosis_only_no_implementation_copied",
+    "license": "MIT",
+    "sha256": {
+      "color.go": "87bb6edaea66bc1e224926c88554497cf26464e6bda1463dab501966c355a2c5",
+      "LICENSE": "3f531fb89f23b218fbe16b24fb5950418fa1f0046db5cfddb2c1e0d6d39bfcc0"
+    }
+  }
+]

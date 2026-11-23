@@ -37,6 +37,9 @@ func TestWorkspaceCuratedFooterUsesDimRolesAndActualSelectionContext(t *testing.
 		line := strings.Split(m.View().Content, "\n")[30]
 		r, g, b, _ := m.tokens.colors.dim.RGBA()
 		want := fmt.Sprintf("%d,%d,%d", r>>8, g>>8, b>>8)
+		if theme == "light" {
+			want = "105,109,124"
+		} // Pinned source display RGB.
 		if testForegroundAt(line, 0) != want || testBackgroundAt(line, 0) != "default" {
 			t.Fatal("curated key lost dim role or gained filled chip")
 		}
@@ -153,8 +156,7 @@ func TestWorkspaceFooterCanForceCompactOrMinimalAtWideWidths(t *testing.T) {
 			if i < 0 {
 				t.Fatal("forced tier lost Enter")
 			}
-			r, g, b, _ := m.tokens.colors.accent.RGBA()
-			if testBackgroundAt(line, ansi.StringWidth(plain[:i])-1) == fmt.Sprintf("%d,%d,%d", r>>8, g>>8, b>>8) {
+			if testBackgroundAt(line, ansi.StringWidth(plain[:i])-1) == "121,162,247" {
 				t.Fatal("forced tier retained full-tier padded key chip")
 			}
 			if strings.Contains(plain, "打开") != (mode == "compact") {

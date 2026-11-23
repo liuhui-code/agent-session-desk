@@ -1,0 +1,9 @@
+--- FAIL: TestWorkspaceCuratedFooterUsesDimRolesAndActualSelectionContext (0.01s)
+    workspace_footer_modes_test.go:41: curated key lost dim role or gained filled chip
+--- FAIL: TestWorkspaceManagementFooterUsesSourceKeyChipsAtWideCompactAndMinimalWidths (0.00s)
+    workspace_footer_test.go:33: 120 footer key lost source accent chip: 121,162,247 want 122,162,247
+--- FAIL: TestWorkspaceDividerMatchesSourceFocusHoverAndDragRoles (0.00s)
+    workspace_main_parity_test.go:88: divider role differs: got 121,162,247 want 122,162,247
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	7.219s
+FAIL

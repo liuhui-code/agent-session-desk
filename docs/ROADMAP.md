@@ -198,3 +198,5 @@ M1 收尾按[验收清单](testing/M1_ACCEPTANCE.md)推进；显式有界屏幕�
 2026-11-24：U20 的 System 局部切片按 [ADR-0033](adr/0033-observed-system-ui-theme.md) 接入终端声明／Windows 只读通知、ui.toml v6、未知回退与重试；[本地证据](testing/results/2026-11-24-system-theme.md)不替代 Windows 通知、桌面视觉和清理验证。完整设置／来源整帧、普通 CLI／真实 agent／IME／鼠标及发布门槛保持开放。
 
 2026-11-24：U14/U20 的[页脚四模式](testing/results/2026-11-24-footer-modes.md)及 [40 项来源设置盘点](design/SETTINGS_PARITY_AUDIT.md)已补本地切片。来源和产品参考帧、模型及平台分列，3 组精确 RGB 差异仍留档。后续继续通用时间戳／pane／宿主标题、目录建议与未完成键鼠／IME／同尺寸桌面接受；不以来源品牌业务不迁入关闭整体范围。
+
+2026-11-24：按 [ADR-0035](adr/0035-pinned-source-display-colors.md) 局部关闭前轮三组 TrueColor 样式差异；[本地 20 配色角色和 6 组合](testing/results/2026-11-24-source-colors.md)精确一致，原作者 tokens／原终端属性保留。16／256 色、Windows 字体／恢复、原来源完整交互、真实 agent 和最终发布仍待验收。

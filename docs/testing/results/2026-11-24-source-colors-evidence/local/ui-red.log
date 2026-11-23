@@ -1,0 +1,8 @@
+--- FAIL: TestWorkspaceUsesPinnedSourceEmittedRGBWithoutChangingAuthoredPalette (0.00s)
+    --- FAIL: TestWorkspaceUsesPinnedSourceEmittedRGBWithoutChangingAuthoredPalette/dark (0.00s)
+        source_color_test.go:29: source RGB mismatch: fg=26,27,38 bg=122,162,247
+    --- FAIL: TestWorkspaceUsesPinnedSourceEmittedRGBWithoutChangingAuthoredPalette/light (0.00s)
+        source_color_test.go:29: source RGB mismatch: fg=106,109,124 bg=default
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.799s
+FAIL

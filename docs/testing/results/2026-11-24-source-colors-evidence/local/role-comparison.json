@@ -1,0 +1,816 @@
+{
+  "result": "passed_exact_truecolor_roles",
+  "source_frames": 144,
+  "product_frames": 144,
+  "normalization_cases": 7,
+  "roles": [
+    {
+      "theme": "dark",
+      "role": "full",
+      "matches": true,
+      "cells": 12,
+      "differences": []
+    },
+    {
+      "theme": "dark",
+      "role": "compact",
+      "matches": true,
+      "cells": 10,
+      "differences": []
+    },
+    {
+      "theme": "dark",
+      "role": "curated",
+      "matches": true,
+      "cells": 10,
+      "differences": []
+    },
+    {
+      "theme": "light",
+      "role": "full",
+      "matches": true,
+      "cells": 12,
+      "differences": []
+    },
+    {
+      "theme": "light",
+      "role": "compact",
+      "matches": true,
+      "cells": 10,
+      "differences": []
+    },
+    {
+      "theme": "light",
+      "role": "curated",
+      "matches": true,
+      "cells": 10,
+      "differences": []
+    }
+  ],
+  "palette": [
+    {
+      "theme": "dark",
+      "role": "accent",
+      "authored": "#7aa2f7",
+      "source": [
+        {
+          "text": "X",
+          "background": [
+            121,
+            162,
+            247
+          ],
+          "foreground": [
+            121,
+            162,
+            247
+          ],
+          "bold": true
+        }
+      ],
+      "product": [
+        {
+          "text": "X",
+          "background": [
+            121,
+            162,
+            247
+          ],
+          "foreground": [
+            121,
+            162,
+            247
+          ],
+          "bold": true
+        }
+      ],
+      "matches": true
+    },
+    {
+      "theme": "dark",
+      "role": "bg",
+      "authored": "#1a1b26",
+      "source": [
+        {
+          "text": "X",
+          "background": [
+            26,
+            27,
+            38
+          ],
+          "foreground": [
+            26,
+            27,
+            38
+          ],
+          "bold": true
+        }
+      ],
+      "product": [
+        {
+          "text": "X",
+          "background": [
+            26,
+            27,
+            38
+          ],
+          "foreground": [
+            26,
+            27,
+            38
+          ],
+          "bold": true
+        }
+      ],
+      "matches": true
+    },
+    {
+      "theme": "dark",
+      "role": "border",
+      "authored": "#414868",
+      "source": [
+        {
+          "text": "X",
+          "background": [
+            65,
+            72,
+            104
+          ],
+          "foreground": [
+            65,
+            72,
+            104
+          ],
+          "bold": true
+        }
+      ],
+      "product": [
+        {
+          "text": "X",
+          "background": [
+            65,
+            72,
+            104
+          ],
+          "foreground": [
+            65,
+            72,
+            104
+          ],
+          "bold": true
+        }
+      ],
+      "matches": true
+    },
+    {
+      "theme": "dark",
+      "role": "cyan",
+      "authored": "#7dcfff",
+      "source": [
+        {
+          "text": "X",
+          "background": [
+            125,
+            207,
+            255
+          ],
+          "foreground": [
+            125,
+            207,
+            255
+          ],
+          "bold": true
+        }
+      ],
+      "product": [
+        {
+          "text": "X",
+          "background": [
+            125,
+            207,
+            255
+          ],
+          "foreground": [
+            125,
+            207,
+            255
+          ],
+          "bold": true
+        }
+      ],
+      "matches": true
+    },
+    {
+      "theme": "dark",
+      "role": "dim",
+      "authored": "#787fa0",
+      "source": [
+        {
+          "text": "X",
+          "background": [
+            120,
+            127,
+            160
+          ],
+          "foreground": [
+            120,
+            127,
+            160
+          ],
+          "bold": true
+        }
+      ],
+      "product": [
+        {
+          "text": "X",
+          "background": [
+            120,
+            127,
+            160
+          ],
+          "foreground": [
+            120,
+            127,
+            160
+          ],
+          "bold": true
+        }
+      ],
+      "matches": true
+    },
+    {
+      "theme": "dark",
+      "role": "purple",
+      "authored": "#bb9af7",
+      "source": [
+        {
+          "text": "X",
+          "background": [
+            187,
+            154,
+            247
+          ],
+          "foreground": [
+            187,
+            154,
+            247
+          ],
+          "bold": true
+        }
+      ],
+      "product": [
+        {
+          "text": "X",
+          "background": [
+            187,
+            154,
+            247
+          ],
+          "foreground": [
+            187,
+            154,
+            247
+          ],
+          "bold": true
+        }
+      ],
+      "matches": true
+    },
+    {
+      "theme": "dark",
+      "role": "red",
+      "authored": "#f7768e",
+      "source": [
+        {
+          "text": "X",
+          "background": [
+            247,
+            118,
+            142
+          ],
+          "foreground": [
+            247,
+            118,
+            142
+          ],
+          "bold": true
+        }
+      ],
+      "product": [
+        {
+          "text": "X",
+          "background": [
+            247,
+            118,
+            142
+          ],
+          "foreground": [
+            247,
+            118,
+            142
+          ],
+          "bold": true
+        }
+      ],
+      "matches": true
+    },
+    {
+      "theme": "dark",
+      "role": "surface",
+      "authored": "#24283b",
+      "source": [
+        {
+          "text": "X",
+          "background": [
+            36,
+            40,
+            59
+          ],
+          "foreground": [
+            36,
+            40,
+            59
+          ],
+          "bold": true
+        }
+      ],
+      "product": [
+        {
+          "text": "X",
+          "background": [
+            36,
+            40,
+            59
+          ],
+          "foreground": [
+            36,
+            40,
+            59
+          ],
+          "bold": true
+        }
+      ],
+      "matches": true
+    },
+    {
+      "theme": "dark",
+      "role": "text",
+      "authored": "#c0caf5",
+      "source": [
+        {
+          "text": "X",
+          "background": [
+            192,
+            202,
+            245
+          ],
+          "foreground": [
+            192,
+            202,
+            245
+          ],
+          "bold": true
+        }
+      ],
+      "product": [
+        {
+          "text": "X",
+          "background": [
+            192,
+            202,
+            245
+          ],
+          "foreground": [
+            192,
+            202,
+            245
+          ],
+          "bold": true
+        }
+      ],
+      "matches": true
+    },
+    {
+      "theme": "dark",
+      "role": "yellow",
+      "authored": "#e0af68",
+      "source": [
+        {
+          "text": "X",
+          "background": [
+            224,
+            175,
+            104
+          ],
+          "foreground": [
+            224,
+            175,
+            104
+          ],
+          "bold": true
+        }
+      ],
+      "product": [
+        {
+          "text": "X",
+          "background": [
+            224,
+            175,
+            104
+          ],
+          "foreground": [
+            224,
+            175,
+            104
+          ],
+          "bold": true
+        }
+      ],
+      "matches": true
+    },
+    {
+      "theme": "light",
+      "role": "accent",
+      "authored": "#34548a",
+      "source": [
+        {
+          "text": "X",
+          "background": [
+            52,
+            84,
+            138
+          ],
+          "foreground": [
+            52,
+            84,
+            138
+          ],
+          "bold": true
+        }
+      ],
+      "product": [
+        {
+          "text": "X",
+          "background": [
+            52,
+            84,
+            138
+          ],
+          "foreground": [
+            52,
+            84,
+            138
+          ],
+          "bold": true
+        }
+      ],
+      "matches": true
+    },
+    {
+      "theme": "light",
+      "role": "bg",
+      "authored": "#d5d6db",
+      "source": [
+        {
+          "text": "X",
+          "background": [
+            213,
+            214,
+            219
+          ],
+          "foreground": [
+            213,
+            214,
+            219
+          ],
+          "bold": true
+        }
+      ],
+      "product": [
+        {
+          "text": "X",
+          "background": [
+            213,
+            214,
+            219
+          ],
+          "foreground": [
+            213,
+            214,
+            219
+          ],
+          "bold": true
+        }
+      ],
+      "matches": true
+    },
+    {
+      "theme": "light",
+      "role": "border",
+      "authored": "#9699a3",
+      "source": [
+        {
+          "text": "X",
+          "background": [
+            150,
+            153,
+            163
+          ],
+          "foreground": [
+            150,
+            153,
+            163
+          ],
+          "bold": true
+        }
+      ],
+      "product": [
+        {
+          "text": "X",
+          "background": [
+            150,
+            153,
+            163
+          ],
+          "foreground": [
+            150,
+            153,
+            163
+          ],
+          "bold": true
+        }
+      ],
+      "matches": true
+    },
+    {
+      "theme": "light",
+      "role": "cyan",
+      "authored": "#166775",
+      "source": [
+        {
+          "text": "X",
+          "background": [
+            22,
+            103,
+            117
+          ],
+          "foreground": [
+            22,
+            103,
+            117
+          ],
+          "bold": true
+        }
+      ],
+      "product": [
+        {
+          "text": "X",
+          "background": [
+            22,
+            103,
+            117
+          ],
+          "foreground": [
+            22,
+            103,
+            117
+          ],
+          "bold": true
+        }
+      ],
+      "matches": true
+    },
+    {
+      "theme": "light",
+      "role": "dim",
+      "authored": "#6a6d7c",
+      "source": [
+        {
+          "text": "X",
+          "background": [
+            105,
+            109,
+            124
+          ],
+          "foreground": [
+            105,
+            109,
+            124
+          ],
+          "bold": true
+        }
+      ],
+      "product": [
+        {
+          "text": "X",
+          "background": [
+            105,
+            109,
+            124
+          ],
+          "foreground": [
+            105,
+            109,
+            124
+          ],
+          "bold": true
+        }
+      ],
+      "matches": true
+    },
+    {
+      "theme": "light",
+      "role": "purple",
+      "authored": "#7847bd",
+      "source": [
+        {
+          "text": "X",
+          "background": [
+            120,
+            71,
+            189
+          ],
+          "foreground": [
+            120,
+            71,
+            189
+          ],
+          "bold": true
+        }
+      ],
+      "product": [
+        {
+          "text": "X",
+          "background": [
+            120,
+            71,
+            189
+          ],
+          "foreground": [
+            120,
+            71,
+            189
+          ],
+          "bold": true
+        }
+      ],
+      "matches": true
+    },
+    {
+      "theme": "light",
+      "role": "red",
+      "authored": "#8c4351",
+      "source": [
+        {
+          "text": "X",
+          "background": [
+            140,
+            67,
+            81
+          ],
+          "foreground": [
+            140,
+            67,
+            81
+          ],
+          "bold": true
+        }
+      ],
+      "product": [
+        {
+          "text": "X",
+          "background": [
+            140,
+            67,
+            81
+          ],
+          "foreground": [
+            140,
+            67,
+            81
+          ],
+          "bold": true
+        }
+      ],
+      "matches": true
+    },
+    {
+      "theme": "light",
+      "role": "surface",
+      "authored": "#e9e9ec",
+      "source": [
+        {
+          "text": "X",
+          "background": [
+            233,
+            233,
+            236
+          ],
+          "foreground": [
+            233,
+            233,
+            236
+          ],
+          "bold": true
+        }
+      ],
+      "product": [
+        {
+          "text": "X",
+          "background": [
+            233,
+            233,
+            236
+          ],
+          "foreground": [
+            233,
+            233,
+            236
+          ],
+          "bold": true
+        }
+      ],
+      "matches": true
+    },
+    {
+      "theme": "light",
+      "role": "text",
+      "authored": "#343b58",
+      "source": [
+        {
+          "text": "X",
+          "background": [
+            52,
+            59,
+            88
+          ],
+          "foreground": [
+            52,
+            59,
+            88
+          ],
+          "bold": true
+        }
+      ],
+      "product": [
+        {
+          "text": "X",
+          "background": [
+            52,
+            59,
+            88
+          ],
+          "foreground": [
+            52,
+            59,
+            88
+          ],
+          "bold": true
+        }
+      ],
+      "matches": true
+    },
+    {
+      "theme": "light",
+      "role": "yellow",
+      "authored": "#8f5e15",
+      "source": [
+        {
+          "text": "X",
+          "background": [
+            143,
+            94,
+            21
+          ],
+          "foreground": [
+            143,
+            94,
+            21
+          ],
+          "bold": true
+        }
+      ],
+      "product": [
+        {
+          "text": "X",
+          "background": [
+            143,
+            94,
+            21
+          ],
+          "foreground": [
+            143,
+            94,
+            21
+          ],
+          "bold": true
+        }
+      ],
+      "matches": true
+    }
+  ],
+  "matching_roles": 6,
+  "total_roles": 6,
+  "matching_palette_roles": 20,
+  "scope": "20 authored/display roles and 6 combined ASCII style roles only. Localized source/product frames differ; no 16/256-color, full frame, Windows or desktop acceptance. No RGB tolerance."
+}

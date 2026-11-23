@@ -141,3 +141,5 @@ M0 已有“列表/预览 → 自定义命令 → 全屏 attach → 返回”的
 2026-11-24：[ADR-0033](adr/0033-observed-system-ui-theme.md) 扩展 System 与 ui.toml v6。合法 COLORFGBG 优先；Windows 无声明时只读当前用户应用主题及事件通知，一个最新观测、一个读取，关闭完成才重建。显示变化不写偏好或终端输入；未知保留上次配色／首次 Dark，设置 r 重试。沿既有 x/sys，不增模块依赖。[本地验证](testing/results/2026-11-24-system-theme.md)与原生通知／桌面未执行分列；完整面板、视觉和发布继续开放。
 
 2026-11-24：[ADR-0034](adr/0034-configured-footer-modes.md) 将来源配置 footer 四模式接入独立 ui.toml v7；旧 v1–v6 只读载入，显式保存升级，零值省略且有效显示为 full，未知值沿来源回退 full。管理焦点采用所选样式，原终端焦点保留黄色模式与 F6。新增显示 tokens，无新进程／依赖／数据库 schema。[本地及固定来源验证](testing/results/2026-11-24-footer-modes.md)单列，精确 RGB 差异、Windows 和完整面板接受开放。
+
+2026-11-24：[ADR-0035](adr/0035-pinned-source-display-colors.md) 在 stable v2 的 styles 组合入口使用 token 显示副本，固定 Dark accent 与 Light dim 两个已测 TrueColor 输出，作者 20 色不改。不增加／降级模块，也不复制 termenv 转换代码；锁定模块的转换链只用于诊断。[20 角色＋6 组合精确对照](testing/results/2026-11-24-source-colors.md)已通过，16／256 色降级、Windows 实机／恢复和整帧视觉继续开放。
