@@ -27,7 +27,7 @@ func (m *Model) sessionSearchWidths() (outer, content, input int) {
 
 func (m *Model) sizeSessionSearch() {
 	_, _, input := m.sessionSearchWidths()
-	m.search.input.SetWidth(max(1, input-m.styles.searchInput.GetHorizontalFrameSize()-lipgloss.Width(m.search.input.Prompt)))
+	sizeInput(&m.search.input, input-m.styles.searchInput.GetHorizontalFrameSize())
 }
 
 func (m *Model) renderSessionSearch() (string, *tea.Cursor) {
@@ -91,7 +91,7 @@ func (m *Model) renderSessionSearch() (string, *tea.Cursor) {
 	boxWidth, boxHeight := lipgloss.Size(box)
 	x, y := max(0, (m.width-boxWidth)/2), max(0, (m.height-boxHeight)/2)
 	view := overlayLaunchDialog(fitFrame("", m.width, m.height), box, x, y, m.width, m.height)
-	cursor := d.input.Cursor()
+	cursor := inputCursor(d.input)
 	if cursor != nil {
 		cursor.X += x + m.styles.searchBox.GetBorderLeftSize() + t.paddingX + m.styles.searchInput.GetBorderLeftSize() + t.inputPaddingX
 		cursor.Y += y + m.styles.searchBox.GetBorderTopSize() + t.paddingY + inputStart + m.styles.searchInput.GetBorderTopSize() + t.inputPaddingY

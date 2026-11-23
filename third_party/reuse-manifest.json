@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "date": "2026-11-23",
+  "date": "2026-11-24",
   "scope": "Selective UI/platform migration through ADR-0024, plus fixed-source help parity under ADR-0014/0016; full upstream experience and release acceptance remain open.",
   "original_project_license": "pending O-010",
   "source_files": [
@@ -161,7 +161,7 @@
         "dialog width, centered origin, rounded padded overlay"
       ],
       "mode": "selectively_adapted",
-      "modifications": "Stable Charm v2, design tokens, product Tab identities, bounded viewport and generic CLI fields; see ADR-0016 and file headers. Actual pinned-source frame comparison: workspace bands, outer settings/new widths 66/86, regular/first padding 2/1; stable-v2 and bounded narrow-view adaptations. See 2026-11-23-upstream-visual-comparison report."
+      "modifications": "Stable Charm v2, design tokens, product Tab identities, bounded viewport and generic CLI fields; see ADR-0016 and file headers. Actual pinned-source frame comparison: workspace bands, outer settings/new widths 66/86, regular/first padding 2/1; stable-v2 and bounded narrow-view adaptations. See 2026-11-23-upstream-visual-comparison report. Long fields use local stable-v2 reflow and a shared keycap/caret display projection; original source and dependency pins unchanged. See 2026-11-24-long-fields report."
     },
     {
       "project": "agent-deck",
@@ -375,7 +375,7 @@
         "View/renderSearchResult/searchOverlayWidth local subset"
       ],
       "mode": "selectively_adapted",
-      "modifications": "ADR-0020: scoped live Session/Run, stable v2 real cursor, token styling, no Recall/group/agent-state inference; identity-preserving refresh and bounded viewport."
+      "modifications": "ADR-0020: scoped live Session/Run, stable v2 real cursor, token styling, no Recall/group/agent-state inference; identity-preserving refresh and bounded viewport. Long fields use local stable-v2 reflow and a shared keycap/caret display projection; original source and dependency pins unchanged. See 2026-11-24-long-fields report."
     },
     {
       "project": "agent-deck",
@@ -434,7 +434,7 @@
         "GroupDialogRename shared name-only geometry"
       ],
       "mode": "selectively_adapted",
-      "modifications": "ADR-0021: stable v2 real cursor/total widths, tokens, localized labels, bounded single-line edits and viewports; independent SQL display labels and exact Run binding; no upstream group or remote model. ADR-0023 follow-up shares the view with group display-name edits; product stable group IDs replace upstream path rewrites."
+      "modifications": "ADR-0021: stable v2 real cursor/total widths, tokens, localized labels, bounded single-line edits and viewports; independent SQL display labels and exact Run binding; no upstream group or remote model. ADR-0023 follow-up shares the view with group display-name edits; product stable group IDs replace upstream path rewrites. Long fields use local stable-v2 reflow and a shared keycap/caret display projection; original source and dependency pins unchanged. See 2026-11-24-long-fields report."
     },
     {
       "project": "agent-deck",
@@ -526,7 +526,7 @@
         "GroupDialogRename via shared six-row rename view"
       ],
       "mode": "selectively_adapted",
-      "modifications": "ADR-0023: stable product Group IDs, scoped SQLite tree/membership and CAS; v2 real cursor/total widths, Chinese labels, token styles, bounded viewports and original Run/input fences. No filesystem path IDs, upstream remote/worktree/provider model or v1 production dependency."
+      "modifications": "ADR-0023: stable product Group IDs, scoped SQLite tree/membership and CAS; v2 real cursor/total widths, Chinese labels, token styles, bounded viewports and original Run/input fences. No filesystem path IDs, upstream remote/worktree/provider model or v1 production dependency. Long fields use local stable-v2 reflow and a shared keycap/caret display projection; original source and dependency pins unchanged. See 2026-11-24-long-fields report."
     },
     {
       "project": "agent-deck",

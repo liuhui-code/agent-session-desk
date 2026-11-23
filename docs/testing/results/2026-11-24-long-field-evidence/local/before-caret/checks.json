@@ -1,0 +1,70 @@
+[
+  {
+    "check": "go-test",
+    "command": [
+      "go",
+      "test",
+      "./..."
+    ],
+    "exit_code": 0,
+    "start_utc": "2026-11-23T18:09:39.773272+00:00",
+    "end_utc": "2026-11-23T18:09:45.363148+00:00"
+  },
+  {
+    "check": "go-race",
+    "command": [
+      "go",
+      "test",
+      "-race",
+      "./..."
+    ],
+    "exit_code": 0,
+    "start_utc": "2026-11-23T18:09:45.363852+00:00",
+    "end_utc": "2026-11-23T18:10:10.070587+00:00"
+  },
+  {
+    "check": "go-vet",
+    "command": [
+      "go",
+      "vet",
+      "./..."
+    ],
+    "exit_code": 0,
+    "start_utc": "2026-11-23T18:10:10.071139+00:00",
+    "end_utc": "2026-11-23T18:10:10.640318+00:00"
+  },
+  {
+    "check": "go-mod-verify",
+    "command": [
+      "go",
+      "mod",
+      "verify"
+    ],
+    "exit_code": 0,
+    "start_utc": "2026-11-23T18:10:10.640843+00:00",
+    "end_utc": "2026-11-23T18:10:12.674257+00:00"
+  },
+  {
+    "check": "source-limits",
+    "command": [
+      "python3",
+      "-B",
+      "tools/ci/check_source_limits.py"
+    ],
+    "exit_code": 0,
+    "start_utc": "2026-11-23T18:10:12.674772+00:00",
+    "end_utc": "2026-11-23T18:10:13.236520+00:00"
+  },
+  {
+    "check": "catalog-check",
+    "command": [
+      "python3",
+      "tools/test_catalog.py",
+      "check",
+      "--generated"
+    ],
+    "exit_code": 0,
+    "start_utc": "2026-11-23T18:10:13.237163+00:00",
+    "end_utc": "2026-11-23T18:10:13.400033+00:00"
+  }
+]

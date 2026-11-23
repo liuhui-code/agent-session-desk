@@ -1,0 +1,3 @@
+package main
+import("fmt";"github.com/charmbracelet/x/ansi";"github.com/rivo/uniseg")
+func main(){s:="中文é👩‍💻1️⃣/";fmt.Printf("whole ansi=%d uniseg=%d\n",ansi.StringWidth(s),uniseg.StringWidth(s));for s!=""{c,w:=ansi.FirstGraphemeCluster(s,ansi.GraphemeWidth);fmt.Printf("%q width=%d ansi=%d uniseg=%d\n",c,w,ansi.StringWidth(c),uniseg.StringWidth(c));s=s[len(c):]}}

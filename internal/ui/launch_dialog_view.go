@@ -19,7 +19,7 @@ func (m *Model) sizeLaunchDialog() {
 	}
 	width := m.launchWidth() - m.styles.dialog.GetHorizontalFrameSize()
 	for i := range m.launch.fields {
-		m.launch.fields[i].SetWidth(max(1, width-lipgloss.Width(m.launch.fields[i].Prompt)))
+		sizeInput(&m.launch.fields[i], width)
 	}
 }
 func (m *Model) launchWidth() int {
@@ -105,7 +105,7 @@ func (m *Model) renderLaunchDialog() (string, *tea.Cursor) {
 	view := overlayLaunchDialog(background, box, x, y, m.width, m.height)
 	var cursor *tea.Cursor
 	if !d.busy && d.focus < len(d.fields) && cursorRow >= 0 {
-		cursor = d.fields[d.focus].Cursor()
+		cursor = inputCursor(d.fields[d.focus])
 		if cursor != nil {
 			cursor.X += x + dialogStyle.GetBorderLeftSize() + t.paddingX
 			cursor.Y += y + dialogStyle.GetBorderTopSize() + paddingY + cursorRow

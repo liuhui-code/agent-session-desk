@@ -23,7 +23,7 @@ func (m *Model) sessionRenameWidths() (outer, content, input int) {
 func (m *Model) sizeSessionRename() {
 	_, _, input := m.sessionRenameWidths()
 	// v2 pads one cursor cell beyond Width; preserve the source's total field.
-	m.rename.input.SetWidth(max(1, input-lipgloss.Width(m.rename.input.Prompt)-1))
+	sizeInput(&m.rename.input, input)
 }
 func (m *Model) renderSessionRename() (string, *tea.Cursor) {
 	d := m.rename
@@ -66,7 +66,7 @@ func (m *Model) renderNameDialog(field textinput.Model, title string, busy, subm
 	boxWidth, boxHeight := lipgloss.Size(box)
 	x, y := max(0, (m.width-boxWidth)/2), max(0, (m.height-boxHeight)/2)
 	view := overlayLaunchDialog(fitFrame("", m.width, m.height), box, x, y, m.width, m.height)
-	cursor := field.Cursor()
+	cursor := inputCursor(field)
 	if cursor != nil {
 		cursor.X += x + m.styles.renameBox.GetBorderLeftSize() + t.paddingX + max(0, (content-inputWidth)/2)
 		cursor.Y += y + m.styles.renameBox.GetBorderTopSize() + t.paddingY + inputRow

@@ -1,0 +1,17 @@
+{
+  "sources": {
+    "Bubbles textinput.go": {
+      "sha256": "ea10c5f2efc1365b4c05fcd246110e70bb852e20063a3296e62cb861853a4f18",
+      "path": "charm.land/bubbles/v2@v2.2.2/textinput/textinput.go"
+    },
+    "Bubbles styles.go": {
+      "sha256": "54e021e967abe681d7f745f6c764bb49e8ff1d95f6eef92ab7ab79320ff4b6af",
+      "path": "charm.land/bubbles/v2@v2.2.2/textinput/styles.go"
+    },
+    "x/ansi cluster decoder": {
+      "sha256": "5ce87b0333586453f158337e598614bc4e59f9d240d58cfa5691356ec76f18f8",
+      "path": "github.com/charmbracelet/x/ansi@v0.11.9/parser_decode.go"
+    }
+  },
+  "finding": "Bubbles 2.2.2 SetWidth only assigns width; handleOverflow uses per-rune width while Cursor uses uniseg; keycap measured 1 by pinned uniseg, 2 by x/ansi.StringWidth. No dependency upgrade."
+}

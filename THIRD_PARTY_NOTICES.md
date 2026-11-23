@@ -60,3 +60,5 @@ ADR-0024 从同一固定提交选择性适配 `confirm_dialog.go`／`home_keys_d
 底栏继续选择性适配同固定提交 `internal/ui/home_view_frame.go` 的默认 full／按宽度筛选、键与说明角色及退出锚点，`insert_mode.go` 的黄色模式与活动目标。目标为 `workspace_footer.go` 与既有 tokens/styles；`help_overlay.go` 对应固定来源的粘贴关闭语义。通用 CLI／Tab、F6 及本地化为产品适配，MIT 版权、原 source SHA 与机器复用清单保持可追溯；不迁入 v1 发布依赖。
 
 主界面角色核对沿同固定 `embedded_sidebar.go` 保留嵌套卡片整行高亮，沿 `home_view_frame.go` 恢复终端／悬停／拖动分隔符的颜色和粗线。目标为既有 `workspace_sidebar.go`、`workspace_view.go`、`workspace_split.go` 和 tokens；MIT 原版权及精确指纹继续保留，组身份及输入归属仍由本项目实现。
+
+2026-11-24 长字段适配：既有固定 Agent Deck `80494e527393b7ead00da30018e6ee7e60e9d7a0`／MIT 的 newdialog.go、group_dialog.go、search.go 派生视图改用共享输入尺寸／光标入口；`input_view.go` 的重算和 keycap 显示投影是本项目稳定 v2 适配，没有新增上游源码或依赖。原来源哈希／版权不变，实际范围见[报告](docs/testing/results/2026-11-24-long-fields.md)。

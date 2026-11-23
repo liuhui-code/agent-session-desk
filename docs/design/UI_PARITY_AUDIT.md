@@ -12,16 +12,16 @@
 | --- | --- | --- | --- |
 | U01 标题／汇总 | home_view_frame.go 的标题、工具／状态汇总 | workspace_view.go 显示产品名和会话数 | 通用产品标题适配；来源与产品业务汇总不同，不能凭颜色相同认定整体一致；P2 同尺寸评审 |
 | U02 管理／终端比例 | split_config.go：35%／18%，最小面板与三列分隔 | tokens、workspace_split.go 已迁入；[实测](../testing/results/2026-11-23-workspace-split.md)；[主界面角色](../testing/results/2026-11-23-main-screen-parity.md)恢复终端蓝色和悬停／拖动粗线 | 比例交互已有局部证据，新角色已有来源／模型／原生 UI 及正式构建限定桌面；早期前台阻断与探针修正分别保留；关闭重开尚未持久化手动比例，见 U15 |
-| U03 响应式 | home_view_frame.go：宽双栏、50–79 上下、<50 单列 | workspace_view.go 结合原生终端焦点展开，Tab 保留；[实测](../testing/results/2026-11-23-workspace-responsive.md)；[72 个状态帧](../testing/results/2026-11-23-main-screen-parity.md)覆盖八组尺寸 | Tab／原生终端为必要适配；72 帧只证合成尺寸边界，后轮另完成 120／160／63／49／12 行；长字段、其他状态和完整缩放锚定仍 P1 待核对 |
+| U03 响应式 | home_view_frame.go：宽双栏、50–79 上下、<50 单列 | workspace_view.go 结合原生终端焦点展开，Tab 保留；[实测](../testing/results/2026-11-23-workspace-responsive.md)；[72 个状态帧](../testing/results/2026-11-23-main-screen-parity.md)覆盖八组尺寸 | Tab／原生终端为必要适配；72 帧只证合成尺寸边界，后轮另完成 120／160／63／49／12 行；[长表单字段](../testing/results/2026-11-24-long-fields.md)已有模型／原生及隔离 ConPTY 证据；列表长字段、其他状态和完整桌面缩放锚定仍 P1 待核对 |
 | U04 框／留白／页脚行带 | home_view_frame.go 精确宽高、圆角框和面板标题 | [实际帧对照](../testing/results/2026-11-23-upstream-visual-comparison.md)修正框／页脚；[主界面审计](../testing/results/2026-11-23-main-screen-parity.md)补分隔符及状态帧 | 六个旧参考帧逐行一致只覆盖该报告状态；两个 49 列末格差异仍保留，新角色及后轮限定桌面不是完整逐格／RGB 一致，整体视觉仍待评审 |
 | U05 Tab 主导航 | 本产品明确要求，不能声称来源有相同 Tab 栏 | workspace_tabbar.go／workspace_order.go；新增、关闭、切换、拖动／键盘排序已有独立报告 | 原 View/Session/Run 保持；Tab 顺序／关闭状态未持久化，隐藏 Tab 不自动拖动滚动；P2 |
 | U06 列表卡片／密度 | embedded_sidebar.go：四密度、28 列退化、活动／选中角色 | workspace_sidebar.go／sidebar_window.go；[卡片](../testing/results/2026-11-23-workspace-sidebar-cards.md)与[偏好](../testing/results/2026-11-23-sidebar-density-preferences.md)；[27 组来源卡片](../testing/results/2026-11-23-main-screen-parity.md)修复嵌套缩进背景缺口 | 程序名／终端可连接性替代来源 agent 状态，未知必须保留；108 格背景缺口已由来源／模型及后轮正式桌面核对；公开三张宽屏 PNG。长标题、目录与鼠标窗口继续 P1 核对 |
 | U07 分组导航／创建／移动 | group_dialog.go／home.go／embedded_sidebar.go | sidebar_navigation.go、group_dialog*.go；[三 shell 来源／桌面](../testing/results/2026-11-23-groups-desktop.md) | 稳定 Group ID 替代路径身份；无远程／worktree 业务；目录建议／最近目录下拉尚未迁入，P2 |
-| U08 会话／组改名 | group_dialog.go 的预填与紫色框 | session_rename*.go、group_dialog*.go；[会话](../testing/results/2026-11-23-session-rename.md)与[组](../testing/results/2026-11-23-group-rename.md)独立实测 | 原身份、光标、并发版本为产品边界；完整长字段／IME 编辑矩阵 P1 待验 |
+| U08 会话／组改名 | group_dialog.go 的预填与紫色框 | session_rename*.go、group_dialog*.go；[会话](../testing/results/2026-11-23-session-rename.md)与[组](../testing/results/2026-11-23-group-rename.md)独立实测 | 原身份、光标、并发版本为产品边界；[长改名字段／缩放](../testing/results/2026-11-24-long-fields.md)已补局部证据；完整桌面／IME 编辑矩阵 P1 待验 |
 | U09 组排序 | home.go、session/groups.go 的同父移动及保存 | group_order.go／store/group_order.go；[实测](../testing/results/2026-11-23-group-order.md) | 默认组固定首位，完整兄弟 CAS 与异步退出屏障是明确适配；不包含会话手动排序 |
 | U10 删除组 | confirm_dialog.go／home_keys_dialogs.go：默认取消、子树删除并收纳成员 | group_removal*.go；[实测](../testing/results/2026-11-23-group-removal.md) | 历史成员、完整预览印记／事务为必要适配；中文换行高度差保留，失败英文细节尚未统一文案，P2 |
-| U11 会话搜索 | search.go／discovery.go：居中框、输入框与选中结果 | session_search*.go；[来源及 Windows](../testing/results/2026-11-23-session-search.md) | 只查本地名称／程序，不伪造 Recall／agent 状态；完整 IME／长字段 P1 待验 |
-| U12 新建表单 | newdialog.go 的居中宽度、圆角／焦点／间距 | launch_dialog*.go；通用 executable／cwd／JSON args；[几何修正](../testing/results/2026-11-23-upstream-visual-comparison.md) | 通用命令是用户要求的适配；env 编辑／模板保存和来源目录建议未接入，不能宣称所有配置入口已还原 |
+| U11 会话搜索 | search.go／discovery.go：居中框、输入框与选中结果 | session_search*.go；[来源及 Windows](../testing/results/2026-11-23-session-search.md) | 只查本地名称／程序，不伪造 Recall／agent 状态；[长查询／缩放](../testing/results/2026-11-24-long-fields.md)已补局部证据；完整桌面／IME P1 待验 |
+| U12 新建表单 | newdialog.go 的居中宽度、圆角／焦点／间距 | launch_dialog*.go；通用 executable／cwd／JSON args；[几何修正](../testing/results/2026-11-23-upstream-visual-comparison.md) | 通用命令是用户要求的适配；env 编辑／模板保存和来源目录建议未接入，[长字段／缩放](../testing/results/2026-11-24-long-fields.md)仅补既有表单的输入边界，不能宣称所有配置入口已还原 |
 | U13 帮助 | help.go：五键入门、Tab 全部、分区双列、滚动及任意其他键关闭 | help_overlay*.go 已有[前后桌面结果](../testing/results/2026-11-23-help-parity.md)；[来源十种粘贴／实际输入](../testing/results/2026-11-23-footer-input-parity.md)纠正 v2 忽略粘贴偏差 | 短／全粘贴整段消费并关闭，鼠标消费不关闭，原草稿保留；只列真实已支持键。其他键鼠／IME 和整体视觉接受仍开放 |
 | U14 页脚层级 | home_view_frame.go 实际默认 full、宽度分级、键／说明角色；insert_mode.go 黄色模式／目标 | workspace_footer.go 与 tokens/styles 已恢复角色、上下文、退出锚点及实际活动标题；[来源／原生及桌面](../testing/results/2026-11-23-footer-input-parity.md)；最终 49 列不留 ID 尾缀 | 193 回执完整输入流程与标签修复后 52 回执分开记账；保留 v1/v2 精确 RGB 差异。来源页脚设置模式、错误／复制状态矩阵与整体视觉接受仍 P1/P2 待核对 |
 | U15 比例持久化 | split_config.go 将用户选择保存 | workspace_split.go 只保留当前 UI 状态，`=` 恢复自动 | **P2 待迁入**；应扩展现有独立 ui.toml／串行保存，不写启动模板，先定义自动与手动比例合同 |
@@ -41,3 +41,5 @@
 4. 继续 U15/U20 与剩余输入／宿主矩阵。普通 shell 连续命令、普通 CLI、真实 agent 的新建→输入→A/B/A→改名／排序→关重开→退出重连均分别证明；用户视觉接受和最终资源／发布门槛保持独立。
 
 新差异追加到本表，保留编号和失败依据；不得通过删掉缺口、放宽“还原”定义或把来源不支持的产品 Tab 误算成来源帧一致来关闭项目。实现／验收状态仍由 [Feature Ledger](../FEATURE_LEDGER.md)负责。
+
+2026-11-24：U03/U08/U11/U12 的表单长字段修正见独立报告；不把隔离 ConPTY 当作 Windows Terminal 字体／IME／桌面证据，U06 长卡片、U16 会话排序、U19 停止入口及其他差异不关闭。

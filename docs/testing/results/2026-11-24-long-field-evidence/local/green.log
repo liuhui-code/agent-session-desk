@@ -1,0 +1,55 @@
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch/abcdef//middle=false
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch/abcdef//middle=true
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch/中文é👩\u200d💻1️⃣//middle=false
+    dialog_long_fields_test.go:55: [120 32] field end clipped before caret: &{Position:{X:97 Y:11} Color:{R:125 G:207 B:255 A:255} Shape:2 Blink:true}, row "                 │    › 👩\u200d💻1️⃣/中文é👩\u200d💻1️⃣/中文é👩\u200d💻1️⃣/中文é👩\u200d💻1️⃣/中文é👩\u200d💻1️⃣/中文é👩\u200d💻1️⃣/ZXtail/tail/tail/Q     │                │"
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch/中文é👩\u200d💻1️⃣//middle=true
+    dialog_long_fields_test.go:52: [120 32] caret no longer after original Z: "/", row "                 │    › 中文é👩\u200d💻1️⃣/中文é👩\u200d💻1️⃣/中文é👩\u200d💻1️⃣/中文é👩\u200d💻1️⃣/中文é👩\u200d💻1️⃣/中文é👩\u200d💻1️⃣/ZXtail/tail/ta    │                │"
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/rename/abcdef//middle=false
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/rename/abcdef//middle=true
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/rename/中文é👩\u200d💻1️⃣//middle=false
+    dialog_long_fields_test.go:55: [120 32] field end clipped before caret: &{Position:{X:75 Y:15} Color:{R:192 G:202 B:245 A:255} Shape:2 Blink:true}, row "                                     │      > /中文é👩\u200d💻1️⃣/ZXtail/tail/tail/Q       │                                     "
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/rename/中文é👩\u200d💻1️⃣//middle=true
+    dialog_long_fields_test.go:52: [120 32] caret no longer after original Z: " ", row "                                     │      > 文é👩\u200d💻1️⃣/中文é👩\u200d💻1️⃣/中文é👩\u200d💻1️⃣/ZX      │                                     "
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-name/abcdef//middle=false
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-name/abcdef//middle=true
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-name/中文é👩\u200d💻1️⃣//middle=false
+    dialog_long_fields_test.go:55: [120 32] field end clipped before caret: &{Position:{X:79 Y:14} Color:{R:192 G:202 B:245 A:255} Shape:2 Blink:true}, row "                                     │  名称:         > 👩\u200d💻1️⃣/ZXtail/tail/tail/Q   │                                     "
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-name/中文é👩\u200d💻1️⃣//middle=true
+    dialog_long_fields_test.go:52: [120 32] caret no longer after original Z: "t", row "                                     │  名称:         > /中文é👩\u200d💻1️⃣/中文é👩\u200d💻1️⃣/ZXt  │                                     "
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-dir/abcdef//middle=false
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-dir/abcdef//middle=true
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-dir/中文é👩\u200d💻1️⃣//middle=false
+    dialog_long_fields_test.go:55: [120 32] field end clipped before caret: &{Position:{X:79 Y:15} Color:{R:192 G:202 B:245 A:255} Shape:2 Blink:true}, row "                                     │  默认目录:     > 👩\u200d💻1️⃣/ZXtail/tail/tail/Q   │                                     "
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-dir/中文é👩\u200d💻1️⃣//middle=true
+    dialog_long_fields_test.go:52: [120 32] caret no longer after original Z: "t", row "                                     │  默认目录:     > /中文é👩\u200d💻1️⃣/中文é👩\u200d💻1️⃣/ZXt  │                                     "
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/search/abcdef//middle=false
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/search/abcdef//middle=true
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/search/中文é👩\u200d💻1️⃣//middle=false
+    dialog_long_fields_test.go:55: [120 32] field end clipped before caret: &{Position:{X:80 Y:15} Color:{R:192 G:202 B:245 A:255} Shape:2 Blink:true}, row "                             │  │ > é👩\u200d💻1️⃣/中文é👩\u200d💻1️⃣/中文é👩\u200d💻1️⃣/ZXtail/tail/tail/Q   │      │                             "
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/search/中文é👩\u200d💻1️⃣//middle=true
+    dialog_long_fields_test.go:52: [120 32] caret no longer after original Z: " ", row "                             │  │ > 1️⃣/中文é👩\u200d💻1️⃣/中文é👩\u200d💻1️⃣/中文é👩\u200d💻1️⃣/中文é👩\u200d💻1️⃣/ZXt │      │                             "
+--- FAIL: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize (0.06s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch/abcdef//middle=false (0.01s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch/abcdef//middle=true (0.01s)
+    --- FAIL: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch/中文é👩\u200d💻1️⃣//middle=false (0.00s)
+    --- FAIL: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch/中文é👩\u200d💻1️⃣//middle=true (0.00s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/rename/abcdef//middle=false (0.00s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/rename/abcdef//middle=true (0.00s)
+    --- FAIL: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/rename/中文é👩\u200d💻1️⃣//middle=false (0.00s)
+    --- FAIL: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/rename/中文é👩\u200d💻1️⃣//middle=true (0.00s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-name/abcdef//middle=false (0.00s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-name/abcdef//middle=true (0.00s)
+    --- FAIL: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-name/中文é👩\u200d💻1️⃣//middle=false (0.00s)
+    --- FAIL: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-name/中文é👩\u200d💻1️⃣//middle=true (0.00s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-dir/abcdef//middle=false (0.00s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-dir/abcdef//middle=true (0.00s)
+    --- FAIL: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-dir/中文é👩\u200d💻1️⃣//middle=false (0.00s)
+    --- FAIL: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-dir/中文é👩\u200d💻1️⃣//middle=true (0.00s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/search/abcdef//middle=false (0.00s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/search/abcdef//middle=true (0.00s)
+    --- FAIL: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/search/中文é👩\u200d💻1️⃣//middle=false (0.00s)
+    --- FAIL: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/search/中文é👩\u200d💻1️⃣//middle=true (0.00s)
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	1.355s
+FAIL

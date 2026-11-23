@@ -1,0 +1,44 @@
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch/abcdef//middle=false
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch/abcdef//middle=true
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch/中文é👩\u200d💻1️⃣//middle=false
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch/中文é👩\u200d💻1️⃣//middle=true
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/rename/abcdef//middle=false
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/rename/abcdef//middle=true
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/rename/中文é👩\u200d💻1️⃣//middle=false
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/rename/中文é👩\u200d💻1️⃣//middle=true
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-name/abcdef//middle=false
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-name/abcdef//middle=true
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-name/中文é👩\u200d💻1️⃣//middle=false
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-name/中文é👩\u200d💻1️⃣//middle=true
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-dir/abcdef//middle=false
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-dir/abcdef//middle=true
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-dir/中文é👩\u200d💻1️⃣//middle=false
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-dir/中文é👩\u200d💻1️⃣//middle=true
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/search/abcdef//middle=false
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/search/abcdef//middle=true
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/search/中文é👩\u200d💻1️⃣//middle=false
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/search/中文é👩\u200d💻1️⃣//middle=true
+--- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize (0.09s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch/abcdef//middle=false (0.01s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch/abcdef//middle=true (0.01s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch/中文é👩\u200d💻1️⃣//middle=false (0.01s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch/中文é👩\u200d💻1️⃣//middle=true (0.01s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/rename/abcdef//middle=false (0.00s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/rename/abcdef//middle=true (0.00s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/rename/中文é👩\u200d💻1️⃣//middle=false (0.00s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/rename/中文é👩\u200d💻1️⃣//middle=true (0.00s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-name/abcdef//middle=false (0.00s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-name/abcdef//middle=true (0.00s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-name/中文é👩\u200d💻1️⃣//middle=false (0.00s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-name/中文é👩\u200d💻1️⃣//middle=true (0.00s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-dir/abcdef//middle=false (0.00s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-dir/abcdef//middle=true (0.00s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-dir/中文é👩\u200d💻1️⃣//middle=false (0.00s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-dir/中文é👩\u200d💻1️⃣//middle=true (0.00s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/search/abcdef//middle=false (0.00s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/search/abcdef//middle=true (0.00s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/search/中文é👩\u200d💻1️⃣//middle=false (0.00s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/search/中文é👩\u200d💻1️⃣//middle=true (0.00s)
+PASS
+ok  	github.com/liuhui-code/agent-session-desk/internal/ui	0.894s

@@ -1,0 +1,26 @@
+{
+  "result": "passed_bounded_evidence_consistency",
+  "artifacts": 259,
+  "source_fingerprints": 210,
+  "dialog_cases": 36,
+  "model_size_states": 252,
+  "rune_boundary_cases": 5,
+  "final_native_ui": [
+    175,
+    403
+  ],
+  "prior_native_ui": [
+    174,
+    402
+  ],
+  "console_final": {
+    "events": 70,
+    "captures": 32,
+    "forced_product_ends": 0,
+    "manager_exit_code": 0,
+    "clipboard_api_calls": 0
+  },
+  "original_identities_ended": 18,
+  "earlier_console_failed_attempts": 5,
+  "scope": "not desktop, IME, full fidelity, real-agent, resource or release acceptance"
+}

@@ -24,12 +24,12 @@ func (m *Model) sizeGroupDialog() {
 	}
 	if d.rename {
 		_, _, width := m.sessionRenameWidths()
-		d.inputs[0].SetWidth(max(1, width-lipgloss.Width(d.inputs[0].Prompt)-1))
+		sizeInput(&d.inputs[0], width)
 		return
 	}
 	_, _, width := m.groupDialogWidths()
 	for i := range d.inputs {
-		d.inputs[i].SetWidth(max(1, width-lipgloss.Width(d.inputs[i].Prompt)-1))
+		sizeInput(&d.inputs[i], width)
 	}
 }
 func (m *Model) groupPath(id string) string {
@@ -137,7 +137,7 @@ func (m *Model) renderGroupDialog() (string, *tea.Cursor) {
 	view := overlayLaunchDialog(fitFrame("", m.width, m.height), box, x, y, m.width, m.height)
 	var cursor *tea.Cursor
 	if !d.move && !d.busy && !d.submitted && inputRow >= 0 && inputRow < maxRows {
-		cursor = d.inputs[d.focus].Cursor()
+		cursor = inputCursor(d.inputs[d.focus])
 		if cursor != nil {
 			cursor.X += x + m.styles.renameBox.GetBorderLeftSize() + t.rename.paddingX + max(0, (content-blockWidth)/2) + t.group.labelWidth
 			cursor.Y += y + m.styles.renameBox.GetBorderTopSize() + t.rename.paddingY + inputRow

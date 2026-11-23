@@ -1,0 +1,9 @@
+{
+  "Replace": {
+    "%REPO%/internal/ui/input_view.go": "%LOCAL_EVIDENCE%/before/input_view.go.txt",
+    "%REPO%/internal/ui/launch_dialog_view.go": "%LOCAL_EVIDENCE%/before/launch_dialog_view.go.txt",
+    "%REPO%/internal/ui/session_rename_view.go": "%LOCAL_EVIDENCE%/before/session_rename_view.go.txt",
+    "%REPO%/internal/ui/session_search_view.go": "%LOCAL_EVIDENCE%/before/session_search_view.go.txt",
+    "%REPO%/internal/ui/group_dialog_view.go": "%LOCAL_EVIDENCE%/before/group_dialog_view.go.txt"
+  }
+}
