@@ -17,6 +17,7 @@ import (
 )
 
 type styles struct {
+	pathBox, pathBrowseBox, pathText, pathSelected, pathCustom, pathCustomSelected, pathHint                                  lipgloss.Style
 	footerCuratedKey                                                                                                          lipgloss.Style
 	settingsSection, settingsFocusMarker, settingsChoiceIdle, settingsRadioIdle                                               lipgloss.Style
 	footerContext, footerKey, footerFullKey, footerDescription, footerSeparator, footerBadge, footerCompactBadge              lipgloss.Style
@@ -45,6 +46,13 @@ type styles struct {
 func newStyles(t designTokens, profile colorprofile.Profile) styles {
 	t = t.forDisplay(profile)
 	return styles{
+		pathBox:                 lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.colors.border).Background(t.paths.background).Padding(t.paths.paddingY, t.paths.paddingX),
+		pathBrowseBox:           lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.colors.cyan).Background(t.paths.background).Padding(t.paths.paddingY, t.paths.paddingX),
+		pathText:                lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.paths.background),
+		pathSelected:            lipgloss.NewStyle().Foreground(t.colors.cyan).Background(t.paths.background).Bold(t.bold),
+		pathCustom:              lipgloss.NewStyle().Foreground(t.paths.purple).Background(t.paths.background).Italic(t.paths.italic),
+		pathCustomSelected:      lipgloss.NewStyle().Foreground(t.colors.cyan).Background(t.paths.background).Bold(t.bold).Italic(t.paths.italic),
+		pathHint:                lipgloss.NewStyle().Foreground(t.colors.border).Background(t.paths.background),
 		footerCuratedKey:        lipgloss.NewStyle().Foreground(t.colors.dim).Bold(t.bold),
 		footerContext:           lipgloss.NewStyle().Foreground(t.footer.contextColor).Bold(t.bold),
 		footerKey:               lipgloss.NewStyle().Foreground(t.colors.bg).Background(t.colors.accent).Bold(t.bold),

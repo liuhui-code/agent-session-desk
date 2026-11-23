@@ -18,6 +18,7 @@ import (
 // there is no mutable global palette, file watcher or arbitrary theme format.
 // Zero/one in viewport algorithms are counts, not additional style choices.
 type designTokens struct {
+	paths     pathTokens
 	footer    footerTokens
 	help      helpTokens
 	confirm   confirmTokens
@@ -32,6 +33,13 @@ type designTokens struct {
 	layout    layoutTokens
 	marks     markTokens
 	bold      bool
+}
+
+type pathTokens struct {
+	background, purple                                                       color.Color
+	paddingX, paddingY, width, minWidth, minHeight, rows, shortRows, shortAt int
+	selected, idle, custom, above, below                                     string
+	italic                                                                   bool
 }
 
 type footerTokens struct {
@@ -136,6 +144,7 @@ type markTokens struct {
 func defaultDesignTokens() designTokens {
 	colors, purple := themePalette("dark")
 	return designTokens{
+		paths:   pathTokens{background: lipgloss.Color("#292e42"), purple: purple, paddingX: 1, width: 60, minWidth: 32, minHeight: 12, rows: 5, shortRows: 3, shortAt: 30, selected: "▶ ", idle: "  ", custom: "✎ 输入自定义路径…", above: "↑ 上方还有 ", below: "↓ 下方还有 ", italic: true},
 		footer:  footerTokens{curatedHintLimit: 3, curatedGap: 2, fullRightGutter: 2, compactRightGutter: 1, compactBelow: 70, fullAbove: 100, fullKeyPadding: 1, labelGap: 1, hintGap: 1, blockGap: 2, separator: " │ ", inlineSeparator: " · ", targetPrefix: "→ ", contextSuffix: ":", badgePrefix: " -- ", badgeSuffix: " -- ", badgePadding: 1, contextColor: purple},
 		help:    helpTokens{hintItalic: true, shortWidth: 58, fullWidth: 72, wideWidth: 82, wideAt: 100, minWidth: 37, gutter: 8, paddingX: 2, paddingY: 1, shortKeyWidth: 9, keyWidth: 14, compactKeyWidth: 10, compactBelow: 47, shortIndent: 1, rowIndent: 2, columnGap: 1, sectionGap: 1, footerGap: 1, screenReserve: 8, minContentRows: 10, pageStep: 10, keyColor: purple, above: "▲ 上方还有", below: "▼ 下方还有", separator: " │ "},
 		confirm: confirmTokens{preferredWidth: 52, responsiveBelow: 60, narrowGutter: 8, paddingX: 2, paddingY: 1, sectionGap: 1, buttonPadding: 2, buttonGap: 2, nameIndent: 2, titlePrefix: "⚠  ", bullet: "• ", focusedPrefix: "▸ ", idlePrefix: "  ", nameOpen: "\"", nameClose: "\""},
@@ -174,6 +183,11 @@ func themePalette(theme string) (palette, color.Color) {
 func (t designTokens) withTheme(theme string) designTokens {
 	colors, purple := themePalette(theme)
 	t.colors = colors
+	t.paths.purple = purple
+	t.paths.background = lipgloss.Color("#292e42")
+	if theme == "light" {
+		t.paths.background = lipgloss.Color("#dcdde2")
+	}
 	t.footer.contextColor, t.help.keyColor, t.rename.borderColor = purple, purple, purple
 	return t
 }
@@ -185,6 +199,10 @@ func (t designTokens) withTheme(theme string) designTokens {
 func (t designTokens) forDisplay(profile colorprofile.Profile) designTokens {
 	if profile == colorprofile.ANSI || profile == colorprofile.ANSI256 || profile == colorprofile.ASCII || profile == colorprofile.NoTTY {
 		return t.forLimitedDisplay(profile)
+	}
+	// ADR-0037: pinned floating-menu dark RGB is emitted as 40,46,65.
+	if t.paths.background == lipgloss.Color("#292e42") {
+		t.paths.background = lipgloss.Color("#282e41")
 	}
 	if t.colors.accent == lipgloss.Color("#7aa2f7") {
 		t.colors.accent = lipgloss.Color("#79a2f7")
@@ -219,6 +237,8 @@ func sourceIndexedColor(value color.Color, profile colorprofile.Profile) color.C
 		return nil
 	}
 	for _, rule := range [...]struct{ authored, ansi, ansi256 string }{
+		{"#292e42", "4", "17"},
+		{"#dcdde2", "7", "188"},
 		{"#166775", "12", "24"},
 		{"#1a1b26", "0", "232"},
 		{"#24283b", "4", "17"},
@@ -253,10 +273,11 @@ func sourceIndexedColor(value color.Color, profile colorprofile.Profile) color.C
 }
 
 func (t designTokens) forLimitedDisplay(profile colorprofile.Profile) designTokens {
-	for _, value := range []*color.Color{&t.colors.bg, &t.colors.surface, &t.colors.border, &t.colors.text, &t.colors.dim, &t.colors.accent, &t.colors.cyan, &t.colors.red, &t.colors.yellow, &t.footer.contextColor, &t.help.keyColor, &t.rename.borderColor, &t.group.placeholderColor, &t.search.placeholderColor, &t.search.countColor} {
+	for _, value := range []*color.Color{&t.paths.background, &t.paths.purple, &t.colors.bg, &t.colors.surface, &t.colors.border, &t.colors.text, &t.colors.dim, &t.colors.accent, &t.colors.cyan, &t.colors.red, &t.colors.yellow, &t.footer.contextColor, &t.help.keyColor, &t.rename.borderColor, &t.group.placeholderColor, &t.search.placeholderColor, &t.search.countColor} {
 		*value = sourceIndexedColor(*value, profile)
 	}
 	if profile == colorprofile.ASCII || profile == colorprofile.NoTTY {
+		t.paths.italic = false
 		t.bold, t.help.hintItalic, t.search.hintItalic, t.sidebar.underlineChoice = false, false, false, false
 	}
 	return t

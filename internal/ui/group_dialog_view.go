@@ -146,5 +146,8 @@ func (m *Model) renderGroupDialog() (string, *tea.Cursor) {
 			}
 		}
 	}
+	if !d.move && d.focus == 1 && inputRow >= 0 && !d.busy && !d.submitted {
+		view = m.overlayPathPicker(view, d.paths, x+m.styles.renameBox.GetBorderLeftSize()+t.rename.paddingX+max(0, (content-blockWidth)/2)+t.group.labelWidth, y+m.styles.renameBox.GetBorderTopSize()+t.rename.paddingY+inputRow)
+	}
 	return view, cursor
 }

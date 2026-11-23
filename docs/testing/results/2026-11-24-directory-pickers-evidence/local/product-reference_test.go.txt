@@ -1,0 +1,18 @@
+package ui
+import (
+ "context"
+ "encoding/json"
+ "os"
+ "testing"
+ "github.com/liuhui-code/agent-session-desk/internal/pathsuggest"
+)
+func TestASDDirectoryProductReference(t *testing.T){
+ paths:=[]string{"/projects/Alpha","/projects/alpine","/work/中文 空格","/work/other","/work/five","/work/six","/work/seven"}
+ m:=New(context.Background(),newGroupedFixture());defer m.Close();m.width,m.height=120,40
+ m.groupIntent=&groupDialog{};m.openGroupDialog();g:=m.groupDialog;g.focus=1;g.inputs[0].Blur();g.inputs[1].Focus();p:=g.paths;p.corpus=paths;p.matches=paths
+ var states []map[string]any
+ capture:=func(key string){states=append(states,map[string]any{"key":key,"selected":p.selected,"value":g.inputs[1].Value(),"visible":!p.hidden&&len(p.matches)>0,"focus":g.focus})}
+ capture("initial");m.pathPickerKey(p,"down","");capture("down");m.pathPickerKey(p,"enter","");capture("parent_accept")
+ result:=map[string]any{"group_states":states,"fuzzy":pathsuggest.Filter(paths,"ALP",nil)}
+ b,e:=json.MarshalIndent(result,"","  ");if e!=nil{t.Fatal(e)};if e=os.WriteFile(os.Getenv("ASD_DIRECTORY_PRODUCT_REFERENCE"),b,0600);e!=nil{t.Fatal(e)}
+}

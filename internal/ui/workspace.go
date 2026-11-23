@@ -37,6 +37,7 @@ const (
 )
 
 type workspaceState struct {
+	directories                directoryState
 	programPointer             *workspaceProgramPointer
 	copyPointer                *workspaceCopyPointer
 	visibleCopy                *visiblePaneCopy

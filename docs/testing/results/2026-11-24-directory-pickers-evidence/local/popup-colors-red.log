@@ -1,0 +1,5 @@
+--- FAIL: TestDirectoryPopupUsesMeasuredSourceDisplayBackground (0.00s)
+    path_picker_view_test.go:28: TrueColor/dark background: {41 46 66 255} want #282e41
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.813s
+FAIL

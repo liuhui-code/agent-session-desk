@@ -717,7 +717,7 @@
 
 - 功能：[FL-001](../COVERAGE.md#fl-001)、[FL-016](../COVERAGE.md#fl-016)
 - 需求：[FR-01](../COVERAGE.md#fr-01)、[FR-11](../COVERAGE.md#fr-11)
-- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0037](../../adr/0037-directory-pickers-and-bounded-recents.md)
 - 优先级 / 阶段 / 层次：P1 / M1 / windows_e2e
 - 类型：functional、negative、usability
 - 设计 / 执行：`designed / not_run`
@@ -735,11 +735,13 @@
 
 1. 填写有效命令与参数，取消表单或使用已定义的关闭动作。
 2. 回到列表检查新会话与进程树，再重新打开表单。
+3. 打开目录建议并在自定义／已有项间浏览、采纳、隐藏后取消；阻塞目录扫描或缓存写入，核对取消不启动、旧结果不注入原终端。
 
 #### 预期与不变量
 
 - 没有提交动作就不创建 agent Run；取消不会改动其他运行会话。
 - 草稿保留或清空符合已记录的表单规则，不被错误当作已启动项。
+- 目录浏览、采纳或取消都不创建 Run；只有明确成功启动写最近目录，失败／不确定结果不写；提示缓存错误不能把已启动改成失败或自动重试。
 
 #### 需要的证据
 
@@ -1869,7 +1871,7 @@
 
 - 功能：[FL-003](../COVERAGE.md#fl-003)
 - 需求：[FR-03](../COVERAGE.md#fr-03)、[FR-11](../COVERAGE.md#fr-11)
-- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0014](../../adr/0014-upstream-ui-tabs-and-general-terminals.md)、[ADR-0017](../../adr/0017-sidebar-density-preferences.md)、[ADR-0022](../../adr/0022-default-group-sidebar-navigation.md)、[ADR-0027](../../adr/0027-persistent-workspace-split.md)、[ADR-0034](../../adr/0034-configured-footer-modes.md)、[ADR-0035](../../adr/0035-pinned-source-display-colors.md)、[ADR-0036](../../adr/0036-framework-color-profile-display.md)
+- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0014](../../adr/0014-upstream-ui-tabs-and-general-terminals.md)、[ADR-0017](../../adr/0017-sidebar-density-preferences.md)、[ADR-0022](../../adr/0022-default-group-sidebar-navigation.md)、[ADR-0027](../../adr/0027-persistent-workspace-split.md)、[ADR-0034](../../adr/0034-configured-footer-modes.md)、[ADR-0035](../../adr/0035-pinned-source-display-colors.md)、[ADR-0036](../../adr/0036-framework-color-profile-display.md)、[ADR-0037](../../adr/0037-directory-pickers-and-bounded-recents.md)
 - 优先级 / 阶段 / 层次：P1 / M0 / manual
 - 类型：usability、functional
 - 设计 / 执行：`designed / not_run`
@@ -1897,6 +1899,7 @@
 10. 通过隔离 ui.toml v7 配置 full／compact／minimal／curated，50 列前后、70／100／101／160 列及组／空列表／不可连接行核对；修改主题／密度后重开，测试终端焦点 S／方向键仍属程序。
 11. 在固定来源和产品 TrueColor helper 中分别读取作者色值与实际显示值，逐单元格对照两主题 20 角色及 6 组合；再在真实 View 同时显示原终端 RGB／索引属性，分开检查管理样式和终端内容。
 12. 固定 TrueColor／ANSI256／ANSI／ASCII，在来源与产品真实渲染器禁用输入、只写内存，对照 24 颜色／6 组合；再向实际 Model 报告能力，往返有限能力／TrueColor，检查模态、原 Run／草稿和默认色请求／复位包。
+13. 在新建／创建分组目录字段对照来源建议：预选与自定义项、浏览／编辑／软选择、Tab 文件系统轮换、非空无效目录留在字段；输入期间延迟扫描，关闭／换字段／新弹窗后交付旧结果。按主题、四能力与宽／窄／低窗口核对浮层和输入焦点。
 
 #### 预期与不变量
 
@@ -1913,6 +1916,7 @@
 - 默认 full 仍宽度自适应，compact／minimal 强制对应层级，curated 最多三个真实上下文动作并保留最后 S／?；窄于 50 列沿既有提示。配置经其他整份保存保留，旧 v1–v6 只读／显式升级且旧程序拒读 v7；来源配置归一化与精确 SGR 差异单列，不把 112 模型帧或 144 来源参考状态当作 Windows／整帧接受。
 - 作者 20 色保持；仅样式构造的 token 显示副本映射 Dark accent／Light dim 两个已测来源值，20 角色和 6 组合精确匹配，不使用 RGB 容差。原终端 RGB／索引颜色、身份与输入不改；16／256 色、Windows／字体／恢复和整体视觉仍需独立证据，前轮差异档案保留。
 - 四能力各 30 项固定显示角色精确一致，ANSI／256 比较调色板索引而非用户终端的绝对 RGB；无色去管理属性，作者 tokens 与原终端屏幕属性不改。有限模式不请求 RGB 默认色，未知／坏能力不覆盖已知值；默认色包复位不冒充实际恢复，用户自定义调色板／Windows／完整视觉仍需独立执行。
+- 分组 Tab/Enter 只采纳不提交，Esc 先隐藏；新建自定义项回编辑，实际项 Enter 采纳并下一项。自动扫描仅路径形查询、显式 Tab 可补齐普通相对目录，单次至多 10000 条／20 候选，至多一个实际扫描／一个最新待发；迟到结果不改新输入，极小视口恢复编辑焦点。最近目录按 backend scope 分离，成功明确启动后才记录，20 条／4096 字节／192 KiB；坏版本拒绝覆盖，保存失败不重复启动。独立 UI 建议缓存不充当历史或备份内容，ui.toml v7／SQLite v5 不变。
 
 #### 需要的证据
 

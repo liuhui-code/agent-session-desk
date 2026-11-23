@@ -169,10 +169,7 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	if m.closed {
 		return m, nil
 	}
-	if m.colorProfileEvent(msg) {
-		return m, nil
-	}
-	if cmd, handled := m.systemThemeEvent(msg); handled {
+	if cmd, handled := m.passiveEvent(msg); handled {
 		return m, cmd
 	}
 	if m.workspace != nil {

@@ -9,6 +9,7 @@ require (
 	github.com/BurntSushi/toml v1.6.0
 	github.com/charmbracelet/colorprofile v0.4.3
 	github.com/charmbracelet/x/ansi v0.11.9
+	github.com/sahilm/fuzzy v0.1.3
 	golang.org/x/sys v0.49.0
 	modernc.org/sqlite v1.62.0
 )

@@ -1,0 +1,5 @@
+--- FAIL: TestRecentDirectoriesRememberLatestThenRestoreWithoutRewritingOnRead (0.00s)
+    recent_dirs_test.go:23: recent directories not restored in latest-first order: [] <nil>
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/config	1.129s
+FAIL

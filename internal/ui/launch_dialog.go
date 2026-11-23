@@ -9,6 +9,8 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"github.com/liuhui-code/agent-session-desk/internal/pathsuggest"
+	"path/filepath"
 	"strings"
 
 	"charm.land/bubbles/v2/textinput"
@@ -22,6 +24,7 @@ type launchService interface {
 	Start(context.Context, session.Launch) (session.Session, error)
 }
 type launchDialog struct {
+	paths           *pathPicker
 	groupID         string
 	firstSession    bool
 	fields          []textinput.Model
@@ -32,6 +35,7 @@ type launchDialog struct {
 type launchResult struct {
 	dialog  *launchDialog
 	session session.Session
+	dir     string
 	err     error
 }
 
@@ -40,7 +44,7 @@ func (m *Model) openLaunchDialog() tea.Cmd {
 		m.status = "当前接入不支持创建终端"
 		return nil
 	}
-	d := &launchDialog{firstSession: len(m.sessions) == 0}
+	d := &launchDialog{firstSession: len(m.sessions) == 0, paths: m.newPathPicker(true)}
 	group := m.launchGroup
 	m.launchGroup = session.Group{}
 	d.groupID = group.ID
@@ -88,22 +92,30 @@ func (m *Model) launchEvent(msg tea.Msg) (tea.Cmd, bool) {
 			m.listCancel()
 		}
 		m.launch = nil
-		return m.acceptLaunchedSession(result.session), true
+		return tea.Batch(m.acceptLaunchedSession(result.session), m.rememberDirectory(result.dir)), true
 	}
 	d := m.launch
 	if d == nil {
 		return nil, false
 	}
+	if m.deferPathTab(msg) {
+		return nil, true
+	}
 	switch msg := msg.(type) {
 	case tea.WindowSizeMsg:
 		m.width, m.height = max(0, msg.Width), max(0, msg.Height)
 		m.sizeLaunchDialog()
-		return nil, true
-	case tea.KeyReleaseMsg:
+		return m.reconcilePathViewport(), true
+	case tea.KeyReleaseMsg, tea.MouseClickMsg, tea.MouseReleaseMsg, tea.MouseMotionMsg, tea.MouseWheelMsg:
 		return nil, true
 	case tea.KeyPressMsg:
 		if d.busy {
 			return nil, true
+		}
+		if d.focus == 2 {
+			if cmd, ok := m.pathPickerKey(d.paths, msg.String(), msg.Text); ok {
+				return cmd, true
+			}
 		}
 		switch msg.String() {
 		case "esc", "ctrl+c":
@@ -130,7 +142,11 @@ func (m *Model) launchEvent(msg tea.Msg) (tea.Cmd, bool) {
 			return nil, true
 		}
 		var cmd tea.Cmd
+		before := d.fields[d.focus].Value()
 		d.fields[d.focus], cmd = d.fields[d.focus].Update(msg)
+		if d.focus == 2 && d.fields[2].Value() != before {
+			cmd = tea.Batch(cmd, m.pathEdited(d.paths, d.fields[2].Value()))
+		}
 		return cmd, true
 	case tea.PasteMsg:
 		if d.busy || d.focus >= len(d.fields) {
@@ -145,7 +161,16 @@ func (m *Model) launchEvent(msg tea.Msg) (tea.Cmd, bool) {
 			return nil, true
 		}
 		var cmd tea.Cmd
+		if d.focus == 2 && d.paths.soft {
+			d.fields[2].SetValue("")
+			d.paths.soft = false
+			d.fields[2].Focus()
+		}
+		before := d.fields[d.focus].Value()
 		d.fields[d.focus], cmd = d.fields[d.focus].Update(msg)
+		if d.focus == 2 && d.fields[2].Value() != before {
+			cmd = tea.Batch(cmd, m.pathEdited(d.paths, d.fields[2].Value()))
+		}
 		return cmd, true
 	}
 	return nil, false
@@ -153,17 +178,32 @@ func (m *Model) launchEvent(msg tea.Msg) (tea.Cmd, bool) {
 
 func (m *Model) focusLaunchField(index int) tea.Cmd {
 	d := m.launch
+	if d.focus == 2 && index != 2 {
+		m.cancelPathPicker(d.paths)
+	}
 	for i := range d.fields {
 		d.fields[i].Blur()
 	}
 	d.focus = index
 	if index < len(d.fields) {
-		return d.fields[index].Focus()
+		cmd := d.fields[index].Focus()
+		if index == 2 {
+			d.paths.soft = d.fields[2].Value() != "" && m.pathPopupAvailable()
+			if d.paths.soft {
+				d.fields[2].Blur()
+				cmd = nil
+			}
+			d.paths.active = false
+			d.paths.hidden = false
+			cmd = tea.Batch(cmd, m.requestPaths(d.paths, d.fields[2].Value()))
+		}
+		return cmd
 	}
 	return nil
 }
 
 func (m *Model) cancelLaunchDialog() tea.Cmd {
+	m.cancelPathPicker(m.launch.paths)
 	m.launch = nil
 	w := m.workspace
 	if w.conn != nil {
@@ -199,8 +239,21 @@ func (m *Model) submitLaunchDialog() tea.Cmd {
 		d.err = err
 		return nil
 	}
+	m.cancelPathPicker(d.paths)
 	d.busy = true
 	d.err = nil
 	service, ctx := m.service.(launchService), m.ctx
-	return func() tea.Msg { s, err := service.Start(ctx, l); return launchResult{d, s, err} }
+	return func() tea.Msg {
+		var err error
+		l.Dir, err = pathsuggest.ExpandHome(l.Dir)
+		if err != nil {
+			return launchResult{dialog: d, err: err}
+		}
+		s, err := service.Start(ctx, l)
+		dir := ""
+		if l.Dir != "" {
+			dir, _ = filepath.Abs(l.Dir)
+		}
+		return launchResult{dialog: d, session: s, dir: dir, err: err}
+	}
 }

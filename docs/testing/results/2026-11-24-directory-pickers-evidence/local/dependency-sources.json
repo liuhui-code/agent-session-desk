@@ -1,0 +1,27 @@
+{
+  "module": "github.com/sahilm/fuzzy",
+  "version": "v0.1.3",
+  "license": "MIT",
+  "commit": "8aadc77d46cf09f5dc529d41358a94a24516c0b6",
+  "info": {
+    "Version": "v0.1.3",
+    "Time": "2026-06-11T10:56:13Z",
+    "Origin": {
+      "VCS": "git",
+      "URL": "https://github.com/sahilm/fuzzy",
+      "Hash": "8aadc77d46cf09f5dc529d41358a94a24516c0b6",
+      "Ref": "refs/tags/v0.1.3"
+    }
+  },
+  "sha256": {
+    "fuzzy.go": "ad3685b9317f1d642d425b2985e65c5002edb07e5e7d2bb5fa87033d70509bb1",
+    "go.mod": "65031811e1fd30cf3402438ba852756d95990a9e7e4a466592b9e92ab6e22f8a",
+    "LICENSE": "079761b785aaf03158eeb4e9256b9f081ab23d0f63b62794ae92cddb41f39780"
+  },
+  "references": [
+    "https://github.com/sahilm/fuzzy",
+    "https://github.com/sahilm/fuzzy/releases/tag/v0.1.3"
+  ],
+  "context7": "resolve attempted twice; no matching library; unrelated IDs not queried",
+  "existing_module_versions_changed": false
+}

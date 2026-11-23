@@ -14,9 +14,10 @@ func loadUIOptions(options backend.Options, dir string) ui.Options {
 	if err != nil {
 		return ui.Options{SidebarPreferenceError: err}
 	}
+	recent, _ := recentDirectoriesPath(options, dir)
 	path := filepath.Join(filepath.Dir(metadata), "ui.toml")
 	settings, err := config.LoadUI(path)
-	return ui.Options{Footer: settings.Footer, Theme: settings.Theme, SidebarPercent: settings.SidebarPercent, SidebarDensity: settings.SidebarDensity, SidebarMode: settings.SidebarMode, DefaultGroupCollapsed: settings.DefaultGroupCollapsed, CollapsedGroups: settings.CollapsedGroups, SidebarPreferenceError: err, SaveUISettings: func(ctx context.Context, settings config.UISettings) error {
+	return ui.Options{LoadRecentDirs: func(ctx context.Context) ([]string, error) { return config.LoadRecentDirs(ctx, recent) }, RememberDirs: func(ctx context.Context, dirs []string) error { return config.RememberDirs(ctx, recent, dirs) }, Footer: settings.Footer, Theme: settings.Theme, SidebarPercent: settings.SidebarPercent, SidebarDensity: settings.SidebarDensity, SidebarMode: settings.SidebarMode, DefaultGroupCollapsed: settings.DefaultGroupCollapsed, CollapsedGroups: settings.CollapsedGroups, SidebarPreferenceError: err, SaveUISettings: func(ctx context.Context, settings config.UISettings) error {
 		if err := ctx.Err(); err != nil {
 			return err
 		}

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "date": "2026-11-24",
-  "scope": "Selective UI/platform migration through ADR-0036; full upstream experience and release acceptance remain open.",
+  "scope": "Selective UI/platform migration through ADR-0037; full upstream experience and release acceptance remain open.",
   "original_project_license": "pending O-010",
   "source_files": [
     {
@@ -908,6 +908,90 @@
       ],
       "mode": "selectively_adapted",
       "modifications": "ADR-0034: localized supported product actions, token-only style/fitting, UI preference v7 and explicit terminal-focus ownership. No provider restart/fork/status business migration."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/pathfuzzy.go",
+      "source_sha256": "c55df7868a1555b07023cb46489981dbb6f98c98cf710de16f106e401adac18b",
+      "destination_file": "internal/pathsuggest/directories.go",
+      "license": "MIT",
+      "parts": [
+        "stable case-insensitive fuzzy corpus ranking and deduplicated disk merge"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "ADR-0037: stable v2, localized token styles, bounded single-flight scans, current modal/query fences, tiny viewport edit fallback and separate bounded UI hints. No Run history/cwd inference, shell expansion or v1 UI dependency."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/session/utils.go",
+      "source_sha256": "609920557d505f58a1e47e802a8870c797b5f3869d1f722833ba5917efa2202a",
+      "destination_file": "internal/pathsuggest/directories.go",
+      "license": "MIT",
+      "parts": [
+        "bounded directory scan, explicit-dot hidden filtering and symlink parent traversal"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "ADR-0037: stable v2, localized token styles, bounded single-flight scans, current modal/query fences, tiny viewport edit fallback and separate bounded UI hints. No Run history/cwd inference, shell expansion or v1 UI dependency."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/newdialog.go",
+      "source_sha256": "46bf00ebc78acff15ff9f5b0d8f4beb055b2472e35f535f44529f8729a7a0c57",
+      "destination_file": "internal/ui/path_picker_keys.go",
+      "license": "MIT",
+      "parts": [
+        "custom item, browse/edit/soft selection, explicit completion cycling"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "ADR-0037: stable v2, localized token styles, bounded single-flight scans, current modal/query fences, tiny viewport edit fallback and separate bounded UI hints. No Run history/cwd inference, shell expansion or v1 UI dependency."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/group_dialog.go",
+      "source_sha256": "0951f9efb6ed7d2cb6cf940fc476bb457f934cfb95bcc45f80c5e9cd6a003676",
+      "destination_file": "internal/ui/path_picker_keys.go",
+      "license": "MIT",
+      "parts": [
+        "preselected cyclic directory choices and separate accept/dismiss"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "ADR-0037: stable v2, localized token styles, bounded single-flight scans, current modal/query fences, tiny viewport edit fallback and separate bounded UI hints. No Run history/cwd inference, shell expansion or v1 UI dependency."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/newdialog.go",
+      "source_sha256": "46bf00ebc78acff15ff9f5b0d8f4beb055b2472e35f535f44529f8729a7a0c57",
+      "destination_file": "internal/ui/path_picker_view.go",
+      "license": "MIT",
+      "parts": [
+        "floating menu palette, selected/custom style roles and short/normal page sizes"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "ADR-0037: stable v2, localized token styles, bounded single-flight scans, current modal/query fences, tiny viewport edit fallback and separate bounded UI hints. No Run history/cwd inference, shell expansion or v1 UI dependency."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/group_dialog.go",
+      "source_sha256": "0951f9efb6ed7d2cb6cf940fc476bb457f934cfb95bcc45f80c5e9cd6a003676",
+      "destination_file": "internal/ui/path_picker_view.go",
+      "license": "MIT",
+      "parts": [
+        "centered visible suggestion range, hidden counts and accept/dismiss hint"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "ADR-0037: stable v2, localized token styles, bounded single-flight scans, current modal/query fences, tiny viewport edit fallback and separate bounded UI hints. No Run history/cwd inference, shell expansion or v1 UI dependency."
     }
   ],
   "preserved_notices": [
@@ -959,6 +1043,13 @@
       "path": "third_party/dark-mode-go/LICENSE",
       "sha256": "41a38ec3e59827c667b162a499a88e5577a11e5dda9777a17b7c1c13b4376d97",
       "copied_verbatim": true
+    },
+    {
+      "project": "sahilm-fuzzy",
+      "commit": "8aadc77d46cf09f5dc529d41358a94a24516c0b6",
+      "path": "third_party/sahilm-fuzzy/LICENSE",
+      "sha256": "079761b785aaf03158eeb4e9256b9f081ab23d0f63b62794ae92cddb41f39780",
+      "copied_verbatim": true
     }
   ],
   "reference_only": [
@@ -988,6 +1079,17 @@
       "license": "MIT",
       "mode": "diagnostic_overlay_only",
       "modifications": "One tagged key-record observation call; only a temporary exact module copy/modfile/overlay builds it. Normal dependency and product source unchanged."
+    }
+  ],
+  "module_dependencies": [
+    {
+      "module": "github.com/sahilm/fuzzy",
+      "version": "v0.1.3",
+      "commit": "8aadc77d46cf09f5dc529d41358a94a24516c0b6",
+      "license": "MIT",
+      "mode": "module_dependency_no_source_copy",
+      "go_sum": "h1:juByESSS32nVD81vr6tHmKmA/8zde7gE+x5CLxrzXPU=",
+      "go_mod_sum": "h1:au6//VbVSqu6DFrkL2CfjlJ5iURpNCPeE+1GwY3XsT8="
     }
   ]
 }

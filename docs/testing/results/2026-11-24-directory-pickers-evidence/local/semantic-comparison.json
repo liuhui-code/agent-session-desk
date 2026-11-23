@@ -1,0 +1,67 @@
+{
+  "result": "matched_bounded_source_component_semantics",
+  "cases": [
+    {
+      "name": "fuzzy",
+      "matches": true,
+      "source": [
+        "/projects/Alpha",
+        "/projects/alpine"
+      ],
+      "product": [
+        "/projects/Alpha",
+        "/projects/alpine"
+      ]
+    },
+    {
+      "name": "group_states",
+      "matches": true,
+      "source": [
+        {
+          "focus": 1,
+          "key": "initial",
+          "selected": 0,
+          "value": "",
+          "visible": true
+        },
+        {
+          "focus": 1,
+          "key": "down",
+          "selected": 1,
+          "value": "",
+          "visible": true
+        },
+        {
+          "focus": 1,
+          "key": "parent_accept",
+          "selected": 1,
+          "value": "/projects/alpine",
+          "visible": false
+        }
+      ],
+      "product": [
+        {
+          "focus": 1,
+          "key": "initial",
+          "selected": 0,
+          "value": "",
+          "visible": true
+        },
+        {
+          "focus": 1,
+          "key": "down",
+          "selected": 1,
+          "value": "",
+          "visible": true
+        },
+        {
+          "focus": 1,
+          "key": "parent_accept",
+          "selected": 1,
+          "value": "/projects/alpine",
+          "visible": false
+        }
+      ]
+    }
+  ]
+}

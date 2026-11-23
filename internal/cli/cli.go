@@ -221,6 +221,7 @@ func run(ctx context.Context, args []string, input io.Reader, output, errorOutpu
 		if err != nil {
 			return err
 		}
+		rememberLaunchDirectory(ctx, options, stateDir, launch.Dir, errorOutput)
 		return writeJSON(output, created)
 	}
 	sessions, err := service.List(ctx)

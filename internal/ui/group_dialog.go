@@ -19,6 +19,7 @@ type groupRenameService interface {
 	RenameGroup(context.Context, session.Group, string) (session.Group, error)
 }
 type groupDialog struct {
+	paths                         *pathPicker
 	move, rename, busy, submitted bool
 	groupTarget                   session.Group
 	contextID, parentID           string
@@ -76,6 +77,9 @@ func (m *Model) openGroupDialog() tea.Cmd {
 		return m.connectWorkspace()
 	}
 	m.groupDialog = d
+	if !d.move && !d.rename {
+		d.paths = m.newPathPicker(false)
+	}
 	m.workspace.focused = false
 	if d.move {
 		return nil
@@ -152,15 +156,21 @@ func (m *Model) groupDialogEvent(msg tea.Msg) (tea.Cmd, bool) {
 	case tea.WindowSizeMsg:
 		m.width, m.height = max(0, msg.Width), max(0, msg.Height)
 		m.sizeGroupDialog()
-		return nil, true
+		return m.reconcilePathViewport(), true
 	case tea.KeyReleaseMsg, tea.MouseClickMsg, tea.MouseReleaseMsg, tea.MouseMotionMsg, tea.MouseWheelMsg:
 		return nil, true
 	case tea.KeyPressMsg:
 		if d.busy {
 			return nil, true
 		}
+		if !d.move && !d.rename && !d.submitted && d.focus == 1 {
+			if cmd, ok := m.pathPickerKey(d.paths, msg.String(), msg.Text); ok {
+				return cmd, true
+			}
+		}
 		switch msg.String() {
 		case "esc", "ctrl+c":
+			m.cancelPathPicker(d.paths)
 			m.groupDialog = nil
 			return tea.Batch(m.connectWorkspace(), m.loadSessions()), true
 		case "enter":
@@ -186,9 +196,17 @@ func (m *Model) groupDialogEvent(msg tea.Msg) (tea.Cmd, bool) {
 		}
 		switch msg.String() {
 		case "tab", "shift+tab":
+			if d.focus == 1 {
+				m.cancelPathPicker(d.paths)
+			}
 			d.inputs[d.focus].Blur()
 			d.focus = 1 - d.focus
-			return d.inputs[d.focus].Focus(), true
+			cmd := d.inputs[d.focus].Focus()
+			if d.focus == 1 {
+				d.paths.hidden = false
+				cmd = tea.Batch(cmd, m.requestPaths(d.paths, d.inputs[1].Value()))
+			}
+			return cmd, true
 		case "up", "down":
 			if d.contextID != "" {
 				if d.parentID == "" {
@@ -205,7 +223,11 @@ func (m *Model) groupDialogEvent(msg tea.Msg) (tea.Cmd, bool) {
 			return nil, true
 		}
 		var cmd tea.Cmd
+		before := d.inputs[d.focus].Value()
 		d.inputs[d.focus], cmd = d.inputs[d.focus].Update(msg)
+		if !d.rename && d.focus == 1 && d.inputs[1].Value() != before {
+			cmd = tea.Batch(cmd, m.pathEdited(d.paths, d.inputs[1].Value()))
+		}
 		d.err = nil
 		return cmd, true
 	case tea.PasteMsg:
@@ -217,7 +239,11 @@ func (m *Model) groupDialogEvent(msg tea.Msg) (tea.Cmd, bool) {
 			return nil, true
 		}
 		var cmd tea.Cmd
+		before := d.inputs[d.focus].Value()
 		d.inputs[d.focus], cmd = d.inputs[d.focus].Update(msg)
+		if !d.rename && d.focus == 1 && d.inputs[1].Value() != before {
+			cmd = tea.Batch(cmd, m.pathEdited(d.paths, d.inputs[1].Value()))
+		}
 		d.err = nil
 		return cmd, true
 	}
@@ -255,6 +281,7 @@ func (m *Model) submitGroupDialog() tea.Cmd {
 			return nil
 		}
 	}
+	m.cancelPathPicker(d.paths)
 	d.busy, d.submitted, d.err = true, true, nil
 	ctx, parent, expected, groupTarget := m.ctx, d.parentID, d.target, d.groupTarget
 	service := m.service

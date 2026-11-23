@@ -114,6 +114,9 @@ func (m *Model) renderLaunchDialog() (string, *tea.Cursor) {
 			}
 		}
 	}
+	if d.focus == 2 && cursorRow >= 0 && !d.busy {
+		view = m.overlayPathPicker(view, d.paths, x+dialogStyle.GetBorderLeftSize()+t.paddingX, y+dialogStyle.GetBorderTopSize()+paddingY+cursorRow)
+	}
 	return view, cursor
 }
 

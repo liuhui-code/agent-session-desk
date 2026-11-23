@@ -1,0 +1,5 @@
+--- FAIL: TestDirectoryCompletionAndFuzzyCorpus (0.00s)
+    directories_test.go:14: prefix completion: pathsuggest.Completion{Paths:[]string(nil), Exact:false}
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/pathsuggest	1.125s
+FAIL

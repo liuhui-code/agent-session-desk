@@ -202,3 +202,5 @@ M1 收尾按[验收清单](testing/M1_ACCEPTANCE.md)推进；显式有界屏幕�
 2026-11-24：按 [ADR-0035](adr/0035-pinned-source-display-colors.md) 局部关闭前轮三组 TrueColor 样式差异；[本地 20 配色角色和 6 组合](testing/results/2026-11-24-source-colors.md)精确一致，原作者 tokens／原终端属性保留。16／256 色、Windows 字体／恢复、原来源完整交互、真实 agent 和最终发布仍待验收。
 
 2026-11-24：按 [ADR-0036](adr/0036-framework-color-profile-display.md) 补有限颜色能力显示，固定 120 项的来源／产品真实渲染器对照从 64 项一致推进到 120 项一致；[证据](testing/results/2026-11-24-color-profiles.md)包括模态／原 Run 和输入保留、默认色请求／复位。真实终端的自定义调色板、默认色恢复、Windows／字体／完整交互与发布继续开放。
+
+2026-11-24 目录还原进展：[ADR-0037](adr/0037-directory-pickers-and-bounded-recents.md) 新建／分组路径选择、有界最近目录和本地来源对照见[报告](testing/results/2026-11-24-directory-pickers.md)。继续 Windows 原生／桌面、真实 agent、输入与视觉接受；env／模板 UI、完整状态矩阵、资源及发布门槛仍开放，不提升阶段状态。

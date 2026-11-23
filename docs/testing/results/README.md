@@ -33,3 +33,5 @@
 - [2026-11-22：Windows 10 真实桌面交互](2026-11-22-windows-desktop-acceptance.md)：InteractiveToken 桌面通道、官方便携 Terminal/PowerShell、IME 组合提交取消、Unicode 粘贴、resize、Ctrl+C、A→B→A、退出重开及精确清理；8 项限定范围通过，物理分离键与完整显示/IME 组合仍未关闭。
 
 - [2026-11-22：Windows 分离键根因与回归](2026-11-22-windows-detach-diagnosis.md)：定位微软拼音在中文模式拦截 d；取消候选并切英文后，直接 psmux、原 ASD 及提示修正版各三轮通过。WIN-UI-05 在明确条件下闭环，完整 M0 门槛不变。
+
+- [2026-11-24 目录选择／最近目录](2026-11-24-directory-pickers.md)：来源组件、本地模型／文件系统及有界缓存；原生 Windows／完整视觉另验。

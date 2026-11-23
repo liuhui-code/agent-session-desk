@@ -1,0 +1,36 @@
+panic: test timed out after 1m30s
+	running tests:
+		TestPathScannerSerializesUninterruptibleCallsAndDropsClosedModal (1m29s)
+
+goroutine 1012 [running]:
+testing.(*M).startAlarm.func1()
+	/private/tmp/asd-detach-20261122/go/src/testing/testing.go:2961 +0x34a
+created by time.goFunc
+	/private/tmp/asd-detach-20261122/go/src/time/sleep.go:182 +0x2d
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0x38cef9c26008, {0x7868c94?, 0x38cef9bc5aa0?}, 0x7cf1a38)
+	/private/tmp/asd-detach-20261122/go/src/testing/testing.go:2268 +0x4f2
+testing.runTests.func1(0x38cef9c26008)
+	/private/tmp/asd-detach-20261122/go/src/testing/testing.go:2744 +0x37
+testing.tRunner(0x38cef9c26008, 0x38cef9bc5bc8)
+	/private/tmp/asd-detach-20261122/go/src/testing/testing.go:2195 +0xea
+testing.runTests({0x785e0fd, 0x29}, {0x7864957, 0x35}, 0x38cef9bac168, {0x7d99110, 0x10d, 0x10d}, {0xc2b950f82094c648, 0x14f479dbae, ...})
+	/private/tmp/asd-detach-20261122/go/src/testing/testing.go:2742 +0x510
+testing.(*M).Run(0x38cef9b963c0)
+	/private/tmp/asd-detach-20261122/go/src/testing/testing.go:2602 +0x6af
+main.main()
+	_testmain.go:582 +0x9b
+
+goroutine 1009 [chan receive]:
+github.com/liuhui-code/agent-session-desk/internal/ui.TestPathScannerSerializesUninterruptibleCallsAndDropsClosedModal(0x38cefa0be008)
+	<WORKSPACE>/internal/ui/path_picker_launch_test.go:106 +0x254
+testing.tRunner(0x38cefa0be008, 0x7cf1a38)
+	/private/tmp/asd-detach-20261122/go/src/testing/testing.go:2195 +0xea
+created by testing.(*T).Run in goroutine 1
+	/private/tmp/asd-detach-20261122/go/src/testing/testing.go:2260 +0x4d4
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	93.044s
+ok  	github.com/liuhui-code/agent-session-desk/internal/pathsuggest	2.249s
+ok  	github.com/liuhui-code/agent-session-desk/internal/config	1.672s
+ok  	github.com/liuhui-code/agent-session-desk/internal/cli	1.820s
+FAIL

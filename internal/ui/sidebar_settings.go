@@ -16,6 +16,8 @@ import (
 )
 
 type Options struct {
+	LoadRecentDirs func(context.Context) ([]string, error)
+	RememberDirs   func(context.Context, []string) error
 	// An injected provider must bind all resources to ctx, even if its returned
 	// connection is never received because the UI has already exited.
 	OpenSystemTheme        func(context.Context) (appearance.Connection, error)
@@ -34,6 +36,10 @@ type Options struct {
 func NewWithOptions(ctx context.Context, service Service, options Options) *Model {
 	m := New(ctx, service)
 	m.systemTheme.open = options.OpenSystemTheme
+	if m.workspace != nil {
+		m.workspace.directories.load = options.LoadRecentDirs
+		m.workspace.directories.save = options.RememberDirs
+	}
 	if !config.ValidUITheme(options.Theme) {
 		options.Theme = ""
 	}

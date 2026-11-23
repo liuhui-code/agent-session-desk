@@ -1,0 +1,5 @@
+--- FAIL: TestLaunchDialogCreatesGenericTerminalTabWithLiteralArguments (0.02s)
+    launch_dialog_test.go:38: launch field boundaries changed: session.Launch{GroupID:"", Name:"普通终端", Executable:"C:\\工具 box\\pwsh.exe", Args:[]string(nil), Dir:"C:\\项目 工作区[\"-NoProfile\",\"--model=local\",\"arg with spaces\",\"中文\"]", Env:[]string(nil)}
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	1.896s
+FAIL

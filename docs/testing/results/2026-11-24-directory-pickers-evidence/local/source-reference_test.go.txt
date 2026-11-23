@@ -1,0 +1,34 @@
+package ui
+import (
+ "encoding/json"
+ "os"
+ "testing"
+ tea "github.com/charmbracelet/bubbletea"
+ "github.com/charmbracelet/lipgloss"
+ "github.com/muesli/termenv"
+)
+func TestASDDirectorySource(t *testing.T){
+ paths:=[]string{"/projects/Alpha","/projects/alpine","/work/中文 空格","/work/other","/work/five","/work/six","/work/seven"}
+ out:=map[string]any{};var frames []map[string]any
+ for _,profile:=range []struct{name string;value termenv.Profile}{{"truecolor",termenv.TrueColor},{"ansi256",termenv.ANSI256},{"ansi",termenv.ANSI},{"ascii",termenv.Ascii}}{
+  lipgloss.SetColorProfile(profile.value)
+  for _,theme:=range []string{"dark","light"}{InitTheme(theme)
+   for _,height:=range []int{24,40}{
+    g:=NewGroupDialog();g.Show();g.SetPathSuggestions(paths);g.focusPath();g.height=height
+    for _,selected:=range []int{0,3,6}{g.pathSuggestionCursor=selected
+     d:=&NewDialog{focusTargets:[]focusTarget{focusPath},pathSuggestions:paths,pathSuggestionCursor:selected,height:height}
+     frames=append(frames,map[string]any{"theme":theme,"profile":profile.name,"height":height,"selected":selected,"group":g.renderPathDropdown(),"launch":d.renderSuggestionsDropdown(),"background":lipgloss.NewStyle().Background(dropdownMenuBg()).Render("X"),"comment":lipgloss.NewStyle().Foreground(ColorComment).Render("X")})
+    }
+   }
+  }
+ }
+ out["frames"]=frames
+ out["fuzzy"]=fuzzyFilterPaths(paths,"ALP")
+ g:=NewGroupDialog();g.Show();g.SetPathSuggestions(paths);g.focusPath()
+ var states []map[string]any
+ capture:=func(key string){states=append(states,map[string]any{"key":key,"selected":g.pathSuggestionCursor,"value":g.pathInput.Value(),"visible":g.IsPathDropdownVisible(),"focus":g.focusIndex})}
+ capture("initial");g.Update(tea.KeyMsg{Type:tea.KeyDown});capture("down")
+ g.ApplyHighlightedPathSuggestion();capture("parent_accept")
+ out["group_states"]=states
+ b,e:=json.MarshalIndent(out,"","  ");if e!=nil{t.Fatal(e)};if e=os.WriteFile(os.Getenv("ASD_PROFILE_REFERENCE_OUT"),b,0600);e!=nil{t.Fatal(e)}
+}

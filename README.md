@@ -179,3 +179,5 @@ Tab 管理模式现可按 `/` 搜索当前会话，选择后接回原 Run；查�
 固定主题使用来源实际 TrueColor 显示值；作者配色保留，程序自身的终端颜色不变。[精确配色验证](docs/testing/results/2026-11-24-source-colors.md)与 Windows／字体／色彩降级接受分别记录。
 
 界面随终端报告的颜色能力使用来源的 TrueColor、256／16 色或无色显示；有限颜色模式不请求 RGB 默认色。能力改变不影响当前会话和输入，具体复验及真实终端限制见[颜色能力报告](docs/testing/results/2026-11-24-color-profiles.md)。
+
+目录建议（psmux Tab）：新建工作目录保留自定义输入项，↑↓ 进入浏览，Space 采纳但留在字段、Enter 采纳并下一项；Ctrl+N/P 可在编辑时选择，Tab 采纳或轮换本机目录完成。创建分组时目录首项预选，Tab/Enter 只采纳，Esc 先隐藏再取消；有候选时 ↑↓ 优先选择目录。候选来自已知分组和最多 20 个最近明确成功启动目录，按 backend scope 独立保存为 recent-dirs TOML；这是建议缓存，不是当前 cwd 或历史／SQLite 备份。无效本机目录按 Tab 留在字段，极小窗口恢复普通编辑。详见[本地验证与剩余原生门槛](docs/testing/results/2026-11-24-directory-pickers.md)。
