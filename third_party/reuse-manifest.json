@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "date": "2026-11-24",
-  "scope": "Selective UI/platform migration through ADR-0026; full upstream experience and release acceptance remain open.",
+  "scope": "Selective UI/platform migration through ADR-0027; full upstream experience and release acceptance remain open.",
   "original_project_license": "pending O-010",
   "source_files": [
     {
@@ -174,10 +174,11 @@
       "parts": [
         "getPreviewPct bounds and adjustPreviewPct step",
         "setPreviewPctFromMouseX percentage math and compact override",
-        "divider grab tolerance and bounded ratio notice"
+        "divider grab tolerance and bounded ratio notice",
+        "ADR-0027 key persistence and motion-only preview until drag completion"
       ],
       "mode": "selectively_adapted",
-      "modifications": "Design tokens, v2 mouse messages, management-only keys, one notice timer; no implicit configuration persistence. See ADR-0016."
+      "modifications": "Existing design tokens and v2 events; ADR-0027 persists explicit choices in independent ui.toml v4 through the shared serialized preference writer, with visible rollback/quit fences and transient previews. No upstream main config writes or v1 release dependencies."
     },
     {
       "project": "agent-deck",
@@ -771,6 +772,21 @@
       ],
       "mode": "selectively_adapted",
       "modifications": "ADR-0026: stop original named Run while retaining metadata/history; input drain, one-shot asynchronous outcome, token-only geometry and readable-review gate."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/home_keys_main.go",
+      "source_sha256": "0e3793ee11ee147925c54350abf24682f19ccd153d1b60476214219d68d47da2",
+      "destination_file": "internal/ui/workspace_split.go",
+      "license": "MIT",
+      "parts": [
+        "endDividerDrag completion and missing-release handling",
+        "buttonless release/motion preserves final preview"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "ADR-0027: v2 split events and serialized independent preference snapshots; shared user-event finalization, original Tab/Run and bounded terminal resize path retained."
     }
   ],
   "preserved_notices": [

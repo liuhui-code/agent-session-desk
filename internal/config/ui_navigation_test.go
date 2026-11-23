@@ -26,7 +26,7 @@ func TestUINavigationV2RoundTripsWithoutLosingDensityOrFoldChoice(t *testing.T) 
 	if err != nil {
 		t.Fatal(err)
 	}
-	for _, field := range []string{"schema_version = 3", `sidebar_density = "minimal"`, `sidebar_mode = "flat"`, `default_group_collapsed = true`} {
+	for _, field := range []string{"schema_version = 4", `sidebar_density = "minimal"`, `sidebar_mode = "flat"`, `default_group_collapsed = true`} {
 		if !strings.Contains(string(data), field) {
 			t.Errorf("round-trip lost %s: %s", field, data)
 		}

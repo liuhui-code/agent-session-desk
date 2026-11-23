@@ -32,8 +32,8 @@ func TestUIV3GroupFoldsPersistWithLegacyReadOnlyLoading(t *testing.T) {
 		t.Fatalf("lost folds/density: %+v %v", loaded, err)
 	}
 	data, err := os.ReadFile(path)
-	if err != nil || !strings.Contains(string(data), "schema_version = 3") {
-		t.Fatalf("not v3: %s %v", data, err)
+	if err != nil || !strings.Contains(string(data), "schema_version = 4") {
+		t.Fatalf("not current v4: %s %v", data, err)
 	}
 	before := string(data)
 	s.CollapsedGroups = "../bad"

@@ -14,6 +14,7 @@ import (
 const maxUIPreferenceBytes = 16 * 1024 // Defensive bound for UI preferences, not a resource budget.
 
 type UISettings struct {
+	SidebarPercent        int    `toml:"sidebar_percent"`
 	SidebarDensity        string `toml:"sidebar_density"`
 	SidebarMode           string `toml:"sidebar_mode"`
 	DefaultGroupCollapsed bool   `toml:"default_group_collapsed"`
@@ -72,7 +73,7 @@ func LoadUI(path string) (UISettings, error) {
 	if err != nil {
 		return defaults, fmt.Errorf("界面设置 TOML 或字段类型无效")
 	}
-	if (doc.Version != 1 && doc.Version != 2 && doc.Version != 3) || len(meta.Undecoded()) != 0 {
+	if (doc.Version < 1 || doc.Version > 4) || len(meta.Undecoded()) != 0 {
 		return defaults, fmt.Errorf("界面设置版本或字段不受支持")
 	}
 	for _, key := range meta.Keys() {
@@ -80,12 +81,18 @@ func LoadUI(path string) (UISettings, error) {
 		if doc.Version >= 2 && len(key) == 1 && (key[0] == "sidebar_mode" || key[0] == "default_group_collapsed") {
 			allowed = true
 		}
-		if doc.Version == 3 && len(key) == 1 && key[0] == "collapsed_groups" {
+		if doc.Version >= 3 && len(key) == 1 && key[0] == "collapsed_groups" {
+			allowed = true
+		}
+		if doc.Version == 4 && len(key) == 1 && key[0] == "sidebar_percent" {
 			allowed = true
 		}
 		if !allowed {
 			return defaults, fmt.Errorf("界面设置版本或字段不受支持")
 		}
+	}
+	if !ValidSidebarPercent(doc.SidebarPercent) {
+		return defaults, fmt.Errorf("侧栏比例必须为自动（0）或 10–90 的整数")
 	}
 	doc.SidebarDensity = NormalizeSidebarDensity(doc.SidebarDensity)
 	doc.SidebarMode = NormalizeSidebarMode(doc.SidebarMode)
@@ -100,6 +107,9 @@ func LoadUI(path string) (UISettings, error) {
 // rename. Concurrent valid preference writers use last successful writer wins;
 // this is not a transaction with metadata or a power-loss durability claim.
 func SaveUI(path string, settings UISettings) error {
+	if !ValidSidebarPercent(settings.SidebarPercent) {
+		return fmt.Errorf("侧栏比例必须为自动（0）或 10–90 的整数")
+	}
 	folds, err := normalizeGroupFolds(settings.CollapsedGroups)
 	if err != nil {
 		return err
@@ -134,7 +144,7 @@ func SaveUI(path string, settings UISettings) error {
 	if err = temp.Chmod(0600); err != nil {
 		return err
 	}
-	if _, err = fmt.Fprintf(temp, "schema_version = 3\nsidebar_density = %q\nsidebar_mode = %q\ndefault_group_collapsed = %t\ncollapsed_groups = %q\n", normalized, mode, settings.DefaultGroupCollapsed, folds); err != nil {
+	if _, err = fmt.Fprintf(temp, "schema_version = 4\nsidebar_density = %q\nsidebar_mode = %q\ndefault_group_collapsed = %t\ncollapsed_groups = %q\nsidebar_percent = %d\n", normalized, mode, settings.DefaultGroupCollapsed, folds, settings.SidebarPercent); err != nil {
 		return err
 	}
 	if err = temp.Sync(); err != nil {
@@ -151,4 +161,10 @@ func SaveUI(path string, settings UISettings) error {
 		return err
 	}
 	return os.Rename(name, path)
+}
+
+// ValidSidebarPercent is the persisted v4 contract, not a new rendering size.
+// Zero retains focus-dependent automatic geometry; manual values are bounded.
+func ValidSidebarPercent(value int) bool {
+	return value == 0 || (value >= 10 && value <= 90)
 }

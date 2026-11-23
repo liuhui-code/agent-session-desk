@@ -16,6 +16,7 @@ import (
 )
 
 type Options struct {
+	SidebarPercent         int
 	SidebarDensity         string
 	SidebarMode            string
 	DefaultGroupCollapsed  bool
@@ -27,11 +28,18 @@ type Options struct {
 
 func NewWithOptions(ctx context.Context, service Service, options Options) *Model {
 	m := New(ctx, service)
+	if !config.ValidSidebarPercent(options.SidebarPercent) {
+		options.SidebarPercent = 0
+	}
+	if m.workspace != nil {
+		m.workspace.split.override = options.SidebarPercent != 0
+		m.workspace.split.percent = options.SidebarPercent
+	}
 	m.sidebarDensity = config.NormalizeSidebarDensity(options.SidebarDensity)
 	m.sidebarMode = config.NormalizeSidebarMode(options.SidebarMode)
 	m.sidebarCollapsed = options.DefaultGroupCollapsed
 	m.saveUISettings = options.SaveUISettings
-	m.preferences.saved = config.UISettings{SidebarDensity: m.sidebarDensity, SidebarMode: m.sidebarMode, DefaultGroupCollapsed: m.sidebarCollapsed, CollapsedGroups: options.CollapsedGroups}
+	m.preferences.saved = config.UISettings{SidebarPercent: options.SidebarPercent, SidebarDensity: m.sidebarDensity, SidebarMode: m.sidebarMode, DefaultGroupCollapsed: m.sidebarCollapsed, CollapsedGroups: options.CollapsedGroups}
 	m.preferences.wanted = m.preferences.saved
 	m.preferences.accepted = m.preferences.saved
 	m.collapsedGroups = map[string]bool{}

@@ -1861,7 +1861,7 @@
 
 - 功能：[FL-003](../COVERAGE.md#fl-003)
 - 需求：[FR-03](../COVERAGE.md#fr-03)、[FR-11](../COVERAGE.md#fr-11)
-- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0014](../../adr/0014-upstream-ui-tabs-and-general-terminals.md)、[ADR-0017](../../adr/0017-sidebar-density-preferences.md)、[ADR-0022](../../adr/0022-default-group-sidebar-navigation.md)
+- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0014](../../adr/0014-upstream-ui-tabs-and-general-terminals.md)、[ADR-0017](../../adr/0017-sidebar-density-preferences.md)、[ADR-0022](../../adr/0022-default-group-sidebar-navigation.md)、[ADR-0027](../../adr/0027-persistent-workspace-split.md)
 - 优先级 / 阶段 / 层次：P1 / M0 / manual
 - 类型：usability、functional
 - 设计 / 执行：`designed / not_run`
@@ -1885,6 +1885,7 @@
 6. 帮助中点击 Tab／滚轮不操作后台；在短／全帮助分别粘贴 n、q、j、Tab 字符和多行，核对消费整段并关闭，不解释载荷；另用 n、q、Ctrl+C、F6、Ctrl+PgDn、Enter 关闭，核对没有同时新建、退出、切换或向原终端提交；打开前阻塞已接受输入，完成写入后才显示帮助。
 7. 以 49／63／80／100／101／120／160 列核对默认页脚角色和已支持上下文；切换组展开／折叠、会话与不可连接状态，再在终端焦点 A/B/A 检查黄色模式块和原活动目标名称。
 8. 以相同合成数据与尺寸核对主界面管理／终端焦点、空白、连接中、错误和长字段；在各密度选择嵌套组中的会话，检查缩进及元信息整行高亮；鼠标悬停／按住／移出分隔符并缩放，核对粗线和颜色及输入归属。
+9. 调整并保存侧栏比例，拖动中观测磁盘不变；用无按钮松开／漏松开后移动等结束，再重开。穿插其他偏好保存、旧回执、写失败和等待退出。
 
 #### 预期与不变量
 
@@ -1897,6 +1898,7 @@
 - 帮助消费关闭键一次，粘贴消费整段并关闭、鼠标留在帮助，不操作后台；原 Tab／Session/Run、CLI 草稿、偏好及生命周期不改，不提供未实现业务的虚假快捷键。
 - 页脚遵循来源默认 full 及宽度分级，管理键蓝底／正文说明、终端焦点黄色模式标记，组展开／折叠及不可连接提示符合实际动作；F6／帮助／退出在可容纳窄窗保留。v1/v2 实际颜色序列化差异独立记录，不改变作者色值或静默宽容其他色差。
 - 嵌套选中／活动卡片的缩进、标题和元信息保持完整 surface 背景；分隔符沿来源管理暗色、终端蓝色、悬停／拖动蓝色粗线，移出／几何变化清除过期悬停。纯悬停不改变选择、比例、焦点或写入终端；来源组件、模型帧和真实 Windows 交互分别记账。
+- ui.toml v4 的 0 自动／10–90 手动保持选择；旧 v1–v3 加载不改写，显式保存才升级，旧版拒读 v4。拖动结束仅保存最后预览一次，不依赖松开坐标；运动预览不夹带进其他整份保存，旧成功不回退较新比例，失败恢复旧有效值、显示错误并取消等待退出。终端键仍只输入原 Run。
 
 #### 需要的证据
 
@@ -1987,7 +1989,7 @@
 
 - 功能：[FL-003](../COVERAGE.md#fl-003)
 - 需求：[FR-03](../COVERAGE.md#fr-03)、[FR-11](../COVERAGE.md#fr-11)
-- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0005](../../adr/0005-dependency-lifecycle-and-upgrades.md)、[ADR-0017](../../adr/0017-sidebar-density-preferences.md)、[ADR-0022](../../adr/0022-default-group-sidebar-navigation.md)、[ADR-0023](../../adr/0023-persistent-groups-and-membership.md)
+- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0005](../../adr/0005-dependency-lifecycle-and-upgrades.md)、[ADR-0017](../../adr/0017-sidebar-density-preferences.md)、[ADR-0022](../../adr/0022-default-group-sidebar-navigation.md)、[ADR-0023](../../adr/0023-persistent-groups-and-membership.md)、[ADR-0027](../../adr/0027-persistent-workspace-split.md)
 - 优先级 / 阶段 / 层次：P1 / M0 / windows_e2e
 - 类型：boundary、usability
 - 设计 / 执行：`designed / not_run`
@@ -2007,6 +2009,7 @@
 2. 打开新建和发送表单，导航到确认/取消以及错误字段。
 3. 在 grouped／flat 与四种密度下缩放窗口，点击组标题／会话元信息，滚动至末尾并 Enter 打开目标。
 4. 创建嵌套组，在 g 名称／目录及 M 移动列表中缩放、切字段、滚动选择；核对真实光标和末项可见。
+5. 调整并保存侧栏比例，拖动中观测磁盘不变；用无按钮松开／漏松开后移动等结束，再重开。穿插其他偏好保存、旧回执、写失败和等待退出。
 
 #### 预期与不变量
 
@@ -2014,6 +2017,7 @@
 - 低于支持尺寸时明确提示/采用已设计退化布局，不崩溃、不误发输入。
 - 侧栏设置短窄窗口保留当前选项和保存错误；Auto 按当前会话项与可用空间重算，不振荡。最低全局支持尺寸仍按 O-009 另行决定。
 - 一行组标题与 1–3 行卡片共用渲染命中矩形，缩放或滚动不导致打开相邻 Session。
+- ui.toml v4 的 0 自动／10–90 手动保持选择；旧 v1–v3 加载不改写，显式保存才升级，旧版拒读 v4。拖动结束仅保存最后预览一次，不依赖松开坐标；运动预览不夹带进其他整份保存，旧成功不回退较新比例，失败恢复旧有效值、显示错误并取消等待退出。终端键仍只输入原 Run。
 
 #### 需要的证据
 
@@ -2180,7 +2184,7 @@
 
 - 功能：[FL-003](../COVERAGE.md#fl-003)
 - 需求：[FR-03](../COVERAGE.md#fr-03)、[FR-11](../COVERAGE.md#fr-11)
-- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0005](../../adr/0005-dependency-lifecycle-and-upgrades.md)、[ADR-0017](../../adr/0017-sidebar-density-preferences.md)、[ADR-0022](../../adr/0022-default-group-sidebar-navigation.md)
+- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0005](../../adr/0005-dependency-lifecycle-and-upgrades.md)、[ADR-0017](../../adr/0017-sidebar-density-preferences.md)、[ADR-0022](../../adr/0022-default-group-sidebar-navigation.md)、[ADR-0027](../../adr/0027-persistent-workspace-split.md)
 - 优先级 / 阶段 / 层次：P0 / M0 / contract
 - 类型：compatibility、boundary
 - 设计 / 执行：`designed / not_run`
@@ -2200,6 +2204,7 @@
 2. 核对选择步数、文本追加次数与提交次数，再回放同一序列。
 3. 延迟折叠保存，连续左键及 Alt+V 往返；在终端焦点按 Alt+V，核对目标实际输入。
 4. 记录 Caps Lock／输入布局，对照 Unicode、SendKeys 和原生 VK 的实际控制台字符及框架 Code/Text/Mod/String；分别在管理与终端焦点核对大写 S，并还原锁定状态。
+5. 调整并保存侧栏比例，拖动中观测磁盘不变；用无按钮松开／漏松开后移动等结束，再重开。穿插其他偏好保存、旧回执、写失败和等待退出。
 
 #### 预期与不变量
 
@@ -2208,6 +2213,7 @@
 - 稳定 v2 空格事件只轮换一次；管理 S 与终端字面 S 分离，设置保存串行并保留最新选择。
 - 重复左键保持折叠意图；快速选择最后状态有序保存；终端 Alt+V 不切管理侧栏。
 - 实际文本 S 与 s 按声明的大小写合同处理；VT 的 shift+s 不作为硬件 Shift 证据；输入前端未交付或日志缺口保留未决，不新增猜测别名。
+- ui.toml v4 的 0 自动／10–90 手动保持选择；旧 v1–v3 加载不改写，显式保存才升级，旧版拒读 v4。拖动结束仅保存最后预览一次，不依赖松开坐标；运动预览不夹带进其他整份保存，旧成功不回退较新比例，失败恢复旧有效值、显示错误并取消等待退出。终端键仍只输入原 Run。
 
 #### 需要的证据
 

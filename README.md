@@ -8,6 +8,8 @@
 
 管理焦点用 `Shift/Ctrl+↑↓`、`K/J` 或 `+/-` 调整并保存所选会话的同组顺序，组标题仍调整同级组，默认组固定首位；终端焦点的同名键仍交给原程序。详见[组排序验证](docs/testing/results/2026-11-23-group-order.md)及[会话排序验证](docs/testing/results/2026-11-24-session-order.md)。
 
+管理焦点 `<`／`>` 调整并保存侧栏比例，拖动结束时保存最后位置；`=` 保存自动比例，随管理／终端焦点恢复 35%／18%。独立 `ui.toml v4` 保留手动比例，v1–v3 只读加载后在显式修改时升级；保存失败恢复最后有效选择并显示错误，退出等待已接受保存。详见[比例保存验证](docs/testing/results/2026-11-24-split-preferences.md)。
+
 管理焦点选中会话按 `d` 打开停止确认，默认取消；明确确认前重新核对原 Session／Run 和名称。停止会终止该终端及程序，保留 Tab 视图、名称、分组和历史；`x` 仅关闭视图。详见[停止合同](docs/adr/0026-explicit-session-stop.md)与[局部验证](docs/testing/results/2026-11-24-session-stop.md)。
 
 管理焦点选中组标题按 `d`，核对将删除的组结构和成员数量；默认取消，明确确认后将成员移入默认组，保留原 Tab、终端及历史。默认组不能删除。详见[删除组验证](docs/testing/results/2026-11-23-group-removal.md)。
@@ -150,7 +152,7 @@ Tab 终端支持[原生历史滚动](docs/testing/results/2026-11-23-workspace-s
 
 后续[宿主分界与复测](docs/testing/results/2026-11-23-tab-resource-host.md)已定位该 Windows 10 系统 ConPTY 的 VT 输入条件；使用显式测量宿主候选后，同一正式产品完成 7 场景／22 阶段／280 快照与 7 次正常清理。产品后端未随之采用 SDK；缺测、完整时长、预算、目标 agent 与视觉验收继续单独保留，旧失败不改写。
 
-分组导航（psmux Tab）：默认“我的会话”组；管理焦点 `Alt+V` 切换分组／平铺，`1` 选组标题，`Enter`／`→`／`l`／`Tab` 展开折叠，`←` 回到组后再次折叠。终端焦点仍把这些键交给目标程序。管理 `g` 创建根组／子组（Tab 切名称／默认目录、↑↓ 切层级），`M` 移动所选会话；组内 `n` 预填默认目录，既有 Run 不执行 cd。空组和成员关系独立保存，移动不改变终端身份。密度、模式和稳定 Group ID 折叠共用 `ui.toml` v3；v1/v2 只读加载，显式修改后升级。新导航的限定实机结果与键位未决项见[桌面报告](docs/testing/results/2026-11-23-sidebar-navigation-desktop.md)，完整验收仍未完成。
+分组导航（psmux Tab）：默认“我的会话”组；管理焦点 `Alt+V` 切换分组／平铺，`1` 选组标题，`Enter`／`→`／`l`／`Tab` 展开折叠，`←` 回到组后再次折叠。终端焦点仍把这些键交给目标程序。管理 `g` 创建根组／子组（Tab 切名称／默认目录、↑↓ 切层级），`M` 移动所选会话；组内 `n` 预填默认目录，既有 Run 不执行 cd。空组和成员关系独立保存，移动不改变终端身份。密度、模式和稳定 Group ID 折叠共用 `ui.toml` v4（含布局比例）；v1/v2/v3 只读加载，显式修改后升级。新导航的限定实机结果与键位未决项见[桌面报告](docs/testing/results/2026-11-23-sidebar-navigation-desktop.md)，完整验收仍未完成。
 
 侧栏设置（psmux Tab）：管理焦点下大写 `S` 打开（与 `s` 区分），`←→`／`h/l` 调整 Full／Compact／Minimal／Auto，空格轮换，改变后即时保存，`Esc`／`S` 返回。偏好保存在元数据目录的独立 `ui.toml`，随 `--state-dir` 隔离；显式启动模板保持只读。终端焦点仍将这些键交给程序。保存错误保留旧有效值，不阻止返回管理；实际范围见[验证报告](docs/testing/results/2026-11-23-sidebar-density-preferences.md)。
 

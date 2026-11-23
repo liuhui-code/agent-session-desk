@@ -20,6 +20,10 @@ type workspaceListClick struct {
 }
 
 func (m *Model) workspaceClick(msg tea.MouseClickMsg) tea.Cmd {
+	return tea.Batch(m.finishWorkspaceSplit(), m.workspaceClickNow(msg))
+}
+
+func (m *Model) workspaceClickNow(msg tea.MouseClickMsg) tea.Cmd {
 	w := m.workspace
 	w.tabDrag = workspaceTabDrag{}
 	previous := w.listClick

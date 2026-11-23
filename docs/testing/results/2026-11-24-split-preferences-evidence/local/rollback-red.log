@@ -1,0 +1,5 @@
+--- FAIL: TestWorkspaceSplitRollbackErrorRemainsVisibleWhenResizeCannotBeEnqueued (0.00s)
+    workspace_split_preferences_test.go:244: rollback masked preference error: 终端尚未连接；此输入未发送
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.808s
+FAIL

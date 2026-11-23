@@ -194,3 +194,5 @@ M0 只把版本化发现标记放在产品私有后端 user option 中，绑定 
 2026-11-24：[ADR-0025](adr/0025-persistent-session-order.md) 将同组 Session 行顺序保存到 SQLite v5 独立位置表，按组流式摘要和完整行版本核对提交。UI 排序与 Tab 顺序／终端生命周期分离，异步退出继续等待已接受输入与偏好；当前 ui.toml 仍 v3，历史查询仍按 Run 时间。实际范围见[排序报告](testing/results/2026-11-24-session-order.md)。
 
 2026-11-24：[ADR-0026](adr/0026-explicit-session-stop.md) 增加管理 Session 行 `d` 的停止确认，复用固定来源确认样式并默认取消；确认前重新发现并核对原 Session／Run／名称，单次提交，未知结果不自动重放。后端停止和元数据停止确认仍非原子事务；Tab x／UI 退出继续保留进程，显式停止保留逻辑身份／历史。schema v5、ui.toml v3、依赖与 tokens 不变。实现和平台证据见[报告](testing/results/2026-11-24-session-stop.md)，完整接受仍开放。
+
+2026-11-24：[ADR-0027](adr/0027-persistent-workspace-split.md) 将工作区比例纳入 ui.toml v4：0 自动，10–90 手动，键即时保存，拖动中仅预览、结束时保存，丢失松开沿固定来源收尾。与密度／导航／折叠共用串行快照，旧回执不覆盖较新选择；保存失败可见回滚并取消等待退出。v1–v3 不因读取改写，启动模板／SQLite v5／模块依赖／design tokens 不变。[本地／固定来源证据](testing/results/2026-11-24-split-preferences.md)与未执行的 Windows 门槛分开，完整还原和发布仍开放。

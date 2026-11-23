@@ -84,6 +84,7 @@ func (m *Model) uiPreferencesEvent(msg tea.Msg) (tea.Cmd, bool) {
 		p.retainForgottenFolds()
 		m.sidebarDensity = p.saved.SidebarDensity
 		m.applySidebarNavigation(p.wanted)
+		resize := m.restoreWorkspaceSplit(p.saved.SidebarPercent)
 		m.sidebarPreferenceError = r.err
 		m.status = "管理模式 · 侧栏偏好未保存：" + label(r.err.Error())
 		if m.workspace.transition == workspaceQuit {
@@ -92,7 +93,7 @@ func (m *Model) uiPreferencesEvent(msg tea.Msg) (tea.Cmd, bool) {
 		if d := m.densitySettings; d != nil {
 			d.busy, d.closing, d.err = false, false, r.err
 		}
-		return nil, true
+		return resize, true
 	}
 	p.saved = r.settings
 	p.retainForgottenFolds()

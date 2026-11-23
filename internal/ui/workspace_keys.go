@@ -7,6 +7,10 @@ import (
 )
 
 func (m *Model) workspaceKey(msg tea.KeyPressMsg) tea.Cmd {
+	return tea.Batch(m.finishWorkspaceSplit(), m.workspaceKeyNow(msg))
+}
+
+func (m *Model) workspaceKeyNow(msg tea.KeyPressMsg) tea.Cmd {
 	w := m.workspace
 	w.tabDrag = workspaceTabDrag{}
 	w.listClick = workspaceListClick{}

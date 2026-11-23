@@ -1,0 +1,7 @@
+package config
+import("os";"path/filepath";"testing")
+func TestOldReaderRefusesV4WithoutChangingBytes(t *testing.T){
+ p:=filepath.Join(t.TempDir(),"ui.toml");old:=[]byte("schema_version=4\nsidebar_density='full'\nsidebar_percent=40\n");if e:=os.WriteFile(p,old,0600);e!=nil{t.Fatal(e)}
+ if _,e:=LoadUI(p);e==nil{t.Fatal("old reader accepted future v4")};if e:=SaveUI(p,UISettings{SidebarDensity:"minimal"});e==nil{t.Fatal("old writer replaced v4")};b,e:=os.ReadFile(p);if e!=nil||string(b)!=string(old){t.Fatal("refusal changed bytes")}
+ if e=os.WriteFile(p,[]byte("schema_version=3\nsidebar_density='full'\n"),0600);e!=nil{t.Fatal(e)};s,e:=LoadUI(p);if e!=nil||s.SidebarDensity!="full"{t.Fatal("source is not a valid v3 reader")};if e=SaveUI(p,s);e!=nil{t.Fatal(e)}
+}

@@ -1,0 +1,10 @@
+--- FAIL: TestWorkspaceSplitUnchangedChoiceDoesNotPersistTemporaryGroupReveal (0.00s)
+    --- FAIL: TestWorkspaceSplitUnchangedChoiceDoesNotPersistTemporaryGroupReveal/= (0.00s)
+        workspace_split_preferences_test.go:298: no-op ratio action saved temporary reveal
+    --- FAIL: TestWorkspaceSplitUnchangedChoiceDoesNotPersistTemporaryGroupReveal/> (0.00s)
+        workspace_split_preferences_test.go:298: no-op ratio action saved temporary reveal
+    --- FAIL: TestWorkspaceSplitUnchangedChoiceDoesNotPersistTemporaryGroupReveal/< (0.00s)
+        workspace_split_preferences_test.go:298: no-op ratio action saved temporary reveal
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	1.183s
+FAIL

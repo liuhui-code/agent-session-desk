@@ -177,10 +177,12 @@ asd.exe --terminal-bundle 'C:\asd\terminal-runtime'
 
 管理焦点 g 打开创建分组；组标题默认子组，会话行默认根组。Tab／Shift+Tab 在名称与可选默认目录间切换，↑↓ 切换根组／子组，Enter 确认，Esc 取消。M 为所选会话选择目标组；终端焦点的 g／M 仍原样交给程序。组内 n 预填默认目录，可覆盖或清空，只影响新 Run。1–9 选择根组，标题 Enter／→／Tab 折叠；空组保留。
 
-SQLite 当前 v4；正常打开会事务迁移 v1/v2/v3，旧二进制拒绝新 schema。独立 ui.toml v3 保存稳定 Group ID 折叠，旧 v1/v2 只读加载；Tab／搜索临时展开不自动落盘，包括先前偏好保存尚未返回的情况。完整合同与实际范围见 [ADR-0023](adr/0023-persistent-groups-and-membership.md)及[分组报告](testing/results/2026-11-23-custom-groups.md)。
+SQLite 当前 v5；正常打开会事务迁移 v1/v2/v3/v4，旧二进制拒绝新 schema。独立 ui.toml v4 保存稳定 Group ID 折叠及手动／自动侧栏比例，旧 v1/v2/v3 只读加载；Tab／搜索临时展开不自动落盘，包括先前偏好保存尚未返回的情况。完整合同与实际范围见 [ADR-0023](adr/0023-persistent-groups-and-membership.md)及[分组报告](testing/results/2026-11-23-custom-groups.md)。
 
 组标题管理焦点 r 打开仅名称的重命名弹窗，预填旧名并将光标置于末尾；Enter 保存，Esc 取消，Tab 不切隐藏目录。默认组同样可改显示名。稳定组 ID、成员／子组、目录、顺序与原 Run 不改，同级名称冲突或旧版本编辑需返回刷新；失败不自动重试。实际范围见[组重命名报告](testing/results/2026-11-23-group-rename.md)。
 
 管理焦点选中组标题后 Shift/Ctrl+↑↓、K/J 或 +/- 保存同级顺序，跳过展开子树，默认组固定根首位，首尾边界无动作；会话行不作组排序。一次排序保存后可继续调整，等待期间不积压过期编辑，Tab／终端仍可切换。q 等待已接受排序和原输入／偏好保存，失败保留错误，不自动重试。实际合同见[同级组排序报告](testing/results/2026-11-23-group-order.md)。
 
 删除组沿 [ADR-0024](adr/0024-group-removal-and-member-preservation.md)：管理组标题 d 先读影响预览，默认取消；整个作用域组树和受影响逻辑成员版本变化则拒绝旧预览。单事务将子树成员收纳至默认组后删除组结构，不停止终端、不删 Session/Run/输出。仅清理对应折叠 ID，数据库与 ui.toml 保存不原子；失败不重放。实际范围见[报告](testing/results/2026-11-23-group-removal.md)，会话手动排序和完整体验继续开放。
+
+2026-11-24 比例保存：管理 `<`／`>` 即时保存，拖动中只预览，松开／无按钮移动／新点击／滚轮等收尾保存最后位置，`=` 保存自动。共享串行偏好写入器，旧回执不回退当前比例，失败恢复旧值并取消等待退出；只发送既有尺寸事件，不向程序插入正文。见 [ADR-0027](adr/0027-persistent-workspace-split.md) 与[本地及固定来源验证](testing/results/2026-11-24-split-preferences.md)；Windows 运行仍未执行。

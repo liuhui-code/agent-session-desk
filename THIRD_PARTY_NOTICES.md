@@ -66,3 +66,5 @@ ADR-0024 从同一固定提交选择性适配 `confirm_dialog.go`／`home_keys_d
 2026-11-24 Session 排序：从同固定 Agent Deck `80494e527393b7ead00da30018e6ee7e60e9d7a0`／MIT 的 home.go 键分派和 groups.go MoveSessionUp/Down 的同组交换／归一化选择性改编至 `internal/ui/session_order.go`／`internal/store/session_order.go`；无父子 Session 或归档业务迁入。SQLite v5、CAS 摘要／版本、平铺槽位与异步退出屏障是本产品适配。来源哈希与六状态实测见[报告](docs/testing/results/2026-11-24-session-order.md)，无生产依赖变化。
 
 2026-11-24 ADR-0026：同固定 Agent Deck 提交／MIT 的 `internal/ui/confirm_dialog.go` 确认框与键位选择性改编至 `internal/ui/session_stop.go`、`session_stop_view.go`。原版权保留；“停止并保留逻辑历史”、原目标复核与单次异步回执为本产品适配，未迁入来源删除注册／worktree／容器业务或 v1 依赖。
+
+2026-11-24 ADR-0027：继续选择性适配同固定 Agent Deck／MIT 的 split_config.go 比例键、拖动预览及 home_keys_main.go 的 endDividerDrag／无按钮松开和漏松开收尾至 workspace_split.go。独立 ui.toml v4、整份串行保存、可见失败回滚和 Tab／终端尺寸通道为本产品适配，不迁入 v1 依赖或上游主配置模型。精确 SHA 和来源七状态见[报告](docs/testing/results/2026-11-24-split-preferences.md)。

@@ -1,0 +1,30 @@
+package ui
+
+import (
+ "crypto/sha256"
+ "encoding/hex"
+ "encoding/json"
+ "os"
+ "testing"
+
+ tea "github.com/charmbracelet/bubbletea"
+ "github.com/asheshgoplani/agent-deck/internal/session"
+)
+
+func TestASDPersistentSplitReference(t *testing.T) {
+ h:=&Home{width:120,previewPct:65}
+ path,e:=session.GetUserConfigPath();if e!=nil{t.Fatal(e)}
+ states:=[]map[string]interface{}{}
+ capture:=func(name string,wantDisk int){session.ClearUserConfigCache();cfg,e:=session.LoadUserConfig();if e!=nil||cfg==nil||cfg.UI.PreviewPct!=wantDisk{t.Fatalf("disk pct %s: %+v %v",name,cfg,e)};b,e:=os.ReadFile(path);if e!=nil{t.Fatal(e)};hash:=sha256.Sum256(b);states=append(states,map[string]interface{}{"state":name,"preview_pct":h.getPreviewPct(),"disk_preview_pct":cfg.UI.PreviewPct,"file_sha256":hex.EncodeToString(hash[:])})}
+ capture("initial",65)
+ if !h.adjustPreviewPct(-5)||h.getPreviewPct()!=60{t.Fatal("key did not adjust")};capture("key-persisted",60)
+ h.draggingDivider=true;h.setPreviewPctFromMouseX(60)
+ if h.getPreviewPct()!=50{t.Fatal("mouse did not preview")};capture("motion-only",60)
+ h.handleDividerDrag(tea.MouseMsg{Action:tea.MouseActionRelease,Button:tea.MouseButtonNone})
+ if h.draggingDivider{t.Fatal("none-button release stuck")};capture("none-release-persisted",50)
+ h.draggingDivider=true;h.setPreviewPctFromMouseX(0);capture("second-motion-only",50)
+ h.handleDividerDrag(tea.MouseMsg{Action:tea.MouseActionMotion,Button:tea.MouseButtonNone})
+ if h.draggingDivider{t.Fatal("buttonless motion stuck")};capture("buttonless-motion-persisted",90)
+ if h.adjustPreviewPct(5){t.Fatal("upper bound key changed")};capture("upper-bound-no-write",90)
+ b,e:=json.MarshalIndent(states,"","  ");if e!=nil{t.Fatal(e)};if e=os.WriteFile("/private/tmp/asd-split-preferences-20261124/upstream-states.json",b,0600);e!=nil{t.Fatal(e)}
+}

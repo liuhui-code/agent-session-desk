@@ -1,8 +1,9 @@
 // Portions adapted from Agent Deck, Copyright (c) 2025 Ashesh Goplani.
 // SPDX-License-Identifier: MIT
-// Source: internal/ui/split_config.go at 80494e527393b7ead00da30018e6ee7e60e9d7a0.
+// Sources: internal/ui/split_config.go and home_keys_main.go at 80494e527393b7ead00da30018e6ee7e60e9d7a0.
 // Modified: token-based bounds, management-only keys, one notice timer and
-// in-memory view state; no implicit TOML writes. See THIRD_PARTY_NOTICES.md.
+// explicit serialized UI preferences and transient drag preview under ADR-0027.
+// See THIRD_PARTY_NOTICES.md.
 package ui
 
 import (
@@ -16,12 +17,16 @@ type workspaceSplit struct {
 	dragStart                int
 	override                 bool
 	percent                  int
+	preview                  int
 	noticeUntil              time.Time
 	noticePending            bool
 }
 type workspaceSplitTick struct{}
 
 func (m *Model) workspaceSidebarPercent() int {
+	if m.workspace.split.dragging && m.workspace.split.moved {
+		return m.workspace.split.preview
+	}
 	if m.workspace.split.override {
 		return m.workspace.split.percent
 	}
@@ -46,12 +51,13 @@ func (m *Model) workspaceSplitKey(msg tea.KeyPressMsg) (tea.Cmd, bool) {
 	case "=":
 		old := m.workspaceSidebarPercent()
 		m.workspace.split.override = false
+		m.workspace.split.percent = 0
 		m.status = ""
 		var resize tea.Cmd
 		if old != m.workspaceSidebarPercent() {
 			resize = m.workspaceSize()
 		}
-		return tea.Batch(resize, m.markWorkspaceSplitNotice()), true
+		return tea.Batch(resize, m.markWorkspaceSplitNotice(), m.saveWorkspaceSplit(0)), true
 	}
 	return nil, false
 }
@@ -66,7 +72,15 @@ func (m *Model) setWorkspaceSplit(percent int) tea.Cmd {
 	if old != percent {
 		resize = m.workspaceSize()
 	}
-	return tea.Batch(resize, m.markWorkspaceSplitNotice())
+	return tea.Batch(resize, m.markWorkspaceSplitNotice(), m.saveWorkspaceSplit(percent))
+}
+
+func (m *Model) saveWorkspaceSplit(percent int) tea.Cmd {
+	if m.preferences.wanted.SidebarPercent == percent {
+		return nil
+	}
+	m.preferences.wanted.SidebarPercent = percent
+	return m.saveUIPreferences()
 }
 func (m *Model) markWorkspaceSplitNotice() tea.Cmd {
 	s := &m.workspace.split
@@ -101,7 +115,15 @@ func (m *Model) workspaceSplitMouseX(x int) tea.Cmd {
 		return nil
 	}
 	x = max(0, min(m.width, x))
-	return m.setWorkspaceSplit(x * 100 / m.width)
+	old := m.workspaceSidebarPercent()
+	t := m.tokens.workspace
+	m.workspace.split.preview = max(t.minSplitPercent, min(t.maxSplitPercent, x*100/m.width))
+	m.status = ""
+	var resize tea.Cmd
+	if old != m.workspaceSidebarPercent() {
+		resize = m.workspaceSize()
+	}
+	return tea.Batch(resize, m.markWorkspaceSplitNotice())
 }
 func (m *Model) workspaceSplitMotion(msg tea.MouseMotionMsg) tea.Cmd {
 	s := &m.workspace.split
@@ -110,8 +132,7 @@ func (m *Model) workspaceSplitMotion(msg tea.MouseMotionMsg) tea.Cmd {
 		return nil
 	}
 	if msg.Button != tea.MouseLeft {
-		s.dragging = false
-		return nil
+		return m.finishWorkspaceSplit()
 	}
 	if msg.X != s.dragStart {
 		s.moved = true
@@ -127,9 +148,29 @@ func (m *Model) workspaceSplitRelease(msg tea.MouseReleaseMsg) tea.Cmd {
 	if !s.dragging {
 		return nil
 	}
-	s.dragging = false
-	if !s.moved {
+	// X10 releases may have no button and no reliable pointer coordinate.
+	// Like the source, save the last motion rather than recomputing from release.
+	return m.finishWorkspaceSplit()
+}
+
+func (m *Model) finishWorkspaceSplit() tea.Cmd {
+	s := &m.workspace.split
+	if !s.dragging {
 		return nil
 	}
-	return m.workspaceSplitMouseX(msg.X)
+	s.dragging = false
+	if s.moved {
+		return m.setWorkspaceSplit(s.preview)
+	}
+	return nil
+}
+
+func (m *Model) restoreWorkspaceSplit(percent int) tea.Cmd {
+	s := &m.workspace.split
+	old := m.workspaceSidebarPercent()
+	s.dragging, s.override, s.percent = false, percent != 0, percent
+	if old != m.workspaceSidebarPercent() {
+		return m.workspaceSize()
+	}
+	return nil
 }
