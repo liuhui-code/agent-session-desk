@@ -16,10 +16,10 @@ func loadUIOptions(options backend.Options, dir string) ui.Options {
 	}
 	path := filepath.Join(filepath.Dir(metadata), "ui.toml")
 	settings, err := config.LoadUI(path)
-	return ui.Options{SidebarDensity: settings.SidebarDensity, SidebarPreferenceError: err, SaveSidebarDensity: func(ctx context.Context, density string) error {
+	return ui.Options{SidebarDensity: settings.SidebarDensity, SidebarMode: settings.SidebarMode, DefaultGroupCollapsed: settings.DefaultGroupCollapsed, SidebarPreferenceError: err, SaveUISettings: func(ctx context.Context, settings config.UISettings) error {
 		if err := ctx.Err(); err != nil {
 			return err
 		}
-		return config.SaveUI(path, config.UISettings{SidebarDensity: density})
+		return config.SaveUI(path, settings)
 	}}
 }

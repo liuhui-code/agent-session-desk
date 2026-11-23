@@ -148,7 +148,7 @@ type workspaceHarness struct {
 func newWorkspaceHarness(t *testing.T, service Service, options ...Options) *workspaceHarness {
 	t.Helper()
 	ctx, cancel := context.WithCancel(context.Background())
-	settings := Options{}
+	settings := Options{SidebarMode: "flat"} // Explicit flat variant; grouped tests use defaults.
 	if len(options) > 0 {
 		settings = options[0]
 	}

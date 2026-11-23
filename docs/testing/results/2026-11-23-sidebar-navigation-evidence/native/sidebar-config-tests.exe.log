@@ -1,0 +1,31 @@
+=== RUN   TestLoadNamedTemplatePreservesLaunchData
+--- PASS: TestLoadNamedTemplatePreservesLaunchData (0.01s)
+=== RUN   TestUnsupportedSchemaDoesNotProduceLaunch
+--- PASS: TestUnsupportedSchemaDoesNotProduceLaunch (0.02s)
+=== RUN   TestUnknownFieldsAreRejectedWithoutEchoingInput
+--- PASS: TestUnknownFieldsAreRejectedWithoutEchoingInput (0.02s)
+=== RUN   TestMalformedConfigDoesNotExposeSourceOrValues
+--- PASS: TestMalformedConfigDoesNotExposeSourceOrValues (0.03s)
+=== RUN   TestMissingTemplateAndInvalidLaunchAreRejected
+--- PASS: TestMissingTemplateAndInvalidLaunchAreRejected (0.05s)
+=== RUN   TestSchemaKeysAreCaseSensitive
+--- PASS: TestSchemaKeysAreCaseSensitive (0.01s)
+=== RUN   TestConfigurationReadHasABound
+--- PASS: TestConfigurationReadHasABound (0.04s)
+=== RUN   TestTemplateHasNoInterpolationOrSharedLaunchData
+--- PASS: TestTemplateHasNoInterpolationOrSharedLaunchData (0.01s)
+=== RUN   TestUINavigationV2RoundTripsWithoutLosingDensityOrFoldChoice
+--- PASS: TestUINavigationV2RoundTripsWithoutLosingDensityOrFoldChoice (0.02s)
+=== RUN   TestUILegacyDensityReadDoesNotRewriteAndUsesGroupedExpandedDefaults
+--- PASS: TestUILegacyDensityReadDoesNotRewriteAndUsesGroupedExpandedDefaults (0.01s)
+=== RUN   TestUINavigationRefusesUnknownKeysAndWrongTypesWithoutOverwriting
+--- PASS: TestUINavigationRefusesUnknownKeysAndWrongTypesWithoutOverwriting (0.04s)
+=== RUN   TestUIPreferencesPersistAcrossLoadsAndReplaceExistingChoice
+--- PASS: TestUIPreferencesPersistAcrossLoadsAndReplaceExistingChoice (0.08s)
+=== RUN   TestUIPreferencesRefuseToOverwriteUnrecognizedOrInvalidFiles
+--- PASS: TestUIPreferencesRefuseToOverwriteUnrecognizedOrInvalidFiles (0.04s)
+=== RUN   TestUIPreferencesNormalizeUpstreamDensityValues
+--- PASS: TestUIPreferencesNormalizeUpstreamDensityValues (0.03s)
+=== RUN   TestUIPreferencesRejectCaseVariantSchemaKeys
+--- PASS: TestUIPreferencesRejectCaseVariantSchemaKeys (0.01s)
+PASS

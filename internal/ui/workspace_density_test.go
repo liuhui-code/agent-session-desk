@@ -23,7 +23,7 @@ func TestWorkspaceDensitySettingsApplyFullCardsWithoutTerminalInput(t *testing.T
 	h.send(tea.KeyPressMsg{Code: tea.KeyEscape})
 	h.until(func() bool { return !strings.Contains(ansi.Strip(h.m.View().Content), "侧栏密度") })
 	view := ansi.Strip(h.m.View().Content)
-	if !strings.Contains("\n"+view, "\n  │ 可连接") || !strings.Contains("\n"+view, "\n  ╰ ") {
+	if !strings.Contains("\n"+view, "\n    │ 可连接") || !strings.Contains("\n"+view, "\n    ╰ ") {
 		t.Fatalf("full card did not render two metadata lines:\n%s", view)
 	}
 	service.mu.Lock()
@@ -189,7 +189,7 @@ func TestWorkspaceDensityOpeningWaitsForAcceptedTerminalWrite(t *testing.T) {
 
 func TestWorkspaceDensityAutoUsesCurrentBudgetWithoutOscillation(t *testing.T) {
 	service := &workspaceFixture{fakeService: fakeService{list: func(context.Context) ([]session.Session, error) { return sampleSessions(), nil }}}
-	h := newWorkspaceHarness(t, service, Options{SidebarDensity: "auto"})
+	h := newWorkspaceHarness(t, service, Options{SidebarDensity: "auto", SidebarMode: "flat"})
 	h.until(func() bool { return strings.Contains(h.m.View().Content, "shell marker first") })
 	for _, tc := range []struct{ width, height, metadata int }{{28, 6, 4}, {28, 5, 2}, {28, 3, 0}, {27, 10, 0}, {28, 6, 4}, {28, 5, 2}, {28, 3, 0}} {
 		view := ansi.Strip(h.m.renderSessionList(tc.width, tc.height))

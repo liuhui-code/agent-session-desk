@@ -10,6 +10,8 @@
 
 2026-11-22 技术进展：[ADR-0015](adr/0015-pinned-psmux-native-terminal-client.md) 已实现固定 psmux 原生终端传输，并通过 fixture／普通 PowerShell 的两项局部原生测试；ADR-0016 在 2026-11-23 接入首个 psmux Tab UI，并有普通 shell 的[局部桌面证据](testing/results/2026-11-23-tab-workspaces.md)。完整上游视觉／交互、IME、子程序鼠标、滚动／排序与资源门槛保持开放。
 
+2026-11-23 导航进展：[ADR-0022](adr/0022-default-group-sidebar-navigation.md) 已实现默认组／折叠／平铺和偏好串行保存，本机及 Windows 模型局部结果见[报告](testing/results/2026-11-23-sidebar-navigation.md)。下一步先以当前构建跑真实桌面，再接入自定义组创建与移动，之后统一上游差异与最终资源／发布门槛；阶段状态不提升。
+
 ## M0：视觉基线与 Windows 可行性
 
 2026-11-23 当前会话管理进展：本地搜索后继续 [ADR-0021](adr/0021-persistent-session-display-names.md) 持久重命名，原身份／输入隔离、schema v3 与上游弹窗分别验收；实际范围见[报告](testing/results/2026-11-23-session-rename.md)。随后集中核对上游交互差异和分组，再用最终终端组合跑完整 Windows 流程与资源；各阶段仍未整体完成。

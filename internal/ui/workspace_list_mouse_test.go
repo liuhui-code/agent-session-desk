@@ -15,7 +15,11 @@ import (
 func clickWorkspaceListRow(t *testing.T, h *workspaceHarness, title string) {
 	t.Helper()
 	for y, line := range strings.Split(ansi.Strip(h.m.View().Content), "\n") {
-		if strings.HasPrefix(line, "  "+title) || strings.HasPrefix(line, "▶ "+title) || strings.HasPrefix(line, "┃ "+title) {
+		if y < 2 {
+			continue
+		} // The header and Tab row are not session-list rows.
+		plain := strings.TrimLeft(line, " ▶┃")
+		if strings.HasPrefix(plain, title) {
 			h.send(tea.MouseClickMsg{X: 3, Y: y, Button: tea.MouseLeft})
 			return
 		}

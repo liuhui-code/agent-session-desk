@@ -1,0 +1,12 @@
+--- FAIL: TestWorkspaceListWheelSelectsWithoutSendingTerminalKeys (0.02s)
+    --- FAIL: TestWorkspaceListWheelSelectsWithoutSendingTerminalKeys/120 (0.01s)
+        workspace_scroll_test.go:63: list wheel did not navigate in management focus
+    --- FAIL: TestWorkspaceListWheelSelectsWithoutSendingTerminalKeys/60 (0.00s)
+        workspace_scroll_test.go:63: list wheel did not navigate in management focus
+    --- FAIL: TestWorkspaceListWheelSelectsWithoutSendingTerminalKeys/40 (0.01s)
+        workspace_scroll_test.go:63: list wheel did not navigate in management focus
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	4.749s
+ok  	github.com/liuhui-code/agent-session-desk/internal/cli	1.452s
+ok  	github.com/liuhui-code/agent-session-desk/internal/config	2.055s
+FAIL

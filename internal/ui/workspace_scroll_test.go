@@ -53,7 +53,7 @@ func TestWorkspaceListWheelSelectsWithoutSendingTerminalKeys(t *testing.T) {
 			h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 			var y int
 			for row, line := range strings.Split(ansi.Strip(h.m.View().Content), "\n") {
-				if strings.HasPrefix(line, "┃ 开发") {
+				if strings.HasPrefix(line, "  ┃ 开发") {
 					y = row
 					break
 				}

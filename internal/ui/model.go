@@ -10,6 +10,7 @@ import (
 
 	tea "charm.land/bubbletea/v2"
 
+	"github.com/liuhui-code/agent-session-desk/internal/config"
 	"github.com/liuhui-code/agent-session-desk/internal/session"
 )
 
@@ -48,6 +49,10 @@ type pollMsg struct{ generation uint64 }
 // Model implements the stable Bubble Tea v2 API. Mutable UI state is touched
 // only by Init/Update; asynchronous commands return values, never mutate it.
 type Model struct {
+	preferences            uiPreferenceState
+	saveUISettings         func(context.Context, config.UISettings) error
+	sidebarMode            string
+	sidebarCollapsed       bool
 	rename                 *sessionRename
 	renameTarget           *session.Session
 	search                 *sessionSearch
@@ -95,6 +100,9 @@ func newModelWithTokens(ctx context.Context, service Service, tokens designToken
 	ctx, cancel := context.WithCancel(ctx)
 	m := &Model{ctx: ctx, cancel: cancel, service: service, tokens: tokens, styles: newStyles(tokens)}
 	m.sidebarDensity = "compact"
+	m.sidebarMode = "grouped"
+	m.preferences.saved = config.UISettings{SidebarDensity: "compact", SidebarMode: "grouped"}
+	m.preferences.wanted = m.preferences.saved
 	if service, ok := service.(workspaceService); ok {
 		capability, explicit := service.(interface{ SupportsTerminal() bool })
 		if !explicit || capability.SupportsTerminal() {
@@ -133,6 +141,9 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		return m, nil
 	}
 	if m.workspace != nil {
+		if cmd, handled := m.uiPreferencesEvent(msg); handled {
+			return m, cmd
+		}
 		if cmd, handled := m.sessionRenameEvent(msg); handled {
 			return m, cmd
 		}
@@ -297,7 +308,13 @@ func (m *Model) selected() (session.Session, bool) {
 }
 
 func (m *Model) move(delta int) tea.Cmd {
-	if m.help || len(m.sessions) == 0 {
+	if m.help {
+		return nil
+	}
+	if m.groupedSidebar() {
+		return m.moveGroupedSidebar(delta)
+	}
+	if len(m.sessions) == 0 {
 		return nil
 	}
 	previous := m.cursor

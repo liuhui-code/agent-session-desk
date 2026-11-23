@@ -55,14 +55,14 @@ func (m *Model) renderSessionList(width, height int) string {
 	if height <= 0 || width <= 0 {
 		return ""
 	}
+	if m.workspace != nil {
+		return m.renderWorkspaceSidebar(width, height)
+	}
 	if len(m.sessions) == 0 {
 		if m.listBusy {
 			return m.styles.dim.Render("正在读取会话…")
 		}
 		return m.styles.dim.Render("暂无会话" + m.tokens.sectionBreak() + "? 查看创建方法")
-	}
-	if m.workspace != nil {
-		return m.renderWorkspaceSidebar(width, height)
 	}
 	var b strings.Builder
 	window := m.sessionListWindow(height)

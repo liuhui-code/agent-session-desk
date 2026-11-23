@@ -52,13 +52,19 @@ func (m *Model) workspaceClick(msg tea.MouseClickMsg) tea.Cmd {
 	listTop := g.y - g.above - m.styles.terminalFrame.GetBorderTopSize() + m.tokens.layout.headingRows
 	listHeight := max(0, g.listHeight-m.tokens.layout.headingRows)
 	if msg.X >= 0 && msg.X < g.listWidth && msg.Y >= listTop && msg.Y < listTop+listHeight {
-		rowLines := m.workspaceSidebarRows(g.listWidth, listHeight)
-		window := m.sessionListWindowForRows(listHeight, rowLines)
-		index := window.start + (msg.Y-listTop-window.leading)/rowLines
+		window := m.sidebarNavigationWindow(g.listWidth, listHeight)
 		w.focused = false
 		m.status = ""
-		if msg.Y >= listTop+window.leading && index < window.end {
+		for _, hit := range window.rows {
+			if msg.Y < listTop+hit.top || msg.Y >= listTop+hit.top+hit.height {
+				continue
+			}
 			m.viewOffset = window.start
+			if hit.index < 0 {
+				m.cursor = -1
+				return tea.Batch(m.toggleDefaultGroup(), m.workspaceSize())
+			}
+			index := hit.index
 			selected := m.move(index - m.cursor)
 			now := time.Now()
 			elapsed := now.Sub(previous.at)

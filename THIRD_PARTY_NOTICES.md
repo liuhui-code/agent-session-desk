@@ -46,3 +46,5 @@ ADR-0019 现允许通过显式 `--terminal-bundle` 在开发配置中选择上�
 ADR-0020 新增选择性改编 Agent Deck 同一固定 MIT 提交的 `internal/ui/search.go` 与 `internal/session/discovery.go`：本地会话搜索弹窗及有限 Unicode 容错排序。目标文件保留来源头，精确来源哈希和修改点见复用清单；没有迁入 v1 组件依赖或上游整个搜索／Recall 系统。
 
 ADR-0021 选择性改编同一固定提交的 `internal/ui/group_dialog.go` 重命名预填／CursorEnd／Enter-Esc 和居中弹窗，以及 `styles.go` 的紫色、surface 与留白；`home.go` 管理 r 作为交互参考。产品独立显示名、版本冲突、身份与输入排空由本项目实现，不迁入上游分组／远程模型或 v1 依赖。原 MIT 许可继续适用，来源指纹见复用清单及重命名报告。
+
+ADR-0022 继续选择性改编同固定 Agent Deck 提交的 home.go／home_flatitems.go 默认组导航、home_view_list.go 组标题及 embedded_sidebar.go 快捷键留位，styles.go 组样式经本项目 tokens 组合；MIT／原版权保持。目标文件及精确来源见机器复用清单；未迁入上游完整分组树或 v1 依赖。

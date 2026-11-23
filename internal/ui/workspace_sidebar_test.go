@@ -25,9 +25,9 @@ func TestWorkspaceSidebarDefaultCardsSeparateTerminalMetadata(t *testing.T) {
 	lines := strings.Split(view, "\n")
 	found := false
 	for y, line := range lines {
-		if strings.HasPrefix(line, "┃ 开发") {
+		if strings.HasPrefix(line, "  ┃ 开发") {
 			found = true
-			if y+1 >= len(lines) || !strings.HasPrefix(lines[y+1], "  ╰ 可连接 · pwsh.exe") {
+			if y+1 >= len(lines) || !strings.HasPrefix(lines[y+1], "    ╰ 可连接 · pwsh.exe") {
 				t.Fatalf("terminal metadata did not occupy its own card line:\n%s", view)
 			}
 		}
@@ -70,7 +70,7 @@ func TestWorkspaceSidebarShowsBothCardsWhenTheyExactlyFit(t *testing.T) {
 	h.until(func() bool { return strings.Contains(h.m.View().Content, "shell marker first") })
 	h.send(tea.WindowSizeMsg{Width: 60, Height: 24})
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
-	if !strings.Contains("\n"+ansi.Strip(h.m.View().Content), "\n  评审") {
+	if !strings.Contains("\n"+ansi.Strip(h.m.View().Content), "\n    评审") {
 		t.Fatal("below-indicator reservation hid a card although both cards fit")
 	}
 }

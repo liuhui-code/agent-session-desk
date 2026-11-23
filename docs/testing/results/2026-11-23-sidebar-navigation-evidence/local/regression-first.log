@@ -1,0 +1,96 @@
+--- FAIL: TestWorkspaceDensitySettingsApplyFullCardsWithoutTerminalInput (0.01s)
+    workspace_density_test.go:27: full card did not render two metadata lines:
+        Agent Session Desk                                                                                                2 会话
+         开发 ×    评审 ×                                                                                                     + 
+        会话 平铺                                  │ ╭─────────────────────────────────────────────────────────────────────────╮
+        ────────────────────────────────────────── │ │正在连接原终端…                                                          │
+          ┃ 开发                                   │ │                                                                         │
+            │ 可连接                               │ │                                                                         │
+            ╰                                      │ │                                                                         │
+            评审                                   │ │                                                                         │
+            │ 可连接                               │ │                                                                         │
+            ╰                                      │ │                                                                         │
+                                                   │ │                                                                         │
+                                                   │ │                                                                         │
+                                                   │ │                                                                         │
+                                                   │ │                                                                         │
+                                                   │ │                                                                         │
+                                                   │ │                                                                         │
+                                                   │ │                                                                         │
+                                                   │ │                                                                         │
+                                                   │ │                                                                         │
+                                                   │ │                                                                         │
+                                                   │ │                                                                         │
+                                                   │ │                                                                         │
+                                                   │ │                                                                         │
+                                                   │ │                                                                         │
+                                                   │ │                                                                         │
+                                                   │ │                                                                         │
+                                                   │ │                                                                         │
+                                                   │ │                                                                         │
+                                                   │ ╰─────────────────────────────────────────────────────────────────────────╯
+        ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        管理模式 · Enter 终端 · / 搜索 · r 改名 · Ctrl+R 刷新 · n 新建 · x 关Tab · <> 比例 · S 设置 · ? · q · F6                
+                                                                                                                                
+--- FAIL: TestWorkspaceDensityAutoUsesCurrentBudgetWithoutOscillation (0.00s)
+    workspace_density_test.go:210: {width:28 height:6 metadata:4}: unexpected card budget:
+        ▾ 我的会话 (2)              
+        ┃ 开发                      
+          ╰ 可连接                  
+          评审                      
+          ╰ 可连接                  
+--- FAIL: TestWorkspaceListClickSelectsThenEnterOpensExactRun (0.02s)
+    --- FAIL: TestWorkspaceListClickSelectsThenEnterOpensExactRun/120 (0.01s)
+        workspace_list_mouse_test.go:34: no visible list row for "评审"
+    --- FAIL: TestWorkspaceListClickSelectsThenEnterOpensExactRun/60 (0.01s)
+        workspace_list_mouse_test.go:34: no visible list row for "评审"
+    --- FAIL: TestWorkspaceListClickSelectsThenEnterOpensExactRun/40 (0.00s)
+        workspace_list_mouse_test.go:34: no visible list row for "评审"
+--- FAIL: TestWorkspaceListMouseUsesVisibleRowsAndIgnoresIndicators (0.01s)
+    workspace_list_mouse_test.go:85: no visible list row for "task-14"
+--- FAIL: TestWorkspaceListDoubleClickOpensWithoutInjectingEnter (0.01s)
+    workspace_list_mouse_test.go:127: no visible list row for "评审"
+--- FAIL: TestWorkspaceListDoubleClickDoesNotActivateAReplacementRun (0.01s)
+    workspace_list_mouse_test.go:157: no visible list row for "评审"
+--- FAIL: TestWorkspaceListDoubleClickWhileConnectingKeepsManagementFocus (0.00s)
+    workspace_list_mouse_test.go:179: no visible list row for "评审"
+--- FAIL: TestWorkspaceListWheelSelectsWithoutSendingTerminalKeys (0.02s)
+    --- FAIL: TestWorkspaceListWheelSelectsWithoutSendingTerminalKeys/120 (0.01s)
+        workspace_scroll_test.go:63: list wheel did not navigate in management focus
+    --- FAIL: TestWorkspaceListWheelSelectsWithoutSendingTerminalKeys/60 (0.01s)
+        workspace_scroll_test.go:63: list wheel did not navigate in management focus
+    --- FAIL: TestWorkspaceListWheelSelectsWithoutSendingTerminalKeys/40 (0.01s)
+        workspace_scroll_test.go:63: list wheel did not navigate in management focus
+--- FAIL: TestWorkspaceSidebarDefaultCardsSeparateTerminalMetadata (0.01s)
+    workspace_sidebar_test.go:36: active terminal card marker missing:
+        Agent Session Desk                                                                                                2 会话
+         开发 ×    评审 ×                                                                                                     + 
+        会话 平铺                                  │ ╭─────────────────────────────────────────────────────────────────────────╮
+        ────────────────────────────────────────── │ │shell marker first                                                       │
+          ┃ 开发                                   │ │                                                                         │
+            ╰ 可连接 · pwsh.exe                    │ │                                                                         │
+            评审                                   │ │                                                                         │
+            ╰ 可连接                               │ │                                                                         │
+                                                   │ │                                                                         │
+                                                   │ │                                                                         │
+                                                   │ │                                                                         │
+                                                   │ │                                                                         │
+                                                   │ │                                                                         │
+                                                   │ │                                                                         │
+                                                   │ │                                                                         │
+                                                   │ │                                                                         │
+                                                   │ │                                                                         │
+                                                   │ │                                                                         │
+                                                   │ │                                                                         │
+                                                   │ │                                                                         │
+                                                   │ ╰─────────────────────────────────────────────────────────────────────────╯
+        ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+        管理模式 · Enter 终端 · / 搜索 · r 改名 · Ctrl+R 刷新 · n 新建 · x 关Tab · <> 比例 · S 设置 · ? · q · F6                
+                                                                                                                                
+--- FAIL: TestWorkspaceSidebarShowsBothCardsWhenTheyExactlyFit (0.01s)
+    workspace_sidebar_test.go:74: below-indicator reservation hid a card although both cards fit
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	2.909s
+ok  	github.com/liuhui-code/agent-session-desk/internal/cli	1.433s
+ok  	github.com/liuhui-code/agent-session-desk/internal/config	2.185s
+FAIL

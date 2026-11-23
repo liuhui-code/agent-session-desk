@@ -38,6 +38,9 @@ func (m *Model) workspaceKey(msg tea.KeyPressMsg) tea.Cmd {
 	if w.focused && len(w.tabs) > 0 {
 		return m.workspaceTerminalKey(msg)
 	}
+	if cmd, handled := m.sidebarNavigationKey(msg); handled {
+		return cmd
+	}
 	if cmd, handled := m.workspaceSplitKey(msg); handled {
 		return cmd
 	}
@@ -62,6 +65,11 @@ func (m *Model) workspaceKey(msg tea.KeyPressMsg) tea.Cmd {
 		}
 		return nil
 	case "q", "ctrl+c":
+		if m.preferences.busy {
+			w.transition = workspaceQuit
+			m.status = "管理模式 · 正在保存已选择的侧栏偏好后退出…"
+			return nil
+		}
 		if w.pending > 0 || (w.busy && len(w.buffered) > 0) {
 			w.transition = workspaceQuit
 			m.status = "正在完成已输入的内容后退出…"

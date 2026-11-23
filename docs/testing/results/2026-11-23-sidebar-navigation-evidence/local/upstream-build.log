@@ -1,0 +1,6 @@
+go: downloading github.com/charmbracelet/x/exp/teatest v0.0.0-20260413165052-6921c759c913
+go: downloading github.com/stretchr/testify v1.12.1
+# github.com/asheshgoplani/agent-deck/internal/ui
+internal/ui/ask_dialog_home_test.go:16:2: github.com/charmbracelet/x/exp/teatest@v0.0.0-20260413165052-6921c759c913: Get "https://proxy.golang.org/github.com/charmbracelet/x/exp/teatest/@v/v0.0.0-20260413165052-6921c759c913.zip": dial tcp: lookup proxy.golang.org: no such host
+FAIL	github.com/asheshgoplani/agent-deck/internal/ui [setup failed]
+FAIL

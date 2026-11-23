@@ -92,7 +92,7 @@ func (m *Model) renderWorkspace() string {
 	right := frameStyle.Width(g.outerWidth).Height(g.terminalHeight).Render(content)
 	body := right
 	if g.left > 0 {
-		left := m.renderPanelTitle("会话", g.left) + "\n" + m.renderSessionList(g.left, max(0, g.bodyHeight-m.tokens.layout.headingRows))
+		left := m.renderPanelTitle(m.sidebarTitle(), g.left) + "\n" + m.renderSessionList(g.left, max(0, g.bodyHeight-m.tokens.layout.headingRows))
 		separatorStyle := m.styles.separator
 		if w.split.dragging {
 			separatorStyle = m.styles.separatorDrag
@@ -102,7 +102,7 @@ func (m *Model) renderWorkspace() string {
 	}
 	if g.above > 0 {
 		listHeight := g.listHeight
-		list := m.renderPanelTitle("会话", m.width) + "\n" + m.renderSessionList(m.width, max(0, listHeight-m.tokens.layout.headingRows))
+		list := m.renderPanelTitle(m.sidebarTitle(), m.width) + "\n" + m.renderSessionList(m.width, max(0, listHeight-m.tokens.layout.headingRows))
 		body = fitFrame(list, m.width, listHeight)
 		if g.terminalHeight > 0 {
 			body += strings.Repeat("\n", m.tokens.layout.stackedGap+1) + right
@@ -179,7 +179,7 @@ func (m *Model) workspaceCursor() *tea.Cursor {
 // legend no longer fits. Match actual cell widths rather than a new breakpoint.
 func (m *Model) workspaceFooterText(terminalFocus bool) string {
 	choices := []string{
-		"管理模式 · Enter 终端 · / 搜索 · r 改名 · Ctrl+R 刷新 · n 新建 · x 关Tab · <> 比例 · S 设置 · ? · q · F6",
+		"管理模式 · Enter 打开 · Alt+V 分组/平铺 · / 搜索 · r 改名 · n 新建 · x 关Tab · S 设置 · ? · q · F6",
 		"管理模式 · Enter 终端 · / 搜索 · r 改名 · n 新建 · S 设置 · ? · q · F6",
 		"管理模式 · / 搜索 · ? · q · F6",
 		"管理模式 · ? · q · F6",

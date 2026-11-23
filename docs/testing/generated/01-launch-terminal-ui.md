@@ -1861,7 +1861,7 @@
 
 - 功能：[FL-003](../COVERAGE.md#fl-003)
 - 需求：[FR-03](../COVERAGE.md#fr-03)、[FR-11](../COVERAGE.md#fr-11)
-- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0014](../../adr/0014-upstream-ui-tabs-and-general-terminals.md)、[ADR-0017](../../adr/0017-sidebar-density-preferences.md)
+- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0014](../../adr/0014-upstream-ui-tabs-and-general-terminals.md)、[ADR-0017](../../adr/0017-sidebar-density-preferences.md)、[ADR-0022](../../adr/0022-default-group-sidebar-navigation.md)
 - 优先级 / 阶段 / 层次：P1 / M0 / manual
 - 类型：usability、functional
 - 设计 / 执行：`designed / not_run`
@@ -1880,6 +1880,7 @@
 1. 分别以零个、一个和多个会话启动管理器，查看默认页面。
 2. 检查 Tab 主入口、当前终端与辅助导航，打开／关闭新建、发送和设置入口，操作终端时检查 Tab 可达性。
 3. 管理焦点 S 打开侧栏设置；左右／h/l 和空格切换 full／compact／minimal／auto，即时保存后退出并重新打开 UI。
+4. 管理焦点检查默认组计数，Alt+V 往返平铺，1 定位组标题，Enter／右／l／Tab 切换折叠；退出重开检查模式／折叠／密度。
 
 #### 预期与不变量
 
@@ -1887,6 +1888,7 @@
 - 布局比例、颜色、间距、焦点、弹窗和交互尽可能还原固定上游；Tab 等必要适配逐项记录，旧 v0.1 四屏图不是比对基线。
 - 额外表单按需显示；日常输入使用目标终端原生输入区，不新增管理器聊天输入框。
 - 按当前宽高计算 3／2／1 行，Auto 不依赖上次密度；28 列以下退到标题。偏好只写状态目录 ui.toml，不写启动模板／Run 或终端输入，UI 重开恢复已保存选项。
+- 默认组标题一行；ui.toml v2 串行保存整份偏好，v1 加载不改写，显式修改才升级；模式／折叠不改变原 Run 或终端输入。
 
 #### 需要的证据
 
@@ -1900,7 +1902,7 @@
 
 - 功能：[FL-003](../COVERAGE.md#fl-003)
 - 需求：[FR-03](../COVERAGE.md#fr-03)、[FR-11](../COVERAGE.md#fr-11)
-- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)
+- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0022](../../adr/0022-default-group-sidebar-navigation.md)
 - 优先级 / 阶段 / 层次：P1 / M0 / windows_e2e
 - 类型：boundary、negative、usability
 - 设计 / 执行：`designed / not_run`
@@ -1918,11 +1920,13 @@
 
 1. 在无会话状态启动，依次按 Enter、方向键、搜索和取消。
 2. 通过明确的新建入口创建第一个会话。
+3. 零会话 grouped 模式选择标题并展开／折叠，再切 flat 后使用明确的新建入口。
 
 #### 预期与不变量
 
 - 无选中对象时不会 attach 到默认/其他 namespace 会话，不报数组越界。
 - 新建入口可发现，取消不会产生假会话，创建后列表选中实际新对象。
+- 零会话可显示默认组计数 0；标题 Enter 只改变展开状态，不启动会话；新建始终使用明确入口。
 
 #### 需要的证据
 
@@ -1972,7 +1976,7 @@
 
 - 功能：[FL-003](../COVERAGE.md#fl-003)
 - 需求：[FR-03](../COVERAGE.md#fr-03)、[FR-11](../COVERAGE.md#fr-11)
-- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0005](../../adr/0005-dependency-lifecycle-and-upgrades.md)、[ADR-0017](../../adr/0017-sidebar-density-preferences.md)
+- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0005](../../adr/0005-dependency-lifecycle-and-upgrades.md)、[ADR-0017](../../adr/0017-sidebar-density-preferences.md)、[ADR-0022](../../adr/0022-default-group-sidebar-navigation.md)
 - 优先级 / 阶段 / 层次：P1 / M0 / windows_e2e
 - 类型：boundary、usability
 - 设计 / 执行：`designed / not_run`
@@ -1990,12 +1994,14 @@
 
 1. 按已确认最小尺寸及其前后边界启动/resize 管理界面。
 2. 打开新建和发送表单，导航到确认/取消以及错误字段。
+3. 在 grouped／flat 与四种密度下缩放窗口，点击组标题／会话元信息，滚动至末尾并 Enter 打开目标。
 
 #### 预期与不变量
 
 - 支持尺寸内没有不可到达的主要动作或相互覆盖的输入字段。
 - 低于支持尺寸时明确提示/采用已设计退化布局，不崩溃、不误发输入。
 - 侧栏设置短窄窗口保留当前选项和保存错误；Auto 按当前会话项与可用空间重算，不振荡。最低全局支持尺寸仍按 O-009 另行决定。
+- 一行组标题与 1–3 行卡片共用渲染命中矩形，缩放或滚动不导致打开相邻 Session。
 
 #### 需要的证据
 
@@ -2013,7 +2019,7 @@
 
 - 功能：[FL-003](../COVERAGE.md#fl-003)
 - 需求：[FR-01](../COVERAGE.md#fr-01)、[FR-11](../COVERAGE.md#fr-11)
-- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0017](../../adr/0017-sidebar-density-preferences.md)
+- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0017](../../adr/0017-sidebar-density-preferences.md)、[ADR-0022](../../adr/0022-default-group-sidebar-navigation.md)
 - 优先级 / 阶段 / 层次：P1 / M1 / windows_e2e
 - 类型：functional、negative、usability
 - 设计 / 执行：`designed / not_run`
@@ -2032,12 +2038,14 @@
 1. 在新建表单填写多字段，只让一个字段无效后提交。
 2. 修正错误字段，再取消或成功提交。
 3. 令独立侧栏偏好不可替换，改变密度后核对错误、原偏好及原有效密度，再恢复写入并显式重试。
+4. 延迟导航偏好保存并同时改密度；保存中管理 q 退出，再分别令保存成功／失败。
 
 #### 预期与不变量
 
 - 错误靠近或清楚指向对应字段，其他已填内容不被清空。
 - 修正、取消和成功提交不会重复触发创建；焦点始终可定位。
 - 未保存时保持原有效值、清理临时文件且仍能返回管理；不自动重试，不把设置键或粘贴转投原终端。
+- 整份偏好无并发写入或字段覆盖；管理退出等待已接受保存，失败保留上次有效值并留在界面显示错误，显式 q 可退出。
 
 #### 需要的证据
 
@@ -2159,7 +2167,7 @@
 
 - 功能：[FL-003](../COVERAGE.md#fl-003)
 - 需求：[FR-03](../COVERAGE.md#fr-03)、[FR-11](../COVERAGE.md#fr-11)
-- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0005](../../adr/0005-dependency-lifecycle-and-upgrades.md)、[ADR-0017](../../adr/0017-sidebar-density-preferences.md)
+- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0005](../../adr/0005-dependency-lifecycle-and-upgrades.md)、[ADR-0017](../../adr/0017-sidebar-density-preferences.md)、[ADR-0022](../../adr/0022-default-group-sidebar-navigation.md)
 - 优先级 / 阶段 / 层次：P0 / M0 / contract
 - 类型：compatibility、boundary
 - 设计 / 执行：`designed / not_run`
@@ -2177,12 +2185,14 @@
 
 1. 对迁入的列表和表单发送单次按下、长按重复、键释放序列。
 2. 核对选择步数、文本追加次数与提交次数，再回放同一序列。
+3. 延迟折叠保存，连续左键及 Alt+V 往返；在终端焦点按 Alt+V，核对目标实际输入。
 
 #### 预期与不变量
 
 - 按下/释放/重复事件按 v2 输入模型正确处理，单次 Enter 不重复创建或重复进入。
 - 测试断言用户可见行为和事件效果，不只验证编译成功或 import 版本。
 - 稳定 v2 空格事件只轮换一次；管理 S 与终端字面 S 分离，设置保存串行并保留最新选择。
+- 重复左键保持折叠意图；快速选择最后状态有序保存；终端 Alt+V 不切管理侧栏。
 
 #### 需要的证据
 
@@ -2603,7 +2613,7 @@
 
 - 功能：[FL-012](../COVERAGE.md#fl-012)
 - 需求：[FR-11](../COVERAGE.md#fr-11)
-- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0017](../../adr/0017-sidebar-density-preferences.md)
+- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0017](../../adr/0017-sidebar-density-preferences.md)、[ADR-0022](../../adr/0022-default-group-sidebar-navigation.md)
 - 优先级 / 阶段 / 层次：P1 / M1 / manual
 - 类型：usability、compatibility
 - 设计 / 执行：`designed / not_run`
@@ -2621,12 +2631,14 @@
 
 1. 查看列表、表单和 attach 进入前的键位提示，逐一执行显示的主要操作。
 2. 如支持重绑定，应用一组合法变更后再次核对。
+3. 核对管理帮助中的 Alt+V、1、左键与组标题 Enter／右／l／Tab，并确认 h 仍为只读历史。
 
 #### 预期与不变量
 
 - 提示与当前可用动作一致，用户可以找到进入和分离路径。
 - 不继续展示历史稿中未采纳的 F6 或未实现操作；重绑定能力未实现时不宣称可用。
 - 帮助的管理 S、左右／空格即时保存与 Esc/S 返回和实际行为一致；终端焦点下不拦截这些字面键。
+- 帮助说明与管理／终端输入归属一致，明确本产品 h 差异，不把尚未实现的自定义组入口列为可用。
 
 #### 需要的证据
 

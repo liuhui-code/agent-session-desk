@@ -97,6 +97,7 @@ func (m *Model) sessionSearchEvent(msg tea.Msg) (tea.Cmd, bool) {
 						d.notice = "目标终端当前不可交互"
 						return nil, true
 					}
+					m.revealSidebarSession()
 					m.cursor, m.search = i, nil
 					return m.workspaceKey(tea.KeyPressMsg{Code: tea.KeyEnter}), true
 				}

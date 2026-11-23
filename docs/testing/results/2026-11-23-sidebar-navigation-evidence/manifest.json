@@ -1,0 +1,333 @@
+{
+  "scope": "Local and Windows native model/config tests only; no current desktop execution",
+  "files": [
+    {
+      "path": "local/red-config.log",
+      "original_bytes": 267,
+      "original_sha256": "f508d42b9bcc520f7d9b2212a93c50816f9bd81cb2a65dc36378580db1d91ac2",
+      "archived_bytes": 267,
+      "archived_sha256": "f508d42b9bcc520f7d9b2212a93c50816f9bd81cb2a65dc36378580db1d91ac2",
+      "transformation": "Decoded BOM when present; UTF-8/LF; test user and machine paths redacted."
+    },
+    {
+      "path": "local/green-config.log",
+      "original_bytes": 70,
+      "original_sha256": "23603b958633a54275628070bea67f7ad421ef8e84164a0cb6335f7080da41ed",
+      "archived_bytes": 70,
+      "archived_sha256": "23603b958633a54275628070bea67f7ad421ef8e84164a0cb6335f7080da41ed",
+      "transformation": "Decoded BOM when present; UTF-8/LF; test user and machine paths redacted."
+    },
+    {
+      "path": "local/red-grouped.log",
+      "original_bytes": 254,
+      "original_sha256": "6ea1132c8756c9099a898b97dd38d4e52ea34e7b4068d84626493d3955669bbf",
+      "archived_bytes": 254,
+      "archived_sha256": "6ea1132c8756c9099a898b97dd38d4e52ea34e7b4068d84626493d3955669bbf",
+      "transformation": "Decoded BOM when present; UTF-8/LF; test user and machine paths redacted."
+    },
+    {
+      "path": "local/green-grouped-first.log",
+      "original_bytes": 66,
+      "original_sha256": "d740d5f7b9d82a99b43c5c1408ffde6dcc7497f7511a5e771de31e5fdaeb550d",
+      "archived_bytes": 66,
+      "archived_sha256": "d740d5f7b9d82a99b43c5c1408ffde6dcc7497f7511a5e771de31e5fdaeb550d",
+      "transformation": "Decoded BOM when present; UTF-8/LF; test user and machine paths redacted."
+    },
+    {
+      "path": "local/red-mouse.log",
+      "original_bytes": 7351,
+      "original_sha256": "e2ec96fbf09286ea30e416096d2f03fab33e823873ea34e921723d91f6193670",
+      "archived_bytes": 7351,
+      "archived_sha256": "e2ec96fbf09286ea30e416096d2f03fab33e823873ea34e921723d91f6193670",
+      "transformation": "Decoded BOM when present; UTF-8/LF; test user and machine paths redacted."
+    },
+    {
+      "path": "local/green-mouse.log",
+      "original_bytes": 66,
+      "original_sha256": "0b8a2e84cec61535ffee493cb3f071539d2365dfb60cdf25deca2ea4881d9f41",
+      "archived_bytes": 66,
+      "archived_sha256": "0b8a2e84cec61535ffee493cb3f071539d2365dfb60cdf25deca2ea4881d9f41",
+      "transformation": "Decoded BOM when present; UTF-8/LF; test user and machine paths redacted."
+    },
+    {
+      "path": "local/regression-first.log",
+      "original_bytes": 11614,
+      "original_sha256": "7c7be4e9bbea937e8b9fb48958e486486395900c1e9b29f866a8f5fc75a763b2",
+      "archived_bytes": 11614,
+      "archived_sha256": "7c7be4e9bbea937e8b9fb48958e486486395900c1e9b29f866a8f5fc75a763b2",
+      "transformation": "Decoded BOM when present; UTF-8/LF; test user and machine paths redacted."
+    },
+    {
+      "path": "local/regression-second.log",
+      "original_bytes": 786,
+      "original_sha256": "b29dbdbf6a420e2074f3a35473fba59016a24ed68ce48f2072912c6ada0e25a8",
+      "archived_bytes": 786,
+      "archived_sha256": "b29dbdbf6a420e2074f3a35473fba59016a24ed68ce48f2072912c6ada0e25a8",
+      "transformation": "Decoded BOM when present; UTF-8/LF; test user and machine paths redacted."
+    },
+    {
+      "path": "local/regression-third.log",
+      "original_bytes": 203,
+      "original_sha256": "47b58960a47718af96911f658214b576b685d897f38e0fae4ef67013b5bef695",
+      "archived_bytes": 203,
+      "archived_sha256": "47b58960a47718af96911f658214b576b685d897f38e0fae4ef67013b5bef695",
+      "transformation": "Decoded BOM when present; UTF-8/LF; test user and machine paths redacted."
+    },
+    {
+      "path": "local/regression-fourth.log",
+      "original_bytes": 203,
+      "original_sha256": "e57bc6767e2818a99472aba51bf6d70e73ebeaa573f25bf5d548f779be0a69bd",
+      "archived_bytes": 203,
+      "archived_sha256": "e57bc6767e2818a99472aba51bf6d70e73ebeaa573f25bf5d548f779be0a69bd",
+      "transformation": "Decoded BOM when present; UTF-8/LF; test user and machine paths redacted."
+    },
+    {
+      "path": "local/quit-first-pass-input-masked.log",
+      "original_bytes": 66,
+      "original_sha256": "ad545ada62f285a99b51bb8a466b83090a1824ab4f00c5e061b8f3c82d328ef7",
+      "archived_bytes": 66,
+      "archived_sha256": "ad545ada62f285a99b51bb8a466b83090a1824ab4f00c5e061b8f3c82d328ef7",
+      "transformation": "Decoded BOM when present; UTF-8/LF; test user and machine paths redacted."
+    },
+    {
+      "path": "local/red-quit.log",
+      "original_bytes": 240,
+      "original_sha256": "688fe708b37b3c5759004f3ee996e48b24f7de4283cd1e34350aba4107c5fe5b",
+      "archived_bytes": 240,
+      "archived_sha256": "688fe708b37b3c5759004f3ee996e48b24f7de4283cd1e34350aba4107c5fe5b",
+      "transformation": "Decoded BOM when present; UTF-8/LF; test user and machine paths redacted."
+    },
+    {
+      "path": "local/green-quit.log",
+      "original_bytes": 66,
+      "original_sha256": "87c5104ceb82527618b237475e856c1d03b9736aef74447c6afef9025278a978",
+      "archived_bytes": 66,
+      "archived_sha256": "87c5104ceb82527618b237475e856c1d03b9736aef74447c6afef9025278a978",
+      "transformation": "Decoded BOM when present; UTF-8/LF; test user and machine paths redacted."
+    },
+    {
+      "path": "local/green-final.log",
+      "original_bytes": 203,
+      "original_sha256": "865ba98ce7c6d8b396201214dc9a4b117d70bb81a2f7340b4e2312205d1a79ea",
+      "archived_bytes": 203,
+      "archived_sha256": "865ba98ce7c6d8b396201214dc9a4b117d70bb81a2f7340b4e2312205d1a79ea",
+      "transformation": "Decoded BOM when present; UTF-8/LF; test user and machine paths redacted."
+    },
+    {
+      "path": "local/go-test.log",
+      "original_bytes": 716,
+      "original_sha256": "881ad5128c31b5c85c5f3930109bb20804e00cb6f8123f2a9337e7b11f41df6d",
+      "archived_bytes": 716,
+      "archived_sha256": "881ad5128c31b5c85c5f3930109bb20804e00cb6f8123f2a9337e7b11f41df6d",
+      "transformation": "Decoded BOM when present; UTF-8/LF; test user and machine paths redacted."
+    },
+    {
+      "path": "local/go-race.log",
+      "original_bytes": 716,
+      "original_sha256": "881ad5128c31b5c85c5f3930109bb20804e00cb6f8123f2a9337e7b11f41df6d",
+      "archived_bytes": 716,
+      "archived_sha256": "881ad5128c31b5c85c5f3930109bb20804e00cb6f8123f2a9337e7b11f41df6d",
+      "transformation": "Decoded BOM when present; UTF-8/LF; test user and machine paths redacted."
+    },
+    {
+      "path": "local/go-vet.log",
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived_bytes": 0,
+      "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "transformation": "Decoded BOM when present; UTF-8/LF; test user and machine paths redacted."
+    },
+    {
+      "path": "local/go-mod-verify.log",
+      "original_bytes": 21,
+      "original_sha256": "b4537ed75f533f993f371954de47e42a793b8e5b0587577de7e27fb3e50696bd",
+      "archived_bytes": 21,
+      "archived_sha256": "b4537ed75f533f993f371954de47e42a793b8e5b0587577de7e27fb3e50696bd",
+      "transformation": "Decoded BOM when present; UTF-8/LF; test user and machine paths redacted."
+    },
+    {
+      "path": "local/source-limits.log",
+      "original_bytes": 47,
+      "original_sha256": "cd968af2e2a36b7b2224a66edf651b2396cbf82f744ea46ef87b96920d88366d",
+      "archived_bytes": 47,
+      "archived_sha256": "cd968af2e2a36b7b2224a66edf651b2396cbf82f744ea46ef87b96920d88366d",
+      "transformation": "Decoded BOM when present; UTF-8/LF; test user and machine paths redacted."
+    },
+    {
+      "path": "local/catalog-render.log",
+      "original_bytes": 293,
+      "original_sha256": "9a70ad6aeca5079f5e0cc6220b5aea58942128ef9baeb2f8e58429ac1d3bde84",
+      "archived_bytes": 293,
+      "archived_sha256": "9a70ad6aeca5079f5e0cc6220b5aea58942128ef9baeb2f8e58429ac1d3bde84",
+      "transformation": "Decoded BOM when present; UTF-8/LF; test user and machine paths redacted."
+    },
+    {
+      "path": "local/catalog-check.log",
+      "original_bytes": 257,
+      "original_sha256": "cdec900bd74cfee5510513fc5f909ef9c985ba8dce1f94feee309dd2ffc03197",
+      "archived_bytes": 257,
+      "archived_sha256": "cdec900bd74cfee5510513fc5f909ef9c985ba8dce1f94feee309dd2ffc03197",
+      "transformation": "Decoded BOM when present; UTF-8/LF; test user and machine paths redacted."
+    },
+    {
+      "path": "local/upstream-build.log",
+      "original_bytes": 543,
+      "original_sha256": "87dec17bc2ba71cd2c49ca2134cff781172cb83358f1b9cad9eb1b760b0ef331",
+      "archived_bytes": 543,
+      "archived_sha256": "87dec17bc2ba71cd2c49ca2134cff781172cb83358f1b9cad9eb1b760b0ef331",
+      "transformation": "Decoded BOM when present; UTF-8/LF; test user and machine paths redacted."
+    },
+    {
+      "path": "local/upstream-component-build.log",
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived_bytes": 0,
+      "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "transformation": "Decoded BOM when present; UTF-8/LF; test user and machine paths redacted."
+    },
+    {
+      "path": "local/upstream-render.log",
+      "original_bytes": 5,
+      "original_sha256": "c26de83abdc9496cd1301470918ec39ecca1cf389ef0ae1c6504da1800d1c431",
+      "archived_bytes": 5,
+      "archived_sha256": "c26de83abdc9496cd1301470918ec39ecca1cf389ef0ae1c6504da1800d1c431",
+      "transformation": "Decoded BOM when present; UTF-8/LF; test user and machine paths redacted."
+    },
+    {
+      "path": "local/native-run.log",
+      "original_bytes": 1100,
+      "original_sha256": "af703b34df12131bbfe44e7d2cb30291df511455630dca7dc31a432b4c04e573",
+      "archived_bytes": 1071,
+      "archived_sha256": "0fe5821de842fb12c746a915305b14a39a80e01cf16ac6db6d799422d8c84f55",
+      "transformation": "Decoded BOM when present; UTF-8/LF; test user and machine paths redacted."
+    },
+    {
+      "path": "local/product-source.json",
+      "original_bytes": 21966,
+      "original_sha256": "3d963fdb1d8823ad06f546934434b2bdff8e35587781c19f2f04f30b5bd9370a",
+      "archived_bytes": 21966,
+      "archived_sha256": "3d963fdb1d8823ad06f546934434b2bdff8e35587781c19f2f04f30b5bd9370a",
+      "transformation": "Decoded BOM when present; UTF-8/LF; test user and machine paths redacted."
+    },
+    {
+      "path": "local/upstream-source.json",
+      "original_bytes": 1475,
+      "original_sha256": "cd9c5951c974dd341634659a79068db3c30e52d2a74d01c9740b361dada43230",
+      "archived_bytes": 1475,
+      "archived_sha256": "cd9c5951c974dd341634659a79068db3c30e52d2a74d01c9740b361dada43230",
+      "transformation": "Decoded BOM when present; UTF-8/LF; test user and machine paths redacted."
+    },
+    {
+      "path": "local/binary-hashes.json",
+      "original_bytes": 195,
+      "original_sha256": "1110ddba0e202ed9f076be41fa3fa3cdf510e409a405fb76dde634dbd55504e1",
+      "archived_bytes": 195,
+      "archived_sha256": "1110ddba0e202ed9f076be41fa3fa3cdf510e409a405fb76dde634dbd55504e1",
+      "transformation": "Decoded BOM when present; UTF-8/LF; test user and machine paths redacted."
+    },
+    {
+      "path": "local/upstream-header-frames.json",
+      "original_bytes": 9814,
+      "original_sha256": "9c6a22f5b7cec598930d9beb082a6b967245d54ec9f401caec850244a24fe484",
+      "archived_bytes": 9814,
+      "archived_sha256": "9c6a22f5b7cec598930d9beb082a6b967245d54ec9f401caec850244a24fe484",
+      "transformation": "Decoded BOM when present; UTF-8/LF; test user and machine paths redacted."
+    },
+    {
+      "path": "local/upstream-reference_test.go.txt",
+      "original_bytes": 1187,
+      "original_sha256": "07523036a1b9507ae54fec1f95a41f2ec01be2a5623d1602ffe59166a72bac24",
+      "archived_bytes": 1187,
+      "archived_sha256": "07523036a1b9507ae54fec1f95a41f2ec01be2a5623d1602ffe59166a72bac24",
+      "transformation": "Decoded BOM when present; UTF-8/LF; test user and machine paths redacted."
+    },
+    {
+      "path": "local/upstream-unused-tests.go.txt",
+      "original_bytes": 11,
+      "original_sha256": "8dfdeacad9c04a39e4d9e7515c427b471d021cf83cae9ce6d3b49af5d3f6bdae",
+      "archived_bytes": 11,
+      "archived_sha256": "8dfdeacad9c04a39e4d9e7515c427b471d021cf83cae9ce6d3b49af5d3f6bdae",
+      "transformation": "Decoded BOM when present; UTF-8/LF; test user and machine paths redacted."
+    },
+    {
+      "path": "local/upstream-overlay.json",
+      "original_bytes": 79643,
+      "original_sha256": "395530ba7a59ad183199800865fb72b847cd424a1fae600646be4c6a2f4a96cd",
+      "archived_bytes": 79643,
+      "archived_sha256": "395530ba7a59ad183199800865fb72b847cd424a1fae600646be4c6a2f4a96cd",
+      "transformation": "Decoded BOM when present; UTF-8/LF; test user and machine paths redacted."
+    },
+    {
+      "path": "local/upstream-overlay-initial.json",
+      "original_bytes": 367,
+      "original_sha256": "7305f7f01a8f482a604c84c9756c709b30e5d872b421b4b35ad4b7bc071b2c14",
+      "archived_bytes": 367,
+      "archived_sha256": "7305f7f01a8f482a604c84c9756c709b30e5d872b421b4b35ad4b7bc071b2c14",
+      "transformation": "Decoded BOM when present; UTF-8/LF; test user and machine paths redacted."
+    },
+    {
+      "path": "local/upstream-testmain-reference.go.txt",
+      "original_bytes": 8644,
+      "original_sha256": "5bbd0cd1353a20a1708f66ab3970e4229bc87cb261763684819ed2f3907a95d6",
+      "archived_bytes": 8644,
+      "archived_sha256": "5bbd0cd1353a20a1708f66ab3970e4229bc87cb261763684819ed2f3907a95d6",
+      "transformation": "Decoded BOM when present; UTF-8/LF; test user and machine paths redacted."
+    },
+    {
+      "path": "local/run-sidebar-navigation-tests.ps1",
+      "original_bytes": 2012,
+      "original_sha256": "7bf4948f4469e2637c06c2eb8189285f2c537d27321b0bfc423329a5a512fab7",
+      "archived_bytes": 2012,
+      "archived_sha256": "7bf4948f4469e2637c06c2eb8189285f2c537d27321b0bfc423329a5a512fab7",
+      "transformation": "Decoded BOM when present; UTF-8/LF; test user and machine paths redacted."
+    },
+    {
+      "path": "local/archive-navigation.py",
+      "original_bytes": 2411,
+      "original_sha256": "4f3f796dde573a383dc42a17eb2d9db5d5db0b59f693d75d4ade7eed022a5db4",
+      "archived_bytes": 2422,
+      "archived_sha256": "f03016d745121f295ec1d392c24745b4305b4e4d18a12cb7fda458e770abebab",
+      "transformation": "Decoded BOM when present; UTF-8/LF; test user and machine paths redacted."
+    },
+    {
+      "path": "local/verify-navigation.py",
+      "original_bytes": 2676,
+      "original_sha256": "f8420c56973da0da9577b34305c161821ea601c5ab38031fde1a952d0e56a429",
+      "archived_bytes": 2687,
+      "archived_sha256": "40a4baf292b24d8cdfe185e412d81f36764fca4bc8e45cc5e8a50f8254b42891",
+      "transformation": "Decoded BOM when present; UTF-8/LF; test user and machine paths redacted."
+    },
+    {
+      "path": "local/reference.sb",
+      "original_bytes": 240,
+      "original_sha256": "eed96355da364343656cf061c66d6bec5af771454522d7fae4ba8f41bb4d386a",
+      "archived_bytes": 244,
+      "archived_sha256": "2b2f3e9bdad8a7bed8c4fda3f44cabeee7dd8101bfbccaa413a188acc81e214a",
+      "transformation": "Decoded BOM when present; UTF-8/LF; test user and machine paths redacted."
+    },
+    {
+      "path": "native/sidebar-ui-tests.exe.log",
+      "original_bytes": 79022,
+      "original_sha256": "f975d76632c3e3c975dca015bd79ef9c8e109bdf2b420e3f949d09cda523c3cf",
+      "archived_bytes": 38927,
+      "archived_sha256": "e310b46215ca04466d92dd8340589cf04c7eed06186ed0ca5f8f7f438d8bfe52",
+      "transformation": "Decoded BOM when present; UTF-8/LF; test user and machine paths redacted."
+    },
+    {
+      "path": "native/sidebar-config-tests.exe.log",
+      "original_bytes": 3894,
+      "original_sha256": "8cbce909c2ec60227ea02ac50cb8100d00fb15020647998c95f638f8b6b7f8f2",
+      "archived_bytes": 1915,
+      "archived_sha256": "02defb76b367a01cfd8a662a56ba6fdac84f0e717875d5357a9b6096ed3a90e5",
+      "transformation": "Decoded BOM when present; UTF-8/LF; test user and machine paths redacted."
+    },
+    {
+      "path": "native/results.json",
+      "original_bytes": 1103,
+      "original_sha256": "cee97b717cd61f5ef2bb067101b0a9a4e6aa260c9d6addef1e8340dd0861ec88",
+      "archived_bytes": 1071,
+      "archived_sha256": "0fe5821de842fb12c746a915305b14a39a80e01cf16ac6db6d799422d8c84f55",
+      "transformation": "Decoded BOM when present; UTF-8/LF; test user and machine paths redacted."
+    }
+  ]
+}

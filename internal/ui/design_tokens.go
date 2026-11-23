@@ -52,11 +52,13 @@ type copyTokens struct {
 }
 
 type sidebarTokens struct {
-	radioUnselected                                                       string
-	cardMinWidth, cardRows                                                int
-	fullRows, settingsWidth, settingsPaddingX, settingsPaddingY, radioGap int
-	selected, active, metadata, metadataMiddle, separator, radioMarker    string
-	underlineChoice                                                       bool
+	groupExpanded, groupCollapsed, rootShortcut, groupCountPrefix, groupCountSuffix string
+	groupGutter                                                                     int
+	radioUnselected                                                                 string
+	cardMinWidth, cardRows                                                          int
+	fullRows, settingsWidth, settingsPaddingX, settingsPaddingY, radioGap           int
+	selected, active, metadata, metadataMiddle, separator, radioMarker              string
+	underlineChoice                                                                 bool
 }
 
 type dialogTokens struct {
@@ -101,7 +103,7 @@ func defaultDesignTokens() designTokens {
 		search: searchTokens{preferredWidth: 62, minWidth: 32, responsiveBelow: 70, gutter: 8, paddingX: 2, paddingY: 1, inputPaddingX: 1, inputRightGap: 4, resultPadding: 2, maxResults: 10, prompt: "> ", selected: "› ", titlePrefix: "🔍 ", programPrefix: " (", programSuffix: ")", countColor: lipgloss.Color("241"), placeholderColor: lipgloss.Color("240"), hintItalic: true},
 		// Pinned native copy-mode defaults; interpreted as character attributes.
 		copy:      copyTokens{foreground: "idx:0", selection: "idx:3", match: "idx:6", current: "idx:5", mark: "idx:1", cursorShape: tea.CursorBlock},
-		sidebar:   sidebarTokens{cardMinWidth: 28, cardRows: 2, fullRows: 3, selected: "▶ ", active: "┃ ", metadata: "  ╰ ", metadataMiddle: "  │ ", separator: " · ", settingsWidth: 66, settingsPaddingX: 2, settingsPaddingY: 1, radioGap: 2, radioMarker: ">", radioUnselected: " ", underlineChoice: true},
+		sidebar:   sidebarTokens{cardMinWidth: 28, cardRows: 2, fullRows: 3, selected: "▶ ", active: "┃ ", metadata: "  ╰ ", metadataMiddle: "  │ ", separator: " · ", settingsWidth: 66, settingsPaddingX: 2, settingsPaddingY: 1, radioGap: 2, radioMarker: ">", radioUnselected: " ", underlineChoice: true, groupExpanded: "▾", groupCollapsed: "▸", rootShortcut: "1·", groupCountPrefix: " (", groupCountSuffix: ")", groupGutter: 2},
 		dialog:    dialogTokens{preferredWidth: 86, minWidth: 44, gutter: 10, paddingX: 4, paddingY: 2, firstPaddingY: 1, titleGap: 1, fieldGap: 1, dimBackdrop: true, cursorShape: tea.CursorBar, cursorBlink: true},
 		workspace: workspaceTokens{footerRuleRows: 1, footerBottomGapRows: 1, sidebarPercent: 35, compactPercent: 18, minPane: 8, tabPadding: 1, maxTabWidth: 32, splitStep: 5, minSplitPercent: 10, maxSplitPercent: 90, dividerGrabSlop: 2, minTerminalRows: 3, splitNoticeDuration: 1500 * time.Millisecond, doubleClickInterval: 500 * time.Millisecond, border: lipgloss.RoundedBorder()},
 		colors: palette{

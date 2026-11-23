@@ -19,14 +19,19 @@ import (
 func (m *Model) renderWorkspaceSidebar(width, height int) string {
 	var lines []string
 	rowLines := m.workspaceSidebarRows(width, height)
-	window := m.sessionListWindowForRows(height, rowLines)
+	window := m.sidebarNavigationWindow(width, height)
 	if window.leading > 0 {
 		lines = append(lines, m.styles.dim.Render(fmt.Sprintf("%s%s 上方 %d", m.tokens.itemGap(), m.tokens.marks.above, window.start)))
 	}
-	for i := window.start; i < window.end; i++ {
-		lines = append(lines, m.workspaceSidebarCard(i, width, rowLines)...)
+	for _, hit := range window.rows {
+		if hit.index < 0 {
+			lines = append(lines, m.renderSidebarGroup(width))
+			continue
+		}
+		card := m.workspaceSidebarCard(hit.index, width, rowLines)
+		lines = append(lines, card[:hit.height]...)
 	}
-	if remaining := len(m.sessions) - window.end; remaining > 0 && height > len(lines) {
+	if remaining := window.remaining; remaining > 0 && height > len(lines) {
 		lines = append(lines, m.styles.dim.Render(fmt.Sprintf("%s%s 下方 %d", m.tokens.itemGap(), m.tokens.marks.below, remaining)))
 	}
 	return strings.Join(lines[:min(height, len(lines))], "\n")
@@ -44,8 +49,12 @@ func (m *Model) workspaceSidebarRows(width, height int) int {
 		rows = 1
 	case "auto":
 		rows = 1
+		groupRows := 0
+		if m.groupedSidebar() {
+			groupRows = 1
+		}
 		for candidate := m.tokens.sidebar.fullRows; candidate > 1; candidate-- {
-			if len(m.sessions)*candidate <= height {
+			if len(m.sessions)*candidate+groupRows <= height {
 				rows = candidate
 				break
 			}
@@ -66,6 +75,11 @@ func (m *Model) workspaceSidebarCard(index, width, rowLines int) []string {
 	if active {
 		prefix = m.tokens.sidebar.active
 	}
+	gutter := ""
+	if !w.focused {
+		gutter = strings.Repeat(" ", m.tokens.sidebar.groupGutter)
+	}
+	prefix = gutter + prefix
 	title := m.sessionTitle(s, m.sessions, max(0, width-lipgloss.Width(prefix)))
 	fit := func(text string) string {
 		text = cellTruncate(text, width, m.tokens.marks.ellipsis)
@@ -89,7 +103,7 @@ func (m *Model) workspaceSidebarCard(index, width, rowLines int) []string {
 			metadata += m.tokens.sidebar.separator + command
 		}
 		count := rowLines - 1
-		metadataWidth := max(1, width-lipgloss.Width(m.tokens.sidebar.metadata))
+		metadataWidth := max(1, width-lipgloss.Width(gutter+m.tokens.sidebar.metadata))
 		wrapped := strings.Split(ansi.Wrap(metadata, metadataWidth, ""), "\n")
 		if len(wrapped) > count {
 			wrapped[count-1] = cellTruncate(strings.Join(wrapped[count-1:], " "), metadataWidth, m.tokens.marks.ellipsis)
@@ -100,6 +114,7 @@ func (m *Model) workspaceSidebarCard(index, width, rowLines int) []string {
 			if i == count-1 {
 				prefix = m.tokens.sidebar.metadata
 			}
+			prefix = gutter + prefix
 			if i < len(wrapped) {
 				text = wrapped[i]
 			}

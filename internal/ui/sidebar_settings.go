@@ -17,6 +17,9 @@ import (
 
 type Options struct {
 	SidebarDensity         string
+	SidebarMode            string
+	DefaultGroupCollapsed  bool
+	SaveUISettings         func(context.Context, config.UISettings) error
 	SaveSidebarDensity     func(context.Context, string) error
 	SidebarPreferenceError error
 }
@@ -24,6 +27,14 @@ type Options struct {
 func NewWithOptions(ctx context.Context, service Service, options Options) *Model {
 	m := New(ctx, service)
 	m.sidebarDensity = config.NormalizeSidebarDensity(options.SidebarDensity)
+	m.sidebarMode = config.NormalizeSidebarMode(options.SidebarMode)
+	m.sidebarCollapsed = options.DefaultGroupCollapsed
+	m.saveUISettings = options.SaveUISettings
+	m.preferences.saved = config.UISettings{SidebarDensity: m.sidebarDensity, SidebarMode: m.sidebarMode, DefaultGroupCollapsed: m.sidebarCollapsed}
+	m.preferences.wanted = m.preferences.saved
+	if m.groupedSidebar() && m.sidebarCollapsed {
+		m.cursor = -1
+	}
 	m.saveSidebarDensity = options.SaveSidebarDensity
 	m.sidebarPreferenceError = options.SidebarPreferenceError
 	if options.SidebarPreferenceError != nil {
@@ -38,11 +49,6 @@ type densitySettings struct {
 	choice        int
 	busy, closing bool
 	err           error
-}
-type densitySaved struct {
-	dialog  *densitySettings
-	density string
-	err     error
 }
 
 func (m *Model) openDensitySettings() {
@@ -70,37 +76,10 @@ func (m *Model) saveDensityChoice() tea.Cmd {
 		return nil
 	}
 	d.busy, d.err = true, nil
-	save, ctx := m.saveSidebarDensity, m.ctx
-	return func() tea.Msg {
-		var err error
-		if save != nil {
-			err = save(ctx, value)
-		}
-		return densitySaved{d, value, err}
-	}
+	m.preferences.wanted.SidebarDensity = value
+	return m.saveUIPreferences()
 }
 func (m *Model) densitySettingsEvent(msg tea.Msg) (tea.Cmd, bool) {
-	if result, ok := msg.(densitySaved); ok {
-		if m.densitySettings != result.dialog {
-			return nil, true
-		}
-		d := m.densitySettings
-		d.busy = false
-		d.err = result.err
-		if result.err != nil {
-			d.closing = false
-			return nil, true
-		}
-		m.sidebarDensity = result.density
-		m.sidebarPreferenceError = nil
-		if sidebarDensities[d.choice] != m.sidebarDensity {
-			return m.saveDensityChoice(), true
-		}
-		if d.closing {
-			return m.closeDensitySettings(), true
-		}
-		return nil, true
-	}
 	d := m.densitySettings
 	if d == nil {
 		return nil, false

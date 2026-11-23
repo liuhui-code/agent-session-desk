@@ -16,6 +16,7 @@ import (
 )
 
 type styles struct {
+	groupName, groupPart, groupHotkey, groupSelectedName, groupSelectedPart                                               lipgloss.Style
 	renameBox, renameTitle, renameHint                                                                                    lipgloss.Style
 	renameInput                                                                                                           textinput.Styles
 	searchTip                                                                                                             lipgloss.Style
@@ -34,6 +35,11 @@ type styles struct {
 
 func newStyles(t designTokens) styles {
 	return styles{
+		groupName:               lipgloss.NewStyle().Foreground(t.colors.cyan).Bold(t.bold),
+		groupPart:               lipgloss.NewStyle().Foreground(t.colors.text),
+		groupHotkey:             lipgloss.NewStyle().Foreground(t.colors.dim),
+		groupSelectedName:       lipgloss.NewStyle().Foreground(t.colors.bg).Background(t.colors.accent).Bold(t.bold),
+		groupSelectedPart:       lipgloss.NewStyle().Foreground(t.colors.bg).Background(t.colors.accent),
 		renameBox:               lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.rename.borderColor).Background(t.colors.surface).Padding(t.rename.paddingY, t.rename.paddingX),
 		renameTitle:             lipgloss.NewStyle().Foreground(t.rename.borderColor).Background(t.colors.surface).Bold(t.bold),
 		renameHint:              lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.surface),

@@ -11,3 +11,5 @@ tools/ci/*.json text eol=lf
 docs/testing/results/2026-11-23-upstream-visual-comparison-evidence/frames/* -text
 # Checksummed rename evidence includes intentional terminal cell padding.
 docs/testing/results/2026-11-23-session-rename-evidence/** -text -whitespace
+# Checksummed grouped-sidebar captures retain deliberate terminal padding.
+docs/testing/results/2026-11-23-sidebar-navigation-evidence/** -text -whitespace

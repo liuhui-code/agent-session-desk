@@ -166,3 +166,5 @@ FR-14 补充人工介入体验，不把 needs_attention 当作 ready、任务完
 | 2026-11-20 | 建立 v0.1 产品规划、FR-01 至 FR-13 与候选技术方向 |
 | 2026-11-21 | 记录已选择的 Go/Charm v2、选择性 UI 复用和 psmux 验证路线；界面收敛为列表/预览与全屏 attach；区分终端托管和后台自动投递，保留全部 FR；产品仍未实现、Windows 仍未实测 |
 | 2026-11-21 | 按用户确认新增 US-06、FR-14 与 AttentionItem，关联 FL-020 / ADR-0006；区分可信介入、查看/解决、通知结果与后台监测，原有 FR 编号与功能完成状态保留 |
+
+2026-11-23 FR-03 局部进展：默认组、折叠与平铺切换按 [ADR-0022](adr/0022-default-group-sidebar-navigation.md) 接入；Tab／原终端输入继续为主入口。自定义组创建／移动、完整视觉和发布门槛以[实际报告](testing/results/2026-11-23-sidebar-navigation.md)为准。

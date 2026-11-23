@@ -243,6 +243,9 @@ func (m *Model) workspaceEvent(msg tea.Msg) (tea.Cmd, bool) {
 			return m.closeWorkspaceTabNow(), true
 		}
 		if w.pending == 0 && w.transition == workspaceQuit {
+			if m.preferences.busy {
+				return nil, true
+			}
 			m.Close()
 			return tea.Quit, true
 		}
@@ -371,6 +374,7 @@ func (m *Model) activateWorkspace(index int) tea.Cmd {
 func (m *Model) selectWorkspaceSession(target session.Session) {
 	for i, s := range m.sessions {
 		if sameRun(s, target) {
+			m.revealSidebarSession()
 			m.cursor = i
 			return
 		}

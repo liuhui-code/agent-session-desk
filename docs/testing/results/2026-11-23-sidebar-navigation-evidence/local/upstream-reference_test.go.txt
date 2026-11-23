@@ -1,0 +1,25 @@
+package ui
+
+import (
+ "encoding/json"
+ "os"
+ "strings"
+ "testing"
+ "github.com/asheshgoplani/agent-deck/internal/session"
+ "github.com/charmbracelet/lipgloss"
+ "github.com/muesli/termenv"
+)
+func TestASDDefaultGroupHeaderReference(t *testing.T){
+ lipgloss.SetColorProfile(termenv.TrueColor)
+ var frames []map[string]any
+ for _,width:=range []int{42,21,63,49}{for _,compact:=range []bool{false,true}{for _,selected:=range []bool{false,true}{for _,expanded:=range []bool{false,true}{
+  h:=&Home{embeddedLayout:true,compactSidebar:compact}
+  g:=&session.Group{Name:session.DefaultGroupName,Path:session.DefaultGroupPath,Expanded:expanded}
+  item:=session.Item{Type:session.ItemTypeGroup,Group:g,Path:g.Path,RootGroupNum:1}
+  var b strings.Builder
+  h.renderGroupItem(&b,item,selected,0,map[string]groupRenderStats{g.Path:{sessionCount:2}},width)
+  frames=append(frames,map[string]any{"width":width,"compact":compact,"selected":selected,"expanded":expanded,"content":b.String()})
+ }}}}
+ data,err:=json.MarshalIndent(frames,"","  ");if err!=nil {t.Fatal(err)}
+ if err=os.WriteFile("/private/tmp/asd-sidebar-navigation-20261123/upstream-header-frames.json",data,0600);err!=nil {t.Fatal(err)}
+}

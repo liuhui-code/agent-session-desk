@@ -1,0 +1,29 @@
+{
+    "live_exact_paths":  [
+
+                         ],
+    "utc":  "2026-11-23T02:30:55.3828243Z",
+    "tests":  [
+                  {
+                      "all_pass":  291,
+                      "skip":  0,
+                      "exit_code":  0,
+                      "fail":  0,
+                      "utc":  "2026-11-23T02:30:54.4326744Z",
+                      "name":  "sidebar-ui-tests.exe",
+                      "top_level_pass":  120,
+                      "sha256":  "4ec352a62c8e999128dbbd8c60a159b94a470bf4b47a7ee534aab8d814102c07"
+                  },
+                  {
+                      "all_pass":  15,
+                      "skip":  0,
+                      "exit_code":  0,
+                      "fail":  0,
+                      "utc":  "2026-11-23T02:30:55.1979390Z",
+                      "name":  "sidebar-config-tests.exe",
+                      "top_level_pass":  15,
+                      "sha256":  "72531bec269c37faa2b569021f7134111a222aeefb831cd4ee2566d1dc9b48b0"
+                  }
+              ],
+    "windows":  "10.0.19045.0"
+}
