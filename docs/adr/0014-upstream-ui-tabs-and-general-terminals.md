@@ -68,3 +68,5 @@ Tab 内完整交互增加终端屏幕模型、焦点、尺寸和资源验证工�
 四种密度与设置后续（2026-11-23）：[ADR-0017](0017-sidebar-density-preferences.md) 接入 full／compact／minimal／auto、管理 S 设置、即时保存与独立 `ui.toml`。启动模板仍只读，终端键／草稿与 Run 身份不因设置改变。[实际报告](../testing/results/2026-11-23-sidebar-density-preferences.md)包含原生只读保存拒绝、Auto 缩放和 UI 重开选择恢复；不提升完整上游视觉、真实 agent 或发布状态。
 
 实际帧对照补充（2026-11-23）：运行未修改的固定上游，校正工作区终端框／页脚行带、设置外宽 66 列、新建外宽 86 列及普通／首次 padding 2／1 行，窄窗保留帮助与焦点键。原始单元格经 Windows 同显示配置回放，六帧逐行一致，两个 49 列末格缺口保留；产品前后实机与 82 个原生 UI 顶层测试见[报告](../testing/results/2026-11-23-upstream-visual-comparison.md)。这是既有还原决定的修正，不更改终端所有权／依赖；上游 Darwin 参考、静态回放和 fixture 均不等于真实 agent 或完整视觉接受。
+
+2026-11-23 本地会话搜索：[ADR-0020](0020-local-session-search.md) 恢复管理 `/` 按需弹窗，沿固定上游布局／配色和 Unicode 排序，查询不进入 CLI，选择绑定原 Session/Run。实际源码、必要适配、RED→GREEN 与 Windows 结果见[报告](../testing/results/2026-11-23-session-search.md)。分组、重命名、完整视觉接受与发布仍开放。

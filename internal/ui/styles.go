@@ -16,6 +16,8 @@ import (
 )
 
 type styles struct {
+	searchTip                                                                                                             lipgloss.Style
+	searchBox, searchInput, searchTitle, searchResult, searchSelected, searchCount, searchHint                            lipgloss.Style
 	copy                                                                                                                  terminal.CopyStyles
 	settingsBox, settingsTitle, settingsText, settingsHint, settingsChoice, settingsRadio, settingsFocused, settingsError lipgloss.Style
 	sidebarSelected, sidebarMetadataSelected                                                                              lipgloss.Style
@@ -30,6 +32,14 @@ type styles struct {
 
 func newStyles(t designTokens) styles {
 	return styles{
+		searchTip:               lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.bg).Italic(t.search.hintItalic),
+		searchBox:               lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.colors.accent).Background(t.colors.bg).Padding(t.search.paddingY, t.search.paddingX),
+		searchInput:             lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.colors.accent).Background(t.colors.bg).Padding(t.search.inputPaddingY, t.search.inputPaddingX),
+		searchTitle:             lipgloss.NewStyle().Foreground(t.colors.accent).Background(t.colors.bg).Bold(t.bold),
+		searchResult:            lipgloss.NewStyle().Foreground(t.colors.text).Background(t.colors.bg).PaddingLeft(t.search.resultPadding).PaddingRight(t.search.resultPadding),
+		searchSelected:          lipgloss.NewStyle().Foreground(t.colors.bg).Background(t.colors.accent).PaddingLeft(t.search.resultPadding).PaddingRight(t.search.resultPadding),
+		searchCount:             lipgloss.NewStyle().Foreground(t.search.countColor).Background(t.colors.bg),
+		searchHint:              lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.bg),
 		copy:                    newCopyStyles(t),
 		settingsRadio:           lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.surface),
 		settingsBox:             lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.colors.cyan).Background(t.colors.bg).Padding(t.sidebar.settingsPaddingY, t.sidebar.settingsPaddingX),
@@ -66,6 +76,13 @@ func newStyles(t designTokens) styles {
 		menuDot:    t.marks.menuDot,
 		menuGap:    strings.Repeat(" ", t.layout.menuGap),
 	}
+}
+
+func searchInputStyles(t designTokens) textinput.Styles {
+	text := lipgloss.NewStyle().Foreground(t.colors.text).Background(t.colors.bg)
+	dim := lipgloss.NewStyle().Foreground(t.search.placeholderColor).Background(t.colors.bg)
+	state := textinput.StyleState{Text: text, Placeholder: dim, Suggestion: dim, Prompt: text}
+	return textinput.Styles{Focused: state, Blurred: state, Cursor: textinput.CursorStyle{Color: t.colors.text, Shape: t.dialog.cursorShape, Blink: t.dialog.cursorBlink}}
 }
 
 // menuKey is adapted from Agent Deck's MenuKey. Keep the small, consistent

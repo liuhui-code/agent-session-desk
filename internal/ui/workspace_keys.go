@@ -42,6 +42,8 @@ func (m *Model) workspaceKey(msg tea.KeyPressMsg) tea.Cmd {
 		return cmd
 	}
 	switch msg.String() {
+	case "/":
+		return m.navigateWorkspace(workspaceSearch)
 	case "v":
 		if _, ok := w.conn.(terminal.CopyModeConnection); !ok || w.busy || w.err != nil || w.transition != workspaceIdle {
 			m.status = "当前终端尚不可进入选择／搜索"

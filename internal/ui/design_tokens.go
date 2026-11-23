@@ -17,6 +17,7 @@ import (
 // there is no mutable global theme, file watcher or runtime theme format yet.
 // Zero/one in viewport algorithms are counts, not additional style choices.
 type designTokens struct {
+	search    searchTokens
 	copy      copyTokens
 	sidebar   sidebarTokens
 	dialog    dialogTokens
@@ -25,6 +26,16 @@ type designTokens struct {
 	layout    layoutTokens
 	marks     markTokens
 	bold      bool
+}
+
+type searchTokens struct {
+	placeholderColor                                                                           color.Color
+	titlePrefix, programPrefix, programSuffix                                                  string
+	preferredWidth, minWidth, responsiveBelow, gutter                                          int
+	paddingX, paddingY, inputPaddingX, inputPaddingY, inputRightGap, resultPadding, maxResults int
+	prompt, selected                                                                           string
+	countColor                                                                                 color.Color
+	hintItalic                                                                                 bool
 }
 
 type copyTokens struct {
@@ -73,6 +84,8 @@ type markTokens struct{ rule, divider, selected, ellipsis, menuDot, above, below
 
 func defaultDesignTokens() designTokens {
 	return designTokens{
+		// Pinned search.go: v1 Width 60/30 includes padding, excludes border.
+		search: searchTokens{preferredWidth: 62, minWidth: 32, responsiveBelow: 70, gutter: 8, paddingX: 2, paddingY: 1, inputPaddingX: 1, inputRightGap: 4, resultPadding: 2, maxResults: 10, prompt: "> ", selected: "› ", titlePrefix: "🔍 ", programPrefix: " (", programSuffix: ")", countColor: lipgloss.Color("241"), placeholderColor: lipgloss.Color("240"), hintItalic: true},
 		// Pinned native copy-mode defaults; interpreted as character attributes.
 		copy:      copyTokens{foreground: "idx:0", selection: "idx:3", match: "idx:6", current: "idx:5", mark: "idx:1", cursorShape: tea.CursorBlock},
 		sidebar:   sidebarTokens{cardMinWidth: 28, cardRows: 2, fullRows: 3, selected: "▶ ", active: "┃ ", metadata: "  ╰ ", metadataMiddle: "  │ ", separator: " · ", settingsWidth: 66, settingsPaddingX: 2, settingsPaddingY: 1, radioGap: 2, radioMarker: ">", radioUnselected: " ", underlineChoice: true},

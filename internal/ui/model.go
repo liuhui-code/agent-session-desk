@@ -48,6 +48,7 @@ type pollMsg struct{ generation uint64 }
 // Model implements the stable Bubble Tea v2 API. Mutable UI state is touched
 // only by Init/Update; asynchronous commands return values, never mutate it.
 type Model struct {
+	search                 *sessionSearch
 	clipboardGeneration    uint64
 	sidebarDensity         string
 	saveSidebarDensity     func(context.Context, string) error
@@ -110,6 +111,7 @@ func (m *Model) Close() {
 		m.workspace.buffered = nil
 	}
 	m.launch = nil
+	m.search = nil
 	m.densitySettings = nil
 	m.cancelHistory()
 	m.cancel()
@@ -127,6 +129,9 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		return m, nil
 	}
 	if m.workspace != nil {
+		if cmd, handled := m.sessionSearchEvent(msg); handled {
+			return m, cmd
+		}
 		if cmd, handled := m.densitySettingsEvent(msg); handled {
 			return m, cmd
 		}
@@ -168,6 +173,7 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		}
 		selected, hadSelection := m.selected()
 		m.sessions = msg.sessions
+		m.syncSessionSearch(true)
 		m.cursor = min(m.cursor, max(0, len(m.sessions)-1))
 		for i, s := range m.sessions {
 			if hadSelection && sameRun(s, selected) {

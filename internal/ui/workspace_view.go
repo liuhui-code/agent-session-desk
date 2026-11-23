@@ -179,9 +179,9 @@ func (m *Model) workspaceCursor() *tea.Cursor {
 // legend no longer fits. Match actual cell widths rather than a new breakpoint.
 func (m *Model) workspaceFooterText(terminalFocus bool) string {
 	choices := []string{
-		"管理模式 · Enter 终端 · n 新建 · x 关Tab · <> 比例 · = 默认 · S 设置 · ? 帮助 · q 退出 · F6 终端",
-		"管理模式 · Enter 终端 · n 新建 · S 设置 · ? · q · F6",
-		"管理模式 · Enter/n · S · ? · q · F6",
+		"管理模式 · Enter 终端 · / 搜索 · n 新建 · x 关Tab · <> 比例 · S 设置 · ? · q · F6",
+		"管理模式 · Enter 终端 · / 搜索 · n 新建 · S 设置 · ? · q · F6",
+		"管理模式 · / 搜索 · ? · q · F6",
 		"管理模式 · ? · q · F6",
 	}
 	if terminalFocus {

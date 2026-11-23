@@ -53,23 +53,23 @@
 | --- | --- | --- | --- | --- | --- |
 | FL-001 | 自定义 CLI 启动：接入 agent、普通 shell 与 CLI | FR-01 | M0 预验证、M1 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md)；[显式终端 bundle](testing/results/2026-11-23-terminal-bundle.md) / 未发布 |
 | FL-002 | 原生终端交互：在 Tab 中输入并操作原有 CLI | FR-02、FR-11 | M0、M1 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md)；[显式终端 bundle](testing/results/2026-11-23-terminal-bundle.md) / 未发布 |
-| FL-003 | 上游体验还原与代码复用：保留布局比例、交互和配色 | FR-03、FR-11 | M0、M1、M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[短资源实验](testing/results/2026-11-21-m0-windows-resources.md)、[只读历史 UI](testing/results/2026-11-22-m1-history-ui.md)；[默认侧栏卡片](testing/results/2026-11-23-workspace-sidebar-cards.md)／[四种密度与偏好](testing/results/2026-11-23-sidebar-density-preferences.md)；[Tab 资源失败](testing/results/2026-11-23-tab-resources.md)／[显式宿主短复测](testing/results/2026-11-23-tab-resource-host.md) / 未发布 |
-| FL-004 | Tab 多会话组织：查找、切换、停止和归档 | FR-03 | M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md) / 未发布 |
-| FL-005 | 稳定身份：重命名、排序后仍控制正确对象 | FR-04 | M1、M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md)；[显式终端 bundle](testing/results/2026-11-23-terminal-bundle.md) / 未发布 |
+| FL-003 | 上游体验还原与代码复用：保留布局比例、交互和配色 | FR-03、FR-11 | M0、M1、M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[短资源实验](testing/results/2026-11-21-m0-windows-resources.md)、[只读历史 UI](testing/results/2026-11-22-m1-history-ui.md)；[默认侧栏卡片](testing/results/2026-11-23-workspace-sidebar-cards.md)／[四种密度与偏好](testing/results/2026-11-23-sidebar-density-preferences.md)；[Tab 资源失败](testing/results/2026-11-23-tab-resources.md)／[显式宿主短复测](testing/results/2026-11-23-tab-resource-host.md)；[本地会话搜索](testing/results/2026-11-23-session-search.md) / 未发布 |
+| FL-004 | Tab 多会话组织：查找、切换、停止和归档 | FR-03 | M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md)；[本地会话搜索](testing/results/2026-11-23-session-search.md) / 未发布 |
+| FL-005 | 稳定身份：重命名、排序后仍控制正确对象 | FR-04 | M1、M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md)；[显式终端 bundle](testing/results/2026-11-23-terminal-bundle.md)；[本地会话搜索](testing/results/2026-11-23-session-search.md) / 未发布 |
 | FL-006 | 后台托管与重新连接：关闭界面后任务继续 | FR-05 | M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md)、[短资源实验](testing/results/2026-11-21-m0-windows-resources.md)；[Tab 资源失败](testing/results/2026-11-23-tab-resources.md)／[显式宿主短复测](testing/results/2026-11-23-tab-resource-host.md)；[显式终端 bundle](testing/results/2026-11-23-terminal-bundle.md) / 未发布 |
 | FL-007 | 带来源的输出读取：交接内容可追溯 | FR-06 | M3 | 计划 | 未提供 / 未发布 |
 | FL-008 | 跨会话显式投递：把指令交给明确目标 | FR-07 | M3 | 计划 | 未提供 / 未发布 |
 | FL-009 | 按能力排队与自动投递：避免向未知状态盲目注入 | FR-08 | M3 | 计划 | 未提供 / 未发布 |
 | FL-010 | Agent 控制 CLI：让有工具能力的 agent 主动协作 | FR-09 | M3 | 计划 | 未提供 / 未发布 |
 | FL-011 | 历史与恢复边界：知道接回、重启与续聊的区别 | FR-10 | M1、M2 | 实现中 | [最小元数据证据](testing/results/2026-11-22-m1-metadata.md)、[只读历史 UI](testing/results/2026-11-22-m1-history-ui.md) / 未发布 |
-| FL-012 | 焦点与草稿：输入不串用，切换不丢失管理器草稿 | FR-11 | M1、M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)；[显式终端 bundle](testing/results/2026-11-23-terminal-bundle.md) / 未发布 |
+| FL-012 | 焦点与草稿：输入不串用，切换不丢失管理器草稿 | FR-11 | M1、M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)；[显式终端 bundle](testing/results/2026-11-23-terminal-bundle.md)；[本地会话搜索](testing/results/2026-11-23-session-search.md) / 未发布 |
 | FL-013 | 异常、重试和运行变化：保留不确定性并避免误投 | FR-12 | M1 至 M3 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md) / 未发布 |
 | FL-014 | 请求与回复关联：按消息查询合作结果 | FR-13 | M3 | 计划 | 未提供 / 未发布 |
 | FL-015 | 有界资源：多会话和持续输出下内存可控 | 产品质量标准 | M0 基线、M1 至 M4 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[短资源实验](testing/results/2026-11-21-m0-windows-resources.md)；[Tab 资源失败](testing/results/2026-11-23-tab-resources.md)／[显式宿主短复测](testing/results/2026-11-23-tab-resource-host.md)；[显式终端 bundle](testing/results/2026-11-23-terminal-bundle.md) / 未发布 |
 | FL-016 | Windows 兼容门槛：核心流程原生运行 | FR-01、FR-02、FR-05、FR-07、FR-11 | M0、M4 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md)、[短资源实验](testing/results/2026-11-21-m0-windows-resources.md)；[Tab 资源失败](testing/results/2026-11-23-tab-resources.md)／[显式宿主短复测](testing/results/2026-11-23-tab-resource-host.md)；[显式终端 bundle](testing/results/2026-11-23-terminal-bundle.md) / 未发布 |
 | FL-017 | 可安装预览版：用户可独立完成完整流程 | 全部首版需求 | M4 | 计划 | 未提供 / 未发布 |
-| FL-018 | Tab 内完整终端：操作 agent 与普通命令行时保留 Tab 导航 | FR-02、FR-11 | M1 单 Tab、M2 多 Tab（首版） | 实现中 | [终端传输局部证据](testing/results/2026-11-22-native-terminal-transport.md)；[Tab UI 局部证据](testing/results/2026-11-23-tab-workspaces.md)，仍待完整验收；[Tab 资源失败](testing/results/2026-11-23-tab-resources.md)／[显式宿主短复测](testing/results/2026-11-23-tab-resource-host.md)；[显式终端 bundle](testing/results/2026-11-23-terminal-bundle.md) / 未发布 |
-| FL-019 | 依赖与复用可追溯：持续获得可维护的实现基线 | 架构与发布质量 | M0 至 M4 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md)；[显式终端 bundle](testing/results/2026-11-23-terminal-bundle.md) / 未发布 |
+| FL-018 | Tab 内完整终端：操作 agent 与普通命令行时保留 Tab 导航 | FR-02、FR-11 | M1 单 Tab、M2 多 Tab（首版） | 实现中 | [终端传输局部证据](testing/results/2026-11-22-native-terminal-transport.md)；[Tab UI 局部证据](testing/results/2026-11-23-tab-workspaces.md)，仍待完整验收；[Tab 资源失败](testing/results/2026-11-23-tab-resources.md)／[显式宿主短复测](testing/results/2026-11-23-tab-resource-host.md)；[显式终端 bundle](testing/results/2026-11-23-terminal-bundle.md)；[本地会话搜索](testing/results/2026-11-23-session-search.md) / 未发布 |
+| FL-019 | 依赖与复用可追溯：持续获得可维护的实现基线 | 架构与发布质量 | M0 至 M4 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md)；[显式终端 bundle](testing/results/2026-11-23-terminal-bundle.md)；[本地会话搜索](testing/results/2026-11-23-session-search.md) / 未发布 |
 | FL-020 | 人工介入提醒：及时发现并定位待批准、待回答与待检查事项 | FR-14；关联 FR-04、FR-08、FR-11、FR-12 | M2 界面与 attach、M3 后台、M4 发布复验 | 计划 | 未提供 / 未发布 |
 
 ## 4. 范围与验收条件
@@ -129,7 +129,7 @@
 - **范围与边界：**新建、命名、分组、搜索、切换、停止、归档；停止运行、关闭视图和收纳记录分别操作。默认以 Tab 承担创建、选择、切换和重开入口，列表／分组／搜索辅助组织；Tab 不承担寻址身份，关闭 Tab 不停止 Run。
 - **验收：**agent 与普通终端的 A→B→A Tab 切换保留未提交输入、终端状态和原 Run，不重启目标或发送额外输入；允许按需启动 attach 客户端进程。搜索与分组后能进入正确会话；停止与归档的对象、运行处置和记录保留符合已记录规则。
 - **依据：**[FR-03](PRODUCT_PLAN.md)、[ADR-0001](adr/0001-architecture-and-reuse.md)、[ADR-0004](adr/0004-cli-agents-and-session-messaging.md)、[ADR-0014](adr/0014-upstream-ui-tabs-and-general-terminals.md)。
-- **实现与验收证据：**首批列表选择、保持当前稳定身份、显式按 ID 停止入口已实现。Windows 可控场景中，两个真实会话及另一私有 runtime／namespace 组合并存，停止指定会话后其余会话仍可观测；这不代替任意用户配置或 UI 切换验收。命名编辑、分组、搜索和归档仍待实现。见[源码局部证据](testing/results/2026-11-21-m0-source-migration.md)与[Windows 隔离场景](testing/results/2026-11-21-m0-native-windows.md)。
+- **实现与验收证据：**首批列表选择、保持当前稳定身份、显式按 ID 停止入口已实现。Windows 可控场景中，两个真实会话及另一私有 runtime／namespace 组合并存，停止指定会话后其余会话仍可观测；这不代替任意用户配置或 UI 切换验收。命名编辑、分组和归档仍待实现；本地搜索的后续切片见 ADR-0020 与本条后续进展。见[源码局部证据](testing/results/2026-11-21-m0-source-migration.md)与[Windows 隔离场景](testing/results/2026-11-21-m0-native-windows.md)。
 
 - **Tab 排序进展（2026-11-23）：**标题拖动与管理模式 `[`／`]` 调整当前 UI 的 Tab 顺序；活动 View、Session/Run 和排空中的输入目标保持身份，终端字符不截获。可见槽位固定，其他输入／缩放／释放结束手势；不自动滚到隐藏项或持久保存顺序。[行为与原生证据](testing/results/2026-11-23-tab-order.md)单独记录，仍实现中／未发布。
 
@@ -447,3 +447,5 @@ M1 恢复补充（2026-11-22）：按用户继续完成 M1 的授权实现 metad
 2026-11-23 VT／宿主分界：FL-002/012/016/018/019 补充[实际桌面失败与原生对照](testing/results/2026-11-23-vt-host-boundary.md)。历史候选＋系统宿主的实际 Tab 全流程失败（缺四行及 α→NUL）；生命周期另记原身份与残存状态，不冒充完整通过。固定 SDK＋候选的直接严格探针通过，尚非产品接入或发布基线；各 FL 保持实现中／未发布，339 项设计状态不变。
 
 2026-11-23 产品终端接入：FL-001/002/005/006/012/015/016/018/019 增加 [ADR-0019](adr/0019-explicit-windows-terminal-bundle.md) 的显式 Windows x64 固定开发 bundle、实际 server／DLL／宿主核验和失败拒绝。实际 Windows 10 上 10 个后端顶层＋6 子测试＋1 CLI 通过，同权限双 shell 桌面完成 86 动作／15 观测／13 次完整历史 capture，原身份、草稿、精确 Unicode 与重开通过；SSH→普通桌面的权限拒绝保留为兼容限制。详见[产品接入报告](testing/results/2026-11-23-terminal-bundle.md)。官方默认路径、完整视觉／真实 agent／新宿主资源及发布门槛不提升。
+
+2026-11-23 本地搜索：FL-003/004/005/012/018/019 增加 [ADR-0020](adr/0020-local-session-search.md) 的管理 `/` 弹窗、固定上游布局／配色与 Unicode 容错排序；查询不进终端，发现重排保留选择，Run 替换清除选择后再明确重选。Windows 最终 101 顶层／268 含子测试通过；三条普通 shell 的 102 动作完整流程与最终样式 27 动作分别留证，原身份／草稿、120／63／49 列和精确 Enter 边界均核对，见[报告](testing/results/2026-11-23-session-search.md)。保持实现中／未发布，完整视觉、分组／重命名、真实 agent 与资源门槛不提升。

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "date": "2026-11-23",
-  "scope": "Selective M0 source migration plus ADR-0016 Tab layout and generic CLI dialog adaptations; not a release dependency SBOM. Includes an explicitly experimental psmux diagnostic patch, not applied to product dependencies.",
+  "scope": "Selective UI/platform migration including ADR-0020 local session search; explicit ADR-0019 development runtime provenance is separate from official defaults and release acceptance.",
   "original_project_license": "pending O-010",
   "source_files": [
     {
@@ -339,6 +339,62 @@
       ],
       "mode": "selectively_adapted",
       "modifications": "Stable v2, token-only styling, density-only settings, serial asynchronous saves to a separate ui.toml; narrow radio shows current choice. Upstream unrelated settings and whole configuration writes are not migrated."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/search.go",
+      "source_sha256": "05017a84aa2596d61ed126d6c56d80e99ba39bb49847e0ac4c9a4ba1decb466d",
+      "destination_file": "internal/ui/session_search.go",
+      "license": "MIT",
+      "parts": [
+        "NewSearch/Show/Update local subset"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "ADR-0020: scoped live Session/Run, stable v2 real cursor, token styling, no Recall/group/agent-state inference; identity-preserving refresh and bounded viewport."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/search.go",
+      "source_sha256": "05017a84aa2596d61ed126d6c56d80e99ba39bb49847e0ac4c9a4ba1decb466d",
+      "destination_file": "internal/ui/session_search_view.go",
+      "license": "MIT",
+      "parts": [
+        "View/renderSearchResult/searchOverlayWidth local subset"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "ADR-0020: scoped live Session/Run, stable v2 real cursor, token styling, no Recall/group/agent-state inference; identity-preserving refresh and bounded viewport."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/search.go",
+      "source_sha256": "05017a84aa2596d61ed126d6c56d80e99ba39bb49847e0ac4c9a4ba1decb466d",
+      "destination_file": "internal/ui/design_tokens.go",
+      "license": "MIT",
+      "parts": [
+        "search layout/style constants with v2 total widths"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "ADR-0020: scoped live Session/Run, stable v2 real cursor, token styling, no Recall/group/agent-state inference; identity-preserving refresh and bounded viewport."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/session/discovery.go",
+      "source_sha256": "9c5137869ee8d46bef82642e3954bf8877c465553096697862ce88450d8f6eef",
+      "destination_file": "internal/ui/session_search_match.go",
+      "license": "MIT",
+      "parts": [
+        "FilterByQuery/localQueryDistance without inferred status"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "ADR-0020: scoped live Session/Run, stable v2 real cursor, token styling, no Recall/group/agent-state inference; identity-preserving refresh and bounded viewport."
     }
   ],
   "preserved_notices": [

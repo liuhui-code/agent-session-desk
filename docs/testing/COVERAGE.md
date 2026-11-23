@@ -3,9 +3,9 @@
 > 自动生成；这里的覆盖是设计映射，不是代码覆盖率、实际通过率或全部边界已穷尽。
 
 - 用例：339；全部 designed / not_run。
-- 依据明确：215；待决策：124；后置：0。
+- 依据明确：216；待决策：123；后置：0。
 - FL：20；FR：14，均有设计引用。
-- 已记录 ADR：19；本库引用 ADR：12。下方逐项列出数量，零引用不等于已覆盖。
+- 已记录 ADR：20；本库引用 ADR：13。下方逐项列出数量，零引用不等于已覆盖。
 - 本轮设计基线执行：0；没有产品通过结论。本表不统计后续独立运行报告，实际证据见 [results/](results/)。
 
 [总索引](CASE_INDEX.md) · [测试策略](TEST_STRATEGY.md) · [未决项](BUDGETS_AND_DECISIONS.md)
@@ -78,8 +78,8 @@
 | [FL-001](#fl-001) | 37 | 21 | 16 | 0 |
 | [FL-002](#fl-002) | 31 | 20 | 11 | 0 |
 | [FL-003](#fl-003) | 15 | 14 | 1 | 0 |
-| [FL-004](#fl-004) | 27 | 14 | 13 | 0 |
-| [FL-005](#fl-005) | 66 | 46 | 20 | 0 |
+| [FL-004](#fl-004) | 27 | 15 | 12 | 0 |
+| [FL-005](#fl-005) | 66 | 47 | 19 | 0 |
 | [FL-006](#fl-006) | 33 | 25 | 8 | 0 |
 | [FL-007](#fl-007) | 32 | 18 | 14 | 0 |
 | [FL-008](#fl-008) | 32 | 28 | 4 | 0 |
@@ -202,8 +202,8 @@
 | --- | --- | --- | --- | --- |
 | [FR-01](#fr-01) | 48 | 31 | 17 | 0 |
 | [FR-02](#fr-02) | 46 | 30 | 16 | 0 |
-| [FR-03](#fr-03) | 40 | 26 | 14 | 0 |
-| [FR-04](#fr-04) | 66 | 46 | 20 | 0 |
+| [FR-03](#fr-03) | 40 | 27 | 13 | 0 |
+| [FR-04](#fr-04) | 66 | 47 | 19 | 0 |
 | [FR-05](#fr-05) | 44 | 35 | 9 | 0 |
 | [FR-06](#fr-06) | 33 | 18 | 15 | 0 |
 | [FR-07](#fr-07) | 40 | 34 | 6 | 0 |
@@ -302,11 +302,12 @@
 | [ADR-0011](../adr/0011-read-only-tui-history.md) | 0 |
 | [ADR-0012](../adr/0012-metadata-checkpoint-recovery.md) | 0 |
 | [ADR-0013](../adr/0013-bounded-screen-output-records.md) | 0 |
-| [ADR-0014](../adr/0014-upstream-ui-tabs-and-general-terminals.md) | 15 |
+| [ADR-0014](../adr/0014-upstream-ui-tabs-and-general-terminals.md) | 16 |
 | [ADR-0015](../adr/0015-pinned-psmux-native-terminal-client.md) | 4 |
-| [ADR-0016](../adr/0016-tab-workspaces-and-input-ownership.md) | 8 |
+| [ADR-0016](../adr/0016-tab-workspaces-and-input-ownership.md) | 9 |
 | [ADR-0017](../adr/0017-sidebar-density-preferences.md) | 6 |
 | [ADR-0018](../adr/0018-native-copy-search-and-host-clipboard.md) | 2 |
 | [ADR-0019](../adr/0019-explicit-windows-terminal-bundle.md) | 3 |
+| [ADR-0020](../adr/0020-local-session-search.md) | 1 |
 
 FL-018 按 ADR-0014 纳入首版计划；沿用原 TC-DEFER 编号，不代表已实现或已验收。

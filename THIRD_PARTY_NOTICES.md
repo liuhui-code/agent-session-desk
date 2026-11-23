@@ -42,3 +42,5 @@ ADR-0016 新增直接依赖 `charm.land/bubbles/v2 v2.2.2`：MIT，Copyright (c)
 测量工具的显式宿主候选 `Microsoft.Windows.Console.ConPTY 1.25.261109001`：NuGet 原始 nuspec 声明 MIT、© Microsoft Corporation，来源为[固定版本官方包](https://www.nuget.org/packages/Microsoft.Windows.Console.ConPTY/1.25.261109001)。归档与 x64 `conpty.dll`／`OpenConsole.exe` 哈希固定在 `tools/ci/windows-dependencies.json`，执行前验证 Microsoft 签名。本仓库不包含这两个二进制，不将该诊断候选列为产品运行／发布依赖；未来若随产品分发，仍须完成发行物许可与兼容审计。
 
 ADR-0019 现允许通过显式 `--terminal-bundle` 在开发配置中选择上述补丁构建和同一固定 SDK，仍不包含二进制或静默替换官方默认安装依赖。MIT 归属继续适用；发布包的实际许可收集与兼容验收仍开放。
+
+ADR-0020 新增选择性改编 Agent Deck 同一固定 MIT 提交的 `internal/ui/search.go` 与 `internal/session/discovery.go`：本地会话搜索弹窗及有限 Unicode 容错排序。目标文件保留来源头，精确来源哈希和修改点见复用清单；没有迁入 v1 组件依赖或上游整个搜索／Recall 系统。

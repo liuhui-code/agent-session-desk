@@ -1,0 +1,23 @@
+{
+  "project": "agent-deck",
+  "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+  "worktree_status": "",
+  "files": [
+    {
+      "file": "internal/ui/search.go",
+      "sha256": "05017a84aa2596d61ed126d6c56d80e99ba39bb49847e0ac4c9a4ba1decb466d",
+      "git_blob": "a3be9caccce446551ef143d5cad5f2dc2ebb8eca"
+    },
+    {
+      "file": "internal/session/discovery.go",
+      "sha256": "9c5137869ee8d46bef82642e3954bf8877c465553096697862ce88450d8f6eef",
+      "git_blob": "bb80b7855ab0112eb51fe7ad01c597e1fc063424"
+    }
+  ],
+  "reference_placeholder": {
+    "module": "github.com/charmbracelet/bubbles v1.0.0",
+    "file": "textinput/textinput.go",
+    "sha256": "378af2443b8e2ee85eadc71bf17aa37a55a39cce7529fb4133ec2dc6c4cd3657",
+    "scope": "Reference-only default placeholder color 240; production remains stable v2.2.2."
+  }
+}

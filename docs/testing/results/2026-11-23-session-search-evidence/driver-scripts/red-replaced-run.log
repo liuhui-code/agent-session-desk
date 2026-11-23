@@ -1,0 +1,5 @@
+--- FAIL: TestSessionSearchDoesNotRetargetWhenSelectedRunChangesDuringRefresh (0.01s)
+    session_search_test.go:52: refresh silently retargeted Enter after the selected Run was replaced
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.837s
+FAIL

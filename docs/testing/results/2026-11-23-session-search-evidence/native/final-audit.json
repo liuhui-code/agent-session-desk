@@ -1,0 +1,86 @@
+{
+    "tasks_absent":  [
+                         "AsdSessionSearchSetup20261123",
+                         "AsdSessionSearchDesktop20261123",
+                         "AsdSessionSearchStyleDesktop20261123"
+                     ],
+    "clipboard_phases":  [
+                             {
+                                 "phase":  "desktop",
+                                 "nontext_content_verified":  false,
+                                 "text_restored":  true,
+                                 "format_names_restored":  true
+                             },
+                             {
+                                 "phase":  "style-desktop",
+                                 "nontext_content_verified":  false,
+                                 "text_restored":  true,
+                                 "format_names_restored":  true
+                             }
+                         ],
+    "utc":  "2026-11-23T00:46:10.4589912Z",
+    "private_images_alive":  0,
+    "settings_sha256":  "1499307ABEBA68C23F9EB38A4C636F81172475B6B2B535BC0B11DCD9547241F8",
+    "scope":  "Known private test images and original registered identities only; no machine-global psmux claim",
+    "final_ui_test_sha256":  "694BB225B2E77E30C02F0C8B59262EB7F7E85DC4B79BB5B81245D5F5B336CAA8",
+    "final_product_sha256":  "A7F5AA4CBCF64E728BDB0AF84825C4E47DF82B1BC3639ECD8B548C0F2FA58C4F",
+    "result":  "passed",
+    "original_processes":  [
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                   "pid":  2700,
+                                   "filetime":  134398676963941747,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                   "pid":  6372,
+                                   "filetime":  134398676968443143,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                   "pid":  3480,
+                                   "filetime":  134398676973733819,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\search-product.exe",
+                                   "pid":  6064,
+                                   "filetime":  134398678137483875,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\search-product.exe",
+                                   "pid":  17032,
+                                   "filetime":  134398679416259123,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\search-product-final.exe",
+                                   "pid":  10972,
+                                   "filetime":  134398681629621458,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe",
+                                   "pid":  8604,
+                                   "filetime":  134398678127385292,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe",
+                                   "pid":  15996,
+                                   "filetime":  134398681619038031,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               }
+                           ]
+}

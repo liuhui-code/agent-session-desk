@@ -13,7 +13,7 @@
 | [TC-SESSION-003](#tc-session-003) | 重命名不改变身份与运行 | P1 | M2 | 依据明确 |
 | [TC-SESSION-004](#tc-session-004) | 重复名称按已决规则处理而不覆盖会话 | P1 | M2 | 待决策 |
 | [TC-SESSION-005](#tc-session-005) | 名称边界与特殊字符不会进入后台命令 | P1 | M2 | 待决策 |
-| [TC-SESSION-006](#tc-session-006) | 搜索规则与结果寻址分离 | P1 | M2 | 待决策 |
+| [TC-SESSION-006](#tc-session-006) | 搜索规则与结果寻址分离 | P1 | M2 | 依据明确 |
 | [TC-SESSION-007](#tc-session-007) | 排序过滤变化不把选中目标换成同行号会话 | P0 | M2 | 依据明确 |
 | [TC-SESSION-008](#tc-session-008) | 移动分组不改变运行与历史归属 | P1 | M2 | 依据明确 |
 | [TC-SESSION-009](#tc-session-009) | 关闭视图再打开仍指向原会话 | P0 | M2 | 依据明确 |
@@ -266,29 +266,34 @@
 
 - 功能：[FL-004](../COVERAGE.md#fl-004)、[FL-005](../COVERAGE.md#fl-005)
 - 需求：[FR-03](../COVERAGE.md#fr-03)、[FR-04](../COVERAGE.md#fr-04)
-- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0014](../../adr/0014-upstream-ui-tabs-and-general-terminals.md)、[ADR-0016](../../adr/0016-tab-workspaces-and-input-ownership.md)、[ADR-0020](../../adr/0020-local-session-search.md)
 - 优先级 / 阶段 / 层次：P1 / M2 / integration
 - 类型：functional、boundary
 - 设计 / 执行：`designed / not_run`
-- 规范状态：待决策（`needs_decision`）
-- 待决依据：[TBD-NAMING](../BUDGETS_AND_DECISIONS.md)
+- 规范状态：依据明确（`ready`）
+- 待决依据：—
 - 环境：[ENV-WIN-BASE](../ENVIRONMENTS.md#env-win-base)
 - 夹具：[FX-PROCESS](../FIXTURES_AND_FAULTS.md#fx-process)、[FX-DATA](../FIXTURES_AND_FAULTS.md#fx-data)
 
 #### 前置条件
 
-- 已明确大小写、空白和 Unicode 搜索规则；建立名称相近的 A、B、C。
+- 按 ADR-0020 的当前作用域实时 Session 名称／程序路径查询规则建立名称相近的 A、B、C；历史／分组／cwd 不在本轮搜索范围。
 
 #### 操作步骤
 
 1. 按中文片段、大小写差异、组合字符和空查询分别搜索。
 2. 选中返回项后进入会话；清空查询再重复。
+3. 验证 Unicode 小写、首尾空白裁剪、1–3 rune 精确子串、4–5 rune 一个编辑、更长两个编辑；精确子串优先、同分稳定，不做 NFC/NFD 归一化。
+4. 搜索期间模拟发现重排和选中 Run 替换：前者保留原选择，后者清除选择直到明确重选；以慢写入验证进入弹窗前先完成已接受输入。
+5. 原生 Tab 中保留 shell 草稿后搜索、取消、零结果 Enter 与选择；核对普通／中文查询、120／63／49 列和界面重开。
 
 #### 预期与不变量
 
 - 结果集合与已定规则一致，选中项使用稳定 ID 寻址。
 - 查询文本不进入 agent 输入，清空搜索不启动新 Run。
 - 无结果时不能沿用不可见旧选中行执行停止或进入。
+- 终端／原生复制模式的斜杠仍交给目标；管理搜索窗消费自己的键鼠／粘贴，q 是查询正文，Esc/Ctrl+C 返回管理焦点。
+- Run 替换不将 Enter 自动转到首项或同名新 Run；零结果／不可交互项不进入，不自动启动／停止。
 
 #### 需要的证据
 

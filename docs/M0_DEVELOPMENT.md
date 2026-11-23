@@ -170,3 +170,5 @@ asd.exe --terminal-bundle 'C:\asd\terminal-runtime'
 不能同时指定 `--backend`。产品检查目录和文件哈希，创建／接入时核对实际 server 与宿主。已有系统宿主 Run 不会因新参数而重启或换宿主；核验失败保留原 Run，可显式停止。普通桌面用户读取 SSH 权限上下文创建的 server 已实测 Access Denied，当前拒绝交互；同权限桌面创建／操作有独立结果。该限制不通过自动提权或跳过核验规避。
 
 这是显式开发配置；官方默认路径的已知失败继续保留，完整 Windows／真实 agent、资源和发布验收未完成。[实际产品结果](testing/results/2026-11-23-terminal-bundle.md)分别记录原生、桌面与权限负例。
+
+管理焦点按 `/` 打开本地会话搜索；按名称或程序路径查找，↑↓／Ctrl+J/K 选择、Enter 打开原 Run，Esc／Ctrl+C 取消。查询不会送入 CLI；终端焦点的 `/` 和原生复制模式的历史搜索保持原用途。仅当前作用域实时会话，不包含对话、历史数据库或 Recall。详细规则与实际画面见 [ADR-0020](adr/0020-local-session-search.md)及[报告](testing/results/2026-11-23-session-search.md)。

@@ -51,6 +51,8 @@ ADR-0014 依据用户 2026-11-22 的明确要求接受，部分替代 0001/0002 
 
 | [0019](0019-explicit-windows-terminal-bundle.md) | 显式 Windows x64 终端开发 bundle、固定构建与实际宿主核验 | 已接受（开发候选） | 原生／桌面结果见[接入报告](../testing/results/2026-11-23-terminal-bundle.md)；跨权限、完整兼容与发布仍开放 |
 
+| [0020](0020-local-session-search.md) | 上游本地会话搜索、原 Run 选择与输入隔离 | 已接受 | 本地／原生模型与桌面结果见[报告](../testing/results/2026-11-23-session-search.md)；分组、重命名、完整视觉与发布开放 |
+
 ## 维护规则
 
 1. 新决定使用下一个连续编号，复制[模板](template.md)，已有编号不重用。

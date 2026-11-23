@@ -20,6 +20,14 @@ import (
 )
 
 func (m *Model) View() tea.View {
+	if m.workspace != nil && m.search != nil {
+		content, cursor := m.renderSessionSearch()
+		view := tea.NewView(content)
+		view.AltScreen = true
+		view.BackgroundColor, view.ForegroundColor = m.tokens.colors.bg, m.tokens.colors.text
+		view.Cursor = cursor
+		return view
+	}
 	if m.workspace != nil && m.densitySettings != nil {
 		view := tea.NewView(m.renderDensitySettings())
 		view.AltScreen = true
@@ -241,6 +249,7 @@ func (m *Model) renderHelp(height int) string {
 			"活动 Tab 直接操作终端；q 和 Ctrl+C 交给程序。\n" +
 			"F6 切换管理／终端焦点；Ctrl+PgUp/PgDn 切 Tab。\n" +
 			"管理模式：↑↓ 选择，Enter 打开，n 新建，x 关闭视图。\n" +
+			"管理 / 搜索会话；↑↓ 选择，Enter 打开原 Run，Esc 取消。\n" +
 			"拖动 Tab 标题排序；管理模式 [ / ] 左右移动活动 Tab。\n" +
 			"管理 v 进入原生选择／搜索；空格选择、Enter 复制、/ 搜索。\n" +
 			"关闭 Tab 或退出管理器不会停止运行实例。\n" +

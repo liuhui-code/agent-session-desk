@@ -147,3 +147,5 @@ Tab 终端支持[原生历史滚动](docs/testing/results/2026-11-23-workspace-s
 当前已确认的终端限制：固定官方 psmux 3.4.0 在缩高时可能丢失历史行。独立修复候选已有原生验证，尚未纳入默认依赖；[复现、候选和剩余门槛](docs/testing/results/2026-11-23-resize-history.md)单独记录，完整终端体验仍未验收。
 
 Windows x64 显式开发配置现可通过 `--terminal-bundle` 选择固定历史补丁后端＋Microsoft 宿主，并核验实际加载。与官方默认路径分别记账，参见[开发用法](docs/M0_DEVELOPMENT.md#显式-windows-x64-终端开发-bundle)、[ADR-0019](docs/adr/0019-explicit-windows-terminal-bundle.md)及[原生／桌面结果](docs/testing/results/2026-11-23-terminal-bundle.md)。它尚非发布版本，跨权限接入、完整视觉与资源等门槛仍开放。
+
+Tab 管理模式现可按 `/` 搜索当前会话，选择后接回原 Run；查询与终端原生输入隔离。布局、配色、三条普通 shell 的实际 Windows 流程及剩余范围见[本地会话搜索报告](docs/testing/results/2026-11-23-session-search.md)。

@@ -1,0 +1,18 @@
+{
+  "base_commit": "03621c1e6da2fe030e6369675c6f0b4312abc8c6",
+  "source": "Exact Go/module digests in source-after.json; no published CI run in this slice",
+  "build_host": "Go 1.27.4 darwin/amd64",
+  "target": "windows/amd64",
+  "artifacts": {
+    "full_interaction_product": "bbf441e74bf3b2281ea116e271c77c3404e8a84fa05ec610b9a6b00d8f5e3512",
+    "final_style_product": "a7f5aa4cbcf64e728bdb0af84825c4e47df82b1bc3639ecd8b548c0f2fa58c4f",
+    "final_ui_tests": "694bb225b2e77e30c02f0c8b59262eb7f7e85dc4b79bb5b81245d5f5b336caa8"
+  },
+  "local_checks": {
+    "go_test": "passed; cached packages included",
+    "go_race": "passed; cached packages included",
+    "go_vet": "passed",
+    "go_mod_verify": "passed"
+  },
+  "scope": "101/268 native model/render tests plus separate real desktop shell flows; no real-agent, resource-budget or release acceptance"
+}

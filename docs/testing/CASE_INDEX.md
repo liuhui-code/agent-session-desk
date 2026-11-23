@@ -96,7 +96,7 @@
 | [TC-SESSION-003](generated/02-sessions-recovery-storage.md#tc-session-003) | 重命名不改变身份与运行 | FL-004、FL-005 | P1 | M2 | integration | 依据明确 |
 | [TC-SESSION-004](generated/02-sessions-recovery-storage.md#tc-session-004) | 重复名称按已决规则处理而不覆盖会话 | FL-004、FL-005 | P1 | M2 | integration | 待决策 |
 | [TC-SESSION-005](generated/02-sessions-recovery-storage.md#tc-session-005) | 名称边界与特殊字符不会进入后台命令 | FL-004、FL-005 | P1 | M2 | integration | 待决策 |
-| [TC-SESSION-006](generated/02-sessions-recovery-storage.md#tc-session-006) | 搜索规则与结果寻址分离 | FL-004、FL-005 | P1 | M2 | integration | 待决策 |
+| [TC-SESSION-006](generated/02-sessions-recovery-storage.md#tc-session-006) | 搜索规则与结果寻址分离 | FL-004、FL-005 | P1 | M2 | integration | 依据明确 |
 | [TC-SESSION-007](generated/02-sessions-recovery-storage.md#tc-session-007) | 排序过滤变化不把选中目标换成同行号会话 | FL-004、FL-005 | P0 | M2 | integration | 依据明确 |
 | [TC-SESSION-008](generated/02-sessions-recovery-storage.md#tc-session-008) | 移动分组不改变运行与历史归属 | FL-004、FL-005 | P1 | M2 | integration | 依据明确 |
 | [TC-SESSION-009](generated/02-sessions-recovery-storage.md#tc-session-009) | 关闭视图再打开仍指向原会话 | FL-004、FL-005、FL-006 | P0 | M2 | integration | 依据明确 |
