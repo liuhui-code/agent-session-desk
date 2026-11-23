@@ -38,6 +38,10 @@ func (m *Manager) CreateGroup(ctx context.Context, parentID, name, dir string) (
 	return m.metadata.CreateGroup(ctx, parentID, name, dir)
 }
 
+func (m *Manager) RenameGroup(ctx context.Context, expected session.Group, name string) (session.Group, error) {
+	return m.metadata.RenameGroup(ctx, expected, name)
+}
+
 func (m *Manager) MoveToGroup(ctx context.Context, expected session.Session, target string) (session.Session, error) {
 	view, err := m.Workspace(ctx)
 	if err != nil {

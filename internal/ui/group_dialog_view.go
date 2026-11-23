@@ -22,6 +22,11 @@ func (m *Model) sizeGroupDialog() {
 	if d == nil || d.move {
 		return
 	}
+	if d.rename {
+		_, _, width := m.sessionRenameWidths()
+		d.inputs[0].SetWidth(max(1, width-lipgloss.Width(d.inputs[0].Prompt)-1))
+		return
+	}
 	_, _, width := m.groupDialogWidths()
 	for i := range d.inputs {
 		d.inputs[i].SetWidth(max(1, width-lipgloss.Width(d.inputs[i].Prompt)-1))
@@ -44,6 +49,9 @@ func (m *Model) renderGroupDialog() (string, *tea.Cursor) {
 		return "", nil
 	}
 	d, t := m.groupDialog, m.tokens
+	if d.rename {
+		return m.renderNameDialog(d.inputs[0], "重命名分组", d.busy, d.submitted, d.err)
+	}
 	outer, content, fieldWidth := m.groupDialogWidths()
 	center := func(s string) string {
 		s = fitFrame(s, min(content, lipgloss.Width(s)), 1)

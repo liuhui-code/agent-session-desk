@@ -1,0 +1,34 @@
+{
+  "result": "passed",
+  "artifacts": 300,
+  "source_fingerprints": 179,
+  "native_packages": {
+    "store": [
+      51,
+      77
+    ],
+    "manager": [
+      14,
+      16
+    ],
+    "ui": [
+      136,
+      310
+    ]
+  },
+  "actions": {
+    "state": 41,
+    "paste": 5,
+    "keys": 33,
+    "text": 17,
+    "capture": 9,
+    "resize": 3,
+    "finish": 1
+  },
+  "screenshots": 9,
+  "native_captures": 10,
+  "metadata_snapshots": 7,
+  "original_processes_ended": 5,
+  "geometry_pairs": 3,
+  "scope": "Archived evidence consistency, exact source fingerprints and this bounded slice only; no new product execution"
+}

@@ -1,0 +1,71 @@
+{
+    "tasks_absent":  [
+                         "AsdGroupRenameSetup20261123",
+                         "AsdGroupRenameDesktop20261123"
+                     ],
+    "clipboard":  {
+                      "text_restored":  true,
+                      "restored":  true,
+                      "original_text_logged":  false,
+                      "utc":  "2026-11-23T05:07:44.4689715Z",
+                      "format_names_restored":  true,
+                      "caps_after":  true,
+                      "caps_before":  true,
+                      "nontext_content_verified":  false
+                  },
+    "utc":  "2026-11-23T05:09:26.8237946Z",
+    "remaining_sessions":  "[]",
+    "private_images_alive":  0,
+    "settings_sha256":  "1499307ABEBA68C23F9EB38A4C636F81172475B6B2B535BC0B11DCD9547241F8",
+    "scope":  "Registered original identities and known private image paths only; no machine-global cleanup claim; owned target and outer launcher PSReadLine history were isolated before input; no user history content archived",
+    "stops":  [
+                  {
+                      "run_id":  "9717db4e662cc36d24ad4e1a3cbb0678",
+                      "session_id":  "822c46390017b033fcda8811c1947406",
+                      "result":  "{\r\n  \"session_id\": \"822c46390017b033fcda8811c1947406\",\r\n  \"run_id\": \"9717db4e662cc36d24ad4e1a3cbb0678\",\r\n  \"result\": \"backend_session_stopped\"\r\n}\r\n"
+                  },
+                  {
+                      "run_id":  "1b8db3e8d4eab7133096bc79448b1dc4",
+                      "session_id":  "8d7f836a6a0090990620feb42a12d36c",
+                      "result":  "{\r\n  \"session_id\": \"8d7f836a6a0090990620feb42a12d36c\",\r\n  \"run_id\": \"1b8db3e8d4eab7133096bc79448b1dc4\",\r\n  \"result\": \"backend_session_stopped\"\r\n}\r\n"
+                  }
+              ],
+    "result":  "passed",
+    "original_processes":  [
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                   "pid":  14184,
+                                   "filetime":  134398839869168537,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                   "pid":  17344,
+                                   "filetime":  134398839874843744,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-group-rename.exe",
+                                   "pid":  13932,
+                                   "filetime":  134398840311083818,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-group-rename.exe",
+                                   "pid":  16760,
+                                   "filetime":  134398840586692600,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe",
+                                   "pid":  18512,
+                                   "filetime":  134398840300528195,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               }
+                           ]
+}

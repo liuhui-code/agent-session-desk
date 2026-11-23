@@ -1,0 +1,36 @@
+{
+    "utc":  "2026-11-23T05:04:28.3176508Z",
+    "results":  [
+                    {
+                        "binary_sha256":  "94997E0C3E1943D29D818AE472B45271DEDBF033DC1FC9114267ED98CF3DD34C",
+                        "remaining_exact_image":  0,
+                        "skip":  0,
+                        "exit_code":  0,
+                        "fail":  0,
+                        "all_pass":  77,
+                        "top_level_pass":  51,
+                        "package":  "store"
+                    },
+                    {
+                        "binary_sha256":  "99EF8A42B95A5B617F6D16DC82B8C5F3F28DB8B5B16AF5761356DD7F94E03BDD",
+                        "remaining_exact_image":  0,
+                        "skip":  0,
+                        "exit_code":  0,
+                        "fail":  0,
+                        "all_pass":  16,
+                        "top_level_pass":  14,
+                        "package":  "manager"
+                    },
+                    {
+                        "binary_sha256":  "9F292AA3E3C88ADC0DDED58AFE51B30D508C39E34037CDD68020C9DA25DB477F",
+                        "remaining_exact_image":  0,
+                        "skip":  0,
+                        "exit_code":  0,
+                        "fail":  0,
+                        "all_pass":  310,
+                        "top_level_pass":  136,
+                        "package":  "ui"
+                    }
+                ],
+    "windows":  "Microsoft Windows NT 10.0.19045.0"
+}

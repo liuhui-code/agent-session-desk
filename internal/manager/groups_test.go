@@ -13,6 +13,26 @@ import (
 	"github.com/liuhui-code/agent-session-desk/internal/store"
 )
 
+func TestGroupRenameNeedsNoTerminalAndKeepsOriginalTree(t *testing.T) {
+	ctx := context.Background()
+	db, err := store.Open(ctx, filepath.Join(t.TempDir(), "metadata.sqlite3"), "scope")
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer db.Close()
+	// A nil backend proves group display edits do not list, start, stop or write
+	// to a terminal, including when no terminal executable is available.
+	m := manager.New(nil, db)
+	g, err := m.CreateGroup(ctx, "", "项目", `C:\work`)
+	if err != nil {
+		t.Fatal(err)
+	}
+	named, err := m.RenameGroup(ctx, g, "项目 新版")
+	if err != nil || named.ID != g.ID || named.Name != "项目 新版" || named.Revision != g.Revision+1 {
+		t.Fatalf("rename required/changed terminal: %+v %v", named, err)
+	}
+}
+
 func TestWorkspaceGroupMovePersistsWithoutTerminalMutation(t *testing.T) {
 	ctx := context.Background()
 	path := filepath.Join(t.TempDir(), "metadata.sqlite3")

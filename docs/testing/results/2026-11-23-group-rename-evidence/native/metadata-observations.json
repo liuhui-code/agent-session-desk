@@ -1,0 +1,424 @@
+[
+    {
+        "value":  {
+                      "Version":  4,
+                      "Groups":  [
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-rename-desktop-20261123\\runtime\\asd-group-rename",
+                                         "ID":  "default",
+                                         "ParentID":  "",
+                                         "Name":  "我的会话",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-rename-desktop-20261123\\runtime\\asd-group-rename",
+                                         "ID":  "293c0f4d3181228fc5894c707df4b899",
+                                         "ParentID":  "",
+                                         "Name":  "项目 甲",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  1
+                                     }
+                                 ],
+                      "Members":  [
+
+                                  ],
+                      "Runs":  [
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-rename-desktop-20261123\\runtime\\asd-group-rename",
+                                       "ID":  "1b8db3e8d4eab7133096bc79448b1dc4",
+                                       "SessionID":  "8d7f836a6a0090990620feb42a12d36c",
+                                       "BackendID":  "asd_8d7f836a6a0090990620feb42a12d36c_1b8db3e8d4eab7133096bc79448b1dc4",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795410387825090400,
+                                       "StoppedNS":  null
+                                   },
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-rename-desktop-20261123\\runtime\\asd-group-rename",
+                                       "ID":  "9717db4e662cc36d24ad4e1a3cbb0678",
+                                       "SessionID":  "822c46390017b033fcda8811c1947406",
+                                       "BackendID":  "asd_822c46390017b033fcda8811c1947406_9717db4e662cc36d24ad4e1a3cbb0678",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795410387064322400,
+                                       "StoppedNS":  null
+                                   }
+                               ]
+                  },
+        "label":  "root-created"
+    },
+    {
+        "value":  {
+                      "Version":  4,
+                      "Groups":  [
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-rename-desktop-20261123\\runtime\\asd-group-rename",
+                                         "ID":  "0427780485dbd1fd61831366b192afb6",
+                                         "ParentID":  "293c0f4d3181228fc5894c707df4b899",
+                                         "Name":  "审核",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-rename-desktop-20261123\\runtime\\asd-group-rename",
+                                         "ID":  "default",
+                                         "ParentID":  "",
+                                         "Name":  "我的会话",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-rename-desktop-20261123\\runtime\\asd-group-rename",
+                                         "ID":  "293c0f4d3181228fc5894c707df4b899",
+                                         "ParentID":  "",
+                                         "Name":  "项目 甲",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  1
+                                     }
+                                 ],
+                      "Members":  [
+
+                                  ],
+                      "Runs":  [
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-rename-desktop-20261123\\runtime\\asd-group-rename",
+                                       "ID":  "1b8db3e8d4eab7133096bc79448b1dc4",
+                                       "SessionID":  "8d7f836a6a0090990620feb42a12d36c",
+                                       "BackendID":  "asd_8d7f836a6a0090990620feb42a12d36c_1b8db3e8d4eab7133096bc79448b1dc4",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795410387825090400,
+                                       "StoppedNS":  null
+                                   },
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-rename-desktop-20261123\\runtime\\asd-group-rename",
+                                       "ID":  "9717db4e662cc36d24ad4e1a3cbb0678",
+                                       "SessionID":  "822c46390017b033fcda8811c1947406",
+                                       "BackendID":  "asd_822c46390017b033fcda8811c1947406_9717db4e662cc36d24ad4e1a3cbb0678",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795410387064322400,
+                                       "StoppedNS":  null
+                                   }
+                               ]
+                  },
+        "label":  "child-created"
+    },
+    {
+        "value":  {
+                      "Version":  4,
+                      "Groups":  [
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-rename-desktop-20261123\\runtime\\asd-group-rename",
+                                         "ID":  "0427780485dbd1fd61831366b192afb6",
+                                         "ParentID":  "293c0f4d3181228fc5894c707df4b899",
+                                         "Name":  "审核",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-rename-desktop-20261123\\runtime\\asd-group-rename",
+                                         "ID":  "default",
+                                         "ParentID":  "",
+                                         "Name":  "我的会话",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-rename-desktop-20261123\\runtime\\asd-group-rename",
+                                         "ID":  "293c0f4d3181228fc5894c707df4b899",
+                                         "ParentID":  "",
+                                         "Name":  "项目 甲",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  1
+                                     }
+                                 ],
+                      "Members":  [
+                                      {
+                                          "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-rename-desktop-20261123\\runtime\\asd-group-rename",
+                                          "SessionID":  "822c46390017b033fcda8811c1947406",
+                                          "GroupID":  "0427780485dbd1fd61831366b192afb6",
+                                          "Revision":  1
+                                      }
+                                  ],
+                      "Runs":  [
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-rename-desktop-20261123\\runtime\\asd-group-rename",
+                                       "ID":  "1b8db3e8d4eab7133096bc79448b1dc4",
+                                       "SessionID":  "8d7f836a6a0090990620feb42a12d36c",
+                                       "BackendID":  "asd_8d7f836a6a0090990620feb42a12d36c_1b8db3e8d4eab7133096bc79448b1dc4",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795410387825090400,
+                                       "StoppedNS":  null
+                                   },
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-rename-desktop-20261123\\runtime\\asd-group-rename",
+                                       "ID":  "9717db4e662cc36d24ad4e1a3cbb0678",
+                                       "SessionID":  "822c46390017b033fcda8811c1947406",
+                                       "BackendID":  "asd_822c46390017b033fcda8811c1947406_9717db4e662cc36d24ad4e1a3cbb0678",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795410387064322400,
+                                       "StoppedNS":  null
+                                   }
+                               ]
+                  },
+        "label":  "before-rename"
+    },
+    {
+        "value":  {
+                      "Version":  4,
+                      "Groups":  [
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-rename-desktop-20261123\\runtime\\asd-group-rename",
+                                         "ID":  "0427780485dbd1fd61831366b192afb6",
+                                         "ParentID":  "293c0f4d3181228fc5894c707df4b899",
+                                         "Name":  "审核",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-rename-desktop-20261123\\runtime\\asd-group-rename",
+                                         "ID":  "default",
+                                         "ParentID":  "",
+                                         "Name":  "我的会话",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-rename-desktop-20261123\\runtime\\asd-group-rename",
+                                         "ID":  "293c0f4d3181228fc5894c707df4b899",
+                                         "ParentID":  "",
+                                         "Name":  "项目 甲 新版",
+                                         "DefaultDir":  "",
+                                         "Revision":  2,
+                                         "Order":  1
+                                     }
+                                 ],
+                      "Members":  [
+                                      {
+                                          "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-rename-desktop-20261123\\runtime\\asd-group-rename",
+                                          "SessionID":  "822c46390017b033fcda8811c1947406",
+                                          "GroupID":  "0427780485dbd1fd61831366b192afb6",
+                                          "Revision":  1
+                                      }
+                                  ],
+                      "Runs":  [
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-rename-desktop-20261123\\runtime\\asd-group-rename",
+                                       "ID":  "1b8db3e8d4eab7133096bc79448b1dc4",
+                                       "SessionID":  "8d7f836a6a0090990620feb42a12d36c",
+                                       "BackendID":  "asd_8d7f836a6a0090990620feb42a12d36c_1b8db3e8d4eab7133096bc79448b1dc4",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795410387825090400,
+                                       "StoppedNS":  null
+                                   },
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-rename-desktop-20261123\\runtime\\asd-group-rename",
+                                       "ID":  "9717db4e662cc36d24ad4e1a3cbb0678",
+                                       "SessionID":  "822c46390017b033fcda8811c1947406",
+                                       "BackendID":  "asd_822c46390017b033fcda8811c1947406_9717db4e662cc36d24ad4e1a3cbb0678",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795410387064322400,
+                                       "StoppedNS":  null
+                                   }
+                               ]
+                  },
+        "label":  "root-renamed"
+    },
+    {
+        "value":  {
+                      "Version":  4,
+                      "Groups":  [
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-rename-desktop-20261123\\runtime\\asd-group-rename",
+                                         "ID":  "0427780485dbd1fd61831366b192afb6",
+                                         "ParentID":  "293c0f4d3181228fc5894c707df4b899",
+                                         "Name":  "审核 二审",
+                                         "DefaultDir":  "",
+                                         "Revision":  2,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-rename-desktop-20261123\\runtime\\asd-group-rename",
+                                         "ID":  "default",
+                                         "ParentID":  "",
+                                         "Name":  "我的会话",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-rename-desktop-20261123\\runtime\\asd-group-rename",
+                                         "ID":  "293c0f4d3181228fc5894c707df4b899",
+                                         "ParentID":  "",
+                                         "Name":  "项目 甲 新版",
+                                         "DefaultDir":  "",
+                                         "Revision":  2,
+                                         "Order":  1
+                                     }
+                                 ],
+                      "Members":  [
+                                      {
+                                          "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-rename-desktop-20261123\\runtime\\asd-group-rename",
+                                          "SessionID":  "822c46390017b033fcda8811c1947406",
+                                          "GroupID":  "0427780485dbd1fd61831366b192afb6",
+                                          "Revision":  1
+                                      }
+                                  ],
+                      "Runs":  [
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-rename-desktop-20261123\\runtime\\asd-group-rename",
+                                       "ID":  "1b8db3e8d4eab7133096bc79448b1dc4",
+                                       "SessionID":  "8d7f836a6a0090990620feb42a12d36c",
+                                       "BackendID":  "asd_8d7f836a6a0090990620feb42a12d36c_1b8db3e8d4eab7133096bc79448b1dc4",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795410387825090400,
+                                       "StoppedNS":  null
+                                   },
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-rename-desktop-20261123\\runtime\\asd-group-rename",
+                                       "ID":  "9717db4e662cc36d24ad4e1a3cbb0678",
+                                       "SessionID":  "822c46390017b033fcda8811c1947406",
+                                       "BackendID":  "asd_822c46390017b033fcda8811c1947406_9717db4e662cc36d24ad4e1a3cbb0678",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795410387064322400,
+                                       "StoppedNS":  null
+                                   }
+                               ]
+                  },
+        "label":  "child-renamed"
+    },
+    {
+        "value":  {
+                      "Version":  4,
+                      "Groups":  [
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-rename-desktop-20261123\\runtime\\asd-group-rename",
+                                         "ID":  "0427780485dbd1fd61831366b192afb6",
+                                         "ParentID":  "293c0f4d3181228fc5894c707df4b899",
+                                         "Name":  "审核 二审",
+                                         "DefaultDir":  "",
+                                         "Revision":  2,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-rename-desktop-20261123\\runtime\\asd-group-rename",
+                                         "ID":  "default",
+                                         "ParentID":  "",
+                                         "Name":  "终端",
+                                         "DefaultDir":  "",
+                                         "Revision":  2,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-rename-desktop-20261123\\runtime\\asd-group-rename",
+                                         "ID":  "293c0f4d3181228fc5894c707df4b899",
+                                         "ParentID":  "",
+                                         "Name":  "项目 甲 新版",
+                                         "DefaultDir":  "",
+                                         "Revision":  2,
+                                         "Order":  1
+                                     }
+                                 ],
+                      "Members":  [
+                                      {
+                                          "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-rename-desktop-20261123\\runtime\\asd-group-rename",
+                                          "SessionID":  "822c46390017b033fcda8811c1947406",
+                                          "GroupID":  "0427780485dbd1fd61831366b192afb6",
+                                          "Revision":  1
+                                      }
+                                  ],
+                      "Runs":  [
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-rename-desktop-20261123\\runtime\\asd-group-rename",
+                                       "ID":  "1b8db3e8d4eab7133096bc79448b1dc4",
+                                       "SessionID":  "8d7f836a6a0090990620feb42a12d36c",
+                                       "BackendID":  "asd_8d7f836a6a0090990620feb42a12d36c_1b8db3e8d4eab7133096bc79448b1dc4",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795410387825090400,
+                                       "StoppedNS":  null
+                                   },
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-rename-desktop-20261123\\runtime\\asd-group-rename",
+                                       "ID":  "9717db4e662cc36d24ad4e1a3cbb0678",
+                                       "SessionID":  "822c46390017b033fcda8811c1947406",
+                                       "BackendID":  "asd_822c46390017b033fcda8811c1947406_9717db4e662cc36d24ad4e1a3cbb0678",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795410387064322400,
+                                       "StoppedNS":  null
+                                   }
+                               ]
+                  },
+        "label":  "default-renamed"
+    },
+    {
+        "value":  {
+                      "Version":  4,
+                      "Groups":  [
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-rename-desktop-20261123\\runtime\\asd-group-rename",
+                                         "ID":  "0427780485dbd1fd61831366b192afb6",
+                                         "ParentID":  "293c0f4d3181228fc5894c707df4b899",
+                                         "Name":  "审核 二审",
+                                         "DefaultDir":  "",
+                                         "Revision":  2,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-rename-desktop-20261123\\runtime\\asd-group-rename",
+                                         "ID":  "default",
+                                         "ParentID":  "",
+                                         "Name":  "终端",
+                                         "DefaultDir":  "",
+                                         "Revision":  2,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-rename-desktop-20261123\\runtime\\asd-group-rename",
+                                         "ID":  "293c0f4d3181228fc5894c707df4b899",
+                                         "ParentID":  "",
+                                         "Name":  "项目 甲 新版",
+                                         "DefaultDir":  "",
+                                         "Revision":  2,
+                                         "Order":  1
+                                     }
+                                 ],
+                      "Members":  [
+                                      {
+                                          "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-rename-desktop-20261123\\runtime\\asd-group-rename",
+                                          "SessionID":  "822c46390017b033fcda8811c1947406",
+                                          "GroupID":  "0427780485dbd1fd61831366b192afb6",
+                                          "Revision":  1
+                                      }
+                                  ],
+                      "Runs":  [
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-rename-desktop-20261123\\runtime\\asd-group-rename",
+                                       "ID":  "1b8db3e8d4eab7133096bc79448b1dc4",
+                                       "SessionID":  "8d7f836a6a0090990620feb42a12d36c",
+                                       "BackendID":  "asd_8d7f836a6a0090990620feb42a12d36c_1b8db3e8d4eab7133096bc79448b1dc4",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795410387825090400,
+                                       "StoppedNS":  null
+                                   },
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-rename-desktop-20261123\\runtime\\asd-group-rename",
+                                       "ID":  "9717db4e662cc36d24ad4e1a3cbb0678",
+                                       "SessionID":  "822c46390017b033fcda8811c1947406",
+                                       "BackendID":  "asd_822c46390017b033fcda8811c1947406_9717db4e662cc36d24ad4e1a3cbb0678",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795410387064322400,
+                                       "StoppedNS":  null
+                                   }
+                               ]
+                  },
+        "label":  "reopen-cancelled"
+    }
+]

@@ -131,6 +131,9 @@ func (m *Model) workspaceKey(msg tea.KeyPressMsg) tea.Cmd {
 		return m.activateWorkspace(len(w.tabs) - 1)
 	case "r":
 		if w.err == nil && m.listErr == nil {
+			if m.sidebarGroupSelected() {
+				return m.beginGroupRename()
+			}
 			return m.beginSessionRename()
 		}
 		fallthrough

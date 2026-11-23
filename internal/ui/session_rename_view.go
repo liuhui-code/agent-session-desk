@@ -8,6 +8,7 @@ package ui
 import (
 	"strings"
 
+	"charm.land/bubbles/v2/textinput"
 	tea "charm.land/bubbletea/v2"
 	"charm.land/lipgloss/v2"
 )
@@ -25,10 +26,15 @@ func (m *Model) sizeSessionRename() {
 	m.rename.input.SetWidth(max(1, input-lipgloss.Width(m.rename.input.Prompt)-1))
 }
 func (m *Model) renderSessionRename() (string, *tea.Cursor) {
+	d := m.rename
+	return m.renderNameDialog(d.input, "重命名会话", d.busy, d.submitted, d.err)
+}
+
+func (m *Model) renderNameDialog(field textinput.Model, title string, busy, submitted bool, err error) (string, *tea.Cursor) {
 	if m.width <= 0 || m.height <= 0 {
 		return "", nil
 	}
-	d, t := m.rename, m.tokens.rename
+	t := m.tokens.rename
 	outer, content, inputWidth := m.sessionRenameWidths()
 	center := func(s string) string {
 		s = fitFrame(s, min(content, lipgloss.Width(s)), 1)
@@ -38,18 +44,18 @@ func (m *Model) renderSessionRename() (string, *tea.Cursor) {
 		// the plain trailing spaces produced by PlaceHorizontal.
 		return m.styles.formText.Render(strings.Repeat(" ", left)) + s + m.styles.formText.Render(strings.Repeat(" ", padding-left))
 	}
-	input := center(fitFrame(inputView(d.input), inputWidth, 1))
+	input := center(fitFrame(inputView(field), inputWidth, 1))
 	errLine := ""
-	if d.err != nil {
-		errLine = m.styles.formError.Render(t.warningPrefix + label(d.err.Error()))
+	if err != nil {
+		errLine = m.styles.formError.Render(t.warningPrefix + label(err.Error()))
 	}
 	hint := "Enter 确认 │ Esc 取消"
-	if d.busy {
+	if busy {
 		hint = "正在保存名称…"
-	} else if d.submitted {
+	} else if submitted {
 		hint = "Esc 返回 · Ctrl+R 刷新后再编辑"
 	}
-	lines := []string{center(m.styles.renameTitle.Render("重命名会话")), "", input, center(errLine), "", center(m.styles.renameHint.Render(hint))}
+	lines := []string{center(m.styles.renameTitle.Render(title)), "", input, center(errLine), "", center(m.styles.renameHint.Render(hint))}
 	inputRow := 2 // source structure: title, blank, input
 	maxRows := max(0, m.height-m.styles.renameBox.GetVerticalFrameSize())
 	if maxRows < len(lines) {
@@ -60,11 +66,11 @@ func (m *Model) renderSessionRename() (string, *tea.Cursor) {
 	boxWidth, boxHeight := lipgloss.Size(box)
 	x, y := max(0, (m.width-boxWidth)/2), max(0, (m.height-boxHeight)/2)
 	view := overlayLaunchDialog(fitFrame("", m.width, m.height), box, x, y, m.width, m.height)
-	cursor := d.input.Cursor()
+	cursor := field.Cursor()
 	if cursor != nil {
 		cursor.X += x + m.styles.renameBox.GetBorderLeftSize() + t.paddingX + max(0, (content-inputWidth)/2)
 		cursor.Y += y + m.styles.renameBox.GetBorderTopSize() + t.paddingY + inputRow
-		if d.busy || d.submitted || cursor.X >= m.width || cursor.Y >= m.height || cursor.Y >= y+boxHeight-m.styles.renameBox.GetBorderBottomSize()-t.paddingY || cursor.X >= x+boxWidth-m.styles.renameBox.GetBorderRightSize()-t.paddingX {
+		if busy || submitted || cursor.X >= m.width || cursor.Y >= m.height || cursor.Y >= y+boxHeight-m.styles.renameBox.GetBorderBottomSize()-t.paddingY || cursor.X >= x+boxWidth-m.styles.renameBox.GetBorderRightSize()-t.paddingX {
 			cursor = nil
 		}
 	}

@@ -423,10 +423,11 @@
       "license": "MIT",
       "parts": [
         "GroupDialogRenameSession centered layout",
-        "fitDialogWidth and six content rows"
+        "fitDialogWidth and six content rows",
+        "GroupDialogRename shared name-only geometry"
       ],
       "mode": "selectively_adapted",
-      "modifications": "ADR-0021: stable v2 real cursor/total widths, tokens, localized labels, bounded single-line edits and viewports; independent SQL display labels and exact Run binding; no upstream group or remote model."
+      "modifications": "ADR-0021: stable v2 real cursor/total widths, tokens, localized labels, bounded single-line edits and viewports; independent SQL display labels and exact Run binding; no upstream group or remote model. ADR-0023 follow-up shares the view with group display-name edits; product stable group IDs replace upstream path rewrites."
     },
     {
       "project": "agent-deck",
@@ -497,10 +498,11 @@
       "parts": [
         "create name/default path fields",
         "g context root/subgroup, Up/Down and Tab focus",
-        "move group list Enter/Esc"
+        "move group list Enter/Esc",
+        "ShowRename name-only prefill/CursorEnd and isolated focus"
       ],
       "mode": "selectively_adapted",
-      "modifications": "ADR-0023: stable product Group IDs, scoped SQLite tree/membership and CAS; v2 real cursor/total widths, Chinese labels, token styles, bounded viewports and original Run/input fences. No filesystem path IDs, upstream remote/worktree/provider model or v1 production dependency."
+      "modifications": "ADR-0023: stable product Group IDs, scoped SQLite tree/membership and CAS; v2 real cursor/total widths, Chinese labels, token styles, bounded viewports and original Run/input fences. No filesystem path IDs, upstream remote/worktree/provider model or v1 production dependency. Group rename uses a complete expected Group/version and retains stable IDs, folds, descendants and membership; failed commits are never automatically retried."
     },
     {
       "project": "agent-deck",
@@ -513,7 +515,8 @@
       "parts": [
         "14-cell field labels and responsive input widths",
         "root/subgroup context and parent label",
-        "centered create/move layout and bounded hints"
+        "centered create/move layout and bounded hints",
+        "GroupDialogRename via shared six-row rename view"
       ],
       "mode": "selectively_adapted",
       "modifications": "ADR-0023: stable product Group IDs, scoped SQLite tree/membership and CAS; v2 real cursor/total widths, Chinese labels, token styles, bounded viewports and original Run/input fences. No filesystem path IDs, upstream remote/worktree/provider model or v1 production dependency."
@@ -527,7 +530,8 @@
       "destination_file": "internal/ui/group_dialog.go",
       "license": "MIT",
       "parts": [
-        "g on header vs Session and M selected-Session context"
+        "g on header vs Session and M selected-Session context",
+        "r on selected group header"
       ],
       "mode": "selectively_adapted",
       "modifications": "ADR-0023: stable product Group IDs, scoped SQLite tree/membership and CAS; v2 real cursor/total widths, Chinese labels, token styles, bounded viewports and original Run/input fences. No filesystem path IDs, upstream remote/worktree/provider model or v1 production dependency."

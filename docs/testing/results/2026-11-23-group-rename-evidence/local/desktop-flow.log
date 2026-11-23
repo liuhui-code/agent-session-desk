@@ -1,0 +1,138 @@
+{
+    "commands":  109,
+    "child_after":  {
+                        "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-rename-desktop-20261123\\runtime\\asd-group-rename",
+                        "ID":  "0427780485dbd1fd61831366b192afb6",
+                        "ParentID":  "293c0f4d3181228fc5894c707df4b899",
+                        "Name":  "审核 二审",
+                        "DefaultDir":  "",
+                        "Revision":  2,
+                        "Order":  0
+                    },
+    "result":  "passed",
+    "before_processes":  [
+                             {
+                                 "filetime":  134398839869168537,
+                                 "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                 "label":  "Copy A",
+                                 "cwd":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-rename-desktop-20261123\\work",
+                                 "pid":  14184
+                             },
+                             {
+                                 "label":  "Copy B",
+                                 "filetime":  134398839874843744,
+                                 "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                 "pid":  17344,
+                                 "cwd":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-rename-desktop-20261123\\work"
+                             }
+                         ],
+    "after":  [
+                  {
+                      "group_id":  "0427780485dbd1fd61831366b192afb6",
+                      "group_revision":  1,
+                      "session_id":  "822c46390017b033fcda8811c1947406",
+                      "run_id":  "9717db4e662cc36d24ad4e1a3cbb0678",
+                      "backend_id":  "asd_822c46390017b033fcda8811c1947406_9717db4e662cc36d24ad4e1a3cbb0678",
+                      "title":  "Copy A",
+                      "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                      "terminal_state":  "available"
+                  },
+                  {
+                      "session_id":  "8d7f836a6a0090990620feb42a12d36c",
+                      "run_id":  "1b8db3e8d4eab7133096bc79448b1dc4",
+                      "backend_id":  "asd_8d7f836a6a0090990620feb42a12d36c_1b8db3e8d4eab7133096bc79448b1dc4",
+                      "title":  "Copy B",
+                      "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                      "terminal_state":  "available"
+                  }
+              ],
+    "before":  [
+                   {
+                       "session_id":  "822c46390017b033fcda8811c1947406",
+                       "run_id":  "9717db4e662cc36d24ad4e1a3cbb0678",
+                       "backend_id":  "asd_822c46390017b033fcda8811c1947406_9717db4e662cc36d24ad4e1a3cbb0678",
+                       "title":  "Copy A",
+                       "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                       "terminal_state":  "available"
+                   },
+                   {
+                       "session_id":  "8d7f836a6a0090990620feb42a12d36c",
+                       "run_id":  "1b8db3e8d4eab7133096bc79448b1dc4",
+                       "backend_id":  "asd_8d7f836a6a0090990620feb42a12d36c_1b8db3e8d4eab7133096bc79448b1dc4",
+                       "title":  "Copy B",
+                       "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                       "terminal_state":  "available"
+                   }
+               ],
+    "utc":  "2026-11-23T05:07:44.4859266Z",
+    "ui_processes":  [
+                         {
+                             "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-group-rename.exe",
+                             "pid":  13932,
+                             "filetime":  134398840311083818,
+                             "session":  2
+                         },
+                         {
+                             "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-group-rename.exe",
+                             "pid":  16760,
+                             "filetime":  134398840586692600,
+                             "session":  2
+                         }
+                     ],
+    "root_before":  {
+                        "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-rename-desktop-20261123\\runtime\\asd-group-rename",
+                        "ID":  "293c0f4d3181228fc5894c707df4b899",
+                        "ParentID":  "",
+                        "Name":  "项目 甲",
+                        "DefaultDir":  "",
+                        "Revision":  1,
+                        "Order":  1
+                    },
+    "default_after":  {
+                          "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-rename-desktop-20261123\\runtime\\asd-group-rename",
+                          "ID":  "default",
+                          "ParentID":  "",
+                          "Name":  "终端",
+                          "DefaultDir":  "",
+                          "Revision":  2,
+                          "Order":  0
+                      },
+    "scope":  "Two ordinary shells: group names/default/child, name-only Tab, 120/63/49 columns, cancel/multiline rejection, fold persistence, unchanged memberships/Run metadata, exact original drafts and PIDs. Unicode text is not physical modifiers or IME-composition acceptance.",
+    "metadata_snapshots":  7,
+    "root_after":  {
+                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-rename-desktop-20261123\\runtime\\asd-group-rename",
+                       "ID":  "293c0f4d3181228fc5894c707df4b899",
+                       "ParentID":  "",
+                       "Name":  "项目 甲 新版",
+                       "DefaultDir":  "",
+                       "Revision":  2,
+                       "Order":  1
+                   },
+    "preference_snapshots":  2,
+    "after_processes":  [
+                            {
+                                "filetime":  134398839869168537,
+                                "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                "label":  "Copy A",
+                                "cwd":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-rename-desktop-20261123\\work",
+                                "pid":  14184
+                            },
+                            {
+                                "label":  "Copy B",
+                                "filetime":  134398839874843744,
+                                "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                "pid":  17344,
+                                "cwd":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-rename-desktop-20261123\\work"
+                            }
+                        ],
+    "child_before":  {
+                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-rename-desktop-20261123\\runtime\\asd-group-rename",
+                         "ID":  "0427780485dbd1fd61831366b192afb6",
+                         "ParentID":  "293c0f4d3181228fc5894c707df4b899",
+                         "Name":  "审核",
+                         "DefaultDir":  "",
+                         "Revision":  1,
+                         "Order":  0
+                     }
+}
+

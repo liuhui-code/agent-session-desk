@@ -15,15 +15,28 @@ import (
 	"github.com/liuhui-code/agent-session-desk/internal/session"
 )
 
-type groupDialog struct {
-	move, busy, submitted bool
-	contextID, parentID   string
-	target                session.Session
-	groups                []session.Group
-	inputs                [2]textinput.Model
-	focus, choice         int
-	err                   error
+type groupRenameService interface {
+	RenameGroup(context.Context, session.Group, string) (session.Group, error)
 }
+type groupDialog struct {
+	move, rename, busy, submitted bool
+	groupTarget                   session.Group
+	contextID, parentID           string
+	target                        session.Session
+	groups                        []session.Group
+	inputs                        [2]textinput.Model
+	focus, choice                 int
+	err                           error
+}
+
+func (m *Model) beginGroupRename() tea.Cmd {
+	if _, ok := m.service.(groupRenameService); !ok || m.workspace.transition != workspaceIdle || !m.sidebarGroupSelected() {
+		return nil
+	}
+	m.groupIntent = &groupDialog{rename: true, groupTarget: m.selectedGroup()}
+	return m.navigateWorkspace(workspaceGroup)
+}
+
 type groupResult struct {
 	dialog  *groupDialog
 	group   session.Group
@@ -68,6 +81,9 @@ func (m *Model) openGroupDialog() tea.Cmd {
 		return nil
 	}
 	for i := range d.inputs {
+		if d.rename && i > 0 {
+			break
+		}
 		input := textinput.New()
 		input.Placeholder = []string{"分组名称", "可选工作目录"}[i]
 		input.CharLimit = session.MaxTitleInputBytes
@@ -76,6 +92,11 @@ func (m *Model) openGroupDialog() tea.Cmd {
 		input.SetStyles(m.styles.groupInput)
 		input.KeyMap.Paste.SetEnabled(false)
 		d.inputs[i] = input
+	}
+	if d.rename {
+		d.inputs[0].SetStyles(m.styles.renameInput)
+		d.inputs[0].SetValue(d.groupTarget.Name)
+		d.inputs[0].CursorEnd()
 	}
 	m.sizeGroupDialog()
 	return d.inputs[0].Focus()
@@ -104,7 +125,9 @@ func (m *Model) groupDialogEvent(msg tea.Msg) (tea.Cmd, bool) {
 			found := false
 			for i, g := range groups {
 				if g.ID == r.group.ID {
-					groups[i] = r.group
+					if g.Revision <= r.group.Revision {
+						groups[i] = r.group
+					}
 					found = true
 				}
 			}
@@ -113,7 +136,9 @@ func (m *Model) groupDialogEvent(msg tea.Msg) (tea.Cmd, bool) {
 			}
 			m.groups = groups
 			m.cursor, m.selectedGroupID = -1, r.group.ID
-			m.revealGroup(r.group.ParentID)
+			if !d.rename {
+				m.revealGroup(r.group.ParentID)
+			}
 		}
 		m.groupDialog = nil
 		m.status = ""
@@ -152,6 +177,12 @@ func (m *Model) groupDialogEvent(msg tea.Msg) (tea.Cmd, bool) {
 				d.choice = min(len(d.groups)-1, d.choice+1)
 			}
 			return nil, true
+		}
+		if d.rename {
+			switch msg.String() {
+			case "tab", "shift+tab", "up", "down":
+				return nil, true
+			}
 		}
 		switch msg.String() {
 		case "tab", "shift+tab":
@@ -216,7 +247,7 @@ func (m *Model) submitGroupDialog() tea.Cmd {
 		}
 	} else {
 		name, err = session.NormalizeGroupName(d.inputs[0].Value())
-		if err == nil {
+		if err == nil && !d.rename {
 			dir, err = session.NormalizeGroupDir(d.inputs[1].Value())
 		}
 		if err != nil {
@@ -225,15 +256,20 @@ func (m *Model) submitGroupDialog() tea.Cmd {
 		}
 	}
 	d.busy, d.submitted, d.err = true, true, nil
-	service, ctx, parent, expected := m.service.(groupService), m.ctx, d.parentID, d.target
+	ctx, parent, expected, groupTarget := m.ctx, d.parentID, d.target, d.groupTarget
+	service := m.service
 	return func() tea.Msg {
 		ctx, cancel := context.WithTimeout(ctx, 5*time.Second)
 		defer cancel()
 		if d.move {
-			v, err := service.MoveToGroup(ctx, expected, target)
+			v, err := service.(groupService).MoveToGroup(ctx, expected, target)
 			return groupResult{dialog: d, session: v, err: err}
 		}
-		g, err := service.CreateGroup(ctx, parent, name, dir)
+		if d.rename {
+			g, err := service.(groupRenameService).RenameGroup(ctx, groupTarget, name)
+			return groupResult{dialog: d, group: g, err: err}
+		}
+		g, err := service.(groupService).CreateGroup(ctx, parent, name, dir)
 		return groupResult{dialog: d, group: g, err: err}
 	}
 }

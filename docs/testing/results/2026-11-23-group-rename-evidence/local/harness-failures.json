@@ -1,0 +1,22 @@
+[
+  {
+    "stage": "first cleanup",
+    "evidence": "Observed exec output; original script preserved",
+    "error": "Unexpected live set",
+    "cause": "Reused cleanup required 3 sessions; this fixture owns 2. Guard is before the stop loop.",
+    "correction": "Require 2 and retain full Session/Run/Backend ownership checks. Final audit proves 2 exact stops and 5 original processes ended."
+  },
+  {
+    "stage": "read-only cleanup inspection",
+    "evidence": "Observed exec output; original inspector preserved",
+    "error": "Unowned target",
+    "cause": "An extra array wrapper around ConvertFrom-Json produced a nested value, rather than scalar Session rows. No stop or input exists in this inspector.",
+    "correction": "Final cleanup independently used the original direct ConvertFrom-Json projection, revalidated every scalar identity, and passed. Inspector was not replayed after cleanup."
+  },
+  {
+    "stage": "archived verifier",
+    "evidence": "Observed archived-script execution: AssertionError native/desktop/done/079.json; first verifier source preserved",
+    "cause": "The generic redactor also replaced the private-name pattern inside the verifier source, causing the archived copy to reject correctly redacted placeholders.",
+    "correction": "Build the private pattern from separated string fragments; rerun the actual archived verifier. No product or native test execution repeated."
+  }
+]

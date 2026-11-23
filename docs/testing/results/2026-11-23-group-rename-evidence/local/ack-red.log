@@ -1,0 +1,5 @@
+--- FAIL: TestGroupRenameAcknowledgementCannotRollBackANewerObservedName (0.00s)
+    group_rename_test.go:113: earlier acknowledgement rolled back newer observed metadata
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.900s
+FAIL

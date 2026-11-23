@@ -115,3 +115,5 @@ M0 已有“列表/预览 → 自定义命令 → 全屏 attach → 返回”的
 2026-11-23 缩高历史门槛：固定官方 psmux 3.4.0 会丢失缩高移出的历史行，独立补丁候选已有限定验证，但本文件的版本基线与安装哈希未改变。接纳候选须另行记录来源／版本／构建决定，并补齐桌面及资源回归，见[实际报告](testing/results/2026-11-23-resize-history.md)。
 
 2026-11-23 显式终端开发配置：[ADR-0019](adr/0019-explicit-windows-terminal-bundle.md) 允许 `--terminal-bundle` 固定补丁后端＋Microsoft SDK，并在创建／接入时验证实际宿主，保留官方默认路径和失败边界。x/sys v0.49.0 从已有间接依赖改为直接使用，没有升级版本。参见[实际接入报告](testing/results/2026-11-23-terminal-bundle.md)；不宣称跨权限、完整 Windows 或发布通过。
+
+2026-11-23 组重命名切片：沿 ADR-0023 接入组标题 r 的来源弹窗与持久名称／版本，保持 SQLite v4、ui.toml v3 及原 Group/Session/Run 身份；没有依赖或终端所有权变化。实际结果见[报告](testing/results/2026-11-23-group-rename.md)，删除／排序、完整界面接受及发布仍待完成。
