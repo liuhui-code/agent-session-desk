@@ -1,0 +1,5 @@
+--- FAIL: TestGroupsSurviveReopenAndMoveKeepsOriginalRunAndHistory (0.01s)
+    groups_test.go:50: lost parent/default directory: [{ID:753b659a7de38bc65f91e9034fbfd6c6 ParentID:3b1d7bccd52e7e828907f0feb81f227f Name:Review DefaultDir:C:\work\project Revision:1 Order:0} {ID:default ParentID: Name:我的会话 DefaultDir: Revision:1 Order:0} {ID:3b1d7bccd52e7e828907f0feb81f227f ParentID: Name:项目 甲 DefaultDir: Revision:1 Order:1}]
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/store	1.348s
+FAIL

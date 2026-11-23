@@ -42,7 +42,7 @@ func validateMetadata(ctx context.Context, db *sql.DB) (int, error) {
 	if err = tx.QueryRowContext(ctx, "PRAGMA user_version").Scan(&version); err != nil {
 		return 0, err
 	}
-	if app != 0x41534431 || (version != 1 && version != 2 && version != 3) {
+	if app != 0x41534431 || (version != 1 && version != 2 && version != 3 && version != 4) {
 		return 0, fmt.Errorf("unsupported metadata application/schema; source preserved")
 	}
 	var integrity string
@@ -66,6 +66,9 @@ func validateMetadata(ctx context.Context, db *sql.DB) (int, error) {
 	if version >= 3 {
 		queries = append(queries, `SELECT scope,session_id,title,revision FROM session_names LIMIT 0`)
 	}
+	if version >= 4 {
+		queries = append(queries, groupColumns, membershipColumns)
+	}
 	for _, query := range queries {
 		rows, e := tx.QueryContext(ctx, query)
 		if e != nil {
@@ -87,6 +90,11 @@ func validateMetadata(ctx context.Context, db *sql.DB) (int, error) {
 	}
 	if violation {
 		return 0, fmt.Errorf("metadata foreign-key check failed; source preserved")
+	}
+	if version >= 4 {
+		if err = validateGroupScopes(ctx, tx); err != nil {
+			return 0, err
+		}
 	}
 	if err = tx.Commit(); err != nil {
 		return 0, err

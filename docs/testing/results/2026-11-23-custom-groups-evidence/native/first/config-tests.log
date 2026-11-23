@@ -1,0 +1,33 @@
+=== RUN   TestLoadNamedTemplatePreservesLaunchData
+--- PASS: TestLoadNamedTemplatePreservesLaunchData (0.00s)
+=== RUN   TestUnsupportedSchemaDoesNotProduceLaunch
+--- PASS: TestUnsupportedSchemaDoesNotProduceLaunch (0.01s)
+=== RUN   TestUnknownFieldsAreRejectedWithoutEchoingInput
+--- PASS: TestUnknownFieldsAreRejectedWithoutEchoingInput (0.01s)
+=== RUN   TestMalformedConfigDoesNotExposeSourceOrValues
+--- PASS: TestMalformedConfigDoesNotExposeSourceOrValues (0.01s)
+=== RUN   TestMissingTemplateAndInvalidLaunchAreRejected
+--- PASS: TestMissingTemplateAndInvalidLaunchAreRejected (0.02s)
+=== RUN   TestSchemaKeysAreCaseSensitive
+--- PASS: TestSchemaKeysAreCaseSensitive (0.00s)
+=== RUN   TestConfigurationReadHasABound
+--- PASS: TestConfigurationReadHasABound (0.04s)
+=== RUN   TestTemplateHasNoInterpolationOrSharedLaunchData
+--- PASS: TestTemplateHasNoInterpolationOrSharedLaunchData (0.00s)
+=== RUN   TestUIV3GroupFoldsPersistWithLegacyReadOnlyLoading
+--- PASS: TestUIV3GroupFoldsPersistWithLegacyReadOnlyLoading (0.03s)
+=== RUN   TestUINavigationV2RoundTripsWithoutLosingDensityOrFoldChoice
+--- PASS: TestUINavigationV2RoundTripsWithoutLosingDensityOrFoldChoice (0.01s)
+=== RUN   TestUILegacyDensityReadDoesNotRewriteAndUsesGroupedExpandedDefaults
+--- PASS: TestUILegacyDensityReadDoesNotRewriteAndUsesGroupedExpandedDefaults (0.00s)
+=== RUN   TestUINavigationRefusesUnknownKeysAndWrongTypesWithoutOverwriting
+--- PASS: TestUINavigationRefusesUnknownKeysAndWrongTypesWithoutOverwriting (0.02s)
+=== RUN   TestUIPreferencesPersistAcrossLoadsAndReplaceExistingChoice
+--- PASS: TestUIPreferencesPersistAcrossLoadsAndReplaceExistingChoice (0.04s)
+=== RUN   TestUIPreferencesRefuseToOverwriteUnrecognizedOrInvalidFiles
+--- PASS: TestUIPreferencesRefuseToOverwriteUnrecognizedOrInvalidFiles (0.02s)
+=== RUN   TestUIPreferencesNormalizeUpstreamDensityValues
+--- PASS: TestUIPreferencesNormalizeUpstreamDensityValues (0.01s)
+=== RUN   TestUIPreferencesRejectCaseVariantSchemaKeys
+--- PASS: TestUIPreferencesRejectCaseVariantSchemaKeys (0.00s)
+PASS

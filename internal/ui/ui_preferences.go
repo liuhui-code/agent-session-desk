@@ -1,9 +1,11 @@
 package ui
 
 import (
+	"strings"
+
 	tea "charm.land/bubbletea/v2"
 	"github.com/liuhui-code/agent-session-desk/internal/config"
-	"strings"
+	"github.com/liuhui-code/agent-session-desk/internal/session"
 )
 
 // One writer covers the whole small preference document, including choices
@@ -11,6 +13,7 @@ import (
 type uiPreferenceState struct {
 	saved, wanted config.UISettings
 	busy          bool
+	queued        bool // An explicit preference accepted while the writer was busy.
 	generation    uint64
 }
 type uiPreferencesSaved struct {
@@ -22,6 +25,7 @@ type uiPreferencesSaved struct {
 func (m *Model) saveUIPreferences() tea.Cmd {
 	p := &m.preferences
 	if p.busy {
+		p.queued = true
 		return nil
 	}
 	if p.saved == p.wanted {
@@ -52,6 +56,8 @@ func (m *Model) uiPreferencesEvent(msg tea.Msg) (tea.Cmd, bool) {
 		return nil, true
 	}
 	p.busy = false
+	queued := p.queued
+	p.queued = false
 	if r.err != nil {
 		p.wanted = p.saved
 		m.sidebarDensity = p.saved.SidebarDensity
@@ -68,7 +74,7 @@ func (m *Model) uiPreferencesEvent(msg tea.Msg) (tea.Cmd, bool) {
 	}
 	p.saved = r.settings
 	m.sidebarDensity = r.settings.SidebarDensity
-	if r.settings.SidebarMode == p.wanted.SidebarMode && r.settings.DefaultGroupCollapsed == p.wanted.DefaultGroupCollapsed {
+	if r.settings.SidebarMode == p.wanted.SidebarMode && r.settings.DefaultGroupCollapsed == p.wanted.DefaultGroupCollapsed && r.settings.CollapsedGroups == p.wanted.CollapsedGroups {
 		m.applySidebarNavigation(r.settings)
 	}
 	m.sidebarPreferenceError = nil
@@ -80,9 +86,13 @@ func (m *Model) uiPreferencesEvent(msg tea.Msg) (tea.Cmd, bool) {
 		if sidebarDensities[d.choice] != m.sidebarDensity {
 			p.wanted.SidebarDensity = sidebarDensities[d.choice]
 			d.busy = true
+			queued = true
 		}
 	}
-	cmd := m.saveUIPreferences()
+	var cmd tea.Cmd
+	if queued {
+		cmd = m.saveUIPreferences()
+	}
 	if !p.busy && m.workspace.transition == workspaceQuit {
 		m.workspace.transition = workspaceIdle
 		return m.workspaceKey(tea.KeyPressMsg{Code: 'q', Text: "q"}), true
@@ -93,14 +103,30 @@ func (m *Model) uiPreferencesEvent(msg tea.Msg) (tea.Cmd, bool) {
 	return cmd, true
 }
 func (m *Model) applySidebarNavigation(settings config.UISettings) {
-	changed := m.sidebarMode != settings.SidebarMode || m.sidebarCollapsed != settings.DefaultGroupCollapsed
+	changed := m.sidebarMode != settings.SidebarMode || m.sidebarCollapsed != settings.DefaultGroupCollapsed || strings.Join(sortedCollapsedIDs(m.collapsedGroups), ",") != settings.CollapsedGroups
 	m.sidebarMode, m.sidebarCollapsed = settings.SidebarMode, settings.DefaultGroupCollapsed
+	m.collapsedGroups = map[string]bool{}
+	for _, id := range strings.Split(settings.CollapsedGroups, ",") {
+		if id != "" {
+			m.collapsedGroups[id] = true
+		}
+	}
 	if changed {
 		m.viewOffset = 0
 		m.workspace.listClick = workspaceListClick{}
 	}
-	if m.groupedSidebar() && (m.sidebarCollapsed || len(m.sessions) == 0) {
-		m.cursor = -1
+	if m.groupedSidebar() {
+		if v, ok := m.selected(); ok {
+			id := session.GroupOf(v)
+			for depth := 0; id != "" && depth < session.MaxGroupDepth; depth++ {
+				if m.groupCollapsed(id) {
+					m.cursor, m.selectedGroupID = -1, id
+				}
+				id = m.groupByID(id).ParentID
+			}
+		} else if len(m.sessions) == 0 {
+			m.cursor = -1
+		}
 	} else if m.cursor < 0 && !m.groupedSidebar() {
 		m.cursor = 0
 	}

@@ -115,3 +115,5 @@ M0 使用后端 user option 做存活终端的发现，不建立临时 JSON 文�
 2026-11-23：[ADR-0021](adr/0021-persistent-session-display-names.md) 在原启动快照之外追加 SQLite v3 当前显示名和版本；重命名按完整原 Session/Run 重验及预期版本提交。管理 r 沿上游编辑名称，Ctrl+R 刷新，同名／截断碰撞显示短身份。v1/v2 事务升级与当前名字的历史展示语义明确，完整创建名称合同、桌面体验及发布仍以实际门槛为准。
 
 2026-11-23：[ADR-0022](adr/0022-default-group-sidebar-navigation.md) 恢复默认组导航、Alt+V 平铺切换与混合行高命中，扩展独立 ui.toml v2 并串行保存整份偏好。SQLite 仍 v3，自定义组／新桌面仍待实现验证。
+
+2026-11-23：[ADR-0023](adr/0023-persistent-groups-and-membership.md) 增加稳定 Group ID 和逻辑 Session 成员版本，SQLite v4 与 ui.toml v3；g／M 和默认目录沿固定来源适配。组名／目录不作终端寻址，移动只改元数据，组内启动的 Run／成员在一个元数据事务提交；临时揭示不排队保存。实现与 Windows／桌面证据分开记录，完整组编辑和上游体验继续开放。

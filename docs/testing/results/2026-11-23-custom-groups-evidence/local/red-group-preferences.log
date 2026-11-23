@@ -1,0 +1,6 @@
+# github.com/liuhui-code/agent-session-desk/internal/config_test [github.com/liuhui-code/agent-session-desk/internal/config.test]
+internal/config/ui_groups_test.go:18:4: s.CollapsedGroups undefined (type config.UISettings has no field or method CollapsedGroups)
+internal/config/ui_groups_test.go:21:24: loaded.CollapsedGroups undefined (type config.UISettings has no field or method CollapsedGroups)
+internal/config/ui_groups_test.go:24:4: s.CollapsedGroups undefined (type config.UISettings has no field or method CollapsedGroups)
+FAIL	github.com/liuhui-code/agent-session-desk/internal/config [build failed]
+FAIL

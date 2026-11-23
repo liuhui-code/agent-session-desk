@@ -81,10 +81,17 @@ func (m *Model) workspaceKey(msg tea.KeyPressMsg) tea.Cmd {
 		return m.move(-1)
 	case "down", "j":
 		return m.move(1)
-	case "home", "g":
-		return m.move(-len(m.sessions))
+	case "g":
+		if _, ok := m.service.(groupService); ok {
+			return m.beginGroupDialog(false)
+		}
+		fallthrough
+	case "home":
+		return m.move(-len(m.sessions) - len(m.sidebarGroups()))
+	case "M":
+		return m.beginGroupDialog(true)
 	case "end", "G":
-		return m.move(len(m.sessions))
+		return m.move(len(m.sessions) + len(m.sidebarGroups()))
 	case "x":
 		return m.closeWorkspaceTab()
 	case "enter":

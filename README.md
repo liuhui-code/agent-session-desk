@@ -142,7 +142,7 @@ Tab 终端支持[原生历史滚动](docs/testing/results/2026-11-23-workspace-s
 
 后续[宿主分界与复测](docs/testing/results/2026-11-23-tab-resource-host.md)已定位该 Windows 10 系统 ConPTY 的 VT 输入条件；使用显式测量宿主候选后，同一正式产品完成 7 场景／22 阶段／280 快照与 7 次正常清理。产品后端未随之采用 SDK；缺测、完整时长、预算、目标 agent 与视觉验收继续单独保留，旧失败不改写。
 
-分组导航（psmux Tab）：默认“我的会话”组；管理焦点 `Alt+V` 切换分组／平铺，`1` 选组标题，`Enter`／`→`／`l`／`Tab` 展开折叠，`←` 回到组后再次折叠。终端焦点仍把这些键交给目标程序。当前仅有默认组，自定义组创建和移动待实现。密度、视图模式和折叠共用 `ui.toml` v2；v1 只读加载，显式修改后升级。新导航的限定实机结果与键位未决项见[桌面报告](docs/testing/results/2026-11-23-sidebar-navigation-desktop.md)，完整验收仍未完成。
+分组导航（psmux Tab）：默认“我的会话”组；管理焦点 `Alt+V` 切换分组／平铺，`1` 选组标题，`Enter`／`→`／`l`／`Tab` 展开折叠，`←` 回到组后再次折叠。终端焦点仍把这些键交给目标程序。管理 `g` 创建根组／子组（Tab 切名称／默认目录、↑↓ 切层级），`M` 移动所选会话；组内 `n` 预填默认目录，既有 Run 不执行 cd。空组和成员关系独立保存，移动不改变终端身份。密度、模式和稳定 Group ID 折叠共用 `ui.toml` v3；v1/v2 只读加载，显式修改后升级。新导航的限定实机结果与键位未决项见[桌面报告](docs/testing/results/2026-11-23-sidebar-navigation-desktop.md)，完整验收仍未完成。
 
 侧栏设置（psmux Tab）：管理焦点下大写 `S` 打开（与 `s` 区分），`←→`／`h/l` 调整 Full／Compact／Minimal／Auto，空格轮换，改变后即时保存，`Esc`／`S` 返回。偏好保存在元数据目录的独立 `ui.toml`，随 `--state-dir` 隔离；显式启动模板保持只读。终端焦点仍将这些键交给程序。保存错误保留旧有效值，不阻止返回管理；实际范围见[验证报告](docs/testing/results/2026-11-23-sidebar-density-preferences.md)。
 
@@ -153,3 +153,5 @@ Tab 终端支持[原生历史滚动](docs/testing/results/2026-11-23-workspace-s
 Windows x64 显式开发配置现可通过 `--terminal-bundle` 选择固定历史补丁后端＋Microsoft 宿主，并核验实际加载。与官方默认路径分别记账，参见[开发用法](docs/M0_DEVELOPMENT.md#显式-windows-x64-终端开发-bundle)、[ADR-0019](docs/adr/0019-explicit-windows-terminal-bundle.md)及[原生／桌面结果](docs/testing/results/2026-11-23-terminal-bundle.md)。它尚非发布版本，跨权限接入、完整视觉与资源等门槛仍开放。
 
 Tab 管理模式现可按 `/` 搜索当前会话，选择后接回原 Run；查询与终端原生输入隔离。布局、配色、三条普通 shell 的实际 Windows 流程及剩余范围见[本地会话搜索报告](docs/testing/results/2026-11-23-session-search.md)。
+
+自定义组的 SQLite v4 迁移、备份／恢复与实际检查见[分组报告](docs/testing/results/2026-11-23-custom-groups.md)及 [ADR-0023](docs/adr/0023-persistent-groups-and-membership.md)。组重命名／删除／重排、新桌面完整流程和上游画面对照仍未完成，不提升整体验收。

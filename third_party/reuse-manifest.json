@@ -440,7 +440,7 @@
         "renderGroupItem root hotkey, caret, name, count and selection roles"
       ],
       "mode": "selectively_adapted",
-      "modifications": "One implicit local default group, Chinese labels, stable Session/Run targets and Charm v2 token styles. No custom group tree or agent-state inference."
+      "modifications": "ADR-0022 default group extended by ADR-0023 to stable persisted nested product groups; source root hotkeys, carets, level indentation and token roles retained. Session/Run targets and native input remain independent; no inferred agent state or upstream remote model."
     },
     {
       "project": "agent-deck",
@@ -456,7 +456,7 @@
         "group expand/collapse navigation"
       ],
       "mode": "selectively_adapted",
-      "modifications": "One implicit local default group, Chinese labels, stable Session/Run targets and Charm v2 token styles. No custom group tree or agent-state inference."
+      "modifications": "ADR-0022 default group extended by ADR-0023 to stable persisted nested product groups; source root hotkeys, carets, level indentation and token roles retained. Session/Run targets and native input remain independent; no inferred agent state or upstream remote model."
     },
     {
       "project": "agent-deck",
@@ -470,7 +470,67 @@
         "group header navigation item before session rows"
       ],
       "mode": "selectively_adapted",
-      "modifications": "One implicit local default group, Chinese labels, stable Session/Run targets and Charm v2 token styles. No custom group tree or agent-state inference."
+      "modifications": "ADR-0022 default group extended by ADR-0023 to stable persisted nested product groups; source root hotkeys, carets, level indentation and token roles retained. Session/Run targets and native input remain independent; no inferred agent state or upstream remote model."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/session/groups.go",
+      "source_sha256": "ca70187d03745fe6adae0db00f4a660dce13df677c2f83afb783f9099c23ba8f",
+      "destination_file": "internal/session/group.go",
+      "license": "MIT",
+      "parts": [
+        "group name sanitizer"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "ADR-0023: stable product Group IDs, scoped SQLite tree/membership and CAS; v2 real cursor/total widths, Chinese labels, token styles, bounded viewports and original Run/input fences. No filesystem path IDs, upstream remote/worktree/provider model or v1 production dependency."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/group_dialog.go",
+      "source_sha256": "0951f9efb6ed7d2cb6cf940fc476bb457f934cfb95bcc45f80c5e9cd6a003676",
+      "destination_file": "internal/ui/group_dialog.go",
+      "license": "MIT",
+      "parts": [
+        "create name/default path fields",
+        "g context root/subgroup, Up/Down and Tab focus",
+        "move group list Enter/Esc"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "ADR-0023: stable product Group IDs, scoped SQLite tree/membership and CAS; v2 real cursor/total widths, Chinese labels, token styles, bounded viewports and original Run/input fences. No filesystem path IDs, upstream remote/worktree/provider model or v1 production dependency."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/group_dialog.go",
+      "source_sha256": "0951f9efb6ed7d2cb6cf940fc476bb457f934cfb95bcc45f80c5e9cd6a003676",
+      "destination_file": "internal/ui/group_dialog_view.go",
+      "license": "MIT",
+      "parts": [
+        "14-cell field labels and responsive input widths",
+        "root/subgroup context and parent label",
+        "centered create/move layout and bounded hints"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "ADR-0023: stable product Group IDs, scoped SQLite tree/membership and CAS; v2 real cursor/total widths, Chinese labels, token styles, bounded viewports and original Run/input fences. No filesystem path IDs, upstream remote/worktree/provider model or v1 production dependency."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/home.go",
+      "source_sha256": "982178adb5c0ef2e27ff316a1f2383b47e261a965a3e6ac2fd50bf0c199dede9",
+      "destination_file": "internal/ui/group_dialog.go",
+      "license": "MIT",
+      "parts": [
+        "g on header vs Session and M selected-Session context"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "ADR-0023: stable product Group IDs, scoped SQLite tree/membership and CAS; v2 real cursor/total widths, Chinese labels, token styles, bounded viewports and original Run/input fences. No filesystem path IDs, upstream remote/worktree/provider model or v1 production dependency."
     }
   ],
   "preserved_notices": [

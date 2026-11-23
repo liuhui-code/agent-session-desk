@@ -16,12 +16,12 @@
 | TUI 框架 | **Bubble Tea 2.1.2** | 事件、状态更新、绘制与终端交接；`charm.land/bubbletea/v2` |
 | 样式与布局 | **Lip Gloss 2.1.1** | 主题、布局、文字样式；`charm.land/lipgloss/v2` |
 | 辅助 UI 组件 | **Bubbles 2.2.2，已按需引入 textinput** | 创建表单输入使用；`charm.land/bubbles/v2` |
-| 界面代码来源 | Agent Deck 固定源码快照 | 已选择性迁入样式、布局、通用表单、密度、搜索、重命名及默认分组导航；完整组树／创建移动与视觉接受仍未完成，逐文件范围见复用清单 |
+| 界面代码来源 | Agent Deck 固定源码快照 | 已选择性迁入样式、布局、通用表单、密度、搜索、重命名及默认分组导航；另已接入持久嵌套组与创建／移动；完整组编辑与视觉接受仍未完成，逐文件范围见复用清单 |
 | Windows 适配来源 | Agent Manager 固定源码快照 | 已选择性迁入 psmux 平台、目标定位及参数处理；部分原生后端场景已有记录，完整兼容验收待完成 |
 | Windows 终端后台 | **psmux 3.4.0 正式发布** | 持有终端、会话与子进程；默认后端方向已接受，M0 验证决定能否进入实现基线 |
 | Windows 底层终端能力 | **ConPTY，经 psmux 使用** | 首版不重复开发自己的 ConPTY 宿主 |
 | macOS/Linux 后台 | **tmux 3.8** 对照基线 | 后续适配与验收；不是 Windows 安装前提 |
-| 本地状态与消息 | **SQLite 3.54.1，最小元数据已实现** | modernc.org/sqlite v1.62.0、libc v1.80.1；Session/Run、独立 history、[v2 pane 观测](adr/0010-pane-exit-observations.md)及 [v3 显示名／版本](adr/0021-persistent-session-display-names.md)；v1/v2→v3 事务迁移和离线检查／非覆盖快照恢复已实现，队列、回执与完整升级恢复待做 |
+| 本地状态与消息 | **SQLite 3.54.1，最小元数据已实现** | modernc.org/sqlite v1.62.0、libc v1.80.1；Session/Run、独立 history、[v2 pane 观测](adr/0010-pane-exit-observations.md)及 [v3 显示名／版本](adr/0021-persistent-session-display-names.md)；后续 [v4 持久组／成员版本](adr/0023-persistent-groups-and-membership.md)、v1/v2/v3→v4 事务迁移及离线检查／非覆盖快照恢复已接入，队列、回执与完整升级恢复待做 |
 | 配置 | **TOML，首个只读启动切片已实现** | BurntSushi/toml v1.6.0、TOML 1.1.0、schema_version=1；[ADR-0007](adr/0007-explicit-launch-configuration.md)。独立侧栏偏好见 [ADR-0017](adr/0017-sidebar-density-preferences.md)，启动模板保存／迁移及主题文件仍待做 |
 | 输出保存 | **有界文件记录 + 内存尾部缓存** | 已有显式屏幕记录文件与按 Run／全库数量轮转（ADR-0013），仍有选中预览缓存；分页、连续全流日志和完整资源预算未完成 |
 | 终端／Agent 接入 | **CLI-first** | agent、普通交互 shell 和 CLI 共用 executable、args、cwd、env 与终端原生输入；专用协议是可选增强 |

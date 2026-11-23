@@ -1,0 +1,4 @@
+=== RUN   TestOutputObserverDoesNotPreventPublishedRecordRotation
+    output_publication_test.go:118: independent observer prevented pruning: output not published; retention may have pruned older captures: remove C:\Users\<WINDOWS_TEST_USER>\AppData\Local\Temp\TestOutputObserverDoesNotPreventPublishedRecordRotation3646513598\001\output-records\9c8e632bc0867c7fd19742a50f299a7b.json: The process cannot access the file because it is being used by another process.
+--- FAIL: TestOutputObserverDoesNotPreventPublishedRecordRotation (0.04s)
+FAIL

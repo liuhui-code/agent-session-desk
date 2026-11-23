@@ -1,0 +1,5 @@
+--- FAIL: TestWorkspaceReadDoesNotTakeTheGroupWriterLock (1.03s)
+    groups_test.go:66: read-only snapshot required a writer lock: {Sessions:[] Groups:[]} database is locked (5) (SQLITE_BUSY)
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/store	1.904s
+FAIL

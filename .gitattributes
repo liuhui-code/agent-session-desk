@@ -19,3 +19,6 @@ docs/testing/results/2026-11-23-sidebar-navigation-desktop-evidence/** -text -wh
 
 # Preserve checksummed uppercase-key diagnostic transcripts and original images.
 docs/testing/results/2026-11-23-uppercase-s-diagnosis-evidence/** -text -whitespace
+
+# Preserve checksummed group TDD and native model transcripts.
+docs/testing/results/2026-11-23-custom-groups-evidence/** -text -whitespace

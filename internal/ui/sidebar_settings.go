@@ -19,6 +19,7 @@ type Options struct {
 	SidebarDensity         string
 	SidebarMode            string
 	DefaultGroupCollapsed  bool
+	CollapsedGroups        string
 	SaveUISettings         func(context.Context, config.UISettings) error
 	SaveSidebarDensity     func(context.Context, string) error
 	SidebarPreferenceError error
@@ -30,8 +31,14 @@ func NewWithOptions(ctx context.Context, service Service, options Options) *Mode
 	m.sidebarMode = config.NormalizeSidebarMode(options.SidebarMode)
 	m.sidebarCollapsed = options.DefaultGroupCollapsed
 	m.saveUISettings = options.SaveUISettings
-	m.preferences.saved = config.UISettings{SidebarDensity: m.sidebarDensity, SidebarMode: m.sidebarMode, DefaultGroupCollapsed: m.sidebarCollapsed}
+	m.preferences.saved = config.UISettings{SidebarDensity: m.sidebarDensity, SidebarMode: m.sidebarMode, DefaultGroupCollapsed: m.sidebarCollapsed, CollapsedGroups: options.CollapsedGroups}
 	m.preferences.wanted = m.preferences.saved
+	m.collapsedGroups = map[string]bool{}
+	for _, id := range strings.Split(options.CollapsedGroups, ",") {
+		if id != "" {
+			m.collapsedGroups[id] = true
+		}
+	}
 	if m.groupedSidebar() && m.sidebarCollapsed {
 		m.cursor = -1
 	}

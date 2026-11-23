@@ -98,7 +98,7 @@ func (s *Store) initialize(ctx context.Context) error {
 			return err
 		}
 		version = 3
-	} else if app != applicationID || (version != 1 && version != 2 && version != 3) {
+	} else if app != applicationID || (version != 1 && version != 2 && version != 3 && version != 4) {
 		return fmt.Errorf("unsupported metadata application/schema; file preserved")
 	}
 	var journal string
@@ -125,6 +125,15 @@ func (s *Store) initialize(ctx context.Context) error {
 		if _, err = tx.ExecContext(ctx, nameSchema+" PRAGMA user_version=3;"); err != nil {
 			return err
 		}
+		version = 3
+	}
+	if version == 3 {
+		if _, err = tx.ExecContext(ctx, groupSchema+" PRAGMA user_version=4;"); err != nil {
+			return err
+		}
+	}
+	if _, err = tx.ExecContext(ctx, `INSERT INTO groups VALUES(?,'default',NULL,'我的会话','',1,0) ON CONFLICT(scope,id) DO NOTHING`, s.scope); err != nil {
+		return err
 	}
 	rows, err = tx.QueryContext(ctx, `SELECT scope,run_id,pane_id,source,observed_ns FROM pane_exits LIMIT 0`)
 	if err != nil {
@@ -140,11 +149,36 @@ func (s *Store) initialize(ctx context.Context) error {
 	if err = rows.Close(); err != nil {
 		return err
 	}
+	for _, query := range []string{groupColumns, membershipColumns} {
+		rows, err = tx.QueryContext(ctx, query)
+		if err != nil {
+			return err
+		}
+		if err = rows.Close(); err != nil {
+			return err
+		}
+	}
+	if _, err = s.groups(ctx, tx); err != nil {
+		return err
+	}
 	return tx.Commit()
 }
 
 func (s *Store) Save(ctx context.Context, v session.Session) error {
-	if v.TitleRevision != 0 {
+	return s.save(ctx, v, "")
+}
+
+// SaveInGroup commits initial membership and the raw Run in one metadata
+// transaction. External terminal creation remains a separate resource.
+func (s *Store) SaveInGroup(ctx context.Context, v session.Session, groupID string) error {
+	if !validGroupID(groupID) {
+		return fmt.Errorf("invalid initial group identity")
+	}
+	return s.save(ctx, v, groupID)
+}
+
+func (s *Store) save(ctx context.Context, v session.Session, initialGroup string) error {
+	if v.TitleRevision != 0 || v.GroupID != "" || v.GroupRevision != 0 {
 		return fmt.Errorf("discovery must contain the original backend launch snapshot")
 	}
 	if err := validateExit(v); err != nil {
@@ -169,7 +203,7 @@ func (s *Store) Save(ctx context.Context, v session.Session) error {
 
 	if found, err := s.matches(ctx, s.db, v); err != nil {
 		return err
-	} else if found {
+	} else if found && initialGroup == "" {
 		if match, err := s.matchesExit(ctx, s.db, v); err != nil || match {
 			return err
 		}
@@ -180,6 +214,15 @@ func (s *Store) Save(ctx context.Context, v session.Session) error {
 		return err
 	}
 	defer tx.Rollback()
+	if initialGroup != "" {
+		var exists int
+		if err = tx.QueryRowContext(ctx, `SELECT count(*) FROM groups WHERE scope=? AND id=?`, s.scope, initialGroup).Scan(&exists); err != nil {
+			return err
+		}
+		if exists != 1 {
+			return fmt.Errorf("initial group not found")
+		}
+	}
 	if _, err = tx.ExecContext(ctx, `INSERT INTO sessions VALUES(?,?,?,?) ON CONFLICT DO NOTHING`, s.scope, v.ID, v.Title, v.Command); err != nil {
 		return err
 	}
@@ -194,6 +237,18 @@ func (s *Store) Save(ctx context.Context, v session.Session) error {
 	if err = s.saveExit(ctx, tx, v); err != nil {
 		return err
 	}
+	if initialGroup != "" {
+		if _, err = tx.ExecContext(ctx, `INSERT INTO session_groups VALUES(?,?,?,1) ON CONFLICT(scope,session_id) DO NOTHING`, s.scope, v.ID, initialGroup); err != nil {
+			return err
+		}
+		var current string
+		if err = tx.QueryRowContext(ctx, `SELECT group_id FROM session_groups WHERE scope=? AND session_id=?`, s.scope, v.ID).Scan(&current); err != nil {
+			return err
+		}
+		if current != initialGroup {
+			return ErrGroupConflict
+		}
+	}
 	return tx.Commit()
 }
 
@@ -201,7 +256,7 @@ func (s *Store) History(ctx context.Context, limit int) ([]Record, error) {
 	if limit < 1 || limit > 1000 {
 		return nil, fmt.Errorf("history limit must be 1–1000")
 	}
-	rows, err := s.db.QueryContext(ctx, `SELECT s.id,r.id,r.backend_id,COALESCE(n.title,s.title),s.command,r.recorded_ns,r.stopped_ns,e.pane_id,e.source,e.observed_ns,COALESCE(n.revision,0) FROM runs r JOIN sessions s ON s.scope=r.scope AND s.id=r.session_id LEFT JOIN pane_exits e ON e.scope=r.scope AND e.run_id=r.id LEFT JOIN session_names n ON n.scope=s.scope AND n.session_id=s.id WHERE r.scope=? ORDER BY r.recorded_ns DESC,r.id DESC LIMIT ?`, s.scope, limit)
+	rows, err := s.db.QueryContext(ctx, `SELECT s.id,r.id,r.backend_id,COALESCE(n.title,s.title),s.command,r.recorded_ns,r.stopped_ns,e.pane_id,e.source,e.observed_ns,COALESCE(n.revision,0),coalesce(g.group_id,''),coalesce(g.revision,0) FROM runs r JOIN sessions s ON s.scope=r.scope AND s.id=r.session_id LEFT JOIN pane_exits e ON e.scope=r.scope AND e.run_id=r.id LEFT JOIN session_names n ON n.scope=s.scope AND n.session_id=s.id LEFT JOIN session_groups g ON g.scope=s.scope AND g.session_id=s.id WHERE r.scope=? ORDER BY r.recorded_ns DESC,r.id DESC LIMIT ?`, s.scope, limit)
 	if err != nil {
 		return nil, err
 	}
@@ -212,8 +267,11 @@ func (s *Store) History(ctx context.Context, limit int) ([]Record, error) {
 		var at int64
 		var stopped, exitAt sql.NullInt64
 		var pane, source sql.NullString
-		if err = rows.Scan(&r.Session.ID, &r.Session.RunID, &r.Session.BackendID, &r.Session.Title, &r.Session.Command, &at, &stopped, &pane, &source, &exitAt, &r.Session.TitleRevision); err != nil {
+		if err = rows.Scan(&r.Session.ID, &r.Session.RunID, &r.Session.BackendID, &r.Session.Title, &r.Session.Command, &at, &stopped, &pane, &source, &exitAt, &r.Session.TitleRevision, &r.Session.GroupID, &r.Session.GroupRevision); err != nil {
 			return nil, err
+		}
+		if r.Session.GroupID == session.DefaultGroupID {
+			r.Session.GroupID = ""
 		}
 		r.Session.TerminalState = session.TerminalUnknown
 		r.RecordedAt = time.Unix(0, at).UTC()

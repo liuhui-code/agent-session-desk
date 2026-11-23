@@ -1,0 +1,5 @@
+--- FAIL: TestNewTerminalUsesSelectedGroupsDirectoryAndStableIdentity (0.01s)
+    groups_test.go:153: selected group directory was not prefilled
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.935s
+FAIL

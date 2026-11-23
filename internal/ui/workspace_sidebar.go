@@ -25,10 +25,14 @@ func (m *Model) renderWorkspaceSidebar(width, height int) string {
 	}
 	for _, hit := range window.rows {
 		if hit.index < 0 {
-			lines = append(lines, m.renderSidebarGroup(width))
+			lines = append(lines, m.renderSidebarGroupAt(hit.groupID, hit.level, width))
 			continue
 		}
-		card := m.workspaceSidebarCard(hit.index, width, rowLines)
+		indent := strings.Repeat(" ", max(0, hit.level-1)*m.tokens.sidebar.indentWidth)
+		card := m.workspaceSidebarCard(hit.index, max(0, width-len(indent)), rowLines)
+		for i := range card {
+			card[i] = indent + card[i]
+		}
 		lines = append(lines, card[:hit.height]...)
 	}
 	if remaining := window.remaining; remaining > 0 && height > len(lines) {
@@ -49,12 +53,19 @@ func (m *Model) workspaceSidebarRows(width, height int) int {
 		rows = 1
 	case "auto":
 		rows = 1
-		groupRows := 0
+		groupRows, sessions := 0, len(m.sessions)
 		if m.groupedSidebar() {
-			groupRows = 1
+			sessions = 0
+			for _, item := range m.sidebarItems() {
+				if item.index < 0 {
+					groupRows++
+				} else {
+					sessions++
+				}
+			}
 		}
 		for candidate := m.tokens.sidebar.fullRows; candidate > 1; candidate-- {
-			if len(m.sessions)*candidate+groupRows <= height {
+			if sessions*candidate+groupRows <= height {
 				rows = candidate
 				break
 			}

@@ -350,7 +350,7 @@
 
 - 功能：[FL-004](../COVERAGE.md#fl-004)、[FL-005](../COVERAGE.md#fl-005)
 - 需求：[FR-03](../COVERAGE.md#fr-03)、[FR-04](../COVERAGE.md#fr-04)
-- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0023](../../adr/0023-persistent-groups-and-membership.md)
 - 优先级 / 阶段 / 层次：P1 / M2 / integration
 - 类型：functional、state
 - 设计 / 执行：`designed / not_run`
@@ -362,17 +362,23 @@
 #### 前置条件
 
 - A 在项目组甲运行，已有保存输出；另有项目组乙。
+- 按 ADR-0023 建立稳定 Group ID、父组和可选默认目录；原 Run 与原 cwd 已独立记录。
 
 #### 操作步骤
 
-1. 将 A 移入乙并更改分组显示顺序。
-2. 重新打开列表，按 A 的 session_id 读取记录并 attach。
+1. 用 g 创建根组和子组，Tab 切名称／目录、↑↓ 切层级；同父同清理名同目录返回原组，不同目录拒绝。
+2. 将 A 移入乙并更改分组显示顺序。
+3. 重新打开列表，按 A 的 session_id 读取记录并 attach。
+4. 用两个 UI 或连接从同一成员版本并发移动，另执行甲→乙→甲后提交原旧窗口；退出重开并检查名称、组树、成员及原 Run。
 
 #### 预期与不变量
 
 - 运行、后端目标、历史所属 Session 不变。
 - 列表只显示一个 A，不产生复制 Run。
 - 分组变化不会暗中修改既有 Run 的 cwd。
+- 成员关系归属逻辑 Session，移动使用完整原 Session/Run/Backend 和预期成员版本；ABA 或过期窗口拒绝覆盖。
+- 组内新建可预填／覆盖默认目录；Run 与初始归属一并提交，外部终端创建不假定原子。
+- 组重排仍属完整用例的后续能力；当前创建／移动的局部模型结果不能宣称整条通过。
 
 #### 需要的证据
 
@@ -1701,7 +1707,7 @@
 
 - 功能：[FL-011](../COVERAGE.md#fl-011)、[FL-013](../COVERAGE.md#fl-013)
 - 需求：[FR-10](../COVERAGE.md#fr-10)、[FR-12](../COVERAGE.md#fr-12)
-- 决策：[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)
+- 决策：[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0023](../../adr/0023-persistent-groups-and-membership.md)
 - 优先级 / 阶段 / 层次：P0 / M4 / integration
 - 类型：compatibility、negative
 - 设计 / 执行：`designed / not_run`

@@ -1,0 +1,5 @@
+--- FAIL: TestV3GroupMigrationAndSnapshotPreserveOriginalEvidence (0.02s)
+    groups_migration_test.go:43: unsupported metadata application/schema; source preserved
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/store	2.182s
+FAIL

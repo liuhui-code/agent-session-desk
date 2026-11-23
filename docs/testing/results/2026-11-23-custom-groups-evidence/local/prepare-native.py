@@ -1,0 +1,14 @@
+from pathlib import Path
+import json,subprocess
+out=Path('/private/tmp/asd-custom-groups-20261123')
+items=json.loads((out/'binary-hashes.json').read_text())
+lines=["$ErrorActionPreference='Stop';$ProgressPreference='SilentlyContinue';[Console]::OutputEncoding=[Text.UTF8Encoding]::new($false)","$base=Join-Path $env:USERPROFILE 'asd-acceptance-20261122'","$root=Join-Path $base 'custom-groups-model-run3-20261123'","if(Test-Path $root){throw 'Fresh model root required; inspect existing run before continuation'}","New-Item -ItemType Directory $root|Out-Null","$results=@();$paths=@()"]
+for item in items:
+ if item['package']=='product':continue
+ lines += ["$test=Join-Path $base '"+item['file']+"'","$paths+=,$test","if((Get-FileHash $test).Hash.ToLowerInvariant() -cne '"+item['sha256']+"'){throw 'Test executable differs'}","$log=Join-Path $root '"+item['package']+"-tests.log'","& $test '-test.v' '-test.count=1' '-test.timeout=3m' *> $log","$code=$LASTEXITCODE;$text=[IO.File]::ReadAllText($log)","$r=@{package='"+item['package']+"';exit_code=$code;top_level_pass=[regex]::Matches($text,'(?m)^--- PASS:').Count;all_pass=[regex]::Matches($text,'(?m)^\\s*--- PASS:').Count;fail=[regex]::Matches($text,'(?m)^\\s*--- FAIL:').Count;skip=[regex]::Matches($text,'(?m)^\\s*--- SKIP:').Count;sha256=(Get-FileHash $test).Hash;utc=[DateTime]::UtcNow.ToString('o')}","$results+=,$r;$results|ConvertTo-Json -Depth 6|Set-Content (Join-Path $root 'results.json') -Encoding utf8","if($code -ne 0 -or $r.fail -or $r.skip){$r|ConvertTo-Json;throw 'Native model suite failed; inspect result before continuation'}"]
+lines += ["$remaining=@(Get-CimInstance Win32_Process|Where-Object{$paths -contains $_.ExecutablePath})","if($remaining.Count -ne 0){throw 'Test image still live'}","@{windows=[Environment]::OSVersion.VersionString;process_arch=[Runtime.InteropServices.RuntimeInformation]::ProcessArchitecture.ToString();utc=[DateTime]::UtcNow.ToString('o');remaining_test_images=$remaining.Count;test_type='native Windows model/store/config tests; no desktop or target agent claim'}|ConvertTo-Json|Set-Content (Join-Path $root 'environment.json') -Encoding utf8","$files=@('results.json','environment.json','session-tests.log','store-tests.log','manager-tests.log','config-tests.log','ui-tests.log')","Compress-Archive -LiteralPath ($files|ForEach-Object{Join-Path $root $_}) -DestinationPath (Join-Path $base 'custom-groups-model-run3-export.zip')","$results|ConvertTo-Json -Depth 6","Get-FileHash (Join-Path $base 'custom-groups-model-run3-export.zip')|Select-Object Hash|ConvertTo-Json"]
+script=out/'run-custom-groups-native.ps1';script.write_text('\n'.join(lines)+'\n')
+for item in items:
+ if item['package']=='product':continue
+ subprocess.run(['scp',str(out/item['file']),'windows-pc:asd-acceptance-20261122/'+item['file']],check=True,capture_output=True)
+print('Copied five hash-pinned native model test binaries; product executable retained locally.')

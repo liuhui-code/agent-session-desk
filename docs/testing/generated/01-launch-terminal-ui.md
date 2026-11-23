@@ -1902,7 +1902,7 @@
 
 - 功能：[FL-003](../COVERAGE.md#fl-003)
 - 需求：[FR-03](../COVERAGE.md#fr-03)、[FR-11](../COVERAGE.md#fr-11)
-- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0022](../../adr/0022-default-group-sidebar-navigation.md)
+- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0022](../../adr/0022-default-group-sidebar-navigation.md)、[ADR-0023](../../adr/0023-persistent-groups-and-membership.md)
 - 优先级 / 阶段 / 层次：P1 / M0 / windows_e2e
 - 类型：boundary、negative、usability
 - 设计 / 执行：`designed / not_run`
@@ -1921,6 +1921,7 @@
 1. 在无会话状态启动，依次按 Enter、方向键、搜索和取消。
 2. 通过明确的新建入口创建第一个会话。
 3. 零会话 grouped 模式选择标题并展开／折叠，再切 flat 后使用明确的新建入口。
+4. 零会话用 g 创建根组／子组并重开；取消后核对无 Run，空组仍保留。
 
 #### 预期与不变量
 
@@ -1976,7 +1977,7 @@
 
 - 功能：[FL-003](../COVERAGE.md#fl-003)
 - 需求：[FR-03](../COVERAGE.md#fr-03)、[FR-11](../COVERAGE.md#fr-11)
-- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0005](../../adr/0005-dependency-lifecycle-and-upgrades.md)、[ADR-0017](../../adr/0017-sidebar-density-preferences.md)、[ADR-0022](../../adr/0022-default-group-sidebar-navigation.md)
+- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0005](../../adr/0005-dependency-lifecycle-and-upgrades.md)、[ADR-0017](../../adr/0017-sidebar-density-preferences.md)、[ADR-0022](../../adr/0022-default-group-sidebar-navigation.md)、[ADR-0023](../../adr/0023-persistent-groups-and-membership.md)
 - 优先级 / 阶段 / 层次：P1 / M0 / windows_e2e
 - 类型：boundary、usability
 - 设计 / 执行：`designed / not_run`
@@ -1995,6 +1996,7 @@
 1. 按已确认最小尺寸及其前后边界启动/resize 管理界面。
 2. 打开新建和发送表单，导航到确认/取消以及错误字段。
 3. 在 grouped／flat 与四种密度下缩放窗口，点击组标题／会话元信息，滚动至末尾并 Enter 打开目标。
+4. 创建嵌套组，在 g 名称／目录及 M 移动列表中缩放、切字段、滚动选择；核对真实光标和末项可见。
 
 #### 预期与不变量
 
@@ -2019,7 +2021,7 @@
 
 - 功能：[FL-003](../COVERAGE.md#fl-003)
 - 需求：[FR-01](../COVERAGE.md#fr-01)、[FR-11](../COVERAGE.md#fr-11)
-- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0017](../../adr/0017-sidebar-density-preferences.md)、[ADR-0022](../../adr/0022-default-group-sidebar-navigation.md)
+- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0017](../../adr/0017-sidebar-density-preferences.md)、[ADR-0022](../../adr/0022-default-group-sidebar-navigation.md)、[ADR-0023](../../adr/0023-persistent-groups-and-membership.md)
 - 优先级 / 阶段 / 层次：P1 / M1 / windows_e2e
 - 类型：functional、negative、usability
 - 设计 / 执行：`designed / not_run`
@@ -2039,6 +2041,7 @@
 2. 修正错误字段，再取消或成功提交。
 3. 令独立侧栏偏好不可替换，改变密度后核对错误、原偏好及原有效密度，再恢复写入并显式重试。
 4. 延迟导航偏好保存并同时改密度；保存中管理 q 退出，再分别令保存成功／失败。
+5. 保存折叠尚未返回时切 Tab 揭示嵌套目标，核对没有新增偏好写入；分组提交失败后返回刷新核对，禁止自动重试。
 
 #### 预期与不变量
 

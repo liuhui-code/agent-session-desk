@@ -61,18 +61,18 @@ func (m *Model) workspaceClick(msg tea.MouseClickMsg) tea.Cmd {
 			}
 			m.viewOffset = window.start
 			if hit.index < 0 {
-				m.cursor = -1
-				return tea.Batch(m.toggleDefaultGroup(), m.workspaceSize())
+				return tea.Batch(m.toggleSidebarGroup(hit.groupID), m.workspaceSize())
 			}
 			index := hit.index
-			selected := m.move(index - m.cursor)
+			m.cursor = index
+			m.invalidatePreview()
 			now := time.Now()
 			elapsed := now.Sub(previous.at)
 			if previous.index == index && sameRun(previous.session, m.sessions[index]) && elapsed >= 0 && elapsed < m.tokens.workspace.doubleClickInterval {
 				return m.workspaceKey(tea.KeyPressMsg{Code: tea.KeyEnter})
 			}
 			w.listClick = workspaceListClick{at: now, index: index, session: m.sessions[index]}
-			return tea.Batch(selected, m.workspaceSize())
+			return m.workspaceSize()
 		}
 		return m.workspaceSize()
 	}

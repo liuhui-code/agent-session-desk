@@ -1,0 +1,17 @@
+=== RUN   TestResolveLaunchUsesTargetPATHAndPreservesBytes
+--- PASS: TestResolveLaunchUsesTargetPATHAndPreservesBytes (0.00s)
+=== RUN   TestResolveLaunchRejectsBadDirectoryAndMissingExecutable
+--- PASS: TestResolveLaunchRejectsBadDirectoryAndMissingExecutable (0.00s)
+=== RUN   TestResolveRelativeExecutableAgainstTargetDirectory
+--- PASS: TestResolveRelativeExecutableAgainstTargetDirectory (0.00s)
+=== RUN   TestLaunchRejectsNULAndInvalidEnvironmentWithoutEchoingSecrets
+--- PASS: TestLaunchRejectsNULAndInvalidEnvironmentWithoutEchoingSecrets (0.00s)
+=== RUN   TestWindowsLaunchEnvironmentAndScriptBoundary
+--- PASS: TestWindowsLaunchEnvironmentAndScriptBoundary (0.00s)
+=== RUN   TestDuplicateEnvironmentOverrideUsesLastValue
+--- PASS: TestDuplicateEnvironmentOverrideUsesLastValue (0.00s)
+=== RUN   TestGroupNameSanitizesBeforeApplyingTheDisplayLimit
+--- PASS: TestGroupNameSanitizesBeforeApplyingTheDisplayLimit (0.00s)
+=== RUN   TestRenameNamePolicyPreservesLiteralUnicodeAndRejectsTerminalControls
+--- PASS: TestRenameNamePolicyPreservesLiteralUnicodeAndRejectsTerminalControls (0.00s)
+PASS

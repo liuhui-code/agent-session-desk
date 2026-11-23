@@ -22,6 +22,8 @@ const (
 // Command is display-only (the executable), never a reconstructed shell command.
 // An available terminal does not establish that an agent is busy or ready.
 type Session struct {
+	GroupID       string        `json:"group_id,omitempty"`
+	GroupRevision int64         `json:"group_revision,omitempty"`
 	ID            string        `json:"session_id"`
 	RunID         string        `json:"run_id"`
 	BackendID     string        `json:"backend_id"`
@@ -51,6 +53,7 @@ type Preview struct {
 // Launch keeps argument boundaries intact. Shell parsing only occurs when the
 // caller explicitly chooses a shell as Executable and supplies its arguments.
 type Launch struct {
+	GroupID    string // Product metadata only; never a backend target or shell command.
 	Name       string
 	Executable string
 	Args       []string

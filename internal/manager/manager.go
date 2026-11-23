@@ -6,7 +6,6 @@ import (
 	"context"
 	"fmt"
 	"os/exec"
-	"sort"
 
 	"github.com/liuhui-code/agent-session-desk/internal/session"
 	"github.com/liuhui-code/agent-session-desk/internal/store"
@@ -29,6 +28,21 @@ func New(terminal Terminal, metadata *store.Store) *Manager {
 	return &Manager{Terminal: terminal, metadata: metadata}
 }
 func (m *Manager) Start(ctx context.Context, l session.Launch) (session.Session, error) {
+	if l.GroupID != "" {
+		groups, err := m.metadata.Groups(ctx)
+		if err != nil {
+			return session.Session{}, err
+		}
+		found := false
+		for _, g := range groups {
+			if g.ID == l.GroupID {
+				found = true
+			}
+		}
+		if !found {
+			return session.Session{}, fmt.Errorf("target group not found; terminal not started")
+		}
+	}
 	if err := m.metadata.CheckWritable(ctx); err != nil {
 		return session.Session{}, fmt.Errorf("metadata not writable; terminal not started: %w", err)
 	}
@@ -36,33 +50,27 @@ func (m *Manager) Start(ctx context.Context, l session.Launch) (session.Session,
 	if err != nil {
 		return v, err
 	}
-	if err := m.metadata.Save(ctx, v); err != nil {
+	if l.GroupID == "" {
+		err = m.metadata.Save(ctx, v)
+	} else {
+		err = m.metadata.SaveInGroup(ctx, v, l.GroupID)
+	}
+	if err != nil {
 		return v, fmt.Errorf("terminal created (session_id=%s run_id=%s); metadata commit failed; do not retry start: %w", v.ID, v.RunID, err)
+	}
+	if l.GroupID != "" {
+		view, e := m.metadata.Workspace(ctx, []session.Session{v})
+		if e != nil {
+			return v, fmt.Errorf("terminal created (session_id=%s run_id=%s); metadata read failed; do not retry start: %w", v.ID, v.RunID, e)
+		}
+		v = view.Sessions[0]
 	}
 	return v, nil
 }
 
 func (m *Manager) List(ctx context.Context) ([]session.Session, error) {
-	rows, err := m.Terminal.List(ctx)
-	if err != nil {
-		return nil, err
-	}
-	for _, v := range rows {
-		if err = m.metadata.Save(ctx, v); err != nil {
-			return nil, fmt.Errorf("record backend discovery: %w", err)
-		}
-	}
-	rows, err = m.metadata.WithNames(ctx, rows)
-	if err != nil {
-		return nil, err
-	}
-	sort.SliceStable(rows, func(i, j int) bool {
-		if rows[i].Title == rows[j].Title {
-			return rows[i].ID < rows[j].ID
-		}
-		return rows[i].Title < rows[j].Title
-	})
-	return rows, nil
+	view, err := m.Workspace(ctx)
+	return view.Sessions, err
 }
 
 func (m *Manager) Stop(ctx context.Context, v session.Session) error {

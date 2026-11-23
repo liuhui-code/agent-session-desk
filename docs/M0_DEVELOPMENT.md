@@ -172,3 +172,9 @@ asd.exe --terminal-bundle 'C:\asd\terminal-runtime'
 这是显式开发配置；官方默认路径的已知失败继续保留，完整 Windows／真实 agent、资源和发布验收未完成。[实际产品结果](testing/results/2026-11-23-terminal-bundle.md)分别记录原生、桌面与权限负例。
 
 管理焦点按 `/` 打开本地会话搜索；按名称或程序路径查找，↑↓／Ctrl+J/K 选择、Enter 打开原 Run，Esc／Ctrl+C 取消。查询不会送入 CLI；终端焦点的 `/` 和原生复制模式的历史搜索保持原用途。仅当前作用域实时会话，不包含对话、历史数据库或 Recall。详细规则与实际画面见 [ADR-0020](adr/0020-local-session-search.md)及[报告](testing/results/2026-11-23-session-search.md)。
+
+### 自定义组创建与移动（psmux Tab）
+
+管理焦点 g 打开创建分组；组标题默认子组，会话行默认根组。Tab／Shift+Tab 在名称与可选默认目录间切换，↑↓ 切换根组／子组，Enter 确认，Esc 取消。M 为所选会话选择目标组；终端焦点的 g／M 仍原样交给程序。组内 n 预填默认目录，可覆盖或清空，只影响新 Run。1–9 选择根组，标题 Enter／→／Tab 折叠；空组保留。
+
+SQLite 当前 v4；正常打开会事务迁移 v1/v2/v3，旧二进制拒绝新 schema。独立 ui.toml v3 保存稳定 Group ID 折叠，旧 v1/v2 只读加载；Tab／搜索临时展开不自动落盘，包括先前偏好保存尚未返回的情况。完整合同与实际范围见 [ADR-0023](adr/0023-persistent-groups-and-membership.md)及[分组报告](testing/results/2026-11-23-custom-groups.md)。

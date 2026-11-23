@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"io"
 	"os"
 	"path/filepath"
 	"runtime"
@@ -71,7 +72,15 @@ func TestOutputPublicationNeverExposesIncompleteOrExcessFiles(t *testing.T) {
 					continue
 				}
 				count++
-				data, e := os.ReadFile(filepath.Join(root, entry.Name()))
+				observer, e := openOutputObserver(filepath.Join(root, entry.Name()))
+				if e != nil {
+					continue
+				} // Rotation may remove an entry after ReadDir.
+				data, e := io.ReadAll(observer)
+				closeErr := observer.Close()
+				if e == nil {
+					e = closeErr
+				}
 				if e == nil && !json.Valid(data) {
 					partial = true
 				}
@@ -81,5 +90,40 @@ func TestOutputPublicationNeverExposesIncompleteOrExcessFiles(t *testing.T) {
 			}
 			runtime.Gosched()
 		}
+	}
+}
+
+func TestOutputObserverDoesNotPreventPublishedRecordRotation(t *testing.T) {
+	ctx := context.Background()
+	dir := t.TempDir()
+	db, err := store.Open(ctx, filepath.Join(dir, "metadata.sqlite3"), "scope-a")
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer db.Close()
+	if err = db.Save(ctx, sample()); err != nil {
+		t.Fatal(err)
+	}
+	first, err := db.RecordOutput(ctx, sample(), session.Preview{Text: "held observer"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	observer, err := openOutputObserver(filepath.Join(dir, "output-records", first.ID+".json"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer observer.Close()
+	for i := 0; i < 2; i++ {
+		if _, err = db.RecordOutput(ctx, sample(), session.Preview{Text: "next"}); err != nil {
+			t.Fatalf("independent observer prevented pruning: %v", err)
+		}
+	}
+	data, err := io.ReadAll(observer)
+	if err != nil || !json.Valid(data) {
+		t.Fatalf("held observer lost complete published bytes: %v", err)
+	}
+	records, err := db.Output(ctx, sample().RunID)
+	if err != nil || len(records) != 2 {
+		t.Fatalf("retention changed: %+v %v", records, err)
 	}
 }

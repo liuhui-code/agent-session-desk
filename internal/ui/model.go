@@ -27,6 +27,7 @@ type Service interface {
 type sessionsMsg struct {
 	generation uint64
 	sessions   []session.Session
+	groups     []session.Group
 	err        error
 }
 
@@ -49,6 +50,12 @@ type pollMsg struct{ generation uint64 }
 // Model implements the stable Bubble Tea v2 API. Mutable UI state is touched
 // only by Init/Update; asynchronous commands return values, never mutate it.
 type Model struct {
+	groupDialog            *groupDialog
+	groupIntent            *groupDialog
+	launchGroup            session.Group
+	groups                 []session.Group
+	selectedGroupID        string
+	collapsedGroups        map[string]bool
 	preferences            uiPreferenceState
 	saveUISettings         func(context.Context, config.UISettings) error
 	sidebarMode            string
@@ -121,6 +128,7 @@ func (m *Model) Close() {
 		m.workspace.buffered = nil
 	}
 	m.launch = nil
+	m.groupDialog, m.groupIntent = nil, nil
 	m.search = nil
 	m.rename = nil
 	m.renameTarget = nil
@@ -141,6 +149,9 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		return m, nil
 	}
 	if m.workspace != nil {
+		if cmd, handled := m.groupDialogEvent(msg); handled {
+			return m, cmd
+		}
 		if cmd, handled := m.uiPreferencesEvent(msg); handled {
 			return m, cmd
 		}
@@ -191,6 +202,7 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		}
 		selected, hadSelection := m.selected()
 		m.sessions = msg.sessions
+		m.groups = msg.groups
 		m.syncSessionSearch(true)
 		m.cursor = min(m.cursor, max(0, len(m.sessions)-1))
 		for i, s := range m.sessions {
@@ -199,6 +211,7 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 				break
 			}
 		}
+		m.reconcileSidebarSelection(selected, hadSelection)
 		next, hasSelection := m.selected()
 		if hadSelection != hasSelection || (hasSelection && !sameRun(selected, next)) {
 			m.invalidatePreview()
@@ -344,6 +357,10 @@ func (m *Model) loadSessions() tea.Cmd {
 	generation := m.listGeneration
 	return func() tea.Msg {
 		defer cancel()
+		if service, ok := m.service.(groupService); ok {
+			view, err := service.Workspace(ctx)
+			return sessionsMsg{generation: generation, sessions: view.Sessions, groups: view.Groups, err: err}
+		}
 		sessions, err := m.service.List(ctx)
 		return sessionsMsg{generation: generation, sessions: sessions, err: err}
 	}

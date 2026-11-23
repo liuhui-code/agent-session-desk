@@ -22,6 +22,7 @@ type launchService interface {
 	Start(context.Context, session.Launch) (session.Session, error)
 }
 type launchDialog struct {
+	groupID         string
 	firstSession    bool
 	fields          []textinput.Model
 	focus           int
@@ -40,6 +41,9 @@ func (m *Model) openLaunchDialog() tea.Cmd {
 		return nil
 	}
 	d := &launchDialog{firstSession: len(m.sessions) == 0}
+	group := m.launchGroup
+	m.launchGroup = session.Group{}
+	d.groupID = group.ID
 	placeholders := []string{"可留空，使用程序名", "例如 pwsh.exe、cmd.exe 或 agent 路径", "可留空，使用当前工作目录", `例如 ["-NoLogo","-NoProfile"]`}
 	for _, placeholder := range placeholders {
 		field := textinput.New()
@@ -51,6 +55,7 @@ func (m *Model) openLaunchDialog() tea.Cmd {
 		field.KeyMap.Paste.SetEnabled(false) // outer terminal provides explicit PasteMsg
 		d.fields = append(d.fields, field)
 	}
+	d.fields[2].SetValue(group.DefaultDir)
 	m.launch = d
 	m.workspace.focused = false
 	m.status = ""
@@ -178,7 +183,7 @@ func (m *Model) submitLaunchDialog() tea.Cmd {
 	if d.busy || d.uncertain {
 		return nil
 	}
-	l := session.Launch{Name: d.fields[0].Value(), Executable: d.fields[1].Value(), Dir: d.fields[2].Value()}
+	l := session.Launch{GroupID: d.groupID, Name: d.fields[0].Value(), Executable: d.fields[1].Value(), Dir: d.fields[2].Value()}
 	raw := strings.TrimSpace(d.fields[3].Value())
 	if raw != "" {
 		if !strings.HasPrefix(raw, "[") {

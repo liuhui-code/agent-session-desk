@@ -1,0 +1,31 @@
+=== RUN   TestWorkspaceGroupMovePersistsWithoutTerminalMutation
+--- PASS: TestWorkspaceGroupMovePersistsWithoutTerminalMutation (0.03s)
+=== RUN   TestGroupedLaunchValidatesBeforeStartAndCommitsRunWithMembership
+--- PASS: TestGroupedLaunchValidatesBeforeStartAndCommitsRunWithMembership (0.02s)
+=== RUN   TestGroupedLaunchMetadataFailureRollsBackRunAndNeverRetriesOrStopsTheTerminal
+--- PASS: TestGroupedLaunchMetadataFailureRollsBackRunAndNeverRetriesOrStopsTheTerminal (0.02s)
+=== RUN   TestStartPersistsBeforeReportingSuccess
+--- PASS: TestStartPersistsBeforeReportingSuccess (0.01s)
+=== RUN   TestMetadataFailureBeforeAndAfterExternalStartIsExplicit
+=== RUN   TestMetadataFailureBeforeAndAfterExternalStartIsExplicit/false
+=== RUN   TestMetadataFailureBeforeAndAfterExternalStartIsExplicit/true
+--- PASS: TestMetadataFailureBeforeAndAfterExternalStartIsExplicit (0.02s)
+    --- PASS: TestMetadataFailureBeforeAndAfterExternalStartIsExplicit/false (0.01s)
+    --- PASS: TestMetadataFailureBeforeAndAfterExternalStartIsExplicit/true (0.01s)
+=== RUN   TestDiscoveryPersistsWithoutResolvingDisconnectOrMissingRun
+--- PASS: TestDiscoveryPersistsWithoutResolvingDisconnectOrMissingRun (0.02s)
+=== RUN   TestPaneExitObservationSurvivesMissingBackendWithoutClaimingAgentOutcome
+--- PASS: TestPaneExitObservationSurvivesMissingBackendWithoutClaimingAgentOutcome (0.02s)
+=== RUN   TestHistoryDoesNotNeedTerminalAndRetainsMetadataSemantics
+--- PASS: TestHistoryDoesNotNeedTerminalAndRetainsMetadataSemantics (0.01s)
+=== RUN   TestExplicitOutputCaptureUsesBackendAndPersistenceWithoutControlEffects
+--- PASS: TestExplicitOutputCaptureUsesBackendAndPersistenceWithoutControlEffects (0.02s)
+=== RUN   TestRenameRejectsStaleRevisionEvenAfterNameReturnsToOriginal
+--- PASS: TestRenameRejectsStaleRevisionEvenAfterNameReturnsToOriginal (0.02s)
+=== RUN   TestRenamePersistsDisplayNameWithoutChangingBackendRun
+--- PASS: TestRenamePersistsDisplayNameWithoutChangingBackendRun (0.02s)
+=== RUN   TestRenameRefusesTargetNoLongerDiscovered
+--- PASS: TestRenameRefusesTargetNoLongerDiscovered (0.01s)
+=== RUN   TestOpenTerminalForwardsStableRunWithoutStartingOrStopping
+--- PASS: TestOpenTerminalForwardsStableRunWithoutStartingOrStopping (0.00s)
+PASS

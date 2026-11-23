@@ -9,6 +9,11 @@ func (m *Model) navigateWorkspace(target workspaceTransition) tea.Cmd {
 	if w.transition != workspaceIdle {
 		return nil
 	}
+	if target == workspaceLaunch {
+		if _, ok := m.service.(groupService); ok {
+			m.launchGroup = m.selectedGroup()
+		}
+	}
 	w.transition = target
 	if w.pending > 0 || (w.busy && len(w.buffered) > 0) {
 		m.status = "正在完成已输入的内容后打开管理视图…"
@@ -37,6 +42,8 @@ func (m *Model) finishWorkspaceNavigation() tea.Cmd {
 		return m.openSessionSearch()
 	case workspaceRename:
 		return m.openSessionRename()
+	case workspaceGroup:
+		return m.openGroupDialog()
 	}
 	return nil
 }

@@ -1,0 +1,8 @@
+# github.com/liuhui-code/agent-session-desk/internal/manager_test [github.com/liuhui-code/agent-session-desk/internal/manager.test]
+internal/manager/groups_test.go:20:14: m.Workspace undefined (type *manager.Manager has no field or method Workspace)
+internal/manager/groups_test.go:21:11: m.CreateGroup undefined (type *manager.Manager has no field or method CreateGroup)
+internal/manager/groups_test.go:23:15: m.MoveToGroup undefined (type *manager.Manager has no field or method MoveToGroup)
+internal/manager/groups_test.go:24:13: m.MoveToGroup undefined (type *manager.Manager has no field or method MoveToGroup)
+internal/manager/groups_test.go:31:13: m.MoveToGroup undefined (type *manager.Manager has no field or method MoveToGroup)
+FAIL	github.com/liuhui-code/agent-session-desk/internal/manager [build failed]
+FAIL

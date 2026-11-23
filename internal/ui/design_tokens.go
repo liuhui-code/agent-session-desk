@@ -17,6 +17,7 @@ import (
 // there is no mutable global theme, file watcher or runtime theme format yet.
 // Zero/one in viewport algorithms are counts, not additional style choices.
 type designTokens struct {
+	group     groupTokens
 	rename    renameTokens
 	search    searchTokens
 	copy      copyTokens
@@ -27,6 +28,12 @@ type designTokens struct {
 	layout    layoutTokens
 	marks     markTokens
 	bold      bool
+}
+
+type groupTokens struct {
+	placeholderColor                      color.Color
+	labelWidth, inputWidth, choicePadding int
+	modeSeparator, modeOpen, modeClose    string
 }
 
 type renameTokens struct {
@@ -53,7 +60,8 @@ type copyTokens struct {
 
 type sidebarTokens struct {
 	groupExpanded, groupCollapsed, rootShortcut, groupCountPrefix, groupCountSuffix string
-	groupGutter                                                                     int
+	groupGutter, indentWidth                                                        int
+	rootShortcutSuffix                                                              string
 	radioUnselected                                                                 string
 	cardMinWidth, cardRows                                                          int
 	fullRows, settingsWidth, settingsPaddingX, settingsPaddingY, radioGap           int
@@ -97,13 +105,14 @@ type markTokens struct {
 
 func defaultDesignTokens() designTokens {
 	return designTokens{
+		group: groupTokens{placeholderColor: lipgloss.Color("240"), labelWidth: 14, inputWidth: 30, choicePadding: 1, modeSeparator: " ─── ", modeOpen: "[", modeClose: "]"},
 		// Pinned group_dialog.go: v1 Width 44/30 excludes the two border cells.
 		rename: renameTokens{preferredWidth: 46, minWidth: 32, gutter: 8, inputWidth: 32, paddingX: 2, paddingY: 1, prompt: "> ", warningPrefix: "⚠ ", borderColor: lipgloss.Color("#bb9af7")},
 		// Pinned search.go: v1 Width 60/30 includes padding, excludes border.
 		search: searchTokens{preferredWidth: 62, minWidth: 32, responsiveBelow: 70, gutter: 8, paddingX: 2, paddingY: 1, inputPaddingX: 1, inputRightGap: 4, resultPadding: 2, maxResults: 10, prompt: "> ", selected: "› ", titlePrefix: "🔍 ", programPrefix: " (", programSuffix: ")", countColor: lipgloss.Color("241"), placeholderColor: lipgloss.Color("240"), hintItalic: true},
 		// Pinned native copy-mode defaults; interpreted as character attributes.
 		copy:      copyTokens{foreground: "idx:0", selection: "idx:3", match: "idx:6", current: "idx:5", mark: "idx:1", cursorShape: tea.CursorBlock},
-		sidebar:   sidebarTokens{cardMinWidth: 28, cardRows: 2, fullRows: 3, selected: "▶ ", active: "┃ ", metadata: "  ╰ ", metadataMiddle: "  │ ", separator: " · ", settingsWidth: 66, settingsPaddingX: 2, settingsPaddingY: 1, radioGap: 2, radioMarker: ">", radioUnselected: " ", underlineChoice: true, groupExpanded: "▾", groupCollapsed: "▸", rootShortcut: "1·", groupCountPrefix: " (", groupCountSuffix: ")", groupGutter: 2},
+		sidebar:   sidebarTokens{cardMinWidth: 28, cardRows: 2, fullRows: 3, selected: "▶ ", active: "┃ ", metadata: "  ╰ ", metadataMiddle: "  │ ", separator: " · ", settingsWidth: 66, settingsPaddingX: 2, settingsPaddingY: 1, radioGap: 2, radioMarker: ">", radioUnselected: " ", underlineChoice: true, groupExpanded: "▾", groupCollapsed: "▸", rootShortcut: "1·", groupCountPrefix: " (", groupCountSuffix: ")", groupGutter: 2, indentWidth: 2, rootShortcutSuffix: "·"},
 		dialog:    dialogTokens{preferredWidth: 86, minWidth: 44, gutter: 10, paddingX: 4, paddingY: 2, firstPaddingY: 1, titleGap: 1, fieldGap: 1, dimBackdrop: true, cursorShape: tea.CursorBar, cursorBlink: true},
 		workspace: workspaceTokens{footerRuleRows: 1, footerBottomGapRows: 1, sidebarPercent: 35, compactPercent: 18, minPane: 8, tabPadding: 1, maxTabWidth: 32, splitStep: 5, minSplitPercent: 10, maxSplitPercent: 90, dividerGrabSlop: 2, minTerminalRows: 3, splitNoticeDuration: 1500 * time.Millisecond, doubleClickInterval: 500 * time.Millisecond, border: lipgloss.RoundedBorder()},
 		colors: palette{

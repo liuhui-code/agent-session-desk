@@ -2,7 +2,10 @@ package ui
 
 // A group header occupies one row while cards occupy density-dependent rows.
 // Rendering and mouse hit-testing consume these same visible rectangles.
-type sidebarHit struct{ index, top, height int }
+type sidebarHit struct {
+	index, top, height, level int
+	groupID                   string
+}
 type sidebarWindow struct {
 	start, end, leading int
 	rows                []sidebarHit
@@ -20,25 +23,23 @@ func (m *Model) sidebarNavigationWindow(width, height int) sidebarWindow {
 		top := old.leading
 		for i := old.start; i < old.end && top < height; i++ {
 			drawn := min(card, height-top)
-			window.rows = append(window.rows, sidebarHit{i, top, drawn})
+			window.rows = append(window.rows, sidebarHit{index: i, top: top, height: drawn})
 			top += drawn
 		}
 		return window
 	}
-	count := 1
-	if !m.sidebarCollapsed {
-		count += len(m.sessions)
+	items := m.sidebarItems()
+	count := len(items)
+	if count == 0 {
+		return sidebarWindow{}
 	}
 	itemHeight := func(i int) int {
-		if i == 0 {
+		if items[i].index < 0 {
 			return 1
 		}
 		return card
 	}
-	selected := 0
-	if !m.sidebarGroupSelected() {
-		selected = min(count-1, m.cursor+1)
-	}
+	selected := m.sidebarSelectedItem(items)
 	build := func(start int) sidebarWindow {
 		window := sidebarWindow{start: start, end: start}
 		top := 0
@@ -54,7 +55,8 @@ func (m *Model) sidebarNavigationWindow(width, height int) sidebarWindow {
 				}
 				drawn = height - top
 			}
-			window.rows = append(window.rows, sidebarHit{i - 1, top, drawn})
+			item := items[i]
+			window.rows = append(window.rows, sidebarHit{index: item.index, top: top, height: drawn, level: item.level, groupID: item.groupID})
 			top += drawn
 			window.end = i + 1
 		}

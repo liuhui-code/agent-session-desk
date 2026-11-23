@@ -102,3 +102,5 @@ Bubbles 2.2.2 textinput 通过模块使用，未复制组件源码。v2 表单�
 2026-11-23 默认分组导航：按 ADR-0022 继续选择性适配固定 Agent Deck 的 home.go／home_flatitems.go 导航与 home_view_list.go renderGroupItem、embedded_sidebar.go 完整／紧凑 gutter、styles.go 的组角色；目标为 sidebar_navigation.go、sidebar_group_view.go、workspace_sidebar.go 及 tokens/styles。机器清单记录逐文件 SHA，原 MIT 版权延续。只迁入一个隐式默认组，不迁入上游持久组树、远程或 agent 状态。独立 ui.toml v2、串行快照保存与混合行高窗口是本产品连接逻辑。实际来源渲染、本机／Windows 模型及新桌面缺口见[报告](testing/results/2026-11-23-sidebar-navigation.md)。
 
 2026-11-23 大写 S 诊断：既有 Ultraviolet 固定依赖的控制台读取文件仅通过临时精确副本／modfile／overlay 插入一处日志调用，主模块、缓存与产品输入逻辑均未修改。该诊断源码和 MIT 许可独立登记，不计入 UI 新迁入功能或发布依赖变更，见[报告](testing/results/2026-11-23-uppercase-s-diagnosis.md)。
+
+2026-11-23 持久自定义组：ADR-0023 从同固定 Agent Deck 提交选择性改编 `internal/session/groups.go` 的名称清理，以及 `group_dialog.go`／`home.go` 的 g 上下文、根组／子组、名称／默认目录字段、Tab／↑↓ 和 M 选择目标组。目标为 `internal/session/group.go`、`internal/ui/group_dialog.go`、`group_dialog_view.go`，既有组标题／导航／卡片延伸为嵌套树。14 单元格标签、响应式字段、紫色框、accent 模式／选项和灰色占位均经 v2／tokens 适配。稳定 ID、SQLite v4、成员 CAS、事务快照、ui.toml v3 和输入排空是本产品连接规则；来源的路径补全／最近目录下拉、远程／worktree、组改名／删除／重排未随本切片迁入。来源 SHA／Git blob 见[报告](testing/results/2026-11-23-custom-groups.md)及机器清单；MIT 与原版权保持。

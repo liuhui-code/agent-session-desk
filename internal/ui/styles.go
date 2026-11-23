@@ -16,6 +16,8 @@ import (
 )
 
 type styles struct {
+	groupInput                                                                                                            textinput.Styles
+	groupLabel, groupContext, groupMode, groupChoice, groupChoiceSelected                                                 lipgloss.Style
 	groupName, groupPart, groupHotkey, groupSelectedName, groupSelectedPart                                               lipgloss.Style
 	renameBox, renameTitle, renameHint                                                                                    lipgloss.Style
 	renameInput                                                                                                           textinput.Styles
@@ -35,6 +37,12 @@ type styles struct {
 
 func newStyles(t designTokens) styles {
 	return styles{
+		groupInput:              groupInputStyles(t),
+		groupLabel:              lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.surface),
+		groupContext:            lipgloss.NewStyle().Foreground(t.colors.cyan).Background(t.colors.surface),
+		groupMode:               lipgloss.NewStyle().Foreground(t.colors.accent).Background(t.colors.surface).Bold(t.bold),
+		groupChoice:             lipgloss.NewStyle().Foreground(t.colors.text).Background(t.colors.surface).PaddingLeft(t.group.choicePadding).PaddingRight(t.group.choicePadding),
+		groupChoiceSelected:     lipgloss.NewStyle().Foreground(t.colors.bg).Background(t.colors.accent).Bold(t.bold).PaddingLeft(t.group.choicePadding).PaddingRight(t.group.choicePadding),
 		groupName:               lipgloss.NewStyle().Foreground(t.colors.cyan).Bold(t.bold),
 		groupPart:               lipgloss.NewStyle().Foreground(t.colors.text),
 		groupHotkey:             lipgloss.NewStyle().Foreground(t.colors.dim),
@@ -94,6 +102,13 @@ func renameInputStyles(t designTokens) textinput.Styles {
 	text := lipgloss.NewStyle().Foreground(t.colors.text).Background(t.colors.surface)
 	state := textinput.StyleState{Text: text, Placeholder: text, Prompt: text, Suggestion: text}
 	return textinput.Styles{Focused: state, Blurred: state, Cursor: textinput.CursorStyle{Color: t.colors.text, Shape: t.dialog.cursorShape, Blink: t.dialog.cursorBlink}}
+}
+
+func groupInputStyles(t designTokens) textinput.Styles {
+	styles := renameInputStyles(t)
+	placeholder := lipgloss.NewStyle().Foreground(t.group.placeholderColor).Background(t.colors.surface)
+	styles.Focused.Placeholder, styles.Blurred.Placeholder = placeholder, placeholder
+	return styles
 }
 
 func searchInputStyles(t designTokens) textinput.Styles {

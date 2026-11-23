@@ -31,6 +31,7 @@ const (
 	workspaceSettings
 	workspaceSearch
 	workspaceRename
+	workspaceGroup
 )
 
 type workspaceState struct {
@@ -127,7 +128,7 @@ func (m *Model) workspaceSessions() tea.Cmd {
 
 func (m *Model) connectWorkspace() tea.Cmd {
 	w := m.workspace
-	if len(w.tabs) == 0 || m.closed || m.attaching || m.history.open || m.help || m.launch != nil || m.densitySettings != nil || m.search != nil || m.rename != nil {
+	if len(w.tabs) == 0 || m.closed || m.attaching || m.history.open || m.help || m.launch != nil || m.densitySettings != nil || m.search != nil || m.rename != nil || m.groupDialog != nil {
 		return nil
 	}
 	g := m.workspaceGeometry()
@@ -374,8 +375,8 @@ func (m *Model) activateWorkspace(index int) tea.Cmd {
 func (m *Model) selectWorkspaceSession(target session.Session) {
 	for i, s := range m.sessions {
 		if sameRun(s, target) {
-			m.revealSidebarSession()
 			m.cursor = i
+			m.revealSidebarSession()
 			return
 		}
 	}

@@ -20,6 +20,14 @@ import (
 )
 
 func (m *Model) View() tea.View {
+	if m.workspace != nil && m.groupDialog != nil {
+		content, cursor := m.renderGroupDialog()
+		view := tea.NewView(content)
+		view.AltScreen = true
+		view.BackgroundColor, view.ForegroundColor = m.tokens.colors.bg, m.tokens.colors.text
+		view.Cursor = cursor
+		return view
+	}
 	if m.workspace != nil && m.rename != nil {
 		content, cursor := m.renderSessionRename()
 		view := tea.NewView(content)
@@ -257,8 +265,9 @@ func (m *Model) renderHelp(height int) string {
 			"活动 Tab 直接操作终端；q 和 Ctrl+C 交给程序。\n" +
 			"F6 切换管理／终端焦点；Ctrl+PgUp/PgDn 切 Tab。\n" +
 			"管理模式：↑↓ 选择，Enter 打开，n 新建，x 关闭视图。\n" +
-			"Alt+V 切换分组／平铺；1 选择默认组。\n" +
+			"Alt+V 切换分组／平铺；1–9 选择根组。\n" +
 			"组标题 Enter/→/Tab 展开折叠；← 返回组并折叠。\n" +
+			"g 创建根组／子组，Tab 切名称／目录、↑↓ 切层级；M 移动会话。\n" +
 			"管理 / 搜索会话；↑↓ 选择，Enter 打开原 Run，Esc 取消。\n" +
 			"拖动 Tab 标题排序；管理模式 [ / ] 左右移动活动 Tab。\n" +
 			"管理 v 进入原生选择／搜索；空格选择、Enter 复制、/ 搜索。\n" +

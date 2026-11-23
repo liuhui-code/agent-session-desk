@@ -50,3 +50,5 @@ ADR-0021 选择性改编同一固定提交的 `internal/ui/group_dialog.go` 重�
 ADR-0022 继续选择性改编同固定 Agent Deck 提交的 home.go／home_flatitems.go 默认组导航、home_view_list.go 组标题及 embedded_sidebar.go 快捷键留位，styles.go 组样式经本项目 tokens 组合；MIT／原版权保持。目标文件及精确来源见机器复用清单；未迁入上游完整分组树或 v1 依赖。
 
 大写 S 诊断仅以临时 overlay 复制既有 Ultraviolet 依赖的 `terminal_reader_windows.go`，固定提交 `6b8d4baf91b4c933e6613b0eefc8f180f6eda002`，MIT／Copyright (c) 2025 Charmbracelet, Inc。保留[原样许可](third_party/ultraviolet/LICENSE)及机器清单中的精确指纹；修改仅是观测调用，源码以 `.go.txt` 留在诊断证据中，不替换正式依赖或随产品安装。详见[诊断报告](docs/testing/results/2026-11-23-uppercase-s-diagnosis.md)。
+
+ADR-0023 继续选择性适配同固定 Agent Deck 的 `internal/session/groups.go` 名称清理及 `internal/ui/group_dialog.go`／`home.go` 分组创建、根组／子组上下文、默认目录字段与移动弹窗；组标题／卡片／导航沿既有来源扩展。保留 MIT 及原版权，逐文件 SHA 在复用清单。产品使用独立稳定身份、元数据和 v2 输入，不继承上游路径寻址／远程模型或 v1 发布依赖。
