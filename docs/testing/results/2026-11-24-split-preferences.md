@@ -12,7 +12,7 @@
 
 v1–v3 只读加载时默认自动，不改写；显式修改才发布 v4，未知字段／版本、错误类型、越界值拒绝，保存失败不替换原文件。沿已有 16 KiB 防御读取、同目录临时文件验证及 rename 发布；多进程仍是最后成功替换者生效，非 CAS／断电耐久证明。SQLite v5、启动模板、依赖、design tokens 及 Run／Tab 身份不变。
 
-证据：[白名单清单](2026-11-24-split-preferences-evidence/manifest.json)、[本地检查](2026-11-24-split-preferences-evidence/local/checks.json)、[最终源指纹](2026-11-24-split-preferences-evidence/local/source-fingerprints.json)、[来源七状态](2026-11-24-split-preferences-evidence/local/upstream-states.json)、[旧版拒读](2026-11-24-split-preferences-evidence/local/legacy-reader.log)。归档校验器只检查一致性，不执行产品或 Windows 测试。
+证据：[白名单清单](2026-11-24-split-preferences-evidence/manifest.json)、[本地检查](2026-11-24-split-preferences-evidence/local/checks.json)、[最终源指纹](2026-11-24-split-preferences-evidence/local/source-fingerprints.json)、[来源七状态](2026-11-24-split-preferences-evidence/local/upstream-states.json)、[旧版拒读](2026-11-24-split-preferences-evidence/local/legacy-reader.log)。归档校验器只检查一致性，不执行产品或 Windows 测试。渲染 RED 日志保留原字节（含行尾单元格补齐空格）；仅证据日志设置 Git `-text -whitespace`，不影响产品源码空白检查。
 
 ## RED → GREEN 与产品检查
 
