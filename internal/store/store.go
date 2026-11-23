@@ -94,7 +94,11 @@ func (s *Store) initialize(ctx context.Context) error {
 		if _, err = tx.ExecContext(ctx, exitSchema); err != nil {
 			return err
 		}
-	} else if app != applicationID || (version != 1 && version != 2) {
+		if _, err = tx.ExecContext(ctx, nameSchema+" PRAGMA user_version=3;"); err != nil {
+			return err
+		}
+		version = 3
+	} else if app != applicationID || (version != 1 && version != 2 && version != 3) {
 		return fmt.Errorf("unsupported metadata application/schema; file preserved")
 	}
 	var journal string
@@ -115,8 +119,21 @@ func (s *Store) initialize(ctx context.Context) error {
 		if _, err = tx.ExecContext(ctx, exitSchema+" PRAGMA user_version=2;"); err != nil {
 			return err
 		}
+		version = 2
+	}
+	if version == 2 {
+		if _, err = tx.ExecContext(ctx, nameSchema+" PRAGMA user_version=3;"); err != nil {
+			return err
+		}
 	}
 	rows, err = tx.QueryContext(ctx, `SELECT scope,run_id,pane_id,source,observed_ns FROM pane_exits LIMIT 0`)
+	if err != nil {
+		return err
+	}
+	if err = rows.Close(); err != nil {
+		return err
+	}
+	rows, err = tx.QueryContext(ctx, `SELECT scope,session_id,title,revision FROM session_names LIMIT 0`)
 	if err != nil {
 		return err
 	}
@@ -127,6 +144,9 @@ func (s *Store) initialize(ctx context.Context) error {
 }
 
 func (s *Store) Save(ctx context.Context, v session.Session) error {
+	if v.TitleRevision != 0 {
+		return fmt.Errorf("discovery must contain the original backend launch snapshot")
+	}
 	if err := validateExit(v); err != nil {
 		return err
 	}
@@ -181,7 +201,7 @@ func (s *Store) History(ctx context.Context, limit int) ([]Record, error) {
 	if limit < 1 || limit > 1000 {
 		return nil, fmt.Errorf("history limit must be 1–1000")
 	}
-	rows, err := s.db.QueryContext(ctx, `SELECT s.id,r.id,r.backend_id,s.title,s.command,r.recorded_ns,r.stopped_ns,e.pane_id,e.source,e.observed_ns FROM runs r JOIN sessions s ON s.scope=r.scope AND s.id=r.session_id LEFT JOIN pane_exits e ON e.scope=r.scope AND e.run_id=r.id WHERE r.scope=? ORDER BY r.recorded_ns DESC,r.id DESC LIMIT ?`, s.scope, limit)
+	rows, err := s.db.QueryContext(ctx, `SELECT s.id,r.id,r.backend_id,COALESCE(n.title,s.title),s.command,r.recorded_ns,r.stopped_ns,e.pane_id,e.source,e.observed_ns,COALESCE(n.revision,0) FROM runs r JOIN sessions s ON s.scope=r.scope AND s.id=r.session_id LEFT JOIN pane_exits e ON e.scope=r.scope AND e.run_id=r.id LEFT JOIN session_names n ON n.scope=s.scope AND n.session_id=s.id WHERE r.scope=? ORDER BY r.recorded_ns DESC,r.id DESC LIMIT ?`, s.scope, limit)
 	if err != nil {
 		return nil, err
 	}
@@ -192,7 +212,7 @@ func (s *Store) History(ctx context.Context, limit int) ([]Record, error) {
 		var at int64
 		var stopped, exitAt sql.NullInt64
 		var pane, source sql.NullString
-		if err = rows.Scan(&r.Session.ID, &r.Session.RunID, &r.Session.BackendID, &r.Session.Title, &r.Session.Command, &at, &stopped, &pane, &source, &exitAt); err != nil {
+		if err = rows.Scan(&r.Session.ID, &r.Session.RunID, &r.Session.BackendID, &r.Session.Title, &r.Session.Command, &at, &stopped, &pane, &source, &exitAt, &r.Session.TitleRevision); err != nil {
 			return nil, err
 		}
 		r.Session.TerminalState = session.TerminalUnknown

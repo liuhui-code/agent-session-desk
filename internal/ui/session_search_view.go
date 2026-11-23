@@ -68,12 +68,9 @@ func (m *Model) renderSessionSearch() (string, *tea.Cursor) {
 	lines := append([]string(nil), head...)
 	for i := start; i < end; i++ {
 		s := d.results[i]
-		name := label(s.Title)
-		if name == "" {
-			name = label(s.ID)
-		}
+		programInfo := ""
 		if program := label(s.Command); program != "" {
-			name += t.programPrefix + program[strings.LastIndexAny(program, `/\`)+1:] + t.programSuffix
+			programInfo = t.programPrefix + program[strings.LastIndexAny(program, `/\`)+1:] + t.programSuffix
 		}
 		prefix := strings.Repeat(" ", lipgloss.Width(t.selected))
 		style := m.styles.searchResult
@@ -81,7 +78,12 @@ func (m *Model) renderSessionSearch() (string, *tea.Cursor) {
 			prefix, style = t.selected, m.styles.searchSelected
 		}
 		rowWidth := max(0, contentWidth-style.GetHorizontalFrameSize())
-		row := prefix + cellTruncate(name, max(0, rowWidth-lipgloss.Width(prefix)), m.tokens.marks.ellipsis)
+		nameWidth := max(0, rowWidth-lipgloss.Width(prefix))
+		if lipgloss.Width(programInfo) >= nameWidth {
+			programInfo = ""
+		}
+		name := m.sessionTitle(s, m.sessions, max(0, nameWidth-lipgloss.Width(programInfo))) + programInfo
+		row := prefix + name
 		lines = append(lines, style.Render(fitFrame(row, rowWidth, 1)))
 	}
 	lines = append(lines, foot...)

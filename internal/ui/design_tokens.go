@@ -17,6 +17,7 @@ import (
 // there is no mutable global theme, file watcher or runtime theme format yet.
 // Zero/one in viewport algorithms are counts, not additional style choices.
 type designTokens struct {
+	rename    renameTokens
 	search    searchTokens
 	copy      copyTokens
 	sidebar   sidebarTokens
@@ -26,6 +27,12 @@ type designTokens struct {
 	layout    layoutTokens
 	marks     markTokens
 	bold      bool
+}
+
+type renameTokens struct {
+	preferredWidth, minWidth, gutter, inputWidth, paddingX, paddingY int
+	prompt, warningPrefix                                            string
+	borderColor                                                      color.Color
 }
 
 type searchTokens struct {
@@ -80,10 +87,16 @@ type layoutTokens struct {
 	statusHelpWidth, suffixBelow, indicatorRows, aboveMinHeight    int
 	headerMinGap, itemGap, menuGap, dividerPadding, rowPrefixWidth int
 }
-type markTokens struct{ rule, divider, selected, ellipsis, menuDot, above, below, add, close string }
+type markTokens struct {
+	rule, divider, selected, ellipsis, menuDot, above, below, add, close string
+	identityOpen, identityClose                                          string
+	identityPrefixLength                                                 int
+}
 
 func defaultDesignTokens() designTokens {
 	return designTokens{
+		// Pinned group_dialog.go: v1 Width 44/30 excludes the two border cells.
+		rename: renameTokens{preferredWidth: 46, minWidth: 32, gutter: 8, inputWidth: 32, paddingX: 2, paddingY: 1, prompt: "> ", warningPrefix: "⚠ ", borderColor: lipgloss.Color("#bb9af7")},
 		// Pinned search.go: v1 Width 60/30 includes padding, excludes border.
 		search: searchTokens{preferredWidth: 62, minWidth: 32, responsiveBelow: 70, gutter: 8, paddingX: 2, paddingY: 1, inputPaddingX: 1, inputRightGap: 4, resultPadding: 2, maxResults: 10, prompt: "> ", selected: "› ", titlePrefix: "🔍 ", programPrefix: " (", programSuffix: ")", countColor: lipgloss.Color("241"), placeholderColor: lipgloss.Color("240"), hintItalic: true},
 		// Pinned native copy-mode defaults; interpreted as character attributes.
@@ -105,7 +118,7 @@ func defaultDesignTokens() designTokens {
 			statusHelpWidth: 18, suffixBelow: 22, indicatorRows: 1, aboveMinHeight: 3,
 			headerMinGap: 1, itemGap: 2, menuGap: 1, dividerPadding: 1, rowPrefixWidth: 2,
 		},
-		marks: markTokens{rule: "─", divider: "│", selected: "›", ellipsis: "…", menuDot: "·", add: "+", close: "×", above: "⋮", below: "⋮"},
+		marks: markTokens{rule: "─", divider: "│", selected: "›", ellipsis: "…", menuDot: "·", add: "+", close: "×", above: "⋮", below: "⋮", identityOpen: " [", identityClose: "]", identityPrefixLength: 6},
 		bold:  true,
 	}
 }

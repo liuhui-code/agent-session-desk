@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "date": "2026-11-23",
-  "scope": "Selective UI/platform migration including ADR-0020 local session search; explicit ADR-0019 development runtime provenance is separate from official defaults and release acceptance.",
+  "scope": "Selective UI/platform migration including ADR-0020 search and ADR-0021 session rename; explicit ADR-0019 development provenance remains separate from defaults and release acceptance.",
   "original_project_license": "pending O-010",
   "source_files": [
     {
@@ -395,6 +395,36 @@
       ],
       "mode": "selectively_adapted",
       "modifications": "ADR-0020: scoped live Session/Run, stable v2 real cursor, token styling, no Recall/group/agent-state inference; identity-preserving refresh and bounded viewport."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/group_dialog.go",
+      "source_sha256": "0951f9efb6ed7d2cb6cf940fc476bb457f934cfb95bcc45f80c5e9cd6a003676",
+      "destination_file": "internal/ui/session_rename.go",
+      "license": "MIT",
+      "parts": [
+        "ShowRenameSession prefill/CursorEnd",
+        "single-line Enter/Esc editing"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "ADR-0021: stable v2 real cursor/total widths, tokens, localized labels, bounded single-line edits and viewports; independent SQL display labels and exact Run binding; no upstream group or remote model."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/group_dialog.go",
+      "source_sha256": "0951f9efb6ed7d2cb6cf940fc476bb457f934cfb95bcc45f80c5e9cd6a003676",
+      "destination_file": "internal/ui/session_rename_view.go",
+      "license": "MIT",
+      "parts": [
+        "GroupDialogRenameSession centered layout",
+        "fitDialogWidth and six content rows"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "ADR-0021: stable v2 real cursor/total widths, tokens, localized labels, bounded single-line edits and viewports; independent SQL display labels and exact Run binding; no upstream group or remote model."
     }
   ],
   "preserved_notices": [

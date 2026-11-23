@@ -181,6 +181,8 @@ M0 只把版本化发现标记放在产品私有后端 user option 中，绑定 
 
 `start/list/preview/attach/stop/doctor` 是这个切片的开发入口，不是已完成的 M3 消息协议。没有 send、自动队列、准确忙闲/人工介入事件或共享 Host。来源、命令限制、实现限额和实际验证范围见[复用清单](REUSE_MANIFEST.md)、[开发指南](M0_DEVELOPMENT.md)与[迁入报告](testing/results/2026-11-21-m0-source-migration.md)。
 
+显示名扩展见 [ADR-0021](adr/0021-persistent-session-display-names.md)：schema v3 的 `session_names` 为每个作用域／Session 保存当前名称及单调版本，不修改后端或原启动快照。Manager 的实时列表与离线历史投影当前名称；名称／版本只是读写冲突依据，Session/Run/Backend 才绑定目标。重命名的后端重查在 SQL 事务前，事务内比较预期版本／名称，非原子的存活时间窗保留；操作不写终端、不改变 Run。
+
 ## M1 最小元数据补充（2026-11-22）
 
 实际落地的存储与协调边界见 [ADR-0009](adr/0009-session-run-metadata.md)：CLI/TUI 共享 manager，实际后端提供实时状态，SQLite 保存最小 Session/Run 元数据。`history` 独立查询元数据且状态恒 unknown；历史不参与控制目标选择。SQL 事务不跨后台进程副作用，已启动但提交失败时报告身份并禁止盲目重复 start。消息、退出码、日志与恢复对话继续按原阶段实现。

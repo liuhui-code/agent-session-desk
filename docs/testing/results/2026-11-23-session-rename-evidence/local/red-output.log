@@ -1,0 +1,5 @@
+--- FAIL: TestRenamedRunStillRecordsOutputWithoutChangingLaunchSnapshot (0.01s)
+    names_test.go:30: rename broke capture: {ID: SessionID: RunID: BackendID: Sequence:0 RecordedAt:0001-01-01 00:00:00 +0000 UTC Text: Truncated:false Source: Complete:false} metadata identity conflict; existing record preserved
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/store	0.866s
+FAIL

@@ -115,12 +115,17 @@ func (m *Model) workspaceKey(msg tea.KeyPressMsg) tea.Cmd {
 		w.focused = true
 		return m.activateWorkspace(len(w.tabs) - 1)
 	case "r":
+		if w.err == nil && m.listErr == nil {
+			return m.beginSessionRename()
+		}
+		fallthrough
+	case "ctrl+r":
 		w.err = nil
 		m.status = ""
 		if w.conn == nil {
 			return tea.Batch(m.connectWorkspace(), m.loadSessions())
 		}
-		return m.workspaceWrite(workspaceInput{kind: "refresh"})
+		return tea.Batch(m.workspaceWrite(workspaceInput{kind: "refresh"}), m.loadSessions())
 	case "a":
 		return m.navigateWorkspace(workspaceAttach)
 	case "h":

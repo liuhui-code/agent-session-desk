@@ -20,6 +20,14 @@ import (
 )
 
 func (m *Model) View() tea.View {
+	if m.workspace != nil && m.rename != nil {
+		content, cursor := m.renderSessionRename()
+		view := tea.NewView(content)
+		view.AltScreen = true
+		view.BackgroundColor, view.ForegroundColor = m.tokens.colors.bg, m.tokens.colors.text
+		view.Cursor = cursor
+		return view
+	}
 	if m.workspace != nil && m.search != nil {
 		content, cursor := m.renderSessionSearch()
 		view := tea.NewView(content)
@@ -254,7 +262,8 @@ func (m *Model) renderHelp(height int) string {
 			"管理 v 进入原生选择／搜索；空格选择、Enter 复制、/ 搜索。\n" +
 			"关闭 Tab 或退出管理器不会停止运行实例。\n" +
 			"S 侧栏设置；←→/空格即时保存，Esc/S 返回。\n" +
-			"h 只读历史；r 重查连接；a 辅助全屏进入。\n" +
+			"r 重命名所选会话；Ctrl+R 刷新，连接失败时 r 重试。\n" +
+			"h 只读历史；a 辅助全屏进入。\n" +
 			"辅助全屏模式：Ctrl+b 后按 d 返回。\n" +
 			"粘贴使用外层终端快捷键；是否执行仍由目标程序决定。\n" +
 			"Esc / ? 返回；管理模式 q 退出。"

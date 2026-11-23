@@ -1,0 +1,55 @@
+{
+    "scope":  "Read-only final audit after all suites and desktop cleanup; no commands replayed, no live backend started",
+    "settings_sha256":  "1499307ABEBA68C23F9EB38A4C636F81172475B6B2B535BC0B11DCD9547241F8",
+    "private_images_alive":  0,
+    "result":  "passed",
+    "tasks_absent":  [
+                         "AsdSessionRenameSetup20261123",
+                         "AsdSessionRenameDesktop20261123",
+                         "AsdSessionRenameSurfaceSetup20261123",
+                         "AsdSessionRenameSurfaceDesktop20261123"
+                     ],
+    "utc":  "2026-11-23T01:39:05.8544191Z",
+    "offline_history":  {
+                            "value":  [
+                                          {
+                                              "session":  {
+                                                              "session_id":  "7a846e8c0c0dfa4191294c0870175a82",
+                                                              "run_id":  "2a9fc9a5ef7257f02905c6b345b3a880",
+                                                              "backend_id":  "asd_7a846e8c0c0dfa4191294c0870175a82_2a9fc9a5ef7257f02905c6b345b3a880",
+                                                              "title":  "中文会话",
+                                                              "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                                              "terminal_state":  "unknown"
+                                                          },
+                                              "recorded_at":  "2026-11-23T01:17:46.1633976Z",
+                                              "stop_confirmed_at":  "2026-11-23T01:27:35.5923489Z"
+                                          },
+                                          {
+                                              "session":  {
+                                                              "session_id":  "d98649a419b2384b5e6c7e14c728698f",
+                                                              "run_id":  "b1e7f4815237d3caa1a9ce775e9c6802",
+                                                              "backend_id":  "asd_d98649a419b2384b5e6c7e14c728698f_b1e7f4815237d3caa1a9ce775e9c6802",
+                                                              "title":  "Copy A",
+                                                              "title_revision":  3,
+                                                              "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                                              "terminal_state":  "unknown"
+                                                          },
+                                              "recorded_at":  "2026-11-23T01:17:45.6542941Z",
+                                              "stop_confirmed_at":  "2026-11-23T01:27:35.1879374Z"
+                                          },
+                                          {
+                                              "session":  {
+                                                              "session_id":  "5fd0edb33b4d93d8ef226bb63dc55878",
+                                                              "run_id":  "f495fc85bae60d7def15abb977f45c09",
+                                                              "backend_id":  "asd_5fd0edb33b4d93d8ef226bb63dc55878_f495fc85bae60d7def15abb977f45c09",
+                                                              "title":  "Copy A",
+                                                              "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                                              "terminal_state":  "unknown"
+                                                          },
+                                              "recorded_at":  "2026-11-23T01:17:45.1378403Z",
+                                              "stop_confirmed_at":  "2026-11-23T01:27:34.7232401Z"
+                                          }
+                                      ],
+                            "Count":  3
+                        }
+}

@@ -1,0 +1,5 @@
+--- FAIL: TestRenamePersistsDisplayNameWithoutChangingBackendRun (0.18s)
+    rename_test.go:27: manager has no stable-identity rename operation
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/manager	1.416s
+FAIL

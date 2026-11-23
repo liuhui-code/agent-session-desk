@@ -1,0 +1,7 @@
+ok  	github.com/liuhui-code/agent-session-desk/internal/session	0.819s
+--- FAIL: TestV1SnapshotRestoresThroughNormalMigrationWithoutChangingBackup (0.01s)
+    recovery_test.go:242: migration: store.CheckResult{SchemaVersion:3, Integrity:"ok", ForeignKeys:"ok"} <nil>
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/store	9.883s
+ok  	github.com/liuhui-code/agent-session-desk/internal/manager	2.501s
+FAIL

@@ -1,0 +1,50 @@
+{
+    "tasks_absent":  [
+                         "AsdSessionRenameSurfaceSetup20261123",
+                         "AsdSessionRenameSurfaceDesktop20261123"
+                     ],
+    "clipboard":  {
+                      "restored":  true,
+                      "original_text_logged":  false,
+                      "text_restored":  true,
+                      "nontext_content_verified":  false,
+                      "format_names_restored":  true,
+                      "utc":  "2026-11-23T01:32:43.1016247Z"
+                  },
+    "utc":  "2026-11-23T01:33:11.1658303Z",
+    "remaining_sessions":  "[]",
+    "private_images_alive":  0,
+    "settings_sha256":  "1499307ABEBA68C23F9EB38A4C636F81172475B6B2B535BC0B11DCD9547241F8",
+    "scope":  "Registered original identities and known private image paths only; no machine-global cleanup claim; private PowerShell history restoration not verified",
+    "stops":  [
+                  {
+                      "run_id":  "154d887cef71e88f1099487c013094e2",
+                      "session_id":  "dda5bf3cffb22e2d07912cdea0417f13",
+                      "result":  "{\r\n  \"session_id\": \"dda5bf3cffb22e2d07912cdea0417f13\",\r\n  \"run_id\": \"154d887cef71e88f1099487c013094e2\",\r\n  \"result\": \"backend_session_stopped\"\r\n}\r\n"
+                  }
+              ],
+    "result":  "passed",
+    "original_processes":  [
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                   "pid":  18108,
+                                   "filetime":  134398711461832724,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-rename-surface.exe",
+                                   "pid":  17868,
+                                   "filetime":  134398711556439671,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe",
+                                   "pid":  19252,
+                                   "filetime":  134398711545806842,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               }
+                           ]
+}

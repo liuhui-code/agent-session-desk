@@ -9,3 +9,5 @@ go.sum text eol=lf
 tools/ci/*.json text eol=lf
 # Terminal captures are byte evidence; preserve VT CRLF and ANSI sequences.
 docs/testing/results/2026-11-23-upstream-visual-comparison-evidence/frames/* -text
+# Checksummed rename evidence includes intentional terminal cell padding.
+docs/testing/results/2026-11-23-session-rename-evidence/** -text -whitespace

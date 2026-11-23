@@ -152,7 +152,7 @@
 
 - 功能：[FL-004](../COVERAGE.md#fl-004)、[FL-005](../COVERAGE.md#fl-005)
 - 需求：[FR-03](../COVERAGE.md#fr-03)、[FR-04](../COVERAGE.md#fr-04)
-- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0021](../../adr/0021-persistent-session-display-names.md)
 - 优先级 / 阶段 / 层次：P1 / M2 / integration
 - 类型：functional、state
 - 设计 / 执行：`designed / not_run`
@@ -167,7 +167,7 @@
 
 #### 操作步骤
 
-1. 把 A 重命名为中文名称，再改成另一名称。
+1. 管理焦点 r 打开原名称预填的弹窗，改为中文名称；取消一次，再明确 Enter 保存并再次改名。
 2. 按原 session_id 查询并进入会话。
 3. 退出管理器后重新打开核对记录。
 
@@ -176,6 +176,8 @@
 - Session/Run 与启动 nonce 保持不变，名称修改持久化。
 - 旧名称不会成为仍可误指向其他会话的寻址身份。
 - 重命名不向 agent 输入额外字符。
+- 列表、Tab、搜索及离线历史显示当前名称；原启动快照保持不变，Ctrl+R 刷新或 UI 重开不回退名称。
+- 选中后台会话改名不激活该 Tab；弹窗等待已接受写入排空，确认字符不进入原终端。
 
 #### 需要的证据
 
@@ -189,7 +191,7 @@
 
 - 功能：[FL-004](../COVERAGE.md#fl-004)、[FL-005](../COVERAGE.md#fl-005)
 - 需求：[FR-03](../COVERAGE.md#fr-03)、[FR-04](../COVERAGE.md#fr-04)
-- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0021](../../adr/0021-persistent-session-display-names.md)
 - 优先级 / 阶段 / 层次：P1 / M2 / integration
 - 类型：boundary、negative
 - 设计 / 执行：`designed / not_run`
@@ -200,7 +202,7 @@
 
 #### 前置条件
 
-- TBD-NAMING 已确定同名会话策略；存在名为 review 的 A。
+- ADR-0021 已允许显示名重复并规定短身份标记；创建的完整名称合同仍由 TBD-NAMING 决定，存在名为 review 的 A。
 
 #### 操作步骤
 
@@ -209,7 +211,7 @@
 
 #### 预期与不变量
 
-- 结果符合已记录的重名规则并向用户说明。
+- 重命名允许同名，Tab／列表／搜索的可见名称碰撞时显示可区分的 Session ID 标记；创建部分按另定合同核对。
 - 不以名称作为 upsert 键覆盖 A 的 Run、历史或消息关系。
 - 不能因重名使操作目标变得不可区分。
 
@@ -225,7 +227,7 @@
 
 - 功能：[FL-004](../COVERAGE.md#fl-004)、[FL-005](../COVERAGE.md#fl-005)
 - 需求：[FR-03](../COVERAGE.md#fr-03)、[FR-04](../COVERAGE.md#fr-04)
-- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0021](../../adr/0021-persistent-session-display-names.md)
 - 优先级 / 阶段 / 层次：P1 / M2 / integration
 - 类型：boundary、negative、security
 - 设计 / 执行：`designed / not_run`
@@ -238,6 +240,7 @@
 
 - 已固定名称允许字符、空白归一化和长度计量规则 B_NAME。
 - 使用测试目录与仅回显输入的夹具，不执行名称中的文本。
+- 新增重命名按 ADR-0021 拒绝控制字符／行分隔、无效 UTF-8、空白名及超过 128 code point／512 字节；原始输入最多 4096 字节，不做 NFC/NFD 归一化。
 
 #### 操作步骤
 
@@ -563,7 +566,7 @@
 
 - 功能：[FL-004](../COVERAGE.md#fl-004)、[FL-005](../COVERAGE.md#fl-005)、[FL-013](../COVERAGE.md#fl-013)
 - 需求：[FR-03](../COVERAGE.md#fr-03)、[FR-04](../COVERAGE.md#fr-04)、[FR-12](../COVERAGE.md#fr-12)
-- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0021](../../adr/0021-persistent-session-display-names.md)
 - 优先级 / 阶段 / 层次：P0 / M2 / integration
 - 类型：concurrency、state、negative
 - 设计 / 执行：`designed / not_run`
@@ -580,12 +583,14 @@
 
 1. 入口一保留旧列表，入口二完成重命名或按已定规则移除 A。
 2. 入口一提交基于旧列表的重命名、进入或停止操作。
+3. 两个编辑入口带同一版本并发提交；另测改名后改回原值，再提交旧版本。
 
 #### 预期与不变量
 
 - 重命名通过 session_id 定位；成功或冲突结果可核对，不能覆盖其他 Session。
 - 目标已失效时返回明确错误或刷新目标，不能自动操作相同行号的新会话。
 - 并发操作的最终记录内部一致，不出现名称属于 A 而 Run 属于 B。
+- 预期名称／版本失配均明确冲突，ABA 不绕过版本；没有自动覆盖或自动重试，失败编辑需返回刷新核对。
 
 #### 需要的证据
 

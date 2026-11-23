@@ -37,7 +37,8 @@ func (s *Store) RecordOutput(ctx context.Context, v session.Session, p session.P
 		return zero, err
 	}
 	defer tx.Rollback()
-	found, err := s.matches(ctx, tx, v)
+	var found bool
+	err = tx.QueryRowContext(ctx, `SELECT EXISTS(SELECT 1 FROM runs r JOIN sessions s ON s.scope=r.scope AND s.id=r.session_id WHERE r.scope=? AND r.id=? AND r.session_id=? AND r.backend_id=? AND s.command=?)`, s.scope, v.RunID, v.ID, v.BackendID, v.Command).Scan(&found)
 	if err != nil {
 		return zero, err
 	}

@@ -1,0 +1,70 @@
+{
+    "corrects":  "Initial audit enumerated a wrapped UI array as one record; this audit checks all seven scalar PID/FILETIME/path identities separately. No stop, input or setting mutation repeated.",
+    "original_processes":  [
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                   "pid":  3528,
+                                   "filetime":  134398702649976766,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                   "pid":  17392,
+                                   "filetime":  134398702654416016,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                   "pid":  18440,
+                                   "filetime":  134398702659385551,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-rename.exe",
+                                   "pid":  20028,
+                                   "filetime":  134398703055525424,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-rename-final.exe",
+                                   "pid":  20372,
+                                   "filetime":  134398707288633437,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-rename-final.exe",
+                                   "pid":  17556,
+                                   "filetime":  134398707580870690,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe",
+                                   "pid":  19824,
+                                   "filetime":  134398703045460711,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               }
+                           ],
+    "result":  "passed",
+    "private_images_alive":  0,
+    "settings_sha256":  "1499307ABEBA68C23F9EB38A4C636F81172475B6B2B535BC0B11DCD9547241F8",
+    "utc":  "2026-11-23T01:28:42.8439970Z",
+    "tasks_absent":  [
+                         "AsdSessionRenameSetup20261123",
+                         "AsdSessionRenameDesktop20261123"
+                     ],
+    "clipboard":  {
+                      "restored":  true,
+                      "original_text_logged":  false,
+                      "text_restored":  true,
+                      "nontext_content_verified":  false,
+                      "format_names_restored":  true,
+                      "utc":  "2026-11-23T01:26:05.2354807Z"
+                  }
+}

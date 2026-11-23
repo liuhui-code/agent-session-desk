@@ -1,0 +1,8 @@
+--- FAIL: TestDuplicateSessionNamesExposeDistinctIdentitiesInTabsListAndSearch (0.01s)
+    session_rename_test.go:116: Tab/list lacks identity cue [first]
+    session_rename_test.go:116: Tab/list lacks identity cue [second]
+    session_rename_test.go:124: search lacks identity cue [first]
+    session_rename_test.go:124: search lacks identity cue [second]
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.891s
+FAIL

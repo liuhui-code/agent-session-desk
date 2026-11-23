@@ -26,6 +26,7 @@ type Session struct {
 	RunID         string        `json:"run_id"`
 	BackendID     string        `json:"backend_id"`
 	Title         string        `json:"title"`
+	TitleRevision int64         `json:"title_revision,omitempty"`
 	Command       string        `json:"command"`
 	TerminalState TerminalState `json:"terminal_state"`
 	PaneExit      *PaneExit     `json:"pane_exit,omitempty"`

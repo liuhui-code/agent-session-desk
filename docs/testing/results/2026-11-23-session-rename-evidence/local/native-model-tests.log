@@ -1,0 +1,47 @@
+[
+    {
+        "all_pass":  7,
+        "skip":  0,
+        "exit_code":  0,
+        "fail":  0,
+        "utc":  "2026-11-23T01:14:16.4248036Z",
+        "top_level_pass":  7,
+        "package":  "session",
+        "sha256":  "FDDCD520579D8B65690C31C12D7F3A07FBC79595B265140E9505EE886F1808B1"
+    },
+    {
+        "all_pass":  56,
+        "skip":  0,
+        "exit_code":  0,
+        "fail":  0,
+        "utc":  "2026-11-23T01:14:28.1096451Z",
+        "top_level_pass":  36,
+        "package":  "store",
+        "sha256":  "37FBC38AC946C1555BF718CB37DCB61548CEAAD4D0E127C1EE91B7023085B3A5"
+    },
+    {
+        "all_pass":  12,
+        "skip":  0,
+        "exit_code":  0,
+        "fail":  0,
+        "utc":  "2026-11-23T01:14:28.7544212Z",
+        "top_level_pass":  10,
+        "package":  "manager",
+        "sha256":  "55823326FBC4D0934BE38FC848F71A9473013D5061200A5E62060EF6651B5891"
+    },
+    {
+        "all_pass":  276,
+        "skip":  0,
+        "exit_code":  0,
+        "fail":  0,
+        "utc":  "2026-11-23T01:14:31.4737092Z",
+        "top_level_pass":  109,
+        "package":  "ui",
+        "sha256":  "17DB85ADD4B1E5629F2BE4F03ABA657BD75CABB1793BD05115C631F0455382FE"
+    }
+]
+{
+    "Algorithm":  "SHA256",
+    "Hash":  "14C2DB599EB0F70AADDB16402B83548AB17BF49E7D5A72F58DA5274BB509DB03",
+    "Path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\rename-model-tests-export.zip"
+}

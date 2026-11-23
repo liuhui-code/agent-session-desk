@@ -16,6 +16,8 @@ import (
 )
 
 type styles struct {
+	renameBox, renameTitle, renameHint                                                                                    lipgloss.Style
+	renameInput                                                                                                           textinput.Styles
 	searchTip                                                                                                             lipgloss.Style
 	searchBox, searchInput, searchTitle, searchResult, searchSelected, searchCount, searchHint                            lipgloss.Style
 	copy                                                                                                                  terminal.CopyStyles
@@ -32,6 +34,10 @@ type styles struct {
 
 func newStyles(t designTokens) styles {
 	return styles{
+		renameBox:               lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.rename.borderColor).Background(t.colors.surface).Padding(t.rename.paddingY, t.rename.paddingX),
+		renameTitle:             lipgloss.NewStyle().Foreground(t.rename.borderColor).Background(t.colors.surface).Bold(t.bold),
+		renameHint:              lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.surface),
+		renameInput:             renameInputStyles(t),
 		searchTip:               lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.bg).Italic(t.search.hintItalic),
 		searchBox:               lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.colors.accent).Background(t.colors.bg).Padding(t.search.paddingY, t.search.paddingX),
 		searchInput:             lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.colors.accent).Background(t.colors.bg).Padding(t.search.inputPaddingY, t.search.inputPaddingX),
@@ -76,6 +82,12 @@ func newStyles(t designTokens) styles {
 		menuDot:    t.marks.menuDot,
 		menuGap:    strings.Repeat(" ", t.layout.menuGap),
 	}
+}
+
+func renameInputStyles(t designTokens) textinput.Styles {
+	text := lipgloss.NewStyle().Foreground(t.colors.text).Background(t.colors.surface)
+	state := textinput.StyleState{Text: text, Placeholder: text, Prompt: text, Suggestion: text}
+	return textinput.Styles{Focused: state, Blurred: state, Cursor: textinput.CursorStyle{Color: t.colors.text, Shape: t.dialog.cursorShape, Blink: t.dialog.cursorBlink}}
 }
 
 func searchInputStyles(t designTokens) textinput.Styles {

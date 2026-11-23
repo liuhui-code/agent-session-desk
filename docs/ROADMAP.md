@@ -12,6 +12,8 @@
 
 ## M0：视觉基线与 Windows 可行性
 
+2026-11-23 当前会话管理进展：本地搜索后继续 [ADR-0021](adr/0021-persistent-session-display-names.md) 持久重命名，原身份／输入隔离、schema v3 与上游弹窗分别验收；实际范围见[报告](testing/results/2026-11-23-session-rename.md)。随后集中核对上游交互差异和分组，再用最终终端组合跑完整 Windows 流程与资源；各阶段仍未整体完成。
+
 目标：验证 Agent Deck 的简约界面代码可以迁入稳定 Charm v2，并通过 psmux 在原生 Windows 完成最小闭环。
 
 交付物：

@@ -1,0 +1,86 @@
+{
+    "tasks_absent":  [
+                         "AsdSessionRenameSetup20261123",
+                         "AsdSessionRenameDesktop20261123"
+                     ],
+    "clipboard":  {
+                      "restored":  true,
+                      "original_text_logged":  false,
+                      "text_restored":  true,
+                      "nontext_content_verified":  false,
+                      "format_names_restored":  true,
+                      "utc":  "2026-11-23T01:26:05.2354807Z"
+                  },
+    "utc":  "2026-11-23T01:27:37.7394917Z",
+    "remaining_sessions":  "[]",
+    "private_images_alive":  0,
+    "settings_sha256":  "1499307ABEBA68C23F9EB38A4C636F81172475B6B2B535BC0B11DCD9547241F8",
+    "scope":  "Registered original identities and known private image paths only; no machine-global cleanup claim; private PowerShell history restoration not verified",
+    "stops":  [
+                  {
+                      "run_id":  "f495fc85bae60d7def15abb977f45c09",
+                      "session_id":  "5fd0edb33b4d93d8ef226bb63dc55878",
+                      "result":  "{\r\n  \"session_id\": \"5fd0edb33b4d93d8ef226bb63dc55878\",\r\n  \"run_id\": \"f495fc85bae60d7def15abb977f45c09\",\r\n  \"result\": \"backend_session_stopped\"\r\n}\r\n"
+                  },
+                  {
+                      "run_id":  "b1e7f4815237d3caa1a9ce775e9c6802",
+                      "session_id":  "d98649a419b2384b5e6c7e14c728698f",
+                      "result":  "{\r\n  \"session_id\": \"d98649a419b2384b5e6c7e14c728698f\",\r\n  \"run_id\": \"b1e7f4815237d3caa1a9ce775e9c6802\",\r\n  \"result\": \"backend_session_stopped\"\r\n}\r\n"
+                  },
+                  {
+                      "run_id":  "2a9fc9a5ef7257f02905c6b345b3a880",
+                      "session_id":  "7a846e8c0c0dfa4191294c0870175a82",
+                      "result":  "{\r\n  \"session_id\": \"7a846e8c0c0dfa4191294c0870175a82\",\r\n  \"run_id\": \"2a9fc9a5ef7257f02905c6b345b3a880\",\r\n  \"result\": \"backend_session_stopped\"\r\n}\r\n"
+                  }
+              ],
+    "result":  "passed",
+    "original_processes":  [
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                   "pid":  3528,
+                                   "filetime":  134398702649976766,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                   "pid":  17392,
+                                   "filetime":  134398702654416016,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                   "pid":  18440,
+                                   "filetime":  134398702659385551,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  [
+                                                "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-rename.exe",
+                                                "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-rename-final.exe",
+                                                "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-rename-final.exe"
+                                            ],
+                                   "pid":  [
+                                               20028,
+                                               20372,
+                                               17556
+                                           ],
+                                   "filetime":  [
+                                                    134398703055525424,
+                                                    134398707288633437,
+                                                    134398707580870690
+                                                ],
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe",
+                                   "pid":  19824,
+                                   "filetime":  134398703045460711,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               }
+                           ]
+}

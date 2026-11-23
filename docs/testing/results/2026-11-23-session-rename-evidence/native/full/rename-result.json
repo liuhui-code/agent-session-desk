@@ -1,0 +1,156 @@
+{
+    "geometry":  [
+                     {
+                         "label":  "rename-background-120",
+                         "columns":  120,
+                         "bottom":  21,
+                         "top":  12,
+                         "outer_width":  46,
+                         "outer_x":  37
+                     },
+                     {
+                         "label":  "rename-background-120",
+                         "columns":  120,
+                         "bottom":  21,
+                         "top":  12,
+                         "outer_width":  46,
+                         "outer_x":  37
+                     },
+                     {
+                         "label":  "rename-prefill-63",
+                         "columns":  63,
+                         "bottom":  17,
+                         "top":  8,
+                         "outer_width":  46,
+                         "outer_x":  8
+                     },
+                     {
+                         "label":  "rename-prefill-49",
+                         "columns":  49,
+                         "bottom":  17,
+                         "top":  8,
+                         "outer_width":  41,
+                         "outer_x":  4
+                     }
+                 ],
+    "after":  [
+                  {
+                      "session_id":  "5fd0edb33b4d93d8ef226bb63dc55878",
+                      "run_id":  "f495fc85bae60d7def15abb977f45c09",
+                      "backend_id":  "asd_5fd0edb33b4d93d8ef226bb63dc55878_f495fc85bae60d7def15abb977f45c09",
+                      "title":  "Copy A",
+                      "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                      "terminal_state":  "available"
+                  },
+                  {
+                      "session_id":  "d98649a419b2384b5e6c7e14c728698f",
+                      "run_id":  "b1e7f4815237d3caa1a9ce775e9c6802",
+                      "backend_id":  "asd_d98649a419b2384b5e6c7e14c728698f_b1e7f4815237d3caa1a9ce775e9c6802",
+                      "title":  "Copy A",
+                      "title_revision":  3,
+                      "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                      "terminal_state":  "available"
+                  },
+                  {
+                      "session_id":  "7a846e8c0c0dfa4191294c0870175a82",
+                      "run_id":  "2a9fc9a5ef7257f02905c6b345b3a880",
+                      "backend_id":  "asd_7a846e8c0c0dfa4191294c0870175a82_2a9fc9a5ef7257f02905c6b345b3a880",
+                      "title":  "中文会话",
+                      "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                      "terminal_state":  "available"
+                  }
+              ],
+    "utc":  "2026-11-23T01:26:05.2442476Z",
+    "ui_processes":  [
+                         {
+                             "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-rename.exe",
+                             "pid":  20028,
+                             "filetime":  134398703055525424,
+                             "session":  2
+                         },
+                         {
+                             "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-rename-final.exe",
+                             "pid":  20372,
+                             "filetime":  134398707288633437,
+                             "session":  2
+                         },
+                         {
+                             "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-rename-final.exe",
+                             "pid":  17556,
+                             "filetime":  134398707580870690,
+                             "session":  2
+                         }
+                     ],
+    "commands":  154,
+    "scope":  "Three ordinary shells, background rename, duplicate labels, cancel, 120/63/49 columns, original drafts/PIDs/FILETIMEs and exact Enter after UI reopen; no real agent or physical IME claim",
+    "before_processes":  [
+                             {
+                                 "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                 "pid":  3528,
+                                 "filetime":  134398702649976766,
+                                 "label":  "Copy A"
+                             },
+                             {
+                                 "label":  "Copy B",
+                                 "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                 "pid":  17392,
+                                 "filetime":  134398702654416016
+                             },
+                             {
+                                 "pid":  18440,
+                                 "label":  "中文会话",
+                                 "filetime":  134398702659385551,
+                                 "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe"
+                             }
+                         ],
+    "before":  {
+                   "value":  [
+                                 {
+                                     "session_id":  "5fd0edb33b4d93d8ef226bb63dc55878",
+                                     "run_id":  "f495fc85bae60d7def15abb977f45c09",
+                                     "backend_id":  "asd_5fd0edb33b4d93d8ef226bb63dc55878_f495fc85bae60d7def15abb977f45c09",
+                                     "title":  "Copy A",
+                                     "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                     "terminal_state":  "available"
+                                 },
+                                 {
+                                     "session_id":  "d98649a419b2384b5e6c7e14c728698f",
+                                     "run_id":  "b1e7f4815237d3caa1a9ce775e9c6802",
+                                     "backend_id":  "asd_d98649a419b2384b5e6c7e14c728698f_b1e7f4815237d3caa1a9ce775e9c6802",
+                                     "title":  "Copy B",
+                                     "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                     "terminal_state":  "available"
+                                 },
+                                 {
+                                     "session_id":  "7a846e8c0c0dfa4191294c0870175a82",
+                                     "run_id":  "2a9fc9a5ef7257f02905c6b345b3a880",
+                                     "backend_id":  "asd_7a846e8c0c0dfa4191294c0870175a82_2a9fc9a5ef7257f02905c6b345b3a880",
+                                     "title":  "中文会话",
+                                     "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                     "terminal_state":  "available"
+                                 }
+                             ],
+                   "Count":  3
+               },
+    "after_processes":  [
+                            {
+                                "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                "pid":  3528,
+                                "filetime":  134398702649976766,
+                                "label":  "Copy A"
+                            },
+                            {
+                                "label":  "Copy B",
+                                "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                "pid":  17392,
+                                "filetime":  134398702654416016
+                            },
+                            {
+                                "pid":  18440,
+                                "label":  "中文会话",
+                                "filetime":  134398702659385551,
+                                "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe"
+                            }
+                        ],
+    "result":  "passed"
+}

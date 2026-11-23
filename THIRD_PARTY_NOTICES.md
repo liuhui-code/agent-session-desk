@@ -44,3 +44,5 @@ ADR-0016 新增直接依赖 `charm.land/bubbles/v2 v2.2.2`：MIT，Copyright (c)
 ADR-0019 现允许通过显式 `--terminal-bundle` 在开发配置中选择上述补丁构建和同一固定 SDK，仍不包含二进制或静默替换官方默认安装依赖。MIT 归属继续适用；发布包的实际许可收集与兼容验收仍开放。
 
 ADR-0020 新增选择性改编 Agent Deck 同一固定 MIT 提交的 `internal/ui/search.go` 与 `internal/session/discovery.go`：本地会话搜索弹窗及有限 Unicode 容错排序。目标文件保留来源头，精确来源哈希和修改点见复用清单；没有迁入 v1 组件依赖或上游整个搜索／Recall 系统。
+
+ADR-0021 选择性改编同一固定提交的 `internal/ui/group_dialog.go` 重命名预填／CursorEnd／Enter-Esc 和居中弹窗，以及 `styles.go` 的紫色、surface 与留白；`home.go` 管理 r 作为交互参考。产品独立显示名、版本冲突、身份与输入排空由本项目实现，不迁入上游分组／远程模型或 v1 依赖。原 MIT 许可继续适用，来源指纹见复用清单及重命名报告。

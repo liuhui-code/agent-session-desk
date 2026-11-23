@@ -30,6 +30,7 @@ const (
 	workspaceLaunch
 	workspaceSettings
 	workspaceSearch
+	workspaceRename
 )
 
 type workspaceState struct {
@@ -126,7 +127,7 @@ func (m *Model) workspaceSessions() tea.Cmd {
 
 func (m *Model) connectWorkspace() tea.Cmd {
 	w := m.workspace
-	if len(w.tabs) == 0 || m.closed || m.attaching || m.history.open || m.help || m.launch != nil || m.densitySettings != nil || m.search != nil {
+	if len(w.tabs) == 0 || m.closed || m.attaching || m.history.open || m.help || m.launch != nil || m.densitySettings != nil || m.search != nil || m.rename != nil {
 		return nil
 	}
 	g := m.workspaceGeometry()

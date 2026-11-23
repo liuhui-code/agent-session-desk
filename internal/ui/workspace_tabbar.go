@@ -17,17 +17,14 @@ func (m *Model) workspaceTabCells() []workspaceTabCell {
 	available := m.workspaceTabBudget()
 	labels := make([]string, len(w.tabs))
 	closeOffsets := make([]int, len(w.tabs))
+	peers := m.titlePeers()
 	for i, tab := range w.tabs {
 		style := m.styles.tab
 		if i == w.active {
 			style = m.styles.tabActive
 		}
-		title := label(tab.session.Title)
-		if title == "" {
-			title = label(tab.session.ID)
-		}
 		titleBudget := max(0, min(m.tokens.workspace.maxTabWidth, available)-style.GetHorizontalFrameSize()-m.tokens.layout.menuGap-lipgloss.Width(m.tokens.marks.close))
-		title = cellTruncate(title, titleBudget, m.tokens.marks.ellipsis)
+		title := m.sessionTitle(tab.session, peers, titleBudget)
 		labels[i] = style.Render(title + strings.Repeat(" ", m.tokens.layout.menuGap) + m.tokens.marks.close)
 		closeOffsets[i] = lipgloss.Width(labels[i]) - style.GetPaddingRight() - lipgloss.Width(m.tokens.marks.close)
 	}

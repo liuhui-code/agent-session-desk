@@ -35,6 +35,8 @@ func (m *Model) finishWorkspaceNavigation() tea.Cmd {
 		m.openDensitySettings()
 	case workspaceSearch:
 		return m.openSessionSearch()
+	case workspaceRename:
+		return m.openSessionRename()
 	}
 	return nil
 }

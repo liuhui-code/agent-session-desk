@@ -42,7 +42,7 @@ func validateMetadata(ctx context.Context, db *sql.DB) (int, error) {
 	if err = tx.QueryRowContext(ctx, "PRAGMA user_version").Scan(&version); err != nil {
 		return 0, err
 	}
-	if app != 0x41534431 || (version != 1 && version != 2) {
+	if app != 0x41534431 || (version != 1 && version != 2 && version != 3) {
 		return 0, fmt.Errorf("unsupported metadata application/schema; source preserved")
 	}
 	var integrity string
@@ -60,8 +60,11 @@ func validateMetadata(ctx context.Context, db *sql.DB) (int, error) {
 		return 0, fmt.Errorf("metadata requires DELETE journal mode")
 	}
 	queries := []string{`SELECT s.scope,s.id,s.title,s.command,r.id,r.session_id,r.backend_id,r.recorded_ns,r.stopped_ns FROM sessions s JOIN runs r ON s.scope=r.scope AND s.id=r.session_id LIMIT 0`}
-	if version == 2 {
+	if version >= 2 {
 		queries = append(queries, `SELECT scope,run_id,pane_id,source,observed_ns FROM pane_exits LIMIT 0`)
+	}
+	if version >= 3 {
+		queries = append(queries, `SELECT scope,session_id,title,revision FROM session_names LIMIT 0`)
 	}
 	for _, query := range queries {
 		rows, e := tx.QueryContext(ctx, query)

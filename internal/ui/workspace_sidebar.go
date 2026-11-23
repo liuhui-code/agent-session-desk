@@ -56,10 +56,6 @@ func (m *Model) workspaceSidebarRows(width, height int) int {
 
 func (m *Model) workspaceSidebarCard(index, width, rowLines int) []string {
 	s := m.sessions[index]
-	title := label(s.Title)
-	if title == "" {
-		title = label(s.ID)
-	}
 	prefix := strings.Repeat(" ", m.tokens.layout.rowPrefixWidth)
 	selected := index == m.cursor
 	if selected {
@@ -70,6 +66,7 @@ func (m *Model) workspaceSidebarCard(index, width, rowLines int) []string {
 	if active {
 		prefix = m.tokens.sidebar.active
 	}
+	title := m.sessionTitle(s, m.sessions, max(0, width-lipgloss.Width(prefix)))
 	fit := func(text string) string {
 		text = cellTruncate(text, width, m.tokens.marks.ellipsis)
 		return text + strings.Repeat(" ", max(0, width-lipgloss.Width(text)))

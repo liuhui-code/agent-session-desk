@@ -1,0 +1,555 @@
+=== RUN   TestHistoryOpensOnDemandAndEnterNeverAttaches
+--- PASS: TestHistoryOpensOnDemandAndEnterNeverAttaches (0.00s)
+=== RUN   TestHistoryCancellationDropsLateResultsAndBoundsRequests
+--- PASS: TestHistoryCancellationDropsLateResultsAndBoundsRequests (0.00s)
+=== RUN   TestHistoryPagingKeepsChosenRecordVisibleAndPreservesLiveCursor
+--- PASS: TestHistoryPagingKeepsChosenRecordVisibleAndPreservesLiveCursor (0.00s)
+=== RUN   TestHistoryDetailsWrapScrollAndKeepObservationsSeparate
+--- PASS: TestHistoryDetailsWrapScrollAndKeepObservationsSeparate (0.00s)
+=== RUN   TestHistoryRefreshPreservesRunIdentityAndHandlesErrors
+--- PASS: TestHistoryRefreshPreservesRunIdentityAndHandlesErrors (0.00s)
+=== RUN   TestHistoryRemainsAccessibleWhenLiveBackendFailsAndQuitCancelsRead
+--- PASS: TestHistoryRemainsAccessibleWhenLiveBackendFailsAndQuitCancelsRead (0.00s)
+=== RUN   TestHistoryViewportBoundsForListDetailAndTokenSpacing
+--- PASS: TestHistoryViewportBoundsForListDetailAndTokenSpacing (0.02s)
+=== RUN   TestLaunchDialogCreatesGenericTerminalTabWithLiteralArguments
+--- PASS: TestLaunchDialogCreatesGenericTerminalTabWithLiteralArguments (0.02s)
+=== RUN   TestLaunchDialogRejectsInvalidArgumentsAndCancelsWithoutStarting
+--- PASS: TestLaunchDialogRejectsInvalidArgumentsAndCancelsWithoutStarting (0.00s)
+=== RUN   TestLaunchDialogFitsEveryBoundedViewport
+--- PASS: TestLaunchDialogFitsEveryBoundedViewport (0.03s)
+=== RUN   TestLaunchDialogUncertainStartCannotCreateDuplicateRun
+--- PASS: TestLaunchDialogUncertainStartCannotCreateDuplicateRun (0.00s)
+=== RUN   TestLaunchDialogSurfaceFillsTrailingLabelCells
+--- PASS: TestLaunchDialogSurfaceFillsTrailingLabelCells (0.00s)
+=== RUN   TestExitedPaneCanBeInspectedWithoutAttaching
+--- PASS: TestExitedPaneCanBeInspectedWithoutAttaching (0.00s)
+=== RUN   TestSelectionCancelsCaptureAndRejectsLatePreview
+--- PASS: TestSelectionCancelsCaptureAndRejectsLatePreview (0.00s)
+=== RUN   TestRestartedRunCannotReceiveOldPreview
+--- PASS: TestRestartedRunCannotReceiveOldPreview (0.00s)
+=== RUN   TestReorderingPreservesStableSelection
+--- PASS: TestReorderingPreservesStableSelection (0.00s)
+=== RUN   TestEmptyListAndPastedKeysNeverAttachOrQuit
+--- PASS: TestEmptyListAndPastedKeysNeverAttachOrQuit (0.00s)
+=== RUN   TestV2KeyReleaseAndRepeatedEnterDoNotDuplicateActions
+--- PASS: TestV2KeyReleaseAndRepeatedEnterDoNotDuplicateActions (0.00s)
+=== RUN   TestPreviewFailurePreservesManagementKeys
+--- PASS: TestPreviewFailurePreservesManagementKeys (0.00s)
+=== RUN   TestAttachFreezesTargetAndDiscardsPreAttachList
+--- PASS: TestAttachFreezesTargetAndDiscardsPreAttachList (0.00s)
+=== RUN   TestHiddenPreviewDoesNotPoll
+--- PASS: TestHiddenPreviewDoesNotPoll (0.00s)
+=== RUN   TestQuitCancelsWorkWithoutStoppingSession
+--- PASS: TestQuitCancelsWorkWithoutStoppingSession (0.00s)
+=== RUN   TestSessionRenameSurfaceFillsEveryInteriorCellAfterChildStyleResets
+--- PASS: TestSessionRenameSurfaceFillsEveryInteriorCellAfterChildStyleResets (0.03s)
+=== RUN   TestSessionRenameCancelKeepsPrefilledNameAndRealCursorAtEnd
+--- PASS: TestSessionRenameCancelKeepsPrefilledNameAndRealCursorAtEnd (0.00s)
+=== RUN   TestSessionRenameWaitsForAcceptedInputAndRejectsReplacedRun
+--- PASS: TestSessionRenameWaitsForAcceptedInputAndRejectsReplacedRun (0.01s)
+=== RUN   TestSessionRenameErrorRequiresReconcileInsteadOfRepeatedSubmit
+--- PASS: TestSessionRenameErrorRequiresReconcileInsteadOfRepeatedSubmit (0.00s)
+=== RUN   TestDuplicateSessionNamesExposeDistinctIdentitiesInTabsListAndSearch
+--- PASS: TestDuplicateSessionNamesExposeDistinctIdentitiesInTabsListAndSearch (0.00s)
+=== RUN   TestSessionRenameFitsSourceGeometryAndBoundedWindows
+--- PASS: TestSessionRenameFitsSourceGeometryAndBoundedWindows (0.01s)
+=== RUN   TestSessionRenameRejectsMultilinePasteAndKeepsTerminalShortcutsLiteral
+--- PASS: TestSessionRenameRejectsMultilinePasteAndKeepsTerminalShortcutsLiteral (0.00s)
+=== RUN   TestManagementRefreshReloadsNamesChangedByAnotherEditor
+--- PASS: TestManagementRefreshReloadsNamesChangedByAnotherEditor (0.01s)
+=== RUN   TestSessionRenameChangesSelectedBackgroundLabelWithoutSwitchingOrTerminalInput
+--- PASS: TestSessionRenameChangesSelectedBackgroundLabelWithoutSwitchingOrTerminalInput (0.02s)
+=== RUN   TestSessionSearchPreservesPinnedPlaceholderAndKeyboardHintStyles
+--- PASS: TestSessionSearchPreservesPinnedPlaceholderAndKeyboardHintStyles (0.00s)
+=== RUN   TestSessionSearchOpensOriginalRunWithoutSendingQueryToTerminal
+--- PASS: TestSessionSearchOpensOriginalRunWithoutSendingQueryToTerminal (0.01s)
+=== RUN   TestSessionSearchWaitsForAcceptedTerminalWrite
+--- PASS: TestSessionSearchWaitsForAcceptedTerminalWrite (0.01s)
+=== RUN   TestSessionSearchKeepsSelectionByRunWhenDiscoveryReorders
+--- PASS: TestSessionSearchKeepsSelectionByRunWhenDiscoveryReorders (0.01s)
+=== RUN   TestSessionSearchKeepsTerminalSlashAndModalNavigationSeparate
+--- PASS: TestSessionSearchKeepsTerminalSlashAndModalNavigationSeparate (0.01s)
+=== RUN   TestSessionSearchFollowsRankedResultsAndFitsBoundedWindows
+--- PASS: TestSessionSearchFollowsRankedResultsAndFitsBoundedWindows (0.01s)
+=== RUN   TestSessionSearchRanksExactBeforeFuzzyAndKeepsUnicodeRules
+=== RUN   TestSessionSearchRanksExactBeforeFuzzyAndKeepsUnicodeRules/exact_before_typo
+=== RUN   TestSessionSearchRanksExactBeforeFuzzyAndKeepsUnicodeRules/program_path
+=== RUN   TestSessionSearchRanksExactBeforeFuzzyAndKeepsUnicodeRules/short_Unicode_exact
+=== RUN   TestSessionSearchRanksExactBeforeFuzzyAndKeepsUnicodeRules/no_canonical_normalization
+=== RUN   TestSessionSearchRanksExactBeforeFuzzyAndKeepsUnicodeRules/empty_query_original_order
+=== RUN   TestSessionSearchRanksExactBeforeFuzzyAndKeepsUnicodeRules/no_result
+--- PASS: TestSessionSearchRanksExactBeforeFuzzyAndKeepsUnicodeRules (0.04s)
+    --- PASS: TestSessionSearchRanksExactBeforeFuzzyAndKeepsUnicodeRules/exact_before_typo (0.01s)
+    --- PASS: TestSessionSearchRanksExactBeforeFuzzyAndKeepsUnicodeRules/program_path (0.01s)
+    --- PASS: TestSessionSearchRanksExactBeforeFuzzyAndKeepsUnicodeRules/short_Unicode_exact (0.01s)
+    --- PASS: TestSessionSearchRanksExactBeforeFuzzyAndKeepsUnicodeRules/no_canonical_normalization (0.01s)
+    --- PASS: TestSessionSearchRanksExactBeforeFuzzyAndKeepsUnicodeRules/empty_query_original_order (0.01s)
+    --- PASS: TestSessionSearchRanksExactBeforeFuzzyAndKeepsUnicodeRules/no_result (0.01s)
+=== RUN   TestSessionSearchDoesNotRetargetWhenSelectedRunChangesDuringRefresh
+--- PASS: TestSessionSearchDoesNotRetargetWhenSelectedRunChangesDuringRefresh (0.01s)
+=== RUN   TestDesignTokensReachVisibleListAndHelp
+--- PASS: TestDesignTokensReachVisibleListAndHelp (0.00s)
+=== RUN   TestTokenLayoutChangesKeepViewportAndModelsIndependent
+--- PASS: TestTokenLayoutChangesKeepViewportAndModelsIndependent (0.00s)
+=== RUN   TestFramesStayInsideViewport
+=== RUN   TestFramesStayInsideViewport/1x1/help=false
+=== RUN   TestFramesStayInsideViewport/1x1/help=true
+=== RUN   TestFramesStayInsideViewport/1x4/help=false
+=== RUN   TestFramesStayInsideViewport/1x4/help=true
+=== RUN   TestFramesStayInsideViewport/1x5/help=false
+=== RUN   TestFramesStayInsideViewport/1x5/help=true
+=== RUN   TestFramesStayInsideViewport/1x8/help=false
+=== RUN   TestFramesStayInsideViewport/1x8/help=true
+=== RUN   TestFramesStayInsideViewport/1x10/help=false
+=== RUN   TestFramesStayInsideViewport/1x10/help=true
+=== RUN   TestFramesStayInsideViewport/1x24/help=false
+=== RUN   TestFramesStayInsideViewport/1x24/help=true
+=== RUN   TestFramesStayInsideViewport/1x40/help=false
+=== RUN   TestFramesStayInsideViewport/1x40/help=true
+=== RUN   TestFramesStayInsideViewport/2x1/help=false
+=== RUN   TestFramesStayInsideViewport/2x1/help=true
+=== RUN   TestFramesStayInsideViewport/2x4/help=false
+=== RUN   TestFramesStayInsideViewport/2x4/help=true
+=== RUN   TestFramesStayInsideViewport/2x5/help=false
+=== RUN   TestFramesStayInsideViewport/2x5/help=true
+=== RUN   TestFramesStayInsideViewport/2x8/help=false
+=== RUN   TestFramesStayInsideViewport/2x8/help=true
+=== RUN   TestFramesStayInsideViewport/2x10/help=false
+=== RUN   TestFramesStayInsideViewport/2x10/help=true
+=== RUN   TestFramesStayInsideViewport/2x24/help=false
+=== RUN   TestFramesStayInsideViewport/2x24/help=true
+=== RUN   TestFramesStayInsideViewport/2x40/help=false
+=== RUN   TestFramesStayInsideViewport/2x40/help=true
+=== RUN   TestFramesStayInsideViewport/10x1/help=false
+=== RUN   TestFramesStayInsideViewport/10x1/help=true
+=== RUN   TestFramesStayInsideViewport/10x4/help=false
+=== RUN   TestFramesStayInsideViewport/10x4/help=true
+=== RUN   TestFramesStayInsideViewport/10x5/help=false
+=== RUN   TestFramesStayInsideViewport/10x5/help=true
+=== RUN   TestFramesStayInsideViewport/10x8/help=false
+=== RUN   TestFramesStayInsideViewport/10x8/help=true
+=== RUN   TestFramesStayInsideViewport/10x10/help=false
+=== RUN   TestFramesStayInsideViewport/10x10/help=true
+=== RUN   TestFramesStayInsideViewport/10x24/help=false
+=== RUN   TestFramesStayInsideViewport/10x24/help=true
+=== RUN   TestFramesStayInsideViewport/10x40/help=false
+=== RUN   TestFramesStayInsideViewport/10x40/help=true
+=== RUN   TestFramesStayInsideViewport/22x1/help=false
+=== RUN   TestFramesStayInsideViewport/22x1/help=true
+=== RUN   TestFramesStayInsideViewport/22x4/help=false
+=== RUN   TestFramesStayInsideViewport/22x4/help=true
+=== RUN   TestFramesStayInsideViewport/22x5/help=false
+=== RUN   TestFramesStayInsideViewport/22x5/help=true
+=== RUN   TestFramesStayInsideViewport/22x8/help=false
+=== RUN   TestFramesStayInsideViewport/22x8/help=true
+=== RUN   TestFramesStayInsideViewport/22x10/help=false
+=== RUN   TestFramesStayInsideViewport/22x10/help=true
+=== RUN   TestFramesStayInsideViewport/22x24/help=false
+=== RUN   TestFramesStayInsideViewport/22x24/help=true
+=== RUN   TestFramesStayInsideViewport/22x40/help=false
+=== RUN   TestFramesStayInsideViewport/22x40/help=true
+=== RUN   TestFramesStayInsideViewport/49x1/help=false
+=== RUN   TestFramesStayInsideViewport/49x1/help=true
+=== RUN   TestFramesStayInsideViewport/49x4/help=false
+=== RUN   TestFramesStayInsideViewport/49x4/help=true
+=== RUN   TestFramesStayInsideViewport/49x5/help=false
+=== RUN   TestFramesStayInsideViewport/49x5/help=true
+=== RUN   TestFramesStayInsideViewport/49x8/help=false
+=== RUN   TestFramesStayInsideViewport/49x8/help=true
+=== RUN   TestFramesStayInsideViewport/49x10/help=false
+=== RUN   TestFramesStayInsideViewport/49x10/help=true
+=== RUN   TestFramesStayInsideViewport/49x24/help=false
+=== RUN   TestFramesStayInsideViewport/49x24/help=true
+=== RUN   TestFramesStayInsideViewport/49x40/help=false
+=== RUN   TestFramesStayInsideViewport/49x40/help=true
+=== RUN   TestFramesStayInsideViewport/50x1/help=false
+=== RUN   TestFramesStayInsideViewport/50x1/help=true
+=== RUN   TestFramesStayInsideViewport/50x4/help=false
+=== RUN   TestFramesStayInsideViewport/50x4/help=true
+=== RUN   TestFramesStayInsideViewport/50x5/help=false
+=== RUN   TestFramesStayInsideViewport/50x5/help=true
+=== RUN   TestFramesStayInsideViewport/50x8/help=false
+=== RUN   TestFramesStayInsideViewport/50x8/help=true
+=== RUN   TestFramesStayInsideViewport/50x10/help=false
+=== RUN   TestFramesStayInsideViewport/50x10/help=true
+=== RUN   TestFramesStayInsideViewport/50x24/help=false
+=== RUN   TestFramesStayInsideViewport/50x24/help=true
+=== RUN   TestFramesStayInsideViewport/50x40/help=false
+=== RUN   TestFramesStayInsideViewport/50x40/help=true
+=== RUN   TestFramesStayInsideViewport/79x1/help=false
+=== RUN   TestFramesStayInsideViewport/79x1/help=true
+=== RUN   TestFramesStayInsideViewport/79x4/help=false
+=== RUN   TestFramesStayInsideViewport/79x4/help=true
+=== RUN   TestFramesStayInsideViewport/79x5/help=false
+=== RUN   TestFramesStayInsideViewport/79x5/help=true
+=== RUN   TestFramesStayInsideViewport/79x8/help=false
+=== RUN   TestFramesStayInsideViewport/79x8/help=true
+=== RUN   TestFramesStayInsideViewport/79x10/help=false
+=== RUN   TestFramesStayInsideViewport/79x10/help=true
+=== RUN   TestFramesStayInsideViewport/79x24/help=false
+=== RUN   TestFramesStayInsideViewport/79x24/help=true
+=== RUN   TestFramesStayInsideViewport/79x40/help=false
+=== RUN   TestFramesStayInsideViewport/79x40/help=true
+=== RUN   TestFramesStayInsideViewport/80x1/help=false
+=== RUN   TestFramesStayInsideViewport/80x1/help=true
+=== RUN   TestFramesStayInsideViewport/80x4/help=false
+=== RUN   TestFramesStayInsideViewport/80x4/help=true
+=== RUN   TestFramesStayInsideViewport/80x5/help=false
+=== RUN   TestFramesStayInsideViewport/80x5/help=true
+=== RUN   TestFramesStayInsideViewport/80x8/help=false
+=== RUN   TestFramesStayInsideViewport/80x8/help=true
+=== RUN   TestFramesStayInsideViewport/80x10/help=false
+=== RUN   TestFramesStayInsideViewport/80x10/help=true
+=== RUN   TestFramesStayInsideViewport/80x24/help=false
+=== RUN   TestFramesStayInsideViewport/80x24/help=true
+=== RUN   TestFramesStayInsideViewport/80x40/help=false
+=== RUN   TestFramesStayInsideViewport/80x40/help=true
+=== RUN   TestFramesStayInsideViewport/100x1/help=false
+=== RUN   TestFramesStayInsideViewport/100x1/help=true
+=== RUN   TestFramesStayInsideViewport/100x4/help=false
+=== RUN   TestFramesStayInsideViewport/100x4/help=true
+=== RUN   TestFramesStayInsideViewport/100x5/help=false
+=== RUN   TestFramesStayInsideViewport/100x5/help=true
+=== RUN   TestFramesStayInsideViewport/100x8/help=false
+=== RUN   TestFramesStayInsideViewport/100x8/help=true
+=== RUN   TestFramesStayInsideViewport/100x10/help=false
+=== RUN   TestFramesStayInsideViewport/100x10/help=true
+=== RUN   TestFramesStayInsideViewport/100x24/help=false
+=== RUN   TestFramesStayInsideViewport/100x24/help=true
+=== RUN   TestFramesStayInsideViewport/100x40/help=false
+=== RUN   TestFramesStayInsideViewport/100x40/help=true
+=== RUN   TestFramesStayInsideViewport/160x1/help=false
+=== RUN   TestFramesStayInsideViewport/160x1/help=true
+=== RUN   TestFramesStayInsideViewport/160x4/help=false
+=== RUN   TestFramesStayInsideViewport/160x4/help=true
+=== RUN   TestFramesStayInsideViewport/160x5/help=false
+=== RUN   TestFramesStayInsideViewport/160x5/help=true
+=== RUN   TestFramesStayInsideViewport/160x8/help=false
+=== RUN   TestFramesStayInsideViewport/160x8/help=true
+=== RUN   TestFramesStayInsideViewport/160x10/help=false
+=== RUN   TestFramesStayInsideViewport/160x10/help=true
+=== RUN   TestFramesStayInsideViewport/160x24/help=false
+=== RUN   TestFramesStayInsideViewport/160x24/help=true
+=== RUN   TestFramesStayInsideViewport/160x40/help=false
+=== RUN   TestFramesStayInsideViewport/160x40/help=true
+--- PASS: TestFramesStayInsideViewport (0.03s)
+    --- PASS: TestFramesStayInsideViewport/1x1/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/1x1/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/1x4/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/1x4/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/1x5/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/1x5/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/1x8/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/1x8/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/1x10/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/1x10/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/1x24/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/1x24/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/1x40/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/1x40/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/2x1/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/2x1/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/2x4/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/2x4/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/2x5/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/2x5/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/2x8/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/2x8/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/2x10/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/2x10/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/2x24/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/2x24/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/2x40/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/2x40/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/10x1/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/10x1/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/10x4/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/10x4/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/10x5/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/10x5/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/10x8/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/10x8/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/10x10/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/10x10/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/10x24/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/10x24/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/10x40/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/10x40/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/22x1/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/22x1/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/22x4/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/22x4/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/22x5/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/22x5/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/22x8/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/22x8/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/22x10/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/22x10/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/22x24/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/22x24/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/22x40/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/22x40/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/49x1/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/49x1/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/49x4/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/49x4/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/49x5/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/49x5/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/49x8/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/49x8/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/49x10/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/49x10/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/49x24/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/49x24/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/49x40/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/49x40/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/50x1/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/50x1/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/50x4/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/50x4/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/50x5/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/50x5/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/50x8/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/50x8/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/50x10/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/50x10/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/50x24/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/50x24/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/50x40/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/50x40/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/79x1/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/79x1/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/79x4/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/79x4/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/79x5/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/79x5/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/79x8/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/79x8/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/79x10/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/79x10/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/79x24/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/79x24/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/79x40/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/79x40/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/80x1/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/80x1/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/80x4/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/80x4/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/80x5/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/80x5/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/80x8/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/80x8/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/80x10/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/80x10/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/80x24/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/80x24/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/80x40/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/80x40/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/100x1/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/100x1/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/100x4/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/100x4/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/100x5/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/100x5/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/100x8/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/100x8/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/100x10/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/100x10/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/100x24/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/100x24/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/100x40/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/100x40/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/160x1/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/160x1/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/160x4/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/160x4/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/160x5/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/160x5/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/160x8/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/160x8/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/160x10/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/160x10/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/160x24/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/160x24/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/160x40/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/160x40/help=true (0.00s)
+=== RUN   TestSelectedRowVisibleAtListBoundaries
+--- PASS: TestSelectedRowVisibleAtListBoundaries (0.00s)
+=== RUN   TestPreviewControlsCannotReachManagerTerminal
+--- PASS: TestPreviewControlsCannotReachManagerTerminal (0.00s)
+=== RUN   TestPreviewRetentionIsBoundedAndKeepsTail
+--- PASS: TestPreviewRetentionIsBoundedAndKeepsTail (0.00s)
+=== RUN   TestWorkspaceNewTabButtonOpensLaunchDialogFromTerminalFocus
+--- PASS: TestWorkspaceNewTabButtonOpensLaunchDialogFromTerminalFocus (0.01s)
+=== RUN   TestWorkspaceCloseButtonRemovesInactiveViewWithoutInterruptingActiveInput
+--- PASS: TestWorkspaceCloseButtonRemovesInactiveViewWithoutInterruptingActiveInput (0.01s)
+=== RUN   TestWorkspaceLongTabTitleKeepsCloseAndNewButtonsReachable
+--- PASS: TestWorkspaceLongTabTitleKeepsCloseAndNewButtonsReachable (0.01s)
+=== RUN   TestWorkspaceFinishesIssuedClipboardBeforeReadingNewTabCopies
+--- PASS: TestWorkspaceFinishesIssuedClipboardBeforeReadingNewTabCopies (0.04s)
+=== RUN   TestWorkspaceForwardsClipboardThroughActualTeaProgramInOrder
+--- PASS: TestWorkspaceForwardsClipboardThroughActualTeaProgramInOrder (0.03s)
+=== RUN   TestWorkspaceCopyEntryIsSemanticAndTerminalVStaysLiteral
+--- PASS: TestWorkspaceCopyEntryIsSemanticAndTerminalVStaysLiteral (0.01s)
+=== RUN   TestWorkspaceNativeSearchPromptKeepsCursorAndUnicodeInputVisible
+=== RUN   TestWorkspaceNativeSearchPromptKeepsCursorAndUnicodeInputVisible/120
+=== RUN   TestWorkspaceNativeSearchPromptKeepsCursorAndUnicodeInputVisible/27
+--- PASS: TestWorkspaceNativeSearchPromptKeepsCursorAndUnicodeInputVisible (0.02s)
+    --- PASS: TestWorkspaceNativeSearchPromptKeepsCursorAndUnicodeInputVisible/120 (0.01s)
+    --- PASS: TestWorkspaceNativeSearchPromptKeepsCursorAndUnicodeInputVisible/27 (0.01s)
+=== RUN   TestWorkspaceOldClipboardEventCannotReachNewTab
+--- PASS: TestWorkspaceOldClipboardEventCannotReachNewTab (0.01s)
+=== RUN   TestWorkspaceNativeCopyCursorIsVisibleWithoutRestoringLiveCursor
+--- PASS: TestWorkspaceNativeCopyCursorIsVisibleWithoutRestoringLiveCursor (0.01s)
+=== RUN   TestWorkspaceDensitySettingsApplyFullCardsWithoutTerminalInput
+--- PASS: TestWorkspaceDensitySettingsApplyFullCardsWithoutTerminalInput (0.01s)
+=== RUN   TestWorkspaceDensitySettingsSelectedChoiceRemainsVisibleInShortNarrowView
+--- PASS: TestWorkspaceDensitySettingsSelectedChoiceRemainsVisibleInShortNarrowView (0.01s)
+=== RUN   TestWorkspaceDensitySavesSerializeLatestChoiceBeforeClosing
+--- PASS: TestWorkspaceDensitySavesSerializeLatestChoiceBeforeClosing (0.02s)
+=== RUN   TestWorkspaceDensitySaveFailureKeepsAppliedChoiceAndVisibleError
+--- PASS: TestWorkspaceDensitySaveFailureKeepsAppliedChoiceAndVisibleError (0.01s)
+=== RUN   TestWorkspaceDensityOpeningWaitsForAcceptedTerminalWrite
+--- PASS: TestWorkspaceDensityOpeningWaitsForAcceptedTerminalWrite (0.01s)
+=== RUN   TestWorkspaceDensityAutoUsesCurrentBudgetWithoutOscillation
+--- PASS: TestWorkspaceDensityAutoUsesCurrentBudgetWithoutOscillation (0.01s)
+=== RUN   TestWorkspaceDensitySpaceCyclesFromAutoToFull
+--- PASS: TestWorkspaceDensitySpaceCyclesFromAutoToFull (0.01s)
+=== RUN   TestWorkspacePastePreservesUnicodeAndNewlinesWithoutEnter
+--- PASS: TestWorkspacePastePreservesUnicodeAndNewlinesWithoutEnter (0.01s)
+=== RUN   TestWorkspaceOpeningHistoryDrainsPreviouslyTypedInput
+--- PASS: TestWorkspaceOpeningHistoryDrainsPreviouslyTypedInput (0.01s)
+=== RUN   TestWorkspacePollRefreshesOnlyVisibleActiveTerminal
+--- PASS: TestWorkspacePollRefreshesOnlyVisibleActiveTerminal (0.01s)
+=== RUN   TestWorkspaceClickSelectsVisibleTabWithoutSendingInput
+--- PASS: TestWorkspaceClickSelectsVisibleTabWithoutSendingInput (0.01s)
+=== RUN   TestWorkspaceCloseWaitsForInputBufferedDuringConnect
+--- PASS: TestWorkspaceCloseWaitsForInputBufferedDuringConnect (0.01s)
+=== RUN   TestWorkspaceListClickSelectsThenEnterOpensExactRun
+=== RUN   TestWorkspaceListClickSelectsThenEnterOpensExactRun/120
+=== RUN   TestWorkspaceListClickSelectsThenEnterOpensExactRun/60
+=== RUN   TestWorkspaceListClickSelectsThenEnterOpensExactRun/40
+--- PASS: TestWorkspaceListClickSelectsThenEnterOpensExactRun (0.04s)
+    --- PASS: TestWorkspaceListClickSelectsThenEnterOpensExactRun/120 (0.02s)
+    --- PASS: TestWorkspaceListClickSelectsThenEnterOpensExactRun/60 (0.01s)
+    --- PASS: TestWorkspaceListClickSelectsThenEnterOpensExactRun/40 (0.01s)
+=== RUN   TestWorkspaceListMouseUsesVisibleRowsAndIgnoresIndicators
+--- PASS: TestWorkspaceListMouseUsesVisibleRowsAndIgnoresIndicators (0.02s)
+=== RUN   TestWorkspaceListDoubleClickOpensWithoutInjectingEnter
+--- PASS: TestWorkspaceListDoubleClickOpensWithoutInjectingEnter (0.02s)
+=== RUN   TestWorkspaceListDoubleClickDoesNotActivateAReplacementRun
+--- PASS: TestWorkspaceListDoubleClickDoesNotActivateAReplacementRun (0.02s)
+=== RUN   TestWorkspaceListDoubleClickWhileConnectingKeepsManagementFocus
+--- PASS: TestWorkspaceListDoubleClickWhileConnectingKeepsManagementFocus (0.02s)
+=== RUN   TestWorkspaceTabOrderKeepsPendingSwitchBoundToOriginalRun
+--- PASS: TestWorkspaceTabOrderKeepsPendingSwitchBoundToOriginalRun (0.02s)
+=== RUN   TestWorkspaceUnequalTabTitlesDoNotOscillateDuringDrag
+--- PASS: TestWorkspaceUnequalTabTitlesDoNotOscillateDuringDrag (0.01s)
+=== RUN   TestWorkspaceManagementReordersActiveTabWithoutReconnecting
+--- PASS: TestWorkspaceManagementReordersActiveTabWithoutReconnecting (0.01s)
+=== RUN   TestWorkspaceDragReordersVisibleTabsWithoutChangingActiveRun
+--- PASS: TestWorkspaceDragReordersVisibleTabsWithoutChangingActiveRun (0.01s)
+=== RUN   TestWorkspaceTabDragStopsAfterWheelOrOtherInput
+=== RUN   TestWorkspaceTabDragStopsAfterWheelOrOtherInput/wheel
+=== RUN   TestWorkspaceTabDragStopsAfterWheelOrOtherInput/paste
+=== RUN   TestWorkspaceTabDragStopsAfterWheelOrOtherInput/key
+=== RUN   TestWorkspaceTabDragStopsAfterWheelOrOtherInput/resize
+=== RUN   TestWorkspaceTabDragStopsAfterWheelOrOtherInput/left-tab-row
+=== RUN   TestWorkspaceTabDragStopsAfterWheelOrOtherInput/released
+--- PASS: TestWorkspaceTabDragStopsAfterWheelOrOtherInput (0.05s)
+    --- PASS: TestWorkspaceTabDragStopsAfterWheelOrOtherInput/wheel (0.01s)
+    --- PASS: TestWorkspaceTabDragStopsAfterWheelOrOtherInput/paste (0.01s)
+    --- PASS: TestWorkspaceTabDragStopsAfterWheelOrOtherInput/key (0.01s)
+    --- PASS: TestWorkspaceTabDragStopsAfterWheelOrOtherInput/resize (0.01s)
+    --- PASS: TestWorkspaceTabDragStopsAfterWheelOrOtherInput/left-tab-row (0.01s)
+    --- PASS: TestWorkspaceTabDragStopsAfterWheelOrOtherInput/released (0.01s)
+=== RUN   TestWorkspaceOldListCannotInvalidateJustCreatedTerminal
+--- PASS: TestWorkspaceOldListCannotInvalidateJustCreatedTerminal (0.02s)
+=== RUN   TestWorkspaceDiscoveryBeforeStartResultDoesNotDuplicateTab
+--- PASS: TestWorkspaceDiscoveryBeforeStartResultDoesNotDuplicateTab (1.02s)
+=== RUN   TestWorkspaceClosingLastTabReturnsManagementFocus
+--- PASS: TestWorkspaceClosingLastTabReturnsManagementFocus (0.02s)
+=== RUN   TestWorkspaceEmptyDiscoveryAndF6KeepManagementFocus
+--- PASS: TestWorkspaceEmptyDiscoveryAndF6KeepManagementFocus (0.00s)
+=== RUN   TestWorkspaceDisconnectKeepsLastObservedScreenReadOnly
+--- PASS: TestWorkspaceDisconnectKeepsLastObservedScreenReadOnly (0.01s)
+=== RUN   TestWorkspaceUsesUpstreamInteractiveFrameBands
+--- PASS: TestWorkspaceUsesUpstreamInteractiveFrameBands (0.01s)
+=== RUN   TestWorkspaceDialogOuterWidthsMatchUpstreamActualFrames
+=== RUN   TestWorkspaceDialogOuterWidthsMatchUpstreamActualFrames/settings
+=== RUN   TestWorkspaceDialogOuterWidthsMatchUpstreamActualFrames/new-terminal
+--- PASS: TestWorkspaceDialogOuterWidthsMatchUpstreamActualFrames (0.02s)
+    --- PASS: TestWorkspaceDialogOuterWidthsMatchUpstreamActualFrames/settings (0.01s)
+    --- PASS: TestWorkspaceDialogOuterWidthsMatchUpstreamActualFrames/new-terminal (0.01s)
+=== RUN   TestLaunchDialogKeepsUpstreamRegularAndFirstSessionPadding
+=== RUN   TestLaunchDialogKeepsUpstreamRegularAndFirstSessionPadding/regular
+=== RUN   TestLaunchDialogKeepsUpstreamRegularAndFirstSessionPadding/first-session
+--- PASS: TestLaunchDialogKeepsUpstreamRegularAndFirstSessionPadding (0.02s)
+    --- PASS: TestLaunchDialogKeepsUpstreamRegularAndFirstSessionPadding/regular (0.01s)
+    --- PASS: TestLaunchDialogKeepsUpstreamRegularAndFirstSessionPadding/first-session (0.01s)
+=== RUN   TestWorkspaceNarrowFooterKeepsHelpQuitAndTerminalFocusKeys
+=== RUN   TestWorkspaceNarrowFooterKeepsHelpQuitAndTerminalFocusKeys/27
+=== RUN   TestWorkspaceNarrowFooterKeepsHelpQuitAndTerminalFocusKeys/49
+=== RUN   TestWorkspaceNarrowFooterKeepsHelpQuitAndTerminalFocusKeys/63
+--- PASS: TestWorkspaceNarrowFooterKeepsHelpQuitAndTerminalFocusKeys (0.02s)
+    --- PASS: TestWorkspaceNarrowFooterKeepsHelpQuitAndTerminalFocusKeys/27 (0.01s)
+    --- PASS: TestWorkspaceNarrowFooterKeepsHelpQuitAndTerminalFocusKeys/49 (0.01s)
+    --- PASS: TestWorkspaceNarrowFooterKeepsHelpQuitAndTerminalFocusKeys/63 (0.01s)
+=== RUN   TestWorkspaceNarrowManagementShowsStackedListAndTerminal
+--- PASS: TestWorkspaceNarrowManagementShowsStackedListAndTerminal (0.01s)
+=== RUN   TestWorkspaceVeryNarrowManagementSelectsFromSingleList
+--- PASS: TestWorkspaceVeryNarrowManagementSelectsFromSingleList (0.01s)
+=== RUN   TestWorkspaceNarrowSwitchKeepsAcceptedInputWhenF6Pressed
+--- PASS: TestWorkspaceNarrowSwitchKeepsAcceptedInputWhenF6Pressed (0.01s)
+=== RUN   TestWorkspaceWheelScrollsOnlyTheTerminalUnderPointer
+--- PASS: TestWorkspaceWheelScrollsOnlyTheTerminalUnderPointer (0.01s)
+=== RUN   TestWorkspaceScrollModeShowsHistoryAndNativePrompt
+--- PASS: TestWorkspaceScrollModeShowsHistoryAndNativePrompt (0.01s)
+=== RUN   TestWorkspaceListWheelSelectsWithoutSendingTerminalKeys
+=== RUN   TestWorkspaceListWheelSelectsWithoutSendingTerminalKeys/120
+=== RUN   TestWorkspaceListWheelSelectsWithoutSendingTerminalKeys/60
+=== RUN   TestWorkspaceListWheelSelectsWithoutSendingTerminalKeys/40
+--- PASS: TestWorkspaceListWheelSelectsWithoutSendingTerminalKeys (0.02s)
+    --- PASS: TestWorkspaceListWheelSelectsWithoutSendingTerminalKeys/120 (0.01s)
+    --- PASS: TestWorkspaceListWheelSelectsWithoutSendingTerminalKeys/60 (0.01s)
+    --- PASS: TestWorkspaceListWheelSelectsWithoutSendingTerminalKeys/40 (0.01s)
+=== RUN   TestWorkspaceWheelIsIgnoredOutsideContentAndInDialog
+--- PASS: TestWorkspaceWheelIsIgnoredOutsideContentAndInDialog (0.01s)
+=== RUN   TestWorkspaceScrollDrainsBeforeSwitchAndDoesNotReachNewRun
+--- PASS: TestWorkspaceScrollDrainsBeforeSwitchAndDoesNotReachNewRun (0.01s)
+=== RUN   TestWorkspaceSidebarDefaultCardsSeparateTerminalMetadata
+--- PASS: TestWorkspaceSidebarDefaultCardsSeparateTerminalMetadata (0.01s)
+=== RUN   TestWorkspaceSidebarMetadataClickSelectsItsOwnSession
+--- PASS: TestWorkspaceSidebarMetadataClickSelectsItsOwnSession (0.01s)
+=== RUN   TestWorkspaceSidebarShowsBothCardsWhenTheyExactlyFit
+--- PASS: TestWorkspaceSidebarShowsBothCardsWhenTheyExactlyFit (0.01s)
+=== RUN   TestWorkspaceSidebarKeepsSelectedCardVisibleAcrossWidthAndHeight
+--- PASS: TestWorkspaceSidebarKeepsSelectedCardVisibleAcrossWidthAndHeight (0.07s)
+=== RUN   TestWorkspaceSplitKeysOnlyAdjustInManagementFocus
+--- PASS: TestWorkspaceSplitKeysOnlyAdjustInManagementFocus (0.01s)
+=== RUN   TestWorkspaceDividerDragChangesSplitWithoutTerminalInput
+--- PASS: TestWorkspaceDividerDragChangesSplitWithoutTerminalInput (0.01s)
+=== RUN   TestWorkspaceSplitBoundsResetAndClickWithoutMovement
+--- PASS: TestWorkspaceSplitBoundsResetAndClickWithoutMovement (0.01s)
+=== RUN   TestWorkspaceShowsNativeTerminalWithTabNavigationAndRealCursor
+--- PASS: TestWorkspaceShowsNativeTerminalWithTabNavigationAndRealCursor (0.01s)
+=== RUN   TestWorkspaceTerminalKeysDoNotTriggerManagerQuit
+--- PASS: TestWorkspaceTerminalKeysDoNotTriggerManagerQuit (0.01s)
+=== RUN   TestWorkspaceNativeViewportAndCursorReachLastCell
+--- PASS: TestWorkspaceNativeViewportAndCursorReachLastCell (0.01s)
+=== RUN   TestWorkspaceSwitchesTabsByStableRunWithoutExtraInput
+--- PASS: TestWorkspaceSwitchesTabsByStableRunWithoutExtraInput (0.02s)
+=== RUN   TestWorkspaceSwitchDrainsOldInputAndKeepsNewInputOnNewTab
+--- PASS: TestWorkspaceSwitchDrainsOldInputAndKeepsNewInputOnNewTab (0.01s)
+=== RUN   TestWorkspaceOversizedInputIsRefusedBeforeQueueing
+--- PASS: TestWorkspaceOversizedInputIsRefusedBeforeQueueing (0.01s)
+=== RUN   TestWorkspaceManagementFocusDoesNotSendKeysToTerminal
+--- PASS: TestWorkspaceManagementFocusDoesNotSendKeysToTerminal (0.01s)
+=== RUN   TestWorkspaceQuitDrainsPreviouslyTypedInput
+--- PASS: TestWorkspaceQuitDrainsPreviouslyTypedInput (0.01s)
+=== RUN   TestWorkspaceClosingAndReopeningTabKeepsOriginalRun
+--- PASS: TestWorkspaceClosingAndReopeningTabKeepsOriginalRun (0.02s)
+=== RUN   TestWorkspaceCloseTabDrainsPreviouslyTypedInput
+--- PASS: TestWorkspaceCloseTabDrainsPreviouslyTypedInput (0.01s)
+PASS

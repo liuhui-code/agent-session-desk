@@ -48,6 +48,8 @@ type pollMsg struct{ generation uint64 }
 // Model implements the stable Bubble Tea v2 API. Mutable UI state is touched
 // only by Init/Update; asynchronous commands return values, never mutate it.
 type Model struct {
+	rename                 *sessionRename
+	renameTarget           *session.Session
 	search                 *sessionSearch
 	clipboardGeneration    uint64
 	sidebarDensity         string
@@ -112,6 +114,8 @@ func (m *Model) Close() {
 	}
 	m.launch = nil
 	m.search = nil
+	m.rename = nil
+	m.renameTarget = nil
 	m.densitySettings = nil
 	m.cancelHistory()
 	m.cancel()
@@ -129,6 +133,9 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		return m, nil
 	}
 	if m.workspace != nil {
+		if cmd, handled := m.sessionRenameEvent(msg); handled {
+			return m, cmd
+		}
 		if cmd, handled := m.sessionSearchEvent(msg); handled {
 			return m, cmd
 		}

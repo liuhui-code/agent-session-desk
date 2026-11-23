@@ -1,0 +1,5 @@
+--- FAIL: TestRenameRejectsStaleRevisionEvenAfterNameReturnsToOriginal (0.01s)
+    rename_test.go:41: stale editor accepted after ABA: <nil>
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/manager	1.233s
+FAIL

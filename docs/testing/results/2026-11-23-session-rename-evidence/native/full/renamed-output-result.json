@@ -1,0 +1,32 @@
+{
+    "record":  {
+                   "record_id":  "2c70a6493c92e8e2390672dc9f5b60a5",
+                   "session_id":  "d98649a419b2384b5e6c7e14c728698f",
+                   "run_id":  "b1e7f4815237d3caa1a9ce775e9c6802",
+                   "backend_id":  "asd_d98649a419b2384b5e6c7e14c728698f_b1e7f4815237d3caa1a9ce775e9c6802",
+                   "sequence":  1,
+                   "recorded_at":  "2026-11-23T01:27:33.9814848Z",
+                   "text":  "SCROLL_NEEDLE_中文_α\nhistory line 1\nhistory line 2\nhistory line 3\nhistory line 4\nhistory line 5\nhistory line 6\nhistory line 7\nhistory line 8\nhistory line 9\nhistory line 10\nhistory line 11\nhistory line 12\nhistory line 13\nhistory line 14\nhistory line 15\nhistory line 16\nhistory line 17\nhistory line 18\nhistory line 19\nhistory line 20\nhistory line 21\nhistory line 22\nhistory line 23\nhistory line 24\nhistory line 25\nhistory line 26\nhistory line 27\nhistory line 28\nhistory line 29\nhistory line 30\nhistory line 31\nhistory line 32\nhistory line 33\nhistory line 34\nhistory line 35\nhistory line 36\nhistory line 37\nhistory line 38\nhistory line 39\nhistory line 40\nCOPY_READY Copy B\n\u003e Write-Output (\u0027RENAME_B:\u0027+$PID)\nRENAME_B:17392\n\u003e\n",
+                   "truncated":  false,
+                   "source":  "screen_snapshot",
+                   "complete":  false
+               },
+    "result":  "passed",
+    "output":  {
+                   "value":  [
+                                 {
+                                     "record_id":  "2c70a6493c92e8e2390672dc9f5b60a5",
+                                     "session_id":  "d98649a419b2384b5e6c7e14c728698f",
+                                     "run_id":  "b1e7f4815237d3caa1a9ce775e9c6802",
+                                     "backend_id":  "asd_d98649a419b2384b5e6c7e14c728698f_b1e7f4815237d3caa1a9ce775e9c6802",
+                                     "sequence":  1,
+                                     "recorded_at":  "2026-11-23T01:27:33.9814848Z",
+                                     "text":  "SCROLL_NEEDLE_中文_α\nhistory line 1\nhistory line 2\nhistory line 3\nhistory line 4\nhistory line 5\nhistory line 6\nhistory line 7\nhistory line 8\nhistory line 9\nhistory line 10\nhistory line 11\nhistory line 12\nhistory line 13\nhistory line 14\nhistory line 15\nhistory line 16\nhistory line 17\nhistory line 18\nhistory line 19\nhistory line 20\nhistory line 21\nhistory line 22\nhistory line 23\nhistory line 24\nhistory line 25\nhistory line 26\nhistory line 27\nhistory line 28\nhistory line 29\nhistory line 30\nhistory line 31\nhistory line 32\nhistory line 33\nhistory line 34\nhistory line 35\nhistory line 36\nhistory line 37\nhistory line 38\nhistory line 39\nhistory line 40\nCOPY_READY Copy B\n\u003e Write-Output (\u0027RENAME_B:\u0027+$PID)\nRENAME_B:17392\n\u003e\n",
+                                     "truncated":  false,
+                                     "source":  "screen_snapshot",
+                                     "complete":  false
+                                 }
+                             ],
+                   "Count":  1
+               }
+}

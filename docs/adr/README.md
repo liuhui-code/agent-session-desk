@@ -25,33 +25,21 @@ ADR 保存重要选择的背景、决定、替代方案、代价和重新评估�
 | [0006](0006-human-attention-and-notifications.md) | 人工介入事项、可信状态与分层提醒 | 已接受 | FR-14 / FL-020 与测试设计已记录；事件、通知、后台与 Windows 待实现验证 |
 | [0007](0007-explicit-launch-configuration.md) | 显式 TOML 只读启动模板与严格 schema | 已接受 | CLI、局部 Go 测试与 Windows fixture 原生证据；保存／迁移及真实 agent 待做 |
 | [0008](0008-ui-design-tokens.md) | 产品 UI 样式统一由设计 tokens 管理 | 已接受 | 当前样式集中、渲染和尺寸回归；新版本 Windows 视觉接受待做 |
-
 | [0009](0009-session-run-metadata.md) | SQLite 最小 Session/Run 元数据、独立历史与非原子副作用 | 已接受 | 最小实现、Go 检查与 Windows 局部执行；完整恢复、迁移和资源门槛待做 |
-
 | [0010](0010-pane-exit-observations.md) | 有来源的 pane 退出观测、未知退出码与 schema v2 迁移 | 已接受 | 局部 Go／原生执行单独记账；agent 退出码与完整恢复仍待做 |
-
 | [0011](0011-read-only-tui-history.md) | 按需只读历史、独立选择与实时控制边界 | 已接受 | 局部 Go／Windows 证据见执行报告；完整恢复与发布仍待做 |
-
 | [0012](0012-metadata-checkpoint-recovery.md) | 离线检查、完整快照与非覆盖元数据恢复 | 已接受 | TDD／原生 Windows 按实际报告记账；完整故障与断电矩阵仍待做 |
-
 | [0013](0013-bounded-screen-output-records.md) | 显式有界屏幕记录、非覆盖发布与跨进程轮转 | 已接受 | 原生 Windows 自定义 CLI／目录、采集／离线读取与文件边界见报告；完整流日志未实现 |
-
-| [0013](0013-bounded-screen-output-records.md) | 显式有界屏幕记录、按原 Run 离线读取与文件归属 | 已接受 | Go／原生 Windows 合同及 junction 拒绝已有局部证据；连续流与完整故障矩阵仍待做 |
-
 | [0014](0014-upstream-ui-tabs-and-general-terminals.md) | 尽可能还原上游体验、Tab 主导航、agent 与普通终端共用原生输入 | 已接受 | ADR-0016 已进入局部实现；完整上游对照与验收仍开放 |
-
-ADR-0014 依据用户 2026-11-22 的明确要求接受，部分替代 0001/0002 的界面约束并扩展 0004 的管理对象。原有运行证据不升级为新路径通过。
-
 | [0015](0015-pinned-psmux-native-terminal-client.md) | 固定 psmux 原生持久客户端屏幕、输入与尺寸适配 | 已接受 | 后端合同及 Tab 局部证据已有；[官方缩高历史阻断](../testing/results/2026-11-23-resize-history.md)未关闭，候选不等于默认依赖 |
 | [0016](0016-tab-workspaces-and-input-ownership.md) | Tab 工作区、终端输入归属与通用创建表单 | 已接受 | 首个 psmux UI 切片；实际局部结果与剩余门槛见执行报告 |
-
 | [0017](0017-sidebar-density-preferences.md) | 上游侧栏密度、管理设置输入归属与独立 ui.toml 偏好 | 已接受 | 局部实现／验证见实际报告；完整视觉与故障门槛开放 |
-
 | [0018](0018-native-copy-search-and-host-clipboard.md) | 原生选择／搜索、结构化剪贴板与跨 Tab 串行转发 | 已接受 | 局部实现与 Windows 结果另见报告；[缩高缺行与候选](../testing/results/2026-11-23-resize-history.md)单列，完整体验／兼容开放 |
-
 | [0019](0019-explicit-windows-terminal-bundle.md) | 显式 Windows x64 终端开发 bundle、固定构建与实际宿主核验 | 已接受（开发候选） | 原生／桌面结果见[接入报告](../testing/results/2026-11-23-terminal-bundle.md)；跨权限、完整兼容与发布仍开放 |
-
 | [0020](0020-local-session-search.md) | 上游本地会话搜索、原 Run 选择与输入隔离 | 已接受 | 本地／原生模型与桌面结果见[报告](../testing/results/2026-11-23-session-search.md)；分组、重命名、完整视觉与发布开放 |
+| [0021](0021-persistent-session-display-names.md) | SQLite v3 会话显示名、版本冲突及上游重命名弹窗 | 已接受 | 本机／原生 Windows 与限定桌面证据见[报告](../testing/results/2026-11-23-session-rename.md)；完整视觉／IME／发布开放 |
+
+ADR-0014 依据用户 2026-11-22 的明确要求接受，部分替代 0001/0002 的界面约束并扩展 0004 的管理对象。原有运行证据不升级为新路径通过。
 
 ## 维护规则
 

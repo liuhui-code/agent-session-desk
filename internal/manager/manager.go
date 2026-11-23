@@ -6,6 +6,7 @@ import (
 	"context"
 	"fmt"
 	"os/exec"
+	"sort"
 
 	"github.com/liuhui-code/agent-session-desk/internal/session"
 	"github.com/liuhui-code/agent-session-desk/internal/store"
@@ -51,6 +52,16 @@ func (m *Manager) List(ctx context.Context) ([]session.Session, error) {
 			return nil, fmt.Errorf("record backend discovery: %w", err)
 		}
 	}
+	rows, err = m.metadata.WithNames(ctx, rows)
+	if err != nil {
+		return nil, err
+	}
+	sort.SliceStable(rows, func(i, j int) bool {
+		if rows[i].Title == rows[j].Title {
+			return rows[i].ID < rows[j].ID
+		}
+		return rows[i].Title < rows[j].Title
+	})
 	return rows, nil
 }
 
