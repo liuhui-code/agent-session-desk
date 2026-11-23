@@ -2,6 +2,8 @@
 
 日期：2026-11-23；基于 `78bca033b029a38c664ae15b9509a34e2332aee6`。当前 psmux Tab 管理侧栏默认显示“我的会话”，恢复组标题、折叠、Alt+V 分组／平铺与来源快捷键留位。本轮只有本机及 Windows 原生模型／配置证据，**新的真实桌面流程尚未执行**。FL-003/004/012/018/019 继续实现中、未发布，决定见 [ADR-0022](../../adr/0022-default-group-sidebar-navigation.md)。
 
+后续证据：同一产品源码已完成[限定双 shell 桌面流程](2026-11-23-sidebar-navigation-desktop.md)，保留 SendKeys 大写 S 的事件路径未决。本报告保留首轮模型／配置执行范围，不把后续证据回填为本轮桌面通过。
+
 ## 来源与范围
 
 固定 Agent Deck `80494e527393b7ead00da30018e6ee7e60e9d7a0`，MIT，原工作树干净。精确 SHA-256／Git blob 见[来源指纹](2026-11-23-sidebar-navigation-evidence/local/upstream-source.json)。来源 `home_new.go` 的默认 grouped、`home.go` 的 Alt+V／组导航、`home_view_list.go` 的一行标题和 `embedded_sidebar.go` 的完整／紧凑留位是此次依据。Space 在来源是跳转模式，不将它误作平铺切换。

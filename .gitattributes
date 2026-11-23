@@ -13,3 +13,6 @@ docs/testing/results/2026-11-23-upstream-visual-comparison-evidence/frames/* -te
 docs/testing/results/2026-11-23-session-rename-evidence/** -text -whitespace
 # Checksummed grouped-sidebar captures retain deliberate terminal padding.
 docs/testing/results/2026-11-23-sidebar-navigation-evidence/** -text -whitespace
+
+# Preserve checksummed native navigation desktop receipts and original PNGs.
+docs/testing/results/2026-11-23-sidebar-navigation-desktop-evidence/** -text -whitespace

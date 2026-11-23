@@ -1,0 +1,30 @@
+{
+  "result": "passed_for_bounded_scope",
+  "source_fingerprints": 152,
+  "artifacts": 632,
+  "action_receipts": 283,
+  "action_kinds": {
+    "resize": 4,
+    "state": 198,
+    "paste": 3,
+    "keys": 50,
+    "capture": 11,
+    "clickNavRow": 8,
+    "text": 8,
+    "finish": 1
+  },
+  "native_captures": 13,
+  "complete_numbered_captures": 13,
+  "pending_drafts_checked": 11,
+  "preference_snapshots": 17,
+  "unmodified_pngs": 11,
+  "original_processes_ended": 5,
+  "private_images_alive": 0,
+  "preserved_failure_errors": {
+    "flow-failure-columns.json": "Actual terminal columns differ: 31 versus 120",
+    "flow-failure-sendkeys-uppercase.json": "Expected screen not observed: 侧栏密度",
+    "flow-failure-active-marker.json": "Expected screen not observed: ▶ Copy B",
+    "flow-failure-reopen-active-marker.json": "Expected screen not observed: ▶ Copy A"
+  },
+  "unresolved": "SendKeys uppercase S did not open settings; Unicode S worked. Physical Shift+S/IME/framework boundary unproven; not a full keyboard acceptance."
+}

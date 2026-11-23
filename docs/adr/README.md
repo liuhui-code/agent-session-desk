@@ -38,7 +38,7 @@ ADR 保存重要选择的背景、决定、替代方案、代价和重新评估�
 | [0019](0019-explicit-windows-terminal-bundle.md) | 显式 Windows x64 终端开发 bundle、固定构建与实际宿主核验 | 已接受（开发候选） | 原生／桌面结果见[接入报告](../testing/results/2026-11-23-terminal-bundle.md)；跨权限、完整兼容与发布仍开放 |
 | [0020](0020-local-session-search.md) | 上游本地会话搜索、原 Run 选择与输入隔离 | 已接受 | 本地／原生模型与桌面结果见[报告](../testing/results/2026-11-23-session-search.md)；分组、重命名、完整视觉与发布开放 |
 | [0021](0021-persistent-session-display-names.md) | SQLite v3 会话显示名、版本冲突及上游重命名弹窗 | 已接受 | 本机／原生 Windows 与限定桌面证据见[报告](../testing/results/2026-11-23-session-rename.md)；完整视觉／IME／发布开放 |
-| [0022](0022-default-group-sidebar-navigation.md) | 默认分组侧栏、混合行高命中与 ui.toml v2 串行偏好 | 已接受 | 本机／Windows 原生模型测试见[报告](../testing/results/2026-11-23-sidebar-navigation.md)；新桌面、自定义组与完整接受开放 |
+| [0022](0022-default-group-sidebar-navigation.md) | 默认分组侧栏、混合行高命中与 ui.toml v2 串行偏好 | 已接受 | [模型](../testing/results/2026-11-23-sidebar-navigation.md)／[限定桌面](../testing/results/2026-11-23-sidebar-navigation-desktop.md)分别记账；大写 S、自定义组与完整接受开放 |
 
 ADR-0014 依据用户 2026-11-22 的明确要求接受，部分替代 0001/0002 的界面约束并扩展 0004 的管理对象。原有运行证据不升级为新路径通过。
 

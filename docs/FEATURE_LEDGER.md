@@ -53,8 +53,8 @@
 | --- | --- | --- | --- | --- | --- |
 | FL-001 | 自定义 CLI 启动：接入 agent、普通 shell 与 CLI | FR-01 | M0 预验证、M1 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md)；[显式终端 bundle](testing/results/2026-11-23-terminal-bundle.md) / 未发布 |
 | FL-002 | 原生终端交互：在 Tab 中输入并操作原有 CLI | FR-02、FR-11 | M0、M1 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md)；[显式终端 bundle](testing/results/2026-11-23-terminal-bundle.md) / 未发布 |
-| FL-003 | 上游体验还原与代码复用：保留布局比例、交互和配色 | FR-03、FR-11 | M0、M1、M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[短资源实验](testing/results/2026-11-21-m0-windows-resources.md)、[只读历史 UI](testing/results/2026-11-22-m1-history-ui.md)；[默认侧栏卡片](testing/results/2026-11-23-workspace-sidebar-cards.md)／[四种密度与偏好](testing/results/2026-11-23-sidebar-density-preferences.md)；[Tab 资源失败](testing/results/2026-11-23-tab-resources.md)／[显式宿主短复测](testing/results/2026-11-23-tab-resource-host.md)；[本地会话搜索](testing/results/2026-11-23-session-search.md) ；[持久显示名／重命名](testing/results/2026-11-23-session-rename.md)；[默认组导航／局部模型](testing/results/2026-11-23-sidebar-navigation.md) / 未发布 |
-| FL-004 | Tab 多会话组织：查找、切换、停止和归档 | FR-03 | M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md)；[本地会话搜索](testing/results/2026-11-23-session-search.md) ；[持久显示名／重命名](testing/results/2026-11-23-session-rename.md)；[默认组导航／局部模型](testing/results/2026-11-23-sidebar-navigation.md) / 未发布 |
+| FL-003 | 上游体验还原与代码复用：保留布局比例、交互和配色 | FR-03、FR-11 | M0、M1、M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[短资源实验](testing/results/2026-11-21-m0-windows-resources.md)、[只读历史 UI](testing/results/2026-11-22-m1-history-ui.md)；[默认侧栏卡片](testing/results/2026-11-23-workspace-sidebar-cards.md)／[四种密度与偏好](testing/results/2026-11-23-sidebar-density-preferences.md)；[Tab 资源失败](testing/results/2026-11-23-tab-resources.md)／[显式宿主短复测](testing/results/2026-11-23-tab-resource-host.md)；[本地会话搜索](testing/results/2026-11-23-session-search.md) ；[持久显示名／重命名](testing/results/2026-11-23-session-rename.md)；[默认组导航／模型](testing/results/2026-11-23-sidebar-navigation.md)／[限定桌面及键位未决](testing/results/2026-11-23-sidebar-navigation-desktop.md) / 未发布 |
+| FL-004 | Tab 多会话组织：查找、切换、停止和归档 | FR-03 | M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md)；[本地会话搜索](testing/results/2026-11-23-session-search.md) ；[持久显示名／重命名](testing/results/2026-11-23-session-rename.md)；[默认组导航／模型](testing/results/2026-11-23-sidebar-navigation.md)／[限定桌面及键位未决](testing/results/2026-11-23-sidebar-navigation-desktop.md) / 未发布 |
 | FL-005 | 稳定身份：重命名、排序后仍控制正确对象 | FR-04 | M1、M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md)；[显式终端 bundle](testing/results/2026-11-23-terminal-bundle.md)；[本地会话搜索](testing/results/2026-11-23-session-search.md) ；[持久显示名／重命名](testing/results/2026-11-23-session-rename.md) / 未发布 |
 | FL-006 | 后台托管与重新连接：关闭界面后任务继续 | FR-05 | M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md)、[短资源实验](testing/results/2026-11-21-m0-windows-resources.md)；[Tab 资源失败](testing/results/2026-11-23-tab-resources.md)／[显式宿主短复测](testing/results/2026-11-23-tab-resource-host.md)；[显式终端 bundle](testing/results/2026-11-23-terminal-bundle.md) / 未发布 |
 | FL-007 | 带来源的输出读取：交接内容可追溯 | FR-06 | M3 | 计划 | 未提供 / 未发布 |
@@ -62,14 +62,14 @@
 | FL-009 | 按能力排队与自动投递：避免向未知状态盲目注入 | FR-08 | M3 | 计划 | 未提供 / 未发布 |
 | FL-010 | Agent 控制 CLI：让有工具能力的 agent 主动协作 | FR-09 | M3 | 计划 | 未提供 / 未发布 |
 | FL-011 | 历史与恢复边界：知道接回、重启与续聊的区别 | FR-10 | M1、M2 | 实现中 | [最小元数据证据](testing/results/2026-11-22-m1-metadata.md)、[只读历史 UI](testing/results/2026-11-22-m1-history-ui.md) ；[持久显示名／重命名](testing/results/2026-11-23-session-rename.md) / 未发布 |
-| FL-012 | 焦点与草稿：输入不串用，切换不丢失管理器草稿 | FR-11 | M1、M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)；[显式终端 bundle](testing/results/2026-11-23-terminal-bundle.md)；[本地会话搜索](testing/results/2026-11-23-session-search.md) ；[持久显示名／重命名](testing/results/2026-11-23-session-rename.md)；[默认组导航／局部模型](testing/results/2026-11-23-sidebar-navigation.md) / 未发布 |
+| FL-012 | 焦点与草稿：输入不串用，切换不丢失管理器草稿 | FR-11 | M1、M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)；[显式终端 bundle](testing/results/2026-11-23-terminal-bundle.md)；[本地会话搜索](testing/results/2026-11-23-session-search.md) ；[持久显示名／重命名](testing/results/2026-11-23-session-rename.md)；[默认组导航／模型](testing/results/2026-11-23-sidebar-navigation.md)／[限定桌面及键位未决](testing/results/2026-11-23-sidebar-navigation-desktop.md) / 未发布 |
 | FL-013 | 异常、重试和运行变化：保留不确定性并避免误投 | FR-12 | M1 至 M3 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md) ；[持久显示名／重命名](testing/results/2026-11-23-session-rename.md) / 未发布 |
 | FL-014 | 请求与回复关联：按消息查询合作结果 | FR-13 | M3 | 计划 | 未提供 / 未发布 |
 | FL-015 | 有界资源：多会话和持续输出下内存可控 | 产品质量标准 | M0 基线、M1 至 M4 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[短资源实验](testing/results/2026-11-21-m0-windows-resources.md)；[Tab 资源失败](testing/results/2026-11-23-tab-resources.md)／[显式宿主短复测](testing/results/2026-11-23-tab-resource-host.md)；[显式终端 bundle](testing/results/2026-11-23-terminal-bundle.md) / 未发布 |
 | FL-016 | Windows 兼容门槛：核心流程原生运行 | FR-01、FR-02、FR-05、FR-07、FR-11 | M0、M4 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md)、[短资源实验](testing/results/2026-11-21-m0-windows-resources.md)；[Tab 资源失败](testing/results/2026-11-23-tab-resources.md)／[显式宿主短复测](testing/results/2026-11-23-tab-resource-host.md)；[显式终端 bundle](testing/results/2026-11-23-terminal-bundle.md) / 未发布 |
 | FL-017 | 可安装预览版：用户可独立完成完整流程 | 全部首版需求 | M4 | 计划 | 未提供 / 未发布 |
-| FL-018 | Tab 内完整终端：操作 agent 与普通命令行时保留 Tab 导航 | FR-02、FR-11 | M1 单 Tab、M2 多 Tab（首版） | 实现中 | [终端传输局部证据](testing/results/2026-11-22-native-terminal-transport.md)；[Tab UI 局部证据](testing/results/2026-11-23-tab-workspaces.md)，仍待完整验收；[Tab 资源失败](testing/results/2026-11-23-tab-resources.md)／[显式宿主短复测](testing/results/2026-11-23-tab-resource-host.md)；[显式终端 bundle](testing/results/2026-11-23-terminal-bundle.md)；[本地会话搜索](testing/results/2026-11-23-session-search.md) ；[持久显示名／重命名](testing/results/2026-11-23-session-rename.md)；[默认组导航／局部模型](testing/results/2026-11-23-sidebar-navigation.md) / 未发布 |
-| FL-019 | 依赖与复用可追溯：持续获得可维护的实现基线 | 架构与发布质量 | M0 至 M4 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md)；[显式终端 bundle](testing/results/2026-11-23-terminal-bundle.md)；[本地会话搜索](testing/results/2026-11-23-session-search.md) ；[持久显示名／重命名](testing/results/2026-11-23-session-rename.md)；[默认组导航／局部模型](testing/results/2026-11-23-sidebar-navigation.md) / 未发布 |
+| FL-018 | Tab 内完整终端：操作 agent 与普通命令行时保留 Tab 导航 | FR-02、FR-11 | M1 单 Tab、M2 多 Tab（首版） | 实现中 | [终端传输局部证据](testing/results/2026-11-22-native-terminal-transport.md)；[Tab UI 局部证据](testing/results/2026-11-23-tab-workspaces.md)，仍待完整验收；[Tab 资源失败](testing/results/2026-11-23-tab-resources.md)／[显式宿主短复测](testing/results/2026-11-23-tab-resource-host.md)；[显式终端 bundle](testing/results/2026-11-23-terminal-bundle.md)；[本地会话搜索](testing/results/2026-11-23-session-search.md) ；[持久显示名／重命名](testing/results/2026-11-23-session-rename.md)；[默认组导航／模型](testing/results/2026-11-23-sidebar-navigation.md)／[限定桌面及键位未决](testing/results/2026-11-23-sidebar-navigation-desktop.md) / 未发布 |
+| FL-019 | 依赖与复用可追溯：持续获得可维护的实现基线 | 架构与发布质量 | M0 至 M4 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md)；[显式终端 bundle](testing/results/2026-11-23-terminal-bundle.md)；[本地会话搜索](testing/results/2026-11-23-session-search.md) ；[持久显示名／重命名](testing/results/2026-11-23-session-rename.md)；[默认组导航／模型](testing/results/2026-11-23-sidebar-navigation.md)／[限定桌面及键位未决](testing/results/2026-11-23-sidebar-navigation-desktop.md) / 未发布 |
 | FL-020 | 人工介入提醒：及时发现并定位待批准、待回答与待检查事项 | FR-14；关联 FR-04、FR-08、FR-11、FR-12 | M2 界面与 attach、M3 后台、M4 发布复验 | 计划 | 未提供 / 未发布 |
 
 ## 4. 范围与验收条件
@@ -122,7 +122,7 @@
 
 - **原生选择／搜索进展（2026-11-23）：**管理 v 经原 pane 进入后端复制模式，显示原生选区／命中／复制光标及 UTF-8 提示光标；有界剪贴板事件独立于屏幕合并，跨 Tab 串行发往外层终端。"已发送"不推定系统已保存；无额外历史、查询或消息状态。见 [复制／搜索报告](testing/results/2026-11-23-native-copy-search.md) 与 [ADR-0018](adr/0018-native-copy-search-and-host-clipboard.md)，仍实现中／未发布。
 
-- **默认组导航局部进展（2026-11-23）：**[ADR-0022](adr/0022-default-group-sidebar-navigation.md) 恢复隐式默认组、折叠、Alt+V 平铺切换和混合行高命中，ui.toml v2 将密度／模式／折叠交给同一串行写入队列。本机与 Windows 原生 UI／配置套件通过；新版本真实桌面、自定义组创建／移动、完整视觉与发布仍待完成。详见[实际报告](testing/results/2026-11-23-sidebar-navigation.md)，保持实现中，不提升既有设计目录状态。
+- **默认组导航局部进展（2026-11-23）：**[ADR-0022](adr/0022-default-group-sidebar-navigation.md) 恢复隐式默认组、折叠、Alt+V 平铺切换和混合行高命中，ui.toml v2 将密度／模式／折叠交给同一串行写入队列。本机与 Windows 原生模型结果见[首轮报告](testing/results/2026-11-23-sidebar-navigation.md)；原产品随后完成双 shell 的[限定桌面流程](testing/results/2026-11-23-sidebar-navigation-desktop.md)，保留大写 S 的输入路径未决。自定义组、完整视觉／键盘与发布仍开放，保持实现中，不提升设计目录状态。
 
 ### FL-004：多会话组织
 
@@ -135,7 +135,7 @@
 
 - **Tab 排序进展（2026-11-23）：**标题拖动与管理模式 `[`／`]` 调整当前 UI 的 Tab 顺序；活动 View、Session/Run 和排空中的输入目标保持身份，终端字符不截获。可见槽位固定，其他输入／缩放／释放结束手势；不自动滚到隐藏项或持久保存顺序。[行为与原生证据](testing/results/2026-11-23-tab-order.md)单独记录，仍实现中／未发布。
 
-- **默认组导航局部进展（2026-11-23）：**[ADR-0022](adr/0022-default-group-sidebar-navigation.md) 恢复隐式默认组、折叠、Alt+V 平铺切换和混合行高命中，ui.toml v2 将密度／模式／折叠交给同一串行写入队列。本机与 Windows 原生 UI／配置套件通过；新版本真实桌面、自定义组创建／移动、完整视觉与发布仍待完成。详见[实际报告](testing/results/2026-11-23-sidebar-navigation.md)，保持实现中，不提升既有设计目录状态。
+- **默认组导航局部进展（2026-11-23）：**[ADR-0022](adr/0022-default-group-sidebar-navigation.md) 恢复隐式默认组、折叠、Alt+V 平铺切换和混合行高命中，ui.toml v2 将密度／模式／折叠交给同一串行写入队列。本机与 Windows 原生模型结果见[首轮报告](testing/results/2026-11-23-sidebar-navigation.md)；原产品随后完成双 shell 的[限定桌面流程](testing/results/2026-11-23-sidebar-navigation-desktop.md)，保留大写 S 的输入路径未决。自定义组、完整视觉／键盘与发布仍开放，保持实现中，不提升设计目录状态。
 
 ### FL-005：稳定身份
 
@@ -242,7 +242,7 @@
 
 - **原生选择／搜索进展（2026-11-23）：**管理 v 经原 pane 进入后端复制模式，显示原生选区／命中／复制光标及 UTF-8 提示光标；有界剪贴板事件独立于屏幕合并，跨 Tab 串行发往外层终端。"已发送"不推定系统已保存；无额外历史、查询或消息状态。见 [复制／搜索报告](testing/results/2026-11-23-native-copy-search.md) 与 [ADR-0018](adr/0018-native-copy-search-and-host-clipboard.md)，仍实现中／未发布。
 
-- **默认组导航局部进展（2026-11-23）：**[ADR-0022](adr/0022-default-group-sidebar-navigation.md) 恢复隐式默认组、折叠、Alt+V 平铺切换和混合行高命中，ui.toml v2 将密度／模式／折叠交给同一串行写入队列。本机与 Windows 原生 UI／配置套件通过；新版本真实桌面、自定义组创建／移动、完整视觉与发布仍待完成。详见[实际报告](testing/results/2026-11-23-sidebar-navigation.md)，保持实现中，不提升既有设计目录状态。
+- **默认组导航局部进展（2026-11-23）：**[ADR-0022](adr/0022-default-group-sidebar-navigation.md) 恢复隐式默认组、折叠、Alt+V 平铺切换和混合行高命中，ui.toml v2 将密度／模式／折叠交给同一串行写入队列。本机与 Windows 原生模型结果见[首轮报告](testing/results/2026-11-23-sidebar-navigation.md)；原产品随后完成双 shell 的[限定桌面流程](testing/results/2026-11-23-sidebar-navigation-desktop.md)，保留大写 S 的输入路径未决。自定义组、完整视觉／键盘与发布仍开放，保持实现中，不提升设计目录状态。
 
 ### FL-013：异常、重试和运行变化
 
@@ -328,7 +328,7 @@
 
 - **历史缩高阻断与候选（2026-11-23）：**官方 psmux 3.4.0 首次缩高会丢原生历史，直接后端和 parser 均已复现；冻结页连续不证明实时历史完整。独立补丁候选五轮／20 次实时 capture 及七个原生后端顶层／13 个含子测试通过，仍未纳入产品／安装依赖。失败、来源、最终清理和适用范围见[报告](testing/results/2026-11-23-resize-history.md)；本能力保持实现中／未发布，默认依赖的完整历史门槛未通过。
 
-- **默认组导航局部进展（2026-11-23）：**[ADR-0022](adr/0022-default-group-sidebar-navigation.md) 恢复隐式默认组、折叠、Alt+V 平铺切换和混合行高命中，ui.toml v2 将密度／模式／折叠交给同一串行写入队列。本机与 Windows 原生 UI／配置套件通过；新版本真实桌面、自定义组创建／移动、完整视觉与发布仍待完成。详见[实际报告](testing/results/2026-11-23-sidebar-navigation.md)，保持实现中，不提升既有设计目录状态。
+- **默认组导航局部进展（2026-11-23）：**[ADR-0022](adr/0022-default-group-sidebar-navigation.md) 恢复隐式默认组、折叠、Alt+V 平铺切换和混合行高命中，ui.toml v2 将密度／模式／折叠交给同一串行写入队列。本机与 Windows 原生模型结果见[首轮报告](testing/results/2026-11-23-sidebar-navigation.md)；原产品随后完成双 shell 的[限定桌面流程](testing/results/2026-11-23-sidebar-navigation-desktop.md)，保留大写 S 的输入路径未决。自定义组、完整视觉／键盘与发布仍开放，保持实现中，不提升设计目录状态。
 
 ### FL-019：依赖升级与复用来源
 
@@ -345,7 +345,7 @@
 
 - **实验补丁归属：**固定 psmux 来源、唯一改动、原样 MIT／版权及源／产物哈希见[缩高历史报告](testing/results/2026-11-23-resize-history.md)和复用清单；不包含完整后端源码或二进制，不自动应用到安装依赖。候选接纳、版本与发行来源政策仍待单列决定。
 
-- **默认组导航局部进展（2026-11-23）：**[ADR-0022](adr/0022-default-group-sidebar-navigation.md) 恢复隐式默认组、折叠、Alt+V 平铺切换和混合行高命中，ui.toml v2 将密度／模式／折叠交给同一串行写入队列。本机与 Windows 原生 UI／配置套件通过；新版本真实桌面、自定义组创建／移动、完整视觉与发布仍待完成。详见[实际报告](testing/results/2026-11-23-sidebar-navigation.md)，保持实现中，不提升既有设计目录状态。
+- **默认组导航局部进展（2026-11-23）：**[ADR-0022](adr/0022-default-group-sidebar-navigation.md) 恢复隐式默认组、折叠、Alt+V 平铺切换和混合行高命中，ui.toml v2 将密度／模式／折叠交给同一串行写入队列。本机与 Windows 原生模型结果见[首轮报告](testing/results/2026-11-23-sidebar-navigation.md)；原产品随后完成双 shell 的[限定桌面流程](testing/results/2026-11-23-sidebar-navigation-desktop.md)，保留大写 S 的输入路径未决。自定义组、完整视觉／键盘与发布仍开放，保持实现中，不提升设计目录状态。
 
 ### FL-020：人工介入提醒
 
@@ -382,6 +382,8 @@
 7. 发布时列明本版本包含的 FL 编号、仍后置的能力和未通过的环境。首版发布须通过 FL-016 的 Windows 门槛及其他适用验收。
 
 ## 7. 变更记录
+
+2026-11-23：FL-003/004/012/018/019 补充默认分组导航的限定桌面证据，产品源码不变。283 回执包含 198 次只读轮询；13 次原生完整 capture、17 次偏好快照与五原身份清理通过。SendKeys 大写 S 未决，Unicode 替代路径不作该键通过；状态与设计基线不提升。
 
 2026-11-23：FL-003/004/012/018/019 增加 ADR-0022 默认组导航与 ui.toml v2 的局部实现、模型／文件测试证据。自定义组和新桌面仍待做；全部条目继续实现中／未发布。
 

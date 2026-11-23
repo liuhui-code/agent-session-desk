@@ -1,0 +1,69 @@
+{
+    "tasks_absent":  [
+                         "AsdSidebarNavigationSetup20261123",
+                         "AsdSidebarNavigationDesktop20261123"
+                     ],
+    "clipboard":  {
+                      "restored":  true,
+                      "original_text_logged":  false,
+                      "text_restored":  true,
+                      "nontext_content_verified":  false,
+                      "format_names_restored":  true,
+                      "utc":  "2026-11-23T02:47:07.4241270Z"
+                  },
+    "utc":  "2026-11-23T02:47:57.4459236Z",
+    "remaining_sessions":  "[]",
+    "private_images_alive":  0,
+    "settings_sha256":  "1499307ABEBA68C23F9EB38A4C636F81172475B6B2B535BC0B11DCD9547241F8",
+    "scope":  "Registered original identities and known private image paths only; no machine-global cleanup claim; owned target and outer launcher PSReadLine history were isolated before input; no user history content archived",
+    "stops":  [
+                  {
+                      "run_id":  "213e33fa91516d73abcaff0d3fad4179",
+                      "session_id":  "1abfaf0f66cce3476540e87cd57c49c5",
+                      "result":  "{\r\n  \"session_id\": \"1abfaf0f66cce3476540e87cd57c49c5\",\r\n  \"run_id\": \"213e33fa91516d73abcaff0d3fad4179\",\r\n  \"result\": \"backend_session_stopped\"\r\n}\r\n"
+                  },
+                  {
+                      "run_id":  "31b46ee093893edcffdf52c3e5ce971f",
+                      "session_id":  "65cb38fea21d794248f5e9b16919b723",
+                      "result":  "{\r\n  \"session_id\": \"65cb38fea21d794248f5e9b16919b723\",\r\n  \"run_id\": \"31b46ee093893edcffdf52c3e5ce971f\",\r\n  \"result\": \"backend_session_stopped\"\r\n}\r\n"
+                  }
+              ],
+    "result":  "passed",
+    "original_processes":  [
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                   "pid":  16692,
+                                   "filetime":  134398751213692759,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                   "pid":  17808,
+                                   "filetime":  134398751219550477,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-sidebar-navigation.exe",
+                                   "pid":  10380,
+                                   "filetime":  134398752018025525,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-sidebar-navigation.exe",
+                                   "pid":  18968,
+                                   "filetime":  134398755508093449,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe",
+                                   "pid":  18672,
+                                   "filetime":  134398752006687135,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               }
+                           ]
+}
