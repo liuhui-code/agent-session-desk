@@ -165,7 +165,7 @@ func TestCopyPointerCancellationNeverSynthesizesRelease(t *testing.T) {
 }
 
 func TestCopyPointerStartsOnlyInFocusedNativeContent(t *testing.T) {
-	for _, mode := range []string{"management", "live-program", "prompt", "border", "tab", "modified", "right-button"} {
+	for _, mode := range []string{"management", "mouse-program", "prompt", "border", "tab", "modified", "right-button"} {
 		t.Run(mode, func(t *testing.T) {
 			h, s := newCopyPointerHarness(t)
 			g := h.m.workspaceGeometry()
@@ -173,8 +173,9 @@ func TestCopyPointerStartsOnlyInFocusedNativeContent(t *testing.T) {
 			switch mode {
 			case "management":
 				h.send(tea.KeyPressMsg{Code: tea.KeyF6})
-			case "live-program":
+			case "mouse-program":
 				h.m.workspace.screen.CopyMode = false
+				h.m.workspace.screen.WantsMouse = true
 			case "prompt":
 				h.m.workspace.screen.CopyPrompt = &terminal.CopyPrompt{Text: "Search:", LabelBytes: 7, CursorBytes: 7}
 			case "border":

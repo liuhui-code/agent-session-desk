@@ -1927,7 +1927,7 @@
 
 - 功能：[FL-018](../COVERAGE.md#fl-018)
 - 需求：[FR-02](../COVERAGE.md#fr-02)、[FR-11](../COVERAGE.md#fr-11)
-- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0014](../../adr/0014-upstream-ui-tabs-and-general-terminals.md)、[ADR-0016](../../adr/0016-tab-workspaces-and-input-ownership.md)、[ADR-0018](../../adr/0018-native-copy-search-and-host-clipboard.md)、[ADR-0028](../../adr/0028-explicit-visible-pane-copy.md)、[ADR-0029](../../adr/0029-native-copy-pointer-gestures.md)
+- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0014](../../adr/0014-upstream-ui-tabs-and-general-terminals.md)、[ADR-0016](../../adr/0016-tab-workspaces-and-input-ownership.md)、[ADR-0018](../../adr/0018-native-copy-search-and-host-clipboard.md)、[ADR-0028](../../adr/0028-explicit-visible-pane-copy.md)、[ADR-0029](../../adr/0029-native-copy-pointer-gestures.md)、[ADR-0030](../../adr/0030-direct-terminal-drag-selection.md)
 - 优先级 / 阶段 / 层次：P1 / M2 / manual
 - 类型：usability、compatibility、state
 - 设计 / 执行：`designed / not_run`
@@ -1950,6 +1950,7 @@
 5. 管理 v 进入后端选择／搜索，验证空格／整行／Enter、/／? 和取消；观察中文长提示、原生选区／命中／复制光标，核对外层终端剪贴板中仅合成内容。
 6. 管理 V 复制所选 B、活动 Tab 保持 A；穿插原生复制事件、切 Tab、原 Run 替换、重复同代次旧完成及超限／C1／损坏文字；观察实际 OSC52 请求与子程序输入。
 7. 原生复制模式内左键按下／拖动／释放，越过 Tab／侧栏边缘；穿插切 Tab、resize、画面尺寸变小再恢复、模式退出、搜索提示及重复释放，核对原 pane 与原队列。
+8. 未声明 WantsMouse 的实时终端单击／微动及直接拖选；延迟原生模式帧，观察退出再恢复，穿插外部模式／鼠标声明变化和切 Tab；对比有／无交接能力连接。
 
 #### 预期与不变量
 
@@ -1961,6 +1962,7 @@
 - 原草稿不因搜索／选择提交；复制事件与屏幕合并分离并有界，跨 Tab 在途提交串行，旧事件／重复完成不重开读取器。仅已发 OSC52 不标为系统已保存，不读取或回传用户剪贴板。
 - 新鲜捕获只读原 pane 当前页，不用旧预览、历史或 manager 装饰；空／超限／截断／损坏文字不提交，C1 控制沿源规范化。V 终端焦点保持原文字；两个复制来源最多单 host 提交，独立令牌拒绝旧回执，排队目标重核，未发送旧代次不重放。请求输出不是系统剪贴板已保存，原生桌面另验。
 - 仅已聚焦原生内容开始无修饰左键手势；内容零基坐标，经原 FIFO，不伪造键盘。手势越界不转管理操作；模式／视图／尺寸失效清除，恢复不续接，不合成释放或自动复制。CopyMode 观察不是锁，外部并发模式解释与实体鼠标／系统剪贴板独立记录；正常终端直接拖选与程序鼠标不以本地通过认定已验收。
+- 单击／同格微动不进入模式、不发输入；首次实际运动带原锚点交接原 pane，原 FIFO 持续且不向新 Run 续接。写入接受不冒充已进入 CopyMode，观察退出或原锚点失效后不恢复；缺少能力不降级为文字／按键，原有原生模式指针仍可用。首次运动冻结与源客户端不同，真实后端／实体鼠标、程序鼠标和系统剪贴板分别验证。
 
 #### 需要的证据
 

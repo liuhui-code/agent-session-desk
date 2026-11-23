@@ -188,3 +188,5 @@ M1 收尾按[验收清单](testing/M1_ACCEPTANCE.md)推进；显式有界屏幕�
 2026-11-24：[ADR-0028](adr/0028-explicit-visible-pane-copy.md) 新增管理 V 复制所选原 pane 的新鲜可见页。直接只读捕获不带历史／缓存，原目标前后复核；Manager 委派不读写元数据。显式复制与原生选区事件共享串行 OSC52、独立完成令牌与有界待提交内容，未发送的旧代次取消；只提示发出请求，不声称系统剪贴板保存。依赖／tokens／SQLite v5／ui.toml v4 不变。[本地及固定源证据](testing/results/2026-11-24-visible-copy.md)与 Windows／桌面未执行分别记录，完整体验和发布开放。
 
 2026-11-24：[ADR-0029](adr/0029-native-copy-pointer-gestures.md) 接入原生复制模式内的无修饰左键按下／拖动／释放，经既有 FIFO 使用原 pane 内容坐标；跨控件不转管理手势，模式／尺寸／视图失效取消且不合成释放。协议由固定后端解释，CopyMode 观察不是模式锁；普通终端直接拖选、目标程序鼠标及完整鼠标接受继续开放。[本地证据](testing/results/2026-11-24-copy-pointer.md)与 Windows／实体鼠标未执行分开记账，依赖／tokens／存储不变。
+
+2026-11-24：[ADR-0030](adr/0030-direct-terminal-drag-selection.md) 将未声明 WantsMouse 的实时终端左拖选接入原 pane 的 copy-drag-begin；单击／同格微动不发输入，首次实际运动才交接，仍由后端保存选区与历史。延迟模式帧及观察退出、原锚点、原 FIFO 和可选能力沿[本地报告](testing/results/2026-11-24-direct-drag.md)记账；首次运动即冻结是平台适配，Windows／实体鼠标、程序鼠标和完整体验继续开放，存储／tokens／依赖不变。

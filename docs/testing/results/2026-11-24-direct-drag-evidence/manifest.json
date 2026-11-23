@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "scope": "local memory-pipe and Go model-service evidence only; Windows not_run",
+  "artifacts": [
+    {
+      "path": "local/terminal-red.log",
+      "sha256": "4ae6282b40ee681113ac16e79bf0108a2ff56900034772bf082e5b9594f3555e"
+    },
+    {
+      "path": "local/terminal-green.log",
+      "sha256": "e3497537e5833bac3e7342cf9c1dfe5d59fddf2568793ded2383ee4b7a803bed"
+    },
+    {
+      "path": "local/ui-red.log",
+      "sha256": "51321560f5a5a8fe6f98c897394477afef0b5008918c8558f26aa35403e59982"
+    },
+    {
+      "path": "local/ui-green.log",
+      "sha256": "5ae9cc24c04e870bbcde1384004ad7bfe3f5862fda782d1e4d512839b2644d10"
+    },
+    {
+      "path": "local/lifecycle-green.log",
+      "sha256": "d5218f1da763350950ee6a4f181f000bac9a42f5f70beb10f22d84d2dab9b89a"
+    },
+    {
+      "path": "local/lifecycle-final.log",
+      "sha256": "0cd1497b41d0a6c7c40f05f0929ab76ef564225014c3ba2ae75eb92fab66d43d"
+    },
+    {
+      "path": "local/capability.log",
+      "sha256": "abeab82033ddd851f15966667d10d5480da9fcf9b014ebc4c631b0edb16f8389"
+    },
+    {
+      "path": "local/context7-resolve.json",
+      "sha256": "1d7b87a635d8fe5fe46269c0349b362d92baf4bb8d1006faa7e6b1513f229244"
+    },
+    {
+      "path": "local/context7-docs.json",
+      "sha256": "8b88e965ff2e5659073646f3346e5b3ec19ebb89137d81529d745e73ab29e75f"
+    },
+    {
+      "path": "local/protocol-sources.json",
+      "sha256": "201214bc6592c77310bae4977d26b59407a531edc64e944169eda3b316c0439b"
+    },
+    {
+      "path": "local/windows-status.json",
+      "sha256": "475e6153ddd3e23a33bc3d9fe99f46ddd7191906a474986f3d08d8fd9ab69068"
+    },
+    {
+      "path": "local/environment.json",
+      "sha256": "cb068988b4a1edcbe399695d935839e6ff82c8c89273edac859bb0b294be7a90"
+    },
+    {
+      "path": "local/binary-hashes.json",
+      "sha256": "8b856c8b9b4417855fe2220833cc017b6775daefb81d5b2be1d8395dcda293b1"
+    },
+    {
+      "path": "local/source-fingerprints.json",
+      "sha256": "5f8817b31367efaa7d101c2b87743a2e2182c7e67f17c1944df26fcfb462d907"
+    },
+    {
+      "path": "local/catalog-check.log",
+      "sha256": "cdec900bd74cfee5510513fc5f909ef9c985ba8dce1f94feee309dd2ffc03197"
+    },
+    {
+      "path": "local/checks.py",
+      "sha256": "fadbaeed70a8cf383b55403eade3140a2bc74c8fe648003ebde983027ab7a491"
+    },
+    {
+      "path": "local/build.py",
+      "sha256": "ae47af7d7ed3f08bcf76dcfe5f0ef92333a1f64480bc9e96e85a71bc4fdf3265"
+    },
+    {
+      "path": "local/archive.py",
+      "sha256": "6b156d4d60847a8d7b958f635bb5a1d9e33bd45bf8662cc914222f6cb27fd156"
+    },
+    {
+      "path": "local/verify-direct-drag.py",
+      "sha256": "fe01bdaa5b900780cfc6445bc2e7a1d790f9a2fc2f35acc382eb9208a16d0868"
+    },
+    {
+      "path": "local/checks.json",
+      "sha256": "e2893d9872a5575acb2be1e7953562ee239941824d1b9c19760544d684a6349b"
+    },
+    {
+      "path": "local/go-test.log",
+      "sha256": "e582ec4499f1084e13f2248b56ae3b2b35bd08b6729cdda8afa7c928af417aa3"
+    },
+    {
+      "path": "local/go-race.log",
+      "sha256": "1b229ebc15ed16ea6ea713ae65a54662e8866bdc0213c44d4cf7b221686c37a7"
+    },
+    {
+      "path": "local/go-vet.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "local/go-mod-verify.log",
+      "sha256": "b4537ed75f533f993f371954de47e42a793b8e5b0587577de7e27fb3e50696bd"
+    },
+    {
+      "path": "local/source-limits.log",
+      "sha256": "cd968af2e2a36b7b2224a66edf651b2396cbf82f744ea46ef87b96920d88366d"
+    }
+  ]
+}

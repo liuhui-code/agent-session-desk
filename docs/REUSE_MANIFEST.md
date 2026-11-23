@@ -132,3 +132,5 @@ Bubbles 2.2.2 textinput 通过模块使用，未复制组件源码。v2 表单�
 2026-11-24 可见页复制：ADR-0028 选择性改编同固定 Agent Deck `80494e527393b7ead00da30018e6ee7e60e9d7a0`／MIT 的 pane_copy.go 规范化和所选会话复制意图，home.go／hotkeys.go 的 V 为键位参考，tmux_capture.go 仅核对新鲜捕获参数。目标 workspace_visible_copy.go 保留原版权。Manager 原 pane 核对、编码／字节边界、取消和串行请求令牌为本产品实现，不迁入源 native clipboard fallback 或 v1 依赖。十组规范化／注入回调与实际 Tea 输出分别见[报告](testing/results/2026-11-24-visible-copy.md)。
 
 2026-11-24 ADR-0029：固定 psmux `20aa1d7254ee93f64dafa059ef89341d9767470a`／MIT 的 server/connection.rs、server/mod.rs、window_ops.rs、client.rs 仅为 pane-mouse 协议／原生选择语义核对；Go pointer.go 和 workspace_copy_pointer.go 独立编写，未复制 Rust。精确源哈希与范围见[报告](testing/results/2026-11-24-copy-pointer.md)。无新增复用许可证或依赖。
+
+2026-11-24 ADR-0030：固定 psmux `20aa1d7254ee93f64dafa059ef89341d9767470a`／MIT 的 copy-drag-begin 解析／交接和 copy_mode.rs 仅为协议与原生冻结模式参考。Go direct_drag.go 与 UI 起始状态独立实现，不复制 Rust、不迁入本地 VT／历史；六份精确来源哈希见[报告](testing/results/2026-11-24-direct-drag.md)，无新许可证或依赖。

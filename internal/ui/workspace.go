@@ -336,6 +336,9 @@ func (m *Model) workspaceEvent(msg tea.Msg) (tea.Cmd, bool) {
 		}
 		w.readBusy = false
 		w.screen = msg.screen
+		if w.copyPointer != nil && w.screen.CopyMode {
+			w.copyPointer.observed = true
+		}
 		if w.copyPointer != nil && !m.copyPointerCurrent() {
 			w.copyPointer = nil
 		}

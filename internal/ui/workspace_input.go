@@ -11,11 +11,12 @@ import (
 const workspaceInputCapacity = 64 // defensive input bound, not an agent queue
 
 type workspaceInput struct {
-	kind, text    string
-	width, height int
-	x, y          int
-	up            bool
-	reply         chan error
+	kind, text       string
+	width, height    int
+	x, y             int
+	anchorX, anchorY int
+	up               bool
+	reply            chan error
 }
 type workspaceInputDone struct {
 	generation uint64
@@ -88,6 +89,12 @@ func startWorkspaceWriter(ctx context.Context, conn terminal.Connection, inputs 
 						err = native.Pointer(ctx, action.text, action.x, action.y)
 					} else {
 						err = fmt.Errorf("当前连接不支持原生鼠标")
+					}
+				case "copy-drag":
+					if native, ok := conn.(terminal.CopyDragConnection); ok {
+						err = native.BeginCopyDrag(ctx, action.anchorX, action.anchorY, action.x, action.y)
+					} else {
+						err = fmt.Errorf("当前连接不支持实时终端拖选")
 					}
 				case "copy-mode":
 					if native, ok := conn.(terminal.CopyModeConnection); ok {

@@ -20,3 +20,5 @@
 以原 pane 的真实内存流合同、输入 FIFO、内容坐标、越界与重复回执、切 Tab／resize／模态隔离作为本地行为证据。Windows 上传授权未解决期间不换通道绕过；本地通过不升级为 ConPTY、系统剪贴板或完整体验接受。
 
 固定协议来源：[解析](https://github.com/psmux/psmux/blob/20aa1d7254ee93f64dafa059ef89341d9767470a/src/server/connection.rs)、[后端手势](https://github.com/psmux/psmux/blob/20aa1d7254ee93f64dafa059ef89341d9767470a/src/window_ops.rs)。实际本地范围见[报告](../testing/results/2026-11-24-copy-pointer.md)。
+
+2026-11-24：[ADR-0030](0030-direct-terminal-drag-selection.md) 部分扩展／替代第 1、3 项开始条件：未声明鼠标的实时终端首次实际拖动可交接原生选择，按下／单击不发送。其他取消、输入归属和验证边界保留；[实际本地报告](../testing/results/2026-11-24-direct-drag.md)不提升本记录原有原生接受范围。
