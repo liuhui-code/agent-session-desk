@@ -1,0 +1,14 @@
+package ui
+import("context";"encoding/json";"os";"strings";"testing";"github.com/liuhui-code/agent-session-desk/internal/session")
+func TestASDGroupRemovalProductFrames(t *testing.T){
+ var frames []map[string]any
+ root:=session.Group{ID:"11111111111111111111111111111111",Name:"项目",Revision:1};child:=session.Group{ID:"22222222222222222222222222222222",ParentID:root.ID,Name:"审核",Revision:1};def:=session.Group{ID:"default",Name:"我的会话",Revision:1}
+ for _,size:=range [][2]int{{120,32},{63,25},{49,25}}{for _,mode:=range []string{"cancel","delete","notice"}{
+  m:=New(context.Background(),&workspaceFixture{});m.width,m.height=size[0],size[1]
+  d:=&groupRemovalDialog{target:root,focus:1,plan:session.GroupRemoval{Root:root,Destination:def,Groups:[]session.Group{root,child},MemberCount:2,Stamp:strings.Repeat("a",64)}}
+  if mode=="delete"{d.focus=0};if mode=="notice"{d.target=def;d.plan=session.GroupRemoval{}}
+  m.groupRemoval=d;_,fits:=m.groupRemovalBox()
+  frames=append(frames,map[string]any{"columns":size[0],"rows":size[1],"mode":mode,"review_fits":fits,"content":m.renderGroupRemoval()});m.Close()
+ }}
+ data,err:=json.MarshalIndent(frames,"","  ");if err!=nil{t.Fatal(err)};if err=os.WriteFile("/private/tmp/asd-group-removal-20261123/product-removal-frames.json",data,0600);err!=nil{t.Fatal(err)}
+}

@@ -1,0 +1,35 @@
+{
+  "result": "passed",
+  "artifacts": 391,
+  "source_fingerprints": 196,
+  "native_packages": {
+    "store": [
+      65,
+      99
+    ],
+    "manager": [
+      16,
+      18
+    ],
+    "ui": [
+      157,
+      341
+    ]
+  },
+  "actions": {
+    "state": 62,
+    "paste": 3,
+    "text": 25,
+    "keys": 41,
+    "capture": 10,
+    "resize": 4,
+    "finish": 1
+  },
+  "screenshots": 10,
+  "component_pairs": 9,
+  "native_captures": 12,
+  "metadata_snapshots": 12,
+  "saved_output_observations": 3,
+  "original_processes_ended": 5,
+  "scope": "Bounded evidence consistency; no new product execution or full acceptance"
+}

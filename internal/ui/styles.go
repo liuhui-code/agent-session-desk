@@ -16,27 +16,41 @@ import (
 )
 
 type styles struct {
-	groupInput                                                                                                            textinput.Styles
-	groupLabel, groupContext, groupMode, groupChoice, groupChoiceSelected                                                 lipgloss.Style
-	groupName, groupPart, groupHotkey, groupSelectedName, groupSelectedPart                                               lipgloss.Style
-	renameBox, renameTitle, renameHint                                                                                    lipgloss.Style
-	renameInput                                                                                                           textinput.Styles
-	searchTip                                                                                                             lipgloss.Style
-	searchBox, searchInput, searchTitle, searchResult, searchSelected, searchCount, searchHint                            lipgloss.Style
-	copy                                                                                                                  terminal.CopyStyles
-	settingsBox, settingsTitle, settingsText, settingsHint, settingsChoice, settingsRadio, settingsFocused, settingsError lipgloss.Style
-	sidebarSelected, sidebarMetadataSelected                                                                              lipgloss.Style
-	separatorDrag                                                                                                         lipgloss.Style
-	formTitle, formText, formHint, formError                                                                              lipgloss.Style
-	dialog, backdrop                                                                                                      lipgloss.Style
-	formInput                                                                                                             textinput.Styles
-	tab, tabActive, terminalFrame, terminalFocused                                                                        lipgloss.Style
-	title, highlight, dim, error, text, key, separator, panelTitle                                                        lipgloss.Style
-	menuDot, menuGap                                                                                                      string
+	confirmBox, confirmNoticeBox, confirmTitle, confirmNoticeTitle, confirmWarning, confirmDetails, confirmHint, confirmError lipgloss.Style
+	confirmDelete, confirmDeleteFocused, confirmCancel, confirmCancelFocused                                                  lipgloss.Style
+	groupInput                                                                                                                textinput.Styles
+	groupLabel, groupContext, groupMode, groupChoice, groupChoiceSelected                                                     lipgloss.Style
+	groupName, groupPart, groupHotkey, groupSelectedName, groupSelectedPart                                                   lipgloss.Style
+	renameBox, renameTitle, renameHint                                                                                        lipgloss.Style
+	renameInput                                                                                                               textinput.Styles
+	searchTip                                                                                                                 lipgloss.Style
+	searchBox, searchInput, searchTitle, searchResult, searchSelected, searchCount, searchHint                                lipgloss.Style
+	copy                                                                                                                      terminal.CopyStyles
+	settingsBox, settingsTitle, settingsText, settingsHint, settingsChoice, settingsRadio, settingsFocused, settingsError     lipgloss.Style
+	sidebarSelected, sidebarMetadataSelected                                                                                  lipgloss.Style
+	separatorDrag                                                                                                             lipgloss.Style
+	formTitle, formText, formHint, formError                                                                                  lipgloss.Style
+	dialog, backdrop                                                                                                          lipgloss.Style
+	formInput                                                                                                                 textinput.Styles
+	tab, tabActive, terminalFrame, terminalFocused                                                                            lipgloss.Style
+	title, highlight, dim, error, text, key, separator, panelTitle                                                            lipgloss.Style
+	menuDot, menuGap                                                                                                          string
 }
 
 func newStyles(t designTokens) styles {
 	return styles{
+		confirmBox:              lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.colors.red).Background(t.colors.bg).Padding(t.confirm.paddingY, t.confirm.paddingX),
+		confirmNoticeBox:        lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.colors.yellow).Background(t.colors.bg).Padding(t.confirm.paddingY, t.confirm.paddingX),
+		confirmTitle:            lipgloss.NewStyle().Foreground(t.colors.red).Background(t.colors.bg).Bold(t.bold).MarginBottom(t.confirm.sectionGap),
+		confirmNoticeTitle:      lipgloss.NewStyle().Foreground(t.colors.yellow).Background(t.colors.bg).Bold(t.bold).MarginBottom(t.confirm.sectionGap),
+		confirmWarning:          lipgloss.NewStyle().Foreground(t.colors.yellow).Background(t.colors.bg).MarginBottom(t.confirm.sectionGap),
+		confirmDetails:          lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.bg).MarginBottom(t.confirm.sectionGap),
+		confirmHint:             lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.bg),
+		confirmError:            lipgloss.NewStyle().Foreground(t.colors.red).Background(t.colors.bg),
+		confirmDelete:           lipgloss.NewStyle().Foreground(t.colors.red).Background(t.colors.bg).Bold(t.bold).PaddingLeft(t.confirm.buttonPadding).PaddingRight(t.confirm.buttonPadding),
+		confirmDeleteFocused:    lipgloss.NewStyle().Foreground(t.colors.bg).Background(t.colors.red).Bold(t.bold).PaddingLeft(t.confirm.buttonPadding).PaddingRight(t.confirm.buttonPadding),
+		confirmCancel:           lipgloss.NewStyle().Foreground(t.colors.accent).Background(t.colors.bg).Bold(t.bold).PaddingLeft(t.confirm.buttonPadding).PaddingRight(t.confirm.buttonPadding),
+		confirmCancelFocused:    lipgloss.NewStyle().Foreground(t.colors.bg).Background(t.colors.accent).Bold(t.bold).PaddingLeft(t.confirm.buttonPadding).PaddingRight(t.confirm.buttonPadding),
 		groupInput:              groupInputStyles(t),
 		groupLabel:              lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.surface),
 		groupContext:            lipgloss.NewStyle().Foreground(t.colors.cyan).Background(t.colors.surface),

@@ -46,6 +46,14 @@ func (m *Manager) ReorderGroup(ctx context.Context, expected session.GroupOrder,
 	return m.metadata.ReorderGroup(ctx, expected, delta)
 }
 
+func (m *Manager) PreviewGroupRemoval(ctx context.Context, id string) (session.GroupRemoval, error) {
+	return m.metadata.PreviewGroupRemoval(ctx, id)
+}
+
+func (m *Manager) RemoveGroup(ctx context.Context, expected session.GroupRemoval, observed []session.Session) (session.Workspace, error) {
+	return m.metadata.RemoveGroup(ctx, expected, observed)
+}
+
 func (m *Manager) MoveToGroup(ctx context.Context, expected session.Session, target string) (session.Session, error) {
 	view, err := m.Workspace(ctx)
 	if err != nil {

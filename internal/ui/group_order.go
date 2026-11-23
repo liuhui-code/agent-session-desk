@@ -18,7 +18,10 @@ import (
 type groupOrderService interface {
 	ReorderGroup(context.Context, session.GroupOrder, int) ([]session.Group, error)
 }
-type groupOrderMutation struct{ quitting bool }
+type groupOrderMutation struct {
+	quitting bool
+	observed uint64
+}
 type groupOrderResult struct {
 	operation *groupOrderMutation
 	groups    []session.Group
@@ -49,7 +52,7 @@ func (m *Model) reorderSelectedGroup(delta int) tea.Cmd {
 	if index < 0 || target.ID == session.DefaultGroupID || neighbor < 0 || neighbor >= len(expected.Siblings) || expected.Siblings[neighbor].ID == session.DefaultGroupID {
 		return nil
 	}
-	operation := &groupOrderMutation{}
+	operation := &groupOrderMutation{observed: m.groupsObserved}
 	m.groupOrder = operation
 	m.status = "管理模式 · 正在保存分组顺序…"
 	ctx := m.ctx
@@ -77,7 +80,7 @@ func (m *Model) groupOrderEvent(msg tea.Msg) (tea.Cmd, bool) {
 			m.status = "管理模式 · 分组顺序未确认；请刷新核对：" + label(result.err.Error())
 			return m.loadSessions(), true
 		}
-		m.acceptGroupOrder(result.groups)
+		m.acceptGroupOrder(result.groups, m.groupsObserved == result.operation.observed)
 		if strings.HasPrefix(m.status, "管理模式 · 正在保存分组顺序") {
 			m.status = ""
 		}
@@ -95,13 +98,17 @@ func (m *Model) groupOrderEvent(msg tea.Msg) (tea.Cmd, bool) {
 	return nil, false
 }
 
-func (m *Model) acceptGroupOrder(incoming []session.Group) {
+func (m *Model) acceptGroupOrder(incoming []session.Group, allowNew bool) {
 	byID := map[string]session.Group{}
 	for _, g := range m.sidebarGroups() {
 		byID[g.ID] = g
 	}
 	for _, g := range incoming {
-		if old, ok := byID[g.ID]; !ok || old.Revision <= g.Revision {
+		old, ok := byID[g.ID]
+		if !ok && !allowNew {
+			continue
+		}
+		if !ok || old.Revision <= g.Revision {
 			byID[g.ID] = g
 		}
 	}

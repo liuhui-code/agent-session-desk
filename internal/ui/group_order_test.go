@@ -294,3 +294,25 @@ func TestGroupOrderAcknowledgementKeepsNewerObservedMetadataAndDropsOldOperation
 		t.Fatal("old operation result was applied twice")
 	}
 }
+
+func TestGroupOrderAcknowledgementDoesNotRecreateAnObservedRemovedSubtree(t *testing.T) {
+	s, first, child, second := newGroupOrderFixture(t)
+	gate := make(chan struct{})
+	t.Cleanup(func() { releaseGroupOrderGate(gate) })
+	s.gate = gate
+	h := newWorkspaceHarness(t, s, Options{})
+	h.until(func() bool { return h.m.workspace.conn != nil })
+	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
+	h.send(tea.KeyPressMsg{Code: tea.KeyEnd})
+	h.send(tea.KeyPressMsg{Code: 'K', Text: "K"})
+	operation := h.m.groupOrder
+	s.groupMu.Lock()
+	retained := []session.Group{s.groups[0], second}
+	s.groups = append([]session.Group(nil), retained...)
+	s.groupMu.Unlock()
+	h.send(sessionsMsg{generation: h.m.listGeneration, sessions: sampleSessions(), groups: retained})
+	h.send(groupOrderResult{operation: operation, groups: s.result})
+	if h.m.groupByID(first.ID).ID != "" || h.m.groupByID(child.ID).ID != "" {
+		t.Fatal("old order receipt recreated a subtree whose absence was already observed")
+	}
+}

@@ -1,0 +1,71 @@
+{
+    "tasks_absent":  [
+                         "AsdGroupRemovalSetup20261123",
+                         "AsdGroupRemovalDesktop20261123"
+                     ],
+    "clipboard":  {
+                      "text_restored":  true,
+                      "restored":  true,
+                      "original_text_logged":  false,
+                      "utc":  "2026-11-23T06:23:35.3193235Z",
+                      "format_names_restored":  true,
+                      "caps_after":  true,
+                      "caps_before":  true,
+                      "nontext_content_verified":  false
+                  },
+    "utc":  "2026-11-23T06:24:01.2169121Z",
+    "remaining_sessions":  "[]",
+    "private_images_alive":  0,
+    "settings_sha256":  "1499307ABEBA68C23F9EB38A4C636F81172475B6B2B535BC0B11DCD9547241F8",
+    "scope":  "Registered original identities and known private image paths only; no machine-global cleanup claim; owned target and outer launcher PSReadLine history were isolated before input; no user history content archived",
+    "stops":  [
+                  {
+                      "run_id":  "4df977a6103bdbafd832b473c5bb47f8",
+                      "session_id":  "e2ff90f6efa8713b7026977705f6eeee",
+                      "result":  "{\r\n  \"session_id\": \"e2ff90f6efa8713b7026977705f6eeee\",\r\n  \"run_id\": \"4df977a6103bdbafd832b473c5bb47f8\",\r\n  \"result\": \"backend_session_stopped\"\r\n}\r\n"
+                  },
+                  {
+                      "run_id":  "d9e1cfcb0996d1a8816ff2f1413be65b",
+                      "session_id":  "c3ebca31bd756ffc1bda0ebbf026fc94",
+                      "result":  "{\r\n  \"session_id\": \"c3ebca31bd756ffc1bda0ebbf026fc94\",\r\n  \"run_id\": \"d9e1cfcb0996d1a8816ff2f1413be65b\",\r\n  \"result\": \"backend_session_stopped\"\r\n}\r\n"
+                  }
+              ],
+    "result":  "passed",
+    "original_processes":  [
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                   "pid":  19332,
+                                   "filetime":  134398885368345035,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                   "pid":  12024,
+                                   "filetime":  134398885372757759,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-group-removal.exe",
+                                   "pid":  6080,
+                                   "filetime":  134398885556104466,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-group-removal.exe",
+                                   "pid":  18168,
+                                   "filetime":  134398886111623196,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe",
+                                   "pid":  18440,
+                                   "filetime":  134398885545261315,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               }
+                           ]
+}

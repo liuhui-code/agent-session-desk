@@ -17,6 +17,33 @@ type groupRenameFixture struct {
 	renameErr   error
 }
 
+func TestGroupRenameAcknowledgementDoesNotRecreateAnObservedRemovedGroup(t *testing.T) {
+	s := &groupRenameFixture{groupedFixture: newGroupedFixture()}
+	root, err := s.CreateGroup(context.Background(), "", "project", "")
+	if err != nil {
+		t.Fatal(err)
+	}
+	h := newWorkspaceHarness(t, s, Options{})
+	h.until(func() bool { return h.m.workspace.conn != nil })
+	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
+	h.send(tea.KeyPressMsg{Code: '2', Text: "2"})
+	h.send(tea.KeyPressMsg{Code: 'r', Text: "r"})
+	h.until(func() bool { return h.m.groupDialog != nil })
+	dialog := h.m.groupDialog
+	named := root
+	named.Name = "renamed"
+	named.Revision++
+	s.groupMu.Lock()
+	retained := []session.Group{s.groups[0]}
+	s.groups = append([]session.Group(nil), retained...)
+	s.groupMu.Unlock()
+	h.send(sessionsMsg{generation: h.m.listGeneration, sessions: sampleSessions(), groups: retained})
+	h.send(groupResult{dialog: dialog, group: named})
+	if h.m.groupByID(root.ID).ID != "" {
+		t.Fatal("late rename receipt recreated an observed removed group")
+	}
+}
+
 func (s *groupRenameFixture) RenameGroup(ctx context.Context, expected session.Group, name string) (session.Group, error) {
 	s.groupMu.Lock()
 	defer s.groupMu.Unlock()

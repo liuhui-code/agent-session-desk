@@ -36,6 +36,14 @@ type GroupOrder struct {
 	Siblings []Group
 }
 
+// GroupRemoval is a read-only review snapshot, never a terminal-control token.
+type GroupRemoval struct {
+	Root, Destination Group
+	Groups            []Group
+	MemberCount       int64
+	Stamp             string
+}
+
 func GroupOf(v Session) string {
 	if v.GroupID == "" {
 		return DefaultGroupID

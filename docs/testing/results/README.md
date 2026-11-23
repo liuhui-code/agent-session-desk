@@ -1,5 +1,7 @@
 # 实际执行结果
 
+- [2026-11-23：删除组结构与成员收纳](2026-11-23-group-removal.md)：来源确认框及默认取消、完整影响预览／事务、原生 Store／Manager／UI、双 shell 原 Tab／输入／输出保留和精确清理；完整体验及发布仍开放。
+
 已有首批 M0 迁入的局部自动化与构建报告，以及固定 Windows Server 2025 runner 上的原生进程／后端报告；完整桌面交互、Windows 支持矩阵与资源性能验收仍未完成。
 
 - [2026-11-21：M0 首批源码迁入](2026-11-21-m0-source-migration.md)：Go 单元／子进程合同、race、静态检查、依赖校验、Linux 与 Windows 交叉构建；真实 Unix 后台环境阻断、Windows 未执行。

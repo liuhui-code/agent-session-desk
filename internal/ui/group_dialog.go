@@ -131,7 +131,7 @@ func (m *Model) groupDialogEvent(msg tea.Msg) (tea.Cmd, bool) {
 					found = true
 				}
 			}
-			if !found {
+			if !found && !d.rename {
 				groups = append(groups, r.group)
 			}
 			m.groups = groups

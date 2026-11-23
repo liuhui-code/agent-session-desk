@@ -1,0 +1,36 @@
+=== RUN   TestGroupRemovalRejectsChangedTreeSameCountMemberReplacementAndABA
+=== RUN   TestGroupRemovalRejectsChangedTreeSameCountMemberReplacementAndABA/new-child
+=== RUN   TestGroupRemovalRejectsChangedTreeSameCountMemberReplacementAndABA/destination-name
+=== RUN   TestGroupRemovalRejectsChangedTreeSameCountMemberReplacementAndABA/unrelated-group-name
+=== RUN   TestGroupRemovalRejectsChangedTreeSameCountMemberReplacementAndABA/same-count-replacement
+=== RUN   TestGroupRemovalRejectsChangedTreeSameCountMemberReplacementAndABA/membership-ABA
+--- PASS: TestGroupRemovalRejectsChangedTreeSameCountMemberReplacementAndABA (0.07s)
+    --- PASS: TestGroupRemovalRejectsChangedTreeSameCountMemberReplacementAndABA/new-child (0.02s)
+    --- PASS: TestGroupRemovalRejectsChangedTreeSameCountMemberReplacementAndABA/destination-name (0.01s)
+    --- PASS: TestGroupRemovalRejectsChangedTreeSameCountMemberReplacementAndABA/unrelated-group-name (0.01s)
+    --- PASS: TestGroupRemovalRejectsChangedTreeSameCountMemberReplacementAndABA/same-count-replacement (0.01s)
+    --- PASS: TestGroupRemovalRejectsChangedTreeSameCountMemberReplacementAndABA/membership-ABA (0.01s)
+=== RUN   TestGroupRemovalPreservesIndependentMembershipAndNameEditsInItsProjection
+--- PASS: TestGroupRemovalPreservesIndependentMembershipAndNameEditsInItsProjection (0.02s)
+=== RUN   TestGroupRemovalPreviewUsesAReadOnlySnapshotWhileAWriterIsReserved
+--- PASS: TestGroupRemovalPreviewUsesAReadOnlySnapshotWhileAWriterIsReserved (0.01s)
+=== RUN   TestGroupRemovalConcurrentConnectionsOnlyOneCommits
+--- PASS: TestGroupRemovalConcurrentConnectionsOnlyOneCommits (0.02s)
+=== RUN   TestGroupRemovalRollsBackOnProjectionSQLFailureAndVersionExhaustion
+=== RUN   TestGroupRemovalRollsBackOnProjectionSQLFailureAndVersionExhaustion/projection
+=== RUN   TestGroupRemovalRollsBackOnProjectionSQLFailureAndVersionExhaustion/parent-delete
+=== RUN   TestGroupRemovalRollsBackOnProjectionSQLFailureAndVersionExhaustion/membership-exhaustion
+--- PASS: TestGroupRemovalRollsBackOnProjectionSQLFailureAndVersionExhaustion (0.04s)
+    --- PASS: TestGroupRemovalRollsBackOnProjectionSQLFailureAndVersionExhaustion/projection (0.01s)
+    --- PASS: TestGroupRemovalRollsBackOnProjectionSQLFailureAndVersionExhaustion/parent-delete (0.01s)
+    --- PASS: TestGroupRemovalRollsBackOnProjectionSQLFailureAndVersionExhaustion/membership-exhaustion (0.01s)
+=== RUN   TestGroupRemovalProtectsDefaultScopeAndTheReviewedPlanFields
+--- PASS: TestGroupRemovalProtectsDefaultScopeAndTheReviewedPlanFields (0.01s)
+=== RUN   TestGroupRemovalPreservesLiveAndHistoricalMembersOriginalRunsAfterReopen
+--- PASS: TestGroupRemovalPreservesLiveAndHistoricalMembersOriginalRunsAfterReopen (0.06s)
+PASS
+ok  	github.com/liuhui-code/agent-session-desk/internal/store	1.207s
+=== RUN   TestGroupRemovalPreviewsAndCollectsMembersWithoutATerminal
+--- PASS: TestGroupRemovalPreviewsAndCollectsMembersWithoutATerminal (0.01s)
+PASS
+ok  	github.com/liuhui-code/agent-session-desk/internal/manager	1.774s

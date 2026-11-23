@@ -110,3 +110,5 @@ Bubbles 2.2.2 textinput 通过模块使用，未复制组件源码。v2 表单�
 2026-11-23 组重命名：继续适配同固定 group_dialog.go 的 ShowRename／GroupDialogRename（仅名称、预填和 CursorEnd，重置隐藏目录焦点）及 home.go 的组标题 r；group_dialog.go／group_dialog_view.go 接入，与 session_rename_view.go 共用六行内容与 tokens。稳定 ID 使祖先展示路径动态更新，不迁入上游基于路径改写所有成员／子组／折叠键的存储方式。完整组快照／版本 CAS 与回执合并为本产品逻辑；来源哈希、三帧几何和实际验证见[报告](testing/results/2026-11-23-group-rename.md)。无新依赖，MIT 声明保留。
 
 2026-11-23 同级组排序：从相同固定 Agent Deck 提交适配 home.go 的八种管理别名、组身份选择与显式保存语义，以及 session/groups.go 的 moveGroupAmongSiblings 同父过滤、ordinal 归一化与交换。目标为 ui/group_order.go 及 store/group_order.go；组 ID／SQLite CAS、默认组保留首位、版本和异步退出／错误屏障为本产品规则。来源实际执行与必要差异见[报告](testing/results/2026-11-23-group-order.md)，MIT 头和机器清单同步；来源 Session／remote 排序不随此切片迁入。
+
+2026-11-23 删除组：同固定提交的 confirm_dialog.go／home_keys_dialogs.go 的默认 Cancel、红框／黄警告、按钮和 d/y/n/方向键，以及 home.go／session/groups.go 的默认组保护、子树删除和成员收纳语义，选择性适配到 ui/group_removal*.go、store/group_removal.go 与 tokens/styles。九对实际来源／产品组件帧保留外宽及来源留白，中文换行造成一至两行高度差；完整作用域预览印记、离线逻辑成员、SQLite 事务及偏好保存屏障为产品规则。来源 SHA／blob、MIT 和实际范围见[报告](testing/results/2026-11-23-group-removal.md)及机器清单；没有迁入来源路径身份或终端停止行为。

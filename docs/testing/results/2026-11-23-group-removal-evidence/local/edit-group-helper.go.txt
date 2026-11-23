@@ -1,0 +1,12 @@
+package main
+import("context";"encoding/json";"fmt";"os";"strconv";"time";"github.com/liuhui-code/agent-session-desk/internal/store")
+func main(){if err:=run();err!=nil{fmt.Fprintln(os.Stderr,err);os.Exit(1)}}
+func run()error{
+ if len(os.Args)!=6{return fmt.Errorf("expected isolated database, scope, group ID, revision and replacement name")}
+ revision,err:=strconv.ParseInt(os.Args[4],10,64);if err!=nil{return err}
+ ctx,cancel:=context.WithTimeout(context.Background(),5*time.Second);defer cancel()
+ db,err:=store.Open(ctx,os.Args[1],os.Args[2]);if err!=nil{return err};defer db.Close()
+ groups,err:=db.Groups(ctx);if err!=nil{return err}
+ for _,g:=range groups{if g.ID==os.Args[3]{if g.Revision!=revision{return fmt.Errorf("fixture expected revision changed")};named,err:=db.RenameGroup(ctx,g,os.Args[5]);if err!=nil{return err};return json.NewEncoder(os.Stdout).Encode(named)}}
+ return fmt.Errorf("fixture group missing; no edit")
+}

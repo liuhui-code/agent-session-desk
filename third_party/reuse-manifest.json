@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "date": "2026-11-23",
-  "scope": "Selective UI/platform migration through ADR-0022 implicit default group navigation; full group creation/move and release acceptance remain open.",
+  "scope": "Selective UI/platform migration through ADR-0024 group removal and logical-member preservation; full upstream experience and release acceptance remain open.",
   "original_project_license": "pending O-010",
   "source_files": [
     {
@@ -16,7 +16,8 @@
         "darkColors",
         "initStyles subset",
         "MenuKey",
-        "group name, count, hotkey and selected group color/bold roles"
+        "group name, count, hotkey and selected group color/bold roles",
+        "ADR-0024 confirmation red/yellow/blue palette and token-managed box/button styles"
       ],
       "mode": "selectively_adapted",
       "modifications": "See docs/REUSE_MANIFEST.md and file header. ADR-0022 restores only implicit default-group navigation; custom group metadata is not migrated."
@@ -95,7 +96,8 @@
       "destination_file": "internal/ui/design_tokens.go",
       "license": "MIT",
       "parts": [
-        "darkColors palette moved from local styles.go"
+        "darkColors palette moved from local styles.go",
+        "ADR-0024 confirmation red/yellow/blue palette and token-managed box/button styles"
       ],
       "mode": "selectively_adapted",
       "modifications": "Type-safe design tokens; original palette values and attribution retained. See ADR-0008."
@@ -565,6 +567,77 @@
       ],
       "mode": "selectively_adapted",
       "modifications": "ADR-0023: stable Group IDs and scoped whole-sibling metadata/version CAS; reserved default root stays first; single-flight async results, current selection and independent terminal/preferences/quit barriers. No Session/remote reorder or new production dependency."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/confirm_dialog.go",
+      "source_sha256": "5d5df5387ac73ba9fc5b27f6c5493356aea928f1d02e30ce8c33a9feeb5380a8",
+      "destination_file": "internal/ui/group_removal_view.go",
+      "license": "MIT",
+      "parts": [
+        "ShowDeleteGroup, ShowNotice and View",
+        "default Cancel, borders, warning and button geometry"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "ADR-0024: Chinese text and stable v2 token styles; scoped stable group/member identity, read-only full-impact preview and transaction CAS, historical logical members, original input drain and async result fences; preferences cleanup is separate from database commit. No terminal stop, upstream path identity or production dependency change."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/confirm_dialog.go",
+      "source_sha256": "5d5df5387ac73ba9fc5b27f6c5493356aea928f1d02e30ce8c33a9feeb5380a8",
+      "destination_file": "internal/ui/group_removal.go",
+      "license": "MIT",
+      "parts": [
+        "left/h, right/l/Tab focus clamping"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "ADR-0024: Chinese text and stable v2 token styles; scoped stable group/member identity, read-only full-impact preview and transaction CAS, historical logical members, original input drain and async result fences; preferences cleanup is separate from database commit. No terminal stop, upstream path identity or production dependency change."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/home_keys_dialogs.go",
+      "source_sha256": "56e07855a3b5784d80439338cdac0a364d9f5468eb43811911365d1f048ef34f",
+      "destination_file": "internal/ui/group_removal.go",
+      "license": "MIT",
+      "parts": [
+        "confirmation/cancellation key semantics"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "ADR-0024: Chinese text and stable v2 token styles; scoped stable group/member identity, read-only full-impact preview and transaction CAS, historical logical members, original input drain and async result fences; preferences cleanup is separate from database commit. No terminal stop, upstream path identity or production dependency change."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/ui/home.go",
+      "source_sha256": "982178adb5c0ef2e27ff316a1f2383b47e261a965a3e6ac2fd50bf0c199dede9",
+      "destination_file": "internal/ui/group_removal.go",
+      "license": "MIT",
+      "parts": [
+        "group-title d and protected default group"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "ADR-0024: Chinese text and stable v2 token styles; scoped stable group/member identity, read-only full-impact preview and transaction CAS, historical logical members, original input drain and async result fences; preferences cleanup is separate from database commit. No terminal stop, upstream path identity or production dependency change."
+    },
+    {
+      "project": "agent-deck",
+      "repository": "https://github.com/asheshgoplani/agent-deck",
+      "commit": "80494e527393b7ead00da30018e6ee7e60e9d7a0",
+      "source_file": "internal/session/groups.go",
+      "source_sha256": "ca70187d03745fe6adae0db00f4a660dce13df677c2f83afb783f9099c23ba8f",
+      "destination_file": "internal/store/group_removal.go",
+      "license": "MIT",
+      "parts": [
+        "DeleteGroup subtree removal and move members to default semantics"
+      ],
+      "mode": "selectively_adapted",
+      "modifications": "ADR-0024: Chinese text and stable v2 token styles; scoped stable group/member identity, read-only full-impact preview and transaction CAS, historical logical members, original input drain and async result fences; preferences cleanup is separate from database commit. No terminal stop, upstream path identity or production dependency change."
     }
   ],
   "preserved_notices": [

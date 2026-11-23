@@ -10,7 +10,7 @@
 
 2026-11-22 技术进展：[ADR-0015](adr/0015-pinned-psmux-native-terminal-client.md) 已实现固定 psmux 原生终端传输，并通过 fixture／普通 PowerShell 的两项局部原生测试；ADR-0016 在 2026-11-23 接入首个 psmux Tab UI，并有普通 shell 的[局部桌面证据](testing/results/2026-11-23-tab-workspaces.md)。完整上游视觉／交互、IME、子程序鼠标、滚动／排序与资源门槛保持开放。
 
-2026-11-23 导航进展：[ADR-0022](adr/0022-default-group-sidebar-navigation.md) 已实现默认组／折叠／平铺和偏好串行保存，本机及 Windows 模型局部结果见[报告](testing/results/2026-11-23-sidebar-navigation.md)。随后已完成原产品的[限定双 shell 桌面流程](testing/results/2026-11-23-sidebar-navigation-desktop.md)，保留 SendKeys 大写 S 未决。[事件诊断](testing/results/2026-11-23-uppercase-s-diagnosis.md)随后核对了实际大写 S 的管理／终端路由；Caps 关闭的输入前端并列保留在 IME 门槛中。后续 [ADR-0023](adr/0023-persistent-groups-and-membership.md) 已接入自定义根组／子组、移动和持久成员关系，实际检查见[分组报告](testing/results/2026-11-23-custom-groups.md)。后续[来源组件及三 shell 桌面](testing/results/2026-11-23-groups-desktop.md)已有局部证据；下一步补组重命名／删除／重排和其余上游差异，继续最终资源／发布门槛；阶段状态不提升。
+2026-11-23 导航进展：[ADR-0022](adr/0022-default-group-sidebar-navigation.md) 已实现默认组／折叠／平铺和偏好串行保存，本机及 Windows 模型局部结果见[报告](testing/results/2026-11-23-sidebar-navigation.md)。随后已完成原产品的[限定双 shell 桌面流程](testing/results/2026-11-23-sidebar-navigation-desktop.md)，保留 SendKeys 大写 S 未决。[事件诊断](testing/results/2026-11-23-uppercase-s-diagnosis.md)随后核对了实际大写 S 的管理／终端路由；Caps 关闭的输入前端并列保留在 IME 门槛中。后续 [ADR-0023](adr/0023-persistent-groups-and-membership.md) 已接入自定义根组／子组、移动和持久成员关系，实际检查见[分组报告](testing/results/2026-11-23-custom-groups.md)。后续[来源组件及三 shell 桌面](testing/results/2026-11-23-groups-desktop.md)已有局部证据；组改名、同级组排序及 ADR-0024 删除／收纳已有独立局部证据；下一步优先整体上游差异清单与会话手动排序，继续最终资源／发布门槛；阶段状态不提升。
 
 ## M0：视觉基线与 Windows 可行性
 
@@ -164,3 +164,5 @@ M1 收尾按[验收清单](testing/M1_ACCEPTANCE.md)推进；显式有界屏幕�
 2026-11-23 组重命名切片：沿 ADR-0023 接入组标题 r 的来源弹窗与持久名称／版本，保持 SQLite v4、ui.toml v3 及原 Group/Session/Run 身份；没有依赖或终端所有权变化。实际结果见[报告](testing/results/2026-11-23-group-rename.md)，删除／排序、完整界面接受及发布仍待完成。
 
 2026-11-23 同级组排序：ADR-0023 增补完整兄弟快照／版本核对、归一化交换及异步保存／退出屏障；SQLite v4 与 ui.toml v3 不变，没有依赖或终端所有权变化。[实际报告](testing/results/2026-11-23-group-order.md)单列，Session 手动排序、组删除和整体接受仍未完成。
+
+2026-11-23 删除组切片：[ADR-0024](adr/0024-group-removal-and-member-preservation.md) 细化来源默认取消、默认组保护、包含历史成员的只读影响预览和完整组树／成员版本印记。单事务收纳到默认组后删除子树结构，Session/Run/输出和终端不删；偏好仅清理实际删除 ID，不与数据库宣称原子。SQLite v4、ui.toml v3 和依赖不变，实际范围见[报告](testing/results/2026-11-23-group-removal.md)。后续优先逐屏梳理上游差异、补会话手动排序与完整日常终端流程，最终视觉／真实 agent／资源和发布门槛继续开放。

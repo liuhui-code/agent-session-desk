@@ -1,0 +1,6 @@
+# github.com/liuhui-code/agent-session-desk/internal/store_test [github.com/liuhui-code/agent-session-desk/internal/store.test]
+internal/store/group_removal_test.go:23:15: db.PreviewGroupRemoval undefined (type *store.Store has no field or method PreviewGroupRemoval)
+internal/store/group_removal_test.go:25:15: db.RemoveGroup undefined (type *store.Store has no field or method RemoveGroup)
+internal/store/group_removal_test.go:36:52: record.StoppedAt undefined (type store.Record has no field or method StoppedAt)
+FAIL	github.com/liuhui-code/agent-session-desk/internal/store [build failed]
+FAIL

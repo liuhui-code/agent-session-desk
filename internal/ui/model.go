@@ -50,34 +50,36 @@ type pollMsg struct{ generation uint64 }
 // Model implements the stable Bubble Tea v2 API. Mutable UI state is touched
 // only by Init/Update; asynchronous commands return values, never mutate it.
 type Model struct {
-	groupOrder             *groupOrderMutation
-	groupOrderFailed       bool
-	groupDialog            *groupDialog
-	groupIntent            *groupDialog
-	launchGroup            session.Group
-	groups                 []session.Group
-	selectedGroupID        string
-	collapsedGroups        map[string]bool
-	preferences            uiPreferenceState
-	saveUISettings         func(context.Context, config.UISettings) error
-	sidebarMode            string
-	sidebarCollapsed       bool
-	rename                 *sessionRename
-	renameTarget           *session.Session
-	search                 *sessionSearch
-	clipboardGeneration    uint64
-	sidebarDensity         string
-	saveSidebarDensity     func(context.Context, string) error
-	sidebarPreferenceError error
-	densitySettings        *densitySettings
-	launch                 *launchDialog
-	ctx                    context.Context
-	cancel                 context.CancelFunc
-	service                Service
-	styles                 styles
-	tokens                 designTokens
-	history                historyState
-	workspace              *workspaceState
+	groupRemoval, groupRemovalIntent *groupRemovalDialog
+	groupOrder                       *groupOrderMutation
+	groupOrderFailed                 bool
+	groupDialog                      *groupDialog
+	groupIntent                      *groupDialog
+	launchGroup                      session.Group
+	groups                           []session.Group
+	groupsObserved                   uint64
+	selectedGroupID                  string
+	collapsedGroups                  map[string]bool
+	preferences                      uiPreferenceState
+	saveUISettings                   func(context.Context, config.UISettings) error
+	sidebarMode                      string
+	sidebarCollapsed                 bool
+	rename                           *sessionRename
+	renameTarget                     *session.Session
+	search                           *sessionSearch
+	clipboardGeneration              uint64
+	sidebarDensity                   string
+	saveSidebarDensity               func(context.Context, string) error
+	sidebarPreferenceError           error
+	densitySettings                  *densitySettings
+	launch                           *launchDialog
+	ctx                              context.Context
+	cancel                           context.CancelFunc
+	service                          Service
+	styles                           styles
+	tokens                           designTokens
+	history                          historyState
+	workspace                        *workspaceState
 
 	width, height      int
 	sessions           []session.Session
@@ -112,6 +114,7 @@ func newModelWithTokens(ctx context.Context, service Service, tokens designToken
 	m.sidebarMode = "grouped"
 	m.preferences.saved = config.UISettings{SidebarDensity: "compact", SidebarMode: "grouped"}
 	m.preferences.wanted = m.preferences.saved
+	m.preferences.accepted = m.preferences.saved
 	if service, ok := service.(workspaceService); ok {
 		capability, explicit := service.(interface{ SupportsTerminal() bool })
 		if !explicit || capability.SupportsTerminal() {
@@ -132,6 +135,10 @@ func (m *Model) Close() {
 	m.launch = nil
 	m.groupDialog, m.groupIntent = nil, nil
 	m.groupOrder = nil
+	if m.groupRemoval != nil && m.groupRemoval.cancel != nil {
+		m.groupRemoval.cancel()
+	}
+	m.groupRemoval, m.groupRemovalIntent = nil, nil
 	m.search = nil
 	m.rename = nil
 	m.renameTarget = nil
@@ -152,6 +159,9 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		return m, nil
 	}
 	if m.workspace != nil {
+		if cmd, handled := m.groupRemovalEvent(msg); handled {
+			return m, cmd
+		}
 		if cmd, handled := m.groupOrderEvent(msg); handled {
 			return m, cmd
 		}
@@ -210,6 +220,7 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		selected, hadSelection := m.selected()
 		m.sessions = msg.sessions
 		m.groups = msg.groups
+		m.groupsObserved++
 		m.syncSessionSearch(true)
 		m.cursor = min(m.cursor, max(0, len(m.sessions)-1))
 		for i, s := range m.sessions {

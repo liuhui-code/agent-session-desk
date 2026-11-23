@@ -41,3 +41,5 @@ UI 一次接受一笔排序，不积压过期操作；保存期间的额外排�
 组重命名的源码对照、RED→GREEN、并发存储与输入隔离结果另见[实际报告](../testing/results/2026-11-23-group-rename.md)。后续删除／排序等独立推进，既有 Windows／真实 agent／资源和发布门槛不变。
 
 同级组排序的固定来源实际执行、RED→GREEN、真实事务／并发、退出屏障及原生结果见[报告](../testing/results/2026-11-23-group-order.md)。会话行手动排序不随组排序声明完成，删除／收纳与整体接受仍开放。
+
+后续删除组及子组、逻辑成员收纳到默认组、影响预览与并发拒绝由 [ADR-0024](0024-group-removal-and-member-preservation.md)细化；保留原 Session/Run/Tab 和终端，不改变本 ADR 的单会话移动条件。实际范围见[删除组报告](../testing/results/2026-11-23-group-removal.md)，完整体验接受仍开放。

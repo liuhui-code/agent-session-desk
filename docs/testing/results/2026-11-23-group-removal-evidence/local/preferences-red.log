@@ -1,0 +1,7 @@
+--- FAIL: TestGroupRemovalCleanupDoesNotPersistAnotherTabsTemporaryExpansion (0.00s)
+    group_removal_preferences_test.go:59: cleanup persisted unrelated temporary reveal: {SidebarDensity:compact SidebarMode:grouped DefaultGroupCollapsed:false CollapsedGroups:}
+--- FAIL: TestGroupRemovalPreferenceFailureDoesNotRestoreDeletedFoldsOrRetryTheRemoval (0.00s)
+    group_removal_preferences_test.go:98: old writer failure restored deleted group fold IDs
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	1.438s
+FAIL

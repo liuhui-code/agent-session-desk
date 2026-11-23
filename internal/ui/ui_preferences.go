@@ -11,10 +11,11 @@ import (
 // One writer covers the whole small preference document, including choices
 // accepted while a previous write is pending. No terminal effect is involved.
 type uiPreferenceState struct {
-	saved, wanted config.UISettings
-	busy          bool
-	queued        bool // An explicit preference accepted while the writer was busy.
-	generation    uint64
+	saved, wanted, accepted, writing config.UISettings
+	forgottenFolds                   map[string]bool
+	busy                             bool
+	queued                           bool // An explicit preference accepted while the writer was busy.
+	generation                       uint64
 }
 type uiPreferencesSaved struct {
 	generation uint64
@@ -23,18 +24,29 @@ type uiPreferencesSaved struct {
 }
 
 func (m *Model) saveUIPreferences() tea.Cmd {
+	m.preferences.accepted = m.preferences.wanted
+	return m.writeUIPreferences()
+}
+
+func (m *Model) writeUIPreferences() tea.Cmd {
 	p := &m.preferences
+	p.accepted.CollapsedGroups = withoutGroupFolds(p.accepted.CollapsedGroups, p.forgottenFolds)
+	p.wanted.CollapsedGroups = withoutGroupFolds(p.wanted.CollapsedGroups, p.forgottenFolds)
+	p.retainForgottenFolds()
 	if p.busy {
 		p.queued = true
 		return nil
 	}
-	if p.saved == p.wanted {
-		m.applySidebarNavigation(p.saved)
+	if p.saved == p.accepted {
+		if p.wanted == p.accepted {
+			m.applySidebarNavigation(p.saved)
+		}
 		return nil
 	}
 	p.busy = true
 	p.generation++
-	snapshot, generation := p.wanted, p.generation
+	p.writing = p.accepted
+	snapshot, generation := p.writing, p.generation
 	save, densitySave, ctx, previousDensity := m.saveUISettings, m.saveSidebarDensity, m.ctx, p.saved.SidebarDensity
 	return func() tea.Msg {
 		var err error
@@ -56,6 +68,7 @@ func (m *Model) uiPreferencesEvent(msg tea.Msg) (tea.Cmd, bool) {
 		return nil, true
 	}
 	p.busy = false
+	p.writing = config.UISettings{}
 	queued := p.queued
 	p.queued = false
 	if r.err != nil {
@@ -63,8 +76,11 @@ func (m *Model) uiPreferencesEvent(msg tea.Msg) (tea.Cmd, bool) {
 			m.groupOrder.quitting = false
 		}
 		p.wanted = p.saved
+		p.wanted.CollapsedGroups = withoutGroupFolds(p.wanted.CollapsedGroups, p.forgottenFolds)
+		p.accepted = p.wanted
+		p.retainForgottenFolds()
 		m.sidebarDensity = p.saved.SidebarDensity
-		m.applySidebarNavigation(p.saved)
+		m.applySidebarNavigation(p.wanted)
 		m.sidebarPreferenceError = r.err
 		m.status = "管理模式 · 侧栏偏好未保存：" + label(r.err.Error())
 		if m.workspace.transition == workspaceQuit {
@@ -76,6 +92,7 @@ func (m *Model) uiPreferencesEvent(msg tea.Msg) (tea.Cmd, bool) {
 		return nil, true
 	}
 	p.saved = r.settings
+	p.retainForgottenFolds()
 	m.sidebarDensity = r.settings.SidebarDensity
 	if r.settings.SidebarMode == p.wanted.SidebarMode && r.settings.DefaultGroupCollapsed == p.wanted.DefaultGroupCollapsed && r.settings.CollapsedGroups == p.wanted.CollapsedGroups {
 		m.applySidebarNavigation(r.settings)
@@ -88,13 +105,14 @@ func (m *Model) uiPreferencesEvent(msg tea.Msg) (tea.Cmd, bool) {
 		d.busy, d.err = false, nil
 		if sidebarDensities[d.choice] != m.sidebarDensity {
 			p.wanted.SidebarDensity = sidebarDensities[d.choice]
+			p.accepted = p.wanted
 			d.busy = true
 			queued = true
 		}
 	}
 	var cmd tea.Cmd
 	if queued {
-		cmd = m.saveUIPreferences()
+		cmd = m.writeUIPreferences()
 	}
 	if !p.busy && m.workspace.transition == workspaceQuit {
 		m.workspace.transition = workspaceIdle

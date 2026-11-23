@@ -1,0 +1,5 @@
+# github.com/liuhui-code/agent-session-desk/internal/manager_test [github.com/liuhui-code/agent-session-desk/internal/manager.test]
+internal/manager/group_removal_test.go:33:17: m.PreviewGroupRemoval undefined (type *manager.Manager has no field or method PreviewGroupRemoval)
+internal/manager/group_removal_test.go:37:17: m.RemoveGroup undefined (type *manager.Manager has no field or method RemoveGroup)
+FAIL	github.com/liuhui-code/agent-session-desk/internal/manager [build failed]
+FAIL

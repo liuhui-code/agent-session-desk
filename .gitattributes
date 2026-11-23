@@ -29,5 +29,8 @@ docs/testing/results/2026-11-23-groups-desktop-evidence/** -text -whitespace
 # Preserve checksummed group-name evidence and terminal cell padding.
 docs/testing/results/2026-11-23-group-rename-evidence/** -text -whitespace
 
+# Preserve checksummed group-removal receipts, frames and original PNGs.
+docs/testing/results/2026-11-23-group-removal-evidence/** -text -whitespace
+
 # Preserve checksummed sibling-order evidence and original screenshots.
 docs/testing/results/2026-11-23-group-order-evidence/** -text -whitespace

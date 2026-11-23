@@ -15,14 +15,25 @@ func (s *Store) Workspace(ctx context.Context, items []session.Session) (session
 		return session.Workspace{}, err
 	}
 	defer tx.Rollback()
-	groups, err := s.groups(ctx, tx)
+	result, err := s.workspace(ctx, tx, items)
+	if err != nil {
+		return session.Workspace{}, err
+	}
+	if err = tx.Commit(); err != nil {
+		return session.Workspace{}, err
+	}
+	return result, nil
+}
+
+func (s *Store) workspace(ctx context.Context, q rowsReader, items []session.Session) (session.Workspace, error) {
+	groups, err := s.groups(ctx, q)
 	if err != nil {
 		return session.Workspace{}, err
 	}
 	result := session.Workspace{Groups: groups, Sessions: append([]session.Session(nil), items...)}
 	for i := range result.Sessions {
 		v := &result.Sessions[i]
-		err = tx.QueryRowContext(ctx, `SELECT coalesce(n.title,s.title),coalesce(n.revision,0),coalesce(g.group_id,''),coalesce(g.revision,0) FROM sessions s LEFT JOIN session_names n ON n.scope=s.scope AND n.session_id=s.id LEFT JOIN session_groups g ON g.scope=s.scope AND g.session_id=s.id WHERE s.scope=? AND s.id=?`, s.scope, v.ID).Scan(&v.Title, &v.TitleRevision, &v.GroupID, &v.GroupRevision)
+		err = q.QueryRowContext(ctx, `SELECT coalesce(n.title,s.title),coalesce(n.revision,0),coalesce(g.group_id,''),coalesce(g.revision,0) FROM sessions s LEFT JOIN session_names n ON n.scope=s.scope AND n.session_id=s.id LEFT JOIN session_groups g ON g.scope=s.scope AND g.session_id=s.id WHERE s.scope=? AND s.id=?`, s.scope, v.ID).Scan(&v.Title, &v.TitleRevision, &v.GroupID, &v.GroupRevision)
 		if err != nil {
 			return session.Workspace{}, err
 		}
@@ -50,9 +61,6 @@ func (s *Store) Workspace(ctx context.Context, items []session.Session) (session
 		if v.GroupID == session.DefaultGroupID {
 			v.GroupID = ""
 		}
-	}
-	if err = tx.Commit(); err != nil {
-		return session.Workspace{}, err
 	}
 	return result, nil
 }

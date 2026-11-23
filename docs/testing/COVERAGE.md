@@ -5,7 +5,7 @@
 - 用例：339；全部 designed / not_run。
 - 依据明确：216；待决策：123；后置：0。
 - FL：20；FR：14，均有设计引用。
-- 已记录 ADR：23；本库引用 ADR：16。下方逐项列出数量，零引用不等于已覆盖。
+- 已记录 ADR：24；本库引用 ADR：17。下方逐项列出数量，零引用不等于已覆盖。
 - 本轮设计基线执行：0；没有产品通过结论。本表不统计后续独立运行报告，实际证据见 [results/](results/)。
 
 [总索引](CASE_INDEX.md) · [测试策略](TEST_STRATEGY.md) · [未决项](BUDGETS_AND_DECISIONS.md)
@@ -312,5 +312,6 @@
 | [ADR-0021](../adr/0021-persistent-session-display-names.md) | 4 |
 | [ADR-0022](../adr/0022-default-group-sidebar-navigation.md) | 6 |
 | [ADR-0023](../adr/0023-persistent-groups-and-membership.md) | 6 |
+| [ADR-0024](../adr/0024-group-removal-and-member-preservation.md) | 1 |
 
 FL-018 按 ADR-0014 纳入首版计划；沿用原 TC-DEFER 编号，不代表已实现或已验收。

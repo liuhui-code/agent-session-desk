@@ -17,6 +17,7 @@ import (
 // there is no mutable global theme, file watcher or runtime theme format yet.
 // Zero/one in viewport algorithms are counts, not additional style choices.
 type designTokens struct {
+	confirm   confirmTokens
 	group     groupTokens
 	rename    renameTokens
 	search    searchTokens
@@ -28,6 +29,12 @@ type designTokens struct {
 	layout    layoutTokens
 	marks     markTokens
 	bold      bool
+}
+
+type confirmTokens struct {
+	preferredWidth, responsiveBelow, narrowGutter, paddingX, paddingY   int
+	sectionGap, buttonPadding, buttonGap, nameIndent                    int
+	titlePrefix, bullet, focusedPrefix, idlePrefix, nameOpen, nameClose string
 }
 
 type groupTokens struct {
@@ -87,7 +94,7 @@ type workspaceTokens struct {
 	border                                                            lipgloss.Border
 }
 
-type palette struct{ bg, surface, border, text, dim, accent, cyan, red color.Color }
+type palette struct{ bg, surface, border, text, dim, accent, cyan, red, yellow color.Color }
 type layoutTokens struct {
 	singleBelow, stackedBelow                                      int
 	minFrameHeight, minPreviewHeight                               int
@@ -105,7 +112,8 @@ type markTokens struct {
 
 func defaultDesignTokens() designTokens {
 	return designTokens{
-		group: groupTokens{placeholderColor: lipgloss.Color("240"), labelWidth: 14, inputWidth: 30, choicePadding: 1, modeSeparator: " ─── ", modeOpen: "[", modeClose: "]"},
+		confirm: confirmTokens{preferredWidth: 52, responsiveBelow: 60, narrowGutter: 8, paddingX: 2, paddingY: 1, sectionGap: 1, buttonPadding: 2, buttonGap: 2, nameIndent: 2, titlePrefix: "⚠  ", bullet: "• ", focusedPrefix: "▸ ", idlePrefix: "  ", nameOpen: "\"", nameClose: "\""},
+		group:   groupTokens{placeholderColor: lipgloss.Color("240"), labelWidth: 14, inputWidth: 30, choicePadding: 1, modeSeparator: " ─── ", modeOpen: "[", modeClose: "]"},
 		// Pinned group_dialog.go: v1 Width 44/30 excludes the two border cells.
 		rename: renameTokens{preferredWidth: 46, minWidth: 32, gutter: 8, inputWidth: 32, paddingX: 2, paddingY: 1, prompt: "> ", warningPrefix: "⚠ ", borderColor: lipgloss.Color("#bb9af7")},
 		// Pinned search.go: v1 Width 60/30 includes padding, excludes border.
@@ -119,7 +127,7 @@ func defaultDesignTokens() designTokens {
 			bg: lipgloss.Color("#1a1b26"), surface: lipgloss.Color("#24283b"),
 			border: lipgloss.Color("#414868"), text: lipgloss.Color("#c0caf5"),
 			dim: lipgloss.Color("#787fa0"), accent: lipgloss.Color("#7aa2f7"),
-			cyan: lipgloss.Color("#7dcfff"), red: lipgloss.Color("#f7768e"),
+			cyan: lipgloss.Color("#7dcfff"), red: lipgloss.Color("#f7768e"), yellow: lipgloss.Color("#e0af68"),
 		},
 		layout: layoutTokens{
 			singleBelow: 50, stackedBelow: 80, minFrameHeight: 5, minPreviewHeight: 10,

@@ -1,0 +1,162 @@
+{
+    "before":  [
+                   {
+                       "session_id":  "e2ff90f6efa8713b7026977705f6eeee",
+                       "run_id":  "4df977a6103bdbafd832b473c5bb47f8",
+                       "backend_id":  "asd_e2ff90f6efa8713b7026977705f6eeee_4df977a6103bdbafd832b473c5bb47f8",
+                       "title":  "Copy A",
+                       "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                       "terminal_state":  "available"
+                   },
+                   {
+                       "session_id":  "c3ebca31bd756ffc1bda0ebbf026fc94",
+                       "run_id":  "d9e1cfcb0996d1a8816ff2f1413be65b",
+                       "backend_id":  "asd_c3ebca31bd756ffc1bda0ebbf026fc94_d9e1cfcb0996d1a8816ff2f1413be65b",
+                       "title":  "Copy B",
+                       "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                       "terminal_state":  "available"
+                   }
+               ],
+    "output_observations":  3,
+    "ui_processes":  [
+                         {
+                             "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-group-removal.exe",
+                             "pid":  6080,
+                             "filetime":  134398885556104466,
+                             "session":  2
+                         },
+                         {
+                             "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-group-removal.exe",
+                             "pid":  18168,
+                             "filetime":  134398886111623196,
+                             "session":  2
+                         }
+                     ],
+    "before_processes":  [
+                             {
+                                 "pid":  19332,
+                                 "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                 "cwd":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\work",
+                                 "filetime":  134398885368345035,
+                                 "label":  "Copy A"
+                             },
+                             {
+                                 "filetime":  134398885372757759,
+                                 "cwd":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\work",
+                                 "label":  "Copy B",
+                                 "pid":  12024,
+                                 "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe"
+                             }
+                         ],
+    "retained_group":  {
+                           "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                           "ID":  "a160e8ac39f6cc2007f8ef2adc6cdd96",
+                           "ParentID":  "",
+                           "Name":  "保留 更新",
+                           "DefaultDir":  "",
+                           "Revision":  2,
+                           "Order":  2
+                       },
+    "after":  [
+                  {
+                      "group_revision":  2,
+                      "session_id":  "e2ff90f6efa8713b7026977705f6eeee",
+                      "run_id":  "4df977a6103bdbafd832b473c5bb47f8",
+                      "backend_id":  "asd_e2ff90f6efa8713b7026977705f6eeee_4df977a6103bdbafd832b473c5bb47f8",
+                      "title":  "Copy A",
+                      "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                      "terminal_state":  "available"
+                  },
+                  {
+                      "group_revision":  2,
+                      "session_id":  "c3ebca31bd756ffc1bda0ebbf026fc94",
+                      "run_id":  "d9e1cfcb0996d1a8816ff2f1413be65b",
+                      "backend_id":  "asd_c3ebca31bd756ffc1bda0ebbf026fc94_d9e1cfcb0996d1a8816ff2f1413be65b",
+                      "title":  "Copy B",
+                      "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                      "terminal_state":  "available"
+                  }
+              ],
+    "removed_child":  {
+                          "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                          "ID":  "322759d1e411d52421f49c2361891769",
+                          "ParentID":  "6683878dc00fec099431dfb10370b2f3",
+                          "Name":  "审核",
+                          "DefaultDir":  "",
+                          "Revision":  1,
+                          "Order":  0
+                      },
+    "unknown_fold":  "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "scope":  "Two ordinary PowerShells: default protected; Enter/n cancellation; source focus/Tab; 120/63/49 and short-height refusal; actual concurrent Store rename invalidates preview; one final metadata removal; preserved original drafts/PIDs and saved screen record; backup/reopen. IME, real agent and broad release compatibility remain separate.",
+    "after_processes":  [
+                            {
+                                "pid":  19332,
+                                "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                "cwd":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\work",
+                                "filetime":  134398885368345035,
+                                "label":  "Copy A"
+                            },
+                            {
+                                "filetime":  134398885372757759,
+                                "cwd":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\work",
+                                "label":  "Copy B",
+                                "pid":  12024,
+                                "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe"
+                            }
+                        ],
+    "metadata_snapshots":  12,
+    "commands":  146,
+    "utc":  "2026-11-23T06:23:35.3462518Z",
+    "preference_snapshots":  3,
+    "removed_root":  {
+                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                         "ID":  "6683878dc00fec099431dfb10370b2f3",
+                         "ParentID":  "",
+                         "Name":  "项目 甲",
+                         "DefaultDir":  "",
+                         "Revision":  1,
+                         "Order":  1
+                     },
+    "final_members":  [
+                          {
+                              "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                              "SessionID":  "c3ebca31bd756ffc1bda0ebbf026fc94",
+                              "GroupID":  "default",
+                              "Revision":  2
+                          },
+                          {
+                              "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                              "SessionID":  "e2ff90f6efa8713b7026977705f6eeee",
+                              "GroupID":  "default",
+                              "Revision":  2
+                          }
+                      ],
+    "independent_edit":  {
+                             "group_id":  "a160e8ac39f6cc2007f8ef2adc6cdd96",
+                             "name":  "保留 更新",
+                             "revision":  2,
+                             "order":  2
+                         },
+    "final_groups":  [
+                         {
+                             "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                             "ID":  "default",
+                             "ParentID":  "",
+                             "Name":  "我的会话",
+                             "DefaultDir":  "",
+                             "Revision":  1,
+                             "Order":  0
+                         },
+                         {
+                             "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                             "ID":  "a160e8ac39f6cc2007f8ef2adc6cdd96",
+                             "ParentID":  "",
+                             "Name":  "保留 更新",
+                             "DefaultDir":  "",
+                             "Revision":  2,
+                             "Order":  2
+                         }
+                     ],
+    "result":  "passed"
+}
+

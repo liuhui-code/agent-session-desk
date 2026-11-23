@@ -1,0 +1,23 @@
+[
+    {
+        "label":  "before-removal-folds",
+        "sha256":  "F343E6E3B4A6E51590BCCA44009EB4340801B01AA21B0CB36D46C1650B15AD39",
+        "folds":  "322759d1e411d52421f49c2361891769,6683878dc00fec099431dfb10370b2f3,a160e8ac39f6cc2007f8ef2adc6cdd96,eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+        "text":  "schema_version = 3\nsidebar_density = \"compact\"\nsidebar_mode = \"grouped\"\ndefault_group_collapsed = false\ncollapsed_groups = \"322759d1e411d52421f49c2361891769,6683878dc00fec099431dfb10370b2f3,a160e8ac39f6cc2007f8ef2adc6cdd96,eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee\"\n",
+        "density":  "compact"
+    },
+    {
+        "label":  "after-removal-folds",
+        "sha256":  "6CBD1D308B2849057E0AE8858C64249B922BE144A28AD35C7901CD104A0FEDA3",
+        "folds":  "a160e8ac39f6cc2007f8ef2adc6cdd96,eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+        "text":  "schema_version = 3\nsidebar_density = \"compact\"\nsidebar_mode = \"grouped\"\ndefault_group_collapsed = false\ncollapsed_groups = \"a160e8ac39f6cc2007f8ef2adc6cdd96,eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee\"\n",
+        "density":  "compact"
+    },
+    {
+        "label":  "reopened-folds",
+        "sha256":  "6CBD1D308B2849057E0AE8858C64249B922BE144A28AD35C7901CD104A0FEDA3",
+        "folds":  "a160e8ac39f6cc2007f8ef2adc6cdd96,eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+        "text":  "schema_version = 3\nsidebar_density = \"compact\"\nsidebar_mode = \"grouped\"\ndefault_group_collapsed = false\ncollapsed_groups = \"a160e8ac39f6cc2007f8ef2adc6cdd96,eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee\"\n",
+        "density":  "compact"
+    }
+]

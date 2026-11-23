@@ -1,0 +1,88 @@
+{
+    "ok":  true,
+    "utc":  "2026-11-23T06:23:34.8680815Z",
+    "state":  {
+                  "fontNames":  [
+                                    "System.__ComObject",
+                                    "Consolas"
+                                ],
+                  "text":  "ASD isolated desktop acceptance\nPS C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\u003e \u0026 \u0027C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\asd-group-removal.exe\u0027 --terminal-bundle \u0027C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\terminal-bundle-20261123\\bundle\u0027 --runtime-dir \u0027C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\u0027 --namespace asd-group-removal --state-dir \u0027C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\state\u0027                                 \r\nPS C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\u003e                                                                       \r\n",
+                  "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe",
+                  "filetime":  134398885545261315,
+                  "rect":  [
+                               40,
+                               40,
+                               1113,
+                               657
+                           ],
+                  "caps_lock":  true,
+                  "session":  2,
+                  "tree":  [
+                               {
+                                   "name":  "",
+                                   "type":  "ControlType.Pane"
+                               },
+                               {
+                                   "name":  "",
+                                   "type":  "ControlType.Pane"
+                               },
+                               {
+                                   "name":  "",
+                                   "type":  "ControlType.Tab"
+                               },
+                               {
+                                   "name":  "",
+                                   "type":  "ControlType.List"
+                               },
+                               {
+                                   "name":  "ASD isolated desktop acceptance",
+                                   "type":  "ControlType.TabItem"
+                               },
+                               {
+                                   "name":  "ASD isolated desktop acceptance",
+                                   "type":  "ControlType.Text"
+                               },
+                               {
+                                   "name":  "关闭标签页",
+                                   "type":  "ControlType.Button"
+                               },
+                               {
+                                   "name":  "新建标签页",
+                                   "type":  "ControlType.SplitButton"
+                               },
+                               {
+                                   "name":  "",
+                                   "type":  "ControlType.Custom"
+                               },
+                               {
+                                   "name":  "ASD isolated desktop acceptance",
+                                   "type":  "ControlType.Text"
+                               },
+                               {
+                                   "name":  "垂直",
+                                   "type":  "ControlType.ScrollBar"
+                               },
+                               {
+                                   "name":  "垂直小幅下降",
+                                   "type":  "ControlType.Button"
+                               },
+                               {
+                                   "name":  "垂直大幅下降",
+                                   "type":  "ControlType.Button"
+                               },
+                               {
+                                   "name":  "垂直大幅增长",
+                                   "type":  "ControlType.Button"
+                               },
+                               {
+                                   "name":  "垂直小幅增长",
+                                   "type":  "ControlType.Button"
+                               }
+                           ],
+                  "pid":  18440,
+                  "keyboardLayout":  134481924
+              },
+    "command":  {
+                    "kind":  "state"
+                }
+}

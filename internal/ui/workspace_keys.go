@@ -40,7 +40,7 @@ func (m *Model) workspaceKey(msg tea.KeyPressMsg) tea.Cmd {
 	}
 	if m.groupOrder != nil {
 		switch msg.String() {
-		case "shift+up", "ctrl+up", "+", "K", "shift+down", "ctrl+down", "-", "J", "g", "M", "r", "n", "a", "h", "?", "S":
+		case "shift+up", "ctrl+up", "+", "K", "shift+down", "ctrl+down", "-", "J", "g", "M", "r", "n", "a", "h", "?", "S", "d":
 			m.status = "管理模式 · 正在保存分组顺序；完成后可继续操作"
 			return nil
 		}
@@ -52,6 +52,8 @@ func (m *Model) workspaceKey(msg tea.KeyPressMsg) tea.Cmd {
 		return cmd
 	}
 	switch msg.String() {
+	case "d":
+		return m.beginGroupRemoval()
 	case "shift+up", "ctrl+up", "+", "K":
 		return m.reorderSelectedGroup(-1)
 	case "shift+down", "ctrl+down", "-", "J":

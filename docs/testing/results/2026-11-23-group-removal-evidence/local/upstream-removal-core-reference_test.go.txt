@@ -1,0 +1,15 @@
+package session
+import("encoding/json";"os";"sort";"testing")
+func TestASDGroupRemovalCoreReference(t *testing.T){
+ tree:=NewGroupTree(nil)
+ a:=&Instance{ID:"a",GroupPath:"project"};b:=&Instance{ID:"b",GroupPath:"project/review"};c:=&Instance{ID:"c",GroupPath:"other"}
+ for _,g:=range []*Group{{Path:DefaultGroupPath,Name:DefaultGroupName,Order:0},{Path:"project",Name:"project",Order:1,Sessions:[]*Instance{a}},{Path:"project/review",Name:"review",Order:0,Sessions:[]*Instance{b}},{Path:"other",Name:"other",Order:2,Sessions:[]*Instance{c}}}{tree.Groups[g.Path]=g}
+ tree.rebuildGroupList();moved:=tree.DeleteGroup("project");var movedIDs,remainingGroups,remainingIDs []string
+ for _,v:=range moved{if v.GroupPath!=DefaultGroupPath{t.Fatal("moved session did not reach default")};movedIDs=append(movedIDs,v.ID)}
+ for _,g:=range tree.GroupList{remainingGroups=append(remainingGroups,g.Path)}
+ for _,v:=range tree.GetAllInstances(){remainingIDs=append(remainingIDs,v.ID)}
+ sort.Strings(movedIDs);sort.Strings(remainingIDs)
+ protected:=tree.DeleteGroup(DefaultGroupPath)
+ data,err:=json.MarshalIndent(map[string]any{"moved_ids":movedIDs,"remaining_groups":remainingGroups,"remaining_ids":remainingIDs,"default_refused":len(protected)==0},"","  ");if err!=nil{t.Fatal(err)}
+ if err=os.WriteFile("/private/tmp/asd-group-removal-20261123/upstream-removal-core.json",data,0600);err!=nil{t.Fatal(err)}
+}

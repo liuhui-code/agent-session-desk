@@ -1,0 +1,824 @@
+[
+    {
+        "value":  {
+                      "Version":  4,
+                      "Groups":  [
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                         "ID":  "default",
+                                         "ParentID":  "",
+                                         "Name":  "我的会话",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                         "ID":  "6683878dc00fec099431dfb10370b2f3",
+                                         "ParentID":  "",
+                                         "Name":  "项目 甲",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  1
+                                     }
+                                 ],
+                      "Members":  [
+
+                                  ],
+                      "Runs":  [
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                       "ID":  "4df977a6103bdbafd832b473c5bb47f8",
+                                       "SessionID":  "e2ff90f6efa8713b7026977705f6eeee",
+                                       "BackendID":  "asd_e2ff90f6efa8713b7026977705f6eeee_4df977a6103bdbafd832b473c5bb47f8",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795414936974559900,
+                                       "StoppedNS":  null
+                                   },
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                       "ID":  "d9e1cfcb0996d1a8816ff2f1413be65b",
+                                       "SessionID":  "c3ebca31bd756ffc1bda0ebbf026fc94",
+                                       "BackendID":  "asd_c3ebca31bd756ffc1bda0ebbf026fc94_d9e1cfcb0996d1a8816ff2f1413be65b",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795414937624475300,
+                                       "StoppedNS":  null
+                                   }
+                               ]
+                  },
+        "label":  "root-created"
+    },
+    {
+        "value":  {
+                      "Version":  4,
+                      "Groups":  [
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                         "ID":  "322759d1e411d52421f49c2361891769",
+                                         "ParentID":  "6683878dc00fec099431dfb10370b2f3",
+                                         "Name":  "审核",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                         "ID":  "default",
+                                         "ParentID":  "",
+                                         "Name":  "我的会话",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                         "ID":  "6683878dc00fec099431dfb10370b2f3",
+                                         "ParentID":  "",
+                                         "Name":  "项目 甲",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  1
+                                     }
+                                 ],
+                      "Members":  [
+
+                                  ],
+                      "Runs":  [
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                       "ID":  "4df977a6103bdbafd832b473c5bb47f8",
+                                       "SessionID":  "e2ff90f6efa8713b7026977705f6eeee",
+                                       "BackendID":  "asd_e2ff90f6efa8713b7026977705f6eeee_4df977a6103bdbafd832b473c5bb47f8",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795414936974559900,
+                                       "StoppedNS":  null
+                                   },
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                       "ID":  "d9e1cfcb0996d1a8816ff2f1413be65b",
+                                       "SessionID":  "c3ebca31bd756ffc1bda0ebbf026fc94",
+                                       "BackendID":  "asd_c3ebca31bd756ffc1bda0ebbf026fc94_d9e1cfcb0996d1a8816ff2f1413be65b",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795414937624475300,
+                                       "StoppedNS":  null
+                                   }
+                               ]
+                  },
+        "label":  "child-created"
+    },
+    {
+        "value":  {
+                      "Version":  4,
+                      "Groups":  [
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                         "ID":  "322759d1e411d52421f49c2361891769",
+                                         "ParentID":  "6683878dc00fec099431dfb10370b2f3",
+                                         "Name":  "审核",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                         "ID":  "default",
+                                         "ParentID":  "",
+                                         "Name":  "我的会话",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                         "ID":  "6683878dc00fec099431dfb10370b2f3",
+                                         "ParentID":  "",
+                                         "Name":  "项目 甲",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  1
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                         "ID":  "a160e8ac39f6cc2007f8ef2adc6cdd96",
+                                         "ParentID":  "",
+                                         "Name":  "保留",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  2
+                                     }
+                                 ],
+                      "Members":  [
+
+                                  ],
+                      "Runs":  [
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                       "ID":  "4df977a6103bdbafd832b473c5bb47f8",
+                                       "SessionID":  "e2ff90f6efa8713b7026977705f6eeee",
+                                       "BackendID":  "asd_e2ff90f6efa8713b7026977705f6eeee_4df977a6103bdbafd832b473c5bb47f8",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795414936974559900,
+                                       "StoppedNS":  null
+                                   },
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                       "ID":  "d9e1cfcb0996d1a8816ff2f1413be65b",
+                                       "SessionID":  "c3ebca31bd756ffc1bda0ebbf026fc94",
+                                       "BackendID":  "asd_c3ebca31bd756ffc1bda0ebbf026fc94_d9e1cfcb0996d1a8816ff2f1413be65b",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795414937624475300,
+                                       "StoppedNS":  null
+                                   }
+                               ]
+                  },
+        "label":  "other-created"
+    },
+    {
+        "value":  {
+                      "Version":  4,
+                      "Groups":  [
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                         "ID":  "322759d1e411d52421f49c2361891769",
+                                         "ParentID":  "6683878dc00fec099431dfb10370b2f3",
+                                         "Name":  "审核",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                         "ID":  "default",
+                                         "ParentID":  "",
+                                         "Name":  "我的会话",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                         "ID":  "6683878dc00fec099431dfb10370b2f3",
+                                         "ParentID":  "",
+                                         "Name":  "项目 甲",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  1
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                         "ID":  "a160e8ac39f6cc2007f8ef2adc6cdd96",
+                                         "ParentID":  "",
+                                         "Name":  "保留",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  2
+                                     }
+                                 ],
+                      "Members":  [
+                                      {
+                                          "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                          "SessionID":  "c3ebca31bd756ffc1bda0ebbf026fc94",
+                                          "GroupID":  "6683878dc00fec099431dfb10370b2f3",
+                                          "Revision":  1
+                                      },
+                                      {
+                                          "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                          "SessionID":  "e2ff90f6efa8713b7026977705f6eeee",
+                                          "GroupID":  "322759d1e411d52421f49c2361891769",
+                                          "Revision":  1
+                                      }
+                                  ],
+                      "Runs":  [
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                       "ID":  "4df977a6103bdbafd832b473c5bb47f8",
+                                       "SessionID":  "e2ff90f6efa8713b7026977705f6eeee",
+                                       "BackendID":  "asd_e2ff90f6efa8713b7026977705f6eeee_4df977a6103bdbafd832b473c5bb47f8",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795414936974559900,
+                                       "StoppedNS":  null
+                                   },
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                       "ID":  "d9e1cfcb0996d1a8816ff2f1413be65b",
+                                       "SessionID":  "c3ebca31bd756ffc1bda0ebbf026fc94",
+                                       "BackendID":  "asd_c3ebca31bd756ffc1bda0ebbf026fc94_d9e1cfcb0996d1a8816ff2f1413be65b",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795414937624475300,
+                                       "StoppedNS":  null
+                                   }
+                               ]
+                  },
+        "label":  "before-removal"
+    },
+    {
+        "value":  {
+                      "Version":  4,
+                      "Groups":  [
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                         "ID":  "322759d1e411d52421f49c2361891769",
+                                         "ParentID":  "6683878dc00fec099431dfb10370b2f3",
+                                         "Name":  "审核",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                         "ID":  "default",
+                                         "ParentID":  "",
+                                         "Name":  "我的会话",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                         "ID":  "6683878dc00fec099431dfb10370b2f3",
+                                         "ParentID":  "",
+                                         "Name":  "项目 甲",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  1
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                         "ID":  "a160e8ac39f6cc2007f8ef2adc6cdd96",
+                                         "ParentID":  "",
+                                         "Name":  "保留",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  2
+                                     }
+                                 ],
+                      "Members":  [
+                                      {
+                                          "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                          "SessionID":  "c3ebca31bd756ffc1bda0ebbf026fc94",
+                                          "GroupID":  "6683878dc00fec099431dfb10370b2f3",
+                                          "Revision":  1
+                                      },
+                                      {
+                                          "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                          "SessionID":  "e2ff90f6efa8713b7026977705f6eeee",
+                                          "GroupID":  "322759d1e411d52421f49c2361891769",
+                                          "Revision":  1
+                                      }
+                                  ],
+                      "Runs":  [
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                       "ID":  "4df977a6103bdbafd832b473c5bb47f8",
+                                       "SessionID":  "e2ff90f6efa8713b7026977705f6eeee",
+                                       "BackendID":  "asd_e2ff90f6efa8713b7026977705f6eeee_4df977a6103bdbafd832b473c5bb47f8",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795414936974559900,
+                                       "StoppedNS":  null
+                                   },
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                       "ID":  "d9e1cfcb0996d1a8816ff2f1413be65b",
+                                       "SessionID":  "c3ebca31bd756ffc1bda0ebbf026fc94",
+                                       "BackendID":  "asd_c3ebca31bd756ffc1bda0ebbf026fc94_d9e1cfcb0996d1a8816ff2f1413be65b",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795414937624475300,
+                                       "StoppedNS":  null
+                                   }
+                               ]
+                  },
+        "label":  "default-enter-cancelled"
+    },
+    {
+        "value":  {
+                      "Version":  4,
+                      "Groups":  [
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                         "ID":  "322759d1e411d52421f49c2361891769",
+                                         "ParentID":  "6683878dc00fec099431dfb10370b2f3",
+                                         "Name":  "审核",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                         "ID":  "default",
+                                         "ParentID":  "",
+                                         "Name":  "我的会话",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                         "ID":  "6683878dc00fec099431dfb10370b2f3",
+                                         "ParentID":  "",
+                                         "Name":  "项目 甲",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  1
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                         "ID":  "a160e8ac39f6cc2007f8ef2adc6cdd96",
+                                         "ParentID":  "",
+                                         "Name":  "保留",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  2
+                                     }
+                                 ],
+                      "Members":  [
+                                      {
+                                          "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                          "SessionID":  "c3ebca31bd756ffc1bda0ebbf026fc94",
+                                          "GroupID":  "6683878dc00fec099431dfb10370b2f3",
+                                          "Revision":  1
+                                      },
+                                      {
+                                          "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                          "SessionID":  "e2ff90f6efa8713b7026977705f6eeee",
+                                          "GroupID":  "322759d1e411d52421f49c2361891769",
+                                          "Revision":  1
+                                      }
+                                  ],
+                      "Runs":  [
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                       "ID":  "4df977a6103bdbafd832b473c5bb47f8",
+                                       "SessionID":  "e2ff90f6efa8713b7026977705f6eeee",
+                                       "BackendID":  "asd_e2ff90f6efa8713b7026977705f6eeee_4df977a6103bdbafd832b473c5bb47f8",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795414936974559900,
+                                       "StoppedNS":  null
+                                   },
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                       "ID":  "d9e1cfcb0996d1a8816ff2f1413be65b",
+                                       "SessionID":  "c3ebca31bd756ffc1bda0ebbf026fc94",
+                                       "BackendID":  "asd_c3ebca31bd756ffc1bda0ebbf026fc94_d9e1cfcb0996d1a8816ff2f1413be65b",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795414937624475300,
+                                       "StoppedNS":  null
+                                   }
+                               ]
+                  },
+        "label":  "n-cancelled"
+    },
+    {
+        "value":  {
+                      "Version":  4,
+                      "Groups":  [
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                         "ID":  "322759d1e411d52421f49c2361891769",
+                                         "ParentID":  "6683878dc00fec099431dfb10370b2f3",
+                                         "Name":  "审核",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                         "ID":  "default",
+                                         "ParentID":  "",
+                                         "Name":  "我的会话",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                         "ID":  "6683878dc00fec099431dfb10370b2f3",
+                                         "ParentID":  "",
+                                         "Name":  "项目 甲",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  1
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                         "ID":  "a160e8ac39f6cc2007f8ef2adc6cdd96",
+                                         "ParentID":  "",
+                                         "Name":  "保留",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  2
+                                     }
+                                 ],
+                      "Members":  [
+                                      {
+                                          "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                          "SessionID":  "c3ebca31bd756ffc1bda0ebbf026fc94",
+                                          "GroupID":  "6683878dc00fec099431dfb10370b2f3",
+                                          "Revision":  1
+                                      },
+                                      {
+                                          "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                          "SessionID":  "e2ff90f6efa8713b7026977705f6eeee",
+                                          "GroupID":  "322759d1e411d52421f49c2361891769",
+                                          "Revision":  1
+                                      }
+                                  ],
+                      "Runs":  [
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                       "ID":  "4df977a6103bdbafd832b473c5bb47f8",
+                                       "SessionID":  "e2ff90f6efa8713b7026977705f6eeee",
+                                       "BackendID":  "asd_e2ff90f6efa8713b7026977705f6eeee_4df977a6103bdbafd832b473c5bb47f8",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795414936974559900,
+                                       "StoppedNS":  null
+                                   },
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                       "ID":  "d9e1cfcb0996d1a8816ff2f1413be65b",
+                                       "SessionID":  "c3ebca31bd756ffc1bda0ebbf026fc94",
+                                       "BackendID":  "asd_c3ebca31bd756ffc1bda0ebbf026fc94_d9e1cfcb0996d1a8816ff2f1413be65b",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795414937624475300,
+                                       "StoppedNS":  null
+                                   }
+                               ]
+                  },
+        "label":  "short-viewport-refused"
+    },
+    {
+        "value":  {
+                      "Version":  4,
+                      "Groups":  [
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                         "ID":  "322759d1e411d52421f49c2361891769",
+                                         "ParentID":  "6683878dc00fec099431dfb10370b2f3",
+                                         "Name":  "审核",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                         "ID":  "default",
+                                         "ParentID":  "",
+                                         "Name":  "我的会话",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                         "ID":  "6683878dc00fec099431dfb10370b2f3",
+                                         "ParentID":  "",
+                                         "Name":  "项目 甲",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  1
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                         "ID":  "a160e8ac39f6cc2007f8ef2adc6cdd96",
+                                         "ParentID":  "",
+                                         "Name":  "保留 更新",
+                                         "DefaultDir":  "",
+                                         "Revision":  2,
+                                         "Order":  2
+                                     }
+                                 ],
+                      "Members":  [
+                                      {
+                                          "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                          "SessionID":  "c3ebca31bd756ffc1bda0ebbf026fc94",
+                                          "GroupID":  "6683878dc00fec099431dfb10370b2f3",
+                                          "Revision":  1
+                                      },
+                                      {
+                                          "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                          "SessionID":  "e2ff90f6efa8713b7026977705f6eeee",
+                                          "GroupID":  "322759d1e411d52421f49c2361891769",
+                                          "Revision":  1
+                                      }
+                                  ],
+                      "Runs":  [
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                       "ID":  "4df977a6103bdbafd832b473c5bb47f8",
+                                       "SessionID":  "e2ff90f6efa8713b7026977705f6eeee",
+                                       "BackendID":  "asd_e2ff90f6efa8713b7026977705f6eeee_4df977a6103bdbafd832b473c5bb47f8",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795414936974559900,
+                                       "StoppedNS":  null
+                                   },
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                       "ID":  "d9e1cfcb0996d1a8816ff2f1413be65b",
+                                       "SessionID":  "c3ebca31bd756ffc1bda0ebbf026fc94",
+                                       "BackendID":  "asd_c3ebca31bd756ffc1bda0ebbf026fc94_d9e1cfcb0996d1a8816ff2f1413be65b",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795414937624475300,
+                                       "StoppedNS":  null
+                                   }
+                               ]
+                  },
+        "label":  "stale-preview-refused"
+    },
+    {
+        "value":  {
+                      "Version":  4,
+                      "Groups":  [
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                         "ID":  "322759d1e411d52421f49c2361891769",
+                                         "ParentID":  "6683878dc00fec099431dfb10370b2f3",
+                                         "Name":  "审核",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                         "ID":  "default",
+                                         "ParentID":  "",
+                                         "Name":  "我的会话",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                         "ID":  "6683878dc00fec099431dfb10370b2f3",
+                                         "ParentID":  "",
+                                         "Name":  "项目 甲",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  1
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                         "ID":  "a160e8ac39f6cc2007f8ef2adc6cdd96",
+                                         "ParentID":  "",
+                                         "Name":  "保留 更新",
+                                         "DefaultDir":  "",
+                                         "Revision":  2,
+                                         "Order":  2
+                                     }
+                                 ],
+                      "Members":  [
+                                      {
+                                          "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                          "SessionID":  "c3ebca31bd756ffc1bda0ebbf026fc94",
+                                          "GroupID":  "6683878dc00fec099431dfb10370b2f3",
+                                          "Revision":  1
+                                      },
+                                      {
+                                          "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                          "SessionID":  "e2ff90f6efa8713b7026977705f6eeee",
+                                          "GroupID":  "322759d1e411d52421f49c2361891769",
+                                          "Revision":  1
+                                      }
+                                  ],
+                      "Runs":  [
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                       "ID":  "4df977a6103bdbafd832b473c5bb47f8",
+                                       "SessionID":  "e2ff90f6efa8713b7026977705f6eeee",
+                                       "BackendID":  "asd_e2ff90f6efa8713b7026977705f6eeee_4df977a6103bdbafd832b473c5bb47f8",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795414936974559900,
+                                       "StoppedNS":  null
+                                   },
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                       "ID":  "d9e1cfcb0996d1a8816ff2f1413be65b",
+                                       "SessionID":  "c3ebca31bd756ffc1bda0ebbf026fc94",
+                                       "BackendID":  "asd_c3ebca31bd756ffc1bda0ebbf026fc94_d9e1cfcb0996d1a8816ff2f1413be65b",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795414937624475300,
+                                       "StoppedNS":  null
+                                   }
+                               ]
+                  },
+        "label":  "repeated-y-refused"
+    },
+    {
+        "value":  {
+                      "Version":  4,
+                      "Groups":  [
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                         "ID":  "default",
+                                         "ParentID":  "",
+                                         "Name":  "我的会话",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                         "ID":  "a160e8ac39f6cc2007f8ef2adc6cdd96",
+                                         "ParentID":  "",
+                                         "Name":  "保留 更新",
+                                         "DefaultDir":  "",
+                                         "Revision":  2,
+                                         "Order":  2
+                                     }
+                                 ],
+                      "Members":  [
+                                      {
+                                          "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                          "SessionID":  "c3ebca31bd756ffc1bda0ebbf026fc94",
+                                          "GroupID":  "default",
+                                          "Revision":  2
+                                      },
+                                      {
+                                          "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                          "SessionID":  "e2ff90f6efa8713b7026977705f6eeee",
+                                          "GroupID":  "default",
+                                          "Revision":  2
+                                      }
+                                  ],
+                      "Runs":  [
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                       "ID":  "4df977a6103bdbafd832b473c5bb47f8",
+                                       "SessionID":  "e2ff90f6efa8713b7026977705f6eeee",
+                                       "BackendID":  "asd_e2ff90f6efa8713b7026977705f6eeee_4df977a6103bdbafd832b473c5bb47f8",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795414936974559900,
+                                       "StoppedNS":  null
+                                   },
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                       "ID":  "d9e1cfcb0996d1a8816ff2f1413be65b",
+                                       "SessionID":  "c3ebca31bd756ffc1bda0ebbf026fc94",
+                                       "BackendID":  "asd_c3ebca31bd756ffc1bda0ebbf026fc94_d9e1cfcb0996d1a8816ff2f1413be65b",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795414937624475300,
+                                       "StoppedNS":  null
+                                   }
+                               ]
+                  },
+        "label":  "removed-structure"
+    },
+    {
+        "value":  {
+                      "Version":  4,
+                      "Groups":  [
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                         "ID":  "default",
+                                         "ParentID":  "",
+                                         "Name":  "我的会话",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                         "ID":  "a160e8ac39f6cc2007f8ef2adc6cdd96",
+                                         "ParentID":  "",
+                                         "Name":  "保留 更新",
+                                         "DefaultDir":  "",
+                                         "Revision":  2,
+                                         "Order":  2
+                                     }
+                                 ],
+                      "Members":  [
+                                      {
+                                          "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                          "SessionID":  "c3ebca31bd756ffc1bda0ebbf026fc94",
+                                          "GroupID":  "default",
+                                          "Revision":  2
+                                      },
+                                      {
+                                          "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                          "SessionID":  "e2ff90f6efa8713b7026977705f6eeee",
+                                          "GroupID":  "default",
+                                          "Revision":  2
+                                      }
+                                  ],
+                      "Runs":  [
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                       "ID":  "4df977a6103bdbafd832b473c5bb47f8",
+                                       "SessionID":  "e2ff90f6efa8713b7026977705f6eeee",
+                                       "BackendID":  "asd_e2ff90f6efa8713b7026977705f6eeee_4df977a6103bdbafd832b473c5bb47f8",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795414936974559900,
+                                       "StoppedNS":  null
+                                   },
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                       "ID":  "d9e1cfcb0996d1a8816ff2f1413be65b",
+                                       "SessionID":  "c3ebca31bd756ffc1bda0ebbf026fc94",
+                                       "BackendID":  "asd_c3ebca31bd756ffc1bda0ebbf026fc94_d9e1cfcb0996d1a8816ff2f1413be65b",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795414937624475300,
+                                       "StoppedNS":  null
+                                   }
+                               ]
+                  },
+        "label":  "backup-removed-structure"
+    },
+    {
+        "value":  {
+                      "Version":  4,
+                      "Groups":  [
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                         "ID":  "default",
+                                         "ParentID":  "",
+                                         "Name":  "我的会话",
+                                         "DefaultDir":  "",
+                                         "Revision":  1,
+                                         "Order":  0
+                                     },
+                                     {
+                                         "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                         "ID":  "a160e8ac39f6cc2007f8ef2adc6cdd96",
+                                         "ParentID":  "",
+                                         "Name":  "保留 更新",
+                                         "DefaultDir":  "",
+                                         "Revision":  2,
+                                         "Order":  2
+                                     }
+                                 ],
+                      "Members":  [
+                                      {
+                                          "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                          "SessionID":  "c3ebca31bd756ffc1bda0ebbf026fc94",
+                                          "GroupID":  "default",
+                                          "Revision":  2
+                                      },
+                                      {
+                                          "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                          "SessionID":  "e2ff90f6efa8713b7026977705f6eeee",
+                                          "GroupID":  "default",
+                                          "Revision":  2
+                                      }
+                                  ],
+                      "Runs":  [
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                       "ID":  "4df977a6103bdbafd832b473c5bb47f8",
+                                       "SessionID":  "e2ff90f6efa8713b7026977705f6eeee",
+                                       "BackendID":  "asd_e2ff90f6efa8713b7026977705f6eeee_4df977a6103bdbafd832b473c5bb47f8",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795414936974559900,
+                                       "StoppedNS":  null
+                                   },
+                                   {
+                                       "Scope":  "psmux:c:\\users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\group-removal-desktop-20261123\\runtime\\asd-group-removal",
+                                       "ID":  "d9e1cfcb0996d1a8816ff2f1413be65b",
+                                       "SessionID":  "c3ebca31bd756ffc1bda0ebbf026fc94",
+                                       "BackendID":  "asd_c3ebca31bd756ffc1bda0ebbf026fc94_d9e1cfcb0996d1a8816ff2f1413be65b",
+                                       "Command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                       "RecordedNS":  1795414937624475300,
+                                       "StoppedNS":  null
+                                   }
+                               ]
+                  },
+        "label":  "reopened"
+    }
+]

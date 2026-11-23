@@ -1,0 +1,5 @@
+--- FAIL: TestGroupRenameAcknowledgementDoesNotRecreateAnObservedRemovedGroup (0.00s)
+    group_rename_test.go:43: late rename receipt recreated an observed removed group
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.926s
+FAIL
