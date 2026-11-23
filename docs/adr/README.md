@@ -49,6 +49,8 @@ ADR-0014 依据用户 2026-11-22 的明确要求接受，部分替代 0001/0002 
 
 | [0018](0018-native-copy-search-and-host-clipboard.md) | 原生选择／搜索、结构化剪贴板与跨 Tab 串行转发 | 已接受 | 局部实现与 Windows 结果另见报告；[缩高缺行与候选](../testing/results/2026-11-23-resize-history.md)单列，完整体验／兼容开放 |
 
+| [0019](0019-explicit-windows-terminal-bundle.md) | 显式 Windows x64 终端开发 bundle、固定构建与实际宿主核验 | 已接受（开发候选） | 原生／桌面结果见[接入报告](../testing/results/2026-11-23-terminal-bundle.md)；跨权限、完整兼容与发布仍开放 |
+
 ## 维护规则
 
 1. 新决定使用下一个连续编号，复制[模板](template.md)，已有编号不重用。

@@ -1,0 +1,8 @@
+=== RUN   TestWindowsTerminalBundleInputHistoryAndReconnect
+    bundle_flow_windows_test.go:28: native Windows backend=psmux version=3.4.0 sha256=ca9753a059a6926bb5ad1d9fee81513507a6133d3efa5eefcf2423e33f348937 namespace=asd-native-27b60e1a0fe1
+    bundle_flow_windows_test.go:122: bundle flow retained original Session=e0bee03edcaa8ba3197f5c29ad114121 Run=88db619f552fed67db08d6b86bfb5466 rootPID=19324 creation=134398663495845331, exact Unicode, 40 history lines, alternate resize and prompt reconnect
+--- PASS: TestWindowsTerminalBundleInputHistoryAndReconnect (3.05s)
+=== RUN   TestWindowsTerminalBundleRejectsSystemHostedExistingRun
+    bundle_windows_test.go:17: native Windows backend=psmux version=3.4.0 sha256=ca9753a059a6926bb5ad1d9fee81513507a6133d3efa5eefcf2423e33f348937 namespace=asd-native-d6919be3f5ac
+--- PASS: TestWindowsTerminalBundleRejectsSystemHostedExistingRun (0.80s)
+PASS

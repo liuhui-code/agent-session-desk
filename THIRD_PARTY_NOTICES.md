@@ -29,7 +29,7 @@
 
 ASMGR 与 Agent of Empires 在这一切片中仅作为流程/视觉参考，没有迁入其源码。psmux 和 tmux 是外部运行依赖，没有将完整源码或二进制包含到本仓库；psmux 的下述实验补丁另行归属，不得把开发分支或候选等同于已核验的稳定发行物。
 
-psmux 缩高历史[实验补丁](tools/experiments/psmux-resize-history/candidate.patch)基于 `20aa1d7254ee93f64dafa059ef89341d9767470a` 的 `crates/vt100-psmux/src/grid.rs`，包含原始上下文及本项目修改，仅供隔离验证，未应用于产品安装依赖。psmux 为 MIT、Copyright (c) 2025 Godwin Sam Josh；保留[原文](third_party/psmux/LICENSE)。vt100-psmux 继承 MIT、Copyright (c) 2016 Jesse Luehrs；保留[原文](third_party/vt100-psmux/LICENSE)。本项目修改为缩高前保留被挤出的主屏幕历史行；来源、哈希与适用边界见[执行报告](docs/testing/results/2026-11-23-resize-history.md)。
+psmux 缩高历史[实验补丁](tools/experiments/psmux-resize-history/candidate.patch)基于 `20aa1d7254ee93f64dafa059ef89341d9767470a` 的 `crates/vt100-psmux/src/grid.rs`，包含原始上下文及本项目修改，仅供隔离验证，未应用于默认产品安装依赖。psmux 为 MIT、Copyright (c) 2025 Godwin Sam Josh；保留[原文](third_party/psmux/LICENSE)。vt100-psmux 继承 MIT、Copyright (c) 2016 Jesse Luehrs；保留[原文](third_party/vt100-psmux/LICENSE)。本项目修改为缩高前保留被挤出的主屏幕历史行；来源、哈希与适用边界见[执行报告](docs/testing/results/2026-11-23-resize-history.md)。
 
 Go 模块由 `go.mod` 与 `go.sum` 锁定，通过模块系统取得，没有复制进本仓库。发布包必须另外收集并核对实际包含的直接、间接依赖许可证，不能用本文件代替发行物审计。
 
@@ -40,3 +40,5 @@ M1 新增直接依赖 `modernc.org/sqlite v1.62.0`：BSD-3-Clause，Copyright (c
 ADR-0016 新增直接依赖 `charm.land/bubbles/v2 v2.2.2`：MIT，Copyright (c) 2020–2026 Charmbracelet, Inc.；[固定版本许可](https://github.com/charmbracelet/bubbles/blob/v2.2.2/LICENSE)。通过模块使用 textinput，无组件源码复制；clipboard、runewidth、uniseg 等间接依赖的实际版本和许可随发行物另行收集。
 
 测量工具的显式宿主候选 `Microsoft.Windows.Console.ConPTY 1.25.261109001`：NuGet 原始 nuspec 声明 MIT、© Microsoft Corporation，来源为[固定版本官方包](https://www.nuget.org/packages/Microsoft.Windows.Console.ConPTY/1.25.261109001)。归档与 x64 `conpty.dll`／`OpenConsole.exe` 哈希固定在 `tools/ci/windows-dependencies.json`，执行前验证 Microsoft 签名。本仓库不包含这两个二进制，不将该诊断候选列为产品运行／发布依赖；未来若随产品分发，仍须完成发行物许可与兼容审计。
+
+ADR-0019 现允许通过显式 `--terminal-bundle` 在开发配置中选择上述补丁构建和同一固定 SDK，仍不包含二进制或静默替换官方默认安装依赖。MIT 归属继续适用；发布包的实际许可收集与兼容验收仍开放。

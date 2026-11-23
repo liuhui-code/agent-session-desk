@@ -36,7 +36,7 @@ Agent Session Desk 是一个面向 Windows 的本地 CLI agent 会话工作台�
 
 Windows 终端后台以 psmux 3.4.0 稳定发布为 M0 验证基线；Unix/tmux 路径后续扩展。配置使用 TOML，会话元数据和消息使用 SQLite，输出记录使用有上限、可轮转的文件；数据库驱动、后台 IPC 和数值资源预算仍待验证。
 
-首版采用“创建／打开 Tab → 在 Tab 内操作终端 → 切换或关闭视图”。agent 与普通 shell／CLI 共用目标终端自身的输入区，不另加日常聊天输入框。全屏 attach 可保留为显式辅助模式。此方向由 [ADR-0014](adr/0014-upstream-ui-tabs-and-general-terminals.md) 部分替代此前列表主导航和内嵌交互后置决定；当前代码仍是旧路径，新 Tab 体验尚未实现／验收。现有 [v0.1 UI 图稿](UI_DESIGN.md)保留为探索记录，因界面过于杂乱，**不作为实现基线**。选择性复用的范围需要实际迁入确认，不承诺未经验证的复用比例。
+首版采用“创建／打开 Tab → 在 Tab 内操作终端 → 切换或关闭视图”。agent 与普通 shell／CLI 共用目标终端自身的输入区，不另加日常聊天输入框。全屏 attach 可保留为显式辅助模式。此方向由 [ADR-0014](adr/0014-upstream-ui-tabs-and-general-terminals.md) 部分替代此前列表主导航和内嵌交互后置决定；ADR-0016 已接入首个 psmux Tab 工作区及终端输入，完整体验仍未验收。现有 [v0.1 UI 图稿](UI_DESIGN.md)保留为探索记录，因界面过于杂乱，**不作为实现基线**。选择性复用的范围需要实际迁入确认，不承诺未经验证的复用比例。
 
 ## 4. 建议的初版用户故事
 

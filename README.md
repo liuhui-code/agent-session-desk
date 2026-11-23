@@ -6,7 +6,7 @@
 
 通过一条 CLI 命令启动本地 agent，在清晰、美观的 TUI 中管理多个会话，并让会话能够读取彼此的输出、传递任务和返回结果。
 
-> 当前阶段：**M0 首批源码迁入已落地，五项 Windows 原生后端场景已在指定 Windows Server 2025 runner 通过；完整验收仍待完成。** 已有 Go / Charm v2 开发切片，包含简约列表、屏幕预览、CLI 启动与全屏 attach 代码；不是已发布的软件版本。运行方法见 [M0 开发指南](docs/M0_DEVELOPMENT.md)，证据分别记录在[源码迁入报告](docs/testing/results/2026-11-21-m0-source-migration.md)和[Windows 执行报告](docs/testing/results/2026-11-21-m0-native-windows.md)。另已完成 0/1/5/10 会话的[原生 Windows 短资源实验](docs/testing/results/2026-11-21-m0-windows-resources.md)，含真实 TUI 启停、重开与直接程序对照。桌面交互、资源预算、长稳和发布仍需独立验收。项目名称与原创部分的许可证仍待定。
+> 当前阶段：**M0 首批源码迁入已落地，五项 Windows 原生后端场景已在指定 Windows Server 2025 runner 通过；完整验收仍待完成。** 已有 Go / Charm v2 开发切片，包含 psmux Tab 工作区、原生终端输入、通用 CLI 创建、辅助列表／预览及全屏 attach；不是已发布的软件版本。运行方法见 [M0 开发指南](docs/M0_DEVELOPMENT.md)，证据分别记录在[源码迁入报告](docs/testing/results/2026-11-21-m0-source-migration.md)和[Windows 执行报告](docs/testing/results/2026-11-21-m0-native-windows.md)。另已完成 0/1/5/10 会话的[原生 Windows 短资源实验](docs/testing/results/2026-11-21-m0-windows-resources.md)，含真实 TUI 启停、重开与直接程序对照。桌面交互、资源预算、长稳和发布仍需独立验收。项目名称与原创部分的许可证仍待定。
 
 ## 产品目标
 
@@ -145,3 +145,5 @@ Tab 终端支持[原生历史滚动](docs/testing/results/2026-11-23-workspace-s
 终端选择／搜索已接入：F6 管理后 v，使用后端自己的选择与 /／? 搜索，Enter 将选择发送给外层终端剪贴板。原 shell 草稿保留；查询不会读取用户剪贴板。参见[操作与验证](docs/testing/results/2026-11-23-native-copy-search.md)，完整鼠标／终端／真实 agent 兼容仍开放。
 
 当前已确认的终端限制：固定官方 psmux 3.4.0 在缩高时可能丢失历史行。独立修复候选已有原生验证，尚未纳入默认依赖；[复现、候选和剩余门槛](docs/testing/results/2026-11-23-resize-history.md)单独记录，完整终端体验仍未验收。
+
+Windows x64 显式开发配置现可通过 `--terminal-bundle` 选择固定历史补丁后端＋Microsoft 宿主，并核验实际加载。与官方默认路径分别记账，参见[开发用法](docs/M0_DEVELOPMENT.md#显式-windows-x64-终端开发-bundle)、[ADR-0019](docs/adr/0019-explicit-windows-terminal-bundle.md)及[原生／桌面结果](docs/testing/results/2026-11-23-terminal-bundle.md)。它尚非发布版本，跨权限接入、完整视觉与资源等门槛仍开放。

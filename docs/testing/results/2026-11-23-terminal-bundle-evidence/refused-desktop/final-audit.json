@@ -1,0 +1,38 @@
+{
+    "go_tests_rerun":  true,
+    "task_absent":  true,
+    "original_processes":  [
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                   "pid":  18396,
+                                   "filetime":  134398664006457533,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                   "pid":  16260,
+                                   "filetime":  134398664009827469,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe",
+                                   "pid":  18580,
+                                   "filetime":  134398664262555609,
+                                   "original_ended":  true,
+                                   "pid_reused":  false
+                               }
+                           ],
+    "clipboard_nontext_content_verified":  false,
+    "result":  "passed",
+    "clipboard_format_names_restored":  true,
+    "settings_sha256":  "1499307ABEBA68C23F9EB38A4C636F81172475B6B2B535BC0B11DCD9547241F8",
+    "utc":  "2026-11-23T00:20:35.3611593Z",
+    "clipboard_text_restored":  true,
+    "ui_original_filetime_available":  false,
+    "scope":  "Cross-permission refusal; no terminal input, UI image absence checked; no original UI FILETIME claim",
+    "exact_owned_images_alive":  0,
+    "commands":  86,
+    "product_reused":  false
+}

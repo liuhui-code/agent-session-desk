@@ -1,0 +1,5 @@
+--- FAIL: TestTerminalBundleRejectsInvalidSelectionBeforeRuntimeCreation (0.00s)
+    terminal_bundle_test.go:20: invalid bundle must be rejected explicitly: code=1 stderr="flag provided but not defined: -terminal-bundle\nasd: flag provided but not defined: -terminal-bundle\n"
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/cli	2.213s
+FAIL

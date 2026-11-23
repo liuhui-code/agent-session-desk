@@ -14,6 +14,9 @@ func (b *Backend) command(args ...string) *exec.Cmd {
 	all := append([]string{"-L", b.namespace, "-f", b.config}, args...)
 	cmd := exec.Command(b.bin, all...)
 	cmd.Env = commandEnv(os.Environ(), b.kind, b.dataDir, b.config)
+	if b.bundle != "" {
+		cmd.Env = append(cmd.Env, "PSMUX_CONPTY_DIR="+b.bundle)
+	}
 	return cmd
 }
 

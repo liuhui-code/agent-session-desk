@@ -1,0 +1,19 @@
+{
+  "base_commit": "e4836143328721bba2a3dda23f83fb6c2b70e508",
+  "source_state": "pre-commit worktree; exact Go/module digests in product-source-after.json",
+  "go": "1.27.4",
+  "build_host": "darwin/amd64",
+  "target": "windows/amd64",
+  "native_execution": "Windows 10 build 19045; independently archived native and desktop records",
+  "artifacts": {
+    "product": "bedda5d361fe63adb2231e314ad90234c24c395635eece1666d35cfc9ab02cfc",
+    "backend_tests": "1502e44f8cd378600f2ffb1afd252b1c8e70112db401f9640d639496df946965",
+    "cli_tests": "063010b434ec013a4c78b4ace8ba9e6d3a5691a4f91f3a25fa07aa17ca0e2023"
+  },
+  "dependency_change": "x/sys v0.49.0 already locked; promoted to direct without version upgrade",
+  "source_only_changes_since_first_product_build": [
+    "go.mod direct dependency marker",
+    "additional Windows test"
+  ],
+  "rebuilt_product_after_module_marker_change": "identical SHA-256"
+}

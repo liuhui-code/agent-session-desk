@@ -102,10 +102,12 @@ M0 使用后端 user option 做存活终端的发现，不建立临时 JSON 文�
 
 ### 2026-11-22：上游体验、Tab 与普通终端
 
-用户明确要求尽可能还原原项目的布局比例、交互与颜色，以 Tab 页面管理 Session，agent 借助 terminal 自身输入区，普通命令行也纳入管理。[ADR-0014](adr/0014-upstream-ui-tabs-and-general-terminals.md) 部分替代 0001/0002 并扩展 0004；FL-018 纳入首版计划。终端托管与身份、消息证据、tokens 和资源规则保留；当前代码仍为列表／全屏 attach，文档接受不代表新 UI 已实现或验收。
+用户明确要求尽可能还原原项目的布局比例、交互与颜色，以 Tab 页面管理 Session，agent 借助 terminal 自身输入区，普通命令行也纳入管理。[ADR-0014](adr/0014-upstream-ui-tabs-and-general-terminals.md) 部分替代 0001/0002 并扩展 0004；FL-018 纳入首版计划。终端托管与身份、消息证据、tokens 和资源规则保留；ADR-0016 已实现首个 psmux Tab 工作区，实际结果另记，仍不代表完整体验已验收。
 
 2026-11-23 界面偏好实施补充：[ADR-0017](adr/0017-sidebar-density-preferences.md) 沿用上游四种侧栏密度与即时保存交互，使用独立 `ui.toml`，启动模板仍只读；此实现不提升完整视觉、真实 agent 或发布状态。
 
 2026-11-23 原生复制／搜索实施补充：[ADR-0018](adr/0018-native-copy-search-and-host-clipboard.md) 委托固定后端维护选择与搜索，以受限元数据渲染提示／选区并通过外层终端 OSC52 转发复制；不读取用户剪贴板或新增历史副本，不把发送请求当作已保存。
 
 2026-11-23 终端历史验证更新：官方 psmux 3.4.0 缩高会丢行，新增独立候选验证但未改变依赖决定／安装哈希；冻结复制页与实时 capture 分别核对，不由产品补写历史。若接纳带补丁发行物须另立来源／版本决定。见[实际报告](testing/results/2026-11-23-resize-history.md)，ADR-0015/0018 与 FL-002/016/018/019 保留未完成门槛。
+
+2026-11-23：[ADR-0019](adr/0019-explicit-windows-terminal-bundle.md) 接入显式 Windows x64 开发终端 bundle；原生宿主／补丁组合和实际进程核验独立于官方默认发行物，详见执行报告，不提升完整验收。

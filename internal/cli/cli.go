@@ -43,6 +43,7 @@ Usage:
 
 Global options (before the subcommand):
   --backend PATH       psmux on Windows; tmux for Unix development
+  --terminal-bundle DIR  Explicit pinned Windows x64 development terminal bundle
   --runtime-dir DIR    Product-owned backend data/config directory
   --namespace NAME     Isolated product backend namespace
   --state-dir DIR      Persistent metadata directory
@@ -92,6 +93,7 @@ func run(ctx context.Context, args []string, input io.Reader, output, errorOutpu
 	var options backend.Options
 	var configPath, stateDir string
 	flags.StringVar(&options.Binary, "backend", "", "terminal backend executable")
+	flags.StringVar(&options.TerminalBundle, "terminal-bundle", "", "pinned Windows x64 development terminal bundle")
 	flags.StringVar(&options.RuntimeDir, "runtime-dir", "", "product runtime directory")
 	flags.StringVar(&options.Namespace, "namespace", "", "product namespace")
 	flags.StringVar(&stateDir, "state-dir", "", "persistent metadata directory")

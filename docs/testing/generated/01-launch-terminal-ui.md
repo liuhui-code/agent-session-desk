@@ -1161,7 +1161,7 @@
 
 - 功能：[FL-002](../COVERAGE.md#fl-002)、[FL-016](../COVERAGE.md#fl-016)、[FL-018](../COVERAGE.md#fl-018)
 - 需求：[FR-02](../COVERAGE.md#fr-02)、[FR-11](../COVERAGE.md#fr-11)
-- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0014](../../adr/0014-upstream-ui-tabs-and-general-terminals.md)、[ADR-0015](../../adr/0015-pinned-psmux-native-terminal-client.md)、[ADR-0016](../../adr/0016-tab-workspaces-and-input-ownership.md)
+- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0014](../../adr/0014-upstream-ui-tabs-and-general-terminals.md)、[ADR-0015](../../adr/0015-pinned-psmux-native-terminal-client.md)、[ADR-0016](../../adr/0016-tab-workspaces-and-input-ownership.md)、[ADR-0019](../../adr/0019-explicit-windows-terminal-bundle.md)
 - 优先级 / 阶段 / 层次：P0 / M0 / windows_e2e
 - 类型：compatibility、boundary
 - 设计 / 执行：`designed / not_run`
@@ -1180,12 +1180,14 @@
 1. 在 echo 目标中依次输入参数矩阵文本并提交。
 2. 按定义的提交边界比较实际文本码点、字符顺序和回显。
 3. 分别使用终端字面输入与粘贴向独立 Console.ReadLine／原始键读取器发送 ALT输入α；在普通主屏和受控 alternate screen 比较 UTF-16 码元，同时记录实际宿主、输入模式和代码页，不把回显相似当作收件正确。
+4. 显式 bundle 分别验证正确文件与错误哈希／目录；核对实际 server PID／FILETIME／EXE、已加载 DLL 和 OpenConsole 子进程。分别执行同权限桌面与 SSH／桌面不同权限上下文，不因诊断探针通过而提升产品路径。
 
 #### 预期与不变量
 
 - 正文无乱码、重复、丢字或意外规范化；提交动作不混入正文。
 - 管理器预览中的宽度截断不改变真实 agent 收到的输入。
 - 末字 α 必须为码元 945，不能被 NUL、替换字符或其他字符取代；改代码页或只验证 PSReadLine 不代替目标读取方式的验收。
+- 已有系统宿主 Run 或实际宿主无法核验时拒绝交互，保留原 Run，不自动重启、提权或重放输入；新建核验失败只清理新生成的精确 Session。
 
 #### 需要的证据
 
@@ -1474,7 +1476,7 @@
 
 - 功能：[FL-002](../COVERAGE.md#fl-002)、[FL-016](../COVERAGE.md#fl-016)、[FL-018](../COVERAGE.md#fl-018)
 - 需求：[FR-02](../COVERAGE.md#fr-02)、[FR-11](../COVERAGE.md#fr-11)
-- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0014](../../adr/0014-upstream-ui-tabs-and-general-terminals.md)、[ADR-0015](../../adr/0015-pinned-psmux-native-terminal-client.md)、[ADR-0016](../../adr/0016-tab-workspaces-and-input-ownership.md)
+- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0014](../../adr/0014-upstream-ui-tabs-and-general-terminals.md)、[ADR-0015](../../adr/0015-pinned-psmux-native-terminal-client.md)、[ADR-0016](../../adr/0016-tab-workspaces-and-input-ownership.md)、[ADR-0019](../../adr/0019-explicit-windows-terminal-bundle.md)
 - 优先级 / 阶段 / 层次：P1 / M0 / windows_e2e
 - 类型：state、compatibility
 - 设计 / 执行：`designed / not_run`
@@ -1513,7 +1515,7 @@
 
 - 功能：[FL-002](../COVERAGE.md#fl-002)、[FL-016](../COVERAGE.md#fl-016)、[FL-018](../COVERAGE.md#fl-018)
 - 需求：[FR-02](../COVERAGE.md#fr-02)、[FR-11](../COVERAGE.md#fr-11)
-- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0014](../../adr/0014-upstream-ui-tabs-and-general-terminals.md)、[ADR-0015](../../adr/0015-pinned-psmux-native-terminal-client.md)、[ADR-0016](../../adr/0016-tab-workspaces-and-input-ownership.md)、[ADR-0018](../../adr/0018-native-copy-search-and-host-clipboard.md)
+- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0014](../../adr/0014-upstream-ui-tabs-and-general-terminals.md)、[ADR-0015](../../adr/0015-pinned-psmux-native-terminal-client.md)、[ADR-0016](../../adr/0016-tab-workspaces-and-input-ownership.md)、[ADR-0018](../../adr/0018-native-copy-search-and-host-clipboard.md)、[ADR-0019](../../adr/0019-explicit-windows-terminal-bundle.md)
 - 优先级 / 阶段 / 层次：P0 / M0 / windows_e2e
 - 类型：boundary、compatibility
 - 设计 / 执行：`designed / not_run`

@@ -37,9 +37,10 @@ var (
 )
 
 type Options struct {
-	Binary     string
-	RuntimeDir string
-	Namespace  string
+	Binary         string
+	RuntimeDir     string
+	Namespace      string
+	TerminalBundle string
 }
 
 type Info struct {
@@ -50,6 +51,7 @@ type Info struct {
 
 type Backend struct {
 	bin, kind, dataDir, config, namespace string
+	bundle                                string
 }
 
 // New prepares only product-owned paths. It neither starts a server nor changes
@@ -58,6 +60,13 @@ func New(opts Options) (*Backend, error) {
 	kind, dir, err := Location(opts)
 	if err != nil {
 		return nil, err
+	}
+	bundle, err := prepareTerminalBundle(opts, kind)
+	if err != nil {
+		return nil, err
+	}
+	if bundle != "" {
+		opts.Binary = filepath.Join(bundle, "psmux.exe")
 	}
 	if opts.Binary == "" {
 		opts.Binary = kind
@@ -81,7 +90,7 @@ func New(opts Options) (*Backend, error) {
 	if err := ensureConfig(config, body); err != nil {
 		return nil, err
 	}
-	return &Backend{bin: bin, kind: kind, dataDir: dir, config: config, namespace: filepath.Base(dir)}, nil
+	return &Backend{bin: bin, kind: kind, dataDir: dir, config: config, namespace: filepath.Base(dir), bundle: bundle}, nil
 }
 
 func ensureConfig(path, body string) error {
@@ -274,6 +283,9 @@ func (b *Backend) Start(ctx context.Context, launch session.Launch) (session.Ses
 	if err != nil {
 		return result, b.failedStart(name, err)
 	}
+	if err := b.verifyTerminalBundle(ctx, name); err != nil {
+		return result, b.failedStart(name, err)
+	}
 	out, err := b.run(ctx, maxControlBytes, "list-panes", "-t", name, "-F", "#{pane_id}")
 	if err != nil {
 		return result, b.failedStart(name, err)
@@ -406,6 +418,9 @@ func (b *Backend) Preview(ctx context.Context, s session.Session, lines int) (se
 func (b *Backend) Attach(ctx context.Context, s session.Session) (*exec.Cmd, error) {
 	r, err := b.validateTarget(ctx, s)
 	if err != nil {
+		return nil, err
+	}
+	if err := b.verifyTerminalBundle(ctx, s.BackendID); err != nil {
 		return nil, err
 	}
 	state := b.paneState(ctx, s.BackendID, r.PaneID)

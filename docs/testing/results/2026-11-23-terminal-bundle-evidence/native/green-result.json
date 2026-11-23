@@ -1,0 +1,19 @@
+{
+    "utc":  "2026-11-23T00:10:49.0247229Z",
+    "bundle_files":  [
+                         {
+                             "sha256":  "E971856F89748DC3B458125E9AFDD79B5E9574A7C937676116D3CBBD3B71F492",
+                             "name":  "conpty.dll"
+                         },
+                         {
+                             "sha256":  "B17E48B07EF153B420F0A6E178BACD31FB4C3390E21AE746586213FC0719A775",
+                             "name":  "OpenConsole.exe"
+                         },
+                         {
+                             "sha256":  "CA9753A059A6926BB5AD1D9FEE81513507A6133D3EFA5EEFCF2423E33F348937",
+                             "name":  "psmux.exe"
+                         }
+                     ],
+    "test_sha256":  "5F22D8024840CAD703B752BAE9971E71A3DBF038E61ED576ADC0E331A3F57524",
+    "exit_code":  0
+}

@@ -1,0 +1,43 @@
+{
+    "checks":  [
+                   {
+                       "module_snapshot_ok":  false,
+                       "open_process":  [
+                                            {
+                                                "success":  false,
+                                                "error":  5,
+                                                "access":  4096
+                                            },
+                                            {
+                                                "success":  false,
+                                                "error":  5,
+                                                "access":  1052672
+                                            }
+                                        ],
+                       "server_pid":  5936,
+                       "module_snapshot_error":  5,
+                       "server_creation":  "134398664005784110"
+                   },
+                   {
+                       "module_snapshot_ok":  false,
+                       "open_process":  [
+                                            {
+                                                "success":  false,
+                                                "error":  5,
+                                                "access":  4096
+                                            },
+                                            {
+                                                "success":  false,
+                                                "error":  5,
+                                                "access":  1052672
+                                            }
+                                        ],
+                       "server_pid":  3616,
+                       "module_snapshot_error":  5,
+                       "server_creation":  "134398664009284630"
+                   }
+               ],
+    "utc":  "2026-11-23T00:16:27.7483503Z",
+    "is_administrator":  false,
+    "session":  2
+}

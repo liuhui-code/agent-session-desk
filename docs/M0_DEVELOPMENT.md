@@ -157,3 +157,16 @@ Tab 顺序：左键拖动标题到可见 Tab 位置；管理模式 `[`／`]` 左
 原生选择／搜索：F6 管理后 v 进入；方向键移动，空格开始选择、V 整行、Enter 复制，/／? 向下／上搜索，Esc／q 返回。按键绑定以固定后端实际配置为准。终端的 v 是原字符，选择／搜索不提交 shell 草稿。当前活动 CLI 的有效复制请求可更新外层终端剪贴板；产品只显示已发送，不查询剪贴板，是否保存取决于外层终端。范围与合成内容验证见[报告](testing/results/2026-11-23-native-copy-search.md)。鼠标选择、可见页 V 快捷复制与其他终端支持仍需后续实现／验证。
 
 历史缩高阻断（2026-11-23）：当前官方 psmux 3.4.0 在缩小行数时可能丢失原生历史，放大或搜索不会补回。独立修复候选已有限定 native 通过，仍未被产品／安装脚本采用；诊断操作、失败和剩余门槛见[报告](testing/results/2026-11-23-resize-history.md)，不据此宣称完整历史或终端验收。
+
+## 显式 Windows x64 终端开发 bundle
+
+[ADR-0019](adr/0019-explicit-windows-terminal-bundle.md) 增加可选 `--terminal-bundle`，用于关闭已复现的历史／输入缺口。绝对目录必须同时包含固定补丁构建的 `psmux.exe` 和固定 SDK 的 `conpty.dll`、`OpenConsole.exe`；精确哈希、来源与限制见 ADR。当前没有自动安装或下载，不接受任意同版本二进制。
+
+```powershell
+asd.exe --terminal-bundle 'C:\asd\terminal-runtime' start --name Shell -- pwsh.exe -NoLogo -NoProfile
+asd.exe --terminal-bundle 'C:\asd\terminal-runtime'
+```
+
+不能同时指定 `--backend`。产品检查目录和文件哈希，创建／接入时核对实际 server 与宿主。已有系统宿主 Run 不会因新参数而重启或换宿主；核验失败保留原 Run，可显式停止。普通桌面用户读取 SSH 权限上下文创建的 server 已实测 Access Denied，当前拒绝交互；同权限桌面创建／操作有独立结果。该限制不通过自动提权或跳过核验规避。
+
+这是显式开发配置；官方默认路径的已知失败继续保留，完整 Windows／真实 agent、资源和发布验收未完成。[实际产品结果](testing/results/2026-11-23-terminal-bundle.md)分别记录原生、桌面与权限负例。

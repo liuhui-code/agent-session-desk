@@ -1,0 +1,90 @@
+{
+    "shell_processes":  [
+                            {
+                                "filetime":  134398666901293255,
+                                "label":  "Copy A",
+                                "pid":  7296,
+                                "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe"
+                            },
+                            {
+                                "filetime":  134398666905752801,
+                                "pid":  15816,
+                                "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                "label":  "Copy B"
+                            }
+                        ],
+    "after":  {
+                  "value":  [
+                                {
+                                    "session_id":  "3da4070fbe2800cf7b10202cd3c35aa2",
+                                    "run_id":  "5d477941203f9151d2aba79870b60561",
+                                    "backend_id":  "asd_3da4070fbe2800cf7b10202cd3c35aa2_5d477941203f9151d2aba79870b60561",
+                                    "title":  "Copy A",
+                                    "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                    "terminal_state":  "available"
+                                },
+                                {
+                                    "session_id":  "24783047339f9cc96260dc4ad3e65905",
+                                    "run_id":  "e6024a024ad27fea93ddb36d8cb0d8e7",
+                                    "backend_id":  "asd_24783047339f9cc96260dc4ad3e65905_e6024a024ad27fea93ddb36d8cb0d8e7",
+                                    "title":  "Copy B",
+                                    "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                    "terminal_state":  "available"
+                                }
+                            ],
+                  "Count":  2
+              },
+    "ui_processes":  [
+                         {
+                             "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\bundle-product.exe",
+                             "pid":  11552,
+                             "filetime":  134398667111723435,
+                             "session":  2
+                         },
+                         {
+                             "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\bundle-product.exe",
+                             "pid":  5768,
+                             "filetime":  134398667466912231,
+                             "session":  2
+                         }
+                     ],
+    "commands":  86,
+    "before":  {
+                   "value":  [
+                                 {
+                                     "session_id":  "3da4070fbe2800cf7b10202cd3c35aa2",
+                                     "run_id":  "5d477941203f9151d2aba79870b60561",
+                                     "backend_id":  "asd_3da4070fbe2800cf7b10202cd3c35aa2_5d477941203f9151d2aba79870b60561",
+                                     "title":  "Copy A",
+                                     "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                     "terminal_state":  "available"
+                                 },
+                                 {
+                                     "session_id":  "24783047339f9cc96260dc4ad3e65905",
+                                     "run_id":  "e6024a024ad27fea93ddb36d8cb0d8e7",
+                                     "backend_id":  "asd_24783047339f9cc96260dc4ad3e65905_e6024a024ad27fea93ddb36d8cb0d8e7",
+                                     "title":  "Copy B",
+                                     "command":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                                     "terminal_state":  "available"
+                                 }
+                             ],
+                   "Count":  2
+               },
+    "native_observations":  15,
+    "alt_observed":  {
+                         "columns":  61,
+                         "pid":  10368,
+                         "rows":  18,
+                         "text":  "ALT输入α"
+                     },
+    "result":  "passed",
+    "checks":  [
+                   "copy and native history across 120-63-120",
+                   "exact synthetic OSC52 clipboard",
+                   "A/B original drafts and explicit submission",
+                   "controlled alternate-screen app resize and Unicode line",
+                   "view close/reopen",
+                   "manager exit/reopen",
+                   "original Session/Run and shell FILETIME"
+               ]
+}

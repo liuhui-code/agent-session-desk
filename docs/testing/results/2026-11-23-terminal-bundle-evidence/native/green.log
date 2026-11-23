@@ -1,0 +1,4 @@
+=== RUN   TestWindowsTerminalBundleRejectsSystemHostedExistingRun
+    bundle_windows_test.go:17: native Windows backend=psmux version=3.4.0 sha256=ca9753a059a6926bb5ad1d9fee81513507a6133d3efa5eefcf2423e33f348937 namespace=asd-native-d212bf10acfc
+--- PASS: TestWindowsTerminalBundleRejectsSystemHostedExistingRun (0.61s)
+PASS

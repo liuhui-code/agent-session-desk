@@ -81,3 +81,5 @@ Windows runner 已通过普通 Go 测试、race、vet、目录校验和原生程
 2026-11-23 实现补充：Bubbles 2.2.2 的依赖要求使 MVS 将 runewidth 升至 0.0.31、uniseg 升至 `v0.4.8-0.20261110175422-3a370411ca06`，另引入 clipboard 0.1.4。uniseg 是上游稳定组件要求的预发布传递依赖，按 go.sum 精确锁定并记录风险，不能描述为全链路稳定版本。主框架仍使用本 ADR 的稳定 v2 基线；字宽、布局和 Windows 输入结果见[ADR-0016](0016-tab-workspaces-and-input-ownership.md)及其执行报告。
 
 测量宿主补充：`Microsoft.Windows.Console.ConPTY 1.25.261109001` 仅作为显式 resource driver 候选固定包／文件哈希与 Microsoft 签名，在当前 psmux 3.4.0 实际 EXE 上核对加载，而非依据 master 推定。Go／Charm／产品后端版本与环境隔离不变；上游将该宿主开关标为诊断用途，不提升为产品配置支持。具体选择、观察与测量口径见 [WINDOWS_RESOURCES](../testing/WINDOWS_RESOURCES.md)。它不是新的产品运行或发布依赖，未来生产采用需另立决策并完成兼容／资源／许可验证。
+
+2026-11-23 产品接入补充：[ADR-0019](0019-explicit-windows-terminal-bundle.md) 增加显式固定开发 bundle 和实际宿主核验，部分细化本记录的依赖／加载边界；不是官方 3.4.0 发行物替换或发布验收。此前失败、默认系统路径及未通过门槛继续保留。

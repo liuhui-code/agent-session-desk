@@ -1,0 +1,24 @@
+=== RUN   TestWindowsTerminalBundleRejectsSystemHostedExistingRun
+    bundle_windows_test.go:17: native Windows backend=psmux version=3.4.0 sha256=ca9753a059a6926bb5ad1d9fee81513507a6133d3efa5eefcf2423e33f348937 namespace=asd-native-603863fb43ec
+    bundle_windows_test.go:40: must refuse existing system-hosted Run without replacing or sending input: <nil>
+--- FAIL: TestWindowsTerminalBundleRejectsSystemHostedExistingRun (0.64s)
+FAIL
+{
+    "utc":  "2026-11-23T00:09:49.9564710Z",
+    "bundle_files":  [
+                         {
+                             "sha256":  "E971856F89748DC3B458125E9AFDD79B5E9574A7C937676116D3CBBD3B71F492",
+                             "name":  "conpty.dll"
+                         },
+                         {
+                             "sha256":  "B17E48B07EF153B420F0A6E178BACD31FB4C3390E21AE746586213FC0719A775",
+                             "name":  "OpenConsole.exe"
+                         },
+                         {
+                             "sha256":  "CA9753A059A6926BB5AD1D9FEE81513507A6133D3EFA5EEFCF2423E33F348937",
+                             "name":  "psmux.exe"
+                         }
+                     ],
+    "test_sha256":  "04B978AF6BDC55EF58DE5EF55FE1CD8BA829257F098E0FFDCDFBB5B0F424FDE4",
+    "exit_code":  1
+}

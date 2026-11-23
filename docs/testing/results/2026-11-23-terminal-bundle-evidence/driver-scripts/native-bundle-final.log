@@ -1,0 +1,69 @@
+=== RUN   TestWindowsTerminalBundleInputHistoryAndReconnect
+    bundle_flow_windows_test.go:28: native Windows backend=psmux version=3.4.0 sha256=ca9753a059a6926bb5ad1d9fee81513507a6133d3efa5eefcf2423e33f348937 namespace=asd-native-31918761034b
+    bundle_flow_windows_test.go:122: bundle flow retained original Session=57d64eba1beb06d16ce5517faacc79e4 Run=0054b38620726ca1434859dcb3ac81e0 rootPID=17616 creation=134398668503879921, exact Unicode, 40 history lines, alternate resize and prompt reconnect
+--- PASS: TestWindowsTerminalBundleInputHistoryAndReconnect (1.98s)
+=== RUN   TestWindowsTerminalBundleRejectsSystemHostedExistingRun
+    bundle_windows_test.go:17: native Windows backend=psmux version=3.4.0 sha256=ca9753a059a6926bb5ad1d9fee81513507a6133d3efa5eefcf2423e33f348937 namespace=asd-native-812c02827b8e
+--- PASS: TestWindowsTerminalBundleRejectsSystemHostedExistingRun (0.60s)
+=== RUN   TestWindowsTerminalBundleRejectsUnpinnedFilesBeforeRuntimeCreation
+--- PASS: TestWindowsTerminalBundleRejectsUnpinnedFilesBeforeRuntimeCreation (0.01s)
+=== RUN   TestWindowsPsmuxNativeLaunchLifecycle
+    integration_windows_test.go:382: native Windows backend=psmux version=3.4.0 sha256=ca9753a059a6926bb5ad1d9fee81513507a6133d3efa5eefcf2423e33f348937 namespace=asd-native-6033603774a1
+--- PASS: TestWindowsPsmuxNativeLaunchLifecycle (1.37s)
+=== RUN   TestWindowsPsmuxNativeIsolationAndRejectedLaunches
+    integration_windows_test.go:458: native Windows backend=psmux version=3.4.0 sha256=ca9753a059a6926bb5ad1d9fee81513507a6133d3efa5eefcf2423e33f348937 namespace=asd-native-87fac3a59bf8
+    integration_windows_test.go:459: native Windows backend=psmux version=3.4.0 sha256=ca9753a059a6926bb5ad1d9fee81513507a6133d3efa5eefcf2423e33f348937 namespace=asd-native-e7b1cf3369cd
+=== RUN   TestWindowsPsmuxNativeIsolationAndRejectedLaunches/missing-executable
+=== RUN   TestWindowsPsmuxNativeIsolationAndRejectedLaunches/missing-directory
+=== RUN   TestWindowsPsmuxNativeIsolationAndRejectedLaunches/short-option-rewrite
+=== RUN   TestWindowsPsmuxNativeIsolationAndRejectedLaunches/separator
+=== RUN   TestWindowsPsmuxNativeIsolationAndRejectedLaunches/escaped-separator
+=== RUN   TestWindowsPsmuxNativeIsolationAndRejectedLaunches/environment-trim
+--- PASS: TestWindowsPsmuxNativeIsolationAndRejectedLaunches (1.60s)
+    --- PASS: TestWindowsPsmuxNativeIsolationAndRejectedLaunches/missing-executable (0.00s)
+    --- PASS: TestWindowsPsmuxNativeIsolationAndRejectedLaunches/missing-directory (0.00s)
+    --- PASS: TestWindowsPsmuxNativeIsolationAndRejectedLaunches/short-option-rewrite (0.00s)
+    --- PASS: TestWindowsPsmuxNativeIsolationAndRejectedLaunches/separator (0.00s)
+    --- PASS: TestWindowsPsmuxNativeIsolationAndRejectedLaunches/escaped-separator (0.00s)
+    --- PASS: TestWindowsPsmuxNativeIsolationAndRejectedLaunches/environment-trim (0.00s)
+=== RUN   TestWindowsPsmuxNativeRapidExitRetainsScreen
+    integration_windows_test.go:518: native Windows backend=psmux version=3.4.0 sha256=ca9753a059a6926bb5ad1d9fee81513507a6133d3efa5eefcf2423e33f348937 namespace=asd-native-30f54a1b4f88
+--- PASS: TestWindowsPsmuxNativeRapidExitRetainsScreen (0.74s)
+=== RUN   TestWindowsPsmuxNativeMissingOriginalPaneNeverFallsBack
+    integration_windows_test.go:540: native Windows backend=psmux version=3.4.0 sha256=ca9753a059a6926bb5ad1d9fee81513507a6133d3efa5eefcf2423e33f348937 namespace=asd-native-824626de1381
+    integration_windows_test.go:586: native missing-pane injection: original window=@1 pane=%1; alternate pane=%2
+    integration_windows_test.go:617: native missing-pane injection confirmed: original %1 absent; alternate %2 accepted input
+--- PASS: TestWindowsPsmuxNativeMissingOriginalPaneNeverFallsBack (0.96s)
+=== RUN   TestWindowsPsmuxNativeCLIProcessExitAndReconnect
+    integration_windows_test.go:637: native Windows backend=psmux version=3.4.0 sha256=ca9753a059a6926bb5ad1d9fee81513507a6133d3efa5eefcf2423e33f348937 namespace=asd-native-04996e92f5ad
+--- PASS: TestWindowsPsmuxNativeCLIProcessExitAndReconnect (0.96s)
+=== RUN   TestWindowsPsmuxNativeTerminalScreenInputResizeAndReconnect
+    terminal_windows_test.go:19: native Windows backend=psmux version=3.4.0 sha256=ca9753a059a6926bb5ad1d9fee81513507a6133d3efa5eefcf2423e33f348937 namespace=asd-native-d0e5defea488
+--- PASS: TestWindowsPsmuxNativeTerminalScreenInputResizeAndReconnect (0.94s)
+=== RUN   TestWindowsPsmuxNativeTerminalOrdinaryShellKeepsPromptAndDraft
+    terminal_windows_test.go:94: native Windows backend=psmux version=3.4.0 sha256=ca9753a059a6926bb5ad1d9fee81513507a6133d3efa5eefcf2423e33f348937 namespace=asd-native-9ccc5e27f9b1
+--- PASS: TestWindowsPsmuxNativeTerminalOrdinaryShellKeepsPromptAndDraft (1.55s)
+PASS
+{
+    "utc":  "2026-11-23T00:21:00.9264862Z",
+    "bundle_files":  [
+                         {
+                             "sha256":  "E971856F89748DC3B458125E9AFDD79B5E9574A7C937676116D3CBBD3B71F492",
+                             "name":  "conpty.dll"
+                         },
+                         {
+                             "sha256":  "B17E48B07EF153B420F0A6E178BACD31FB4C3390E21AE746586213FC0719A775",
+                             "name":  "OpenConsole.exe"
+                         },
+                         {
+                             "sha256":  "CA9753A059A6926BB5AD1D9FEE81513507A6133D3EFA5EEFCF2423E33F348937",
+                             "name":  "psmux.exe"
+                         }
+                     ],
+    "test_sha256":  "1502E44F8CD378600F2FFB1AFD252B1C8E70112DB401F9640D639496DF946965",
+    "exit_code":  0
+}
+
+=== RUN   TestTerminalBundleRejectsInvalidSelectionBeforeRuntimeCreation
+--- PASS: TestTerminalBundleRejectsInvalidSelectionBeforeRuntimeCreation (0.00s)
+PASS

@@ -1,0 +1,30 @@
+{
+    "tasks_absent":  [
+                         "AsdBundleDesktop20261123",
+                         "AsdBundleUserDesktop20261123",
+                         "AsdBundlePermissionProbe20261123",
+                         "AsdBundleUserSetup20261123"
+                     ],
+    "product_sha256":  "BEDDA5D361FE63ADB2231E314AD90234C24C395635EECE1666D35CFC9AB02CFC",
+    "original_roots":  [
+                           {
+                               "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                               "pid":  19324,
+                               "filetime":  134398663495845331,
+                               "original_ended":  true
+                           },
+                           {
+                               "path":  "C:\\Users\\<WINDOWS_TEST_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                               "pid":  17616,
+                               "filetime":  134398668503879921,
+                               "original_ended":  true
+                           }
+                       ],
+    "cli_tests_sha256":  "063010B434EC013A4C78B4ACE8BA9E6D3A5691A4F91F3A25FA07AA17CA0E2023",
+    "utc":  "2026-11-23T00:21:47.5223381Z",
+    "exact_private_images_alive":  0,
+    "settings_sha256":  "1499307ABEBA68C23F9EB38A4C636F81172475B6B2B535BC0B11DCD9547241F8",
+    "scope":  "Only known private test images and recorded original identities, not machine-global psmux",
+    "tests_sha256":  "1502E44F8CD378600F2FFB1AFD252B1C8E70112DB401F9640D639496DF946965",
+    "result":  "passed"
+}

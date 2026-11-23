@@ -23,7 +23,7 @@
   },
   "resource_driver_conpty": {
     "version": "1.25.261109001",
-    "scope": "Explicit measurement-driver candidate only; not a product runtime or release dependency. Default remains system ConPTY.",
+    "scope": "Originally a measurement-driver candidate; also referenced by ADR-0019 explicit Windows x64 development terminal bundle. Not a default installation or accepted release dependency; default remains system ConPTY.",
     "package_url": "https://api.nuget.org/v3-flatcontainer/microsoft.windows.console.conpty/1.25.261109001/microsoft.windows.console.conpty.1.25.261109001.nupkg",
     "package_sha256": "3d77f535df848e44225c2a8912ac844fecb23f3057732b639f3034b587496f09",
     "package_bytes": 1763943,
@@ -32,5 +32,26 @@
       "conpty.dll": "e971856f89748dc3b458125e9afdd79b5e9574a7c937676116d3cbbd3b71f492",
       "OpenConsole.exe": "b17e48b07ef153b420f0a6e178bacd31fb4c3390e21ae746586213fc0719a775"
     }
+  },
+  "terminal_bundle_development": {
+    "adr": "docs/adr/0019-explicit-windows-terminal-bundle.md",
+    "scope": "Explicit Windows x64 development selection only; system/default path unchanged; not a supported upstream configuration or accepted release.",
+    "psmux_source_commit": "20aa1d7254ee93f64dafa059ef89341d9767470a",
+    "patch": "tools/experiments/psmux-resize-history/candidate.patch",
+    "patch_sha256": "7b75ad87484ccc07ce80c188e27dbe4f1c843b0abcd0386a56a0a6782d277d0d",
+    "psmux_executable_sha256": "ca9753a059a6926bb5ad1d9fee81513507a6133d3efa5eefcf2423e33f348937",
+    "sdk_package_ref": "resource_driver_conpty",
+    "runtime_checks": [
+      "server PID/FILETIME/image file identity",
+      "loaded DLL file identity",
+      "unique live OpenConsole child identity"
+    ],
+    "not_yet_accepted": [
+      "cross-privilege attach",
+      "real agent",
+      "full compatibility matrix",
+      "resource budgets",
+      "release packaging/licenses"
+    ]
   }
 }

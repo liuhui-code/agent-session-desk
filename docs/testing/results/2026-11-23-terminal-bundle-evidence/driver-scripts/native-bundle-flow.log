@@ -1,0 +1,27 @@
+=== RUN   TestWindowsTerminalBundleInputHistoryAndReconnect
+    bundle_flow_windows_test.go:28: native Windows backend=psmux version=3.4.0 sha256=ca9753a059a6926bb5ad1d9fee81513507a6133d3efa5eefcf2423e33f348937 namespace=asd-native-27b60e1a0fe1
+    bundle_flow_windows_test.go:122: bundle flow retained original Session=e0bee03edcaa8ba3197f5c29ad114121 Run=88db619f552fed67db08d6b86bfb5466 rootPID=19324 creation=134398663495845331, exact Unicode, 40 history lines, alternate resize and prompt reconnect
+--- PASS: TestWindowsTerminalBundleInputHistoryAndReconnect (3.05s)
+=== RUN   TestWindowsTerminalBundleRejectsSystemHostedExistingRun
+    bundle_windows_test.go:17: native Windows backend=psmux version=3.4.0 sha256=ca9753a059a6926bb5ad1d9fee81513507a6133d3efa5eefcf2423e33f348937 namespace=asd-native-d6919be3f5ac
+--- PASS: TestWindowsTerminalBundleRejectsSystemHostedExistingRun (0.80s)
+PASS
+{
+    "utc":  "2026-11-23T00:12:32.6641670Z",
+    "bundle_files":  [
+                         {
+                             "sha256":  "E971856F89748DC3B458125E9AFDD79B5E9574A7C937676116D3CBBD3B71F492",
+                             "name":  "conpty.dll"
+                         },
+                         {
+                             "sha256":  "B17E48B07EF153B420F0A6E178BACD31FB4C3390E21AE746586213FC0719A775",
+                             "name":  "OpenConsole.exe"
+                         },
+                         {
+                             "sha256":  "CA9753A059A6926BB5AD1D9FEE81513507A6133D3EFA5EEFCF2423E33F348937",
+                             "name":  "psmux.exe"
+                         }
+                     ],
+    "test_sha256":  "AC9EAFDE22C355871330CECC38C4B062E388E86ED18DB1000950FD26F9E336D2",
+    "exit_code":  0
+}

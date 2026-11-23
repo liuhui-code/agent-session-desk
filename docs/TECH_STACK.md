@@ -4,7 +4,7 @@
 
 当前选择为：**Go 模块化单体 + Charm v2 TUI，选择性复用 Agent Deck 界面代码；Windows 使用 psmux，macOS/Linux 后续适配 tmux；自定义 agent 通过 CLI 接入。**
 
-界面按 [ADR-0014](adr/0014-upstream-ui-tabs-and-general-terminals.md) 尽可能还原固定上游的布局比例、交互和配色，以 Tab 管理 agent 与普通终端，使用终端原生输入；全屏 attach 为显式辅助路径。当前代码仍是列表／全屏 attach，新方向尚未实现／验收。详细取舍见 [ADR 索引](adr/README.md)，功能范围与实际进展见 [Feature Ledger](FEATURE_LEDGER.md)。
+界面按 [ADR-0014](adr/0014-upstream-ui-tabs-and-general-terminals.md) 尽可能还原固定上游的布局比例、交互和配色，以 Tab 管理 agent 与普通终端，使用终端原生输入；全屏 attach 为显式辅助路径。ADR-0016 已接入 psmux Tab、原生输入与通用创建表单；完整还原和验收仍开放。详细取舍见 [ADR 索引](adr/README.md)，功能范围与实际进展见 [Feature Ledger](FEATURE_LEDGER.md)。
 
 ## 1. 技术栈与目标版本
 
@@ -75,7 +75,7 @@ Windows 自动化通过[依赖锁定记录](../tools/ci/windows-dependencies.jso
 ## 5. 进程、界面与存储约束
 
 - **一个模块化应用代码库**：TUI 与管理 CLI 共享业务核心；逻辑分层不变成多套常驻服务。
-- **Tab 工作区与输入焦点**：Tab 是主要会话入口，活动 Tab 使用目标终端原生输入；列表／搜索辅助组织，表单按需打开。尽可能还原上游体验；当前仅有列表／全屏 attach，Tab 屏幕模型、输入和 resize 集成实施前验证，见 ADR-0014。
+- **Tab 工作区与输入焦点**：Tab 是主要会话入口，活动 Tab 使用目标终端原生输入；列表／搜索辅助组织，表单按需打开。尽可能还原上游体验；已有 ADR-0015/0016 的原生屏幕、输入和 resize 切片；完整验收仍按 ADR-0014 执行。
 - **M0–M2 按需运行自有界面/命令**：psmux/tmux 负责退出界面后的终端托管。没有消费者运行时，落盘消息等待后续处理。
 - **M3 引入自动协作所需的共享 Host**：实现可靠 ready 信号下的后台自动投递与输入仲裁，并按 ADR-0006 复用为后台人工介入事件与提醒消费者；FR-08 保留。Host 不重复创建 ConPTY。
 - **低内存依靠有界工作量**：仅刷新当前预览、限制缓存与事件队列、长期输出轮转落盘、关闭闲置预热。语言选择本身不构成性能保证。
@@ -113,3 +113,5 @@ M0 已有“列表/预览 → 自定义命令 → 全屏 attach → 返回”的
 2026-11-23 原生复制／搜索：[ADR-0018](adr/0018-native-copy-search-and-host-clipboard.md) 沿用已锁定的 v2 SetClipboard／Sequence 和 x/ansi grapheme 渲染，解析固定 psmux 的受限复制元数据；没有新增或升级生产依赖，也不直接执行原始 VT。OSC52 已发与实际保存分开，应用不主动读取用户剪贴板。
 
 2026-11-23 缩高历史门槛：固定官方 psmux 3.4.0 会丢失缩高移出的历史行，独立补丁候选已有限定验证，但本文件的版本基线与安装哈希未改变。接纳候选须另行记录来源／版本／构建决定，并补齐桌面及资源回归，见[实际报告](testing/results/2026-11-23-resize-history.md)。
+
+2026-11-23 显式终端开发配置：[ADR-0019](adr/0019-explicit-windows-terminal-bundle.md) 允许 `--terminal-bundle` 固定补丁后端＋Microsoft SDK，并在创建／接入时验证实际宿主，保留官方默认路径和失败边界。x/sys v0.49.0 从已有间接依赖改为直接使用，没有升级版本。参见[实际接入报告](testing/results/2026-11-23-terminal-bundle.md)；不宣称跨权限、完整 Windows 或发布通过。
