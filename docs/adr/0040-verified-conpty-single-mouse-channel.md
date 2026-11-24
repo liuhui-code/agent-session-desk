@@ -28,3 +28,5 @@
 产品采用已测的显式开发 profile 哈希与单通道变量。旧远端产品／bundle 保留，新产品拒绝旧 bundle 哈希，不自动迁移 Run；官方默认后端、依赖与安装器不变。三个成功桌面场景均正常退出 manager，无强制结束，四个任务删除及零候选映像审计另记。
 
 系统宿主旧失败、实体硬件、Shift 保留、混合输入读取器、更多模式／修饰／IME、真实 agent、资源与完整兼容／发布仍开放。未发布截图或视觉接受；本决定不提升 FL 整体验收和 339 catalog designed/not_run。
+
+2026-11-25 同字节产物已按用户要求交付Windows桌面[本机Alpha体验包](../testing/results/2026-11-25-personal-alpha-handoff.md)。仅增加独立启动辅助脚本、namespace／数据目录与本机已核验宿主引用，不改变产品默认依赖／路由、存储schema或公开发布状态。
