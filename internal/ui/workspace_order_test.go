@@ -11,8 +11,13 @@ import (
 	"github.com/liuhui-code/agent-session-desk/internal/session"
 )
 
+// Logical view order is intentionally independent of the one visible sidebar.
 func tabOrderRow(h *workspaceHarness) string {
-	return ansi.Strip(strings.Split(h.m.View().Content, "\n")[1])
+	var names []string
+	for _, tab := range h.m.workspace.tabs {
+		names = append(names, tab.session.Title)
+	}
+	return strings.Join(names, " ")
 }
 
 func TestWorkspaceTabOrderKeepsPendingSwitchBoundToOriginalRun(t *testing.T) {
@@ -30,12 +35,8 @@ func TestWorkspaceTabOrderKeepsPendingSwitchBoundToOriginalRun(t *testing.T) {
 	first.gate = gate
 	first.mu.Unlock()
 	h.send(tea.KeyPressMsg{Code: 'a', Text: "a"})
-	row := tabOrderRow(h)
-	x := ansi.StringWidth(row[:strings.Index(row, "评审")])
-	destination := ansi.StringWidth(row[:strings.Index(row, "开发")])
-	h.send(tea.MouseClickMsg{X: x, Y: 1, Button: tea.MouseLeft})
-	h.send(tea.MouseMotionMsg{X: destination, Y: 1, Button: tea.MouseLeft})
-	h.send(tea.MouseReleaseMsg{X: destination, Y: 1, Button: tea.MouseLeft})
+	h.send(tea.KeyPressMsg{Code: tea.KeyPgDown, Mod: tea.ModCtrl})
+	h.m.moveWorkspaceTab(h.m.workspace.tabs[0].viewID, 1)
 	h.send(tea.KeyPressMsg{Code: 'b', Text: "b"})
 	release()
 	h.until(func() bool {
@@ -66,7 +67,7 @@ func TestWorkspaceTabOrderKeepsPendingSwitchBoundToOriginalRun(t *testing.T) {
 	}
 }
 
-func TestWorkspaceUnequalTabTitlesDoNotOscillateDuringDrag(t *testing.T) {
+func TestWorkspaceUnequalLogicalTitlesKeepKeyboardOrderAtEdges(t *testing.T) {
 	service := &workspaceFixture{fakeService: fakeService{list: func(context.Context) ([]session.Session, error) {
 		rows := sampleSessions()
 		rows[0].Title, rows[1].Title = "短", "很长的评审标题"
@@ -74,22 +75,14 @@ func TestWorkspaceUnequalTabTitlesDoNotOscillateDuringDrag(t *testing.T) {
 	}}}
 	h := newWorkspaceHarness(t, service)
 	h.until(func() bool { return strings.Contains(h.m.View().Content, "shell marker first") })
-	row := tabOrderRow(h)
-	x := ansi.StringWidth(row[:strings.Index(row, "短")])
-	destination := ansi.StringWidth(row[:strings.Index(row, "很长")])
-	h.send(tea.MouseClickMsg{X: x, Y: 1, Button: tea.MouseLeft})
-	for range 3 {
-		h.send(tea.MouseMotionMsg{X: destination, Y: 1, Button: tea.MouseLeft})
-		row = tabOrderRow(h)
-		if strings.Index(row, "很长") > strings.Index(row, "短") {
-			t.Fatal("moving titles changed the drop slot under a stationary pointer")
-		}
-	}
-	h.send(tea.MouseReleaseMsg{X: destination, Y: 1, Button: tea.MouseLeft})
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	h.send(tea.KeyPressMsg{Code: ']', Text: "]"})
+	row := tabOrderRow(h)
+	for range 3 {
+		h.send(tea.KeyPressMsg{Code: ']', Text: "]"})
+	}
 	if tabOrderRow(h) != row {
-		t.Fatal("right edge wrapped instead of keeping the last position")
+		t.Fatal("right edge reordered after reaching the last position")
 	}
 	h.send(tea.KeyPressMsg{Code: '[', Text: "["})
 	row = tabOrderRow(h)
@@ -129,7 +122,7 @@ func TestWorkspaceManagementReordersActiveTabWithoutReconnecting(t *testing.T) {
 	}
 }
 
-func TestWorkspaceDragReordersVisibleTabsWithoutChangingActiveRun(t *testing.T) {
+func TestRemovedTabRowHasNoPhantomDragTargets(t *testing.T) {
 	service := &workspaceFixture{fakeService: fakeService{list: func(context.Context) ([]session.Session, error) { return sampleSessions(), nil }}}
 	h := newWorkspaceHarness(t, service)
 	h.until(func() bool { return strings.Contains(h.m.View().Content, "shell marker first") })
@@ -140,8 +133,11 @@ func TestWorkspaceDragReordersVisibleTabsWithoutChangingActiveRun(t *testing.T) 
 	h.send(tea.MouseMotionMsg{X: destination, Y: 1, Button: tea.MouseLeft})
 	h.send(tea.MouseReleaseMsg{X: destination, Y: 1, Button: tea.MouseLeft})
 	row = tabOrderRow(h)
-	if strings.Index(row, "评审") > strings.Index(row, "开发") {
-		t.Fatal("drag did not move the source Tab past the other Tab")
+	if strings.Index(row, "评审") < strings.Index(row, "开发") {
+		t.Fatal("removed top row still reordered a Tab")
+	}
+	if !h.m.workspace.focused {
+		h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	}
 	h.send(tea.KeyPressMsg{Code: 'a', Text: "a"})
 	h.until(func() bool {

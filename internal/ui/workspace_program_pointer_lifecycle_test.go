@@ -56,7 +56,7 @@ func TestProgramMouseCrossesControlsOnlyWithinOriginalPaneCoordinates(t *testing
 	if got := directDragWrites(s, "first"); got != want {
 		t.Fatalf("cross-control program gesture: %q", got)
 	}
-	if h.m.workspace.active != 0 || !h.m.workspace.focused || h.m.workspace.split.dragging || h.m.workspace.tabDrag.viewID != 0 {
+	if h.m.workspace.active != 0 || !h.m.workspace.focused || h.m.workspace.split.dragging {
 		t.Fatal("program drag became manager navigation")
 	}
 }

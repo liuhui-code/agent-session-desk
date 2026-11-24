@@ -1,0 +1,7 @@
+# github.com/liuhui-code/agent-session-desk/internal/ui
+# [github.com/liuhui-code/agent-session-desk/internal/ui]
+internal/ui/workspace_reconcile_test.go:62:5: redundant or: h.m.workspace.focused || h.m.workspace.focused
+internal/ui/workspace_reconcile_test.go:73:5: redundant or: h.m.workspace.focused || h.m.workspace.focused
+internal/ui/workspace_reconcile_test.go:77:5: redundant or: h.m.workspace.focused || h.m.workspace.focused
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui [build failed]
+FAIL

@@ -73,12 +73,12 @@ func TestSystemThemeWaitsForCloseAndRejectsLateAndDuplicateReceipts(t *testing.T
 	}
 	m.applyUITheme("dark")
 	closing := m.syncSystemTheme()
-	if colorHex(m.View().BackgroundColor) != "1a1b26" {
+	if colorHex(m.View().BackgroundColor) != "000000" {
 		t.Fatal("explicit dark not applied")
 	}
 	// Even a queued old Light result must not win over explicit Dark.
 	late := systemThemeRead{m.systemTheme.op, m.systemTheme.op.sequence, appearance.Observation{Theme: "light", Source: "windows"}, nil}
-	if themeEvent(t, m, late) != nil || colorHex(m.View().BackgroundColor) != "1a1b26" {
+	if themeEvent(t, m, late) != nil || colorHex(m.View().BackgroundColor) != "000000" {
 		t.Fatal("late light overrode dark or repeated close")
 	}
 	_ = read // Its canceled context is also covered by the opening/Next contract tests.

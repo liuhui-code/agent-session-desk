@@ -162,3 +162,7 @@ Bubbles 2.2.2 textinput 通过模块使用，未复制组件源码。v2 表单�
 ## ADR-0040 单通道鼠标候选
 
 固定 psmux 同一 MIT 提交 20aa1d7254ee93f64dafa059ef89341d9767470a 保留 resize-history 补丁，新增 mouse_routing.rs 并在 main.rs／window_ops.rs 选择显式实际目录的单一 SGR 通道；上游 Cargo.lock 和依赖不变。完整来源清单、补丁及产物哈希见 tools/experiments/psmux-mouse-routing/candidate-manifest.json，MIT 原文仍为 third_party/psmux/LICENSE。产品不复制完整 Rust 源码或自动下载该产物；只更新显式开发 profile 的固定哈希／环境策略。实际授权、独立原生序列和限制见[复验报告](testing/results/2026-11-25-single-mouse-channel.md)，不以局部实机通过代替发行许可或整体兼容接受。
+
+## ADR-0041 用户外观调整
+
+沿既有 MIT 派生 UI 实现单一侧栏、无框工作区及悬浮提示；删除可视 Tab 条与其拖动状态，未增加来源复制或依赖。Dark 颜色以用户本机 iTerm Default 的公开视觉参数为新输入，保留 Light 的既有来源及其他许可；参考配置仅含字体名／颜色，不含 iTerm 连接配置。用户个人 Meslo 字体只在其两台机器间复制和当前用户安装，未纳入 Git 或 Alpha ZIP，不能当作发行物许可审计完成。实际当前可用字体为Consolas10，同款Meslo未验收，见[报告](testing/results/2026-11-25-minimal-workspace.md)。

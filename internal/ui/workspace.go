@@ -37,6 +37,7 @@ const (
 )
 
 type workspaceState struct {
+	footerHovered              bool
 	directories                directoryState
 	programPointer             *workspaceProgramPointer
 	programHover               workspaceProgramHover
@@ -44,7 +45,6 @@ type workspaceState struct {
 	visibleCopy                *visiblePaneCopy
 	pendingClipboard           *workspaceClipboard
 	clipboardReading           bool
-	tabDrag                    workspaceTabDrag
 	listClick                  workspaceListClick
 	split                      workspaceSplit
 	readBusy                   bool
@@ -82,6 +82,7 @@ type workspaceResized struct {
 }
 
 func (w *workspaceState) disconnect() {
+	w.footerHovered = false
 	w.programPointer = nil
 	w.programHover = workspaceProgramHover{}
 	w.copyPointer = nil
@@ -91,7 +92,6 @@ func (w *workspaceState) disconnect() {
 	}
 	w.pendingClipboard = nil
 	w.clipboardReading = false
-	w.tabDrag = workspaceTabDrag{}
 	w.split.dragging = false
 	w.split.hovered = false
 	w.generation++
@@ -171,6 +171,7 @@ func (m *Model) connectWorkspace() tea.Cmd {
 
 func (m *Model) workspaceSize() tea.Cmd {
 	w := m.workspace
+	w.footerHovered = false
 	release := m.finishProgramPointer()
 	w.copyPointer = nil
 	w.split.hovered = false
@@ -206,20 +207,24 @@ func (m *Model) workspaceEvent(msg tea.Msg) (tea.Cmd, bool) {
 	case workspaceSplitTick:
 		return m.workspaceSplitExpired(), true
 	case tea.MouseWheelMsg:
+		if m.workspaceFooterHit(msg.X, msg.Y) && w.programPointer == nil && w.copyPointer == nil {
+			return nil, true
+		}
 		if !m.attaching && !m.history.open && !m.help && m.launch == nil {
+			w.footerHovered = false
 			return m.workspaceWheel(msg), true
 		}
 		return nil, true
 	case tea.MouseMotionMsg:
+		if m.workspaceFooterMotion(msg) {
+			return nil, true
+		}
 		if !m.attaching && !m.history.open && !m.help && m.launch == nil {
 			if cmd, handled := m.moveProgramPointer(msg); handled {
 				return cmd, true
 			}
 			if cmd, handled := m.moveCopyPointer(msg); handled {
 				return cmd, true
-			}
-			if m.workspaceTabMotion(msg) {
-				return nil, true
 			}
 			return m.workspaceSplitMotion(msg), true
 		}
@@ -232,26 +237,28 @@ func (m *Model) workspaceEvent(msg tea.Msg) (tea.Cmd, bool) {
 			if cmd, handled := m.releaseCopyPointer(msg); handled {
 				return cmd, true
 			}
-			if m.workspaceTabRelease(msg) {
-				return nil, true
-			}
 			return m.workspaceSplitRelease(msg), true
 		}
 		return nil, true
 	case tea.MouseClickMsg:
+		if m.workspaceFooterHit(msg.X, msg.Y) && w.programPointer == nil && w.copyPointer == nil {
+			return nil, true
+		}
 		if !m.attaching && !m.history.open && !m.help && m.launch == nil {
+			w.footerHovered = false
 			return m.workspaceClick(msg), true
 		}
 		return nil, true
 	case tea.PasteMsg:
+		w.footerHovered = false
 		release := m.finishProgramPointer()
 		w.copyPointer = nil
-		w.tabDrag = workspaceTabDrag{}
 		if !m.attaching && !m.history.open && !m.help && w.focused && len(w.tabs) > 0 && w.transition != workspaceQuit && w.transition != workspaceClose {
 			return tea.Batch(release, m.workspaceWrite(workspaceInput{kind: "paste", text: msg.Content})), true
 		}
 		return release, true
 	case tea.KeyPressMsg:
+		w.footerHovered = false
 		if m.attaching {
 			return nil, true
 		}

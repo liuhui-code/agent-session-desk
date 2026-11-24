@@ -326,7 +326,7 @@ func TestWorkspaceManagementFocusDoesNotSendKeysToTerminal(t *testing.T) {
 	h := newWorkspaceHarness(t, service)
 	h.until(func() bool { return strings.Contains(h.m.View().Content, "shell marker first") })
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
-	if h.m.View().Cursor != nil || !strings.Contains(h.m.View().Content, "管理模式") {
+	if h.m.View().Cursor != nil || h.m.workspace.focused {
 		t.Fatal("management focus is not visible")
 	}
 	h.send(tea.KeyPressMsg{Code: 'q', Text: "q"})

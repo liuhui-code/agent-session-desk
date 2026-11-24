@@ -77,7 +77,7 @@ func TestCopyPointerOwnsEdgeCrossingAndConsumesReleaseOnce(t *testing.T) {
 	if got := pointerWrites(s, "first"); got != want {
 		t.Fatalf("edge/duplicate gesture: %q", got)
 	}
-	if !h.m.workspace.focused || h.m.workspace.active != 0 || h.m.workspace.split.dragging || h.m.workspace.tabDrag.viewID != 0 {
+	if !h.m.workspace.focused || h.m.workspace.active != 0 || h.m.workspace.split.dragging {
 		t.Fatal("terminal drag became Tab/divider management")
 	}
 }

@@ -1,0 +1,85 @@
+--- FAIL: TestReportedANSI256UsesPinnedSourcePaletteWithoutChangingAuthorTokens (0.00s)
+    color_profile_test.go:29: missing Enter hint
+--- FAIL: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize (0.27s)
+    --- FAIL: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch-program/abcdef//middle=false (0.00s)
+        dialog_long_fields_test.go:56: [63 25] caret no longer after original Q: &{Position:{X:52 Y:9} Color:{R:187 G:187 B:187 A:255} Shape:2 Blink:true}, row "暂无│    › /abcdef/abcdef/abcdef/ZXtail/tail/tail/Q     │      "
+    --- FAIL: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch-program/abcdef//middle=true (0.01s)
+        dialog_long_fields_test.go:56: [63 25] caret no longer after original Z: &{Position:{X:52 Y:9} Color:{R:187 G:187 B:187 A:255} Shape:2 Blink:true}, row "暂无│    › def/abcdef/abcdef/abcdef/abcdef/abcdef/Z     │      "
+    --- FAIL: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch-program/中文é👩\u200d💻1️⃣//middle=false (0.00s)
+        dialog_long_fields_test.go:56: [63 25] caret no longer after original Q: &{Position:{X:51 Y:9} Color:{R:187 G:187 B:187 A:255} Shape:2 Blink:true}, row "暂无│    › /中文é👩\u200d💻1️⃣/中文é👩\u200d💻1️⃣/ZXtail/tail/tail/Q      │      "
+    --- FAIL: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch-program/中文é👩\u200d💻1️⃣//middle=true (0.00s)
+        dialog_long_fields_test.go:56: [63 25] caret no longer after original Z: &{Position:{X:51 Y:9} Color:{R:187 G:187 B:187 A:255} Shape:2 Blink:true}, row "暂无│    › 文é👩\u200d💻1️⃣/中文é👩\u200d💻1️⃣/中文é👩\u200d💻1️⃣/中文é👩\u200d💻1️⃣/ZXt    │      "
+--- FAIL: TestSessionOrderKeepsTerminalKeysAndBlocksMouseNewWhileSaving (0.00s)
+    session_order_lifecycle_test.go:166: terminal management keys lost/intercepted: text:K,size:75,32,size:96,32,size:75,32
+--- FAIL: TestDuplicateSessionNamesExposeDistinctIdentitiesInTabsListAndSearch (0.01s)
+    session_rename_test.go:116: Tab/list lacks identity cue [first]
+    session_rename_test.go:116: Tab/list lacks identity cue [second]
+--- FAIL: TestSessionRenamePreCommitDiscoveryCannotRestoreTheOldDisplayName (3.00s)
+    session_rename_test.go:231: workspace did not reach expected state:
+        [38;2;187;187;187m会话 平铺[m                                 [38;2;51;51;51m │ [mshell marker first                                                         
+        [38;2;51;51;51m──────────────────────────────────────────[m[38;2;51;51;51m │ [m                                                                           
+        [38;2;187;187;187;48;2;34;34;34m  ┃ 已保存新名                            [m[38;2;51;51;51m │ [m                                                                           
+        [38;2;119;119;119;48;2;34;34;34m    ╰ 可连接                              [m[38;2;51;51;51m │ [m                                                                           
+        [38;2;187;187;187m    评审                                  [m[38;2;51;51;51m │ [m                                                                           
+        [38;2;119;119;119m    ╰ 可连接                              [m[38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+--- FAIL: TestSessionRenameChangesSelectedBackgroundLabelWithoutSwitchingOrTerminalInput (0.01s)
+    session_rename_test.go:301: rename success hid management focus and reachable navigation hints
+--- FAIL: TestWorkspaceUsesPinnedSourceEmittedRGBWithoutChangingAuthoredPalette (0.00s)
+    --- FAIL: TestWorkspaceUsesPinnedSourceEmittedRGBWithoutChangingAuthoredPalette/dark (0.00s)
+        source_color_test.go:27: missing key
+    --- FAIL: TestWorkspaceUsesPinnedSourceEmittedRGBWithoutChangingAuthoredPalette/light (0.00s)
+        source_color_test.go:27: missing key
+--- FAIL: TestSystemThemeWaitsForCloseAndRejectsLateAndDuplicateReceipts (0.00s)
+    system_theme_lifecycle_test.go:77: explicit dark not applied
+--- FAIL: TestThemeAndDensitySerializeLatestChoicesBeforeClosing (0.01s)
+    theme_lifecycle_test.go:47: applied unsaved theme
+--- FAIL: TestThemeNeedsWholeDocumentSaveCapability (0.00s)
+    theme_lifecycle_test.go:105: unsupported writer falsely applied theme
+--- FAIL: TestThemesKeepModelsIndependentAndRetainLayoutTokens (0.00s)
+    theme_render_test.go:21: model palettes shared or styles stale
+--- FAIL: TestWorkspaceNewTabButtonOpensLaunchDialogFromTerminalFocus (0.01s)
+    workspace_controls_test.go:20: Tab bar has no visible new-terminal button
+--- FAIL: TestWorkspaceCloseButtonRemovesInactiveViewWithoutInterruptingActiveInput (0.01s)
+panic: runtime error: slice bounds out of range [-1:] [recovered, repanicked]
+
+goroutine 2489 [running]:
+testing.tRunner.func1.2({0x5962910, 0x274631ea41e0})
+	<LOCAL_TOOLCHAIN>/go/src/testing/testing.go:2125 +0x232
+testing.tRunner.func1()
+	<LOCAL_TOOLCHAIN>/go/src/testing/testing.go:2128 +0x329
+panic({0x5962910?, 0x274631ea41e0?})
+	<LOCAL_TOOLCHAIN>/go/src/runtime/panic.go:859 +0x125
+github.com/liuhui-code/agent-session-desk/internal/ui.TestWorkspaceCloseButtonRemovesInactiveViewWithoutInterruptingActiveInput(0x274632490248)
+	<WORKSPACE>/internal/ui/workspace_controls_test.go:45 +0x5ea
+testing.tRunner(0x274632490248, 0x597df50)
+	<LOCAL_TOOLCHAIN>/go/src/testing/testing.go:2195 +0xea
+created by testing.(*T).Run in goroutine 1
+	<LOCAL_TOOLCHAIN>/go/src/testing/testing.go:2260 +0x4d4
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	6.666s
+FAIL

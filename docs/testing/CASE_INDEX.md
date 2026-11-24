@@ -54,7 +54,7 @@
 | [TC-TRM-020](generated/01-launch-terminal-ui.md#tc-trm-020) | 鼠标与滚轮按当前模式处理 | FL-002、FL-016 | P1 | M0 | manual | 待决策 |
 | [TC-TRM-021](generated/01-launch-terminal-ui.md#tc-trm-021) | 异常字节与未结束控制序列不会破坏管理器 | FL-002、FL-016 | P1 | M0 | windows_e2e | 依据明确 |
 | [TC-TRM-022](generated/01-launch-terminal-ui.md#tc-trm-022) | 被动预览中的控制序列不会越权改变宿主 | FL-002、FL-016 | P1 | M3 | windows_e2e | 待决策 |
-| [TC-UI-001](generated/01-launch-terminal-ui.md#tc-ui-001) | Tab 为主要工作区并保留上游布局与交互 | FL-003 | P1 | M0 | manual | 依据明确 |
+| [TC-UI-001](generated/01-launch-terminal-ui.md#tc-ui-001) | 逻辑 Tab 工作区、单一侧栏与悬浮提示 | FL-003 | P1 | M0 | manual | 依据明确 |
 | [TC-UI-002](generated/01-launch-terminal-ui.md#tc-ui-002) | 空列表的引导与 Enter 边界 | FL-003 | P1 | M0 | windows_e2e | 依据明确 |
 | [TC-UI-003](generated/01-launch-terminal-ui.md#tc-ui-003) | 长名称与 CJK 列宽不遮挡关键状态 | FL-003 | P1 | M2 | windows_e2e | 依据明确 |
 | [TC-UI-004](generated/01-launch-terminal-ui.md#tc-ui-004) | 窄窗口与最小布局退化 | FL-003 | P1 | M0 | windows_e2e | 待决策 |

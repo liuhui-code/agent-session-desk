@@ -1,0 +1,382 @@
+--- FAIL: TestReportedANSI256UsesPinnedSourcePaletteWithoutChangingAuthorTokens (0.00s)
+    color_profile_test.go:33: source palette not selected: fg=0,0,0 bg=187,187,187
+--- FAIL: TestWorkspaceNativeSearchPromptKeepsCursorAndUnicodeInputVisible (0.01s)
+    --- FAIL: TestWorkspaceNativeSearchPromptKeepsCursorAndUnicodeInputVisible/120 (0.01s)
+        workspace_copy_test.go:206: native search cursor is not at the visible prompt: &{Position:{X:95 Y:31} Color:<nil> Shape:2 Blink:true}
+    --- FAIL: TestWorkspaceNativeSearchPromptKeepsCursorAndUnicodeInputVisible/27 (0.01s)
+        workspace_copy_test.go:206: native search cursor is not at the visible prompt: &{Position:{X:26 Y:31} Color:<nil> Shape:2 Blink:true}
+--- FAIL: TestWorkspaceNativeCopyCursorIsVisibleWithoutRestoringLiveCursor (3.00s)
+    workspace_copy_test.go:242: workspace did not reach expected state:
+        [38;2;187;187;187m会话 平铺[m            [38;2;187;187;187m │ [m                                                                                                
+        [38;2;51;51;51m─────────────────────[m[38;2;187;187;187m │ [m                                                                                                
+        [38;2;187;187;187;48;2;34;34;34m┃ 开发               [m[38;2;187;187;187m │ [m                                                                                                
+        [38;2;187;187;187m  评审               [m[38;2;187;187;187m │ [m                                                                                                
+                             [38;2;187;187;187m │ [m                                                                                                
+                             [38;2;187;187;187m │ [m                                                                                                
+                             [38;2;187;187;187m │ [m                                                                                                
+                             [38;2;187;187;187m │ [m                                                                                                
+                             [38;2;187;187;187m │ [m                                                                                                
+                             [38;2;187;187;187m │ [m                                                                                                
+                             [38;2;187;187;187m │ [m                                                                                                
+                             [38;2;187;187;187m │ [m                                                                                                
+                             [38;2;187;187;187m │ [m                                                                                                
+                             [38;2;187;187;187m │ [m                                                                                                
+                             [38;2;187;187;187m │ [m                                                                                                
+                             [38;2;187;187;187m │ [m                                                                                                
+                             [38;2;187;187;187m │ [m                                                                                                
+                             [38;2;187;187;187m │ [m                                                                                                
+                             [38;2;187;187;187m │ [m                                                                                                
+                             [38;2;187;187;187m │ [m                                                                                                
+                             [38;2;187;187;187m │ [m                                                                                                
+                             [38;2;187;187;187m │ [m                                                                                                
+                             [38;2;187;187;187m │ [m                                                                                                
+                             [38;2;187;187;187m │ [m                                                                                                
+                             [38;2;187;187;187m │ [m                                                                                                
+                             [38;2;187;187;187m │ [m                                                                                                
+                             [38;2;187;187;187m │ [m                                                                                                
+                             [38;2;187;187;187m │ [m                                                                                                
+                             [38;2;187;187;187m │ [m                                                                                                
+                             [38;2;187;187;187m │ [m                                                                                                
+                             [38;2;187;187;187m │ [m                                                                                                
+                             [38;2;187;187;187m │ [m                                                                                                
+--- FAIL: TestWorkspaceCuratedFooterUsesThreeRelevantActionsThenSettingsAndHelp (0.00s)
+    workspace_footer_modes_test.go:27: curated mode is not rendered: "│"
+--- FAIL: TestWorkspaceCuratedFooterUsesDimRolesAndActualSelectionContext (0.00s)
+    workspace_footer_modes_test.go:44: curated key lost dim role or gained filled chip
+--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership (0.12s)
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/22/focustrue (0.00s)
+        workspace_footer_modes_test.go:96: footer preference hid terminal input ownership
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/27/focustrue (0.00s)
+        workspace_footer_modes_test.go:96: footer preference hid terminal input ownership
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/49/focustrue (0.00s)
+        workspace_footer_modes_test.go:96: footer preference hid terminal input ownership
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/50/focustrue (0.00s)
+        workspace_footer_modes_test.go:96: footer preference hid terminal input ownership
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/63/focustrue (0.00s)
+        workspace_footer_modes_test.go:96: footer preference hid terminal input ownership
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/69/focustrue (0.00s)
+        workspace_footer_modes_test.go:96: footer preference hid terminal input ownership
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/70/focustrue (0.00s)
+        workspace_footer_modes_test.go:96: footer preference hid terminal input ownership
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/80/focustrue (0.00s)
+        workspace_footer_modes_test.go:96: footer preference hid terminal input ownership
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/100/focustrue (0.00s)
+        workspace_footer_modes_test.go:96: footer preference hid terminal input ownership
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/101/focustrue (0.00s)
+        workspace_footer_modes_test.go:96: footer preference hid terminal input ownership
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/120/focustrue (0.00s)
+        workspace_footer_modes_test.go:96: footer preference hid terminal input ownership
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/160/focustrue (0.00s)
+        workspace_footer_modes_test.go:96: footer preference hid terminal input ownership
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/22/focustrue (0.00s)
+        workspace_footer_modes_test.go:96: footer preference hid terminal input ownership
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/27/focustrue (0.00s)
+        workspace_footer_modes_test.go:96: footer preference hid terminal input ownership
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/49/focustrue (0.00s)
+        workspace_footer_modes_test.go:96: footer preference hid terminal input ownership
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/50/focustrue (0.00s)
+        workspace_footer_modes_test.go:96: footer preference hid terminal input ownership
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/63/focustrue (0.00s)
+        workspace_footer_modes_test.go:96: footer preference hid terminal input ownership
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/69/focustrue (0.00s)
+        workspace_footer_modes_test.go:96: footer preference hid terminal input ownership
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/70/focustrue (0.00s)
+        workspace_footer_modes_test.go:96: footer preference hid terminal input ownership
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/80/focustrue (0.00s)
+        workspace_footer_modes_test.go:96: footer preference hid terminal input ownership
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/100/focustrue (0.00s)
+        workspace_footer_modes_test.go:96: footer preference hid terminal input ownership
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/101/focustrue (0.00s)
+        workspace_footer_modes_test.go:96: footer preference hid terminal input ownership
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/120/focustrue (0.00s)
+        workspace_footer_modes_test.go:96: footer preference hid terminal input ownership
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/160/focustrue (0.00s)
+        workspace_footer_modes_test.go:96: footer preference hid terminal input ownership
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/22/focustrue (0.00s)
+        workspace_footer_modes_test.go:96: footer preference hid terminal input ownership
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/27/focustrue (0.00s)
+        workspace_footer_modes_test.go:96: footer preference hid terminal input ownership
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/49/focustrue (0.00s)
+        workspace_footer_modes_test.go:96: footer preference hid terminal input ownership
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/50/focustrue (0.00s)
+        workspace_footer_modes_test.go:96: footer preference hid terminal input ownership
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/63/focustrue (0.00s)
+        workspace_footer_modes_test.go:96: footer preference hid terminal input ownership
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/69/focustrue (0.00s)
+        workspace_footer_modes_test.go:96: footer preference hid terminal input ownership
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/70/focustrue (0.00s)
+        workspace_footer_modes_test.go:96: footer preference hid terminal input ownership
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/80/focustrue (0.00s)
+        workspace_footer_modes_test.go:96: footer preference hid terminal input ownership
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/100/focustrue (0.00s)
+        workspace_footer_modes_test.go:96: footer preference hid terminal input ownership
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/101/focustrue (0.00s)
+        workspace_footer_modes_test.go:96: footer preference hid terminal input ownership
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/120/focustrue (0.00s)
+        workspace_footer_modes_test.go:96: footer preference hid terminal input ownership
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/160/focustrue (0.00s)
+        workspace_footer_modes_test.go:96: footer preference hid terminal input ownership
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/22/focustrue (0.00s)
+        workspace_footer_modes_test.go:96: footer preference hid terminal input ownership
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/27/focustrue (0.00s)
+        workspace_footer_modes_test.go:96: footer preference hid terminal input ownership
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/49/focustrue (0.00s)
+        workspace_footer_modes_test.go:96: footer preference hid terminal input ownership
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/50/focusfalse (0.00s)
+        workspace_footer_modes_test.go:99: curated globals cropped
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/50/focustrue (0.00s)
+        workspace_footer_modes_test.go:96: footer preference hid terminal input ownership
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/63/focusfalse (0.00s)
+        workspace_footer_modes_test.go:99: curated globals cropped
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/63/focustrue (0.00s)
+        workspace_footer_modes_test.go:96: footer preference hid terminal input ownership
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/69/focusfalse (0.00s)
+        workspace_footer_modes_test.go:99: curated globals cropped
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/69/focustrue (0.00s)
+        workspace_footer_modes_test.go:96: footer preference hid terminal input ownership
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/70/focusfalse (0.00s)
+        workspace_footer_modes_test.go:99: curated globals cropped
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/70/focustrue (0.00s)
+        workspace_footer_modes_test.go:96: footer preference hid terminal input ownership
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/80/focusfalse (0.00s)
+        workspace_footer_modes_test.go:99: curated globals cropped
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/80/focustrue (0.00s)
+        workspace_footer_modes_test.go:96: footer preference hid terminal input ownership
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/100/focusfalse (0.00s)
+        workspace_footer_modes_test.go:99: curated globals cropped
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/100/focustrue (0.00s)
+        workspace_footer_modes_test.go:96: footer preference hid terminal input ownership
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/101/focusfalse (0.00s)
+        workspace_footer_modes_test.go:99: curated globals cropped
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/101/focustrue (0.00s)
+        workspace_footer_modes_test.go:96: footer preference hid terminal input ownership
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/120/focusfalse (0.00s)
+        workspace_footer_modes_test.go:99: curated globals cropped
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/120/focustrue (0.00s)
+        workspace_footer_modes_test.go:96: footer preference hid terminal input ownership
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/160/focusfalse (0.00s)
+        workspace_footer_modes_test.go:99: curated globals cropped
+    --- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/160/focustrue (0.00s)
+        workspace_footer_modes_test.go:96: footer preference hid terminal input ownership
+--- FAIL: TestWorkspaceFooterCanForceCompactOrMinimalAtWideWidths (0.00s)
+    --- FAIL: TestWorkspaceFooterCanForceCompactOrMinimalAtWideWidths/compact (0.00s)
+        workspace_footer_modes_test.go:157: forced tier lost Enter
+    --- FAIL: TestWorkspaceFooterCanForceCompactOrMinimalAtWideWidths/minimal (0.00s)
+        workspace_footer_modes_test.go:157: forced tier lost Enter
+--- FAIL: TestWorkspaceClickSelectsVisibleTabWithoutSendingInput (3.01s)
+    workspace_lifecycle_test.go:75: workspace did not reach expected state:
+        [38;2;187;187;187m会话 平铺[m                                 [38;2;51;51;51m │ [mshell marker first                                                         
+        [38;2;51;51;51m──────────────────────────────────────────[m[38;2;51;51;51m │ [m                                                                           
+        [38;2;187;187;187;48;2;34;34;34m  ┃ 开发                                  [m[38;2;51;51;51m │ [m                                                                           
+        [38;2;119;119;119;48;2;34;34;34m    ╰ 可连接                              [m[38;2;51;51;51m │ [m                                                                           
+        [38;2;187;187;187m    评审                                  [m[38;2;51;51;51m │ [m                                                                           
+        [38;2;119;119;119m    ╰ 可连接                              [m[38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+--- FAIL: TestWorkspaceDividerMatchesSourceFocusHoverAndDragRoles (0.00s)
+    workspace_main_parity_test.go:88: divider role differs: got 187,187,187 want 121,162,247
+--- FAIL: TestRemovedTabRowHasNoPhantomDragTargets (3.01s)
+    workspace_order_test.go:140: workspace did not reach expected state:
+        [38;2;187;187;187m会话 平铺[m                                 [38;2;51;51;51m │ [mshell marker first                                                         
+        [38;2;51;51;51m──────────────────────────────────────────[m[38;2;51;51;51m │ [m                                                                           
+        [38;2;187;187;187;48;2;34;34;34m  ┃ 开发                                  [m[38;2;51;51;51m │ [m                                                                           
+        [38;2;119;119;119;48;2;34;34;34m    ╰ 可连接                              [m[38;2;51;51;51m │ [m                                                                           
+        [38;2;187;187;187m    评审                                  [m[38;2;51;51;51m │ [m                                                                           
+        [38;2;119;119;119m    ╰ 可连接                              [m[38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+        [38;2;119;119;119;48;2;0;0;0m连接结束：fake attach is unavailable                                                                                    [m
+--- FAIL: TestWorkspaceDiscoveryBeforeStartResultDoesNotDuplicateTab (4.00s)
+    workspace_reconcile_test.go:41: workspace did not reach expected state:
+        [2m[38;2;187;187;187m会话 平铺[m                                 [38;2;51;51;51m │ [m                                                                           [m
+        [2m[38;2;51;51;51m──────────────────────────────────────────[m[38;2;51;51;51m │ [m                                                                           [m
+        [2m[38;2;187;187;187;48;2;34;34;34m  ┃ created-1                             [m[38;2;51;51;51m │ [m                                                                           [m
+        [2m[38;2;119;119;119;48;2;34;34;34m    ╰ 可连接 · pwsh.exe                   [m[38;2;51;51;51m │ [m                                                                           [m
+        [2m                 [38;2;51;51;51m[m[m[38;2;187;187;187m╭────────────────────────────────────────────────────────────────────────────────────╮[m[2m[38;2;51;51;51m[m                 [m
+        [2m                 [38;2;51;51;51m[m[m[38;2;187;187;187m│[m[48;2;34;34;34m                                                                                    [m[38;2;187;187;187m│[m[2m[38;2;51;51;51m[m                 [m
+        [2m                 [38;2;51;51;51m[m[m[38;2;187;187;187m│[m[48;2;34;34;34m    [m[48;2;34;34;34m[38;2;187;187;187;48;2;34;34;34m新建终端[m[38;2;187;187;187;48;2;34;34;34m                                                                    [m[m[48;2;34;34;34m    [m[38;2;187;187;187m│[m[2m[38;2;51;51;51m[m                 [m
+        [2m                 [38;2;51;51;51m[m[m[38;2;187;187;187m│[m[48;2;34;34;34m    [m[48;2;34;34;34m[38;2;187;187;187;48;2;34;34;34m                                                                            [m[m[48;2;34;34;34m    [m[38;2;187;187;187m│[m[2m[38;2;51;51;51m[m                 [m
+        [2m                 [38;2;51;51;51m[m[m[38;2;187;187;187m│[m[48;2;34;34;34m    [m[48;2;34;34;34m[38;2;187;187;187;48;2;34;34;34m名称（可空）[m[38;2;187;187;187;48;2;34;34;34m                                                                [m[m[48;2;34;34;34m    [m[38;2;187;187;187m│[m[2m[38;2;51;51;51m[m                 [m
+        [2m                 [38;2;51;51;51m[m[m[38;2;187;187;187m│[m[48;2;34;34;34m    [m[48;2;34;34;34m[38;2;187;187;187;48;2;34;34;34m› [m[38;2;119;119;119;48;2;34;34;34m可[m[38;2;119;119;119;48;2;34;34;34m留空，使用程序名[m[38;2;119;119;119;48;2;34;34;34m                                                        [m[38;2;187;187;187;48;2;34;34;34m[m[m[48;2;34;34;34m    [m[38;2;187;187;187m│[m[2m[38;2;51;51;51m[m                 [m
+        [2m                 [38;2;51;51;51m[m[m[38;2;187;187;187m│[m[48;2;34;34;34m    [m[48;2;34;34;34m[38;2;187;187;187;48;2;34;34;34m                                                                            [m[m[48;2;34;34;34m    [m[38;2;187;187;187m│[m[2m[38;2;51;51;51m[m                 [m
+        [2m                 [38;2;51;51;51m[m[m[38;2;187;187;187m│[m[48;2;34;34;34m    [m[48;2;34;34;34m[38;2;187;187;187;48;2;34;34;34m程序 / CLI[m[38;2;187;187;187;48;2;34;34;34m                                                                  [m[m[48;2;34;34;34m    [m[38;2;187;187;187m│[m[2m[38;2;51;51;51m[m                 [m
+        [2m                 [38;2;51;51;51m[m[m[38;2;187;187;187m│[m[48;2;34;34;34m    [m[48;2;34;34;34m[38;2;187;187;187;48;2;34;34;34m› [m[38;2;187;187;187;48;2;34;34;34mpwsh.exe[m[38;2;187;187;187;48;2;34;34;34m [m[38;2;187;187;187;48;2;34;34;34m                                                                 [m[38;2;187;187;187;48;2;34;34;34m[m[m[48;2;34;34;34m    [m[38;2;187;187;187m│[m[2m[38;2;51;51;51m[m                 [m
+        [2m                 [38;2;51;51;51m[m[m[38;2;187;187;187m│[m[48;2;34;34;34m    [m[48;2;34;34;34m[38;2;187;187;187;48;2;34;34;34m                                                                            [m[m[48;2;34;34;34m    [m[38;2;187;187;187m│[m[2m[38;2;51;51;51m[m                 [m
+        [2m                 [38;2;51;51;51m[m[m[38;2;187;187;187m│[m[48;2;34;34;34m    [m[48;2;34;34;34m[38;2;187;187;187;48;2;34;34;34m工作目录（可空）[m[38;2;187;187;187;48;2;34;34;34m                                                            [m[m[48;2;34;34;34m    [m[38;2;187;187;187m│[m[2m[38;2;51;51;51m[m                 [m
+        [2m                 [38;2;51;51;51m[m[m[38;2;187;187;187m│[m[48;2;34;34;34m    [m[48;2;34;34;34m[38;2;187;187;187;48;2;34;34;34m› [m[38;2;119;119;119;48;2;34;34;34m可[m[38;2;119;119;119;48;2;34;34;34m留空，使用当前工作目录[m[38;2;119;119;119;48;2;34;34;34m                                                  [m[38;2;187;187;187;48;2;34;34;34m[m[m[48;2;34;34;34m    [m[38;2;187;187;187m│[m[2m[38;2;51;51;51m[m                 [m
+        [2m                 [38;2;51;51;51m[m[m[38;2;187;187;187m│[m[48;2;34;34;34m    [m[48;2;34;34;34m[38;2;187;187;187;48;2;34;34;34m                                                                            [m[m[48;2;34;34;34m    [m[38;2;187;187;187m│[m[2m[38;2;51;51;51m[m                 [m
+        [2m                 [38;2;51;51;51m[m[m[38;2;187;187;187m│[m[48;2;34;34;34m    [m[48;2;34;34;34m[38;2;187;187;187;48;2;34;34;34m参数（JSON 字符串数组，可空）[m[38;2;187;187;187;48;2;34;34;34m                                               [m[m[48;2;34;34;34m    [m[38;2;187;187;187m│[m[2m[38;2;51;51;51m[m                 [m
+        [2m                 [38;2;51;51;51m[m[m[38;2;187;187;187m│[m[48;2;34;34;34m    [m[48;2;34;34;34m[38;2;187;187;187;48;2;34;34;34m› [m[38;2;119;119;119;48;2;34;34;34m例[m[38;2;119;119;119;48;2;34;34;34m如 ["-NoLogo","-NoProfile"][m[38;2;119;119;119;48;2;34;34;34m                                             [m[38;2;187;187;187;48;2;34;34;34m[m[m[48;2;34;34;34m    [m[38;2;187;187;187m│[m[2m[38;2;51;51;51m[m                 [m
+        [2m                 [38;2;51;51;51m[m[m[38;2;187;187;187m│[m[48;2;34;34;34m    [m[48;2;34;34;34m[38;2;187;187;187;48;2;34;34;34m                                                                            [m[m[48;2;34;34;34m    [m[38;2;187;187;187m│[m[2m[38;2;51;51;51m[m                 [m
+        [2m                 [38;2;51;51;51m[m[m[38;2;187;187;187m│[m[48;2;34;34;34m    [m[48;2;34;34;34m[38;2;187;187;187;48;2;34;34;34m环境覆盖（JSON KEY=value 数组，可空）[m[38;2;187;187;187;48;2;34;34;34m                                       [m[m[48;2;34;34;34m    [m[38;2;187;187;187m│[m[2m[38;2;51;51;51m[m                 [m
+        [2m                 [38;2;51;51;51m[m[m[38;2;187;187;187m│[m[48;2;34;34;34m    [m[48;2;34;34;34m[38;2;187;187;187;48;2;34;34;34m› [m[38;2;119;119;119;48;2;34;34;34m例[m[38;2;119;119;119;48;2;34;34;34m如 ["ASD_MODE=dev"][m[38;2;119;119;119;48;2;34;34;34m                                                     [m[38;2;187;187;187;48;2;34;34;34m[m[m[48;2;34;34;34m    [m[38;2;187;187;187m│[m[2m[38;2;51;51;51m[m                 [m
+        [2m                 [38;2;51;51;51m[m[m[38;2;187;187;187m│[m[48;2;34;34;34m    [m[48;2;34;34;34m[38;2;187;187;187;48;2;34;34;34m                                                                            [m[m[48;2;34;34;34m    [m[38;2;187;187;187m│[m[2m[38;2;51;51;51m[m                 [m
+        [2m                 [38;2;51;51;51m[m[m[38;2;187;187;187m│[m[48;2;34;34;34m    [m[48;2;34;34;34m[38;2;119;119;119;48;2;34;34;34m正在启动；请等待明确结果…[m[38;2;187;187;187;48;2;34;34;34m                                                   [m[m[48;2;34;34;34m    [m[38;2;187;187;187m│[m[2m[38;2;51;51;51m[m                 [m
+        [2m                 [38;2;51;51;51m[m[m[38;2;187;187;187m│[m[48;2;34;34;34m    [m[48;2;34;34;34m[38;2;119;119;119;48;2;34;34;34mTab 切换 · Ctrl+S 创建 · Esc 取消[m[38;2;187;187;187;48;2;34;34;34m                                           [m[m[48;2;34;34;34m    [m[38;2;187;187;187m│[m[2m[38;2;51;51;51m[m                 [m
+        [2m                 [38;2;51;51;51m[m[m[38;2;187;187;187m│[m[48;2;34;34;34m                                                                                    [m[38;2;187;187;187m│[m[2m[38;2;51;51;51m[m                 [m
+        [2m                 [38;2;51;51;51m[m[m[38;2;187;187;187m╰────────────────────────────────────────────────────────────────────────────────────╯[m[2m[38;2;51;51;51m[m                 [m
+        [2m                                          [38;2;51;51;51m │ [m                                                                           [m
+        [2m                                          [38;2;51;51;51m │ [m                                                                           [m
+        [2m                                          [38;2;51;51;51m │ [m                                                                           [m
+        [2m                                          [38;2;51;51;51m │ [m                                                                           [m
+        [2m                                          [38;2;51;51;51m │ [m                                                                           [m
+--- FAIL: TestWorkspaceClosingLastTabReturnsManagementFocus (0.01s)
+    workspace_reconcile_test.go:58: close control missing
+--- FAIL: TestWorkspaceEmptyDiscoveryAndF6KeepManagementFocus (0.00s)
+    workspace_reconcile_test.go:74: empty discovery exposes nonexistent terminal focus
+--- FAIL: TestWorkspaceDisconnectKeepsLastObservedScreenReadOnly (3.01s)
+    workspace_reconcile_test.go:90: workspace did not reach expected state:
+        [38;2;187;187;187m会话 平铺[m                                 [38;2;51;51;51m │ [mshell marker first                                                         
+        [38;2;51;51;51m──────────────────────────────────────────[m[38;2;51;51;51m │ [m                                                                           
+        [38;2;187;187;187;48;2;34;34;34m  ┃ 开发                                  [m[38;2;51;51;51m │ [m                                                                           
+        [38;2;119;119;119;48;2;34;34;34m    ╰ 可连接                              [m[38;2;51;51;51m │ [m                                                                           
+        [38;2;187;187;187m    评审                                  [m[38;2;51;51;51m │ [m                                                                           
+        [38;2;119;119;119m    ╰ 可连接                              [m[38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+        [38;2;119;119;119;48;2;0;0;0m终端不可交互 · r 重查：closed                                                                                           [m
+--- FAIL: TestWorkspaceScrollModeShowsHistoryAndNativePrompt (0.01s)
+    workspace_scroll_test.go:42: history mode is indistinguishable from live input or hides its native prompt
+--- FAIL: TestWorkspaceSplitKeysOnlyAdjustInManagementFocus (3.01s)
+    workspace_split_test.go:25: workspace did not reach expected state:
+        [38;2;187;187;187m会话 平铺[m                                       [38;2;51;51;51m │ [mshell marker first                                                   
+        [38;2;51;51;51m────────────────────────────────────────────────[m[38;2;51;51;51m │ [m                                                                     
+        [38;2;187;187;187;48;2;34;34;34m  ┃ 开发                                        [m[38;2;51;51;51m │ [m                                                                     
+        [38;2;119;119;119;48;2;34;34;34m    ╰ 可连接                                    [m[38;2;51;51;51m │ [m                                                                     
+        [38;2;187;187;187m    评审                                        [m[38;2;51;51;51m │ [m                                                                     
+        [38;2;119;119;119m    ╰ 可连接                                    [m[38;2;51;51;51m │ [m                                                                     
+                                                        [38;2;51;51;51m │ [m                                                                     
+                                                        [38;2;51;51;51m │ [m                                                                     
+                                                        [38;2;51;51;51m │ [m                                                                     
+                                                        [38;2;51;51;51m │ [m                                                                     
+                                                        [38;2;51;51;51m │ [m                                                                     
+                                                        [38;2;51;51;51m │ [m                                                                     
+                                                        [38;2;51;51;51m │ [m                                                                     
+                                                        [38;2;51;51;51m │ [m                                                                     
+                                                        [38;2;51;51;51m │ [m                                                                     
+                                                        [38;2;51;51;51m │ [m                                                                     
+                                                        [38;2;51;51;51m │ [m                                                                     
+                                                        [38;2;51;51;51m │ [m                                                                     
+                                                        [38;2;51;51;51m │ [m                                                                     
+                                                        [38;2;51;51;51m │ [m                                                                     
+                                                        [38;2;51;51;51m │ [m                                                                     
+                                                        [38;2;51;51;51m │ [m                                                                     
+                                                        [38;2;51;51;51m │ [m                                                                     
+                                                        [38;2;51;51;51m │ [m                                                                     
+                                                        [38;2;51;51;51m │ [m                                                                     
+                                                        [38;2;51;51;51m │ [m                                                                     
+                                                        [38;2;51;51;51m │ [m                                                                     
+                                                        [38;2;51;51;51m │ [m                                                                     
+                                                        [38;2;51;51;51m │ [m                                                                     
+                                                        [38;2;51;51;51m │ [m                                                                     
+                                                        [38;2;51;51;51m │ [m                                                                     
+                                                        [38;2;51;51;51m │ [m                                                                     
+--- FAIL: TestWorkspaceDividerDragChangesSplitWithoutTerminalInput (3.01s)
+    workspace_split_test.go:54: workspace did not reach expected state:
+        [38;2;187;187;187m会话 平铺[m                                                   [38;2;187;187;187m │ [mshell marker first                                       
+        [38;2;51;51;51m────────────────────────────────────────────────────────────[m[38;2;187;187;187m │ [m                                                         
+        [38;2;187;187;187;48;2;34;34;34m┃ 开发                                                      [m[38;2;187;187;187m │ [m                                                         
+        [38;2;119;119;119;48;2;34;34;34m  ╰ 可连接                                                  [m[38;2;187;187;187m │ [m                                                         
+        [38;2;187;187;187m  评审                                                      [m[38;2;187;187;187m │ [m                                                         
+        [38;2;119;119;119m  ╰ 可连接                                                  [m[38;2;187;187;187m │ [m                                                         
+                                                                    [38;2;187;187;187m │ [m                                                         
+                                                                    [38;2;187;187;187m │ [m                                                         
+                                                                    [38;2;187;187;187m │ [m                                                         
+                                                                    [38;2;187;187;187m │ [m                                                         
+                                                                    [38;2;187;187;187m │ [m                                                         
+                                                                    [38;2;187;187;187m │ [m                                                         
+                                                                    [38;2;187;187;187m │ [m                                                         
+                                                                    [38;2;187;187;187m │ [m                                                         
+                                                                    [38;2;187;187;187m │ [m                                                         
+                                                                    [38;2;187;187;187m │ [m                                                         
+                                                                    [38;2;187;187;187m │ [m                                                         
+                                                                    [38;2;187;187;187m │ [m                                                         
+                                                                    [38;2;187;187;187m │ [m                                                         
+                                                                    [38;2;187;187;187m │ [m                                                         
+                                                                    [38;2;187;187;187m │ [m                                                         
+                                                                    [38;2;187;187;187m │ [m                                                         
+                                                                    [38;2;187;187;187m │ [m                                                         
+                                                                    [38;2;187;187;187m │ [m                                                         
+                                                                    [38;2;187;187;187m │ [m                                                         
+                                                                    [38;2;187;187;187m │ [m                                                         
+                                                                    [38;2;187;187;187m │ [m                                                         
+                                                                    [38;2;187;187;187m │ [m                                                         
+                                                                    [38;2;187;187;187m │ [m                                                         
+                                                                    [38;2;187;187;187m │ [m                                                         
+                                                                    [38;2;187;187;187m │ [m                                                         
+                                                                    [38;2;187;187;187m │ [m                                                         
+--- FAIL: TestWorkspaceManagementFocusDoesNotSendKeysToTerminal (0.01s)
+    workspace_test.go:330: management focus is not visible
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	30.964s
+FAIL

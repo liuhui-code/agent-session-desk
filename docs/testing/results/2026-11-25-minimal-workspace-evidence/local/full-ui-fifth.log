@@ -1,0 +1,11 @@
+--- FAIL: TestReportedANSI256UsesPinnedSourcePaletteWithoutChangingAuthorTokens (0.00s)
+    color_profile_test.go:33: source palette not selected: fg=default bg=default
+--- FAIL: TestDirectoryPopupUsesMeasuredSourceDisplayBackground (0.00s)
+    path_picker_view_test.go:19: authored dark color changed
+--- FAIL: TestWorkspaceDiscoveryBeforeStartResultDoesNotDuplicateTab (1.01s)
+    workspace_reconcile_test.go:46: Start result duplicated discovered Tab: "───────────────────── │                                                                                                 "
+--- FAIL: TestWorkspaceClosingLastTabReturnsManagementFocus (0.01s)
+    workspace_reconcile_test.go:58: close control missing
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	10.817s
+FAIL

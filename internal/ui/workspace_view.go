@@ -7,7 +7,6 @@
 package ui
 
 import (
-	"fmt"
 	"strings"
 
 	tea "charm.land/bubbletea/v2"
@@ -18,7 +17,7 @@ type workspaceGeometry struct{ x, y, width, height, left, outerWidth, bodyHeight
 
 func (m *Model) workspaceGeometry() workspaceGeometry {
 	t := m.tokens
-	bodyHeight := max(0, m.height-t.workspaceChromeRows()) // existing header/footer plus Tab row
+	bodyHeight := max(0, m.height-t.workspaceChromeRows()) // Full-height terminal; hints overlay without resizing the child.
 	left := 0
 	gap := lipgloss.Width(t.divider())
 	if m.width >= t.layout.stackedBelow {
@@ -51,7 +50,7 @@ func (m *Model) workspaceGeometry() workspaceGeometry {
 	}
 
 	return workspaceGeometry{
-		x: left + gap + style.GetBorderLeftSize(), y: 2 + t.workspace.headerGapRows + above + style.GetBorderTopSize(),
+		x: left + gap + style.GetBorderLeftSize(), y: above + style.GetBorderTopSize(),
 		width: max(0, outer-style.GetHorizontalFrameSize()), height: max(0, terminalHeight-style.GetVerticalFrameSize()),
 		left: left, outerWidth: outer, bodyHeight: bodyHeight, above: above, terminalHeight: terminalHeight,
 		listWidth: listWidth, listHeight: listHeight,
@@ -63,12 +62,6 @@ func (m *Model) renderWorkspace() string {
 		return ""
 	}
 	w, g := m.workspace, m.workspaceGeometry()
-	header := m.styles.title.Render("Agent Session Desk")
-	count := m.styles.dim.Render(fmt.Sprintf("%d 会话", len(m.sessions)))
-	gap := m.width - lipgloss.Width(header) - lipgloss.Width(count)
-	if gap > m.tokens.layout.headerMinGap {
-		header += strings.Repeat(" ", gap) + count
-	}
 	var content string
 	switch {
 	case len(w.tabs) == 0:
@@ -112,38 +105,7 @@ func (m *Model) renderWorkspace() string {
 			body += strings.Repeat("\n", m.tokens.layout.stackedGap+1) + right
 		}
 	}
-	footer := m.renderTerminalFooter()
-	if !w.focused {
-		footer = m.renderManagementFooter()
-	} else if w.screen.CopyMode {
-		text := fmt.Sprintf("滚动历史 · %d 行 · 空格选择 · Enter 复制 · / 搜索 · Esc/q 返回", w.screen.ScrollbackOffset)
-		if w.screen.Status != "" {
-			text = "滚动历史 · " + label(w.screen.Status)
-		}
-		footer = m.styles.dim.Render(text)
-	} else if w.screen.ScrollbackOffset > 0 {
-		footer = m.styles.dim.Render(fmt.Sprintf("滚动位置 · %d 行 · 向下滚动返回实时输出", w.screen.ScrollbackOffset))
-	}
-	if !w.split.noticeUntil.IsZero() {
-		pct := m.workspaceSidebarPercent()
-		footer = m.styles.dim.Render(fmt.Sprintf("会话 %d%% / 终端 %d%%", pct, 100-pct))
-	}
-	if m.status != "" {
-		footer = m.styles.dim.Render(label(m.status))
-	}
-	if w.err != nil && w.screen.Width > 0 && w.screen.Height > 0 {
-		footer = m.styles.error.Render("只读：上次观察屏幕；连接不可用，r 重查。" + label(w.err.Error()))
-	}
-	if text, cursor := m.workspaceCopyPrompt(); cursor != nil {
-		footer = m.styles.dim.Render(text)
-	}
-	footerRows := footer
-	if t := m.tokens.workspace; t.footerRuleRows > 0 {
-		rule := m.styles.separator.Render(strings.Repeat(m.tokens.marks.rule, m.width))
-		footerRows = strings.Repeat(rule+"\n", t.footerRuleRows) + footer
-	}
-	t := m.tokens.workspace
-	return fitFrame(header+"\n"+m.workspaceTabs()+strings.Repeat("\n", t.headerGapRows+1)+fitFrame(body, m.width, g.bodyHeight)+strings.Repeat("\n", t.footerGapRows+1)+footerRows+strings.Repeat("\n", t.footerBottomGapRows), m.width, m.height)
+	return m.renderWorkspaceOverlay(fitFrame(body, m.width, m.height))
 }
 
 func (m *Model) workspaceCursor() *tea.Cursor {
@@ -163,6 +125,9 @@ func (m *Model) workspaceCursor() *tea.Cursor {
 		return nil
 	}
 	if native.X < 0 || native.X >= g.width || native.Y < 0 || native.Y >= g.height {
+		return nil
+	}
+	if m.workspaceFooterVisible() && g.y+native.Y == m.height-1 {
 		return nil
 	}
 	cursor := tea.NewCursor(g.x+native.X, g.y+native.Y)

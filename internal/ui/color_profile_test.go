@@ -22,17 +22,17 @@ func TestReportedANSI256UsesPinnedSourcePaletteWithoutChangingAuthorTokens(t *te
 	if cmd != nil {
 		t.Fatal("color capability started a command")
 	}
-	line := strings.Split(m.View().Content, "\n")[30]
+	line := m.renderManagementFooter()
 	plain := ansi.Strip(line)
 	i := strings.Index(plain, "Enter")
 	if i < 0 {
 		t.Fatal("missing Enter hint")
 	}
 	x := ansi.StringWidth(plain[:i])
-	if fg, bg := testForegroundAt(line, x), testBackgroundAt(line, x); fg != "idx:232" || bg != "idx:111" {
+	if fg, bg := testForegroundAt(line, x), testBackgroundAt(line, x); fg != "idx:0" || bg != "idx:7" {
 		t.Fatalf("source palette not selected: fg=%s bg=%s", fg, bg)
 	}
-	if colorHex(m.tokens.colors.bg) != "1a1b26" || colorHex(m.tokens.colors.accent) != "7aa2f7" {
+	if colorHex(m.tokens.colors.bg) != "000000" || colorHex(m.tokens.colors.accent) != "bbbbbb" {
 		t.Fatal("capability replaced authored palette")
 	}
 }

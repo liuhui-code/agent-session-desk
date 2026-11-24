@@ -6,7 +6,6 @@ import (
 	"testing"
 
 	tea "charm.land/bubbletea/v2"
-	"github.com/charmbracelet/x/ansi"
 	"github.com/liuhui-code/agent-session-desk/internal/session"
 )
 
@@ -38,12 +37,11 @@ func TestWorkspaceDiscoveryBeforeStartResultDoesNotDuplicateTab(t *testing.T) {
 	h.send(tea.KeyPressMsg{Code: 's', Mod: tea.ModCtrl})
 	h.until(func() bool { service.mu.Lock(); defer service.mu.Unlock(); return len(service.created) == 1 })
 	h.send(pollMsg{generation: h.m.pollGeneration})
-	h.until(func() bool { return strings.Contains(h.m.View().Content, "1 会话") })
+	h.until(func() bool { return len(h.m.sessions) == 1 })
 	close(gate)
 	h.until(func() bool { return strings.Contains(h.m.View().Content, "shell marker created-1") })
-	row := ansi.Strip(strings.Split(h.m.View().Content, "\n")[1])
-	if strings.Count(row, "created-1") != 1 {
-		t.Fatalf("Start result duplicated discovered Tab: %q", row)
+	if len(h.m.workspace.tabs) != 1 || h.m.workspace.tabs[0].session.ID != "created-1" {
+		t.Fatal("Start result duplicated the discovered logical view")
 	}
 }
 
@@ -52,14 +50,12 @@ func TestWorkspaceClosingLastTabReturnsManagementFocus(t *testing.T) {
 	h := newWorkspaceHarness(t, service)
 	for _, id := range []string{"first", "second"} {
 		h.until(func() bool { return strings.Contains(h.m.View().Content, "shell marker "+id) })
-		row := ansi.Strip(strings.Split(h.m.View().Content, "\n")[1])
-		idx := strings.Index(row, "×")
-		if idx < 0 {
-			t.Fatal("close control missing")
+		if h.m.workspace.focused {
+			h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 		}
-		h.send(tea.MouseClickMsg{X: ansi.StringWidth(row[:idx]), Y: 1, Button: tea.MouseLeft})
+		h.send(tea.KeyPressMsg{Code: 'x', Text: "x"})
 	}
-	if h.m.workspace.focused || !strings.Contains(h.m.View().Content, "管理模式") || h.m.View().Cursor != nil {
+	if h.m.workspace.focused || h.m.View().Cursor != nil {
 		t.Fatal("empty workspace still claims terminal focus")
 	}
 	h.send(tea.KeyPressMsg{Code: 'n', Text: "n"})
@@ -70,11 +66,11 @@ func TestWorkspaceEmptyDiscoveryAndF6KeepManagementFocus(t *testing.T) {
 	service := &workspaceFixture{fakeService: fakeService{list: func(context.Context) ([]session.Session, error) { return nil, nil }}}
 	h := newWorkspaceHarness(t, service)
 	h.until(func() bool { return !h.m.listBusy })
-	if h.m.workspace.focused || !strings.Contains(h.m.View().Content, "管理模式") {
+	if h.m.workspace.focused {
 		t.Fatal("empty discovery exposes nonexistent terminal focus")
 	}
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
-	if h.m.workspace.focused || !strings.Contains(h.m.View().Content, "管理模式") {
+	if h.m.workspace.focused {
 		t.Fatal("F6 focuses a nonexistent terminal")
 	}
 }

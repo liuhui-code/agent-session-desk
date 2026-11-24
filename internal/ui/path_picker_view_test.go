@@ -15,14 +15,14 @@ import (
 
 func TestDirectoryPopupUsesMeasuredSourceDisplayBackground(t *testing.T) {
 	tokens := defaultDesignTokens()
-	if tokens.paths.background != lipgloss.Color("#292e42") {
+	if tokens.paths.background != lipgloss.Color("#222222") {
 		t.Fatal("authored dark color changed")
 	}
 	for _, c := range []struct {
 		profile     colorprofile.Profile
 		theme, want string
 	}{
-		{colorprofile.TrueColor, "dark", "#282e41"}, {colorprofile.ANSI, "dark", "4"}, {colorprofile.ANSI256, "dark", "17"},
+		{colorprofile.TrueColor, "dark", "#222222"}, {colorprofile.ANSI, "dark", "0"}, {colorprofile.ANSI256, "dark", "235"},
 		{colorprofile.TrueColor, "light", "#dcdde2"}, {colorprofile.ANSI, "light", "7"}, {colorprofile.ANSI256, "light", "188"},
 	} {
 		if got := newStyles(tokens.withTheme(c.theme), c.profile).pathBox.GetBackground(); got != lipgloss.Color(c.want) {

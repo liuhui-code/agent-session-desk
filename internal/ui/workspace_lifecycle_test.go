@@ -67,11 +67,12 @@ func TestWorkspacePollRefreshesOnlyVisibleActiveTerminal(t *testing.T) {
 	h.until(func() bool { return h.m.workspace.conn != nil })
 }
 
-func TestWorkspaceClickSelectsVisibleTabWithoutSendingInput(t *testing.T) {
+func TestWorkspaceSidebarSelectionOpensOriginalViewWithoutSendingInput(t *testing.T) {
 	service := &workspaceFixture{fakeService: fakeService{list: func(context.Context) ([]session.Session, error) { return sampleSessions(), nil }}}
 	h := newWorkspaceHarness(t, service)
 	h.until(func() bool { return strings.Contains(h.m.View().Content, "shell marker first") })
-	h.send(tea.MouseClickMsg{X: 10, Y: 1, Button: tea.MouseLeft})
+	h.send(tea.MouseClickMsg{X: 5, Y: h.m.workspaceGeometry().y + 3, Button: tea.MouseLeft})
+	h.send(tea.KeyPressMsg{Code: tea.KeyEnter})
 	h.until(func() bool { return strings.Contains(h.m.View().Content, "shell marker second") })
 	if h.m.View().MouseMode != tea.MouseModeAllMotion {
 		t.Fatal("mouse events not enabled")

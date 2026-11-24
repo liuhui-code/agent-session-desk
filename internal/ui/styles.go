@@ -130,8 +130,8 @@ func newStyles(t designTokens, profile colorprofile.Profile) styles {
 		formInput:               formInputStyles(t),
 		tab:                     lipgloss.NewStyle().Foreground(t.colors.text).Background(t.colors.surface).PaddingLeft(t.workspace.tabPadding).PaddingRight(t.workspace.tabPadding),
 		tabActive:               lipgloss.NewStyle().Foreground(t.colors.bg).Background(t.colors.accent).Bold(t.bold).PaddingLeft(t.workspace.tabPadding).PaddingRight(t.workspace.tabPadding),
-		terminalFrame:           lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.colors.border),
-		terminalFocused:         lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.colors.accent),
+		terminalFrame:           lipgloss.NewStyle(),
+		terminalFocused:         lipgloss.NewStyle(),
 		title: lipgloss.NewStyle().Bold(t.bold).
 			Foreground(t.colors.accent),
 		highlight: lipgloss.NewStyle().Foreground(t.colors.bg).

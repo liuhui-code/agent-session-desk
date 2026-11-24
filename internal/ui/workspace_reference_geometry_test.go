@@ -13,20 +13,17 @@ import (
 
 // Fixed upstream's real 120x32 interactive frame: terminal top border row 2,
 // footer rule row 29, help row 30 and bottom blank row 31 (zero-based).
-func TestWorkspaceUsesUpstreamInteractiveFrameBands(t *testing.T) {
+func TestWorkspaceUserLayoutSupersedesUpstreamFrameBands(t *testing.T) {
 	service := &workspaceFixture{fakeService: fakeService{list: func(context.Context) ([]session.Session, error) { return sampleSessions(), nil }}}
 	h := newWorkspaceHarness(t, service)
 	h.until(func() bool { return strings.Contains(h.m.View().Content, "shell marker first") })
 	view := h.m.View()
 	lines := strings.Split(ansi.Strip(view.Content), "\n")
-	if !strings.Contains(lines[2], "╭") {
-		t.Fatalf("terminal top border is not on upstream row 2: %q", lines[2])
+	if strings.Contains(view.Content, "╭") || strings.Contains(lines[0], "Agent Session Desk") {
+		t.Fatal("removed frame bands returned")
 	}
-	if lines[29] != strings.Repeat("─", 120) || strings.TrimSpace(lines[31]) != "" {
-		t.Fatal("footer rule/help/bottom spacing differs from the reference")
-	}
-	if view.Cursor == nil || view.Cursor.Y != 3 {
-		t.Fatalf("first content row cursor not aligned with the reference: %+v", view.Cursor)
+	if view.Cursor == nil || view.Cursor.Y != 0 || len(lines) != 32 {
+		t.Fatalf("borderless full-height cursor/frame mismatch: %+v", view.Cursor)
 	}
 }
 
@@ -101,8 +98,8 @@ func TestWorkspaceNarrowFooterKeepsHelpQuitAndTerminalFocusKeys(t *testing.T) {
 			h.until(func() bool { return strings.Contains(h.m.View().Content, "shell marker first") })
 			h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 			h.send(tea.WindowSizeMsg{Width: width, Height: 25})
-			lines := strings.Split(ansi.Strip(h.m.View().Content), "\n")
-			footer := lines[23]
+			h.send(tea.MouseMotionMsg{X: 0, Y: h.m.height - 1, Button: tea.MouseNone})
+			footer := ansi.Strip(strings.Split(h.m.View().Content, "\n")[24])
 			for _, key := range []string{"?", "q", "F6"} {
 				if !strings.Contains(footer, key) {
 					t.Fatalf("%d-column footer lost reachable key %s: %q", width, key, footer)

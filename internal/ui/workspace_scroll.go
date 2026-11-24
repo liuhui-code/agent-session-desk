@@ -15,7 +15,6 @@ func (m *Model) workspaceWheel(msg tea.MouseWheelMsg) tea.Cmd {
 func (m *Model) workspaceWheelNow(msg tea.MouseWheelMsg) tea.Cmd {
 	w := m.workspace
 	w.copyPointer = nil
-	w.tabDrag = workspaceTabDrag{}
 	if w.transition != workspaceIdle {
 		return nil
 	}

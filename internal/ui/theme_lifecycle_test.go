@@ -43,7 +43,7 @@ func TestThemeAndDensitySerializeLatestChoicesBeforeClosing(t *testing.T) {
 	case <-time.After(3 * time.Second):
 		t.Fatal("theme write did not start")
 	}
-	if colorHex(h.m.View().BackgroundColor) != "1a1b26" {
+	if colorHex(h.m.View().BackgroundColor) != "000000" {
 		t.Fatal("applied unsaved theme")
 	}
 	h.send(tea.KeyPressMsg{Code: tea.KeyDown})
@@ -75,7 +75,7 @@ func TestThemeAndDensitySerializeLatestChoicesBeforeClosing(t *testing.T) {
 	h.until(func() bool { return h.m.densitySettings == nil && h.m.workspace.conn != nil })
 	h.send(uiPreferencesSaved{generation: old, settings: config.UISettings{Theme: "light", SidebarDensity: "compact"}})
 	s, e := config.LoadUI(path)
-	if e != nil || s.Theme != "dark" || s.SidebarDensity != "auto" || colorHex(h.m.View().BackgroundColor) != "1a1b26" {
+	if e != nil || s.Theme != "dark" || s.SidebarDensity != "auto" || colorHex(h.m.View().BackgroundColor) != "000000" {
 		t.Fatalf("latest persisted/applied choice lost: %+v %v", s, e)
 	}
 }
@@ -101,7 +101,7 @@ func TestThemeNeedsWholeDocumentSaveCapability(t *testing.T) {
 	openThemeSettings(t, h)
 	h.send(tea.KeyPressMsg{Code: tea.KeyRight})
 	h.until(func() bool { return h.m.densitySettings.err != nil })
-	if colorHex(h.m.View().BackgroundColor) != "1a1b26" || !strings.Contains(h.m.View().Content, "不支持主题") {
+	if colorHex(h.m.View().BackgroundColor) != "000000" || !strings.Contains(h.m.View().Content, "不支持主题") {
 		t.Fatal("unsupported writer falsely applied theme")
 	}
 }

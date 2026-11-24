@@ -147,8 +147,7 @@ func TestSessionOrderKeepsTerminalKeysAndBlocksMouseNewWhileSaving(t *testing.T)
 	h.send(tea.KeyPressMsg{Code: tea.KeyDown})
 	h.send(tea.KeyPressMsg{Code: 'K', Text: "K"})
 	h.send(tea.KeyPressMsg{Code: 'K', Text: "K"})
-	button := h.m.workspaceNewTabCell()
-	h.send(tea.MouseClickMsg{Button: tea.MouseLeft, X: button.x, Y: 1})
+	h.send(tea.KeyPressMsg{Code: 'n', Text: "n"})
 	if h.m.launch != nil || h.m.workspace.transition != workspaceIdle {
 		t.Fatal("mouse new bypassed metadata barrier")
 	}

@@ -112,8 +112,8 @@ func TestDuplicateSessionNamesExposeDistinctIdentitiesInTabsListAndSearch(t *tes
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	view := ansi.Strip(h.m.View().Content)
 	for _, marker := range []string{"[first]", "[second]"} {
-		if strings.Count(view, marker) < 2 {
-			t.Errorf("Tab/list lacks identity cue %s", marker)
+		if strings.Count(view, marker) != 1 {
+			t.Errorf("single sidebar lacks identity cue %s", marker)
 		}
 	}
 	h.send(tea.KeyPressMsg{Code: '/', Text: "/"})
@@ -229,7 +229,7 @@ func TestSessionRenamePreCommitDiscoveryCannotRestoreTheOldDisplayName(t *testin
 	h.send(tea.PasteMsg{Content: "已保存新名"})
 	h.send(tea.KeyPressMsg{Code: tea.KeyEnter})
 	h.until(func() bool {
-		return strings.Contains(h.m.View().Content, "管理模式") && strings.Contains(h.m.View().Content, "已保存新名")
+		return !h.m.workspace.focused && strings.Contains(h.m.View().Content, "已保存新名")
 	})
 	// This is a discovery snapshot requested before the name transaction, but
 	// delivered after its success. A fresh read is allowed; a visible rollback is not.
@@ -297,6 +297,7 @@ func TestSessionRenameChangesSelectedBackgroundLabelWithoutSwitchingOrTerminalIn
 	h.until(func() bool {
 		return strings.Contains(h.m.View().Content, "shell marker first") && strings.Contains(h.m.View().Content, "中文新名")
 	})
+	h.send(tea.MouseMotionMsg{X: 0, Y: h.m.height - 1, Button: tea.MouseNone})
 	if !strings.Contains(ansi.Strip(h.m.View().Content), "管理模式") {
 		t.Fatal("rename success hid management focus and reachable navigation hints")
 	}

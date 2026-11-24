@@ -17,7 +17,7 @@ func TestThemesKeepModelsIndependentAndRetainLayoutTokens(t *testing.T) {
 	light := NewWithOptions(context.Background(), directDragFixture(), Options{Theme: "light"})
 	defer light.Close()
 	light.Update(tea.ColorProfileMsg{Profile: colorprofile.TrueColor})
-	if colorHex(dark.tokens.colors.bg) != "1a1b26" || colorHex(light.tokens.colors.bg) != "d5d6db" || colorHex(dark.styles.text.GetForeground()) != "c0caf5" || colorHex(light.styles.text.GetForeground()) != "343b58" {
+	if colorHex(dark.tokens.colors.bg) != "000000" || colorHex(light.tokens.colors.bg) != "d5d6db" || colorHex(dark.styles.text.GetForeground()) != "bbbbbb" || colorHex(light.styles.text.GetForeground()) != "343b58" {
 		t.Fatal("model palettes shared or styles stale")
 	}
 	if dark.tokens.layout != light.tokens.layout || dark.tokens.workspace != light.tokens.workspace {
@@ -27,7 +27,7 @@ func TestThemesKeepModelsIndependentAndRetainLayoutTokens(t *testing.T) {
 		t.Fatal("light palette retained dark purple sub-roles")
 	}
 	light.applyUITheme("dark")
-	if colorHex(dark.tokens.colors.bg) != "1a1b26" || colorHex(light.tokens.colors.bg) != "1a1b26" {
+	if colorHex(dark.tokens.colors.bg) != "000000" || colorHex(light.tokens.colors.bg) != "000000" {
 		t.Fatal("one theme switch mutated other model")
 	}
 	light.applyUITheme("light")

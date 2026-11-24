@@ -115,6 +115,8 @@ type dialogTokens struct {
 }
 
 type workspaceTokens struct {
+	terminalHint, managementHint, copyHint                            string
+	footerRevealRows                                                  int
 	headerGapRows, footerGapRows, footerRuleRows, footerBottomGapRows int
 	minTerminalRows                                                   int
 	sidebarPercent, compactPercent, minPane, tabPadding, maxTabWidth  int
@@ -144,7 +146,7 @@ type markTokens struct {
 func defaultDesignTokens() designTokens {
 	colors, purple := themePalette("dark")
 	return designTokens{
-		paths:   pathTokens{background: lipgloss.Color("#292e42"), purple: purple, paddingX: 1, width: 60, minWidth: 32, minHeight: 12, rows: 5, shortRows: 3, shortAt: 30, selected: "▶ ", idle: "  ", custom: "✎ 输入自定义路径…", above: "↑ 上方还有 ", below: "↓ 下方还有 ", italic: true},
+		paths:   pathTokens{background: lipgloss.Color("#222222"), purple: purple, paddingX: 1, width: 60, minWidth: 32, minHeight: 12, rows: 5, shortRows: 3, shortAt: 30, selected: "▶ ", idle: "  ", custom: "✎ 输入自定义路径…", above: "↑ 上方还有 ", below: "↓ 下方还有 ", italic: true},
 		footer:  footerTokens{curatedHintLimit: 3, curatedGap: 2, fullRightGutter: 2, compactRightGutter: 1, compactBelow: 70, fullAbove: 100, fullKeyPadding: 1, labelGap: 1, hintGap: 1, blockGap: 2, separator: " │ ", inlineSeparator: " · ", targetPrefix: "→ ", contextSuffix: ":", badgePrefix: " -- ", badgeSuffix: " -- ", badgePadding: 1, contextColor: purple},
 		help:    helpTokens{hintItalic: true, shortWidth: 58, fullWidth: 72, wideWidth: 82, wideAt: 100, minWidth: 37, gutter: 8, paddingX: 2, paddingY: 1, shortKeyWidth: 9, keyWidth: 14, compactKeyWidth: 10, compactBelow: 47, shortIndent: 1, rowIndent: 2, columnGap: 1, sectionGap: 1, footerGap: 1, screenReserve: 8, minContentRows: 10, pageStep: 10, keyColor: purple, above: "▲ 上方还有", below: "▼ 下方还有", separator: " │ "},
 		confirm: confirmTokens{preferredWidth: 52, responsiveBelow: 60, narrowGutter: 8, paddingX: 2, paddingY: 1, sectionGap: 1, buttonPadding: 2, buttonGap: 2, nameIndent: 2, titlePrefix: "⚠  ", bullet: "• ", focusedPrefix: "▸ ", idlePrefix: "  ", nameOpen: "\"", nameClose: "\""},
@@ -157,7 +159,7 @@ func defaultDesignTokens() designTokens {
 		copy:      copyTokens{foreground: "idx:0", selection: "idx:3", match: "idx:6", current: "idx:5", mark: "idx:1", cursorShape: tea.CursorBlock},
 		sidebar:   sidebarTokens{cardMinWidth: 28, cardRows: 2, fullRows: 3, selected: "▶ ", active: "┃ ", metadata: "  ╰ ", metadataMiddle: "  │ ", separator: " · ", settingsWidth: 66, settingsPaddingX: 2, settingsPaddingY: 1, radioGap: 2, radioMarker: ">", radioUnselected: " ", underlineChoice: true, settingsFocusedPrefix: "▶ ", settingsIdlePrefix: "  ", groupExpanded: "▾", groupCollapsed: "▸", rootShortcut: "1·", groupCountPrefix: " (", groupCountSuffix: ")", groupGutter: 2, indentWidth: 2, rootShortcutSuffix: "·"},
 		dialog:    dialogTokens{preferredWidth: 86, minWidth: 44, gutter: 10, paddingX: 4, paddingY: 2, firstPaddingY: 1, titleGap: 1, fieldGap: 1, dimBackdrop: true, cursorShape: tea.CursorBar, cursorBlink: true},
-		workspace: workspaceTokens{footerRuleRows: 1, footerBottomGapRows: 1, sidebarPercent: 35, compactPercent: 18, minPane: 8, tabPadding: 1, maxTabWidth: 32, splitStep: 5, minSplitPercent: 10, maxSplitPercent: 90, dividerGrabSlop: 2, minTerminalRows: 3, splitNoticeDuration: 1500 * time.Millisecond, doubleClickInterval: 500 * time.Millisecond, border: lipgloss.RoundedBorder()},
+		workspace: workspaceTokens{terminalHint: "F6 管理 · Ctrl+PgUp/PgDn 切换会话", managementHint: "F6 输入 · n 新建 · / 搜索 · S 设置 · ? 帮助", copyHint: "空格选择 · Enter 复制 · / 搜索 · Esc/q 返回", footerRevealRows: 1, sidebarPercent: 35, compactPercent: 18, minPane: 8, tabPadding: 1, maxTabWidth: 32, splitStep: 5, minSplitPercent: 10, maxSplitPercent: 90, dividerGrabSlop: 2, minTerminalRows: 3, splitNoticeDuration: 1500 * time.Millisecond, doubleClickInterval: 500 * time.Millisecond, border: lipgloss.RoundedBorder()},
 		colors:    colors,
 		layout: layoutTokens{
 			singleBelow: 50, stackedBelow: 80, minFrameHeight: 5, minPreviewHeight: 10,
@@ -168,23 +170,24 @@ func defaultDesignTokens() designTokens {
 			headerMinGap: 1, itemGap: 2, menuGap: 1, dividerPadding: 1, rowPrefixWidth: 2,
 		},
 		marks: markTokens{rule: "─", divider: "│", dividerHandle: "┃", selected: "›", ellipsis: "…", menuDot: "·", add: "+", close: "×", above: "⋮", below: "⋮", identityOpen: " [", identityClose: "]", identityPrefixLength: 6},
-		bold:  true,
+		bold:  false,
 	}
 }
 
-// Both palettes are the pinned styles.go values for the roles this product uses.
+// Light retains the pinned source. Dark follows the user's iTerm Default
+// black/#bbbbbb palette; neutral surfaces and dim roles keep UI chrome quiet.
 func themePalette(theme string) (palette, color.Color) {
 	if theme == "light" {
 		return palette{bg: lipgloss.Color("#d5d6db"), surface: lipgloss.Color("#e9e9ec"), border: lipgloss.Color("#9699a3"), text: lipgloss.Color("#343b58"), dim: lipgloss.Color("#6a6d7c"), accent: lipgloss.Color("#34548a"), cyan: lipgloss.Color("#166775"), red: lipgloss.Color("#8c4351"), yellow: lipgloss.Color("#8f5e15")}, lipgloss.Color("#7847bd")
 	}
-	return palette{bg: lipgloss.Color("#1a1b26"), surface: lipgloss.Color("#24283b"), border: lipgloss.Color("#414868"), text: lipgloss.Color("#c0caf5"), dim: lipgloss.Color("#787fa0"), accent: lipgloss.Color("#7aa2f7"), cyan: lipgloss.Color("#7dcfff"), red: lipgloss.Color("#f7768e"), yellow: lipgloss.Color("#e0af68")}, lipgloss.Color("#bb9af7")
+	return palette{bg: lipgloss.Color("#000000"), surface: lipgloss.Color("#222222"), border: lipgloss.Color("#333333"), text: lipgloss.Color("#bbbbbb"), dim: lipgloss.Color("#777777"), accent: lipgloss.Color("#bbbbbb"), cyan: lipgloss.Color("#bbbbbb"), red: lipgloss.Color("#bb0000"), yellow: lipgloss.Color("#bbbb00")}, lipgloss.Color("#bbbbbb")
 }
 
 func (t designTokens) withTheme(theme string) designTokens {
 	colors, purple := themePalette(theme)
 	t.colors = colors
 	t.paths.purple = purple
-	t.paths.background = lipgloss.Color("#292e42")
+	t.paths.background = lipgloss.Color("#222222")
 	if theme == "light" {
 		t.paths.background = lipgloss.Color("#dcdde2")
 	}
@@ -228,7 +231,7 @@ const previewTabWidth = 4
 func (t designTokens) chromeRows() int { return 2 + 2*t.layout.frameGap }
 
 func (t designTokens) workspaceChromeRows() int {
-	return 3 + t.workspace.headerGapRows + t.workspace.footerGapRows + t.workspace.footerRuleRows + t.workspace.footerBottomGapRows
+	return 0 // No permanent workspace header, duplicate Tab strip or footer.
 }
 
 // Data measured from the fixed source renderer, not a general RGB converter.
@@ -237,6 +240,13 @@ func sourceIndexedColor(value color.Color, profile colorprofile.Profile) color.C
 		return nil
 	}
 	for _, rule := range [...]struct{ authored, ansi, ansi256 string }{
+		{"#000000", "0", "0"},
+		{"#bbbbbb", "7", "7"},
+		{"#777777", "8", "243"},
+		{"#222222", "0", "235"},
+		{"#333333", "8", "236"},
+		{"#bb0000", "1", "1"},
+		{"#bbbb00", "3", "3"},
 		{"#292e42", "4", "17"},
 		{"#dcdde2", "7", "188"},
 		{"#166775", "12", "24"},

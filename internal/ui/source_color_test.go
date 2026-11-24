@@ -11,7 +11,7 @@ import (
 
 func TestWorkspaceUsesPinnedSourceEmittedRGBWithoutChangingAuthoredPalette(t *testing.T) {
 	for _, tc := range []struct{ theme, footer, key, wantForeground, wantBackground, authoredAccent, authoredDim string }{
-		{"dark", "compact", "Enter", "26,27,38", "121,162,247", "7aa2f7", "787fa0"},
+		{"dark", "compact", "Enter", "0,0,0", "187,187,187", "bbbbbb", "777777"},
 		{"light", "curated", "Enter", "105,109,124", "default", "34548a", "6a6d7c"},
 	} {
 		t.Run(tc.theme, func(t *testing.T) {
@@ -19,7 +19,7 @@ func TestWorkspaceUsesPinnedSourceEmittedRGBWithoutChangingAuthoredPalette(t *te
 			defer m.Close()
 			m.width, m.height = 160, 32
 			m.sessions, m.cursor, m.workspace.focused = sampleSessions(), 0, false
-			line := strings.Split(m.View().Content, "\n")[30]
+			line := m.renderManagementFooter()
 			// Measure the key column after localized context, not its UTF-8 byte index.
 			plain := ansi.Strip(line)
 			start := strings.Index(plain, tc.key)

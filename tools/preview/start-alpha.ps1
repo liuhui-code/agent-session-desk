@@ -18,12 +18,16 @@ try {
         }
     }
     if (!$InTerminal) {
-        $arguments = '-w new --title "Agent Session Desk Alpha" --startingDirectory "' + $root + '" "' +
+        $profile = ''
+        if ($hostConfig.profileGuid) { $profile = ' -p "' + $hostConfig.profileGuid + '"' }
+        $arguments = '-w new' + $profile + ' --title "Agent Session Desk Alpha" --startingDirectory "' + $root + '" "' +
             $hostConfig.shell.path + '" -NoLogo -NoProfile -File "' + $PSCommandPath + '" -InTerminal'
         Start-Process -FilePath $hostConfig.terminal.path -ArgumentList $arguments | Out-Null
         return
     }
-    $product = Join-Path $root 'asd.exe'
+    $productName = 'asd.exe'
+    if ($manifest.entrypoint) { $productName = $manifest.entrypoint }
+    $product = Join-Path $root $productName
     $data = Join-Path $root 'data'
     $workspace = Join-Path $root 'workspace'
     New-Item -ItemType Directory -Force -Path $data, $workspace | Out-Null

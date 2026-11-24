@@ -22,7 +22,7 @@ func TestWorkspaceCuratedFooterUsesThreeRelevantActionsThenSettingsAndHelp(t *te
 	m.sessions = sampleSessions()
 	m.cursor = 0
 	m.workspace.focused = false
-	plain := strings.TrimSpace(ansi.Strip(strings.Split(m.View().Content, "\n")[30]))
+	plain := strings.TrimSpace(ansi.Strip(m.renderManagementFooter()))
 	if plain != "Enter 打开  n 新建  r 改名  S 设置  ? 帮助" {
 		t.Fatalf("curated mode is not rendered: %q", plain)
 	}
@@ -34,7 +34,7 @@ func TestWorkspaceCuratedFooterUsesDimRolesAndActualSelectionContext(t *testing.
 		t.Cleanup(m.Close)
 		m.width, m.height = 160, 32
 		m.sessions, m.cursor, m.workspace.focused = sampleSessions(), 0, false
-		line := strings.Split(m.View().Content, "\n")[30]
+		line := m.renderManagementFooter()
 		r, g, b, _ := m.tokens.colors.dim.RGBA()
 		want := fmt.Sprintf("%d,%d,%d", r>>8, g>>8, b>>8)
 		if theme == "light" {
@@ -44,22 +44,22 @@ func TestWorkspaceCuratedFooterUsesDimRolesAndActualSelectionContext(t *testing.
 			t.Fatal("curated key lost dim role or gained filled chip")
 		}
 		m.sessions[0].TerminalState = session.TerminalExited
-		plain := ansi.Strip(strings.Split(m.View().Content, "\n")[30])
+		plain := ansi.Strip(m.renderManagementFooter())
 		if strings.Contains(plain, "Enter") || !strings.Contains(plain, "S 设置  ? 帮助") {
 			t.Fatal("unavailable session advertised open or lost globals")
 		}
 		m.sidebarMode = "grouped"
 		m.cursor = -1
-		if plain = ansi.Strip(strings.Split(m.View().Content, "\n")[30]); !strings.Contains(plain, "Tab 折叠") {
+		if plain = ansi.Strip(m.renderManagementFooter()); !strings.Contains(plain, "Tab 折叠") {
 			t.Fatal("expanded group context missing")
 		}
 		m.sidebarCollapsed = true
-		if plain = ansi.Strip(strings.Split(m.View().Content, "\n")[30]); !strings.Contains(plain, "Tab 展开") {
+		if plain = ansi.Strip(m.renderManagementFooter()); !strings.Contains(plain, "Tab 展开") {
 			t.Fatal("collapsed group context missing")
 		}
 		m.sidebarMode = "flat"
 		m.sessions = nil
-		if plain = strings.TrimSpace(ansi.Strip(strings.Split(m.View().Content, "\n")[30])); plain != "n 新建  g 分组  S 设置  ? 帮助" {
+		if plain = strings.TrimSpace(ansi.Strip(m.renderManagementFooter())); plain != "n 新建  g 分组  S 设置  ? 帮助" {
 			t.Fatalf("empty-list context: %s", plain)
 		}
 	}
@@ -74,6 +74,7 @@ func TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership(t *testing.
 					defer m.Close()
 					m.width, m.height = width, 32
 					m.sessions, m.cursor, m.workspace.focused = sampleSessions(), 0, focused
+					m.workspace.footerHovered = true
 					view := m.View().Content
 					lines := strings.Split(view, "\n")
 					if len(lines) != 32 || !utf8.ValidString(view) {
@@ -91,7 +92,7 @@ func TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership(t *testing.
 					if lipgloss.Width(footer) > width {
 						t.Fatal("footer overflow was hidden by final frame crop")
 					}
-					plain := ansi.Strip(lines[30])
+					plain := ansi.Strip(lines[31])
 					if focused && width >= 22 && !strings.Contains(plain, "F6") {
 						t.Fatal("footer preference hid terminal input ownership")
 					}
@@ -150,7 +151,7 @@ func TestWorkspaceFooterCanForceCompactOrMinimalAtWideWidths(t *testing.T) {
 			defer m.Close()
 			m.width, m.height = 160, 32
 			m.sessions, m.cursor, m.workspace.focused = sampleSessions(), 0, false
-			line := strings.Split(m.View().Content, "\n")[30]
+			line := m.renderManagementFooter()
 			plain := ansi.Strip(line)
 			i := strings.Index(plain, "Enter")
 			if i < 0 {

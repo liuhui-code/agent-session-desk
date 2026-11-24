@@ -202,10 +202,10 @@ func TestWorkspaceNativeSearchPromptKeepsCursorAndUnicodeInputVisible(t *testing
 			h.send(tea.WindowSizeMsg{Width: width, Height: 32})
 			view := h.m.View()
 			cursor := view.Cursor
-			if cursor == nil || cursor.X != min(95, width-1) || cursor.Y != 30 {
+			if cursor == nil || cursor.X != min(95, width-1) || cursor.Y != 31 {
 				t.Fatalf("native search cursor is not at the visible prompt: %+v", cursor)
 			}
-			footer := ansi.Strip(strings.Split(view.Content, "\n")[30])
+			footer := ansi.Strip(strings.Split(view.Content, "\n")[31])
 			if !strings.Contains(footer, "(search) ") || !strings.Contains(footer, "needle") {
 				t.Fatal("prompt label or input at cursor was clipped")
 			}
@@ -239,9 +239,9 @@ func TestWorkspaceNativeCopyCursorIsVisibleWithoutRestoringLiveCursor(t *testing
 		return terminal.Screen{Width: width, Height: height, CopyMode: true, CopyCursor: &terminal.Cursor{X: 3, Y: 2, Visible: true}}
 	}}
 	h := newWorkspaceHarness(t, service)
-	h.until(func() bool { return strings.Contains(h.m.View().Content, "滚动历史") })
+	h.until(func() bool { return h.m.workspace.screen.CopyMode })
 	cursor := h.m.View().Cursor
-	if cursor == nil || cursor.X != 28 || cursor.Y != 5 || cursor.Blink {
+	if cursor == nil || cursor.X != h.m.workspaceGeometry().x+3 || cursor.Y != h.m.workspaceGeometry().y+2 || cursor.Blink {
 		t.Fatalf("copy cursor not projected independently of hidden live cursor: %+v", cursor)
 	}
 }

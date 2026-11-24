@@ -19,10 +19,10 @@ func TestWorkspaceManagementFooterUsesSourceKeyChipsAtWideCompactAndMinimalWidth
 	h.until(func() bool { return h.m.workspace.conn != nil && !h.m.workspace.busy })
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	// Exact pinned source output; authored accent remains #7aa2f7.
-	want := "121,162,247"
+	want := "187,187,187"
 	for _, width := range []int{120, 80, 63} {
 		h.send(tea.WindowSizeMsg{Width: width, Height: 32})
-		line := strings.Split(h.m.View().Content, "\n")[30]
+		line := h.m.renderManagementFooter()
 		plain := ansi.Strip(line)
 		i := strings.Index(plain, "Enter")
 		if i < 0 {
@@ -120,7 +120,7 @@ func TestWorkspaceTerminalFooterUsesSourceYellowBadgeAndNamesTheActiveRun(t *tes
 	r, g, b, _ := h.m.tokens.colors.yellow.RGBA()
 	want := fmt.Sprintf("%d,%d,%d", r>>8, g>>8, b>>8)
 	check := func(title string) {
-		line := strings.Split(h.m.View().Content, "\n")[30]
+		line := h.m.renderTerminalFooter()
 		plain := ansi.Strip(line)
 		i := strings.Index(plain, "终端模式")
 		if i < 0 || !strings.Contains(plain, title) || !strings.Contains(plain, "F6") {

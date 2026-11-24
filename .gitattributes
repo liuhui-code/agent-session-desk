@@ -43,3 +43,6 @@ docs/testing/results/2026-11-23-footer-input-evidence/** -text -whitespace
 
 # Preserve checksummed main-screen frames, native logs and harness failures.
 docs/testing/results/2026-11-23-main-screen-evidence/** -text -whitespace
+
+# Preserve checksummed minimal-workspace logs and intentional terminal padding.
+docs/testing/results/2026-11-25-minimal-workspace-evidence/** -text -whitespace

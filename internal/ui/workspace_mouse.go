@@ -26,7 +26,6 @@ func (m *Model) workspaceClick(msg tea.MouseClickMsg) tea.Cmd {
 func (m *Model) workspaceClickNow(msg tea.MouseClickMsg) tea.Cmd {
 	w := m.workspace
 	w.programHover.latest = nil
-	w.tabDrag = workspaceTabDrag{}
 	previous := w.listClick
 	w.listClick = workspaceListClick{}
 	if w.transition != workspaceIdle {
@@ -42,20 +41,6 @@ func (m *Model) workspaceClickNow(msg tea.MouseClickMsg) tea.Cmd {
 	}
 	if cmd, handled := m.startCopyPointer(msg); handled {
 		return cmd
-	}
-	if msg.Y == 1 {
-		button := m.workspaceNewTabCell()
-		if msg.X >= button.x && msg.X < button.x+button.width {
-			return m.navigateWorkspace(workspaceLaunch)
-		}
-		for _, cell := range m.workspaceTabCells() {
-			if msg.X >= cell.x && msg.X < cell.x+cell.width {
-				if msg.X == cell.closeX {
-					return m.closeWorkspaceView(cell.index)
-				}
-				return m.pressWorkspaceTab(cell.index)
-			}
-		}
 	}
 	g := m.workspaceGeometry()
 	if m.workspaceDividerHit(msg.X, msg.Y) {

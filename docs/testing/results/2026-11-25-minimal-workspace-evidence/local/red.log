@@ -1,0 +1,7 @@
+--- FAIL: TestMinimalWorkspaceUsesAllRowsWithoutDuplicateChrome (0.01s)
+    workspace_minimal_test.go:18: unrequested chrome remains: "Agent Session Desk"
+--- FAIL: TestQuietFooterHoverDoesNotResizeOrWriteAndTypingHidesIt (0.01s)
+    workspace_minimal_test.go:46: footer did not hide on leave
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	1.092s
+FAIL

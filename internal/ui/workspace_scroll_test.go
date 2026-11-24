@@ -37,6 +37,7 @@ func TestWorkspaceScrollModeShowsHistoryAndNativePrompt(t *testing.T) {
 	}}
 	h := newWorkspaceHarness(t, service)
 	h.until(func() bool { return strings.Contains(h.m.View().Content, "shell marker first") })
+	h.send(tea.MouseMotionMsg{X: h.m.workspaceGeometry().x + 1, Y: h.m.height - 1, Button: tea.MouseNone})
 	view := ansi.Strip(h.m.View().Content)
 	if !strings.Contains(view, "滚动历史") || !strings.Contains(view, "Search: rare-token") || h.m.View().Cursor != nil {
 		t.Fatal("history mode is indistinguishable from live input or hides its native prompt")

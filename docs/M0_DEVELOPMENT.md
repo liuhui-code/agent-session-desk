@@ -186,3 +186,7 @@ SQLite 当前 v5；正常打开会事务迁移 v1/v2/v3/v4，旧二进制拒绝�
 删除组沿 [ADR-0024](adr/0024-group-removal-and-member-preservation.md)：管理组标题 d 先读影响预览，默认取消；整个作用域组树和受影响逻辑成员版本变化则拒绝旧预览。单事务将子树成员收纳至默认组后删除组结构，不停止终端、不删 Session/Run/输出。仅清理对应折叠 ID，数据库与 ui.toml 保存不原子；失败不重放。实际范围见[报告](testing/results/2026-11-23-group-removal.md)，会话手动排序和完整体验继续开放。
 
 2026-11-24 比例保存：管理 `<`／`>` 即时保存，拖动中只预览，松开／无按钮移动／新点击／滚轮等收尾保存最后位置，`=` 保存自动。共享串行偏好写入器，旧回执不回退当前比例，失败恢复旧值并取消等待退出；只发送既有尺寸事件，不向程序插入正文。见 [ADR-0027](adr/0027-persistent-workspace-split.md) 与[本地及固定来源验证](testing/results/2026-11-24-split-preferences.md)；Windows 运行仍未执行。
+
+## 2026-11-25 当前 Alpha 样式接续
+
+按 [ADR-0041](adr/0041-minimal-workspace-and-iterm-appearance.md)，当前主界面仅显示侧栏导航和无框终端；逻辑视图用 Ctrl+PgUp/PgDn 切换，管理 n/x 新建／关闭视图，旧顶部拖动热区不再存在。普通提示底边悬浮出现、移开或输入隐藏，错误／搜索提示仍可见。当前本机内测包已换入口并保留原数据／运行，实际字体为Consolas10，同款Meslo尚未生效；详见[本轮实际报告](testing/results/2026-11-25-minimal-workspace.md)，不将本文件早期截图／步骤当作新外观验收。

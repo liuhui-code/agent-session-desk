@@ -54,7 +54,7 @@
 | [TC-TRM-020](#tc-trm-020) | 鼠标与滚轮按当前模式处理 | P1 | M0 | 待决策 |
 | [TC-TRM-021](#tc-trm-021) | 异常字节与未结束控制序列不会破坏管理器 | P1 | M0 | 依据明确 |
 | [TC-TRM-022](#tc-trm-022) | 被动预览中的控制序列不会越权改变宿主 | P1 | M3 | 待决策 |
-| [TC-UI-001](#tc-ui-001) | Tab 为主要工作区并保留上游布局与交互 | P1 | M0 | 依据明确 |
+| [TC-UI-001](#tc-ui-001) | 逻辑 Tab 工作区、单一侧栏与悬浮提示 | P1 | M0 | 依据明确 |
 | [TC-UI-002](#tc-ui-002) | 空列表的引导与 Enter 边界 | P1 | M0 | 依据明确 |
 | [TC-UI-003](#tc-ui-003) | 长名称与 CJK 列宽不遮挡关键状态 | P1 | M2 | 依据明确 |
 | [TC-UI-004](#tc-ui-004) | 窄窗口与最小布局退化 | P1 | M0 | 待决策 |
@@ -1877,11 +1877,11 @@
 
 ### TC-UI-001
 
-**Tab 为主要工作区并保留上游布局与交互**
+**逻辑 Tab 工作区、单一侧栏与悬浮提示**
 
 - 功能：[FL-003](../COVERAGE.md#fl-003)
 - 需求：[FR-03](../COVERAGE.md#fr-03)、[FR-11](../COVERAGE.md#fr-11)
-- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0014](../../adr/0014-upstream-ui-tabs-and-general-terminals.md)、[ADR-0017](../../adr/0017-sidebar-density-preferences.md)、[ADR-0022](../../adr/0022-default-group-sidebar-navigation.md)、[ADR-0027](../../adr/0027-persistent-workspace-split.md)、[ADR-0034](../../adr/0034-configured-footer-modes.md)、[ADR-0035](../../adr/0035-pinned-source-display-colors.md)、[ADR-0036](../../adr/0036-framework-color-profile-display.md)、[ADR-0037](../../adr/0037-directory-pickers-and-bounded-recents.md)
+- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0014](../../adr/0014-upstream-ui-tabs-and-general-terminals.md)、[ADR-0017](../../adr/0017-sidebar-density-preferences.md)、[ADR-0022](../../adr/0022-default-group-sidebar-navigation.md)、[ADR-0027](../../adr/0027-persistent-workspace-split.md)、[ADR-0034](../../adr/0034-configured-footer-modes.md)、[ADR-0035](../../adr/0035-pinned-source-display-colors.md)、[ADR-0036](../../adr/0036-framework-color-profile-display.md)、[ADR-0037](../../adr/0037-directory-pickers-and-bounded-recents.md)、[ADR-0041](../../adr/0041-minimal-workspace-and-iterm-appearance.md)
 - 优先级 / 阶段 / 层次：P1 / M0 / manual
 - 类型：usability、functional
 - 设计 / 执行：`designed / not_run`
@@ -1894,16 +1894,17 @@
 
 - 产品已有对应可运行实现，所列 fixture 合同已实现；本条当前仅设计，未执行。
 - 使用隔离的合成数据目录；记录产品提交、Windows 构建、终端、shell、psmux 二进制哈希和 fixture 版本。
+- ADR-0041 优先覆盖本条旧常驻 chrome、Dark 色值／键片／紫框说明；Light 和其他未变合同继续按原设计核对。字体配置存在不能证明实际使用，Meslo 系统安装待授权。
 
 #### 操作步骤
 
 1. 分别以零个、一个和多个会话启动管理器，查看默认页面。
-2. 检查 Tab 主入口、当前终端与辅助导航，打开／关闭新建、发送和设置入口，操作终端时检查 Tab 可达性。
+2. 按 ADR-0041 仅显示侧栏会话导航，无产品顶部标题、重复 Tab 条或右侧框；用 Ctrl+PgUp/PgDn、侧栏双击／管理 Enter 打开原逻辑视图，管理 n/x 新建或只关闭视图，检查不存在旧顶部鼠标热区。
 3. 管理焦点 S 打开设置，向下选择侧栏密度行，再用左右／h/l 和空格切换 full／compact／minimal／auto；保存成功后退出并重新打开 UI。
 4. 管理焦点检查默认组计数，Alt+V 往返平铺，1 定位组标题，Enter／右／l／Tab 切换折叠；退出重开检查模式／折叠／密度。
 5. 管理 ? 打开五键入门，Tab 切全部快捷键；分别在宽／窄／低窗口用 j/k、方向键、PgUp/PgDn、Ctrl+U/D、Home/End、g/G 到达首尾页，再切回短页。
 6. 帮助中点击 Tab／滚轮不操作后台；在短／全帮助分别粘贴 n、q、j、Tab 字符和多行，核对消费整段并关闭，不解释载荷；另用 n、q、Ctrl+C、F6、Ctrl+PgDn、Enter 关闭，核对没有同时新建、退出、切换或向原终端提交；打开前阻塞已接受输入，完成写入后才显示帮助。
-7. 以 49／63／80／100／101／120／160 列核对默认页脚角色和已支持上下文；切换组展开／折叠、会话与不可连接状态，再在终端焦点 A/B/A 检查黄色模式块和原活动目标名称。
+7. 以 49／63／80／100／101／120／160 列核对常规提示隐藏，底边无按钮悬浮显示单行灰度提示，内部移开／键盘／粘贴／resize 后隐藏；覆盖后恢复原末行输出和光标，不触发 resize 或终端输入，原生拖动跨底边仍有原目标释放。
 8. 以相同合成数据与尺寸核对主界面管理／终端焦点、空白、连接中、错误和长字段；在各密度选择嵌套组中的会话，检查缩进及元信息整行高亮；鼠标悬停／按住／移出分隔符并缩放，核对粗线和颜色及输入归属。
 9. 调整并保存侧栏比例，拖动中观测磁盘不变；用无按钮松开／漏松开后移动等结束，再重开。穿插其他偏好保存、旧回执、写失败和等待退出。
 10. 通过隔离 ui.toml v7 配置 full／compact／minimal／curated，50 列前后、70／100／101／160 列及组／空列表／不可连接行核对；修改主题／密度后重开，测试终端焦点 S／方向键仍属程序。
@@ -1920,7 +1921,7 @@
 - 默认组标题一行；ui.toml v7 串行保存整份偏好，旧 v1–v6 加载不改写，显式修改才升级；模式／折叠不改变原 Run 或终端输入。
 - 帮助还原来源居中紫框、标题／分区／键列角色及短／全列表切换，全部实际命令可滚动到达；末页不显示下方更多，来源与中文换行差异如实记录。
 - 帮助消费关闭键一次，粘贴消费整段并关闭、鼠标留在帮助，不操作后台；原 Tab／Session/Run、CLI 草稿、偏好及生命周期不改，不提供未实现业务的虚假快捷键。
-- 页脚遵循来源默认 full 及宽度分级，管理键蓝底／正文说明、终端焦点黄色模式标记，组展开／折叠及不可连接提示符合实际动作；F6／帮助／退出在可容纳窄窗保留。v1/v2 实际颜色序列化差异独立记录，不改变作者色值或静默宽容其他色差。
+- ADR-0041 覆盖本条旧的常驻标题、边框和蓝／黄色页脚要求：常规提示为底边悬浮的一行弱提示，关键回执／错误／搜索编辑提示仍可见。侧栏仅显示一份标题；悬浮不缩放或写入原终端，原末行和光标可恢复；不从窗口外无事件推断已收到 leave。
 - 嵌套选中／活动卡片的缩进、标题和元信息保持完整 surface 背景；分隔符沿来源管理暗色、终端蓝色、悬停／拖动蓝色粗线，移出／几何变化清除过期悬停。纯悬停不改变选择、比例、焦点或写入终端；来源组件、模型帧和真实 Windows 交互分别记账。
 - ui.toml 自 v4 的 0 自动／10–90 手动合同保持；旧 v1–v6 加载不改写，显式保存升级 v7，旧 max-v6 读写拒绝 v7。拖动结束仅保存最后预览一次，不依赖松开坐标；运动预览不夹带进其他整份保存，旧成功不回退较新比例，失败恢复旧有效值、显示错误并取消等待退出。终端键仍只输入原 Run。
 - 默认 full 仍宽度自适应，compact／minimal 强制对应层级，curated 最多三个真实上下文动作并保留最后 S／?；窄于 50 列沿既有提示。配置经其他整份保存保留，旧 v1–v6 只读／显式升级且旧程序拒读 v7；来源配置归一化与精确 SGR 差异单列，不把 112 模型帧或 144 来源参考状态当作 Windows／整帧接受。

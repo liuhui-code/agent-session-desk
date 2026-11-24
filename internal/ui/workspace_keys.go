@@ -13,7 +13,6 @@ func (m *Model) workspaceKey(msg tea.KeyPressMsg) tea.Cmd {
 func (m *Model) workspaceKeyNow(msg tea.KeyPressMsg) tea.Cmd {
 	w := m.workspace
 	w.copyPointer = nil
-	w.tabDrag = workspaceTabDrag{}
 	w.listClick = workspaceListClick{}
 	if w.transition != workspaceIdle && w.transition != workspaceSwitch {
 		return nil

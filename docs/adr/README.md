@@ -69,3 +69,4 @@ ADR-0014 依据用户 2026-11-22 的明确要求接受，部分替代 0001/0002 
 | [0039](0039-launch-dialog-environment-overrides.md) | 新建终端临时环境覆盖与安全错误摘要 | 已接受 | [UI 服务边界／布局](../testing/results/2026-11-24-launch-environment.md)；Windows 子进程／agent 与完整视觉仍开放 |
 
 | [0040](0040-verified-conpty-single-mouse-channel.md) | 实际目录宿主的单通道鼠标候选 | 已接受（开发候选） | [严格原生复验及接入](../testing/results/2026-11-25-single-mouse-channel.md)；系统宿主、实体硬件、混合读取器及发布仍开放 |
+| [0041](0041-minimal-workspace-and-iterm-appearance.md) | 单一侧栏、无框工作区、悬浮提示和 iTerm 外观 | 已接受（用户新方向） | [Windows 293 UI／实际 hover](../testing/results/2026-11-25-minimal-workspace.md)；当前 Consolas 10 可用，同款 Meslo 系统安装待授权，完整视觉／发布开放 |

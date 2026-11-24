@@ -1,0 +1,177 @@
+{
+  "files": [
+    {
+      "path": "local/red.log",
+      "source_sha256": "ea605929a911926c45470e5645c2fae49b98a77b82fa40031d54c6d6f82fa4e6",
+      "archived_sha256": "ea605929a911926c45470e5645c2fae49b98a77b82fa40031d54c6d6f82fa4e6",
+      "normalization": "UTF8 LF; local workspace/toolchain path replaced"
+    },
+    {
+      "path": "local/green.log",
+      "source_sha256": "5fc28b26d66a490bd5645f557dad82c9d0d47622a2998581fb5780f7f3ff43d2",
+      "archived_sha256": "5fc28b26d66a490bd5645f557dad82c9d0d47622a2998581fb5780f7f3ff43d2",
+      "normalization": "UTF8 LF; local workspace/toolchain path replaced"
+    },
+    {
+      "path": "local/overlay-regression.log",
+      "source_sha256": "96c949a2dd8f2101189eadfd5d63f7bed5b0edbdf810711a657a48c1e4505a29",
+      "archived_sha256": "96c949a2dd8f2101189eadfd5d63f7bed5b0edbdf810711a657a48c1e4505a29",
+      "normalization": "UTF8 LF; local workspace/toolchain path replaced"
+    },
+    {
+      "path": "local/full-ui-first.log",
+      "source_sha256": "5916787f7cace07f451d6dfe8e26a59b7443ba450b8db33649c0b9caffd6a71b",
+      "archived_sha256": "d7749949285c33ee21b2792d80bb903180865f86549da0ebfd805ea77bb0dc3d",
+      "normalization": "UTF8 LF; local workspace/toolchain path replaced"
+    },
+    {
+      "path": "local/full-ui-second.log",
+      "source_sha256": "2e91973b6c62d7eea29e40184a687136e41f61d3514fcef823527d1b93301a4e",
+      "archived_sha256": "2e91973b6c62d7eea29e40184a687136e41f61d3514fcef823527d1b93301a4e",
+      "normalization": "UTF8 LF; local workspace/toolchain path replaced"
+    },
+    {
+      "path": "local/full-ui-third.log",
+      "source_sha256": "629fdbd24251f92373e1d1eb68045e0b987df75c2fb6ea14fe7e02c28bc0a399",
+      "archived_sha256": "629fdbd24251f92373e1d1eb68045e0b987df75c2fb6ea14fe7e02c28bc0a399",
+      "normalization": "UTF8 LF; local workspace/toolchain path replaced"
+    },
+    {
+      "path": "local/full-ui-fourth.log",
+      "source_sha256": "5a9de9c44e356fba4d1032202e649b201510573b9b1d5d6822f93b0850633d89",
+      "archived_sha256": "5a9de9c44e356fba4d1032202e649b201510573b9b1d5d6822f93b0850633d89",
+      "normalization": "UTF8 LF; local workspace/toolchain path replaced"
+    },
+    {
+      "path": "local/full-ui-fifth.log",
+      "source_sha256": "e61656f9e41991eeb066fdf139d667e66fc019fd1157e5a437f5027a54858739",
+      "archived_sha256": "e61656f9e41991eeb066fdf139d667e66fc019fd1157e5a437f5027a54858739",
+      "normalization": "UTF8 LF; local workspace/toolchain path replaced"
+    },
+    {
+      "path": "local/full-ui-sixth.log",
+      "source_sha256": "6eb60351a8e6d380cf3c5ad27eb9eae19b4134e64965b6b6f5bfedd42689b76e",
+      "archived_sha256": "6eb60351a8e6d380cf3c5ad27eb9eae19b4134e64965b6b6f5bfedd42689b76e",
+      "normalization": "UTF8 LF; local workspace/toolchain path replaced"
+    },
+    {
+      "path": "local/go-test.log",
+      "source_sha256": "dab991df827c324c904206feb21a3ada9371f6c4a387111fbe4d609ea5e7881c",
+      "archived_sha256": "dab991df827c324c904206feb21a3ada9371f6c4a387111fbe4d609ea5e7881c",
+      "normalization": "UTF8 LF; local workspace/toolchain path replaced"
+    },
+    {
+      "path": "local/go-race.log",
+      "source_sha256": "ceda2e6be193c7d84ce66fdd790592387ecf98674b8c4e73ab01fd0eef6fc2f1",
+      "archived_sha256": "ceda2e6be193c7d84ce66fdd790592387ecf98674b8c4e73ab01fd0eef6fc2f1",
+      "normalization": "UTF8 LF; local workspace/toolchain path replaced"
+    },
+    {
+      "path": "local/go-vet.log",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "normalization": "UTF8 LF; local workspace/toolchain path replaced"
+    },
+    {
+      "path": "local/go-mod-verify.log",
+      "source_sha256": "b4537ed75f533f993f371954de47e42a793b8e5b0587577de7e27fb3e50696bd",
+      "archived_sha256": "b4537ed75f533f993f371954de47e42a793b8e5b0587577de7e27fb3e50696bd",
+      "normalization": "UTF8 LF; local workspace/toolchain path replaced"
+    },
+    {
+      "path": "local/source-limits.log",
+      "source_sha256": "cd968af2e2a36b7b2224a66edf651b2396cbf82f744ea46ef87b96920d88366d",
+      "archived_sha256": "cd968af2e2a36b7b2224a66edf651b2396cbf82f744ea46ef87b96920d88366d",
+      "normalization": "UTF8 LF; local workspace/toolchain path replaced"
+    },
+    {
+      "path": "local/style-source-fingerprints.json",
+      "source_sha256": "adb29ccfcc97ac14f72aedbd2caccf7b9bea93e4f45342c11e11e56f4a93ae00",
+      "archived_sha256": "adb29ccfcc97ac14f72aedbd2caccf7b9bea93e4f45342c11e11e56f4a93ae00",
+      "normalization": "UTF8 LF; local workspace/toolchain path replaced"
+    },
+    {
+      "path": "local/iterm-reference.json",
+      "source_sha256": "2217b5bb55832a9381ed52626cb7c4628f51acae03df4ae4906ec8b4bda631e8",
+      "archived_sha256": "2217b5bb55832a9381ed52626cb7c4628f51acae03df4ae4906ec8b4bda631e8",
+      "normalization": "UTF8 LF; local workspace/toolchain path replaced"
+    },
+    {
+      "path": "native-ui/ui.stdout",
+      "source_sha256": "2e24586ab64b6ee6373d652c8121a6c53ba2956996b868a81851346c1e1b95fd",
+      "archived_sha256": "2e24586ab64b6ee6373d652c8121a6c53ba2956996b868a81851346c1e1b95fd",
+      "normalization": "UTF8 LF; local workspace/toolchain path replaced"
+    },
+    {
+      "path": "native-ui/ui.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "normalization": "UTF8 LF; local workspace/toolchain path replaced"
+    },
+    {
+      "path": "native-ui/outcome.json",
+      "source_sha256": "ddf5376c7be4a593d87cd3d6870f95ca8368daecbd3ed0cef1b3d5bde4c5c917",
+      "archived_sha256": "f6ae182c91addf7ac7a25c2e60c18dd7f0afee19ff9491bd04f096b550a791fd",
+      "normalization": "UTF8 LF; original Windows CRLF normalized"
+    },
+    {
+      "path": "final-audit.json",
+      "source_sha256": "6456e74e58d4752225fb02c3797398c0ce3e934061690266f683b6729a4c9724",
+      "archived_sha256": "fca4106c9d89ecbf4e9c2a3ca0889af3847fdbb1eaff01832bd121bb908db59c",
+      "normalization": "UTF8 JSON parsed; only task/font and retained count, no process identity"
+    },
+    {
+      "path": "runners/apply-style.ps1.txt",
+      "source_sha256": "28362941a7e5a904dc697bc6cfcc7f407f88e8023bbd73cadb40468aba2735d4",
+      "archived_sha256": "404f97fbaf6e0402209c3e2e6305cbebee67bb5e279f47d67885d52225a9a79a",
+      "normalization": "UTF8 LF; script only, user values are runtime variables"
+    },
+    {
+      "path": "runners/apply-style-run2.ps1.txt",
+      "source_sha256": "4c814d8557a7652896cc005933aafc341b939060d0d630da5613ff1815934032",
+      "archived_sha256": "dd42b92db335aaf0f04da4f5c7abadef2859ef1e5e5afd0cecdcba5ab7e9f7a1",
+      "normalization": "UTF8 LF; script only, user values are runtime variables"
+    },
+    {
+      "path": "runners/apply-style-run3.ps1.txt",
+      "source_sha256": "a2f120a6c58edc9837d0164cf2f7671b7344491d521c8dd79f15613096109cdb",
+      "archived_sha256": "77b3bee5adf121b64297ad329f6069b348e0460b97050fd25b30c0200c319fd0",
+      "normalization": "UTF8 LF; script only, user values are runtime variables"
+    },
+    {
+      "path": "runners/verify-style-run5.ps1.txt",
+      "source_sha256": "5ed071ba8d0f27990fb0d4375b9e76be1589dd3ff42f7374fe1d18afb244a899",
+      "archived_sha256": "a7410735db77cd82df3505b0dbdd05bfa436b0131202dd92f3c31c346877b718",
+      "normalization": "UTF8 LF; script only, user values are runtime variables"
+    },
+    {
+      "path": "runners/font-refresh.ps1.txt",
+      "source_sha256": "dc1f540e3bc6cf79270538c04333f0f4a1772cc7a358e7a124a6552e8b39dc6a",
+      "archived_sha256": "0369ebb6dfeeb18f61db938b5946236c4ff51f321597aeab8b7d003a7dedb276",
+      "normalization": "UTF8 LF; script only, user values are runtime variables"
+    },
+    {
+      "path": "runners/font-settings-refresh.ps1.txt",
+      "source_sha256": "b59c8c12b5002b332627c2356fddc20d984dfa8e96887601ee74d287bcced133",
+      "archived_sha256": "af2f281732d831d4a9de06c59acf23625a9076cb44481a682205c5b46cf738bc",
+      "normalization": "UTF8 LF; script only, user values are runtime variables"
+    },
+    {
+      "path": "runners/font-settings-finish.ps1.txt",
+      "source_sha256": "272d069e65e4099febdd94ef6d292ae73348577c569f7f65f46635857fb83323",
+      "archived_sha256": "078834fa3934154c7736f80d849ebca81d5b1ae7958f6c7ba6644858288b960e",
+      "normalization": "UTF8 LF; script only, user values are runtime variables"
+    },
+    {
+      "path": "runners/font-fallback.ps1.txt",
+      "source_sha256": "9faba5fff3328c5410006438eef9637404df778171cb868200fb32c17c9e7f9a",
+      "archived_sha256": "1d06673fbc314206fb2b0903a379bdbc8c3709456d7160b07797f258393c0e07",
+      "normalization": "UTF8 LF; script only, user values are runtime variables"
+    }
+  ],
+  "user_runtime_data_included": false,
+  "screenshots_included": false,
+  "native_ui_top_pass": 293,
+  "native_ui_fail": 0,
+  "native_ui_skip": 0
+}

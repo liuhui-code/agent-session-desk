@@ -28,7 +28,7 @@ func TestWorkspaceSplitKeysOnlyAdjustInManagementFocus(t *testing.T) {
 		service.mu.Unlock()
 		stream.mu.Lock()
 		defer stream.mu.Unlock()
-		return strings.Contains(strings.Join(stream.writes, ","), "size:67,25")
+		return strings.Contains(strings.Join(stream.writes, ","), "size:69,32")
 	})
 	service.mu.Lock()
 	stream := service.streams["first"]
@@ -57,7 +57,7 @@ func TestWorkspaceDividerDragChangesSplitWithoutTerminalInput(t *testing.T) {
 		service.mu.Unlock()
 		stream.mu.Lock()
 		defer stream.mu.Unlock()
-		return strings.Contains(strings.Join(stream.writes, ","), "size:55,25")
+		return strings.Contains(strings.Join(stream.writes, ","), "size:57,32")
 	})
 	service.mu.Lock()
 	stream := service.streams["first"]

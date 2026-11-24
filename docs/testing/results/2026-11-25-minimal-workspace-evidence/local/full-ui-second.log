@@ -1,0 +1,6 @@
+# github.com/liuhui-code/agent-session-desk/internal/ui [github.com/liuhui-code/agent-session-desk/internal/ui.test]
+internal/ui/workspace_copy_pointer_test.go:80:106: h.m.workspace.tabDrag undefined (type *workspaceState has no field or method tabDrag)
+internal/ui/workspace_program_pointer_lifecycle_test.go:59:106: h.m.workspace.tabDrag undefined (type *workspaceState has no field or method tabDrag)
+internal/ui/workspace_reference_geometry_test.go:101:4: declared and not used: lines
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui [build failed]
+FAIL

@@ -127,7 +127,7 @@ func overlayLaunchDialog(base, box string, x, y, width, height int) string {
 		if target < 0 || target >= len(rows) {
 			continue
 		}
-		rows[target] = ansi.Cut(rows[target], 0, x) + line + ansi.Cut(rows[target], x+lipgloss.Width(line), width)
+		rows[target] = ensureExactWidth(ansi.Cut(rows[target], 0, x), x) + line + ansi.Cut(rows[target], x+lipgloss.Width(line), width)
 	}
 	return fitFrame(strings.Join(rows, "\n"), width, height)
 }
