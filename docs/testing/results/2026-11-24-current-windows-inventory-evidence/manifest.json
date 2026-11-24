@@ -1,0 +1,26 @@
+{
+  "scope": "bounded remote read-only inventory and proposed upload/test package; no upload or product/test execution",
+  "source_commit": "88a6e3d8fc2a9c25db78aaf611647bf614533d05",
+  "artifacts": [
+    {
+      "path": "local/inventory.json",
+      "sha256": "9ab85fa315fda21cc406675ff31e0656b90a863c4926d4f816291415bee2c474"
+    },
+    {
+      "path": "local/observation.json",
+      "sha256": "bc60e05eab05f8b0a9dcdd825c0473c84cb65e094d9b0e6c77501b90413194da"
+    },
+    {
+      "path": "local/read-inventory.ps1.txt",
+      "sha256": "a44d5e706105b5542f3b8215db1bc355fdccf0331746e03c5cbfc852e80f8b43"
+    },
+    {
+      "path": "local/upload-manifest.json",
+      "sha256": "26c8f6fd57f78a987e42a34dbadc615041cc227451bd9d634ef24335381ff770"
+    },
+    {
+      "path": "local/run-current-ui-tests.ps1.txt",
+      "sha256": "adc17aeb366aacc6c311c309d6a6e6ab8dda85032610fe88432e04f9c2da5070"
+    }
+  ]
+}

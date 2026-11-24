@@ -1,0 +1,33 @@
+[
+    {
+        "name":  "product-version",
+        "image":  "asd-launch-environment.exe",
+        "arguments":  [
+                          "version"
+                      ],
+        "exit_code":  0,
+        "elapsed_ms":  166
+    },
+    {
+        "name":  "session",
+        "image":  "launch-environment-session.exe",
+        "arguments":  [
+                          "-test.v",
+                          "-test.count=1",
+                          "-test.timeout=180s"
+                      ],
+        "exit_code":  0,
+        "elapsed_ms":  263
+    },
+    {
+        "name":  "ui",
+        "image":  "launch-environment-ui.exe",
+        "arguments":  [
+                          "-test.v",
+                          "-test.count=1",
+                          "-test.timeout=180s"
+                      ],
+        "exit_code":  1,
+        "elapsed_ms":  6888
+    }
+]

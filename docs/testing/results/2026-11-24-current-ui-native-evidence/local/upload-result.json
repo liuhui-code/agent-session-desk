@@ -1,0 +1,13 @@
+{
+  "start_utc": "2026-11-24T00:25:00.121951+00:00",
+  "end_utc": "2026-11-24T00:25:00.987137+00:00",
+  "exit_code": 0,
+  "destination": "windows-pc:asd-acceptance-20261122/",
+  "files": [
+    "asd-launch-environment.exe",
+    "launch-environment-ui.exe",
+    "launch-environment-session.exe",
+    "run-current-ui-tests.ps1"
+  ],
+  "authorization": "user explicitly authorized this manifest and same-name fix/retest"
+}

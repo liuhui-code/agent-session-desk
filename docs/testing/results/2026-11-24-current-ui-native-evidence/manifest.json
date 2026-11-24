@@ -1,0 +1,593 @@
+{
+  "files": [
+    {
+      "path": "local/upload-result.json",
+      "source_sha256": "2a24208433e333388b427abf5dd1ab8a00eab8fe2dae082c9a047d7a3dfa774e",
+      "archived_sha256": "2a24208433e333388b427abf5dd1ab8a00eab8fe2dae082c9a047d7a3dfa774e",
+      "normalization": "UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "local/pre-upload-inventory.json",
+      "source_sha256": "85415dca06b1d93a5c2ceb2ec8b815afc35524305494eb2ebd7bdb4d41f1bbbb",
+      "archived_sha256": "85415dca06b1d93a5c2ceb2ec8b815afc35524305494eb2ebd7bdb4d41f1bbbb",
+      "normalization": "UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "local/native-suite-observation.json",
+      "source_sha256": "c579b756ee14a6ab1a9a9e7b0adef6f1891b0fc5a3869caf13c3314475d1cb72",
+      "archived_sha256": "c579b756ee14a6ab1a9a9e7b0adef6f1891b0fc5a3869caf13c3314475d1cb72",
+      "normalization": "UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "local/checks.json",
+      "source_sha256": "4e203c80430f9e0e0cc295aa4358db879ed2e7984888657593e0bcdc6b509e73",
+      "archived_sha256": "4e203c80430f9e0e0cc295aa4358db879ed2e7984888657593e0bcdc6b509e73",
+      "normalization": "UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "local/checks-before-space-cleanup.json",
+      "source_sha256": "e6740062569ffab5abc1a965d5655ac868e4160de9839a2e056460ddb54559da",
+      "archived_sha256": "e6740062569ffab5abc1a965d5655ac868e4160de9839a2e056460ddb54559da",
+      "normalization": "UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "local/cache-cleanup.json",
+      "source_sha256": "c5bc992de0cb32f2659cb10de7c76fac0c06f55e75717d36d652498bf607b465",
+      "archived_sha256": "c5bc992de0cb32f2659cb10de7c76fac0c06f55e75717d36d652498bf607b465",
+      "normalization": "UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "local/exact-tab-red.log.txt",
+      "source_sha256": "d6e612e182aa5abf44cbd9630d4073bc3ce06b9ec6459fc2cd964071d41dacd9",
+      "archived_sha256": "d6e612e182aa5abf44cbd9630d4073bc3ce06b9ec6459fc2cd964071d41dacd9",
+      "normalization": "UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "local/exact-tab-green.log.txt",
+      "source_sha256": "db0afa166c0c5215c31647044aab564514e3f53f502052ac4e4b1aaec077a0ec",
+      "archived_sha256": "db0afa166c0c5215c31647044aab564514e3f53f502052ac4e4b1aaec077a0ec",
+      "normalization": "UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "local/fixture-fix-local.log.txt",
+      "source_sha256": "126e9caf95f9d4e1489a2e19fafce078a8534465c2c190f932166ae020027898",
+      "archived_sha256": "126e9caf95f9d4e1489a2e19fafce078a8534465c2c190f932166ae020027898",
+      "normalization": "UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "local/go-test.log.txt",
+      "source_sha256": "3d2ccbd05fa3c4f96b6faa9ace7ec080d821dff71d9237e6a11673eb703d386a",
+      "archived_sha256": "3d2ccbd05fa3c4f96b6faa9ace7ec080d821dff71d9237e6a11673eb703d386a",
+      "normalization": "UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "local/go-race.log.txt",
+      "source_sha256": "d7a86971a3b7b42c371cdb621a1a22a70b81bb71dd1a1d33a1cb315125ac5dc4",
+      "archived_sha256": "d7a86971a3b7b42c371cdb621a1a22a70b81bb71dd1a1d33a1cb315125ac5dc4",
+      "normalization": "UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "local/go-race-diskfull.log.txt",
+      "source_sha256": "5612194dc9987edf812c6904cbf71de118924ff9e65802883a21cae3c7c79b80",
+      "archived_sha256": "5612194dc9987edf812c6904cbf71de118924ff9e65802883a21cae3c7c79b80",
+      "normalization": "UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "local/go-vet.log.txt",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "normalization": "UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "local/go-mod-verify.log.txt",
+      "source_sha256": "b4537ed75f533f993f371954de47e42a793b8e5b0587577de7e27fb3e50696bd",
+      "archived_sha256": "b4537ed75f533f993f371954de47e42a793b8e5b0587577de7e27fb3e50696bd",
+      "normalization": "UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "local/source-limits.log.txt",
+      "source_sha256": "cd968af2e2a36b7b2224a66edf651b2396cbf82f744ea46ef87b96920d88366d",
+      "archived_sha256": "cd968af2e2a36b7b2224a66edf651b2396cbf82f744ea46ef87b96920d88366d",
+      "normalization": "UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "local/source-fingerprints.json",
+      "source_sha256": "ff431145091db9ad631e23ad2b1d92a3b22a0f3c34b9880cad0477b16e95c910",
+      "archived_sha256": "ff431145091db9ad631e23ad2b1d92a3b22a0f3c34b9880cad0477b16e95c910",
+      "normalization": "UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "local/upload-manifest-run2.json",
+      "source_sha256": "9f8f91231f570c587b4b001e77560e0bdf27e7c7d1771f507802adf4adb6b493",
+      "archived_sha256": "9f8f91231f570c587b4b001e77560e0bdf27e7c7d1771f507802adf4adb6b493",
+      "normalization": "UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "local/upload-run2.json",
+      "source_sha256": "a8be2de2f143d537b173220996058bcd1cfe0531c11357a9f21038c86207ef42",
+      "archived_sha256": "a8be2de2f143d537b173220996058bcd1cfe0531c11357a9f21038c86207ef42",
+      "normalization": "UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "local/native-suite-run2.json",
+      "source_sha256": "ce051855457532a9c4e0fff05ba6aed468f6eb57db0d5ddd9e35194bb0e8b98d",
+      "archived_sha256": "ce051855457532a9c4e0fff05ba6aed468f6eb57db0d5ddd9e35194bb0e8b98d",
+      "normalization": "UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "local/native-suite-run2.ps1.txt",
+      "source_sha256": "00154e1807f65638a1d854c86b3a9aa505b3d06f5d0388718d6aedfdb76373b5",
+      "archived_sha256": "00154e1807f65638a1d854c86b3a9aa505b3d06f5d0388718d6aedfdb76373b5",
+      "normalization": "UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "local/native-suite-process-policy-observation.json",
+      "source_sha256": "325578e14511e30a142d5e0a4d5b6d7ef8b151f199d35ba8f464cf5d88633e13",
+      "archived_sha256": "325578e14511e30a142d5e0a4d5b6d7ef8b151f199d35ba8f464cf5d88633e13",
+      "normalization": "UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "local/execution-policy-before.json",
+      "source_sha256": "13ba1bb9fa76297f7ee74adb960e7301507c09e03b791c6f1ef3ecda0d523e7c",
+      "archived_sha256": "13ba1bb9fa76297f7ee74adb960e7301507c09e03b791c6f1ef3ecda0d523e7c",
+      "normalization": "UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "local/policy-after-and-console-prerequisites.json",
+      "source_sha256": "9f6a57ef88897b04467e52f9a79c5b3b8f99b05425508349b0829489a8facb26",
+      "archived_sha256": "9f6a57ef88897b04467e52f9a79c5b3b8f99b05425508349b0829489a8facb26",
+      "normalization": "UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "native-unit/commands.json",
+      "source_sha256": "49928b16a3c681a44878c2438d11272e14c503cd05cced2295689a7f5564ed4d",
+      "archived_sha256": "4ecaf508d926de02c05ca6f9f3be00f3210127454f0dbe9acbc57c1b788625a3",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "native-unit/outcome.json",
+      "source_sha256": "9dbd9beca827ccf229f6b98eaf64e89b42a0ab7319baac1288b83757602616d9",
+      "archived_sha256": "5342a511dbd25b5550094c8c43abaea54ebfb0e9be76b3faeb363e29bc22d474",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "native-unit/product-version.stdout",
+      "source_sha256": "07119b0693201ff85c318dc31830d41041f978e718a9ba6c8ed3e05df91641fa",
+      "archived_sha256": "8e280ec19da42084386d9bce05485a27886f0f7237a9e918e8a2182a07d55bfa",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "native-unit/session.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "native-unit/session.stdout",
+      "source_sha256": "4e97dfa5d754b1016e7f9a24e9c8f524f1f59dae88dd5d20cae46e5ce649be97",
+      "archived_sha256": "e7384ccfda7e65063f69ab1a446d8be68d6bcf4766cc511eb82fcc19eb9a0cac",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "native-unit/ui.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "native-unit/ui.stdout",
+      "source_sha256": "3007def893e39667b71fdfe79a9804d839c3a5cccf0968ec93910c906852709c",
+      "archived_sha256": "1c7b995388a4e87347f1b8c378e50fbd524c0434ca4449a174421cb492b46f45",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "native-unit-run2/commands.json",
+      "source_sha256": "d9831841881f7248ed144eaf4501f3a81da2096e8a463411cc4dbb1cca91364c",
+      "archived_sha256": "8b4beb4f6d70dcdf06e737fa6014075c6d1156924b294e06c839ece7b3ef35db",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "native-unit-run2/outcome.json",
+      "source_sha256": "997378e8d836ce35fac1b2dd5934339f77a60cb84da1ade3c43fef89088dfc3a",
+      "archived_sha256": "9dd9baa46365f226d4584b82b7757ed231e23318fb39be8207251d904a51c6af",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "native-unit-run2/product-version.stdout",
+      "source_sha256": "07119b0693201ff85c318dc31830d41041f978e718a9ba6c8ed3e05df91641fa",
+      "archived_sha256": "8e280ec19da42084386d9bce05485a27886f0f7237a9e918e8a2182a07d55bfa",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "native-unit-run2/session.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "native-unit-run2/session.stdout",
+      "source_sha256": "4e97dfa5d754b1016e7f9a24e9c8f524f1f59dae88dd5d20cae46e5ce649be97",
+      "archived_sha256": "e7384ccfda7e65063f69ab1a446d8be68d6bcf4766cc511eb82fcc19eb9a0cac",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "native-unit-run2/ui.stderr",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "native-unit-run2/ui.stdout",
+      "source_sha256": "af8509db5e3c7df8f128096a370a5f982f3764482e5351b307d0a64adcb83cd8",
+      "archived_sha256": "af373ec90189a19f019f526ddf17ceb5e645294ebd55cb714e2fc10be1956cfd",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run1/C-independent-child.json",
+      "source_sha256": "97d7666bb172fcf5c1c761ed8ceaf2fa97adf5681f996b8d4b9b26656ff7e279",
+      "archived_sha256": "78d826bda1976bf8b88c3e78921ecc0a2df29aad5e9593cb25df5621d5687779",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run1/capture-001.json",
+      "source_sha256": "e944c26451aaaf278887f14d059beea1fc2677953700524b5e3b1ab81cc1d030",
+      "archived_sha256": "779fb021620071185ac43f1204263e962ed83f1ddfa0cc134a036ab3e1d1d993",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run1/capture-002.json",
+      "source_sha256": "5c220bead71e363a632118e68ad751f2805aeb4f9b0e21777bb1f0be356bd20c",
+      "archived_sha256": "5c37ed4bec322a6ea8aca23651427cb5d78d7eeb81a9164459c77510c646a971",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run1/capture-003.json",
+      "source_sha256": "8755df41ae5bfb27b78b96778b589e4e5478fa37a9c22e43678c71227d41fe51",
+      "archived_sha256": "46cd61feda656b5a5d3797179103a9135dd35e077806a377fe740aea41addec3",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run1/events.json",
+      "source_sha256": "6e429d29e8832f2b4a28cc4fa6c15f9f46f171af106961e330dd3429b6de79b4",
+      "archived_sha256": "45caf00cb9b3cb53d8ea82ca4358739808c744d8dd7867f980dc0d4108dd5801",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run1/failed-screen.txt",
+      "source_sha256": "a7ef98db898a25b701bc28e25355c6b7cd7d083ccb4e1533c44a192a46068aae",
+      "archived_sha256": "61a543d8b58be4b0542ab9e63ec37551fe519a9e763c9a10e351aaa64f3c12c3",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run1/identities.json",
+      "source_sha256": "e83b1dd24108cf1f4921efc05ef682f28b6d7912fd73d87bd163b44be33fda09",
+      "archived_sha256": "d158dea77b5364260d97bcb9692f7a17c32ac1d55456c1392bcb2ada171eb321",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run1/outcome.json",
+      "source_sha256": "6827127c07fcbcc021387a7ce383a5a7ad0816b2916b1eb29f9f44f805f8cb3d",
+      "archived_sha256": "265c471598a3932ce12736bacd8ca9ce9afb6c5272cb2ae452452ed402161e45",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run2/C-independent-child.json",
+      "source_sha256": "d1fbc76228d2bb672126e9d798dbafcfdb4998ad7208f542f80f139e3da4826d",
+      "archived_sha256": "992b684344dc98eaa30b23c6119cb7ac3d59712136b52466c6e3c74603b63350",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run2/capture-001.json",
+      "source_sha256": "b674d527f031d48a9cd538691713a196991791b88bf8888efb07f75f9238cb8a",
+      "archived_sha256": "449b6f99d40dba54f2ca4b0d48e40213b1b21c3a5b8a7398629631385fd9efec",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run2/capture-002.json",
+      "source_sha256": "5c220bead71e363a632118e68ad751f2805aeb4f9b0e21777bb1f0be356bd20c",
+      "archived_sha256": "5c37ed4bec322a6ea8aca23651427cb5d78d7eeb81a9164459c77510c646a971",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run2/capture-003.json",
+      "source_sha256": "8755df41ae5bfb27b78b96778b589e4e5478fa37a9c22e43678c71227d41fe51",
+      "archived_sha256": "46cd61feda656b5a5d3797179103a9135dd35e077806a377fe740aea41addec3",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run2/events.json",
+      "source_sha256": "7cf22f492f154c4e61df5309598f491abd73a6f3b0a1ae10ab5a7820781cf967",
+      "archived_sha256": "cd6099b30fa5bb97aae275b89b2ce8355f8c9b90631c16d73d65f2dba930609f",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run2/failed-screen.txt",
+      "source_sha256": "aba9ad5b32b85ccb83f2b7ed7bd2f23605ba8dbd158cfa1156f0f881f34be14c",
+      "archived_sha256": "0a43ab902ae1a93e0cd5dd45f5ac584c2847e569e71374963ce3771ccd7c5da5",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run2/identities.json",
+      "source_sha256": "4c49de584192ddcd7cd93f2f4cce7062451a092a2727a24d8fe1df8cafdab1df",
+      "archived_sha256": "de3b80d556fd9be32386ed6242394dfa45d72eb6255d49286e81c8b3b7c7169d",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run2/outcome.json",
+      "source_sha256": "33041d19328cb4e3f15a1c9aabcbc402392e63be7f16dbfae6f75cedaa5883bd",
+      "archived_sha256": "ff7ab42c2c85d969f03200de1b3ab0ed782271cf5584a8e7d8c0b4c480973ab5",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run3/after-B-stop.json",
+      "source_sha256": "d77492b699e2a092af1f8ba4251c2b7d611e8af81e3fca740521c41164988eed",
+      "archived_sha256": "8d60b767e89985018e8a745764acba7c2014bedb20229a22f8e03be341499c1c",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run3/capture-014.json",
+      "source_sha256": "3944d398ed5eefb439c62c9bb99a1522a4e563724dbd5c557ede3afd6e93ade3",
+      "archived_sha256": "a79b65f00753590f34b723de15d1c0c6f79c82702419f33994d1ebf14dcb6c77",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run3/events.json",
+      "source_sha256": "8e5671a7f1eabc2fd521812dc7d4248e4aa39b16d8772339bfa79941ffc46a91",
+      "archived_sha256": "f0129aa26ca56e08745e7ced008d1c67f86ab19c8628a3c2399422f93cd7d996",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run3/history-after-B-stop.json",
+      "source_sha256": "f64e6a42ed2ca1f74712307c8057f904c928fa8cc024a5493825625f7b535d6b",
+      "archived_sha256": "e665394aed39c1636bdc36f701829e9b266e01c7b5aa403369406cba328c2703",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run3/identities.json",
+      "source_sha256": "3a156d3485f9c50098e9e633a205ead397bcaeba51a6a4961a3a4d6c4722f3df",
+      "archived_sha256": "7b4de2008b2e0df74be1a902ed4f05808808ab019e109bab68881edd1e1f4fb5",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run3/outcome.json",
+      "source_sha256": "746e5f713f9f8a007ebe071b21dec990698e6f6f0ecda76e83f9877a7e6fa90c",
+      "archived_sha256": "5564bc23fdf1779aff97f63aa51c3f10d489cd12405c94281398fb6cd6c1ba74",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run4/events.json",
+      "source_sha256": "a233fe3b46ec167d80a0d72a2849c959ac41fa3c1647c680a2814244b5260c87",
+      "archived_sha256": "7499ee1287ef6d3c10acf9bd88be4d248975fe02c6f89791b30cc559f231ce17",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run4/identities.json",
+      "source_sha256": "77e7061dfba8eead227a2a28822fa3a51a1a75a7e928fd8bbaf29f32ef6d0c9e",
+      "archived_sha256": "f32aea327b263393ced542620d8a41d55bf646e251a5f8fe42d1f3e21615a3a0",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run4/outcome.json",
+      "source_sha256": "2a77d8035f7cc115c707d41a6257be61ef702f514a984fc4fc9e01c185bb2330",
+      "archived_sha256": "052962186c942ea24ec763301f4264a08a0d84ea8cd9c3c4ac27018248287864",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run5/events.json",
+      "source_sha256": "386ac0f83589b75fa207b72df7a778b8da49b3ce55ed16afea90b254ccf9b405",
+      "archived_sha256": "4b5756507866f0128e8744d511f552de91f447440006ff225120c4b9fc14a2ff",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run5/identities.json",
+      "source_sha256": "8f09e7291822f96a2bcdf43de8ba0e5482c010d88c8630d246f88d45acec8e12",
+      "archived_sha256": "ca5c82a284320e10e86b34488cce2088f3c6c14a44d257cfa94aad8d7b829169",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run5/outcome.json",
+      "source_sha256": "f7d68a67adba72f5df4d9c69bb59aa95715dced83743b26609e9c07b99123432",
+      "archived_sha256": "80756cd67879c9571de2f619e8376a5cc9f306766392a2fd8d2b4b8daef0e82d",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run6/C-independent-child.json",
+      "source_sha256": "0f43a585d6eae961a78932c32f8b3040e84df8e121907393d48d9fcad1c2db21",
+      "archived_sha256": "43e51e74ca8c7da580ba9a7602cff2047323ec32ad86ef3d7ceb72df5f1c2db0",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run6/C-ui-created-session.json",
+      "source_sha256": "a7f21eb842c95965fba7067d9c026404347a2d4d901aa92191f03308d3bba378",
+      "archived_sha256": "242edfdb5f05c3a2da5c1c7483f56533eddb469d816a3441839bf2c13544da0b",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run6/after-B-stop.json",
+      "source_sha256": "60d0fb101ce9a57617e782bb4b0841f6460d58dda65ec6b5cac595b78274667e",
+      "archived_sha256": "5407f1575ac47648524a2be3169874312c714c75024820ca00e7996213190acd",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run6/capture-001.json",
+      "source_sha256": "d9f944d263864101168ddc01a952c598f97cf6664d2021c23f65d09e16a287ee",
+      "archived_sha256": "13016fd9dee89ce90e60f06c019f8e30c42591e1f63ebe73ac8f8ee0dcafa548",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run6/capture-002.json",
+      "source_sha256": "5c220bead71e363a632118e68ad751f2805aeb4f9b0e21777bb1f0be356bd20c",
+      "archived_sha256": "5c37ed4bec322a6ea8aca23651427cb5d78d7eeb81a9164459c77510c646a971",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run6/capture-003.json",
+      "source_sha256": "8755df41ae5bfb27b78b96778b589e4e5478fa37a9c22e43678c71227d41fe51",
+      "archived_sha256": "46cd61feda656b5a5d3797179103a9135dd35e077806a377fe740aea41addec3",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run6/capture-004.json",
+      "source_sha256": "661c9c56b502454701658418a9d4050f27769c5d2a1516ebdc446e8144252521",
+      "archived_sha256": "93dda5b857680ef45fae42fb31c6e84c6d25299ec19486a3cfabfac6205bd861",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run6/capture-005.json",
+      "source_sha256": "84a624bd1d5bb4f13084e288f85f7da3aedeeb7148e14224570f631f1c6134fb",
+      "archived_sha256": "907f9895517064e7530684ea6b155c85bd96bdc0d0c83f9beb77fcc82597d58a",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run6/capture-006.json",
+      "source_sha256": "5e63ad32eda911b0c6d1ed5512feb716ce678bfb2f4aa0b4079855586591394a",
+      "archived_sha256": "a49b95aced523d836ee0b2936495e5568bf0b32e8a3cfb20cdb913437c62504b",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run6/capture-007.json",
+      "source_sha256": "de138157c493c0e1ad12cdecd5fdfb1cc7826f04c7881a1e044a62e72f39fd11",
+      "archived_sha256": "c58390d8ad7bfa6cb61d5ac947721c0c982b571a0157860af5a57fdb42d53dda",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run6/capture-008.json",
+      "source_sha256": "c00aefc8aa6fed0fed37089ff0eed9561b37b6080804677c5166b0974c9eb409",
+      "archived_sha256": "5de34df3f0a33f767aa9360a39089aec38f0a0a149214dd078e4a734a795affc",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run6/capture-009.json",
+      "source_sha256": "2df0e1f770ffc51898ac393594ee48a606207c928486ae72b1f9f3cc88639856",
+      "archived_sha256": "5abc2fb746bca7bf9ae51ff276f5e1750d7a5ed00995350ec48bffa80fd75048",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run6/capture-010.json",
+      "source_sha256": "6a4b938f8466fa6bf7390b07c7f69ac22c1bdcbde50535f638584cd0dc5d1abc",
+      "archived_sha256": "b28d9eaf67b75f31f1cd5b9a1671d21ba7ace5ba1abc92c3aef0c668ef23ebed",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run6/capture-011.json",
+      "source_sha256": "1cd477c9a888d8c2ca39fcbeb6242de499017da0bff67388b9f36220079de97b",
+      "archived_sha256": "e9b524beeb215e72c62613e589fbeecf4f4f8ab49dfb08c37f92aa2f6fc21e88",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run6/capture-012.json",
+      "source_sha256": "45f7b6b5af8503c635670fff355d26942bb80b5d46c13ac90873fe0003b1916b",
+      "archived_sha256": "039016ab669b9639f2bc30fb264e8de6bb90326055657200d62c3b133619c627",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run6/capture-013.json",
+      "source_sha256": "a097b9b39c6f5e78991dcf785fe87714919bd7bd199cc6e5c7d211951a1d2c18",
+      "archived_sha256": "01b0e2c51eeac7c28cf0ca88e8e21039ef4dee0e8b0f24a8f4778a78f7edcf1d",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run6/capture-014.json",
+      "source_sha256": "66e15c2645150d3461d59734168b84db2684b7ae6b7eee7839d4d6addce63d89",
+      "archived_sha256": "1bf73443eda1aeae2815d2e2660570f9c50f7e35669a96ce62723180dcaaf858",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run6/capture-015.json",
+      "source_sha256": "567916253b5c1eeffd471b0c215b41a73275b57e35b555e6af3c7a1474783339",
+      "archived_sha256": "542ad5a25597fe0b83a47625a6cba4818380fb731fda937c6700df2f2c84772f",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run6/capture-016.json",
+      "source_sha256": "a8ae240f7a2821186949233c5e94a139ecd677cf1e7f5bfd3f462b1291ce7b68",
+      "archived_sha256": "b526d894a91c60c142ef2c0fdd4838aa9f7d79fb942933335a6712d9f769ff72",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run6/events.json",
+      "source_sha256": "62cd7a5141423abfce07ed44aa1bba10ba5db980b118a64b32d6676fcc5c6a76",
+      "archived_sha256": "ec8dc6155634793067cebc6c35774eb0aba14e8ca0466f23ceff4223c144baaa",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run6/history-after-B-stop.json",
+      "source_sha256": "e44f460ccb20e06aa0e8963569605a7cf05f510d3289b4ff805553c008e37036",
+      "archived_sha256": "a6373041cba48cc965ab20225c93277a48845b92cf85de2b1ad23d7e5bc53c89",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run6/history-final.json",
+      "source_sha256": "34d702752b32914862b25ee8d85944f3f9bbca1d33543ba3815adb331b9e6b30",
+      "archived_sha256": "a87923502d3fb0cba2be9434fa874108a9c19cbe3984480e969fbe3de3db49cf",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run6/identities.json",
+      "source_sha256": "88c31a3fb5e9e8ea67abc379a45c4c69199f139cc197ce21259331e4765abb50",
+      "archived_sha256": "5875f84d697150957232307f0184d7b08bc994e74c6600f6926bc366e1e8cb33",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run6/outcome.json",
+      "source_sha256": "9884882ffaf3c36785f3d7f048e5e1a6b4aef99a3b91947ca809345986408d25",
+      "archived_sha256": "961231929946b8938887dd84442cb234ed358b60fa42eb8fd9c67055235f9304",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run6/ui1-host.json",
+      "source_sha256": "f0fdd97196c409ae89ddaede19a10d76e60d278e9b0738a730e77711a89f25c8",
+      "archived_sha256": "6fcdf13f090c755aedb8bcd439c13a407a5f25beac05d82506d5e356ea15baeb",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "console-run6/ui2-host.json",
+      "source_sha256": "fe3a114bc82c850d28625f5cffc4eaeff3e0bee263d73b8bd84906b260d088f9",
+      "archived_sha256": "b6848244e98fa551005f5f4b2542727568f435a1434b28ddec176dae9dee1383",
+      "normalization": "UTF16 BOM or UTF8 BOM to UTF8 LF; user path placeholder"
+    },
+    {
+      "path": "local/console-runner.ps1.txt",
+      "source_sha256": "86b4e8b0b61ddd6cef93bd856d24fb209785a5cef2162d9ed65be10c04b2eb81",
+      "archived_sha256": "16cd0916ed1cfb0cc1e55ff5a6cf2218d49b6691933fd3a0fc0e767032b80afa",
+      "normalization": "UTF8 BOM to UTF8; no private runtime inputs"
+    },
+    {
+      "path": "local/console-runner-run2.ps1.txt",
+      "source_sha256": "8f5384d5708f70de96ff92ab62e9332a91d300778a1f65a020de2f4e8e6afadd",
+      "archived_sha256": "2c6eca1fa59ab5eb42702dcf70e034b69367633fe174459b672399b1f5dcddb2",
+      "normalization": "UTF8 BOM to UTF8; no private runtime inputs"
+    },
+    {
+      "path": "local/console-runner-run3.ps1.txt",
+      "source_sha256": "b962ded36ce3fbdef93cbdd05a56eeb597409b9bb028809d4885629321daa533",
+      "archived_sha256": "866b515d1cf873ae28ced221e0e6e9bac82752c493b2b143db968e9fb7956a97",
+      "normalization": "UTF8 BOM to UTF8; no private runtime inputs"
+    },
+    {
+      "path": "local/console-runner-run4.ps1.txt",
+      "source_sha256": "a0355fe72df5143e908cb6dc6db4fadf3fddea3f0b1181bf1799c08ff4f2bb90",
+      "archived_sha256": "82391bf967a75d4ed6818e96fe2f610b3d48558182a1d4cb49b6f04bdd4f69a8",
+      "normalization": "UTF8 BOM to UTF8; no private runtime inputs"
+    },
+    {
+      "path": "local/console-runner-run5.ps1.txt",
+      "source_sha256": "a7da35cd32b131d7e263b216990a8fa96a18664514dc28dc6bf4747167e11f89",
+      "archived_sha256": "b99375ee2851d526863f5463ec81e8107d38cda48605df233e867cf3ead767ff",
+      "normalization": "UTF8 BOM to UTF8; no private runtime inputs"
+    },
+    {
+      "path": "local/console-runner-run6.ps1.txt",
+      "source_sha256": "5df6e220aa9a9b28d352ded98df1e53a3f83c6f6541808a30064a0334b3b51c4",
+      "archived_sha256": "b54fe745c056e36c6941f6bef8df360e19bd7afe136144afdc9828b321fade43",
+      "normalization": "UTF8 BOM to UTF8; no private runtime inputs"
+    }
+  ],
+  "excluded": [
+    "EXE binaries",
+    "runtime databases",
+    "registry authentication files",
+    "private raw SSH stderr",
+    "shell history files"
+  ]
+}

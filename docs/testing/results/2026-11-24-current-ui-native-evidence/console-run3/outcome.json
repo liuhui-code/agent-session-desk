@@ -1,0 +1,45 @@
+{
+    "product_sha256":  "D014526F36CDB02A13FCC57330F10CF4E33A30B4960B886780F09D72D2CE5432",
+    "windows":  "Microsoft Windows NT 10.0.19045.0",
+    "remaining_exact_product":  0,
+    "clipboard_api_calls":  0,
+    "captures":  14,
+    "utc":  "2026-11-24T00:45:34.4930347Z",
+    "originals":  [
+                      {
+                          "pid":  16044,
+                          "filetime":  134399547238466636,
+                          "original_ended":  true,
+                          "kind":  "shell-A"
+                      },
+                      {
+                          "pid":  20020,
+                          "filetime":  134399547242034693,
+                          "original_ended":  true,
+                          "kind":  "shell-B"
+                      },
+                      {
+                          "pid":  5784,
+                          "filetime":  134399547250170220,
+                          "original_ended":  true,
+                          "kind":  "manager-ui1"
+                      },
+                      {
+                          "pid":  2628,
+                          "filetime":  134399547249531898,
+                          "original_ended":  true,
+                          "kind":  "driver-ui1"
+                      },
+                      {
+                          "pid":  16488,
+                          "filetime":  134399547276721639,
+                          "original_ended":  true,
+                          "kind":  "shell-C"
+                      }
+                  ],
+    "real_child_environment_verified":  true,
+    "events":  38,
+    "forced_product_ends":  1,
+    "desktop_surface":  "none: isolated ConPTY",
+    "result":  "failed"
+}

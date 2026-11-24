@@ -1,0 +1,233 @@
+[
+    {
+        "utc":  "2026-11-24T00:49:28.4884114Z",
+        "details":  {
+                        "value":  "F6"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T00:49:28.5441425Z",
+        "details":  {
+                        "value":  "n"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T00:49:28.6919169Z",
+        "details":  {
+                        "value":  "Review C"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T00:49:28.7144383Z",
+        "details":  {
+                        "value":  "Tab"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T00:49:28.7400022Z",
+        "details":  {
+                        "value":  "<WINDOWS_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T00:49:28.7631552Z",
+        "details":  {
+                        "value":  "Tab"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T00:49:28.7881602Z",
+        "details":  {
+                        "value":  "<WINDOWS_USER>\\asd-acceptance-20261122\\current-console-88a6e3d-20261124-run5"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T00:49:28.8094627Z",
+        "details":  {
+                        "value":  "Tab"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T00:49:28.8348324Z",
+        "details":  {
+                        "value":  "[\"-NoLogo\",\"-NoProfile\",\"-NoExit\",\"-File\",\"<WINDOWS_USER>\\\\asd-acceptance-20261122\\\\current-console-88a6e3d-20261124-run5\\\\shell.ps1\",\"C\"]"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T00:49:28.8570162Z",
+        "details":  {
+                        "value":  "Tab"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T00:49:28.8859115Z",
+        "details":  {
+                        "value":  "[\"ASD_UI_ENV_TEST=child 中文\",\"ASD_UI_EMPTY=\",\"ASD_UI_EQUALS=a=b\",\"ASD_UI_LITERAL=$HOME\"]"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T00:49:28.9374689Z",
+        "details":  {
+                        "value":  "C-s"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T00:49:31.9035791Z",
+        "details":  {
+                        "value":  "Write-Output (\u0027ENV_C:\u0027+$env:ASD_UI_ENV_TEST)"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T00:49:31.9249501Z",
+        "details":  {
+                        "value":  "Enter"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T00:49:32.2016680Z",
+        "details":  {
+                        "value":  "F6"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T00:49:32.3430281Z",
+        "details":  {
+                        "value":  "d"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T00:49:32.3917568Z",
+        "details":  {
+                        "value":  "Left"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T00:49:32.4085210Z",
+        "details":  {
+                        "value":  "Enter"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T00:49:33.0191146Z",
+        "details":  {
+                        "value":  "x"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T00:49:33.2866575Z",
+        "details":  {
+                        "value":  "C-PageUp"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T00:49:33.5640797Z",
+        "details":  {
+                        "value":  "F6"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T00:49:33.7403106Z",
+        "details":  {
+                        "value":  "Write-Output (\u0027STOP_A:\u0027+$PID)"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T00:49:34.0443779Z",
+        "details":  {
+                        "value":  "C-PageDown"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T00:49:34.2948588Z",
+        "details":  {
+                        "value":  "Write-Output (\u0027STOP_B:\u0027+$PID)"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T00:49:34.5887421Z",
+        "details":  {
+                        "value":  "C-PageUp"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T00:49:34.8475869Z",
+        "details":  {
+                        "value":  "F6"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T00:49:35.0149620Z",
+        "details":  {
+                        "value":  "Down"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T00:49:35.0327075Z",
+        "details":  {
+                        "value":  "d"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T00:49:35.0983751Z",
+        "details":  {
+                        "value":  "Enter"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T00:49:35.4474166Z",
+        "details":  {
+                        "value":  "d"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T00:49:35.7940881Z",
+        "details":  {
+                        "value":  "y"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T00:49:36.1948231Z",
+        "details":  {
+                        "value":  "y"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T00:49:36.3578323Z",
+        "details":  {
+                        "error":  "asd: read live session asd_3eb9a0845f2587d03239133047aea8c5_a64074ba24becd57a5bac2cdec6a77ec: psmux backend command failed: exit status 1: psmux: no server running on session \u0027asd-current-core__asd_3eb9a0845f2587d03239133047aea8c5_a64074ba24becd57a5bac2cdec6a77ec\u0027"
+                    },
+        "kind":  "failure"
+    }
+]

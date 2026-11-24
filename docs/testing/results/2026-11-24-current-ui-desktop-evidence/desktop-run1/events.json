@@ -1,0 +1,85 @@
+[
+    {
+        "utc":  "2026-11-24T00:51:44.8956299Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  18964,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                        "session":  2,
+                        "kind":  "shell-A",
+                        "filetime":  134399551041306050
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T00:51:45.8352346Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  18284,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                        "session":  2,
+                        "kind":  "shell-B",
+                        "filetime":  134399551050985350
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T00:51:45.9479338Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  12316,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\terminal-bundle-20261123\\bundle\\psmux.exe",
+                        "session":  2,
+                        "kind":  "backend",
+                        "filetime":  134399551040394783
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T00:51:45.9539174Z",
+        "details":  {
+                        "sha256":  "E971856F89748DC3B458125E9AFDD79B5E9574A7C937676116D3CBBD3B71F492",
+                        "session_id":  "e739052b6b6b4a9ff7ac4d5312b7a9fd"
+                    },
+        "kind":  "backend-host"
+    },
+    {
+        "utc":  "2026-11-24T00:51:45.9868295Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  12932,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\terminal-bundle-20261123\\bundle\\psmux.exe",
+                        "session":  2,
+                        "kind":  "backend",
+                        "filetime":  134399551050147876
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T00:51:45.9918167Z",
+        "details":  {
+                        "sha256":  "E971856F89748DC3B458125E9AFDD79B5E9574A7C937676116D3CBBD3B71F492",
+                        "session_id":  "172902e99d729b781211f4929c109546"
+                    },
+        "kind":  "backend-host"
+    },
+    {
+        "utc":  "2026-11-24T00:51:46.4176780Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  16772,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe",
+                        "session":  2,
+                        "kind":  "terminal-first",
+                        "filetime":  134399551062253398
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T00:51:46.7567707Z",
+        "details":  {
+                        "error":  "Owned terminal identity mismatch"
+                    },
+        "kind":  "failure"
+    }
+]

@@ -1,0 +1,57 @@
+{
+    "product_sha256":  "D014526F36CDB02A13FCC57330F10CF4E33A30B4960B886780F09D72D2CE5432",
+    "windows":  "Microsoft Windows NT 10.0.19045.0",
+    "remaining_exact_product":  0,
+    "clipboard_api_calls":  0,
+    "captures":  16,
+    "utc":  "2026-11-24T00:50:45.5042695Z",
+    "originals":  [
+                      {
+                          "pid":  7432,
+                          "filetime":  134399550328758840,
+                          "original_ended":  true,
+                          "kind":  "shell-A"
+                      },
+                      {
+                          "pid":  14740,
+                          "filetime":  134399550332204798,
+                          "original_ended":  true,
+                          "kind":  "shell-B"
+                      },
+                      {
+                          "pid":  19544,
+                          "filetime":  134399550341367725,
+                          "original_ended":  true,
+                          "kind":  "manager-ui1"
+                      },
+                      {
+                          "pid":  12548,
+                          "filetime":  134399550340735646,
+                          "original_ended":  true,
+                          "kind":  "driver-ui1"
+                      },
+                      {
+                          "pid":  13420,
+                          "filetime":  134399550368564273,
+                          "original_ended":  true,
+                          "kind":  "shell-C"
+                      },
+                      {
+                          "pid":  16812,
+                          "filetime":  134399550445603916,
+                          "original_ended":  true,
+                          "kind":  "manager-ui2"
+                      },
+                      {
+                          "pid":  13352,
+                          "filetime":  134399550444951941,
+                          "original_ended":  true,
+                          "kind":  "driver-ui2"
+                      }
+                  ],
+    "real_child_environment_verified":  true,
+    "events":  45,
+    "forced_product_ends":  0,
+    "desktop_surface":  "none: isolated ConPTY",
+    "result":  "passed"
+}

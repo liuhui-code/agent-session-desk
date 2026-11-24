@@ -6,7 +6,7 @@
 
 | 来源项 | 当前状态 | 产品映射与剩余范围 |
 | --- | --- | --- |
-| SettingTheme | 局部实现 | Dark／Light／System；Windows 视觉、通知／清理未验。 |
+| SettingTheme | 局部实现 | Dark／Light／System；[当前 Windows 桌面](../testing/results/2026-11-24-current-ui-desktop.md)有实际三种画面、初始系统 Light 读取和进程结束；系统主题动态通知／完整视觉接受仍待验。 |
 | SettingDefaultTool | 通用配置适配 | 用自定义 executable／args／cwd 和只读启动模板；不引入品牌工具选择。 |
 | SettingDangerousMode | 品牌策略不迁入 | 沿用户命令行参数；不创建来源品牌的审批绕过设置。 |
 | SettingClaudeConfigDir | 品牌账户不迁入 | 通用 cwd／env 配置不等于该品牌配置目录管理。 |

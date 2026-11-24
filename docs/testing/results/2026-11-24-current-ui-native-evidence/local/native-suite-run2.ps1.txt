@@ -1,0 +1,61 @@
+[CmdletBinding()]
+param()
+Set-StrictMode -Version Latest
+$ErrorActionPreference = 'Stop'
+[Console]::OutputEncoding = [Text.UTF8Encoding]::new($false)
+$base = Join-Path $env:USERPROFILE 'asd-acceptance-20261122'
+$root = Join-Path $base 'current-ui-tests-88a6e3d-20261124-run2'
+$expected = [ordered]@{
+ 'asd-launch-environment.exe' = 'd014526f36cdb02a13fcc57330f10cf4e33a30b4960b886780f09d72d2ce5432'
+ 'launch-environment-ui.exe' = '45876e0fbc74b3b1765cd06c62897c0733e1e221f340467117223592e8ccc8da'
+ 'launch-environment-session.exe' = '2c72dfe4feb9046683d6f8f4613f3a72447b1f05deb73cb66aceb4cd46d4bafd'
+}
+foreach ($name in $expected.Keys) {
+ $file = Join-Path $base $name
+ if (!(Test-Path -LiteralPath $file -PathType Leaf)) { throw "Required task artifact missing: $name" }
+ $actual = (Get-FileHash -LiteralPath $file -Algorithm SHA256).Hash.ToLowerInvariant()
+ if ($actual -cne $expected[$name]) { throw "Task artifact hash mismatch: $name" }
+}
+if (Test-Path -LiteralPath $root) { throw 'Fresh evidence root required; do not overwrite or automatically rerun.' }
+New-Item -ItemType Directory -Path $root | Out-Null
+# Only this short-lived runner's process environment is changed.
+foreach ($entry in @(Get-ChildItem Env: | Where-Object { $_.Name -like 'ASD_*' })) {
+ Remove-Item -LiteralPath ('Env:' + $entry.Name)
+}
+$records = [Collections.Generic.List[object]]::new()
+$success = $false
+try {
+ foreach ($case in @(
+  @{name='product-version';image='asd-launch-environment.exe';arguments=@('version')},
+  @{name='session';image='launch-environment-session.exe';arguments=@('-test.v','-test.count=1','-test.timeout=180s')},
+  @{name='ui';image='launch-environment-ui.exe';arguments=@('-test.v','-test.count=1','-test.timeout=180s')}
+ )) {
+  $out = Join-Path $root ($case.name + '.stdout')
+  $err = Join-Path $root ($case.name + '.stderr')
+  $clock = [Diagnostics.Stopwatch]::StartNew()
+  $arguments = [string[]]$case.arguments
+  & (Join-Path $base $case.image) @arguments 1> $out 2> $err
+  $code = $LASTEXITCODE
+  $clock.Stop()
+  $records.Add([ordered]@{name=$case.name;image=$case.image;arguments=$case.arguments;exit_code=$code;elapsed_ms=$clock.ElapsedMilliseconds})
+  $records | ConvertTo-Json -Depth 6 | Set-Content -LiteralPath (Join-Path $root 'commands.json') -Encoding utf8
+  Write-Output ($case.name + ': exit ' + $code)
+  if ($code -ne 0) { throw ('Task suite failed: ' + $case.name + '; do not restart automatically.') }
+ }
+ $success = $true
+} finally {
+ [ordered]@{
+  result=$(if($success){'passed'}else{'failed'})
+  utc=[DateTime]::UtcNow.ToString('o')
+  product_source='88a6e3d plus exact-directory continuation fix; exact Go/module content recorded in source-fingerprints.json'
+  hashes=$expected
+  windows=[Environment]::OSVersion.VersionString
+  powershell=$PSVersionTable.PSVersion.ToString()
+  commands=$records.ToArray()
+  real_backend_executed=$false
+  real_child_environment_verified=$false
+  desktop_executed=$false
+  system_clipboard_called=$false
+  system_settings_written=$false
+ } | ConvertTo-Json -Depth 8 | Set-Content -LiteralPath (Join-Path $root 'outcome.json') -Encoding utf8
+}

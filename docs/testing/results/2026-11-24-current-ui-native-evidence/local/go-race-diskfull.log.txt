@@ -1,0 +1,17 @@
+?   	github.com/liuhui-code/agent-session-desk/cmd/asd	[no test files]
+ok  	github.com/liuhui-code/agent-session-desk/cmd/asd-fixture	(cached)
+ok  	github.com/liuhui-code/agent-session-desk/internal/appearance	(cached)
+ok  	github.com/liuhui-code/agent-session-desk/internal/backend	(cached)
+# github.com/liuhui-code/agent-session-desk/internal/cli.test
+/private/tmp/asd-detach-20261122/go/pkg/tool/darwin_amd64/link: mapping output file failed: no space left on device
+FAIL	github.com/liuhui-code/agent-session-desk/internal/cli [build failed]
+ok  	github.com/liuhui-code/agent-session-desk/internal/config	(cached)
+ok  	github.com/liuhui-code/agent-session-desk/internal/manager	(cached)
+ok  	github.com/liuhui-code/agent-session-desk/internal/pathsuggest	(cached)
+ok  	github.com/liuhui-code/agent-session-desk/internal/session	(cached)
+ok  	github.com/liuhui-code/agent-session-desk/internal/store	(cached)
+ok  	github.com/liuhui-code/agent-session-desk/internal/terminal	(cached)
+# github.com/liuhui-code/agent-session-desk/internal/ui.test
+/private/tmp/asd-detach-20261122/go/pkg/tool/darwin_amd64/link: mapping output file failed: no space left on device
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui [build failed]
+FAIL

@@ -1,0 +1,15 @@
+$ErrorActionPreference = 'Stop'
+$root = Join-Path $env:USERPROFILE 'asd-acceptance-20261122'
+$names = @('asd-launch-environment.exe','launch-environment-ui.exe','launch-environment-session.exe','asd-color-profiles.exe','color-profiles-ui.exe','asd.exe')
+$items = @()
+foreach ($name in $names) {
+  $file = Join-Path $root $name
+  if (Test-Path -LiteralPath $file -PathType Leaf) {
+    $info = Get-Item -LiteralPath $file
+    $hash = (Get-FileHash -LiteralPath $file -Algorithm SHA256).Hash.ToLowerInvariant()
+    $items += [pscustomobject]@{name=$name;exists=$true;bytes=$info.Length;sha256=$hash}
+  } else {
+    $items += [pscustomobject]@{name=$name;exists=$false}
+  }
+}
+[pscustomobject]@{scope='six known task artifacts; read-only';root_exists=(Test-Path -LiteralPath $root -PathType Container);files=$items} | ConvertTo-Json -Depth 4 -Compress

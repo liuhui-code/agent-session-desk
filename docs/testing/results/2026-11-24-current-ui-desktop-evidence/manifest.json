@@ -1,0 +1,435 @@
+{
+  "files": [
+    {
+      "path": "desktop-run1/events.json",
+      "original_sha256": "79c3c74f9f6caae44185b39f7226e5b7b0c1abeed25a69e745d66e86b2c84191",
+      "archive_sha256": "5eaea67c8238af74a5e27b91e1ccac62e74818684f16cc6bf876e4092ce207c9",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "desktop-run1/failure-stack.txt",
+      "original_sha256": "bbf9e3969cd38afdad46ff7bebb6ee9f496eb4c534e3c6a200e1eac3fda32226",
+      "archive_sha256": "545acf7e26e8d8951608feb097b1847cedcb22e3c1035be3a12c6ac7321b6914",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "desktop-run1/outcome.json",
+      "original_sha256": "765b8b333b6e990e8577be7eae79919fa662c7a174637b1ad10216423388eae6",
+      "archive_sha256": "d73152a827c13e743b1507b2cd3f2f64aed7b11063cc45c49b82bbecb0ca1d43",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "desktop-run1/sessions-before.json",
+      "original_sha256": "0f786e17cb51a5d0731b31f80975cd8d03deb055175ba91fc4e30afb2ace612f",
+      "archive_sha256": "4aaadf27b3a5445f6e634b25334c21fff78f712183c0d315fd301e18389b4300",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "desktop-run2/events.json",
+      "original_sha256": "60dbe68f8cb5478b8219dabe3200e4937f15b3072b2a6826744d3722ea690d85",
+      "archive_sha256": "01d687431742ab3c803a7acd283f48fb531876b2e84c35ee5ccb9a082dbc62b0",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "desktop-run2/failure-stack.txt",
+      "original_sha256": "04a5c12a98cf5fc79b413ad6537912f6c0e4e4077867e4345d8cb4bfdfe34349",
+      "archive_sha256": "757ed1ba2d921a193a3bbd3e952112757da3faeb656cbe9756c466d7a29d71c9",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "desktop-run2/outcome.json",
+      "original_sha256": "67776870a26e2ed23cc441c414408e4887badac0543bcd23293eb35b9633563a",
+      "archive_sha256": "5ba3611aeba94251d4bba46abd43b4780ea87c2844650fb0c659f20ed6b7a279",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "desktop-run2/sessions-before.json",
+      "original_sha256": "85d540e8d78e14c57e3f89166f162e0695eed4b9c0282ee293cb10dc9dfb310e",
+      "archive_sha256": "38a6ffa2d63d2ee884965e7b89bf92a6d52a4bdb30ccb0b6cc4317d5998036ef",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "desktop-run3/A-draft.json",
+      "original_sha256": "70c7da9d80113bc2e536075efb0e6c5e61fe0701e1b0c33af2da7165e40cc8c3",
+      "archive_sha256": "796b2439df3540a5df76d7f8add0619c650f8e3d8edabd6bcb3c68d61c00a776",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "desktop-run3/A-explicit-enter.json",
+      "original_sha256": "201eb075aff43263f6423de3e3b464c4568e19256d453bbd2d00cc979e3138ce",
+      "archive_sha256": "a98cb735f95ae6b2dc1ed491c5fe3f72f14208dd4131ee134fd965b46e6cfaa1",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "desktop-run3/A-second-command.json",
+      "original_sha256": "9da9714e39eeee5d88dcde451d0f0c5bff4aa7626fb48f21c64a2bb5a475843b",
+      "archive_sha256": "b8973a6f2d11d127b56da3841edf070a0a32afb531b35307290fba146007cf57",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "desktop-run3/B-draft.json",
+      "original_sha256": "d1be8b4417409ef4ba7dc18cf687d25e3463748e20712b91ed2f9889de4f5f79",
+      "archive_sha256": "7cc5d5c79583cd8fc087921781673357f3821eab13565428e862be1e3c8dbce0",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "desktop-run3/B-explicit-enter.json",
+      "original_sha256": "7e76dca976efde9f9b7445c529b08f6adfea0e67f609756156c94c9af43743ba",
+      "archive_sha256": "3c099c69f94f0b0227a518da9c1ed029df65e822d15e8893bdf99c5e2e818c97",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "desktop-run3/events.json",
+      "original_sha256": "57ea0db19bdd931f963297b879409bd1792c53bf810d6b0bdcd86be4077f16b1",
+      "archive_sha256": "129a7f1a3a2d3ecbdbb6d8acca16eae1911cf25989022146f79ad9a5869387b0",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "desktop-run3/first-outer-exit.json",
+      "original_sha256": "df5d8a1b8cd9497eb44a78604ddc449e5bac95bcab2997eaab7ac73fd88768c1",
+      "archive_sha256": "296e27fead09d4a7790bea4d2d2764d10a72f1fc8d8ed069dc45576208ddef75",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "desktop-run3/outcome.json",
+      "original_sha256": "9c291b816603f56766fd0168ebfce3b00c5a2ce444af132fab0e57ce8a0692ac",
+      "archive_sha256": "6db8fa49e6f0233e6f00f8d6cf2b5015d5478a01ecaf3552e01a96908117d5a1",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "desktop-run3/reopened-outer-exit.json",
+      "original_sha256": "4d1b6de011f4f36e7e3a9887b45298c78e53a583cca08428f0ca43197a600527",
+      "archive_sha256": "5e641d668d3e1aa6488d8fb4fd40b59cc6b2c661529ccc06cf43482f88abb79a",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "desktop-run3/sessions-after.json",
+      "original_sha256": "7d8154c74c61eb694b672ff8115d7c4cbff34450f0cb1329d658ec9c8b192d57",
+      "archive_sha256": "72ab1810db6d6299161605c12a9db52e9cce6f5d0160b69e0e8e3dacc7956332",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "desktop-run3/sessions-before.json",
+      "original_sha256": "7d8154c74c61eb694b672ff8115d7c4cbff34450f0cb1329d658ec9c8b192d57",
+      "archive_sha256": "72ab1810db6d6299161605c12a9db52e9cce6f5d0160b69e0e8e3dacc7956332",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "desktop-run2-frames/01-dark-live.json",
+      "original_sha256": "9d5f5f1e0553d083849b33e2072b3d638b35ce88305e7aaabc5e0d1c7fe62418",
+      "archive_sha256": "d209011d8ae968c90edbbc8b16dcb8b459fcd931af849e8f98257233152154e9",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "desktop-run2-frames/02-A-draft-restored.json",
+      "original_sha256": "2efaaaf38c3dd4992666ef53bf9c33418ecd3258dae84c53263324617037aec1",
+      "archive_sha256": "ccd7eaea81e7f36d93b2affd0d7e076a3cc915fb88f0afba06d27dd983996b47",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "desktop-run2-frames/03-settings-dark.json",
+      "original_sha256": "547e27b49a88080ba01c26d0581e2709d9883bd6d0994fc67fbb4d93603b662a",
+      "archive_sha256": "b93d9ffbbfac2f8569f4d6d0ead5b2d0b7fb66d36d2658d1c1bddfed2e09420a",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "desktop-run2-frames/04-settings-light.json",
+      "original_sha256": "64172d0eb12ef36dc91eec81f146585620a2614abba934dd8cff32329bc3192b",
+      "archive_sha256": "0731542a0314fd811547ba2363e935558c06821c87b8e815355fd470b2262ac2",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "desktop-run2-frames/05-settings-system.json",
+      "original_sha256": "3db99d9bb72dc529ad49f85766ae6139d5d735284b401ffaeef544c15fe3d9fd",
+      "archive_sha256": "1c12c1bd1b04b04eec12e9abd3411fd7ddd51cb75e40bf8848dc7c7c23dd6d8b",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "desktop-run2-frames/06-help.json",
+      "original_sha256": "55316facab5177d5237ec6556c43ec7345fa7aedfc01819416a2236a2a73d384",
+      "archive_sha256": "22c13017a1b4656835e544847c1bd4a4b772009a08c35086330b551115eff1e6",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "desktop-run2-frames/07-help-scrolled.json",
+      "original_sha256": "599419e4af830b7544aaa0a601b0c049b782564a12fb03606ba3bcd8adeeacc8",
+      "archive_sha256": "ecda9310b829849792a07118158afd7adb26ee05f5d70f7e6ca8baf325bc3ca1",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "desktop-run2-frames/08-five-fields.json",
+      "original_sha256": "c5bf4ffcf60f033f600e6d92b2792f36382e654613d1cdc80951817e60a989a5",
+      "archive_sha256": "98a482458ee14afe5e5f580418eee416fa65a56e77e0ee876d3e8c01e31f3d53",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "desktop-run2-frames/09-directory-suggestions.json",
+      "original_sha256": "0faa35e9d5a266b8f6104eba2c2ecae05b08bd6f1a11f926a3879ed66308926d",
+      "archive_sha256": "f8f012e550cbd712a65e099c419257cd4812c618248150780507ddbca7cb9039",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "desktop-run2-frames/failed-state.json",
+      "original_sha256": "aad6939028638da62bb821970c999ccfee71d45ee3e02c1f2294beb9e0905dd8",
+      "archive_sha256": "6bc0ba216c6f8fe0def287190497742abf67e22b71012e3d20e38aa1be8e0003",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "desktop-run2-frames/layout-1240.json",
+      "original_sha256": "aad6939028638da62bb821970c999ccfee71d45ee3e02c1f2294beb9e0905dd8",
+      "archive_sha256": "6bc0ba216c6f8fe0def287190497742abf67e22b71012e3d20e38aa1be8e0003",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "desktop-run2-frames/layout-570.json",
+      "original_sha256": "c9b0eac78b209c2136a2a67008f17fc4ad8ca3a47e02d25aff3cf9bf1d0fc9a4",
+      "archive_sha256": "ccff8afe3219f00bd58764c7ddea1bd08ed54c1b0185ebeaede5639ea3a636fc",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "desktop-run2-frames/layout-820.json",
+      "original_sha256": "518a89543eb065f8368ca1f2a8ff275f76f8b605a3732130ba373084469227a7",
+      "archive_sha256": "9499278d0caabac8d3d95bff2bf4cb00b9a775a72b64c9a03bf2f9a596956015",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "desktop/01-dark-live.json",
+      "original_sha256": "cc8396a6b09e2438b7628853f8330470f67763a584d0a94a168bd023ee1992ed",
+      "archive_sha256": "d3528d0b932c9462de3abe360920093baf9ff7be3bc26da291f3d0b4b4d4f1cd",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "desktop/01-dark-live.png",
+      "original_sha256": "34b90d93c4ad2a6bcd7267673fcadcb38cf800653b26ac67bdebf519c68aee74",
+      "archive_sha256": "34b90d93c4ad2a6bcd7267673fcadcb38cf800653b26ac67bdebf519c68aee74",
+      "normalization": "none; original PNG"
+    },
+    {
+      "path": "desktop/02-A-draft-restored.json",
+      "original_sha256": "4b264a43f8703f026e02d45508047a13ad6013396b80963532523d12125d29f8",
+      "archive_sha256": "6627f38b6942ebf2eb7024a92ce503373cc41b1d96459d1fbb307998eccf2e12",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "desktop/02-A-draft-restored.png",
+      "original_sha256": "67331b1ddf178225bf49b0291190042c563d3154dcd07b4f7d45db5726584fc2",
+      "archive_sha256": "67331b1ddf178225bf49b0291190042c563d3154dcd07b4f7d45db5726584fc2",
+      "normalization": "none; original PNG"
+    },
+    {
+      "path": "desktop/03-settings-dark.json",
+      "original_sha256": "409dbfe9c0ddc6517937a07299d682e640281599c7e05a5e44d928b553083b04",
+      "archive_sha256": "b8abd6e9fd874ed02425392b830f793de3f33e0f68940941df80df90d802fba0",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "desktop/03-settings-dark.png",
+      "original_sha256": "2da6efd314eabbf8b45d5684b68c084aac3a74fe61806255cee1d47606d68b91",
+      "archive_sha256": "2da6efd314eabbf8b45d5684b68c084aac3a74fe61806255cee1d47606d68b91",
+      "normalization": "none; original PNG"
+    },
+    {
+      "path": "desktop/04-settings-light.json",
+      "original_sha256": "0fefeb5b3418ce188ba93900d64f556fc9445215577308582c28e9f963bd4609",
+      "archive_sha256": "3d239ad2c7858a00091cd3400624ae853d28fab0550104f3cc9aa549df8ee64c",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "desktop/04-settings-light.png",
+      "original_sha256": "0fe83e077e1a79cdb28ec38d91ba884815da435bb1556a10e2a31c251f363fe6",
+      "archive_sha256": "0fe83e077e1a79cdb28ec38d91ba884815da435bb1556a10e2a31c251f363fe6",
+      "normalization": "none; original PNG"
+    },
+    {
+      "path": "desktop/05-settings-system.json",
+      "original_sha256": "4732c0e72dac4c99ef0b61688c688a6ca331c41f5763065e18ef815d362ee17f",
+      "archive_sha256": "56c9286ff9b63fa28c3c981460b7dfe44458269e16c5fe34182b8566828df4af",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "desktop/05-settings-system.png",
+      "original_sha256": "c48c362aae4fc59386ddb8790c21ed5350ddb19e68095fced6eb05d931163cd5",
+      "archive_sha256": "c48c362aae4fc59386ddb8790c21ed5350ddb19e68095fced6eb05d931163cd5",
+      "normalization": "none; original PNG"
+    },
+    {
+      "path": "desktop/06-help.json",
+      "original_sha256": "ff7de88805c097f00d6588c049934d496a1b263e631ceb4352d31ad404d1d3fc",
+      "archive_sha256": "c536cd5d037490c81f45f66b493469aeeb3208b834a0e5c127f3a4df2e619d6a",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "desktop/06-help.png",
+      "original_sha256": "3e40f272ffb39f40bb24c2f898e1dcbc0920ce3d14d59b38d1d7a7f6952f6efb",
+      "archive_sha256": "3e40f272ffb39f40bb24c2f898e1dcbc0920ce3d14d59b38d1d7a7f6952f6efb",
+      "normalization": "none; original PNG"
+    },
+    {
+      "path": "desktop/07-help-scrolled.json",
+      "original_sha256": "d661511f0193332d218e328dc50449d266305d37a2080cb18c5e0f4ce01d2c73",
+      "archive_sha256": "1ab9049018d053c7f09438d8a779d8ea07a286a2dadd3e6f27a604c486f7c9ad",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "desktop/07-help-scrolled.png",
+      "original_sha256": "5415abfc217a25517623776970dd95ae25631f922982c97a0d2c7a76569c3a22",
+      "archive_sha256": "5415abfc217a25517623776970dd95ae25631f922982c97a0d2c7a76569c3a22",
+      "normalization": "none; original PNG"
+    },
+    {
+      "path": "desktop/08-five-fields.json",
+      "original_sha256": "7446f82c737b1f229669f9ca89b871f3b40fb32eca3d63d438005d4d51eefcbc",
+      "archive_sha256": "5d466db7cd547473deaa1ae4231475d1c8278659b91f4b1d83182ba8c0b0e413",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "desktop/08-five-fields.png",
+      "original_sha256": "682a112d52feea04adf83df221878f8055b0bcaaf19683594276c34adf2c4507",
+      "archive_sha256": "682a112d52feea04adf83df221878f8055b0bcaaf19683594276c34adf2c4507",
+      "normalization": "none; original PNG"
+    },
+    {
+      "path": "desktop/09-directory-suggestions.json",
+      "original_sha256": "49e4f466c775be9d142165acc00fdaa96371fa72bc7253a40888b84cd06c2e07",
+      "archive_sha256": "d0b40327ceb1edf9bab46006667230a8df04ae9fe0ed2c35064a83861b7af116",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "desktop/10-reopened-original-A.json",
+      "original_sha256": "8d146b9602e11c45d37d3ddf557b62e48021db4f5b2e912148b66dc6d8fe13e9",
+      "archive_sha256": "b2adaed813a5cfd9022831ae02dbab95ffcb603855e6a077d8af18afb3fddbee",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "desktop/10-reopened-original-A.png",
+      "original_sha256": "67331b1ddf178225bf49b0291190042c563d3154dcd07b4f7d45db5726584fc2",
+      "archive_sha256": "67331b1ddf178225bf49b0291190042c563d3154dcd07b4f7d45db5726584fc2",
+      "normalization": "none; original PNG"
+    },
+    {
+      "path": "desktop/11-reopened-original-B.json",
+      "original_sha256": "5e56fc7550d7d9db17f47d54f44141338a7c9d85265e4a5559bdc45c42c6ae37",
+      "archive_sha256": "0b99f06d23dd89b5a5c18b9487e57903890b3535f56ddcd311d6e892971568f8",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "desktop/11-reopened-original-B.png",
+      "original_sha256": "ec73a57daf3b1f1727219306a08782732883919a14f77c5181a83e542a944dc7",
+      "archive_sha256": "ec73a57daf3b1f1727219306a08782732883919a14f77c5181a83e542a944dc7",
+      "normalization": "none; original PNG"
+    },
+    {
+      "path": "desktop/12-second-command.json",
+      "original_sha256": "c7e0ce793d594e7e4c1d03ad19be13af2f19890293963dc02512687ad15ffc87",
+      "archive_sha256": "aec9ce0e3247c0b6c3574eed88684c962eb38ead393de7a69fb770c694bae761",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "desktop/12-second-command.png",
+      "original_sha256": "3f14432c2ff2f86fe5a761442bbacf85de90d1d99d53065f1cda0b0223946345",
+      "archive_sha256": "3f14432c2ff2f86fe5a761442bbacf85de90d1d99d53065f1cda0b0223946345",
+      "normalization": "none; original PNG"
+    },
+    {
+      "path": "desktop/layout-1240.json",
+      "original_sha256": "329540c352dbb61713d3c7e44757a77875bac8d86fd3939f3e83ad826d3e0d5d",
+      "archive_sha256": "43c6b5d54a6731e53565bd7057fe82a87887d8f60907d25cd37ef7b897ed9e43",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "desktop/layout-1240.png",
+      "original_sha256": "0c3e5eb32479096d6418af79764822bb435301ea6257ecf0a4f41048ec2b9f36",
+      "archive_sha256": "0c3e5eb32479096d6418af79764822bb435301ea6257ecf0a4f41048ec2b9f36",
+      "normalization": "none; original PNG"
+    },
+    {
+      "path": "desktop/layout-570.json",
+      "original_sha256": "e2e85bad02c2450e5ebd800567d4ff83a52081f6948ee1b8d515b426e47875e4",
+      "archive_sha256": "e1b1e1f97556c2f96cb592b04a6474dd72e286dbc79675d1c2d1eea2b1b85e41",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "desktop/layout-570.png",
+      "original_sha256": "96898c31435dbbe1180aa3b8f255e19e1dd81a0e9101878b8a96e21463af8bf5",
+      "archive_sha256": "96898c31435dbbe1180aa3b8f255e19e1dd81a0e9101878b8a96e21463af8bf5",
+      "normalization": "none; original PNG"
+    },
+    {
+      "path": "desktop/layout-820.json",
+      "original_sha256": "1b6c197627ab99e1c22370d62b4cc29f0b2366962daab94d46189daa5c4b2a79",
+      "archive_sha256": "420eda4cbfe570f88874a4f1cc0dfea4671ee63c3aeddc70ec5284eb4c99e155",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "desktop/layout-820.png",
+      "original_sha256": "066d88a7b08c697a4316c58efeaf1b932dc164386eb71f20ef627141e7b93b08",
+      "archive_sha256": "066d88a7b08c697a4316c58efeaf1b932dc164386eb71f20ef627141e7b93b08",
+      "normalization": "none; original PNG"
+    },
+    {
+      "path": "local/desktop-runner.ps1.txt",
+      "original_sha256": "1597b3ef57d7ad383f2d2f88cbc31c6475e50e81be3faf046b2574c914b0ea0f",
+      "archive_sha256": "2da2fb289b50f9c44bfbd5d6648c39a07b90fca072c2785ed6d4d3dda4e8a0de",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "local/desktop-runner-run2.ps1.txt",
+      "original_sha256": "2660e398fb9d174f127a29d6ad56567ea4b0763f0d79e70b5a6697fee216c1c4",
+      "archive_sha256": "26919abda9e9a6d50506bdd7c99c1c33d980032761a3bac5be9d8f598c27e1f9",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "local/desktop-runner-run3.ps1.txt",
+      "original_sha256": "8bc76527f1ec3cdd824e5c759693e6deaedc8ec06a67794b8b299ae657604859",
+      "archive_sha256": "d65e7a098fd7b537c7ca4ebdbdfc670aaa441974d1659e9352c12938487d3e4a",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "local/observer-termination.json",
+      "original_sha256": "142ac879ae275c062fa85d550e460f0072cbfc3c149992e3e058565662c491a1",
+      "archive_sha256": "142ac879ae275c062fa85d550e460f0072cbfc3c149992e3e058565662c491a1",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "local/desktop-connection-check.json",
+      "original_sha256": "a7cda46005e775a22e0ba82e98189d3393665bb2be6314b9a887df14a4936dde",
+      "archive_sha256": "a7cda46005e775a22e0ba82e98189d3393665bb2be6314b9a887df14a4936dde",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "local/desktop-submit.json",
+      "original_sha256": "7aa687d83380609fbd56ba5f596c8bca61cfe936b3d40714152354c162a0fb90",
+      "archive_sha256": "7aa687d83380609fbd56ba5f596c8bca61cfe936b3d40714152354c162a0fb90",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "local/desktop-submit2.json",
+      "original_sha256": "53a077af07ae9d948efe066f9c9f737c7414f5ac19d471a2507941f6f0c6f8b0",
+      "archive_sha256": "53a077af07ae9d948efe066f9c9f737c7414f5ac19d471a2507941f6f0c6f8b0",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "local/desktop-submit3.json",
+      "original_sha256": "280cdb393914f2e0a67aa1f39cd232d97dbc34afb28462f25c6e44c6cff367ea",
+      "archive_sha256": "280cdb393914f2e0a67aa1f39cd232d97dbc34afb28462f25c6e44c6cff367ea",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "local/desktop-final-cleanup.json",
+      "original_sha256": "d905547e3e8fc4e1f3fb3865aa965e6f9f8302b408fc0d8e3f9f3a05fe666616",
+      "archive_sha256": "d905547e3e8fc4e1f3fb3865aa965e6f9f8302b408fc0d8e3f9f3a05fe666616",
+      "normalization": "BOM decode to UTF8 LF; full/clipped synthetic user path placeholders"
+    },
+    {
+      "path": "local/final-audit.json",
+      "archive_sha256": "318f7cafb7615f6e8fe91106abebf5184d66601b9ec34ad6eb703e99ca4455d6",
+      "normalization": "remote JSON stdout parsed to UTF8"
+    }
+  ],
+  "excluded": [
+    "09-directory-suggestions.png contains private absolute directory text; retained locally only",
+    "raw SSH stderr",
+    "runtime metadata and authentication files",
+    "binary products"
+  ]
+}

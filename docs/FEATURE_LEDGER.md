@@ -539,3 +539,11 @@ M1 恢复补充（2026-11-22）：按用户继续完成 M1 的授权实现 metad
 2026-11-24 程序鼠标扩展：FL-002/FL-003/FL-005/FL-012/FL-013/FL-015/FL-016/FL-018/FL-019 按 [ADR-0038](adr/0038-program-mouse-buttons-and-motion.md) 增加三按钮／Shift-Alt-Ctrl、锁定状态归一化、原手势单次释放和有界无修饰悬停。73 个有效 wire 事件／12 个拒绝项、24 个 UI 组合、原 Run／压力／旧回执与复制选区回归见[报告](testing/results/2026-11-24-program-mouse-buttons.md)；这是 Go 内存流及模型，不是原生后端或实体鼠标。修饰悬停、多按钮和弦、固定后台 Win32 record bypass、实际程序／agent／IME／视觉和发布门槛保持开放。依赖／tokens／存储不变，所有相关 FL 保持实现中／未发布，339 项设计执行状态不提升。
 
 2026-11-24 新建环境覆盖：FL-001/FL-002/FL-003/FL-012/FL-013/FL-016/FL-018/FL-019 按 [ADR-0039](adr/0039-launch-dialog-environment-overrides.md) 将已有 executable/args/cwd/env 合同补齐到通用新建表单，新增临时 JSON 环境数组，取消／重开不记忆；空白继承、值保持字面，父环境／偏好／模板不改。错误摘要不回显覆盖值，保留已知字段定位及未知 Session/Run 的不重试规则。两轮行为／字段定位 RED→GREEN、64 个模型帧、长字段和全量检查见[报告](testing/results/2026-11-24-launch-environment.md)；真实子进程及 Windows／agent／完整视觉仍待验。ui.toml v7／SQLite v5／配置 v1 与依赖／tokens 不变，各 FL 保持实现中／未发布，339 项目录状态不提升。
+
+2026-11-24 当前产物核对：只读 SSH 对六个明确任务文件名取存在性／哈希，当前产品及 UI／Session 测试不存在，现存 asd.exe 与候选哈希不同；完整[观察记录](testing/results/2026-11-24-current-windows-inventory.md)和[待授权复验包](testing/WINDOWS_CURRENT_UI_REVIEW.md)单列。没有上传、产品／测试或桌面执行，各 FL 和 339 项设计状态不变；来源同尺寸视觉、原生输入／真实 agent 仍待验。
+
+
+2026-11-24 授权后原生复验：FL-001/002/003/004/005/006/012/013/015/016/018/019 增加[当前构建实际报告](testing/results/2026-11-24-current-ui-native.md)。无效 Windows 目录测试前置修正，异步 exact Tab 丢后续 argv／Env／创建的产品 bug 经 RED→GREEN 修复；原生 run2 的 288 UI／9 Session 顶层测试无失败／skip。隔离 ConPTY run6 的三 shell、五字段环境、Tab 草稿隔离、停止／历史重开通过；45 事件／16 帧、7 原进程正常结束。此前五次脚本失败及停止并发只读发现错误保留，真实桌面／完整视觉另验，所有 FL 保持实现中／未发布，339 项 designed/not_run 不提升。
+
+
+2026-11-24 当前桌面补充：同一修复构建完成 [Windows Terminal 实际复验](testing/results/2026-11-24-current-ui-desktop.md)，60 事件／15 画面，双 shell 原 Run／PID／FILETIME 与未提交草稿在 UI 退出重开后保留，显式命令各一次并有连续中文输出；Dark／Light／System、五字段及宽／上下管理布局留原图。8 原身份结束、0 强制结束、三任务精确清理。真实五字段环境在[隔离终端](testing/results/2026-11-24-current-ui-native.md)由独立子进程证明；前序失败保留，不扩大为完整来源视觉、System 动态通知、鼠标／IME／真实 agent 或发布接受，状态仍实现中／未发布。

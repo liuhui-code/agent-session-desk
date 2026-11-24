@@ -1,0 +1,46 @@
+{
+    "forced_ends":  0,
+    "windows":  "Microsoft Windows NT 10.0.19045.0",
+    "product_sha256":  "D014526F36CDB02A13FCC57330F10CF4E33A30B4960B886780F09D72D2CE5432",
+    "surface":  "Windows Terminal desktop",
+    "result":  "failed",
+    "originals":  [
+                      {
+                          "pid":  18964,
+                          "filetime":  134399551041306050,
+                          "original_ended":  true,
+                          "kind":  "shell-A"
+                      },
+                      {
+                          "pid":  18284,
+                          "filetime":  134399551050985350,
+                          "original_ended":  true,
+                          "kind":  "shell-B"
+                      },
+                      {
+                          "pid":  12316,
+                          "filetime":  134399551040394783,
+                          "original_ended":  true,
+                          "kind":  "backend"
+                      },
+                      {
+                          "pid":  12932,
+                          "filetime":  134399551050147876,
+                          "original_ended":  true,
+                          "kind":  "backend"
+                      },
+                      {
+                          "pid":  16772,
+                          "filetime":  134399551062253398,
+                          "original_ended":  true,
+                          "kind":  "terminal-first"
+                      }
+                  ],
+    "events":  8,
+    "utc":  "2026-11-24T00:51:48.3997184Z",
+    "system_clipboard_calls":  0,
+    "caps_lock_unchanged":  true,
+    "private_terminal_settings_after":  "1499307ABEBA68C23F9EB38A4C636F81172475B6B2B535BC0B11DCD9547241F8",
+    "system_settings_written":  false,
+    "private_terminal_settings_before":  "1499307ABEBA68C23F9EB38A4C636F81172475B6B2B535BC0B11DCD9547241F8"
+}

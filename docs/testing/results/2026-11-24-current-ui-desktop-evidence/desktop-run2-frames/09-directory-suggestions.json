@@ -1,0 +1,81 @@
+{
+    "fontNames":  [
+                      "System.__ComObject",
+                      "Cascadia Mono"
+                  ],
+    "text":  "ASD-Current-Review\nAgent Session Desk                                                                                                            2 会话\r\n Review A ×    Review B ×                                                                                                         + \r\n会话 分组                                      │ ╭─────────────────────────────────────────────────────────────────────────────────╮\r\n────────────────────────────────────────────── │ │                                                                                 │\r\n1·▾ 我的会话 (2)                               │ │                                                                                 │\r\n  ┃ Review A           ╭────────────────────────────────────────────────────────────────────────────────────╮                      │\r\n    ╰ 可连接 · pwsh.exe│                                                                                    │                      │\r\n    Review B           │                                                                                    │                      │\r\n    ╰ 可连接 · pwsh.exe│    新建终端                                                                        │                      │\r\n                       │                                                                                    │                      │\r\n                       │    名称（可空）                                                                    │                      │\r\n                       │    › 可留空，使用程序名                                                            │                      │\r\n                       │                                                                                    │                      │\r\n                       │    程序 / CLI                                                                      │                      │\r\n                       │    › <WINDOWS_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe                  │                      │\r\n                       │                                                                                    │                      │\r\n                       │    工作目录（可空）                                                                │                      │\r\n                       │    ›<USER_DIRECTORY>\\asd-acceptance-20261122\\current-desktop-88a6e3d-20261124-run2     │                      │\r\n                       │    ╭──────────────────────────────────────────────────────────╮                    │                      │\r\n                       │    │ ▶ ✎ 输入自定义路径…                                      │                    │                      │\r\n                       │    │   <WINDOWS_USER>\\asd-acceptance-20261122\\current… │                    │                      │\r\n                       │    │ →/Space 浏览                                             │                    │                      │\r\n                       │    ╰──────────────────────────────────────────────────────────╯                    │                      │\r\n                       │    › 例如 [\"ASD_MODE=dev\"]                                                         │                      │\r\n                       │                                                                                    │                      │\r\n                       │     创建终端                                                                       │                      │\r\n                       │    Tab 切换 · Ctrl+S 创建 · Esc 取消                                               │                      │\r\n                       │                                                                                    │                      │\r\n                       │                                                                                    │                      │\r\n                       ╰────────────────────────────────────────────────────────────────────────────────────╯                      │\r\n                                               │ │                                                                                 │\r\n                                               │ │                                                                                 │\r\n                                               │ ╰─────────────────────────────────────────────────────────────────────────────────╯\r\n────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────\r\n管理模式:  Enter  打开  n  新建  r  改名  V  复制页  M  移动                 ↑↓ 选择 │ F6 终端 │ ? 帮助 │ / 搜索 │ S 设置 │ q 退出  \r\n",
+    "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe",
+    "filetime":  134399553429325811,
+    "rect":  [
+                 40,
+                 40,
+                 1240,
+                 760
+             ],
+    "caps_lock":  false,
+    "session":  2,
+    "tree":  [
+                 {
+                     "name":  "",
+                     "type":  "ControlType.Pane"
+                 },
+                 {
+                     "name":  "",
+                     "type":  "ControlType.Pane"
+                 },
+                 {
+                     "name":  "",
+                     "type":  "ControlType.Tab"
+                 },
+                 {
+                     "name":  "",
+                     "type":  "ControlType.List"
+                 },
+                 {
+                     "name":  "ASD-Current-Review",
+                     "type":  "ControlType.TabItem"
+                 },
+                 {
+                     "name":  "ASD-Current-Review",
+                     "type":  "ControlType.Text"
+                 },
+                 {
+                     "name":  "关闭标签页",
+                     "type":  "ControlType.Button"
+                 },
+                 {
+                     "name":  "新建标签页",
+                     "type":  "ControlType.SplitButton"
+                 },
+                 {
+                     "name":  "",
+                     "type":  "ControlType.Custom"
+                 },
+                 {
+                     "name":  "ASD-Current-Review",
+                     "type":  "ControlType.Text"
+                 },
+                 {
+                     "name":  "垂直",
+                     "type":  "ControlType.ScrollBar"
+                 },
+                 {
+                     "name":  "垂直小幅下降",
+                     "type":  "ControlType.Button"
+                 },
+                 {
+                     "name":  "垂直大幅下降",
+                     "type":  "ControlType.Button"
+                 },
+                 {
+                     "name":  "垂直大幅增长",
+                     "type":  "ControlType.Button"
+                 },
+                 {
+                     "name":  "垂直小幅增长",
+                     "type":  "ControlType.Button"
+                 }
+             ],
+    "pid":  20388,
+    "keyboardLayout":  134481924
+}

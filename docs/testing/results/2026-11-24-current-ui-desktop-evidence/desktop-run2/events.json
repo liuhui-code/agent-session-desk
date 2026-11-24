@@ -1,0 +1,456 @@
+[
+    {
+        "utc":  "2026-11-24T00:55:41.6690872Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  13564,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                        "session":  2,
+                        "kind":  "shell-A",
+                        "filetime":  134399553408448074
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T00:55:42.6884112Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  17900,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                        "session":  2,
+                        "kind":  "shell-B",
+                        "filetime":  134399553418912438
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T00:55:42.8001119Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  3584,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\terminal-bundle-20261123\\bundle\\psmux.exe",
+                        "session":  2,
+                        "kind":  "backend",
+                        "filetime":  134399553407533181
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T00:55:42.8050717Z",
+        "details":  {
+                        "sha256":  "E971856F89748DC3B458125E9AFDD79B5E9574A7C937676116D3CBBD3B71F492",
+                        "session_id":  "6f4eb4337de1f26be5f2bfab54da8775"
+                    },
+        "kind":  "backend-host"
+    },
+    {
+        "utc":  "2026-11-24T00:55:42.8419999Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  18740,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\terminal-bundle-20261123\\bundle\\psmux.exe",
+                        "session":  2,
+                        "kind":  "backend",
+                        "filetime":  134399553418108584
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T00:55:42.8469590Z",
+        "details":  {
+                        "sha256":  "E971856F89748DC3B458125E9AFDD79B5E9574A7C937676116D3CBBD3B71F492",
+                        "session_id":  "b4eba085adf7b16caa5cc6404d13eaf8"
+                    },
+        "kind":  "backend-host"
+    },
+    {
+        "utc":  "2026-11-24T00:55:42.8698970Z",
+        "details":  {
+                        "command":  "\u0026 \u0027<WINDOWS_USER>\\asd-acceptance-20261122\\asd-launch-environment.exe\u0027 \u0027--terminal-bundle\u0027 \u0027<WINDOWS_USER>\\asd-acceptance-20261122\\terminal-bundle-20261123\\bundle\u0027 \u0027--runtime-dir\u0027 \u0027<WINDOWS_USER>\\asd-acceptance-20261122\\current-desktop-88a6e3d-20261124-run2\\runtime\u0027 \u0027--namespace\u0027 \u0027asd-current-desktop\u0027 \u0027--state-dir\u0027 \u0027<WINDOWS_USER>\\asd-acceptance-20261122\\current-desktop-88a6e3d-20261124-run2\\state\u0027",
+                        "outer_receipt":  "<WINDOWS_USER>\\asd-acceptance-20261122\\current-desktop-88a6e3d-20261124-run2\\first-outer-exit.json"
+                    },
+        "kind":  "ui-launch"
+    },
+    {
+        "utc":  "2026-11-24T00:55:44.0816731Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  20388,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe",
+                        "session":  2,
+                        "kind":  "terminal-first",
+                        "filetime":  134399553429325811
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T00:55:44.8818498Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  2252,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\asd-launch-environment.exe",
+                        "session":  2,
+                        "kind":  "manager-first",
+                        "filetime":  134399553438878467
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T00:55:45.0272426Z",
+        "details":  {
+                        "rect":  [
+                                     40,
+                                     40,
+                                     1240,
+                                     760
+                                 ],
+                        "fontNames":  [
+                                          "System.__ComObject",
+                                          "Cascadia Mono"
+                                      ],
+                        "name":  "01-dark-live"
+                    },
+        "kind":  "capture"
+    },
+    {
+        "utc":  "2026-11-24T00:55:46.1418469Z",
+        "details":  {
+                        "value":  "Write-Output (\u0027REVIEW_A:\u0027+$PID)"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T00:55:46.2808718Z",
+        "details":  {
+                        "value":  "^{PGDN}"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T00:55:47.4040910Z",
+        "details":  {
+                        "value":  "Write-Output (\u0027REVIEW_B:\u0027+$PID)"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T00:55:47.6606245Z",
+        "details":  {
+                        "value":  "^{PGUP}"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T00:55:47.8864186Z",
+        "details":  {
+                        "rect":  [
+                                     40,
+                                     40,
+                                     1240,
+                                     760
+                                 ],
+                        "fontNames":  [
+                                          "System.__ComObject",
+                                          "Cascadia Mono"
+                                      ],
+                        "name":  "02-A-draft-restored"
+                    },
+        "kind":  "capture"
+    },
+    {
+        "utc":  "2026-11-24T00:55:47.9690803Z",
+        "details":  {
+                        "value":  "{F6}"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T00:55:48.0463954Z",
+        "details":  {
+                        "value":  "S"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T00:55:48.1395305Z",
+        "details":  {
+                        "rect":  [
+                                     40,
+                                     40,
+                                     1240,
+                                     760
+                                 ],
+                        "fontNames":  [
+                                          "System.__ComObject",
+                                          "Cascadia Mono"
+                                      ],
+                        "name":  "03-settings-dark"
+                    },
+        "kind":  "capture"
+    },
+    {
+        "utc":  "2026-11-24T00:55:48.1695440Z",
+        "details":  {
+                        "value":  "{RIGHT}"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T00:55:48.4502815Z",
+        "details":  {
+                        "rect":  [
+                                     40,
+                                     40,
+                                     1240,
+                                     760
+                                 ],
+                        "fontNames":  [
+                                          "System.__ComObject",
+                                          "Cascadia Mono"
+                                      ],
+                        "name":  "04-settings-light"
+                    },
+        "kind":  "capture"
+    },
+    {
+        "utc":  "2026-11-24T00:55:48.4903273Z",
+        "details":  {
+                        "value":  "{RIGHT}"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T00:55:48.7898413Z",
+        "details":  {
+                        "rect":  [
+                                     40,
+                                     40,
+                                     1240,
+                                     760
+                                 ],
+                        "fontNames":  [
+                                          "System.__ComObject",
+                                          "Cascadia Mono"
+                                      ],
+                        "name":  "05-settings-system"
+                    },
+        "kind":  "capture"
+    },
+    {
+        "utc":  "2026-11-24T00:55:48.8302808Z",
+        "details":  {
+                        "value":  "{LEFT}"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T00:55:48.9703680Z",
+        "details":  {
+                        "value":  "{LEFT}"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T00:55:49.1286490Z",
+        "details":  {
+                        "value":  "{ESC}"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T00:55:49.1988922Z",
+        "details":  {
+                        "value":  "?"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T00:55:49.2845088Z",
+        "details":  {
+                        "rect":  [
+                                     40,
+                                     40,
+                                     1240,
+                                     760
+                                 ],
+                        "fontNames":  [
+                                          "System.__ComObject",
+                                          "Cascadia Mono"
+                                      ],
+                        "name":  "06-help"
+                    },
+        "kind":  "capture"
+    },
+    {
+        "utc":  "2026-11-24T00:55:49.3218763Z",
+        "details":  {
+                        "value":  "{PGDN}"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T00:55:49.3848942Z",
+        "details":  {
+                        "rect":  [
+                                     40,
+                                     40,
+                                     1240,
+                                     760
+                                 ],
+                        "fontNames":  [
+                                          "System.__ComObject",
+                                          "Cascadia Mono"
+                                      ],
+                        "name":  "07-help-scrolled"
+                    },
+        "kind":  "capture"
+    },
+    {
+        "utc":  "2026-11-24T00:55:49.4142589Z",
+        "details":  {
+                        "value":  "{ESC}"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T00:55:49.4752533Z",
+        "details":  {
+                        "value":  "n"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T00:55:49.5658985Z",
+        "details":  {
+                        "rect":  [
+                                     40,
+                                     40,
+                                     1240,
+                                     760
+                                 ],
+                        "fontNames":  [
+                                          "System.__ComObject",
+                                          "Cascadia Mono"
+                                      ],
+                        "name":  "08-five-fields"
+                    },
+        "kind":  "capture"
+    },
+    {
+        "utc":  "2026-11-24T00:55:49.5990299Z",
+        "details":  {
+                        "value":  "{TAB}"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T00:55:51.4573801Z",
+        "details":  {
+                        "value":  "<WINDOWS_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T00:55:51.4882841Z",
+        "details":  {
+                        "value":  "{TAB}"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T00:55:54.0583740Z",
+        "details":  {
+                        "value":  "<WINDOWS_USER>\\asd-acceptance-20261122\\current-desktop-88a6e3d-20261124-run2"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T00:55:54.1363859Z",
+        "details":  {
+                        "rect":  [
+                                     40,
+                                     40,
+                                     1240,
+                                     760
+                                 ],
+                        "fontNames":  [
+                                          "System.__ComObject",
+                                          "Cascadia Mono"
+                                      ],
+                        "name":  "09-directory-suggestions"
+                    },
+        "kind":  "capture"
+    },
+    {
+        "utc":  "2026-11-24T00:55:54.1636381Z",
+        "details":  {
+                        "value":  "{ESC}"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T00:55:54.5134786Z",
+        "details":  {
+                        "rect":  [
+                                     40,
+                                     40,
+                                     820,
+                                     650
+                                 ],
+                        "fontNames":  [
+                                          "System.__ComObject",
+                                          "Cascadia Mono"
+                                      ],
+                        "name":  "layout-820"
+                    },
+        "kind":  "capture"
+    },
+    {
+        "utc":  "2026-11-24T00:55:54.8432248Z",
+        "details":  {
+                        "rect":  [
+                                     40,
+                                     40,
+                                     570,
+                                     550
+                                 ],
+                        "fontNames":  [
+                                          "System.__ComObject",
+                                          "Cascadia Mono"
+                                      ],
+                        "name":  "layout-570"
+                    },
+        "kind":  "capture"
+    },
+    {
+        "utc":  "2026-11-24T00:55:55.1896742Z",
+        "details":  {
+                        "rect":  [
+                                     40,
+                                     40,
+                                     1240,
+                                     760
+                                 ],
+                        "fontNames":  [
+                                          "System.__ComObject",
+                                          "Cascadia Mono"
+                                      ],
+                        "name":  "layout-1240"
+                    },
+        "kind":  "capture"
+    },
+    {
+        "utc":  "2026-11-24T00:55:55.2272771Z",
+        "details":  {
+                        "value":  "{F6}"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T00:56:07.4001611Z",
+        "details":  {
+                        "error":  "Desktop text missing: 终端模式; input not replayed"
+                    },
+        "kind":  "failure"
+    }
+]

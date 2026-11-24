@@ -1,0 +1,5 @@
+--- FAIL: TestExactDirectoryAsyncTabKeepsFollowingArgumentsEnvironmentAndCreate (0.00s)
+    path_picker_exact_tab_test.go:49: exact-directory focus change discarded queued args/env/create events
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	1.149s
+FAIL

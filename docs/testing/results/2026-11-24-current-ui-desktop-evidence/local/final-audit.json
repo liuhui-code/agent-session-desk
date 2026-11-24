@@ -1,0 +1,51 @@
+{
+  "current_product_sha256": "D014526F36CDB02A13FCC57330F10CF4E33A30B4960B886780F09D72D2CE5432",
+  "tasks": [
+    {
+      "expected_runner": "1597B3EF57D7AD383F2D2F88CBC31C6475E50E81BE3FAF046B2574C914B0EA0F",
+      "last_result": 0,
+      "previous_state": 3,
+      "name": "AsdCurrentUiReview20261124",
+      "deleted": true
+    },
+    {
+      "expected_runner": "2660E398FB9D174F127A29D6AD56567EA4B0763F0D79E70B5A6697FEE216C1C4",
+      "last_result": 0,
+      "previous_state": 3,
+      "name": "AsdCurrentUiReview20261124Run2",
+      "deleted": true
+    },
+    {
+      "expected_runner": "8BC76527F1EC3CDD824E5C759693E6DEAEDC8EC06A67794B8B299AE657604859",
+      "last_result": 0,
+      "previous_state": 3,
+      "name": "AsdCurrentUiReview20261124Run3",
+      "deleted": true
+    }
+  ],
+  "old_asd_sha256": "5216BDFA1B77897D63089F03D3F38B93908E22F1502100D1D79DAA52864AC918",
+  "remaining_current_product": 0,
+  "execution_policies": [
+    {
+      "policy": "Undefined",
+      "scope": "MachinePolicy"
+    },
+    {
+      "policy": "Undefined",
+      "scope": "UserPolicy"
+    },
+    {
+      "policy": "Undefined",
+      "scope": "Process"
+    },
+    {
+      "policy": "Undefined",
+      "scope": "CurrentUser"
+    },
+    {
+      "policy": "Undefined",
+      "scope": "LocalMachine"
+    }
+  ],
+  "utc": "2026-11-24T01:00:09.9135521Z"
+}

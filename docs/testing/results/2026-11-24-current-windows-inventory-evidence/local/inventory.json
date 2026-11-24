@@ -1,0 +1,32 @@
+{
+  "scope": "six known task artifacts; read-only",
+  "root_exists": true,
+  "files": [
+    {
+      "name": "asd-launch-environment.exe",
+      "exists": false
+    },
+    {
+      "name": "launch-environment-ui.exe",
+      "exists": false
+    },
+    {
+      "name": "launch-environment-session.exe",
+      "exists": false
+    },
+    {
+      "name": "asd-color-profiles.exe",
+      "exists": false
+    },
+    {
+      "name": "color-profiles-ui.exe",
+      "exists": false
+    },
+    {
+      "name": "asd.exe",
+      "exists": true,
+      "bytes": 14295040,
+      "sha256": "5216bdfa1b77897d63089f03d3f38b93908e22f1502100d1d79daa52864ac918"
+    }
+  ]
+}

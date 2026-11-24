@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"os"
+	"path/filepath"
 	"reflect"
 	"strings"
 	"testing"
@@ -20,7 +21,11 @@ func TestLaunchDialogPassesLiteralEnvironmentOverridesWithoutChangingManager(t *
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	h.send(tea.KeyPressMsg{Code: 'n', Text: "n"})
 	h.until(func() bool { return h.m.launch != nil })
-	fields := []string{"普通 CLI", `C:\工具 box\agent.exe`, `C:\项目 空间`, `["", "literal $ASD_UI_ENV_TEST"]`, `["ASD_UI_ENV_TEST=child 中文", "ASD_EMPTY=", "ASD_EQUAL=a=b", "ASD_LITERAL=$HOME", "ASD_UI_ENV_TEST=last value"]`}
+	dir := filepath.Join(t.TempDir(), "项目 空间")
+	if err := os.Mkdir(dir, 0700); err != nil {
+		t.Fatal(err)
+	}
+	fields := []string{"普通 CLI", `C:\工具 box\agent.exe`, dir, `["", "literal $ASD_UI_ENV_TEST"]`, `["ASD_UI_ENV_TEST=child 中文", "ASD_EMPTY=", "ASD_EQUAL=a=b", "ASD_LITERAL=$HOME", "ASD_UI_ENV_TEST=last value"]`}
 	for i, value := range fields {
 		if i > 0 {
 			h.send(tea.KeyPressMsg{Code: tea.KeyTab})

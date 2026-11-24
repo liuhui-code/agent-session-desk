@@ -1,0 +1,39 @@
+[
+    {
+        "session":  {
+                        "group_revision":  1,
+                        "session_id":  "0da81d64c78cbf971f43fc6dc83d2722",
+                        "run_id":  "e418e2536540d22f8e31894c01d5c4a1",
+                        "backend_id":  "asd_0da81d64c78cbf971f43fc6dc83d2722_e418e2536540d22f8e31894c01d5c4a1",
+                        "title":  "Review C",
+                        "command":  "<WINDOWS_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                        "terminal_state":  "unknown"
+                    },
+        "recorded_at":  "2026-11-24T00:50:36.9755715Z",
+        "stop_confirmed_at":  "2026-11-24T00:50:38.7332955Z"
+    },
+    {
+        "session":  {
+                        "session_id":  "c9168506a456cdba19a5695cc340ee6f",
+                        "run_id":  "edb05f132ba69b5f4487b68b2b60b5ec",
+                        "backend_id":  "asd_c9168506a456cdba19a5695cc340ee6f_edb05f132ba69b5f4487b68b2b60b5ec",
+                        "title":  "Stop B",
+                        "command":  "<WINDOWS_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                        "terminal_state":  "unknown"
+                    },
+        "recorded_at":  "2026-11-24T00:50:33.3564881Z",
+        "stop_confirmed_at":  "2026-11-24T00:50:42.1769814Z"
+    },
+    {
+        "session":  {
+                        "session_id":  "f93c4ae467b47df6996822584cd7d5ec",
+                        "run_id":  "5f6078af8db163674931a1a536e948ab",
+                        "backend_id":  "asd_f93c4ae467b47df6996822584cd7d5ec_5f6078af8db163674931a1a536e948ab",
+                        "title":  "Stop A",
+                        "command":  "<WINDOWS_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                        "terminal_state":  "unknown"
+                    },
+        "recorded_at":  "2026-11-24T00:50:32.9909095Z",
+        "stop_confirmed_at":  "2026-11-24T00:50:43.9912463Z"
+    }
+]

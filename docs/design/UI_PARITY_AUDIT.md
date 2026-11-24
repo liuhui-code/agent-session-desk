@@ -45,3 +45,5 @@
 2026-11-24：U03/U08/U11/U12 的表单长字段修正见独立报告；不把隔离 ConPTY 当作 Windows Terminal 字体／IME／桌面证据，U06 长卡片、U16 会话排序、U19 停止入口及其他差异不关闭。
 
 2026-11-24：U19 已接入显式停止 UI 与原目标复核，实际证据见独立报告；实现不代表全部停止策略、真实桌面或完整上游接受。
+
+2026-11-24 当前构建复验：U12 的异步 exact Tab 后续输入经 RED→GREEN 修正，Windows 原生288 UI／9 Session通过；U05/U17/U19 的三 shell隔离终端及U03/U12/U13/U20的真实桌面局部画面与原 Run重连分别见[原生](../testing/results/2026-11-24-current-ui-native.md)／[桌面](../testing/results/2026-11-24-current-ui-desktop.md)。桌面60事件／15画面保留前序失败，System只验证实际初始Light读取；未覆盖本轮实体鼠标／IME、真实agent或完整等数据来源对照，不关闭上述整体缺口。

@@ -169,11 +169,13 @@ func (m *Model) pathResultEvent(msg tea.Msg) (tea.Cmd, bool) {
 			p.selected = max(0, min(p.selected, last))
 			if p.tabPending {
 				p.tabPending = false
-				cmd := m.completePathTab(p, r.completion.Paths)
-				cmds := []tea.Cmd{cmd, m.nextPathRequest()}
+				// Advancing focus cancels picker state. Retain the accepted
+				// continuation before that transition clears its queue.
 				queued := p.deferred
 				p.deferred = nil
 				p.deferredBytes = 0
+				cmd := m.completePathTab(p, r.completion.Paths)
+				cmds := []tea.Cmd{cmd, m.nextPathRequest()}
 				for _, event := range queued {
 					if m.launch == nil || m.launch.paths != p {
 						break

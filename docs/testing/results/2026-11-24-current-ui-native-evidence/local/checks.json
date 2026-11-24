@@ -1,0 +1,60 @@
+[
+  {
+    "check": "go-test",
+    "command": [
+      "go",
+      "test",
+      "./...",
+      "-timeout=90s"
+    ],
+    "exit_code": 0,
+    "start_utc": "2026-11-24T00:35:47.462027+00:00",
+    "end_utc": "2026-11-24T00:36:27.108828+00:00"
+  },
+  {
+    "check": "go-race",
+    "command": [
+      "go",
+      "test",
+      "-race",
+      "./...",
+      "-timeout=90s"
+    ],
+    "exit_code": 0,
+    "start_utc": "2026-11-24T00:36:27.109425+00:00",
+    "end_utc": "2026-11-24T00:37:50.762743+00:00"
+  },
+  {
+    "check": "go-vet",
+    "command": [
+      "go",
+      "vet",
+      "./..."
+    ],
+    "exit_code": 0,
+    "start_utc": "2026-11-24T00:37:50.763404+00:00",
+    "end_utc": "2026-11-24T00:37:55.664614+00:00"
+  },
+  {
+    "check": "go-mod-verify",
+    "command": [
+      "go",
+      "mod",
+      "verify"
+    ],
+    "exit_code": 0,
+    "start_utc": "2026-11-24T00:37:55.665156+00:00",
+    "end_utc": "2026-11-24T00:37:57.726069+00:00"
+  },
+  {
+    "check": "source-limits",
+    "command": [
+      "python3",
+      "-B",
+      "tools/ci/check_source_limits.py"
+    ],
+    "exit_code": 0,
+    "start_utc": "2026-11-24T00:37:57.726671+00:00",
+    "end_utc": "2026-11-24T00:37:58.446567+00:00"
+  }
+]

@@ -1,0 +1,233 @@
+[
+    {
+        "utc":  "2026-11-24T00:46:53.1290249Z",
+        "details":  {
+                        "value":  "F6"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T00:46:53.2056572Z",
+        "details":  {
+                        "value":  "n"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T00:46:53.3485625Z",
+        "details":  {
+                        "value":  "Review C"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T00:46:53.3693231Z",
+        "details":  {
+                        "value":  "Tab"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T00:46:53.4141260Z",
+        "details":  {
+                        "value":  "<WINDOWS_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T00:46:53.4392554Z",
+        "details":  {
+                        "value":  "Tab"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T00:46:53.4671923Z",
+        "details":  {
+                        "value":  "<WINDOWS_USER>\\asd-acceptance-20261122\\current-console-88a6e3d-20261124-run4"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T00:46:53.4950151Z",
+        "details":  {
+                        "value":  "Tab"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T00:46:53.5247241Z",
+        "details":  {
+                        "value":  "[\"-NoLogo\",\"-NoProfile\",\"-NoExit\",\"-File\",\"<WINDOWS_USER>\\\\asd-acceptance-20261122\\\\current-console-88a6e3d-20261124-run4\\\\shell.ps1\",\"C\"]"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T00:46:53.5478191Z",
+        "details":  {
+                        "value":  "Tab"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T00:46:53.5742319Z",
+        "details":  {
+                        "value":  "[\"ASD_UI_ENV_TEST=child 中文\",\"ASD_UI_EMPTY=\",\"ASD_UI_EQUALS=a=b\",\"ASD_UI_LITERAL=$HOME\"]"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T00:46:53.6305272Z",
+        "details":  {
+                        "value":  "C-s"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T00:46:56.4149128Z",
+        "details":  {
+                        "value":  "Write-Output (\u0027ENV_C:\u0027+$env:ASD_UI_ENV_TEST)"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T00:46:56.4388858Z",
+        "details":  {
+                        "value":  "Enter"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T00:46:56.7463777Z",
+        "details":  {
+                        "value":  "F6"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T00:46:56.7808839Z",
+        "details":  {
+                        "value":  "d"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T00:46:56.9515510Z",
+        "details":  {
+                        "value":  "Left"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T00:46:56.9696208Z",
+        "details":  {
+                        "value":  "Enter"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T00:46:57.5411579Z",
+        "details":  {
+                        "value":  "x"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T00:46:57.8126773Z",
+        "details":  {
+                        "value":  "C-PageUp"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T00:46:58.0669369Z",
+        "details":  {
+                        "value":  "F6"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T00:46:58.2626829Z",
+        "details":  {
+                        "value":  "Write-Output (\u0027STOP_A:\u0027+$PID)"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T00:46:58.5742456Z",
+        "details":  {
+                        "value":  "C-PageDown"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T00:46:58.8454886Z",
+        "details":  {
+                        "value":  "Write-Output (\u0027STOP_B:\u0027+$PID)"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T00:46:59.1239818Z",
+        "details":  {
+                        "value":  "C-PageUp"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T00:46:59.3822679Z",
+        "details":  {
+                        "value":  "F6"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T00:46:59.5608673Z",
+        "details":  {
+                        "value":  "Down"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T00:46:59.5775889Z",
+        "details":  {
+                        "value":  "d"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T00:46:59.7874162Z",
+        "details":  {
+                        "value":  "Enter"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T00:47:00.1360193Z",
+        "details":  {
+                        "value":  "d"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T00:47:00.3598647Z",
+        "details":  {
+                        "value":  "y"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T00:47:00.7913838Z",
+        "details":  {
+                        "value":  "y"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T00:47:00.9500116Z",
+        "details":  {
+                        "error":  "JSON list failed"
+                    },
+        "kind":  "failure"
+    }
+]

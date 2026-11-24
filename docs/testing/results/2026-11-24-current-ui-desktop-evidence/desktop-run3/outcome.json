@@ -1,0 +1,64 @@
+{
+    "forced_ends":  0,
+    "windows":  "Microsoft Windows NT 10.0.19045.0",
+    "product_sha256":  "D014526F36CDB02A13FCC57330F10CF4E33A30B4960B886780F09D72D2CE5432",
+    "surface":  "Windows Terminal desktop",
+    "result":  "passed",
+    "originals":  [
+                      {
+                          "pid":  19364,
+                          "filetime":  134399554863330021,
+                          "original_ended":  true,
+                          "kind":  "shell-A"
+                      },
+                      {
+                          "pid":  17628,
+                          "filetime":  134399554873565032,
+                          "original_ended":  true,
+                          "kind":  "shell-B"
+                      },
+                      {
+                          "pid":  7972,
+                          "filetime":  134399554862455597,
+                          "original_ended":  true,
+                          "kind":  "backend"
+                      },
+                      {
+                          "pid":  11000,
+                          "filetime":  134399554872733488,
+                          "original_ended":  true,
+                          "kind":  "backend"
+                      },
+                      {
+                          "pid":  13872,
+                          "filetime":  134399554884733646,
+                          "original_ended":  true,
+                          "kind":  "terminal-first"
+                      },
+                      {
+                          "pid":  11424,
+                          "filetime":  134399554895508644,
+                          "original_ended":  true,
+                          "kind":  "manager-first"
+                      },
+                      {
+                          "pid":  14756,
+                          "filetime":  134399555007966844,
+                          "original_ended":  true,
+                          "kind":  "terminal-reopened"
+                      },
+                      {
+                          "pid":  14652,
+                          "filetime":  134399555016405090,
+                          "original_ended":  true,
+                          "kind":  "manager-reopened"
+                      }
+                  ],
+    "events":  60,
+    "utc":  "2026-11-24T00:58:26.8767991Z",
+    "system_clipboard_calls":  0,
+    "caps_lock_unchanged":  true,
+    "private_terminal_settings_after":  "1499307ABEBA68C23F9EB38A4C636F81172475B6B2B535BC0B11DCD9547241F8",
+    "system_settings_written":  false,
+    "private_terminal_settings_before":  "1499307ABEBA68C23F9EB38A4C636F81172475B6B2B535BC0B11DCD9547241F8"
+}

@@ -74,3 +74,11 @@ Tab 内完整交互增加终端屏幕模型、焦点、尺寸和资源验证工�
 2026-11-23 本地会话搜索：[ADR-0020](0020-local-session-search.md) 恢复管理 `/` 按需弹窗，沿固定上游布局／配色和 Unicode 排序，查询不进入 CLI，选择绑定原 Session/Run。实际源码、必要适配、RED→GREEN 与 Windows 结果见[报告](../testing/results/2026-11-23-session-search.md)。分组、重命名、完整视觉接受与发布仍开放。
 
 2026-11-23 重命名实现：[ADR-0021](0021-persistent-session-display-names.md) 接入上游管理 r 弹窗及 SQLite v3 独立显示名／版本，保留原 Session/Run、启动快照与终端输入；Ctrl+R 刷新，失败 r 重试。当前实际执行与剩余桌面矩阵见[报告](../testing/results/2026-11-23-session-rename.md)，分组、完整视觉与发布仍开放。
+
+2026-11-24 完整复验准备：对既有 Windows 目录进行[限定只读产物核对](../testing/results/2026-11-24-current-windows-inventory.md)，当前候选未在六个指定名中，不能用现存不同哈希的产品作当前接受。具体四文件、初始哈希、测试命令和完整 Tab／原生输入／视觉步骤见[复验清单](../testing/WINDOWS_CURRENT_UI_REVIEW.md)；上传／执行仍待明确授权，不改变本 ADR 的原始验收范围。
+
+
+2026-11-24 授权后复验：用户明确授权当前四文件及同名修复重测；已上传当前候选，目录异步 Tab 的后续输入丢失按 ADR-0037 修正。Windows 288 个 UI／9 个 Session 顶层测试和隔离 ConPTY 45 事件／16 帧通过，三条普通 shell 共用原终端输入，实际环境与独立原身份分列；首轮及脚本失败保留，见[实际报告](../testing/results/2026-11-24-current-ui-native.md)。桌面同尺寸视觉、真实 agent 和完整接受不由这些局部结果推定。
+
+
+2026-11-24 当前桌面补充：同一修复构建完成 [Windows Terminal 实际复验](../testing/results/2026-11-24-current-ui-desktop.md)，60 事件／15 画面，双 shell 原 Run／PID／FILETIME 与未提交草稿在 UI 退出重开后保留，显式命令各一次并有连续中文输出；Dark／Light／System、五字段及宽／上下管理布局留原图。8 原身份结束、0 强制结束、三任务精确清理。真实五字段环境在[隔离终端](../testing/results/2026-11-24-current-ui-native.md)由独立子进程证明；前序失败保留，不扩大为完整来源视觉、System 动态通知、鼠标／IME／真实 agent 或发布接受，状态仍实现中／未发布。
