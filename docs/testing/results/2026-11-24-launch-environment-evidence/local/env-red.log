@@ -1,0 +1,5 @@
+--- FAIL: TestLaunchDialogPassesLiteralEnvironmentOverridesWithoutChangingManager (0.01s)
+    launch_environment_test.go:41: launch fields changed: {GroupID: Name:普通 CLI Executable:C:\工具 box\agent.exe Args:[ literal $ASD_UI_ENV_TEST] Dir:C:\项目 空间 Env:[]}
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	1.802s
+FAIL

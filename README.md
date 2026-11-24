@@ -181,3 +181,5 @@ Tab 管理模式现可按 `/` 搜索当前会话，选择后接回原 Run；查�
 界面随终端报告的颜色能力使用来源的 TrueColor、256／16 色或无色显示；有限颜色模式不请求 RGB 默认色。能力改变不影响当前会话和输入，具体复验及真实终端限制见[颜色能力报告](docs/testing/results/2026-11-24-color-profiles.md)。
 
 目录建议（psmux Tab）：新建工作目录保留自定义输入项，↑↓ 进入浏览，Space 采纳但留在字段、Enter 采纳并下一项；Ctrl+N/P 可在编辑时选择，Tab 采纳或轮换本机目录完成。创建分组时目录首项预选，Tab/Enter 只采纳，Esc 先隐藏再取消；有候选时 ↑↓ 优先选择目录。候选来自已知分组和最多 20 个最近明确成功启动目录，按 backend scope 独立保存为 recent-dirs TOML；这是建议缓存，不是当前 cwd 或历史／SQLite 备份。无效本机目录按 Tab 留在字段，极小窗口恢复普通编辑。详见[本地验证与剩余原生门槛](docs/testing/results/2026-11-24-directory-pickers.md)。
+
+新建终端的“环境覆盖”字段可填 JSON 字符串数组，例如 `["ASD_MODE=dev","ASD_EMPTY="]`；空白或 `[]` 保留继承环境，值中的等号、空格和 `$HOME` 保持字面，不经 shell 插值。覆盖仅用于这次启动，取消／重开不记忆，不写启动模板或 UI 偏好。带环境覆盖的启动错误显示字段定位或通用摘要，保留不确定 Session/Run，避免错误详情回显环境值；编辑字段本身可见。现有 Windows 变量名及 psmux 传输限制继续适用，详见[验证与范围](docs/testing/results/2026-11-24-launch-environment.md)。

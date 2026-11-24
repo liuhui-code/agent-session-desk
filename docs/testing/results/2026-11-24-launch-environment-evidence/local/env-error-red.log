@@ -1,0 +1,5 @@
+--- FAIL: TestLaunchEnvironmentFailureDoesNotExposeValuesOrRetryUncertainRun (0.00s)
+    launch_environment_test.go:63: unsafe or unidentified failure summary: "启动结果需核对 Session env-created-session / Run env-created-run：backend stderr echoed synthetic-env-value-do-not-echo；不会自动重试"
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.818s
+FAIL

@@ -154,3 +154,7 @@ Bubbles 2.2.2 textinput 通过模块使用，未复制组件源码。v2 表单�
 ## ADR-0038 程序鼠标输入扩展
 
 本轮新增 Go Mouse 能力、UI 三按钮／修饰及有界悬停是本项目实现，没有迁入新 Rust 或 UI 源码。仅核对固定 psmux `20aa1d7254ee93f64dafa059ef89341d9767470a` 的 pane-mouse 解析／派发／注入和锁定 Bubble Tea 2.1.2／Ultraviolet 事件类型；现有 MIT 归属保持。两份独立本地快照的六份协议源文件哈希、框架指纹和实际边界见[报告](testing/results/2026-11-24-program-mouse-buttons.md)，不将 source review 算作原生执行。
+
+## ADR-0039 新建环境覆盖
+
+既有固定 Agent Deck／MIT 派生 launch_dialog*.go 增加通用 Env JSON 行，仍使用既有 v2 textinput／tokens／视口算法；字段解析与安全错误摘要是本项目适配，没有新增来源复制或依赖。五字段与源品牌表单的差异明确保留，当前[本地报告](testing/results/2026-11-24-launch-environment.md)不声明整帧一致或完整原生接受；原 source SHA／版权保持。

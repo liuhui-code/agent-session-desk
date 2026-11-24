@@ -34,3 +34,5 @@ asd --config .\agents.toml start --template dev --name 评审 --cwd C:\project -
 配置解析与后端传输是两层边界。psmux 3.4.0/tmux 的已知参数改写形式仍明确拒绝，见 [开发指南](M0_DEVELOPMENT.md)。没有把 TOML 支持等同于任意 argv 都支持。
 
 本次没有保存／迁移／热重载、主题文件或持久 Session 数据库。实际证据见[执行报告](testing/results/2026-11-22-m1-config-tokens.md)。UI 样式开发入口见 [ADR-0008](adr/0008-ui-design-tokens.md)。
+
+2026-11-24 UI 补充：[ADR-0039](adr/0039-launch-dialog-environment-overrides.md) 在 Tab 新建表单提供临时环境覆盖（JSON KEY=value 字符串数组），不读取／写回此模板。空白继承、重复键和平台解析仍沿既有后端合同；取消或重开不保留表单。此次只补启动请求，不新增配置编辑／保存／迁移，实际范围见[报告](testing/results/2026-11-24-launch-environment.md)。

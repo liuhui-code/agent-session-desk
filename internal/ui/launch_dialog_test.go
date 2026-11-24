@@ -70,7 +70,7 @@ func TestLaunchDialogFitsEveryBoundedViewport(t *testing.T) {
 	h.send(tea.KeyPressMsg{Code: 'n', Text: "n"})
 	for _, size := range [][2]int{{1, 1}, {10, 4}, {43, 10}, {80, 24}, {120, 32}} {
 		h.send(tea.WindowSizeMsg{Width: size[0], Height: size[1]})
-		for i := 0; i < 5; i++ {
+		for i := 0; i < len(h.m.launch.fields)+1; i++ {
 			view := h.m.View()
 			rows := strings.Split(view.Content, "\n")
 			if len(rows) > size[1] {

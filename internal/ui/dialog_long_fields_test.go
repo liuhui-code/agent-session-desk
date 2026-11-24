@@ -12,7 +12,7 @@ import (
 )
 
 func TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize(t *testing.T) {
-	for _, mode := range []string{"launch", "launch-program", "launch-dir", "launch-args", "rename", "group-name", "group-dir", "group-rename", "search"} {
+	for _, mode := range []string{"launch", "launch-program", "launch-dir", "launch-args", "launch-env", "rename", "group-name", "group-dir", "group-rename", "search"} {
 		for _, pattern := range []string{"abcdef/", "中文e\u0301👩‍💻1️⃣/"} {
 			for _, middle := range []bool{false, true} {
 				t.Run(fmt.Sprintf("%s/%s/middle=%v", mode, pattern, middle), func(t *testing.T) {
@@ -70,9 +70,9 @@ func TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize(t *testing.T) {
 
 func longFieldDialog(m *Model, mode string) *textinput.Model {
 	switch mode {
-	case "launch", "launch-program", "launch-dir", "launch-args":
+	case "launch", "launch-program", "launch-dir", "launch-args", "launch-env":
 		m.openLaunchDialog()
-		index := map[string]int{"launch": 0, "launch-program": 1, "launch-dir": 2, "launch-args": 3}[mode]
+		index := map[string]int{"launch": 0, "launch-program": 1, "launch-dir": 2, "launch-args": 3, "launch-env": 4}[mode]
 		m.focusLaunchField(index)
 		return &m.launch.fields[index]
 	case "rename":

@@ -48,7 +48,7 @@ func (m *Model) openLaunchDialog() tea.Cmd {
 	group := m.launchGroup
 	m.launchGroup = session.Group{}
 	d.groupID = group.ID
-	placeholders := []string{"可留空，使用程序名", "例如 pwsh.exe、cmd.exe 或 agent 路径", "可留空，使用当前工作目录", `例如 ["-NoLogo","-NoProfile"]`}
+	placeholders := []string{"可留空，使用程序名", "例如 pwsh.exe、cmd.exe 或 agent 路径", "可留空，使用当前工作目录", `例如 ["-NoLogo","-NoProfile"]`, `例如 ["ASD_MODE=dev"]`}
 	for _, placeholder := range placeholders {
 		field := textinput.New()
 		field.CharLimit = launchFieldLimit
@@ -235,6 +235,17 @@ func (m *Model) submitLaunchDialog() tea.Cmd {
 			return nil
 		}
 	}
+	raw = strings.TrimSpace(d.fields[4].Value())
+	if raw != "" {
+		if !strings.HasPrefix(raw, "[") {
+			d.err = fmt.Errorf("环境覆盖需要 JSON 字符串数组")
+			return nil
+		}
+		if err := json.Unmarshal([]byte(raw), &l.Env); err != nil {
+			d.err = fmt.Errorf("环境覆盖 JSON 无效")
+			return nil
+		}
+	}
 	if err := l.Validate(); err != nil {
 		d.err = err
 		return nil
@@ -250,10 +261,29 @@ func (m *Model) submitLaunchDialog() tea.Cmd {
 			return launchResult{dialog: d, err: err}
 		}
 		s, err := service.Start(ctx, l)
+		if err != nil && len(l.Env) > 0 {
+			err = environmentLaunchError(err)
+		}
 		dir := ""
 		if l.Dir != "" {
 			dir, _ = filepath.Abs(l.Dir)
 		}
 		return launchResult{dialog: d, session: s, dir: dir, err: err}
+	}
+}
+
+// ResolveLaunch and validateTransport use these stable application prefixes.
+// Keep field location while omitting paths, values and arbitrary backend stderr.
+func environmentLaunchError(err error) error {
+	text := err.Error()
+	switch {
+	case strings.HasPrefix(text, "executable not found or not executable:"):
+		return fmt.Errorf("程序不可用；请检查程序路径和 PATH/PATHEXT 覆盖")
+	case strings.HasPrefix(text, "working directory"):
+		return fmt.Errorf("工作目录不可用；请检查目录路径和访问权限")
+	case strings.HasPrefix(text, "environment key "):
+		return fmt.Errorf("环境覆盖不符合当前终端规则；请核对变量名与值")
+	default:
+		return fmt.Errorf("启动失败；请核对程序、参数、目录和环境覆盖")
 	}
 }

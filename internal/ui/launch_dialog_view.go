@@ -47,7 +47,7 @@ func (m *Model) renderLaunchDialog() (string, *tea.Cursor) {
 		lines = append(lines, "")
 	}
 	headerRows := len(lines)
-	labels := []string{"名称（可空）", "程序 / CLI", "工作目录（可空）", "参数（JSON 字符串数组，可空）"}
+	labels := []string{"名称（可空）", "程序 / CLI", "工作目录（可空）", "参数（JSON 字符串数组，可空）", "环境覆盖（JSON KEY=value 数组，可空）"}
 	cursorRow := -1
 	for i := range d.fields {
 		style := m.styles.formText

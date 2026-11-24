@@ -149,3 +149,5 @@ M0 已有“列表/预览 → 自定义命令 → 全屏 attach → 返回”的
 2026-11-24：[ADR-0037](adr/0037-directory-pickers-and-bounded-recents.md) 新增纯 Go 目录匹配模块 [sahilm/fuzzy v0.1.3](https://github.com/sahilm/fuzzy/releases/tag/v0.1.3)，固定提交 `8aadc77d46cf09f5dc529d41358a94a24516c0b6`／MIT。稳定排序沿来源，锁定校验和与原样许可；没有升级既有模块或引入旧 Charm 依赖。新增 go.sum 中 godebug v1.1.0 仅为该库测试依赖校验；最近目录使用既有 TOML，独立缓存 v1 不改变 ui.toml v7／SQLite v5。实际范围见[报告](testing/results/2026-11-24-directory-pickers.md)。
 
 2026-11-24：[ADR-0038](adr/0038-program-mouse-buttons-and-motion.md) 沿锁定 Bubble Tea 2.1.2 事件和固定 psmux pane-mouse 增加程序按钮／修饰；不升级模块或复制 Rust。独立 Mouse 能力和既有选区 Pointer 分开，悬停至多一个已接受／一个最新位置，无定时器。固定后台修饰悬停 gate／旧宿主 record bypass 的限制见[本地报告](testing/results/2026-11-24-program-mouse-buttons.md)；原生程序处理仍待验，tokens／schema 不变。
+
+2026-11-24：[ADR-0039](adr/0039-launch-dialog-environment-overrides.md) 通过既有 textinput／JSON／Launch.Validate 接入临时 Env 数组，不引入库 API 或依赖；五字段布局复用原 tokens。ResolveLaunch／平台环境继承及解析守卫不改，TOML 模板只读、ui.toml v7／SQLite v5／配置 v1 均不变。[本地 UI／布局证据](testing/results/2026-11-24-launch-environment.md)与真实子进程／原生兼容分别记账。
