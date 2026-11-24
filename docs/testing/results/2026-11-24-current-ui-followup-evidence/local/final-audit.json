@@ -1,0 +1,102 @@
+{
+  "execution_policies": [
+    {
+      "policy": "Undefined",
+      "scope": "MachinePolicy"
+    },
+    {
+      "policy": "Undefined",
+      "scope": "UserPolicy"
+    },
+    {
+      "policy": "Undefined",
+      "scope": "Process"
+    },
+    {
+      "policy": "Undefined",
+      "scope": "CurrentUser"
+    },
+    {
+      "policy": "Undefined",
+      "scope": "LocalMachine"
+    }
+  ],
+  "remaining_current_product": 0,
+  "legacy_psmux_sha256": "CA9753A059A6926BB5AD1D9FEE81513507A6133D3EFA5EEFCF2423E33F348937",
+  "utc": "2026-11-24T09:24:52.3831200Z",
+  "new_candidate_directory_exists": false,
+  "old_asd_sha256": "5216BDFA1B77897D63089F03D3F38B93908E22F1502100D1D79DAA52864AC918",
+  "current_product_sha256": "BAF087DC26A7E49E00A6D3D5600D13FA00B4C4D3218BEBC1F1F0DA0D8494CB57",
+  "tasks": [
+    {
+      "expected_runner": "A4B3A763B36986837BB0B88342465F81924CC31CEC35951F1B356D64692E66D7",
+      "last_task_result": 0,
+      "name": "AsdCurrentManagement20261124",
+      "deleted": true,
+      "state": 3
+    },
+    {
+      "expected_runner": "4E05AFBDCBB13BABB9F75EB87965ECFE5508809421CC5CB3BD377033C2C492D8",
+      "last_task_result": 0,
+      "name": "AsdCurrentManagement20261124Run2",
+      "deleted": true,
+      "state": 3
+    },
+    {
+      "expected_runner": "C319D0327B2BCC9B00F3E5A770462F9238EB7D5FDC51CA4740090675776EFAB6",
+      "last_task_result": 0,
+      "name": "AsdCurrentManagement20261124Fixed",
+      "deleted": true,
+      "state": 3
+    },
+    {
+      "expected_runner": "DB9325F7000618EA63ADFDCBC814CDAE6525AB696DF47FA6908BB609D4E85DAD",
+      "last_task_result": 0,
+      "name": "AsdCurrentIme20261124",
+      "deleted": true,
+      "state": 3
+    },
+    {
+      "expected_runner": "76DD564188C475D24BE9589014F0AB4D5C8F5CDD928968A3021322A1C4D1A2AE",
+      "last_task_result": 0,
+      "name": "AsdCurrentProgramMouse20261124",
+      "deleted": true,
+      "state": 3
+    },
+    {
+      "expected_runner": "979E047EC977C3996345459BDA351AB41481DBD150E6CB10ABE28E8C02B2F014",
+      "last_task_result": 0,
+      "name": "AsdCurrentMouseControl20261124",
+      "deleted": true,
+      "state": 3
+    },
+    {
+      "expected_runner": "7A1DC42D6429432A8F3019C5311E4211BA65DCF9CC0E9029E42E46F58B0C6E30",
+      "last_task_result": 0,
+      "name": "AsdCurrentWin32Mouse20261124",
+      "deleted": true,
+      "state": 3
+    },
+    {
+      "expected_runner": "CE931D345FE984C0404885920E1A703ADCD40DFB44B60EDB1530B99B9309DAAB",
+      "last_task_result": 0,
+      "name": "AsdCurrentWin32Control20261124",
+      "deleted": true,
+      "state": 3
+    },
+    {
+      "expected_runner": "EA5CB0E0F707620F1A8D01594D26A7C982700034B305075DDBBC45B5DAE30159",
+      "last_task_result": 0,
+      "name": "AsdCurrentWin32Wheel20261124",
+      "deleted": true,
+      "state": 3
+    },
+    {
+      "expected_runner": "209754887B7AD0BE8676CE02F873431D30F8A47961D78253BC810C0C414FFC18",
+      "last_task_result": 0,
+      "name": "AsdCurrentWin32WheelControl20261124",
+      "deleted": true,
+      "state": 3
+    }
+  ]
+}

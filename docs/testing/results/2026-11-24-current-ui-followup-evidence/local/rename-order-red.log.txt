@@ -1,0 +1,5 @@
+--- FAIL: TestRenameRefreshesNameOrderBeforeMovingSelectedOriginalSession (0.01s)
+    session_rename_order_test.go:41: successful rename left old name order instead of reconciling discovery
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	4.109s
+FAIL

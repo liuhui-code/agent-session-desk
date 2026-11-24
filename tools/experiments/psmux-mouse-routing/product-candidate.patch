@@ -1,0 +1,57 @@
+diff --git a/internal/backend/bundle.go b/internal/backend/bundle.go
+--- a/internal/backend/bundle.go
++++ b/internal/backend/bundle.go
+@@ -17,7 +17,7 @@
+ // This explicitly selected development bundle is not the official psmux release.
+ // Source, patch, build and SDK provenance are recorded in ADR-0019.
+ var terminalBundleHashes = map[string]string{
+-	"psmux.exe":       "ca9753a059a6926bb5ad1d9fee81513507a6133d3efa5eefcf2423e33f348937",
++	"psmux.exe":       "ff9d8893ecc53ac5caca3bae0146d75ebcaf2cf7edc4abf9d87578469fb7b16b",
+ 	"conpty.dll":      "e971856f89748dc3b458125e9afdd79b5e9574a7c937676116d3cbbd3b71f492",
+ 	"OpenConsole.exe": "b17e48b07ef153b420f0a6e178bacd31fb4c3390e21ae746586213fc0719a775",
+ }
+diff --git a/internal/backend/command.go b/internal/backend/command.go
+--- a/internal/backend/command.go
++++ b/internal/backend/command.go
+@@ -15,7 +15,7 @@
+ 	cmd := exec.Command(b.bin, all...)
+ 	cmd.Env = commandEnv(os.Environ(), b.kind, b.dataDir, b.config)
+ 	if b.bundle != "" {
+-		cmd.Env = append(cmd.Env, "PSMUX_CONPTY_DIR="+b.bundle)
++		cmd.Env = append(cmd.Env, "PSMUX_CONPTY_DIR="+b.bundle, "PSMUX_CONPTY_PIPE_MOUSE_ONLY=1")
+ 	}
+ 	return cmd
+ }
+diff --git a/internal/backend/mouse_bundle_policy_test.go b/internal/backend/mouse_bundle_policy_test.go
+new file mode 100644
+--- /dev/null
++++ b/internal/backend/mouse_bundle_policy_test.go
+@@ -0,0 +1,28 @@
++package backend
++
++import (
++	"strings"
++	"testing"
++)
++
++func TestSingleMousePipeIsRequestedOnlyForTheVerifiedBundle(t *testing.T) {
++	t.Setenv("PSMUX_CONPTY_PIPE_MOUSE_ONLY", "inherited-untrusted")
++	t.Setenv("PSMUX_CONPTY_DIR", "inherited-untrusted")
++	plain := (&Backend{bin: "synthetic-backend", kind: "psmux"}).command()
++	for _, entry := range plain.Env {
++		if strings.HasPrefix(entry, "PSMUX_CONPTY_") {
++			t.Fatal("default backend inherited explicit bundle transport")
++		}
++	}
++	// bundle is private state produced only by prepareTerminalBundle validation.
++	selected := (&Backend{bin: "synthetic-backend", kind: "psmux", bundle: t.TempDir()}).command()
++	got := ""
++	for _, entry := range selected.Env {
++		if strings.HasPrefix(entry, "PSMUX_CONPTY_PIPE_MOUSE_ONLY=") {
++			got = strings.TrimPrefix(entry, "PSMUX_CONPTY_PIPE_MOUSE_ONLY=")
++		}
++	}
++	if got != "1" {
++		t.Fatal("verified bundle did not select one native mouse channel")
++	}
++}

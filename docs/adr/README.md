@@ -67,3 +67,5 @@ ADR-0014 依据用户 2026-11-22 的明确要求接受，部分替代 0001/0002 
 | [0037](0037-directory-pickers-and-bounded-recents.md) | 目录建议、单扫描及按 scope 隔离的最近目录缓存 | 已接受 | [本地组件／文件系统复验](../testing/results/2026-11-24-directory-pickers.md)；原生路径／实体输入和完整体验仍开放 |
 | [0038](0038-program-mouse-buttons-and-motion.md) | 程序三按钮／修饰和有界悬停 | 已接受 | [本地协议／模型](../testing/results/2026-11-24-program-mouse-buttons.md)；原生 VT／Win32、实体鼠标及完整体验开放 |
 | [0039](0039-launch-dialog-environment-overrides.md) | 新建终端临时环境覆盖与安全错误摘要 | 已接受 | [UI 服务边界／布局](../testing/results/2026-11-24-launch-environment.md)；Windows 子进程／agent 与完整视觉仍开放 |
+
+| [0040](0040-verified-conpty-single-mouse-channel.md) | 实际目录宿主的单通道鼠标候选 | 已接受（开发候选） | [严格原生复验及接入](../testing/results/2026-11-25-single-mouse-channel.md)；系统宿主、实体硬件、混合读取器及发布仍开放 |

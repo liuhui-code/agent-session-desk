@@ -1,0 +1,50 @@
+{
+    "old_backend_sha256":  "CA9753A059A6926BB5AD1D9FEE81513507A6133D3EFA5EEFCF2423E33F348937",
+    "old_product_sha256":  "BAF087DC26A7E49E00A6D3D5600D13FA00B4C4D3218BEBC1F1F0DA0D8494CB57",
+    "execution_policy":  [
+                             {
+                                 "policy":  "Undefined",
+                                 "scope":  "MachinePolicy"
+                             },
+                             {
+                                 "policy":  "Undefined",
+                                 "scope":  "UserPolicy"
+                             },
+                             {
+                                 "policy":  "Undefined",
+                                 "scope":  "Process"
+                             },
+                             {
+                                 "policy":  "Undefined",
+                                 "scope":  "CurrentUser"
+                             },
+                             {
+                                 "policy":  "Undefined",
+                                 "scope":  "LocalMachine"
+                             }
+                         ],
+    "tasks":  [
+                  {
+                      "last_result":  0,
+                      "name":  "AsdMouseCandidateWin32Run220261125",
+                      "absent":  true
+                  },
+                  {
+                      "last_result":  0,
+                      "name":  "AsdMouseCandidateWin32Run120261124",
+                      "absent":  true
+                  },
+                  {
+                      "last_result":  0,
+                      "name":  "AsdMouseCandidateVTRun120261125",
+                      "absent":  true
+                  },
+                  {
+                      "last_result":  0,
+                      "name":  "AsdMouseCandidateWheelRun120261125",
+                      "absent":  true
+                  }
+              ],
+    "candidate_sha256":  "FF9D8893ECC53AC5CACA3BAE0146D75EBCAF2CF7EDC4ABF9D87578469FB7B16B",
+    "candidate_image_matches":  0
+}

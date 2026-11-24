@@ -1,0 +1,147 @@
+[
+    {
+        "utc":  "2026-11-24T04:47:58.5807818Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  20136,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe",
+                        "session":  2,
+                        "kind":  "control-terminal",
+                        "filetime":  134399692774212490
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T04:47:59.2837412Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  20344,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                        "session":  2,
+                        "kind":  "direct-control-app",
+                        "filetime":  134399692778409650
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T04:47:59.3930910Z",
+        "details":  {
+                        "rect":  [
+                                     40,
+                                     40,
+                                     1240,
+                                     760
+                                 ],
+                        "fontNames":  [
+                                          "System.__ComObject",
+                                          "Cascadia Mono"
+                                      ],
+                        "name":  "01-direct-program"
+                    },
+        "kind":  "capture"
+    },
+    {
+        "utc":  "2026-11-24T04:47:59.9710786Z",
+        "details":  {
+                        "from":  {
+                                     "y":  174,
+                                     "pane_row":  4,
+                                     "pane_col":  5,
+                                     "x":  106
+                                 },
+                        "to":  {
+                                   "y":  174,
+                                   "pane_row":  4,
+                                   "pane_col":  9,
+                                   "x":  142
+                               },
+                        "modifier":  0,
+                        "button":  0
+                    },
+        "kind":  "program-gesture"
+    },
+    {
+        "utc":  "2026-11-24T04:48:00.5336315Z",
+        "details":  {
+                        "from":  {
+                                     "y":  174,
+                                     "pane_row":  4,
+                                     "pane_col":  5,
+                                     "x":  106
+                                 },
+                        "to":  {
+                                   "y":  174,
+                                   "pane_row":  4,
+                                   "pane_col":  9,
+                                   "x":  142
+                               },
+                        "modifier":  17,
+                        "button":  0
+                    },
+        "kind":  "program-gesture"
+    },
+    {
+        "utc":  "2026-11-24T04:48:01.0631437Z",
+        "details":  {
+                        "from":  {
+                                     "y":  174,
+                                     "pane_row":  4,
+                                     "pane_col":  5,
+                                     "x":  106
+                                 },
+                        "to":  {
+                                   "y":  174,
+                                   "pane_row":  4,
+                                   "pane_col":  9,
+                                   "x":  142
+                               },
+                        "modifier":  18,
+                        "button":  0
+                    },
+        "kind":  "program-gesture"
+    },
+    {
+        "utc":  "2026-11-24T04:48:01.6411353Z",
+        "details":  {
+                        "from":  {
+                                     "y":  174,
+                                     "pane_row":  4,
+                                     "pane_col":  5,
+                                     "x":  106
+                                 },
+                        "to":  {
+                                   "y":  174,
+                                   "pane_row":  4,
+                                   "pane_col":  9,
+                                   "x":  142
+                               },
+                        "modifier":  16,
+                        "button":  0
+                    },
+        "kind":  "program-gesture"
+    },
+    {
+        "utc":  "2026-11-24T04:48:01.7034451Z",
+        "details":  {
+                        "rect":  [
+                                     40,
+                                     40,
+                                     1240,
+                                     760
+                                 ],
+                        "fontNames":  [
+                                          "System.__ComObject",
+                                          "Cascadia Mono"
+                                      ],
+                        "name":  "02-direct-after-left-only"
+                    },
+        "kind":  "capture"
+    },
+    {
+        "utc":  "2026-11-24T04:48:01.7346874Z",
+        "details":  {
+                        "value":  "q"
+                    },
+        "kind":  "text"
+    }
+]

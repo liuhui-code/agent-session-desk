@@ -1,0 +1,71 @@
+diff --git a/src/main.rs b/src/main.rs
+--- a/src/main.rs
++++ b/src/main.rs
+@@ -26,6 +26,7 @@
+ mod copy_prompt;
+ mod input;
+ mod layout;
++mod mouse_routing;
+ mod window_ops;
+ mod util;
+ mod format;
+diff --git a/src/window_ops.rs b/src/window_ops.rs
+--- a/src/window_ops.rs
++++ b/src/window_ops.rs
+@@ -882,8 +882,13 @@
+ /// wheel gate) run BEFORE this and are untouched: this decides how a report
+ /// travels, never whether one is owed.
+ pub(crate) fn record_bypass_applies(event_flags: u32) -> bool {
+-    event_flags & mouse_inject::MOUSE_WHEELED != 0
+-        || crate::ssh_input::conpty_needs_mouse_record_bypass()
++    #[cfg(windows)]
++    let directory_loaded = matches!(portable_pty::win::conpty_source(), portable_pty::win::ConPtySource::Directory);
++    #[cfg(not(windows))]
++    let directory_loaded = false;
++    static PIPE_ONLY: std::sync::OnceLock<bool> = std::sync::OnceLock::new();
++    let pipe_only = *PIPE_ONLY.get_or_init(|| std::env::var("PSMUX_CONPTY_PIPE_MOUSE_ONLY").as_deref() == Ok("1"));
++    crate::mouse_routing::record_bypass_for_host(event_flags & mouse_inject::MOUSE_WHEELED != 0, crate::ssh_input::conpty_needs_mouse_record_bypass(), directory_loaded, pipe_only)
+ }
+ 
+ /// Inject a mouse event into a pane using the best available method.
+diff --git a/src/mouse_routing.rs b/src/mouse_routing.rs
+new file mode 100644
+--- /dev/null
++++ b/src/mouse_routing.rs
+@@ -0,0 +1,36 @@
++// Select one delivery channel only for an explicitly selected directory host.
++// Defaults and a failed directory load retain the pinned legacy route.
++pub(crate) fn record_bypass_for_host(
++    wheel: bool, legacy_system: bool, directory_loaded: bool, pipe_only: bool,
++) -> bool {
++    if directory_loaded && pipe_only {
++        return false;
++    }
++    wheel || legacy_system
++}
++
++#[cfg(test)]
++mod tests {
++    #[test]
++    fn verified_directory_pipe_mode_has_no_second_record_channel() {
++        for wheel in [false, true] {
++            assert!(!super::record_bypass_for_host(wheel, true, true, true),
++                "verified modern directory still duplicated wheel={wheel}");
++        }
++    }
++    #[test]
++    fn default_and_failed_directory_keep_the_legacy_channels() {
++        // Windows 10 remains unchanged unless both opt-in and load are true.
++        assert!(super::record_bypass_for_host(false, true, false, false));
++        assert!(super::record_bypass_for_host(true, true, false, false));
++        assert!(super::record_bypass_for_host(false, true, false, true));
++        assert!(super::record_bypass_for_host(true, true, false, true));
++        assert!(super::record_bypass_for_host(false, true, true, false));
++        // A modern inbox host retains the pinned wheel-only exception.
++        assert!(!super::record_bypass_for_host(false, false, false, false));
++        assert!(super::record_bypass_for_host(true, false, false, false));
++        assert!(!super::record_bypass_for_host(false, false, false, true));
++        assert!(super::record_bypass_for_host(true, false, false, true));
++    }
++
++}

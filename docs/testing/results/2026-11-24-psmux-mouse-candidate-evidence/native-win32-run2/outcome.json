@@ -1,0 +1,65 @@
+{
+  "forced_ends": 0,
+  "windows": "Microsoft Windows NT 10.0.19045.0",
+  "product_sha256": "404D352E72DEF2ED0D36ECB2CA08491271DE8652CA589E6A8A13DA2DFF993366",
+  "surface": "Windows Terminal desktop Win32 console app",
+  "result": "passed",
+  "originals": [
+    {
+      "pid": 12952,
+      "filetime": 134400104057117357,
+      "original_ended": true,
+      "kind": "shell-A"
+    },
+    {
+      "pid": 4692,
+      "filetime": 134400104069867889,
+      "original_ended": true,
+      "kind": "shell-B"
+    },
+    {
+      "pid": 7996,
+      "filetime": 134400104056116870,
+      "original_ended": true,
+      "kind": "backend"
+    },
+    {
+      "pid": 8668,
+      "filetime": 134400104057038124,
+      "original_ended": true,
+      "kind": "conpty-host"
+    },
+    {
+      "pid": 6776,
+      "filetime": 134400104068931710,
+      "original_ended": true,
+      "kind": "backend"
+    },
+    {
+      "pid": 20428,
+      "filetime": 134400104069790992,
+      "original_ended": true,
+      "kind": "conpty-host"
+    },
+    {
+      "pid": 18816,
+      "filetime": 134400104084139325,
+      "original_ended": true,
+      "kind": "terminal-first"
+    },
+    {
+      "pid": 9760,
+      "filetime": 134400104097947494,
+      "original_ended": true,
+      "kind": "manager-first"
+    }
+  ],
+  "events": 30,
+  "utc": "2026-11-24T16:13:40.7711028Z",
+  "shift_injected": false,
+  "system_clipboard_calls": 0,
+  "caps_lock_unchanged": true,
+  "private_terminal_settings_after": "1499307ABEBA68C23F9EB38A4C636F81172475B6B2B535BC0B11DCD9547241F8",
+  "system_settings_written": false,
+  "private_terminal_settings_before": "1499307ABEBA68C23F9EB38A4C636F81172475B6B2B535BC0B11DCD9547241F8"
+}

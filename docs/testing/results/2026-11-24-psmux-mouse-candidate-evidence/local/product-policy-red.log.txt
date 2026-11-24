@@ -1,0 +1,5 @@
+--- FAIL: TestSingleMousePipeIsRequestedOnlyForTheVerifiedBundle (0.00s)
+    mouse_bundle_policy_test.go:26: verified bundle did not select one native mouse channel
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/backend	2.987s
+FAIL

@@ -82,7 +82,9 @@ func (m *Model) sessionRenameEvent(msg tea.Msg) (tea.Cmd, bool) {
 		m.acceptSessionName(result.session)
 		m.rename = nil
 		m.status = ""
-		return m.connectWorkspace(), true
+		// The new name also changes discovery order and its reviewed stamp.
+		// Reconcile both from the service for subsequent reviewed moves.
+		return tea.Batch(m.connectWorkspace(), m.loadSessions()), true
 	}
 	d := m.rename
 	if d == nil {

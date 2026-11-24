@@ -1,0 +1,5 @@
+--- FAIL: TestRenameRefreshesNameOrderBeforeMovingSelectedOriginalSession (0.01s)
+    session_rename_order_test.go:55: management changed or submitted original draft: ""
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	3.504s
+FAIL

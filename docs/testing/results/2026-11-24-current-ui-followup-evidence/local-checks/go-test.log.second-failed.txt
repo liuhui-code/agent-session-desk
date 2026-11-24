@@ -1,0 +1,16 @@
+?   	github.com/liuhui-code/agent-session-desk/cmd/asd	[no test files]
+ok  	github.com/liuhui-code/agent-session-desk/cmd/asd-fixture	(cached)
+ok  	github.com/liuhui-code/agent-session-desk/internal/appearance	(cached)
+ok  	github.com/liuhui-code/agent-session-desk/internal/backend	(cached)
+ok  	github.com/liuhui-code/agent-session-desk/internal/cli	(cached)
+ok  	github.com/liuhui-code/agent-session-desk/internal/config	(cached)
+ok  	github.com/liuhui-code/agent-session-desk/internal/manager	(cached)
+ok  	github.com/liuhui-code/agent-session-desk/internal/pathsuggest	(cached)
+ok  	github.com/liuhui-code/agent-session-desk/internal/session	(cached)
+ok  	github.com/liuhui-code/agent-session-desk/internal/store	(cached)
+ok  	github.com/liuhui-code/agent-session-desk/internal/terminal	(cached)
+--- FAIL: TestRenameRefreshesNameOrderBeforeMovingSelectedOriginalSession (0.01s)
+    session_rename_order_test.go:61: management changed or submitted original draft: "paste:original draft;size:73,25"
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	8.584s
+FAIL

@@ -1,0 +1,403 @@
+[
+    {
+        "utc":  "2026-11-24T04:25:00.1604839Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  18420,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                        "session":  2,
+                        "kind":  "shell-A",
+                        "filetime":  134399678994028227
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T04:25:01.0776915Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  8620,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                        "session":  2,
+                        "kind":  "shell-B",
+                        "filetime":  134399679003660777
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T04:25:01.1870405Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  16020,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\terminal-bundle-20261123\\bundle\\psmux.exe",
+                        "session":  2,
+                        "kind":  "backend",
+                        "filetime":  134399678993093342
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T04:25:01.2026628Z",
+        "details":  {
+                        "sha256":  "E971856F89748DC3B458125E9AFDD79B5E9574A7C937676116D3CBBD3B71F492",
+                        "session_id":  "ffde7cf9ce98e38580bc93fb961d89d7"
+                    },
+        "kind":  "backend-host"
+    },
+    {
+        "utc":  "2026-11-24T04:25:01.2339040Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  17516,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\terminal-bundle-20261123\\bundle\\psmux.exe",
+                        "session":  2,
+                        "kind":  "backend",
+                        "filetime":  134399679002857707
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T04:25:01.2339040Z",
+        "details":  {
+                        "sha256":  "E971856F89748DC3B458125E9AFDD79B5E9574A7C937676116D3CBBD3B71F492",
+                        "session_id":  "7e94e6918446bab052b0bb062072fc73"
+                    },
+        "kind":  "backend-host"
+    },
+    {
+        "utc":  "2026-11-24T04:25:01.2651466Z",
+        "details":  {
+                        "command":  "\u0026 \u0027<WINDOWS_USER>\\asd-acceptance-20261122\\asd-launch-environment.exe\u0027 \u0027--terminal-bundle\u0027 \u0027<WINDOWS_USER>\\asd-acceptance-20261122\\terminal-bundle-20261123\\bundle\u0027 \u0027--runtime-dir\u0027 \u0027<WINDOWS_USER>\\asd-acceptance-20261122\\current-ime-09ae102-20261124\\runtime\u0027 \u0027--namespace\u0027 \u0027asd-current-ime\u0027 \u0027--state-dir\u0027 \u0027<WINDOWS_USER>\\asd-acceptance-20261122\\current-ime-09ae102-20261124\\state\u0027",
+                        "outer_receipt":  "<WINDOWS_USER>\\asd-acceptance-20261122\\current-ime-09ae102-20261124\\first-outer-exit.json"
+                    },
+        "kind":  "ui-launch"
+    },
+    {
+        "utc":  "2026-11-24T04:25:02.4695538Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  10840,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe",
+                        "session":  2,
+                        "kind":  "terminal-first",
+                        "filetime":  134399679013317088
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T04:25:03.1557197Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  4308,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\asd-launch-environment.exe",
+                        "session":  2,
+                        "kind":  "manager-first",
+                        "filetime":  134399679021538840
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T04:25:03.4831475Z",
+        "details":  {
+                        "value":  "$sample=\u0027"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T04:25:04.3344344Z",
+        "details":  {
+                        "text":  "nihao"
+                    },
+        "kind":  "scan"
+    },
+    {
+        "utc":  "2026-11-24T04:25:04.8183564Z",
+        "details":  {
+                        "rect":  [
+                                     40,
+                                     40,
+                                     1240,
+                                     760
+                                 ],
+                        "fontNames":  [
+                                          "System.__ComObject",
+                                          "Cascadia Mono"
+                                      ],
+                        "name":  "01-terminal-preedit"
+                    },
+        "kind":  "capture"
+    },
+    {
+        "utc":  "2026-11-24T04:25:04.8813133Z",
+        "details":  {
+                        "value":  " "
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T04:25:05.1657078Z",
+        "details":  {
+                        "rect":  [
+                                     40,
+                                     40,
+                                     1240,
+                                     760
+                                 ],
+                        "fontNames":  [
+                                          "System.__ComObject",
+                                          "Cascadia Mono"
+                                      ],
+                        "name":  "02-terminal-confirmed"
+                    },
+        "kind":  "capture"
+    },
+    {
+        "utc":  "2026-11-24T04:25:06.6696571Z",
+        "details":  {
+                        "text":  "zhongwen"
+                    },
+        "kind":  "scan"
+    },
+    {
+        "utc":  "2026-11-24T04:25:06.9176391Z",
+        "details":  {
+                        "rect":  [
+                                     40,
+                                     40,
+                                     1240,
+                                     760
+                                 ],
+                        "fontNames":  [
+                                          "System.__ComObject",
+                                          "Cascadia Mono"
+                                      ],
+                        "name":  "03-terminal-second-preedit"
+                    },
+        "kind":  "capture"
+    },
+    {
+        "utc":  "2026-11-24T04:25:07.3154382Z",
+        "details":  {
+                        "rect":  [
+                                     40,
+                                     40,
+                                     570,
+                                     550
+                                 ],
+                        "fontNames":  [
+                                          "System.__ComObject",
+                                          "Cascadia Mono"
+                                      ],
+                        "name":  "04-narrow-preedit"
+                    },
+        "kind":  "capture"
+    },
+    {
+        "utc":  "2026-11-24T04:25:07.3505805Z",
+        "details":  {
+                        "value":  "{ESC}"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T04:25:07.6103143Z",
+        "details":  {
+                        "rect":  [
+                                     40,
+                                     40,
+                                     570,
+                                     550
+                                 ],
+                        "fontNames":  [
+                                          "System.__ComObject",
+                                          "Cascadia Mono"
+                                      ],
+                        "name":  "05-narrow-cancelled"
+                    },
+        "kind":  "capture"
+    },
+    {
+        "utc":  "2026-11-24T04:25:09.9991619Z",
+        "details":  {
+                        "value":  "\u0027; $sample | Set-Content -LiteralPath ime-result.txt -Encoding utf8"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T04:25:10.0304333Z",
+        "details":  {
+                        "value":  "{ENTER}"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T04:25:10.1436991Z",
+        "details":  {
+                        "text":  "你好",
+                        "explicit_enter":  true
+                    },
+        "kind":  "independent-ime-result"
+    },
+    {
+        "utc":  "2026-11-24T04:25:10.2344106Z",
+        "details":  {
+                        "rect":  [
+                                     40,
+                                     40,
+                                     1240,
+                                     760
+                                 ],
+                        "fontNames":  [
+                                          "System.__ComObject",
+                                          "Cascadia Mono"
+                                      ],
+                        "name":  "06-explicit-shell-enter"
+                    },
+        "kind":  "capture"
+    },
+    {
+        "utc":  "2026-11-24T04:25:10.2628967Z",
+        "details":  {
+                        "value":  "{F6}"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T04:25:10.4616186Z",
+        "details":  {
+                        "value":  "n"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T04:25:11.3258819Z",
+        "details":  {
+                        "text":  "nihao"
+                    },
+        "kind":  "scan"
+    },
+    {
+        "utc":  "2026-11-24T04:25:11.3937790Z",
+        "details":  {
+                        "rect":  [
+                                     40,
+                                     40,
+                                     1240,
+                                     760
+                                 ],
+                        "fontNames":  [
+                                          "System.__ComObject",
+                                          "Cascadia Mono"
+                                      ],
+                        "name":  "07-form-preedit"
+                    },
+        "kind":  "capture"
+    },
+    {
+        "utc":  "2026-11-24T04:25:11.4698945Z",
+        "details":  {
+                        "value":  " "
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T04:25:11.5769087Z",
+        "details":  {
+                        "rect":  [
+                                     40,
+                                     40,
+                                     1240,
+                                     760
+                                 ],
+                        "fontNames":  [
+                                          "System.__ComObject",
+                                          "Cascadia Mono"
+                                      ],
+                        "name":  "08-form-confirmed"
+                    },
+        "kind":  "capture"
+    },
+    {
+        "utc":  "2026-11-24T04:25:12.9378043Z",
+        "details":  {
+                        "text":  "zhongwen"
+                    },
+        "kind":  "scan"
+    },
+    {
+        "utc":  "2026-11-24T04:25:13.0129343Z",
+        "details":  {
+                        "rect":  [
+                                     40,
+                                     40,
+                                     1240,
+                                     760
+                                 ],
+                        "fontNames":  [
+                                          "System.__ComObject",
+                                          "Cascadia Mono"
+                                      ],
+                        "name":  "09-form-second-preedit"
+                    },
+        "kind":  "capture"
+    },
+    {
+        "utc":  "2026-11-24T04:25:13.0661201Z",
+        "details":  {
+                        "value":  "{ESC}"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T04:25:13.3743317Z",
+        "details":  {
+                        "rect":  [
+                                     40,
+                                     40,
+                                     1240,
+                                     760
+                                 ],
+                        "fontNames":  [
+                                          "System.__ComObject",
+                                          "Cascadia Mono"
+                                      ],
+                        "name":  "10-form-cancelled-still-open"
+                    },
+        "kind":  "capture"
+    },
+    {
+        "utc":  "2026-11-24T04:25:13.4028665Z",
+        "details":  {
+                        "value":  "{ESC}"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T04:25:13.4813689Z",
+        "details":  {
+                        "value":  "{F6}"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T04:25:13.7275597Z",
+        "details":  {
+                        "value":  "{F6}"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T04:25:13.7893986Z",
+        "details":  {
+                        "value":  "q"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T04:25:14.1480547Z",
+        "details":  {
+                        "exit_code":  0,
+                        "pid":  4308
+                    },
+        "kind":  "normal-ui-exit"
+    }
+]

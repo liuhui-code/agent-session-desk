@@ -1,0 +1,12 @@
+=== RUN   TestWindowsTerminalBundleInputHistoryAndReconnect
+    bundle_flow_windows_test.go:28: native Windows backend=psmux version=3.4.0 sha256=ff9d8893ecc53ac5caca3bae0146d75ebcaf2cf7edc4abf9d87578469fb7b16b namespace=asd-native-1b429e3565b9
+    bundle_flow_windows_test.go:122: bundle flow retained original Session=ae1edfe13f7e3273bb658e7b2b61fa77 Run=746b906012f3489096ba95db608e83a7 rootPID=1240 creation=134400106180137485, exact Unicode, 40 history lines, alternate resize and prompt reconnect
+--- PASS: TestWindowsTerminalBundleInputHistoryAndReconnect (2.22s)
+=== RUN   TestWindowsTerminalBundleRejectsSystemHostedExistingRun
+    bundle_windows_test.go:17: native Windows backend=psmux version=3.4.0 sha256=ff9d8893ecc53ac5caca3bae0146d75ebcaf2cf7edc4abf9d87578469fb7b16b namespace=asd-native-e6eff31a8321
+--- PASS: TestWindowsTerminalBundleRejectsSystemHostedExistingRun (0.99s)
+=== RUN   TestWindowsTerminalBundleRejectsUnpinnedFilesBeforeRuntimeCreation
+--- PASS: TestWindowsTerminalBundleRejectsUnpinnedFilesBeforeRuntimeCreation (0.01s)
+=== RUN   TestSingleMousePipeIsRequestedOnlyForTheVerifiedBundle
+--- PASS: TestSingleMousePipeIsRequestedOnlyForTheVerifiedBundle (0.01s)
+PASS

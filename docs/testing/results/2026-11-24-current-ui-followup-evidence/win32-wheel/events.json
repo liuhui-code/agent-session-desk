@@ -1,0 +1,186 @@
+[
+    {
+        "utc":  "2026-11-24T06:46:07.8313853Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  12696,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                        "session":  2,
+                        "kind":  "shell-A",
+                        "filetime":  134399763670637811
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T06:46:08.7401054Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  19032,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                        "session":  2,
+                        "kind":  "shell-B",
+                        "filetime":  134399763680418532
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T06:46:08.8494807Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  1732,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\terminal-bundle-20261123\\bundle\\psmux.exe",
+                        "session":  2,
+                        "kind":  "backend",
+                        "filetime":  134399763669388182
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T06:46:08.8494807Z",
+        "details":  {
+                        "sha256":  "E971856F89748DC3B458125E9AFDD79B5E9574A7C937676116D3CBBD3B71F492",
+                        "session_id":  "201e27a4b782f438bf44a3d449c484dc"
+                    },
+        "kind":  "backend-host"
+    },
+    {
+        "utc":  "2026-11-24T06:46:08.8806968Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  20080,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\terminal-bundle-20261123\\bundle\\psmux.exe",
+                        "session":  2,
+                        "kind":  "backend",
+                        "filetime":  134399763679591917
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T06:46:08.8806968Z",
+        "details":  {
+                        "sha256":  "E971856F89748DC3B458125E9AFDD79B5E9574A7C937676116D3CBBD3B71F492",
+                        "session_id":  "177feb2200fa2607a0717eb9717e1a76"
+                    },
+        "kind":  "backend-host"
+    },
+    {
+        "utc":  "2026-11-24T06:46:08.9119402Z",
+        "details":  {
+                        "command":  "\u0026 \u0027<WINDOWS_USER>\\asd-acceptance-20261122\\asd-launch-environment.exe\u0027 \u0027--terminal-bundle\u0027 \u0027<WINDOWS_USER>\\asd-acceptance-20261122\\terminal-bundle-20261123\\bundle\u0027 \u0027--runtime-dir\u0027 \u0027<WINDOWS_USER>\\asd-acceptance-20261122\\current-win32-wheel-09ae102-20261124\\runtime\u0027 \u0027--namespace\u0027 \u0027asd-current-program-mouse\u0027 \u0027--state-dir\u0027 \u0027<WINDOWS_USER>\\asd-acceptance-20261122\\current-win32-wheel-09ae102-20261124\\state\u0027",
+                        "outer_receipt":  "<WINDOWS_USER>\\asd-acceptance-20261122\\current-win32-wheel-09ae102-20261124\\first-outer-exit.json"
+                    },
+        "kind":  "ui-launch"
+    },
+    {
+        "utc":  "2026-11-24T06:46:10.1665806Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  4848,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe",
+                        "session":  2,
+                        "kind":  "terminal-first",
+                        "filetime":  134399763689868721
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T06:46:10.8719781Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  18152,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\asd-launch-environment.exe",
+                        "session":  2,
+                        "kind":  "manager-first",
+                        "filetime":  134399763699059984
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T06:46:11.4339994Z",
+        "details":  {
+                        "value":  ". .\\mouse-app.ps1"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T06:46:11.4797901Z",
+        "details":  {
+                        "value":  "{ENTER}"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T06:46:12.4972917Z",
+        "details":  {
+                        "rect":  [
+                                     40,
+                                     40,
+                                     1240,
+                                     760
+                                 ],
+                        "fontNames":  [
+                                          "System.__ComObject",
+                                          "Cascadia Mono"
+                                      ],
+                        "name":  "01-program-ready"
+                    },
+        "kind":  "capture"
+    },
+    {
+        "utc":  "2026-11-24T06:46:12.8121587Z",
+        "details":  {
+                        "point":  {
+                                      "y":  232,
+                                      "pane_row":  4,
+                                      "pane_col":  5,
+                                      "x":  348
+                                  },
+                        "delta":  120
+                    },
+        "kind":  "program-wheel"
+    },
+    {
+        "utc":  "2026-11-24T06:46:13.4253796Z",
+        "details":  {
+                        "point":  {
+                                      "y":  232,
+                                      "pane_row":  4,
+                                      "pane_col":  5,
+                                      "x":  348
+                                  },
+                        "delta":  -120
+                    },
+        "kind":  "program-wheel"
+    },
+    {
+        "utc":  "2026-11-24T06:46:14.1389881Z",
+        "details":  {
+                        "rect":  [
+                                     40,
+                                     40,
+                                     1240,
+                                     760
+                                 ],
+                        "fontNames":  [
+                                          "System.__ComObject",
+                                          "Cascadia Mono"
+                                      ],
+                        "name":  "02-after-program-gestures"
+                    },
+        "kind":  "capture"
+    },
+    {
+        "utc":  "2026-11-24T06:46:14.2201842Z",
+        "details":  {
+                        "value":  "q"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T06:46:14.4488164Z",
+        "details":  {
+                        "error":  "Actual native wheel has extra/missing events; retained raw records, no wheel replay"
+                    },
+        "kind":  "failure"
+    }
+]

@@ -1,0 +1,431 @@
+{
+  "matrix": [
+    {
+      "passed": true,
+      "actual": [
+        "5,4,1,0,0",
+        "9,4,1,0,1",
+        "9,4,0,0,0"
+      ],
+      "expected": [
+        "5,4,1,0,0",
+        "9,4,1,0,1",
+        "9,4,0,0,0"
+      ],
+      "mask": 0,
+      "button": 0
+    },
+    {
+      "passed": true,
+      "actual": [
+        "5,4,4,0,0",
+        "9,4,4,0,1",
+        "9,4,0,0,0"
+      ],
+      "expected": [
+        "5,4,4,0,0",
+        "9,4,4,0,1",
+        "9,4,0,0,0"
+      ],
+      "mask": 0,
+      "button": 1
+    },
+    {
+      "passed": true,
+      "actual": [
+        "5,4,2,0,0",
+        "9,4,2,0,1",
+        "9,4,0,0,0"
+      ],
+      "expected": [
+        "5,4,2,0,0",
+        "9,4,2,0,1",
+        "9,4,0,0,0"
+      ],
+      "mask": 0,
+      "button": 2
+    },
+    {
+      "passed": true,
+      "actual": [
+        "5,4,1,8,0",
+        "9,4,1,8,1",
+        "9,4,0,8,0"
+      ],
+      "expected": [
+        "5,4,1,8,0",
+        "9,4,1,8,1",
+        "9,4,0,8,0"
+      ],
+      "mask": 16,
+      "button": 0
+    },
+    {
+      "passed": true,
+      "actual": [
+        "5,4,4,8,0",
+        "9,4,4,8,1",
+        "9,4,0,8,0"
+      ],
+      "expected": [
+        "5,4,4,8,0",
+        "9,4,4,8,1",
+        "9,4,0,8,0"
+      ],
+      "mask": 16,
+      "button": 1
+    },
+    {
+      "passed": true,
+      "actual": [
+        "5,4,2,8,0",
+        "9,4,2,8,1",
+        "9,4,0,8,0"
+      ],
+      "expected": [
+        "5,4,2,8,0",
+        "9,4,2,8,1",
+        "9,4,0,8,0"
+      ],
+      "mask": 16,
+      "button": 2
+    },
+    {
+      "passed": true,
+      "actual": [
+        "5,4,1,2,0",
+        "9,4,1,2,1",
+        "9,4,0,2,0"
+      ],
+      "expected": [
+        "5,4,1,2,0",
+        "9,4,1,2,1",
+        "9,4,0,2,0"
+      ],
+      "mask": 8,
+      "button": 0
+    },
+    {
+      "passed": true,
+      "actual": [
+        "5,4,4,2,0",
+        "9,4,4,2,1",
+        "9,4,0,2,0"
+      ],
+      "expected": [
+        "5,4,4,2,0",
+        "9,4,4,2,1",
+        "9,4,0,2,0"
+      ],
+      "mask": 8,
+      "button": 1
+    },
+    {
+      "passed": true,
+      "actual": [
+        "5,4,2,2,0",
+        "9,4,2,2,1",
+        "9,4,0,2,0"
+      ],
+      "expected": [
+        "5,4,2,2,0",
+        "9,4,2,2,1",
+        "9,4,0,2,0"
+      ],
+      "mask": 8,
+      "button": 2
+    }
+  ],
+  "shift_injected": false,
+  "strict_native_fixture": true,
+  "received": [
+    {
+      "n": 1,
+      "x": 5,
+      "y": 4,
+      "buttons": 0,
+      "control": 0,
+      "flags": 1
+    },
+    {
+      "n": 2,
+      "x": 5,
+      "y": 4,
+      "buttons": 1,
+      "control": 0,
+      "flags": 0
+    },
+    {
+      "n": 3,
+      "x": 9,
+      "y": 4,
+      "buttons": 1,
+      "control": 0,
+      "flags": 1
+    },
+    {
+      "n": 4,
+      "x": 9,
+      "y": 4,
+      "buttons": 0,
+      "control": 0,
+      "flags": 0
+    },
+    {
+      "n": 5,
+      "x": 5,
+      "y": 4,
+      "buttons": 0,
+      "control": 0,
+      "flags": 1
+    },
+    {
+      "n": 6,
+      "x": 5,
+      "y": 4,
+      "buttons": 4,
+      "control": 0,
+      "flags": 0
+    },
+    {
+      "n": 7,
+      "x": 9,
+      "y": 4,
+      "buttons": 4,
+      "control": 0,
+      "flags": 1
+    },
+    {
+      "n": 8,
+      "x": 9,
+      "y": 4,
+      "buttons": 0,
+      "control": 0,
+      "flags": 0
+    },
+    {
+      "n": 9,
+      "x": 5,
+      "y": 4,
+      "buttons": 0,
+      "control": 0,
+      "flags": 1
+    },
+    {
+      "n": 10,
+      "x": 5,
+      "y": 4,
+      "buttons": 2,
+      "control": 0,
+      "flags": 0
+    },
+    {
+      "n": 11,
+      "x": 9,
+      "y": 4,
+      "buttons": 2,
+      "control": 0,
+      "flags": 1
+    },
+    {
+      "n": 12,
+      "x": 9,
+      "y": 4,
+      "buttons": 0,
+      "control": 0,
+      "flags": 0
+    },
+    {
+      "n": 13,
+      "x": 5,
+      "y": 4,
+      "buttons": 0,
+      "control": 0,
+      "flags": 1
+    },
+    {
+      "n": 14,
+      "x": 5,
+      "y": 4,
+      "buttons": 1,
+      "control": 8,
+      "flags": 0
+    },
+    {
+      "n": 15,
+      "x": 9,
+      "y": 4,
+      "buttons": 1,
+      "control": 8,
+      "flags": 1
+    },
+    {
+      "n": 16,
+      "x": 9,
+      "y": 4,
+      "buttons": 0,
+      "control": 8,
+      "flags": 0
+    },
+    {
+      "n": 17,
+      "x": 5,
+      "y": 4,
+      "buttons": 0,
+      "control": 0,
+      "flags": 1
+    },
+    {
+      "n": 18,
+      "x": 5,
+      "y": 4,
+      "buttons": 4,
+      "control": 8,
+      "flags": 0
+    },
+    {
+      "n": 19,
+      "x": 9,
+      "y": 4,
+      "buttons": 4,
+      "control": 8,
+      "flags": 1
+    },
+    {
+      "n": 20,
+      "x": 9,
+      "y": 4,
+      "buttons": 0,
+      "control": 8,
+      "flags": 0
+    },
+    {
+      "n": 21,
+      "x": 5,
+      "y": 4,
+      "buttons": 0,
+      "control": 0,
+      "flags": 1
+    },
+    {
+      "n": 22,
+      "x": 5,
+      "y": 4,
+      "buttons": 2,
+      "control": 8,
+      "flags": 0
+    },
+    {
+      "n": 23,
+      "x": 9,
+      "y": 4,
+      "buttons": 2,
+      "control": 8,
+      "flags": 1
+    },
+    {
+      "n": 24,
+      "x": 9,
+      "y": 4,
+      "buttons": 0,
+      "control": 8,
+      "flags": 0
+    },
+    {
+      "n": 25,
+      "x": 5,
+      "y": 4,
+      "buttons": 0,
+      "control": 0,
+      "flags": 1
+    },
+    {
+      "n": 26,
+      "x": 5,
+      "y": 4,
+      "buttons": 1,
+      "control": 2,
+      "flags": 0
+    },
+    {
+      "n": 27,
+      "x": 9,
+      "y": 4,
+      "buttons": 1,
+      "control": 2,
+      "flags": 1
+    },
+    {
+      "n": 28,
+      "x": 9,
+      "y": 4,
+      "buttons": 0,
+      "control": 2,
+      "flags": 0
+    },
+    {
+      "n": 29,
+      "x": 5,
+      "y": 4,
+      "buttons": 0,
+      "control": 0,
+      "flags": 1
+    },
+    {
+      "n": 30,
+      "x": 5,
+      "y": 4,
+      "buttons": 4,
+      "control": 2,
+      "flags": 0
+    },
+    {
+      "n": 31,
+      "x": 9,
+      "y": 4,
+      "buttons": 4,
+      "control": 2,
+      "flags": 1
+    },
+    {
+      "n": 32,
+      "x": 9,
+      "y": 4,
+      "buttons": 0,
+      "control": 2,
+      "flags": 0
+    },
+    {
+      "n": 33,
+      "x": 5,
+      "y": 4,
+      "buttons": 0,
+      "control": 0,
+      "flags": 1
+    },
+    {
+      "n": 34,
+      "x": 5,
+      "y": 4,
+      "buttons": 2,
+      "control": 2,
+      "flags": 0
+    },
+    {
+      "n": 35,
+      "x": 9,
+      "y": 4,
+      "buttons": 2,
+      "control": 2,
+      "flags": 1
+    },
+    {
+      "n": 36,
+      "x": 9,
+      "y": 4,
+      "buttons": 0,
+      "control": 2,
+      "flags": 0
+    }
+  ]
+}

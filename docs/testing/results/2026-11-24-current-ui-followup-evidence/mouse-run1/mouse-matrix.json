@@ -1,0 +1,326 @@
+{
+    "total_raw_bytes":  379,
+    "matrix":  [
+                   {
+                       "passed":  true,
+                       "up":  1,
+                       "button":  0,
+                       "drag":  1,
+                       "mask":  0,
+                       "down":  1
+                   },
+                   {
+                       "passed":  true,
+                       "up":  1,
+                       "button":  1,
+                       "drag":  1,
+                       "mask":  0,
+                       "down":  1
+                   },
+                   {
+                       "passed":  true,
+                       "up":  1,
+                       "button":  2,
+                       "drag":  1,
+                       "mask":  0,
+                       "down":  1
+                   },
+                   {
+                       "passed":  true,
+                       "up":  1,
+                       "button":  0,
+                       "drag":  1,
+                       "mask":  16,
+                       "down":  1
+                   },
+                   {
+                       "passed":  true,
+                       "up":  1,
+                       "button":  1,
+                       "drag":  1,
+                       "mask":  16,
+                       "down":  1
+                   },
+                   {
+                       "passed":  true,
+                       "up":  1,
+                       "button":  2,
+                       "drag":  1,
+                       "mask":  16,
+                       "down":  1
+                   },
+                   {
+                       "passed":  true,
+                       "up":  1,
+                       "button":  0,
+                       "drag":  1,
+                       "mask":  8,
+                       "down":  1
+                   },
+                   {
+                       "passed":  true,
+                       "up":  1,
+                       "button":  1,
+                       "drag":  1,
+                       "mask":  8,
+                       "down":  1
+                   },
+                   {
+                       "passed":  true,
+                       "up":  1,
+                       "button":  2,
+                       "drag":  1,
+                       "mask":  8,
+                       "down":  1
+                   },
+                   {
+                       "passed":  false,
+                       "up":  0,
+                       "button":  0,
+                       "drag":  0,
+                       "mask":  4,
+                       "down":  0
+                   },
+                   {
+                       "passed":  false,
+                       "up":  0,
+                       "button":  1,
+                       "drag":  0,
+                       "mask":  4,
+                       "down":  0
+                   },
+                   {
+                       "passed":  false,
+                       "up":  0,
+                       "button":  2,
+                       "drag":  0,
+                       "mask":  4,
+                       "down":  0
+                   }
+               ],
+    "strict_sgr_fixture":  true,
+    "received":  [
+                     {
+                         "y":  5,
+                         "x":  6,
+                         "suffix":  "M",
+                         "button":  35
+                     },
+                     {
+                         "y":  5,
+                         "x":  6,
+                         "suffix":  "M",
+                         "button":  0
+                     },
+                     {
+                         "y":  5,
+                         "x":  10,
+                         "suffix":  "M",
+                         "button":  32
+                     },
+                     {
+                         "y":  5,
+                         "x":  10,
+                         "suffix":  "m",
+                         "button":  0
+                     },
+                     {
+                         "y":  5,
+                         "x":  6,
+                         "suffix":  "M",
+                         "button":  35
+                     },
+                     {
+                         "y":  5,
+                         "x":  6,
+                         "suffix":  "M",
+                         "button":  1
+                     },
+                     {
+                         "y":  5,
+                         "x":  10,
+                         "suffix":  "M",
+                         "button":  33
+                     },
+                     {
+                         "y":  5,
+                         "x":  10,
+                         "suffix":  "m",
+                         "button":  1
+                     },
+                     {
+                         "y":  5,
+                         "x":  6,
+                         "suffix":  "M",
+                         "button":  35
+                     },
+                     {
+                         "y":  5,
+                         "x":  6,
+                         "suffix":  "M",
+                         "button":  2
+                     },
+                     {
+                         "y":  5,
+                         "x":  10,
+                         "suffix":  "M",
+                         "button":  34
+                     },
+                     {
+                         "y":  5,
+                         "x":  10,
+                         "suffix":  "m",
+                         "button":  2
+                     },
+                     {
+                         "y":  5,
+                         "x":  6,
+                         "suffix":  "M",
+                         "button":  35
+                     },
+                     {
+                         "y":  5,
+                         "x":  6,
+                         "suffix":  "M",
+                         "button":  16
+                     },
+                     {
+                         "y":  5,
+                         "x":  10,
+                         "suffix":  "M",
+                         "button":  48
+                     },
+                     {
+                         "y":  5,
+                         "x":  10,
+                         "suffix":  "m",
+                         "button":  16
+                     },
+                     {
+                         "y":  5,
+                         "x":  6,
+                         "suffix":  "M",
+                         "button":  35
+                     },
+                     {
+                         "y":  5,
+                         "x":  6,
+                         "suffix":  "M",
+                         "button":  17
+                     },
+                     {
+                         "y":  5,
+                         "x":  10,
+                         "suffix":  "M",
+                         "button":  49
+                     },
+                     {
+                         "y":  5,
+                         "x":  10,
+                         "suffix":  "m",
+                         "button":  17
+                     },
+                     {
+                         "y":  5,
+                         "x":  6,
+                         "suffix":  "M",
+                         "button":  35
+                     },
+                     {
+                         "y":  5,
+                         "x":  6,
+                         "suffix":  "M",
+                         "button":  18
+                     },
+                     {
+                         "y":  5,
+                         "x":  10,
+                         "suffix":  "M",
+                         "button":  50
+                     },
+                     {
+                         "y":  5,
+                         "x":  10,
+                         "suffix":  "m",
+                         "button":  18
+                     },
+                     {
+                         "y":  5,
+                         "x":  6,
+                         "suffix":  "M",
+                         "button":  35
+                     },
+                     {
+                         "y":  5,
+                         "x":  6,
+                         "suffix":  "M",
+                         "button":  8
+                     },
+                     {
+                         "y":  5,
+                         "x":  10,
+                         "suffix":  "M",
+                         "button":  40
+                     },
+                     {
+                         "y":  5,
+                         "x":  10,
+                         "suffix":  "m",
+                         "button":  8
+                     },
+                     {
+                         "y":  5,
+                         "x":  6,
+                         "suffix":  "M",
+                         "button":  35
+                     },
+                     {
+                         "y":  5,
+                         "x":  6,
+                         "suffix":  "M",
+                         "button":  9
+                     },
+                     {
+                         "y":  5,
+                         "x":  10,
+                         "suffix":  "M",
+                         "button":  41
+                     },
+                     {
+                         "y":  5,
+                         "x":  10,
+                         "suffix":  "m",
+                         "button":  9
+                     },
+                     {
+                         "y":  5,
+                         "x":  6,
+                         "suffix":  "M",
+                         "button":  35
+                     },
+                     {
+                         "y":  5,
+                         "x":  6,
+                         "suffix":  "M",
+                         "button":  10
+                     },
+                     {
+                         "y":  5,
+                         "x":  10,
+                         "suffix":  "M",
+                         "button":  42
+                     },
+                     {
+                         "y":  5,
+                         "x":  10,
+                         "suffix":  "m",
+                         "button":  10
+                     },
+                     {
+                         "y":  5,
+                         "x":  6,
+                         "suffix":  "M",
+                         "button":  35
+                     }
+                 ]
+}

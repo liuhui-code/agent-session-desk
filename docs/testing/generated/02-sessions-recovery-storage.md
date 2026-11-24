@@ -152,7 +152,7 @@
 
 - 功能：[FL-004](../COVERAGE.md#fl-004)、[FL-005](../COVERAGE.md#fl-005)
 - 需求：[FR-03](../COVERAGE.md#fr-03)、[FR-04](../COVERAGE.md#fr-04)
-- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0021](../../adr/0021-persistent-session-display-names.md)
+- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0021](../../adr/0021-persistent-session-display-names.md)、[ADR-0025](../../adr/0025-persistent-session-order.md)
 - 优先级 / 阶段 / 层次：P1 / M2 / integration
 - 类型：functional、state
 - 设计 / 执行：`designed / not_run`
@@ -170,6 +170,7 @@
 1. 管理焦点 r 打开原名称预填的弹窗，改为中文名称；取消一次，再明确 Enter 保存并再次改名。
 2. 按原 session_id 查询并进入会话。
 3. 退出管理器后重新打开核对记录。
+4. 把A改成会改变默认名称顺序的新名，等待新的Workspace后在原选择上显式上移，再关闭/搜索重开视图并退出UI重开。
 
 #### 预期与不变量
 
@@ -178,6 +179,7 @@
 - 重命名不向 agent 输入额外字符。
 - 列表、Tab、搜索及离线历史显示当前名称；原启动快照保持不变，Ctrl+R 刷新或 UI 重开不回退名称。
 - 选中后台会话改名不激活该 Tab；弹窗等待已接受写入排空，确认字符不进入原终端。
+- 确认改名后刷新名称顺序及审阅stamp，原选择身份与活动Tab保持；后续手动排序只提交一次，不以旧行号或旧顺序判为边界，不提交两个原终端草稿。
 
 #### 需要的证据
 

@@ -1,0 +1,24 @@
+using System;using System.IO;using System.Text;using System.Runtime.InteropServices;
+public static class AsdMouseProbe {
+ [DllImport("kernel32.dll")]static extern IntPtr GetStdHandle(int n);
+ [DllImport("kernel32.dll",SetLastError=true)]static extern bool GetConsoleMode(IntPtr h,out uint mode);
+ [DllImport("kernel32.dll",SetLastError=true)]static extern bool SetConsoleMode(IntPtr h,uint mode);
+ [StructLayout(LayoutKind.Explicit,Size=20)]public struct Record {
+  [FieldOffset(0)]public ushort type;[FieldOffset(4)]public short x;[FieldOffset(6)]public short y;
+  [FieldOffset(8)]public uint buttons;[FieldOffset(12)]public uint control;[FieldOffset(16)]public uint flags;
+  [FieldOffset(4)]public int keyDown;[FieldOffset(14)]public ushort character;
+ }
+ [DllImport("kernel32.dll",EntryPoint="ReadConsoleInputW",SetLastError=true)]static extern bool ReadConsoleInput(IntPtr h,out Record input,uint len,out uint read);
+ [DllImport("kernel32.dll")]static extern uint WaitForSingleObject(IntPtr h,uint ms);
+ public static void Run(string file){var input=GetStdHandle(-10);var output=GetStdHandle(-11);uint oldIn,oldOut;
+ if(!GetConsoleMode(input,out oldIn)||!GetConsoleMode(output,out oldOut))throw new Exception("Console mode read failed");
+ if(!SetConsoleMode(output,oldOut|5)||!SetConsoleMode(input,(oldIn&~(1u|2u|4u|64u|512u))|0x90u))throw new Exception("Native mouse mode setup failed");
+ uint actual;GetConsoleMode(input,out actual);File.WriteAllText(file+".mode.json","{\"original_input\":"+oldIn+",\"actual_input\":"+actual+",\"original_output\":"+oldOut+",\"record_size\":"+Marshal.SizeOf(typeof(Record))+"}");
+ Console.Write("\x1b[?1049h\x1b[2J\x1b[H\x1b[?1000h\x1b[?1002h\x1b[?1003h\x1b[?1006hMOUSE_APP_READY\r\nNative ReadConsoleInput; no clipboard; q ends app");
+ int n=0;var until=DateTime.UtcNow.AddSeconds(120);
+ try{while(DateTime.UtcNow<until){if(WaitForSingleObject(input,200)!=0)continue;Record r;uint count;if(!ReadConsoleInput(input,out r,1,out count))throw new Exception("ReadConsoleInput failed");if(count==0)continue;
+ if(r.type==1&&r.keyDown!=0&&r.character==113)break;if(r.type!=2)continue;
+ File.AppendAllText(file,"{\"n\":"+(++n)+",\"x\":"+r.x+",\"y\":"+r.y+",\"buttons\":"+r.buttons+",\"control\":"+r.control+",\"flags\":"+r.flags+"}\n",new UTF8Encoding(false));
+ Console.Write("\x1b[10;1HNative mouse events: "+n+"    ");if(new FileInfo(file).Length>65536)throw new Exception("Probe output bound exceeded");}}
+ finally{Console.Write("\x1b[?1000l\x1b[?1002l\x1b[?1003l\x1b[?1006l\x1b[?1049l");SetConsoleMode(input,oldIn);SetConsoleMode(output,oldOut);Console.WriteLine("MOUSE_APP_DONE");}}
+}

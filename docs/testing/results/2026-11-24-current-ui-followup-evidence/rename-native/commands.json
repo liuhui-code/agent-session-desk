@@ -1,0 +1,22 @@
+[
+    {
+        "name":  "product-version",
+        "image":  "asd-launch-environment.exe",
+        "arguments":  [
+                          "version"
+                      ],
+        "exit_code":  0,
+        "elapsed_ms":  108
+    },
+    {
+        "name":  "ui",
+        "image":  "launch-environment-ui.exe",
+        "arguments":  [
+                          "-test.v",
+                          "-test.count=1",
+                          "-test.timeout=180s"
+                      ],
+        "exit_code":  0,
+        "elapsed_ms":  7847
+    }
+]

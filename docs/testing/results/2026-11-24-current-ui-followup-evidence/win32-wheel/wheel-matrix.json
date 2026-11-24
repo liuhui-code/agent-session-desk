@@ -1,0 +1,73 @@
+{
+    "matrix":  [
+                   {
+                       "received_deltas":  [
+                                               128,
+                                               120
+                                           ],
+                       "received_count":  2,
+                       "injected_delta":  120,
+                       "passed":  false
+                   },
+                   {
+                       "received_deltas":  [
+                                               -128,
+                                               -120
+                                           ],
+                       "received_count":  2,
+                       "injected_delta":  -120,
+                       "passed":  false
+                   }
+               ],
+    "strict_native_wheel":  true,
+    "received":  [
+                     {
+                         "n":  1,
+                         "x":  5,
+                         "y":  4,
+                         "buttons":  0,
+                         "control":  0,
+                         "flags":  1
+                     },
+                     {
+                         "n":  2,
+                         "x":  5,
+                         "y":  4,
+                         "buttons":  0,
+                         "control":  0,
+                         "flags":  1
+                     },
+                     {
+                         "n":  3,
+                         "x":  5,
+                         "y":  4,
+                         "buttons":  8388608,
+                         "control":  0,
+                         "flags":  4
+                     },
+                     {
+                         "n":  4,
+                         "x":  5,
+                         "y":  4,
+                         "buttons":  7864320,
+                         "control":  0,
+                         "flags":  4
+                     },
+                     {
+                         "n":  5,
+                         "x":  5,
+                         "y":  4,
+                         "buttons":  4286578688,
+                         "control":  0,
+                         "flags":  4
+                     },
+                     {
+                         "n":  6,
+                         "x":  5,
+                         "y":  4,
+                         "buttons":  4287102976,
+                         "control":  0,
+                         "flags":  4
+                     }
+                 ]
+}

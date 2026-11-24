@@ -1,0 +1,394 @@
+warning: /private/tmp/asd-mouse-routing-20261124/psmux-candidate/Cargo.toml: file `/private/tmp/asd-mouse-routing-20261124/psmux-candidate/src/main.rs` found to be present in multiple build targets:
+  * `bin` target `pmux`
+  * `bin` target `psmux`
+  * `bin` target `tmux`
+   Compiling proc-macro2 v1.0.107
+   Compiling quote v1.0.47
+   Compiling unicode-ident v1.0.26
+   Compiling libc v0.2.190
+   Compiling cfg-if v1.0.5
+   Compiling unicode-segmentation v1.13.3
+   Compiling bitflags v2.13.2
+   Compiling equivalent v1.0.2
+   Compiling allocator-api2 v0.2.21
+   Compiling rustversion v1.0.23
+   Compiling foldhash v0.2.0
+   Compiling ident_case v1.0.1
+   Compiling thiserror v2.0.21
+   Compiling itoa v1.0.18
+   Compiling strsim v0.11.1
+   Compiling unicode-width v0.2.2
+   Compiling heck v0.5.0
+   Compiling either v1.19.0
+   Compiling hashbrown v0.16.1
+   Compiling hashbrown v0.17.1
+   Compiling log v0.4.34
+   Compiling parking_lot_core v0.9.12
+   Compiling memchr v2.8.3
+   Compiling itertools v0.14.0
+   Compiling static_assertions v1.1.0
+   Compiling ryu v1.0.23
+   Compiling signal-hook v0.3.18
+   Compiling convert_case v0.10.0
+   Compiling smallvec v1.16.3
+   Compiling lru v0.18.5
+   Compiling scopeguard v1.2.0
+   Compiling critical-section v1.2.0
+   Compiling indoc v2.0.8
+   Compiling rustix v1.1.5
+   Compiling lock_api v0.4.14
+   Compiling deranged v0.5.8
+   Compiling litrs v1.0.0
+   Compiling autocfg v1.5.1
+   Compiling num-conv v0.2.2
+   Compiling unicode-truncate v2.0.1
+   Compiling time-core v0.1.9
+   Compiling serde_core v1.0.229
+   Compiling cfg_aliases v0.2.2
+   Compiling powerfmt v0.2.1
+   Compiling thiserror v1.0.69
+   Compiling nix v0.31.3
+   Compiling document-features v0.2.12
+   Compiling num-traits v0.2.19
+   Compiling line-clipping v0.3.8
+   Compiling zmij v1.0.23
+   Compiling anyhow v1.0.104
+   Compiling syn v3.0.7
+   Compiling syn v2.0.119
+   Compiling castaway v0.2.4
+   Compiling darling_core v0.24.1
+   Compiling strum_macros v0.28.0
+   Compiling errno v0.3.14
+   Compiling signal-hook-registry v1.4.8
+   Compiling mio v1.2.4
+   Compiling num_threads v0.1.7
+   Compiling derive_more-impl v2.1.1
+   Compiling time v0.3.55
+   Compiling thiserror-impl v2.0.21
+   Compiling signal-hook-mio v0.2.5
+   Compiling parking_lot v0.12.5
+   Compiling strum v0.28.0
+   Compiling derive_more v2.1.1
+   Compiling thiserror-impl v1.0.69
+   Compiling aho-corasick v1.1.5
+   Compiling serde_json v1.0.151
+   Compiling arrayvec v0.7.8
+   Compiling serde v1.0.229
+   Compiling darling_macro v0.24.1
+   Compiling core-foundation-sys v0.8.7
+   Compiling darling v0.24.1
+   Compiling regex-syntax v0.8.11
+   Compiling iana-time-zone v0.1.65
+   Compiling vte v0.15.0
+   Compiling serde_derive v1.0.229
+   Compiling compact_str v0.9.1
+   Compiling regex-automata v0.4.18
+   Compiling serial2 v0.2.38
+   Compiling shell-words v1.1.1
+   Compiling downcast-rs v2.0.2
+   Compiling psmux v3.4.0 (/private/tmp/asd-mouse-routing-20261124/psmux-candidate)
+   Compiling chrono v0.4.45
+   Compiling vt100-psmux v0.16.13 (/private/tmp/asd-mouse-routing-20261124/psmux-candidate/crates/vt100-psmux)
+   Compiling which v8.0.6
+   Compiling base64 v0.23.1
+   Compiling crossterm v0.29.0
+   Compiling glob v0.3.4
+   Compiling kasuari v0.4.12
+   Compiling regex v1.13.1
+   Compiling ratatui-core v0.1.2
+   Compiling filedescriptor v0.8.3
+   Compiling portable-pty-psmux v0.9.8 (/private/tmp/asd-mouse-routing-20261124/psmux-candidate/crates/portable-pty-psmux)
+warning: static `STD_PARK` is never used
+   --> crates/portable-pty-psmux/src/lib.rs:527:8
+    |
+527 | static STD_PARK: std::sync::Mutex<(usize, [usize; 3])> = std::sync::Mutex::new((0, [0; 3]));
+    |        ^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+   Compiling instability v0.3.14
+warning: `portable-pty-psmux` (lib) generated 1 warning
+   Compiling ratatui-widgets v0.3.2
+   Compiling ratatui-crossterm v0.1.2
+   Compiling ratatui-macros v0.7.2
+   Compiling ratatui v0.30.2
+error[E0407]: method `as_raw_handle` is not a member of trait `portable_pty::Child`
+   --> src/util.rs:118:5
+    |
+118 | /     fn as_raw_handle(&self) -> Option<std::os::windows::io::RawHandle> {
+119 | |         None
+120 | |     }
+    | |_____^ not a member of trait `portable_pty::Child`
+
+error[E0433]: cannot find `windows` in `os`
+   --> src/util.rs:118:48
+    |
+118 |     fn as_raw_handle(&self) -> Option<std::os::windows::io::RawHandle> {
+    |                                                ^^^^^^^ could not find `windows` in `os`
+    |
+note: found an item that was configured out
+   --> /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/std/src/os/mod.rs:56:4
+    |
+    = note: the item is gated here
+note: found an item that was configured out
+   --> /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/std/src/os/mod.rs:120:9
+    |
+    = note: the item is gated here
+
+warning: unused import: `current_process_priority`
+  --> src/../tests-rs/test_issue608_priority.rs:19:5
+   |
+19 |     current_process_priority, normalize_priority, resolve_priority, set_process_priority,
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `Instant`
+  --> src/../tests-rs/test_startup_stale_port_tax.rs:20:27
+   |
+20 | use std::time::{Duration, Instant};
+   |                           ^^^^^^^
+
+warning: unused import: `super::*`
+  --> src/../tests-rs/test_issue603_bare_routing.rs:17:5
+   |
+17 | use super::*;
+   |     ^^^^^^^^
+
+warning: unused import: `super::*`
+  --> src/../tests-rs/test_issue650_cross_session_process_name.rs:25:5
+   |
+25 | use super::*;
+   |     ^^^^^^^^
+
+warning: unused import: `super::*`
+ --> src/../tests-rs/test_parity.rs:1:5
+  |
+1 | use super::*;
+  |     ^^^^^^^^
+
+warning: unused import: `super::*`
+  --> src/../tests-rs/test_hide_window.rs:15:5
+   |
+15 | use super::*;
+   |     ^^^^^^^^
+
+warning: unused import: `super::*`
+  --> src/../tests-rs/test_issue210_gastown_captures.rs:17:5
+   |
+17 | use super::*;
+   |     ^^^^^^^^
+
+warning: unused import: `super::*`
+  --> src/../tests-rs/test_issue244_capture_scrollback.rs:13:5
+   |
+13 | use super::*;
+   |     ^^^^^^^^
+
+warning: unused import: `super::*`
+ --> src/../tests-rs/test_issue399_env_prefix.rs:8:5
+  |
+8 | use super::*;
+  |     ^^^^^^^^
+
+warning: unused import: `super::*`
+  --> src/../tests-rs/test_issue634_env_value_spaces.rs:18:5
+   |
+18 | use super::*;
+   |     ^^^^^^^^
+
+warning: unused import: `super::*`
+  --> src/../tests-rs/test_issue271_warm_pane_history.rs:11:5
+   |
+11 | use super::*;
+   |     ^^^^^^^^
+
+warning: unused import: `super::*`
+ --> src/../tests-rs/test_issue88_alt_screen_toggle.rs:9:5
+  |
+9 | use super::*;
+  |     ^^^^^^^^
+
+warning: unused import: `super::*`
+  --> src/../tests-rs/test_issue615_warm_claim_cwd_hint.rs:49:5
+   |
+49 | use super::*;
+   |     ^^^^^^^^
+
+warning: unused import: `Ordering`
+  --> src/../tests-rs/test_issue615_warm_claim_cwd_hint.rs:50:58
+   |
+50 | use std::sync::atomic::{AtomicBool, AtomicU64, AtomicU8, Ordering};
+   |                                                          ^^^^^^^^
+
+warning: unused import: `super::*`
+ --> src/../tests-rs/test_warm_pane_sync.rs:9:5
+  |
+9 | use super::*;
+  |     ^^^^^^^^
+
+warning: unused import: `super::*`
+  --> src/../tests-rs/test_warm_pool_depth.rs:15:5
+   |
+15 | use super::*;
+   |     ^^^^^^^^
+
+warning: unused import: `super::*`
+  --> src/../tests-rs/test_issue661_warm_pool_depth.rs:24:5
+   |
+24 | use super::*;
+   |     ^^^^^^^^
+
+warning: unused import: `super::*`
+  --> src/../tests-rs/test_pane_id_monotonic_claim.rs:24:5
+   |
+24 | use super::*;
+   |     ^^^^^^^^
+
+warning: unused import: `super::*`
+  --> src/../tests-rs/test_issue704_toggle_position.rs:16:5
+   |
+16 | use super::*;
+   |     ^^^^^^^^
+
+warning: unused import: `super::*`
+  --> src/../tests-rs/test_paste_no_server_stall.rs:14:5
+   |
+14 | use super::*;
+   |     ^^^^^^^^
+
+warning: unused import: `super::*`
+  --> src/../tests-rs/test_issue361_fastdump_hyperlink.rs:13:5
+   |
+13 | use super::*;
+   |     ^^^^^^^^
+
+warning: unused import: `super::*`
+ --> src/server/../../tests-rs/test_issue278_toggle_bool_option.rs:1:5
+  |
+1 | use super::*;
+  |     ^^^^^^^^
+
+warning: unused import: `super::*`
+  --> src/server/../../tests-rs/test_option_default_parity.rs:14:5
+   |
+14 | use super::*;
+   |     ^^^^^^^^
+
+warning: unused import: `super::*`
+  --> src/server/../../tests-rs/test_issue505_rename_session_guard.rs:18:5
+   |
+18 | use super::*;
+   |     ^^^^^^^^
+
+warning: unused import: `super::*`
+  --> src/server/../../tests-rs/test_issue574_rename_loop_guard.rs:20:5
+   |
+20 | use super::*;
+   |     ^^^^^^^^
+
+warning: unused import: `super::*`
+  --> src/server/../../tests-rs/test_issue459_warm_single_instance.rs:36:5
+   |
+36 | use super::*;
+   |     ^^^^^^^^
+
+warning: unused import: `ratatui::layout::Rect`
+ --> src/../tests-rs/test_zoom_bleed.rs:1:5
+  |
+1 | use ratatui::layout::Rect;
+  |     ^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused imports: `is_high` and `set_high`
+  --> src/../tests-rs/test_timer_resolution.rs:15:13
+   |
+15 | use super::{is_high, set_high};
+   |             ^^^^^^^  ^^^^^^^^
+
+error[E0046]: not all trait items implemented, missing: `process_group_leader`, `as_raw_fd`, `tty_name`
+  --> src/util.rs:42:1
+   |
+42 | impl portable_pty::MasterPty for StubMasterPty {
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ missing `process_group_leader`, `as_raw_fd`, `tty_name` in implementation
+   |
+   = help: implement the missing item: `fn process_group_leader(&self) -> std::option::Option<i32> { todo!() }`
+   = help: implement the missing item: `fn as_raw_fd(&self) -> std::option::Option<i32> { todo!() }`
+   = help: implement the missing item: `fn tty_name(&self) -> std::option::Option<PathBuf> { todo!() }`
+
+warning: variable does not need to be mutable
+    --> src/config.rs:2415:17
+     |
+2415 |             let mut mods = key.1.difference(KeyModifiers::SHIFT);
+     |                 ----^^^^
+     |                 |
+     |                 help: remove this `mut`
+     |
+     = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `c`
+    --> src/config.rs:2414:23
+     |
+2414 |         KeyCode::Char(c) => {
+     |                       ^ help: if this is intentional, prefix it with an underscore: `_c`
+     |
+     = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `prefix_count_before`
+   --> src/../tests-rs/test_issue198_cv_persist.rs:199:9
+    |
+199 |     let prefix_count_before = app.key_tables.get("prefix").map(|v| v.len()).unwrap_or(0);
+    |         ^^^^^^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_prefix_count_before`
+
+warning: unused variable: `before`
+   --> src/../tests-rs/test_mega_unit_coverage.rs:284:9
+    |
+284 |     let before = app.windows.len();
+    |         ^^^^^^ help: if this is intentional, prefix it with an underscore: `_before`
+
+warning: unused variable: `aw`
+   --> src/../tests-rs/test_copy_line_numbers_render.rs:132:9
+    |
+132 |     let aw = buf.area.width as usize;
+    |         ^^ help: if this is intentional, prefix it with an underscore: `_aw`
+
+warning: value assigned to `paste_suppress_until` is never read
+    --> src/client.rs:6795:37
+     |
+6795 | ...                   paste_suppress_until = Some(Instant::now() + Duration::from_millis(200));
+     |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+     = help: maybe it is overwritten before being read?
+     = note: `#[warn(unused_assignments)]` (part of `#[warn(unused)]`) on by default
+
+warning: variable does not need to be mutable
+    --> src/main.rs:2110:21
+     |
+2110 |                 let mut server_pid: Option<u32> = None;
+     |                     ----^^^^^^^^^^
+     |                     |
+     |                     help: remove this `mut`
+
+warning: variable does not need to be mutable
+    --> src/main.rs:6398:9
+     |
+6398 |     let mut eof_retries: u32 = 0;
+     |         ----^^^^^^^^^^^
+     |         |
+     |         help: remove this `mut`
+
+warning: unused variable: `stdin_handle`
+    --> src/main.rs:6395:9
+     |
+6395 |     let stdin_handle = ();
+     |         ^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_stdin_handle`
+
+warning: unused variable: `eof_retries`
+    --> src/main.rs:6398:9
+     |
+6398 |     let mut eof_retries: u32 = 0;
+     |         ^^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_eof_retries`
+
+Some errors have detailed explanations: E0046, E0407, E0433.
+For more information about an error, try `rustc --explain E0046`.
+warning: `psmux` (bin "psmux" test) generated 38 warnings
+error: could not compile `psmux` (bin "psmux" test) due to 3 previous errors; 38 warnings emitted

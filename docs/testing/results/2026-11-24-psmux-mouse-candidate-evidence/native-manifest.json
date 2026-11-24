@@ -1,0 +1,292 @@
+{
+  "native_windows_executed": true,
+  "product_main_backend_changed": true,
+  "files": [
+    {
+      "path": "native-win32-run1/outcome.json",
+      "source_sha256": "cbf9baf4e2a0e07e7062ebb21d27649042ed79fbced5c2fd9269c908de8f65af",
+      "archived_sha256": "3f60f3fa2506106047ab3249173f7e9de99a45bc383721d5a6a8fba716d76132",
+      "normalization": "parsed UTF8 JSON; Windows user home replaced; synthetic task files only"
+    },
+    {
+      "path": "native-win32-run1/events.json",
+      "source_sha256": "2103c8d681ba29f379a985493f108b4b50b69c7ee352f3db54c535cdb9c28952",
+      "archived_sha256": "c69c92f382c0a4132b99159ae1ed3bc89a6e3dad12e703eb2f2e3077f63f3576",
+      "normalization": "parsed UTF8 JSON; Windows user home replaced; synthetic task files only"
+    },
+    {
+      "path": "native-win32-run1/sessions-before.json",
+      "source_sha256": "df4da298ed0d3715b68fd9f8a70d131a02f3155db21b94ca102a3458dc005c30",
+      "archived_sha256": "78e1f2f98952199569073f8ae13667e1fc25380905efbe22f41297c97179ffdd",
+      "normalization": "parsed UTF8 JSON; Windows user home replaced; synthetic task files only"
+    },
+    {
+      "path": "native-win32-run2/outcome.json",
+      "source_sha256": "4c2789d27a13bf9ba704c585eb1e2126b8fdc2411a6e2981bbd68fa3cd552511",
+      "archived_sha256": "16dccec057c438c897438ec97a408d120494f31e72a9a90f886c572bdfb804c3",
+      "normalization": "parsed UTF8 JSON; Windows user home replaced; synthetic task files only"
+    },
+    {
+      "path": "native-win32-run2/events.json",
+      "source_sha256": "8bcfc9b1f0bd33fc5a95be01c9ff333118acf8c4405d6b1db4b28f4ea3f3d832",
+      "archived_sha256": "ffa9325f8e2a8eb0251acff2bb7a95676be30a317e1478b11ad1528b4381e0ee",
+      "normalization": "parsed UTF8 JSON; Windows user home replaced; synthetic task files only"
+    },
+    {
+      "path": "native-win32-run2/sessions-before.json",
+      "source_sha256": "4ce5bea1e132623e07a561cfb1c925b3ca0fe5bcb643b41a684c7c4c463be03c",
+      "archived_sha256": "7e4ddbe80aab49953538eac899172d6aefb3808853e567a144648bf70f376c59",
+      "normalization": "parsed UTF8 JSON; Windows user home replaced; synthetic task files only"
+    },
+    {
+      "path": "native-win32-run2/sessions-after.json",
+      "source_sha256": "4ce5bea1e132623e07a561cfb1c925b3ca0fe5bcb643b41a684c7c4c463be03c",
+      "archived_sha256": "7e4ddbe80aab49953538eac899172d6aefb3808853e567a144648bf70f376c59",
+      "normalization": "parsed UTF8 JSON; Windows user home replaced; synthetic task files only"
+    },
+    {
+      "path": "native-win32-run2/mouse-intervals.json",
+      "source_sha256": "f10f66f1e13badc62a9461d170993bdc19af7029fcbf63032d1ec1c928eef159",
+      "archived_sha256": "9d8e08daa876b9c2efde7826e3b85efce3a7c7b9811a1b6b6bafcb8bdae46d4b",
+      "normalization": "parsed UTF8 JSON; Windows user home replaced; synthetic task files only"
+    },
+    {
+      "path": "native-win32-run2/mouse-matrix.json",
+      "source_sha256": "360d1fdb5d1088eafbe5f9ff5e11581f3a68ea28bb5c18caeee93f0b1943f3a9",
+      "archived_sha256": "da79aeb5d82125b956edc594b3a37855d8a078dbc85ec5a6a466aae38aa07672",
+      "normalization": "parsed UTF8 JSON; Windows user home replaced; synthetic task files only"
+    },
+    {
+      "path": "native-win32-run2/mouse-packets.ndjson",
+      "source_sha256": "9533657c92d93a39858383bd8a7eeecde874c957152129598da397c8fd27dd92",
+      "archived_sha256": "b342405b4c846613ae5821d1ae7fdbf05f5dfbb88f6a750b224370de445f1f76",
+      "normalization": "parsed UTF8 JSON; Windows user home replaced; synthetic task files only"
+    },
+    {
+      "path": "native-win32-run2/mouse-packets.ndjson.mode.json",
+      "source_sha256": "c11f3a38251c53603af93ddb73a89bfacf88737ae5873e3724f5860417dd26e0",
+      "archived_sha256": "6ff08979308430acd2810bdf8c7e5ddc3f825c6aa9c79c2a213f58651f7824cb",
+      "normalization": "parsed UTF8 JSON; Windows user home replaced; synthetic task files only"
+    },
+    {
+      "path": "native-win32-run2/first-outer-exit.json",
+      "source_sha256": "df5d8a1b8cd9497eb44a78604ddc449e5bac95bcab2997eaab7ac73fd88768c1",
+      "archived_sha256": "296e27fead09d4a7790bea4d2d2764d10a72f1fc8d8ed069dc45576208ddef75",
+      "normalization": "parsed UTF8 JSON; Windows user home replaced; synthetic task files only"
+    },
+    {
+      "path": "native-wheel/outcome.json",
+      "source_sha256": "d06fe19f7c8cae25f2d833cfe18b993dd178b0dfe1ded9977b4c30fe683d629e",
+      "archived_sha256": "fb55e054aed7eacc403f9d112303a83b0a09b43187edfc52b18e164afbbe2733",
+      "normalization": "parsed UTF8 JSON; Windows user home replaced; synthetic task files only"
+    },
+    {
+      "path": "native-wheel/events.json",
+      "source_sha256": "e31b15bd8ab392bff6847ae890b74d6795707cba6b1d5f57d72da56c5d86403f",
+      "archived_sha256": "2fd48789200c776d50f3b0f96b5171218183d9c2a7e372a5ef247881bcf4a0cc",
+      "normalization": "parsed UTF8 JSON; Windows user home replaced; synthetic task files only"
+    },
+    {
+      "path": "native-wheel/sessions-before.json",
+      "source_sha256": "4fa6909f5d95ee4ef9df610f7ca54373d27376e3a80467304f34aa7ed46650ff",
+      "archived_sha256": "6af8be6e2ecd6da60f721106a8016716d49ec823819e94e3a462823ea8b5464e",
+      "normalization": "parsed UTF8 JSON; Windows user home replaced; synthetic task files only"
+    },
+    {
+      "path": "native-wheel/sessions-after.json",
+      "source_sha256": "4fa6909f5d95ee4ef9df610f7ca54373d27376e3a80467304f34aa7ed46650ff",
+      "archived_sha256": "6af8be6e2ecd6da60f721106a8016716d49ec823819e94e3a462823ea8b5464e",
+      "normalization": "parsed UTF8 JSON; Windows user home replaced; synthetic task files only"
+    },
+    {
+      "path": "native-wheel/wheel-intervals.json",
+      "source_sha256": "b8f87760b942690cbfc9a552e03e4d0974b9ecc8a2ce66245f8dd357dd2f0e6c",
+      "archived_sha256": "229efa823a3b48ea5e2c44331fe1a58f53b329acd996c74a04bb8ea30bbbc08d",
+      "normalization": "parsed UTF8 JSON; Windows user home replaced; synthetic task files only"
+    },
+    {
+      "path": "native-wheel/wheel-matrix.json",
+      "source_sha256": "7b4f6d653905254a7d928b9646cdef57a882414100e2d76c798249afe8ad0ea9",
+      "archived_sha256": "88e2d24dccb50a1bfd123fce3e396b0638274a943c1e54212f11c82d9eb1798f",
+      "normalization": "parsed UTF8 JSON; Windows user home replaced; synthetic task files only"
+    },
+    {
+      "path": "native-wheel/mouse-packets.ndjson",
+      "source_sha256": "a9e648e577abacde60a51b0d40ef881366063ed0e6219666975ce4365909b03e",
+      "archived_sha256": "3340b685b0e2b4244222f908529191882b426aa8a292145eba04af19ba24e15c",
+      "normalization": "parsed UTF8 JSON; Windows user home replaced; synthetic task files only"
+    },
+    {
+      "path": "native-wheel/mouse-packets.ndjson.mode.json",
+      "source_sha256": "c11f3a38251c53603af93ddb73a89bfacf88737ae5873e3724f5860417dd26e0",
+      "archived_sha256": "6ff08979308430acd2810bdf8c7e5ddc3f825c6aa9c79c2a213f58651f7824cb",
+      "normalization": "parsed UTF8 JSON; Windows user home replaced; synthetic task files only"
+    },
+    {
+      "path": "native-wheel/first-outer-exit.json",
+      "source_sha256": "df5d8a1b8cd9497eb44a78604ddc449e5bac95bcab2997eaab7ac73fd88768c1",
+      "archived_sha256": "296e27fead09d4a7790bea4d2d2764d10a72f1fc8d8ed069dc45576208ddef75",
+      "normalization": "parsed UTF8 JSON; Windows user home replaced; synthetic task files only"
+    },
+    {
+      "path": "native-vt/outcome.json",
+      "source_sha256": "7ec4fc0510f535bb4e3002989a10c24b85a018aa8d214249c9bef8570d0bdd13",
+      "archived_sha256": "3173d78c371138fe07b745e2a25b75b0de76310fdb20178979363521a2f6cfe8",
+      "normalization": "parsed UTF8 JSON; Windows user home replaced; synthetic task files only"
+    },
+    {
+      "path": "native-vt/events.json",
+      "source_sha256": "1c637ac0c8450268cbd4f6802c96848fe8304cf523fa298fa5d70b94e3964d3f",
+      "archived_sha256": "efdb798c7f3595cedf2094d9ba3b1386b61cc3546d8c33ae7bcd980969acb8c9",
+      "normalization": "parsed UTF8 JSON; Windows user home replaced; synthetic task files only"
+    },
+    {
+      "path": "native-vt/sessions-before.json",
+      "source_sha256": "b6d18f7fd6c3d72c2278e06a60d2918e5140659a9d129247c0ee0d99daa4316d",
+      "archived_sha256": "c127764227d14d2d7fd434b132646c4c3d20bc138360752f3b010732642c7a0c",
+      "normalization": "parsed UTF8 JSON; Windows user home replaced; synthetic task files only"
+    },
+    {
+      "path": "native-vt/sessions-after.json",
+      "source_sha256": "b6d18f7fd6c3d72c2278e06a60d2918e5140659a9d129247c0ee0d99daa4316d",
+      "archived_sha256": "c127764227d14d2d7fd434b132646c4c3d20bc138360752f3b010732642c7a0c",
+      "normalization": "parsed UTF8 JSON; Windows user home replaced; synthetic task files only"
+    },
+    {
+      "path": "native-vt/mouse-matrix.json",
+      "source_sha256": "41992a6e6de9a58e989f84fc0d168f76cf81d7c7524879dee354ad9c459e3cb0",
+      "archived_sha256": "59d0b13b6557fc381b07d2871d0975d21e69119799cb66be313fc9a01dcb9d48",
+      "normalization": "parsed UTF8 JSON; Windows user home replaced; synthetic task files only"
+    },
+    {
+      "path": "native-vt/mouse-packets.ndjson",
+      "source_sha256": "20141caceab5185f113624bd6ad40bdfc1b53459fe89eded9bd603f87804ea10",
+      "archived_sha256": "5cb1dae443e95b2fb7953850126082e2169300f7e6ea90304566bfbe5621a9b9",
+      "normalization": "parsed UTF8 JSON; Windows user home replaced; synthetic task files only"
+    },
+    {
+      "path": "native-vt/mouse-packets.ndjson.mode.json",
+      "source_sha256": "3f62093ae00affa5714071b46b721815a3f3e23abaa6bcd788b6cdc9e2662ef5",
+      "archived_sha256": "a842c167297f92344dde37bb3a5843fd6cfedc7718a1eb4429a15dd8ba946b59",
+      "normalization": "parsed UTF8 JSON; Windows user home replaced; synthetic task files only"
+    },
+    {
+      "path": "native-vt/first-outer-exit.json",
+      "source_sha256": "4d1b6de011f4f36e7e3a9887b45298c78e53a583cca08428f0ca43197a600527",
+      "archived_sha256": "5e641d668d3e1aa6488d8fb4fd40b59cc6b2c661529ccc06cf43482f88abb79a",
+      "normalization": "parsed UTF8 JSON; Windows user home replaced; synthetic task files only"
+    },
+    {
+      "path": "native-win32-run2/independent-strict.json",
+      "source_sha256": "bfcb83f5a77449ac7342d8bbce4c0321abf996ace82cefe50d47fdc4f2ea24ff",
+      "archived_sha256": "bfcb83f5a77449ac7342d8bbce4c0321abf996ace82cefe50d47fdc4f2ea24ff",
+      "normalization": "original offline replay result"
+    },
+    {
+      "path": "native-backend/stdout.txt",
+      "source_sha256": "b6ab634fcd4964df1804e9ebbdf7dac1633d570833650df54dfb13e599582ebd",
+      "archived_sha256": "b6ab634fcd4964df1804e9ebbdf7dac1633d570833650df54dfb13e599582ebd",
+      "normalization": "UTF8 LF; Windows user path replaced"
+    },
+    {
+      "path": "native-backend/stderr.txt",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "normalization": "UTF8 LF; Windows user path replaced"
+    },
+    {
+      "path": "native-backend/outcome.json",
+      "source_sha256": "9a436bf5287f16f14dab59963ea22abf9a3a8beee52d31b7bc363553640d99ee",
+      "archived_sha256": "4e2fedc0fd42bdc71a926a417d802cf52eb5af8f941fbd2960e856aceb02690c",
+      "normalization": "UTF8 LF; Windows user path replaced"
+    },
+    {
+      "path": "native-backend/identity.json",
+      "source_sha256": "2b606573a41d5caa6e98bddc9bacb7d364a836deba7bec61badeb4a69da0ae49",
+      "archived_sha256": "7265fa3c5af543b7b541e1323d87d33da2e1652576e0d3b17273fb86b22f0be9",
+      "normalization": "UTF8 LF; Windows user path replaced"
+    },
+    {
+      "path": "native-backend/evidence/TestWindowsTerminalBundleRejectsSystemHostedExistingRun/asd-native-e6eff31a8321/fixture-0.jsonl",
+      "source_sha256": "3073abcb98e9b9cd86a1b63af103dbd2307379fb681f9cbb6aee08f440e56f0f",
+      "archived_sha256": "7d8a005f3933d43da4f2c0ab5c9731217936dff894543dd4aaaea1efee1fb63f",
+      "normalization": "UTF8 LF; Windows user path replaced"
+    },
+    {
+      "path": "native-backend/evidence/TestWindowsTerminalBundleInputHistoryAndReconnect/history-captures.jsonl",
+      "source_sha256": "9738b47b5cd7718a8477caafa3ae09dfbf7646e0bd08377a84bc7086e64eff44",
+      "archived_sha256": "414918d1f35c16443f4acd4af594c3a8b0fbf0fd15983eeeac27fb6d6208a8c7",
+      "normalization": "UTF8 LF; Windows user path replaced"
+    },
+    {
+      "path": "native-backend/evidence/TestWindowsTerminalBundleInputHistoryAndReconnect/reopen.txt",
+      "source_sha256": "b341e6b142e37ce1161982f717e0eb3e1d8430e129c0881f4edc1dbd1eb86b20",
+      "archived_sha256": "f903ef5e02337359b75d0b9fff074b037fb00119ffabcaab9b428971be99ee7e",
+      "normalization": "UTF8 LF; Windows user path replaced"
+    },
+    {
+      "path": "native-backend/evidence/TestWindowsTerminalBundleInputHistoryAndReconnect/size.txt",
+      "source_sha256": "9db601ab50a0989b7335e67c4352bd133c9b9267770aa0cbffca75c77a90061a",
+      "archived_sha256": "9db601ab50a0989b7335e67c4352bd133c9b9267770aa0cbffca75c77a90061a",
+      "normalization": "UTF8 LF; Windows user path replaced"
+    },
+    {
+      "path": "native-backend/evidence/TestWindowsTerminalBundleInputHistoryAndReconnect/bundle-flow.ps1",
+      "source_sha256": "75bebdeec0f4e4ea8194426991f93ca44aabee24388aadba1abe88362d41380a",
+      "archived_sha256": "75bebdeec0f4e4ea8194426991f93ca44aabee24388aadba1abe88362d41380a",
+      "normalization": "UTF8 LF; Windows user path replaced"
+    },
+    {
+      "path": "native-backend/evidence/TestWindowsTerminalBundleInputHistoryAndReconnect/alt.txt",
+      "source_sha256": "2e6d17d7e5837e4ab1f14473c91f8a43597b5e0923efdfc392f157dcea0a937e",
+      "archived_sha256": "2e6d17d7e5837e4ab1f14473c91f8a43597b5e0923efdfc392f157dcea0a937e",
+      "normalization": "UTF8 LF; Windows user path replaced"
+    },
+    {
+      "path": "native-backend/evidence/TestWindowsTerminalBundleInputHistoryAndReconnect/root.json",
+      "source_sha256": "ebb189054647e4cd4ba3957c7394de0942d44a36e3fb79d26a47732f666d2af2",
+      "archived_sha256": "65145e34cb38bc5b6e5171530a4526b6ff60863544e16123bb8085c861b30ac2",
+      "normalization": "UTF8 LF; Windows user path replaced"
+    },
+    {
+      "path": "native-backend/evidence/TestWindowsTerminalBundleInputHistoryAndReconnect/normal.txt",
+      "source_sha256": "2e6d17d7e5837e4ab1f14473c91f8a43597b5e0923efdfc392f157dcea0a937e",
+      "archived_sha256": "2e6d17d7e5837e4ab1f14473c91f8a43597b5e0923efdfc392f157dcea0a937e",
+      "normalization": "UTF8 LF; Windows user path replaced"
+    },
+    {
+      "path": "runners/mouse-candidate-win32-run1.ps1.txt",
+      "source_sha256": "b7f04cca7c0daac63aa57062076307d6dd74163c63f31e833acdae1dfc75a7a9",
+      "archived_sha256": "6d214b81723e779a0ccecdc3953c4b57c30bbf9485bf6c78c8a9aeafa1d284a3",
+      "normalization": "UTF8 LF; Windows user path replaced"
+    },
+    {
+      "path": "runners/mouse-candidate-win32-run2.ps1.txt",
+      "source_sha256": "4128a5021fb30f5c15d7e09d2788f811a388a2131493fe792cd95d1065db9fb6",
+      "archived_sha256": "248211bdeb14b65501587eb293ea2afcc16855754f918f09ee57e119908f2ed2",
+      "normalization": "UTF8 LF; Windows user path replaced"
+    },
+    {
+      "path": "runners/mouse-candidate-wheel-run1.ps1.txt",
+      "source_sha256": "faac3b5aa1ec3e87efe19a38ab441ebc7a58fd19783d7d60799b541ac2d5055c",
+      "archived_sha256": "1ccbaab68bc8f267f935505165e7631ba59633fa42d97ef4ee44a443ac34bcc8",
+      "normalization": "UTF8 LF; Windows user path replaced"
+    },
+    {
+      "path": "runners/mouse-candidate-vt-run1.ps1.txt",
+      "source_sha256": "18ad27fc7b1e3e7919916800fd48f7b4d4038dab722f09fb461c1a829a3c3f9b",
+      "archived_sha256": "b8750d594a93cbeaac365cba248791d18958851759f63bb5aa2d5fa4f6e3b19f",
+      "normalization": "UTF8 LF; Windows user path replaced"
+    },
+    {
+      "path": "final-audit.txt",
+      "source_sha256": "f7bda62f6ecc05e264dedcaf14bfbbf1d552194e2d52ba90600284a1a4d826ca",
+      "archived_sha256": "d349c171a8203b9ec778ab122d46768d1e40572976638d4cd5659fbf1795e693",
+      "normalization": "UTF8 LF; Windows user path replaced"
+    }
+  ],
+  "old_remote_product_and_bundle_preserved": true,
+  "native_backend_pass": 4,
+  "native_backend_fail": 0,
+  "native_backend_skip": 0
+}

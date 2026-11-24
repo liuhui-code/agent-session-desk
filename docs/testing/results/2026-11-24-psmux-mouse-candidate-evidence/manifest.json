@@ -1,0 +1,120 @@
+{
+  "files": [
+    {
+      "path": "local/routing-red.log.txt",
+      "source_sha256": "edc372a7c1894bd40ecd50bf9ef0db23e5530997df8db26a2f422f98c6769e1b",
+      "archived_sha256": "edc372a7c1894bd40ecd50bf9ef0db23e5530997df8db26a2f422f98c6769e1b",
+      "normalization": "UTF8 LF; local user path placeholder"
+    },
+    {
+      "path": "local/routing-green.log.txt",
+      "source_sha256": "b4a523347af018391d9bae60ad8ddd3243b671291e4c368da3bbf1a876e57520",
+      "archived_sha256": "b4a523347af018391d9bae60ad8ddd3243b671291e4c368da3bbf1a876e57520",
+      "normalization": "UTF8 LF; local user path placeholder"
+    },
+    {
+      "path": "local/routing-defaults-green.log.txt",
+      "source_sha256": "01a09080292e9d9e9b82f69f88e5484e04e78e4378e1e3d60f4aed35fdfd3084",
+      "archived_sha256": "01a09080292e9d9e9b82f69f88e5484e04e78e4378e1e3d60f4aed35fdfd3084",
+      "normalization": "UTF8 LF; local user path placeholder"
+    },
+    {
+      "path": "local/mac-cargo-compile-failure.log.txt",
+      "source_sha256": "0bfc52990a4916804ad904120f80010c4a297ef8ecdb680e4be29ec697ee9ff9",
+      "archived_sha256": "0bfc52990a4916804ad904120f80010c4a297ef8ecdb680e4be29ec697ee9ff9",
+      "normalization": "UTF8 LF; local user path placeholder"
+    },
+    {
+      "path": "local/windows-candidate-build.log.txt",
+      "source_sha256": "01702de467f32be3ea9df4b565e536f99e7301da4fa8a20b1a83bdaf3b0c47cd",
+      "archived_sha256": "01702de467f32be3ea9df4b565e536f99e7301da4fa8a20b1a83bdaf3b0c47cd",
+      "normalization": "UTF8 LF; local user path placeholder"
+    },
+    {
+      "path": "local/base-fingerprints.json",
+      "source_sha256": "eb823d756368c63118f104915f5f9aaca2e755d65e88dd167a55362ca416c99e",
+      "archived_sha256": "eb823d756368c63118f104915f5f9aaca2e755d65e88dd167a55362ca416c99e",
+      "normalization": "UTF8 LF; local user path placeholder"
+    },
+    {
+      "path": "local/pinned-base-verification.json",
+      "source_sha256": "9981889189b09eeb5bb3bb0ddd089ab5f635ff302299abf5f7d900372ab044d7",
+      "archived_sha256": "9981889189b09eeb5bb3bb0ddd089ab5f635ff302299abf5f7d900372ab044d7",
+      "normalization": "UTF8 LF; local user path placeholder"
+    },
+    {
+      "path": "local/candidate-manifest.json",
+      "source_sha256": "cfd573dbe8c58a62ea1d2d61eebb3d4b7574dd6bd3f5e37f773453a816e6caf7",
+      "archived_sha256": "cfd573dbe8c58a62ea1d2d61eebb3d4b7574dd6bd3f5e37f773453a816e6caf7",
+      "normalization": "UTF8 LF; local user path placeholder"
+    },
+    {
+      "path": "local/patch-check.json",
+      "source_sha256": "9bdb4da3b49fb3356a65a8d341a6bfcb5f9d5582bf34bd12a294bc73f1656af6",
+      "archived_sha256": "9bdb4da3b49fb3356a65a8d341a6bfcb5f9d5582bf34bd12a294bc73f1656af6",
+      "normalization": "UTF8 LF; local user path placeholder"
+    },
+    {
+      "path": "local/product-policy-red.log.txt",
+      "source_sha256": "b5c046a914bdcb90f1c3770297d289cef90c68a7c9e2ea8c12f8198431515812",
+      "archived_sha256": "b5c046a914bdcb90f1c3770297d289cef90c68a7c9e2ea8c12f8198431515812",
+      "normalization": "UTF8 LF; local user path placeholder"
+    },
+    {
+      "path": "local/product-policy-green.log.txt",
+      "source_sha256": "2ba1e9506f54f1feebbc6793854fa62a6f1c7a26cdf7ca90f4413fd6a88b8e8d",
+      "archived_sha256": "2ba1e9506f54f1feebbc6793854fa62a6f1c7a26cdf7ca90f4413fd6a88b8e8d",
+      "normalization": "UTF8 LF; local user path placeholder"
+    },
+    {
+      "path": "local/product-go-test.log.txt",
+      "source_sha256": "3fc0ba10c1a55133df39f0b5158d2bf02d4c90cb28e9a4f5187038e30f003818",
+      "archived_sha256": "3fc0ba10c1a55133df39f0b5158d2bf02d4c90cb28e9a4f5187038e30f003818",
+      "normalization": "UTF8 LF; local user path placeholder"
+    },
+    {
+      "path": "local/product-go-race.log.txt",
+      "source_sha256": "cf2adee5c7a5a130cc14e788b3a738867d0c3cbff2f6addd043307d524bfba42",
+      "archived_sha256": "cf2adee5c7a5a130cc14e788b3a738867d0c3cbff2f6addd043307d524bfba42",
+      "normalization": "UTF8 LF; local user path placeholder"
+    },
+    {
+      "path": "local/product-go-vet.log.txt",
+      "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archived_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "normalization": "UTF8 LF; local user path placeholder"
+    },
+    {
+      "path": "local/product-go-mod-verify.log.txt",
+      "source_sha256": "b4537ed75f533f993f371954de47e42a793b8e5b0587577de7e27fb3e50696bd",
+      "archived_sha256": "b4537ed75f533f993f371954de47e42a793b8e5b0587577de7e27fb3e50696bd",
+      "normalization": "UTF8 LF; local user path placeholder"
+    },
+    {
+      "path": "local/product-candidate-manifest.json",
+      "source_sha256": "e275e43f526c8c91a9c8038bca3c4d2a48f9058c463a1018e2538164f228cb58",
+      "archived_sha256": "e275e43f526c8c91a9c8038bca3c4d2a48f9058c463a1018e2538164f228cb58",
+      "normalization": "UTF8 LF; local user path placeholder"
+    },
+    {
+      "path": "local/strict-evaluator-red.log.txt",
+      "source_sha256": "de6d580255e88562393b106067bdc4c05e9d7cc8c55d0a872af718b5bf05caa5",
+      "archived_sha256": "88f76a2821742a07f3cdd79a56707b03fd31053482385ab18ee1937b449d0668",
+      "normalization": "UTF8 LF; local workspace replaced; original source_sha256 retained"
+    },
+    {
+      "path": "local/strict-evaluator-green.log.txt",
+      "source_sha256": "a332509c4ac78e34c817ea85cdb9efca8cceb6cac6837b7c67452ce8530401ff",
+      "archived_sha256": "a332509c4ac78e34c817ea85cdb9efca8cceb6cac6837b7c67452ce8530401ff",
+      "normalization": "original local bytes; offline evaluator evidence"
+    },
+    {
+      "path": "local/strict-evaluator-archive.json",
+      "source_sha256": "1fd992faa4f22e3f50afa67b003154c556e83c4a061859c26f966b31f7d28ac3",
+      "archived_sha256": "1fd992faa4f22e3f50afa67b003154c556e83c4a061859c26f966b31f7d28ac3",
+      "normalization": "original local bytes; offline evaluator evidence"
+    }
+  ],
+  "native_windows_executed": false,
+  "remote_backend_replaced": false
+}

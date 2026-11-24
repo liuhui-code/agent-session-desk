@@ -1,0 +1,202 @@
+[
+    {
+        "utc":  "2026-11-24T10:28:08.6652482Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  18580,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                        "session":  2,
+                        "kind":  "shell-A",
+                        "filetime":  134399896877335164
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T10:28:09.6454945Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  8196,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                        "session":  2,
+                        "kind":  "shell-B",
+                        "filetime":  134399896888826179
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T10:28:09.7494851Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  10560,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\terminal-bundle-20261123\\bundle\\psmux.exe",
+                        "session":  2,
+                        "kind":  "backend",
+                        "filetime":  134399896876012917
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T10:28:09.7545837Z",
+        "details":  {
+                        "sha256":  "E971856F89748DC3B458125E9AFDD79B5E9574A7C937676116D3CBBD3B71F492",
+                        "session_id":  "3f59c391b639a298ae6ad02340ee29f3"
+                    },
+        "kind":  "backend-host"
+    },
+    {
+        "utc":  "2026-11-24T10:28:09.7895169Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  10672,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\terminal-bundle-20261123\\bundle\\psmux.exe",
+                        "session":  2,
+                        "kind":  "backend",
+                        "filetime":  134399896887957003
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T10:28:09.7944755Z",
+        "details":  {
+                        "sha256":  "E971856F89748DC3B458125E9AFDD79B5E9574A7C937676116D3CBBD3B71F492",
+                        "session_id":  "19634ed40fc2f51c7aef48542e7ee646"
+                    },
+        "kind":  "backend-host"
+    },
+    {
+        "utc":  "2026-11-24T10:28:09.8254202Z",
+        "details":  {
+                        "kind":  "DWord",
+                        "value":  1
+                    },
+        "kind":  "original-application-theme"
+    },
+    {
+        "utc":  "2026-11-24T10:28:09.8424645Z",
+        "details":  {
+                        "command":  "\u0026 \u0027<WINDOWS_USER>\\asd-acceptance-20261122\\asd-launch-environment.exe\u0027 \u0027--terminal-bundle\u0027 \u0027<WINDOWS_USER>\\asd-acceptance-20261122\\terminal-bundle-20261123\\bundle\u0027 \u0027--runtime-dir\u0027 \u0027<WINDOWS_USER>\\asd-acceptance-20261122\\current-system-notify-09ae102-20261124\\runtime\u0027 \u0027--namespace\u0027 \u0027asd-current-system-notify\u0027 \u0027--state-dir\u0027 \u0027<WINDOWS_USER>\\asd-acceptance-20261122\\current-system-notify-09ae102-20261124\\state\u0027",
+                        "outer_receipt":  "<WINDOWS_USER>\\asd-acceptance-20261122\\current-system-notify-09ae102-20261124\\first-outer-exit.json"
+                    },
+        "kind":  "ui-launch"
+    },
+    {
+        "utc":  "2026-11-24T10:28:11.1208122Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  14412,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe",
+                        "session":  2,
+                        "kind":  "terminal-first",
+                        "filetime":  134399896899153016
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T10:28:11.8672870Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  5384,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\asd-launch-environment.exe",
+                        "session":  2,
+                        "kind":  "manager-first",
+                        "filetime":  134399896908187117
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T10:28:13.0610842Z",
+        "details":  {
+                        "value":  "Write-Output (\u0027SYSTEM_DRAFT:\u0027+$PID)"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T10:28:13.1515757Z",
+        "details":  {
+                        "value":  "{F6}"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T10:28:13.2141737Z",
+        "details":  {
+                        "value":  "S"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T10:28:13.3332471Z",
+        "details":  {
+                        "value":  "{RIGHT}"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T10:28:13.5009783Z",
+        "details":  {
+                        "value":  "{RIGHT}"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T10:28:13.8502086Z",
+        "details":  {
+                        "rect":  [
+                                     40,
+                                     40,
+                                     1240,
+                                     760
+                                 ],
+                        "fontNames":  [
+                                          "System.__ComObject",
+                                          "Cascadia Mono"
+                                      ],
+                        "name":  "01-system-original"
+                    },
+        "kind":  "capture"
+    },
+    {
+        "utc":  "2026-11-24T10:28:13.8884457Z",
+        "details":  {
+                        "value":  "{ESC}"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T10:28:13.9821091Z",
+        "details":  {
+                        "value":  "{F6}"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T10:28:14.0574975Z",
+        "details":  {
+                        "rgb":  "d5d6db",
+                        "registry_value":  1
+                    },
+        "kind":  "actual-ui-background"
+    },
+    {
+        "utc":  "2026-11-24T10:28:15.6791608Z",
+        "details":  {
+                        "value":  0
+                    },
+        "kind":  "temporary-application-theme"
+    },
+    {
+        "utc":  "2026-11-24T10:28:16.1153675Z",
+        "details":  {
+                        "rgb":  "1a1b26",
+                        "registry_value":  0
+                    },
+        "kind":  "actual-ui-background"
+    },
+    {
+        "utc":  "2026-11-24T10:28:16.1990716Z",
+        "details":  {
+                        "error":  "方法调用失败，因为 [System.Object[]] 不包含名为“op_Subtraction”的方法。"
+                    },
+        "kind":  "failure"
+    }
+]

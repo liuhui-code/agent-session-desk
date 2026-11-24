@@ -1,0 +1,185 @@
+[
+    {
+        "utc":  "2026-11-24T03:18:32.8086118Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  10224,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                        "session":  2,
+                        "kind":  "shell-A",
+                        "filetime":  134399639082041393
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T03:18:34.6719313Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  7532,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                        "session":  2,
+                        "kind":  "shell-B",
+                        "filetime":  134399639135816546
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T03:18:34.9375200Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  2364,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\terminal-bundle-20261123\\bundle\\psmux.exe",
+                        "session":  2,
+                        "kind":  "backend",
+                        "filetime":  134399639077943217
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T03:18:34.9425067Z",
+        "details":  {
+                        "sha256":  "E971856F89748DC3B458125E9AFDD79B5E9574A7C937676116D3CBBD3B71F492",
+                        "session_id":  "86ea55ded061f61827aa18c519961fdb"
+                    },
+        "kind":  "backend-host"
+    },
+    {
+        "utc":  "2026-11-24T03:18:34.9784101Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  7452,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\terminal-bundle-20261123\\bundle\\psmux.exe",
+                        "session":  2,
+                        "kind":  "backend",
+                        "filetime":  134399639134630632
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T03:18:34.9843954Z",
+        "details":  {
+                        "sha256":  "E971856F89748DC3B458125E9AFDD79B5E9574A7C937676116D3CBBD3B71F492",
+                        "session_id":  "9087c5eccc00642429001b58b35e7b5b"
+                    },
+        "kind":  "backend-host"
+    },
+    {
+        "utc":  "2026-11-24T03:18:35.0741790Z",
+        "details":  {
+                        "command":  "\u0026 \u0027<WINDOWS_USER>\\asd-acceptance-20261122\\asd-launch-environment.exe\u0027 \u0027--terminal-bundle\u0027 \u0027<WINDOWS_USER>\\asd-acceptance-20261122\\terminal-bundle-20261123\\bundle\u0027 \u0027--runtime-dir\u0027 \u0027<WINDOWS_USER>\\asd-acceptance-20261122\\current-management-09ae102-20261124\\runtime\u0027 \u0027--namespace\u0027 \u0027asd-current-management\u0027 \u0027--state-dir\u0027 \u0027<WINDOWS_USER>\\asd-acceptance-20261122\\current-management-09ae102-20261124\\state\u0027",
+                        "outer_receipt":  "<WINDOWS_USER>\\asd-acceptance-20261122\\current-management-09ae102-20261124\\first-outer-exit.json"
+                    },
+        "kind":  "ui-launch"
+    },
+    {
+        "utc":  "2026-11-24T03:18:37.0648542Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  476,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe",
+                        "session":  2,
+                        "kind":  "terminal-first",
+                        "filetime":  134399639153793206
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T03:18:38.9920185Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  1164,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\asd-launch-environment.exe",
+                        "session":  2,
+                        "kind":  "manager-first",
+                        "filetime":  134399639178705019
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T03:18:40.3148953Z",
+        "details":  {
+                        "value":  "Write-Output (\u0027MANAGE_A:\u0027+$PID)"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T03:18:40.8242571Z",
+        "details":  {
+                        "value":  "^{PGDN}"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T03:18:41.9955282Z",
+        "details":  {
+                        "value":  "Write-Output (\u0027MANAGE_B:\u0027+$PID)"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T03:18:42.1063195Z",
+        "details":  {
+                        "value":  "^{PGUP}"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T03:18:43.4169442Z",
+        "details":  {
+                        "value":  "{F6}"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T03:18:43.4952127Z",
+        "details":  {
+                        "value":  "r"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T03:18:43.5881578Z",
+        "details":  {
+                        "value":  "^a"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T03:18:43.7891060Z",
+        "details":  {
+                        "value":  "Zeta 甲"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T03:18:44.3311903Z",
+        "details":  {
+                        "rect":  [
+                                     40,
+                                     40,
+                                     1240,
+                                     760
+                                 ],
+                        "fontNames":  [
+                                          "System.__ComObject",
+                                          "Cascadia Mono"
+                                      ],
+                        "name":  "01-name-before-submit"
+                    },
+        "kind":  "capture"
+    },
+    {
+        "utc":  "2026-11-24T03:18:44.3705439Z",
+        "details":  {
+                        "value":  "{ENTER}"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T03:18:56.3759394Z",
+        "details":  {
+                        "error":  "Rename result/order not observed; do not submit again"
+                    },
+        "kind":  "failure"
+    }
+]

@@ -1,0 +1,45 @@
+[
+  {
+    "utc": "2026-11-24T15:33:41.7484590Z",
+    "details": {
+      "handle_retained": true,
+      "pid": 12708,
+      "path": "<WINDOWS_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+      "session": 2,
+      "kind": "shell-A",
+      "filetime": 134400080183194373
+    },
+    "kind": "identity"
+  },
+  {
+    "utc": "2026-11-24T15:33:44.2689851Z",
+    "details": {
+      "handle_retained": true,
+      "pid": 20872,
+      "path": "<WINDOWS_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+      "session": 2,
+      "kind": "shell-B",
+      "filetime": 134400080223086491
+    },
+    "kind": "identity"
+  },
+  {
+    "utc": "2026-11-24T15:33:48.3670433Z",
+    "details": {
+      "handle_retained": true,
+      "pid": 12232,
+      "path": "<WINDOWS_USER>\\asd-acceptance-20261122\\terminal-bundle-mouse-20261124\\psmux.exe",
+      "session": 2,
+      "kind": "backend",
+      "filetime": 134400080180533728
+    },
+    "kind": "identity"
+  },
+  {
+    "utc": "2026-11-24T15:33:48.8623864Z",
+    "details": {
+      "error": "Unique pinned OpenConsole child missing"
+    },
+    "kind": "failure"
+  }
+]

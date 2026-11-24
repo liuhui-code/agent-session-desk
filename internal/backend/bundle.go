@@ -17,7 +17,7 @@ import (
 // This explicitly selected development bundle is not the official psmux release.
 // Source, patch, build and SDK provenance are recorded in ADR-0019.
 var terminalBundleHashes = map[string]string{
-	"psmux.exe":       "ca9753a059a6926bb5ad1d9fee81513507a6133d3efa5eefcf2423e33f348937",
+	"psmux.exe":       "ff9d8893ecc53ac5caca3bae0146d75ebcaf2cf7edc4abf9d87578469fb7b16b",
 	"conpty.dll":      "e971856f89748dc3b458125e9afdd79b5e9574a7c937676116d3cbbd3b71f492",
 	"OpenConsole.exe": "b17e48b07ef153b420f0a6e178bacd31fb4c3390e21ae746586213fc0719a775",
 }

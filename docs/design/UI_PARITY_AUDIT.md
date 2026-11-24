@@ -47,3 +47,7 @@
 2026-11-24：U19 已接入显式停止 UI 与原目标复核，实际证据见独立报告；实现不代表全部停止策略、真实桌面或完整上游接受。
 
 2026-11-24 当前构建复验：U12 的异步 exact Tab 后续输入经 RED→GREEN 修正，Windows 原生288 UI／9 Session通过；U05/U17/U19 的三 shell隔离终端及U03/U12/U13/U20的真实桌面局部画面与原 Run重连分别见[原生](../testing/results/2026-11-24-current-ui-native.md)／[桌面](../testing/results/2026-11-24-current-ui-desktop.md)。桌面60事件／15画面保留前序失败，System只验证实际初始Light读取；未覆盖本轮实体鼠标／IME、真实agent或完整等数据来源对照，不关闭上述整体缺口。
+
+2026-11-24 组合实机继续：U08/U16改名后排序刷新修复并完成45事件桌面；U17真实中文38事件含窄窗组合／表单，仍无候选中切Tab等证据。U18程序VT九组正确，U22 Win32严格0/9的双通道失败、Shift宿主保留及直接对照见[跟进](../testing/results/2026-11-24-current-ui-followup.md)。新后端候选仅本地，未把目录检查、归档、存在性断言或交叉构建提升为接受。
+
+2026-11-25 U18／U22 局部接续：[固定目录单通道候选](../testing/results/2026-11-25-single-mouse-channel.md)的实际Win32严格9/9、VT严格9/9及hover、wheel单次方向2/2通过，接回显式开发profile。旧系统宿主错误保留；没有本轮截图视觉接受、实体硬件、Shift应用转发、混合读取器、真实agent或资源结论，不关闭整体条目。

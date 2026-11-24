@@ -1,0 +1,158 @@
+[CmdletBinding()]
+param([switch]$DesktopWorker)
+$ErrorActionPreference='Stop';$ProgressPreference='SilentlyContinue';[Console]::OutputEncoding=[Text.UTF8Encoding]::new($false)
+$base=Join-Path $env:USERPROFILE 'asd-acceptance-20261122';$testRoot=Join-Path $base 'current-system-notify-09ae102-20261124-run2';$out=Join-Path $testRoot 'desktop'
+$task='AsdCurrentSystemNotify20261124Run2'
+if(!$DesktopWorker){
+ if(Test-Path $testRoot){throw 'Fresh desktop evidence required'}
+ if(Get-ScheduledTask -TaskName $task -ErrorAction SilentlyContinue){throw 'Owned task name already exists'}
+ $hash=(Get-FileHash $PSCommandPath).Hash;$file=$PSCommandPath
+ $code='$ErrorActionPreference="Stop";$file=Join-Path $env:USERPROFILE "asd-acceptance-20261122/run-current-ui-tests.ps1";if((Get-FileHash $file).Hash -cne "'+$hash+'"){throw "Runner changed"};& $file -DesktopWorker'
+ $action=New-ScheduledTaskAction -Execute powershell.exe -Argument ('-NoProfile -NonInteractive -ExecutionPolicy RemoteSigned -WindowStyle Hidden -STA -EncodedCommand '+[Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($code)))
+ $principal=New-ScheduledTaskPrincipal -UserId ([Security.Principal.WindowsIdentity]::GetCurrent().User.Value) -LogonType Interactive -RunLevel Limited
+ Register-ScheduledTask -TaskName $task -Action $action -Principal $principal -Settings (New-ScheduledTaskSettingsSet -ExecutionTimeLimit (New-TimeSpan -Minutes 8))|Out-Null
+ Start-ScheduledTask -TaskName $task
+ Write-Output 'Dedicated current-UI desktop task submitted once; await outcome without restarting.'
+ return
+}
+New-Item -ItemType Directory -Path $out|Out-Null
+$product=Join-Path $base 'asd-launch-environment.exe';$bundle=Join-Path $base 'terminal-bundle-20261123/bundle';$backend=Join-Path $bundle 'psmux.exe';$shell=Join-Path $base 'pwsh7/pwsh.exe'
+$script:terminal=Join-Path $base 'terminal/terminal-1.25.3131.0/WindowsTerminal.exe'
+$ns='asd-current-system-notify';$g=@('--terminal-bundle',$bundle,'--runtime-dir',(Join-Path $testRoot 'runtime'),'--namespace',$ns,'--state-dir',(Join-Path $testRoot 'state'))
+foreach($entry in @(Get-ChildItem Env:|Where-Object{$_.Name -like 'ASD_*' -or $_.Name -like 'PSMUX_*' -or $_.Name -in @('TMUX','TMUX_PANE','TMUX_TMPDIR')})){Remove-Item ('Env:'+$entry.Name)}
+$env:PSMUX_NO_WARM='1';$env:PSMUX_ALLOW_NESTING='1'
+$script:panes=@{};$sessions=@();$children=@();$managers=@();$terminals=@();$events=[Collections.Generic.List[object]]::new();$ok=$false;$forced=0;$themeKey=$null;$themeOriginal=$null;$themeLast=$null;$themeChanged=$false;$themeRestored=$false
+function Event($Kind,$Details){$events.Add(@{utc=[DateTime]::UtcNow.ToString('o');kind=$Kind;details=$Details});$events|ConvertTo-Json -Depth 8|Set-Content (Join-Path $testRoot 'events.json') -Encoding utf8}
+function ReadSharedText($Path){$s=[IO.File]::Open($Path,[IO.FileMode]::Open,[IO.FileAccess]::Read,([IO.FileShare]::ReadWrite -bor [IO.FileShare]::Delete));try{$r=[IO.StreamReader]::new($s);try{return $r.ReadToEnd()}finally{$r.Dispose()}}finally{$s.Dispose()}}
+Add-Type -AssemblyName System.Windows.Forms
+Add-Type -AssemblyName System.Drawing
+Add-Type -AssemblyName UIAutomationClient
+Add-Type @'
+using System;using System.Runtime.InteropServices;
+public class AsdDesktop {
+ [DllImport("user32.dll")] public static extern bool SetForegroundWindow(IntPtr h);
+ [DllImport("user32.dll")] public static extern IntPtr GetForegroundWindow();
+ [DllImport("user32.dll")] public static extern uint GetWindowThreadProcessId(IntPtr h,out uint p);
+ [DllImport("user32.dll")] public static extern IntPtr GetKeyboardLayout(uint thread);
+ [DllImport("user32.dll")] public static extern bool GetWindowRect(IntPtr h,out RECT r);
+ [DllImport("user32.dll")] public static extern bool MoveWindow(IntPtr h,int x,int y,int w,int height,bool redraw);
+ [DllImport("user32.dll")] public static extern bool SetProcessDPIAware();
+ [DllImport("user32.dll")] public static extern bool SetCursorPos(int x,int y);
+ [DllImport("user32.dll")] public static extern short GetAsyncKeyState(int key);
+ [DllImport("user32.dll",SetLastError=true)] public static extern uint SendInput(uint count,INPUT[] inputs,int size);
+ [StructLayout(LayoutKind.Sequential)] public struct RECT {public int left,top,right,bottom;}
+ [StructLayout(LayoutKind.Sequential)] public struct MOUSE {public int x,y;public uint data,flags,time;public UIntPtr extra;}
+ [StructLayout(LayoutKind.Sequential)] public struct KEY {public ushort key,scan;public uint flags,time;public UIntPtr extra;}
+ [StructLayout(LayoutKind.Explicit)] public struct DATA {[FieldOffset(0)]public MOUSE mouse;[FieldOffset(0)]public KEY key;}
+ [StructLayout(LayoutKind.Sequential)] public struct INPUT {public uint type;public DATA data;}
+ public static uint Text(string s){var a=new INPUT[s.Length*2];for(int i=0;i<s.Length;i++){a[i*2].type=1;a[i*2].data.key.scan=s[i];a[i*2].data.key.flags=4;a[i*2+1].type=1;a[i*2+1].data.key.scan=s[i];a[i*2+1].data.key.flags=6;}return SendInput((uint)a.Length,a,Marshal.SizeOf(typeof(INPUT)));}
+ public static uint Key(ushort k){var a=new INPUT[2];a[0].type=1;a[0].data.key.key=k;a[1].type=1;a[1].data.key.key=k;a[1].data.key.flags=2;return SendInput(2,a,Marshal.SizeOf(typeof(INPUT)));}
+ public static uint MouseButton(bool down){var a=new INPUT[1];a[0].data.mouse.flags=down?2u:4u;return SendInput(1,a,Marshal.SizeOf(typeof(INPUT)));}
+ public static uint Wheel(int delta){var a=new INPUT[1];a[0].data.mouse.flags=0x800;a[0].data.mouse.data=unchecked((uint)delta);return SendInput(1,a,Marshal.SizeOf(typeof(INPUT)));}
+ public static uint Click(){var a=new INPUT[2];a[0].data.mouse.flags=2;a[1].data.mouse.flags=4;return SendInput(2,a,Marshal.SizeOf(typeof(INPUT)));}
+}
+'@
+[AsdDesktop]::SetProcessDPIAware() | Out-Null
+$script:ownedId=0
+function Guard {
+ $p=Get-Process -Id $script:ownedId
+ if($p.MainWindowHandle -eq 0 -or $p.Path -ne $script:terminal -or $p.StartTime.ToUniversalTime().ToFileTimeUtc() -ne $script:ownedFiletime){throw 'Owned terminal identity mismatch'}
+ $foreground=[uint32]0;[AsdDesktop]::GetWindowThreadProcessId([AsdDesktop]::GetForegroundWindow(),[ref]$foreground)|Out-Null
+ if($foreground -ne $p.Id){throw 'Foreground changed; input refused'}
+ return $p
+}
+function State {
+ $p=Guard;$r=New-Object AsdDesktop+RECT;[AsdDesktop]::GetWindowRect($p.MainWindowHandle,[ref]$r)|Out-Null
+ $root=[Windows.Automation.AutomationElement]::FromHandle($p.MainWindowHandle)
+ $items=$root.FindAll([Windows.Automation.TreeScope]::Descendants,[Windows.Automation.Condition]::TrueCondition)
+ $texts=@();$tree=@();$fontNames=@()
+ foreach($el in $items){$name=[string]$el.Current.Name;$tree+=@{name=$name;type=$el.Current.ControlType.ProgrammaticName};$pat=$null;if($el.TryGetCurrentPattern([Windows.Automation.TextPattern]::Pattern,[ref]$pat)){$texts+=,$pat.DocumentRange.GetText(-1);$fontNames+=,[string]$pat.DocumentRange.GetAttributeValue([Windows.Automation.TextPattern]::FontNameAttribute)}}
+ $f=[uint32]0;$thread=[AsdDesktop]::GetWindowThreadProcessId([AsdDesktop]::GetForegroundWindow(),[ref]$f)
+ return @{caps_lock=[Windows.Forms.Control]::IsKeyLocked([Windows.Forms.Keys]::CapsLock);pid=$p.Id;filetime=$script:ownedFiletime;path=$p.Path;session=$p.SessionId;rect=@($r.left,$r.top,($r.right-$r.left),($r.bottom-$r.top));keyboardLayout=[AsdDesktop]::GetKeyboardLayout($thread).ToInt64();text=($texts -join "`n");tree=$tree;fontNames=@($fontNames|Select-Object -Unique)}
+}
+function Capture($label) {
+ if($label -notmatch '^[a-zA-Z0-9_-]+$'){throw 'Invalid capture label'}
+ $p=Guard;$r=New-Object AsdDesktop+RECT;[AsdDesktop]::GetWindowRect($p.MainWindowHandle,[ref]$r)|Out-Null
+ $rect=[Drawing.Rectangle]::FromLTRB($r.left,$r.top,$r.right,$r.bottom)
+ $visible=[Drawing.Rectangle]::Intersect($rect,[Windows.Forms.SystemInformation]::VirtualScreen)
+ if($visible.Width -lt 100 -or $visible.Height -lt 100){throw 'Owned window outside display'}
+ $bmp=[Drawing.Bitmap]::new($visible.Width,$visible.Height);$g=[Drawing.Graphics]::FromImage($bmp)
+ try{$g.CopyFromScreen($visible.Location,[Drawing.Point]::Empty,$visible.Size);$bmp.Save((Join-Path $out "$label.png"),[Drawing.Imaging.ImageFormat]::Png)}finally{$g.Dispose();$bmp.Dispose()}
+ return State
+}
+function NativeFrame($s){
+ if($s -is [Array] -or $s.backend_id -isnot [string]){throw 'Expected a single typed Session identity'}
+ $data=Join-Path (Join-Path $testRoot 'runtime') $ns;$reg=$ns+'__'+$s.backend_id
+ $port=[int]((ReadSharedText (Join-Path $data ($reg+'.port')))).Trim();$key=((ReadSharedText (Join-Path $data ($reg+'.key')))).Trim()
+ $tcp=[Net.Sockets.TcpClient]::new();$tcp.Connect('127.0.0.1',$port)
+ try{$stream=$tcp.GetStream();$stream.ReadTimeout=5000;$stream.WriteTimeout=3000;$reader=[IO.StreamReader]::new($stream,[Text.UTF8Encoding]::new($false),$false,4096,$true)
+  $b=[Text.Encoding]::UTF8.GetBytes("AUTH $key`ndump-state`n");$stream.Write($b,0,$b.Length);$stream.Flush();if($reader.ReadLine() -ne 'OK'){throw 'Read-only auth failed'}
+  $line=$reader.ReadLine();if(!$line -or [Text.Encoding]::UTF8.GetByteCount($line) -gt 2MB){throw 'Invalid read-only frame'};$f=$line|ConvertFrom-Json
+  if($f.session_name -ne $s.backend_id -or $f.layout.type -ne 'leaf' -or !$f.layout.active){throw 'Original synthetic Session/pane changed'}
+  if($script:panes.ContainsKey($s.session_id)){if($script:panes[$s.session_id] -ne $f.layout.id){throw 'Original pane changed'}}else{$script:panes[$s.session_id]=$f.layout.id}
+  return $f
+ }finally{$tcp.Dispose()}
+}
+
+function ThemeWrite($Value){$current=$script:themeKey.GetValue('AppsUseLightTheme',$null,[Microsoft.Win32.RegistryValueOptions]::DoNotExpandEnvironmentNames);if($current -ne $script:themeLast){throw 'Application theme concurrently changed; no write'};$script:themeKey.SetValue('AppsUseLightTheme',[int]$Value,[Microsoft.Win32.RegistryValueKind]::DWord);$script:themeLast=[int]$Value;$script:themeChanged=$true;Event 'temporary-application-theme' @{value=$Value}}
+function ThemePixel { $w=Guard;$r=New-Object AsdDesktop+RECT;[AsdDesktop]::GetWindowRect($w.MainWindowHandle,[ref]$r)|Out-Null;$bmp=[Drawing.Bitmap]::new(1,1);$g=[Drawing.Graphics]::FromImage($bmp);try{$g.CopyFromScreen([Drawing.Point]::new($r.left+20,[int](($r.top+$r.bottom)/2)),[Drawing.Point]::Empty,[Drawing.Size]::new(1,1));$c=$bmp.GetPixel(0,0);return ('{0:x2}{1:x2}{2:x2}' -f $c.R,$c.G,$c.B)}finally{$g.Dispose();$bmp.Dispose()}}
+function ThemeShot($Name){$w=Guard;$r=New-Object AsdDesktop+RECT;[AsdDesktop]::GetWindowRect($w.MainWindowHandle,[ref]$r)|Out-Null;$bmp=[Drawing.Bitmap]::new($r.right-$r.left,$r.bottom-$r.top);$g=[Drawing.Graphics]::FromImage($bmp);try{$g.CopyFromScreen([Drawing.Point]::new($r.left,$r.top),[Drawing.Point]::Empty,$bmp.Size);$bmp.Save((Join-Path $out ($Name+'.png')),[Drawing.Imaging.ImageFormat]::Png)}finally{$g.Dispose();$bmp.Dispose()};Event 'theme-frame' @{name=$Name;rect=@($r.left,$r.top,($r.right-$r.left),($r.bottom-$r.top))}}
+function WaitTheme($Value){$hex=@('1a1b26','d5d6db')[$Value];$until=[DateTime]::UtcNow.AddSeconds(12);do{if((ThemePixel) -ceq $hex){Event 'actual-ui-background' @{registry_value=$Value;rgb=$hex};return};Start-Sleep -Milliseconds 100}while([DateTime]::UtcNow -lt $until);Shot 'theme-failed';throw 'Real UI did not reflect the changed application theme'}
+function Text($Value){Guard|Out-Null;foreach($k in @(16,17,18,91,92)){if(([AsdDesktop]::GetAsyncKeyState($k)-band 32768)-ne 0){throw 'Modifier held; text refused'}};foreach($ch in $Value.ToCharArray()){Guard|Out-Null;if([AsdDesktop]::Text([string]$ch)-ne 2){throw 'Unicode text input failed'};Start-Sleep -Milliseconds 12};Event 'text' @{value=$Value}}
+function Key($Value){Guard|Out-Null;[Windows.Forms.SendKeys]::SendWait($Value);Event 'key' @{value=$Value}}
+function WaitText($Value){$until=[DateTime]::UtcNow.AddSeconds(12);do{$s=State;if($s.text.Contains($Value)){return $s};Start-Sleep -Milliseconds 100}while([DateTime]::UtcNow -lt $until);Capture 'failed-screen'|ConvertTo-Json -Depth 7|Set-Content (Join-Path $out 'failed-state.json') -Encoding utf8;throw ('Desktop text missing: '+$Value+'; input not replayed')}
+function WaitAbsent($Value){$until=[DateTime]::UtcNow.AddSeconds(12);do{$s=State;if(!$s.text.Contains($Value)){return};Start-Sleep -Milliseconds 100}while([DateTime]::UtcNow -lt $until);throw ('Modal still present: '+$Value+'; input not replayed')}
+function Shot($Name){$s=Capture $Name;$s|ConvertTo-Json -Depth 7|Set-Content (Join-Path $out ($Name+'.json')) -Encoding utf8;Event 'capture' @{name=$Name;rect=$s.rect;fontNames=$s.fontNames}}
+function WaitFile($Name){$until=[DateTime]::UtcNow.AddSeconds(12);do{try{if(Test-Path $Name){$v=(ReadSharedText $Name)|ConvertFrom-Json;if($v.pid -and $v.filetime){return $v}}}catch{};Start-Sleep -Milliseconds 100}while([DateTime]::UtcNow -lt $until);throw 'Independent fixture not observed'}
+function SameProcess($Id,$Image){$v=Get-Process -Id $Id.pid;if($v.Path -cne $Image -or $v.StartTime.ToUniversalTime().ToFileTimeUtc() -ne $Id.filetime){throw 'Original process changed'};return $v}
+function Remember($Process,$Kind){$handle=$Process.Handle;$v=@{pid=$Process.Id;filetime=$Process.StartTime.ToUniversalTime().ToFileTimeUtc();path=$Process.Path;kind=$Kind;session=$Process.SessionId;handle_retained=($handle -ne [IntPtr]::Zero)};Event 'identity' $v;return $v}
+function LaunchUI($Name){
+ if(@(Get-Process WindowsTerminal -ErrorAction SilentlyContinue|Where-Object{$_.Path -eq $script:terminal}).Count){throw 'Existing private Terminal present; do not reuse'}
+ $argsText=@($g|ForEach-Object{"'"+$_.Replace("'","''")+"'"}) -join ' '
+ $launch="& '"+$product.Replace("'","''")+"' "+$argsText
+ $receipt=Join-Path $testRoot ($Name+'-outer-exit.json')
+ $code="`$ErrorActionPreference='Stop';`$failure=`$null;`$result=1;try{"+$launch+";`$result=`$LASTEXITCODE}catch{`$failure=`$_.Exception.Message};@{exit_code=`$result;error=`$failure}|ConvertTo-Json|Set-Content -LiteralPath '"+$receipt.Replace("'","''")+"' -Encoding utf8;if(`$result -ne 0){Start-Sleep -Seconds 5}"
+ Event 'ui-launch' @{command=$launch;outer_receipt=$receipt}
+ $command='-w new --title ASD-Current-Review --startingDirectory "'+$testRoot+'" "'+$shell+'" -NoLogo -NoProfile -EncodedCommand '+[Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($code))
+ $started=Start-Process -FilePath $script:terminal -ArgumentList $command -PassThru
+ $until=[DateTime]::UtcNow.AddSeconds(15);do{$matches=@(Get-Process WindowsTerminal -ErrorAction SilentlyContinue|Where-Object{$_.Path -eq $script:terminal -and $_.MainWindowHandle -ne 0});if($matches.Count -eq 1){break};Start-Sleep -Milliseconds 100}while([DateTime]::UtcNow -lt $until)
+ if($matches.Count -ne 1){throw 'Unique private desktop Terminal not observed'};$win=$matches[0];Start-Sleep -Milliseconds 1000;$win.Refresh();if($win.HasExited){throw 'Initial Terminal ended; inspect outer receipt, do not reuse another process'};$script:ownedId=$win.Id;$script:ownedFiletime=$win.StartTime.ToUniversalTime().ToFileTimeUtc();$script:terminals+=,$win;$null=Remember $win ('terminal-'+$Name)
+ [AsdDesktop]::SetForegroundWindow($win.MainWindowHandle)|Out-Null;Start-Sleep -Milliseconds 300;Guard|Out-Null
+ [AsdDesktop]::MoveWindow($win.MainWindowHandle,40,40,1240,760,$true)|Out-Null
+ $null=WaitText 'DESKTOP_READY A';$found=@(Get-CimInstance Win32_Process|Where-Object{$_.ExecutablePath -eq $product});if($found.Count -ne 1){throw 'Manager image not unique'};$manager=Get-Process -Id $found[0].ProcessId;$null=Remember $manager ('manager-'+$Name);$script:managers+=,$manager
+ if($manager.SessionId -ne $win.SessionId){throw 'Desktop and manager not in same interactive session'}
+}
+function QuitUI {Key '{F6}';$null=WaitText '管理模式';Text 'q';$m=$script:managers[-1];if(!$m.WaitForExit(12000)-or $m.ExitCode -ne 0){throw 'Original manager not exited zero'};$w=$script:terminals[-1];if(!$w.WaitForExit(12000)){throw 'Private Terminal did not end after UI exit'};Event 'normal-ui-exit' @{pid=$m.Id;exit_code=$m.ExitCode}}
+function SaveNative($Name,$Session){$f=NativeFrame $Session;$f|ConvertTo-Json -Depth 40|Set-Content (Join-Path $testRoot ($Name+'.json')) -Encoding utf8;return (@($f.layout.rows_v2|ForEach-Object{($_.runs.text -join '').TrimEnd()}) -join "`n")}
+function WaitPreference($Pattern){$until=[DateTime]::UtcNow.AddSeconds(10);$file=Join-Path $testRoot 'state/ui.toml';do{if((Test-Path $file)-and (ReadSharedText $file)-match $Pattern){return};Start-Sleep -Milliseconds 100}while([DateTime]::UtcNow -lt $until);throw 'UI preference not confirmed'}
+$previousForeground=[AsdDesktop]::GetForegroundWindow();$capsBefore=[Windows.Forms.Control]::IsKeyLocked([Windows.Forms.Keys]::CapsLock)
+try{
+ foreach($pair in @(@($product,'baf087dc26a7e49e00a6d3d5600d13fa00b4c4d3218bebc1f1f0da0d8494cb57'),@($backend,'ca9753a059a6926bb5ad1d9fee81513507a6133d3efa5eefcf2423e33f348937'),@($shell,'f2833e07a5a7d59153ffc63db83bd6b62f6c63ffd8b5b5099a2feadf6b605336'),@($script:terminal,'337c583db0b4b53c726a851933e3d3df86c09e0d4812d14d68ad703e81293fc9'),@((Join-Path $bundle 'conpty.dll'),'e971856f89748dc3b458125e9afdd79b5e9574a7c937676116d3cbbd3b71f492'),@((Join-Path $bundle 'OpenConsole.exe'),'b17e48b07ef153b420f0a6e178bacd31fb4c3390e21ae746586213fc0719a775'))){if((Get-FileHash $pair[0]).Hash.ToLowerInvariant() -cne $pair[1]){throw 'Pinned desktop prerequisite changed'}}
+ $settings=Join-Path (Split-Path $script:terminal) 'settings/settings.json';$settingsBefore=(Get-FileHash $settings).Hash
+ $fixture=Join-Path $testRoot 'shell.ps1'
+ @'
+param([string]$label)
+function global:prompt { '> ' }
+Set-PSReadLineOption -HistorySavePath (Join-Path $PSScriptRoot ($label+'.history.txt'))
+$p=Get-Process -Id $PID
+@{label=$label;pid=$PID;filetime=$p.StartTime.ToUniversalTime().ToFileTimeUtc();path=$p.Path}|ConvertTo-Json|Set-Content (Join-Path $PSScriptRoot ($label+'.identity.json')) -Encoding utf8
+Clear-Host
+'DESKTOP_READY '+$label
+'@|Set-Content $fixture -Encoding utf8
+ foreach($name in @('A','B')){$s=(& $product @g start --name ('Review '+$name) --cwd $testRoot -- $shell -NoLogo -NoProfile -NoExit -File $fixture $name|Out-String)|ConvertFrom-Json;if($LASTEXITCODE -ne 0){throw 'Synthetic desktop shell start failed'};$sessions+=,$s;$sessions|ConvertTo-Json -Depth 8|Set-Content (Join-Path $testRoot 'sessions-before.json') -Encoding utf8;$id=WaitFile (Join-Path $testRoot ($name+'.identity.json'));$child=SameProcess $id $shell;$children+=,$child;$null=Remember $child ('shell-'+$name)}
+ foreach($s in $sessions){$f=NativeFrame $s;$reg=Join-Path (Join-Path (Join-Path $testRoot 'runtime') $ns) ($ns+'__'+$s.backend_id+'.pid');$parts=(ReadSharedText $reg).Trim().Split(':');$bp=Get-Process -Id ([int]$parts[0]);if($bp.StartTime.ToUniversalTime().ToFileTimeUtc() -ne [long]$parts[1] -or $bp.Path -ne $backend){throw 'Backend identity changed'};$dll=@($bp.Modules|Where-Object{$_.FileName -eq (Join-Path $bundle 'conpty.dll')});if($dll.Count -ne 1){throw 'Product did not load pinned ConPTY'};$null=Remember $bp 'backend';Event 'backend-host' @{sha256=(Get-FileHash $dll[0].FileName).Hash;session_id=$s.session_id}}
+ $themeKey=[Microsoft.Win32.Registry]::CurrentUser.OpenSubKey('Software\Microsoft\Windows\CurrentVersion\Themes\Personalize',$true);if(!$themeKey){throw 'Application theme key unavailable; not created'};$kind=$themeKey.GetValueKind('AppsUseLightTheme');$themeOriginal=$themeKey.GetValue('AppsUseLightTheme',$null,[Microsoft.Win32.RegistryValueOptions]::DoNotExpandEnvironmentNames);if($kind -ne [Microsoft.Win32.RegistryValueKind]::DWord -or $themeOriginal -notin @(0,1)){throw 'Unsupported original application theme; no mutation'};$themeLast=[int]$themeOriginal;Event 'original-application-theme' @{value=$themeOriginal;kind=$kind.ToString()}
+ LaunchUI 'first';$draft="Write-Output ('SYSTEM_DRAFT:'+`$PID)";Text $draft;$null=WaitText $draft;Key '{F6}';$null=WaitText '管理模式';Text 'S';$null=WaitText '主题';Key '{RIGHT}';WaitPreference 'theme = "light"';Key '{RIGHT}';WaitPreference 'theme = "system"';$null=WaitText '跟随 Windows 应用主题';Shot '01-system-original';Key '{ESC}';WaitAbsent '侧栏密度';$null=WaitText '管理模式';Key '{F6}';$null=WaitText '终端模式';WaitTheme $themeOriginal
+ $other=1-[int]$themeOriginal;ThemeWrite $other;WaitTheme $other;ThemeShot '02-live-notification-changed'
+ ThemeWrite $themeOriginal;WaitTheme $themeOriginal;$themeRestored=$true;$null=WaitText $draft;Shot '03-live-notification-restored';$a=SaveNative 'A-draft-after-notification' $sessions[0];if(!$a.Contains($draft)-or $a -match '(?m)^SYSTEM_DRAFT:'){throw 'System notification changed or submitted original draft'};Key '{F6}';$null=WaitText '管理模式';Text 'S';$null=WaitText '跟随 Windows 应用主题';$caption=@('当前 Dark','当前 Light')[[int]$themeOriginal];$null=WaitText $caption;Shot '04-system-observer-rearmed';Key '{ESC}';WaitAbsent '侧栏密度';Key '{F6}';$null=WaitText '终端模式'
+ $rows=(& $product @g list --json|Out-String)|ConvertFrom-Json;foreach($s in $sessions){if(@($rows|Where-Object{$_.session_id -ceq $s.session_id -and $_.run_id -ceq $s.run_id -and $_.backend_id -ceq $s.backend_id}).Count -ne 1){throw 'Reopen replaced original Run'}};$rows|ConvertTo-Json -Depth 8|Set-Content (Join-Path $testRoot 'sessions-after.json') -Encoding utf8
+ QuitUI;if((Get-FileHash $settings).Hash -cne $settingsBefore){throw 'Private Terminal settings changed'};$ok=$true
+}catch{Event 'failure' @{error=$_.Exception.Message};$_.ScriptStackTrace|Set-Content (Join-Path $testRoot 'failure-stack.txt') -Encoding utf8}finally{
+ if($themeKey){try{$current=$themeKey.GetValue('AppsUseLightTheme',$null,[Microsoft.Win32.RegistryValueOptions]::DoNotExpandEnvironmentNames);if($themeChanged -and $current -eq $themeLast){if($current -ne $themeOriginal){$themeKey.SetValue('AppsUseLightTheme',[int]$themeOriginal,[Microsoft.Win32.RegistryValueKind]::DWord)};$themeRestored=($themeKey.GetValue('AppsUseLightTheme') -eq $themeOriginal)}elseif($themeChanged){Event 'restore-conflict' @{no_overwrite_of_external_value=$true};$themeRestored=$false}}finally{$themeKey.Dispose()}}
+ foreach($s in $sessions){$rows=(& $product @g list --json|Out-String)|ConvertFrom-Json;$found=@($rows|Where-Object{$_.session_id -ceq $s.session_id -and $_.run_id -ceq $s.run_id -and $_.backend_id -ceq $s.backend_id});if($found.Count -eq 1){& $product @g stop $s.session_id|Set-Content (Join-Path $testRoot ('cleanup-'+$s.session_id+'.json')) -Encoding utf8}}
+ foreach($w in $terminals){if(!$w.HasExited){$p=Get-Process -Id $w.Id;if($p.Path -ceq $script:terminal -and $p.StartTime.ToUniversalTime().ToFileTimeUtc() -eq $w.StartTime.ToUniversalTime().ToFileTimeUtc()){$null=$w.CloseMainWindow();$null=$w.WaitForExit(10000)}}}
+ foreach($p in (@($children)+@($managers))){if(!$p.WaitForExit(10000)){$live=Get-Process -Id $p.Id;if($live.Path -ceq $p.Path -and $live.StartTime.ToUniversalTime().ToFileTimeUtc() -eq $p.StartTime.ToUniversalTime().ToFileTimeUtc()){$forced++;$p.Kill();$null=$p.WaitForExit(10000)}}}
+ $ended=@($events|Where-Object{$_.kind -eq 'identity'}|ForEach-Object{$id=$_.details;$live=Get-Process -Id $id.pid -ErrorAction SilentlyContinue;$same=$false;if($live){$same=$live.Path -ceq $id.path -and $live.StartTime.ToUniversalTime().ToFileTimeUtc() -eq $id.filetime};@{pid=$id.pid;filetime=$id.filetime;kind=$id.kind;original_ended=(!$same)}})
+ $settingsAfter=$null;if(Test-Path (Join-Path (Split-Path $script:terminal) 'settings/settings.json')){$settingsAfter=(Get-FileHash (Join-Path (Split-Path $script:terminal) 'settings/settings.json')).Hash}
+ @{result=$(if($ok){'passed'}else{'failed'});utc=[DateTime]::UtcNow.ToString('o');windows=[Environment]::OSVersion.VersionString;product_sha256=(Get-FileHash $product).Hash;surface='Windows Terminal desktop';system_clipboard_calls=0;system_settings_temporarily_written=$themeChanged;original_application_theme=$themeOriginal;application_theme_restored=$themeRestored;private_terminal_settings_before=$settingsBefore;private_terminal_settings_after=$settingsAfter;caps_lock_unchanged=($capsBefore -eq [Windows.Forms.Control]::IsKeyLocked([Windows.Forms.Keys]::CapsLock));originals=$ended;forced_ends=$forced;events=$events.Count}|ConvertTo-Json -Depth 8|Set-Content (Join-Path $testRoot 'outcome.json') -Encoding utf8
+}

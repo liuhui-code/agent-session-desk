@@ -15,7 +15,7 @@ func (b *Backend) command(args ...string) *exec.Cmd {
 	cmd := exec.Command(b.bin, all...)
 	cmd.Env = commandEnv(os.Environ(), b.kind, b.dataDir, b.config)
 	if b.bundle != "" {
-		cmd.Env = append(cmd.Env, "PSMUX_CONPTY_DIR="+b.bundle)
+		cmd.Env = append(cmd.Env, "PSMUX_CONPTY_DIR="+b.bundle, "PSMUX_CONPTY_PIPE_MOUSE_ONLY=1")
 	}
 	return cmd
 }

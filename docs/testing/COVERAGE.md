@@ -5,7 +5,7 @@
 - 用例：339；全部 designed / not_run。
 - 依据明确：216；待决策：123；后置：0。
 - FL：20；FR：14，均有设计引用。
-- 已记录 ADR：39；本库引用 ADR：32。下方逐项列出数量，零引用不等于已覆盖。
+- 已记录 ADR：40；本库引用 ADR：33。下方逐项列出数量，零引用不等于已覆盖。
 - 本轮设计基线执行：0；没有产品通过结论。本表不统计后续独立运行报告，实际证据见 [results/](results/)。
 
 [总索引](CASE_INDEX.md) · [测试策略](TEST_STRATEGY.md) · [未决项](BUDGETS_AND_DECISIONS.md)
@@ -313,7 +313,7 @@
 | [ADR-0022](../adr/0022-default-group-sidebar-navigation.md) | 6 |
 | [ADR-0023](../adr/0023-persistent-groups-and-membership.md) | 6 |
 | [ADR-0024](../adr/0024-group-removal-and-member-preservation.md) | 1 |
-| [ADR-0025](../adr/0025-persistent-session-order.md) | 1 |
+| [ADR-0025](../adr/0025-persistent-session-order.md) | 2 |
 | [ADR-0026](../adr/0026-explicit-session-stop.md) | 3 |
 | [ADR-0027](../adr/0027-persistent-workspace-split.md) | 3 |
 | [ADR-0028](../adr/0028-explicit-visible-pane-copy.md) | 3 |
@@ -328,5 +328,6 @@
 | [ADR-0037](../adr/0037-directory-pickers-and-bounded-recents.md) | 2 |
 | [ADR-0038](../adr/0038-program-mouse-buttons-and-motion.md) | 1 |
 | [ADR-0039](../adr/0039-launch-dialog-environment-overrides.md) | 3 |
+| [ADR-0040](../adr/0040-verified-conpty-single-mouse-channel.md) | 1 |
 
 FL-018 按 ADR-0014 纳入首版计划；沿用原 TC-DEFER 编号，不代表已实现或已验收。

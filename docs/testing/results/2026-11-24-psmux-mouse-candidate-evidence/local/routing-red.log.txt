@@ -1,0 +1,15 @@
+
+running 1 test
+
+thread 'tests::verified_directory_pipe_mode_has_no_second_record_channel' (52858017) panicked at /private/tmp/asd-mouse-routing-20261124/psmux-candidate/src/mouse_routing.rs:14:13:
+verified modern directory still duplicated wheel=false
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test tests::verified_directory_pipe_mode_has_no_second_record_channel ... FAILED
+
+failures:
+
+failures:
+    tests::verified_directory_pipe_mode_has_no_second_record_channel
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

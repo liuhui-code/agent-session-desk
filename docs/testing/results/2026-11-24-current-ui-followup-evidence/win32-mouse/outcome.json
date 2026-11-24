@@ -1,0 +1,53 @@
+{
+    "forced_ends":  0,
+    "windows":  "Microsoft Windows NT 10.0.19045.0",
+    "product_sha256":  "BAF087DC26A7E49E00A6D3D5600D13FA00B4C4D3218BEBC1F1F0DA0D8494CB57",
+    "surface":  "Windows Terminal desktop Win32 console app",
+    "result":  "passed",
+    "originals":  [
+                      {
+                          "pid":  3880,
+                          "filetime":  134399706421766334,
+                          "original_ended":  true,
+                          "kind":  "shell-A"
+                      },
+                      {
+                          "pid":  14216,
+                          "filetime":  134399706431204714,
+                          "original_ended":  true,
+                          "kind":  "shell-B"
+                      },
+                      {
+                          "pid":  20292,
+                          "filetime":  134399706420879469,
+                          "original_ended":  true,
+                          "kind":  "backend"
+                      },
+                      {
+                          "pid":  7324,
+                          "filetime":  134399706430368088,
+                          "original_ended":  true,
+                          "kind":  "backend"
+                      },
+                      {
+                          "pid":  7624,
+                          "filetime":  134399706441089004,
+                          "original_ended":  true,
+                          "kind":  "terminal-first"
+                      },
+                      {
+                          "pid":  10316,
+                          "filetime":  134399706449322348,
+                          "original_ended":  true,
+                          "kind":  "manager-first"
+                      }
+                  ],
+    "events":  26,
+    "utc":  "2026-11-24T05:10:55.5545418Z",
+    "shift_injected":  false,
+    "system_clipboard_calls":  0,
+    "caps_lock_unchanged":  true,
+    "private_terminal_settings_after":  "1499307ABEBA68C23F9EB38A4C636F81172475B6B2B535BC0B11DCD9547241F8",
+    "system_settings_written":  false,
+    "private_terminal_settings_before":  "1499307ABEBA68C23F9EB38A4C636F81172475B6B2B535BC0B11DCD9547241F8"
+}

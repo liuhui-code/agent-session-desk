@@ -1,0 +1,209 @@
+[
+    {
+        "utc":  "2026-11-24T03:44:06.8764519Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  16256,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                        "session":  2,
+                        "kind":  "shell-A",
+                        "filetime":  134399654459028275
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T03:44:07.7947891Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  19960,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                        "session":  2,
+                        "kind":  "shell-B",
+                        "filetime":  134399654470993960
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T03:44:07.9197173Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  14292,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\terminal-bundle-20261123\\bundle\\psmux.exe",
+                        "session":  2,
+                        "kind":  "backend",
+                        "filetime":  134399654457750782
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T03:44:07.9197173Z",
+        "details":  {
+                        "sha256":  "E971856F89748DC3B458125E9AFDD79B5E9574A7C937676116D3CBBD3B71F492",
+                        "session_id":  "7ef00fcc898a27a9fb80f965faa6eff4"
+                    },
+        "kind":  "backend-host"
+    },
+    {
+        "utc":  "2026-11-24T03:44:07.9665526Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  15476,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\terminal-bundle-20261123\\bundle\\psmux.exe",
+                        "session":  2,
+                        "kind":  "backend",
+                        "filetime":  134399654470155204
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T03:44:07.9665526Z",
+        "details":  {
+                        "sha256":  "E971856F89748DC3B458125E9AFDD79B5E9574A7C937676116D3CBBD3B71F492",
+                        "session_id":  "e9dc7df43397928fb237f4836268b705"
+                    },
+        "kind":  "backend-host"
+    },
+    {
+        "utc":  "2026-11-24T03:44:07.9822018Z",
+        "details":  {
+                        "command":  "\u0026 \u0027<WINDOWS_USER>\\asd-acceptance-20261122\\asd-launch-environment.exe\u0027 \u0027--terminal-bundle\u0027 \u0027<WINDOWS_USER>\\asd-acceptance-20261122\\terminal-bundle-20261123\\bundle\u0027 \u0027--runtime-dir\u0027 \u0027<WINDOWS_USER>\\asd-acceptance-20261122\\current-management-09ae102-20261124-run2\\runtime\u0027 \u0027--namespace\u0027 \u0027asd-current-management\u0027 \u0027--state-dir\u0027 \u0027<WINDOWS_USER>\\asd-acceptance-20261122\\current-management-09ae102-20261124-run2\\state\u0027",
+                        "outer_receipt":  "<WINDOWS_USER>\\asd-acceptance-20261122\\current-management-09ae102-20261124-run2\\first-outer-exit.json"
+                    },
+        "kind":  "ui-launch"
+    },
+    {
+        "utc":  "2026-11-24T03:44:09.4292487Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  9576,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe",
+                        "session":  2,
+                        "kind":  "terminal-first",
+                        "filetime":  134399654481829639
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T03:44:10.3502439Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  20320,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\asd-launch-environment.exe",
+                        "session":  2,
+                        "kind":  "manager-first",
+                        "filetime":  134399654492328466
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T03:44:11.3371368Z",
+        "details":  {
+                        "value":  "Write-Output (\u0027MANAGE_A:\u0027+$PID)"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T03:44:11.4658793Z",
+        "details":  {
+                        "value":  "^{PGDN}"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T03:44:12.6092172Z",
+        "details":  {
+                        "value":  "Write-Output (\u0027MANAGE_B:\u0027+$PID)"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T03:44:12.6983213Z",
+        "details":  {
+                        "value":  "^{PGUP}"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T03:44:13.1622583Z",
+        "details":  {
+                        "value":  "{F6}"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T03:44:13.2270880Z",
+        "details":  {
+                        "value":  "r"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T03:44:13.3179417Z",
+        "details":  {
+                        "value":  "^u"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T03:44:13.4850399Z",
+        "details":  {
+                        "value":  "Zeta 甲"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T03:44:13.6260133Z",
+        "details":  {
+                        "rect":  [
+                                     40,
+                                     40,
+                                     1240,
+                                     760
+                                 ],
+                        "fontNames":  [
+                                          "System.__ComObject",
+                                          "Cascadia Mono"
+                                      ],
+                        "name":  "01-name-before-submit"
+                    },
+        "kind":  "capture"
+    },
+    {
+        "utc":  "2026-11-24T03:44:13.6652879Z",
+        "details":  {
+                        "value":  "{ENTER}"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T03:44:14.5805785Z",
+        "details":  {
+                        "rect":  [
+                                     40,
+                                     40,
+                                     1240,
+                                     760
+                                 ],
+                        "fontNames":  [
+                                          "System.__ComObject",
+                                          "Cascadia Mono"
+                                      ],
+                        "name":  "02-renamed-original-active"
+                    },
+        "kind":  "capture"
+    },
+    {
+        "utc":  "2026-11-24T03:44:14.6141237Z",
+        "details":  {
+                        "value":  "K"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T03:44:24.9051143Z",
+        "details":  {
+                        "error":  "Explicit Session order not saved"
+                    },
+        "kind":  "failure"
+    }
+]

@@ -1755,7 +1755,7 @@
 
 - 功能：[FL-002](../COVERAGE.md#fl-002)、[FL-016](../COVERAGE.md#fl-016)
 - 需求：[FR-02](../COVERAGE.md#fr-02)、[FR-11](../COVERAGE.md#fr-11)
-- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0014](../../adr/0014-upstream-ui-tabs-and-general-terminals.md)、[ADR-0015](../../adr/0015-pinned-psmux-native-terminal-client.md)、[ADR-0016](../../adr/0016-tab-workspaces-and-input-ownership.md)、[ADR-0029](../../adr/0029-native-copy-pointer-gestures.md)、[ADR-0030](../../adr/0030-direct-terminal-drag-selection.md)、[ADR-0031](../../adr/0031-program-left-mouse-routing.md)、[ADR-0038](../../adr/0038-program-mouse-buttons-and-motion.md)
+- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0014](../../adr/0014-upstream-ui-tabs-and-general-terminals.md)、[ADR-0015](../../adr/0015-pinned-psmux-native-terminal-client.md)、[ADR-0016](../../adr/0016-tab-workspaces-and-input-ownership.md)、[ADR-0029](../../adr/0029-native-copy-pointer-gestures.md)、[ADR-0030](../../adr/0030-direct-terminal-drag-selection.md)、[ADR-0031](../../adr/0031-program-left-mouse-routing.md)、[ADR-0038](../../adr/0038-program-mouse-buttons-and-motion.md)、[ADR-0040](../../adr/0040-verified-conpty-single-mouse-channel.md)
 - 优先级 / 阶段 / 层次：P1 / M0 / manual
 - 类型：compatibility、usability
 - 设计 / 执行：`designed / not_run`
@@ -1777,6 +1777,7 @@
 4. 未声明 WantsMouse 的实时终端单击／微动及直接拖选；延迟原生模式帧，观察退出再恢复，穿插外部模式／鼠标声明变化和切 Tab；对比有／无交接能力连接。
 5. 声明 WantsMouse 的程序左按／拖／释放，越过 Tab／框，压力填满等待队列；穿插键／粘贴／滚轮／切 Tab／缩放与外部模式／屏幕增长后恢复，核对原程序和新 Run 独立输入。
 6. 对声明 WantsMouse 的实时程序执行三按钮与八种 Shift／Alt／Ctrl 组合、锁定状态、修饰变化及错按钮释放；阻塞 writer 后持续运动、切 Tab，核对最后接受状态释放。无按钮无修饰运动持续 200 次，穿插外部模式／尺寸往返、离开 pane、键／切 Tab 和旧连接回执。
+7. 为VT raw stdin与Win32 ReadConsoleInput分别记录每个显式手势的原始序列和独立区间，对比普通/修饰、hover及单次wheel；与无产品直接终端对照。记录具体OS、实际DLL宿主和明确候选profile。
 
 #### 预期与不变量
 
@@ -1786,6 +1787,7 @@
 - 单击／同格微动不进入模式、不发输入；首次实际运动带原锚点交接原 pane，原 FIFO 持续且不向新 Run 续接。写入接受不冒充已进入 CopyMode，观察退出或原锚点失效后不恢复；缺少能力不降级为文字／按键，原有原生模式指针仍可用。首次运动冻结与源客户端不同，真实后端／实体鼠标、程序鼠标和系统剪贴板分别验证。
 - 左键只到原 pane 内容，重复事件不重发，不改为选区／文字／按键。程序按住期间保留一个释放位置，主动操作前在原 FIFO 释放一次；外部模式／几何失效不转投且结果未知。CopyMode 仍选区优先且取消不合成复制；VT／Win32、其他按钮／修饰／悬停及实体鼠标、系统剪贴板分别实测。
 - 程序事件保持原按钮／修饰与原 pane，非法协议不写，旧 Pointer 连接不把新事件降级成左键／文本。按住仍保留一个释放位置，拒绝运动不改最后接受状态；悬停最多一个已接受写入／一个最新待发位置，失效或旧回执不续接新 Run。固定后台只单独核对 button=35 的 any-event，修饰悬停不发；Go wire／模型不证明 VT／Win32 record bypass、实体鼠标或程序处理。
+- 按下、拖动及释放核对整个原始区间，不能只要求正确事件至少出现一次；重复或无修饰提前释放均失败。wheel事件数、方向与原始幅度分别记录，不将宿主归一化说成物理幅度一致。Shift若由宿主保留须记录，自动化不执行可能触发复制/粘贴的Shift中/右键；脚本剪贴板API为0不证明宿主副作用为0。ADR-0040仍为候选提议，不由引用升级采用或原生通过。
 
 #### 需要的证据
 

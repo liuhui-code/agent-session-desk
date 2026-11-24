@@ -33,3 +33,7 @@ Go 单元／race／vet／模块校验、实际 Windows 执行和桌面验证分�
 
 - 固定 psmux [ConPTY 实现](https://github.com/psmux/psmux/blob/20aa1d7254ee93f64dafa059ef89341d9767470a/crates/portable-pty-psmux/src/win/psuedocon.rs)；当前上游诊断文档仅作接口解释，不证明旧版本能力，旧版能力已核对源码和真实 EXE。
 - Microsoft [固定 NuGet 包](https://www.nuget.org/packages/Microsoft.Windows.Console.ConPTY/1.25.261109001)，[依赖锁](../../tools/ci/windows-dependencies.json)，[第三方归属](../../THIRD_PARTY_NOTICES.md)。
+
+## 2026-11-25 显式开发 profile 接续
+
+[ADR-0040](0040-verified-conpty-single-mouse-channel.md)在既有 resize-history 补丁之上采用单通道鼠标候选，固定 psmux SHA256 更新为 ff9d8893ecc53ac5caca3bae0146d75ebcaf2cf7edc4abf9d87578469fb7b16b，两项 SDK 哈希不变；仅已核验目录选择注入精确变量。此前报告和旧目录保持历史，不自动接受旧哈希或迁移原 Run。默认系统宿主与官方安装依赖不变，有限原生输入／历史／重连／拒绝及鼠标结果见[新报告](../testing/results/2026-11-25-single-mouse-channel.md)。

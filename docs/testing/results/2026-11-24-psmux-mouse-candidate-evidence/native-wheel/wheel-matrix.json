@@ -1,0 +1,48 @@
+{
+  "matrix": [
+    {
+      "received_deltas": [
+        128
+      ],
+      "received_count": 1,
+      "injected_delta": 120,
+      "passed": true
+    },
+    {
+      "received_deltas": [
+        -128
+      ],
+      "received_count": 1,
+      "injected_delta": -120,
+      "passed": true
+    }
+  ],
+  "amplitude_contract": "single event with direction only; direct host changes 120 to 128",
+  "strict_native_wheel": true,
+  "received": [
+    {
+      "n": 1,
+      "x": 5,
+      "y": 4,
+      "buttons": 0,
+      "control": 0,
+      "flags": 1
+    },
+    {
+      "n": 2,
+      "x": 5,
+      "y": 4,
+      "buttons": 8388608,
+      "control": 0,
+      "flags": 4
+    },
+    {
+      "n": 3,
+      "x": 5,
+      "y": 4,
+      "buttons": 4286578688,
+      "control": 0,
+      "flags": 4
+    }
+  ]
+}

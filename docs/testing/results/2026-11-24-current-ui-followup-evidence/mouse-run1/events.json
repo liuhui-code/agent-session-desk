@@ -1,0 +1,400 @@
+[
+    {
+        "utc":  "2026-11-24T04:30:47.4524766Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  16508,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                        "session":  2,
+                        "kind":  "shell-A",
+                        "filetime":  134399682466431301
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T04:30:48.4666339Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  8408,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                        "session":  2,
+                        "kind":  "shell-B",
+                        "filetime":  134399682476794078
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T04:30:48.5759533Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  16472,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\terminal-bundle-20261123\\bundle\\psmux.exe",
+                        "session":  2,
+                        "kind":  "backend",
+                        "filetime":  134399682465543027
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T04:30:48.5759533Z",
+        "details":  {
+                        "sha256":  "E971856F89748DC3B458125E9AFDD79B5E9574A7C937676116D3CBBD3B71F492",
+                        "session_id":  "60cbb13cf24d36b4739411c5dc8442f7"
+                    },
+        "kind":  "backend-host"
+    },
+    {
+        "utc":  "2026-11-24T04:30:48.6072279Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  1992,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\terminal-bundle-20261123\\bundle\\psmux.exe",
+                        "session":  2,
+                        "kind":  "backend",
+                        "filetime":  134399682475973393
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T04:30:48.6228173Z",
+        "details":  {
+                        "sha256":  "E971856F89748DC3B458125E9AFDD79B5E9574A7C937676116D3CBBD3B71F492",
+                        "session_id":  "898e74cb52e817ed5ef2962edd2d51f2"
+                    },
+        "kind":  "backend-host"
+    },
+    {
+        "utc":  "2026-11-24T04:30:48.6384388Z",
+        "details":  {
+                        "command":  "\u0026 \u0027<WINDOWS_USER>\\asd-acceptance-20261122\\asd-launch-environment.exe\u0027 \u0027--terminal-bundle\u0027 \u0027<WINDOWS_USER>\\asd-acceptance-20261122\\terminal-bundle-20261123\\bundle\u0027 \u0027--runtime-dir\u0027 \u0027<WINDOWS_USER>\\asd-acceptance-20261122\\current-program-mouse-09ae102-20261124\\runtime\u0027 \u0027--namespace\u0027 \u0027asd-current-program-mouse\u0027 \u0027--state-dir\u0027 \u0027<WINDOWS_USER>\\asd-acceptance-20261122\\current-program-mouse-09ae102-20261124\\state\u0027",
+                        "outer_receipt":  "<WINDOWS_USER>\\asd-acceptance-20261122\\current-program-mouse-09ae102-20261124\\first-outer-exit.json"
+                    },
+        "kind":  "ui-launch"
+    },
+    {
+        "utc":  "2026-11-24T04:30:49.8661193Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  9864,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe",
+                        "session":  2,
+                        "kind":  "terminal-first",
+                        "filetime":  134399682487247609
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T04:30:50.5860665Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  12792,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\asd-launch-environment.exe",
+                        "session":  2,
+                        "kind":  "manager-first",
+                        "filetime":  134399682495867732
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T04:30:51.1734510Z",
+        "details":  {
+                        "value":  ". .\\mouse-app.ps1"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T04:30:51.2189165Z",
+        "details":  {
+                        "value":  "{ENTER}"
+                    },
+        "kind":  "key"
+    },
+    {
+        "utc":  "2026-11-24T04:30:52.8034533Z",
+        "details":  {
+                        "rect":  [
+                                     40,
+                                     40,
+                                     1240,
+                                     760
+                                 ],
+                        "fontNames":  [
+                                          "System.__ComObject",
+                                          "Cascadia Mono"
+                                      ],
+                        "name":  "01-program-ready"
+                    },
+        "kind":  "capture"
+    },
+    {
+        "utc":  "2026-11-24T04:30:53.5931464Z",
+        "details":  {
+                        "from":  {
+                                     "y":  232,
+                                     "pane_row":  4,
+                                     "pane_col":  5,
+                                     "x":  348
+                                 },
+                        "to":  {
+                                   "y":  232,
+                                   "pane_row":  4,
+                                   "pane_col":  9,
+                                   "x":  384
+                               },
+                        "modifier":  0,
+                        "button":  0
+                    },
+        "kind":  "program-gesture"
+    },
+    {
+        "utc":  "2026-11-24T04:30:54.1851268Z",
+        "details":  {
+                        "from":  {
+                                     "y":  232,
+                                     "pane_row":  4,
+                                     "pane_col":  5,
+                                     "x":  348
+                                 },
+                        "to":  {
+                                   "y":  232,
+                                   "pane_row":  4,
+                                   "pane_col":  9,
+                                   "x":  384
+                               },
+                        "modifier":  0,
+                        "button":  1
+                    },
+        "kind":  "program-gesture"
+    },
+    {
+        "utc":  "2026-11-24T04:30:54.7845947Z",
+        "details":  {
+                        "from":  {
+                                     "y":  232,
+                                     "pane_row":  4,
+                                     "pane_col":  5,
+                                     "x":  348
+                                 },
+                        "to":  {
+                                   "y":  232,
+                                   "pane_row":  4,
+                                   "pane_col":  9,
+                                   "x":  384
+                               },
+                        "modifier":  0,
+                        "button":  2
+                    },
+        "kind":  "program-gesture"
+    },
+    {
+        "utc":  "2026-11-24T04:30:55.3746127Z",
+        "details":  {
+                        "from":  {
+                                     "y":  232,
+                                     "pane_row":  4,
+                                     "pane_col":  5,
+                                     "x":  348
+                                 },
+                        "to":  {
+                                   "y":  232,
+                                   "pane_row":  4,
+                                   "pane_col":  9,
+                                   "x":  384
+                               },
+                        "modifier":  17,
+                        "button":  0
+                    },
+        "kind":  "program-gesture"
+    },
+    {
+        "utc":  "2026-11-24T04:30:55.9733579Z",
+        "details":  {
+                        "from":  {
+                                     "y":  232,
+                                     "pane_row":  4,
+                                     "pane_col":  5,
+                                     "x":  348
+                                 },
+                        "to":  {
+                                   "y":  232,
+                                   "pane_row":  4,
+                                   "pane_col":  9,
+                                   "x":  384
+                               },
+                        "modifier":  17,
+                        "button":  1
+                    },
+        "kind":  "program-gesture"
+    },
+    {
+        "utc":  "2026-11-24T04:30:56.5610120Z",
+        "details":  {
+                        "from":  {
+                                     "y":  232,
+                                     "pane_row":  4,
+                                     "pane_col":  5,
+                                     "x":  348
+                                 },
+                        "to":  {
+                                   "y":  232,
+                                   "pane_row":  4,
+                                   "pane_col":  9,
+                                   "x":  384
+                               },
+                        "modifier":  17,
+                        "button":  2
+                    },
+        "kind":  "program-gesture"
+    },
+    {
+        "utc":  "2026-11-24T04:30:57.1328638Z",
+        "details":  {
+                        "from":  {
+                                     "y":  232,
+                                     "pane_row":  4,
+                                     "pane_col":  5,
+                                     "x":  348
+                                 },
+                        "to":  {
+                                   "y":  232,
+                                   "pane_row":  4,
+                                   "pane_col":  9,
+                                   "x":  384
+                               },
+                        "modifier":  18,
+                        "button":  0
+                    },
+        "kind":  "program-gesture"
+    },
+    {
+        "utc":  "2026-11-24T04:30:57.7361093Z",
+        "details":  {
+                        "from":  {
+                                     "y":  232,
+                                     "pane_row":  4,
+                                     "pane_col":  5,
+                                     "x":  348
+                                 },
+                        "to":  {
+                                   "y":  232,
+                                   "pane_row":  4,
+                                   "pane_col":  9,
+                                   "x":  384
+                               },
+                        "modifier":  18,
+                        "button":  1
+                    },
+        "kind":  "program-gesture"
+    },
+    {
+        "utc":  "2026-11-24T04:30:58.3372913Z",
+        "details":  {
+                        "from":  {
+                                     "y":  232,
+                                     "pane_row":  4,
+                                     "pane_col":  5,
+                                     "x":  348
+                                 },
+                        "to":  {
+                                   "y":  232,
+                                   "pane_row":  4,
+                                   "pane_col":  9,
+                                   "x":  384
+                               },
+                        "modifier":  18,
+                        "button":  2
+                    },
+        "kind":  "program-gesture"
+    },
+    {
+        "utc":  "2026-11-24T04:30:58.9234609Z",
+        "details":  {
+                        "from":  {
+                                     "y":  232,
+                                     "pane_row":  4,
+                                     "pane_col":  5,
+                                     "x":  348
+                                 },
+                        "to":  {
+                                   "y":  232,
+                                   "pane_row":  4,
+                                   "pane_col":  9,
+                                   "x":  384
+                               },
+                        "modifier":  16,
+                        "button":  0
+                    },
+        "kind":  "program-gesture"
+    },
+    {
+        "utc":  "2026-11-24T04:30:59.5457243Z",
+        "details":  {
+                        "from":  {
+                                     "y":  232,
+                                     "pane_row":  4,
+                                     "pane_col":  5,
+                                     "x":  348
+                                 },
+                        "to":  {
+                                   "y":  232,
+                                   "pane_row":  4,
+                                   "pane_col":  9,
+                                   "x":  384
+                               },
+                        "modifier":  16,
+                        "button":  1
+                    },
+        "kind":  "program-gesture"
+    },
+    {
+        "utc":  "2026-11-24T04:31:00.1355829Z",
+        "details":  {
+                        "from":  {
+                                     "y":  232,
+                                     "pane_row":  4,
+                                     "pane_col":  5,
+                                     "x":  348
+                                 },
+                        "to":  {
+                                   "y":  232,
+                                   "pane_row":  4,
+                                   "pane_col":  9,
+                                   "x":  384
+                               },
+                        "modifier":  16,
+                        "button":  2
+                    },
+        "kind":  "program-gesture"
+    },
+    {
+        "utc":  "2026-11-24T04:31:00.2120891Z",
+        "details":  {
+                        "rect":  [
+                                     40,
+                                     40,
+                                     1240,
+                                     760
+                                 ],
+                        "fontNames":  [
+                                          "System.__ComObject",
+                                          "Cascadia Mono"
+                                      ],
+                        "name":  "02-after-program-gestures"
+                    },
+        "kind":  "capture"
+    },
+    {
+        "utc":  "2026-11-24T04:31:00.2448886Z",
+        "details":  {
+                        "value":  "q"
+                    },
+        "kind":  "text"
+    },
+    {
+        "utc":  "2026-11-24T04:31:00.4343299Z",
+        "details":  {
+                        "error":  "Actual VT program mouse matrix has failures; retained raw packets, no gesture replay"
+                    },
+        "kind":  "failure"
+    }
+]

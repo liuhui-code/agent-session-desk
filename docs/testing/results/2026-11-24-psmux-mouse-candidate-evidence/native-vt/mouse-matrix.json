@@ -1,0 +1,355 @@
+{
+  "total_raw_bytes": 359,
+  "matrix": [
+    {
+      "passed": true,
+      "actual": [
+        "0,6,5,M",
+        "32,10,5,M",
+        "0,10,5,m"
+      ],
+      "expected": [
+        "0,6,5,M",
+        "32,10,5,M",
+        "0,10,5,m"
+      ],
+      "mask": 0,
+      "button": 0
+    },
+    {
+      "passed": true,
+      "actual": [
+        "1,6,5,M",
+        "33,10,5,M",
+        "1,10,5,m"
+      ],
+      "expected": [
+        "1,6,5,M",
+        "33,10,5,M",
+        "1,10,5,m"
+      ],
+      "mask": 0,
+      "button": 1
+    },
+    {
+      "passed": true,
+      "actual": [
+        "2,6,5,M",
+        "34,10,5,M",
+        "2,10,5,m"
+      ],
+      "expected": [
+        "2,6,5,M",
+        "34,10,5,M",
+        "2,10,5,m"
+      ],
+      "mask": 0,
+      "button": 2
+    },
+    {
+      "passed": true,
+      "actual": [
+        "16,6,5,M",
+        "48,10,5,M",
+        "16,10,5,m"
+      ],
+      "expected": [
+        "16,6,5,M",
+        "48,10,5,M",
+        "16,10,5,m"
+      ],
+      "mask": 16,
+      "button": 0
+    },
+    {
+      "passed": true,
+      "actual": [
+        "17,6,5,M",
+        "49,10,5,M",
+        "17,10,5,m"
+      ],
+      "expected": [
+        "17,6,5,M",
+        "49,10,5,M",
+        "17,10,5,m"
+      ],
+      "mask": 16,
+      "button": 1
+    },
+    {
+      "passed": true,
+      "actual": [
+        "18,6,5,M",
+        "50,10,5,M",
+        "18,10,5,m"
+      ],
+      "expected": [
+        "18,6,5,M",
+        "50,10,5,M",
+        "18,10,5,m"
+      ],
+      "mask": 16,
+      "button": 2
+    },
+    {
+      "passed": true,
+      "actual": [
+        "8,6,5,M",
+        "40,10,5,M",
+        "8,10,5,m"
+      ],
+      "expected": [
+        "8,6,5,M",
+        "40,10,5,M",
+        "8,10,5,m"
+      ],
+      "mask": 8,
+      "button": 0
+    },
+    {
+      "passed": true,
+      "actual": [
+        "9,6,5,M",
+        "41,10,5,M",
+        "9,10,5,m"
+      ],
+      "expected": [
+        "9,6,5,M",
+        "41,10,5,M",
+        "9,10,5,m"
+      ],
+      "mask": 8,
+      "button": 1
+    },
+    {
+      "passed": true,
+      "actual": [
+        "10,6,5,M",
+        "42,10,5,M",
+        "10,10,5,m"
+      ],
+      "expected": [
+        "10,6,5,M",
+        "42,10,5,M",
+        "10,10,5,m"
+      ],
+      "mask": 8,
+      "button": 2
+    }
+  ],
+  "received": [
+    {
+      "y": 5,
+      "x": 6,
+      "suffix": "M",
+      "button": 0
+    },
+    {
+      "y": 5,
+      "x": 10,
+      "suffix": "M",
+      "button": 32
+    },
+    {
+      "y": 5,
+      "x": 10,
+      "suffix": "m",
+      "button": 0
+    },
+    {
+      "y": 5,
+      "x": 6,
+      "suffix": "M",
+      "button": 35
+    },
+    {
+      "y": 5,
+      "x": 6,
+      "suffix": "M",
+      "button": 1
+    },
+    {
+      "y": 5,
+      "x": 10,
+      "suffix": "M",
+      "button": 33
+    },
+    {
+      "y": 5,
+      "x": 10,
+      "suffix": "m",
+      "button": 1
+    },
+    {
+      "y": 5,
+      "x": 6,
+      "suffix": "M",
+      "button": 35
+    },
+    {
+      "y": 5,
+      "x": 6,
+      "suffix": "M",
+      "button": 2
+    },
+    {
+      "y": 5,
+      "x": 10,
+      "suffix": "M",
+      "button": 34
+    },
+    {
+      "y": 5,
+      "x": 10,
+      "suffix": "m",
+      "button": 2
+    },
+    {
+      "y": 5,
+      "x": 6,
+      "suffix": "M",
+      "button": 35
+    },
+    {
+      "y": 5,
+      "x": 6,
+      "suffix": "M",
+      "button": 16
+    },
+    {
+      "y": 5,
+      "x": 10,
+      "suffix": "M",
+      "button": 48
+    },
+    {
+      "y": 5,
+      "x": 10,
+      "suffix": "m",
+      "button": 16
+    },
+    {
+      "y": 5,
+      "x": 6,
+      "suffix": "M",
+      "button": 35
+    },
+    {
+      "y": 5,
+      "x": 6,
+      "suffix": "M",
+      "button": 17
+    },
+    {
+      "y": 5,
+      "x": 10,
+      "suffix": "M",
+      "button": 49
+    },
+    {
+      "y": 5,
+      "x": 10,
+      "suffix": "m",
+      "button": 17
+    },
+    {
+      "y": 5,
+      "x": 6,
+      "suffix": "M",
+      "button": 35
+    },
+    {
+      "y": 5,
+      "x": 6,
+      "suffix": "M",
+      "button": 18
+    },
+    {
+      "y": 5,
+      "x": 10,
+      "suffix": "M",
+      "button": 50
+    },
+    {
+      "y": 5,
+      "x": 10,
+      "suffix": "m",
+      "button": 18
+    },
+    {
+      "y": 5,
+      "x": 6,
+      "suffix": "M",
+      "button": 35
+    },
+    {
+      "y": 5,
+      "x": 6,
+      "suffix": "M",
+      "button": 8
+    },
+    {
+      "y": 5,
+      "x": 10,
+      "suffix": "M",
+      "button": 40
+    },
+    {
+      "y": 5,
+      "x": 10,
+      "suffix": "m",
+      "button": 8
+    },
+    {
+      "y": 5,
+      "x": 6,
+      "suffix": "M",
+      "button": 35
+    },
+    {
+      "y": 5,
+      "x": 6,
+      "suffix": "M",
+      "button": 9
+    },
+    {
+      "y": 5,
+      "x": 10,
+      "suffix": "M",
+      "button": 41
+    },
+    {
+      "y": 5,
+      "x": 10,
+      "suffix": "m",
+      "button": 9
+    },
+    {
+      "y": 5,
+      "x": 6,
+      "suffix": "M",
+      "button": 35
+    },
+    {
+      "y": 5,
+      "x": 6,
+      "suffix": "M",
+      "button": 10
+    },
+    {
+      "y": 5,
+      "x": 10,
+      "suffix": "M",
+      "button": 42
+    },
+    {
+      "y": 5,
+      "x": 10,
+      "suffix": "m",
+      "button": 10
+    }
+  ],
+  "hover": 8,
+  "strict_sgr_fixture": true,
+  "remaining": "q"
+}

@@ -17,3 +17,8 @@
 ## 验证
 
 逐行为 RED→GREEN：原 pane 三按钮／修饰的精确 wire、非法事件不写、UI 原目标与跨控件夹取、重复／错按钮及未知修饰、主动释放与 FIFO／保留位置、悬停合并／最后坐标和关闭／换视图／外部模式的迟到回执。受控内存流／模型与 Windows 实机分别记账，不绕过尚未答复的上传授权。
+
+
+2026-11-24 实际程序证据：VT raw stdin的9个普通／Ctrl／Alt按钮组合收到正确序列；Shift三组由Terminal保留，直接无产品对照同样不转发。Win32存在正确事件但全序列有重复／提前释放，严格0/9，原脚本存在性passed不算通过。真实输入、clipboard宿主副作用未知、直接对照和本地单通道候选见[跟进报告](../testing/results/2026-11-24-current-ui-followup.md)与[提议ADR-0040](0040-verified-conpty-single-mouse-channel.md)；未替换远端bundle，所有相关原生／硬件／agent门槛如实保留。
+
+2026-11-25 接续：已接受开发候选 [ADR-0040](0040-verified-conpty-single-mouse-channel.md)取得新目录下 Win32／VT 严格序列与 wheel 单通道实机证据，并接回显式 profile，见[报告](../testing/results/2026-11-25-single-mouse-channel.md)。上段为旧profile历史，严格0/9不改写；默认系统宿主、实体硬件、Shift宿主保留、混合读取器及真实agent门槛保持。

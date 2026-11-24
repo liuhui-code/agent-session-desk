@@ -1,0 +1,93 @@
+[
+    {
+        "utc":  "2026-11-24T08:05:27.8213835Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  5136,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe",
+                        "session":  2,
+                        "kind":  "control-terminal",
+                        "filetime":  134399811266200751
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T08:05:28.3837494Z",
+        "details":  {
+                        "handle_retained":  true,
+                        "pid":  2432,
+                        "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+                        "session":  2,
+                        "kind":  "direct-control-app",
+                        "filetime":  134399811270995422
+                    },
+        "kind":  "identity"
+    },
+    {
+        "utc":  "2026-11-24T08:05:28.4930704Z",
+        "details":  {
+                        "rect":  [
+                                     40,
+                                     40,
+                                     1240,
+                                     760
+                                 ],
+                        "fontNames":  [
+                                          "System.__ComObject",
+                                          "Cascadia Mono"
+                                      ],
+                        "name":  "01-direct-program"
+                    },
+        "kind":  "capture"
+    },
+    {
+        "utc":  "2026-11-24T08:05:28.7586325Z",
+        "details":  {
+                        "point":  {
+                                      "y":  174,
+                                      "pane_row":  4,
+                                      "pane_col":  5,
+                                      "x":  106
+                                  },
+                        "delta":  120
+                    },
+        "kind":  "program-wheel"
+    },
+    {
+        "utc":  "2026-11-24T08:05:29.0398169Z",
+        "details":  {
+                        "point":  {
+                                      "y":  174,
+                                      "pane_row":  4,
+                                      "pane_col":  5,
+                                      "x":  106
+                                  },
+                        "delta":  -120
+                    },
+        "kind":  "program-wheel"
+    },
+    {
+        "utc":  "2026-11-24T08:05:29.4147284Z",
+        "details":  {
+                        "rect":  [
+                                     40,
+                                     40,
+                                     1240,
+                                     760
+                                 ],
+                        "fontNames":  [
+                                          "System.__ComObject",
+                                          "Cascadia Mono"
+                                      ],
+                        "name":  "02-direct-after-left-only"
+                    },
+        "kind":  "capture"
+    },
+    {
+        "utc":  "2026-11-24T08:05:29.4459714Z",
+        "details":  {
+                        "value":  "q"
+                    },
+        "kind":  "text"
+    }
+]

@@ -1,0 +1,39 @@
+{
+    "result":  "passed",
+    "utc":  "2026-11-24T04:14:45.5852181Z",
+    "product_source":  "09ae102 plus rename discovery refresh; exact content in rename-fix-source-fingerprints.json",
+    "hashes":  {
+                   "asd-launch-environment.exe":  "baf087dc26a7e49e00a6d3d5600d13fa00b4c4d3218bebc1f1f0da0d8494cb57",
+                   "launch-environment-ui.exe":  "8a135204cb5c4bd74dd2d9c3fdbeabe08741251356e39f00ec211fead677f59f",
+                   "launch-environment-session.exe":  "2c72dfe4feb9046683d6f8f4613f3a72447b1f05deb73cb66aceb4cd46d4bafd"
+               },
+    "windows":  "Microsoft Windows NT 10.0.19045.0",
+    "powershell":  "5.1.19041.6456",
+    "commands":  [
+                     {
+                         "name":  "product-version",
+                         "image":  "asd-launch-environment.exe",
+                         "arguments":  [
+                                           "version"
+                                       ],
+                         "exit_code":  0,
+                         "elapsed_ms":  108
+                     },
+                     {
+                         "name":  "ui",
+                         "image":  "launch-environment-ui.exe",
+                         "arguments":  [
+                                           "-test.v",
+                                           "-test.count=1",
+                                           "-test.timeout=180s"
+                                       ],
+                         "exit_code":  0,
+                         "elapsed_ms":  7847
+                     }
+                 ],
+    "real_backend_executed":  false,
+    "real_child_environment_verified":  false,
+    "desktop_executed":  false,
+    "system_clipboard_called":  false,
+    "system_settings_written":  false
+}

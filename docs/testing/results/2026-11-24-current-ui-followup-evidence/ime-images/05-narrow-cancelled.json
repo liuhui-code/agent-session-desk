@@ -1,0 +1,81 @@
+{
+    "fontNames":  [
+                      "System.__ComObject",
+                      "Cascadia Mono"
+                  ],
+    "text":  "ASD-Current-Review\nAgent Session Desk                                  2 会话\r\n Review A ×    Review B ×                               + \r\n╭────────────────────────────────────────────────────────╮\r\n│DESKTOP_READY A                                         │\r\n│\u003e $sample=\u0027你好                                         │\r\n│                                                        │\r\n│                                                        │\r\n│                                                        │\r\n│                                                        │\r\n│                                                        │\r\n│                                                        │\r\n│                                                        │\r\n│                                                        │\r\n│                                                        │\r\n│                                                        │\r\n│                                                        │\r\n│                                                        │\r\n│                                                        │\r\n│                                                        │\r\n│                                                        │\r\n│                                                        │\r\n╰────────────────────────────────────────────────────────╯\r\n──────────────────────────────────────────────────────────\r\n  -- 终端模式 --    F6 管理 · Ctrl+PgUp/PgDn 切换 Tab     \r\n",
+    "path":  "<WINDOWS_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe",
+    "filetime":  134399679013317088,
+    "rect":  [
+                 40,
+                 40,
+                 570,
+                 550
+             ],
+    "caps_lock":  false,
+    "session":  2,
+    "tree":  [
+                 {
+                     "name":  "",
+                     "type":  "ControlType.Pane"
+                 },
+                 {
+                     "name":  "",
+                     "type":  "ControlType.Pane"
+                 },
+                 {
+                     "name":  "",
+                     "type":  "ControlType.Tab"
+                 },
+                 {
+                     "name":  "",
+                     "type":  "ControlType.List"
+                 },
+                 {
+                     "name":  "ASD-Current-Review",
+                     "type":  "ControlType.TabItem"
+                 },
+                 {
+                     "name":  "ASD-Current-Review",
+                     "type":  "ControlType.Text"
+                 },
+                 {
+                     "name":  "关闭标签页",
+                     "type":  "ControlType.Button"
+                 },
+                 {
+                     "name":  "新建标签页",
+                     "type":  "ControlType.SplitButton"
+                 },
+                 {
+                     "name":  "",
+                     "type":  "ControlType.Custom"
+                 },
+                 {
+                     "name":  "ASD-Current-Review",
+                     "type":  "ControlType.Text"
+                 },
+                 {
+                     "name":  "垂直",
+                     "type":  "ControlType.ScrollBar"
+                 },
+                 {
+                     "name":  "垂直小幅下降",
+                     "type":  "ControlType.Button"
+                 },
+                 {
+                     "name":  "垂直大幅下降",
+                     "type":  "ControlType.Button"
+                 },
+                 {
+                     "name":  "垂直大幅增长",
+                     "type":  "ControlType.Button"
+                 },
+                 {
+                     "name":  "垂直小幅增长",
+                     "type":  "ControlType.Button"
+                 }
+             ],
+    "pid":  10840,
+    "keyboardLayout":  134481924
+}

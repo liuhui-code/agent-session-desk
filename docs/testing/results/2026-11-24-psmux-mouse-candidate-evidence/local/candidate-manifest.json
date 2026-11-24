@@ -1,0 +1,34 @@
+{
+  "upstream_commit": "20aa1d7254ee93f64dafa059ef89341d9767470a",
+  "base_resize_patch_sha256": "7b75ad87484ccc07ce80c188e27dbe4f1c843b0abcd0386a56a0a6782d277d0d",
+  "mouse_patch_sha256": "466fc8b9499447c89d65bb3e708a7b86762f08698f80ebceb94db9f6b85aa319",
+  "product_candidate_sha256": "ff9d8893ecc53ac5caca3bae0146d75ebcaf2cf7edc4abf9d87578469fb7b16b",
+  "artifact_bytes": 9637376,
+  "changed_files": [
+    {
+      "path": "crates/vt100-psmux/src/grid.rs",
+      "original_sha256": "d841bf76035f6b35da9e9de5e688177437e9c413dfdb5f35af0615ef0319089b",
+      "candidate_sha256": "07786772a2964c053ce66fc0969065ab40db134e3a1aee070e987a8fae2536b9"
+    },
+    {
+      "path": "src/main.rs",
+      "original_sha256": "f40f2ebd6685f57d0ada621044d9da6f59fcfcaa9a4567f7930e3eb5c5c0f9f0",
+      "candidate_sha256": "f2a725400e1a62f536978c1f0133745822ff0d7c68508a87c25a815852c5b0af"
+    },
+    {
+      "path": "src/window_ops.rs",
+      "original_sha256": "20e365a257c13c6f8d257279aa1cf135d6ecf4cfd8d3c52d5628fd29f59fe48d",
+      "candidate_sha256": "477803dbedca4892b8891044e81e37a1ea0a6f9c853429809bafde5b317aa5b3"
+    },
+    {
+      "path": "src/mouse_routing.rs",
+      "new_sha256": "4bc589ebd0c691e0bf6d46f78b96a4ab6c8919d42ae1df8aef04beedc870606b"
+    }
+  ],
+  "rust": "1.95.0",
+  "cargo_xwin": "0.23.0",
+  "build_command": "cargo xwin build --locked --offline --release --target x86_64-pc-windows-msvc --bin psmux",
+  "native_windows_executed": false,
+  "remote_backend_replaced": false,
+  "requested_new_destination": "windows-pc:asd-acceptance-20261122/terminal-bundle-mouse-20261124/psmux.exe"
+}

@@ -1,0 +1,19 @@
+using System;using System.IO;using System.Text;using System.Runtime.InteropServices;
+public static class AsdMouseProbe {
+ [DllImport("kernel32.dll")]static extern IntPtr GetStdHandle(int n);
+ [DllImport("kernel32.dll",SetLastError=true)]static extern bool GetConsoleMode(IntPtr h,out uint mode);
+ [DllImport("kernel32.dll",SetLastError=true)]static extern bool SetConsoleMode(IntPtr h,uint mode);
+ [DllImport("kernel32.dll",SetLastError=true)]static extern bool ReadFile(IntPtr h,byte[] b,uint len,out uint read,IntPtr ov);
+ [DllImport("kernel32.dll")]static extern uint WaitForSingleObject(IntPtr h,uint ms);
+ public static void Run(string file){var input=GetStdHandle(-10);var output=GetStdHandle(-11);uint oldIn,oldOut;
+ if(!GetConsoleMode(input,out oldIn)||!GetConsoleMode(output,out oldOut))throw new Exception("Console mode read failed");
+ if(!SetConsoleMode(output,oldOut|5)||!SetConsoleMode(input,(oldIn&~(1u|2u|4u|64u))|0x280u))throw new Exception("Raw VT mode setup failed");
+ uint actual;GetConsoleMode(input,out actual);File.WriteAllText(file+".mode.json","{\"original_input\":"+oldIn+",\"actual_input\":"+actual+",\"original_output\":"+oldOut+"}");
+ Console.Write("\x1b[?1049h\x1b[2J\x1b[H\x1b[?1000h\x1b[?1002h\x1b[?1003h\x1b[?1006hMOUSE_APP_READY\r\nVT raw stdin; no clipboard; q ends app");
+ int cols=Console.WindowWidth;Console.Write("\x1b[1;1H"+("MOUSE_APP_READY"+new string('.',Math.Max(0,cols-15)))+"\x1b[5;1H"+new string('.',cols));
+ int n=0;var until=DateTime.UtcNow.AddSeconds(120);var b=new byte[256];
+ try{while(DateTime.UtcNow<until){if(WaitForSingleObject(input,200)!=0)continue;uint count;if(!ReadFile(input,b,256,out count,IntPtr.Zero))throw new Exception("ReadFile failed");if(count==0)break;
+ var hex=BitConverter.ToString(b,0,(int)count).Replace("-","");File.AppendAllText(file,"{\"n\":"+(++n)+",\"hex\":\""+hex+"\"}\n",new UTF8Encoding(false));
+ Console.Write("\x1b[10;1HPackets received: "+n+"    ");if(new FileInfo(file).Length>65536)throw new Exception("Probe output bound exceeded");bool quit=false;for(int i=0;i<count;i++)if(b[i]==113)quit=true;if(quit)break;}}
+ finally{Console.Write("\x1b[?1000l\x1b[?1002l\x1b[?1003l\x1b[?1006l\x1b[?1049l");SetConsoleMode(input,oldIn);SetConsoleMode(output,oldOut);Console.WriteLine("MOUSE_APP_DONE");}}
+}

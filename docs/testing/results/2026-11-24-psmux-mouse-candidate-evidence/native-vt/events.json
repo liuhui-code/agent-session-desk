@@ -1,0 +1,397 @@
+[
+  {
+    "utc": "2026-11-24T16:15:40.2208643Z",
+    "details": {
+      "handle_retained": true,
+      "pid": 5936,
+      "path": "<WINDOWS_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+      "session": 2,
+      "kind": "shell-A",
+      "filetime": 134400105393766388
+    },
+    "kind": "identity"
+  },
+  {
+    "utc": "2026-11-24T16:15:41.3189046Z",
+    "details": {
+      "handle_retained": true,
+      "pid": 7204,
+      "path": "<WINDOWS_USER>\\asd-acceptance-20261122\\pwsh7\\pwsh.exe",
+      "session": 2,
+      "kind": "shell-B",
+      "filetime": 134400105404476592
+    },
+    "kind": "identity"
+  },
+  {
+    "utc": "2026-11-24T16:15:41.4415456Z",
+    "details": {
+      "handle_retained": true,
+      "pid": 17596,
+      "path": "<WINDOWS_USER>\\asd-acceptance-20261122\\terminal-bundle-mouse-20261124\\psmux.exe",
+      "session": 2,
+      "kind": "backend",
+      "filetime": 134400105392774001
+    },
+    "kind": "identity"
+  },
+  {
+    "utc": "2026-11-24T16:15:41.5861595Z",
+    "details": {
+      "created_after_backend": true,
+      "wmi_path_present": true,
+      "process_path_matches": true
+    },
+    "kind": "host-query-diagnostic"
+  },
+  {
+    "utc": "2026-11-24T16:15:41.5901495Z",
+    "details": {
+      "handle_retained": true,
+      "pid": 18412,
+      "path": "<WINDOWS_USER>\\asd-acceptance-20261122\\terminal-bundle-mouse-20261124\\OpenConsole.exe",
+      "session": 2,
+      "kind": "conpty-host",
+      "filetime": 134400105393690936
+    },
+    "kind": "identity"
+  },
+  {
+    "utc": "2026-11-24T16:15:41.6071034Z",
+    "details": {
+      "sha256": "E971856F89748DC3B458125E9AFDD79B5E9574A7C937676116D3CBBD3B71F492",
+      "session_id": "d53389fd4ded2cc85d7d2081cfdd569b"
+    },
+    "kind": "backend-host"
+  },
+  {
+    "utc": "2026-11-24T16:15:41.6479937Z",
+    "details": {
+      "handle_retained": true,
+      "pid": 2020,
+      "path": "<WINDOWS_USER>\\asd-acceptance-20261122\\terminal-bundle-mouse-20261124\\psmux.exe",
+      "session": 2,
+      "kind": "backend",
+      "filetime": 134400105403535696
+    },
+    "kind": "identity"
+  },
+  {
+    "utc": "2026-11-24T16:15:41.6978603Z",
+    "details": {
+      "created_after_backend": true,
+      "wmi_path_present": true,
+      "process_path_matches": true
+    },
+    "kind": "host-query-diagnostic"
+  },
+  {
+    "utc": "2026-11-24T16:15:41.7008528Z",
+    "details": {
+      "handle_retained": true,
+      "pid": 18168,
+      "path": "<WINDOWS_USER>\\asd-acceptance-20261122\\terminal-bundle-mouse-20261124\\OpenConsole.exe",
+      "session": 2,
+      "kind": "conpty-host",
+      "filetime": 134400105404399018
+    },
+    "kind": "identity"
+  },
+  {
+    "utc": "2026-11-24T16:15:41.7207990Z",
+    "details": {
+      "sha256": "E971856F89748DC3B458125E9AFDD79B5E9574A7C937676116D3CBBD3B71F492",
+      "session_id": "6d24bbe982dd80eed92034aee89bf931"
+    },
+    "kind": "backend-host"
+  },
+  {
+    "utc": "2026-11-24T16:15:41.7527133Z",
+    "details": {
+      "command": "& '<WINDOWS_USER>\\asd-acceptance-20261122\\terminal-bundle-mouse-20261124\\asd-launch-environment.exe' '--terminal-bundle' '<WINDOWS_USER>\\asd-acceptance-20261122\\terminal-bundle-mouse-20261124' '--runtime-dir' '<WINDOWS_USER>\\asd-acceptance-20261122\\mouse-candidate-vt-run1-20261125\\runtime' '--namespace' 'asd-mouse-candidate-vt-run1' '--state-dir' '<WINDOWS_USER>\\asd-acceptance-20261122\\mouse-candidate-vt-run1-20261125\\state'",
+      "outer_receipt": "<WINDOWS_USER>\\asd-acceptance-20261122\\mouse-candidate-vt-run1-20261125\\first-outer-exit.json"
+    },
+    "kind": "ui-launch"
+  },
+  {
+    "utc": "2026-11-24T16:15:43.0125642Z",
+    "details": {
+      "handle_retained": true,
+      "pid": 10024,
+      "path": "<WINDOWS_USER>\\asd-acceptance-20261122\\terminal\\terminal-1.25.3131.0\\WindowsTerminal.exe",
+      "session": 2,
+      "kind": "terminal-first",
+      "filetime": 134400105418278027
+    },
+    "kind": "identity"
+  },
+  {
+    "utc": "2026-11-24T16:15:43.6415164Z",
+    "details": {
+      "handle_retained": true,
+      "pid": 12432,
+      "path": "<WINDOWS_USER>\\asd-acceptance-20261122\\terminal-bundle-mouse-20261124\\asd-launch-environment.exe",
+      "session": 2,
+      "kind": "manager-first",
+      "filetime": 134400105428255330
+    },
+    "kind": "identity"
+  },
+  {
+    "utc": "2026-11-24T16:15:44.1885944Z",
+    "details": {
+      "value": ". .\\mouse-app.ps1"
+    },
+    "kind": "text"
+  },
+  {
+    "utc": "2026-11-24T16:15:44.2359675Z",
+    "details": {
+      "value": "{ENTER}"
+    },
+    "kind": "key"
+  },
+  {
+    "utc": "2026-11-24T16:15:45.2738902Z",
+    "details": {
+      "rect": [
+        40,
+        40,
+        1240,
+        760
+      ],
+      "fontNames": [
+        "System.__ComObject",
+        "Cascadia Mono"
+      ],
+      "name": "01-program-ready"
+    },
+    "kind": "capture"
+  },
+  {
+    "utc": "2026-11-24T16:15:45.9178567Z",
+    "details": {
+      "from": {
+        "y": 232,
+        "pane_row": 4,
+        "pane_col": 5,
+        "x": 348
+      },
+      "to": {
+        "y": 232,
+        "pane_row": 4,
+        "pane_col": 9,
+        "x": 384
+      },
+      "modifier": 0,
+      "button": 0
+    },
+    "kind": "program-gesture"
+  },
+  {
+    "utc": "2026-11-24T16:15:46.5651913Z",
+    "details": {
+      "from": {
+        "y": 232,
+        "pane_row": 4,
+        "pane_col": 5,
+        "x": 348
+      },
+      "to": {
+        "y": 232,
+        "pane_row": 4,
+        "pane_col": 9,
+        "x": 384
+      },
+      "modifier": 0,
+      "button": 1
+    },
+    "kind": "program-gesture"
+  },
+  {
+    "utc": "2026-11-24T16:15:47.1507085Z",
+    "details": {
+      "from": {
+        "y": 232,
+        "pane_row": 4,
+        "pane_col": 5,
+        "x": 348
+      },
+      "to": {
+        "y": 232,
+        "pane_row": 4,
+        "pane_col": 9,
+        "x": 384
+      },
+      "modifier": 0,
+      "button": 2
+    },
+    "kind": "program-gesture"
+  },
+  {
+    "utc": "2026-11-24T16:15:47.7724205Z",
+    "details": {
+      "from": {
+        "y": 232,
+        "pane_row": 4,
+        "pane_col": 5,
+        "x": 348
+      },
+      "to": {
+        "y": 232,
+        "pane_row": 4,
+        "pane_col": 9,
+        "x": 384
+      },
+      "modifier": 17,
+      "button": 0
+    },
+    "kind": "program-gesture"
+  },
+  {
+    "utc": "2026-11-24T16:15:48.3713690Z",
+    "details": {
+      "from": {
+        "y": 232,
+        "pane_row": 4,
+        "pane_col": 5,
+        "x": 348
+      },
+      "to": {
+        "y": 232,
+        "pane_row": 4,
+        "pane_col": 9,
+        "x": 384
+      },
+      "modifier": 17,
+      "button": 1
+    },
+    "kind": "program-gesture"
+  },
+  {
+    "utc": "2026-11-24T16:15:48.9856755Z",
+    "details": {
+      "from": {
+        "y": 232,
+        "pane_row": 4,
+        "pane_col": 5,
+        "x": 348
+      },
+      "to": {
+        "y": 232,
+        "pane_row": 4,
+        "pane_col": 9,
+        "x": 384
+      },
+      "modifier": 17,
+      "button": 2
+    },
+    "kind": "program-gesture"
+  },
+  {
+    "utc": "2026-11-24T16:15:49.6058876Z",
+    "details": {
+      "from": {
+        "y": 232,
+        "pane_row": 4,
+        "pane_col": 5,
+        "x": 348
+      },
+      "to": {
+        "y": 232,
+        "pane_row": 4,
+        "pane_col": 9,
+        "x": 384
+      },
+      "modifier": 18,
+      "button": 0
+    },
+    "kind": "program-gesture"
+  },
+  {
+    "utc": "2026-11-24T16:15:50.2066435Z",
+    "details": {
+      "from": {
+        "y": 232,
+        "pane_row": 4,
+        "pane_col": 5,
+        "x": 348
+      },
+      "to": {
+        "y": 232,
+        "pane_row": 4,
+        "pane_col": 9,
+        "x": 384
+      },
+      "modifier": 18,
+      "button": 1
+    },
+    "kind": "program-gesture"
+  },
+  {
+    "utc": "2026-11-24T16:15:50.8298987Z",
+    "details": {
+      "from": {
+        "y": 232,
+        "pane_row": 4,
+        "pane_col": 5,
+        "x": 348
+      },
+      "to": {
+        "y": 232,
+        "pane_row": 4,
+        "pane_col": 9,
+        "x": 384
+      },
+      "modifier": 18,
+      "button": 2
+    },
+    "kind": "program-gesture"
+  },
+  {
+    "utc": "2026-11-24T16:15:50.9129300Z",
+    "details": {
+      "rect": [
+        40,
+        40,
+        1240,
+        760
+      ],
+      "fontNames": [
+        "System.__ComObject",
+        "Cascadia Mono"
+      ],
+      "name": "02-after-program-gestures"
+    },
+    "kind": "capture"
+  },
+  {
+    "utc": "2026-11-24T16:15:50.9544002Z",
+    "details": {
+      "value": "q"
+    },
+    "kind": "text"
+  },
+  {
+    "utc": "2026-11-24T16:15:51.3680077Z",
+    "details": {
+      "value": "{F6}"
+    },
+    "kind": "key"
+  },
+  {
+    "utc": "2026-11-24T16:15:51.4441403Z",
+    "details": {
+      "value": "q"
+    },
+    "kind": "text"
+  },
+  {
+    "utc": "2026-11-24T16:15:51.8281586Z",
+    "details": {
+      "exit_code": 0,
+      "pid": 12432
+    },
+    "kind": "normal-ui-exit"
+  }
+]

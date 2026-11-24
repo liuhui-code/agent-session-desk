@@ -1,0 +1,161 @@
+[CmdletBinding()]
+param([switch]$DesktopWorker)
+$ErrorActionPreference='Stop';$ProgressPreference='SilentlyContinue';[Console]::OutputEncoding=[Text.UTF8Encoding]::new($false)
+$base=Join-Path $env:USERPROFILE 'asd-acceptance-20261122';$testRoot=Join-Path $base 'mouse-candidate-win32-run2-20261125';$out=Join-Path $testRoot 'desktop'
+$task='AsdMouseCandidateWin32Run220261125'
+if(!$DesktopWorker){
+ if(Test-Path $testRoot){throw 'Fresh desktop evidence required'}
+ if(Get-ScheduledTask -TaskName $task -ErrorAction SilentlyContinue){throw 'Owned task name already exists'}
+ $hash=(Get-FileHash $PSCommandPath).Hash;$file=$PSCommandPath
+ $code='$ErrorActionPreference="Stop";$file=Join-Path $env:USERPROFILE "asd-acceptance-20261122/run-current-ui-tests.ps1";if((Get-FileHash $file).Hash -cne "'+$hash+'"){throw "Runner changed"};& $file -DesktopWorker'
+ $action=New-ScheduledTaskAction -Execute powershell.exe -Argument ('-NoProfile -NonInteractive -ExecutionPolicy RemoteSigned -WindowStyle Hidden -STA -EncodedCommand '+[Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($code)))
+ $principal=New-ScheduledTaskPrincipal -UserId ([Security.Principal.WindowsIdentity]::GetCurrent().User.Value) -LogonType Interactive -RunLevel Limited
+ Register-ScheduledTask -TaskName $task -Action $action -Principal $principal -Settings (New-ScheduledTaskSettingsSet -ExecutionTimeLimit (New-TimeSpan -Minutes 8))|Out-Null
+ Start-ScheduledTask -TaskName $task
+ Write-Output 'Dedicated current-UI desktop task submitted once; await outcome without restarting.'
+ return
+}
+New-Item -ItemType Directory -Path $out|Out-Null
+$bundle=Join-Path $base 'terminal-bundle-mouse-20261124';$product=Join-Path $bundle 'asd-launch-environment.exe';$backend=Join-Path $bundle 'psmux.exe';$shell=Join-Path $base 'pwsh7/pwsh.exe'
+$script:terminal=Join-Path $base 'terminal/terminal-1.25.3131.0/WindowsTerminal.exe'
+$ns='asd-mouse-candidate-win32-run2';$g=@('--terminal-bundle',$bundle,'--runtime-dir',(Join-Path $testRoot 'runtime'),'--namespace',$ns,'--state-dir',(Join-Path $testRoot 'state'))
+foreach($entry in @(Get-ChildItem Env:|Where-Object{$_.Name -like 'ASD_*' -or $_.Name -like 'PSMUX_*' -or $_.Name -in @('TMUX','TMUX_PANE','TMUX_TMPDIR')})){Remove-Item ('Env:'+$entry.Name)}
+$env:PSMUX_NO_WARM='1';$env:PSMUX_ALLOW_NESTING='1'
+$script:panes=@{};$sessions=@();$children=@();$managers=@();$terminals=@();$events=[Collections.Generic.List[object]]::new();$ok=$false;$forced=0
+function Event($Kind,$Details){$events.Add(@{utc=[DateTime]::UtcNow.ToString('o');kind=$Kind;details=$Details});$events|ConvertTo-Json -Depth 8|Set-Content (Join-Path $testRoot 'events.json') -Encoding utf8}
+function ReadSharedText($Path){$s=[IO.File]::Open($Path,[IO.FileMode]::Open,[IO.FileAccess]::Read,([IO.FileShare]::ReadWrite -bor [IO.FileShare]::Delete));try{$r=[IO.StreamReader]::new($s);try{return $r.ReadToEnd()}finally{$r.Dispose()}}finally{$s.Dispose()}}
+Add-Type -AssemblyName System.Windows.Forms
+Add-Type -AssemblyName System.Drawing
+Add-Type -AssemblyName UIAutomationClient
+Add-Type @'
+using System;using System.Runtime.InteropServices;
+public class AsdDesktop {
+ [DllImport("user32.dll")] public static extern bool SetForegroundWindow(IntPtr h);
+ [DllImport("user32.dll")] public static extern IntPtr GetForegroundWindow();
+ [DllImport("user32.dll")] public static extern uint GetWindowThreadProcessId(IntPtr h,out uint p);
+ [DllImport("user32.dll")] public static extern IntPtr GetKeyboardLayout(uint thread);
+ [DllImport("user32.dll")] public static extern bool GetWindowRect(IntPtr h,out RECT r);
+ [DllImport("user32.dll")] public static extern bool MoveWindow(IntPtr h,int x,int y,int w,int height,bool redraw);
+ [DllImport("user32.dll")] public static extern bool SetProcessDPIAware();
+ [DllImport("user32.dll")] public static extern bool SetCursorPos(int x,int y);
+ [DllImport("user32.dll")] public static extern short GetAsyncKeyState(int key);
+ [DllImport("user32.dll",SetLastError=true)] public static extern uint SendInput(uint count,INPUT[] inputs,int size);
+ [StructLayout(LayoutKind.Sequential)] public struct RECT {public int left,top,right,bottom;}
+ [StructLayout(LayoutKind.Sequential)] public struct MOUSE {public int x,y;public uint data,flags,time;public UIntPtr extra;}
+ [StructLayout(LayoutKind.Sequential)] public struct KEY {public ushort key,scan;public uint flags,time;public UIntPtr extra;}
+ [StructLayout(LayoutKind.Explicit)] public struct DATA {[FieldOffset(0)]public MOUSE mouse;[FieldOffset(0)]public KEY key;}
+ [StructLayout(LayoutKind.Sequential)] public struct INPUT {public uint type;public DATA data;}
+ public static uint Button(int b,bool down){var a=new INPUT[1];a[0].data.mouse.flags=b==0?(down?2u:4u):b==1?(down?32u:64u):(down?8u:16u);return SendInput(1,a,Marshal.SizeOf(typeof(INPUT)));}
+ public static uint Hold(ushort key,bool down){var a=new INPUT[1];a[0].type=1;a[0].data.key.key=key;a[0].data.key.flags=down?0u:2u;return SendInput(1,a,Marshal.SizeOf(typeof(INPUT)));}
+ public static uint Move(int x,int y){var a=new INPUT[1];a[0].data.mouse.x=x;a[0].data.mouse.y=y;a[0].data.mouse.flags=0xC001;return SendInput(1,a,Marshal.SizeOf(typeof(INPUT)));}
+ public static uint Text(string s){var a=new INPUT[s.Length*2];for(int i=0;i<s.Length;i++){a[i*2].type=1;a[i*2].data.key.scan=s[i];a[i*2].data.key.flags=4;a[i*2+1].type=1;a[i*2+1].data.key.scan=s[i];a[i*2+1].data.key.flags=6;}return SendInput((uint)a.Length,a,Marshal.SizeOf(typeof(INPUT)));}
+ public static uint Key(ushort k){var a=new INPUT[2];a[0].type=1;a[0].data.key.key=k;a[1].type=1;a[1].data.key.key=k;a[1].data.key.flags=2;return SendInput(2,a,Marshal.SizeOf(typeof(INPUT)));}
+ public static uint MouseButton(bool down){var a=new INPUT[1];a[0].data.mouse.flags=down?2u:4u;return SendInput(1,a,Marshal.SizeOf(typeof(INPUT)));}
+ public static uint Wheel(int delta){var a=new INPUT[1];a[0].data.mouse.flags=0x800;a[0].data.mouse.data=unchecked((uint)delta);return SendInput(1,a,Marshal.SizeOf(typeof(INPUT)));}
+ public static uint Click(){var a=new INPUT[2];a[0].data.mouse.flags=2;a[1].data.mouse.flags=4;return SendInput(2,a,Marshal.SizeOf(typeof(INPUT)));}
+}
+'@
+[AsdDesktop]::SetProcessDPIAware() | Out-Null
+$script:ownedId=0
+function Guard {
+ $p=Get-Process -Id $script:ownedId
+ if($p.MainWindowHandle -eq 0 -or $p.Path -ne $script:terminal -or $p.StartTime.ToUniversalTime().ToFileTimeUtc() -ne $script:ownedFiletime){throw 'Owned terminal identity mismatch'}
+ $foreground=[uint32]0;[AsdDesktop]::GetWindowThreadProcessId([AsdDesktop]::GetForegroundWindow(),[ref]$foreground)|Out-Null
+ if($foreground -ne $p.Id){throw 'Foreground changed; input refused'}
+ return $p
+}
+function State {
+ $p=Guard;$r=New-Object AsdDesktop+RECT;[AsdDesktop]::GetWindowRect($p.MainWindowHandle,[ref]$r)|Out-Null
+ $root=[Windows.Automation.AutomationElement]::FromHandle($p.MainWindowHandle)
+ $items=$root.FindAll([Windows.Automation.TreeScope]::Descendants,[Windows.Automation.Condition]::TrueCondition)
+ $texts=@();$tree=@();$fontNames=@()
+ foreach($el in $items){$name=[string]$el.Current.Name;$tree+=@{name=$name;type=$el.Current.ControlType.ProgrammaticName};$pat=$null;if($el.TryGetCurrentPattern([Windows.Automation.TextPattern]::Pattern,[ref]$pat)){$texts+=,$pat.DocumentRange.GetText(-1);$fontNames+=,[string]$pat.DocumentRange.GetAttributeValue([Windows.Automation.TextPattern]::FontNameAttribute)}}
+ $f=[uint32]0;$thread=[AsdDesktop]::GetWindowThreadProcessId([AsdDesktop]::GetForegroundWindow(),[ref]$f)
+ return @{caps_lock=[Windows.Forms.Control]::IsKeyLocked([Windows.Forms.Keys]::CapsLock);pid=$p.Id;filetime=$script:ownedFiletime;path=$p.Path;session=$p.SessionId;rect=@($r.left,$r.top,($r.right-$r.left),($r.bottom-$r.top));keyboardLayout=[AsdDesktop]::GetKeyboardLayout($thread).ToInt64();text=($texts -join "`n");tree=$tree;fontNames=@($fontNames|Select-Object -Unique)}
+}
+function Capture($label) {
+ if($label -notmatch '^[a-zA-Z0-9_-]+$'){throw 'Invalid capture label'}
+ $p=Guard;$r=New-Object AsdDesktop+RECT;[AsdDesktop]::GetWindowRect($p.MainWindowHandle,[ref]$r)|Out-Null
+ $rect=[Drawing.Rectangle]::FromLTRB($r.left,$r.top,$r.right,$r.bottom)
+ $visible=[Drawing.Rectangle]::Intersect($rect,[Windows.Forms.SystemInformation]::VirtualScreen)
+ if($visible.Width -lt 100 -or $visible.Height -lt 100){throw 'Owned window outside display'}
+ $bmp=[Drawing.Bitmap]::new($visible.Width,$visible.Height);$g=[Drawing.Graphics]::FromImage($bmp)
+ try{$g.CopyFromScreen($visible.Location,[Drawing.Point]::Empty,$visible.Size);$bmp.Save((Join-Path $out "$label.png"),[Drawing.Imaging.ImageFormat]::Png)}finally{$g.Dispose();$bmp.Dispose()}
+ return State
+}
+function NativeFrame($s){
+ if($s -is [Array] -or $s.backend_id -isnot [string]){throw 'Expected a single typed Session identity'}
+ $data=Join-Path (Join-Path $testRoot 'runtime') $ns;$reg=$ns+'__'+$s.backend_id
+ $port=[int]((ReadSharedText (Join-Path $data ($reg+'.port')))).Trim();$key=((ReadSharedText (Join-Path $data ($reg+'.key')))).Trim()
+ $tcp=[Net.Sockets.TcpClient]::new();$tcp.Connect('127.0.0.1',$port)
+ try{$stream=$tcp.GetStream();$stream.ReadTimeout=5000;$stream.WriteTimeout=3000;$reader=[IO.StreamReader]::new($stream,[Text.UTF8Encoding]::new($false),$false,4096,$true)
+  $b=[Text.Encoding]::UTF8.GetBytes("AUTH $key`ndump-state`n");$stream.Write($b,0,$b.Length);$stream.Flush();if($reader.ReadLine() -ne 'OK'){throw 'Read-only auth failed'}
+  $line=$reader.ReadLine();if(!$line -or [Text.Encoding]::UTF8.GetByteCount($line) -gt 2MB){throw 'Invalid read-only frame'};$f=$line|ConvertFrom-Json
+  if($f.session_name -ne $s.backend_id -or $f.layout.type -ne 'leaf' -or !$f.layout.active){throw 'Original synthetic Session/pane changed'}
+  if($script:panes.ContainsKey($s.session_id)){if($script:panes[$s.session_id] -ne $f.layout.id){throw 'Original pane changed'}}else{$script:panes[$s.session_id]=$f.layout.id}
+  return $f
+ }finally{$tcp.Dispose()}
+}
+
+function CellPoint($Column,$Row){$p=Guard;$root=[Windows.Automation.AutomationElement]::FromHandle($p.MainWindowHandle);$items=$root.FindAll([Windows.Automation.TreeScope]::Descendants,[Windows.Automation.Condition]::TrueCondition);foreach($item in $items){$pattern=$null;if($item.TryGetCurrentPattern([Windows.Automation.TextPattern]::Pattern,[ref]$pattern)){$text=$pattern.DocumentRange.GetText(-1);if(!$text.StartsWith('Agent Session Desk')){continue};$lines=$text -split '\r?\n';$rectangles=$pattern.DocumentRange.GetBoundingRectangles();$index=-1;for($i=0;$i -lt $lines.Length;$i++){if($lines[$i].Contains('MOUSE_APP_READY')){$index=$i;break}};if($index -lt 0 -or $index+$Row -ge $rectangles.Length){throw 'Mouse app content geometry missing'};$marker=$lines[$index].IndexOf('MOUSE_APP_READY');$border=$lines[$index].LastIndexOf('│',$marker);if($border -lt 0){throw 'Exact terminal border missing'};$prefix=$lines[$index].Substring(0,$border+1);$x=$prefix.Length+[regex]::Matches($prefix,'[\u4e00-\u9fff]').Count+$Column;$total=$lines[$index].Length+[regex]::Matches($lines[$index],'[\u4e00-\u9fff]').Count;$r=$rectangles[$index+$Row];return @{x=[int]($r.Left+($x+0.5)*$r.Width/$total);y=[int]($r.Top+$r.Height/2);pane_col=$Column;pane_row=$Row}}};throw 'Owned app TextPattern missing'}
+function PointerMove($Point){Guard|Out-Null;$screen=[Windows.Forms.SystemInformation]::VirtualScreen;$x=[int](($Point.x-$screen.Left)*65535/($screen.Width-1));$y=[int](($Point.y-$screen.Top)*65535/($screen.Height-1));if([AsdDesktop]::Move($x,$y)-ne 1){throw 'Mouse move injection failed'}}
+function MouseRecords { $f=Join-Path $testRoot 'mouse-packets.ndjson';if(!(Test-Path $f)){return};$raw=ReadSharedText $f;$lines=$raw -split '\n';for($i=0;$i -lt $lines.Length-1;$i++){if($lines[$i].Trim()){$lines[$i]|ConvertFrom-Json}}}
+function Gesture($Button,$Modifier){foreach($key in @(1,2,4,16,17,18,91,92)){if(([AsdDesktop]::GetAsyncKeyState($key)-band 32768)-ne 0){throw 'Physical button or modifier held; gesture refused'}};$from=CellPoint 5 4;$to=CellPoint 9 4;PointerMove $from;Start-Sleep -Milliseconds 100;$held=$false;$pressed=$false;try{if($Modifier){Guard|Out-Null;if([AsdDesktop]::Hold($Modifier,$true)-ne 1){throw 'Modifier down failed'};$held=$true};Guard|Out-Null;if([AsdDesktop]::Button($Button,$true)-ne 1){throw 'Button down failed'};$pressed=$true;Start-Sleep -Milliseconds 120;PointerMove $to;Start-Sleep -Milliseconds 120;Guard|Out-Null;if([AsdDesktop]::Button($Button,$false)-ne 1){throw 'Button release failed'};$pressed=$false;Start-Sleep -Milliseconds 120}finally{if($pressed){$null=[AsdDesktop]::Button($Button,$false)};if($held){$null=[AsdDesktop]::Hold($Modifier,$false)}};Event 'program-gesture' @{button=$Button;modifier=$Modifier;from=$from;to=$to}}
+function Text($Value){Guard|Out-Null;foreach($k in @(16,17,18,91,92)){if(([AsdDesktop]::GetAsyncKeyState($k)-band 32768)-ne 0){throw 'Modifier held; text refused'}};foreach($ch in $Value.ToCharArray()){Guard|Out-Null;if([AsdDesktop]::Text([string]$ch)-ne 2){throw 'Unicode text input failed'};Start-Sleep -Milliseconds 12};Event 'text' @{value=$Value}}
+function Key($Value){Guard|Out-Null;[Windows.Forms.SendKeys]::SendWait($Value);Event 'key' @{value=$Value}}
+function WaitText($Value){$until=[DateTime]::UtcNow.AddSeconds(12);do{$s=State;if($s.text.Contains($Value)){return $s};Start-Sleep -Milliseconds 100}while([DateTime]::UtcNow -lt $until);Capture 'failed-screen'|ConvertTo-Json -Depth 7|Set-Content (Join-Path $out 'failed-state.json') -Encoding utf8;throw ('Desktop text missing: '+$Value+'; input not replayed')}
+function WaitAbsent($Value){$until=[DateTime]::UtcNow.AddSeconds(12);do{$s=State;if(!$s.text.Contains($Value)){return};Start-Sleep -Milliseconds 100}while([DateTime]::UtcNow -lt $until);throw ('Modal still present: '+$Value+'; input not replayed')}
+function Shot($Name){$s=Capture $Name;$s|ConvertTo-Json -Depth 7|Set-Content (Join-Path $out ($Name+'.json')) -Encoding utf8;Event 'capture' @{name=$Name;rect=$s.rect;fontNames=$s.fontNames}}
+function WaitFile($Name){$until=[DateTime]::UtcNow.AddSeconds(12);do{try{if(Test-Path $Name){$v=(ReadSharedText $Name)|ConvertFrom-Json;if($v.pid -and $v.filetime){return $v}}}catch{};Start-Sleep -Milliseconds 100}while([DateTime]::UtcNow -lt $until);throw 'Independent fixture not observed'}
+function SameProcess($Id,$Image){$v=Get-Process -Id $Id.pid;if($v.Path -cne $Image -or $v.StartTime.ToUniversalTime().ToFileTimeUtc() -ne $Id.filetime){throw 'Original process changed'};return $v}
+function Remember($Process,$Kind){$handle=$Process.Handle;$v=@{pid=$Process.Id;filetime=$Process.StartTime.ToUniversalTime().ToFileTimeUtc();path=$Process.Path;kind=$Kind;session=$Process.SessionId;handle_retained=($handle -ne [IntPtr]::Zero)};Event 'identity' $v;return $v}
+function LaunchUI($Name){
+ if(@(Get-Process WindowsTerminal -ErrorAction SilentlyContinue|Where-Object{$_.Path -eq $script:terminal}).Count){throw 'Existing private Terminal present; do not reuse'}
+ $argsText=@($g|ForEach-Object{"'"+$_.Replace("'","''")+"'"}) -join ' '
+ $launch="& '"+$product.Replace("'","''")+"' "+$argsText
+ $receipt=Join-Path $testRoot ($Name+'-outer-exit.json')
+ $code="`$ErrorActionPreference='Stop';`$failure=`$null;`$result=1;try{"+$launch+";`$result=`$LASTEXITCODE}catch{`$failure=`$_.Exception.Message};@{exit_code=`$result;error=`$failure}|ConvertTo-Json|Set-Content -LiteralPath '"+$receipt.Replace("'","''")+"' -Encoding utf8;if(`$result -ne 0){Start-Sleep -Seconds 5}"
+ Event 'ui-launch' @{command=$launch;outer_receipt=$receipt}
+ $command='-w new --title ASD-Current-Review --startingDirectory "'+$testRoot+'" "'+$shell+'" -NoLogo -NoProfile -EncodedCommand '+[Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($code))
+ $started=Start-Process -FilePath $script:terminal -ArgumentList $command -PassThru
+ $until=[DateTime]::UtcNow.AddSeconds(15);do{$matches=@(Get-Process WindowsTerminal -ErrorAction SilentlyContinue|Where-Object{$_.Path -eq $script:terminal -and $_.MainWindowHandle -ne 0});if($matches.Count -eq 1){break};Start-Sleep -Milliseconds 100}while([DateTime]::UtcNow -lt $until)
+ if($matches.Count -ne 1){throw 'Unique private desktop Terminal not observed'};$win=$matches[0];Start-Sleep -Milliseconds 1000;$win.Refresh();if($win.HasExited){throw 'Initial Terminal ended; inspect outer receipt, do not reuse another process'};$script:ownedId=$win.Id;$script:ownedFiletime=$win.StartTime.ToUniversalTime().ToFileTimeUtc();$script:terminals+=,$win;$null=Remember $win ('terminal-'+$Name)
+ [AsdDesktop]::SetForegroundWindow($win.MainWindowHandle)|Out-Null;Start-Sleep -Milliseconds 300;Guard|Out-Null
+ [AsdDesktop]::MoveWindow($win.MainWindowHandle,40,40,1240,760,$true)|Out-Null
+ $null=WaitText 'DESKTOP_READY A';$found=@(Get-CimInstance Win32_Process|Where-Object{$_.ExecutablePath -eq $product});if($found.Count -ne 1){throw 'Manager image not unique'};$manager=Get-Process -Id $found[0].ProcessId;$null=Remember $manager ('manager-'+$Name);$script:managers+=,$manager
+ if($manager.SessionId -ne $win.SessionId){throw 'Desktop and manager not in same interactive session'}
+}
+function QuitUI {Key '{F6}';$null=WaitText '管理模式';Text 'q';$m=$script:managers[-1];if(!$m.WaitForExit(12000)-or $m.ExitCode -ne 0){throw 'Original manager not exited zero'};$w=$script:terminals[-1];if(!$w.WaitForExit(12000)){throw 'Private Terminal did not end after UI exit'};Event 'normal-ui-exit' @{pid=$m.Id;exit_code=$m.ExitCode}}
+function SaveNative($Name,$Session){$f=NativeFrame $Session;$f|ConvertTo-Json -Depth 40|Set-Content (Join-Path $testRoot ($Name+'.json')) -Encoding utf8;return (@($f.layout.rows_v2|ForEach-Object{($_.runs.text -join '').TrimEnd()}) -join "`n")}
+function WaitPreference($Pattern){$until=[DateTime]::UtcNow.AddSeconds(10);$file=Join-Path $testRoot 'state/ui.toml';do{if((Test-Path $file)-and (ReadSharedText $file)-match $Pattern){return};Start-Sleep -Milliseconds 100}while([DateTime]::UtcNow -lt $until);throw 'UI preference not confirmed'}
+$previousForeground=[AsdDesktop]::GetForegroundWindow();$capsBefore=[Windows.Forms.Control]::IsKeyLocked([Windows.Forms.Keys]::CapsLock)
+try{
+ foreach($pair in @(@($product,'404d352e72def2ed0d36ecb2ca08491271de8652ca589e6a8a13da2dff993366'),@($backend,'ff9d8893ecc53ac5caca3bae0146d75ebcaf2cf7edc4abf9d87578469fb7b16b'),@($shell,'f2833e07a5a7d59153ffc63db83bd6b62f6c63ffd8b5b5099a2feadf6b605336'),@($script:terminal,'337c583db0b4b53c726a851933e3d3df86c09e0d4812d14d68ad703e81293fc9'),@((Join-Path $bundle 'conpty.dll'),'e971856f89748dc3b458125e9afdd79b5e9574a7c937676116d3cbbd3b71f492'),@((Join-Path $bundle 'OpenConsole.exe'),'b17e48b07ef153b420f0a6e178bacd31fb4c3390e21ae746586213fc0719a775'))){if((Get-FileHash $pair[0]).Hash.ToLowerInvariant() -cne $pair[1]){throw 'Pinned desktop prerequisite changed'}}
+ $settings=Join-Path (Split-Path $script:terminal) 'settings/settings.json';$settingsBefore=(Get-FileHash $settings).Hash
+ $fixture=Join-Path $testRoot 'shell.ps1'
+ @'
+param([string]$label)
+function global:prompt { '> ' }
+Set-PSReadLineOption -HistorySavePath (Join-Path $PSScriptRoot ($label+'.history.txt'))
+$p=Get-Process -Id $PID
+@{label=$label;pid=$PID;filetime=$p.StartTime.ToUniversalTime().ToFileTimeUtc();path=$p.Path}|ConvertTo-Json|Set-Content (Join-Path $PSScriptRoot ($label+'.identity.json')) -Encoding utf8
+Clear-Host
+'DESKTOP_READY '+$label
+'@|Set-Content $fixture -Encoding utf8
+ foreach($name in @('A','B')){$s=(& $product @g start --name ('Review '+$name) --cwd $testRoot -- $shell -NoLogo -NoProfile -NoExit -File $fixture $name|Out-String)|ConvertFrom-Json;if($LASTEXITCODE -ne 0){throw 'Synthetic desktop shell start failed'};$sessions+=,$s;$sessions|ConvertTo-Json -Depth 8|Set-Content (Join-Path $testRoot 'sessions-before.json') -Encoding utf8;$id=WaitFile (Join-Path $testRoot ($name+'.identity.json'));$child=SameProcess $id $shell;$children+=,$child;$null=Remember $child ('shell-'+$name)}
+ foreach($s in $sessions){$f=NativeFrame $s;$reg=Join-Path (Join-Path (Join-Path $testRoot 'runtime') $ns) ($ns+'__'+$s.backend_id+'.pid');$parts=(ReadSharedText $reg).Trim().Split(':');$bp=Get-Process -Id ([int]$parts[0]);if($bp.StartTime.ToUniversalTime().ToFileTimeUtc() -ne [long]$parts[1] -or $bp.Path -ne $backend){throw 'Backend identity changed'};$dll=@($bp.Modules|Where-Object{$_.FileName -eq (Join-Path $bundle 'conpty.dll')});if($dll.Count -ne 1){throw 'Product did not load pinned ConPTY'};$null=Remember $bp 'backend';$hosts=@(Get-CimInstance Win32_Process -Filter "Name='OpenConsole.exe'"|Where-Object{$_.ParentProcessId -eq $bp.Id});if($hosts.Count -ne 1){throw 'Unique pinned OpenConsole child missing'};$hostProcess=Get-Process -Id $hosts[0].ProcessId;Event 'host-query-diagnostic' @{wmi_path_present=($null -ne $hosts[0].ExecutablePath);process_path_matches=($hostProcess.Path -ieq (Join-Path $bundle 'OpenConsole.exe'));created_after_backend=($hostProcess.StartTime.ToUniversalTime().ToFileTimeUtc() -ge $bp.StartTime.ToUniversalTime().ToFileTimeUtc())};if($hostProcess.Path -ine (Join-Path $bundle 'OpenConsole.exe') -or $hostProcess.StartTime.ToUniversalTime().ToFileTimeUtc() -lt $bp.StartTime.ToUniversalTime().ToFileTimeUtc()){throw 'Actual OpenConsole image or creation identity differs'};$null=Remember $hostProcess 'conpty-host';Event 'backend-host' @{sha256=(Get-FileHash $dll[0].FileName).Hash;session_id=$s.session_id}}
+ LaunchUI 'first';$mouseFile=Join-Path $testRoot 'mouse-app.ps1';[IO.File]::WriteAllText($mouseFile,[Text.Encoding]::UTF8.GetString([Convert]::FromBase64String('QWRkLVR5cGUgLVR5cGVEZWZpbml0aW9uIChbVGV4dC5FbmNvZGluZ106OlVURjguR2V0U3RyaW5nKFtDb252ZXJ0XTo6RnJvbUJhc2U2NFN0cmluZygnZFhOcGJtY2dVM2x6ZEdWdE8zVnphVzVuSUZONWMzUmxiUzVKVHp0MWMybHVaeUJUZVhOMFpXMHVWR1Y0ZER0MWMybHVaeUJUZVhOMFpXMHVVblZ1ZEdsdFpTNUpiblJsY205d1UyVnlkbWxqWlhNN0NuQjFZbXhwWXlCemRHRjBhV01nWTJ4aGMzTWdRWE5rVFc5MWMyVlFjbTlpWlNCN0NpQmJSR3hzU1cxd2IzSjBLQ0pyWlhKdVpXd3pNaTVrYkd3aUtWMXpkR0YwYVdNZ1pYaDBaWEp1SUVsdWRGQjBjaUJIWlhSVGRHUklZVzVrYkdVb2FXNTBJRzRwT3dvZ1cwUnNiRWx0Y0c5eWRDZ2lhMlZ5Ym1Wc016SXVaR3hzSWl4VFpYUk1ZWE4wUlhKeWIzSTlkSEoxWlNsZGMzUmhkR2xqSUdWNGRHVnliaUJpYjI5c0lFZGxkRU52Ym5OdmJHVk5iMlJsS0VsdWRGQjBjaUJvTEc5MWRDQjFhVzUwSUcxdlpHVXBPd29nVzBSc2JFbHRjRzl5ZENnaWEyVnlibVZzTXpJdVpHeHNJaXhUWlhSTVlYTjBSWEp5YjNJOWRISjFaU2xkYzNSaGRHbGpJR1Y0ZEdWeWJpQmliMjlzSUZObGRFTnZibk52YkdWTmIyUmxLRWx1ZEZCMGNpQm9MSFZwYm5RZ2JXOWtaU2s3Q2lCYlUzUnlkV04wVEdGNWIzVjBLRXhoZVc5MWRFdHBibVF1Ulhod2JHbGphWFFzVTJsNlpUMHlNQ2xkY0hWaWJHbGpJSE4wY25WamRDQlNaV052Y21RZ2V3b2dJRnRHYVdWc1pFOW1abk5sZENnd0tWMXdkV0pzYVdNZ2RYTm9iM0owSUhSNWNHVTdXMFpwWld4a1QyWm1jMlYwS0RRcFhYQjFZbXhwWXlCemFHOXlkQ0I0TzF0R2FXVnNaRTltWm5ObGRDZzJLVjF3ZFdKc2FXTWdjMmh2Y25RZ2VUc0tJQ0JiUm1sbGJHUlBabVp6WlhRb09DbGRjSFZpYkdsaklIVnBiblFnWW5WMGRHOXVjenRiUm1sbGJHUlBabVp6WlhRb01USXBYWEIxWW14cFl5QjFhVzUwSUdOdmJuUnliMnc3VzBacFpXeGtUMlptYzJWMEtERTJLVjF3ZFdKc2FXTWdkV2x1ZENCbWJHRm5jenNLSUNCYlJtbGxiR1JQWm1aelpYUW9OQ2xkY0hWaWJHbGpJR2x1ZENCclpYbEViM2R1TzF0R2FXVnNaRTltWm5ObGRDZ3hOQ2xkY0hWaWJHbGpJSFZ6YUc5eWRDQmphR0Z5WVdOMFpYSTdDaUI5Q2lCYlJHeHNTVzF3YjNKMEtDSnJaWEp1Wld3ek1pNWtiR3dpTEVWdWRISjVVRzlwYm5ROUlsSmxZV1JEYjI1emIyeGxTVzV3ZFhSWElpeFRaWFJNWVhOMFJYSnliM0k5ZEhKMVpTbGRjM1JoZEdsaklHVjRkR1Z5YmlCaWIyOXNJRkpsWVdSRGIyNXpiMnhsU1c1d2RYUW9TVzUwVUhSeUlHZ3NiM1YwSUZKbFkyOXlaQ0JwYm5CMWRDeDFhVzUwSUd4bGJpeHZkWFFnZFdsdWRDQnlaV0ZrS1RzS0lGdEViR3hKYlhCdmNuUW9JbXRsY201bGJETXlMbVJzYkNJcFhYTjBZWFJwWXlCbGVIUmxjbTRnZFdsdWRDQlhZV2wwUm05eVUybHVaMnhsVDJKcVpXTjBLRWx1ZEZCMGNpQm9MSFZwYm5RZ2JYTXBPd29nY0hWaWJHbGpJSE4wWVhScFl5QjJiMmxrSUZKMWJpaHpkSEpwYm1jZ1ptbHNaU2w3ZG1GeUlHbHVjSFYwUFVkbGRGTjBaRWhoYm1Sc1pTZ3RNVEFwTzNaaGNpQnZkWFJ3ZFhROVIyVjBVM1JrU0dGdVpHeGxLQzB4TVNrN2RXbHVkQ0J2YkdSSmJpeHZiR1JQZFhRN0NpQnBaaWdoUjJWMFEyOXVjMjlzWlUxdlpHVW9hVzV3ZFhRc2IzVjBJRzlzWkVsdUtYeDhJVWRsZEVOdmJuTnZiR1ZOYjJSbEtHOTFkSEIxZEN4dmRYUWdiMnhrVDNWMEtTbDBhSEp2ZHlCdVpYY2dSWGhqWlhCMGFXOXVLQ0pEYjI1emIyeGxJRzF2WkdVZ2NtVmhaQ0JtWVdsc1pXUWlLVHNLSUdsbUtDRlRaWFJEYjI1emIyeGxUVzlrWlNodmRYUndkWFFzYjJ4a1QzVjBmRFVwZkh3aFUyVjBRMjl1YzI5c1pVMXZaR1VvYVc1d2RYUXNLRzlzWkVsdUpuNG9NWFY4TW5WOE5IVjhOalIxZkRVeE1uVXBLWHd3ZURrd2RTa3BkR2h5YjNjZ2JtVjNJRVY0WTJWd2RHbHZiaWdpVG1GMGFYWmxJRzF2ZFhObElHMXZaR1VnYzJWMGRYQWdabUZwYkdWa0lpazdDaUIxYVc1MElHRmpkSFZoYkR0SFpYUkRiMjV6YjJ4bFRXOWtaU2hwYm5CMWRDeHZkWFFnWVdOMGRXRnNLVHRHYVd4bExsZHlhWFJsUVd4c1ZHVjRkQ2htYVd4bEt5SXViVzlrWlM1cWMyOXVJaXdpZTF3aWIzSnBaMmx1WVd4ZmFXNXdkWFJjSWpvaUsyOXNaRWx1S3lJc1hDSmhZM1IxWVd4ZmFXNXdkWFJjSWpvaUsyRmpkSFZoYkNzaUxGd2liM0pwWjJsdVlXeGZiM1YwY0hWMFhDSTZJaXR2YkdSUGRYUXJJaXhjSW5KbFkyOXlaRjl6YVhwbFhDSTZJaXROWVhKemFHRnNMbE5wZW1WUFppaDBlWEJsYjJZb1VtVmpiM0prS1NrckluMGlLVHNLSUVOdmJuTnZiR1V1VjNKcGRHVW9JbHg0TVdKYlB6RXdORGxvWEhneFlsc3lTbHg0TVdKYlNGeDRNV0piUHpFd01EQm9YSGd4WWxzL01UQXdNbWhjZURGaVd6OHhNREF6YUZ4NE1XSmJQekV3TURab1RVOVZVMFZmUVZCUVgxSkZRVVJaWEhKY2JrNWhkR2wyWlNCU1pXRmtRMjl1YzI5c1pVbHVjSFYwT3lCdWJ5QmpiR2x3WW05aGNtUTdJSEVnWlc1a2N5QmhjSEFpS1RzS0lHbHVkQ0J1UFRBN2RtRnlJSFZ1ZEdsc1BVUmhkR1ZVYVcxbExsVjBZMDV2ZHk1QlpHUlRaV052Ym1SektERXlNQ2s3Q2lCMGNubDdkMmhwYkdVb1JHRjBaVlJwYldVdVZYUmpUbTkzUEhWdWRHbHNLWHRwWmloWFlXbDBSbTl5VTJsdVoyeGxUMkpxWldOMEtHbHVjSFYwTERJd01Da2hQVEFwWTI5dWRHbHVkV1U3VW1WamIzSmtJSEk3ZFdsdWRDQmpiM1Z1ZER0cFppZ2hVbVZoWkVOdmJuTnZiR1ZKYm5CMWRDaHBibkIxZEN4dmRYUWdjaXd4TEc5MWRDQmpiM1Z1ZENrcGRHaHliM2NnYm1WM0lFVjRZMlZ3ZEdsdmJpZ2lVbVZoWkVOdmJuTnZiR1ZKYm5CMWRDQm1ZV2xzWldRaUtUdHBaaWhqYjNWdWREMDlNQ2xqYjI1MGFXNTFaVHNLSUdsbUtISXVkSGx3WlQwOU1TWW1jaTVyWlhsRWIzZHVJVDB3SmlaeUxtTm9ZWEpoWTNSbGNqMDlNVEV6S1dKeVpXRnJPMmxtS0hJdWRIbHdaU0U5TWlsamIyNTBhVzUxWlRzS0lFWnBiR1V1UVhCd1pXNWtRV3hzVkdWNGRDaG1hV3hsTENKN1hDSnVYQ0k2SWlzb0t5dHVLU3NpTEZ3aWVGd2lPaUlyY2k1NEt5SXNYQ0o1WENJNklpdHlMbmtySWl4Y0ltSjFkSFJ2Ym5OY0lqb2lLM0l1WW5WMGRHOXVjeXNpTEZ3aVkyOXVkSEp2YkZ3aU9pSXJjaTVqYjI1MGNtOXNLeUlzWENKbWJHRm5jMXdpT2lJcmNpNW1iR0ZuY3lzaWZWeHVJaXh1WlhjZ1ZWUkdPRVZ1WTI5a2FXNW5LR1poYkhObEtTazdDaUJEYjI1emIyeGxMbGR5YVhSbEtDSmNlREZpV3pFd096RklUbUYwYVhabElHMXZkWE5sSUdWMlpXNTBjem9nSWl0dUt5SWdJQ0FnSWlrN2FXWW9ibVYzSUVacGJHVkpibVp2S0dacGJHVXBMa3hsYm1kMGFENDJOVFV6TmlsMGFISnZkeUJ1WlhjZ1JYaGpaWEIwYVc5dUtDSlFjbTlpWlNCdmRYUndkWFFnWW05MWJtUWdaWGhqWldWa1pXUWlLVHQ5ZlFvZ1ptbHVZV3hzZVh0RGIyNXpiMnhsTGxkeWFYUmxLQ0pjZURGaVd6OHhNREF3YkZ4NE1XSmJQekV3TURKc1hIZ3hZbHMvTVRBd00yeGNlREZpV3o4eE1EQTJiRng0TVdKYlB6RXdORGxzSWlrN1UyVjBRMjl1YzI5c1pVMXZaR1VvYVc1d2RYUXNiMnhrU1c0cE8xTmxkRU52Ym5OdmJHVk5iMlJsS0c5MWRIQjFkQ3h2YkdSUGRYUXBPME52Ym5OdmJHVXVWM0pwZEdWTWFXNWxLQ0pOVDFWVFJWOUJVRkJmUkU5T1JTSXBPMzE5Q24wPScpKSkKW0FzZE1vdXNlUHJvYmVdOjpSdW4oKEpvaW4tUGF0aCAkUFNTY3JpcHRSb290ICdtb3VzZS1wYWNrZXRzLm5kanNvbicpKQo=')),[Text.UTF8Encoding]::new($true))
+ Text ". .\mouse-app.ps1";Key '{ENTER}';$null=WaitText 'MOUSE_APP_READY';$native=NativeFrame $sessions[0];if(!$native.layout.wants_mouse){throw 'Actual app did not request program mouse'};$native|ConvertTo-Json -Depth 40|Set-Content (Join-Path $testRoot 'mouse-ready-native.json') -Encoding utf8;Shot '01-program-ready'
+ $intervals=@();foreach($modifier in @(0,17,18)){foreach($button in @(0,1,2)){$existing=@(MouseRecords);$before=0;if($existing.Count){$before=$existing[-1].n};Gesture $button $modifier;$until=[DateTime]::UtcNow.AddSeconds(2);do{$observed=@(MouseRecords);$up=@($observed|Where-Object{$_.n -gt $before -and $_.buttons -eq 0 -and $_.flags -eq 0 -and $_.x -eq 9 -and $_.y -eq 4});if($up.Count){break};Start-Sleep -Milliseconds 80}while([DateTime]::UtcNow -lt $until);$after=$before;if($observed.Count){$after=$observed[-1].n};$intervals+=@{button=$button;mask=@{0=0;17=16;18=8}[$modifier];begin_exclusive=$before;end_inclusive=$after}}};$intervals|ConvertTo-Json -Depth 4|Set-Content (Join-Path $testRoot 'mouse-intervals.json') -Encoding utf8
+ Shot '02-after-program-gestures';Text 'q';$null=WaitText 'MOUSE_APP_DONE';$null=WaitText 'DESKTOP_READY A';$packets=Join-Path $testRoot 'mouse-packets.ndjson';if(!(Test-Path $packets)){throw 'Actual program produced no raw input packets'};$raw=ReadSharedText $packets;$actual=@($raw -split '\r?\n'|Where-Object{$_.Trim()}|ForEach-Object{$_|ConvertFrom-Json});$matrix=@();$previous=0;for($i=0;$i -lt $actual.Count;$i++){if($actual[$i].n -ne $i+1){throw 'Native record numbering gap'}};foreach($interval in $intervals){if($interval.begin_exclusive -ne $previous -or $interval.end_inclusive -le $previous){throw 'Missing or overlapping interval'};$previous=$interval.end_inclusive;$button=$interval.button;$mask=$interval.mask;$state=@(1,4,2)[$button];$control=@{0=0;16=8;8=2}[$mask];$received=@($actual|Where-Object{$_.n -gt $interval.begin_exclusive -and $_.n -le $interval.end_inclusive});$offset=0;while($offset -lt $received.Count -and $received[$offset].x -eq 5 -and $received[$offset].y -eq 4 -and $received[$offset].buttons -eq 0 -and $received[$offset].control -eq 0 -and $received[$offset].flags -eq 1){$offset++};$serialized=@();for($i=$offset;$i -lt $received.Count;$i++){$r=$received[$i];$serialized+=('{0},{1},{2},{3},{4}' -f $r.x,$r.y,$r.buttons,$r.control,$r.flags)};$expected=@(('5,4,{0},{1},0' -f $state,$control),('9,4,{0},{1},1' -f $state,$control),('9,4,0,{0},0' -f $control));$matrix+=@{button=$button;mask=$mask;passed=(($serialized -join ';') -ceq ($expected -join ';'));actual=$serialized;expected=$expected}};if($previous -ne $actual.Count){throw 'Unreviewed trailing events'};@{matrix=$matrix;received=$actual;strict_native_fixture=$true;shift_injected=$false}|ConvertTo-Json -Depth 8|Set-Content (Join-Path $testRoot 'mouse-matrix.json') -Encoding utf8;if(@($matrix|Where-Object{!$_.passed}).Count){throw 'Strict native mouse sequence failed; retained all events, no replay'}
+
+ $rows=(& $product @g list --json|Out-String)|ConvertFrom-Json;foreach($s in $sessions){if(@($rows|Where-Object{$_.session_id -ceq $s.session_id -and $_.run_id -ceq $s.run_id -and $_.backend_id -ceq $s.backend_id}).Count -ne 1){throw 'Reopen replaced original Run'}};$rows|ConvertTo-Json -Depth 8|Set-Content (Join-Path $testRoot 'sessions-after.json') -Encoding utf8
+ QuitUI;if((Get-FileHash $settings).Hash -cne $settingsBefore){throw 'Private Terminal settings changed'};$ok=$true
+}catch{Event 'failure' @{error=$_.Exception.Message};$_.ScriptStackTrace|Set-Content (Join-Path $testRoot 'failure-stack.txt') -Encoding utf8}finally{
+ foreach($s in $sessions){$rows=(& $product @g list --json|Out-String)|ConvertFrom-Json;$found=@($rows|Where-Object{$_.session_id -ceq $s.session_id -and $_.run_id -ceq $s.run_id -and $_.backend_id -ceq $s.backend_id});if($found.Count -eq 1){& $product @g stop $s.session_id|Set-Content (Join-Path $testRoot ('cleanup-'+$s.session_id+'.json')) -Encoding utf8}}
+ foreach($w in $terminals){if(!$w.HasExited){$p=Get-Process -Id $w.Id;if($p.Path -ceq $script:terminal -and $p.StartTime.ToUniversalTime().ToFileTimeUtc() -eq $w.StartTime.ToUniversalTime().ToFileTimeUtc()){$null=$w.CloseMainWindow();$null=$w.WaitForExit(10000)}}}
+ foreach($p in (@($children)+@($managers))){if(!$p.WaitForExit(10000)){$live=Get-Process -Id $p.Id;if($live.Path -ceq $p.Path -and $live.StartTime.ToUniversalTime().ToFileTimeUtc() -eq $p.StartTime.ToUniversalTime().ToFileTimeUtc()){$forced++;$p.Kill();$null=$p.WaitForExit(10000)}}}
+ $ended=@($events|Where-Object{$_.kind -eq 'identity'}|ForEach-Object{$id=$_.details;$live=Get-Process -Id $id.pid -ErrorAction SilentlyContinue;$same=$false;if($live){$same=$live.Path -ceq $id.path -and $live.StartTime.ToUniversalTime().ToFileTimeUtc() -eq $id.filetime};@{pid=$id.pid;filetime=$id.filetime;kind=$id.kind;original_ended=(!$same)}})
+ $settingsAfter=$null;if(Test-Path (Join-Path (Split-Path $script:terminal) 'settings/settings.json')){$settingsAfter=(Get-FileHash (Join-Path (Split-Path $script:terminal) 'settings/settings.json')).Hash}
+ @{result=$(if($ok){'passed'}else{'failed'});utc=[DateTime]::UtcNow.ToString('o');windows=[Environment]::OSVersion.VersionString;product_sha256=(Get-FileHash $product).Hash;surface='Windows Terminal desktop Win32 console app';shift_injected=$false;system_clipboard_calls=0;system_settings_written=$false;private_terminal_settings_before=$settingsBefore;private_terminal_settings_after=$settingsAfter;caps_lock_unchanged=($capsBefore -eq [Windows.Forms.Control]::IsKeyLocked([Windows.Forms.Keys]::CapsLock));originals=$ended;forced_ends=$forced;events=$events.Count}|ConvertTo-Json -Depth 8|Set-Content (Join-Path $testRoot 'outcome.json') -Encoding utf8
+}

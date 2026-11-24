@@ -1,0 +1,54 @@
+{
+    "application_theme_restored":  true,
+    "windows":  "Microsoft Windows NT 10.0.19045.0",
+    "product_sha256":  "BAF087DC26A7E49E00A6D3D5600D13FA00B4C4D3218BEBC1F1F0DA0D8494CB57",
+    "surface":  "Windows Terminal desktop",
+    "result":  "failed",
+    "originals":  [
+                      {
+                          "pid":  18580,
+                          "filetime":  134399896877335164,
+                          "original_ended":  true,
+                          "kind":  "shell-A"
+                      },
+                      {
+                          "pid":  8196,
+                          "filetime":  134399896888826179,
+                          "original_ended":  true,
+                          "kind":  "shell-B"
+                      },
+                      {
+                          "pid":  10560,
+                          "filetime":  134399896876012917,
+                          "original_ended":  true,
+                          "kind":  "backend"
+                      },
+                      {
+                          "pid":  10672,
+                          "filetime":  134399896887957003,
+                          "original_ended":  true,
+                          "kind":  "backend"
+                      },
+                      {
+                          "pid":  14412,
+                          "filetime":  134399896899153016,
+                          "original_ended":  true,
+                          "kind":  "terminal-first"
+                      },
+                      {
+                          "pid":  5384,
+                          "filetime":  134399896908187117,
+                          "original_ended":  true,
+                          "kind":  "manager-first"
+                      }
+                  ],
+    "utc":  "2026-11-24T10:28:19.4130177Z",
+    "system_clipboard_calls":  0,
+    "caps_lock_unchanged":  true,
+    "private_terminal_settings_after":  "1499307ABEBA68C23F9EB38A4C636F81172475B6B2B535BC0B11DCD9547241F8",
+    "original_application_theme":  1,
+    "events":  22,
+    "forced_ends":  0,
+    "system_settings_temporarily_written":  true,
+    "private_terminal_settings_before":  "1499307ABEBA68C23F9EB38A4C636F81172475B6B2B535BC0B11DCD9547241F8"
+}

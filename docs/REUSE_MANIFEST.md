@@ -158,3 +158,7 @@ Bubbles 2.2.2 textinput 通过模块使用，未复制组件源码。v2 表单�
 ## ADR-0039 新建环境覆盖
 
 既有固定 Agent Deck／MIT 派生 launch_dialog*.go 增加通用 Env JSON 行，仍使用既有 v2 textinput／tokens／视口算法；字段解析与安全错误摘要是本项目适配，没有新增来源复制或依赖。五字段与源品牌表单的差异明确保留，当前[本地报告](testing/results/2026-11-24-launch-environment.md)不声明整帧一致或完整原生接受；原 source SHA／版权保持。
+
+## ADR-0040 单通道鼠标候选
+
+固定 psmux 同一 MIT 提交 20aa1d7254ee93f64dafa059ef89341d9767470a 保留 resize-history 补丁，新增 mouse_routing.rs 并在 main.rs／window_ops.rs 选择显式实际目录的单一 SGR 通道；上游 Cargo.lock 和依赖不变。完整来源清单、补丁及产物哈希见 tools/experiments/psmux-mouse-routing/candidate-manifest.json，MIT 原文仍为 third_party/psmux/LICENSE。产品不复制完整 Rust 源码或自动下载该产物；只更新显式开发 profile 的固定哈希／环境策略。实际授权、独立原生序列和限制见[复验报告](testing/results/2026-11-25-single-mouse-channel.md)，不以局部实机通过代替发行许可或整体兼容接受。

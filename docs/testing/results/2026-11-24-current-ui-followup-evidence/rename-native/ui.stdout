@@ -1,0 +1,2285 @@
+=== RUN   TestTeaColorCapabilityChangesEmitDefaultResetsAndKnownTrueColorRequests
+--- PASS: TestTeaColorCapabilityChangesEmitDefaultResetsAndKnownTrueColorRequests (0.05s)
+=== RUN   TestReportedANSI256UsesPinnedSourcePaletteWithoutChangingAuthorTokens
+--- PASS: TestReportedANSI256UsesPinnedSourcePaletteWithoutChangingAuthorTokens (0.00s)
+=== RUN   TestColorProfileEventsKeepActiveRunInputAndPreferences
+--- PASS: TestColorProfileEventsKeepActiveRunInputAndPreferences (0.00s)
+=== RUN   TestColorProfileRestylesModalWithoutResettingInputOrAcceptingUnknown
+--- PASS: TestColorProfileRestylesModalWithoutResettingInputOrAcceptingUnknown (0.00s)
+=== RUN   TestLimitedColorProgramsNeverRequestRGBDefaults
+=== RUN   TestLimitedColorProgramsNeverRequestRGBDefaults/ANSI256
+=== RUN   TestLimitedColorProgramsNeverRequestRGBDefaults/ANSI
+=== RUN   TestLimitedColorProgramsNeverRequestRGBDefaults/Ascii
+=== RUN   TestLimitedColorProgramsNeverRequestRGBDefaults/NoTTY
+--- PASS: TestLimitedColorProgramsNeverRequestRGBDefaults (0.08s)
+    --- PASS: TestLimitedColorProgramsNeverRequestRGBDefaults/ANSI256 (0.01s)
+    --- PASS: TestLimitedColorProgramsNeverRequestRGBDefaults/ANSI (0.02s)
+    --- PASS: TestLimitedColorProgramsNeverRequestRGBDefaults/Ascii (0.02s)
+    --- PASS: TestLimitedColorProgramsNeverRequestRGBDefaults/NoTTY (0.02s)
+=== RUN   TestRGBDefaultColorsRequireKnownTrueColorAndClearOnLimitedProfiles
+--- PASS: TestRGBDefaultColorsRequireKnownTrueColorAndClearOnLimitedProfiles (0.00s)
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch/abcdef//middle=false
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch/abcdef//middle=true
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch/中文é👩\u200d💻1️⃣//middle=false
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch/中文é👩\u200d💻1️⃣//middle=true
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch-program/abcdef//middle=false
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch-program/abcdef//middle=true
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch-program/中文é👩\u200d💻1️⃣//middle=false
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch-program/中文é👩\u200d💻1️⃣//middle=true
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch-dir/abcdef//middle=false
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch-dir/abcdef//middle=true
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch-dir/中文é👩\u200d💻1️⃣//middle=false
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch-dir/中文é👩\u200d💻1️⃣//middle=true
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch-args/abcdef//middle=false
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch-args/abcdef//middle=true
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch-args/中文é👩\u200d💻1️⃣//middle=false
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch-args/中文é👩\u200d💻1️⃣//middle=true
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch-env/abcdef//middle=false
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch-env/abcdef//middle=true
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch-env/中文é👩\u200d💻1️⃣//middle=false
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch-env/中文é👩\u200d💻1️⃣//middle=true
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/rename/abcdef//middle=false
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/rename/abcdef//middle=true
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/rename/中文é👩\u200d💻1️⃣//middle=false
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/rename/中文é👩\u200d💻1️⃣//middle=true
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-name/abcdef//middle=false
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-name/abcdef//middle=true
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-name/中文é👩\u200d💻1️⃣//middle=false
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-name/中文é👩\u200d💻1️⃣//middle=true
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-dir/abcdef//middle=false
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-dir/abcdef//middle=true
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-dir/中文é👩\u200d💻1️⃣//middle=false
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-dir/中文é👩\u200d💻1️⃣//middle=true
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-rename/abcdef//middle=false
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-rename/abcdef//middle=true
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-rename/中文é👩\u200d💻1️⃣//middle=false
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-rename/中文é👩\u200d💻1️⃣//middle=true
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/search/abcdef//middle=false
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/search/abcdef//middle=true
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/search/中文é👩\u200d💻1️⃣//middle=false
+=== RUN   TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/search/中文é👩\u200d💻1️⃣//middle=true
+--- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize (0.34s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch/abcdef//middle=false (0.01s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch/abcdef//middle=true (0.01s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch/中文é👩\u200d💻1️⃣//middle=false (0.01s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch/中文é👩\u200d💻1️⃣//middle=true (0.01s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch-program/abcdef//middle=false (0.01s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch-program/abcdef//middle=true (0.01s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch-program/中文é👩\u200d💻1️⃣//middle=false (0.01s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch-program/中文é👩\u200d💻1️⃣//middle=true (0.01s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch-dir/abcdef//middle=false (0.01s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch-dir/abcdef//middle=true (0.01s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch-dir/中文é👩\u200d💻1️⃣//middle=false (0.01s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch-dir/中文é👩\u200d💻1️⃣//middle=true (0.01s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch-args/abcdef//middle=false (0.01s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch-args/abcdef//middle=true (0.01s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch-args/中文é👩\u200d💻1️⃣//middle=false (0.01s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch-args/中文é👩\u200d💻1️⃣//middle=true (0.01s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch-env/abcdef//middle=false (0.01s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch-env/abcdef//middle=true (0.01s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch-env/中文é👩\u200d💻1️⃣//middle=false (0.01s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/launch-env/中文é👩\u200d💻1️⃣//middle=true (0.01s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/rename/abcdef//middle=false (0.00s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/rename/abcdef//middle=true (0.00s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/rename/中文é👩\u200d💻1️⃣//middle=false (0.00s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/rename/中文é👩\u200d💻1️⃣//middle=true (0.00s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-name/abcdef//middle=false (0.00s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-name/abcdef//middle=true (0.01s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-name/中文é👩\u200d💻1️⃣//middle=false (0.00s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-name/中文é👩\u200d💻1️⃣//middle=true (0.00s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-dir/abcdef//middle=false (0.00s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-dir/abcdef//middle=true (0.00s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-dir/中文é👩\u200d💻1️⃣//middle=false (0.00s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-dir/中文é👩\u200d💻1️⃣//middle=true (0.00s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-rename/abcdef//middle=false (0.00s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-rename/abcdef//middle=true (0.00s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-rename/中文é👩\u200d💻1️⃣//middle=false (0.00s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/group-rename/中文é👩\u200d💻1️⃣//middle=true (0.00s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/search/abcdef//middle=false (0.00s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/search/abcdef//middle=true (0.00s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/search/中文é👩\u200d💻1️⃣//middle=false (0.00s)
+    --- PASS: TestDialogLongFieldsKeepVisibleCaretAndValueAcrossResize/search/中文é👩\u200d💻1️⃣//middle=true (0.00s)
+=== RUN   TestKeycapDisplayCaretKeepsLogicalRuneInsertionPosition
+--- PASS: TestKeycapDisplayCaretKeepsLogicalRuneInsertionPosition (0.00s)
+=== RUN   TestGroupOrderQuitWaitsForMetadataAcceptedInputAndPreferences
+--- PASS: TestGroupOrderQuitWaitsForMetadataAcceptedInputAndPreferences (0.00s)
+=== RUN   TestGroupOrderQuitIsCancelledWhenPreferencesFailBeforeOrderAcknowledgement
+--- PASS: TestGroupOrderQuitIsCancelledWhenPreferencesFailBeforeOrderAcknowledgement (0.00s)
+=== RUN   TestGroupOrderQuitIsCancelledWhenTerminalFailsBeforeOrderAcknowledgement
+--- PASS: TestGroupOrderQuitIsCancelledWhenTerminalFailsBeforeOrderAcknowledgement (0.00s)
+=== RUN   TestGroupOrderFailureCancelsQuitAndRequiresAFreshSnapshotBeforeAnotherEdit
+--- PASS: TestGroupOrderFailureCancelsQuitAndRequiresAFreshSnapshotBeforeAnotherEdit (0.00s)
+=== RUN   TestGroupOrderMovesAmongSiblingsAndKeepsFoldedGroupTabAndTerminalDraft
+--- PASS: TestGroupOrderMovesAmongSiblingsAndKeepsFoldedGroupTabAndTerminalDraft (0.01s)
+=== RUN   TestGroupOrderSourceAliasesOnlyReorderSelectedGroupHeaders
+=== RUN   TestGroupOrderSourceAliasesOnlyReorderSelectedGroupHeaders/K
+=== RUN   TestGroupOrderSourceAliasesOnlyReorderSelectedGroupHeaders/plus
+=== RUN   TestGroupOrderSourceAliasesOnlyReorderSelectedGroupHeaders/ctrl-up
+=== RUN   TestGroupOrderSourceAliasesOnlyReorderSelectedGroupHeaders/shift-up
+=== RUN   TestGroupOrderSourceAliasesOnlyReorderSelectedGroupHeaders/J
+=== RUN   TestGroupOrderSourceAliasesOnlyReorderSelectedGroupHeaders/minus
+=== RUN   TestGroupOrderSourceAliasesOnlyReorderSelectedGroupHeaders/ctrl-down
+=== RUN   TestGroupOrderSourceAliasesOnlyReorderSelectedGroupHeaders/shift-down
+--- PASS: TestGroupOrderSourceAliasesOnlyReorderSelectedGroupHeaders (0.00s)
+    --- PASS: TestGroupOrderSourceAliasesOnlyReorderSelectedGroupHeaders/K (0.00s)
+    --- PASS: TestGroupOrderSourceAliasesOnlyReorderSelectedGroupHeaders/plus (0.00s)
+    --- PASS: TestGroupOrderSourceAliasesOnlyReorderSelectedGroupHeaders/ctrl-up (0.00s)
+    --- PASS: TestGroupOrderSourceAliasesOnlyReorderSelectedGroupHeaders/shift-up (0.00s)
+    --- PASS: TestGroupOrderSourceAliasesOnlyReorderSelectedGroupHeaders/J (0.00s)
+    --- PASS: TestGroupOrderSourceAliasesOnlyReorderSelectedGroupHeaders/minus (0.00s)
+    --- PASS: TestGroupOrderSourceAliasesOnlyReorderSelectedGroupHeaders/ctrl-down (0.00s)
+    --- PASS: TestGroupOrderSourceAliasesOnlyReorderSelectedGroupHeaders/shift-down (0.00s)
+=== RUN   TestGroupOrderTerminalAliasesRemainOriginalInput
+--- PASS: TestGroupOrderTerminalAliasesRemainOriginalInput (0.00s)
+=== RUN   TestGroupOrderPendingOperationDoesNotQueueStaleEditsOrStealNewSelection
+--- PASS: TestGroupOrderPendingOperationDoesNotQueueStaleEditsOrStealNewSelection (0.00s)
+=== RUN   TestGroupOrderAcknowledgementKeepsNewerObservedMetadataAndDropsOldOperation
+--- PASS: TestGroupOrderAcknowledgementKeepsNewerObservedMetadataAndDropsOldOperation (0.00s)
+=== RUN   TestGroupOrderAcknowledgementDoesNotRecreateAnObservedRemovedSubtree
+--- PASS: TestGroupOrderAcknowledgementDoesNotRecreateAnObservedRemovedSubtree (0.00s)
+=== RUN   TestGroupRemovalDefaultNoticeAndTerminalLettersNeverMutateMetadata
+--- PASS: TestGroupRemovalDefaultNoticeAndTerminalLettersNeverMutateMetadata (0.00s)
+=== RUN   TestGroupRemovalLoadingCancelAndStalePreviewNeverDeferConfirmation
+--- PASS: TestGroupRemovalLoadingCancelAndStalePreviewNeverDeferConfirmation (0.00s)
+=== RUN   TestGroupRemovalWaitsForAcceptedInputAndBusyConfirmationOnlyCommitsOnce
+--- PASS: TestGroupRemovalWaitsForAcceptedInputAndBusyConfirmationOnlyCommitsOnce (0.00s)
+=== RUN   TestGroupRemovalFailuresStayVisibleAndNeverResubmit
+=== RUN   TestGroupRemovalFailuresStayVisibleAndNeverResubmit/preview
+=== RUN   TestGroupRemovalFailuresStayVisibleAndNeverResubmit/commit
+--- PASS: TestGroupRemovalFailuresStayVisibleAndNeverResubmit (0.00s)
+    --- PASS: TestGroupRemovalFailuresStayVisibleAndNeverResubmit/preview (0.00s)
+    --- PASS: TestGroupRemovalFailuresStayVisibleAndNeverResubmit/commit (0.00s)
+=== RUN   TestGroupRemovalAcknowledgementPreservesANewerObservedRunAndMembership
+--- PASS: TestGroupRemovalAcknowledgementPreservesANewerObservedRunAndMembership (0.00s)
+=== RUN   TestGroupRemovalCleansOnlyDeletedFoldIdsAndPreservesUnknownScopePreferences
+--- PASS: TestGroupRemovalCleansOnlyDeletedFoldIdsAndPreservesUnknownScopePreferences (0.00s)
+=== RUN   TestGroupRemovalCleanupDoesNotPersistAnotherTabsTemporaryExpansion
+--- PASS: TestGroupRemovalCleanupDoesNotPersistAnotherTabsTemporaryExpansion (0.00s)
+=== RUN   TestGroupRemovalPreferenceFailureDoesNotRestoreDeletedFoldsOrRetryTheRemoval
+--- PASS: TestGroupRemovalPreferenceFailureDoesNotRestoreDeletedFoldsOrRetryTheRemoval (0.00s)
+=== RUN   TestGroupRemovalNeverConfirmsWhenTheCompleteReviewDoesNotFit
+--- PASS: TestGroupRemovalNeverConfirmsWhenTheCompleteReviewDoesNotFit (0.01s)
+=== RUN   TestGroupRemovalDefaultsToCancelThenCollectsMembersWithoutChangingOriginalTabsOrInput
+--- PASS: TestGroupRemovalDefaultsToCancelThenCollectsMembersWithoutChangingOriginalTabsOrInput (0.01s)
+=== RUN   TestGroupRenameAcknowledgementDoesNotRecreateAnObservedRemovedGroup
+--- PASS: TestGroupRenameAcknowledgementDoesNotRecreateAnObservedRemovedGroup (0.00s)
+=== RUN   TestGroupRenameUsesNameOnlyAndKeepsFoldedGroupOriginalTabAndDraft
+--- PASS: TestGroupRenameUsesNameOnlyAndKeepsFoldedGroupOriginalTabAndDraft (0.01s)
+=== RUN   TestGroupRenameAcknowledgementCannotRollBackANewerObservedName
+--- PASS: TestGroupRenameAcknowledgementCannotRollBackANewerObservedName (0.00s)
+=== RUN   TestGroupRenameWaitsForAcceptedTerminalInputAndCancelNeverSaves
+--- PASS: TestGroupRenameWaitsForAcceptedTerminalInputAndCancelNeverSaves (0.00s)
+=== RUN   TestGroupRenameFailureCannotResubmitOrSwitchTabsAndOldResultCannotCloseNewDialog
+--- PASS: TestGroupRenameFailureCannotResubmitOrSwitchTabsAndOldResultCannotCloseNewDialog (0.00s)
+=== RUN   TestGroupRenameFitsSourceGeometryAndKeepsOnlyNameFocusedAfterResize
+--- PASS: TestGroupRenameFitsSourceGeometryAndKeepsOnlyNameFocusedAfterResize (0.00s)
+=== RUN   TestGroupDialogsFitTinyViewportsAndKeepTheFocusedFieldVisible
+--- PASS: TestGroupDialogsFitTinyViewportsAndKeepTheFocusedFieldVisible (0.01s)
+=== RUN   TestGroupMoveRejectsAnOriginalRunReplacedWhileTheDialogWasOpen
+--- PASS: TestGroupMoveRejectsAnOriginalRunReplacedWhileTheDialogWasOpen (0.01s)
+=== RUN   TestGroupMoveSuccessRejectsPreCommitDiscoveryAndDoesNotDuplicateTheTab
+--- PASS: TestGroupMoveSuccessRejectsPreCommitDiscoveryAndDoesNotDuplicateTheTab (0.01s)
+=== RUN   TestTabRevealOfNestedGroupDoesNotQueueAPreferenceWriteBehindAnAcceptedFold
+--- PASS: TestTabRevealOfNestedGroupDoesNotQueueAPreferenceWriteBehindAnAcceptedFold (0.01s)
+=== RUN   TestEndSelectsLastEmptyGroupAndNestedMetadataClickKeepsExactRun
+--- PASS: TestEndSelectsLastEmptyGroupAndNestedMetadataClickKeepsExactRun (0.02s)
+=== RUN   TestTerminalGroupLettersRemainLiteralInput
+--- PASS: TestTerminalGroupLettersRemainLiteralInput (0.01s)
+=== RUN   TestDiscoveryOfAnExplicitMoveRevealsTheSelectedRunWithoutSavingTheFold
+--- PASS: TestDiscoveryOfAnExplicitMoveRevealsTheSelectedRunWithoutSavingTheFold (0.01s)
+=== RUN   TestGroupedTreeRendersNestedEmptyGroupsAndUsesTheirOwnMouseRows
+--- PASS: TestGroupedTreeRendersNestedEmptyGroupsAndUsesTheirOwnMouseRows (0.02s)
+=== RUN   TestGroupCreateAndMoveDialogsKeepOriginalTabAndInput
+--- PASS: TestGroupCreateAndMoveDialogsKeepOriginalTabAndInput (0.03s)
+=== RUN   TestNewTerminalUsesSelectedGroupsDirectoryAndStableIdentity
+--- PASS: TestNewTerminalUsesSelectedGroupsDirectoryAndStableIdentity (0.01s)
+=== RUN   TestWorkspaceHelpOpensSourceStyleShortCard
+--- PASS: TestWorkspaceHelpOpensSourceStyleShortCard (0.01s)
+=== RUN   TestWorkspaceHelpConsumesMouseAndClosingKeysOnce
+--- PASS: TestWorkspaceHelpConsumesMouseAndClosingKeysOnce (0.00s)
+=== RUN   TestWorkspaceHelpBothPagesStayInsideResizedViewport
+--- PASS: TestWorkspaceHelpBothPagesStayInsideResizedViewport (0.18s)
+=== RUN   TestWorkspaceHelpWaitsForAcceptedTerminalInput
+--- PASS: TestWorkspaceHelpWaitsForAcceptedTerminalInput (0.01s)
+=== RUN   TestWorkspaceHelpLastPageMatchesSourceTrailingRow
+--- PASS: TestWorkspaceHelpLastPageMatchesSourceTrailingRow (0.01s)
+=== RUN   TestWorkspaceFullHelpScrollsToTheLastRowAndBack
+--- PASS: TestWorkspaceFullHelpScrollsToTheLastRowAndBack (0.01s)
+=== RUN   TestWorkspaceHelpPasteClosesWithoutInterpretingOrForwardingPayload
+--- PASS: TestWorkspaceHelpPasteClosesWithoutInterpretingOrForwardingPayload (0.00s)
+=== RUN   TestWorkspaceHelpFillsEveryInteriorCellWithSurface
+--- PASS: TestWorkspaceHelpFillsEveryInteriorCellWithSurface (0.16s)
+=== RUN   TestHistoryOpensOnDemandAndEnterNeverAttaches
+--- PASS: TestHistoryOpensOnDemandAndEnterNeverAttaches (0.00s)
+=== RUN   TestHistoryCancellationDropsLateResultsAndBoundsRequests
+--- PASS: TestHistoryCancellationDropsLateResultsAndBoundsRequests (0.00s)
+=== RUN   TestHistoryPagingKeepsChosenRecordVisibleAndPreservesLiveCursor
+--- PASS: TestHistoryPagingKeepsChosenRecordVisibleAndPreservesLiveCursor (0.00s)
+=== RUN   TestHistoryDetailsWrapScrollAndKeepObservationsSeparate
+--- PASS: TestHistoryDetailsWrapScrollAndKeepObservationsSeparate (0.00s)
+=== RUN   TestHistoryRefreshPreservesRunIdentityAndHandlesErrors
+--- PASS: TestHistoryRefreshPreservesRunIdentityAndHandlesErrors (0.00s)
+=== RUN   TestHistoryRemainsAccessibleWhenLiveBackendFailsAndQuitCancelsRead
+--- PASS: TestHistoryRemainsAccessibleWhenLiveBackendFailsAndQuitCancelsRead (0.00s)
+=== RUN   TestHistoryViewportBoundsForListDetailAndTokenSpacing
+--- PASS: TestHistoryViewportBoundsForListDetailAndTokenSpacing (0.02s)
+=== RUN   TestEmptyChineseFormPlaceholdersNeverEmitNULAndKeepTheirRealCursor
+=== RUN   TestEmptyChineseFormPlaceholdersNeverEmitNULAndKeepTheirRealCursor/group
+=== RUN   TestEmptyChineseFormPlaceholdersNeverEmitNULAndKeepTheirRealCursor/launch
+=== RUN   TestEmptyChineseFormPlaceholdersNeverEmitNULAndKeepTheirRealCursor/search
+--- PASS: TestEmptyChineseFormPlaceholdersNeverEmitNULAndKeepTheirRealCursor (0.03s)
+    --- PASS: TestEmptyChineseFormPlaceholdersNeverEmitNULAndKeepTheirRealCursor/group (0.01s)
+    --- PASS: TestEmptyChineseFormPlaceholdersNeverEmitNULAndKeepTheirRealCursor/launch (0.01s)
+    --- PASS: TestEmptyChineseFormPlaceholdersNeverEmitNULAndKeepTheirRealCursor/search (0.01s)
+=== RUN   TestLaunchDialogCreatesGenericTerminalTabWithLiteralArguments
+--- PASS: TestLaunchDialogCreatesGenericTerminalTabWithLiteralArguments (0.03s)
+=== RUN   TestLaunchDialogRejectsInvalidArgumentsAndCancelsWithoutStarting
+--- PASS: TestLaunchDialogRejectsInvalidArgumentsAndCancelsWithoutStarting (0.00s)
+=== RUN   TestLaunchDialogFitsEveryBoundedViewport
+--- PASS: TestLaunchDialogFitsEveryBoundedViewport (0.04s)
+=== RUN   TestLaunchDialogUncertainStartCannotCreateDuplicateRun
+--- PASS: TestLaunchDialogUncertainStartCannotCreateDuplicateRun (0.00s)
+=== RUN   TestLaunchDialogPassesLiteralEnvironmentOverridesWithoutChangingManager
+--- PASS: TestLaunchDialogPassesLiteralEnvironmentOverridesWithoutChangingManager (0.01s)
+=== RUN   TestLaunchEnvironmentFailureDoesNotExposeValuesOrRetryUncertainRun
+--- PASS: TestLaunchEnvironmentFailureDoesNotExposeValuesOrRetryUncertainRun (0.00s)
+=== RUN   TestLaunchEnvironmentValidationAndCancelNeverStartOrRememberDraft
+=== RUN   TestLaunchEnvironmentValidationAndCancelNeverStartOrRememberDraft/4/null
+=== RUN   TestLaunchEnvironmentValidationAndCancelNeverStartOrRememberDraft/31/{"ASD_KE
+=== RUN   TestLaunchEnvironmentValidationAndCancelNeverStartOrRememberDraft/3/[1]
+=== RUN   TestLaunchEnvironmentValidationAndCancelNeverStartOrRememberDraft/6/[true]
+=== RUN   TestLaunchEnvironmentValidationAndCancelNeverStartOrRememberDraft/6/[null]
+=== RUN   TestLaunchEnvironmentValidationAndCancelNeverStartOrRememberDraft/22/["=synth
+=== RUN   TestLaunchEnvironmentValidationAndCancelNeverStartOrRememberDraft/21/["synthe
+=== RUN   TestLaunchEnvironmentValidationAndCancelNeverStartOrRememberDraft/30/["ASD\nB
+=== RUN   TestLaunchEnvironmentValidationAndCancelNeverStartOrRememberDraft/35/["ASD_KE
+=== RUN   TestLaunchEnvironmentValidationAndCancelNeverStartOrRememberDraft/20/["synthe
+--- PASS: TestLaunchEnvironmentValidationAndCancelNeverStartOrRememberDraft (0.00s)
+    --- PASS: TestLaunchEnvironmentValidationAndCancelNeverStartOrRememberDraft/4/null (0.00s)
+    --- PASS: TestLaunchEnvironmentValidationAndCancelNeverStartOrRememberDraft/31/{"ASD_KE (0.00s)
+    --- PASS: TestLaunchEnvironmentValidationAndCancelNeverStartOrRememberDraft/3/[1] (0.00s)
+    --- PASS: TestLaunchEnvironmentValidationAndCancelNeverStartOrRememberDraft/6/[true] (0.00s)
+    --- PASS: TestLaunchEnvironmentValidationAndCancelNeverStartOrRememberDraft/6/[null] (0.00s)
+    --- PASS: TestLaunchEnvironmentValidationAndCancelNeverStartOrRememberDraft/22/["=synth (0.00s)
+    --- PASS: TestLaunchEnvironmentValidationAndCancelNeverStartOrRememberDraft/21/["synthe (0.00s)
+    --- PASS: TestLaunchEnvironmentValidationAndCancelNeverStartOrRememberDraft/30/["ASD\nB (0.00s)
+    --- PASS: TestLaunchEnvironmentValidationAndCancelNeverStartOrRememberDraft/35/["ASD_KE (0.00s)
+    --- PASS: TestLaunchEnvironmentValidationAndCancelNeverStartOrRememberDraft/20/["synthe (0.00s)
+=== RUN   TestBlankLaunchEnvironmentKeepsInheritedEnvironmentAndCanReachCreateButton
+=== RUN   TestBlankLaunchEnvironmentKeepsInheritedEnvironmentAndCanReachCreateButton/""
+=== RUN   TestBlankLaunchEnvironmentKeepsInheritedEnvironmentAndCanReachCreateButton/"__"
+=== RUN   TestBlankLaunchEnvironmentKeepsInheritedEnvironmentAndCanReachCreateButton/"[]"
+--- PASS: TestBlankLaunchEnvironmentKeepsInheritedEnvironmentAndCanReachCreateButton (0.00s)
+    --- PASS: TestBlankLaunchEnvironmentKeepsInheritedEnvironmentAndCanReachCreateButton/"" (0.00s)
+    --- PASS: TestBlankLaunchEnvironmentKeepsInheritedEnvironmentAndCanReachCreateButton/"__" (0.00s)
+    --- PASS: TestBlankLaunchEnvironmentKeepsInheritedEnvironmentAndCanReachCreateButton/"[]" (0.00s)
+=== RUN   TestEnvironmentFailureKeepsSafeFieldLocationWithoutBackendDetails
+=== RUN   TestEnvironmentFailureKeepsSafeFieldLocationWithoutBackendDetails/程序
+=== RUN   TestEnvironmentFailureKeepsSafeFieldLocationWithoutBackendDetails/工作目录
+=== RUN   TestEnvironmentFailureKeepsSafeFieldLocationWithoutBackendDetails/环境覆盖
+--- PASS: TestEnvironmentFailureKeepsSafeFieldLocationWithoutBackendDetails (0.00s)
+    --- PASS: TestEnvironmentFailureKeepsSafeFieldLocationWithoutBackendDetails/程序 (0.00s)
+    --- PASS: TestEnvironmentFailureKeepsSafeFieldLocationWithoutBackendDetails/工作目录 (0.00s)
+    --- PASS: TestEnvironmentFailureKeepsSafeFieldLocationWithoutBackendDetails/环境覆盖 (0.00s)
+=== RUN   TestEnvironmentPasteBoundAndMultilineRejectionKeepExistingDraft
+--- PASS: TestEnvironmentPasteBoundAndMultilineRejectionKeepExistingDraft (0.00s)
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/TrueColor/[120_40]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/TrueColor/[100_30]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/TrueColor/[80_24]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/TrueColor/[63_16]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/TrueColor/[49_12]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/TrueColor/[27_12]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/TrueColor/[10_4]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/TrueColor/[1_1]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/ANSI256/[120_40]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/ANSI256/[100_30]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/ANSI256/[80_24]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/ANSI256/[63_16]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/ANSI256/[49_12]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/ANSI256/[27_12]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/ANSI256/[10_4]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/ANSI256/[1_1]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/ANSI/[120_40]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/ANSI/[100_30]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/ANSI/[80_24]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/ANSI/[63_16]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/ANSI/[49_12]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/ANSI/[27_12]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/ANSI/[10_4]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/ANSI/[1_1]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/Ascii/[120_40]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/Ascii/[100_30]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/Ascii/[80_24]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/Ascii/[63_16]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/Ascii/[49_12]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/Ascii/[27_12]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/Ascii/[10_4]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/Ascii/[1_1]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/TrueColor/[120_40]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/TrueColor/[100_30]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/TrueColor/[80_24]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/TrueColor/[63_16]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/TrueColor/[49_12]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/TrueColor/[27_12]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/TrueColor/[10_4]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/TrueColor/[1_1]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/ANSI256/[120_40]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/ANSI256/[100_30]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/ANSI256/[80_24]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/ANSI256/[63_16]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/ANSI256/[49_12]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/ANSI256/[27_12]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/ANSI256/[10_4]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/ANSI256/[1_1]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/ANSI/[120_40]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/ANSI/[100_30]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/ANSI/[80_24]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/ANSI/[63_16]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/ANSI/[49_12]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/ANSI/[27_12]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/ANSI/[10_4]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/ANSI/[1_1]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/Ascii/[120_40]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/Ascii/[100_30]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/Ascii/[80_24]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/Ascii/[63_16]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/Ascii/[49_12]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/Ascii/[27_12]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/Ascii/[10_4]
+=== RUN   TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/Ascii/[1_1]
+--- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize (0.10s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/TrueColor/[120_40] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/TrueColor/[100_30] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/TrueColor/[80_24] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/TrueColor/[63_16] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/TrueColor/[49_12] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/TrueColor/[27_12] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/TrueColor/[10_4] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/TrueColor/[1_1] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/ANSI256/[120_40] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/ANSI256/[100_30] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/ANSI256/[80_24] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/ANSI256/[63_16] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/ANSI256/[49_12] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/ANSI256/[27_12] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/ANSI256/[10_4] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/ANSI256/[1_1] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/ANSI/[120_40] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/ANSI/[100_30] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/ANSI/[80_24] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/ANSI/[63_16] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/ANSI/[49_12] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/ANSI/[27_12] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/ANSI/[10_4] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/ANSI/[1_1] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/Ascii/[120_40] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/Ascii/[100_30] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/Ascii/[80_24] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/Ascii/[63_16] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/Ascii/[49_12] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/Ascii/[27_12] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/Ascii/[10_4] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/dark/Ascii/[1_1] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/TrueColor/[120_40] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/TrueColor/[100_30] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/TrueColor/[80_24] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/TrueColor/[63_16] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/TrueColor/[49_12] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/TrueColor/[27_12] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/TrueColor/[10_4] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/TrueColor/[1_1] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/ANSI256/[120_40] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/ANSI256/[100_30] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/ANSI256/[80_24] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/ANSI256/[63_16] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/ANSI256/[49_12] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/ANSI256/[27_12] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/ANSI256/[10_4] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/ANSI256/[1_1] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/ANSI/[120_40] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/ANSI/[100_30] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/ANSI/[80_24] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/ANSI/[63_16] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/ANSI/[49_12] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/ANSI/[27_12] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/ANSI/[10_4] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/ANSI/[1_1] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/Ascii/[120_40] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/Ascii/[100_30] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/Ascii/[80_24] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/Ascii/[63_16] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/Ascii/[49_12] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/Ascii/[27_12] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/Ascii/[10_4] (0.00s)
+    --- PASS: TestEnvironmentFieldKeepsValueFocusAndBoundsAcrossThemeProfileAndResize/light/Ascii/[1_1] (0.00s)
+=== RUN   TestLaunchDialogSurfaceFillsTrailingLabelCells
+--- PASS: TestLaunchDialogSurfaceFillsTrailingLabelCells (0.00s)
+=== RUN   TestExitedPaneCanBeInspectedWithoutAttaching
+--- PASS: TestExitedPaneCanBeInspectedWithoutAttaching (0.00s)
+=== RUN   TestSelectionCancelsCaptureAndRejectsLatePreview
+--- PASS: TestSelectionCancelsCaptureAndRejectsLatePreview (0.00s)
+=== RUN   TestRestartedRunCannotReceiveOldPreview
+--- PASS: TestRestartedRunCannotReceiveOldPreview (0.00s)
+=== RUN   TestReorderingPreservesStableSelection
+--- PASS: TestReorderingPreservesStableSelection (0.00s)
+=== RUN   TestEmptyListAndPastedKeysNeverAttachOrQuit
+--- PASS: TestEmptyListAndPastedKeysNeverAttachOrQuit (0.00s)
+=== RUN   TestV2KeyReleaseAndRepeatedEnterDoNotDuplicateActions
+--- PASS: TestV2KeyReleaseAndRepeatedEnterDoNotDuplicateActions (0.00s)
+=== RUN   TestPreviewFailurePreservesManagementKeys
+--- PASS: TestPreviewFailurePreservesManagementKeys (0.00s)
+=== RUN   TestAttachFreezesTargetAndDiscardsPreAttachList
+--- PASS: TestAttachFreezesTargetAndDiscardsPreAttachList (0.00s)
+=== RUN   TestHiddenPreviewDoesNotPoll
+--- PASS: TestHiddenPreviewDoesNotPoll (0.00s)
+=== RUN   TestQuitCancelsWorkWithoutStoppingSession
+--- PASS: TestQuitCancelsWorkWithoutStoppingSession (0.00s)
+=== RUN   TestExactDirectoryAsyncTabKeepsFollowingArgumentsEnvironmentAndCreate
+--- PASS: TestExactDirectoryAsyncTabKeepsFollowingArgumentsEnvironmentAndCreate (0.00s)
+=== RUN   TestLaunchPathPickerSeparatesCustomBrowseAndFieldAdvance
+--- PASS: TestLaunchPathPickerSeparatesCustomBrowseAndFieldAdvance (0.00s)
+=== RUN   TestPathTabCyclesFilesystemAndPreservesFollowingPasteOrder
+--- PASS: TestPathTabCyclesFilesystemAndPreservesFollowingPasteOrder (0.00s)
+=== RUN   TestPathScannerSerializesUninterruptibleCallsAndDropsClosedModal
+--- PASS: TestPathScannerSerializesUninterruptibleCallsAndDropsClosedModal (0.00s)
+=== RUN   TestSuccessfulLaunchSavesHintFailureWithoutRetryingOrBlockingTab
+--- PASS: TestSuccessfulLaunchSavesHintFailureWithoutRetryingOrBlockingTab (0.00s)
+=== RUN   TestTinyResizeReleasesBrowseFocusAndPreservesDirectoryDraft
+--- PASS: TestTinyResizeReleasesBrowseFocusAndPreservesDirectoryDraft (0.00s)
+=== RUN   TestExplicitTabCompletesBareRelativeDirectoryAndKeepsInvalidPathInField
+--- PASS: TestExplicitTabCompletesBareRelativeDirectoryAndKeepsInvalidPathInField (0.00s)
+=== RUN   TestLaunchControlNavigationKeepsEditingUntilExplicitAccept
+--- PASS: TestLaunchControlNavigationKeepsEditingUntilExplicitAccept (0.00s)
+=== RUN   TestGroupPathPickerAcceptsThenDismissesBeforeSubmitting
+--- PASS: TestGroupPathPickerAcceptsThenDismissesBeforeSubmitting (0.00s)
+=== RUN   TestAsyncRecentsKeepAnExplicitlyNavigatedCandidateIdentity
+--- PASS: TestAsyncRecentsKeepAnExplicitlyNavigatedCandidateIdentity (0.00s)
+=== RUN   TestDirectoryPopupUsesMeasuredSourceDisplayBackground
+--- PASS: TestDirectoryPopupUsesMeasuredSourceDisplayBackground (0.00s)
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/TrueColor/[120_40]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/TrueColor/[100_30]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/TrueColor/[80_24]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/TrueColor/[50_16]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/TrueColor/[32_12]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/TrueColor/[31_11]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/TrueColor/[16_8]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/TrueColor/[4_4]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/ANSI256/[120_40]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/ANSI256/[100_30]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/ANSI256/[80_24]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/ANSI256/[50_16]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/ANSI256/[32_12]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/ANSI256/[31_11]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/ANSI256/[16_8]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/ANSI256/[4_4]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/ANSI/[120_40]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/ANSI/[100_30]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/ANSI/[80_24]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/ANSI/[50_16]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/ANSI/[32_12]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/ANSI/[31_11]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/ANSI/[16_8]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/ANSI/[4_4]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/Ascii/[120_40]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/Ascii/[100_30]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/Ascii/[80_24]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/Ascii/[50_16]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/Ascii/[32_12]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/Ascii/[31_11]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/Ascii/[16_8]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/Ascii/[4_4]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/TrueColor/[120_40]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/TrueColor/[100_30]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/TrueColor/[80_24]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/TrueColor/[50_16]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/TrueColor/[32_12]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/TrueColor/[31_11]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/TrueColor/[16_8]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/TrueColor/[4_4]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/ANSI256/[120_40]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/ANSI256/[100_30]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/ANSI256/[80_24]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/ANSI256/[50_16]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/ANSI256/[32_12]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/ANSI256/[31_11]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/ANSI256/[16_8]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/ANSI256/[4_4]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/ANSI/[120_40]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/ANSI/[100_30]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/ANSI/[80_24]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/ANSI/[50_16]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/ANSI/[32_12]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/ANSI/[31_11]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/ANSI/[16_8]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/ANSI/[4_4]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/Ascii/[120_40]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/Ascii/[100_30]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/Ascii/[80_24]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/Ascii/[50_16]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/Ascii/[32_12]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/Ascii/[31_11]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/Ascii/[16_8]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/Ascii/[4_4]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/TrueColor/[120_40]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/TrueColor/[100_30]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/TrueColor/[80_24]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/TrueColor/[50_16]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/TrueColor/[32_12]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/TrueColor/[31_11]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/TrueColor/[16_8]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/TrueColor/[4_4]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/ANSI256/[120_40]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/ANSI256/[100_30]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/ANSI256/[80_24]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/ANSI256/[50_16]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/ANSI256/[32_12]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/ANSI256/[31_11]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/ANSI256/[16_8]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/ANSI256/[4_4]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/ANSI/[120_40]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/ANSI/[100_30]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/ANSI/[80_24]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/ANSI/[50_16]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/ANSI/[32_12]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/ANSI/[31_11]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/ANSI/[16_8]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/ANSI/[4_4]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/Ascii/[120_40]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/Ascii/[100_30]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/Ascii/[80_24]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/Ascii/[50_16]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/Ascii/[32_12]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/Ascii/[31_11]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/Ascii/[16_8]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/Ascii/[4_4]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/TrueColor/[120_40]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/TrueColor/[100_30]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/TrueColor/[80_24]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/TrueColor/[50_16]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/TrueColor/[32_12]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/TrueColor/[31_11]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/TrueColor/[16_8]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/TrueColor/[4_4]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/ANSI256/[120_40]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/ANSI256/[100_30]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/ANSI256/[80_24]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/ANSI256/[50_16]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/ANSI256/[32_12]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/ANSI256/[31_11]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/ANSI256/[16_8]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/ANSI256/[4_4]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/ANSI/[120_40]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/ANSI/[100_30]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/ANSI/[80_24]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/ANSI/[50_16]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/ANSI/[32_12]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/ANSI/[31_11]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/ANSI/[16_8]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/ANSI/[4_4]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/Ascii/[120_40]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/Ascii/[100_30]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/Ascii/[80_24]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/Ascii/[50_16]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/Ascii/[32_12]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/Ascii/[31_11]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/Ascii/[16_8]
+=== RUN   TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/Ascii/[4_4]
+--- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix (0.17s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/TrueColor/[120_40] (0.01s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/TrueColor/[100_30] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/TrueColor/[80_24] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/TrueColor/[50_16] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/TrueColor/[32_12] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/TrueColor/[31_11] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/TrueColor/[16_8] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/TrueColor/[4_4] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/ANSI256/[120_40] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/ANSI256/[100_30] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/ANSI256/[80_24] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/ANSI256/[50_16] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/ANSI256/[32_12] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/ANSI256/[31_11] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/ANSI256/[16_8] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/ANSI256/[4_4] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/ANSI/[120_40] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/ANSI/[100_30] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/ANSI/[80_24] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/ANSI/[50_16] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/ANSI/[32_12] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/ANSI/[31_11] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/ANSI/[16_8] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/ANSI/[4_4] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/Ascii/[120_40] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/Ascii/[100_30] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/Ascii/[80_24] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/Ascii/[50_16] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/Ascii/[32_12] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/Ascii/[31_11] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/Ascii/[16_8] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/Ascii/[4_4] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/TrueColor/[120_40] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/TrueColor/[100_30] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/TrueColor/[80_24] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/TrueColor/[50_16] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/TrueColor/[32_12] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/TrueColor/[31_11] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/TrueColor/[16_8] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/TrueColor/[4_4] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/ANSI256/[120_40] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/ANSI256/[100_30] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/ANSI256/[80_24] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/ANSI256/[50_16] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/ANSI256/[32_12] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/ANSI256/[31_11] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/ANSI256/[16_8] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/ANSI256/[4_4] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/ANSI/[120_40] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/ANSI/[100_30] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/ANSI/[80_24] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/ANSI/[50_16] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/ANSI/[32_12] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/ANSI/[31_11] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/ANSI/[16_8] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/ANSI/[4_4] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/Ascii/[120_40] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/Ascii/[100_30] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/Ascii/[80_24] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/Ascii/[50_16] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/Ascii/[32_12] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/Ascii/[31_11] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/Ascii/[16_8] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/Ascii/[4_4] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/TrueColor/[120_40] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/TrueColor/[100_30] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/TrueColor/[80_24] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/TrueColor/[50_16] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/TrueColor/[32_12] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/TrueColor/[31_11] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/TrueColor/[16_8] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/TrueColor/[4_4] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/ANSI256/[120_40] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/ANSI256/[100_30] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/ANSI256/[80_24] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/ANSI256/[50_16] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/ANSI256/[32_12] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/ANSI256/[31_11] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/ANSI256/[16_8] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/ANSI256/[4_4] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/ANSI/[120_40] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/ANSI/[100_30] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/ANSI/[80_24] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/ANSI/[50_16] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/ANSI/[32_12] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/ANSI/[31_11] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/ANSI/[16_8] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/ANSI/[4_4] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/Ascii/[120_40] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/Ascii/[100_30] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/Ascii/[80_24] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/Ascii/[50_16] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/Ascii/[32_12] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/Ascii/[31_11] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/Ascii/[16_8] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/dark/Ascii/[4_4] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/TrueColor/[120_40] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/TrueColor/[100_30] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/TrueColor/[80_24] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/TrueColor/[50_16] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/TrueColor/[32_12] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/TrueColor/[31_11] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/TrueColor/[16_8] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/TrueColor/[4_4] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/ANSI256/[120_40] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/ANSI256/[100_30] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/ANSI256/[80_24] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/ANSI256/[50_16] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/ANSI256/[32_12] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/ANSI256/[31_11] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/ANSI256/[16_8] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/ANSI256/[4_4] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/ANSI/[120_40] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/ANSI/[100_30] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/ANSI/[80_24] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/ANSI/[50_16] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/ANSI/[32_12] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/ANSI/[31_11] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/ANSI/[16_8] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/ANSI/[4_4] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/Ascii/[120_40] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/Ascii/[100_30] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/Ascii/[80_24] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/Ascii/[50_16] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/Ascii/[32_12] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/Ascii/[31_11] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/Ascii/[16_8] (0.00s)
+    --- PASS: TestDirectoryPopupViewportFocusAndThemeMatrix/group/light/Ascii/[4_4] (0.00s)
+=== RUN   TestSessionOrderQuitWaitsForMetadataInputAndPreferenceAndNeverReplays
+--- PASS: TestSessionOrderQuitWaitsForMetadataInputAndPreferenceAndNeverReplays (0.00s)
+=== RUN   TestSessionOrderFailureAndOtherFailuresCancelPendingQuit
+=== RUN   TestSessionOrderFailureAndOtherFailuresCancelPendingQuit/metadata
+=== RUN   TestSessionOrderFailureAndOtherFailuresCancelPendingQuit/terminal
+=== RUN   TestSessionOrderFailureAndOtherFailuresCancelPendingQuit/preferences
+--- PASS: TestSessionOrderFailureAndOtherFailuresCancelPendingQuit (0.00s)
+    --- PASS: TestSessionOrderFailureAndOtherFailuresCancelPendingQuit/metadata (0.00s)
+    --- PASS: TestSessionOrderFailureAndOtherFailuresCancelPendingQuit/terminal (0.00s)
+    --- PASS: TestSessionOrderFailureAndOtherFailuresCancelPendingQuit/preferences (0.00s)
+=== RUN   TestSessionOrderLateResultCannotApplyToChangedRowsOrRestoreMissingRows
+=== RUN   TestSessionOrderLateResultCannotApplyToChangedRowsOrRestoreMissingRows/missing
+=== RUN   TestSessionOrderLateResultCannotApplyToChangedRowsOrRestoreMissingRows/run
+=== RUN   TestSessionOrderLateResultCannotApplyToChangedRowsOrRestoreMissingRows/backend
+=== RUN   TestSessionOrderLateResultCannotApplyToChangedRowsOrRestoreMissingRows/command
+=== RUN   TestSessionOrderLateResultCannotApplyToChangedRowsOrRestoreMissingRows/name
+=== RUN   TestSessionOrderLateResultCannotApplyToChangedRowsOrRestoreMissingRows/membership
+=== RUN   TestSessionOrderLateResultCannotApplyToChangedRowsOrRestoreMissingRows/newer-position
+--- PASS: TestSessionOrderLateResultCannotApplyToChangedRowsOrRestoreMissingRows (0.00s)
+    --- PASS: TestSessionOrderLateResultCannotApplyToChangedRowsOrRestoreMissingRows/missing (0.00s)
+    --- PASS: TestSessionOrderLateResultCannotApplyToChangedRowsOrRestoreMissingRows/run (0.00s)
+    --- PASS: TestSessionOrderLateResultCannotApplyToChangedRowsOrRestoreMissingRows/backend (0.00s)
+    --- PASS: TestSessionOrderLateResultCannotApplyToChangedRowsOrRestoreMissingRows/command (0.00s)
+    --- PASS: TestSessionOrderLateResultCannotApplyToChangedRowsOrRestoreMissingRows/name (0.00s)
+    --- PASS: TestSessionOrderLateResultCannotApplyToChangedRowsOrRestoreMissingRows/membership (0.00s)
+    --- PASS: TestSessionOrderLateResultCannotApplyToChangedRowsOrRestoreMissingRows/newer-position (0.00s)
+=== RUN   TestSessionOrderKeepsTerminalKeysAndBlocksMouseNewWhileSaving
+--- PASS: TestSessionOrderKeepsTerminalKeysAndBlocksMouseNewWhileSaving (0.00s)
+=== RUN   TestMembershipAcknowledgementResetsOldGroupPositionWithoutUndoingNewerSort
+--- PASS: TestMembershipAcknowledgementResetsOldGroupPositionWithoutUndoingNewerSort (0.00s)
+=== RUN   TestSessionRowOrderFollowsSelectionWithoutMovingTabsOrSendingInput
+--- PASS: TestSessionRowOrderFollowsSelectionWithoutMovingTabsOrSendingInput (0.01s)
+=== RUN   TestSessionOrderAllSourceKeysKeepSelectionAndNoOpBoundaries
+=== RUN   TestSessionOrderAllSourceKeysKeepSelectionAndNoOpBoundaries/K
+=== RUN   TestSessionOrderAllSourceKeysKeepSelectionAndNoOpBoundaries/+
+=== RUN   TestSessionOrderAllSourceKeysKeepSelectionAndNoOpBoundaries/shift+up
+=== RUN   TestSessionOrderAllSourceKeysKeepSelectionAndNoOpBoundaries/ctrl+up
+=== RUN   TestSessionOrderAllSourceKeysKeepSelectionAndNoOpBoundaries/J
+=== RUN   TestSessionOrderAllSourceKeysKeepSelectionAndNoOpBoundaries/-
+=== RUN   TestSessionOrderAllSourceKeysKeepSelectionAndNoOpBoundaries/shift+down
+=== RUN   TestSessionOrderAllSourceKeysKeepSelectionAndNoOpBoundaries/ctrl+down
+--- PASS: TestSessionOrderAllSourceKeysKeepSelectionAndNoOpBoundaries (0.00s)
+    --- PASS: TestSessionOrderAllSourceKeysKeepSelectionAndNoOpBoundaries/K (0.00s)
+    --- PASS: TestSessionOrderAllSourceKeysKeepSelectionAndNoOpBoundaries/+ (0.00s)
+    --- PASS: TestSessionOrderAllSourceKeysKeepSelectionAndNoOpBoundaries/shift+up (0.00s)
+    --- PASS: TestSessionOrderAllSourceKeysKeepSelectionAndNoOpBoundaries/ctrl+up (0.00s)
+    --- PASS: TestSessionOrderAllSourceKeysKeepSelectionAndNoOpBoundaries/J (0.00s)
+    --- PASS: TestSessionOrderAllSourceKeysKeepSelectionAndNoOpBoundaries/- (0.00s)
+    --- PASS: TestSessionOrderAllSourceKeysKeepSelectionAndNoOpBoundaries/shift+down (0.00s)
+    --- PASS: TestSessionOrderAllSourceKeysKeepSelectionAndNoOpBoundaries/ctrl+down (0.00s)
+=== RUN   TestRenameRefreshesNameOrderBeforeMovingSelectedOriginalSession
+--- PASS: TestRenameRefreshesNameOrderBeforeMovingSelectedOriginalSession (0.01s)
+=== RUN   TestSessionRenameSurfaceFillsEveryInteriorCellAfterChildStyleResets
+--- PASS: TestSessionRenameSurfaceFillsEveryInteriorCellAfterChildStyleResets (0.03s)
+=== RUN   TestSessionRenameCancelKeepsPrefilledNameAndRealCursorAtEnd
+--- PASS: TestSessionRenameCancelKeepsPrefilledNameAndRealCursorAtEnd (0.00s)
+=== RUN   TestSessionRenameWaitsForAcceptedInputAndRejectsReplacedRun
+--- PASS: TestSessionRenameWaitsForAcceptedInputAndRejectsReplacedRun (0.01s)
+=== RUN   TestSessionRenameErrorRequiresReconcileInsteadOfRepeatedSubmit
+--- PASS: TestSessionRenameErrorRequiresReconcileInsteadOfRepeatedSubmit (0.00s)
+=== RUN   TestDuplicateSessionNamesExposeDistinctIdentitiesInTabsListAndSearch
+--- PASS: TestDuplicateSessionNamesExposeDistinctIdentitiesInTabsListAndSearch (0.01s)
+=== RUN   TestSessionRenameFitsSourceGeometryAndBoundedWindows
+--- PASS: TestSessionRenameFitsSourceGeometryAndBoundedWindows (0.00s)
+=== RUN   TestSessionRenameRejectsMultilinePasteAndKeepsTerminalShortcutsLiteral
+--- PASS: TestSessionRenameRejectsMultilinePasteAndKeepsTerminalShortcutsLiteral (0.01s)
+=== RUN   TestManagementRefreshReloadsNamesChangedByAnotherEditor
+--- PASS: TestManagementRefreshReloadsNamesChangedByAnotherEditor (0.01s)
+=== RUN   TestSessionRenamePreCommitDiscoveryCannotRestoreTheOldDisplayName
+--- PASS: TestSessionRenamePreCommitDiscoveryCannotRestoreTheOldDisplayName (0.01s)
+=== RUN   TestSessionRenameChangesSelectedBackgroundLabelWithoutSwitchingOrTerminalInput
+--- PASS: TestSessionRenameChangesSelectedBackgroundLabelWithoutSwitchingOrTerminalInput (0.02s)
+=== RUN   TestSessionSearchPreservesPinnedPlaceholderAndKeyboardHintStyles
+--- PASS: TestSessionSearchPreservesPinnedPlaceholderAndKeyboardHintStyles (0.00s)
+=== RUN   TestSessionSearchOpensOriginalRunWithoutSendingQueryToTerminal
+--- PASS: TestSessionSearchOpensOriginalRunWithoutSendingQueryToTerminal (0.01s)
+=== RUN   TestSessionSearchWaitsForAcceptedTerminalWrite
+--- PASS: TestSessionSearchWaitsForAcceptedTerminalWrite (0.01s)
+=== RUN   TestSessionSearchKeepsSelectionByRunWhenDiscoveryReorders
+--- PASS: TestSessionSearchKeepsSelectionByRunWhenDiscoveryReorders (0.01s)
+=== RUN   TestSessionSearchKeepsTerminalSlashAndModalNavigationSeparate
+--- PASS: TestSessionSearchKeepsTerminalSlashAndModalNavigationSeparate (0.01s)
+=== RUN   TestSessionSearchFollowsRankedResultsAndFitsBoundedWindows
+--- PASS: TestSessionSearchFollowsRankedResultsAndFitsBoundedWindows (0.01s)
+=== RUN   TestSessionSearchRanksExactBeforeFuzzyAndKeepsUnicodeRules
+=== RUN   TestSessionSearchRanksExactBeforeFuzzyAndKeepsUnicodeRules/exact_before_typo
+=== RUN   TestSessionSearchRanksExactBeforeFuzzyAndKeepsUnicodeRules/program_path
+=== RUN   TestSessionSearchRanksExactBeforeFuzzyAndKeepsUnicodeRules/short_Unicode_exact
+=== RUN   TestSessionSearchRanksExactBeforeFuzzyAndKeepsUnicodeRules/no_canonical_normalization
+=== RUN   TestSessionSearchRanksExactBeforeFuzzyAndKeepsUnicodeRules/empty_query_original_order
+=== RUN   TestSessionSearchRanksExactBeforeFuzzyAndKeepsUnicodeRules/no_result
+--- PASS: TestSessionSearchRanksExactBeforeFuzzyAndKeepsUnicodeRules (0.04s)
+    --- PASS: TestSessionSearchRanksExactBeforeFuzzyAndKeepsUnicodeRules/exact_before_typo (0.01s)
+    --- PASS: TestSessionSearchRanksExactBeforeFuzzyAndKeepsUnicodeRules/program_path (0.01s)
+    --- PASS: TestSessionSearchRanksExactBeforeFuzzyAndKeepsUnicodeRules/short_Unicode_exact (0.01s)
+    --- PASS: TestSessionSearchRanksExactBeforeFuzzyAndKeepsUnicodeRules/no_canonical_normalization (0.00s)
+    --- PASS: TestSessionSearchRanksExactBeforeFuzzyAndKeepsUnicodeRules/empty_query_original_order (0.01s)
+    --- PASS: TestSessionSearchRanksExactBeforeFuzzyAndKeepsUnicodeRules/no_result (0.00s)
+=== RUN   TestSessionSearchDoesNotRetargetWhenSelectedRunChangesDuringRefresh
+--- PASS: TestSessionSearchDoesNotRetargetWhenSelectedRunChangesDuringRefresh (0.01s)
+=== RUN   TestSessionStopDrainsDraftAndNeverLeaksModalKeysOrPaste
+--- PASS: TestSessionStopDrainsDraftAndNeverLeaksModalKeysOrPaste (0.00s)
+=== RUN   TestSessionStopBusyAndUncertainResultCannotReplayOrQuit
+--- PASS: TestSessionStopBusyAndUncertainResultCannotReplayOrQuit (0.99s)
+=== RUN   TestSessionStopUnreadableReviewNeverConfirms
+--- PASS: TestSessionStopUnreadableReviewNeverConfirms (0.01s)
+=== RUN   TestSessionStopLateReceiptCannotTouchReplacementRun
+--- PASS: TestSessionStopLateReceiptCannotTouchReplacementRun (0.00s)
+=== RUN   TestSessionStopUnknownAndUnsupportedServiceDoNotOpenDialog
+--- PASS: TestSessionStopUnknownAndUnsupportedServiceDoNotOpenDialog (0.00s)
+=== RUN   TestSessionStopInputFailureCancelsUnopenedReview
+--- PASS: TestSessionStopInputFailureCancelsUnopenedReview (0.00s)
+=== RUN   TestSessionStopServiceCapabilityRequired
+--- PASS: TestSessionStopServiceCapabilityRequired (0.00s)
+=== RUN   TestSessionStopCannotConfirmSilentlyTruncatedTargetFields
+=== RUN   TestSessionStopCannotConfirmSilentlyTruncatedTargetFields/title
+=== RUN   TestSessionStopCannotConfirmSilentlyTruncatedTargetFields/program
+--- PASS: TestSessionStopCannotConfirmSilentlyTruncatedTargetFields (0.00s)
+    --- PASS: TestSessionStopCannotConfirmSilentlyTruncatedTargetFields/title (0.00s)
+    --- PASS: TestSessionStopCannotConfirmSilentlyTruncatedTargetFields/program (0.00s)
+=== RUN   TestSessionStopDefaultsToCancelAndStopsSelectedNotActiveRunOnce
+--- PASS: TestSessionStopDefaultsToCancelAndStopsSelectedNotActiveRunOnce (0.00s)
+=== RUN   TestDefaultGroupedSidebarFoldsWithoutClosingTabOrChangingTerminalInput
+--- PASS: TestDefaultGroupedSidebarFoldsWithoutClosingTabOrChangingTerminalInput (0.02s)
+=== RUN   TestGroupedHeaderMouseClickFoldsInsteadOfSelectingFirstSession
+--- PASS: TestGroupedHeaderMouseClickFoldsInsteadOfSelectingFirstSession (0.01s)
+=== RUN   TestGroupedMetadataClickOpensTheExactSessionBelowTheHeader
+--- PASS: TestGroupedMetadataClickOpensTheExactSessionBelowTheHeader (0.01s)
+=== RUN   TestSidebarNavigationAndDensityShareOneSerializedPreferenceWriter
+--- PASS: TestSidebarNavigationAndDensityShareOneSerializedPreferenceWriter (0.01s)
+=== RUN   TestGroupedVariableHeightWindowKeepsTheSelectedTargetVisibleAndClickable
+=== RUN   TestGroupedVariableHeightWindowKeepsTheSelectedTargetVisibleAndClickable/full
+=== RUN   TestGroupedVariableHeightWindowKeepsTheSelectedTargetVisibleAndClickable/compact
+=== RUN   TestGroupedVariableHeightWindowKeepsTheSelectedTargetVisibleAndClickable/minimal
+=== RUN   TestGroupedVariableHeightWindowKeepsTheSelectedTargetVisibleAndClickable/auto
+--- PASS: TestGroupedVariableHeightWindowKeepsTheSelectedTargetVisibleAndClickable (0.14s)
+    --- PASS: TestGroupedVariableHeightWindowKeepsTheSelectedTargetVisibleAndClickable/full (0.04s)
+    --- PASS: TestGroupedVariableHeightWindowKeepsTheSelectedTargetVisibleAndClickable/compact (0.04s)
+    --- PASS: TestGroupedVariableHeightWindowKeepsTheSelectedTargetVisibleAndClickable/minimal (0.04s)
+    --- PASS: TestGroupedVariableHeightWindowKeepsTheSelectedTargetVisibleAndClickable/auto (0.04s)
+=== RUN   TestManagementQuitWaitsForAnAcceptedSidebarPreference
+--- PASS: TestManagementQuitWaitsForAnAcceptedSidebarPreference (0.00s)
+=== RUN   TestSidebarSaveFailureCancelsWaitingQuitAndKeepsTheErrorVisible
+--- PASS: TestSidebarSaveFailureCancelsWaitingQuitAndKeepsTheErrorVisible (0.00s)
+=== RUN   TestRepeatedLeftWhileSavingKeepsTheDefaultGroupCollapsed
+--- PASS: TestRepeatedLeftWhileSavingKeepsTheDefaultGroupCollapsed (0.00s)
+=== RUN   TestTerminalAltVStillGoesToTheOriginalTerminal
+--- PASS: TestTerminalAltVStillGoesToTheOriginalTerminal (0.00s)
+=== RUN   TestWorkspaceUsesPinnedSourceEmittedRGBWithoutChangingAuthoredPalette
+=== RUN   TestWorkspaceUsesPinnedSourceEmittedRGBWithoutChangingAuthoredPalette/dark
+=== RUN   TestWorkspaceUsesPinnedSourceEmittedRGBWithoutChangingAuthoredPalette/light
+--- PASS: TestWorkspaceUsesPinnedSourceEmittedRGBWithoutChangingAuthoredPalette (0.00s)
+    --- PASS: TestWorkspaceUsesPinnedSourceEmittedRGBWithoutChangingAuthoredPalette/dark (0.00s)
+    --- PASS: TestWorkspaceUsesPinnedSourceEmittedRGBWithoutChangingAuthoredPalette/light (0.00s)
+=== RUN   TestSourceColorAdaptationLeavesNativeRGBAndIndexedAttributesExact
+--- PASS: TestSourceColorAdaptationLeavesNativeRGBAndIndexedAttributesExact (0.00s)
+=== RUN   TestSystemThemeWaitsForCloseAndRejectsLateAndDuplicateReceipts
+--- PASS: TestSystemThemeWaitsForCloseAndRejectsLateAndDuplicateReceipts (0.00s)
+=== RUN   TestSystemThemeCanceledOpeningCannotPoisonNewSystemChoice
+--- PASS: TestSystemThemeCanceledOpeningCannotPoisonNewSystemChoice (0.00s)
+=== RUN   TestSystemThemeUnknownRetainsLastGoodAndSanitizesCaption
+--- PASS: TestSystemThemeUnknownRetainsLastGoodAndSanitizesCaption (0.00s)
+=== RUN   TestSystemThemeCloseFailurePreventsReplacement
+--- PASS: TestSystemThemeCloseFailurePreventsReplacement (0.00s)
+=== RUN   TestSystemThemeRestylesOpenInputsWithoutLosingEditingState
+--- PASS: TestSystemThemeRestylesOpenInputsWithoutLosingEditingState (0.00s)
+=== RUN   TestSystemThemeCanBeSelectedAndPersistsChoice
+--- PASS: TestSystemThemeCanBeSelectedAndPersistsChoice (0.00s)
+=== RUN   TestSystemThemeObservationsNeverSavePreferenceOrWriteTerminalInput
+--- PASS: TestSystemThemeObservationsNeverSavePreferenceOrWriteTerminalInput (0.00s)
+=== RUN   TestThemeAndDensitySerializeLatestChoicesBeforeClosing
+--- PASS: TestThemeAndDensitySerializeLatestChoicesBeforeClosing (0.03s)
+=== RUN   TestThemeFailedSavePreservesAppliedPaletteAndCancelsWaitingClose
+--- PASS: TestThemeFailedSavePreservesAppliedPaletteAndCancelsWaitingClose (0.00s)
+=== RUN   TestThemeNeedsWholeDocumentSaveCapability
+--- PASS: TestThemeNeedsWholeDocumentSaveCapability (0.00s)
+=== RUN   TestThemesKeepModelsIndependentAndRetainLayoutTokens
+--- PASS: TestThemesKeepModelsIndependentAndRetainLayoutTokens (0.00s)
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/8x1/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/8x1/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/8x5/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/8x5/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/8x8/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/8x8/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/8x12/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/8x12/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/8x24/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/8x24/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/12x1/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/12x1/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/12x5/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/12x5/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/12x8/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/12x8/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/12x12/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/12x12/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/12x24/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/12x24/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/27x1/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/27x1/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/27x5/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/27x5/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/27x8/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/27x8/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/27x12/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/27x12/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/27x24/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/27x24/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/49x1/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/49x1/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/49x5/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/49x5/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/49x8/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/49x8/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/49x12/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/49x12/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/49x24/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/49x24/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/80x1/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/80x1/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/80x5/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/80x5/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/80x8/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/80x8/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/80x12/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/80x12/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/80x24/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/80x24/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/120x1/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/120x1/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/120x5/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/120x5/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/120x8/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/120x8/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/120x12/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/120x12/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/120x24/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/120x24/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/8x1/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/8x1/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/8x5/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/8x5/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/8x8/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/8x8/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/8x12/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/8x12/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/8x24/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/8x24/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/12x1/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/12x1/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/12x5/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/12x5/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/12x8/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/12x8/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/12x12/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/12x12/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/12x24/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/12x24/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/27x1/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/27x1/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/27x5/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/27x5/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/27x8/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/27x8/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/27x12/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/27x12/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/27x24/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/27x24/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/49x1/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/49x1/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/49x5/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/49x5/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/49x8/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/49x8/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/49x12/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/49x12/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/49x24/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/49x24/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/80x1/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/80x1/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/80x5/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/80x5/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/80x8/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/80x8/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/80x12/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/80x12/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/80x24/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/80x24/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/120x1/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/120x1/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/120x5/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/120x5/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/120x8/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/120x8/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/120x12/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/120x12/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/120x24/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/120x24/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/8x1/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/8x1/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/8x5/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/8x5/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/8x8/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/8x8/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/8x12/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/8x12/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/8x24/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/8x24/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/12x1/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/12x1/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/12x5/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/12x5/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/12x8/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/12x8/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/12x12/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/12x12/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/12x24/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/12x24/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/27x1/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/27x1/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/27x5/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/27x5/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/27x8/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/27x8/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/27x12/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/27x12/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/27x24/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/27x24/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/49x1/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/49x1/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/49x5/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/49x5/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/49x8/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/49x8/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/49x12/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/49x12/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/49x24/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/49x24/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/80x1/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/80x1/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/80x5/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/80x5/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/80x8/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/80x8/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/80x12/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/80x12/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/80x24/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/80x24/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/120x1/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/120x1/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/120x5/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/120x5/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/120x8/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/120x8/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/120x12/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/120x12/row1
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/120x24/row0
+=== RUN   TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/120x24/row1
+--- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames (0.09s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/8x1/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/8x1/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/8x5/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/8x5/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/8x8/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/8x8/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/8x12/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/8x12/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/8x24/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/8x24/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/12x1/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/12x1/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/12x5/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/12x5/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/12x8/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/12x8/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/12x12/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/12x12/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/12x24/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/12x24/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/27x1/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/27x1/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/27x5/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/27x5/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/27x8/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/27x8/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/27x12/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/27x12/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/27x24/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/27x24/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/49x1/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/49x1/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/49x5/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/49x5/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/49x8/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/49x8/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/49x12/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/49x12/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/49x24/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/49x24/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/80x1/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/80x1/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/80x5/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/80x5/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/80x8/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/80x8/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/80x12/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/80x12/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/80x24/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/80x24/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/120x1/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/120x1/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/120x5/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/120x5/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/120x8/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/120x8/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/120x12/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/120x12/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/120x24/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/120x24/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/8x1/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/8x1/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/8x5/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/8x5/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/8x8/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/8x8/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/8x12/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/8x12/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/8x24/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/8x24/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/12x1/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/12x1/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/12x5/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/12x5/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/12x8/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/12x8/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/12x12/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/12x12/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/12x24/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/12x24/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/27x1/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/27x1/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/27x5/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/27x5/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/27x8/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/27x8/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/27x12/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/27x12/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/27x24/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/27x24/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/49x1/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/49x1/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/49x5/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/49x5/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/49x8/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/49x8/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/49x12/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/49x12/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/49x24/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/49x24/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/80x1/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/80x1/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/80x5/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/80x5/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/80x8/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/80x8/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/80x12/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/80x12/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/80x24/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/80x24/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/120x1/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/120x1/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/120x5/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/120x5/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/120x8/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/120x8/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/120x12/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/120x12/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/120x24/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/120x24/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/8x1/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/8x1/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/8x5/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/8x5/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/8x8/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/8x8/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/8x12/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/8x12/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/8x24/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/8x24/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/12x1/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/12x1/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/12x5/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/12x5/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/12x8/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/12x8/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/12x12/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/12x12/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/12x24/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/12x24/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/27x1/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/27x1/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/27x5/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/27x5/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/27x8/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/27x8/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/27x12/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/27x12/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/27x24/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/27x24/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/49x1/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/49x1/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/49x5/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/49x5/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/49x8/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/49x8/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/49x12/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/49x12/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/49x24/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/49x24/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/80x1/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/80x1/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/80x5/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/80x5/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/80x8/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/80x8/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/80x12/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/80x12/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/80x24/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/80x24/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/120x1/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/120x1/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/120x5/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/120x5/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/120x8/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/120x8/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/120x12/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/120x12/row1 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/120x24/row0 (0.00s)
+    --- PASS: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/120x24/row1 (0.00s)
+=== RUN   TestThemeSettingsSaveLightPaletteAndRestoreOnNewModelWithoutTerminalInput
+--- PASS: TestThemeSettingsSaveLightPaletteAndRestoreOnNewModelWithoutTerminalInput (0.01s)
+=== RUN   TestDesignTokensReachVisibleListAndHelp
+--- PASS: TestDesignTokensReachVisibleListAndHelp (0.00s)
+=== RUN   TestTokenLayoutChangesKeepViewportAndModelsIndependent
+--- PASS: TestTokenLayoutChangesKeepViewportAndModelsIndependent (0.00s)
+=== RUN   TestFramesStayInsideViewport
+=== RUN   TestFramesStayInsideViewport/1x1/help=false
+=== RUN   TestFramesStayInsideViewport/1x1/help=true
+=== RUN   TestFramesStayInsideViewport/1x4/help=false
+=== RUN   TestFramesStayInsideViewport/1x4/help=true
+=== RUN   TestFramesStayInsideViewport/1x5/help=false
+=== RUN   TestFramesStayInsideViewport/1x5/help=true
+=== RUN   TestFramesStayInsideViewport/1x8/help=false
+=== RUN   TestFramesStayInsideViewport/1x8/help=true
+=== RUN   TestFramesStayInsideViewport/1x10/help=false
+=== RUN   TestFramesStayInsideViewport/1x10/help=true
+=== RUN   TestFramesStayInsideViewport/1x24/help=false
+=== RUN   TestFramesStayInsideViewport/1x24/help=true
+=== RUN   TestFramesStayInsideViewport/1x40/help=false
+=== RUN   TestFramesStayInsideViewport/1x40/help=true
+=== RUN   TestFramesStayInsideViewport/2x1/help=false
+=== RUN   TestFramesStayInsideViewport/2x1/help=true
+=== RUN   TestFramesStayInsideViewport/2x4/help=false
+=== RUN   TestFramesStayInsideViewport/2x4/help=true
+=== RUN   TestFramesStayInsideViewport/2x5/help=false
+=== RUN   TestFramesStayInsideViewport/2x5/help=true
+=== RUN   TestFramesStayInsideViewport/2x8/help=false
+=== RUN   TestFramesStayInsideViewport/2x8/help=true
+=== RUN   TestFramesStayInsideViewport/2x10/help=false
+=== RUN   TestFramesStayInsideViewport/2x10/help=true
+=== RUN   TestFramesStayInsideViewport/2x24/help=false
+=== RUN   TestFramesStayInsideViewport/2x24/help=true
+=== RUN   TestFramesStayInsideViewport/2x40/help=false
+=== RUN   TestFramesStayInsideViewport/2x40/help=true
+=== RUN   TestFramesStayInsideViewport/10x1/help=false
+=== RUN   TestFramesStayInsideViewport/10x1/help=true
+=== RUN   TestFramesStayInsideViewport/10x4/help=false
+=== RUN   TestFramesStayInsideViewport/10x4/help=true
+=== RUN   TestFramesStayInsideViewport/10x5/help=false
+=== RUN   TestFramesStayInsideViewport/10x5/help=true
+=== RUN   TestFramesStayInsideViewport/10x8/help=false
+=== RUN   TestFramesStayInsideViewport/10x8/help=true
+=== RUN   TestFramesStayInsideViewport/10x10/help=false
+=== RUN   TestFramesStayInsideViewport/10x10/help=true
+=== RUN   TestFramesStayInsideViewport/10x24/help=false
+=== RUN   TestFramesStayInsideViewport/10x24/help=true
+=== RUN   TestFramesStayInsideViewport/10x40/help=false
+=== RUN   TestFramesStayInsideViewport/10x40/help=true
+=== RUN   TestFramesStayInsideViewport/22x1/help=false
+=== RUN   TestFramesStayInsideViewport/22x1/help=true
+=== RUN   TestFramesStayInsideViewport/22x4/help=false
+=== RUN   TestFramesStayInsideViewport/22x4/help=true
+=== RUN   TestFramesStayInsideViewport/22x5/help=false
+=== RUN   TestFramesStayInsideViewport/22x5/help=true
+=== RUN   TestFramesStayInsideViewport/22x8/help=false
+=== RUN   TestFramesStayInsideViewport/22x8/help=true
+=== RUN   TestFramesStayInsideViewport/22x10/help=false
+=== RUN   TestFramesStayInsideViewport/22x10/help=true
+=== RUN   TestFramesStayInsideViewport/22x24/help=false
+=== RUN   TestFramesStayInsideViewport/22x24/help=true
+=== RUN   TestFramesStayInsideViewport/22x40/help=false
+=== RUN   TestFramesStayInsideViewport/22x40/help=true
+=== RUN   TestFramesStayInsideViewport/49x1/help=false
+=== RUN   TestFramesStayInsideViewport/49x1/help=true
+=== RUN   TestFramesStayInsideViewport/49x4/help=false
+=== RUN   TestFramesStayInsideViewport/49x4/help=true
+=== RUN   TestFramesStayInsideViewport/49x5/help=false
+=== RUN   TestFramesStayInsideViewport/49x5/help=true
+=== RUN   TestFramesStayInsideViewport/49x8/help=false
+=== RUN   TestFramesStayInsideViewport/49x8/help=true
+=== RUN   TestFramesStayInsideViewport/49x10/help=false
+=== RUN   TestFramesStayInsideViewport/49x10/help=true
+=== RUN   TestFramesStayInsideViewport/49x24/help=false
+=== RUN   TestFramesStayInsideViewport/49x24/help=true
+=== RUN   TestFramesStayInsideViewport/49x40/help=false
+=== RUN   TestFramesStayInsideViewport/49x40/help=true
+=== RUN   TestFramesStayInsideViewport/50x1/help=false
+=== RUN   TestFramesStayInsideViewport/50x1/help=true
+=== RUN   TestFramesStayInsideViewport/50x4/help=false
+=== RUN   TestFramesStayInsideViewport/50x4/help=true
+=== RUN   TestFramesStayInsideViewport/50x5/help=false
+=== RUN   TestFramesStayInsideViewport/50x5/help=true
+=== RUN   TestFramesStayInsideViewport/50x8/help=false
+=== RUN   TestFramesStayInsideViewport/50x8/help=true
+=== RUN   TestFramesStayInsideViewport/50x10/help=false
+=== RUN   TestFramesStayInsideViewport/50x10/help=true
+=== RUN   TestFramesStayInsideViewport/50x24/help=false
+=== RUN   TestFramesStayInsideViewport/50x24/help=true
+=== RUN   TestFramesStayInsideViewport/50x40/help=false
+=== RUN   TestFramesStayInsideViewport/50x40/help=true
+=== RUN   TestFramesStayInsideViewport/79x1/help=false
+=== RUN   TestFramesStayInsideViewport/79x1/help=true
+=== RUN   TestFramesStayInsideViewport/79x4/help=false
+=== RUN   TestFramesStayInsideViewport/79x4/help=true
+=== RUN   TestFramesStayInsideViewport/79x5/help=false
+=== RUN   TestFramesStayInsideViewport/79x5/help=true
+=== RUN   TestFramesStayInsideViewport/79x8/help=false
+=== RUN   TestFramesStayInsideViewport/79x8/help=true
+=== RUN   TestFramesStayInsideViewport/79x10/help=false
+=== RUN   TestFramesStayInsideViewport/79x10/help=true
+=== RUN   TestFramesStayInsideViewport/79x24/help=false
+=== RUN   TestFramesStayInsideViewport/79x24/help=true
+=== RUN   TestFramesStayInsideViewport/79x40/help=false
+=== RUN   TestFramesStayInsideViewport/79x40/help=true
+=== RUN   TestFramesStayInsideViewport/80x1/help=false
+=== RUN   TestFramesStayInsideViewport/80x1/help=true
+=== RUN   TestFramesStayInsideViewport/80x4/help=false
+=== RUN   TestFramesStayInsideViewport/80x4/help=true
+=== RUN   TestFramesStayInsideViewport/80x5/help=false
+=== RUN   TestFramesStayInsideViewport/80x5/help=true
+=== RUN   TestFramesStayInsideViewport/80x8/help=false
+=== RUN   TestFramesStayInsideViewport/80x8/help=true
+=== RUN   TestFramesStayInsideViewport/80x10/help=false
+=== RUN   TestFramesStayInsideViewport/80x10/help=true
+=== RUN   TestFramesStayInsideViewport/80x24/help=false
+=== RUN   TestFramesStayInsideViewport/80x24/help=true
+=== RUN   TestFramesStayInsideViewport/80x40/help=false
+=== RUN   TestFramesStayInsideViewport/80x40/help=true
+=== RUN   TestFramesStayInsideViewport/100x1/help=false
+=== RUN   TestFramesStayInsideViewport/100x1/help=true
+=== RUN   TestFramesStayInsideViewport/100x4/help=false
+=== RUN   TestFramesStayInsideViewport/100x4/help=true
+=== RUN   TestFramesStayInsideViewport/100x5/help=false
+=== RUN   TestFramesStayInsideViewport/100x5/help=true
+=== RUN   TestFramesStayInsideViewport/100x8/help=false
+=== RUN   TestFramesStayInsideViewport/100x8/help=true
+=== RUN   TestFramesStayInsideViewport/100x10/help=false
+=== RUN   TestFramesStayInsideViewport/100x10/help=true
+=== RUN   TestFramesStayInsideViewport/100x24/help=false
+=== RUN   TestFramesStayInsideViewport/100x24/help=true
+=== RUN   TestFramesStayInsideViewport/100x40/help=false
+=== RUN   TestFramesStayInsideViewport/100x40/help=true
+=== RUN   TestFramesStayInsideViewport/160x1/help=false
+=== RUN   TestFramesStayInsideViewport/160x1/help=true
+=== RUN   TestFramesStayInsideViewport/160x4/help=false
+=== RUN   TestFramesStayInsideViewport/160x4/help=true
+=== RUN   TestFramesStayInsideViewport/160x5/help=false
+=== RUN   TestFramesStayInsideViewport/160x5/help=true
+=== RUN   TestFramesStayInsideViewport/160x8/help=false
+=== RUN   TestFramesStayInsideViewport/160x8/help=true
+=== RUN   TestFramesStayInsideViewport/160x10/help=false
+=== RUN   TestFramesStayInsideViewport/160x10/help=true
+=== RUN   TestFramesStayInsideViewport/160x24/help=false
+=== RUN   TestFramesStayInsideViewport/160x24/help=true
+=== RUN   TestFramesStayInsideViewport/160x40/help=false
+=== RUN   TestFramesStayInsideViewport/160x40/help=true
+--- PASS: TestFramesStayInsideViewport (0.03s)
+    --- PASS: TestFramesStayInsideViewport/1x1/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/1x1/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/1x4/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/1x4/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/1x5/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/1x5/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/1x8/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/1x8/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/1x10/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/1x10/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/1x24/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/1x24/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/1x40/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/1x40/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/2x1/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/2x1/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/2x4/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/2x4/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/2x5/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/2x5/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/2x8/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/2x8/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/2x10/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/2x10/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/2x24/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/2x24/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/2x40/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/2x40/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/10x1/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/10x1/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/10x4/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/10x4/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/10x5/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/10x5/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/10x8/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/10x8/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/10x10/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/10x10/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/10x24/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/10x24/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/10x40/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/10x40/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/22x1/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/22x1/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/22x4/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/22x4/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/22x5/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/22x5/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/22x8/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/22x8/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/22x10/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/22x10/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/22x24/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/22x24/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/22x40/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/22x40/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/49x1/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/49x1/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/49x4/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/49x4/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/49x5/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/49x5/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/49x8/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/49x8/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/49x10/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/49x10/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/49x24/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/49x24/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/49x40/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/49x40/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/50x1/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/50x1/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/50x4/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/50x4/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/50x5/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/50x5/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/50x8/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/50x8/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/50x10/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/50x10/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/50x24/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/50x24/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/50x40/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/50x40/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/79x1/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/79x1/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/79x4/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/79x4/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/79x5/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/79x5/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/79x8/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/79x8/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/79x10/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/79x10/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/79x24/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/79x24/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/79x40/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/79x40/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/80x1/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/80x1/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/80x4/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/80x4/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/80x5/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/80x5/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/80x8/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/80x8/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/80x10/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/80x10/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/80x24/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/80x24/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/80x40/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/80x40/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/100x1/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/100x1/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/100x4/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/100x4/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/100x5/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/100x5/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/100x8/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/100x8/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/100x10/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/100x10/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/100x24/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/100x24/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/100x40/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/100x40/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/160x1/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/160x1/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/160x4/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/160x4/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/160x5/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/160x5/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/160x8/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/160x8/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/160x10/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/160x10/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/160x24/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/160x24/help=true (0.00s)
+    --- PASS: TestFramesStayInsideViewport/160x40/help=false (0.00s)
+    --- PASS: TestFramesStayInsideViewport/160x40/help=true (0.00s)
+=== RUN   TestSelectedRowVisibleAtListBoundaries
+--- PASS: TestSelectedRowVisibleAtListBoundaries (0.00s)
+=== RUN   TestPreviewControlsCannotReachManagerTerminal
+--- PASS: TestPreviewControlsCannotReachManagerTerminal (0.00s)
+=== RUN   TestPreviewRetentionIsBoundedAndKeepsTail
+--- PASS: TestPreviewRetentionIsBoundedAndKeepsTail (0.00s)
+=== RUN   TestWorkspaceNewTabButtonOpensLaunchDialogFromTerminalFocus
+--- PASS: TestWorkspaceNewTabButtonOpensLaunchDialogFromTerminalFocus (0.01s)
+=== RUN   TestWorkspaceCloseButtonRemovesInactiveViewWithoutInterruptingActiveInput
+--- PASS: TestWorkspaceCloseButtonRemovesInactiveViewWithoutInterruptingActiveInput (0.01s)
+=== RUN   TestWorkspaceLongTabTitleKeepsCloseAndNewButtonsReachable
+--- PASS: TestWorkspaceLongTabTitleKeepsCloseAndNewButtonsReachable (0.01s)
+=== RUN   TestCopyPointerSendsContentCoordinatesInOrderWithoutKeyboardInput
+--- PASS: TestCopyPointerSendsContentCoordinatesInOrderWithoutKeyboardInput (0.00s)
+=== RUN   TestCopyPointerOwnsEdgeCrossingAndConsumesReleaseOnce
+--- PASS: TestCopyPointerOwnsEdgeCrossingAndConsumesReleaseOnce (0.00s)
+=== RUN   TestCopyPointerDrainsOriginalBeforeSwitchWithoutContinuingOnNewRun
+--- PASS: TestCopyPointerDrainsOriginalBeforeSwitchWithoutContinuingOnNewRun (0.00s)
+=== RUN   TestCopyPointerCancellationNeverSynthesizesRelease
+=== RUN   TestCopyPointerCancellationNeverSynthesizesRelease/resize
+=== RUN   TestCopyPointerCancellationNeverSynthesizesRelease/key
+=== RUN   TestCopyPointerCancellationNeverSynthesizesRelease/paste
+=== RUN   TestCopyPointerCancellationNeverSynthesizesRelease/wheel
+=== RUN   TestCopyPointerCancellationNeverSynthesizesRelease/no-button-motion
+=== RUN   TestCopyPointerCancellationNeverSynthesizesRelease/modified-motion
+=== RUN   TestCopyPointerCancellationNeverSynthesizesRelease/mode-exit
+=== RUN   TestCopyPointerCancellationNeverSynthesizesRelease/prompt
+=== RUN   TestCopyPointerCancellationNeverSynthesizesRelease/screen-size
+=== RUN   TestCopyPointerCancellationNeverSynthesizesRelease/dialog
+--- PASS: TestCopyPointerCancellationNeverSynthesizesRelease (0.00s)
+    --- PASS: TestCopyPointerCancellationNeverSynthesizesRelease/resize (0.00s)
+    --- PASS: TestCopyPointerCancellationNeverSynthesizesRelease/key (0.00s)
+    --- PASS: TestCopyPointerCancellationNeverSynthesizesRelease/paste (0.00s)
+    --- PASS: TestCopyPointerCancellationNeverSynthesizesRelease/wheel (0.00s)
+    --- PASS: TestCopyPointerCancellationNeverSynthesizesRelease/no-button-motion (0.00s)
+    --- PASS: TestCopyPointerCancellationNeverSynthesizesRelease/modified-motion (0.00s)
+    --- PASS: TestCopyPointerCancellationNeverSynthesizesRelease/mode-exit (0.00s)
+    --- PASS: TestCopyPointerCancellationNeverSynthesizesRelease/prompt (0.00s)
+    --- PASS: TestCopyPointerCancellationNeverSynthesizesRelease/screen-size (0.00s)
+    --- PASS: TestCopyPointerCancellationNeverSynthesizesRelease/dialog (0.00s)
+=== RUN   TestCopyPointerStartsOnlyInFocusedNativeContent
+=== RUN   TestCopyPointerStartsOnlyInFocusedNativeContent/management
+=== RUN   TestCopyPointerStartsOnlyInFocusedNativeContent/prompt
+=== RUN   TestCopyPointerStartsOnlyInFocusedNativeContent/border
+=== RUN   TestCopyPointerStartsOnlyInFocusedNativeContent/tab
+=== RUN   TestCopyPointerStartsOnlyInFocusedNativeContent/modified
+=== RUN   TestCopyPointerStartsOnlyInFocusedNativeContent/right-button
+--- PASS: TestCopyPointerStartsOnlyInFocusedNativeContent (0.00s)
+    --- PASS: TestCopyPointerStartsOnlyInFocusedNativeContent/management (0.00s)
+    --- PASS: TestCopyPointerStartsOnlyInFocusedNativeContent/prompt (0.00s)
+    --- PASS: TestCopyPointerStartsOnlyInFocusedNativeContent/border (0.00s)
+    --- PASS: TestCopyPointerStartsOnlyInFocusedNativeContent/tab (0.00s)
+    --- PASS: TestCopyPointerStartsOnlyInFocusedNativeContent/modified (0.00s)
+    --- PASS: TestCopyPointerStartsOnlyInFocusedNativeContent/right-button (0.00s)
+=== RUN   TestWorkspaceFinishesIssuedClipboardBeforeReadingNewTabCopies
+--- PASS: TestWorkspaceFinishesIssuedClipboardBeforeReadingNewTabCopies (0.04s)
+=== RUN   TestWorkspaceForwardsClipboardThroughActualTeaProgramInOrder
+--- PASS: TestWorkspaceForwardsClipboardThroughActualTeaProgramInOrder (0.03s)
+=== RUN   TestWorkspaceCopyEntryIsSemanticAndTerminalVStaysLiteral
+--- PASS: TestWorkspaceCopyEntryIsSemanticAndTerminalVStaysLiteral (0.01s)
+=== RUN   TestWorkspaceNativeSearchPromptKeepsCursorAndUnicodeInputVisible
+=== RUN   TestWorkspaceNativeSearchPromptKeepsCursorAndUnicodeInputVisible/120
+=== RUN   TestWorkspaceNativeSearchPromptKeepsCursorAndUnicodeInputVisible/27
+--- PASS: TestWorkspaceNativeSearchPromptKeepsCursorAndUnicodeInputVisible (0.02s)
+    --- PASS: TestWorkspaceNativeSearchPromptKeepsCursorAndUnicodeInputVisible/120 (0.01s)
+    --- PASS: TestWorkspaceNativeSearchPromptKeepsCursorAndUnicodeInputVisible/27 (0.01s)
+=== RUN   TestWorkspaceOldClipboardEventCannotReachNewTab
+--- PASS: TestWorkspaceOldClipboardEventCannotReachNewTab (0.02s)
+=== RUN   TestWorkspaceNativeCopyCursorIsVisibleWithoutRestoringLiveCursor
+--- PASS: TestWorkspaceNativeCopyCursorIsVisibleWithoutRestoringLiveCursor (0.01s)
+=== RUN   TestWorkspaceDensitySettingsApplyFullCardsWithoutTerminalInput
+--- PASS: TestWorkspaceDensitySettingsApplyFullCardsWithoutTerminalInput (0.01s)
+=== RUN   TestWorkspaceDensitySettingsSelectedChoiceRemainsVisibleInShortNarrowView
+--- PASS: TestWorkspaceDensitySettingsSelectedChoiceRemainsVisibleInShortNarrowView (0.01s)
+=== RUN   TestWorkspaceDensitySavesSerializeLatestChoiceBeforeClosing
+--- PASS: TestWorkspaceDensitySavesSerializeLatestChoiceBeforeClosing (0.02s)
+=== RUN   TestWorkspaceDensitySaveFailureKeepsAppliedChoiceAndVisibleError
+--- PASS: TestWorkspaceDensitySaveFailureKeepsAppliedChoiceAndVisibleError (0.01s)
+=== RUN   TestWorkspaceDensityOpeningWaitsForAcceptedTerminalWrite
+--- PASS: TestWorkspaceDensityOpeningWaitsForAcceptedTerminalWrite (0.01s)
+=== RUN   TestWorkspaceDensityAutoUsesCurrentBudgetWithoutOscillation
+--- PASS: TestWorkspaceDensityAutoUsesCurrentBudgetWithoutOscillation (0.01s)
+=== RUN   TestWorkspaceDensitySpaceCyclesFromAutoToFull
+--- PASS: TestWorkspaceDensitySpaceCyclesFromAutoToFull (0.01s)
+=== RUN   TestDirectDragStartsNativeSelectionOnFirstMovementAndKeepsAnchor
+--- PASS: TestDirectDragStartsNativeSelectionOnFirstMovementAndKeepsAnchor (0.01s)
+=== RUN   TestDirectDragPlainClickOrSameCellJitterNeverStartsCopy
+=== RUN   TestDirectDragPlainClickOrSameCellJitterNeverStartsCopy/0
+=== RUN   TestDirectDragPlainClickOrSameCellJitterNeverStartsCopy/7
+--- PASS: TestDirectDragPlainClickOrSameCellJitterNeverStartsCopy (0.01s)
+    --- PASS: TestDirectDragPlainClickOrSameCellJitterNeverStartsCopy/0 (0.01s)
+    --- PASS: TestDirectDragPlainClickOrSameCellJitterNeverStartsCopy/7 (0.01s)
+=== RUN   TestDirectDragAcceptsDelayedModeEntryButNeverResumesAfterObservedExit
+--- PASS: TestDirectDragAcceptsDelayedModeEntryButNeverResumesAfterObservedExit (0.01s)
+=== RUN   TestDirectDragChangedModeOrMouseRequestCancelsUnstartedAnchor
+=== RUN   TestDirectDragChangedModeOrMouseRequestCancelsUnstartedAnchor/copy-mode
+=== RUN   TestDirectDragChangedModeOrMouseRequestCancelsUnstartedAnchor/mouse-request
+=== RUN   TestDirectDragChangedModeOrMouseRequestCancelsUnstartedAnchor/prompt
+=== RUN   TestDirectDragChangedModeOrMouseRequestCancelsUnstartedAnchor/screen-size
+--- PASS: TestDirectDragChangedModeOrMouseRequestCancelsUnstartedAnchor (0.02s)
+    --- PASS: TestDirectDragChangedModeOrMouseRequestCancelsUnstartedAnchor/copy-mode (0.01s)
+    --- PASS: TestDirectDragChangedModeOrMouseRequestCancelsUnstartedAnchor/mouse-request (0.01s)
+    --- PASS: TestDirectDragChangedModeOrMouseRequestCancelsUnstartedAnchor/prompt (0.01s)
+    --- PASS: TestDirectDragChangedModeOrMouseRequestCancelsUnstartedAnchor/screen-size (0.01s)
+=== RUN   TestDirectDragDrainsOriginalBeforeSwitchWithoutReleaseToNewRun
+--- PASS: TestDirectDragDrainsOriginalBeforeSwitchWithoutReleaseToNewRun (0.01s)
+=== RUN   TestDirectDragUnsupportedConnectionKeepsExistingNativePointerUsable
+--- PASS: TestDirectDragUnsupportedConnectionKeepsExistingNativePointerUsable (0.01s)
+=== RUN   TestWorkspaceCuratedFooterUsesThreeRelevantActionsThenSettingsAndHelp
+--- PASS: TestWorkspaceCuratedFooterUsesThreeRelevantActionsThenSettingsAndHelp (0.00s)
+=== RUN   TestWorkspaceCuratedFooterUsesDimRolesAndActualSelectionContext
+--- PASS: TestWorkspaceCuratedFooterUsesDimRolesAndActualSelectionContext (0.01s)
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/1/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/1/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/10/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/10/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/22/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/22/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/27/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/27/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/49/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/49/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/50/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/50/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/63/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/63/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/69/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/69/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/70/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/70/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/80/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/80/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/100/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/100/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/101/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/101/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/120/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/120/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/160/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/160/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/1/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/1/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/10/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/10/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/22/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/22/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/27/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/27/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/49/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/49/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/50/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/50/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/63/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/63/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/69/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/69/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/70/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/70/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/80/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/80/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/100/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/100/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/101/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/101/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/120/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/120/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/160/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/160/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/1/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/1/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/10/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/10/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/22/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/22/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/27/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/27/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/49/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/49/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/50/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/50/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/63/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/63/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/69/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/69/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/70/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/70/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/80/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/80/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/100/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/100/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/101/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/101/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/120/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/120/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/160/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/160/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/1/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/1/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/10/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/10/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/22/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/22/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/27/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/27/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/49/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/49/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/50/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/50/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/63/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/63/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/69/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/69/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/70/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/70/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/80/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/80/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/100/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/100/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/101/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/101/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/120/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/120/focustrue
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/160/focusfalse
+=== RUN   TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/160/focustrue
+--- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership (0.10s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/1/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/1/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/10/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/10/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/22/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/22/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/27/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/27/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/49/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/49/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/50/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/50/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/63/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/63/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/69/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/69/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/70/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/70/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/80/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/80/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/100/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/100/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/101/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/101/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/120/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/120/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/160/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/160/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/1/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/1/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/10/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/10/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/22/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/22/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/27/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/27/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/49/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/49/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/50/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/50/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/63/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/63/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/69/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/69/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/70/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/70/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/80/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/80/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/100/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/100/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/101/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/101/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/120/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/120/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/160/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/160/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/1/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/1/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/10/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/10/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/22/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/22/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/27/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/27/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/49/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/49/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/50/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/50/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/63/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/63/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/69/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/69/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/70/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/70/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/80/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/80/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/100/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/100/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/101/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/101/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/120/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/120/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/160/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/160/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/1/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/1/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/10/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/10/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/22/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/22/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/27/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/27/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/49/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/49/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/50/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/50/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/63/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/63/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/69/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/69/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/70/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/70/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/80/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/80/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/100/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/100/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/101/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/101/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/120/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/120/focustrue (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/160/focusfalse (0.00s)
+    --- PASS: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/160/focustrue (0.00s)
+=== RUN   TestWorkspaceFooterChoiceSurvivesOtherSettingsAndLeavesTerminalInputLiteral
+--- PASS: TestWorkspaceFooterChoiceSurvivesOtherSettingsAndLeavesTerminalInputLiteral (0.02s)
+=== RUN   TestWorkspaceFooterCanForceCompactOrMinimalAtWideWidths
+=== RUN   TestWorkspaceFooterCanForceCompactOrMinimalAtWideWidths/compact
+=== RUN   TestWorkspaceFooterCanForceCompactOrMinimalAtWideWidths/minimal
+--- PASS: TestWorkspaceFooterCanForceCompactOrMinimalAtWideWidths (0.00s)
+    --- PASS: TestWorkspaceFooterCanForceCompactOrMinimalAtWideWidths/compact (0.00s)
+    --- PASS: TestWorkspaceFooterCanForceCompactOrMinimalAtWideWidths/minimal (0.00s)
+=== RUN   TestWorkspaceManagementFooterUsesSourceKeyChipsAtWideCompactAndMinimalWidths
+--- PASS: TestWorkspaceManagementFooterUsesSourceKeyChipsAtWideCompactAndMinimalWidths (0.00s)
+=== RUN   TestWorkspaceFooterContextMatchesSelectedGroupAndUnavailableSession
+--- PASS: TestWorkspaceFooterContextMatchesSelectedGroupAndUnavailableSession (0.00s)
+=== RUN   TestWorkspaceFooterBreakpointsAndLongActiveTitlesStayInsideViewport
+--- PASS: TestWorkspaceFooterBreakpointsAndLongActiveTitlesStayInsideViewport (0.02s)
+=== RUN   TestWorkspaceFullFooterKeepsQuitAtSourceRightGutter
+--- PASS: TestWorkspaceFullFooterKeepsQuitAtSourceRightGutter (0.00s)
+=== RUN   TestWorkspaceNarrowTerminalFooterOmitsUnrenderableTargetInsteadOfAnIDSuffix
+--- PASS: TestWorkspaceNarrowTerminalFooterOmitsUnrenderableTargetInsteadOfAnIDSuffix (0.00s)
+=== RUN   TestWorkspaceTerminalFooterUsesSourceYellowBadgeAndNamesTheActiveRun
+--- PASS: TestWorkspaceTerminalFooterUsesSourceYellowBadgeAndNamesTheActiveRun (0.01s)
+=== RUN   TestWorkspacePastePreservesUnicodeAndNewlinesWithoutEnter
+--- PASS: TestWorkspacePastePreservesUnicodeAndNewlinesWithoutEnter (0.01s)
+=== RUN   TestWorkspaceOpeningHistoryDrainsPreviouslyTypedInput
+--- PASS: TestWorkspaceOpeningHistoryDrainsPreviouslyTypedInput (0.01s)
+=== RUN   TestWorkspacePollRefreshesOnlyVisibleActiveTerminal
+--- PASS: TestWorkspacePollRefreshesOnlyVisibleActiveTerminal (0.01s)
+=== RUN   TestWorkspaceClickSelectsVisibleTabWithoutSendingInput
+--- PASS: TestWorkspaceClickSelectsVisibleTabWithoutSendingInput (0.01s)
+=== RUN   TestWorkspaceCloseWaitsForInputBufferedDuringConnect
+--- PASS: TestWorkspaceCloseWaitsForInputBufferedDuringConnect (0.01s)
+=== RUN   TestWorkspaceListClickSelectsThenEnterOpensExactRun
+=== RUN   TestWorkspaceListClickSelectsThenEnterOpensExactRun/120
+=== RUN   TestWorkspaceListClickSelectsThenEnterOpensExactRun/60
+=== RUN   TestWorkspaceListClickSelectsThenEnterOpensExactRun/40
+--- PASS: TestWorkspaceListClickSelectsThenEnterOpensExactRun (0.03s)
+    --- PASS: TestWorkspaceListClickSelectsThenEnterOpensExactRun/120 (0.02s)
+    --- PASS: TestWorkspaceListClickSelectsThenEnterOpensExactRun/60 (0.01s)
+    --- PASS: TestWorkspaceListClickSelectsThenEnterOpensExactRun/40 (0.01s)
+=== RUN   TestWorkspaceListMouseUsesVisibleRowsAndIgnoresIndicators
+--- PASS: TestWorkspaceListMouseUsesVisibleRowsAndIgnoresIndicators (0.02s)
+=== RUN   TestWorkspaceListDoubleClickOpensWithoutInjectingEnter
+--- PASS: TestWorkspaceListDoubleClickOpensWithoutInjectingEnter (0.02s)
+=== RUN   TestWorkspaceListDoubleClickDoesNotActivateAReplacementRun
+--- PASS: TestWorkspaceListDoubleClickDoesNotActivateAReplacementRun (0.02s)
+=== RUN   TestWorkspaceListDoubleClickWhileConnectingKeepsManagementFocus
+--- PASS: TestWorkspaceListDoubleClickWhileConnectingKeepsManagementFocus (0.02s)
+=== RUN   TestLongCardTitleUsesSourceColumnCropWithoutInventingAnEllipsis
+--- PASS: TestLongCardTitleUsesSourceColumnCropWithoutInventingAnEllipsis (0.00s)
+=== RUN   TestLongExecutablePathShowsItsActualBasenameBeforeBoundingDisplay
+--- PASS: TestLongExecutablePathShowsItsActualBasenameBeforeBoundingDisplay (0.00s)
+=== RUN   TestLongUnicodeCardsKeepFixedRowsAndSelectedBackground
+--- PASS: TestLongUnicodeCardsKeepFixedRowsAndSelectedBackground (0.12s)
+=== RUN   TestLongCardViewportMetadataClickAndOpenKeepOriginalRunAcrossDensities
+=== RUN   TestLongCardViewportMetadataClickAndOpenKeepOriginalRunAcrossDensities/minimal
+=== RUN   TestLongCardViewportMetadataClickAndOpenKeepOriginalRunAcrossDensities/compact
+=== RUN   TestLongCardViewportMetadataClickAndOpenKeepOriginalRunAcrossDensities/full
+=== RUN   TestLongCardViewportMetadataClickAndOpenKeepOriginalRunAcrossDensities/auto
+--- PASS: TestLongCardViewportMetadataClickAndOpenKeepOriginalRunAcrossDensities (0.12s)
+    --- PASS: TestLongCardViewportMetadataClickAndOpenKeepOriginalRunAcrossDensities/minimal (0.03s)
+    --- PASS: TestLongCardViewportMetadataClickAndOpenKeepOriginalRunAcrossDensities/compact (0.03s)
+    --- PASS: TestLongCardViewportMetadataClickAndOpenKeepOriginalRunAcrossDensities/full (0.03s)
+    --- PASS: TestLongCardViewportMetadataClickAndOpenKeepOriginalRunAcrossDensities/auto (0.03s)
+=== RUN   TestExecutableDisplaySanitizesEscapesBeforeFindingTheBasename
+--- PASS: TestExecutableDisplaySanitizesEscapesBeforeFindingTheBasename (0.00s)
+=== RUN   TestNestedSessionCardHighlightIncludesIndentationAtEveryDensity
+=== RUN   TestNestedSessionCardHighlightIncludesIndentationAtEveryDensity/minimal/focused=false
+=== RUN   TestNestedSessionCardHighlightIncludesIndentationAtEveryDensity/minimal/focused=true
+=== RUN   TestNestedSessionCardHighlightIncludesIndentationAtEveryDensity/compact/focused=false
+=== RUN   TestNestedSessionCardHighlightIncludesIndentationAtEveryDensity/compact/focused=true
+=== RUN   TestNestedSessionCardHighlightIncludesIndentationAtEveryDensity/full/focused=false
+=== RUN   TestNestedSessionCardHighlightIncludesIndentationAtEveryDensity/full/focused=true
+=== RUN   TestNestedSessionCardHighlightIncludesIndentationAtEveryDensity/auto/focused=false
+=== RUN   TestNestedSessionCardHighlightIncludesIndentationAtEveryDensity/auto/focused=true
+--- PASS: TestNestedSessionCardHighlightIncludesIndentationAtEveryDensity (0.01s)
+    --- PASS: TestNestedSessionCardHighlightIncludesIndentationAtEveryDensity/minimal/focused=false (0.00s)
+    --- PASS: TestNestedSessionCardHighlightIncludesIndentationAtEveryDensity/minimal/focused=true (0.00s)
+    --- PASS: TestNestedSessionCardHighlightIncludesIndentationAtEveryDensity/compact/focused=false (0.00s)
+    --- PASS: TestNestedSessionCardHighlightIncludesIndentationAtEveryDensity/compact/focused=true (0.00s)
+    --- PASS: TestNestedSessionCardHighlightIncludesIndentationAtEveryDensity/full/focused=false (0.00s)
+    --- PASS: TestNestedSessionCardHighlightIncludesIndentationAtEveryDensity/full/focused=true (0.00s)
+    --- PASS: TestNestedSessionCardHighlightIncludesIndentationAtEveryDensity/auto/focused=false (0.00s)
+    --- PASS: TestNestedSessionCardHighlightIncludesIndentationAtEveryDensity/auto/focused=true (0.00s)
+=== RUN   TestWorkspaceDividerMatchesSourceFocusHoverAndDragRoles
+--- PASS: TestWorkspaceDividerMatchesSourceFocusHoverAndDragRoles (0.01s)
+=== RUN   TestWorkspaceTabOrderKeepsPendingSwitchBoundToOriginalRun
+--- PASS: TestWorkspaceTabOrderKeepsPendingSwitchBoundToOriginalRun (0.02s)
+=== RUN   TestWorkspaceUnequalTabTitlesDoNotOscillateDuringDrag
+--- PASS: TestWorkspaceUnequalTabTitlesDoNotOscillateDuringDrag (0.01s)
+=== RUN   TestWorkspaceManagementReordersActiveTabWithoutReconnecting
+--- PASS: TestWorkspaceManagementReordersActiveTabWithoutReconnecting (0.01s)
+=== RUN   TestWorkspaceDragReordersVisibleTabsWithoutChangingActiveRun
+--- PASS: TestWorkspaceDragReordersVisibleTabsWithoutChangingActiveRun (0.01s)
+=== RUN   TestWorkspaceTabDragStopsAfterWheelOrOtherInput
+=== RUN   TestWorkspaceTabDragStopsAfterWheelOrOtherInput/wheel
+=== RUN   TestWorkspaceTabDragStopsAfterWheelOrOtherInput/paste
+=== RUN   TestWorkspaceTabDragStopsAfterWheelOrOtherInput/key
+=== RUN   TestWorkspaceTabDragStopsAfterWheelOrOtherInput/resize
+=== RUN   TestWorkspaceTabDragStopsAfterWheelOrOtherInput/left-tab-row
+=== RUN   TestWorkspaceTabDragStopsAfterWheelOrOtherInput/released
+--- PASS: TestWorkspaceTabDragStopsAfterWheelOrOtherInput (0.05s)
+    --- PASS: TestWorkspaceTabDragStopsAfterWheelOrOtherInput/wheel (0.01s)
+    --- PASS: TestWorkspaceTabDragStopsAfterWheelOrOtherInput/paste (0.01s)
+    --- PASS: TestWorkspaceTabDragStopsAfterWheelOrOtherInput/key (0.01s)
+    --- PASS: TestWorkspaceTabDragStopsAfterWheelOrOtherInput/resize (0.01s)
+    --- PASS: TestWorkspaceTabDragStopsAfterWheelOrOtherInput/left-tab-row (0.01s)
+    --- PASS: TestWorkspaceTabDragStopsAfterWheelOrOtherInput/released (0.01s)
+=== RUN   TestProgramHoverCoalescesBlockedMotionAndSendsLatestCoordinate
+--- PASS: TestProgramHoverCoalescesBlockedMotionAndSendsLatestCoordinate (0.00s)
+=== RUN   TestUnsupportedHoverCancelsTheQueuedUnmodifiedPosition
+--- PASS: TestUnsupportedHoverCancelsTheQueuedUnmodifiedPosition (0.00s)
+=== RUN   TestProgramHoverDiscardsPendingPositionAcrossModeGeometryAndNavigation
+=== RUN   TestProgramHoverDiscardsPendingPositionAcrossModeGeometryAndNavigation/copy-mode
+=== RUN   TestProgramHoverDiscardsPendingPositionAcrossModeGeometryAndNavigation/mouse-off
+=== RUN   TestProgramHoverDiscardsPendingPositionAcrossModeGeometryAndNavigation/width
+=== RUN   TestProgramHoverDiscardsPendingPositionAcrossModeGeometryAndNavigation/outside
+=== RUN   TestProgramHoverDiscardsPendingPositionAcrossModeGeometryAndNavigation/key
+=== RUN   TestProgramHoverDiscardsPendingPositionAcrossModeGeometryAndNavigation/switch
+--- PASS: TestProgramHoverDiscardsPendingPositionAcrossModeGeometryAndNavigation (0.00s)
+    --- PASS: TestProgramHoverDiscardsPendingPositionAcrossModeGeometryAndNavigation/copy-mode (0.00s)
+    --- PASS: TestProgramHoverDiscardsPendingPositionAcrossModeGeometryAndNavigation/mouse-off (0.00s)
+    --- PASS: TestProgramHoverDiscardsPendingPositionAcrossModeGeometryAndNavigation/width (0.00s)
+    --- PASS: TestProgramHoverDiscardsPendingPositionAcrossModeGeometryAndNavigation/outside (0.00s)
+    --- PASS: TestProgramHoverDiscardsPendingPositionAcrossModeGeometryAndNavigation/key (0.00s)
+    --- PASS: TestProgramHoverDiscardsPendingPositionAcrossModeGeometryAndNavigation/switch (0.00s)
+=== RUN   TestProgramHoverDuplicateOldReceiptCannotAcknowledgeNewConnection
+--- PASS: TestProgramHoverDuplicateOldReceiptCannotAcknowledgeNewConnection (0.00s)
+=== RUN   TestProgramMouseRightGestureKeepsModifiersAndOriginalTarget
+--- PASS: TestProgramMouseRightGestureKeepsModifiersAndOriginalTarget (0.00s)
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix/left/0
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix/left/1
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix/left/2
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix/left/3
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix/left/4
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix/left/5
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix/left/6
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix/left/7
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix/middle/0
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix/middle/1
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix/middle/2
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix/middle/3
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix/middle/4
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix/middle/5
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix/middle/6
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix/middle/7
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix/right/0
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix/right/1
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix/right/2
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix/right/3
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix/right/4
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix/right/5
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix/right/6
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix/right/7
+--- PASS: TestProgramMouseThreeButtonsAndModifierMatrix (0.01s)
+    --- PASS: TestProgramMouseThreeButtonsAndModifierMatrix/left/0 (0.00s)
+    --- PASS: TestProgramMouseThreeButtonsAndModifierMatrix/left/1 (0.00s)
+    --- PASS: TestProgramMouseThreeButtonsAndModifierMatrix/left/2 (0.00s)
+    --- PASS: TestProgramMouseThreeButtonsAndModifierMatrix/left/3 (0.00s)
+    --- PASS: TestProgramMouseThreeButtonsAndModifierMatrix/left/4 (0.00s)
+    --- PASS: TestProgramMouseThreeButtonsAndModifierMatrix/left/5 (0.00s)
+    --- PASS: TestProgramMouseThreeButtonsAndModifierMatrix/left/6 (0.00s)
+    --- PASS: TestProgramMouseThreeButtonsAndModifierMatrix/left/7 (0.00s)
+    --- PASS: TestProgramMouseThreeButtonsAndModifierMatrix/middle/0 (0.00s)
+    --- PASS: TestProgramMouseThreeButtonsAndModifierMatrix/middle/1 (0.00s)
+    --- PASS: TestProgramMouseThreeButtonsAndModifierMatrix/middle/2 (0.00s)
+    --- PASS: TestProgramMouseThreeButtonsAndModifierMatrix/middle/3 (0.00s)
+    --- PASS: TestProgramMouseThreeButtonsAndModifierMatrix/middle/4 (0.00s)
+    --- PASS: TestProgramMouseThreeButtonsAndModifierMatrix/middle/5 (0.00s)
+    --- PASS: TestProgramMouseThreeButtonsAndModifierMatrix/middle/6 (0.00s)
+    --- PASS: TestProgramMouseThreeButtonsAndModifierMatrix/middle/7 (0.00s)
+    --- PASS: TestProgramMouseThreeButtonsAndModifierMatrix/right/0 (0.00s)
+    --- PASS: TestProgramMouseThreeButtonsAndModifierMatrix/right/1 (0.00s)
+    --- PASS: TestProgramMouseThreeButtonsAndModifierMatrix/right/2 (0.00s)
+    --- PASS: TestProgramMouseThreeButtonsAndModifierMatrix/right/3 (0.00s)
+    --- PASS: TestProgramMouseThreeButtonsAndModifierMatrix/right/4 (0.00s)
+    --- PASS: TestProgramMouseThreeButtonsAndModifierMatrix/right/5 (0.00s)
+    --- PASS: TestProgramMouseThreeButtonsAndModifierMatrix/right/6 (0.00s)
+    --- PASS: TestProgramMouseThreeButtonsAndModifierMatrix/right/7 (0.00s)
+=== RUN   TestProgramMouseModifierChangeReleasesLastAcceptedOriginalStateBeforeSwitch
+--- PASS: TestProgramMouseModifierChangeReleasesLastAcceptedOriginalStateBeforeSwitch (0.00s)
+=== RUN   TestLegacyPointerConnectionNeverDropsNewButtonOrModifierIntoLeftSelection
+--- PASS: TestLegacyPointerConnectionNeverDropsNewButtonOrModifierIntoLeftSelection (0.00s)
+=== RUN   TestProgramMousePressureReleasesLastAcceptedModifierBeforeSwitch
+--- PASS: TestProgramMousePressureReleasesLastAcceptedModifierBeforeSwitch (0.00s)
+=== RUN   TestProgramMouseKeepsOneReleaseSlotUnderMotionPressure
+--- PASS: TestProgramMouseKeepsOneReleaseSlotUnderMotionPressure (1.00s)
+=== RUN   TestProgramMouseCrossesControlsOnlyWithinOriginalPaneCoordinates
+--- PASS: TestProgramMouseCrossesControlsOnlyWithinOriginalPaneCoordinates (0.00s)
+=== RUN   TestProgramMouseDeliberateActionsReleaseBeforeTheirOwnInput
+=== RUN   TestProgramMouseDeliberateActionsReleaseBeforeTheirOwnInput/key
+=== RUN   TestProgramMouseDeliberateActionsReleaseBeforeTheirOwnInput/paste
+=== RUN   TestProgramMouseDeliberateActionsReleaseBeforeTheirOwnInput/wheel
+=== RUN   TestProgramMouseDeliberateActionsReleaseBeforeTheirOwnInput/resize
+=== RUN   TestProgramMouseDeliberateActionsReleaseBeforeTheirOwnInput/focus
+=== RUN   TestProgramMouseDeliberateActionsReleaseBeforeTheirOwnInput/help
+=== RUN   TestProgramMouseDeliberateActionsReleaseBeforeTheirOwnInput/no-button
+=== RUN   TestProgramMouseDeliberateActionsReleaseBeforeTheirOwnInput/modified-motion
+--- PASS: TestProgramMouseDeliberateActionsReleaseBeforeTheirOwnInput (0.01s)
+    --- PASS: TestProgramMouseDeliberateActionsReleaseBeforeTheirOwnInput/key (0.00s)
+    --- PASS: TestProgramMouseDeliberateActionsReleaseBeforeTheirOwnInput/paste (0.00s)
+    --- PASS: TestProgramMouseDeliberateActionsReleaseBeforeTheirOwnInput/wheel (0.00s)
+    --- PASS: TestProgramMouseDeliberateActionsReleaseBeforeTheirOwnInput/resize (0.00s)
+    --- PASS: TestProgramMouseDeliberateActionsReleaseBeforeTheirOwnInput/focus (0.00s)
+    --- PASS: TestProgramMouseDeliberateActionsReleaseBeforeTheirOwnInput/help (0.00s)
+    --- PASS: TestProgramMouseDeliberateActionsReleaseBeforeTheirOwnInput/no-button (0.00s)
+    --- PASS: TestProgramMouseDeliberateActionsReleaseBeforeTheirOwnInput/modified-motion (0.00s)
+=== RUN   TestProgramMouseExternalModeChangesDoNotReleaseIntoAnotherMode
+=== RUN   TestProgramMouseExternalModeChangesDoNotReleaseIntoAnotherMode/copy-mode
+=== RUN   TestProgramMouseExternalModeChangesDoNotReleaseIntoAnotherMode/mouse-off
+=== RUN   TestProgramMouseExternalModeChangesDoNotReleaseIntoAnotherMode/prompt
+=== RUN   TestProgramMouseExternalModeChangesDoNotReleaseIntoAnotherMode/height
+--- PASS: TestProgramMouseExternalModeChangesDoNotReleaseIntoAnotherMode (0.00s)
+    --- PASS: TestProgramMouseExternalModeChangesDoNotReleaseIntoAnotherMode/copy-mode (0.00s)
+    --- PASS: TestProgramMouseExternalModeChangesDoNotReleaseIntoAnotherMode/mouse-off (0.00s)
+    --- PASS: TestProgramMouseExternalModeChangesDoNotReleaseIntoAnotherMode/prompt (0.00s)
+    --- PASS: TestProgramMouseExternalModeChangesDoNotReleaseIntoAnotherMode/height (0.00s)
+=== RUN   TestProgramMouseStartsOnlyInUnmodifiedFocusedProgramContent
+=== RUN   TestProgramMouseStartsOnlyInUnmodifiedFocusedProgramContent/management
+=== RUN   TestProgramMouseStartsOnlyInUnmodifiedFocusedProgramContent/border
+=== RUN   TestProgramMouseStartsOnlyInUnmodifiedFocusedProgramContent/tab
+=== RUN   TestProgramMouseStartsOnlyInUnmodifiedFocusedProgramContent/modified
+=== RUN   TestProgramMouseStartsOnlyInUnmodifiedFocusedProgramContent/prompt
+=== RUN   TestProgramMouseStartsOnlyInUnmodifiedFocusedProgramContent/right
+--- PASS: TestProgramMouseStartsOnlyInUnmodifiedFocusedProgramContent (0.00s)
+    --- PASS: TestProgramMouseStartsOnlyInUnmodifiedFocusedProgramContent/management (0.00s)
+    --- PASS: TestProgramMouseStartsOnlyInUnmodifiedFocusedProgramContent/border (0.00s)
+    --- PASS: TestProgramMouseStartsOnlyInUnmodifiedFocusedProgramContent/tab (0.00s)
+    --- PASS: TestProgramMouseStartsOnlyInUnmodifiedFocusedProgramContent/modified (0.00s)
+    --- PASS: TestProgramMouseStartsOnlyInUnmodifiedFocusedProgramContent/prompt (0.00s)
+    --- PASS: TestProgramMouseStartsOnlyInUnmodifiedFocusedProgramContent/right (0.00s)
+=== RUN   TestProgramMouseCopyModeKeepsSelectionCancellationWithoutSyntheticRelease
+--- PASS: TestProgramMouseCopyModeKeepsSelectionCancellationWithoutSyntheticRelease (0.00s)
+=== RUN   TestProgramMouseLeftGestureReachesOriginalProgramWithoutSelectionOrKeys
+--- PASS: TestProgramMouseLeftGestureReachesOriginalProgramWithoutSelectionOrKeys (0.00s)
+=== RUN   TestProgramMouseSwitchReleasesOriginalBeforeNewRunInput
+--- PASS: TestProgramMouseSwitchReleasesOriginalBeforeNewRunInput (0.00s)
+=== RUN   TestProgramMouseExternalScreenGrowthThenRestoreCannotResumeGesture
+--- PASS: TestProgramMouseExternalScreenGrowthThenRestoreCannotResumeGesture (0.00s)
+=== RUN   TestWorkspaceOldListCannotInvalidateJustCreatedTerminal
+--- PASS: TestWorkspaceOldListCannotInvalidateJustCreatedTerminal (0.02s)
+=== RUN   TestWorkspaceDiscoveryBeforeStartResultDoesNotDuplicateTab
+--- PASS: TestWorkspaceDiscoveryBeforeStartResultDoesNotDuplicateTab (1.02s)
+=== RUN   TestWorkspaceClosingLastTabReturnsManagementFocus
+--- PASS: TestWorkspaceClosingLastTabReturnsManagementFocus (0.02s)
+=== RUN   TestWorkspaceEmptyDiscoveryAndF6KeepManagementFocus
+--- PASS: TestWorkspaceEmptyDiscoveryAndF6KeepManagementFocus (0.00s)
+=== RUN   TestWorkspaceDisconnectKeepsLastObservedScreenReadOnly
+--- PASS: TestWorkspaceDisconnectKeepsLastObservedScreenReadOnly (0.01s)
+=== RUN   TestWorkspaceUsesUpstreamInteractiveFrameBands
+--- PASS: TestWorkspaceUsesUpstreamInteractiveFrameBands (0.01s)
+=== RUN   TestWorkspaceDialogOuterWidthsMatchUpstreamActualFrames
+=== RUN   TestWorkspaceDialogOuterWidthsMatchUpstreamActualFrames/settings
+=== RUN   TestWorkspaceDialogOuterWidthsMatchUpstreamActualFrames/new-terminal
+--- PASS: TestWorkspaceDialogOuterWidthsMatchUpstreamActualFrames (0.02s)
+    --- PASS: TestWorkspaceDialogOuterWidthsMatchUpstreamActualFrames/settings (0.01s)
+    --- PASS: TestWorkspaceDialogOuterWidthsMatchUpstreamActualFrames/new-terminal (0.01s)
+=== RUN   TestLaunchDialogKeepsUpstreamRegularAndFirstSessionPadding
+=== RUN   TestLaunchDialogKeepsUpstreamRegularAndFirstSessionPadding/regular
+=== RUN   TestLaunchDialogKeepsUpstreamRegularAndFirstSessionPadding/first-session
+--- PASS: TestLaunchDialogKeepsUpstreamRegularAndFirstSessionPadding (0.02s)
+    --- PASS: TestLaunchDialogKeepsUpstreamRegularAndFirstSessionPadding/regular (0.01s)
+    --- PASS: TestLaunchDialogKeepsUpstreamRegularAndFirstSessionPadding/first-session (0.01s)
+=== RUN   TestWorkspaceNarrowFooterKeepsHelpQuitAndTerminalFocusKeys
+=== RUN   TestWorkspaceNarrowFooterKeepsHelpQuitAndTerminalFocusKeys/27
+=== RUN   TestWorkspaceNarrowFooterKeepsHelpQuitAndTerminalFocusKeys/49
+=== RUN   TestWorkspaceNarrowFooterKeepsHelpQuitAndTerminalFocusKeys/63
+--- PASS: TestWorkspaceNarrowFooterKeepsHelpQuitAndTerminalFocusKeys (0.02s)
+    --- PASS: TestWorkspaceNarrowFooterKeepsHelpQuitAndTerminalFocusKeys/27 (0.01s)
+    --- PASS: TestWorkspaceNarrowFooterKeepsHelpQuitAndTerminalFocusKeys/49 (0.01s)
+    --- PASS: TestWorkspaceNarrowFooterKeepsHelpQuitAndTerminalFocusKeys/63 (0.01s)
+=== RUN   TestWorkspaceNarrowManagementShowsStackedListAndTerminal
+--- PASS: TestWorkspaceNarrowManagementShowsStackedListAndTerminal (0.01s)
+=== RUN   TestWorkspaceVeryNarrowManagementSelectsFromSingleList
+--- PASS: TestWorkspaceVeryNarrowManagementSelectsFromSingleList (0.01s)
+=== RUN   TestWorkspaceNarrowSwitchKeepsAcceptedInputWhenF6Pressed
+--- PASS: TestWorkspaceNarrowSwitchKeepsAcceptedInputWhenF6Pressed (0.01s)
+=== RUN   TestWorkspaceWheelScrollsOnlyTheTerminalUnderPointer
+--- PASS: TestWorkspaceWheelScrollsOnlyTheTerminalUnderPointer (0.01s)
+=== RUN   TestWorkspaceScrollModeShowsHistoryAndNativePrompt
+--- PASS: TestWorkspaceScrollModeShowsHistoryAndNativePrompt (0.01s)
+=== RUN   TestWorkspaceListWheelSelectsWithoutSendingTerminalKeys
+=== RUN   TestWorkspaceListWheelSelectsWithoutSendingTerminalKeys/120
+=== RUN   TestWorkspaceListWheelSelectsWithoutSendingTerminalKeys/60
+=== RUN   TestWorkspaceListWheelSelectsWithoutSendingTerminalKeys/40
+--- PASS: TestWorkspaceListWheelSelectsWithoutSendingTerminalKeys (0.02s)
+    --- PASS: TestWorkspaceListWheelSelectsWithoutSendingTerminalKeys/120 (0.01s)
+    --- PASS: TestWorkspaceListWheelSelectsWithoutSendingTerminalKeys/60 (0.01s)
+    --- PASS: TestWorkspaceListWheelSelectsWithoutSendingTerminalKeys/40 (0.01s)
+=== RUN   TestWorkspaceWheelIsIgnoredOutsideContentAndInDialog
+--- PASS: TestWorkspaceWheelIsIgnoredOutsideContentAndInDialog (0.01s)
+=== RUN   TestWorkspaceScrollDrainsBeforeSwitchAndDoesNotReachNewRun
+--- PASS: TestWorkspaceScrollDrainsBeforeSwitchAndDoesNotReachNewRun (0.01s)
+=== RUN   TestWorkspaceSidebarDefaultCardsSeparateTerminalMetadata
+--- PASS: TestWorkspaceSidebarDefaultCardsSeparateTerminalMetadata (0.01s)
+=== RUN   TestWorkspaceSidebarMetadataClickSelectsItsOwnSession
+--- PASS: TestWorkspaceSidebarMetadataClickSelectsItsOwnSession (0.01s)
+=== RUN   TestWorkspaceSidebarShowsBothCardsWhenTheyExactlyFit
+--- PASS: TestWorkspaceSidebarShowsBothCardsWhenTheyExactlyFit (0.01s)
+=== RUN   TestWorkspaceSidebarKeepsSelectedCardVisibleAcrossWidthAndHeight
+--- PASS: TestWorkspaceSidebarKeepsSelectedCardVisibleAcrossWidthAndHeight (0.08s)
+=== RUN   TestWorkspaceSplitExplicitKeysPersistAndAutoReset
+--- PASS: TestWorkspaceSplitExplicitKeysPersistAndAutoReset (0.03s)
+=== RUN   TestWorkspaceSplitRestoresManualAcrossFileLoadAndKeepsNativeDraftIdentity
+--- PASS: TestWorkspaceSplitRestoresManualAcrossFileLoadAndKeepsNativeDraftIdentity (0.01s)
+=== RUN   TestWorkspaceSplitDragPersistsOnlyOnLeftRelease
+--- PASS: TestWorkspaceSplitDragPersistsOnlyOnLeftRelease (0.00s)
+=== RUN   TestWorkspaceSplitEndedDragSavesLastPreviewOnce
+=== RUN   TestWorkspaceSplitEndedDragSavesLastPreviewOnce/key
+=== RUN   TestWorkspaceSplitEndedDragSavesLastPreviewOnce/click
+=== RUN   TestWorkspaceSplitEndedDragSavesLastPreviewOnce/wheel
+=== RUN   TestWorkspaceSplitEndedDragSavesLastPreviewOnce/motion
+=== RUN   TestWorkspaceSplitEndedDragSavesLastPreviewOnce/resize
+=== RUN   TestWorkspaceSplitEndedDragSavesLastPreviewOnce/switch
+=== RUN   TestWorkspaceSplitEndedDragSavesLastPreviewOnce/none-release
+--- PASS: TestWorkspaceSplitEndedDragSavesLastPreviewOnce (0.00s)
+    --- PASS: TestWorkspaceSplitEndedDragSavesLastPreviewOnce/key (0.00s)
+    --- PASS: TestWorkspaceSplitEndedDragSavesLastPreviewOnce/click (0.00s)
+    --- PASS: TestWorkspaceSplitEndedDragSavesLastPreviewOnce/wheel (0.00s)
+    --- PASS: TestWorkspaceSplitEndedDragSavesLastPreviewOnce/motion (0.00s)
+    --- PASS: TestWorkspaceSplitEndedDragSavesLastPreviewOnce/resize (0.00s)
+    --- PASS: TestWorkspaceSplitEndedDragSavesLastPreviewOnce/switch (0.00s)
+    --- PASS: TestWorkspaceSplitEndedDragSavesLastPreviewOnce/none-release (0.00s)
+=== RUN   TestWorkspaceSplitSavesLatestWholeDocumentAndOldAckDoesNotUndoPreview
+--- PASS: TestWorkspaceSplitSavesLatestWholeDocumentAndOldAckDoesNotUndoPreview (1.00s)
+=== RUN   TestWorkspaceSplitSaveFailureRollsBackAndCancelsWaitingQuit
+--- PASS: TestWorkspaceSplitSaveFailureRollsBackAndCancelsWaitingQuit (0.00s)
+=== RUN   TestWorkspaceSplitRollbackErrorRemainsVisibleWhenResizeCannotBeEnqueued
+--- PASS: TestWorkspaceSplitRollbackErrorRemainsVisibleWhenResizeCannotBeEnqueued (0.00s)
+=== RUN   TestWorkspaceSplitReadAndFocusDoNotSaveUntilUserChangesChoice
+--- PASS: TestWorkspaceSplitReadAndFocusDoNotSaveUntilUserChangesChoice (0.00s)
+=== RUN   TestWorkspaceSplitUnchangedChoiceDoesNotPersistTemporaryGroupReveal
+=== RUN   TestWorkspaceSplitUnchangedChoiceDoesNotPersistTemporaryGroupReveal/=
+=== RUN   TestWorkspaceSplitUnchangedChoiceDoesNotPersistTemporaryGroupReveal/>
+=== RUN   TestWorkspaceSplitUnchangedChoiceDoesNotPersistTemporaryGroupReveal/<
+--- PASS: TestWorkspaceSplitUnchangedChoiceDoesNotPersistTemporaryGroupReveal (0.00s)
+    --- PASS: TestWorkspaceSplitUnchangedChoiceDoesNotPersistTemporaryGroupReveal/= (0.00s)
+    --- PASS: TestWorkspaceSplitUnchangedChoiceDoesNotPersistTemporaryGroupReveal/> (0.00s)
+    --- PASS: TestWorkspaceSplitUnchangedChoiceDoesNotPersistTemporaryGroupReveal/< (0.00s)
+=== RUN   TestWorkspaceSplitKeysOnlyAdjustInManagementFocus
+--- PASS: TestWorkspaceSplitKeysOnlyAdjustInManagementFocus (0.01s)
+=== RUN   TestWorkspaceDividerDragChangesSplitWithoutTerminalInput
+--- PASS: TestWorkspaceDividerDragChangesSplitWithoutTerminalInput (0.01s)
+=== RUN   TestWorkspaceSplitBoundsResetAndClickWithoutMovement
+--- PASS: TestWorkspaceSplitBoundsResetAndClickWithoutMovement (0.01s)
+=== RUN   TestWorkspaceShowsNativeTerminalWithTabNavigationAndRealCursor
+--- PASS: TestWorkspaceShowsNativeTerminalWithTabNavigationAndRealCursor (0.01s)
+=== RUN   TestWorkspaceTerminalKeysDoNotTriggerManagerQuit
+--- PASS: TestWorkspaceTerminalKeysDoNotTriggerManagerQuit (0.01s)
+=== RUN   TestWorkspaceNativeViewportAndCursorReachLastCell
+--- PASS: TestWorkspaceNativeViewportAndCursorReachLastCell (0.01s)
+=== RUN   TestWorkspaceSwitchesTabsByStableRunWithoutExtraInput
+--- PASS: TestWorkspaceSwitchesTabsByStableRunWithoutExtraInput (0.02s)
+=== RUN   TestWorkspaceSwitchDrainsOldInputAndKeepsNewInputOnNewTab
+--- PASS: TestWorkspaceSwitchDrainsOldInputAndKeepsNewInputOnNewTab (0.01s)
+=== RUN   TestWorkspaceOversizedInputIsRefusedBeforeQueueing
+--- PASS: TestWorkspaceOversizedInputIsRefusedBeforeQueueing (0.01s)
+=== RUN   TestWorkspaceManagementFocusDoesNotSendKeysToTerminal
+--- PASS: TestWorkspaceManagementFocusDoesNotSendKeysToTerminal (0.01s)
+=== RUN   TestWorkspaceQuitDrainsPreviouslyTypedInput
+--- PASS: TestWorkspaceQuitDrainsPreviouslyTypedInput (0.01s)
+=== RUN   TestWorkspaceClosingAndReopeningTabKeepsOriginalRun
+--- PASS: TestWorkspaceClosingAndReopeningTabKeepsOriginalRun (0.02s)
+=== RUN   TestWorkspaceCloseTabDrainsPreviouslyTypedInput
+--- PASS: TestWorkspaceCloseTabDrainsPreviouslyTypedInput (0.01s)
+=== RUN   TestVisibleCopyNormalizesPreservesLayoutAndRejectsBadCaptures
+=== RUN   TestVisibleCopyNormalizesPreservesLayoutAndRejectsBadCaptures/text
+=== RUN   TestVisibleCopyNormalizesPreservesLayoutAndRejectsBadCaptures/internal-blank
+=== RUN   TestVisibleCopyNormalizesPreservesLayoutAndRejectsBadCaptures/at-limit
+=== RUN   TestVisibleCopyNormalizesPreservesLayoutAndRejectsBadCaptures/C1-controls
+=== RUN   TestVisibleCopyNormalizesPreservesLayoutAndRejectsBadCaptures/empty
+=== RUN   TestVisibleCopyNormalizesPreservesLayoutAndRejectsBadCaptures/oversize
+=== RUN   TestVisibleCopyNormalizesPreservesLayoutAndRejectsBadCaptures/truncated
+=== RUN   TestVisibleCopyNormalizesPreservesLayoutAndRejectsBadCaptures/invalid-utf8
+=== RUN   TestVisibleCopyNormalizesPreservesLayoutAndRejectsBadCaptures/capture-error
+--- PASS: TestVisibleCopyNormalizesPreservesLayoutAndRejectsBadCaptures (0.01s)
+    --- PASS: TestVisibleCopyNormalizesPreservesLayoutAndRejectsBadCaptures/text (0.00s)
+    --- PASS: TestVisibleCopyNormalizesPreservesLayoutAndRejectsBadCaptures/internal-blank (0.00s)
+    --- PASS: TestVisibleCopyNormalizesPreservesLayoutAndRejectsBadCaptures/at-limit (0.00s)
+    --- PASS: TestVisibleCopyNormalizesPreservesLayoutAndRejectsBadCaptures/C1-controls (0.00s)
+    --- PASS: TestVisibleCopyNormalizesPreservesLayoutAndRejectsBadCaptures/empty (0.00s)
+    --- PASS: TestVisibleCopyNormalizesPreservesLayoutAndRejectsBadCaptures/oversize (0.00s)
+    --- PASS: TestVisibleCopyNormalizesPreservesLayoutAndRejectsBadCaptures/truncated (0.00s)
+    --- PASS: TestVisibleCopyNormalizesPreservesLayoutAndRejectsBadCaptures/invalid-utf8 (0.00s)
+    --- PASS: TestVisibleCopyNormalizesPreservesLayoutAndRejectsBadCaptures/capture-error (0.00s)
+=== RUN   TestVisibleCopySingleFlightAndViewCancellationDiscardOldReceipt
+--- PASS: TestVisibleCopySingleFlightAndViewCancellationDiscardOldReceipt (0.00s)
+=== RUN   TestVisibleCopyReplacementRunCannotReachClipboard
+--- PASS: TestVisibleCopyReplacementRunCannotReachClipboard (0.00s)
+=== RUN   TestVisibleCopyTerminalVRemainsLiteralAndCaptureCanRunWithNoOpenTab
+--- PASS: TestVisibleCopyTerminalVRemainsLiteralAndCaptureCanRunWithNoOpenTab (0.00s)
+=== RUN   TestClipboardOldCompletionCannotReleaseANewerRequestInSameView
+--- PASS: TestClipboardOldCompletionCannotReleaseANewerRequestInSameView (0.00s)
+=== RUN   TestVisibleCopyWaitsForNativeSubmissionAndRechecksQueuedTarget
+--- PASS: TestVisibleCopyWaitsForNativeSubmissionAndRechecksQueuedTarget (0.00s)
+=== RUN   TestVisibleCopyRunningCaptureIsCancelledOnTabSwitch
+--- PASS: TestVisibleCopyRunningCaptureIsCancelledOnTabSwitch (0.00s)
+=== RUN   TestVisibleCopyTargetsSelectedSessionAndNeverWritesTerminalInput
+--- PASS: TestVisibleCopyTargetsSelectedSessionAndNeverWritesTerminalInput (0.00s)
+=== RUN   TestVisibleCopyUsesActualTeaOSC52OutputWithoutClipboardReads
+--- PASS: TestVisibleCopyUsesActualTeaOSC52OutputWithoutClipboardReads (0.05s)
+PASS

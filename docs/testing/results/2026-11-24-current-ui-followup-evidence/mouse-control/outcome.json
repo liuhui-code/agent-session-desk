@@ -1,0 +1,30 @@
+{
+    "forced_ends":  0,
+    "windows":  "Microsoft Windows NT 10.0.19045.0",
+    "product_sha256":  "BAF087DC26A7E49E00A6D3D5600D13FA00B4C4D3218BEBC1F1F0DA0D8494CB57",
+    "surface":  "direct Windows Terminal desktop control",
+    "result":  "passed",
+    "originals":  [
+                      {
+                          "pid":  20136,
+                          "filetime":  134399692774212490,
+                          "original_ended":  true,
+                          "kind":  "control-terminal"
+                      },
+                      {
+                          "pid":  20344,
+                          "filetime":  134399692778409650,
+                          "original_ended":  true,
+                          "kind":  "direct-control-app"
+                      }
+                  ],
+    "events":  9,
+    "utc":  "2026-11-24T04:48:02.0860059Z",
+    "shift_middle_right_injected":  false,
+    "system_clipboard_calls":  0,
+    "caps_lock_unchanged":  true,
+    "private_terminal_settings_after":  "1499307ABEBA68C23F9EB38A4C636F81172475B6B2B535BC0B11DCD9547241F8",
+    "system_settings_written":  false,
+    "product_executed":  false,
+    "private_terminal_settings_before":  "1499307ABEBA68C23F9EB38A4C636F81172475B6B2B535BC0B11DCD9547241F8"
+}

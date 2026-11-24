@@ -1,0 +1,120 @@
+F..
+======================================================================
+FAIL: test_archived_failure_is_zero_of_nine (test_evaluate_win32.StrictSequenceTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>/tools/experiments/psmux-mouse-routing/test_evaluate_win32.py", line 41, in test_archived_failure_is_zero_of_nine
+    self.assertEqual((result["passed"], result["total"]), (0, 9))
+AssertionError: Tuples differ: (9, 9) != (0, 9)
+
+First differing element 0:
+9
+0
+
+- (9, 9)
+?  ^
+
++ (0, 9)
+?  ^
+
+
+======================================================================
+FAIL: test_reject_duplicate_premature_reordered_wrong_target_or_modifier (test_evaluate_win32.StrictSequenceTests) (name='duplicate down')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>/tools/experiments/psmux-mouse-routing/test_evaluate_win32.py", line 67, in test_reject_duplicate_premature_reordered_wrong_target_or_modifier
+    self.assertEqual(review(copy.deepcopy(altered))["passed"], 0)
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_reject_duplicate_premature_reordered_wrong_target_or_modifier (test_evaluate_win32.StrictSequenceTests) (name='duplicate up')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>/tools/experiments/psmux-mouse-routing/test_evaluate_win32.py", line 67, in test_reject_duplicate_premature_reordered_wrong_target_or_modifier
+    self.assertEqual(review(copy.deepcopy(altered))["passed"], 0)
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_reject_duplicate_premature_reordered_wrong_target_or_modifier (test_evaluate_win32.StrictSequenceTests) (name='premature up')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>/tools/experiments/psmux-mouse-routing/test_evaluate_win32.py", line 67, in test_reject_duplicate_premature_reordered_wrong_target_or_modifier
+    self.assertEqual(review(copy.deepcopy(altered))["passed"], 0)
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_reject_duplicate_premature_reordered_wrong_target_or_modifier (test_evaluate_win32.StrictSequenceTests) (name='reordered')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>/tools/experiments/psmux-mouse-routing/test_evaluate_win32.py", line 67, in test_reject_duplicate_premature_reordered_wrong_target_or_modifier
+    self.assertEqual(review(copy.deepcopy(altered))["passed"], 0)
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_reject_duplicate_premature_reordered_wrong_target_or_modifier (test_evaluate_win32.StrictSequenceTests) (name='wrong target')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>/tools/experiments/psmux-mouse-routing/test_evaluate_win32.py", line 67, in test_reject_duplicate_premature_reordered_wrong_target_or_modifier
+    self.assertEqual(review(copy.deepcopy(altered))["passed"], 0)
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_reject_duplicate_premature_reordered_wrong_target_or_modifier (test_evaluate_win32.StrictSequenceTests) (name='wrong modifier')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>/tools/experiments/psmux-mouse-routing/test_evaluate_win32.py", line 67, in test_reject_duplicate_premature_reordered_wrong_target_or_modifier
+    self.assertEqual(review(copy.deepcopy(altered))["passed"], 0)
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_reject_duplicate_premature_reordered_wrong_target_or_modifier (test_evaluate_win32.StrictSequenceTests) (name='early hover release')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>/tools/experiments/psmux-mouse-routing/test_evaluate_win32.py", line 67, in test_reject_duplicate_premature_reordered_wrong_target_or_modifier
+    self.assertEqual(review(copy.deepcopy(altered))["passed"], 0)
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_reject_missing_duplicate_or_unreviewed_records (test_evaluate_win32.StrictSequenceTests) (rows=[{'n': 1, 'x': 5, 'y': 4, 'buttons': 0, 'control': 0, 'flags': 1}, {'n': 2, 'x': 5, 'y': 4, 'buttons': 1, 'control': 0, 'flags': 0}, {'n': 3, 'x': 9, 'y': 4, 'buttons': 1, 'control': 0, 'flags': 1}, {'n': 4, 'x': 9, 'y': 4, 'buttons': 0, 'control': 0, 'flags': 0}], intervals=[])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>/tools/experiments/psmux-mouse-routing/test_evaluate_win32.py", line 79, in test_reject_missing_duplicate_or_unreviewed_records
+    evaluator.evaluate(rows, intervals)
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_reject_missing_duplicate_or_unreviewed_records (test_evaluate_win32.StrictSequenceTests) (rows=[{'n': 1, 'x': 5, 'y': 4, 'buttons': 0, 'control': 0, 'flags': 1}, {'n': 2, 'x': 5, 'y': 4, 'buttons': 1, 'control': 0, 'flags': 0}, {'n': 3, 'x': 9, 'y': 4, 'buttons': 1, 'control': 0, 'flags': 1}, {'n': 4, 'x': 9, 'y': 4, 'buttons': 0, 'control': 0, 'flags': 0}], intervals=[{'begin_exclusive': 0, 'end_inclusive': 3, 'mask': 0, 'button': 0}])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>/tools/experiments/psmux-mouse-routing/test_evaluate_win32.py", line 79, in test_reject_missing_duplicate_or_unreviewed_records
+    evaluator.evaluate(rows, intervals)
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_reject_missing_duplicate_or_unreviewed_records (test_evaluate_win32.StrictSequenceTests) (rows=[{'n': 1, 'x': 5, 'y': 4, 'buttons': 0, 'control': 0, 'flags': 1}, {'n': 2, 'x': 5, 'y': 4, 'buttons': 1, 'control': 0, 'flags': 0}, {'n': 3, 'x': 9, 'y': 4, 'buttons': 1, 'control': 0, 'flags': 1}, {'n': 4, 'x': 9, 'y': 4, 'buttons': 0, 'control': 0, 'flags': 0}], intervals=[{'begin_exclusive': 0, 'end_inclusive': 4, 'mask': 0, 'button': 0}, {'begin_exclusive': 0, 'end_inclusive': 4, 'mask': 0, 'button': 0}])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>/tools/experiments/psmux-mouse-routing/test_evaluate_win32.py", line 79, in test_reject_missing_duplicate_or_unreviewed_records
+    evaluator.evaluate(rows, intervals)
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_reject_missing_duplicate_or_unreviewed_records (test_evaluate_win32.StrictSequenceTests) (rows=[{'n': 1, 'x': 5, 'y': 4, 'buttons': 0, 'control': 0, 'flags': 1}, {'n': 1, 'x': 5, 'y': 4, 'buttons': 1, 'control': 0, 'flags': 0}, {'n': 1, 'x': 9, 'y': 4, 'buttons': 1, 'control': 0, 'flags': 1}, {'n': 1, 'x': 9, 'y': 4, 'buttons': 0, 'control': 0, 'flags': 0}], intervals=[{'begin_exclusive': 0, 'end_inclusive': 4, 'mask': 0, 'button': 0}])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>/tools/experiments/psmux-mouse-routing/test_evaluate_win32.py", line 79, in test_reject_missing_duplicate_or_unreviewed_records
+    evaluator.evaluate(rows, intervals)
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_reject_missing_duplicate_or_unreviewed_records (test_evaluate_win32.StrictSequenceTests) (rows=[{'n': 1, 'x': 5, 'y': 4, 'buttons': 0, 'control': 0, 'flags': 1}, {'n': 2, 'x': 5, 'y': 4, 'buttons': 1, 'control': 0, 'flags': 0}, {'n': 3, 'x': 9, 'y': 4, 'buttons': 1, 'control': 0, 'flags': 1}, {'n': 4, 'x': 9, 'y': 4, 'buttons': 0, 'control': 0, 'flags': 0}], intervals=[{'begin_exclusive': 0, 'end_inclusive': 4, 'mask': 4, 'button': 0}])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<WORKSPACE>/tools/experiments/psmux-mouse-routing/test_evaluate_win32.py", line 79, in test_reject_missing_duplicate_or_unreviewed_records
+    evaluator.evaluate(rows, intervals)
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.004s
+
+FAILED (failures=13)

@@ -1,6 +1,6 @@
 # psmux 缩高历史保留实验
 
-这是隔离验证材料。产品、安装脚本和 `windows-dependencies.json` **没有应用此补丁**，仍固定官方 psmux 3.4.0。完整结果、失败轮与适用范围见[实际报告](../../../docs/testing/results/2026-11-23-resize-history.md)。
+这是隔离验证材料。安装脚本和官方默认后端仍固定 psmux 3.4.0；ADR-0019 的显式开发 bundle 已选择本补丁构建，未使其成为默认发行依赖。完整结果、失败轮与适用范围见[实际报告](../../../docs/testing/results/2026-11-23-resize-history.md)。
 
 固定来源为 psmux `20aa1d7254ee93f64dafa059ef89341d9767470a`；`candidate.patch` 只修改 `crates/vt100-psmux/src/grid.rs` 的 `set_size`：主屏幕、完整滚动区域、有历史容量且光标会被缩高挤出时，先把上方移出的行送入原生有界历史，再调整尺寸。没有新增客户端历史副本或放宽历史上限。许可证见 [psmux MIT](../../../third_party/psmux/LICENSE) 和 [vt100 MIT](../../../third_party/vt100-psmux/LICENSE)。
 

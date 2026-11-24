@@ -1,0 +1,90 @@
+{
+  "reported_script_result": "passed using presence-only predicates",
+  "corrected_strict_result": "failed",
+  "strict_cases": [
+    {
+      "button": 0,
+      "mask": 0,
+      "down": 2,
+      "drag": 1,
+      "release": 2,
+      "premature_release_at_down": 0,
+      "strict_once": false
+    },
+    {
+      "button": 1,
+      "mask": 0,
+      "down": 2,
+      "drag": 1,
+      "release": 3,
+      "premature_release_at_down": 0,
+      "strict_once": false
+    },
+    {
+      "button": 2,
+      "mask": 0,
+      "down": 2,
+      "drag": 1,
+      "release": 3,
+      "premature_release_at_down": 0,
+      "strict_once": false
+    },
+    {
+      "button": 0,
+      "mask": 16,
+      "down": 1,
+      "drag": 1,
+      "release": 3,
+      "premature_release_at_down": 1,
+      "strict_once": false
+    },
+    {
+      "button": 1,
+      "mask": 16,
+      "down": 1,
+      "drag": 1,
+      "release": 3,
+      "premature_release_at_down": 1,
+      "strict_once": false
+    },
+    {
+      "button": 2,
+      "mask": 16,
+      "down": 1,
+      "drag": 1,
+      "release": 3,
+      "premature_release_at_down": 1,
+      "strict_once": false
+    },
+    {
+      "button": 0,
+      "mask": 8,
+      "down": 1,
+      "drag": 1,
+      "release": 3,
+      "premature_release_at_down": 1,
+      "strict_once": false
+    },
+    {
+      "button": 1,
+      "mask": 8,
+      "down": 1,
+      "drag": 1,
+      "release": 3,
+      "premature_release_at_down": 1,
+      "strict_once": false
+    },
+    {
+      "button": 2,
+      "mask": 8,
+      "down": 1,
+      "drag": 1,
+      "release": 3,
+      "premature_release_at_down": 1,
+      "strict_once": false
+    }
+  ],
+  "strict_pass": 0,
+  "strict_total": 9,
+  "raw_source_preserved": true
+}
