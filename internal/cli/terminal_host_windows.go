@@ -39,8 +39,11 @@ func openTerminalHost(ctx context.Context, args []string, inside bool, input io.
 	if host.Profile != "" {
 		hostArgs = append([]string{"--window", "new", "new-tab", "--profile", host.Profile}, hostArgs[3:]...)
 	}
-	cmd := exec.CommandContext(ctx, binary, hostArgs...)
-	if err = cmd.Run(); err != nil {
+	if err := ctx.Err(); err != nil {
+		return true, err
+	}
+	cmd := exec.Command(binary, hostArgs...)
+	if err = startTerminalHandoff(cmd); err != nil {
 		return true, fmt.Errorf("could not open Windows Terminal: %w", err)
 	}
 	return true, nil

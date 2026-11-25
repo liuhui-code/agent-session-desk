@@ -9,3 +9,11 @@ Windows UI 在外层默认转交 Windows Terminal，保留显式参数；便携�
 先保存 RED：缺少最近配置 API／UI 回调，随后补齐并检查默认→最近完整 args/env/cwd/name、重载、不覆盖默认与坏记录拒绝。UI 局部覆盖直接新建无表单、成功记录、重复键在途抑制、不确定结果不重试／不记录、Ctrl+S 几何及子程序输入隔离、同一活动／选中项的模式颜色与光标。宿主检查覆盖分号层 argv、带 BOM 便携 namespace／显式参数、固定宿主哈希变化拒绝。日志见[证据目录](2026-11-26-direct-create-focus-evidence/)。
 
 本机 Go 1.27.4 darwin/amd64；生产源码 500 行检查与 diff 检查通过。新增独立有界文件，不改 SQLite／ui.toml schema。工作区已有后端修复不属于本轮；窗口默认宿主及实际终端创建的原生结果另补，不以这些模型／文件测试代替。339 目录设计状态不提升。
+
+## 第一候选的实际 Windows 检查与宿主等待修正
+
+候选 `6eb3c6e` 的 Windows 局部 config 1、UI 6、CLI 3 顶层通过，均 exit 0、0 fail／skip。首轮脚手架未给 `-test.v/-test.run` 加引号，PowerShell 错拆为 -test，未执行测试；run2 修正参数后才得到上述结果。直接 exe 实际打开了固定 Windows Terminal 和带 --inside-terminal 的 UI 子进程，但外层 Go 用 cmd.Run 等待 GUI 宿主窗口生命周期，导致一次性观察器阻塞，不能当桌面验证通过。
+
+源代码修正为启动 GUI 后 Release 句柄，不让主程序随自身 context 取消去结束宿主。新增真实长生命周期子进程回归先 RED（等待约 810ms 的 fixture 生命周期），改为 Start/Release 后 GREEN；fixture 自行正常结束。仅重跑对应 CLI 局部检查，没有重跑全仓。
+
+首次观察器后来达到执行时限，审计见任务 Ready／267014，外层临时启动进程已结束，但 Terminal 和交互 UI 子进程仍保留。另一次尝试正常关闭的辅助任务没有有效回执，不能声称它关闭了窗口或证明零动作；后续没有重放该关闭。此时尚未发送正式 Ctrl+S/F6 验证键。已结束的一次性任务已移除；最终构建与桌面结果另补，前述模型／原生结果不自动算作最终宿主修正验证。

@@ -1,0 +1,31 @@
+{
+    "result":  "passed",
+    "source":  "6eb3c6e",
+    "suites":  [
+                   {
+                       "sha256":  "b562784c625119dddc30030755aebcd19ebe6b827425b247f459c73acdf3ec3e",
+                       "exit_code":  0,
+                       "top_skip":  0,
+                       "top_fail":  0,
+                       "package":  "config",
+                       "top_pass":  1
+                   },
+                   {
+                       "sha256":  "a494b0f18fca628bba8f8b13b66a6cedc97476862d2d4403df4293d67205bae1",
+                       "exit_code":  0,
+                       "top_skip":  0,
+                       "top_fail":  0,
+                       "package":  "ui",
+                       "top_pass":  6
+                   },
+                   {
+                       "sha256":  "7699bcf9aace78e2b3ca0915d6de07c2ee96857aa378945ea4182ff5daa3fd5e",
+                       "exit_code":  0,
+                       "top_skip":  0,
+                       "top_fail":  0,
+                       "package":  "cli",
+                       "top_pass":  3
+                   }
+               ]
+}
+

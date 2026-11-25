@@ -1,0 +1,5 @@
+--- FAIL: TestTerminalHandoffDoesNotWaitForHostWindowLifetime (0.81s)
+    terminal_handoff_test.go:39: handoff waited for host lifetime: 810.063521ms
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/cli	2.439s
+FAIL
