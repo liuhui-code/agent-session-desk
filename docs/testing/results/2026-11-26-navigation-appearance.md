@@ -23,3 +23,11 @@
 尝试通过交互用户一次性任务自动打开，但在有界观察内没有看到新 manager 或 Windows Terminal 进程，不能声称界面已经显示或视觉接受。任务已按精确 action 核对删除；后续只读检查固定 Terminal／PowerShell 文件存在且哈希一致，没有盲目重试。用户可从原桌面快捷方式启动新入口。原／新产品再次检查显式 `session_id/run_id/backend_id` 一致；初始更新脚本误用 `.id`，当时只正确比较 Run/backend，后续在启动尝试前已用正确字段补充核对，不将初始检查单独声称为完整 Session 证明。
 
 更新和打开脚本、私有完整回执位于本机临时交付目录，不提交用户身份或终端内容。GitHub Release 没有更新；Windows 实际视觉仍由用户查看。
+
+## 启动失败定位及修复
+
+用户随后报告无法打开。实际只读复现：Windows PowerShell `5.1.19041.6456` 默认读取新版无 BOM 的 UTF-8 清单时有 1 个中文文件名不存在；显式 UTF-8 读取时缺失为 0，所有负载哈希一致，快捷方式指向正确启动器。原因是本次更新脚本使用 `UTF8Encoding(false)` 写入包含中文文件名的清单，原启动器默认读取因此失败；上节的自动打开失败不是已通过的交付验证。
+
+保留错误清单备份，只给相同清单文本补 UTF-8 BOM，验证解码后的正文逐字未变。使用原启动器相同默认读取方式检查，缺失从 1 降为 0，20 个负载哈希全部一致。临时更新脚本也改为带 BOM 写入。没有重建产品或修改宿主／运行库／data。
+
+修复后经原启动器再次打开：新版 manager 数量 1、启动任务结果 0，3 个原 `session_id/run_id/backend_id` 集合一致，一次性任务精确删除；按键注入／剪贴板／停止进程均为 0。原 exe 哈希仍为 `d33d7859…`。[三份无运行身份回执](2026-11-26-navigation-appearance-evidence/launch-encoding-diagnose.json)、[修复检查](2026-11-26-navigation-appearance-evidence/launch-encoding-repair.json)和[打开结果](2026-11-26-navigation-appearance-evidence/launch-encoding-opened.json)保存实际结果。仅做启动相关检查，未跑全量测试；外观仍交由用户查看，不声称完成视觉接受。
