@@ -135,3 +135,5 @@ Session-order final follow-up: the first membership receipt left old order field
 2026-11-25 ADR-0041 为用户实机样式新决定：移除产品标题／重复可视Tab条／终端框和常驻底栏，逻辑Tab/Session/Run保持；普通提示底边hover一行覆盖，不resize，不夺走已开始的原pane拖动释放。Dark采用本机iTerm黑底灰字，Light／System生命周期保留。7cd746fd…47d4产品、44ad985d…ab59 UI测试有293原生PASS／0FAIL／0SKIP；最终真实viewport底边验证通过，3原Run和2原shell身份保留。当前实际可用字体为Consolas10；Meslo虽GDI可枚举、UIA返回请求名，Terminal仍警告，不能算真实使用，系统级安装询问待答复。15专属任务核对删除，产品和会话留给用户。全部实机图片含脚本外正文，保持私有、不推断作者／无干扰；首次焦点guard、缺失字体属性、脚本路径及错误鼠标定位失败保留。见 docs/testing/results/2026-11-25-minimal-workspace.md；完整字体／DPI／IME／agent／资源和发布仍开放。
 
 2026-11-25 Alpha Release：用户授权公开预发布当前样式版，沿用 7691a2b 的同一 Go 字节；独立便携包不含 local-host／专属 profile／字体或运行数据。真实 Windows 中文空格路径中 237 负载哈希、真实 shell 启动／预览／停止通过，238 ZIP 文件含 manifest。前轮 Go／293 UI 测试未重跑；详见 docs/testing/results/2026-11-25-alpha-release.md 和 docs/WINDOWS_ALPHA.md。不要把预发布上架与完整稳定版／许可／兼容接受混同，保留现有用户 Alpha 与字体系统安装待答复状态。
+
+Alpha 发布实际结果：v0.1.0-alpha.1 于 2026-11-25T02:58:24Z 公开为 prerelease，Release 457588984；标签 b5953b3，产品源码仍7691a2b／同字节7cd746fd。四附件公开匿名下载的大小／SHA256 全部一致，回执见 alpha-release-evidence/published-verified.json。HTTPS 失败／超时及草稿422均保留，最终已有SSH成功，仅推送此标签，没有写远端main；不移动tag或替换旧Release。

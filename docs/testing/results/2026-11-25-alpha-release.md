@@ -32,6 +32,10 @@
 
 ## 发布状态与边界
 
-目标为 `v0.1.0-alpha.1`，GitHub prerelease，`latest=false`，不替换旧 Release／附件。发布后核对真实 tag、链接、附件名称／大小／SHA256，并将结果补入本报告。需完成实际发布回执后才能把状态记作 published。
+已于 **2026-11-25 02:58:24 UTC／10:58:24 北京时间**公开：[v0.1.0-alpha.1](https://github.com/liuhui-code/agent-session-desk/releases/tag/v0.1.0-alpha.1)，Release ID `457588984`，draft=false／prerelease=true，显式 latest=false。注释 tag 对象 `83186f4b596ae0154e605a8e1394bdae21e14135` 指向发布准备提交 `b5953b3a1e335ee2b790eba6070aaf317de546ef`；产品字节仍来自上列 7691a2b。没有覆盖旧 Release／附件或移动 tag；本轮仅推送此标签，没有写入远端 main。
+
+[发布与匿名下载回执](2026-11-25-alpha-release-evidence/published-verified.json)核对最终链接、tag、完整目标提交及四个附件名称／字节数／GitHub digest；再从无需认证的公开地址下载全部四个附件，各自 SHA256 与本地原件一致。
+
+HTTPS 推送先断线，后续大缓冲连接长期无成功回执；两次仅结束父 PID／完整命令均匹配的本次 Git 推送树，未结束产品或用户程序。每次重试前核对远端标签／Release 不存在，最终使用已有受信任 SSH 成功推送；没有改持久 Git／SSH 配置。源码尚未接收完成时的一次草稿请求得到 target_commitish invalid（422），没有创建 Release／上传附件；标签成功后才创建实际草稿。四附件先在草稿中逐项哈希核对，随后公开并再次匿名下载核对，不把失败请求写成成功或重新上传已有完整附件。归档回执时又遇到一次长中文 stdin 的 UTF-8 解析拒绝，文档写入未执行；改用文件补丁保存，不改变发布结果。
 
 这次是用户已授权的实验性公开预发布，不代表稳定版接受。真实 agent、全宿主／IME／DPI／实体鼠标矩阵、系统字体、资源预算、长稳、干净新电脑依赖矩阵及完整发行许可审计仍开放。新的 `asd.cmd` 在真实 Windows 验证的是 CLI 启动／预览／停止；新包下完整交互 TUI 流程未重跑，沿用同一产品字节的前轮局部桌面证据。
