@@ -13,3 +13,13 @@
 局部检查同时发现旧测试脚手架仍跳过前两行、硬编码第三行点击，以及把原标题行当成滚轮无效区；按新可见行和分隔列修正，未改变生产输入合同。最终局部命令与原日志在[证据目录](2026-11-26-navigation-appearance-evidence/)；只检查选中的相关测试，不运行全仓、race、vet 或 Windows 套件。
 
 本机 Go 1.27.4 darwin/amd64；源码行数与 diff 检查通过。未做 Windows 实机视觉接受，未重建／发布 exe。已有后端修改保留，不计为本轮工作；此前会话切换退出问题仍按用户要求跳过。339 项 catalog 设计状态不提升。
+
+## 用户授权后的 Windows 更新
+
+随后用户要求更新 Windows 供查看效果。从已提交 `952b6b9` 导出干净源码（不含工作区已有后端修复），交叉构建 `asd-ui-952b6b9.exe`，SHA256 `d33d7859b836fc7371c5b71880badd3b611e8bb58fb5fe39ec1f357da892b0b8`。上传后在 Windows 核对相同哈希，`version` 及实际 `list --json` 成功；原 3 个 Session/Run/backend 身份集合与新版本逐项一致。仅运行这些轻量交付检查，没有跑全量测试。
+
+桌面既有 `Agent Session Desk Alpha 8234c4e` 目录增加版本化 exe，`alpha.json` 入口改为新版并备份至 `alpha-before-ui-952b6b9.json`。旧 exe、终端运行库、启动器、宿主设置及 data 保留；更新前没有该目录的管理 UI 进程，后台 psmux 仍在，没有停止进程或注入按键／剪贴板。
+
+尝试通过交互用户一次性任务自动打开，但在有界观察内没有看到新 manager 或 Windows Terminal 进程，不能声称界面已经显示或视觉接受。任务已按精确 action 核对删除；后续只读检查固定 Terminal／PowerShell 文件存在且哈希一致，没有盲目重试。用户可从原桌面快捷方式启动新入口。原／新产品再次检查显式 `session_id/run_id/backend_id` 一致；初始更新脚本误用 `.id`，当时只正确比较 Run/backend，后续在启动尝试前已用正确字段补充核对，不将初始检查单独声称为完整 Session 证明。
+
+更新和打开脚本、私有完整回执位于本机临时交付目录，不提交用户身份或终端内容。GitHub Release 没有更新；Windows 实际视觉仍由用户查看。
