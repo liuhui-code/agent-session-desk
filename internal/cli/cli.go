@@ -48,7 +48,7 @@ Global options (before the subcommand):
   --namespace NAME     Isolated product backend namespace
   --state-dir DIR      Persistent metadata directory
   --state-dir DIR      Persistent metadata directory
-  --config PATH        Explicit TOML launch configuration (start --template only)
+  --config PATH        TOML launch configuration (default UI template or start --template)
 
 Start options:
   --name NAME          Session label (defaults to executable name)
@@ -92,6 +92,8 @@ func run(ctx context.Context, args []string, input io.Reader, output, errorOutpu
 	flags.SetOutput(errorOutput)
 	var options backend.Options
 	var configPath, stateDir string
+	var insideTerminal bool
+	flags.BoolVar(&insideTerminal, "inside-terminal", false, "internal terminal handoff")
 	flags.StringVar(&options.Binary, "backend", "", "terminal backend executable")
 	flags.StringVar(&options.TerminalBundle, "terminal-bundle", "", "pinned Windows x64 development terminal bundle")
 	flags.StringVar(&options.RuntimeDir, "runtime-dir", "", "product runtime directory")
@@ -121,8 +123,18 @@ func run(ctx context.Context, args []string, input io.Reader, output, errorOutpu
 	if command != "" && command != "doctor" && command != "start" && command != "list" && command != "preview" && command != "attach" && command != "stop" && command != "history" && command != "metadata" && command != "output" && command != "record" {
 		return fmt.Errorf("unknown command %q; run asd help", command)
 	}
-	if configPath != "" && command != "start" {
-		return fmt.Errorf("--config is only used by start --template")
+	if configPath != "" && command != "start" && command != "" {
+		return fmt.Errorf("--config is used by the UI default template or start --template")
+	}
+	if command == "" {
+		var err error
+		options, stateDir, err = applyPortableOptions(options, stateDir)
+		if err != nil {
+			return err
+		}
+		if handled, err := openTerminalHost(ctx, args, insideTerminal, input, output); handled {
+			return err
+		}
 	}
 	if command == "metadata" {
 		return metadataCommand(ctx, commandArgs, options, stateDir, output)
@@ -211,7 +223,7 @@ func run(ctx context.Context, args []string, input io.Reader, output, errorOutpu
 	defer metadata.Close()
 	service := manager.New(terminal, metadata)
 	if command == "" {
-		model := ui.NewWithOptions(ctx, service, loadUIOptions(options, stateDir))
+		model := ui.NewWithOptions(ctx, service, withQuickLaunch(loadUIOptions(options, stateDir), options, stateDir, configPath))
 		defer model.Close()
 		_, err := tea.NewProgram(model, tea.WithContext(ctx), tea.WithInput(input), tea.WithOutput(output)).Run()
 		return err
@@ -222,6 +234,9 @@ func run(ctx context.Context, args []string, input io.Reader, output, errorOutpu
 			return err
 		}
 		rememberLaunchDirectory(ctx, options, stateDir, launch.Dir, errorOutput)
+		if err := rememberCLIStart(ctx, options, stateDir, launch); err != nil {
+			fmt.Fprintln(errorOutput, err)
+		}
 		return writeJSON(output, created)
 	}
 	sessions, err := service.List(ctx)

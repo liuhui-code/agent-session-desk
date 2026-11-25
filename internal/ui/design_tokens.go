@@ -128,7 +128,7 @@ type workspaceTokens struct {
 	border                                                            lipgloss.Border
 }
 
-type palette struct{ bg, surface, border, text, dim, accent, cyan, red, yellow, activeBackground, activeText, groupText color.Color }
+type palette struct{ bg, surface, border, text, dim, accent, cyan, red, yellow, activeBackground, activeText, groupText, focusBackground, focusText color.Color }
 type layoutTokens struct {
 	singleBelow, stackedBelow                                      int
 	minFrameHeight, minPreviewHeight                               int
@@ -180,9 +180,9 @@ func defaultDesignTokens() designTokens {
 // black/#bbbbbb palette; neutral surfaces and dim roles keep UI chrome quiet.
 func themePalette(theme string) (palette, color.Color) {
 	if theme == "light" {
-		return palette{groupText: lipgloss.Color("#34548a"), activeBackground: lipgloss.Color("#cbdce8"), activeText: lipgloss.Color("#23465a"), bg: lipgloss.Color("#d5d6db"), surface: lipgloss.Color("#e9e9ec"), border: lipgloss.Color("#9699a3"), text: lipgloss.Color("#343b58"), dim: lipgloss.Color("#6a6d7c"), accent: lipgloss.Color("#34548a"), cyan: lipgloss.Color("#166775"), red: lipgloss.Color("#8c4351"), yellow: lipgloss.Color("#8f5e15")}, lipgloss.Color("#7847bd")
+		return palette{focusBackground: lipgloss.Color("#b3c7d4"), focusText: lipgloss.Color("#1a3140"), groupText: lipgloss.Color("#34548a"), activeBackground: lipgloss.Color("#cbdce8"), activeText: lipgloss.Color("#23465a"), bg: lipgloss.Color("#d5d6db"), surface: lipgloss.Color("#e9e9ec"), border: lipgloss.Color("#9699a3"), text: lipgloss.Color("#343b58"), dim: lipgloss.Color("#6a6d7c"), accent: lipgloss.Color("#34548a"), cyan: lipgloss.Color("#166775"), red: lipgloss.Color("#8c4351"), yellow: lipgloss.Color("#8f5e15")}, lipgloss.Color("#7847bd")
 	}
-	return palette{groupText: lipgloss.Color("#8ca5b8"), activeBackground: lipgloss.Color("#20303b"), activeText: lipgloss.Color("#bcd4e2"), bg: lipgloss.Color("#000000"), surface: lipgloss.Color("#222222"), border: lipgloss.Color("#333333"), text: lipgloss.Color("#bbbbbb"), dim: lipgloss.Color("#777777"), accent: lipgloss.Color("#bbbbbb"), cyan: lipgloss.Color("#bbbbbb"), red: lipgloss.Color("#bb0000"), yellow: lipgloss.Color("#bbbb00")}, lipgloss.Color("#bbbbbb")
+	return palette{focusBackground: lipgloss.Color("#38576b"), focusText: lipgloss.Color("#ffffff"), groupText: lipgloss.Color("#8ca5b8"), activeBackground: lipgloss.Color("#20303b"), activeText: lipgloss.Color("#bcd4e2"), bg: lipgloss.Color("#000000"), surface: lipgloss.Color("#222222"), border: lipgloss.Color("#333333"), text: lipgloss.Color("#bbbbbb"), dim: lipgloss.Color("#777777"), accent: lipgloss.Color("#bbbbbb"), cyan: lipgloss.Color("#bbbbbb"), red: lipgloss.Color("#bb0000"), yellow: lipgloss.Color("#bbbb00")}, lipgloss.Color("#bbbbbb")
 }
 
 func (t designTokens) withTheme(theme string) designTokens {
@@ -242,6 +242,10 @@ func sourceIndexedColor(value color.Color, profile colorprofile.Profile) color.C
 		return nil
 	}
 	for _, rule := range [...]struct{ authored, ansi, ansi256 string }{
+		{"#38576b", "4", "24"},
+		{"#ffffff", "15", "15"},
+		{"#b3c7d4", "7", "152"},
+		{"#1a3140", "0", "236"},
 		{"#8ca5b8", "7", "109"},
 		{"#20303b", "4", "236"},
 		{"#bcd4e2", "7", "152"},
@@ -290,7 +294,7 @@ func sourceIndexedColor(value color.Color, profile colorprofile.Profile) color.C
 }
 
 func (t designTokens) forLimitedDisplay(profile colorprofile.Profile) designTokens {
-	for _, value := range []*color.Color{&t.paths.background, &t.paths.purple, &t.colors.bg, &t.colors.surface, &t.colors.activeBackground, &t.colors.activeText, &t.colors.groupText, &t.colors.border, &t.colors.text, &t.colors.dim, &t.colors.accent, &t.colors.cyan, &t.colors.red, &t.colors.yellow, &t.footer.contextColor, &t.help.keyColor, &t.rename.borderColor, &t.group.placeholderColor, &t.search.placeholderColor, &t.search.countColor} {
+	for _, value := range []*color.Color{&t.paths.background, &t.paths.purple, &t.colors.bg, &t.colors.surface, &t.colors.activeBackground, &t.colors.activeText, &t.colors.groupText, &t.colors.focusBackground, &t.colors.focusText, &t.colors.border, &t.colors.text, &t.colors.dim, &t.colors.accent, &t.colors.cyan, &t.colors.red, &t.colors.yellow, &t.footer.contextColor, &t.help.keyColor, &t.rename.borderColor, &t.group.placeholderColor, &t.search.placeholderColor, &t.search.countColor} {
 		*value = sourceIndexedColor(*value, profile)
 	}
 	if profile == colorprofile.ASCII || profile == colorprofile.NoTTY {

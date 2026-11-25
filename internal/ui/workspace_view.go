@@ -20,7 +20,7 @@ func (m *Model) workspaceGeometry() workspaceGeometry {
 	bodyHeight := max(0, m.height-t.workspaceChromeRows()) // Full-height terminal; hints overlay without resizing the child.
 	left := 0
 	gap := lipgloss.Width(t.divider())
-	if m.width >= t.layout.stackedBelow {
+	if !m.workspace.sidebarHidden && m.width >= t.layout.stackedBelow {
 		percent := m.workspaceSidebarPercent()
 		left = max(t.workspace.minPane, m.width*percent/100)
 		left = min(left, max(0, m.width-gap-t.workspace.minPane))
@@ -32,7 +32,7 @@ func (m *Model) workspaceGeometry() workspaceGeometry {
 	above, terminalHeight := 0, bodyHeight
 	minList := t.layout.stackedListMin
 	minFrame := style.GetVerticalFrameSize() + t.workspace.minTerminalRows
-	if m.width < t.layout.stackedBelow && !m.workspace.focused {
+	if !m.workspace.sidebarHidden && m.width < t.layout.stackedBelow && !m.workspace.focused {
 		above, terminalHeight = bodyHeight, 0
 		if m.width >= t.layout.singleBelow && bodyHeight >= minList+t.layout.stackedGap+minFrame {
 			listHeight := max(minList, bodyHeight*m.workspaceSidebarPercent()/100)

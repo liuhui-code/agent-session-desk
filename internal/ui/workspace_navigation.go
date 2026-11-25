@@ -13,7 +13,7 @@ func (m *Model) navigateWorkspace(target workspaceTransition) tea.Cmd {
 	if w.transition != workspaceIdle {
 		return nil
 	}
-	if target == workspaceLaunch {
+	if target == workspaceLaunch || target == workspaceLaunchEdit {
 		if _, ok := m.service.(groupService); ok {
 			m.launchGroup = m.selectedGroup()
 		}
@@ -40,6 +40,11 @@ func (m *Model) finishWorkspaceNavigation() tea.Cmd {
 	case workspaceAttach:
 		return m.attach()
 	case workspaceLaunch:
+		if m.loadQuickLaunch != nil {
+			return m.startQuickLaunch()
+		}
+		return m.openLaunchDialog()
+	case workspaceLaunchEdit:
 		return m.openLaunchDialog()
 	case workspaceSettings:
 		m.openDensitySettings()

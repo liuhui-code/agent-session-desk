@@ -14,6 +14,17 @@ func (m *Model) workspaceKeyNow(msg tea.KeyPressMsg) tea.Cmd {
 	w := m.workspace
 	w.copyPointer = nil
 	w.listClick = workspaceListClick{}
+	if msg.Code == 's' && msg.Mod == tea.ModCtrl {
+		return m.toggleWorkspaceSidebar()
+	}
+	if m.quickCreate != nil {
+		if msg.String() == "q" || msg.String() == "ctrl+c" {
+			m.quickCreate.quitting = true
+			m.status = "Finishing creation before quitting…"
+		}
+		return nil
+	}
+
 	if w.transition != workspaceIdle && w.transition != workspaceSwitch {
 		return nil
 	}
@@ -36,6 +47,9 @@ func (m *Model) workspaceKeyNow(msg tea.KeyPressMsg) tea.Cmd {
 			return nil
 		}
 		w.focused = !w.focused
+		if !w.focused {
+			w.sidebarHidden = false
+		}
 		m.status = ""
 		return m.workspaceSize()
 	}
@@ -182,6 +196,8 @@ func (m *Model) workspaceKeyNow(msg tea.KeyPressMsg) tea.Cmd {
 		return m.navigateWorkspace(workspaceHistory)
 	case "n":
 		return m.navigateWorkspace(workspaceLaunch)
+	case "N":
+		return m.navigateWorkspace(workspaceLaunchEdit)
 	case "?":
 		return m.navigateWorkspace(workspaceHelp)
 	case "S":

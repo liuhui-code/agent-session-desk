@@ -9,9 +9,11 @@ func workspaceHelpSections() []helpSection {
 	return []helpSection{
 		{"Tabs and terminals", [][2]string{
 			{"F6", "Toggle navigation/terminal focus"},
+			{"Ctrl+S", "Show/hide sidebar (outside dialogs)"},
 			{"Ctrl+PgUp / Ctrl+PgDn", "Switch tabs; preserve the terminal draft"},
 			{"Enter", "Open the selected session's original run"},
-			{"n / + button", "Create an agent, shell or CLI session"},
+			{"N", "Edit a launch configuration"},
+			{"n / + button", "Create from last/default configuration"},
 			{"x / × button", "Close only the view; keep the run alive"},
 			{"d (navigation focus)", "Confirm stopping the selected session; preserve tab and history"},
 			{"[ / ]", "Move the active tab left or right"},

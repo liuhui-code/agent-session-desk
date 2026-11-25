@@ -63,6 +63,10 @@ type Model struct {
 	groupOrderFailed                 bool
 	groupDialog                      *groupDialog
 	groupIntent                      *groupDialog
+	loadQuickLaunch                  func(context.Context) (session.Launch, error)
+	rememberLaunch                   func(context.Context, session.Launch) error
+	quickCreate                      *quickLaunchState
+	quickUncertain                   bool
 	launchGroup                      session.Group
 	groups                           []session.Group
 	groupsObserved                   uint64
@@ -201,6 +205,9 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			return m, cmd
 		}
 		if cmd, handled := m.densitySettingsEvent(msg); handled {
+			return m, cmd
+		}
+		if cmd, handled := m.quickLaunchEvent(msg); handled {
 			return m, cmd
 		}
 		if cmd, handled := m.launchEvent(msg); handled {

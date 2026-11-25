@@ -28,6 +28,7 @@ const (
 	workspaceHelp
 	workspaceAttach
 	workspaceLaunch
+	workspaceLaunchEdit
 	workspaceSettings
 	workspaceSearch
 	workspaceRename
@@ -37,33 +38,34 @@ const (
 )
 
 type workspaceState struct {
-	footerHovered              bool
-	directories                directoryState
-	programPointer             *workspaceProgramPointer
-	programHover               workspaceProgramHover
-	copyPointer                *workspaceCopyPointer
-	visibleCopy                *visiblePaneCopy
-	pendingClipboard           *workspaceClipboard
-	clipboardReading           bool
-	listClick                  workspaceListClick
-	split                      workspaceSplit
-	readBusy                   bool
-	transition                 workspaceTransition
-	pending                    int
-	switchTarget               uint64
-	buffered                   []workspaceInput
-	inputs                     chan workspaceInput
-	service                    workspaceService
-	tabs                       []workspaceTab
-	active                     int
-	nextID                     uint64
-	initialized, focused, busy bool
-	generation                 uint64
-	cancel                     context.CancelFunc
-	ctx                        context.Context
-	conn                       terminal.Connection
-	screen                     terminal.Screen
-	err                        error
+	sidebarHidden, sidebarFocusBeforeHide bool
+	footerHovered                         bool
+	directories                           directoryState
+	programPointer                        *workspaceProgramPointer
+	programHover                          workspaceProgramHover
+	copyPointer                           *workspaceCopyPointer
+	visibleCopy                           *visiblePaneCopy
+	pendingClipboard                      *workspaceClipboard
+	clipboardReading                      bool
+	listClick                             workspaceListClick
+	split                                 workspaceSplit
+	readBusy                              bool
+	transition                            workspaceTransition
+	pending                               int
+	switchTarget                          uint64
+	buffered                              []workspaceInput
+	inputs                                chan workspaceInput
+	service                               workspaceService
+	tabs                                  []workspaceTab
+	active                                int
+	nextID                                uint64
+	initialized, focused, busy            bool
+	generation                            uint64
+	cancel                                context.CancelFunc
+	ctx                                   context.Context
+	conn                                  terminal.Connection
+	screen                                terminal.Screen
+	err                                   error
 }
 type workspaceOpened struct {
 	generation    uint64

@@ -1,5 +1,20 @@
 # 启动模板
 
+2026-11-26 UI 更新（[ADR-0042](adr/0042-direct-create-terminal-host-and-focus.md)）：管理 `n` 直接使用最近一次成功的完整配置，首次读 `--config` 的 `templates.default`；未指定配置文件时使用 scoped 元数据旁的 `launch.toml`，缺失时生成一次系统 shell 默认模板。`N` 才明确打开编辑表单。最近成功记录独立为 `last-launch.toml`，包含明确 env 覆盖、按私有运行数据保管；不写回作者的默认配置。CLI start 成功也更新最近配置，失败／不确定结果不更新，不从列表的 Command 重建 args。
+
+例如默认配置：
+
+```toml
+schema_version = 1
+[templates.default]
+name = "PowerShell"
+executable = "powershell.exe"
+args = ["-NoLogo", "-NoProfile", "-NoExit"]
+cwd = 'C:\project'
+```
+
+用 `asd --config .\agents.toml` 打开 UI 即可使用此默认模板。已有 last-launch.toml 时仍优先最近记录；需要重新采用默认时先退出 UI，备份并移走该最近记录，不能覆盖正在使用的数据。
+
 日期：2026-11-22。M1 首个只读配置切片，完整 M0/M1 验收未完成。合同见 [ADR-0007](adr/0007-explicit-launch-configuration.md)。
 
 在明确的文件（例如 `agents.toml`）中配置自己的 CLI：

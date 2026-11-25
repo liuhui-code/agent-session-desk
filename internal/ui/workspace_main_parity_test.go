@@ -30,7 +30,7 @@ func TestNestedSessionCardHighlightIncludesIndentationAtEveryDensity(t *testing.
 				const width = 42
 				window := m.sidebarNavigationWindow(width, 20)
 				lines := strings.Split(m.renderWorkspaceSidebar(width, 20), "\n")
-				background := m.tokens.colors.surface
+				background := m.tokens.colors.focusBackground
 				if focused {
 					background = m.tokens.colors.activeBackground
 				}

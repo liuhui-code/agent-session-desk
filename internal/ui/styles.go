@@ -17,123 +17,125 @@ import (
 )
 
 type styles struct {
-	pathBox, pathBrowseBox, pathText, pathSelected, pathCustom, pathCustomSelected, pathHint                                  lipgloss.Style
-	footerCuratedKey                                                                                                          lipgloss.Style
-	settingsSection, settingsFocusMarker, settingsChoiceIdle, settingsRadioIdle                                               lipgloss.Style
-	footerContext, footerKey, footerFullKey, footerDescription, footerSeparator, footerBadge, footerCompactBadge              lipgloss.Style
-	helpBox, helpTitle, helpSection, helpKey, helpText, helpHint, helpNote, helpTab, helpScroll                               lipgloss.Style
-	confirmBox, confirmNoticeBox, confirmTitle, confirmNoticeTitle, confirmWarning, confirmDetails, confirmHint, confirmError lipgloss.Style
-	confirmDelete, confirmDeleteFocused, confirmCancel, confirmCancelFocused                                                  lipgloss.Style
-	groupInput                                                                                                                textinput.Styles
-	groupLabel, groupContext, groupMode, groupChoice, groupChoiceSelected                                                     lipgloss.Style
-	groupName, groupPart, groupHotkey, groupSelectedName, groupSelectedPart                                                   lipgloss.Style
-	renameBox, renameTitle, renameHint                                                                                        lipgloss.Style
-	renameInput                                                                                                               textinput.Styles
-	searchTip                                                                                                                 lipgloss.Style
-	searchBox, searchInput, searchTitle, searchResult, searchSelected, searchCount, searchHint                                lipgloss.Style
-	copy                                                                                                                      terminal.CopyStyles
-	settingsBox, settingsTitle, settingsText, settingsHint, settingsChoice, settingsRadio, settingsFocused, settingsError     lipgloss.Style
-	sidebarActive, sidebarMetadataActive, sidebarSelected, sidebarMetadataSelected                                            lipgloss.Style
-	separatorDrag                                                                                                             lipgloss.Style
-	formTitle, formText, formHint, formError                                                                                  lipgloss.Style
-	dialog, backdrop                                                                                                          lipgloss.Style
-	formInput                                                                                                                 textinput.Styles
-	tab, tabActive, terminalFrame, terminalFocused                                                                            lipgloss.Style
-	title, highlight, dim, error, text, key, separator, panelTitle                                                            lipgloss.Style
-	menuDot, menuGap                                                                                                          string
+	pathBox, pathBrowseBox, pathText, pathSelected, pathCustom, pathCustomSelected, pathHint                                             lipgloss.Style
+	footerCuratedKey                                                                                                                     lipgloss.Style
+	settingsSection, settingsFocusMarker, settingsChoiceIdle, settingsRadioIdle                                                          lipgloss.Style
+	footerContext, footerKey, footerFullKey, footerDescription, footerSeparator, footerBadge, footerCompactBadge                         lipgloss.Style
+	helpBox, helpTitle, helpSection, helpKey, helpText, helpHint, helpNote, helpTab, helpScroll                                          lipgloss.Style
+	confirmBox, confirmNoticeBox, confirmTitle, confirmNoticeTitle, confirmWarning, confirmDetails, confirmHint, confirmError            lipgloss.Style
+	confirmDelete, confirmDeleteFocused, confirmCancel, confirmCancelFocused                                                             lipgloss.Style
+	groupInput                                                                                                                           textinput.Styles
+	groupLabel, groupContext, groupMode, groupChoice, groupChoiceSelected                                                                lipgloss.Style
+	groupName, groupPart, groupHotkey, groupSelectedName, groupSelectedPart                                                              lipgloss.Style
+	renameBox, renameTitle, renameHint                                                                                                   lipgloss.Style
+	renameInput                                                                                                                          textinput.Styles
+	searchTip                                                                                                                            lipgloss.Style
+	searchBox, searchInput, searchTitle, searchResult, searchSelected, searchCount, searchHint                                           lipgloss.Style
+	copy                                                                                                                                 terminal.CopyStyles
+	settingsBox, settingsTitle, settingsText, settingsHint, settingsChoice, settingsRadio, settingsFocused, settingsError                lipgloss.Style
+	sidebarNavigationSelected, sidebarNavigationMetadata, sidebarActive, sidebarMetadataActive, sidebarSelected, sidebarMetadataSelected lipgloss.Style
+	separatorDrag                                                                                                                        lipgloss.Style
+	formTitle, formText, formHint, formError                                                                                             lipgloss.Style
+	dialog, backdrop                                                                                                                     lipgloss.Style
+	formInput                                                                                                                            textinput.Styles
+	tab, tabActive, terminalFrame, terminalFocused                                                                                       lipgloss.Style
+	title, highlight, dim, error, text, key, separator, panelTitle                                                                       lipgloss.Style
+	menuDot, menuGap                                                                                                                     string
 }
 
 func newStyles(t designTokens, profile colorprofile.Profile) styles {
 	t = t.forDisplay(profile)
 	return styles{
-		pathBox:                 lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.colors.border).Background(t.paths.background).Padding(t.paths.paddingY, t.paths.paddingX),
-		pathBrowseBox:           lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.colors.cyan).Background(t.paths.background).Padding(t.paths.paddingY, t.paths.paddingX),
-		pathText:                lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.paths.background),
-		pathSelected:            lipgloss.NewStyle().Foreground(t.colors.cyan).Background(t.paths.background).Bold(t.bold),
-		pathCustom:              lipgloss.NewStyle().Foreground(t.paths.purple).Background(t.paths.background).Italic(t.paths.italic),
-		pathCustomSelected:      lipgloss.NewStyle().Foreground(t.colors.cyan).Background(t.paths.background).Bold(t.bold).Italic(t.paths.italic),
-		pathHint:                lipgloss.NewStyle().Foreground(t.colors.border).Background(t.paths.background),
-		footerCuratedKey:        lipgloss.NewStyle().Foreground(t.colors.dim).Bold(t.bold),
-		footerContext:           lipgloss.NewStyle().Foreground(t.footer.contextColor).Bold(t.bold),
-		footerKey:               lipgloss.NewStyle().Foreground(t.colors.bg).Background(t.colors.accent).Bold(t.bold),
-		footerFullKey:           lipgloss.NewStyle().Foreground(t.colors.bg).Background(t.colors.accent).Bold(t.bold).PaddingLeft(t.footer.fullKeyPadding).PaddingRight(t.footer.fullKeyPadding),
-		footerDescription:       lipgloss.NewStyle().Foreground(t.colors.text),
-		footerSeparator:         lipgloss.NewStyle().Foreground(t.colors.border),
-		footerBadge:             lipgloss.NewStyle().Foreground(t.colors.bg).Background(t.colors.yellow).Bold(t.bold).PaddingLeft(t.footer.badgePadding).PaddingRight(t.footer.badgePadding),
-		footerCompactBadge:      lipgloss.NewStyle().Foreground(t.colors.bg).Background(t.colors.yellow).Bold(t.bold),
-		helpBox:                 lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.help.keyColor).Background(t.colors.surface).Padding(t.help.paddingY, t.help.paddingX),
-		helpTitle:               lipgloss.NewStyle().Foreground(t.colors.accent).Background(t.colors.surface).Bold(t.bold),
-		helpSection:             lipgloss.NewStyle().Foreground(t.colors.cyan).Background(t.colors.surface).Bold(t.bold),
-		helpKey:                 lipgloss.NewStyle().Foreground(t.help.keyColor).Background(t.colors.surface),
-		helpText:                lipgloss.NewStyle().Foreground(t.colors.text).Background(t.colors.surface),
-		helpHint:                lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.surface).Italic(t.help.hintItalic),
-		helpNote:                lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.surface),
-		helpTab:                 lipgloss.NewStyle().Foreground(t.colors.cyan).Background(t.colors.surface),
-		helpScroll:              lipgloss.NewStyle().Foreground(t.colors.yellow).Background(t.colors.surface).Bold(t.bold),
-		confirmBox:              lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.colors.red).Background(t.colors.bg).Padding(t.confirm.paddingY, t.confirm.paddingX),
-		confirmNoticeBox:        lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.colors.yellow).Background(t.colors.bg).Padding(t.confirm.paddingY, t.confirm.paddingX),
-		confirmTitle:            lipgloss.NewStyle().Foreground(t.colors.red).Background(t.colors.bg).Bold(t.bold).MarginBottom(t.confirm.sectionGap),
-		confirmNoticeTitle:      lipgloss.NewStyle().Foreground(t.colors.yellow).Background(t.colors.bg).Bold(t.bold).MarginBottom(t.confirm.sectionGap),
-		confirmWarning:          lipgloss.NewStyle().Foreground(t.colors.yellow).Background(t.colors.bg).MarginBottom(t.confirm.sectionGap),
-		confirmDetails:          lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.bg).MarginBottom(t.confirm.sectionGap),
-		confirmHint:             lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.bg),
-		confirmError:            lipgloss.NewStyle().Foreground(t.colors.red).Background(t.colors.bg),
-		confirmDelete:           lipgloss.NewStyle().Foreground(t.colors.red).Background(t.colors.bg).Bold(t.bold).PaddingLeft(t.confirm.buttonPadding).PaddingRight(t.confirm.buttonPadding),
-		confirmDeleteFocused:    lipgloss.NewStyle().Foreground(t.colors.bg).Background(t.colors.red).Bold(t.bold).PaddingLeft(t.confirm.buttonPadding).PaddingRight(t.confirm.buttonPadding),
-		confirmCancel:           lipgloss.NewStyle().Foreground(t.colors.accent).Background(t.colors.bg).Bold(t.bold).PaddingLeft(t.confirm.buttonPadding).PaddingRight(t.confirm.buttonPadding),
-		confirmCancelFocused:    lipgloss.NewStyle().Foreground(t.colors.bg).Background(t.colors.accent).Bold(t.bold).PaddingLeft(t.confirm.buttonPadding).PaddingRight(t.confirm.buttonPadding),
-		groupInput:              groupInputStyles(t),
-		groupLabel:              lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.surface),
-		groupContext:            lipgloss.NewStyle().Foreground(t.colors.cyan).Background(t.colors.surface),
-		groupMode:               lipgloss.NewStyle().Foreground(t.colors.accent).Background(t.colors.surface).Bold(t.bold),
-		groupChoice:             lipgloss.NewStyle().Foreground(t.colors.text).Background(t.colors.surface).PaddingLeft(t.group.choicePadding).PaddingRight(t.group.choicePadding),
-		groupChoiceSelected:     lipgloss.NewStyle().Foreground(t.colors.bg).Background(t.colors.accent).Bold(t.bold).PaddingLeft(t.group.choicePadding).PaddingRight(t.group.choicePadding),
-		groupName:               lipgloss.NewStyle().Foreground(t.colors.groupText).Bold(t.sidebar.groupBold),
-		groupPart:               lipgloss.NewStyle().Foreground(t.colors.dim),
-		groupHotkey:             lipgloss.NewStyle().Foreground(t.colors.dim),
-		groupSelectedName:       lipgloss.NewStyle().Foreground(t.colors.groupText).Background(t.colors.surface).Bold(t.sidebar.groupBold),
-		groupSelectedPart:       lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.surface),
-		renameBox:               lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.rename.borderColor).Background(t.colors.surface).Padding(t.rename.paddingY, t.rename.paddingX),
-		renameTitle:             lipgloss.NewStyle().Foreground(t.rename.borderColor).Background(t.colors.surface).Bold(t.bold),
-		renameHint:              lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.surface),
-		renameInput:             renameInputStyles(t),
-		searchTip:               lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.bg).Italic(t.search.hintItalic),
-		searchBox:               lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.colors.accent).Background(t.colors.bg).Padding(t.search.paddingY, t.search.paddingX),
-		searchInput:             lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.colors.accent).Background(t.colors.bg).Padding(t.search.inputPaddingY, t.search.inputPaddingX),
-		searchTitle:             lipgloss.NewStyle().Foreground(t.colors.accent).Background(t.colors.bg).Bold(t.bold),
-		searchResult:            lipgloss.NewStyle().Foreground(t.colors.text).Background(t.colors.bg).PaddingLeft(t.search.resultPadding).PaddingRight(t.search.resultPadding),
-		searchSelected:          lipgloss.NewStyle().Foreground(t.colors.bg).Background(t.colors.accent).PaddingLeft(t.search.resultPadding).PaddingRight(t.search.resultPadding),
-		searchCount:             lipgloss.NewStyle().Foreground(t.search.countColor).Background(t.colors.bg),
-		searchHint:              lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.bg),
-		copy:                    newCopyStyles(t),
-		settingsRadio:           lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.surface),
-		settingsRadioIdle:       lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.bg),
-		settingsChoiceIdle:      lipgloss.NewStyle().Foreground(t.colors.accent).Background(t.colors.bg).Bold(t.bold),
-		settingsFocusMarker:     lipgloss.NewStyle().Foreground(t.colors.accent).Background(t.colors.surface).Bold(t.bold),
-		settingsSection:         lipgloss.NewStyle().Foreground(t.colors.accent).Background(t.colors.bg).Bold(t.bold),
-		settingsBox:             lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.colors.cyan).Background(t.colors.bg).Padding(t.sidebar.settingsPaddingY, t.sidebar.settingsPaddingX),
-		settingsTitle:           lipgloss.NewStyle().Foreground(t.colors.cyan).Background(t.colors.bg).Bold(t.bold),
-		settingsText:            lipgloss.NewStyle().Foreground(t.colors.text).Background(t.colors.bg),
-		settingsHint:            lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.bg),
-		settingsChoice:          lipgloss.NewStyle().Foreground(t.colors.accent).Background(t.colors.surface).Bold(t.bold).Underline(t.sidebar.underlineChoice),
-		settingsFocused:         lipgloss.NewStyle().Foreground(t.colors.text).Background(t.colors.surface),
-		settingsError:           lipgloss.NewStyle().Foreground(t.colors.red).Background(t.colors.bg),
-		sidebarActive:           lipgloss.NewStyle().Foreground(t.colors.activeText).Background(t.colors.activeBackground),
-		sidebarMetadataActive:   lipgloss.NewStyle().Foreground(t.colors.activeText).Background(t.colors.activeBackground),
-		sidebarSelected:         lipgloss.NewStyle().Foreground(t.colors.text).Background(t.colors.surface),
-		sidebarMetadataSelected: lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.surface),
-		separatorDrag:           lipgloss.NewStyle().Foreground(t.colors.border),
-		formTitle:               lipgloss.NewStyle().Foreground(t.colors.cyan).Background(t.colors.surface).Bold(t.bold),
-		formText:                lipgloss.NewStyle().Foreground(t.colors.text).Background(t.colors.surface),
-		formHint:                lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.surface),
-		formError:               lipgloss.NewStyle().Foreground(t.colors.red).Background(t.colors.surface).Bold(t.bold),
-		dialog:                  lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.colors.cyan).Background(t.colors.surface).Padding(t.dialog.paddingY, t.dialog.paddingX),
-		backdrop:                lipgloss.NewStyle().Faint(t.dialog.dimBackdrop),
-		formInput:               formInputStyles(t),
-		tab:                     lipgloss.NewStyle().Foreground(t.colors.text).Background(t.colors.surface).PaddingLeft(t.workspace.tabPadding).PaddingRight(t.workspace.tabPadding),
-		tabActive:               lipgloss.NewStyle().Foreground(t.colors.bg).Background(t.colors.accent).Bold(t.bold).PaddingLeft(t.workspace.tabPadding).PaddingRight(t.workspace.tabPadding),
-		terminalFrame:           lipgloss.NewStyle(),
-		terminalFocused:         lipgloss.NewStyle(),
+		pathBox:                   lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.colors.border).Background(t.paths.background).Padding(t.paths.paddingY, t.paths.paddingX),
+		pathBrowseBox:             lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.colors.cyan).Background(t.paths.background).Padding(t.paths.paddingY, t.paths.paddingX),
+		pathText:                  lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.paths.background),
+		pathSelected:              lipgloss.NewStyle().Foreground(t.colors.cyan).Background(t.paths.background).Bold(t.bold),
+		pathCustom:                lipgloss.NewStyle().Foreground(t.paths.purple).Background(t.paths.background).Italic(t.paths.italic),
+		pathCustomSelected:        lipgloss.NewStyle().Foreground(t.colors.cyan).Background(t.paths.background).Bold(t.bold).Italic(t.paths.italic),
+		pathHint:                  lipgloss.NewStyle().Foreground(t.colors.border).Background(t.paths.background),
+		footerCuratedKey:          lipgloss.NewStyle().Foreground(t.colors.dim).Bold(t.bold),
+		footerContext:             lipgloss.NewStyle().Foreground(t.footer.contextColor).Bold(t.bold),
+		footerKey:                 lipgloss.NewStyle().Foreground(t.colors.bg).Background(t.colors.accent).Bold(t.bold),
+		footerFullKey:             lipgloss.NewStyle().Foreground(t.colors.bg).Background(t.colors.accent).Bold(t.bold).PaddingLeft(t.footer.fullKeyPadding).PaddingRight(t.footer.fullKeyPadding),
+		footerDescription:         lipgloss.NewStyle().Foreground(t.colors.text),
+		footerSeparator:           lipgloss.NewStyle().Foreground(t.colors.border),
+		footerBadge:               lipgloss.NewStyle().Foreground(t.colors.bg).Background(t.colors.yellow).Bold(t.bold).PaddingLeft(t.footer.badgePadding).PaddingRight(t.footer.badgePadding),
+		footerCompactBadge:        lipgloss.NewStyle().Foreground(t.colors.bg).Background(t.colors.yellow).Bold(t.bold),
+		helpBox:                   lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.help.keyColor).Background(t.colors.surface).Padding(t.help.paddingY, t.help.paddingX),
+		helpTitle:                 lipgloss.NewStyle().Foreground(t.colors.accent).Background(t.colors.surface).Bold(t.bold),
+		helpSection:               lipgloss.NewStyle().Foreground(t.colors.cyan).Background(t.colors.surface).Bold(t.bold),
+		helpKey:                   lipgloss.NewStyle().Foreground(t.help.keyColor).Background(t.colors.surface),
+		helpText:                  lipgloss.NewStyle().Foreground(t.colors.text).Background(t.colors.surface),
+		helpHint:                  lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.surface).Italic(t.help.hintItalic),
+		helpNote:                  lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.surface),
+		helpTab:                   lipgloss.NewStyle().Foreground(t.colors.cyan).Background(t.colors.surface),
+		helpScroll:                lipgloss.NewStyle().Foreground(t.colors.yellow).Background(t.colors.surface).Bold(t.bold),
+		confirmBox:                lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.colors.red).Background(t.colors.bg).Padding(t.confirm.paddingY, t.confirm.paddingX),
+		confirmNoticeBox:          lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.colors.yellow).Background(t.colors.bg).Padding(t.confirm.paddingY, t.confirm.paddingX),
+		confirmTitle:              lipgloss.NewStyle().Foreground(t.colors.red).Background(t.colors.bg).Bold(t.bold).MarginBottom(t.confirm.sectionGap),
+		confirmNoticeTitle:        lipgloss.NewStyle().Foreground(t.colors.yellow).Background(t.colors.bg).Bold(t.bold).MarginBottom(t.confirm.sectionGap),
+		confirmWarning:            lipgloss.NewStyle().Foreground(t.colors.yellow).Background(t.colors.bg).MarginBottom(t.confirm.sectionGap),
+		confirmDetails:            lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.bg).MarginBottom(t.confirm.sectionGap),
+		confirmHint:               lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.bg),
+		confirmError:              lipgloss.NewStyle().Foreground(t.colors.red).Background(t.colors.bg),
+		confirmDelete:             lipgloss.NewStyle().Foreground(t.colors.red).Background(t.colors.bg).Bold(t.bold).PaddingLeft(t.confirm.buttonPadding).PaddingRight(t.confirm.buttonPadding),
+		confirmDeleteFocused:      lipgloss.NewStyle().Foreground(t.colors.bg).Background(t.colors.red).Bold(t.bold).PaddingLeft(t.confirm.buttonPadding).PaddingRight(t.confirm.buttonPadding),
+		confirmCancel:             lipgloss.NewStyle().Foreground(t.colors.accent).Background(t.colors.bg).Bold(t.bold).PaddingLeft(t.confirm.buttonPadding).PaddingRight(t.confirm.buttonPadding),
+		confirmCancelFocused:      lipgloss.NewStyle().Foreground(t.colors.bg).Background(t.colors.accent).Bold(t.bold).PaddingLeft(t.confirm.buttonPadding).PaddingRight(t.confirm.buttonPadding),
+		groupInput:                groupInputStyles(t),
+		groupLabel:                lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.surface),
+		groupContext:              lipgloss.NewStyle().Foreground(t.colors.cyan).Background(t.colors.surface),
+		groupMode:                 lipgloss.NewStyle().Foreground(t.colors.accent).Background(t.colors.surface).Bold(t.bold),
+		groupChoice:               lipgloss.NewStyle().Foreground(t.colors.text).Background(t.colors.surface).PaddingLeft(t.group.choicePadding).PaddingRight(t.group.choicePadding),
+		groupChoiceSelected:       lipgloss.NewStyle().Foreground(t.colors.bg).Background(t.colors.accent).Bold(t.bold).PaddingLeft(t.group.choicePadding).PaddingRight(t.group.choicePadding),
+		groupName:                 lipgloss.NewStyle().Foreground(t.colors.groupText).Bold(t.sidebar.groupBold),
+		groupPart:                 lipgloss.NewStyle().Foreground(t.colors.dim),
+		groupHotkey:               lipgloss.NewStyle().Foreground(t.colors.dim),
+		groupSelectedName:         lipgloss.NewStyle().Foreground(t.colors.focusText).Background(t.colors.focusBackground).Bold(t.sidebar.groupBold),
+		groupSelectedPart:         lipgloss.NewStyle().Foreground(t.colors.focusText).Background(t.colors.focusBackground),
+		renameBox:                 lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.rename.borderColor).Background(t.colors.surface).Padding(t.rename.paddingY, t.rename.paddingX),
+		renameTitle:               lipgloss.NewStyle().Foreground(t.rename.borderColor).Background(t.colors.surface).Bold(t.bold),
+		renameHint:                lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.surface),
+		renameInput:               renameInputStyles(t),
+		searchTip:                 lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.bg).Italic(t.search.hintItalic),
+		searchBox:                 lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.colors.accent).Background(t.colors.bg).Padding(t.search.paddingY, t.search.paddingX),
+		searchInput:               lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.colors.accent).Background(t.colors.bg).Padding(t.search.inputPaddingY, t.search.inputPaddingX),
+		searchTitle:               lipgloss.NewStyle().Foreground(t.colors.accent).Background(t.colors.bg).Bold(t.bold),
+		searchResult:              lipgloss.NewStyle().Foreground(t.colors.text).Background(t.colors.bg).PaddingLeft(t.search.resultPadding).PaddingRight(t.search.resultPadding),
+		searchSelected:            lipgloss.NewStyle().Foreground(t.colors.bg).Background(t.colors.accent).PaddingLeft(t.search.resultPadding).PaddingRight(t.search.resultPadding),
+		searchCount:               lipgloss.NewStyle().Foreground(t.search.countColor).Background(t.colors.bg),
+		searchHint:                lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.bg),
+		copy:                      newCopyStyles(t),
+		settingsRadio:             lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.surface),
+		settingsRadioIdle:         lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.bg),
+		settingsChoiceIdle:        lipgloss.NewStyle().Foreground(t.colors.accent).Background(t.colors.bg).Bold(t.bold),
+		settingsFocusMarker:       lipgloss.NewStyle().Foreground(t.colors.accent).Background(t.colors.surface).Bold(t.bold),
+		settingsSection:           lipgloss.NewStyle().Foreground(t.colors.accent).Background(t.colors.bg).Bold(t.bold),
+		settingsBox:               lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.colors.cyan).Background(t.colors.bg).Padding(t.sidebar.settingsPaddingY, t.sidebar.settingsPaddingX),
+		settingsTitle:             lipgloss.NewStyle().Foreground(t.colors.cyan).Background(t.colors.bg).Bold(t.bold),
+		settingsText:              lipgloss.NewStyle().Foreground(t.colors.text).Background(t.colors.bg),
+		settingsHint:              lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.bg),
+		settingsChoice:            lipgloss.NewStyle().Foreground(t.colors.accent).Background(t.colors.surface).Bold(t.bold).Underline(t.sidebar.underlineChoice),
+		settingsFocused:           lipgloss.NewStyle().Foreground(t.colors.text).Background(t.colors.surface),
+		settingsError:             lipgloss.NewStyle().Foreground(t.colors.red).Background(t.colors.bg),
+		sidebarNavigationSelected: lipgloss.NewStyle().Foreground(t.colors.focusText).Background(t.colors.focusBackground).Bold(t.sidebar.groupBold),
+		sidebarNavigationMetadata: lipgloss.NewStyle().Foreground(t.colors.focusText).Background(t.colors.focusBackground),
+		sidebarActive:             lipgloss.NewStyle().Foreground(t.colors.activeText).Background(t.colors.activeBackground),
+		sidebarMetadataActive:     lipgloss.NewStyle().Foreground(t.colors.activeText).Background(t.colors.activeBackground),
+		sidebarSelected:           lipgloss.NewStyle().Foreground(t.colors.text).Background(t.colors.surface),
+		sidebarMetadataSelected:   lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.surface),
+		separatorDrag:             lipgloss.NewStyle().Foreground(t.colors.border),
+		formTitle:                 lipgloss.NewStyle().Foreground(t.colors.cyan).Background(t.colors.surface).Bold(t.bold),
+		formText:                  lipgloss.NewStyle().Foreground(t.colors.text).Background(t.colors.surface),
+		formHint:                  lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.surface),
+		formError:                 lipgloss.NewStyle().Foreground(t.colors.red).Background(t.colors.surface).Bold(t.bold),
+		dialog:                    lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.colors.cyan).Background(t.colors.surface).Padding(t.dialog.paddingY, t.dialog.paddingX),
+		backdrop:                  lipgloss.NewStyle().Faint(t.dialog.dimBackdrop),
+		formInput:                 formInputStyles(t),
+		tab:                       lipgloss.NewStyle().Foreground(t.colors.text).Background(t.colors.surface).PaddingLeft(t.workspace.tabPadding).PaddingRight(t.workspace.tabPadding),
+		tabActive:                 lipgloss.NewStyle().Foreground(t.colors.bg).Background(t.colors.accent).Bold(t.bold).PaddingLeft(t.workspace.tabPadding).PaddingRight(t.workspace.tabPadding),
+		terminalFrame:             lipgloss.NewStyle(),
+		terminalFocused:           lipgloss.NewStyle(),
 		title: lipgloss.NewStyle().Bold(t.bold).
 			Foreground(t.colors.accent),
 		highlight: lipgloss.NewStyle().Foreground(t.colors.bg).

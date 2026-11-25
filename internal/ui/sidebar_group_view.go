@@ -26,7 +26,7 @@ func (m *Model) renderSidebarGroupAt(id string, level, width int) string {
 		icon = t.groupCollapsed
 	}
 	gutter := strings.Repeat(" ", t.groupGutter)
-	if selected {
+	if selected && !m.workspace.focused {
 		gutter = m.styles.key.Render(t.selected)
 		nameStyle, partStyle = m.styles.groupSelectedName, m.styles.groupSelectedPart
 	}

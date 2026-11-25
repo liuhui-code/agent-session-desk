@@ -33,10 +33,11 @@ type launchDialog struct {
 	err             error
 }
 type launchResult struct {
-	dialog  *launchDialog
-	session session.Session
-	dir     string
-	err     error
+	dialog      *launchDialog
+	session     session.Session
+	dir         string
+	err         error
+	rememberErr error
 }
 
 func (m *Model) openLaunchDialog() tea.Cmd {
@@ -92,6 +93,9 @@ func (m *Model) launchEvent(msg tea.Msg) (tea.Cmd, bool) {
 			m.listCancel()
 		}
 		m.launch = nil
+		if result.rememberErr != nil {
+			m.status = "Terminal created; last launch settings could not be saved."
+		}
 		return tea.Batch(m.acceptLaunchedSession(result.session), m.rememberDirectory(result.dir)), true
 	}
 	d := m.launch
@@ -253,7 +257,7 @@ func (m *Model) submitLaunchDialog() tea.Cmd {
 	m.cancelPathPicker(d.paths)
 	d.busy = true
 	d.err = nil
-	service, ctx := m.service.(launchService), m.ctx
+	service, ctx, save := m.service.(launchService), m.ctx, m.rememberLaunch
 	return func() tea.Msg {
 		var err error
 		l.Dir, err = pathsuggest.ExpandHome(l.Dir)
@@ -268,7 +272,9 @@ func (m *Model) submitLaunchDialog() tea.Cmd {
 		if l.Dir != "" {
 			dir, _ = filepath.Abs(l.Dir)
 		}
-		return launchResult{dialog: d, session: s, dir: dir, err: err}
+		l.Dir = dir
+		rememberErr := rememberSuccessfulLaunch(ctx, save, l, s, err)
+		return launchResult{dialog: d, session: s, dir: dir, err: err, rememberErr: rememberErr}
 	}
 }
 

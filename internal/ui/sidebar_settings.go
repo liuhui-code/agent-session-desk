@@ -13,11 +13,14 @@ import (
 	tea "charm.land/bubbletea/v2"
 	"github.com/liuhui-code/agent-session-desk/internal/appearance"
 	"github.com/liuhui-code/agent-session-desk/internal/config"
+	"github.com/liuhui-code/agent-session-desk/internal/session"
 )
 
 type Options struct {
-	LoadRecentDirs func(context.Context) ([]string, error)
-	RememberDirs   func(context.Context, []string) error
+	LoadQuickLaunch func(context.Context) (session.Launch, error)
+	RememberLaunch  func(context.Context, session.Launch) error
+	LoadRecentDirs  func(context.Context) ([]string, error)
+	RememberDirs    func(context.Context, []string) error
 	// An injected provider must bind all resources to ctx, even if its returned
 	// connection is never received because the UI has already exited.
 	OpenSystemTheme        func(context.Context) (appearance.Connection, error)
@@ -35,6 +38,7 @@ type Options struct {
 
 func NewWithOptions(ctx context.Context, service Service, options Options) *Model {
 	m := New(ctx, service)
+	m.loadQuickLaunch, m.rememberLaunch = options.LoadQuickLaunch, options.RememberLaunch
 	m.systemTheme.open = options.OpenSystemTheme
 	if m.workspace != nil {
 		m.workspace.directories.load = options.LoadRecentDirs

@@ -104,6 +104,9 @@ func (m *Model) workspaceSidebarCard(index, width, rowLines, level int) []string
 	if active {
 		titleStyle, metadataStyle = m.styles.sidebarActive, m.styles.sidebarMetadataActive
 	}
+	if selected && !w.focused {
+		titleStyle, metadataStyle = m.styles.sidebarNavigationSelected, m.styles.sidebarNavigationMetadata
+	}
 	lines := []string{titleStyle.Render(fit(prefix + title))}
 	if rowLines > 1 {
 		state := s.TerminalState
