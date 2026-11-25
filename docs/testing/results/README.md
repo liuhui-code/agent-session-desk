@@ -53,3 +53,5 @@
 - [2026-11-25：Windows 本机 Alpha 体验交付](2026-11-25-personal-alpha-handoff.md)：最终 ZIP 解压后18文件校验，桌面快捷方式与两真实PowerShell就绪；窗口和会话按用户要求保留，不是公开发行或全流程验收。
 
 - [2026-11-25：Windows Alpha 用户样式反馈](2026-11-25-minimal-workspace.md)：单一侧栏／无框／隐藏底边提示，293项原生UI与实际hover/leave；3原Run和2原shell保留。同款Meslo仍未生效，当前Consolas10可用；字体／脚手架失败和隐私边界单列。
+
+- [2026-11-25 Windows Alpha 1 预发布打包与验证](2026-11-25-alpha-release.md)：便携目录、运行库／许可、原生解压／启动／停止、实际发布回执与剩余门槛。

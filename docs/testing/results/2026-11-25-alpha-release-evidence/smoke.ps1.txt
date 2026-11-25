@@ -1,0 +1,63 @@
+$ErrorActionPreference='Stop'
+$base=Join-Path $env:USERPROFILE 'asd-acceptance-20261122'
+$out=Join-Path $base 'release-style1-smoke-20261125'
+if(Test-Path $out){throw 'Fresh smoke directory required'}
+New-Item -ItemType Directory $out|Out-Null
+$zip=Join-Path $base 'asd-windows-x64-alpha.1.zip'
+$expected='b151cd33a6804ff233272b74af7a30fca77615101b8cb2dd999f3007303793e0'
+if((Get-FileHash $zip).Hash.ToLowerInvariant() -cne $expected){throw 'ZIP hash differs'}
+$root=Join-Path $out '解压 Alpha 1'
+Expand-Archive -LiteralPath $zip -DestinationPath $root
+$manifest=Get-Content -Raw (Join-Path $root 'manifest.json')|ConvertFrom-Json
+foreach($file in $manifest.files.PSObject.Properties){if((Get-FileHash (Join-Path $root $file.Name)).Hash.ToLowerInvariant() -cne $file.Value){throw ('Extracted file changed: '+$file.Name)}}
+if((Test-Path (Join-Path $root 'data')) -or (Test-Path (Join-Path $root 'local-host.json'))){throw 'Unexpected local runtime/config payload'}
+$cmd=Join-Path $root 'asd.cmd'
+function Run-Asd([string[]]$Arguments){$result=& $cmd @Arguments 2>&1|Out-String;if($LASTEXITCODE -ne 0){throw ('CLI failed: '+$result)};return $result}
+$version=Run-Asd @('version')
+$fixture=Join-Path $out 'fixture.ps1'
+$identity=Join-Path $out 'fixture-identity.json'
+@'
+param([string]$Identity)
+$ErrorActionPreference='Stop'
+$p=Get-Process -Id $PID
+@{pid=$PID;filetime=$p.StartTime.ToUniversalTime().ToFileTimeUtc();path=$p.Path}|ConvertTo-Json|Set-Content $Identity -Encoding utf8
+Write-Output 'ASD_RELEASE_ALPHA1_OK'
+Start-Sleep -Seconds 120
+'@|Set-Content $fixture -Encoding utf8
+$created=$null
+$normalStop=$false
+try {
+ $empty=Run-Asd @('list','--json')|ConvertFrom-Json
+ if(@($empty).Count -ne 0){throw 'Isolated package unexpectedly discovers sessions'}
+ $shell=Join-Path $PSHOME 'powershell.exe'
+ $created=Run-Asd @('start','--name','Release smoke','--cwd',(Join-Path $root 'workspace'),'--',$shell,'-NoLogo','-NoProfile','-File',$fixture,$identity)|ConvertFrom-Json
+ if(!$created.session_id -or !$created.run_id){throw 'Missing created identity'}
+ $found=$false
+ for($i=0;$i -lt 30;$i++){
+  $preview=Run-Asd @('preview',$created.session_id)
+  if($preview.Contains('ASD_RELEASE_ALPHA1_OK')){$found=$true;break}
+  Start-Sleep -Milliseconds 200
+ }
+ if(!$found -or !(Test-Path $identity)){throw 'Real shell output/identity not observed'}
+ $original=Get-Content -Raw $identity|ConvertFrom-Json
+ $p=Get-Process -Id $original.pid
+ if($p.Path -ine $shell -or $p.StartTime.ToUniversalTime().ToFileTimeUtc() -ne $original.filetime){throw 'Original shell identity differs'}
+ $live=Run-Asd @('list','--json')|ConvertFrom-Json
+ if(@($live).Count -ne 1 -or $live[0].session_id -ne $created.session_id -or $live[0].run_id -ne $created.run_id){throw 'Live identity differs'}
+ $stopped=Run-Asd @('stop',$created.session_id)|ConvertFrom-Json
+ $normalStop=$true
+ if($stopped.result -ne 'backend_session_stopped'){throw 'Explicit stop not acknowledged'}
+ $ended=$false
+ for($i=0;$i -lt 30;$i++){
+  $p=Get-Process -Id $original.pid -ErrorAction SilentlyContinue
+  if(!$p -or $p.StartTime.ToUniversalTime().ToFileTimeUtc() -ne $original.filetime){$ended=$true;break}
+  Start-Sleep -Milliseconds 200
+ }
+ if(!$ended){throw 'Original shell did not end'}
+ $after=Run-Asd @('list','--json')|ConvertFrom-Json
+ if(@($after).Count){throw 'Isolated package still discovers sessions'}
+ @{result='passed';zip_sha256=$expected;product_sha256=$manifest.files.'asd.exe';verified_payload_files=@($manifest.files.PSObject.Properties).Count;unicode_space_path=$true;version_exit=0;version_output=$version.Trim();initial_sessions=0;real_shell_output=$true;identity_preserved=$true;explicit_stop=$true;original_shell_ended=$true;final_sessions=0;forced_stops=0;desktop_actions=0;clipboard_calls=0;existing_alpha_untouched=$true}|ConvertTo-Json|Set-Content (Join-Path $out 'outcome.json') -Encoding utf8
+ Get-Content -Raw (Join-Path $out 'outcome.json')
+} finally {
+ if($created -and !$normalStop){$null=Run-Asd @('stop',$created.session_id)}
+}

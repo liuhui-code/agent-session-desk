@@ -556,3 +556,5 @@ M1 恢复补充（2026-11-22）：按用户继续完成 M1 的授权实现 metad
 2026-11-25 本机体验交付：FL-001/002/012/016/018/019 的已测开发产物整理到Windows桌面，附固定runtime、启动入口、使用说明与校验ZIP；最终解压目录有两个真实PowerShell和实际就绪画面。见[交付记录](testing/results/2026-11-25-personal-alpha-handoff.md)。仅本机已有宿主组合，数据隔离、窗口和会话主动留给用户，未公开发布；完整发行物许可、真实agent、资源及兼容门槛不提升。
 
 2026-11-25 用户样式反馈：FL-003/012/016/018 按 [ADR-0041](adr/0041-minimal-workspace-and-iterm-appearance.md)移除重复可视Tab条／顶部标题／内容框和常驻底栏，侧栏唯一可见导航、逻辑Tab及输入身份保留；Dark 黑底灰字，提示按底边hover显示且不resize。4项边界／鼠标测试、Windows UI 293 PASS／0FAIL／0SKIP及同窗实际hover/leave、3原Run与2原shell身份保持见[报告](testing/results/2026-11-25-minimal-workspace.md)。当前专属profile使用Consolas10，同款Meslo未生效且系统安装待答复；真实agent、完整输入／DPI／资源／发布不提升，339设计状态不改。
+
+2026-11-25 Alpha 发布准备：用户明确授权将当前样式版上传 GitHub Release；沿用 7691a2b 已测 Go 产物，便携包排除本机宿主路径／profile／个人字体／运行数据，带固定实验运行库与中文说明。独立 Windows 中文空格目录解压、237 负载哈希、真实 shell 启动／预览／显式停止通过，未重跑前轮 293 UI 测试。实际发布链接与附件核对见[Alpha 报告](testing/results/2026-11-25-alpha-release.md)；实验性预发布不提升各 FL 整体验收、catalog 或稳定版状态。

@@ -2,6 +2,8 @@
 
 **面向 Windows 的本地 CLI Agent 多会话工作台。**
 
+Windows x64 体验包：[v0.1.0-alpha.1 预发布](https://github.com/liuhui-code/agent-session-desk/releases/tag/v0.1.0-alpha.1)。下载 ZIP 后按[启动说明](docs/WINDOWS_ALPHA.md)解压并在 Windows Terminal 中运行；未签名，完整发布验收仍开放。
+
 当前工作区只显示侧栏会话／分组导航，顶部重复会话条、产品标题、终端框及常驻底栏已按用户反馈移除。Ctrl+PgUp/PgDn 切换逻辑视图；管理 `[`／`]` 调整本次视图顺序，`n` 新建、`x` 只关闭视图。普通提示移到底边显示、移开隐藏；关键错误和搜索输入仍可见。黑底灰字与 Windows 内测版的实际范围见[样式复验](docs/testing/results/2026-11-25-minimal-workspace.md)。
 
 管理模式 `r` 重命名所选会话或分组，`Ctrl+R` 刷新；连接失败时 `r` 重试。会话名称独立保存，列表、Tab、搜索和离线历史使用当前显示名，原终端身份与启动快照不变；会话同名增加简短身份标记。当前数据库为 schema v5，旧程序不能直接读取新 schema。分组改名保留稳定 ID、成员和折叠状态，默认组也可改显示名；同级重名／旧版本提交拒绝。实际验证与剩余范围见[会话重命名](docs/testing/results/2026-11-23-session-rename.md)及[组重命名](docs/testing/results/2026-11-23-group-rename.md)。
@@ -22,7 +24,7 @@ psmux Tab 的管理焦点 `V` 新鲜捕获并复制列表所选会话的当前 p
 
 通过一条 CLI 命令启动本地 agent，在清晰、美观的 TUI 中管理多个会话，并让会话能够读取彼此的输出、传递任务和返回结果。
 
-> 当前阶段：**M0 首批源码迁入已落地，五项 Windows 原生后端场景已在指定 Windows Server 2025 runner 通过；完整验收仍待完成。** 已有 Go / Charm v2 开发切片，包含 psmux Tab 工作区、原生终端输入、通用 CLI 创建、辅助列表／预览及全屏 attach；不是已发布的软件版本。运行方法见 [M0 开发指南](docs/M0_DEVELOPMENT.md)，证据分别记录在[源码迁入报告](docs/testing/results/2026-11-21-m0-source-migration.md)和[Windows 执行报告](docs/testing/results/2026-11-21-m0-native-windows.md)。另已完成 0/1/5/10 会话的[原生 Windows 短资源实验](docs/testing/results/2026-11-21-m0-windows-resources.md)，含真实 TUI 启停、重开与直接程序对照。桌面交互、资源预算、长稳和发布仍需独立验收。项目名称与原创部分的许可证仍待定。
+> 当前阶段：**M0 首批源码迁入已落地，五项 Windows 原生后端场景已在指定 Windows Server 2025 runner 通过；完整验收仍待完成。** 已有 Go / Charm v2 开发切片，包含 psmux Tab 工作区、原生终端输入、通用 CLI 创建、辅助列表／预览及全屏 attach；已有供体验的实验性预发布，尚未完成稳定版验收。运行方法见 [M0 开发指南](docs/M0_DEVELOPMENT.md)，证据分别记录在[源码迁入报告](docs/testing/results/2026-11-21-m0-source-migration.md)和[Windows 执行报告](docs/testing/results/2026-11-21-m0-native-windows.md)。另已完成 0/1/5/10 会话的[原生 Windows 短资源实验](docs/testing/results/2026-11-21-m0-windows-resources.md)，含真实 TUI 启停、重开与直接程序对照。桌面交互、资源预算、长稳和发布仍需独立验收。项目名称与原创部分的许可证仍待定。
 
 ## 产品目标
 
