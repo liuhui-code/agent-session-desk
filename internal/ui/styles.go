@@ -120,7 +120,7 @@ func newStyles(t designTokens, profile colorprofile.Profile) styles {
 		settingsError:           lipgloss.NewStyle().Foreground(t.colors.red).Background(t.colors.bg),
 		sidebarSelected:         lipgloss.NewStyle().Foreground(t.colors.text).Background(t.colors.surface),
 		sidebarMetadataSelected: lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.surface),
-		separatorDrag:           lipgloss.NewStyle().Foreground(t.colors.accent),
+		separatorDrag:           lipgloss.NewStyle().Foreground(t.colors.border),
 		formTitle:               lipgloss.NewStyle().Foreground(t.colors.cyan).Background(t.colors.surface).Bold(t.bold),
 		formText:                lipgloss.NewStyle().Foreground(t.colors.text).Background(t.colors.surface),
 		formHint:                lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.surface),

@@ -558,3 +558,5 @@ M1 恢复补充（2026-11-22）：按用户继续完成 M1 的授权实现 metad
 2026-11-25 用户样式反馈：FL-003/012/016/018 按 [ADR-0041](adr/0041-minimal-workspace-and-iterm-appearance.md)移除重复可视Tab条／顶部标题／内容框和常驻底栏，侧栏唯一可见导航、逻辑Tab及输入身份保留；Dark 黑底灰字，提示按底边hover显示且不resize。4项边界／鼠标测试、Windows UI 293 PASS／0FAIL／0SKIP及同窗实际hover/leave、3原Run与2原shell身份保持见[报告](testing/results/2026-11-25-minimal-workspace.md)。当前专属profile使用Consolas10，同款Meslo未生效且系统安装待答复；真实agent、完整输入／DPI／资源／发布不提升，339设计状态不改。
 
 2026-11-25 Alpha 实验性预发布：用户明确授权将当前样式版上传 GitHub Release；沿用 7691a2b 已测 Go 产物，便携包排除本机宿主路径／profile／个人字体／运行数据，带固定实验运行库与中文说明。独立 Windows 中文空格目录解压、237 负载哈希、真实 shell 启动／预览／显式停止通过，未重跑前轮 293 UI 测试。v0.1.0-alpha.1 已于 02:58:24 UTC 公开，四附件匿名下载哈希一致；实际发布链接与附件核对见[Alpha 报告](testing/results/2026-11-25-alpha-release.md)；实验性预发布不提升各 FL 整体验收、catalog 或稳定版状态。
+
+2026-11-25 分割线弱化：FL-003/012/018 按 ADR-0041 用户补充决定取消工作区焦点／悬停／拖动的高亮颜色，统一 border 灰度，上下各空两行。保留分隔列宽、终端几何、原输入和拖动命中，极短窗不绘制线条。局部 RED→GREEN 与本机验证见[报告](testing/results/2026-11-25-quiet-divider.md)；未更新公开 exe，Windows 实机视觉及既有切换退出问题均未验证，整体验收和 339 项设计状态不提升。

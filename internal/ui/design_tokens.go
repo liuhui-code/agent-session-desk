@@ -116,7 +116,7 @@ type dialogTokens struct {
 
 type workspaceTokens struct {
 	terminalHint, managementHint, copyHint                            string
-	footerRevealRows                                                  int
+	footerRevealRows, dividerInsetRows                                int
 	headerGapRows, footerGapRows, footerRuleRows, footerBottomGapRows int
 	minTerminalRows                                                   int
 	sidebarPercent, compactPercent, minPane, tabPadding, maxTabWidth  int
@@ -159,7 +159,7 @@ func defaultDesignTokens() designTokens {
 		copy:      copyTokens{foreground: "idx:0", selection: "idx:3", match: "idx:6", current: "idx:5", mark: "idx:1", cursorShape: tea.CursorBlock},
 		sidebar:   sidebarTokens{cardMinWidth: 28, cardRows: 2, fullRows: 3, selected: "▶ ", active: "┃ ", metadata: "  ╰ ", metadataMiddle: "  │ ", separator: " · ", settingsWidth: 66, settingsPaddingX: 2, settingsPaddingY: 1, radioGap: 2, radioMarker: ">", radioUnselected: " ", underlineChoice: true, settingsFocusedPrefix: "▶ ", settingsIdlePrefix: "  ", groupExpanded: "▾", groupCollapsed: "▸", rootShortcut: "1·", groupCountPrefix: " (", groupCountSuffix: ")", groupGutter: 2, indentWidth: 2, rootShortcutSuffix: "·"},
 		dialog:    dialogTokens{preferredWidth: 86, minWidth: 44, gutter: 10, paddingX: 4, paddingY: 2, firstPaddingY: 1, titleGap: 1, fieldGap: 1, dimBackdrop: true, cursorShape: tea.CursorBar, cursorBlink: true},
-		workspace: workspaceTokens{terminalHint: "F6 管理 · Ctrl+PgUp/PgDn 切换会话", managementHint: "F6 输入 · n 新建 · / 搜索 · S 设置 · ? 帮助", copyHint: "空格选择 · Enter 复制 · / 搜索 · Esc/q 返回", footerRevealRows: 1, sidebarPercent: 35, compactPercent: 18, minPane: 8, tabPadding: 1, maxTabWidth: 32, splitStep: 5, minSplitPercent: 10, maxSplitPercent: 90, dividerGrabSlop: 2, minTerminalRows: 3, splitNoticeDuration: 1500 * time.Millisecond, doubleClickInterval: 500 * time.Millisecond, border: lipgloss.RoundedBorder()},
+		workspace: workspaceTokens{terminalHint: "F6 管理 · Ctrl+PgUp/PgDn 切换会话", managementHint: "F6 输入 · n 新建 · / 搜索 · S 设置 · ? 帮助", copyHint: "空格选择 · Enter 复制 · / 搜索 · Esc/q 返回", footerRevealRows: 1, dividerInsetRows: 2, sidebarPercent: 35, compactPercent: 18, minPane: 8, tabPadding: 1, maxTabWidth: 32, splitStep: 5, minSplitPercent: 10, maxSplitPercent: 90, dividerGrabSlop: 2, minTerminalRows: 3, splitNoticeDuration: 1500 * time.Millisecond, doubleClickInterval: 500 * time.Millisecond, border: lipgloss.RoundedBorder()},
 		colors:    colors,
 		layout: layoutTokens{
 			singleBelow: 50, stackedBelow: 80, minFrameHeight: 5, minPreviewHeight: 10,

@@ -87,7 +87,7 @@ func (m *Model) renderWorkspace() string {
 	if g.left > 0 {
 		left := m.renderPanelTitle(m.sidebarTitle(), g.left) + "\n" + m.renderSessionList(g.left, max(0, g.bodyHeight-m.tokens.layout.headingRows))
 		separatorStyle := m.styles.separator
-		if w.focused || w.split.hovered || w.split.dragging {
+		if w.split.hovered || w.split.dragging {
 			separatorStyle = m.styles.separatorDrag
 		}
 		divider := m.tokens.divider()
@@ -95,7 +95,14 @@ func (m *Model) renderWorkspace() string {
 			divider = m.tokens.dividerWith(m.tokens.marks.dividerHandle)
 		}
 		separator := separatorStyle.Render(divider)
-		body = lipgloss.JoinHorizontal(lipgloss.Top, fitFrame(left, g.left, g.bodyHeight), strings.TrimSuffix(strings.Repeat(separator+"\n", g.bodyHeight), "\n"), right)
+		separatorLines := make([]string, g.bodyHeight)
+		for y := range separatorLines {
+			separatorLines[y] = strings.Repeat(" ", lipgloss.Width(divider))
+			if y >= m.tokens.workspace.dividerInsetRows && y < g.bodyHeight-m.tokens.workspace.dividerInsetRows {
+				separatorLines[y] = separator
+			}
+		}
+		body = lipgloss.JoinHorizontal(lipgloss.Top, fitFrame(left, g.left, g.bodyHeight), strings.Join(separatorLines, "\n"), right)
 	}
 	if g.above > 0 {
 		listHeight := g.listHeight
