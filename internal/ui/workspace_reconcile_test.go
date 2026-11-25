@@ -59,7 +59,7 @@ func TestWorkspaceClosingLastTabReturnsManagementFocus(t *testing.T) {
 		t.Fatal("empty workspace still claims terminal focus")
 	}
 	h.send(tea.KeyPressMsg{Code: 'n', Text: "n"})
-	h.until(func() bool { return strings.Contains(h.m.View().Content, "新建终端") })
+	h.until(func() bool { return strings.Contains(h.m.View().Content, "New terminal") })
 }
 
 func TestWorkspaceEmptyDiscoveryAndF6KeepManagementFocus(t *testing.T) {

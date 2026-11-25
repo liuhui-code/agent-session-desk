@@ -40,13 +40,13 @@ func (m *Model) readWorkspaceClipboard() tea.Cmd {
 }
 func (m *Model) submitHostClipboard(text string, generation uint64, notice string) tea.Cmd {
 	if m.clipboard.serial == math.MaxUint64 {
-		m.status = "复制请求编号已耗尽；请重新打开界面"
+		m.status = "Copy request IDs exhausted; reopen the UI"
 		return nil
 	}
 	m.clipboard.serial++
 	token := m.clipboard.serial
 	m.clipboard.inflight = &hostClipboardRequest{token, generation, notice}
-	m.status = "正在向终端发送复制请求…"
+	m.status = "Sending copy request…"
 	return tea.Sequence(tea.SetClipboard(text), func() tea.Msg { return workspaceClipboardSent{token} })
 }
 func (m *Model) drainWorkspaceClipboard() tea.Cmd {
@@ -57,15 +57,15 @@ func (m *Model) drainWorkspaceClipboard() tea.Cmd {
 	if op := w.visibleCopy; op != nil && op.ready {
 		w.visibleCopy = nil
 		if op.generation == w.generation && m.visibleCopyTargetCurrent(op.target) {
-			notice := fmt.Sprintf("已向终端发送复制请求（可见页 %d 行，%s）", strings.Count(op.payload, "\n")+1, label(op.target.Title))
+			notice := fmt.Sprintf("Copy request sent (%d visible rows, %s)", strings.Count(op.payload, "\n")+1, label(op.target.Title))
 			return m.submitHostClipboard(op.payload, op.generation, notice)
 		}
-		m.status = "原 Session/Run 已变化；未发送旧可见页"
+		m.status = "Session/Run changed; the old screen was not sent"
 	}
 	if pending := w.pendingClipboard; pending != nil {
 		w.pendingClipboard = nil
 		if pending.generation == w.generation && w.conn != nil {
-			return m.submitHostClipboard(pending.text, pending.generation, "已向终端发送复制请求")
+			return m.submitHostClipboard(pending.text, pending.generation, "Copy request sent to the terminal")
 		}
 	}
 	return m.readWorkspaceClipboard()
@@ -82,7 +82,7 @@ func (m *Model) workspaceClipboardEvent(msg tea.Msg) (tea.Cmd, bool) {
 		}
 		w.clipboardReading = false
 		if msg.err != nil {
-			m.status = "复制通道不可用；请重新连接"
+			m.status = "Copy channel unavailable; reconnect"
 			return nil, true
 		}
 		if len(msg.text) == 0 || len(msg.text) > terminal.MaxClipboardBytes || !utf8.ValidString(msg.text) || strings.IndexByte(msg.text, 0) >= 0 {
@@ -92,7 +92,7 @@ func (m *Model) workspaceClipboardEvent(msg tea.Msg) (tea.Cmd, bool) {
 			w.pendingClipboard = &msg
 			return nil, true
 		}
-		return m.submitHostClipboard(msg.text, w.generation, "已向终端发送复制请求"), true
+		return m.submitHostClipboard(msg.text, w.generation, "Copy request sent to the terminal"), true
 	case workspaceClipboardSent:
 		current := m.clipboard.inflight
 		if current == nil || msg.token != current.token {

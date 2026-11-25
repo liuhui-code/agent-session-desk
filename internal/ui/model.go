@@ -301,7 +301,7 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	case attachReadyMsg:
 		if msg.err != nil || msg.cmd == nil {
 			if msg.err == nil {
-				msg.err = fmt.Errorf("终端后台没有返回 attach 命令")
+				msg.err = fmt.Errorf("Backend did not return an attach command")
 			}
 			return m, m.attachFinished(msg.err)
 		}
@@ -463,7 +463,7 @@ func (m *Model) attach() tea.Cmd {
 		return nil
 	}
 	if s.TerminalState != session.TerminalAvailable {
-		m.status = "目标终端暂不可连接；按 r 重新检查"
+		m.status = "Target terminal unavailable; r Retry"
 		return nil
 	}
 	m.attaching = true
@@ -474,7 +474,7 @@ func (m *Model) attach() tea.Cmd {
 	}
 	m.pollGeneration++
 	m.pollPending = false
-	m.status = "正在连接；切至英文，Ctrl+b 后按 d 返回管理器"
+	m.status = "Connecting; use English input. Ctrl+b then d to return"
 	ctx := m.ctx
 	return func() tea.Msg {
 		cmd, err := m.service.Attach(ctx, s)
@@ -485,9 +485,9 @@ func (m *Model) attach() tea.Cmd {
 func (m *Model) attachFinished(err error) tea.Cmd {
 	m.attaching = false
 	if err != nil {
-		m.status = "连接结束：" + label(err.Error())
+		m.status = "Connection ended: " + label(err.Error())
 	} else {
-		m.status = "已返回管理器"
+		m.status = "Returned to manager"
 	}
 	return tea.Batch(m.loadSessions(), m.loadPreview(), m.schedulePoll())
 }

@@ -27,7 +27,7 @@ func (m *Model) workspaceKeyNow(msg tea.KeyPressMsg) tea.Cmd {
 	}
 	if msg.Code == tea.KeyF6 && msg.Mod == 0 {
 		if w.transition == workspaceSwitch {
-			m.status = "正在切换 Tab；完成后可改变输入焦点"
+			m.status = "Switching tabs; wait before changing focus"
 			return nil
 		}
 		if len(w.tabs) == 0 || w.err != nil {
@@ -45,7 +45,7 @@ func (m *Model) workspaceKeyNow(msg tea.KeyPressMsg) tea.Cmd {
 	if m.groupOrder != nil || m.sessionOrder != nil {
 		switch msg.String() {
 		case "shift+up", "ctrl+up", "+", "K", "shift+down", "ctrl+down", "-", "J", "g", "M", "r", "n", "a", "h", "?", "S", "d":
-			m.status = "管理模式 · 正在保存排序；完成后可继续操作"
+			m.status = "Saving order; wait before continuing"
 			return nil
 		}
 	}
@@ -71,7 +71,7 @@ func (m *Model) workspaceKeyNow(msg tea.KeyPressMsg) tea.Cmd {
 		return m.navigateWorkspace(workspaceSearch)
 	case "v":
 		if _, ok := w.conn.(terminal.CopyModeConnection); !ok || w.busy || w.err != nil || w.transition != workspaceIdle {
-			m.status = "当前终端尚不可进入选择／搜索"
+			m.status = "Terminal is not ready for selection/search"
 			return nil
 		}
 		w.focused = true
@@ -89,22 +89,22 @@ func (m *Model) workspaceKeyNow(msg tea.KeyPressMsg) tea.Cmd {
 	case "q", "ctrl+c":
 		if m.sessionOrder != nil {
 			m.sessionOrder.quitting = true
-			m.status = "管理模式 · 正在保存会话顺序后退出…"
+			m.status = "Saving session order before quitting…"
 			return nil
 		}
 		if m.groupOrder != nil {
 			m.groupOrder.quitting = true
-			m.status = "管理模式 · 正在保存分组顺序后退出…"
+			m.status = "Saving group order before quitting…"
 			return nil
 		}
 		if m.preferences.busy {
 			w.transition = workspaceQuit
-			m.status = "管理模式 · 正在保存已选择的侧栏偏好后退出…"
+			m.status = "Saving sidebar preferences before quitting…"
 			return nil
 		}
 		if w.pending > 0 || (w.busy && len(w.buffered) > 0) {
 			w.transition = workspaceQuit
-			m.status = "正在完成已输入的内容后退出…"
+			m.status = "Finishing input before quitting…"
 			return nil
 		}
 		m.Close()
@@ -137,7 +137,7 @@ func (m *Model) workspaceKeyNow(msg tea.KeyPressMsg) tea.Cmd {
 			}
 		}
 		if w.busy || w.transition != workspaceIdle {
-			m.status = "当前 Tab 正在连接或切换；完成后可打开所选终端"
+			m.status = "Tab is connecting or switching; wait before opening another terminal"
 			return nil
 		}
 		selected, ok := m.selected()
@@ -145,7 +145,7 @@ func (m *Model) workspaceKeyNow(msg tea.KeyPressMsg) tea.Cmd {
 			return nil
 		}
 		if selected.TerminalState != session.TerminalAvailable {
-			m.status = "目标终端当前不可交互"
+			m.status = "Target terminal is not interactive"
 			return nil
 		}
 		for i, tab := range w.tabs {

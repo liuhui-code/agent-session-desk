@@ -135,7 +135,7 @@ func (m *Model) pathResultEvent(msg tea.Msg) (tea.Cmd, bool) {
 			if r.err == nil {
 				p.corpus = append(r.recent, p.corpus...)
 			} else {
-				m.status = "最近目录未载入，仍可编辑路径"
+				m.status = "Recent directories unavailable; the path remains editable"
 			}
 		}
 		if p.generation == r.request.generation && m.focusedPathPicker() == p {

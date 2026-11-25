@@ -10,7 +10,7 @@ import (
 func (m *Model) workspaceFooterVisible() bool {
 	w := m.workspace
 	_, prompt := m.workspaceCopyPrompt()
-	return w.footerHovered || m.status != "" || w.err != nil || m.listErr != nil || prompt != nil
+	return m.status != "" || w.err != nil || m.listErr != nil || prompt != nil || (w.screen.CopyMode && w.screen.Status != "")
 }
 
 func (m *Model) workspaceFooterHit(x, y int) bool {
@@ -19,16 +19,15 @@ func (m *Model) workspaceFooterHit(x, y int) bool {
 
 func (m *Model) workspaceFooterMotion(msg tea.MouseMotionMsg) bool {
 	w := m.workspace
-	// An existing native gesture always retains its original delivery path.
+	w.footerHovered = false
 	if msg.Button != tea.MouseNone || msg.Mod != 0 || w.programPointer != nil || w.copyPointer != nil || w.split.dragging {
-		w.footerHovered = false
 		return false
 	}
-	w.footerHovered = msg.X >= 0 && msg.X < m.width && msg.Y >= m.height-m.tokens.workspace.footerRevealRows && msg.Y < m.height
-	if w.footerHovered {
+	if m.workspaceFooterHit(msg.X, msg.Y) {
 		w.programHover.latest = nil
+		return true
 	}
-	return w.footerHovered
+	return false
 }
 
 func (m *Model) renderWorkspaceOverlay(body string) string {
@@ -42,19 +41,19 @@ func (m *Model) renderWorkspaceOverlay(body string) string {
 	} else if w.screen.CopyMode {
 		text = m.tokens.workspace.copyHint
 		if w.screen.Status != "" {
-			text = "滚动历史 · " + label(w.screen.Status)
+			text = "History · " + label(w.screen.Status)
 		}
 	}
 	if m.status != "" {
 		text = label(m.status)
 	}
 	if m.listErr != nil {
-		text = "后台状态未知：" + label(m.listErr.Error())
+		text = "Backend state unknown: " + label(m.listErr.Error())
 	}
 	if w.err != nil {
-		text = "终端不可交互 · r 重查：" + label(w.err.Error())
+		text = "Terminal not interactive · r Retry: " + label(w.err.Error())
 		if w.screen.Width > 0 {
-			text = "只读：上次观察屏幕；连接不可用，r 重查。" + label(w.err.Error())
+			text = "Read-only last observed screen; disconnected. r Retry. " + label(w.err.Error())
 		}
 	}
 	if prompt, cursor := m.workspaceCopyPrompt(); cursor != nil {

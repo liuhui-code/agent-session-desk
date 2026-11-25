@@ -52,7 +52,7 @@ func (m *Model) helpRows(key, desc string, width int, short bool) []string {
 }
 
 func (m *Model) allHelpRows(width int) []string {
-	rows := []string{m.styles.helpTitle.Render("全部快捷键"), ""}
+	rows := []string{m.styles.helpTitle.Render("All shortcuts"), ""}
 	for i, section := range workspaceHelpSections() {
 		if i > 0 {
 			rows = append(rows, make([]string, m.tokens.help.sectionGap)...)
@@ -62,7 +62,7 @@ func (m *Model) allHelpRows(width int) []string {
 			rows = append(rows, m.helpRows(item[0], item[1], width, false)...)
 		}
 	}
-	rows = append(rows, "", m.styles.helpHint.Render("Agent Session Desk"), m.styles.helpNote.Render("关闭 Tab 不停止 Run"))
+	rows = append(rows, "", m.styles.helpHint.Render("Agent Session Desk"), m.styles.helpNote.Render("Closing a tab does not stop its run"))
 	return rows
 }
 
@@ -77,7 +77,7 @@ func (m *Model) helpBodyBudget(footerRows int) int {
 func (m *Model) fullHelpPage() (lines, footer []string, capacity, limit int) {
 	width := max(1, m.helpWidth()-m.styles.helpBox.GetHorizontalFrameSize())
 	lines = m.allHelpRows(width)
-	footer = strings.Split(m.styles.helpHint.Width(width).Render("j/k 滚动 · Tab 五键入门 · 其他键关闭"), "\n")
+	footer = strings.Split(m.styles.helpHint.Width(width).Render("j/k Scroll · Tab Quick start · Any other key Close"), "\n")
 	capacity = m.helpBodyBudget(len(footer))
 	if len(lines) > capacity {
 		capacity = max(1, capacity-2) // Fixed top/bottom indicator rows.
@@ -94,11 +94,11 @@ func (m *Model) renderHelpOverlay() string {
 	width := max(1, outer-m.styles.helpBox.GetHorizontalFrameSize())
 	var rows []string
 	if !m.helpPage.all {
-		rows = []string{m.styles.helpTitle.Render("五键入门"), ""}
-		for _, entry := range [][2]string{{"Enter", "进入所选终端"}, {"F6", "返回管理／终端焦点"}, {"n", "新建终端"}, {"↑ ↓", "选择会话"}, {"?", "打开此帮助"}} {
+		rows = []string{m.styles.helpTitle.Render("Quick start"), ""}
+		for _, entry := range [][2]string{{"Enter", "Open selected terminal"}, {"F6", "Return to navigation/terminal focus"}, {"n", "New terminal"}, {"↑ ↓", "Select session"}, {"?", "Open help"}} {
 			rows = append(rows, m.helpRows(entry[0], entry[1], width, true)...)
 		}
-		rows = append(rows, "", m.styles.helpNote.Width(width).Render("在终端本身输入，原程序维护草稿。"), "", m.styles.helpTab.Render("Tab 全部快捷键")+m.styles.helpNote.Render(t.separator+"Esc 关闭"))
+		rows = append(rows, "", m.styles.helpNote.Width(width).Render("Type directly in the terminal; the program owns its draft."), "", m.styles.helpTab.Render("Tab All shortcuts")+m.styles.helpNote.Render(t.separator+"Esc Close"))
 	} else {
 		lines, footer, capacity, limit := m.fullHelpPage()
 		offset := max(0, min(m.helpPage.offset, limit))

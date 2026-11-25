@@ -18,7 +18,7 @@ func TestGroupRemovalNeverConfirmsWhenTheCompleteReviewDoesNotFit(t *testing.T) 
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	h.send(tea.KeyPressMsg{Code: '2', Text: "2"})
 	h.send(tea.KeyPressMsg{Code: 'd', Text: "d"})
-	h.until(func() bool { return strings.Contains(h.m.View().Content, "1 个会话") })
+	h.until(func() bool { return strings.Contains(h.m.View().Content, "1 个Sessions") })
 	for _, size := range [][2]int{{120, 10}, {63, 10}, {49, 8}, {27, 8}, {9, 3}, {1, 1}, {0, 0}} {
 		h.send(tea.WindowSizeMsg{Width: size[0], Height: size[1]})
 		v := h.m.View()
@@ -146,10 +146,10 @@ func TestGroupRemovalDefaultsToCancelThenCollectsMembersWithoutChangingOriginalT
 	h.send(tea.KeyPressMsg{Code: '2', Text: "2"})
 	h.send(tea.KeyPressMsg{Code: 'd', Text: "d"})
 	h.until(func() bool {
-		return strings.Contains(h.m.View().Content, "2 个分组") && strings.Contains(h.m.View().Content, "1 个会话")
+		return strings.Contains(h.m.View().Content, "2 个Groups") && strings.Contains(h.m.View().Content, "1 个Sessions")
 	})
 	h.send(tea.KeyPressMsg{Code: tea.KeyEnter})
-	h.until(func() bool { return !strings.Contains(h.m.View().Content, "删除分组") && h.m.workspace.conn != nil })
+	h.until(func() bool { return !strings.Contains(h.m.View().Content, "DeleteGroups") && h.m.workspace.conn != nil })
 	s.groupMu.Lock()
 	cancelled := len(s.removals)
 	s.groupMu.Unlock()
@@ -157,7 +157,7 @@ func TestGroupRemovalDefaultsToCancelThenCollectsMembersWithoutChangingOriginalT
 		t.Fatal("initial Enter removed a group instead of cancelling")
 	}
 	h.send(tea.KeyPressMsg{Code: 'd', Text: "d"})
-	h.until(func() bool { return strings.Contains(h.m.View().Content, "1 个会话") })
+	h.until(func() bool { return strings.Contains(h.m.View().Content, "1 个Sessions") })
 	h.send(tea.KeyPressMsg{Code: 'y', Text: "y"})
 	h.until(func() bool {
 		return len(h.m.sidebarGroups()) == 2 && h.m.workspace.conn != nil && h.m.sessions[0].GroupRevision == 2

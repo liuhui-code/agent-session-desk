@@ -27,7 +27,7 @@ func TestWorkspaceSidebarDefaultCardsSeparateTerminalMetadata(t *testing.T) {
 	for y, line := range lines {
 		if strings.HasPrefix(line, "  ┃ 开发") {
 			found = true
-			if y+1 >= len(lines) || !strings.HasPrefix(lines[y+1], "    ╰ 可连接 · pwsh.exe") {
+			if y+1 >= len(lines) || !strings.HasPrefix(lines[y+1], "    ╰ Connected · pwsh.exe") {
 				t.Fatalf("terminal metadata did not occupy its own card line:\n%s", view)
 			}
 		}

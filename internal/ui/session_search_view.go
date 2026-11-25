@@ -37,20 +37,20 @@ func (m *Model) renderSessionSearch() (string, *tea.Cursor) {
 	d, t := m.search, m.tokens.search
 	width, contentWidth, inputWidth := m.sessionSearchWidths()
 	input := strings.Split(m.styles.searchInput.Width(inputWidth).Render(inputView(d.input)), "\n")
-	head := []string{m.styles.searchTitle.Render(t.titlePrefix + "本地会话搜索"), ""}
+	head := []string{m.styles.searchTitle.Render(t.titlePrefix + "Local session search"), ""}
 	inputStart := len(head)
 	head = append(head, input...)
 	if d.notice != "" {
 		head = append(head, m.styles.error.Render(label(d.notice)))
 	} else if d.input.Value() == "" {
-		head = append(head, m.styles.searchTip.Render("按名称或程序搜索"))
+		head = append(head, m.styles.searchTip.Render("Search by name or program"))
 	}
 	head = append(head, "")
-	count := fmt.Sprintf("%d 个结果", len(d.results))
+	count := fmt.Sprintf("%d results", len(d.results))
 	if len(d.results) == 0 {
-		count = "无匹配会话"
+		count = "No matching sessions"
 	}
-	help := "Enter 进入 · ↑↓ 导航 · Esc 取消"
+	help := "Enter Open · ↑↓ Navigate · Esc Cancel"
 	if lipgloss.Width(help) > contentWidth {
 		help = "↵ · ↑↓ · Esc"
 	}

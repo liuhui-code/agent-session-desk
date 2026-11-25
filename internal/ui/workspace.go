@@ -134,7 +134,7 @@ func (m *Model) workspaceSessions() tea.Cmd {
 	}
 	tab := w.tabs[w.active]
 	if !tab.live || tab.session.TerminalState != session.TerminalAvailable {
-		m.failWorkspace(fmt.Errorf("目标终端当前不可交互；保留视图，不会自动重启"))
+		m.failWorkspace(fmt.Errorf("Target terminal is not interactive; view retained, no automatic restart"))
 		return nil
 	}
 	if w.conn == nil && !w.busy && w.err == nil {
@@ -362,7 +362,7 @@ func (m *Model) workspaceEvent(msg tea.Msg) (tea.Cmd, bool) {
 		m.validateProgramHover()
 		if w.programPointer != nil && !m.programPointerCurrent(w.programPointer) {
 			w.programPointer = nil
-			m.status = "程序鼠标手势已失效；释放结果未知，请核对原程序"
+			m.status = "Mouse gesture invalidated; release outcome unknown. Check the original program"
 		}
 		if w.copyPointer != nil && w.screen.CopyMode {
 			w.copyPointer.observed = true
@@ -410,7 +410,7 @@ func (m *Model) activateWorkspace(index int) tea.Cmd {
 		return nil
 	}
 	if w.busy {
-		m.status = "当前 Tab 正在连接；连接完成后可切换"
+		m.status = "Tab is connecting; wait before switching"
 		return nil
 	}
 	index = (index + len(w.tabs)) % len(w.tabs)
@@ -421,7 +421,7 @@ func (m *Model) activateWorkspace(index int) tea.Cmd {
 	w.switchTarget = w.tabs[index].viewID
 	m.selectWorkspaceSession(w.tabs[index].session)
 	if w.pending > 0 {
-		m.status = "正在完成原终端输入后切换 Tab…"
+		m.status = "Finishing input before switching tabs…"
 		return nil
 	}
 	return m.activateWorkspaceNow(index)

@@ -25,7 +25,7 @@ type sessionSearch struct {
 func (m *Model) openSessionSearch() tea.Cmd {
 	d := &sessionSearch{input: textinput.New()}
 	d.input.CharLimit = searchQueryLimit
-	d.input.Placeholder = "搜索会话…"
+	d.input.Placeholder = "Search sessions…"
 	d.input.Prompt = m.tokens.search.prompt
 	d.input.SetVirtualCursor(false)
 	d.input.SetStyles(searchInputStyles(m.tokens.forDisplay(m.colorProfile)))
@@ -58,7 +58,7 @@ func (m *Model) syncSessionSearch(preserve bool) {
 			}
 		}
 		if hadSelection && d.cursor < 0 {
-			d.notice = "原运行已变化；请重新选择"
+			d.notice = "Run changed; select again"
 		}
 	}
 }
@@ -94,7 +94,7 @@ func (m *Model) sessionSearchEvent(msg tea.Msg) (tea.Cmd, bool) {
 			for i, s := range m.sessions {
 				if sameRun(s, target) {
 					if s.TerminalState != session.TerminalAvailable {
-						d.notice = "目标终端当前不可交互"
+						d.notice = "Target terminal is not interactive"
 						return nil, true
 					}
 					m.cursor, m.search = i, nil
@@ -120,7 +120,7 @@ func (m *Model) sessionSearchEvent(msg tea.Msg) (tea.Cmd, bool) {
 		return cmd, true
 	case tea.PasteMsg:
 		if strings.ContainsAny(msg.Content, "\r\n\t") || len(d.input.Value())+len(msg.Content) > searchQueryLimit*4 {
-			d.notice = "搜索只接受有界单行文本"
+			d.notice = "Search requires bounded single-line text"
 			return nil, true
 		}
 		var cmd tea.Cmd

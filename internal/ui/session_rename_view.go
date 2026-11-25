@@ -27,7 +27,7 @@ func (m *Model) sizeSessionRename() {
 }
 func (m *Model) renderSessionRename() (string, *tea.Cursor) {
 	d := m.rename
-	return m.renderNameDialog(d.input, "重命名会话", d.busy, d.submitted, d.err)
+	return m.renderNameDialog(d.input, "Rename session", d.busy, d.submitted, d.err)
 }
 
 func (m *Model) renderNameDialog(field textinput.Model, title string, busy, submitted bool, err error) (string, *tea.Cursor) {
@@ -49,11 +49,11 @@ func (m *Model) renderNameDialog(field textinput.Model, title string, busy, subm
 	if err != nil {
 		errLine = m.styles.formError.Render(t.warningPrefix + label(err.Error()))
 	}
-	hint := "Enter 确认 │ Esc 取消"
+	hint := "Enter Confirm | Esc Cancel"
 	if busy {
-		hint = "正在保存名称…"
+		hint = "Saving name…"
 	} else if submitted {
-		hint = "Esc 返回 · Ctrl+R 刷新后再编辑"
+		hint = "Esc Back · Ctrl+R Refresh before editing"
 	}
 	lines := []string{center(m.styles.renameTitle.Render(title)), "", input, center(errLine), "", center(m.styles.renameHint.Render(hint))}
 	inputRow := 2 // source structure: title, blank, input

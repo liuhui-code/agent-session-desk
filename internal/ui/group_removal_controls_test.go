@@ -19,7 +19,7 @@ func TestGroupRemovalDefaultNoticeAndTerminalLettersNeverMutateMetadata(t *testi
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	h.send(tea.KeyPressMsg{Code: tea.KeyHome})
 	h.send(tea.KeyPressMsg{Code: 'd', Text: "d"})
-	h.until(func() bool { return strings.Contains(h.m.View().Content, "无法删除默认分组") })
+	h.until(func() bool { return strings.Contains(h.m.View().Content, "Cannot delete the default group") })
 	h.send(tea.KeyPressMsg{Code: 'y', Text: "y"})
 	h.send(tea.KeyPressMsg{Code: tea.KeyPgDown, Mod: tea.ModCtrl})
 	if h.m.groupRemoval == nil || h.m.workspace.active != 0 {

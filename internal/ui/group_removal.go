@@ -84,7 +84,7 @@ func (m *Model) groupRemovalEvent(msg tea.Msg) (tea.Cmd, bool) {
 		d.loading, d.err = false, result.err
 		if result.err == nil {
 			if result.plan.Root.ID != d.target.ID {
-				d.err = fmt.Errorf("预览目标变化，请返回刷新")
+				d.err = fmt.Errorf("Review target changed; go back and refresh")
 			} else {
 				d.plan = result.plan
 			}
@@ -101,7 +101,7 @@ func (m *Model) groupRemovalEvent(msg tea.Msg) (tea.Cmd, bool) {
 			m.listCancel()
 		}
 		if result.err != nil {
-			d.err = fmt.Errorf("结果未确认，请返回刷新核对：%w", result.err)
+			d.err = fmt.Errorf("Outcome unknown; go back and refresh to verify: %w", result.err)
 			return m.loadSessions(), true
 		}
 		removed := map[string]bool{}
@@ -171,7 +171,7 @@ func (m *Model) submitGroupRemoval() tea.Cmd {
 		return nil
 	}
 	if _, fits := m.groupRemovalBox(); !fits {
-		d.err = fmt.Errorf("请放大窗口核对完整影响范围")
+		d.err = fmt.Errorf("Enlarge the window to review the full impact")
 		return nil
 	}
 	d.busy, d.submitted, d.err = true, true, nil

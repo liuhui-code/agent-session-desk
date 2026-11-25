@@ -24,7 +24,7 @@ func TestWorkspaceDensitySettingsApplyFullCardsWithoutTerminalInput(t *testing.T
 	h.send(tea.KeyPressMsg{Code: tea.KeyEscape})
 	h.until(func() bool { return !strings.Contains(ansi.Strip(h.m.View().Content), "侧栏密度") })
 	view := ansi.Strip(h.m.View().Content)
-	if !strings.Contains("\n"+view, "\n    │ 可连接") || !strings.Contains("\n"+view, "\n    ╰ ") {
+	if !strings.Contains("\n"+view, "\n    │ Connected") || !strings.Contains("\n"+view, "\n    ╰ ") {
 		t.Fatalf("full card did not render two metadata lines:\n%s", view)
 	}
 	service.mu.Lock()

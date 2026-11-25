@@ -31,14 +31,14 @@ func (m *Model) groupRemovalBox() (string, bool) {
 	if d.plan.Root.ID != "" {
 		name = d.plan.Root.Name
 	}
-	title := t.titlePrefix + "删除分组？"
-	warning := "将删除分组：\n\n" + strings.Repeat(" ", t.nameIndent) + t.nameOpen + label(name) + t.nameClose
-	details := "正在核对分组与成员…"
+	title := t.titlePrefix + "Delete group?"
+	warning := "Delete this group:\n\n" + strings.Repeat(" ", t.nameIndent) + t.nameOpen + label(name) + t.nameClose
+	details := "Checking groups and members…"
 	if !d.loading && d.plan.Stamp == "" && d.err != nil {
-		details = "无法核对影响范围，请返回刷新。"
+		details = "Cannot verify impact; go back and refresh."
 	}
 	if d.plan.Stamp != "" {
-		details = fmt.Sprintf("%s将移除 %d 个分组（含子组）\n%s%d 个会话收纳到%s%s%s\n%s终端不停止，输出与历史保留", t.bullet, len(d.plan.Groups), t.bullet, d.plan.MemberCount, t.nameOpen, label(d.plan.Destination.Name), t.nameClose, t.bullet)
+		details = fmt.Sprintf("%sRemove %d groups, including subgroups\n%sMove %d sessions to%s%s%s\n%sTerminals, output and history are preserved", t.bullet, len(d.plan.Groups), t.bullet, d.plan.MemberCount, t.nameOpen, label(d.plan.Destination.Name), t.nameClose, t.bullet)
 	}
 	button := func(text string, focused, destructive bool) string {
 		style := m.styles.confirmCancel
@@ -56,25 +56,25 @@ func (m *Model) groupRemovalBox() (string, bool) {
 		}
 		return style.Render(prefix + text)
 	}
-	buttons := lipgloss.JoinHorizontal(lipgloss.Top, button("删除", d.focus == 0, true), strings.Repeat(" ", t.buttonGap), button("取消", d.focus == 1, false))
+	buttons := lipgloss.JoinHorizontal(lipgloss.Top, button("Delete", d.focus == 0, true), strings.Repeat(" ", t.buttonGap), button("Cancel", d.focus == 1, false))
 	if lipgloss.Width(buttons) > width {
-		buttons = lipgloss.JoinVertical(lipgloss.Left, button("删除", d.focus == 0, true), button("取消", d.focus == 1, false))
+		buttons = lipgloss.JoinVertical(lipgloss.Left, button("Delete", d.focus == 0, true), button("Cancel", d.focus == 1, false))
 	}
-	hint := "y 删除 · n 取消 · ←/→ 选择 · Enter · Esc"
+	hint := "y Delete · n Cancel · ←/→ Select · Enter · Esc"
 	if d.loading {
-		hint = "正在核对影响范围 · Esc 取消"
+		hint = "Reviewing impact · Esc Cancel"
 	} else if d.busy {
-		hint = "正在收纳成员并移除结构…"
+		hint = "Moving members and removing groups…"
 	} else if d.submitted {
-		hint = "Esc 返回并刷新核对"
+		hint = "Esc Back and refresh to verify"
 	}
 	titleStyle, boxStyle := m.styles.confirmTitle, m.styles.confirmBox
 	if d.target.ID == session.DefaultGroupID {
-		title = t.titlePrefix + "无法删除默认分组"
-		warning = t.nameOpen + label(name) + t.nameClose + " 是默认分组，不能删除。\n\n会话需要保留归属。"
+		title = t.titlePrefix + "Cannot delete the default group"
+		warning = t.nameOpen + label(name) + t.nameClose + " is the default group and cannot be deleted.\n\nSessions must belong to a group."
 		details = ""
-		buttons = button("确定", true, false)
-		hint = "Enter / Esc / o 返回"
+		buttons = button("Confirm", true, false)
+		hint = "Enter / Esc / o Back"
 		titleStyle, boxStyle = m.styles.confirmNoticeTitle, m.styles.confirmNoticeBox
 	}
 	errLine := ""
@@ -94,7 +94,7 @@ func (m *Model) renderGroupRemoval() string {
 	box, fits := m.groupRemovalBox()
 	if !fits {
 		outer, width := m.groupRemovalWidths()
-		compact := m.styles.confirmDetails.Render("请放大窗口核对完整提示") + "\n" + m.styles.confirmHint.Render("Esc 取消")
+		compact := m.styles.confirmDetails.Render("Enlarge the window to review the complete message") + "\n" + m.styles.confirmHint.Render("Esc Cancel")
 		box = m.styles.confirmBox.Width(outer).Render(fitFrame(compact, width, max(0, m.height-m.styles.confirmBox.GetVerticalFrameSize())))
 	}
 	bw, bh := lipgloss.Size(box)

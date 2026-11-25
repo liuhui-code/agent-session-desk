@@ -16,7 +16,7 @@ func (m *Model) sidebarNavigationWindow(width, height int) sidebarWindow {
 	if height <= 0 {
 		return sidebarWindow{}
 	}
-	card := m.workspaceSidebarRows(width, height)
+	card := m.workspaceSidebarRows(width, height) + m.tokens.sidebar.cardGap
 	if !m.groupedSidebar() {
 		old := m.sessionListWindowForRows(height, card)
 		window := sidebarWindow{start: old.start, end: old.end, leading: old.leading, remaining: len(m.sessions) - old.end}
@@ -35,7 +35,7 @@ func (m *Model) sidebarNavigationWindow(width, height int) sidebarWindow {
 	}
 	itemHeight := func(i int) int {
 		if items[i].index < 0 {
-			return 1
+			return min(height, m.tokens.sidebar.groupRows)
 		}
 		return card
 	}

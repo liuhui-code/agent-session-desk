@@ -40,7 +40,7 @@ func (m *Model) recentDirectoryEvent(msg tea.Msg) (tea.Cmd, bool) {
 	s := &m.workspace.directories
 	s.writing = false
 	if r.err != nil {
-		m.status = fmt.Sprintf("终端已创建；最近目录未保存：%s", label(r.err.Error()))
+		m.status = fmt.Sprintf("Terminal created; recent directory not saved: %s", label(r.err.Error()))
 	}
 	return m.writeRecentDirectory(), true
 }

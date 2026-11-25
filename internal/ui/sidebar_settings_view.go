@@ -14,10 +14,10 @@ func (m *Model) settingsRow(row, width int, compact bool) string {
 	d, t := m.densitySettings, m.tokens
 	names, selected, labelText := []string{"Dark", "Light", "System"}, d.themeChoice, ""
 	if compact {
-		labelText = "主题: "
+		labelText = "Theme: "
 	}
 	if row == 1 {
-		names, selected, labelText = []string{"Full", "Compact", "Minimal", "Auto"}, d.choice, "侧栏密度: "
+		names, selected, labelText = []string{"Full", "Compact", "Minimal", "Auto"}, d.choice, "Sidebar density: "
 	}
 	base, radio, choice, prefix := m.styles.settingsText, m.styles.settingsRadioIdle, m.styles.settingsChoiceIdle, t.sidebar.settingsIdlePrefix
 	marker := base
@@ -48,37 +48,37 @@ func (m *Model) renderDensitySettings() string {
 	d, t := m.densitySettings, m.tokens
 	width := max(1, min(t.sidebar.settingsWidth, m.width))
 	contentWidth := max(1, width-m.styles.settingsBox.GetHorizontalFrameSize())
-	lines := []string{m.styles.settingsTitle.Render("设置")}
+	lines := []string{m.styles.settingsTitle.Render("Settings")}
 	for range t.dialog.titleGap {
 		lines = append(lines, "")
 	}
-	lines = append(lines, m.styles.settingsSection.Render("主题"), m.settingsRow(0, contentWidth, false))
+	lines = append(lines, m.styles.settingsSection.Render("Theme"), m.settingsRow(0, contentWidth, false))
 	if caption := m.systemThemeCaption(); caption != "" {
 		lines = append(lines, m.styles.settingsHint.Render(caption))
 	}
 	for range t.dialog.fieldGap {
 		lines = append(lines, "")
 	}
-	lines = append(lines, m.styles.settingsSection.Render("布局"), m.settingsRow(1, contentWidth, false), m.styles.settingsHint.Render("每会话 3 / 2 / 1 行；Auto 按空间选择"), m.styles.settingsHint.Render("↑↓ / j/k / Tab 选行 · ←→ / h/l 选择"), m.styles.settingsHint.Render("空格轮换 · 保存成功后应用 · Esc/S 返回"))
+	lines = append(lines, m.styles.settingsSection.Render("Layout"), m.settingsRow(1, contentWidth, false), m.styles.settingsHint.Render("3 / 2 / 1 content rows per session; Auto fits available space"), m.styles.settingsHint.Render("↑↓ / j/k / Tab Select row · ←→ / h/l Choose"), m.styles.settingsHint.Render("Space Cycle · Apply after saving · Esc/S Back"))
 	if d.busy {
-		lines = append(lines, m.styles.settingsHint.Render("正在保存…"))
+		lines = append(lines, m.styles.settingsHint.Render("Saving…"))
 	}
 	if d.err != nil {
-		lines = append(lines, m.styles.settingsError.Render("未保存："+label(d.err.Error())))
+		lines = append(lines, m.styles.settingsError.Render("Not saved: "+label(d.err.Error())))
 	}
 	maxRows := max(1, m.height-m.styles.settingsBox.GetVerticalFrameSize())
 	if len(lines) > maxRows {
 		lines = []string{m.settingsRow(d.row, contentWidth, true)}
 		if d.err != nil {
-			lines = append(lines, m.styles.settingsError.Render("未保存："+label(d.err.Error())))
+			lines = append(lines, m.styles.settingsError.Render("Not saved: "+label(d.err.Error())))
 		}
 		if caption := m.systemThemeCaption(); caption != "" {
 			lines = append(lines, m.styles.settingsHint.Render(caption))
 		}
 		if d.busy {
-			lines = append(lines, m.styles.settingsHint.Render("正在保存…"))
+			lines = append(lines, m.styles.settingsHint.Render("Saving…"))
 		}
-		lines = append(lines, m.styles.settingsHint.Render("↑↓ 选行 · ←→ 选择 · Esc 返回"))
+		lines = append(lines, m.styles.settingsHint.Render("↑↓ Select row · ←→ Choose · Esc Back"))
 	}
 	for i, line := range lines {
 		lines[i] = line + m.styles.settingsText.Render(strings.Repeat(" ", max(0, contentWidth-lipgloss.Width(line))))

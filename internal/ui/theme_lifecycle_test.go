@@ -101,7 +101,7 @@ func TestThemeNeedsWholeDocumentSaveCapability(t *testing.T) {
 	openThemeSettings(t, h)
 	h.send(tea.KeyPressMsg{Code: tea.KeyRight})
 	h.until(func() bool { return h.m.densitySettings.err != nil })
-	if colorHex(h.m.View().BackgroundColor) != "000000" || !strings.Contains(h.m.View().Content, "不支持主题") {
+	if colorHex(h.m.View().BackgroundColor) != "000000" || !strings.Contains(h.m.View().Content, "不支持Theme") {
 		t.Fatal("unsupported writer falsely applied theme")
 	}
 }

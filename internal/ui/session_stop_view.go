@@ -13,9 +13,9 @@ import (
 func (m *Model) sessionStopBox() (string, bool) {
 	d, t := m.sessionStop, m.tokens.confirm
 	outer, width := m.groupRemovalWidths()
-	title := t.titlePrefix + "停止会话？"
-	warning := "将停止终端及其程序：\n\n" + strings.Repeat(" ", t.nameIndent) + t.nameOpen + label(d.target.Title) + t.nameClose
-	details := "Session：" + label(d.target.ID) + "\nRun：" + label(d.target.RunID) + "\n程序：" + label(d.target.Command) + "\n" + t.bullet + "未保存的工作可能丢失\n" + t.bullet + "Tab 视图、名称、分组与历史保留"
+	title := t.titlePrefix + "Stop session?"
+	warning := "Stop this terminal and its program:\n\n" + strings.Repeat(" ", t.nameIndent) + t.nameOpen + label(d.target.Title) + t.nameClose
+	details := "Session：" + label(d.target.ID) + "\nRun：" + label(d.target.RunID) + "\nProgram: " + label(d.target.Command) + "\n" + t.bullet + "Unsaved work may be lost\n" + t.bullet + "Tab, name, group and history are preserved"
 	button := func(text string, focused, destructive bool) string {
 		style, prefix := m.styles.confirmCancel, t.idlePrefix
 		if destructive {
@@ -31,15 +31,15 @@ func (m *Model) sessionStopBox() (string, bool) {
 		}
 		return style.Render(prefix + text)
 	}
-	buttons := lipgloss.JoinHorizontal(lipgloss.Top, button("停止", d.focus == 0, true), strings.Repeat(" ", t.buttonGap), button("取消", d.focus == 1, false))
+	buttons := lipgloss.JoinHorizontal(lipgloss.Top, button("Stop", d.focus == 0, true), strings.Repeat(" ", t.buttonGap), button("Cancel", d.focus == 1, false))
 	if lipgloss.Width(buttons) > width {
-		buttons = lipgloss.JoinVertical(lipgloss.Left, button("停止", d.focus == 0, true), button("取消", d.focus == 1, false))
+		buttons = lipgloss.JoinVertical(lipgloss.Left, button("Stop", d.focus == 0, true), button("Cancel", d.focus == 1, false))
 	}
-	hint := "y 停止 · n 取消 · ←/→ 选择 · Enter · Esc"
+	hint := "y Stop · n Cancel · ←/→ Select · Enter · Esc"
 	if d.busy {
-		hint = "正在核对并停止原 Run…"
+		hint = "Verifying and stopping the original run…"
 	} else if d.submitted {
-		hint = "Esc 返回并刷新核对"
+		hint = "Esc Back and refresh to verify"
 	}
 	errLine := ""
 	if d.err != nil {
@@ -58,13 +58,13 @@ func (m *Model) renderSessionStop() string {
 	box, fits := m.sessionStopBox()
 	if !fits {
 		outer, width := m.groupRemovalWidths()
-		hint := "Esc 取消"
+		hint := "Esc Cancel"
 		if m.sessionStop.busy {
-			hint = "正在停止，请等待结果"
+			hint = "Stopping; wait for the result"
 		} else if m.sessionStop.submitted {
-			hint = "结果未确认 · Esc 返回刷新核对"
+			hint = "Outcome unknown · Esc Back and refresh to verify"
 		}
-		compact := m.styles.confirmDetails.Render("请放大窗口核对完整提示") + "\n" + m.styles.confirmHint.Render(hint)
+		compact := m.styles.confirmDetails.Render("Enlarge the window to review the complete message") + "\n" + m.styles.confirmHint.Render(hint)
 		box = m.styles.confirmBox.Width(outer).Render(fitFrame(compact, width, max(0, m.height-m.styles.confirmBox.GetVerticalFrameSize())))
 	}
 	bw, bh := lipgloss.Size(box)

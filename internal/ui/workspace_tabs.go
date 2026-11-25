@@ -29,7 +29,7 @@ func (m *Model) moveWorkspaceTab(viewID uint64, destination int) {
 				break
 			}
 		}
-		m.status = "Tab 顺序已调整；运行实例与输入保持原目标"
+		m.status = "Tab order updated; run and input targets are unchanged"
 		return
 	}
 }
@@ -48,10 +48,10 @@ func (m *Model) closeWorkspaceTabNow() tea.Cmd {
 	w.screen = terminal.Screen{}
 	w.buffered = nil
 	w.transition = workspaceIdle
-	m.status = "Tab 已关闭；运行实例继续保留，可从会话列表重新打开"
+	m.status = "View closed; the run continues. Reopen it from the sidebar."
 	if len(w.tabs) == 0 {
 		w.focused = false
-		m.status = "已返回管理模式；n 新建，Enter 重开，原实例继续保留"
+		m.status = "Navigation focus; n New, Enter Reopen. The original run continues."
 		return nil
 	}
 	return m.activateWorkspaceNow(w.active)
@@ -61,7 +61,7 @@ func (m *Model) closeWorkspaceTab() tea.Cmd {
 	w := m.workspace
 	if w.pending > 0 || (w.busy && len(w.buffered) > 0) {
 		w.transition = workspaceClose
-		m.status = "正在完成已输入的内容后关闭 Tab…"
+		m.status = "Finishing input before closing the view…"
 		return nil
 	}
 	return m.closeWorkspaceTabNow()
@@ -79,6 +79,6 @@ func (m *Model) closeWorkspaceView(index int) tea.Cmd {
 	if index < w.active {
 		w.active--
 	}
-	m.status = "Tab 已关闭；运行实例继续保留，可从会话列表重新打开"
+	m.status = "View closed; the run continues. Reopen it from the sidebar."
 	return nil
 }

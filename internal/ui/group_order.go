@@ -30,7 +30,7 @@ type groupOrderResult struct {
 
 func (m *Model) reorderSelectedGroup(delta int) tea.Cmd {
 	if m.groupOrderFailed {
-		m.status = "管理模式 · 分组顺序未确认；请刷新核对后再排序"
+		m.status = "Group order unconfirmed; refresh before sorting again"
 		return nil
 	}
 	service, ok := m.service.(groupOrderService)
@@ -54,7 +54,7 @@ func (m *Model) reorderSelectedGroup(delta int) tea.Cmd {
 	}
 	operation := &groupOrderMutation{observed: m.groupsObserved}
 	m.groupOrder = operation
-	m.status = "管理模式 · 正在保存分组顺序…"
+	m.status = "Saving group order…"
 	ctx := m.ctx
 	return func() tea.Msg {
 		ctx, cancel := context.WithTimeout(ctx, 5*time.Second)
@@ -77,11 +77,11 @@ func (m *Model) groupOrderEvent(msg tea.Msg) (tea.Cmd, bool) {
 		}
 		if result.err != nil {
 			m.groupOrderFailed = true
-			m.status = "管理模式 · 分组顺序未确认；请刷新核对：" + label(result.err.Error())
+			m.status = "Group order unconfirmed; refresh to verify: " + label(result.err.Error())
 			return m.loadSessions(), true
 		}
 		m.acceptGroupOrder(result.groups, m.groupsObserved == result.operation.observed)
-		if strings.HasPrefix(m.status, "管理模式 · 正在保存分组顺序") {
+		if strings.HasPrefix(m.status, "Saving group order") {
 			m.status = ""
 		}
 		if quitting {

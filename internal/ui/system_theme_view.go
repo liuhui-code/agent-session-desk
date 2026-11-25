@@ -6,10 +6,10 @@ func (m *Model) systemThemeCaption() string {
 	}
 	s := &m.systemTheme
 	if s.choice != "system" {
-		return "保存成功后跟随系统"
+		return "Follow the system after saving"
 	}
 	if s.blocked {
-		return "主题观察器未能关闭；重启界面后重试"
+		return "Theme observer did not close; restart the UI to retry"
 	}
 	current := "Dark"
 	if s.resolved == "light" {
@@ -17,12 +17,12 @@ func (m *Model) systemThemeCaption() string {
 	}
 	if s.known {
 		if s.source == "terminal" {
-			return "跟随终端声明 · 当前 " + current
+			return "Terminal theme · Current " + current
 		}
-		return "跟随 Windows 应用主题 · 当前 " + current
+		return "Windows app theme · Current " + current
 	}
 	if s.resolved == "" {
-		return "系统主题未知 · 暂用 Dark · r 重试"
+		return "System theme unknown · Using Dark · r Retry"
 	}
-	return "系统主题未知 · 保留 " + current + " · r 重试"
+	return "System theme unknown · Keeping " + current + " · r retry"
 }

@@ -42,7 +42,7 @@ func TestNestedSessionCardHighlightIncludesIndentationAtEveryDensity(t *testing.
 						continue
 					}
 					found = true
-					for y := hit.top; y < hit.top+hit.height; y++ {
+					for y := hit.top; y < hit.top+min(hit.height, m.workspaceSidebarRows(width, 20)); y++ {
 						if ansi.StringWidth(lines[y]) != width {
 							t.Fatalf("card row width=%d", ansi.StringWidth(lines[y]))
 						}

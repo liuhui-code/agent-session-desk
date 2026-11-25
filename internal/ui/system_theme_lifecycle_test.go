@@ -152,7 +152,7 @@ func TestSystemThemeUnknownRetainsLastGoodAndSanitizesCaption(t *testing.T) {
 	read = themeEvent(t, m, read())
 	m.densitySettings = &densitySettings{themeChoice: 2}
 	caption := m.systemThemeCaption()
-	if colorHex(m.View().BackgroundColor) != "d5d6db" || !strings.Contains(caption, "未知") || !strings.Contains(caption, "保留 Light") || strings.Contains(caption, "PRIVATE") {
+	if colorHex(m.View().BackgroundColor) != "d5d6db" || !strings.Contains(caption, "Unknown") || !strings.Contains(caption, "保留 Light") || strings.Contains(caption, "PRIVATE") {
 		t.Fatal("unknown source changed palette or leaked source")
 	}
 	// A terminal reader failure closes once and does not busy-loop reopen.

@@ -26,26 +26,9 @@ func (m *Model) renderSidebarGroupAt(id string, level, width int) string {
 		icon = t.groupCollapsed
 	}
 	gutter := strings.Repeat(" ", t.groupGutter)
-	if level == 0 {
-		number := 0
-		for _, root := range m.sidebarGroups() {
-			if root.ParentID == "" {
-				number++
-			}
-			if root.ID == id {
-				break
-			}
-		}
-		if number <= 9 {
-			gutter = m.styles.groupHotkey.Render(strconv.Itoa(number) + t.rootShortcutSuffix)
-		}
-	}
 	if selected {
 		gutter = m.styles.key.Render(t.selected)
 		nameStyle, partStyle = m.styles.groupSelectedName, m.styles.groupSelectedPart
-	}
-	if m.workspace.focused && !selected {
-		gutter = ""
 	}
 	n := 0
 	for _, v := range m.sessions {
@@ -53,7 +36,12 @@ func (m *Model) renderSidebarGroupAt(id string, level, width int) string {
 			n++
 		}
 	}
+	name := g.Name
+	// Translate only the legacy built-in label, never custom group names.
+	if g.ID == session.DefaultGroupID && name == "\u6211\u7684\u4f1a\u8bdd" {
+		name = "My Sessions"
+	}
 	count := t.groupCountPrefix + strconv.Itoa(n) + t.groupCountSuffix
-	row := gutter + strings.Repeat(" ", level*t.indentWidth) + partStyle.Render(icon) + strings.Repeat(" ", m.tokens.layout.menuGap) + nameStyle.Render(label(g.Name)) + partStyle.Render(count)
+	row := gutter + strings.Repeat(" ", level*t.indentWidth) + partStyle.Render(icon) + strings.Repeat(" ", m.tokens.layout.menuGap) + nameStyle.Render(label(name)) + partStyle.Render(count)
 	return cellTruncate(row, width, m.tokens.marks.ellipsis) + strings.Repeat(" ", max(0, width-lipgloss.Width(row)))
 }

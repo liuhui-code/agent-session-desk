@@ -46,7 +46,7 @@ func TestGroupOrderFailureCancelsQuitAndRequiresAFreshSnapshotBeforeAnotherEdit(
 	h.send(tea.KeyPressMsg{Code: 'q', Text: "q"})
 	close(writeGate)
 	h.until(func() bool {
-		return h.m.groupOrder == nil && strings.Contains(h.m.View().Content, "分组顺序未确认")
+		return h.m.groupOrder == nil && strings.Contains(h.m.View().Content, "Groups顺序未确认")
 	})
 	if h.m.closed {
 		t.Fatal("uncertain commit silently quit")

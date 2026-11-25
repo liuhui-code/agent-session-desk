@@ -15,24 +15,24 @@ import (
 func (m *Model) curatedFooterHints() []footerHint {
 	var hints []footerHint
 	if m.sidebarGroupSelected() {
-		action := "折叠"
+		action := "Collapse"
 		if m.groupCollapsed(m.selectedGroup().ID) {
-			action = "展开"
+			action = "Expand"
 		}
-		hints = append(hints, footerHint{"Tab", action}, footerHint{"n", "新建"}, footerHint{"r", "改名"})
+		hints = append(hints, footerHint{"Tab", action}, footerHint{"n", "New"}, footerHint{"r", "Rename"})
 	} else if selected, ok := m.selected(); ok {
 		if selected.TerminalState == session.TerminalAvailable {
-			hints = append(hints, footerHint{"Enter", "打开"})
+			hints = append(hints, footerHint{"Enter", "Open"})
 		}
-		name := "改名"
+		name := "Rename"
 		if m.workspace.err != nil {
-			name = "重查"
+			name = "Retry"
 		}
-		hints = append(hints, footerHint{"n", "新建"}, footerHint{"r", name})
+		hints = append(hints, footerHint{"n", "New"}, footerHint{"r", name})
 	} else {
-		hints = append(hints, footerHint{"n", "新建"})
+		hints = append(hints, footerHint{"n", "New"})
 		if _, ok := m.service.(groupService); ok {
-			hints = append(hints, footerHint{"g", "分组"})
+			hints = append(hints, footerHint{"g", "Groups"})
 		}
 	}
 	return hints[:min(len(hints), m.tokens.footer.curatedHintLimit)]
@@ -44,7 +44,7 @@ func (m *Model) renderCuratedFooter() string {
 	render := func(h footerHint) string {
 		return m.styles.footerCuratedKey.Render(h.key) + strings.Repeat(" ", t.labelGap) + m.styles.dim.Render(h.label)
 	}
-	globals := []string{render(footerHint{"S", "设置"}), render(footerHint{"?", "帮助"})}
+	globals := []string{render(footerHint{"S", "Settings"}), render(footerHint{"?", "Help"})}
 	used := lipgloss.Width(strings.Join(globals, sep))
 	var parts []string
 	for _, hint := range m.curatedFooterHints() {

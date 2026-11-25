@@ -22,7 +22,7 @@ func (m *Model) sidebarGroups() []session.Group {
 	if len(m.groups) > 0 {
 		return m.groups
 	}
-	return []session.Group{{ID: session.DefaultGroupID, Name: "我的会话", Revision: 1}}
+	return []session.Group{{ID: session.DefaultGroupID, Name: "My Sessions", Revision: 1}}
 }
 func (m *Model) groupByID(id string) session.Group {
 	if id == "" {

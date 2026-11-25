@@ -23,7 +23,7 @@ func TestLaunchDialogSurfaceFillsTrailingLabelCells(t *testing.T) {
 	found := false
 	for _, line := range strings.Split(h.m.View().Content, "\n") {
 		plain := ansi.Strip(line)
-		idx := strings.Index(plain, "名称（可空）")
+		idx := strings.Index(plain, "Name (optional)")
 		if idx < 0 {
 			continue
 		}

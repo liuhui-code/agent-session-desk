@@ -18,7 +18,7 @@ func TestDefaultGroupedSidebarFoldsWithoutClosingTabOrChangingTerminalInput(t *t
 	service := &workspaceFixture{fakeService: fakeService{list: func(context.Context) ([]session.Session, error) { return sampleSessions(), nil }}}
 	h := newWorkspaceHarness(t, service, Options{})
 	h.until(func() bool { return strings.Contains(h.m.View().Content, "shell marker first") })
-	if !strings.Contains(ansi.Strip(h.m.View().Content), "▾ 我的会话 (2)") {
+	if !strings.Contains(ansi.Strip(h.m.View().Content), "▾ My Sessions (2)") {
 		t.Fatal("default sidebar lost the pinned upstream group header")
 	}
 	service.mu.Lock()
@@ -28,17 +28,17 @@ func TestDefaultGroupedSidebarFoldsWithoutClosingTabOrChangingTerminalInput(t *t
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	h.send(tea.KeyPressMsg{Code: tea.KeyUp})
 	h.send(tea.KeyPressMsg{Code: tea.KeyEnter})
-	h.until(func() bool { return strings.Contains(ansi.Strip(h.m.View().Content), "▸ 我的会话 (2)") })
+	h.until(func() bool { return strings.Contains(ansi.Strip(h.m.View().Content), "▸ My Sessions (2)") })
 	view := ansi.Strip(h.m.View().Content)
-	if strings.Contains(view, "可连接") || !strings.Contains(view, "shell marker first") {
+	if strings.Contains(view, "Connected") || !strings.Contains(view, "shell marker first") {
 		t.Fatal("fold did not hide children or closed the active terminal")
 	}
 	h.send(tea.KeyPressMsg{Code: 'v', Mod: tea.ModAlt})
-	h.until(func() bool { return !strings.Contains(ansi.Strip(h.m.View().Content), "我的会话") })
+	h.until(func() bool { return !strings.Contains(ansi.Strip(h.m.View().Content), "My Sessions") })
 	h.send(tea.KeyPressMsg{Code: 'v', Mod: tea.ModAlt})
-	h.until(func() bool { return strings.Contains(ansi.Strip(h.m.View().Content), "▸ 我的会话 (2)") })
+	h.until(func() bool { return strings.Contains(ansi.Strip(h.m.View().Content), "▸ My Sessions (2)") })
 	h.send(tea.KeyPressMsg{Code: tea.KeyEnter})
-	h.until(func() bool { return strings.Contains(ansi.Strip(h.m.View().Content), "▾ 我的会话 (2)") })
+	h.until(func() bool { return strings.Contains(ansi.Strip(h.m.View().Content), "▾ My Sessions (2)") })
 	stream.mu.Lock()
 	defer stream.mu.Unlock()
 	writes := strings.Join(stream.writes, ",")
@@ -59,7 +59,7 @@ func TestGroupedHeaderMouseClickFoldsInsteadOfSelectingFirstSession(t *testing.T
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	row := -1
 	for y, line := range strings.Split(ansi.Strip(h.m.View().Content), "\n") {
-		if strings.Contains(line, "▾ 我的会话") {
+		if strings.Contains(line, "▾ My Sessions") {
 			row = y
 			break
 		}
@@ -68,7 +68,7 @@ func TestGroupedHeaderMouseClickFoldsInsteadOfSelectingFirstSession(t *testing.T
 		t.Fatal("default group not visible")
 	}
 	h.send(tea.MouseClickMsg{Button: tea.MouseLeft, X: 2, Y: row})
-	h.until(func() bool { return strings.Contains(ansi.Strip(h.m.View().Content), "▸ 我的会话") })
+	h.until(func() bool { return strings.Contains(ansi.Strip(h.m.View().Content), "▸ My Sessions") })
 	if !strings.Contains(h.m.View().Content, "shell marker first") {
 		t.Fatal("header click disconnected the terminal")
 	}

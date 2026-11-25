@@ -20,12 +20,12 @@ func TestLaunchDialogCreatesGenericTerminalTabWithLiteralArguments(t *testing.T)
 	h.until(func() bool { return strings.Contains(h.m.View().Content, "shell marker first") })
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	h.send(tea.KeyPressMsg{Code: 'n', Text: "n"})
-	h.until(func() bool { return strings.Contains(h.m.View().Content, "新建终端") })
+	h.until(func() bool { return strings.Contains(h.m.View().Content, "New terminal") })
 	dir := filepath.Join(t.TempDir(), "项目 工作区")
 	if err := os.Mkdir(dir, 0700); err != nil {
 		t.Fatal(err)
 	}
-	values := []string{"普通终端", `C:\工具 box\pwsh.exe`, dir, `["-NoProfile","--model=local","arg with spaces","中文"]`}
+	values := []string{"普通Terminal", `C:\工具 box\pwsh.exe`, dir, `["-NoProfile","--model=local","arg with spaces","中文"]`}
 	for i, value := range values {
 		if i > 0 {
 			h.send(tea.KeyPressMsg{Code: tea.KeyTab})

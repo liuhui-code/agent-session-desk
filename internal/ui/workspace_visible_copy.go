@@ -50,17 +50,17 @@ func (m *Model) copyVisiblePane() tea.Cmd {
 		return nil
 	}
 	if w.visibleCopy != nil || m.clipboard.inflight != nil {
-		m.status = "正在处理复制请求；请稍后再复制"
+		m.status = "Copy request in progress; wait before copying again"
 		return nil
 	}
 	if target.TerminalState != session.TerminalAvailable && target.TerminalState != session.TerminalExited {
-		m.status = "目标终端状态未知；请刷新后复制"
+		m.status = "Terminal state unknown; refresh before copying"
 		return nil
 	}
 	ctx, cancel := context.WithTimeout(m.ctx, 5*time.Second)
 	op := &visiblePaneCopy{generation: w.generation, target: target, cancel: cancel}
 	w.visibleCopy = op
-	m.status = "正在捕获所选原终端的可见页…"
+	m.status = "Capturing the selected terminal screen…"
 	return func() tea.Msg {
 		defer cancel()
 		p, e := service.CaptureVisible(ctx, target)
@@ -79,30 +79,30 @@ func (m *Model) visiblePaneEvent(msg tea.Msg) (tea.Cmd, bool) {
 	}
 	err := result.err
 	if !m.visibleCopyTargetCurrent(op.target) {
-		err = fmt.Errorf("原 Session/Run 已变化；未发送复制")
+		err = fmt.Errorf("Session/Run changed; copy was not sent")
 	}
 	if err == nil && (result.capture.Truncated || len(result.capture.Text) > terminal.MaxFrameBytes || !terminal.ValidCaptureEncoding(result.capture.Text)) {
-		err = fmt.Errorf("可见页不完整、超限或编码无效；未发送复制")
+		err = fmt.Errorf("Screen incomplete, too large or invalidly encoded; copy not sent")
 	}
 	if err != nil {
 		w.visibleCopy = nil
-		m.status = "可见页复制失败：" + label(err.Error())
+		m.status = "Screen copy failed: " + label(err.Error())
 		return m.drainWorkspaceClipboard(), true
 	}
 	payload := normalizeVisiblePane(result.capture.Text)
 	if payload == "" {
 		w.visibleCopy = nil
-		m.status = "所选终端没有可复制的可见文字"
+		m.status = "No visible text to copy from the selected terminal"
 		return m.drainWorkspaceClipboard(), true
 	}
 	if len(payload) > terminal.MaxClipboardBytes {
 		w.visibleCopy = nil
-		m.status = "可见页超过复制上限；未发送部分文字"
+		m.status = "Screen exceeds copy limit; no partial text was sent"
 		return m.drainWorkspaceClipboard(), true
 	}
 	op.ready, op.payload = true, payload
 	if m.clipboard.inflight != nil {
-		m.status = "可见页已捕获；等待前一次复制请求完成"
+		m.status = "Screen captured; waiting for the previous copy request"
 		return nil, true
 	}
 	return m.drainWorkspaceClipboard(), true

@@ -47,11 +47,11 @@ func TestWorkspaceFooterContextMatchesSelectedGroupAndUnavailableSession(t *test
 	m.sidebarMode = "grouped"
 	m.cursor = -1
 	footer := ansi.Strip(m.renderManagementFooter())
-	if !strings.Contains(footer, "折叠") || strings.Contains(footer, "打开") {
+	if !strings.Contains(footer, "Collapse") || strings.Contains(footer, "Open") {
 		t.Fatalf("group footer advertises terminal open: %s", footer)
 	}
 	m.sidebarCollapsed = true
-	if footer = ansi.Strip(m.renderManagementFooter()); !strings.Contains(footer, "展开") {
+	if footer = ansi.Strip(m.renderManagementFooter()); !strings.Contains(footer, "Expand") {
 		t.Fatalf("collapsed group action not reflected: %s", footer)
 	}
 	m.sessions = sampleSessions()
@@ -93,7 +93,7 @@ func TestWorkspaceFullFooterKeepsQuitAtSourceRightGutter(t *testing.T) {
 	m.width, m.height = 160, 32
 	m.sidebarMode = "flat"
 	line := ansi.Strip(m.renderManagementFooter())
-	if !strings.HasSuffix(line, "q 退出") || lipgloss.Width(line) != 158 {
+	if !strings.HasSuffix(line, "q Quit") || lipgloss.Width(line) != 158 {
 		t.Fatalf("source full-tier quit/right-gutter anchor missing: width=%d %q", lipgloss.Width(line), line)
 	}
 }
@@ -122,7 +122,7 @@ func TestWorkspaceTerminalFooterUsesSourceYellowBadgeAndNamesTheActiveRun(t *tes
 	check := func(title string) {
 		line := h.m.renderTerminalFooter()
 		plain := ansi.Strip(line)
-		i := strings.Index(plain, "终端模式")
+		i := strings.Index(plain, "Terminal")
 		if i < 0 || !strings.Contains(plain, title) || !strings.Contains(plain, "F6") {
 			t.Fatalf("terminal badge/target missing: %q", plain)
 		}

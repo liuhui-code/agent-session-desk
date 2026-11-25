@@ -37,7 +37,7 @@ func (m *Model) beginSessionStop() tea.Cmd {
 		return nil
 	}
 	if target.TerminalState != session.TerminalAvailable && target.TerminalState != session.TerminalExited {
-		m.status = "目标终端状态未知；请刷新核对后再停止"
+		m.status = "Terminal state unknown; refresh and verify before stopping"
 		return nil
 	}
 	m.sessionStopIntent = &sessionStopDialog{target: target, focus: 1}
@@ -70,7 +70,7 @@ func (m *Model) sessionStopEvent(msg tea.Msg) (tea.Cmd, bool) {
 			m.listCancel()
 		}
 		if result.err != nil {
-			d.err = fmt.Errorf("停止结果未确认；请返回刷新核对，勿直接重复停止：%w", result.err)
+			d.err = fmt.Errorf("Stop outcome unknown; go back and refresh before retrying: %w", result.err)
 			return m.loadSessions(), true
 		}
 		// Preserve the stopped view and all unrelated/replacement Runs. Never turn
@@ -80,7 +80,7 @@ func (m *Model) sessionStopEvent(msg tea.Msg) (tea.Cmd, bool) {
 			if sameStopTarget(tab.session, d.target) {
 				tab.live, tab.session.TerminalState = false, session.TerminalExited
 				if i == m.workspace.active {
-					m.failWorkspace(fmt.Errorf("该 Run 已显式停止；保留视图与历史"))
+					m.failWorkspace(fmt.Errorf("Run explicitly stopped; view and history retained"))
 				}
 			}
 		}
@@ -94,7 +94,7 @@ func (m *Model) sessionStopEvent(msg tea.Msg) (tea.Cmd, bool) {
 		m.cursor = min(m.cursor, len(rows)-1)
 		m.workspace.listClick = workspaceListClick{}
 		m.sessionStop = nil
-		m.status = "原 Run 已停止；Tab 视图和历史保留"
+		m.status = "Original run stopped; view and history are preserved"
 		return tea.Batch(m.connectLiveWorkspace(), m.loadSessions()), true
 	}
 	d := m.sessionStop
@@ -145,11 +145,11 @@ func (m *Model) submitSessionStop() tea.Cmd {
 		return nil
 	}
 	if len(d.target.Title) > maxLabelBytes || len(d.target.Command) > maxLabelBytes {
-		d.err = fmt.Errorf("名称或程序字段过长，无法完整核对；请返回处理后重新确认")
+		d.err = fmt.Errorf("Name or program is too long to review; shorten it before confirming")
 		return nil
 	}
 	if _, fits := m.sessionStopBox(); !fits {
-		d.err = fmt.Errorf("请放大窗口核对完整停止范围")
+		d.err = fmt.Errorf("Enlarge the window to review the full stop target")
 		return nil
 	}
 	d.busy, d.submitted, d.err = true, true, nil

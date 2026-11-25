@@ -50,7 +50,7 @@ func (m *Model) renderGroupDialog() (string, *tea.Cursor) {
 	}
 	d, t := m.groupDialog, m.tokens
 	if d.rename {
-		return m.renderNameDialog(d.inputs[0], "重命名分组", d.busy, d.submitted, d.err)
+		return m.renderNameDialog(d.inputs[0], "Rename group", d.busy, d.submitted, d.err)
 	}
 	outer, content, fieldWidth := m.groupDialogWidths()
 	center := func(s string) string {
@@ -59,30 +59,30 @@ func (m *Model) renderGroupDialog() (string, *tea.Cursor) {
 		left := padding / 2
 		return m.styles.formText.Render(strings.Repeat(" ", left)) + s + m.styles.formText.Render(strings.Repeat(" ", padding-left))
 	}
-	title := "创建分组"
+	title := "Create group"
 	if d.move {
-		title = "移动到分组"
+		title = "Move to group"
 	} else if d.parentID != "" {
-		title = "创建子组"
+		title = "Create subgroup"
 	}
 	lines := []string{center(m.styles.renameTitle.Render(title)), ""}
 	inputRow := -1
 	blockWidth := min(content, t.group.labelWidth+fieldWidth)
 	if !d.move {
 		if d.contextID != "" {
-			root, sub := m.styles.groupLabel.Render("根组"), m.styles.groupLabel.Render("子组")
+			root, sub := m.styles.groupLabel.Render("Root group"), m.styles.groupLabel.Render("Subgroup")
 			if d.parentID == "" {
-				root = m.styles.groupMode.Render(t.group.modeOpen + "根组" + t.group.modeClose)
+				root = m.styles.groupMode.Render(t.group.modeOpen + "Root group" + t.group.modeClose)
 			} else {
-				sub = m.styles.groupMode.Render(t.group.modeOpen + "子组" + t.group.modeClose)
+				sub = m.styles.groupMode.Render(t.group.modeOpen + "Subgroup" + t.group.modeClose)
 			}
 			lines = append(lines, center(root+m.styles.groupLabel.Render(t.group.modeSeparator)+sub), "")
 		}
 		if d.parentID != "" {
-			lines = append(lines, center(m.styles.groupContext.Render("父组: "+m.groupPath(d.parentID))), "")
+			lines = append(lines, center(m.styles.groupContext.Render("Parent: "+m.groupPath(d.parentID))), "")
 		}
 		inputRow = len(lines) + d.focus
-		for i, name := range []string{"名称:", "默认目录:"} {
+		for i, name := range []string{"Name:", "Default directory:"} {
 			labelText := fitFrame(name, t.group.labelWidth, 1)
 			lines = append(lines, center(m.styles.groupLabel.Render(labelText)+fitFrame(inputView(d.inputs[i]), fieldWidth, 1)))
 		}
@@ -106,17 +106,17 @@ func (m *Model) renderGroupDialog() (string, *tea.Cursor) {
 	if d.err != nil {
 		errLine = m.styles.formError.Render(t.rename.warningPrefix + label(d.err.Error()))
 	}
-	hint := "Tab 下一项 │ Enter 确认 │ Esc 取消"
+	hint := "Tab Next | Enter Confirm | Esc Cancel"
 	if d.move {
-		hint = "↑↓ 选择 │ Enter 确认 │ Esc 取消"
+		hint = "↑↓ Select | Enter Confirm | Esc Cancel"
 	}
 	if lipgloss.Width(hint) > content {
-		hint = "Enter 确认 │ Esc 取消"
+		hint = "Enter Confirm | Esc Cancel"
 	}
 	if d.busy {
-		hint = "正在保存分组…"
+		hint = "Saving group…"
 	} else if d.submitted {
-		hint = "Esc 返回 · 刷新后核对"
+		hint = "Esc Back · Refresh to verify"
 	}
 	lines = append(lines, center(errLine), "", center(m.styles.renameHint.Render(hint)))
 	maxRows := max(0, m.height-m.styles.renameBox.GetVerticalFrameSize())

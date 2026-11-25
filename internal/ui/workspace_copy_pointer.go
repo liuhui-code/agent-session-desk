@@ -67,7 +67,7 @@ func (m *Model) writeCopyPointer(action string, x, y int) tea.Cmd {
 	x, y = x-g.x, y-g.y
 	if x < -terminal.MaxWidth || x >= terminal.MaxWidth || y < -terminal.MaxHeight || y >= terminal.MaxHeight {
 		w.copyPointer = nil
-		m.status = "鼠标位置超出终端边界；手势已取消"
+		m.status = "Pointer outside terminal bounds; gesture cancelled"
 		return nil
 	}
 	before := w.pending

@@ -18,34 +18,34 @@ type footerHint struct{ key, label string }
 func (m *Model) managementFooterHints() (primary, secondary []footerHint) {
 	group := m.sidebarGroupSelected()
 	if group {
-		label := "折叠"
+		label := "Collapse"
 		if m.groupCollapsed(m.selectedGroup().ID) {
-			label = "展开"
+			label = "Expand"
 		}
 		primary = append(primary, footerHint{"Enter", label})
 	} else if selected, ok := m.selected(); ok && selected.TerminalState == session.TerminalAvailable {
-		primary = append(primary, footerHint{"Enter", "打开"})
+		primary = append(primary, footerHint{"Enter", "Open"})
 	}
-	primary = append(primary, footerHint{"n", "新建"})
-	name := "改名"
+	primary = append(primary, footerHint{"n", "New"})
+	name := "Rename"
 	if m.workspace.err != nil {
-		name = "重查"
+		name = "Retry"
 	}
 	if group {
 		if _, ok := m.service.(groupService); ok {
-			primary = append(primary, footerHint{"g", "分组"})
+			primary = append(primary, footerHint{"g", "Groups"})
 		}
 		secondary = append(secondary, footerHint{"r", name})
 		if m.selectedGroup().ID != session.DefaultGroupID {
-			secondary = append(secondary, footerHint{"d", "删组"})
+			secondary = append(secondary, footerHint{"d", "Delete group"})
 		}
 	} else if _, ok := m.selected(); ok {
 		secondary = append(secondary, footerHint{"r", name})
 		if _, ok := m.service.(visiblePaneService); ok {
-			secondary = append(secondary, footerHint{"V", "复制页"})
+			secondary = append(secondary, footerHint{"V", "Copy screen"})
 		}
 		if _, ok := m.service.(groupService); ok {
-			secondary = append(secondary, footerHint{"M", "移动"})
+			secondary = append(secondary, footerHint{"M", "Move"})
 		}
 	}
 	return
@@ -55,7 +55,7 @@ func (m *Model) renderManagementFooter() string {
 	t := m.tokens.footer
 	space := strings.Repeat(" ", t.labelGap)
 	if m.width < m.tokens.layout.singleBelow {
-		choices := []string{"管理模式" + strings.Repeat(" ", t.blockGap) + strings.Join([]string{"F6", "?", "q"}, t.inlineSeparator), "F6 ? q", "? q", "?"}
+		choices := []string{"Navigation" + strings.Repeat(" ", t.blockGap) + strings.Join([]string{"F6", "?", "q"}, t.inlineSeparator), "F6 ? q", "? q", "?"}
 		for _, text := range choices {
 			if lipgloss.Width(text) <= m.width {
 				return strings.Repeat(" ", max(0, (m.width-lipgloss.Width(text))/2)) + m.styles.dim.Render(text)
@@ -83,7 +83,7 @@ func (m *Model) renderManagementFooter() string {
 	}
 	primary, secondary := m.managementFooterHints()
 	hints := append(append([]footerHint(nil), primary...), secondary...)
-	context := m.styles.footerContext.Render("管理模式" + t.contextSuffix)
+	context := m.styles.footerContext.Render("Navigation" + t.contextSuffix)
 	sep := m.styles.footerSeparator.Render(t.separator)
 	joinHints := func(n int) string {
 		parts := make([]string, 0, n)
@@ -99,8 +99,8 @@ func (m *Model) renderManagementFooter() string {
 		}
 		return left
 	}
-	pinned := []footerHint{{"↑↓", "选择"}, {"F6", "终端"}, {"?", "帮助"}, {"q", "退出"}}
-	optional := []footerHint{{"/", "搜索"}, {"S", "设置"}, {"Alt+V", "分组/平铺"}}
+	pinned := []footerHint{{"↑↓", "Select"}, {"F6", "Terminal"}, {"?", "Help"}, {"q", "Quit"}}
+	optional := []footerHint{{"/", "Search"}, {"S", "Settings"}, {"Alt+V", "Grouped/Flat"}}
 	right := func(n int) string {
 		parts := make([]string, 0, len(pinned)+n)
 		ordered := append(append([]footerHint(nil), pinned[:len(pinned)-1]...), optional[:n]...)
@@ -138,8 +138,8 @@ func (m *Model) renderTerminalFooter() string {
 	t := m.tokens.footer
 	space := strings.Repeat(" ", t.labelGap)
 	gap := strings.Repeat(" ", t.blockGap)
-	badge := m.styles.footerBadge.Render(t.badgePrefix + "终端模式" + t.badgeSuffix)
-	choices := []string{"F6 管理" + t.inlineSeparator + "Ctrl+PgUp/PgDn 切换 Tab", "F6 管理" + t.inlineSeparator + "Ctrl+PgUp/PgDn", "F6 管理"}
+	badge := m.styles.footerBadge.Render(t.badgePrefix + "Terminal" + t.badgeSuffix)
+	choices := []string{"F6 Navigate" + t.inlineSeparator + "Ctrl+PgUp/PgDn switch tabs", "F6 Navigate" + t.inlineSeparator + "Ctrl+PgUp/PgDn", "F6 Navigate"}
 	hint := choices[len(choices)-1]
 	for _, choice := range choices {
 		if lipgloss.Width(badge)+t.blockGap+lipgloss.Width(choice) <= m.width {
@@ -148,7 +148,7 @@ func (m *Model) renderTerminalFooter() string {
 		}
 	}
 	if lipgloss.Width(badge)+t.blockGap+lipgloss.Width(hint) > m.width {
-		badge = m.styles.footerCompactBadge.Render("终端模式")
+		badge = m.styles.footerCompactBadge.Render("Terminal")
 	}
 	if lipgloss.Width(badge)+t.blockGap+lipgloss.Width(hint) > m.width {
 		return cellTruncate(m.styles.dim.Render("F6"), m.width, "")

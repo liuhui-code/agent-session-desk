@@ -16,7 +16,7 @@ func TestMinimalWorkspaceNewActionOpensLaunchDialogFromManagement(t *testing.T) 
 	h.until(func() bool { return strings.Contains(h.m.View().Content, "shell marker first") })
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	h.send(tea.KeyPressMsg{Code: 'n', Text: "n"})
-	h.until(func() bool { return strings.Contains(h.m.View().Content, "新建终端") })
+	h.until(func() bool { return strings.Contains(h.m.View().Content, "New terminal") })
 	service.mu.Lock()
 	defer service.mu.Unlock()
 	if len(service.starts) != 0 {

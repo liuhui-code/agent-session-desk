@@ -174,7 +174,7 @@ func TestWorkspaceListDoubleClickWhileConnectingKeepsManagementFocus(t *testing.
 	gate := make(chan struct{})
 	service := &workspaceFixture{openGate: gate, fakeService: fakeService{list: func(context.Context) ([]session.Session, error) { return sampleSessions(), nil }}}
 	h := newWorkspaceHarness(t, service)
-	h.until(func() bool { return strings.Contains(h.m.View().Content, "正在连接原终端") })
+	h.until(func() bool { return strings.Contains(h.m.View().Content, "正在连接原Terminal") })
 	// The list is visible in the compact sidebar even while the active Tab opens.
 	clickWorkspaceListRow(t, h, "评审")
 	clickWorkspaceListRow(t, h, "评审")

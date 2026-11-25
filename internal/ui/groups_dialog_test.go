@@ -21,7 +21,7 @@ func TestGroupDialogsFitTinyViewportsAndKeepTheFocusedFieldVisible(t *testing.T)
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	h.send(tea.KeyPressMsg{Code: 'g', Text: "g"})
 	h.until(func() bool { return h.m.groupDialog != nil })
-	if plain := ansi.Strip(h.m.View().Content); !strings.Contains(plain, "分组名称") || !strings.Contains(plain, "可选工作目录") {
+	if plain := ansi.Strip(h.m.View().Content); !strings.Contains(plain, "Group name") || !strings.Contains(plain, "Optional working directory") {
 		t.Fatal("source form placeholders are missing")
 	}
 	h.send(tea.PasteMsg{Content: "项目"})
@@ -43,7 +43,7 @@ func TestGroupDialogsFitTinyViewportsAndKeepTheFocusedFieldVisible(t *testing.T)
 		if view.Cursor != nil && (view.Cursor.X < 0 || view.Cursor.X >= size[0] || view.Cursor.Y < 0 || view.Cursor.Y >= size[1]) {
 			t.Fatalf("cursor outside viewport %v: %+v", size, view.Cursor)
 		}
-		if size[0] >= 27 && !strings.Contains(plain, "默认目录:") {
+		if size[0] >= 27 && !strings.Contains(plain, "Default directory:") {
 			t.Fatalf("focused directory hidden %v:\n%s", size, plain)
 		}
 	}
@@ -96,7 +96,7 @@ func TestGroupMoveSuccessRejectsPreCommitDiscoveryAndDoesNotDuplicateTheTab(t *t
 	h.send(tea.KeyPressMsg{Code: tea.KeyDown})
 	h.send(tea.KeyPressMsg{Code: tea.KeyEnter})
 	h.until(func() bool { return h.m.groupDialog == nil && h.m.sessions[0].GroupID == root.ID })
-	h.send(sessionsMsg{generation: oldGeneration, sessions: sampleSessions(), groups: []session.Group{{ID: session.DefaultGroupID, Name: "我的会话", Revision: 1}}})
+	h.send(sessionsMsg{generation: oldGeneration, sessions: sampleSessions(), groups: []session.Group{{ID: session.DefaultGroupID, Name: "My Sessions", Revision: 1}}})
 	if h.m.sessions[0].GroupID != root.ID || len(h.m.sidebarGroups()) != 2 || len(h.m.workspace.tabs) != 2 {
 		t.Fatal("late snapshot restored old group or duplicated Tab")
 	}

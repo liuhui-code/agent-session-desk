@@ -21,7 +21,7 @@ func TestWorkspaceNavigationStartsAtTopAndClickUsesTheSameRow(t *testing.T) {
 		m.workspace.tabs = []workspaceTab{{session: m.sessions[0]}}
 		view := ansi.Strip(m.View().Content)
 		first := strings.Split(view, "\n")[0]
-		if !strings.Contains(first, m.sessions[0].Title) || strings.Contains(view, "会话 平铺") {
+		if !strings.Contains(first, m.sessions[0].Title) || strings.Contains(view, "Sessions 平铺") {
 			t.Errorf("width %d: navigation has a heading or top offset", width)
 		}
 		if width == 120 && !strings.Contains(first, "CONTENT") {

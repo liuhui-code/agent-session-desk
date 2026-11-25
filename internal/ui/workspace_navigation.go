@@ -6,7 +6,7 @@ import tea "charm.land/bubbletea/v2"
 // never retries an uncertain write or transfers it to another Run.
 func (m *Model) navigateWorkspace(target workspaceTransition) tea.Cmd {
 	if m.groupOrder != nil || m.sessionOrder != nil {
-		m.status = "管理模式 · 正在保存排序；完成后可继续操作"
+		m.status = "Saving order; wait before continuing"
 		return nil
 	}
 	w := m.workspace
@@ -20,7 +20,7 @@ func (m *Model) navigateWorkspace(target workspaceTransition) tea.Cmd {
 	}
 	w.transition = target
 	if w.pending > 0 || (w.busy && len(w.buffered) > 0) {
-		m.status = "正在完成已输入的内容后打开管理视图…"
+		m.status = "Finishing input before opening navigation…"
 		return nil
 	}
 	return m.finishWorkspaceNavigation()

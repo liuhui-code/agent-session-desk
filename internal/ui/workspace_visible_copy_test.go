@@ -99,7 +99,7 @@ func TestVisibleCopyUsesActualTeaOSC52OutputWithoutClipboardReads(t *testing.T) 
 	payload := "https://example.test\n  中文\ttext"
 	encoded := base64.StdEncoding.EncodeToString([]byte(payload))
 	await("]52;c;" + encoded)
-	await("已向终端发送复制请求")
+	await("Copy request sent to the terminal")
 	out.Lock()
 	captured := out.buffer.String()
 	out.Unlock()

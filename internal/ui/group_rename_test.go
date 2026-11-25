@@ -89,7 +89,7 @@ func TestGroupRenameUsesNameOnlyAndKeepsFoldedGroupOriginalTabAndDraft(t *testin
 	h.until(func() bool { return h.m.groupCollapsed(root.ID) })
 	oldGeneration := h.m.listGeneration
 	h.send(tea.KeyPressMsg{Code: 'r', Text: "r"})
-	h.until(func() bool { return strings.Contains(h.m.View().Content, "重命名分组") })
+	h.until(func() bool { return strings.Contains(h.m.View().Content, "Rename group") })
 	if strings.Contains(h.m.View().Content, "默认目录") {
 		t.Fatal("rename exposed hidden directory field")
 	}
@@ -105,7 +105,7 @@ func TestGroupRenameUsesNameOnlyAndKeepsFoldedGroupOriginalTabAndDraft(t *testin
 	if !h.m.groupCollapsed(root.ID) || h.m.selectedGroupID != root.ID || h.m.groupPath(child.ID) != "项目 新版/评审" {
 		t.Fatal("rename lost fold/selection/dynamic child path")
 	}
-	h.send(sessionsMsg{generation: oldGeneration, sessions: sampleSessions(), groups: []session.Group{{ID: session.DefaultGroupID, Name: "我的会话", Revision: 1}, root, child}})
+	h.send(sessionsMsg{generation: oldGeneration, sessions: sampleSessions(), groups: []session.Group{{ID: session.DefaultGroupID, Name: "My Sessions", Revision: 1}, root, child}})
 	if h.m.groupByID(root.ID).Name != "项目 新版" || len(h.m.workspace.tabs) != 2 || !sameRun(h.m.workspace.tabs[0].session, sampleSessions()[0]) {
 		t.Fatal("late discovery rolled back rename or replaced original Run")
 	}
@@ -176,7 +176,7 @@ func TestGroupRenameWaitsForAcceptedTerminalInputAndCancelNeverSaves(t *testing.
 	h.until(func() bool { return h.m.groupDialog == nil && h.m.workspace.conn != nil })
 	s.groupMu.Lock()
 	defer s.groupMu.Unlock()
-	if s.renameCalls != 0 || s.groups[0].Name != "我的会话" {
+	if s.renameCalls != 0 || s.groups[0].Name != "My Sessions" {
 		t.Fatal("cancel changed metadata")
 	}
 	stream.mu.Lock()
@@ -206,7 +206,7 @@ func TestGroupRenameFailureCannotResubmitOrSwitchTabsAndOldResultCannotCloseNewD
 	if h.m.groupDialog != old {
 		t.Fatal("busy commit was abandoned")
 	}
-	h.until(func() bool { return strings.Contains(h.m.View().Content, "请返回并刷新") })
+	h.until(func() bool { return strings.Contains(h.m.View().Content, "请Back并Refresh") })
 	h.send(tea.KeyPressMsg{Code: tea.KeyEnter})
 	h.send(tea.KeyPressMsg{Code: tea.KeyPgDown, Mod: tea.ModCtrl})
 	s.groupMu.Lock()
@@ -260,7 +260,7 @@ func TestGroupRenameFitsSourceGeometryAndKeepsOnlyNameFocusedAfterResize(t *test
 			if size[0] == 49 {
 				width = 41
 			}
-			if !strings.Contains(rows[top], "╭"+strings.Repeat("─", width-2)+"╮") || !strings.Contains(rows[top+4], "> 我的会话") || !strings.Contains(rows[top+9], "╰") {
+			if !strings.Contains(rows[top], "╭"+strings.Repeat("─", width-2)+"╮") || !strings.Contains(rows[top+4], "> My Sessions") || !strings.Contains(rows[top+9], "╰") {
 				t.Fatalf("source geometry changed at %v", size)
 			}
 			if view.Cursor == nil {

@@ -130,7 +130,7 @@ func TestProgramMouseExternalModeChangesDoNotReleaseIntoAnotherMode(t *testing.T
 			if got := directDragWrites(s, "first"); got != "pointer:down,3,2" {
 				t.Fatalf("unknown hold replayed/released in new mode: %q", got)
 			}
-			if !strings.Contains(h.m.status, "未知") {
+			if !strings.Contains(h.m.status, "Unknown") {
 				t.Fatal("release uncertainty missing")
 			}
 		})

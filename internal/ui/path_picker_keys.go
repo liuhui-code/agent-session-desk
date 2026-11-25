@@ -190,7 +190,7 @@ func (m *Model) deferPathTab(msg tea.Msg) bool {
 		return false
 	}
 	if len(p.deferred) >= 16 || p.deferredBytes+size > launchFieldLimit {
-		d.err = fmt.Errorf("目录补全等待中，后续输入已达上限")
+		d.err = fmt.Errorf("Directory completion pending; buffered input limit reached")
 		return true
 	}
 	p.deferred = append(p.deferred, msg)

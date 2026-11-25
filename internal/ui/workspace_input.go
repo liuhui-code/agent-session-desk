@@ -29,31 +29,31 @@ type workspaceInputDone struct {
 func (m *Model) workspaceWrite(action workspaceInput) tea.Cmd {
 	w := m.workspace
 	if len(action.text) > terminal.MaxInputBytes {
-		m.status = "终端输入超过字节上限；此输入未发送"
+		m.status = "Terminal input exceeds byte limit; not sent"
 		return nil
 	}
 	if (w.busy || w.transition == workspaceSwitch) && (action.kind == "text" || action.kind == "key" || action.kind == "paste") {
 		if len(w.buffered) >= workspaceInputCapacity {
-			m.status = "连接中输入已达上限；此输入未发送"
+			m.status = "Connecting input buffer full; input not sent"
 			return nil
 		}
 		w.buffered = append(w.buffered, action)
 		return nil
 	}
 	if w.conn == nil || w.inputs == nil || w.err != nil || w.busy {
-		m.status = "终端尚未连接；此输入未发送"
+		m.status = "Terminal disconnected; input not sent"
 		return nil
 	}
 	action.reply = make(chan error, 1)
 	if w.programPointer != nil && len(w.inputs) >= cap(w.inputs)-1 {
-		m.status = "程序鼠标输入队列已满；保留原目标释放位置"
+		m.status = "Mouse input queue full; release position reserved for the original target"
 		return nil
 	}
 	select {
 	case w.inputs <- action:
 		w.pending++
 	default:
-		m.status = "终端输入队列已满；此输入未发送"
+		m.status = "Terminal input queue full; input not sent"
 		return nil
 	}
 	generation, ctx := w.generation, w.ctx
@@ -97,28 +97,28 @@ func startWorkspaceWriter(ctx context.Context, conn terminal.Connection, inputs 
 					} else if native, ok := conn.(terminal.PointerConnection); ok && action.button == "left" && action.modifiers == 0 {
 						err = native.Pointer(ctx, action.text, action.x, action.y)
 					} else {
-						err = fmt.Errorf("当前连接不支持此程序鼠标事件")
+						err = fmt.Errorf("Program mouse event unsupported by this connection")
 					}
 				case "pointer":
 					if native, ok := conn.(terminal.PointerConnection); ok {
 						err = native.Pointer(ctx, action.text, action.x, action.y)
 					} else {
-						err = fmt.Errorf("当前连接不支持原生鼠标")
+						err = fmt.Errorf("Native mouse input unsupported by this connection")
 					}
 				case "copy-drag":
 					if native, ok := conn.(terminal.CopyDragConnection); ok {
 						err = native.BeginCopyDrag(ctx, action.anchorX, action.anchorY, action.x, action.y)
 					} else {
-						err = fmt.Errorf("当前连接不支持实时终端拖选")
+						err = fmt.Errorf("Live terminal selection unsupported by this connection")
 					}
 				case "copy-mode":
 					if native, ok := conn.(terminal.CopyModeConnection); ok {
 						err = native.EnterCopyMode(ctx)
 					} else {
-						err = fmt.Errorf("当前连接不支持原生选择／搜索")
+						err = fmt.Errorf("Native selection/search unsupported by this connection")
 					}
 				default:
-					err = fmt.Errorf("未知终端输入类型")
+					err = fmt.Errorf("Unknown terminal input type")
 				}
 				action.reply <- err
 				if err != nil {
@@ -151,7 +151,7 @@ func (m *Model) workspaceTerminalKey(msg tea.KeyPressMsg) tea.Cmd {
 		name = string(key.Code)
 	}
 	if name == "" {
-		m.status = "当前组合键尚未支持；未发送"
+		m.status = "Key combination unsupported; not sent"
 		return nil
 	}
 	prefix := ""

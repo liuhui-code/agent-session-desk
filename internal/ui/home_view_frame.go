@@ -95,16 +95,16 @@ func (m *Model) renderFrame() string {
 		return ""
 	}
 	header := m.styles.title.Render("Agent Session Desk")
-	count := m.styles.dim.Render(fmt.Sprintf("%d 会话", len(m.sessions)))
+	count := m.styles.dim.Render(fmt.Sprintf("%d sessions", len(m.sessions)))
 	if m.history.open {
-		count = m.styles.dim.Render(fmt.Sprintf("%d 条历史", len(m.history.rows)))
+		count = m.styles.dim.Render(fmt.Sprintf("%d history records", len(m.history.rows)))
 	}
 	gap := m.width - lipgloss.Width(header) - lipgloss.Width(count)
 	if gap > m.tokens.layout.headerMinGap {
 		header += strings.Repeat(" ", gap) + count
 	}
 	if m.height < m.tokens.layout.minFrameHeight {
-		return fitFrame(header+"\n"+m.styles.dim.Render("请增大窗口 · q 退出"), m.width, m.height)
+		return fitFrame(header+"\n"+m.styles.dim.Render("Enlarge the window · q Quit"), m.width, m.height)
 	}
 	contentHeight := m.height - m.tokens.chromeRows() // header, breathing row, breathing row, footer
 	var content string
@@ -125,10 +125,10 @@ func (m *Model) renderFrame() string {
 		footer = m.renderHistoryHelpBar()
 	}
 	if !m.history.open && m.status != "" {
-		footer = m.styles.dim.Render(cellTruncate(label(m.status), max(0, m.width-m.tokens.layout.statusHelpWidth), m.tokens.marks.ellipsis)) + m.tokens.itemGap() + "? 帮助" + m.tokens.itemGap() + "q 退出"
+		footer = m.styles.dim.Render(cellTruncate(label(m.status), max(0, m.width-m.tokens.layout.statusHelpWidth), m.tokens.marks.ellipsis)) + m.tokens.itemGap() + "? Help" + m.tokens.itemGap() + "q Quit"
 	}
 	if !m.history.open && m.listErr != nil {
-		footer = m.styles.error.Render("后台状态未知："+label(m.listErr.Error())) + m.tokens.itemGap() + "r 重试"
+		footer = m.styles.error.Render("Backend state unknown: "+label(m.listErr.Error())) + m.tokens.itemGap() + "r Retry"
 	}
 	return fitFrame(header+m.tokens.sectionBreak()+ensureExactHeight(content, contentHeight)+m.tokens.sectionBreak()+footer, m.width, m.height)
 }
@@ -189,9 +189,9 @@ func (m *Model) renderDualColumnLayout(contentHeight int) string {
 	leftWidth := min(m.tokens.layout.listMax, max(m.tokens.layout.listMin, (m.width-dividerWidth)/m.tokens.layout.listFraction))
 	rightWidth := m.width - leftWidth - dividerWidth
 	panelContentHeight := max(0, contentHeight-m.tokens.layout.headingRows)
-	leftPanel := m.renderPanelTitle("会话", leftWidth) + "\n" +
+	leftPanel := m.renderPanelTitle("Sessions", leftWidth) + "\n" +
 		ensureExactHeight(m.renderSessionList(leftWidth, panelContentHeight), panelContentHeight)
-	rightPanel := m.renderPanelTitle("屏幕预览", rightWidth) + "\n" +
+	rightPanel := m.renderPanelTitle("Screen preview", rightWidth) + "\n" +
 		ensureExactHeight(m.renderPreviewPane(rightWidth, panelContentHeight), panelContentHeight)
 
 	// Style the constant separator once, then repeat it for each exact row.
@@ -211,9 +211,9 @@ func (m *Model) renderStackedLayout(totalHeight int) string {
 	// available height; a short terminal must never overflow into the footer.
 	listHeight := max(m.tokens.layout.stackedListMin, totalHeight/m.tokens.layout.stackedFraction)
 	previewHeight := max(0, totalHeight-listHeight-m.tokens.layout.stackedGap)
-	list := m.renderPanelTitle("会话", m.width) + "\n" +
+	list := m.renderPanelTitle("Sessions", m.width) + "\n" +
 		ensureExactHeight(m.renderSessionList(m.width, listHeight-m.tokens.layout.headingRows), listHeight-m.tokens.layout.headingRows)
-	preview := m.renderPanelTitle("屏幕预览", m.width) + "\n" +
+	preview := m.renderPanelTitle("Screen preview", m.width) + "\n" +
 		ensureExactHeight(m.renderPreviewPane(m.width, previewHeight-m.tokens.layout.headingRows), previewHeight-m.tokens.layout.headingRows)
 	return ensureExactHeight(list, listHeight) + "\n" +
 		ensureExactHeight(m.styles.separator.Render(strings.Repeat(m.tokens.marks.rule, m.width)), m.tokens.layout.stackedGap) + "\n" +
@@ -221,29 +221,29 @@ func (m *Model) renderStackedLayout(totalHeight int) string {
 }
 
 func (m *Model) renderSingleColumnLayout(totalHeight int) string {
-	return m.renderPanelTitle("会话", m.width) + "\n" +
+	return m.renderPanelTitle("Sessions", m.width) + "\n" +
 		ensureExactHeight(m.renderSessionList(m.width, totalHeight-m.tokens.layout.headingRows), totalHeight-m.tokens.layout.headingRows)
 }
 
 func (m *Model) renderPreviewPane(width, height int) string {
 	s, ok := m.selected()
 	if !ok {
-		return m.styles.dim.Render("选择会话后查看当前屏幕" + m.tokens.sectionBreak() + "? 查看创建方法")
+		return m.styles.dim.Render("Select a session to see its current screen" + m.tokens.sectionBreak() + "? How to create a session")
 	}
 	if m.listErr != nil {
-		return m.styles.dim.Render("后台连接尚未确认；按 r 重试")
+		return m.styles.dim.Render("Backend connection unconfirmed; press r to retry")
 	}
 	if m.previewErr != nil {
-		return m.styles.error.Render("预览不可用：\n" + label(m.previewErr.Error()))
+		return m.styles.error.Render("Preview unavailable:\n" + label(m.previewErr.Error()))
 	}
 	if s.TerminalState != session.TerminalAvailable && s.TerminalState != session.TerminalExited {
-		return m.styles.dim.Render("终端" + terminalLabel(s.TerminalState) + "；CLI 工作状态未知")
+		return m.styles.dim.Render("Terminal" + terminalLabel(s.TerminalState) + "; CLI work state unknown")
 	}
 	if m.preview == "" {
 		if m.previewBusy {
-			return m.styles.dim.Render("正在读取当前屏幕…")
+			return m.styles.dim.Render("Reading current screen…")
 		}
-		return m.styles.dim.Render("当前屏幕暂无文字")
+		return m.styles.dim.Render("No text on the current screen")
 	}
 	// The capture is a snapshot, not durable history or a reconstructed
 	// conversation. Keep its newest visible rows without retaining more copies.
@@ -253,14 +253,14 @@ func (m *Model) renderPreviewPane(width, height int) string {
 	if clipped {
 		lines = lines[len(lines)-budget:]
 	}
-	caption := "当前屏幕 · CLI 工作状态未知"
+	caption := "Current screen · CLI work state unknown"
 	if clipped || m.previewTruncated {
-		caption = "当前屏幕（节选）· CLI 状态未知"
+		caption = "Current screen excerpt · CLI state unknown"
 	}
 	if s.TerminalState == session.TerminalExited {
-		caption = "终端已退出 · 保留屏幕，不可输入"
+		caption = "Terminal exited · Screen retained, input disabled"
 		if clipped || m.previewTruncated {
-			caption = "终端已退出 · 保留屏幕（节选）"
+			caption = "Terminal exited · Retained screen excerpt"
 		}
 	}
 	return m.styles.dim.Render(cellTruncate(caption, width, m.tokens.marks.ellipsis)) + strings.Repeat("\n", m.tokens.layout.captionGap+1) +
@@ -269,26 +269,26 @@ func (m *Model) renderPreviewPane(width, height int) string {
 
 func (m *Model) renderHelpBar() string {
 	if m.width < m.tokens.layout.singleBelow {
-		return m.styles.menuKey("↑↓", "选择") + m.tokens.itemGap() + m.styles.menuKey("↵", "进入") + m.tokens.itemGap() + "?" + m.tokens.itemGap() + "q"
+		return m.styles.menuKey("↑↓", "Select") + m.tokens.itemGap() + m.styles.menuKey("↵", "Open") + m.tokens.itemGap() + "?" + m.tokens.itemGap() + "q"
 	}
 	parts := []string{
-		m.styles.menuKey("↑↓", "选择"), m.styles.menuKey("Enter", "进入"),
-		m.styles.menuKey("h", "历史"), m.styles.menuKey("r", "刷新"), m.styles.menuKey("?", "帮助"), m.styles.menuKey("q", "退出"),
+		m.styles.menuKey("↑↓", "Select"), m.styles.menuKey("Enter", "Open"),
+		m.styles.menuKey("h", "History"), m.styles.menuKey("r", "Refresh"), m.styles.menuKey("?", "Help"), m.styles.menuKey("q", "Quit"),
 	}
 	return strings.Join(parts, m.tokens.itemGap())
 }
 
 func (m *Model) renderHelp(height int) string {
-	content := m.renderPanelTitle("使用方法", m.width) + m.tokens.sectionBreak() +
-		"在另一个终端创建会话：\n" +
-		m.styles.text.Render(m.tokens.itemGap()+"asd start --name 开发 -- codex") + "\n" +
-		m.styles.text.Render(m.tokens.itemGap()+"asd start --name 评审 --cwd 路径 -- 自定义程序 参数") + m.tokens.sectionBreak() +
-		"↑↓ / j k 选择会话；Enter 全屏进入。\n" +
-		"分离前取消候选并切至英文输入模式。\n" +
-		"Ctrl+b，松开后按 d，返回管理器。\n" +
-		"h 只读历史；Enter 详情，Esc 返回。\n" +
-		"q 退出管理器，保留后台会话。" + m.tokens.sectionBreak() + "" +
-		m.styles.dim.Render("预览仅为当前屏幕；CLI 工作状态保持未知。") + "\n" +
-		"Esc / ? 返回"
+	content := m.renderPanelTitle("Getting started", m.width) + m.tokens.sectionBreak() +
+		"Create a session in another terminal:\n" +
+		m.styles.text.Render(m.tokens.itemGap()+"asd start --name Development -- codex") + "\n" +
+		m.styles.text.Render(m.tokens.itemGap()+"asd start --name Review --cwd PATH -- PROGRAM ARGS") + m.tokens.sectionBreak() +
+		"↑↓ / j k Select session; Enter Attach full screen.\n" +
+		"Cancel IME composition and switch to English input before detaching.\n" +
+		"Press Ctrl+b, release, then d to return.\n" +
+		"h Read-only history; Enter Details, Esc Back.\n" +
+		"q Quit the manager; background sessions continue." + m.tokens.sectionBreak() + "" +
+		m.styles.dim.Render("Preview is the current screen only; CLI work state remains unknown.") + "\n" +
+		"Esc / ? Back"
 	return ensureExactHeight(content, height)
 }

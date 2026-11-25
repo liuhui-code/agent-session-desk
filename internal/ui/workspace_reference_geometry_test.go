@@ -32,7 +32,7 @@ func TestWorkspaceDialogOuterWidthsMatchUpstreamActualFrames(t *testing.T) {
 		name, text string
 		key        rune
 		width      int
-	}{{"settings", "侧栏密度", 'S', 66}, {"new-terminal", "新建终端", 'n', 86}} {
+	}{{"settings", "侧栏密度", 'S', 66}, {"new-terminal", "New terminal", 'n', 86}} {
 		t.Run(tc.name, func(t *testing.T) {
 			service := &workspaceFixture{fakeService: fakeService{list: func(context.Context) ([]session.Session, error) { return sampleSessions(), nil }}}
 			h := newWorkspaceHarness(t, service)
@@ -68,7 +68,7 @@ func TestLaunchDialogKeepsUpstreamRegularAndFirstSessionPadding(t *testing.T) {
 				h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 			}
 			h.send(tea.KeyPressMsg{Code: 'n', Text: "n"})
-			h.until(func() bool { return strings.Contains(h.m.View().Content, "新建终端") })
+			h.until(func() bool { return strings.Contains(h.m.View().Content, "New terminal") })
 			lines := strings.Split(ansi.Strip(h.m.View().Content), "\n")
 			border := "╭" + strings.Repeat("─", 84) + "╮"
 			for y, line := range lines {
@@ -79,7 +79,7 @@ func TestLaunchDialogKeepsUpstreamRegularAndFirstSessionPadding(t *testing.T) {
 							t.Fatalf("%s missing upstream padding row %d", tc.name, gap)
 						}
 					}
-					if !strings.Contains(lines[y+tc.blankRows+1], "新建终端") {
+					if !strings.Contains(lines[y+tc.blankRows+1], "New terminal") {
 						t.Fatal("title did not follow the expected padding")
 					}
 					return

@@ -20,7 +20,7 @@ type groupedFixture struct {
 }
 
 func newGroupedFixture() *groupedFixture {
-	return &groupedFixture{workspaceFixture: workspaceFixture{fakeService: fakeService{list: func(context.Context) ([]session.Session, error) { return sampleSessions(), nil }}}, groups: []session.Group{{ID: session.DefaultGroupID, Name: "我的会话", Revision: 1}}, members: map[string]session.Session{}}
+	return &groupedFixture{workspaceFixture: workspaceFixture{fakeService: fakeService{list: func(context.Context) ([]session.Session, error) { return sampleSessions(), nil }}}, groups: []session.Group{{ID: session.DefaultGroupID, Name: "My Sessions", Revision: 1}}, members: map[string]session.Session{}}
 }
 
 func (s *groupedFixture) Workspace(ctx context.Context) (session.Workspace, error) {
@@ -69,7 +69,7 @@ func TestGroupedTreeRendersNestedEmptyGroupsAndUsesTheirOwnMouseRows(t *testing.
 	h.until(func() bool { return strings.Contains(h.m.View().Content, "shell marker first") })
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	view := ansi.Strip(h.m.View().Content)
-	if !strings.Contains(view, "▾ 项目 (0)") || !strings.Contains(view, "▾ 审核 (1)") || !strings.Contains(view, "▾ 我的会话 (1)") {
+	if !strings.Contains(view, "▾ 项目 (0)") || !strings.Contains(view, "▾ 审核 (1)") || !strings.Contains(view, "▾ My Sessions (1)") {
 		t.Fatalf("tree/members missing:\n%s", view)
 	}
 	for y, line := range strings.Split(view, "\n") {
@@ -96,12 +96,12 @@ func TestGroupCreateAndMoveDialogsKeepOriginalTabAndInput(t *testing.T) {
 	h.send(tea.KeyPressMsg{Code: 'd', Text: "draft-preserved"})
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	h.send(tea.KeyPressMsg{Code: 'g', Text: "g"})
-	h.until(func() bool { return strings.Contains(h.m.View().Content, "创建分组") })
+	h.until(func() bool { return strings.Contains(h.m.View().Content, "Create group") })
 	h.send(tea.PasteMsg{Content: "设计"})
 	h.send(tea.KeyPressMsg{Code: tea.KeyTab})
 	h.send(tea.PasteMsg{Content: `C:\work\项目`})
 	h.send(tea.KeyPressMsg{Code: tea.KeyUp})
-	if !strings.Contains(h.m.View().Content, "创建子组") {
+	if !strings.Contains(h.m.View().Content, "Create subgroup") {
 		t.Fatal("Up did not switch root/subgroup context")
 	}
 	h.send(tea.KeyPressMsg{Code: tea.KeyEnter})
@@ -115,7 +115,7 @@ func TestGroupCreateAndMoveDialogsKeepOriginalTabAndInput(t *testing.T) {
 	h.send(tea.KeyPressMsg{Code: tea.KeyHome})
 	h.send(tea.KeyPressMsg{Code: tea.KeyDown})
 	h.send(tea.KeyPressMsg{Code: 'M', Text: "M"})
-	h.until(func() bool { return strings.Contains(h.m.View().Content, "移动到分组") })
+	h.until(func() bool { return strings.Contains(h.m.View().Content, "Move to group") })
 	h.send(tea.KeyPressMsg{Code: tea.KeyDown})
 	h.send(tea.KeyPressMsg{Code: tea.KeyEnter})
 	h.until(func() bool {
@@ -148,7 +148,7 @@ func TestNewTerminalUsesSelectedGroupsDirectoryAndStableIdentity(t *testing.T) {
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	h.send(tea.KeyPressMsg{Code: '2', Text: "2"})
 	h.send(tea.KeyPressMsg{Code: 'n', Text: "n"})
-	h.until(func() bool { return strings.Contains(h.m.View().Content, "创建终端") })
+	h.until(func() bool { return strings.Contains(h.m.View().Content, "Create terminal") })
 	if !strings.Contains(h.m.View().Content, g.DefaultDir) {
 		t.Fatal("selected group directory was not prefilled")
 	}

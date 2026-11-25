@@ -73,7 +73,7 @@ func NewWithOptions(ctx context.Context, service Service, options Options) *Mode
 	m.saveSidebarDensity = options.SaveSidebarDensity
 	m.sidebarPreferenceError = options.SidebarPreferenceError
 	if options.SidebarPreferenceError != nil {
-		m.status = "界面设置未载入，使用默认值：" + label(options.SidebarPreferenceError.Error())
+		m.status = "UI preferences unavailable; using defaults: " + label(options.SidebarPreferenceError.Error())
 	}
 	return m
 }

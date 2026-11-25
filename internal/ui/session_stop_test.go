@@ -62,7 +62,7 @@ func TestSessionStopDefaultsToCancelAndStopsSelectedNotActiveRunOnce(t *testing.
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	h.send(tea.KeyPressMsg{Code: tea.KeyDown})
 	h.send(tea.KeyPressMsg{Code: 'd', Text: "d"})
-	h.until(func() bool { return strings.Contains(h.m.View().Content, "停止会话") })
+	h.until(func() bool { return strings.Contains(h.m.View().Content, "StopSessions") })
 	h.send(tea.KeyPressMsg{Code: tea.KeyEnter})
 	h.until(func() bool { return h.m.workspace.conn != nil })
 	if s.count() != 0 || h.m.workspace.tabs[0].session.ID != "first" {
@@ -71,7 +71,7 @@ func TestSessionStopDefaultsToCancelAndStopsSelectedNotActiveRunOnce(t *testing.
 	h.send(tea.KeyPressMsg{Code: 'd', Text: "d"})
 	h.send(tea.KeyPressMsg{Code: 'y', Text: "y"})
 	h.send(tea.KeyPressMsg{Code: 'y', Text: "y"})
-	h.until(func() bool { return s.count() == 1 && !strings.Contains(h.m.View().Content, "停止会话") })
+	h.until(func() bool { return s.count() == 1 && !strings.Contains(h.m.View().Content, "StopSessions") })
 	s.mu.Lock()
 	defer s.mu.Unlock()
 	if s.stopped[0].ID != "second" || s.stopped[0].RunID != sampleSessions()[1].RunID || len(h.m.workspace.tabs) != 2 || h.m.workspace.active != 0 {

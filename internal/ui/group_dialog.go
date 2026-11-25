@@ -89,7 +89,7 @@ func (m *Model) openGroupDialog() tea.Cmd {
 			break
 		}
 		input := textinput.New()
-		input.Placeholder = []string{"分组名称", "可选工作目录"}[i]
+		input.Placeholder = []string{"Group name", "Optional working directory"}[i]
 		input.CharLimit = session.MaxTitleInputBytes
 		input.Prompt = m.tokens.rename.prompt
 		input.SetVirtualCursor(false)
@@ -113,7 +113,7 @@ func (m *Model) groupDialogEvent(msg tea.Msg) (tea.Cmd, bool) {
 		d := m.groupDialog
 		d.busy, d.err = false, r.err
 		if r.err != nil {
-			d.err = fmt.Errorf("请返回并刷新核对分组后再操作：%w", r.err)
+			d.err = fmt.Errorf("Go back and refresh group details before continuing: %w", r.err)
 			return nil, true
 		}
 		m.listGeneration++
@@ -235,7 +235,7 @@ func (m *Model) groupDialogEvent(msg tea.Msg) (tea.Cmd, bool) {
 			return nil, true
 		}
 		if !renameInputSafe(d.inputs[d.focus].Value(), msg.Content) {
-			d.err = fmt.Errorf("分组字段只接受有界单行文本")
+			d.err = fmt.Errorf("Group fields require bounded single-line text")
 			return nil, true
 		}
 		var cmd tea.Cmd
@@ -268,7 +268,7 @@ func (m *Model) submitGroupDialog() tea.Cmd {
 			}
 		}
 		if !found {
-			d.err = fmt.Errorf("原 Session/Run 已变化；请返回后重新选择")
+			d.err = fmt.Errorf("Session/Run changed; go back and select again")
 			return nil
 		}
 	} else {

@@ -41,14 +41,14 @@ type launchResult struct {
 
 func (m *Model) openLaunchDialog() tea.Cmd {
 	if _, ok := m.service.(launchService); !ok {
-		m.status = "当前接入不支持创建终端"
+		m.status = "This backend cannot create terminals"
 		return nil
 	}
 	d := &launchDialog{firstSession: len(m.sessions) == 0, paths: m.newPathPicker(true)}
 	group := m.launchGroup
 	m.launchGroup = session.Group{}
 	d.groupID = group.ID
-	placeholders := []string{"可留空，使用程序名", "例如 pwsh.exe、cmd.exe 或 agent 路径", "可留空，使用当前工作目录", `例如 ["-NoLogo","-NoProfile"]`, `例如 ["ASD_MODE=dev"]`}
+	placeholders := []string{"Optional; use the program name", "e.g. pwsh.exe, cmd.exe or an agent executable", "Optional; use the current directory", `例如 ["-NoLogo","-NoProfile"]`, `例如 ["ASD_MODE=dev"]`}
 	for _, placeholder := range placeholders {
 		field := textinput.New()
 		field.CharLimit = launchFieldLimit
@@ -81,7 +81,7 @@ func (m *Model) launchEvent(msg tea.Msg) (tea.Cmd, bool) {
 		if result.err != nil {
 			d.uncertain = result.session.ID != ""
 			if d.uncertain {
-				d.err = fmt.Errorf("启动结果需核对 Session %s / Run %s：%w；不会自动重试", result.session.ID, result.session.RunID, result.err)
+				d.err = fmt.Errorf("Verify launch outcome for Session %s / Run %s: %w; no automatic retry", result.session.ID, result.session.RunID, result.err)
 			}
 			return nil, true
 		}
@@ -138,7 +138,7 @@ func (m *Model) launchEvent(msg tea.Msg) (tea.Cmd, bool) {
 			return nil, true
 		}
 		if len(d.fields[d.focus].Value())+len(msg.Text) > launchFieldLimit {
-			d.err = fmt.Errorf("字段超过字节上限")
+			d.err = fmt.Errorf("Field exceeds the byte limit")
 			return nil, true
 		}
 		var cmd tea.Cmd
@@ -153,11 +153,11 @@ func (m *Model) launchEvent(msg tea.Msg) (tea.Cmd, bool) {
 			return nil, true
 		}
 		if strings.ContainsAny(msg.Content, "\r\n\t") {
-			d.err = fmt.Errorf("此字段需要单行文本；终端内仍可多行粘贴")
+			d.err = fmt.Errorf("This field requires one line; multiline paste is still supported in the terminal")
 			return nil, true
 		}
 		if len(d.fields[d.focus].Value())+len(msg.Content) > launchFieldLimit {
-			d.err = fmt.Errorf("字段超过字节上限")
+			d.err = fmt.Errorf("Field exceeds the byte limit")
 			return nil, true
 		}
 		var cmd tea.Cmd
@@ -227,22 +227,22 @@ func (m *Model) submitLaunchDialog() tea.Cmd {
 	raw := strings.TrimSpace(d.fields[3].Value())
 	if raw != "" {
 		if !strings.HasPrefix(raw, "[") {
-			d.err = fmt.Errorf("参数需要 JSON 字符串数组")
+			d.err = fmt.Errorf("Arguments must be a JSON string array")
 			return nil
 		}
 		if err := json.Unmarshal([]byte(raw), &l.Args); err != nil {
-			d.err = fmt.Errorf("参数 JSON 无效：%w", err)
+			d.err = fmt.Errorf("Invalid arguments JSON: %w", err)
 			return nil
 		}
 	}
 	raw = strings.TrimSpace(d.fields[4].Value())
 	if raw != "" {
 		if !strings.HasPrefix(raw, "[") {
-			d.err = fmt.Errorf("环境覆盖需要 JSON 字符串数组")
+			d.err = fmt.Errorf("Environment overrides must be a JSON string array")
 			return nil
 		}
 		if err := json.Unmarshal([]byte(raw), &l.Env); err != nil {
-			d.err = fmt.Errorf("环境覆盖 JSON 无效")
+			d.err = fmt.Errorf("Invalid environment JSON")
 			return nil
 		}
 	}
@@ -278,12 +278,12 @@ func environmentLaunchError(err error) error {
 	text := err.Error()
 	switch {
 	case strings.HasPrefix(text, "executable not found or not executable:"):
-		return fmt.Errorf("程序不可用；请检查程序路径和 PATH/PATHEXT 覆盖")
+		return fmt.Errorf("Program unavailable; check its path and PATH/PATHEXT overrides")
 	case strings.HasPrefix(text, "working directory"):
-		return fmt.Errorf("工作目录不可用；请检查目录路径和访问权限")
+		return fmt.Errorf("Working directory unavailable; check the path and permissions")
 	case strings.HasPrefix(text, "environment key "):
-		return fmt.Errorf("环境覆盖不符合当前终端规则；请核对变量名与值")
+		return fmt.Errorf("Environment overrides violate terminal rules; check names and values")
 	default:
-		return fmt.Errorf("启动失败；请核对程序、参数、目录和环境覆盖")
+		return fmt.Errorf("Launch failed; check program, arguments, directory and environment")
 	}
 }

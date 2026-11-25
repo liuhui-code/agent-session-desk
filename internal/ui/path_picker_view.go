@@ -68,16 +68,16 @@ func (m *Model) overlayPathPicker(view string, p *pathPicker, x, inputY int) str
 	if end < len(p.matches) && showCounts {
 		lines = append(lines, render(fmt.Sprintf("%s%s%d", t.idle, t.below, len(p.matches)-end), s.pathText))
 	}
-	hint := "↑↓ 选择 │ Tab/Enter 采纳 │ Esc 隐藏"
+	hint := "↑↓ Select | Tab/Enter Accept | Esc Hide"
 	if !p.launch && len(p.matches) < len(p.corpus) {
-		hint = fmt.Sprintf("%d/%d 匹配 │ %s", len(p.matches), len(p.corpus), hint)
+		hint = fmt.Sprintf("%d/%d matches | %s", len(p.matches), len(p.corpus), hint)
 	}
 	if p.launch {
-		hint = "→/Space 浏览"
+		hint = "→/Space Browse"
 		if p.active {
-			hint = "↑↓ 浏览 │ Space 采纳 │ Enter 下一项"
+			hint = "↑↓ Browse | Space Accept | Enter Next"
 		} else if len(p.cycle) > 0 {
-			hint = "Tab 轮换目录 │ Enter 下一项"
+			hint = "Tab Cycle directories | Enter Next"
 		}
 	}
 	lines = append(lines, render(hint, s.pathHint))

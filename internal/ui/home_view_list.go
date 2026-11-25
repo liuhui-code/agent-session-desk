@@ -60,15 +60,15 @@ func (m *Model) renderSessionList(width, height int) string {
 	}
 	if len(m.sessions) == 0 {
 		if m.listBusy {
-			return m.styles.dim.Render("正在读取会话…")
+			return m.styles.dim.Render("Loading sessions…")
 		}
-		return m.styles.dim.Render("暂无会话" + m.tokens.sectionBreak() + "? 查看创建方法")
+		return m.styles.dim.Render("No sessions" + m.tokens.sectionBreak() + "? How to create a session")
 	}
 	var b strings.Builder
 	window := m.sessionListWindow(height)
 	if window.leading > 0 {
 		viewOffset := window.start
-		b.WriteString(m.styles.dim.Render(fmt.Sprintf("%s%s 上方 %d", m.tokens.itemGap(), m.tokens.marks.above, viewOffset)))
+		b.WriteString(m.styles.dim.Render(fmt.Sprintf("%s%s %d above", m.tokens.itemGap(), m.tokens.marks.above, viewOffset)))
 		b.WriteString("\n")
 	}
 	nextItem := window.start
@@ -103,7 +103,7 @@ func (m *Model) renderSessionList(width, height int) string {
 		nextItem = i + 1
 	}
 	if remaining := len(m.sessions) - nextItem; remaining > 0 && height > 1 {
-		b.WriteString(m.styles.dim.Render(fmt.Sprintf("%s%s 下方 %d", m.tokens.itemGap(), m.tokens.marks.below, remaining)))
+		b.WriteString(m.styles.dim.Render(fmt.Sprintf("%s%s %d below", m.tokens.itemGap(), m.tokens.marks.below, remaining)))
 	}
 	return strings.TrimRight(b.String(), "\n")
 }
@@ -111,10 +111,10 @@ func (m *Model) renderSessionList(width, height int) string {
 func terminalLabel(state session.TerminalState) string {
 	switch state {
 	case session.TerminalAvailable:
-		return "可连接"
+		return "Connected"
 	case session.TerminalExited:
-		return "已退出"
+		return "Exited"
 	default:
-		return "未知"
+		return "Unknown"
 	}
 }

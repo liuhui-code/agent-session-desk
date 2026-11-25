@@ -1,0 +1,5 @@
+--- FAIL: TestQuietFooterConsumesItsMouseSurfaceButPreservesNativeDragRelease (0.00s)
+    workspace_minimal_test.go:73: bottom edge stole a native drag/release: "mouse:move,none,0,3,31;pointer:down,3,30;pointer:drag,4,31;pointer:up,4,31"
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.995s
+FAIL

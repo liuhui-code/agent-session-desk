@@ -19,11 +19,11 @@ func TestWorkspaceHelpOpensSourceStyleShortCard(t *testing.T) {
 	h.send(tea.KeyPressMsg{Code: '?', Text: "?"})
 	h.until(func() bool { return h.m.help && h.m.workspace.conn == nil })
 	view := ansi.Strip(h.m.View().Content)
-	if !strings.Contains(view, "五键入门") || !strings.Contains(view, "╭") || strings.Contains(view, "使用方法\n") {
+	if !strings.Contains(view, "Quick start") || !strings.Contains(view, "╭") || strings.Contains(view, "Getting started\n") {
 		t.Fatalf("help did not open the centered source-style short card:\n%s", view)
 	}
 	h.send(tea.KeyPressMsg{Code: tea.KeyTab})
-	if !strings.Contains(ansi.Strip(h.m.View().Content), "全部快捷键") {
+	if !strings.Contains(ansi.Strip(h.m.View().Content), "All shortcuts") {
 		t.Fatal("Tab did not reveal the full shortcut list")
 	}
 	h.send(tea.KeyPressMsg{Code: 'q', Text: "q"})
@@ -164,7 +164,7 @@ func TestWorkspaceFullHelpScrollsToTheLastRowAndBack(t *testing.T) {
 	initial := ansi.Strip(h.m.View().Content)
 	h.send(tea.KeyPressMsg{Code: tea.KeyEnd})
 	last := ansi.Strip(h.m.View().Content)
-	if !h.m.help || initial == last || !strings.Contains(last, "关闭 Tab 不停止 Run") || strings.Contains(last, "下方还有") {
+	if !h.m.help || initial == last || !strings.Contains(last, "Closing a tab does not stop its run") || strings.Contains(last, "下方还有") {
 		t.Fatalf("full help tail is unreachable or still claims more rows:\n%s", last)
 	}
 	h.send(tea.KeyPressMsg{Code: tea.KeyPgDown})

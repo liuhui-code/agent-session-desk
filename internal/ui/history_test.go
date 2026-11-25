@@ -14,7 +14,7 @@ import (
 )
 
 func historyRows() []session.HistoryRecord {
-	return []session.HistoryRecord{{Session: session.Session{ID: "historical-session", RunID: "historical-run", Title: "历史任务", Command: "agent.exe", TerminalState: session.TerminalUnknown}, RecordedAt: time.Now().UTC()}}
+	return []session.HistoryRecord{{Session: session.Session{ID: "historical-session", RunID: "historical-run", Title: "History任务", Command: "agent.exe", TerminalState: session.TerminalUnknown}, RecordedAt: time.Now().UTC()}}
 }
 
 func TestHistoryOpensOnDemandAndEnterNeverAttaches(t *testing.T) {
@@ -31,7 +31,7 @@ func TestHistoryOpensOnDemandAndEnterNeverAttaches(t *testing.T) {
 	}
 	m.Update(cmd())
 	view := ansi.Strip(m.View().Content)
-	if reads != 1 || !strings.Contains(view, "历史任务") || strings.Contains(view, "LIVE_PREVIEW") {
+	if reads != 1 || !strings.Contains(view, "History任务") || strings.Contains(view, "LIVE_PREVIEW") {
 		t.Fatalf("history view: %s", view)
 	}
 	_, cmd = m.Update(tea.KeyPressMsg{Code: tea.KeyEnter})
@@ -44,7 +44,7 @@ func TestHistoryOpensOnDemandAndEnterNeverAttaches(t *testing.T) {
 	}
 	m.Update(tea.KeyPressMsg{Code: tea.KeyEscape})
 	m.Update(tea.KeyPressMsg{Code: tea.KeyEscape})
-	if m.cursor != 1 || strings.Contains(ansi.Strip(m.View().Content), "历史任务") {
+	if m.cursor != 1 || strings.Contains(ansi.Strip(m.View().Content), "History任务") {
 		t.Fatal("history changed live selection or did not close")
 	}
 }
@@ -88,7 +88,7 @@ func TestHistoryCancellationDropsLateResultsAndBoundsRequests(t *testing.T) {
 		t.Fatal("reopen did not resume after cancelled read finished")
 	}
 	m.Update(next())
-	if reads != 2 || !strings.Contains(ansi.Strip(m.View().Content), "历史任务") {
+	if reads != 2 || !strings.Contains(ansi.Strip(m.View().Content), "History任务") {
 		t.Fatal("fresh history missing")
 	}
 }
@@ -136,7 +136,7 @@ func TestHistoryDetailsWrapScrollAndKeepObservationsSeparate(t *testing.T) {
 	m.Update(cmd())
 	m.Update(tea.KeyPressMsg{Code: tea.KeyEnter})
 	full := ansi.Strip(m.View().Content)
-	for _, want := range []string{"historical-session", "historical-run", "agent", "2026-11-22T03:04:05Z", "psmux.pane_dead", "%7", "退出码：未知"} {
+	for _, want := range []string{"historical-session", "historical-run", "agent", "2026-11-22T03:04:05Z", "psmux.pane_dead", "%7", "Exit code: unknown"} {
 		if !strings.Contains(full, want) {
 			t.Fatalf("missing detail %q: %s", want, full)
 		}
@@ -148,7 +148,7 @@ func TestHistoryDetailsWrapScrollAndKeepObservationsSeparate(t *testing.T) {
 	original := ansi.Strip(m.View().Content)
 	m.Update(tea.KeyPressMsg{Code: tea.KeyEnd})
 	end := ansi.Strip(m.View().Content)
-	if original == end || !strings.Contains(end, "退出码：未知") {
+	if original == end || !strings.Contains(end, "Exit code: unknown") {
 		t.Fatalf("cannot scroll wrapped details: %s", end)
 	}
 	if m.history.cursor != 0 {
@@ -188,7 +188,7 @@ func TestHistoryRefreshPreservesRunIdentityAndHandlesErrors(t *testing.T) {
 	_, cmd = m.Update(tea.KeyPressMsg{Code: 'r'})
 	m.Update(cmd())
 	view := m.View().Content
-	if !strings.Contains(ansi.Strip(view), "读取历史失败") || strings.Contains(view, "\x1b]52;") {
+	if !strings.Contains(ansi.Strip(view), "读取History失败") || strings.Contains(view, "\x1b]52;") {
 		t.Fatal("history failure missing or unsafe")
 	}
 	readErr = nil
@@ -202,7 +202,7 @@ func TestHistoryRefreshPreservesRunIdentityAndHandlesErrors(t *testing.T) {
 	_, cmd = m.Update(tea.KeyPressMsg{Code: 'r'})
 	m.Update(cmd())
 	m.Update(tea.KeyPressMsg{Code: tea.KeyEnter})
-	if m.history.detail || !strings.Contains(ansi.Strip(m.View().Content), "暂无历史记录") {
+	if m.history.detail || !strings.Contains(ansi.Strip(m.View().Content), "No history records") {
 		t.Fatal("empty history opened details")
 	}
 }
@@ -225,7 +225,7 @@ func TestHistoryRemainsAccessibleWhenLiveBackendFailsAndQuitCancelsRead(t *testi
 		t.Fatal("refresh overlapped pending read")
 	}
 	m.Update(cmd())
-	if !strings.Contains(ansi.Strip(m.View().Content), "历史任务") {
+	if !strings.Contains(ansi.Strip(m.View().Content), "History任务") {
 		t.Fatal("backend failure blocked history")
 	}
 	_, cmd = m.Update(tea.KeyPressMsg{Code: 'r'})

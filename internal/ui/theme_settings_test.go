@@ -42,7 +42,7 @@ func TestThemeSettingsSaveLightPaletteAndRestoreOnNewModelWithoutTerminalInput(t
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	h.send(tea.KeyPressMsg{Code: 'S', Text: "S"})
 	h.until(func() bool { return h.m.densitySettings != nil })
-	if !strings.Contains(h.m.View().Content, "主题") {
+	if !strings.Contains(h.m.View().Content, "Theme") {
 		t.Fatal("settings have no theme row")
 	}
 	h.send(tea.KeyPressMsg{Code: tea.KeyRight})

@@ -72,7 +72,7 @@ func (m *Model) sessionRenameEvent(msg tea.Msg) (tea.Cmd, bool) {
 		d := m.rename
 		d.busy, d.err = false, result.err
 		if result.err != nil {
-			d.err = fmt.Errorf("请返回并刷新核对名称后再编辑：%w", result.err)
+			d.err = fmt.Errorf("Go back and refresh the name before editing: %w", result.err)
 			return nil, true
 		}
 		m.listGeneration++ // a pre-commit discovery must not restore the old label
@@ -122,7 +122,7 @@ func (m *Model) sessionRenameEvent(msg tea.Msg) (tea.Cmd, bool) {
 			return nil, true
 		}
 		if !renameInputSafe(d.input.Value(), msg.Content) {
-			d.err = fmt.Errorf("名称只接受有界单行文本")
+			d.err = fmt.Errorf("Name must be bounded single-line text")
 			return nil, true
 		}
 		var cmd tea.Cmd
@@ -163,7 +163,7 @@ func (m *Model) submitSessionRename() tea.Cmd {
 		}
 	}
 	if !found {
-		d.err = fmt.Errorf("原 Session/Run 已变化；请返回后重新选择")
+		d.err = fmt.Errorf("Session/Run changed; go back and select again")
 		return nil
 	}
 	d.busy, d.submitted, d.err = true, true, nil

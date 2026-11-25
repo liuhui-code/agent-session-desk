@@ -22,7 +22,7 @@ func TestDesignTokensReachVisibleListAndHelp(t *testing.T) {
 	if !strings.Contains(view, "v 下方") || strings.Contains(view, "⋮ 下方") {
 		t.Fatalf("list indicator ignored its token: %s", view)
 	}
-	if !strings.Contains(view, "↑↓   :   选择") {
+	if !strings.Contains(view, "↑↓   :   Select") {
 		t.Fatalf("menu spacing ignored its token: %s", view)
 	}
 }

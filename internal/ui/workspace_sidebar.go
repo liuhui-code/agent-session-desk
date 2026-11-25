@@ -21,18 +21,21 @@ func (m *Model) renderWorkspaceSidebar(width, height int) string {
 	rowLines := m.workspaceSidebarRows(width, height)
 	window := m.sidebarNavigationWindow(width, height)
 	if window.leading > 0 {
-		lines = append(lines, m.styles.dim.Render(fmt.Sprintf("%s%s 上方 %d", m.tokens.itemGap(), m.tokens.marks.above, window.start)))
+		lines = append(lines, m.styles.dim.Render(fmt.Sprintf("%s%s %d above", m.tokens.itemGap(), m.tokens.marks.above, window.start)))
 	}
 	for _, hit := range window.rows {
 		if hit.index < 0 {
-			lines = append(lines, m.renderSidebarGroupAt(hit.groupID, hit.level, width))
+			lines = append(lines, strings.Split(ensureExactHeight(m.renderSidebarGroupAt(hit.groupID, hit.level, width), hit.height), "\n")...)
 			continue
 		}
 		card := m.workspaceSidebarCard(hit.index, width, rowLines, hit.level)
+		for range m.tokens.sidebar.cardGap {
+			card = append(card, strings.Repeat(" ", width))
+		}
 		lines = append(lines, card[:hit.height]...)
 	}
 	if remaining := window.remaining; remaining > 0 && height > len(lines) {
-		lines = append(lines, m.styles.dim.Render(fmt.Sprintf("%s%s 下方 %d", m.tokens.itemGap(), m.tokens.marks.below, remaining)))
+		lines = append(lines, m.styles.dim.Render(fmt.Sprintf("%s%s %d below", m.tokens.itemGap(), m.tokens.marks.below, remaining)))
 	}
 	return strings.Join(lines[:min(height, len(lines))], "\n")
 }
@@ -61,7 +64,7 @@ func (m *Model) workspaceSidebarRows(width, height int) int {
 			}
 		}
 		for candidate := m.tokens.sidebar.fullRows; candidate > 1; candidate-- {
-			if sessions*candidate+groupRows <= height {
+			if sessions*(candidate+m.tokens.sidebar.cardGap)+groupRows*m.tokens.sidebar.groupRows <= height {
 				rows = candidate
 				break
 			}
@@ -82,10 +85,7 @@ func (m *Model) workspaceSidebarCard(index, width, rowLines, level int) []string
 	if active {
 		prefix = m.tokens.sidebar.active
 	}
-	gutter := ""
-	if !w.focused {
-		gutter = strings.Repeat(" ", m.tokens.sidebar.groupGutter)
-	}
+	gutter := strings.Repeat(" ", m.tokens.sidebar.groupGutter)
 	// Indentation is part of the card surface, as in the pinned renderer.
 	// Adding it after Render leaves holes in selected/active nested rows.
 	gutter += strings.Repeat(" ", max(0, level-1)*m.tokens.sidebar.indentWidth)

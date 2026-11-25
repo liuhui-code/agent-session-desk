@@ -18,13 +18,13 @@ func TestSessionSearchPreservesPinnedPlaceholderAndKeyboardHintStyles(t *testing
 	h.until(func() bool { return h.m.workspace.conn != nil })
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	h.send(tea.KeyPressMsg{Code: '/', Text: "/"})
-	h.until(func() bool { return strings.Contains(h.m.View().Content, "本地会话搜索") })
+	h.until(func() bool { return strings.Contains(h.m.View().Content, "Local session search") })
 	view := h.m.View().Content
 	if !strings.Contains(view, "38;5;240") {
 		t.Error("placeholder lost pinned Bubbles v1 index-240 color during v2 migration")
 	}
 	for _, line := range strings.Split(view, "\n") {
-		if strings.Contains(ansi.Strip(line), "Enter 进入") && regexp.MustCompile(`\x1b\[(?:[0-9]+;)*3(?:;[0-9]+)*m`).MatchString(line) {
+		if strings.Contains(ansi.Strip(line), "Enter Open") && regexp.MustCompile(`\x1b\[(?:[0-9]+;)*3(?:;[0-9]+)*m`).MatchString(line) {
 			t.Error("keyboard legend inherited italic styling from empty-query tip")
 		}
 	}
@@ -37,7 +37,7 @@ func TestSessionSearchOpensOriginalRunWithoutSendingQueryToTerminal(t *testing.T
 	h.send(tea.KeyPressMsg{Code: 'd', Text: "draft-preserved"})
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	h.send(tea.KeyPressMsg{Code: '/', Text: "/"})
-	h.until(func() bool { return strings.Contains(h.m.View().Content, "本地会话搜索") })
+	h.until(func() bool { return strings.Contains(h.m.View().Content, "Local session search") })
 	h.send(tea.PasteMsg{Content: "评审"})
 	h.send(tea.KeyPressMsg{Code: tea.KeyEnter})
 	h.until(func() bool { return strings.Contains(h.m.View().Content, "shell marker second") })
@@ -76,7 +76,7 @@ func TestSessionSearchWaitsForAcceptedTerminalWrite(t *testing.T) {
 	h.send(tea.KeyPressMsg{Code: 'd', Text: "pending-draft"})
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	h.send(tea.KeyPressMsg{Code: '/', Text: "/"})
-	if strings.Contains(h.m.View().Content, "本地会话搜索") {
+	if strings.Contains(h.m.View().Content, "Local session search") {
 		t.Fatal("search took focus before accepted terminal write completed")
 	}
 	select {
@@ -85,7 +85,7 @@ func TestSessionSearchWaitsForAcceptedTerminalWrite(t *testing.T) {
 	default:
 	}
 	close(gate)
-	h.until(func() bool { return strings.Contains(h.m.View().Content, "本地会话搜索") })
+	h.until(func() bool { return strings.Contains(h.m.View().Content, "Local session search") })
 	stream.mu.Lock()
 	defer stream.mu.Unlock()
 	if strings.Count(strings.Join(stream.writes, ","), "text:pending-draft") != 1 {
@@ -100,7 +100,7 @@ func TestSessionSearchKeepsSelectionByRunWhenDiscoveryReorders(t *testing.T) {
 	h.until(func() bool { return h.m.workspace.conn != nil })
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	h.send(tea.KeyPressMsg{Code: '/', Text: "/"})
-	h.until(func() bool { return strings.Contains(h.m.View().Content, "本地会话搜索") })
+	h.until(func() bool { return strings.Contains(h.m.View().Content, "Local session search") })
 	h.send(tea.KeyPressMsg{Code: tea.KeyDown})
 	h.send(sessionsMsg{generation: h.m.listGeneration, sessions: []session.Session{items[1], items[0]}})
 	h.send(tea.KeyPressMsg{Code: tea.KeyEnter})
@@ -122,12 +122,12 @@ func TestSessionSearchKeepsTerminalSlashAndModalNavigationSeparate(t *testing.T)
 	})
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	h.send(tea.KeyPressMsg{Code: '/', Text: "/"})
-	h.until(func() bool { return strings.Contains(h.m.View().Content, "本地会话搜索") })
+	h.until(func() bool { return strings.Contains(h.m.View().Content, "Local session search") })
 	h.send(tea.KeyPressMsg{Code: tea.KeyPgDown, Mod: tea.ModCtrl})
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	h.send(tea.MouseClickMsg{Button: tea.MouseLeft, X: 15, Y: 1})
 	h.send(tea.PasteMsg{Content: "q"})
-	if h.m.closed || !strings.Contains(h.m.View().Content, "本地会话搜索") {
+	if h.m.closed || !strings.Contains(h.m.View().Content, "Local session search") {
 		t.Fatal("modal input changed application focus or quit")
 	}
 	h.send(tea.KeyPressMsg{Code: tea.KeyEscape})
@@ -147,7 +147,7 @@ func TestSessionSearchFollowsRankedResultsAndFitsBoundedWindows(t *testing.T) {
 	h.until(func() bool { return h.m.workspace.conn != nil })
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	h.send(tea.KeyPressMsg{Code: '/', Text: "/"})
-	h.until(func() bool { return strings.Contains(h.m.View().Content, "本地会话搜索") })
+	h.until(func() bool { return strings.Contains(h.m.View().Content, "Local session search") })
 	for i := 0; i < 15; i++ {
 		h.send(tea.KeyPressMsg{Code: tea.KeyDown})
 	}
@@ -200,11 +200,11 @@ func TestSessionSearchRanksExactBeforeFuzzyAndKeepsUnicodeRules(t *testing.T) {
 			h.until(func() bool { return h.m.workspace.conn != nil })
 			h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 			h.send(tea.KeyPressMsg{Code: '/', Text: "/"})
-			h.until(func() bool { return strings.Contains(h.m.View().Content, "本地会话搜索") })
+			h.until(func() bool { return strings.Contains(h.m.View().Content, "Local session search") })
 			h.send(tea.PasteMsg{Content: tc.query})
 			h.send(tea.KeyPressMsg{Code: tea.KeyEnter})
 			if tc.want == "" {
-				if !strings.Contains(h.m.View().Content, "本地会话搜索") || !strings.Contains(h.m.View().Content, "无匹配会话") {
+				if !strings.Contains(h.m.View().Content, "Local session search") || !strings.Contains(h.m.View().Content, "No matching sessions") {
 					t.Fatal("empty result activated hidden target")
 				}
 				return
@@ -224,13 +224,13 @@ func TestSessionSearchDoesNotRetargetWhenSelectedRunChangesDuringRefresh(t *test
 	h.until(func() bool { return strings.Contains(h.m.View().Content, "shell marker first") })
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	h.send(tea.KeyPressMsg{Code: '/', Text: "/"})
-	h.until(func() bool { return strings.Contains(h.m.View().Content, "本地会话搜索") })
+	h.until(func() bool { return strings.Contains(h.m.View().Content, "Local session search") })
 	h.send(tea.KeyPressMsg{Code: tea.KeyDown})
 	replacement := append([]session.Session(nil), items...)
 	replacement[1].RunID = "replacement-run"
 	h.send(sessionsMsg{generation: h.m.listGeneration, sessions: replacement})
 	h.send(tea.KeyPressMsg{Code: tea.KeyEnter})
-	if !strings.Contains(h.m.View().Content, "本地会话搜索") {
+	if !strings.Contains(h.m.View().Content, "Local session search") {
 		t.Fatal("refresh silently retargeted Enter after the selected Run was replaced")
 	}
 	service.mu.Lock()

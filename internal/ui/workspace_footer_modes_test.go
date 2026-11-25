@@ -23,7 +23,7 @@ func TestWorkspaceCuratedFooterUsesThreeRelevantActionsThenSettingsAndHelp(t *te
 	m.cursor = 0
 	m.workspace.focused = false
 	plain := strings.TrimSpace(ansi.Strip(m.renderManagementFooter()))
-	if plain != "Enter 打开  n 新建  r 改名  S 设置  ? 帮助" {
+	if plain != "Enter Open  n New  r Rename  S Settings  ? Help" {
 		t.Fatalf("curated mode is not rendered: %q", plain)
 	}
 }
@@ -45,21 +45,21 @@ func TestWorkspaceCuratedFooterUsesDimRolesAndActualSelectionContext(t *testing.
 		}
 		m.sessions[0].TerminalState = session.TerminalExited
 		plain := ansi.Strip(m.renderManagementFooter())
-		if strings.Contains(plain, "Enter") || !strings.Contains(plain, "S 设置  ? 帮助") {
+		if strings.Contains(plain, "Enter") || !strings.Contains(plain, "S Settings  ? Help") {
 			t.Fatal("unavailable session advertised open or lost globals")
 		}
 		m.sidebarMode = "grouped"
 		m.cursor = -1
-		if plain = ansi.Strip(m.renderManagementFooter()); !strings.Contains(plain, "Tab 折叠") {
+		if plain = ansi.Strip(m.renderManagementFooter()); !strings.Contains(plain, "Tab Collapse") {
 			t.Fatal("expanded group context missing")
 		}
 		m.sidebarCollapsed = true
-		if plain = ansi.Strip(m.renderManagementFooter()); !strings.Contains(plain, "Tab 展开") {
+		if plain = ansi.Strip(m.renderManagementFooter()); !strings.Contains(plain, "Tab Expand") {
 			t.Fatal("collapsed group context missing")
 		}
 		m.sidebarMode = "flat"
 		m.sessions = nil
-		if plain = strings.TrimSpace(ansi.Strip(m.renderManagementFooter())); plain != "n 新建  g 分组  S 设置  ? 帮助" {
+		if plain = strings.TrimSpace(ansi.Strip(m.renderManagementFooter())); plain != "n New  g Groups  S Settings  ? Help" {
 			t.Fatalf("empty-list context: %s", plain)
 		}
 	}
@@ -96,7 +96,7 @@ func TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership(t *testing.
 					if focused && width >= 22 && !strings.Contains(plain, "F6") {
 						t.Fatal("footer preference hid terminal input ownership")
 					}
-					if !focused && width >= 50 && mode == "curated" && !strings.HasSuffix(strings.TrimSpace(plain), "S 设置  ? 帮助") {
+					if !focused && width >= 50 && mode == "curated" && !strings.HasSuffix(strings.TrimSpace(plain), "S Settings  ? Help") {
 						t.Fatal("curated globals cropped")
 					}
 				})
@@ -160,7 +160,7 @@ func TestWorkspaceFooterCanForceCompactOrMinimalAtWideWidths(t *testing.T) {
 			if testBackgroundAt(line, ansi.StringWidth(plain[:i])-1) == "121,162,247" {
 				t.Fatal("forced tier retained full-tier padded key chip")
 			}
-			if strings.Contains(plain, "打开") != (mode == "compact") {
+			if strings.Contains(plain, "Open") != (mode == "compact") {
 				t.Fatalf("forced tier labels incorrect: %s", plain)
 			}
 			for _, key := range []string{"F6", "?", "q"} {

@@ -24,7 +24,7 @@ func TestSessionRenameCancelKeepsPrefilledNameAndRealCursorAtEnd(t *testing.T) {
 	h.until(func() bool { return h.m.workspace.conn != nil })
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	h.send(tea.KeyPressMsg{Code: 'r', Text: "r"})
-	h.until(func() bool { return strings.Contains(h.m.View().Content, "重命名会话") })
+	h.until(func() bool { return strings.Contains(h.m.View().Content, "Rename session") })
 	h.send(tea.KeyPressMsg{Code: '!', Text: "!"})
 	if !strings.Contains(ansi.Strip(h.m.View().Content), "> 开发!") {
 		t.Fatal("existing name was not prefilled with cursor at end")
@@ -52,11 +52,11 @@ func TestSessionRenameWaitsForAcceptedInputAndRejectsReplacedRun(t *testing.T) {
 	h.send(tea.KeyPressMsg{Code: 'd', Text: "pending-draft"})
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	h.send(tea.KeyPressMsg{Code: 'r', Text: "r"})
-	if strings.Contains(h.m.View().Content, "重命名会话") {
+	if strings.Contains(h.m.View().Content, "Rename session") {
 		t.Fatal("dialog cancelled an accepted write")
 	}
 	close(gate)
-	h.until(func() bool { return strings.Contains(h.m.View().Content, "重命名会话") })
+	h.until(func() bool { return strings.Contains(h.m.View().Content, "Rename session") })
 	items := sampleSessions()
 	items[0].RunID = "replacement"
 	h.send(sessionsMsg{generation: h.m.listGeneration, sessions: items})
@@ -85,11 +85,11 @@ func TestSessionRenameErrorRequiresReconcileInsteadOfRepeatedSubmit(t *testing.T
 	h.until(func() bool { return h.m.workspace.conn != nil })
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	h.send(tea.KeyPressMsg{Code: 'r', Text: "r"})
-	h.until(func() bool { return strings.Contains(h.m.View().Content, "重命名会话") })
+	h.until(func() bool { return strings.Contains(h.m.View().Content, "Rename session") })
 	h.send(tea.KeyPressMsg{Code: 'u', Mod: tea.ModCtrl})
 	h.send(tea.PasteMsg{Content: "edited"})
 	h.send(tea.KeyPressMsg{Code: tea.KeyEnter})
-	h.until(func() bool { return strings.Contains(h.m.View().Content, "请返回") })
+	h.until(func() bool { return strings.Contains(h.m.View().Content, "请Back") })
 	h.send(tea.KeyPressMsg{Code: tea.KeyEnter})
 	h.send(tea.KeyPressMsg{Code: tea.KeyPgDown, Mod: tea.ModCtrl})
 	service.mu.Lock()
@@ -117,7 +117,7 @@ func TestDuplicateSessionNamesExposeDistinctIdentitiesInTabsListAndSearch(t *tes
 		}
 	}
 	h.send(tea.KeyPressMsg{Code: '/', Text: "/"})
-	h.until(func() bool { return strings.Contains(h.m.View().Content, "本地会话搜索") })
+	h.until(func() bool { return strings.Contains(h.m.View().Content, "Local session search") })
 	view = ansi.Strip(h.m.View().Content)
 	for _, marker := range []string{"[first]", "[second]"} {
 		if !strings.Contains(view, marker) {
@@ -132,7 +132,7 @@ func TestSessionRenameFitsSourceGeometryAndBoundedWindows(t *testing.T) {
 	h.until(func() bool { return h.m.workspace.conn != nil })
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	h.send(tea.KeyPressMsg{Code: 'r', Text: "r"})
-	h.until(func() bool { return strings.Contains(h.m.View().Content, "重命名会话") })
+	h.until(func() bool { return strings.Contains(h.m.View().Content, "Rename session") })
 	for _, size := range [][2]int{{120, 32}, {63, 25}, {49, 25}, {27, 10}, {10, 4}, {1, 1}, {0, 0}} {
 		h.send(tea.WindowSizeMsg{Width: size[0], Height: size[1]})
 		v := h.m.View()
@@ -186,7 +186,7 @@ func TestSessionRenameRejectsMultilinePasteAndKeepsTerminalShortcutsLiteral(t *t
 	})
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	h.send(tea.KeyPressMsg{Code: 'r', Text: "r"})
-	h.until(func() bool { return strings.Contains(h.m.View().Content, "重命名会话") })
+	h.until(func() bool { return strings.Contains(h.m.View().Content, "Rename session") })
 	h.send(tea.PasteMsg{Content: "should\nnot\nsubmit"})
 	if strings.Contains(ansi.Strip(h.m.View().Content), "> should") || !strings.Contains(h.m.View().Content, "单行") {
 		t.Fatal("multiline paste was sanitized into a different accepted name")
@@ -224,7 +224,7 @@ func TestSessionRenamePreCommitDiscoveryCannotRestoreTheOldDisplayName(t *testin
 	oldGeneration, oldRows := h.m.listGeneration, sampleSessions()
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	h.send(tea.KeyPressMsg{Code: 'r', Text: "r"})
-	h.until(func() bool { return strings.Contains(h.m.View().Content, "重命名会话") })
+	h.until(func() bool { return strings.Contains(h.m.View().Content, "Rename session") })
 	h.send(tea.KeyPressMsg{Code: 'u', Mod: tea.ModCtrl})
 	h.send(tea.PasteMsg{Content: "已保存新名"})
 	h.send(tea.KeyPressMsg{Code: tea.KeyEnter})
@@ -287,7 +287,7 @@ func TestSessionRenameChangesSelectedBackgroundLabelWithoutSwitchingOrTerminalIn
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	h.send(tea.KeyPressMsg{Code: tea.KeyDown})
 	h.send(tea.KeyPressMsg{Code: 'r', Text: "r"})
-	h.until(func() bool { return strings.Contains(h.m.View().Content, "重命名会话") })
+	h.until(func() bool { return strings.Contains(h.m.View().Content, "Rename session") })
 	if !strings.Contains(h.m.View().Content, "评审") || h.m.View().Cursor == nil {
 		t.Fatal("rename lost current name or editable cursor")
 	}
@@ -298,7 +298,7 @@ func TestSessionRenameChangesSelectedBackgroundLabelWithoutSwitchingOrTerminalIn
 		return strings.Contains(h.m.View().Content, "shell marker first") && strings.Contains(h.m.View().Content, "中文新名")
 	})
 	h.send(tea.MouseMotionMsg{X: 0, Y: h.m.height - 1, Button: tea.MouseNone})
-	if !strings.Contains(ansi.Strip(h.m.View().Content), "管理模式") {
+	if !strings.Contains(ansi.Strip(h.m.View().Content), "Navigation") {
 		t.Fatal("rename success hid management focus and reachable navigation hints")
 	}
 	if h.m.workspace.focused || h.m.workspace.tabs[h.m.workspace.active].session.ID != "first" {

@@ -11,15 +11,15 @@ import (
 
 func (m *Model) renderHistory(_ int) string {
 	h := &m.history
-	title := m.renderPanelTitle(fmt.Sprintf("历史记录 · 最近 %d 条", historyLimit), m.width)
+	title := m.renderPanelTitle(fmt.Sprintf("History · Latest %d records", historyLimit), m.width)
 	if h.busy {
-		return title + "\n" + m.styles.dim.Render("正在读取历史…")
+		return title + "\n" + m.styles.dim.Render("Loading history…")
 	}
 	if h.err != nil {
-		return title + "\n" + m.styles.error.Render("读取历史失败："+label(h.err.Error()))
+		return title + "\n" + m.styles.error.Render("Failed to load history: "+label(h.err.Error()))
 	}
 	if len(h.rows) == 0 {
-		return title + "\n" + m.styles.dim.Render("暂无历史记录")
+		return title + "\n" + m.styles.dim.Render("No history records")
 	}
 	if h.detail {
 		lines := m.historyDetailLines()
@@ -53,30 +53,30 @@ func (m *Model) historyDetailLines() []string {
 		return nil
 	}
 	r := h.rows[h.cursor]
-	fields := []string{"只读记录 · 当前在线状态未知", "名称：" + label(r.Session.Title), "Session：" + label(r.Session.ID), "Run：" + label(r.Session.RunID), "Backend：" + label(r.Session.BackendID), "程序：" + label(r.Session.Command), "首次记录：" + r.RecordedAt.UTC().Format(time.RFC3339Nano), "agent 结果：未知"}
-	stop := "未记录（不代表未停止）"
+	fields := []string{"Read-only record · Current online state unknown", "Name: " + label(r.Session.Title), "Session：" + label(r.Session.ID), "Run：" + label(r.Session.RunID), "Backend：" + label(r.Session.BackendID), "Program: " + label(r.Session.Command), "First recorded: " + r.RecordedAt.UTC().Format(time.RFC3339Nano), "Agent result: unknown"}
+	stop := "Not recorded (does not imply still running)"
 	if r.StopConfirmedAt != nil {
 		stop = r.StopConfirmedAt.UTC().Format(time.RFC3339Nano)
 	}
-	fields = append(fields, "停止确认："+stop)
+	fields = append(fields, "Confirm stop: "+stop)
 	if r.PaneExit == nil {
-		fields = append(fields, "pane 退出观测：未记录")
+		fields = append(fields, "Pane exit observation: not recorded")
 	} else {
-		fields = append(fields, "pane："+label(r.PaneExit.PaneID), "观测来源："+label(r.PaneExit.Source), "退出观测时间："+r.PaneExit.ObservedAt.UTC().Format(time.RFC3339Nano))
+		fields = append(fields, "pane："+label(r.PaneExit.PaneID), "Observation source: "+label(r.PaneExit.Source), "Exit observation time: "+r.PaneExit.ObservedAt.UTC().Format(time.RFC3339Nano))
 	}
-	fields = append(fields, "退出码：未知")
+	fields = append(fields, "Exit code: unknown")
 	return strings.Split(ansi.Hardwrap(strings.Join(fields, "\n"), max(1, m.width), true), "\n")
 }
 
 func (m *Model) renderHistoryHelpBar() string {
-	action := "选择"
+	action := "Select"
 	if m.history.detail {
-		action = "滚动"
+		action = "Scroll"
 	}
 	parts := []string{m.styles.menuKey("↑↓/PgUp/PgDown", action)}
 	if !m.history.detail {
-		parts = append(parts, m.styles.menuKey("Enter", "详情"))
+		parts = append(parts, m.styles.menuKey("Enter", "Details"))
 	}
-	parts = append(parts, m.styles.menuKey("r", "刷新"), m.styles.menuKey("Esc/h", "返回"), m.styles.menuKey("q", "退出"))
+	parts = append(parts, m.styles.menuKey("r", "Refresh"), m.styles.menuKey("Esc/h", "Back"), m.styles.menuKey("q", "Quit"))
 	return strings.Join(parts, m.tokens.itemGap())
 }

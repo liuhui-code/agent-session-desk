@@ -14,7 +14,7 @@ func TestSessionRenameSurfaceFillsEveryInteriorCellAfterChildStyleResets(t *test
 	h.until(func() bool { return h.m.workspace.conn != nil })
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	h.send(tea.KeyPressMsg{Code: 'r', Text: "r"})
-	h.until(func() bool { return strings.Contains(h.m.View().Content, "重命名会话") })
+	h.until(func() bool { return strings.Contains(h.m.View().Content, "Rename session") })
 	r, g, b, _ := h.m.tokens.colors.surface.RGBA()
 	want := fmt.Sprintf("%d,%d,%d", r>>8, g>>8, b>>8)
 	for _, width := range []int{120, 63, 49} {

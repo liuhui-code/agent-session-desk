@@ -54,7 +54,7 @@ func (m *Model) writeUIPreferences() tea.Cmd {
 		if save != nil {
 			err = save(ctx, snapshot)
 		} else if snapshot.Theme != previousTheme {
-			err = errors.New("当前保存接口不支持主题；未保存")
+			err = errors.New("Theme persistence is unsupported; not saved")
 		} else if densitySave != nil && snapshot.SidebarDensity != previousDensity {
 			err = densitySave(ctx, snapshot.SidebarDensity)
 		}
@@ -90,7 +90,7 @@ func (m *Model) uiPreferencesEvent(msg tea.Msg) (tea.Cmd, bool) {
 		m.applySidebarNavigation(p.wanted)
 		resize := m.restoreWorkspaceSplit(p.saved.SidebarPercent)
 		m.sidebarPreferenceError = r.err
-		m.status = "管理模式 · 界面偏好未保存：" + label(r.err.Error())
+		m.status = "UI preferences not saved: " + label(r.err.Error())
 		if m.workspace.transition == workspaceQuit {
 			m.workspace.transition = workspaceIdle
 		}
@@ -108,7 +108,7 @@ func (m *Model) uiPreferencesEvent(msg tea.Msg) (tea.Cmd, bool) {
 		m.applySidebarNavigation(r.settings)
 	}
 	m.sidebarPreferenceError = nil
-	if strings.HasPrefix(m.status, "管理模式 · 界面偏好未保存：") || strings.HasPrefix(m.status, "界面设置未载入") {
+	if strings.HasPrefix(m.status, "UI preferences not saved: ") || strings.HasPrefix(m.status, "UI preferences not loaded") {
 		m.status = ""
 	}
 	if d := m.densitySettings; d != nil {

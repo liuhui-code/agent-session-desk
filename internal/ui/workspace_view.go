@@ -65,14 +65,14 @@ func (m *Model) renderWorkspace() string {
 	var content string
 	switch {
 	case len(w.tabs) == 0:
-		content = m.styles.dim.Render("暂无打开的 Tab · 新建终端或从会话列表重新打开")
+		content = m.styles.dim.Render("No open views · Create a terminal or reopen one from the sidebar")
 	case w.busy:
-		content = m.styles.dim.Render("正在连接原终端…")
+		content = m.styles.dim.Render("Connecting to the original terminal…")
 	case w.err != nil:
 		if w.screen.Width > 0 && w.screen.Height > 0 {
 			content = w.screen.RenderWithCopyStyles(g.width, g.height, m.styles.copy)
 		} else {
-			content = m.styles.error.Render("终端不可交互：" + label(w.err.Error()))
+			content = m.styles.error.Render("Terminal not interactive: " + label(w.err.Error()))
 		}
 	default:
 		content = w.screen.RenderWithCopyStyles(g.width, g.height, m.styles.copy)

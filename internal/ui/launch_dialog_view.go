@@ -42,12 +42,12 @@ func (m *Model) renderLaunchDialog() (string, *tea.Cursor) {
 	width := m.launchWidth()
 	contentWidth := max(1, width-dialogStyle.GetHorizontalFrameSize())
 	var lines []string
-	lines = append(lines, m.styles.formTitle.Render("新建终端"))
+	lines = append(lines, m.styles.formTitle.Render("New terminal"))
 	for range t.titleGap {
 		lines = append(lines, "")
 	}
 	headerRows := len(lines)
-	labels := []string{"名称（可空）", "程序 / CLI", "工作目录（可空）", "参数（JSON 字符串数组，可空）", "环境覆盖（JSON KEY=value 数组，可空）"}
+	labels := []string{"Name (optional)", "Program / CLI", "Working directory (optional)", "Arguments (JSON string array, optional)", "Environment (JSON KEY=value array, optional)"}
 	cursorRow := -1
 	for i := range d.fields {
 		style := m.styles.formText
@@ -63,14 +63,14 @@ func (m *Model) renderLaunchDialog() (string, *tea.Cursor) {
 			lines = append(lines, "")
 		}
 	}
-	button := m.styles.tab.Render("创建终端")
+	button := m.styles.tab.Render("Create terminal")
 	if d.focus == len(d.fields) {
-		button = m.styles.tabActive.Render("创建终端")
+		button = m.styles.tabActive.Render("Create terminal")
 	}
 	if d.busy {
-		button = m.styles.formHint.Render("正在启动；请等待明确结果…")
+		button = m.styles.formHint.Render("Starting; wait for a definite result…")
 	}
-	footer := []string{button, m.styles.formHint.Render("Tab 切换 · Ctrl+S 创建 · Esc 取消")}
+	footer := []string{button, m.styles.formHint.Render("Tab Next · Ctrl+S Create · Esc Cancel")}
 	if d.err != nil {
 		footer = append(footer, m.styles.formError.Render(cellTruncate(label(d.err.Error()), contentWidth, m.tokens.marks.ellipsis)))
 	}

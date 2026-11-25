@@ -15,7 +15,7 @@ func TestGroupPathPickerAcceptsThenDismissesBeforeSubmitting(t *testing.T) {
 	h.until(func() bool { return len(h.m.groups) > 1 })
 	h.m.groupIntent = &groupDialog{}
 	h.run(h.m.openGroupDialog())
-	h.send(tea.PasteMsg{Content: "新分组"})
+	h.send(tea.PasteMsg{Content: "新Groups"})
 	h.send(tea.KeyPressMsg{Code: tea.KeyTab})
 	h.until(func() bool { return strings.Contains(h.m.View().Content, "/demo-work") })
 	h.send(tea.KeyPressMsg{Code: tea.KeyEnter})

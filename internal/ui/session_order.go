@@ -34,7 +34,7 @@ func (m *Model) reorderSelectedSession(delta int) tea.Cmd {
 		return nil
 	}
 	if m.sessionOrderFailed {
-		m.status = "管理模式 · 会话顺序未确认；请刷新核对后再排序"
+		m.status = "Session order unconfirmed; refresh before sorting again"
 		return nil
 	}
 	selected, ok := m.selected()
@@ -53,7 +53,7 @@ func (m *Model) reorderSelectedSession(delta int) tea.Cmd {
 	}
 	operation := &sessionOrderMutation{groupID: session.GroupOf(selected), stamp: m.orderStamps[session.GroupOf(selected)]}
 	m.sessionOrder = operation
-	m.status = "管理模式 · 正在保存会话顺序…"
+	m.status = "Saving session order…"
 	expected := session.SessionOrder{TargetID: selected.ID, Siblings: peers, Stamp: operation.stamp}
 	ctx := m.ctx
 	return func() tea.Msg {
@@ -77,7 +77,7 @@ func (m *Model) sessionOrderEvent(msg tea.Msg) (tea.Cmd, bool) {
 		}
 		if result.err != nil {
 			m.sessionOrderFailed = true
-			m.status = "管理模式 · 会话顺序未确认；请刷新核对：" + label(result.err.Error())
+			m.status = "Session order unconfirmed; refresh to verify: " + label(result.err.Error())
 			return m.loadSessions(), true
 		}
 		m.acceptSessionOrder(result.view.Sessions)
@@ -87,7 +87,7 @@ func (m *Model) sessionOrderEvent(msg tea.Msg) (tea.Cmd, bool) {
 			}
 			m.orderStamps[result.operation.groupID] = result.view.OrderStamps[result.operation.groupID]
 		}
-		if strings.HasPrefix(m.status, "管理模式 · 正在保存会话顺序") {
+		if strings.HasPrefix(m.status, "Saving session order") {
 			m.status = ""
 		}
 		if quitting {
