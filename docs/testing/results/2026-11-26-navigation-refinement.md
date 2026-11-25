@@ -13,3 +13,13 @@
 新增三条行为 RED，分别捕获普通 hover 仍显示模式提示、组名序号及焦点缩进变化、卡片无留白。实现后相关检查通过，包含新行为、首行对齐、选中与活动颜色、分组变高行可见／点击、列表单击／滚轮、嵌套背景和关键提示鼠标归属。一次局部检查发现移除 hover 分支后关键提示区的无按钮运动可能落入程序鼠标，补回仅针对已显示关键提示的消费路径，原手势继续保留。[日志](2026-11-26-navigation-refinement-evidence/)保存各轮失败与通过。
 
 本机 Go 1.27.4 darwin/amd64；静态英文文案核对、生产源码 500 行及 diff 检查通过。未运行全仓／race／vet 或完整 Windows 原生套件。用户随后明确同意清屏现有示例终端；只允许核对后的原 A/B PowerShell，其他会话及草稿不纳入清屏。Windows 交付实际结果另补，不把本地通过当成实机视觉接受。
+
+## Windows 本机更新与授权清屏
+
+最终源码 `1a08711`（主体 `390ace7`，另补两个 raw-string JSON 示例占位文本），产品 `asd-ui-1a08711.exe` SHA256 `e54e99d00361ab99d7719b4d874dc5eab54acc656c76c2717ac9c7af407ac31a`。从已提交快照构建，不包含工作区未提交的后端修改。Windows 上传哈希、version、实际 list 和原默认 PowerShell 读取清单的全部负载校验通过；清单带 UTF-8 BOM。旧产品、清单与示例脚本均备份，运行库、宿主／字体设置、数据和 namespace 不改。
+
+用户明确授权一起清屏。先逐个核对 A/B 原 PID／创建时间、PowerShell 路径、唯一后台 pane、无子进程且最后可见行为空 PowerShell 提示符，再各发送一次 Ctrl+L。捕获确认两者旧 F6 介绍均不可见，原进程保留；没有提交 shell 命令或触碰第三个会话。新示例脚本不再输出介绍。
+
+桌面更新只在确认唯一旧产品管理进程、对应固定 Terminal 只有一个窗口／至多一个 Tab 且可见 A/B 导航后，调用正常窗口关闭；没有强制终止或按键注入。旧 manager 退出后从原入口打开新版，观察到一个新版 manager，3 个原 Session/Run/backend 身份集合与两个示例 shell 原 PID／创建时间一致。重开本身没有终端输入或剪贴板操作；清屏的两次明确按键独立记账。窗口关闭路径未保留旧 manager 退出码，不称为 exit 0。
+
+无私有身份的[清屏回执](2026-11-26-navigation-refinement-evidence/clear-result.json)、[安装回执](2026-11-26-navigation-refinement-evidence/install-result.json)及[打开回执](2026-11-26-navigation-refinement-evidence/reopen-result.json)保存原结果。未拍摄／公开用户终端正文或执行新的全量 UI 套件，外观由用户在实际窗口查看；GitHub Release 没有更新。
