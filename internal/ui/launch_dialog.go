@@ -48,7 +48,7 @@ func (m *Model) openLaunchDialog() tea.Cmd {
 	group := m.launchGroup
 	m.launchGroup = session.Group{}
 	d.groupID = group.ID
-	placeholders := []string{"Optional; use the program name", "e.g. pwsh.exe, cmd.exe or an agent executable", "Optional; use the current directory", `例如 ["-NoLogo","-NoProfile"]`, `例如 ["ASD_MODE=dev"]`}
+	placeholders := []string{"Optional; use the program name", "e.g. pwsh.exe, cmd.exe or an agent executable", "Optional; use the current directory", `e.g. ["-NoLogo","-NoProfile"]`, `e.g. ["ASD_MODE=dev"]`}
 	for _, placeholder := range placeholders {
 		field := textinput.New()
 		field.CharLimit = launchFieldLimit
