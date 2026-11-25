@@ -1,0 +1,29 @@
+﻿=== RUN   TestQuickNewStartsWithoutFormAndRecordsSuccessfulConfiguration
+--- PASS: TestQuickNewStartsWithoutFormAndRecordsSuccessfulConfiguration (0.01s)
+=== RUN   TestControlSTogglesSidebarWithoutSendingSaveToTerminal
+--- PASS: TestControlSTogglesSidebarWithoutSendingSaveToTerminal (0.00s)
+=== RUN   TestNavigationFocusChangesSelectedActiveCardAppearance
+--- PASS: TestNavigationFocusChangesSelectedActiveCardAppearance (0.00s)
+=== RUN   TestQuickNewSuppressesDuplicateCreation
+--- PASS: TestQuickNewSuppressesDuplicateCreation (1.00s)
+=== RUN   TestQuickNewDoesNotRetryUncertainCreation
+--- PASS: TestQuickNewDoesNotRetryUncertainCreation (0.00s)
+=== RUN   TestNestedSessionCardHighlightIncludesIndentationAtEveryDensity
+=== RUN   TestNestedSessionCardHighlightIncludesIndentationAtEveryDensity/minimal/focused=false
+=== RUN   TestNestedSessionCardHighlightIncludesIndentationAtEveryDensity/minimal/focused=true
+=== RUN   TestNestedSessionCardHighlightIncludesIndentationAtEveryDensity/compact/focused=false
+=== RUN   TestNestedSessionCardHighlightIncludesIndentationAtEveryDensity/compact/focused=true
+=== RUN   TestNestedSessionCardHighlightIncludesIndentationAtEveryDensity/full/focused=false
+=== RUN   TestNestedSessionCardHighlightIncludesIndentationAtEveryDensity/full/focused=true
+=== RUN   TestNestedSessionCardHighlightIncludesIndentationAtEveryDensity/auto/focused=false
+=== RUN   TestNestedSessionCardHighlightIncludesIndentationAtEveryDensity/auto/focused=true
+--- PASS: TestNestedSessionCardHighlightIncludesIndentationAtEveryDensity (0.02s)
+    --- PASS: TestNestedSessionCardHighlightIncludesIndentationAtEveryDensity/minimal/focused=false (0.00s)
+    --- PASS: TestNestedSessionCardHighlightIncludesIndentationAtEveryDensity/minimal/focused=true (0.00s)
+    --- PASS: TestNestedSessionCardHighlightIncludesIndentationAtEveryDensity/compact/focused=false (0.00s)
+    --- PASS: TestNestedSessionCardHighlightIncludesIndentationAtEveryDensity/compact/focused=true (0.00s)
+    --- PASS: TestNestedSessionCardHighlightIncludesIndentationAtEveryDensity/full/focused=false (0.00s)
+    --- PASS: TestNestedSessionCardHighlightIncludesIndentationAtEveryDensity/full/focused=true (0.00s)
+    --- PASS: TestNestedSessionCardHighlightIncludesIndentationAtEveryDensity/auto/focused=false (0.00s)
+    --- PASS: TestNestedSessionCardHighlightIncludesIndentationAtEveryDensity/auto/focused=true (0.00s)
+PASS
