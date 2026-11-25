@@ -1,0 +1,1 @@
+go test ./internal/ui -run 'Test(Workspace(Navigation|Selection|Sidebar|List|Narrow|VeryNarrow|Wheel)|Grouped|DefaultGrouped|NestedSession|LongCard|LongMetadata|MinimalWorkspace)' -count=1

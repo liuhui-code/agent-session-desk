@@ -65,7 +65,7 @@ func TestEndSelectsLastEmptyGroupAndNestedMetadataClickKeepsExactRun(t *testing.
 	h.until(func() bool { return strings.Contains(h.m.View().Content, "shell marker first") })
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	h.send(tea.KeyPressMsg{Code: tea.KeyEnd})
-	if !strings.Contains(ansi.Strip(h.m.View().Content), "▶ ▾ xxxxxxxx (0)") {
+	if !strings.Contains(ansi.Strip(h.m.View().Content), "  ▾ xxxxxxxx (0)") {
 		t.Fatal("End skipped empty groups")
 	}
 	h.send(tea.KeyPressMsg{Code: tea.KeyHome})

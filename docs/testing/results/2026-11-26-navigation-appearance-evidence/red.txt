@@ -1,0 +1,13 @@
+--- FAIL: TestWorkspaceNavigationStartsAtTopAndClickUsesTheSameRow (0.00s)
+    workspace_navigation_appearance_test.go:24: width 120: navigation has a heading or top offset
+    workspace_navigation_appearance_test.go:31: width 120: first visible row did not select first session
+    workspace_navigation_appearance_test.go:24: width 63: navigation has a heading or top offset
+    workspace_navigation_appearance_test.go:31: width 63: first visible row did not select first session
+    workspace_navigation_appearance_test.go:24: width 49: navigation has a heading or top offset
+    workspace_navigation_appearance_test.go:31: width 49: first visible row did not select first session
+--- FAIL: TestWorkspaceSelectionUsesColorInsteadOfTriangleAndDiffersFromActive (0.00s)
+    workspace_navigation_appearance_test.go:45: selected session still has a triangle
+    workspace_navigation_appearance_test.go:48: active content target and list selection have the same surface
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	1.035s
+FAIL

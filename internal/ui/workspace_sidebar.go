@@ -98,8 +98,11 @@ func (m *Model) workspaceSidebarCard(index, width, rowLines, level int) []string
 		return text + strings.Repeat(" ", max(0, width-lipgloss.Width(text)))
 	}
 	titleStyle, metadataStyle := m.styles.text, m.styles.dim
-	if selected || active {
+	if selected {
 		titleStyle, metadataStyle = m.styles.sidebarSelected, m.styles.sidebarMetadataSelected
+	}
+	if active {
+		titleStyle, metadataStyle = m.styles.sidebarActive, m.styles.sidebarMetadataActive
 	}
 	lines := []string{titleStyle.Render(fit(prefix + title))}
 	if rowLines > 1 {

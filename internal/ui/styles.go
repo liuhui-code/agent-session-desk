@@ -33,7 +33,7 @@ type styles struct {
 	searchBox, searchInput, searchTitle, searchResult, searchSelected, searchCount, searchHint                                lipgloss.Style
 	copy                                                                                                                      terminal.CopyStyles
 	settingsBox, settingsTitle, settingsText, settingsHint, settingsChoice, settingsRadio, settingsFocused, settingsError     lipgloss.Style
-	sidebarSelected, sidebarMetadataSelected                                                                                  lipgloss.Style
+	sidebarActive, sidebarMetadataActive, sidebarSelected, sidebarMetadataSelected                                            lipgloss.Style
 	separatorDrag                                                                                                             lipgloss.Style
 	formTitle, formText, formHint, formError                                                                                  lipgloss.Style
 	dialog, backdrop                                                                                                          lipgloss.Style
@@ -118,6 +118,8 @@ func newStyles(t designTokens, profile colorprofile.Profile) styles {
 		settingsChoice:          lipgloss.NewStyle().Foreground(t.colors.accent).Background(t.colors.surface).Bold(t.bold).Underline(t.sidebar.underlineChoice),
 		settingsFocused:         lipgloss.NewStyle().Foreground(t.colors.text).Background(t.colors.surface),
 		settingsError:           lipgloss.NewStyle().Foreground(t.colors.red).Background(t.colors.bg),
+		sidebarActive:           lipgloss.NewStyle().Foreground(t.colors.activeText).Background(t.colors.activeBackground),
+		sidebarMetadataActive:   lipgloss.NewStyle().Foreground(t.colors.activeText).Background(t.colors.activeBackground),
 		sidebarSelected:         lipgloss.NewStyle().Foreground(t.colors.text).Background(t.colors.surface),
 		sidebarMetadataSelected: lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.colors.surface),
 		separatorDrag:           lipgloss.NewStyle().Foreground(t.colors.border),

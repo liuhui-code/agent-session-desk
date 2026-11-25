@@ -26,7 +26,7 @@ func TestWorkspaceWheelScrollsOnlyTheTerminalUnderPointer(t *testing.T) {
 		defer stream.mu.Unlock()
 		return strings.Contains(strings.Join(stream.writes, ","), "scroll:true,3,1")
 	})
-	if strings.Contains(ansi.Strip(h.m.View().Content), "▶ 评审") {
+	if h.m.cursor == 1 {
 		t.Fatal("terminal wheel moved the list selection")
 	}
 }
@@ -60,7 +60,7 @@ func TestWorkspaceListWheelSelectsWithoutSendingTerminalKeys(t *testing.T) {
 				}
 			}
 			h.send(tea.MouseWheelMsg{X: 3, Y: y, Button: tea.MouseWheelDown})
-			if !strings.Contains(ansi.Strip(h.m.View().Content), "▶ 评审") || h.m.View().Cursor != nil {
+			if h.m.cursor != 1 || h.m.View().Cursor != nil {
 				t.Fatal("list wheel did not navigate in management focus")
 			}
 			h.until(func() bool { return h.m.workspace.pending == 0 })
@@ -82,7 +82,7 @@ func TestWorkspaceWheelIsIgnoredOutsideContentAndInDialog(t *testing.T) {
 	service := &workspaceFixture{fakeService: fakeService{list: func(context.Context) ([]session.Session, error) { return sampleSessions(), nil }}}
 	h := newWorkspaceHarness(t, service)
 	h.until(func() bool { return strings.Contains(h.m.View().Content, "shell marker first") })
-	h.send(tea.MouseWheelMsg{X: 5, Y: 1, Button: tea.MouseWheelUp})
+	h.send(tea.MouseWheelMsg{X: h.m.workspaceGeometry().left + 1, Y: 1, Button: tea.MouseWheelUp})
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	h.send(tea.KeyPressMsg{Code: 'n', Text: "n"})
 	h.until(func() bool { return strings.Contains(h.m.View().Content, "新建终端") })

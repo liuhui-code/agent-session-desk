@@ -19,7 +19,7 @@ func TestLongCardTitleUsesSourceColumnCropWithoutInventingAnEllipsis(t *testing.
 	m.workspace.focused = false
 	got := ansi.Strip(m.workspaceSidebarCard(0, 28, 1, 0)[0])
 	// The pinned card renderer fits the identity line with an empty tail.
-	if got != "  ▶ abcdefghijklmnopqrstuvwx" {
+	if got != "    abcdefghijklmnopqrstuvwx" {
 		t.Fatalf("card differs from source column crop: %q", got)
 	}
 }
@@ -99,7 +99,7 @@ func TestLongCardViewportMetadataClickAndOpenKeepOriginalRunAcrossDensities(t *t
 			for _, size := range [][2]int{{120, 24}, {120, 14}, {79, 14}, {63, 24}, {49, 14}, {27, 14}, {120, 24}} {
 				h.send(tea.WindowSizeMsg{Width: size[0], Height: size[1]})
 				g := h.m.workspaceGeometry()
-				height := max(0, g.listHeight-h.m.tokens.layout.headingRows)
+				height := g.listHeight
 				window := h.m.sidebarNavigationWindow(g.listWidth, height)
 				found := false
 				for _, hit := range window.rows {
@@ -107,7 +107,7 @@ func TestLongCardViewportMetadataClickAndOpenKeepOriginalRunAcrossDensities(t *t
 						continue
 					}
 					found = true
-					y := g.y - g.above - h.m.styles.terminalFrame.GetBorderTopSize() + h.m.tokens.layout.headingRows + hit.top + hit.height - 1
+					y := g.y - g.above - h.m.styles.terminalFrame.GetBorderTopSize() + hit.top + hit.height - 1
 					h.send(tea.MouseClickMsg{X: 3, Y: y, Button: tea.MouseLeft})
 					selected, ok := h.m.selected()
 					if !ok || !sameStopTarget(selected, target) || h.m.workspace.focused {

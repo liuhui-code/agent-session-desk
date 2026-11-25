@@ -30,7 +30,7 @@ func (m *Model) workspaceGeometry() workspaceGeometry {
 	outer := max(0, m.width-left-gap)
 	style := m.styles.terminalFrame
 	above, terminalHeight := 0, bodyHeight
-	minList := t.layout.headingRows + t.layout.stackedListMin
+	minList := t.layout.stackedListMin
 	minFrame := style.GetVerticalFrameSize() + t.workspace.minTerminalRows
 	if m.width < t.layout.stackedBelow && !m.workspace.focused {
 		above, terminalHeight = bodyHeight, 0
@@ -85,7 +85,7 @@ func (m *Model) renderWorkspace() string {
 	right := frameStyle.Width(g.outerWidth).Height(g.terminalHeight).Render(content)
 	body := right
 	if g.left > 0 {
-		left := m.renderPanelTitle(m.sidebarTitle(), g.left) + "\n" + m.renderSessionList(g.left, max(0, g.bodyHeight-m.tokens.layout.headingRows))
+		left := m.renderSessionList(g.left, g.bodyHeight)
 		separatorStyle := m.styles.separator
 		if w.split.hovered || w.split.dragging {
 			separatorStyle = m.styles.separatorDrag
@@ -106,7 +106,7 @@ func (m *Model) renderWorkspace() string {
 	}
 	if g.above > 0 {
 		listHeight := g.listHeight
-		list := m.renderPanelTitle(m.sidebarTitle(), m.width) + "\n" + m.renderSessionList(m.width, max(0, listHeight-m.tokens.layout.headingRows))
+		list := m.renderSessionList(m.width, listHeight)
 		body = fitFrame(list, m.width, listHeight)
 		if g.terminalHeight > 0 {
 			body += strings.Repeat("\n", m.tokens.layout.stackedGap+1) + right

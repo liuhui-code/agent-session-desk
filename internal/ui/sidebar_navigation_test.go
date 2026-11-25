@@ -140,7 +140,7 @@ func TestSidebarNavigationAndDensityShareOneSerializedPreferenceWriter(t *testin
 	}
 	release <- struct{}{}
 	h.until(func() bool {
-		return !strings.Contains(h.m.View().Content, "侧栏密度") && strings.Contains(h.m.View().Content, "会话 平铺")
+		return !strings.Contains(h.m.View().Content, "侧栏密度") && h.m.sidebarMode == "flat"
 	})
 }
 
@@ -164,7 +164,7 @@ func TestGroupedVariableHeightWindowKeepsTheSelectedTargetVisibleAndClickable(t 
 			for _, size := range [][2]int{{120, 14}, {63, 10}, {49, 9}, {27, 8}, {80, 12}} {
 				h.send(tea.WindowSizeMsg{Width: size[0], Height: size[1]})
 				view := ansi.Strip(h.m.View().Content)
-				if !strings.Contains(view, "▶ target-15") {
+				if !strings.Contains(view, "  target-15") {
 					t.Fatalf("selected row lost at %v:\n%s", size, view)
 				}
 				for _, line := range strings.Split(view, "\n") {
@@ -173,7 +173,7 @@ func TestGroupedVariableHeightWindowKeepsTheSelectedTargetVisibleAndClickable(t 
 					}
 				}
 				clickWorkspaceListRow(t, h, "target-15")
-				if !strings.Contains(ansi.Strip(h.m.View().Content), "▶ target-15") {
+				if !strings.Contains(ansi.Strip(h.m.View().Content), "  target-15") {
 					t.Fatal("visible row click selected a different target")
 				}
 			}

@@ -1,0 +1,78 @@
+--- FAIL: TestGroupedVariableHeightWindowKeepsTheSelectedTargetVisibleAndClickable (0.02s)
+    --- FAIL: TestGroupedVariableHeightWindowKeepsTheSelectedTargetVisibleAndClickable/full (0.00s)
+        sidebar_navigation_test.go:175: no visible list row for "target-15"
+    --- FAIL: TestGroupedVariableHeightWindowKeepsTheSelectedTargetVisibleAndClickable/compact (0.00s)
+        sidebar_navigation_test.go:175: no visible list row for "target-15"
+--- FAIL: TestWorkspaceSidebarSelectionOpensOriginalViewWithoutSendingInput (3.00s)
+    workspace_lifecycle_test.go:76: workspace did not reach expected state:
+        [38;2;188;212;226;48;2;32;48;59m┃ 开发               [m   shell marker first                                                                              
+        [38;2;187;187;187m  评审               [m                                                                                                   
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                                                                                                                                
+                                                                                                                                
+--- FAIL: TestWorkspaceListDoubleClickWhileConnectingKeepsManagementFocus (0.00s)
+    workspace_list_mouse_test.go:182: no visible list row for "评审"
+--- FAIL: TestWorkspaceWheelIsIgnoredOutsideContentAndInDialog (3.01s)
+    workspace_scroll_test.go:88: workspace did not reach expected state:
+        [38;2;188;212;226;48;2;32;48;59m┃ 开发               [m   shell marker first                                                                              
+        [38;2;187;187;187m  评审               [m                                                                                                   
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                             [38;2;51;51;51m │ [m                                                                                                
+                                                                                                                                
+                                                                                                                                
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	6.956s
+FAIL

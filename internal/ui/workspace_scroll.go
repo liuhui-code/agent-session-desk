@@ -30,8 +30,8 @@ func (m *Model) workspaceWheelNow(msg tea.MouseWheelMsg) tea.Cmd {
 		return nil
 	}
 	g := m.workspaceGeometry()
-	listTop := g.y - g.above - m.styles.terminalFrame.GetBorderTopSize() + m.tokens.layout.headingRows
-	listHeight := max(0, g.listHeight-m.tokens.layout.headingRows)
+	listTop := g.y - g.above - m.styles.terminalFrame.GetBorderTopSize()
+	listHeight := g.listHeight
 	if msg.X >= 0 && msg.X < g.listWidth && msg.Y >= listTop && msg.Y < listTop+listHeight {
 		w.focused = false
 		m.status = ""

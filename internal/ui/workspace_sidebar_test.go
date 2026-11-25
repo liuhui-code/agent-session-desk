@@ -36,7 +36,7 @@ func TestWorkspaceSidebarDefaultCardsSeparateTerminalMetadata(t *testing.T) {
 		t.Fatalf("active terminal card marker missing:\n%s", view)
 	}
 	h.send(tea.KeyPressMsg{Code: tea.KeyDown})
-	if !strings.Contains(ansi.Strip(h.m.View().Content), "▶ 评审") {
+	if !strings.Contains(ansi.Strip(h.m.View().Content), "  评审") {
 		t.Fatal("management selection must remain distinct from active terminal")
 	}
 }
@@ -55,7 +55,7 @@ func TestWorkspaceSidebarMetadataClickSelectsItsOwnSession(t *testing.T) {
 	for y, line := range strings.Split(ansi.Strip(h.m.View().Content), "\n") {
 		if strings.Contains(line, "pwsh-second.exe") {
 			h.send(tea.MouseClickMsg{X: 3, Y: y, Button: tea.MouseLeft})
-			if !strings.Contains(ansi.Strip(h.m.View().Content), "▶ 评审") {
+			if !strings.Contains(ansi.Strip(h.m.View().Content), "  评审") {
 				t.Fatal("metadata click did not select its own card")
 			}
 			return
@@ -91,7 +91,7 @@ func TestWorkspaceSidebarKeepsSelectedCardVisibleAcrossWidthAndHeight(t *testing
 		for _, height := range []int{8, 9, 10, 12, 14, 24, 32} {
 			h.send(tea.WindowSizeMsg{Width: width, Height: height})
 			view := ansi.Strip(h.m.View().Content)
-			if !strings.Contains(view, "▶ task-29") {
+			if !strings.Contains(view, "  task-29") {
 				t.Fatalf("selected card hidden at %dx%d:\n%s", width, height, view)
 			}
 			for _, line := range strings.Split(view, "\n") {

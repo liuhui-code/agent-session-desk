@@ -1,0 +1,8 @@
+--- FAIL: TestWorkspaceNavigationStartsAtTopAndClickUsesTheSameRow (0.00s)
+    workspace_navigation_appearance_test.go:24: width 63: navigation has a heading or top offset
+    workspace_navigation_appearance_test.go:31: width 63: first visible row did not select first session
+    workspace_navigation_appearance_test.go:24: width 49: navigation has a heading or top offset
+    workspace_navigation_appearance_test.go:31: width 49: first visible row did not select first session
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.745s
+FAIL

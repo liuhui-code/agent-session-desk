@@ -126,7 +126,7 @@ type workspaceTokens struct {
 	border                                                            lipgloss.Border
 }
 
-type palette struct{ bg, surface, border, text, dim, accent, cyan, red, yellow color.Color }
+type palette struct{ bg, surface, border, text, dim, accent, cyan, red, yellow, activeBackground, activeText color.Color }
 type layoutTokens struct {
 	singleBelow, stackedBelow                                      int
 	minFrameHeight, minPreviewHeight                               int
@@ -157,7 +157,7 @@ func defaultDesignTokens() designTokens {
 		search: searchTokens{preferredWidth: 62, minWidth: 32, responsiveBelow: 70, gutter: 8, paddingX: 2, paddingY: 1, inputPaddingX: 1, inputRightGap: 4, resultPadding: 2, maxResults: 10, prompt: "> ", selected: "› ", titlePrefix: "🔍 ", programPrefix: " (", programSuffix: ")", countColor: lipgloss.Color("241"), placeholderColor: lipgloss.Color("240"), hintItalic: true},
 		// Pinned native copy-mode defaults; interpreted as character attributes.
 		copy:      copyTokens{foreground: "idx:0", selection: "idx:3", match: "idx:6", current: "idx:5", mark: "idx:1", cursorShape: tea.CursorBlock},
-		sidebar:   sidebarTokens{cardMinWidth: 28, cardRows: 2, fullRows: 3, selected: "▶ ", active: "┃ ", metadata: "  ╰ ", metadataMiddle: "  │ ", separator: " · ", settingsWidth: 66, settingsPaddingX: 2, settingsPaddingY: 1, radioGap: 2, radioMarker: ">", radioUnselected: " ", underlineChoice: true, settingsFocusedPrefix: "▶ ", settingsIdlePrefix: "  ", groupExpanded: "▾", groupCollapsed: "▸", rootShortcut: "1·", groupCountPrefix: " (", groupCountSuffix: ")", groupGutter: 2, indentWidth: 2, rootShortcutSuffix: "·"},
+		sidebar:   sidebarTokens{cardMinWidth: 28, cardRows: 2, fullRows: 3, selected: "  ", active: "┃ ", metadata: "  ╰ ", metadataMiddle: "  │ ", separator: " · ", settingsWidth: 66, settingsPaddingX: 2, settingsPaddingY: 1, radioGap: 2, radioMarker: ">", radioUnselected: " ", underlineChoice: true, settingsFocusedPrefix: "▶ ", settingsIdlePrefix: "  ", groupExpanded: "▾", groupCollapsed: "▸", rootShortcut: "1·", groupCountPrefix: " (", groupCountSuffix: ")", groupGutter: 2, indentWidth: 2, rootShortcutSuffix: "·"},
 		dialog:    dialogTokens{preferredWidth: 86, minWidth: 44, gutter: 10, paddingX: 4, paddingY: 2, firstPaddingY: 1, titleGap: 1, fieldGap: 1, dimBackdrop: true, cursorShape: tea.CursorBar, cursorBlink: true},
 		workspace: workspaceTokens{terminalHint: "F6 管理 · Ctrl+PgUp/PgDn 切换会话", managementHint: "F6 输入 · n 新建 · / 搜索 · S 设置 · ? 帮助", copyHint: "空格选择 · Enter 复制 · / 搜索 · Esc/q 返回", footerRevealRows: 1, dividerInsetRows: 2, sidebarPercent: 35, compactPercent: 18, minPane: 8, tabPadding: 1, maxTabWidth: 32, splitStep: 5, minSplitPercent: 10, maxSplitPercent: 90, dividerGrabSlop: 2, minTerminalRows: 3, splitNoticeDuration: 1500 * time.Millisecond, doubleClickInterval: 500 * time.Millisecond, border: lipgloss.RoundedBorder()},
 		colors:    colors,
@@ -178,9 +178,9 @@ func defaultDesignTokens() designTokens {
 // black/#bbbbbb palette; neutral surfaces and dim roles keep UI chrome quiet.
 func themePalette(theme string) (palette, color.Color) {
 	if theme == "light" {
-		return palette{bg: lipgloss.Color("#d5d6db"), surface: lipgloss.Color("#e9e9ec"), border: lipgloss.Color("#9699a3"), text: lipgloss.Color("#343b58"), dim: lipgloss.Color("#6a6d7c"), accent: lipgloss.Color("#34548a"), cyan: lipgloss.Color("#166775"), red: lipgloss.Color("#8c4351"), yellow: lipgloss.Color("#8f5e15")}, lipgloss.Color("#7847bd")
+		return palette{activeBackground: lipgloss.Color("#cbdce8"), activeText: lipgloss.Color("#23465a"), bg: lipgloss.Color("#d5d6db"), surface: lipgloss.Color("#e9e9ec"), border: lipgloss.Color("#9699a3"), text: lipgloss.Color("#343b58"), dim: lipgloss.Color("#6a6d7c"), accent: lipgloss.Color("#34548a"), cyan: lipgloss.Color("#166775"), red: lipgloss.Color("#8c4351"), yellow: lipgloss.Color("#8f5e15")}, lipgloss.Color("#7847bd")
 	}
-	return palette{bg: lipgloss.Color("#000000"), surface: lipgloss.Color("#222222"), border: lipgloss.Color("#333333"), text: lipgloss.Color("#bbbbbb"), dim: lipgloss.Color("#777777"), accent: lipgloss.Color("#bbbbbb"), cyan: lipgloss.Color("#bbbbbb"), red: lipgloss.Color("#bb0000"), yellow: lipgloss.Color("#bbbb00")}, lipgloss.Color("#bbbbbb")
+	return palette{activeBackground: lipgloss.Color("#20303b"), activeText: lipgloss.Color("#bcd4e2"), bg: lipgloss.Color("#000000"), surface: lipgloss.Color("#222222"), border: lipgloss.Color("#333333"), text: lipgloss.Color("#bbbbbb"), dim: lipgloss.Color("#777777"), accent: lipgloss.Color("#bbbbbb"), cyan: lipgloss.Color("#bbbbbb"), red: lipgloss.Color("#bb0000"), yellow: lipgloss.Color("#bbbb00")}, lipgloss.Color("#bbbbbb")
 }
 
 func (t designTokens) withTheme(theme string) designTokens {
@@ -240,6 +240,10 @@ func sourceIndexedColor(value color.Color, profile colorprofile.Profile) color.C
 		return nil
 	}
 	for _, rule := range [...]struct{ authored, ansi, ansi256 string }{
+		{"#20303b", "4", "236"},
+		{"#bcd4e2", "7", "152"},
+		{"#cbdce8", "7", "189"},
+		{"#23465a", "4", "24"},
 		{"#000000", "0", "0"},
 		{"#bbbbbb", "7", "7"},
 		{"#777777", "8", "243"},
@@ -283,7 +287,7 @@ func sourceIndexedColor(value color.Color, profile colorprofile.Profile) color.C
 }
 
 func (t designTokens) forLimitedDisplay(profile colorprofile.Profile) designTokens {
-	for _, value := range []*color.Color{&t.paths.background, &t.paths.purple, &t.colors.bg, &t.colors.surface, &t.colors.border, &t.colors.text, &t.colors.dim, &t.colors.accent, &t.colors.cyan, &t.colors.red, &t.colors.yellow, &t.footer.contextColor, &t.help.keyColor, &t.rename.borderColor, &t.group.placeholderColor, &t.search.placeholderColor, &t.search.countColor} {
+	for _, value := range []*color.Color{&t.paths.background, &t.paths.purple, &t.colors.bg, &t.colors.surface, &t.colors.activeBackground, &t.colors.activeText, &t.colors.border, &t.colors.text, &t.colors.dim, &t.colors.accent, &t.colors.cyan, &t.colors.red, &t.colors.yellow, &t.footer.contextColor, &t.help.keyColor, &t.rename.borderColor, &t.group.placeholderColor, &t.search.placeholderColor, &t.search.countColor} {
 		*value = sourceIndexedColor(*value, profile)
 	}
 	if profile == colorprofile.ASCII || profile == colorprofile.NoTTY {

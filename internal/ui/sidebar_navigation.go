@@ -16,12 +16,6 @@ func (m *Model) groupedSidebar() bool { return m.workspace != nil && m.sidebarMo
 func (m *Model) sidebarGroupSelected() bool {
 	return m.groupedSidebar() && (m.cursor < 0 || len(m.sessions) == 0)
 }
-func (m *Model) sidebarTitle() string {
-	if m.groupedSidebar() {
-		return "会话 分组"
-	}
-	return "会话 平铺"
-}
 func (m *Model) moveGroupedSidebar(delta int) tea.Cmd {
 	items := m.sidebarItems()
 	if len(items) == 0 {
