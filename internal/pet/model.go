@@ -1,4 +1,5 @@
-// Package pet is an opt-in native Windows visual demo, not an agent observer.
+// Package pet displays existing workbench attention items in a native Windows
+// companion. The separate pet-demo command remains a visual diagnostic.
 package pet
 
 import "fmt"
@@ -16,6 +17,7 @@ type Model struct {
 	Kind  Kind
 	Count int
 	blink bool
+	demo  bool
 }
 
 func New(kind Kind, count int) (Model, error) {
@@ -25,9 +27,20 @@ func New(kind Kind, count int) (Model, error) {
 	if count < 1 || count > 99 {
 		return Model{}, fmt.Errorf("demo count must be 1-99")
 	}
-	return Model{Kind: kind, Count: count}, nil
+	return Model{Kind: kind, Count: count, demo: true}, nil
 }
-func (m Model) Label() string { return "DEMO" }
+func (m Model) Label() string {
+	if m.demo {
+		return "DEMO"
+	}
+	if m.Kind == Unknown {
+		return "LINK"
+	}
+	if m.Count > 0 {
+		return "WAIT"
+	}
+	return "ASD"
+}
 func (m Model) Cell() int {
 	switch m.Kind {
 	case Approval:
@@ -43,6 +56,9 @@ func (m Model) Cell() int {
 }
 func (m *Model) Tick() { m.blink = !m.blink }
 func (m *Model) Next() {
+	if !m.demo {
+		return
+	}
 	m.blink = false
 	switch m.Kind {
 	case Idle:

@@ -48,12 +48,7 @@ func (m *Model) nextAttention() tea.Cmd {
 		}
 	}
 	item := items[index]
-	if m.workspace.transition != workspaceIdle || m.groupOrder != nil || m.sessionOrder != nil {
-		return nil
-	}
-	m.attention.opening = &item
-	m.attention.busy = true
-	return m.navigateWorkspace(workspaceAttention)
+	return m.beginAttention(item)
 }
 
 func (m *Model) openAttention() tea.Cmd {
@@ -96,6 +91,7 @@ func (m *Model) attentionEvent(msg tea.Msg) (tea.Cmd, bool) {
 		}
 	}
 	m.attention.last = item.ID
+	m.publishAttention(true)
 	w := m.workspace
 	index := -1
 	for i := range w.tabs {
@@ -112,7 +108,11 @@ func (m *Model) attentionEvent(msg tea.Msg) (tea.Cmd, bool) {
 		index = len(w.tabs) - 1
 	}
 	w.focused = true
-	return m.activateWorkspaceNow(index), true
+	cmd := m.activateWorkspaceNow(index)
+	if m.attentionFocus != nil && !m.attentionFocus() {
+		m.status = "Pending item opened; bring the original workbench window to the foreground"
+	}
+	return cmd, true
 }
 
 func (m *Model) sessionNeedsAttention(target session.Session) bool {

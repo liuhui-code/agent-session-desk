@@ -1,5 +1,7 @@
 # 原生 Windows 桌宠样机
 
+此页仅描述独立外观诊断。用户要求的已有阻塞提醒联动已另见[桌宠提醒](DESKTOP_REMINDERS.md)与 [ADR-0051](adr/0051-pet-existing-blocking-reminders.md)；运行工作台 `--pet`，不是本页的 Demo 入口。
+
 [ADR-0050](adr/0050-native-windows-pet-demo.md) 定义第一版可试用样机。它展示橘白猫与合成提醒，固定标有 DEMO；不连接真实 Agent、不批准、不发送选项／回车，不取代现有 Alt+N 提醒。
 
 使用本轮 Windows x64 样机构建，运行：

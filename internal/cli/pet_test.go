@@ -5,6 +5,7 @@ import (
 	"context"
 	"os"
 	"path/filepath"
+	"runtime"
 	"testing"
 )
 
@@ -19,5 +20,22 @@ func TestPetDemoInvalidOptionsDoNotTouchBackendOrState(t *testing.T) {
 	}
 	if _, err := os.Stat(state); !os.IsNotExist(err) {
 		t.Fatal("pet demo initialized backend state")
+	}
+}
+
+func TestPetFlagRejectsUnsupportedUseBeforeTouchingState(t *testing.T) {
+	state := filepath.Join(t.TempDir(), "state")
+	commands := [][]string{{"--state-dir", state, "--pet", "attention-list"}, {"--state-dir", state, "--pet", "pet-demo"}}
+	if runtime.GOOS != "windows" {
+		commands = append(commands, []string{"--state-dir", state, "--pet"})
+	}
+	for _, args := range commands {
+		var out, stderr bytes.Buffer
+		if Run(context.Background(), args, nil, &out, &stderr) == 0 {
+			t.Fatal("unsupported pet use accepted")
+		}
+	}
+	if _, err := os.Stat(state); !os.IsNotExist(err) {
+		t.Fatal("unsupported pet use touched state")
 	}
 }

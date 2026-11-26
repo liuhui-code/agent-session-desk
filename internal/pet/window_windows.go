@@ -32,11 +32,12 @@ type nativeWindow struct {
 	err                    error
 	paints                 int
 	tray                   bool
+	live                   *Companion
 }
 
 func runNative(ctx context.Context, o Options) error {
 	if !nativeRunning.CompareAndSwap(false, true) {
-		return fmt.Errorf("one pet demo per process")
+		return fmt.Errorf("one desktop pet per process")
 	}
 	defer nativeRunning.Store(false)
 	runtime.LockOSThread()
@@ -50,7 +51,11 @@ func runNative(ctx context.Context, o Options) error {
 	}
 	defer setThreadDPI.Call(previous)
 	model, _ := New(o.State, o.Count)
-	w := &nativeWindow{model: model, tokens: ui.PetDesign()}
+	if o.Live != nil {
+		view := o.Live.snapshot()
+		model = project(view.items, view.known)
+	}
+	w := &nativeWindow{model: model, tokens: ui.PetDesign(), live: o.Live}
 	activeWindow = w
 	defer func() { activeWindow = nil }()
 	module, _, _ := getModule.Call(0)
@@ -67,6 +72,11 @@ func runNative(ctx context.Context, o Options) error {
 		return fmt.Errorf("create pet window failed")
 	}
 	defer destroyWindow.Call(w.hwnd)
+	if w.live != nil {
+		hwnd := w.hwnd
+		w.live.setWake(func() { postMessage.Call(hwnd, wmLiveUpdate, 0, 0) })
+		defer w.live.setWake(nil)
+	}
 	defer func() {
 		if w.surface != nil {
 			w.surface.close()
@@ -121,7 +131,7 @@ func runNative(ctx context.Context, o Options) error {
 			ForegroundBefore, ForegroundAfter uintptr
 			ExStyle                           uint32 `json:"ex_style"`
 			State                             Kind   `json:"state"`
-		}{true, os.Getpid(), hwnd, w.paints, foregroundBefore, foregroundAfter, uint32(actualStyle), w.model.Kind}
+		}{w.model.demo, os.Getpid(), hwnd, w.paints, foregroundBefore, foregroundAfter, uint32(actualStyle), w.model.Kind}
 		f, err := os.OpenFile(o.Report, os.O_CREATE|os.O_EXCL|os.O_WRONLY, 0600)
 		if err != nil {
 			return err
@@ -139,10 +149,18 @@ func runNative(ctx context.Context, o Options) error {
 }
 
 func (w *nativeWindow) paint() error {
+	title := "ASD Pet Demo · " + string(w.model.Kind)
+	if w.live != nil {
+		title = fmt.Sprintf("ASD Blocking Reminders · %s · %d", w.model.Kind, w.model.Count)
+	}
+	setWindowText.Call(w.hwnd, uintptr(unsafe.Pointer(utf16(title))))
+	if w.tray {
+		d := w.trayData()
+		notifyIcon.Call(1, uintptr(unsafe.Pointer(&d)))
+	}
 	if w.hidden {
 		return nil
 	}
-	setWindowText.Call(w.hwnd, uintptr(unsafe.Pointer(utf16("ASD Pet Demo · "+string(w.model.Kind)))))
 	if err := w.surface.paint(w.hwnd, frame(w.model, w.tokens, w.images)); err != nil {
 		return err
 	}
@@ -180,6 +198,16 @@ func petWindowProc(hwnd uintptr, msg uint32, wp, lp uintptr) uintptr {
 		return defaultPetMessage(hwnd, msg, wp, lp)
 	}
 	switch msg {
+	case wmLiveUpdate:
+		if w.live != nil {
+			view := w.live.snapshot()
+			model := project(view.items, view.known)
+			if model.Kind != w.model.Kind || model.Count != w.model.Count {
+				w.model = model
+				w.changed()
+			}
+		}
+		return 0
 	case wmCommand:
 		w.command(wp & 0xffff)
 		return 0
@@ -209,8 +237,12 @@ func petWindowProc(hwnd uintptr, msg uint32, wp, lp uintptr) uintptr {
 		w.pressed = false
 		releaseCapture.Call()
 		if pressed && !moved {
-			w.model.Next()
-			w.changed()
+			if w.live != nil {
+				w.live.Activate()
+			} else {
+				w.model.Next()
+				w.changed()
+			}
 		}
 		return 0
 	case wmCaptureChanged:
@@ -246,6 +278,9 @@ func petWindowProc(hwnd uintptr, msg uint32, wp, lp uintptr) uintptr {
 		destroyWindow.Call(hwnd)
 		return 0
 	case wmDestroy:
+		if w.live != nil {
+			w.live.setWake(nil)
+		}
 		killTimer.Call(hwnd, 1)
 		killTimer.Call(hwnd, 2)
 		w.removeTray()

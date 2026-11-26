@@ -17,10 +17,12 @@ import (
 )
 
 type Options struct {
-	LoadQuickLaunch func(context.Context) (session.Launch, error)
-	RememberLaunch  func(context.Context, session.Launch) error
-	LoadRecentDirs  func(context.Context) ([]string, error)
-	RememberDirs    func(context.Context, []string) error
+	AttentionObserver func([]session.AttentionItem, bool)
+	AttentionFocus    func() bool
+	LoadQuickLaunch   func(context.Context) (session.Launch, error)
+	RememberLaunch    func(context.Context, session.Launch) error
+	LoadRecentDirs    func(context.Context) ([]string, error)
+	RememberDirs      func(context.Context, []string) error
 	// An injected provider must bind all resources to ctx, even if its returned
 	// connection is never received because the UI has already exited.
 	OpenSystemTheme        func(context.Context) (appearance.Connection, error)
@@ -38,6 +40,7 @@ type Options struct {
 
 func NewWithOptions(ctx context.Context, service Service, options Options) *Model {
 	m := New(ctx, service)
+	m.attentionObserver, m.attentionFocus = options.AttentionObserver, options.AttentionFocus
 	m.loadQuickLaunch, m.rememberLaunch = options.LoadQuickLaunch, options.RememberLaunch
 	m.systemTheme.open = options.OpenSystemTheme
 	if m.workspace != nil {

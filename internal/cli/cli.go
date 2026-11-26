@@ -9,15 +9,14 @@ import (
 	"flag"
 	"fmt"
 	"io"
+	"runtime"
 	"strconv"
 	"strings"
 	"unicode"
 
-	tea "charm.land/bubbletea/v2"
 	"github.com/liuhui-code/agent-session-desk/internal/backend"
 	"github.com/liuhui-code/agent-session-desk/internal/manager"
 	"github.com/liuhui-code/agent-session-desk/internal/session"
-	"github.com/liuhui-code/agent-session-desk/internal/ui"
 )
 
 const Version = "0.0.0-m0-dev"
@@ -64,6 +63,7 @@ Global options (before the subcommand):
   --state-dir DIR      Persistent metadata directory
   --state-dir DIR      Persistent metadata directory
   --config PATH        TOML launch configuration (default UI template or start --template)
+  --pet                Show existing blocking reminders in a Windows desktop pet
 
 Start options:
   --name NAME          Session label (defaults to executable name)
@@ -107,7 +107,8 @@ func run(ctx context.Context, args []string, input io.Reader, output, errorOutpu
 	flags.SetOutput(errorOutput)
 	var options backend.Options
 	var configPath, stateDir string
-	var insideTerminal bool
+	var insideTerminal, desktopPet bool
+	flags.BoolVar(&desktopPet, "pet", false, "native desktop blocking reminder")
 	flags.BoolVar(&insideTerminal, "inside-terminal", false, "internal terminal handoff")
 	flags.StringVar(&options.Binary, "backend", "", "terminal backend executable")
 	flags.StringVar(&options.TerminalBundle, "terminal-bundle", "", "pinned Windows x64 development terminal bundle")
@@ -123,6 +124,9 @@ func run(ctx context.Context, args []string, input io.Reader, output, errorOutpu
 	command := ""
 	if len(commandArgs) > 0 {
 		command, commandArgs = commandArgs[0], commandArgs[1:]
+	}
+	if desktopPet && (command != "" || runtime.GOOS != "windows") {
+		return fmt.Errorf("--pet requires the Windows workbench without a subcommand")
 	}
 	if command == "help" {
 		fmt.Fprint(output, usage)
@@ -268,10 +272,7 @@ func run(ctx context.Context, args []string, input io.Reader, output, errorOutpu
 	defer metadata.Close()
 	service := manager.New(terminal, metadata)
 	if command == "" {
-		model := ui.NewWithOptions(ctx, service, withQuickLaunch(loadUIOptions(options, stateDir), options, stateDir, configPath))
-		defer model.Close()
-		_, err := tea.NewProgram(model, tea.WithContext(ctx), tea.WithInput(input), tea.WithOutput(output)).Run()
-		return err
+		return runWorkbench(ctx, service, options, stateDir, configPath, desktopPet, input, output)
 	}
 	if command == "start" {
 		created, err := service.Start(ctx, launch)

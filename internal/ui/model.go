@@ -53,6 +53,8 @@ type pollMsg struct{ generation uint64 }
 // Model implements the stable Bubble Tea v2 API. Mutable UI state is touched
 // only by Init/Update; asynchronous commands return values, never mutate it.
 type Model struct {
+	attentionObserver                func([]session.AttentionItem, bool)
+	attentionFocus                   func() bool
 	attention                        attentionState
 	colorProfile                     colorprofile.Profile
 	systemTheme                      systemThemeState
@@ -175,6 +177,9 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	if m.closed {
 		return m, nil
 	}
+	if cmd, handled := m.companionEvent(msg); handled {
+		return m, cmd
+	}
 	if cmd, handled := m.passiveEvent(msg); handled {
 		return m, cmd
 	}
@@ -251,6 +256,7 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		}
 		m.listErr = msg.err
 		if msg.err != nil {
+			m.publishAttention(false)
 			m.invalidatePreview()
 			return m, nil
 		}
@@ -258,6 +264,7 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		m.sessionOrderFailed = false
 		selected, hadSelection := m.selected()
 		m.attention.items = msg.attention
+		m.publishAttention(true)
 		m.sessions = msg.sessions
 		m.groups = msg.groups
 		m.orderStamps = msg.orderStamps
@@ -456,6 +463,7 @@ func (m *Model) attach() tea.Cmd {
 		return nil
 	}
 	m.attaching = true
+	m.publishAttention(false)
 	m.invalidatePreview()
 	m.listGeneration++
 	if m.listCancel != nil {

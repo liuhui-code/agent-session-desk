@@ -27,7 +27,11 @@ type notifyData struct {
 func (w *nativeWindow) trayData() notifyData {
 	icon, _, _ := loadIcon.Call(0, 32512)
 	d := notifyData{Size: uint32(unsafe.Sizeof(notifyData{})), Window: w.hwnd, ID: 1, Flags: 7, Message: wmTray, Icon: icon}
-	copy(d.Tip[:], windows.StringToUTF16("ASD Pet Demo · click to restore"))
+	tip := "ASD Pet Demo · click to restore"
+	if w.live != nil {
+		tip = fmt.Sprintf("ASD · %d pending · %s · click to restore", w.model.Count, w.model.Kind)
+	}
+	copy(d.Tip[:], windows.StringToUTF16(tip))
 	return d
 }
 
@@ -61,12 +65,17 @@ func (w *nativeWindow) menu() {
 	}
 	defer destroyMenu.Call(menu)
 	labels := []string{"Idle (demo)", "Approval (demo)", "Question (demo)", "Unknown (demo)", "Show / hide", "Exit demo"}
+	commands := []uintptr{1, 2, 3, 4, 5, 6}
+	if w.live != nil {
+		labels = []string{"Open pending item", "Show / hide", "Close desktop reminder"}
+		commands = []uintptr{7, 5, 6}
+	}
 	for i, label := range labels {
 		flags := uintptr(0)
-		if i < 4 && w.model.Kind == []Kind{Idle, Approval, Question, Unknown}[i] {
+		if w.live == nil && i < 4 && w.model.Kind == []Kind{Idle, Approval, Question, Unknown}[i] {
 			flags = 8
 		} // MF_CHECKED
-		appendMenu.Call(menu, flags, uintptr(i+1), uintptr(unsafe.Pointer(utf16(label))))
+		appendMenu.Call(menu, flags, commands[i], uintptr(unsafe.Pointer(utf16(label))))
 	}
 	var cursor point
 	getCursorPos.Call(uintptr(unsafe.Pointer(&cursor)))
@@ -79,6 +88,9 @@ func (w *nativeWindow) menu() {
 func (w *nativeWindow) command(command uintptr) {
 	switch command {
 	case 1, 2, 3, 4:
+		if w.live != nil {
+			return
+		}
 		w.model.Kind = []Kind{Idle, Approval, Question, Unknown}[command-1]
 		w.model.blink = false
 		w.show()
@@ -92,5 +104,9 @@ func (w *nativeWindow) command(command uintptr) {
 		}
 	case 6:
 		destroyWindow.Call(w.hwnd)
+	case 7:
+		if w.live != nil {
+			w.live.Activate()
+		}
 	}
 }

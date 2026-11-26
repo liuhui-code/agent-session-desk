@@ -2,9 +2,7 @@
 
 **面向 Windows 的本地 CLI Agent 多会话工作台。**
 
-实验桌宠：[原生橘白猫样机](docs/PET_DEMO.md)采用 Go／Win32 透明窗口，支持合成姿态、普通点击不激活、拖动和托盘隐藏／恢复。明确标有 DEMO，尚未连接真实 Agent 提醒；独立 GUI 入口不会替换日常工作台。设计与 500 行约束见 [ADR-0050](docs/adr/0050-native-windows-pet-demo.md)，[实际验证](docs/testing/results/2026-11-26-pet-demo.md)含最终短时资源观察。
-
-实验性[橘白猫桌宠样机](docs/PET_DEMO.md)已加入：原生透明窗口、Demo 状态、拖动和托盘隐藏／恢复；按 [ADR-0050](docs/adr/0050-native-windows-pet-demo.md)先试外观与资源，不连接真实授权，不随工作台默认启动。
+桌宠已增加[已有阻塞提醒联动](docs/DESKTOP_REMINDERS.md)：Windows 工作台显式加 `--pet`，显示待批准／待回答数量，点击重新核验并打开原会话，查看不解决请求。独立 `pet-demo` 保留为外观诊断；[局部原生证据](docs/testing/results/2026-11-26-pet-blocking.md)与真实 Agent／完整桌面接受分开。
 
 Windows x64 体验包：[v0.1.0-alpha.1 预发布](https://github.com/liuhui-code/agent-session-desk/releases/tag/v0.1.0-alpha.1)。下载 ZIP 后按[启动说明](docs/WINDOWS_ALPHA.md)解压并在 Windows Terminal 中运行；未签名，完整发布验收仍开放。
 

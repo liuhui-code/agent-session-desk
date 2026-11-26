@@ -4,6 +4,10 @@
 
 Agent 终端里已有授权菜单、问题或选项时，由经过绑定的适配器上报事件。顶部已有留白出现 `! N need attention · Alt+N`，对应会话行显示 `!`。不会抢焦点或改变终端尺寸；点击提醒或按 `Alt+N` 回到原会话。看过仍为待处理，用户在原 Agent 界面操作；只有来源明确结束事件或已知 Run 退出才移除。所有新 UI 文字保持英文。
 
+## 桌宠显示现有事项
+
+Windows 工作台显式加 `--pet` 可复用同一份 pending 快照，点击仍走原事项核验和原终端导航，无需新增 Agent 接入。已查看不减少数量，工作台退出一起关闭；详见[桌宠提醒](DESKTOP_REMINDERS.md)。
+
 ## 接入步骤
 
 沿用 [Agent API 的作用域与凭据](AGENT_API.md#1-调用约定与作用域)：固定 exe／bundle／runtime／namespace／state，先 `agent-bind --session SESSION_ID --run RUN_ID --token-file FILE`。不要在报告、日志、命令正文或提交中泄露私有文件内容；凭据持有者是合作式代理，不声明 OS 进程身份认证。

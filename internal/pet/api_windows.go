@@ -65,6 +65,7 @@ const (
 	wmDisplayChange  = 0x007e
 	wmDPIChanged     = 0x02e0
 	wmTray           = 0x8001
+	wmLiveUpdate     = 0x8002
 	wmCommand        = 0x0111
 	petStyle         = 0x80000000 // WS_POPUP
 	petExStyle       = 0x08080088 // NOACTIVATE | LAYERED | TOOLWINDOW | TOPMOST

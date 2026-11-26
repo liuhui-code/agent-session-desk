@@ -1,0 +1,11 @@
+﻿=== RUN   TestAttentionEventStrictBoundedJSON
+--- PASS: TestAttentionEventStrictBoundedJSON (0.00s)
+=== RUN   TestAttentionInvalidCommandHasNoEffects
+--- PASS: TestAttentionInvalidCommandHasNoEffects (0.00s)
+=== RUN   TestAttentionQueriesOfflineWithoutLeakingCredential
+--- PASS: TestAttentionQueriesOfflineWithoutLeakingCredential (0.05s)
+=== RUN   TestPetDemoInvalidOptionsDoNotTouchBackendOrState
+--- PASS: TestPetDemoInvalidOptionsDoNotTouchBackendOrState (0.00s)
+=== RUN   TestPetFlagRejectsUnsupportedUseBeforeTouchingState
+--- PASS: TestPetFlagRejectsUnsupportedUseBeforeTouchingState (0.00s)
+PASS
