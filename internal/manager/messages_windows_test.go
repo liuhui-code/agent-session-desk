@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"os/exec"
 	"path/filepath"
 	"strings"
 	"testing"
@@ -16,7 +17,6 @@ import (
 	"github.com/liuhui-code/agent-session-desk/internal/manager"
 	"github.com/liuhui-code/agent-session-desk/internal/session"
 	"github.com/liuhui-code/agent-session-desk/internal/store"
-	terminalTransport "github.com/liuhui-code/agent-session-desk/internal/terminal"
 )
 
 // Opt-in functional slice only. No desktop/IME/soak or real-agent claim.
@@ -134,26 +134,42 @@ func TestWindowsNativeHeadlessMessagesWithoutUIAndWithoutResize(t *testing.T) {
 		t.Fatal(e)
 	}
 	defer conn.Close()
-	screen := func() terminalTransport.Screen {
-		for i := 0; i < 10; i++ {
-			if e := conn.Refresh(ctx); e != nil {
-				t.Fatal(e)
-			}
-			readCtx, stop := context.WithTimeout(ctx, 500*time.Millisecond)
-			frame, e := conn.Next(readCtx)
-			stop()
-			if e == nil && frame.Width == 300 && frame.Height == 24 {
-				return frame
-			}
-			if ctx.Err() != nil {
-				t.Fatal(ctx.Err())
+	viewport := func() string {
+		prepared, e := b.Attach(ctx, c)
+		if e != nil {
+			t.Fatal(e)
+		}
+		cut := -1
+		for i, arg := range prepared.Args {
+			if arg == "attach-session" {
+				cut = i
+				break
 			}
 		}
-		t.Fatal("existing observer viewport did not reach the requested dimensions")
-		return terminalTransport.Screen{}
+		if cut < 1 {
+			t.Fatal("backend command prefix unavailable")
+		}
+		args := append(append([]string(nil), prepared.Args[1:cut]...), "display-message", "-p", "-t", c.BackendID, "#{pane_width}x#{pane_height}")
+		probe := exec.CommandContext(ctx, prepared.Path, args...)
+		probe.Env = prepared.Env
+		out, e := probe.Output()
+		if e != nil {
+			t.Fatal("read-only viewport query failed")
+		}
+		return strings.TrimSpace(string(out))
+	}
+	before := ""
+	for i := 0; i < 20; i++ {
+		before = viewport()
+		if before == "300x24" {
+			break
+		}
+		time.Sleep(50 * time.Millisecond)
+	}
+	if before != "300x24" {
+		t.Fatalf("observer viewport did not settle: %q", before)
 	}
 
-	before := screen()
 	fileID, e := session.NewID()
 	if e != nil {
 		t.Fatal(e)
@@ -170,17 +186,11 @@ func TestWindowsNativeHeadlessMessagesWithoutUIAndWithoutResize(t *testing.T) {
 	if e = json.Unmarshal(call("deliver", fileID), &fileMessage); e != nil || fileMessage.State != "input_written" {
 		t.Fatalf("CLI deliver receipt: %+v %v", fileMessage, e)
 	}
-	var after terminalTransport.Screen
-	for i := 0; i < 40; i++ {
-		after = screen()
-		if strings.Contains(after.Render(300, 24), "literal $() ` ;") {
-			break
-		}
-		time.Sleep(100 * time.Millisecond)
+	after := viewport()
+	if after != before {
+		t.Fatalf("headless delivery changed observer viewport: before=%q after=%q", before, after)
 	}
-	if after.Width != before.Width || after.Height != before.Height {
-		t.Fatal("headless delivery changed the existing observer viewport")
-	}
+
 	observedFile := false
 	for i := 0; i < 30; i++ {
 		p, e := b.Preview(ctx, c, 60)
