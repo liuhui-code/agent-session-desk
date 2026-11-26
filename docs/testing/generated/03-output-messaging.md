@@ -94,7 +94,7 @@
 
 - 功能：[FL-007](../COVERAGE.md#fl-007)
 - 需求：[FR-06](../COVERAGE.md#fr-06)
-- 决策：[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 决策：[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0045](../../adr/0045-explicit-message-outbox-and-owned-paste.md)
 - 优先级 / 阶段 / 层次：P1 / M3 / windows_e2e
 - 类型：functional
 - 设计 / 执行：`designed / not_run`
@@ -202,7 +202,7 @@
 
 - 功能：[FL-007](../COVERAGE.md#fl-007)、[FL-005](../COVERAGE.md#fl-005)
 - 需求：[FR-06](../COVERAGE.md#fr-06)、[FR-04](../COVERAGE.md#fr-04)
-- 决策：[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 决策：[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0045](../../adr/0045-explicit-message-outbox-and-owned-paste.md)
 - 优先级 / 阶段 / 层次：P0 / M3 / integration
 - 类型：state、negative
 - 设计 / 执行：`designed / not_run`
@@ -643,7 +643,7 @@
 
 - 功能：[FL-008](../COVERAGE.md#fl-008)、[FL-009](../COVERAGE.md#fl-009)
 - 需求：[FR-07](../COVERAGE.md#fr-07)、[FR-08](../COVERAGE.md#fr-08)
-- 决策：[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 决策：[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0045](../../adr/0045-explicit-message-outbox-and-owned-paste.md)
 - 优先级 / 阶段 / 层次：P0 / M3 / integration
 - 类型：functional、state
 - 设计 / 执行：`designed / not_run`
@@ -983,7 +983,7 @@
 
 - 功能：[FL-008](../COVERAGE.md#fl-008)、[FL-013](../COVERAGE.md#fl-013)
 - 需求：[FR-07](../COVERAGE.md#fr-07)、[FR-12](../COVERAGE.md#fr-12)
-- 决策：[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 决策：[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0045](../../adr/0045-explicit-message-outbox-and-owned-paste.md)
 - 优先级 / 阶段 / 层次：P0 / M3 / integration
 - 类型：functional、recovery
 - 设计 / 执行：`designed / not_run`
@@ -1097,7 +1097,7 @@
 
 - 功能：[FL-008](../COVERAGE.md#fl-008)、[FL-013](../COVERAGE.md#fl-013)
 - 需求：[FR-07](../COVERAGE.md#fr-07)、[FR-12](../COVERAGE.md#fr-12)
-- 决策：[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 决策：[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0045](../../adr/0045-explicit-message-outbox-and-owned-paste.md)
 - 优先级 / 阶段 / 层次：P0 / M3 / integration
 - 类型：recovery、negative
 - 设计 / 执行：`designed / not_run`
@@ -1170,7 +1170,7 @@
 
 - 功能：[FL-008](../COVERAGE.md#fl-008)、[FL-013](../COVERAGE.md#fl-013)
 - 需求：[FR-07](../COVERAGE.md#fr-07)、[FR-12](../COVERAGE.md#fr-12)
-- 决策：[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 决策：[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0045](../../adr/0045-explicit-message-outbox-and-owned-paste.md)
 - 优先级 / 阶段 / 层次：P0 / M3 / integration
 - 类型：recovery、boundary
 - 设计 / 执行：`designed / not_run`
@@ -1210,7 +1210,7 @@
 
 - 功能：[FL-008](../COVERAGE.md#fl-008)、[FL-013](../COVERAGE.md#fl-013)
 - 需求：[FR-07](../COVERAGE.md#fr-07)、[FR-12](../COVERAGE.md#fr-12)
-- 决策：[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 决策：[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0045](../../adr/0045-explicit-message-outbox-and-owned-paste.md)
 - 优先级 / 阶段 / 层次：P0 / M3 / integration
 - 类型：recovery、state
 - 设计 / 执行：`designed / not_run`

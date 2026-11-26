@@ -1,5 +1,5 @@
 // Package cli provides the development slice's entry points. These commands do
-// not implement the M3 agent messaging API or durable conversation history.
+// expose bounded explicit messaging, never durable agent conversation state.
 package cli
 
 import (
@@ -30,6 +30,9 @@ Usage:
   asd [global options] start [options] -- EXE [ARG...]
   asd [global options] history [--limit N]      Read recorded metadata as JSON
   asd [global options] history [--limit N]     Read recorded metadata as JSON
+  asd [global options] read [--lines N] SESSION_ID  Capture source-tagged screen lines
+  asd [global options] send --request-id ID --to SESSION_ID --run RUN_ID --body-file FILE
+  asd [global options] status MESSAGE_ID        Read a delivery receipt offline
   asd [global options] record SESSION_ID       Save a bounded screen snapshot
   asd [global options] output RUN_ID           Read retained screen records as JSON
   asd [global options] list [--json]            List live backend records
@@ -64,7 +67,7 @@ Press h for read-only metadata history; Enter shows details and Esc returns.
 Quitting the manager keeps backend sessions; stop explicitly ends the selected Run.
 
 This is a development slice. Recorded metadata does not establish liveness.
-Complete Windows acceptance, conversation storage, messaging and notifications remain unfinished.
+Automatic delivery, agent acceptance/completion, conversation storage and full Windows acceptance remain unfinished.
 `
 
 type envFlags []string
@@ -119,6 +122,12 @@ func run(ctx context.Context, args []string, input io.Reader, output, errorOutpu
 		}
 		fmt.Fprintln(output, "Agent Session Desk", Version)
 		return nil
+	}
+	if command == "read" || command == "send" || command == "status" {
+		if configPath != "" {
+			return fmt.Errorf("--config is not used by messaging commands")
+		}
+		return messagingCommand(ctx, command, commandArgs, options, stateDir, input, output, errorOutput)
 	}
 	if command != "" && command != "doctor" && command != "start" && command != "list" && command != "preview" && command != "attach" && command != "stop" && command != "history" && command != "metadata" && command != "output" && command != "record" {
 		return fmt.Errorf("unknown command %q; run asd help", command)

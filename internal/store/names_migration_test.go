@@ -64,7 +64,7 @@ func TestV2UpgradeAndNamedSnapshotPreserveOriginalRunEvidence(t *testing.T) {
 		t.Fatalf("snapshot lost evidence: %+v %v", rows, err)
 	}
 	check, err = store.Check(ctx, backup)
-	if err != nil || check.SchemaVersion != 5 {
+	if err != nil || check.SchemaVersion != 6 {
 		t.Fatalf("current schema check: %+v %v", check, err)
 	}
 }

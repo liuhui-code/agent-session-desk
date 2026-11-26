@@ -153,3 +153,5 @@ M0 已有“列表/预览 → 自定义命令 → 全屏 attach → 返回”的
 2026-11-24：[ADR-0039](adr/0039-launch-dialog-environment-overrides.md) 通过既有 textinput／JSON／Launch.Validate 接入临时 Env 数组，不引入库 API 或依赖；五字段布局复用原 tokens。ResolveLaunch／平台环境继承及解析守卫不改，TOML 模板只读、ui.toml v7／SQLite v5／配置 v1 均不变。[本地 UI／布局证据](testing/results/2026-11-24-launch-environment.md)与真实子进程／原生兼容分别记账。
 
 2026-11-25 单通道鼠标：[ADR-0040](adr/0040-verified-conpty-single-mouse-channel.md)仅更新显式开发 bundle 的 psmux 固定哈希及该选择的环境策略，SDK／Cargo／Go模块版本不变。Win32、VT、wheel与原生后端测试见[实际复验](testing/results/2026-11-25-single-mouse-channel.md)；默认系统宿主旧错误、实体硬件、混合读取器、资源与发布仍开放。
+
+2026-11-26 显式协作切片按 [ADR-0045](adr/0045-explicit-message-outbox-and-owned-paste.md)采用既有 SQLite 事务 outbox、条件领取与原生粘贴／UI FIFO，无新增模块、进程或外部代码复用。metadata.sqlite3 升级 v6 并沿用 DELETE/FULL；ui.toml 保持 v7。多客户端全局仲裁、自动消费和完整阶段接受继续开放。

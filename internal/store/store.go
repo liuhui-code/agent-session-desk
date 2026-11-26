@@ -98,7 +98,7 @@ func (s *Store) initialize(ctx context.Context) error {
 			return err
 		}
 		version = 3
-	} else if app != applicationID || (version != 1 && version != 2 && version != 3 && version != 4 && version != 5) {
+	} else if app != applicationID || (version != 1 && version != 2 && version != 3 && version != 4 && version != 5 && version != 6) {
 		return fmt.Errorf("unsupported metadata application/schema; file preserved")
 	}
 	var journal string
@@ -137,6 +137,14 @@ func (s *Store) initialize(ctx context.Context) error {
 		if _, err = tx.ExecContext(ctx, positionSchema+" PRAGMA user_version=5;"); err != nil {
 			return err
 		}
+	}
+	if version <= 5 {
+		if _, err = tx.ExecContext(ctx, messageSchema+" PRAGMA user_version=6;"); err != nil {
+			return err
+		}
+	}
+	if _, err = tx.ExecContext(ctx, "SELECT id,target_run_id,state,document FROM messages LIMIT 0"); err != nil {
+		return err
 	}
 	if _, err = tx.ExecContext(ctx, `INSERT INTO groups VALUES(?,'default',NULL,'我的会话','',1,0) ON CONFLICT(scope,id) DO NOTHING`, s.scope); err != nil {
 		return err

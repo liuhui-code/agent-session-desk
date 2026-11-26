@@ -64,7 +64,7 @@ func (m *Model) finishWorkspaceNavigation() tea.Cmd {
 
 func (m *Model) refreshWorkspace() tea.Cmd {
 	w := m.workspace
-	if w == nil || w.conn == nil || w.busy || w.pending > 0 || w.transition != workspaceIdle || m.attaching || m.history.open || m.help || m.launch != nil {
+	if w == nil || w.delivery != nil || w.conn == nil || w.busy || w.pending > 0 || w.transition != workspaceIdle || m.attaching || m.history.open || m.help || m.launch != nil {
 		return nil
 	}
 	g := m.workspaceGeometry()

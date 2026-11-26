@@ -20,6 +20,12 @@ import (
 )
 
 func (m *Model) View() tea.View {
+	if m.workspace != nil && m.workspace.delivery != nil {
+		view := tea.NewView(m.renderMessageDelivery())
+		view.AltScreen = true
+		m.applyViewColors(&view)
+		return view
+	}
 	if m.workspace != nil && m.help {
 		view := tea.NewView(m.renderHelpOverlay())
 		view.AltScreen = true

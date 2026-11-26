@@ -73,3 +73,4 @@ ADR-0014 依据用户 2026-11-22 的明确要求接受，部分替代 0001/0002 
 | [0042](0042-direct-create-terminal-host-and-focus.md) | 默认 WT、最近成功配置直接新建、Ctrl+S 侧栏与明确管理焦点 | 已接受（用户决定） | [局部实现与执行](../testing/results/2026-11-26-direct-create-focus.md)；原生与完整接受分别记账 |
 | [0043](0043-workspace-insets-and-alt-navigation.md) | 统一留白、F2、管理固定底栏与 Alt+J/K 会话切换 | 已接受（用户反馈） | [局部检查与实际结果](../testing/results/2026-11-26-workspace-spacing-controls.md)分别记录；其他宿主／完整接受开放 |
 | [0044](0044-rename-restores-origin-focus.md) | 改名结束恢复原焦点与侧栏状态 | 已接受 | [相关局部检查](../testing/results/2026-11-26-shortcut-focus.md)；其他断连原因分开 |
+| [0045](0045-explicit-message-outbox-and-owned-paste.md) | SQLite outbox、显式读取／建单与原视图确认粘贴 | 已接受 | [局部功能与迁移检查](../testing/results/2026-11-26-explicit-messaging.md)；自动消费／全局仲裁和完整接受开放 |

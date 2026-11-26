@@ -1,0 +1,14 @@
+# github.com/liuhui-code/agent-session-desk/internal/store_test [github.com/liuhui-code/agent-session-desk/internal/store.test]
+internal/store/messages_test.go:26:19: db.QueueMessage undefined (type *store.Store has no field or method QueueMessage)
+internal/store/messages_test.go:30:19: db.QueueMessage undefined (type *store.Store has no field or method QueueMessage)
+internal/store/messages_test.go:35:17: db.QueueMessage undefined (type *store.Store has no field or method QueueMessage)
+internal/store/messages_test.go:44:17: db.Message undefined (type *store.Store has no field or method Message)
+internal/store/messages_test.go:53:20: other.Message undefined (type *store.Store has no field or method Message)
+internal/store/messages_test.go:76:16: a.QueueMessage undefined (type *store.Store has no field or method QueueMessage)
+internal/store/messages_test.go:81:16: a.ClaimMessage undefined (type *store.Store has no field or method ClaimMessage)
+internal/store/messages_test.go:90:15: db.ClaimMessage undefined (type *store.Store has no field or method ClaimMessage)
+internal/store/messages_test.go:105:16: a.Message undefined (type *store.Store has no field or method Message)
+internal/store/messages_test.go:109:16: b.ClaimMessage undefined (type *store.Store has no field or method ClaimMessage)
+internal/store/messages_test.go:109:16: too many errors
+FAIL	github.com/liuhui-code/agent-session-desk/internal/store [build failed]
+FAIL

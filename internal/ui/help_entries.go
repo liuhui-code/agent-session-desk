@@ -26,6 +26,7 @@ func workspaceHelpSections() []helpSection {
 			{"/", "Search local session names or programs"},
 			{"F2 / r", "Rename selected session/group (F2 uses active terminal with terminal focus)"},
 			{"Ctrl+R", "Refresh backend observations"},
+			{"m", "Review queued message for the open selected Run; default Cancel"},
 		}},
 		{"Groups (navigation focus)", [][2]string{
 			{"Alt+V", "Toggle grouped/flat navigation"},

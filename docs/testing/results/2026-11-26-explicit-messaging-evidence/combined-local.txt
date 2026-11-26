@@ -1,0 +1,7 @@
+# github.com/liuhui-code/agent-session-desk/internal/store_test [github.com/liuhui-code/agent-session-desk/internal/store.test]
+internal/store/messages_migration_test.go:62:15: undefined: store.Backup
+FAIL	github.com/liuhui-code/agent-session-desk/internal/store [build failed]
+ok  	github.com/liuhui-code/agent-session-desk/internal/manager	0.941s
+ok  	github.com/liuhui-code/agent-session-desk/internal/cli	0.897s
+ok  	github.com/liuhui-code/agent-session-desk/internal/ui	0.788s
+FAIL

@@ -49,6 +49,9 @@ func (m *Model) managementFooterHints() (primary, secondary []footerHint) {
 			key = "r"
 		}
 		secondary = append(secondary, footerHint{key, name})
+		if _, ok := m.service.(messageDeliveryService); ok {
+			secondary = append(secondary, footerHint{"m", "Messages"})
+		}
 		if _, ok := m.service.(visiblePaneService); ok {
 			secondary = append(secondary, footerHint{"V", "Copy screen"})
 		}

@@ -1,0 +1,37 @@
+--- FAIL: TestMessageDeliveryDefaultsToCancelAndUsesOriginalFIFOOnce (3.02s)
+    workspace_delivery_test.go:62: workspace did not reach expected state:
+                                                                                                                                
+          [1;38;2;255;255;255;48;2;56;87;107m┃ 开发                                  [m   shell marker 11111111111111111111111111111111                              
+          [38;2;255;255;255;48;2;56;87;107m  ╰ Connected                           [m                                                                              
+                                                  [38;2;51;51;51m │ [m                                                                           
+          [38;2;187;187;187m  评审                                  [m[38;2;51;51;51m │ [m                                                                           
+          [38;2;119;119;119m  ╰ Connected                           [m[38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                  [38;2;51;51;51m │ [m                                                                           
+                                                                                                                                
+                                                                                                                                
+        [38;2;119;119;119;48;2;0;0;0m  Finish the current input or operation before reviewing a message                                                      [m
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	4.112s
+FAIL
