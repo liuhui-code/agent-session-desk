@@ -36,7 +36,10 @@ Usage:
   asd [global options] status MESSAGE_ID        Read a delivery receipt offline
   asd [global options] agent-bind --session ID --run ID --token-file FILE
   asd [global options] inbox --token-file FILE  Read bound Run requests without replies
-  asd [global options] reply --token-file FILE --reply-id ID --reply-to ID --body-file FILE
+  asd [global options] reply --token-file FILE --claim-file FILE --reply-id ID --reply-to ID --body-file FILE
+  asd [global options] claim --token-file FILE --claim-file FILE --claim-id ID --message-id ID [--lease-seconds N]
+  asd [global options] renew --token-file FILE --claim-file FILE
+  asd [global options] claim-status MESSAGE_ID   Read processing ownership offline
   asd [global options] replies MESSAGE_ID       Read recorded replies offline
   asd [global options] record SESSION_ID       Save a bounded screen snapshot
   asd [global options] output RUN_ID           Read retained screen records as JSON
@@ -139,6 +142,12 @@ func run(ctx context.Context, args []string, input io.Reader, output, errorOutpu
 			return fmt.Errorf("--config is not used by messaging commands")
 		}
 		return agentMessagingCommand(ctx, command, commandArgs, options, stateDir, input, output, errorOutput)
+	}
+	if command == "claim" || command == "renew" || command == "claim-status" {
+		if configPath != "" {
+			return fmt.Errorf("--config is not used by messaging commands")
+		}
+		return taskClaimingCommand(ctx, command, commandArgs, options, stateDir, output, errorOutput)
 	}
 	if command != "" && command != "doctor" && command != "start" && command != "list" && command != "preview" && command != "attach" && command != "stop" && command != "history" && command != "metadata" && command != "output" && command != "record" {
 		return fmt.Errorf("unknown command %q; run asd help", command)

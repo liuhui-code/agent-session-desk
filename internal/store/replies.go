@@ -32,6 +32,12 @@ func (s *Store) RecordReply(ctx context.Context, c session.AgentCredential, requ
 	if err := request.Validate(); err != nil {
 		return zero, err
 	}
+	if err := request.Claim.Validate(); err != nil {
+		return zero, err
+	}
+	if request.Claim.MessageID != request.ReplyTo {
+		return zero, fmt.Errorf("claim does not belong to reply_to")
+	}
 	tx, err := s.db.BeginTx(ctx, nil)
 	if err != nil {
 		return zero, err
@@ -49,14 +55,24 @@ func (s *Store) RecordReply(ctx context.Context, c session.AgentCredential, requ
 		return zero, fmt.Errorf("reply source does not match original request target")
 	}
 	old, err := scanReply(tx.QueryRowContext(ctx, replyColumns+` WHERE scope=? AND id=?`, s.scope, request.ID))
+	claim, claimErr := s.ownedTaskClaim(ctx, tx, source, request.Claim, time.Now().UTC())
+	if claimErr != nil {
+		return zero, claimErr
+	}
 	if err == nil {
-		if old.ReplyTo != request.ReplyTo || old.Body != request.Body || !sameMessageTarget(old.Source, source) {
+		if old.ReplyTo != request.ReplyTo || old.Body != request.Body || old.ClaimID != claim.ID || !sameMessageTarget(old.Source, source) {
 			return zero, fmt.Errorf("reply ID already used for different intent")
 		}
 		return old, nil
 	}
 	if !errors.Is(err, sql.ErrNoRows) {
 		return zero, err
+	}
+	if claim.State != "active" {
+		if err = tx.Commit(); err != nil {
+			return zero, err
+		}
+		return zero, fmt.Errorf("task claim is not active; no result accepted")
 	}
 	var exists bool
 	if err = tx.QueryRowContext(ctx, `SELECT EXISTS(SELECT 1 FROM replies WHERE scope=? AND reply_to=?)`, s.scope, request.ReplyTo).Scan(&exists); err != nil {
@@ -65,10 +81,38 @@ func (s *Store) RecordReply(ctx context.Context, c session.AgentCredential, requ
 	if exists {
 		return zero, fmt.Errorf("request already has a reply; query replies instead of replacing it")
 	}
-	r := session.Reply{ID: request.ID, ReplyTo: request.ReplyTo, Source: source, Body: request.Body, RecordedAt: time.Now().UTC()}
+	now := time.Now().UTC()
+	if !claim.ExpiresAt.After(now) {
+		if _, err = s.refreshTaskClaim(ctx, tx, request.ReplyTo, now); err != nil {
+			return zero, err
+		}
+		if err = tx.Commit(); err != nil {
+			return zero, err
+		}
+		return zero, fmt.Errorf("task lease expired; no result accepted")
+	}
+	r := session.Reply{ID: request.ID, ReplyTo: request.ReplyTo, Source: source, Body: request.Body, RecordedAt: now, ClaimID: claim.ID}
 	data, err := json.Marshal(r)
 	if err != nil || len(data) > maxMessageDocument {
 		return zero, fmt.Errorf("reply document exceeds bound")
+	}
+	now = time.Now().UTC()
+	sealed, e := tx.ExecContext(ctx, `UPDATE task_claims SET state='replied',reason='explicit_result_saved',updated_ns=? WHERE scope=? AND id=? AND state='active' AND expires_ns>?`, now.UnixNano(), s.scope, claim.ID, now.UnixNano())
+	if e != nil {
+		return zero, e
+	}
+	n, e := sealed.RowsAffected()
+	if e != nil {
+		return zero, e
+	}
+	if n != 1 {
+		if _, e = s.refreshTaskClaim(ctx, tx, request.ReplyTo, now); e != nil {
+			return zero, e
+		}
+		if e = tx.Commit(); e != nil {
+			return zero, e
+		}
+		return zero, fmt.Errorf("task claim expired before result publication")
 	}
 	_, err = tx.ExecContext(ctx, `INSERT INTO replies VALUES(?,?,?,?,?,?)`, s.scope, r.ID, r.ReplyTo, r.Source.RunID, string(data), r.RecordedAt.UnixNano())
 	if err != nil {

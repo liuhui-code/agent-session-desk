@@ -159,3 +159,5 @@ M0 已有“列表/预览 → 自定义命令 → 全屏 attach → 返回”的
 2026-11-26 通信边界进一步按 [ADR-0046](adr/0046-backend-only-message-delivery.md)明确为后端／CLI：撤销前端 m 确认及 UI writer 耦合，复用认证 one-shot send-paste 与原生控制队列屏障。原有库、SQLite v6、ui.toml v7 不变，TUI 不参与协议建单或投递确认。
 
 2026-11-26 后端回复：沿用既有 Go／SQLite 依赖，按 [ADR-0047](adr/0047-run-bound-inbox-and-structured-replies.md)事务升级 metadata schema v7，新增随机 capability 摘要和单份关联结果；不新增网络协议服务、Host、SDK 或 UI 依赖。凭据文件不在数据库备份中；实际验证另见[报告](testing/results/2026-11-26-structured-replies.md)。
+
+2026-11-26 领取基础：按 [ADR-0048](adr/0048-exclusive-processing-claims-and-uncertain-recovery.md)沿用 SQLite 立即写事务、唯一约束和现有私有文件发布逻辑，升级 metadata v8；没有新增库、中间件、Host 或前端依赖。租约到期保留不确定，不套用通用自动重投策略，证据见[报告](testing/results/2026-11-26-task-claims.md)。

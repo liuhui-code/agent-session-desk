@@ -98,7 +98,15 @@ func TestRepliesQueryIsOfflineAndScopeIsolated(t *testing.T) {
 	if _, err = db.QueueMessage(ctx, msg); err != nil {
 		t.Fatal(err)
 	}
-	if _, err = db.RecordReply(ctx, c, session.ReplyRequest{ID: strings.Repeat("c", 32), ReplyTo: msg.ID, Body: "result"}); err != nil {
+	claimSecret, e := session.NewAgentCredential(strings.Repeat("d", 32), msg.ID)
+	if e != nil {
+		t.Fatal(e)
+	}
+	key := session.TaskClaimCredential{ID: strings.Repeat("d", 32), MessageID: msg.ID, Secret: claimSecret.Secret}
+	if _, e = db.ClaimTask(ctx, c, key, 300); e != nil {
+		t.Fatal(e)
+	}
+	if _, err = db.RecordReply(ctx, c, session.ReplyRequest{ID: strings.Repeat("c", 32), ReplyTo: msg.ID, Body: "result", Claim: key}); err != nil {
 		t.Fatal(err)
 	}
 	db.Close()

@@ -580,3 +580,5 @@ M1 恢复补充（2026-11-22）：按用户继续完成 M1 的授权实现 metad
 2026-11-26 Agent 接入资料：新增[CLI 接口参考](AGENT_API.md)，逐项对照当前参数、JSON、作用域、退出码、幂等与超时恢复，并提供 PowerShell 示例；reply／reply_to 标记未实现，后续随接口补齐。此为文档交付，不增加功能或原生执行通过数。
 
 2026-11-26 结构化回复：按 ADR-0047 增加 agent-bind、inbox、reply、replies，原 Run 委派凭据、来源重验与单结果幂等，SQLite v7。既有投递状态不变；inbox 不领取或执行任务。实现及两个独立模拟进程的证据见[报告](testing/results/2026-11-26-structured-replies.md)，接口参数与示例见[接入参考](AGENT_API.md)；真实 agent、完成声明、自动消费及整体验收保持开放。
+
+2026-11-26 处理归属：按 ADR-0048 增加 claim／renew／claim-status 和私有领取密钥；inbox 收窄为未领取的 queued，新 reply 必须带 --claim-file，领取和保存结果原子封存。恢复回执不再次授权执行，租约不确定不自动接管；终端投递与结构化领取同库互斥。当前 SQLite v8，实际竞争／终止及迁移证据见[领取报告](testing/results/2026-11-26-task-claims.md)，参数与开发版接入调整见[接口参考](AGENT_API.md)。这是 FL-009 自动消费的基础，不宣布自动消费者／Host、真实 agent 或完整接受完成。

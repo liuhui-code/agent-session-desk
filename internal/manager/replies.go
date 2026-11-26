@@ -53,3 +53,17 @@ func (m *Manager) Reply(ctx context.Context, c session.AgentCredential, r sessio
 func (m *Manager) Replies(ctx context.Context, id string) ([]session.Reply, error) {
 	return m.metadata.Replies(ctx, id)
 }
+
+func (m *Manager) ClaimTask(ctx context.Context, c session.AgentCredential, key session.TaskClaimCredential, seconds int) (*session.TaskClaim, error) {
+	if err := m.authenticateAgent(ctx, c); err != nil {
+		return nil, err
+	}
+	return m.metadata.ClaimTask(ctx, c, key, seconds)
+}
+
+func (m *Manager) RenewTaskClaim(ctx context.Context, c session.AgentCredential, key session.TaskClaimCredential) (*session.TaskClaim, error) {
+	if err := m.authenticateAgent(ctx, c); err != nil {
+		return nil, err
+	}
+	return m.metadata.RenewTaskClaim(ctx, c, key)
+}

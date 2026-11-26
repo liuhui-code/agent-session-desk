@@ -46,7 +46,7 @@ func TestReplyRejectsWrongSourceAndPreservesConflictingResults(t *testing.T) {
 	if _, err = db.QueueMessage(ctx, msg); err != nil {
 		t.Fatal(err)
 	}
-	r := session.ReplyRequest{ID: strings.Repeat("b", 32), ReplyTo: msg.ID, Body: "result"}
+	r := session.ReplyRequest{ID: strings.Repeat("b", 32), ReplyTo: msg.ID, Body: "result", Claim: claimForReply(t, db, c, msg.ID)}
 	bad := c
 	bad.Secret = strings.Repeat("0", 64)
 	for _, credential := range []session.AgentCredential{wrong, bad} {
@@ -117,6 +117,7 @@ func TestReplyConcurrentWritersDeduplicateOrRefuseReplacement(t *testing.T) {
 			if _, err := dbs[0].QueueMessage(ctx, msg); err != nil {
 				t.Fatal(err)
 			}
+			key := claimForReply(t, dbs[0], c, msg.ID)
 			start := make(chan struct{})
 			results := make(chan error, 16)
 			var wg sync.WaitGroup
@@ -129,7 +130,7 @@ func TestReplyConcurrentWritersDeduplicateOrRefuseReplacement(t *testing.T) {
 					if !sameID {
 						id = i + 1
 					}
-					_, err := db.RecordReply(ctx, c, session.ReplyRequest{ID: fmt.Sprintf("%032x", id), ReplyTo: msg.ID, Body: "result"})
+					_, err := db.RecordReply(ctx, c, session.ReplyRequest{ID: fmt.Sprintf("%032x", id), ReplyTo: msg.ID, Body: "result", Claim: key})
 					results <- err
 				}(i, db)
 			}
@@ -257,7 +258,7 @@ func TestReplyBoundInboxRoundTripDoesNotAdvanceDelivery(t *testing.T) {
 	if err != nil || len(inbox) != 1 || inbox[0].ID != msg.ID {
 		t.Fatalf("bound inbox: %+v %v", inbox, err)
 	}
-	r := session.ReplyRequest{ID: strings.Repeat("c", 32), ReplyTo: msg.ID, Body: "result 中文🙂"}
+	r := session.ReplyRequest{ID: strings.Repeat("c", 32), ReplyTo: msg.ID, Body: "result 中文🙂", Claim: claimForReply(t, db, c, msg.ID)}
 	got, err := db.RecordReply(ctx, c, r)
 	if err != nil || got.ReplyTo != msg.ID || got.Source.RunID != target.RunID || got.Body != r.Body || got.RecordedAt.IsZero() {
 		t.Fatalf("reply: %+v %v", got, err)

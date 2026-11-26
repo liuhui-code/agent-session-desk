@@ -1210,7 +1210,7 @@
 
 - 功能：[FL-008](../COVERAGE.md#fl-008)、[FL-013](../COVERAGE.md#fl-013)
 - 需求：[FR-07](../COVERAGE.md#fr-07)、[FR-12](../COVERAGE.md#fr-12)
-- 决策：[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0045](../../adr/0045-explicit-message-outbox-and-owned-paste.md)
+- 决策：[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0045](../../adr/0045-explicit-message-outbox-and-owned-paste.md)、[ADR-0048](../../adr/0048-exclusive-processing-claims-and-uncertain-recovery.md)
 - 优先级 / 阶段 / 层次：P0 / M3 / integration
 - 类型：recovery、state
 - 设计 / 执行：`designed / not_run`
@@ -1239,6 +1239,8 @@
 - 产品提交、Windows/终端/后端/fixture 版本与测试参数
 - 操作事件和持久化记录前后快照
 - 独立 fixture 输入日志及可核对的输出/状态结果
+
+说明： ADR-0048 当前为显式单次领取、私有领取文件和结果封存；unknown 不自动接管。独立处理进程与 SQLite 局部证据见 2026-11-26-task-claims，不代替共享 Host／自动消费／真实 agent 全场景。
 
 
 ### TC-SEND-017
@@ -1863,7 +1865,7 @@
 
 - 功能：[FL-009](../COVERAGE.md#fl-009)、[FL-013](../COVERAGE.md#fl-013)
 - 需求：[FR-08](../COVERAGE.md#fr-08)、[FR-12](../COVERAGE.md#fr-12)
-- 决策：[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 决策：[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0048](../../adr/0048-exclusive-processing-claims-and-uncertain-recovery.md)
 - 优先级 / 阶段 / 层次：P0 / M3 / integration
 - 类型：concurrency、recovery
 - 设计 / 执行：`designed / not_run`
@@ -1892,6 +1894,8 @@
 - 产品与依赖版本、目标 Session/Run、故障点或事件序列
 - 持久化消息/投递尝试/状态依据的前后记录
 - 独立 fixture 输入/提交日志，Host 与 attach 生命周期记录
+
+说明： ADR-0048 当前为显式单次领取、私有领取文件和结果封存；unknown 不自动接管。独立处理进程与 SQLite 局部证据见 2026-11-26-task-claims，不代替共享 Host／自动消费／真实 agent 全场景。
 
 
 ### TC-QUEUE-017
@@ -2655,7 +2659,7 @@
 
 - 功能：[FL-014](../COVERAGE.md#fl-014)、[FL-010](../COVERAGE.md#fl-010)
 - 需求：[FR-13](../COVERAGE.md#fr-13)、[FR-09](../COVERAGE.md#fr-09)
-- 决策：[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0047](../../adr/0047-run-bound-inbox-and-structured-replies.md)
+- 决策：[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0047](../../adr/0047-run-bound-inbox-and-structured-replies.md)、[ADR-0048](../../adr/0048-exclusive-processing-claims-and-uncertain-recovery.md)
 - 优先级 / 阶段 / 层次：P0 / M3 / windows_e2e
 - 类型：functional
 - 设计 / 执行：`designed / not_run`
@@ -2686,7 +2690,7 @@
 - CLI stdout、stderr、退出结果及 agent 实际工具调用记录
 - 关联 message_id、Session/Run、投递/回复证据与 fixture 独立日志
 
-说明：ADR-0047 当前切片使用原 Run 本地委派凭据、只读 inbox、每请求一份关联结果与离线查询；不验证真实模型 agent、进度聚合或 completed。实际局部执行见 2026-11-26-structured-replies 报告，目录仍为 designed/not_run。
+说明：ADR-0047 当前切片使用原 Run 本地委派凭据、只读 inbox、每请求一份关联结果与离线查询；不验证真实模型 agent、进度聚合或 completed。实际局部执行见 2026-11-26-structured-replies 报告，目录仍为 designed/not_run。 ADR-0048 当前为显式单次领取、私有领取文件和结果封存；unknown 不自动接管。独立处理进程与 SQLite 局部证据见 2026-11-26-task-claims，不代替共享 Host／自动消费／真实 agent 全场景。
 
 
 ### TC-REPLY-002
@@ -2738,7 +2742,7 @@
 
 - 功能：[FL-014](../COVERAGE.md#fl-014)、[FL-005](../COVERAGE.md#fl-005)、[FL-013](../COVERAGE.md#fl-013)
 - 需求：[FR-13](../COVERAGE.md#fr-13)、[FR-04](../COVERAGE.md#fr-04)、[FR-12](../COVERAGE.md#fr-12)
-- 决策：[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0047](../../adr/0047-run-bound-inbox-and-structured-replies.md)
+- 决策：[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0047](../../adr/0047-run-bound-inbox-and-structured-replies.md)、[ADR-0048](../../adr/0048-exclusive-processing-claims-and-uncertain-recovery.md)
 - 优先级 / 阶段 / 层次：P0 / M3 / integration
 - 类型：negative、state
 - 设计 / 执行：`designed / not_run`
@@ -2767,7 +2771,7 @@
 - CLI stdout、stderr、退出结果及 agent 实际工具调用记录
 - 关联 message_id、Session/Run、投递/回复证据与 fixture 独立日志
 
-说明：ADR-0047 当前切片使用原 Run 本地委派凭据、只读 inbox、每请求一份关联结果与离线查询；不验证真实模型 agent、进度聚合或 completed。实际局部执行见 2026-11-26-structured-replies 报告，目录仍为 designed/not_run。
+说明：ADR-0047 当前切片使用原 Run 本地委派凭据、只读 inbox、每请求一份关联结果与离线查询；不验证真实模型 agent、进度聚合或 completed。实际局部执行见 2026-11-26-structured-replies 报告，目录仍为 designed/not_run。 ADR-0048 当前为显式单次领取、私有领取文件和结果封存；unknown 不自动接管。独立处理进程与 SQLite 局部证据见 2026-11-26-task-claims，不代替共享 Host／自动消费／真实 agent 全场景。
 
 
 ### TC-REPLY-004
@@ -2853,7 +2857,7 @@
 
 - 功能：[FL-014](../COVERAGE.md#fl-014)、[FL-013](../COVERAGE.md#fl-013)
 - 需求：[FR-13](../COVERAGE.md#fr-13)、[FR-12](../COVERAGE.md#fr-12)
-- 决策：[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0047](../../adr/0047-run-bound-inbox-and-structured-replies.md)
+- 决策：[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0047](../../adr/0047-run-bound-inbox-and-structured-replies.md)、[ADR-0048](../../adr/0048-exclusive-processing-claims-and-uncertain-recovery.md)
 - 优先级 / 阶段 / 层次：P1 / M3 / integration
 - 类型：recovery、concurrency
 - 设计 / 执行：`designed / not_run`
@@ -2883,7 +2887,7 @@
 - CLI stdout、stderr、退出结果及 agent 实际工具调用记录
 - 关联 message_id、Session/Run、投递/回复证据与 fixture 独立日志
 
-说明：ADR-0047 当前切片使用原 Run 本地委派凭据、只读 inbox、每请求一份关联结果与离线查询；不验证真实模型 agent、进度聚合或 completed。实际局部执行见 2026-11-26-structured-replies 报告，目录仍为 designed/not_run。
+说明：ADR-0047 当前切片使用原 Run 本地委派凭据、只读 inbox、每请求一份关联结果与离线查询；不验证真实模型 agent、进度聚合或 completed。实际局部执行见 2026-11-26-structured-replies 报告，目录仍为 designed/not_run。 ADR-0048 当前为显式单次领取、私有领取文件和结果封存；unknown 不自动接管。独立处理进程与 SQLite 局部证据见 2026-11-26-task-claims，不代替共享 Host／自动消费／真实 agent 全场景。
 
 
 ### TC-REPLY-007
@@ -3007,7 +3011,7 @@
 
 - 功能：[FL-014](../COVERAGE.md#fl-014)、[FL-005](../COVERAGE.md#fl-005)、[FL-013](../COVERAGE.md#fl-013)
 - 需求：[FR-13](../COVERAGE.md#fr-13)、[FR-04](../COVERAGE.md#fr-04)、[FR-12](../COVERAGE.md#fr-12)
-- 决策：[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0047](../../adr/0047-run-bound-inbox-and-structured-replies.md)
+- 决策：[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0047](../../adr/0047-run-bound-inbox-and-structured-replies.md)、[ADR-0048](../../adr/0048-exclusive-processing-claims-and-uncertain-recovery.md)
 - 优先级 / 阶段 / 层次：P0 / M3 / integration
 - 类型：negative、security
 - 设计 / 执行：`designed / not_run`
@@ -3036,4 +3040,4 @@
 - CLI stdout、stderr、退出结果及 agent 实际工具调用记录
 - 关联 message_id、Session/Run、投递/回复证据与 fixture 独立日志
 
-说明：ADR-0047 当前切片使用原 Run 本地委派凭据、只读 inbox、每请求一份关联结果与离线查询；不验证真实模型 agent、进度聚合或 completed。实际局部执行见 2026-11-26-structured-replies 报告，目录仍为 designed/not_run。
+说明：ADR-0047 当前切片使用原 Run 本地委派凭据、只读 inbox、每请求一份关联结果与离线查询；不验证真实模型 agent、进度聚合或 completed。实际局部执行见 2026-11-26-structured-replies 报告，目录仍为 designed/not_run。 ADR-0048 当前为显式单次领取、私有领取文件和结果封存；unknown 不自动接管。独立处理进程与 SQLite 局部证据见 2026-11-26-task-claims，不代替共享 Host／自动消费／真实 agent 全场景。

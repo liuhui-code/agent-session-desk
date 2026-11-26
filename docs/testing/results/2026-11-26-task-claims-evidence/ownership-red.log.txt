@@ -1,0 +1,6 @@
+=== RUN   TestClaimReplyCannotBypassOwnership
+    task_claims_test.go:21: reply accepted without task ownership
+--- FAIL: TestClaimReplyCannotBypassOwnership (0.02s)
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/store	1.676s
+FAIL

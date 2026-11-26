@@ -1,0 +1,36 @@
+{
+  "results": [
+    {
+      "exit_code": 0,
+      "name": "store",
+      "top_skip": 0,
+      "top_fail": 0,
+      "sha256": "c7b07585c90b7624f3b48b6ec070ae8f4387885cec9fc6724f4f64ac00a4d265",
+      "top_pass": 25
+    },
+    {
+      "exit_code": 0,
+      "name": "cli",
+      "top_skip": 0,
+      "top_fail": 0,
+      "sha256": "bb02cd0b3399cd3b53638d5806e646b403d3f09252847e5eeb9f5718abb78604",
+      "top_pass": 6
+    },
+    {
+      "exit_code": 0,
+      "name": "manager",
+      "top_skip": 0,
+      "top_fail": 0,
+      "sha256": "93e057cfe79fda2a599aa5326ac7fa082b1ea67a614465fde4dc47370a0f3230",
+      "top_pass": 3
+    }
+  ],
+  "product_sha256": "843525663415d095a7be0fae2375b8c069d130ebcef3ed0b52030d4569d53b04",
+  "os_version": "10.0.19045",
+  "personal_state_migrated": false,
+  "fixture_sha256": "2a75f58b58ff4a26dd544fed46848a2187f7f3e828af6bb59409170ce6b34bd4",
+  "os_build": "19045",
+  "clipboard_calls": 0,
+  "desktop_calls": 0,
+  "simulated_processing_workers": true
+}

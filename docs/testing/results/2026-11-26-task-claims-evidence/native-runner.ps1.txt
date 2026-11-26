@@ -1,0 +1,30 @@
+$ErrorActionPreference='Stop';$ProgressPreference='SilentlyContinue'
+[Console]::OutputEncoding=[Text.Encoding]::UTF8
+$base=Join-Path $env:USERPROFILE 'asd-acceptance-20261122'
+$root=Join-Path ([Environment]::GetFolderPath('Desktop')) 'Agent Session Desk Alpha 8234c4e'
+$out=Join-Path $base 'task-claims-run1-20261126'
+if(Test-Path $out){throw 'Fresh output required'}
+New-Item -ItemType Directory $out|Out-Null
+$m=Get-Content -Raw (Join-Path $root 'alpha.json')|ConvertFrom-Json
+foreach($entry in $m.files.PSObject.Properties){if((Get-FileHash -LiteralPath (Join-Path $root $entry.Name)).Hash.ToLowerInvariant() -cne $entry.Value){throw 'Pinned package changed'}}
+if((Get-FileHash (Join-Path $base 'cli-task-claims.test.exe')).Hash.ToLowerInvariant() -cne 'bb02cd0b3399cd3b53638d5806e646b403d3f09252847e5eeb9f5718abb78604'){throw 'Artifact hash mismatch'}
+if((Get-FileHash (Join-Path $base 'manager-task-claims.test.exe')).Hash.ToLowerInvariant() -cne '93e057cfe79fda2a599aa5326ac7fa082b1ea67a614465fde4dc47370a0f3230'){throw 'Artifact hash mismatch'}
+if((Get-FileHash (Join-Path $base 'store-task-claims.test.exe')).Hash.ToLowerInvariant() -cne 'c7b07585c90b7624f3b48b6ec070ae8f4387885cec9fc6724f4f64ac00a4d265'){throw 'Artifact hash mismatch'}
+if((Get-FileHash (Join-Path $base 'asd-task-claims.exe')).Hash.ToLowerInvariant() -cne '843525663415d095a7be0fae2375b8c069d130ebcef3ed0b52030d4569d53b04'){throw 'Artifact hash mismatch'}
+if((Get-FileHash (Join-Path $base 'asd-fixture-task-claims.exe')).Hash.ToLowerInvariant() -cne '2a75f58b58ff4a26dd544fed46848a2187f7f3e828af6bb59409170ce6b34bd4'){throw 'Artifact hash mismatch'}
+$env:ASD_NATIVE_MESSAGING_BUNDLE=Join-Path $root 'terminal-runtime'
+$env:ASD_NATIVE_REPLY_CLI=Join-Path $base 'asd-task-claims.exe'
+$env:ASD_NATIVE_MESSAGING_FIXTURE=Join-Path $base 'asd-fixture-task-claims.exe'
+$cases=@(@{name='store';pattern='^Test(Claim|Reply|.*Migration|.*Upgrade)'},@{name='cli';pattern='^Test(Claim|Repl)'},@{name='manager';pattern='^Test(ReplyRechecks|WindowsNativeReplyTwoAgentProcesses|WindowsNativeTaskClaimCompetitionAndCrash)'})
+$results=@()
+foreach($case in $cases){
+ $exe=Join-Path $base ($case.name+'-task-claims.test.exe');$log=Join-Path $out ($case.name+'.stdout')
+ & $exe '-test.v' '-test.run' $case.pattern '-test.timeout' '240s' 2>&1|Set-Content $log -Encoding utf8
+ $code=$LASTEXITCODE;$lines=Get-Content $log
+ $results+=@{name=$case.name;exit_code=$code;top_pass=@($lines|Where-Object{$_ -match '^--- PASS:'}).Count;top_fail=@($lines|Where-Object{$_ -match '^--- FAIL:'}).Count;top_skip=@($lines|Where-Object{$_ -match '^--- SKIP:'}).Count;sha256=(Get-FileHash $exe).Hash.ToLowerInvariant()}
+ if($code -ne 0){$lines|Write-Output;break}
+}
+$os=Get-CimInstance Win32_OperatingSystem
+$summary=@{results=$results;product_sha256=(Get-FileHash $env:ASD_NATIVE_REPLY_CLI).Hash.ToLowerInvariant();fixture_sha256=(Get-FileHash $env:ASD_NATIVE_MESSAGING_FIXTURE).Hash.ToLowerInvariant();os_version=$os.Version;os_build=$os.BuildNumber;simulated_processing_workers=$true;personal_state_migrated=$false;desktop_calls=0;clipboard_calls=0}
+$summary|ConvertTo-Json -Depth 5|Set-Content (Join-Path $out 'summary.json') -Encoding utf8
+$summary|ConvertTo-Json -Depth 5

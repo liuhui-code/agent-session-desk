@@ -100,7 +100,7 @@ func (s *Store) Inbox(ctx context.Context, c session.AgentCredential) ([]session
 	if err != nil {
 		return nil, err
 	}
-	rows, err := tx.QueryContext(ctx, messageColumns+` WHERE scope=? AND target_run_id=? AND NOT EXISTS(SELECT 1 FROM replies p WHERE p.scope=messages.scope AND p.reply_to=messages.id) ORDER BY created_ns,id LIMIT ?`, s.scope, v.RunID, MaxMessages)
+	rows, err := tx.QueryContext(ctx, messageColumns+` WHERE scope=? AND target_run_id=? AND state='queued' AND NOT EXISTS(SELECT 1 FROM task_claims c WHERE c.scope=messages.scope AND c.message_id=messages.id) AND NOT EXISTS(SELECT 1 FROM replies p WHERE p.scope=messages.scope AND p.reply_to=messages.id) ORDER BY created_ns,id LIMIT ?`, s.scope, v.RunID, MaxMessages)
 	if err != nil {
 		return nil, err
 	}

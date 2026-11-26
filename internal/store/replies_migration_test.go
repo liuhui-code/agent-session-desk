@@ -35,7 +35,7 @@ func TestReplySchemaV6MigrationRecoveryAndNoPlaintextCredential(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if _, err = raw.Exec(`DROP TABLE replies; DROP TABLE agent_credentials; PRAGMA user_version=6`); err != nil {
+	if _, err = raw.Exec(`DROP TABLE task_claims; DROP TABLE replies; DROP TABLE agent_credentials; PRAGMA user_version=6`); err != nil {
 		t.Fatal(err)
 	}
 	raw.Close()
@@ -62,7 +62,7 @@ func TestReplySchemaV6MigrationRecoveryAndNoPlaintextCredential(t *testing.T) {
 	if err = db.BindAgent(ctx, c, v); err != nil {
 		t.Fatal(err)
 	}
-	r := session.ReplyRequest{ID: strings.Repeat("c", 32), ReplyTo: msg.ID, Body: "result 中文"}
+	r := session.ReplyRequest{ID: strings.Repeat("c", 32), ReplyTo: msg.ID, Body: "result 中文", Claim: claimForReply(t, db, c, msg.ID)}
 	first, err := db.RecordReply(ctx, c, r)
 	if err != nil {
 		t.Fatal(err)
@@ -73,7 +73,7 @@ func TestReplySchemaV6MigrationRecoveryAndNoPlaintextCredential(t *testing.T) {
 		t.Fatal(err)
 	}
 	check, err = store.Check(ctx, backup)
-	if err != nil || check.SchemaVersion != 7 {
+	if err != nil || check.SchemaVersion != 8 {
 		t.Fatalf("v7 snapshot %+v %v", check, err)
 	}
 	data, _ := os.ReadFile(backup)
@@ -107,7 +107,7 @@ func TestReplyFailedV6MigrationRollsBackBindingTable(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if _, err = raw.Exec(`DROP TABLE replies; DROP TABLE agent_credentials; CREATE TABLE replies(unrelated TEXT); PRAGMA user_version=6`); err != nil {
+	if _, err = raw.Exec(`DROP TABLE task_claims; DROP TABLE replies; DROP TABLE agent_credentials; CREATE TABLE replies(unrelated TEXT); PRAGMA user_version=6`); err != nil {
 		t.Fatal(err)
 	}
 	raw.Close()

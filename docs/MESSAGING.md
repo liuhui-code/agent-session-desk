@@ -38,8 +38,10 @@ asd send --request-id $requestId --to $targetSessionId --run $targetRunId --body
 
 正文每条最多 64 KiB、同库最多 128 条消息，满时保留既有记录并拒绝新请求；当前没有自动清理。粘贴不追加 Enter，多行在部分程序中仍可能执行，确认前检查原程序。服务端处理单次粘贴控制请求；多调用者任务级全局 FIFO、后台自动投递、共享 Host 和真实 agent 接收证据仍未实现。
 
-当前 metadata.sqlite3 为 v7，增加 Run 凭据摘要和关联回复；v1–v6 可事务升级，旧程序不能读取 v7。升级真实数据前先退出旧界面（原 Run 保持），用 metadata backup 保存旧版快照，再切换新版。回退时使用独立状态目录恢复，不能覆盖现有数据库。凭据文件由调用方单独保管，不包含在元数据备份中。消息合同见 [ADR-0046](adr/0046-backend-only-message-delivery.md)，结构化回复见 [ADR-0047](adr/0047-run-bound-inbox-and-structured-replies.md)。
+当前 metadata.sqlite3 为 v8，增加 Run 凭据摘要和关联回复；v1–v7 可事务升级，旧程序不能读取 v8。升级真实数据前先退出旧界面（原 Run 保持），用 metadata backup 保存旧版快照，再切换新版。回退时使用独立状态目录恢复，不能覆盖现有数据库。凭据文件由调用方单独保管，不包含在元数据备份中。消息合同见 [ADR-0046](adr/0046-backend-only-message-delivery.md)，结构化回复见 [ADR-0047](adr/0047-run-bound-inbox-and-structured-replies.md)。
 
 调用方必须同时检查退出码与 JSON 状态；失败时保留原 request ID，再用 `status` 查询，不能根据超时或 stdout 缺失认定没有写入。可控 CLI、并发和进程中断的复验方法见[消息接口合同](testing/MESSAGING_CONTRACT.md)，实际结果见[接口报告](testing/results/2026-11-26-messaging-contract.md)；真实 agent 兼容性仍待验证。
 
-结构化接收路径：控制端先用 agent-bind 绑定 B 的原 Run；A send 建单，B inbox 获取真实请求及 ID，再用 reply --reply-to 提交结果，A replies 查询。此路径不需要向终端粘贴，原消息保持 queued；回复单独保存，不代表产品确认任务完成。每请求一份结果，同 ID 重试定位原结果，错误来源、旧 Run 或冲突内容拒绝。独立模拟进程的实际验证见[报告](testing/results/2026-11-26-structured-replies.md)。
+结构化接收路径：控制端先用 agent-bind 绑定 B 的原 Run；A send 建单，B inbox 获取真实请求及 ID，先 claim 独占领取，再用带 --claim-file 的 reply --reply-to 提交结果，A replies 查询。此路径不需要向终端粘贴，原消息保持 queued；回复单独保存，不代表产品确认任务完成。每请求一份结果，同 ID 重试定位原结果，错误来源、旧 Run 或冲突内容拒绝。独立模拟进程的实际验证见[报告](testing/results/2026-11-26-structured-replies.md)。
+
+ADR-0048 增加 claim／renew／claim-status，inbox 只返回 queued 且未领取／未回复候选。新 reply 必须提供私有 --claim-file，结构化领取与终端投递互斥。首次 newly_claimed=true 且租约有效才授予处理权；恢复回执不能重新授权执行，unknown 不自动分配。完整迁移说明和字段见[接口参考](AGENT_API.md)，实际验证见[领取报告](testing/results/2026-11-26-task-claims.md)。

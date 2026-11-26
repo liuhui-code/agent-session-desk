@@ -1601,7 +1601,8 @@
       "adrs": [
         "ADR-0003",
         "ADR-0004",
-        "ADR-0045"
+        "ADR-0045",
+        "ADR-0048"
       ],
       "priority": "P0",
       "stage": "M3",
@@ -1638,7 +1639,8 @@
         "产品提交、Windows/终端/后端/fixture 版本与测试参数",
         "操作事件和持久化记录前后快照",
         "独立 fixture 输入日志及可核对的输出/状态结果"
-      ]
+      ],
+      "notes": " ADR-0048 当前为显式单次领取、私有领取文件和结果封存；unknown 不自动接管。独立处理进程与 SQLite 局部证据见 2026-11-26-task-claims，不代替共享 Host／自动消费／真实 agent 全场景。"
     },
     {
       "id": "TC-SEND-017",
@@ -2512,7 +2514,8 @@
       ],
       "adrs": [
         "ADR-0003",
-        "ADR-0004"
+        "ADR-0004",
+        "ADR-0048"
       ],
       "priority": "P0",
       "stage": "M3",
@@ -2549,7 +2552,8 @@
         "产品与依赖版本、目标 Session/Run、故障点或事件序列",
         "持久化消息/投递尝试/状态依据的前后记录",
         "独立 fixture 输入/提交日志，Host 与 attach 生命周期记录"
-      ]
+      ],
+      "notes": " ADR-0048 当前为显式单次领取、私有领取文件和结果封存；unknown 不自动接管。独立处理进程与 SQLite 局部证据见 2026-11-26-task-claims，不代替共享 Host／自动消费／真实 agent 全场景。"
     },
     {
       "id": "TC-QUEUE-017",
@@ -3664,7 +3668,8 @@
       "adrs": [
         "ADR-0003",
         "ADR-0004",
-        "ADR-0047"
+        "ADR-0047",
+        "ADR-0048"
       ],
       "priority": "P0",
       "stage": "M3",
@@ -3701,7 +3706,7 @@
         "CLI stdout、stderr、退出结果及 agent 实际工具调用记录",
         "关联 message_id、Session/Run、投递/回复证据与 fixture 独立日志"
       ],
-      "notes": "ADR-0047 当前切片使用原 Run 本地委派凭据、只读 inbox、每请求一份关联结果与离线查询；不验证真实模型 agent、进度聚合或 completed。实际局部执行见 2026-11-26-structured-replies 报告，目录仍为 designed/not_run。"
+      "notes": "ADR-0047 当前切片使用原 Run 本地委派凭据、只读 inbox、每请求一份关联结果与离线查询；不验证真实模型 agent、进度聚合或 completed。实际局部执行见 2026-11-26-structured-replies 报告，目录仍为 designed/not_run。 ADR-0048 当前为显式单次领取、私有领取文件和结果封存；unknown 不自动接管。独立处理进程与 SQLite 局部证据见 2026-11-26-task-claims，不代替共享 Host／自动消费／真实 agent 全场景。"
     },
     {
       "id": "TC-REPLY-002",
@@ -3781,7 +3786,8 @@
       "adrs": [
         "ADR-0003",
         "ADR-0004",
-        "ADR-0047"
+        "ADR-0047",
+        "ADR-0048"
       ],
       "priority": "P0",
       "stage": "M3",
@@ -3817,7 +3823,7 @@
         "CLI stdout、stderr、退出结果及 agent 实际工具调用记录",
         "关联 message_id、Session/Run、投递/回复证据与 fixture 独立日志"
       ],
-      "notes": "ADR-0047 当前切片使用原 Run 本地委派凭据、只读 inbox、每请求一份关联结果与离线查询；不验证真实模型 agent、进度聚合或 completed。实际局部执行见 2026-11-26-structured-replies 报告，目录仍为 designed/not_run。"
+      "notes": "ADR-0047 当前切片使用原 Run 本地委派凭据、只读 inbox、每请求一份关联结果与离线查询；不验证真实模型 agent、进度聚合或 completed。实际局部执行见 2026-11-26-structured-replies 报告，目录仍为 designed/not_run。 ADR-0048 当前为显式单次领取、私有领取文件和结果封存；unknown 不自动接管。独立处理进程与 SQLite 局部证据见 2026-11-26-task-claims，不代替共享 Host／自动消费／真实 agent 全场景。"
     },
     {
       "id": "TC-REPLY-004",
@@ -3939,7 +3945,8 @@
       "adrs": [
         "ADR-0003",
         "ADR-0004",
-        "ADR-0047"
+        "ADR-0047",
+        "ADR-0048"
       ],
       "priority": "P1",
       "stage": "M3",
@@ -3979,7 +3986,7 @@
         "CLI stdout、stderr、退出结果及 agent 实际工具调用记录",
         "关联 message_id、Session/Run、投递/回复证据与 fixture 独立日志"
       ],
-      "notes": "ADR-0047 当前切片使用原 Run 本地委派凭据、只读 inbox、每请求一份关联结果与离线查询；不验证真实模型 agent、进度聚合或 completed。实际局部执行见 2026-11-26-structured-replies 报告，目录仍为 designed/not_run。"
+      "notes": "ADR-0047 当前切片使用原 Run 本地委派凭据、只读 inbox、每请求一份关联结果与离线查询；不验证真实模型 agent、进度聚合或 completed。实际局部执行见 2026-11-26-structured-replies 报告，目录仍为 designed/not_run。 ADR-0048 当前为显式单次领取、私有领取文件和结果封存；unknown 不自动接管。独立处理进程与 SQLite 局部证据见 2026-11-26-task-claims，不代替共享 Host／自动消费／真实 agent 全场景。"
     },
     {
       "id": "TC-REPLY-007",
@@ -4159,7 +4166,8 @@
       "adrs": [
         "ADR-0003",
         "ADR-0004",
-        "ADR-0047"
+        "ADR-0047",
+        "ADR-0048"
       ],
       "priority": "P0",
       "stage": "M3",
@@ -4198,7 +4206,7 @@
         "CLI stdout、stderr、退出结果及 agent 实际工具调用记录",
         "关联 message_id、Session/Run、投递/回复证据与 fixture 独立日志"
       ],
-      "notes": "ADR-0047 当前切片使用原 Run 本地委派凭据、只读 inbox、每请求一份关联结果与离线查询；不验证真实模型 agent、进度聚合或 completed。实际局部执行见 2026-11-26-structured-replies 报告，目录仍为 designed/not_run。"
+      "notes": "ADR-0047 当前切片使用原 Run 本地委派凭据、只读 inbox、每请求一份关联结果与离线查询；不验证真实模型 agent、进度聚合或 completed。实际局部执行见 2026-11-26-structured-replies 报告，目录仍为 designed/not_run。 ADR-0048 当前为显式单次领取、私有领取文件和结果封存；unknown 不自动接管。独立处理进程与 SQLite 局部证据见 2026-11-26-task-claims，不代替共享 Host／自动消费／真实 agent 全场景。"
     }
   ]
 }

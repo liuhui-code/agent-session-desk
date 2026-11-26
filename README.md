@@ -6,7 +6,7 @@ Windows x64 体验包：[v0.1.0-alpha.1 预发布](https://github.com/liuhui-cod
 
 当前工作区只显示侧栏会话／分组导航，共享左右留白与顶部间距，隐藏侧栏后内容仍保留边距。`Alt+J/K` 切换会话视图，`Ctrl+S` 显隐侧栏，`F6` 切换管理／终端焦点；管理模式固定显示底部快捷键。`F2` 重命名当前活动／所选项；管理 `n` 直接沿最近成功／默认配置创建，`N` 显式编辑，`x` 只关闭视图。最新本机范围见[留白与快捷键验证](docs/testing/results/2026-11-26-workspace-spacing-controls.md)，公开 Alpha 字节仍以其发布报告为准。
 
-管理模式 `r` 重命名所选会话或分组，`Ctrl+R` 刷新；连接失败时 `r` 重试。会话名称独立保存，列表、Tab、搜索和离线历史使用当前显示名，原终端身份与启动快照不变；会话同名增加简短身份标记。当前数据库为 schema v7，旧程序不能直接读取新 schema。分组改名保留稳定 ID、成员和折叠状态，默认组也可改显示名；同级重名／旧版本提交拒绝。实际验证与剩余范围见[会话重命名](docs/testing/results/2026-11-23-session-rename.md)及[组重命名](docs/testing/results/2026-11-23-group-rename.md)。
+管理模式 `r` 重命名所选会话或分组，`Ctrl+R` 刷新；连接失败时 `r` 重试。会话名称独立保存，列表、Tab、搜索和离线历史使用当前显示名，原终端身份与启动快照不变；会话同名增加简短身份标记。当前数据库为 schema v8，旧程序不能直接读取新 schema。分组改名保留稳定 ID、成员和折叠状态，默认组也可改显示名；同级重名／旧版本提交拒绝。实际验证与剩余范围见[会话重命名](docs/testing/results/2026-11-23-session-rename.md)及[组重命名](docs/testing/results/2026-11-23-group-rename.md)。
 
 管理焦点用 `Shift/Ctrl+↑↓`、`K/J` 或 `+/-` 调整并保存所选会话的同组顺序，组标题仍调整同级组，默认组固定首位；终端焦点的同名键仍交给原程序。详见[组排序验证](docs/testing/results/2026-11-23-group-order.md)及[会话排序验证](docs/testing/results/2026-11-24-session-order.md)。
 
@@ -26,7 +26,7 @@ psmux Tab 的管理焦点 `V` 新鲜捕获并复制列表所选会话的当前 p
 
 > 当前阶段：**M0 首批源码迁入已落地，五项 Windows 原生后端场景已在指定 Windows Server 2025 runner 通过；完整验收仍待完成。** 已有 Go / Charm v2 开发切片，包含 psmux Tab 工作区、原生终端输入、通用 CLI 创建、辅助列表／预览及全屏 attach；已有供体验的实验性预发布，尚未完成稳定版验收。运行方法见 [M0 开发指南](docs/M0_DEVELOPMENT.md)，证据分别记录在[源码迁入报告](docs/testing/results/2026-11-21-m0-source-migration.md)和[Windows 执行报告](docs/testing/results/2026-11-21-m0-native-windows.md)。另已完成 0/1/5/10 会话的[原生 Windows 短资源实验](docs/testing/results/2026-11-21-m0-windows-resources.md)，含真实 TUI 启停、重开与直接程序对照。桌面交互、资源预算、长稳和发布仍需独立验收。项目名称与原创部分的许可证仍待定。
 
-后端协作切片提供 `read`、`send`、`deliver`、`status`：读取来源片段、持久建单，通过 `send --deliver` 或 `deliver` 明确投递；前端不增加通信入口，大写 `M` 仍是 Move。原生粘贴不追加 Enter，写入不代表 agent 接收或完成。数据库为 v7；方法及回退边界见[消息说明](docs/MESSAGING.md)。
+后端协作切片提供 `read`、`send`、`deliver`、`status`：读取来源片段、持久建单，通过 `send --deliver` 或 `deliver` 明确投递；前端不增加通信入口，大写 `M` 仍是 Move。原生粘贴不追加 Enter，写入不代表 agent 接收或完成。数据库为 v8；方法及回退边界见[消息说明](docs/MESSAGING.md)。
 
 Agent 接入的命令参数、JSON 字段、作用域、幂等和错误恢复合同见[接口参考](docs/AGENT_API.md)，含 PowerShell 调用示例；已提供 agent-bind／inbox／reply／replies，用绑定原 Run 的凭据提交关联结果；实际范围见[结构化回复验证](docs/testing/results/2026-11-26-structured-replies.md)。
 
@@ -189,3 +189,5 @@ Tab 管理模式现可按 `/` 搜索当前会话，选择后接回原 Run；查�
 目录建议（psmux Tab）：新建工作目录保留自定义输入项，↑↓ 进入浏览，Space 采纳但留在字段、Enter 采纳并下一项；Ctrl+N/P 可在编辑时选择，Tab 采纳或轮换本机目录完成。创建分组时目录首项预选，Tab/Enter 只采纳，Esc 先隐藏再取消；有候选时 ↑↓ 优先选择目录。候选来自已知分组和最多 20 个最近明确成功启动目录，按 backend scope 独立保存为 recent-dirs TOML；这是建议缓存，不是当前 cwd 或历史／SQLite 备份。无效本机目录按 Tab 留在字段，极小窗口恢复普通编辑。详见[本地验证与剩余原生门槛](docs/testing/results/2026-11-24-directory-pickers.md)。
 
 新建终端的“环境覆盖”字段可填 JSON 字符串数组，例如 `["ASD_MODE=dev","ASD_EMPTY="]`；空白或 `[]` 保留继承环境，值中的等号、空格和 `$HOME` 保持字面，不经 shell 插值。覆盖仅用于这次启动，取消／重开不记忆，不写启动模板或 UI 偏好。带环境覆盖的启动错误显示字段定位或通用摘要，保留不确定 Session/Run，避免错误详情回显环境值；编辑字段本身可见。现有 Windows 变量名及 psmux 传输限制继续适用，详见[验证与范围](docs/testing/results/2026-11-24-launch-environment.md)。
+
+后端处理归属已有 claim／renew／claim-status：原 Run 凭据之外，使用单独的私有领取文件授权处理和回复；新 reply 必须带 --claim-file。租约不确定时不自动接管，不改前端；接口与 v7→v8 接入调整见[参考](docs/AGENT_API.md)，实际范围见[领取验证](docs/testing/results/2026-11-26-task-claims.md)。

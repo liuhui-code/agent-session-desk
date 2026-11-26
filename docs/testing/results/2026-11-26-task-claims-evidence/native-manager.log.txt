@@ -1,0 +1,14 @@
+=== RUN   TestWindowsNativeReplyTwoAgentProcesses
+    replies_simulated_windows_test.go:301: two independent simulated agent processes used separate asd.exe tool calls: A send -> B inbox -> computed reply -> A replies; separate-process retry retained one result; queued unchanged
+--- PASS: TestWindowsNativeReplyTwoAgentProcesses (2.34s)
+=== RUN   TestReplyRechecksLiveIdentityWithoutTerminalWrites
+--- PASS: TestReplyRechecksLiveIdentityWithoutTerminalWrites (0.05s)
+=== RUN   TestWindowsNativeTaskClaimCompetitionAndCrash
+=== RUN   TestWindowsNativeTaskClaimCompetitionAndCrash/competition
+    task_claims_simulated_windows_test.go:285: two separate processing workers, one effect; private claim fencing; crash uses exact owned Kill and real 2-second lease; no automatic reassignment or terminal fallback
+=== RUN   TestWindowsNativeTaskClaimCompetitionAndCrash/killed_after_effect
+    task_claims_simulated_windows_test.go:285: two separate processing workers, one effect; private claim fencing; crash uses exact owned Kill and real 2-second lease; no automatic reassignment or terminal fallback
+--- PASS: TestWindowsNativeTaskClaimCompetitionAndCrash (5.52s)
+    --- PASS: TestWindowsNativeTaskClaimCompetitionAndCrash/competition (1.73s)
+    --- PASS: TestWindowsNativeTaskClaimCompetitionAndCrash/killed_after_effect (3.79s)
+PASS

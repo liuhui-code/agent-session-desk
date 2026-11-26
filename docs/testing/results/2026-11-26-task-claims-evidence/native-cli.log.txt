@@ -1,0 +1,13 @@
+=== RUN   TestReplyCredentialFilePublicationIsPrivateAndRepeatable
+--- PASS: TestReplyCredentialFilePublicationIsPrivateAndRepeatable (0.01s)
+=== RUN   TestReplyInvalidArgumentsHaveNoStateOrBackendEffects
+--- PASS: TestReplyInvalidArgumentsHaveNoStateOrBackendEffects (0.01s)
+=== RUN   TestRepliesQueryIsOfflineAndScopeIsolated
+--- PASS: TestRepliesQueryIsOfflineAndScopeIsolated (0.05s)
+=== RUN   TestClaimFileRetainsPrivateKeyAndOriginalIntent
+--- PASS: TestClaimFileRetainsPrivateKeyAndOriginalIntent (0.01s)
+=== RUN   TestClaimInvalidCommandsHaveNoEffects
+--- PASS: TestClaimInvalidCommandsHaveNoEffects (0.00s)
+=== RUN   TestClaimStatusIsOfflineAndDoesNotExposePrivateKey
+--- PASS: TestClaimStatusIsOfflineAndDoesNotExposePrivateKey (0.04s)
+PASS

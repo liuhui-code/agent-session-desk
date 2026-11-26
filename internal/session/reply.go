@@ -42,9 +42,10 @@ func (c AgentCredential) Digest() string {
 }
 
 type ReplyRequest struct {
-	ID      string `json:"reply_id"`
-	ReplyTo string `json:"reply_to"`
-	Body    string `json:"body"`
+	ID      string              `json:"reply_id"`
+	ReplyTo string              `json:"reply_to"`
+	Body    string              `json:"body"`
+	Claim   TaskClaimCredential `json:"-"`
 }
 
 func (r ReplyRequest) Validate() error {
@@ -61,4 +62,5 @@ type Reply struct {
 	Source     Session   `json:"source"`
 	Body       string    `json:"body"`
 	RecordedAt time.Time `json:"recorded_at"`
+	ClaimID    string    `json:"claim_id,omitempty"`
 }

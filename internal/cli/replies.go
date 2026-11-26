@@ -15,7 +15,7 @@ import (
 func agentMessagingCommand(ctx context.Context, command string, args []string, opts backend.Options, stateDir string, input io.Reader, output, errorOutput io.Writer) error {
 	f := flag.NewFlagSet(command, flag.ContinueOnError)
 	f.SetOutput(errorOutput)
-	var tokenFile, sid, rid, bodyFile string
+	var tokenFile, sid, rid, bodyFile, claimFile string
 	var request session.ReplyRequest
 	if command != "replies" {
 		f.StringVar(&tokenFile, "token-file", "", "private Run-bound credential file")
@@ -25,6 +25,7 @@ func agentMessagingCommand(ctx context.Context, command string, args []string, o
 		f.StringVar(&rid, "run", "", "exact Run ID")
 	}
 	if command == "reply" {
+		f.StringVar(&claimFile, "claim-file", "", "private processing claim credential")
 		f.StringVar(&request.ID, "reply-id", "", "stable reply idempotency key")
 		f.StringVar(&request.ReplyTo, "reply-to", "", "original message ID")
 		f.StringVar(&bodyFile, "body-file", "", "UTF-8 result file, or - for stdin")
@@ -64,12 +65,19 @@ func agentMessagingCommand(ctx context.Context, command string, args []string, o
 		return err
 	}
 	if command == "reply" {
-		if !session.ValidID(request.ID) || !session.ValidID(request.ReplyTo) || bodyFile == "" {
-			return fmt.Errorf("reply requires --reply-id, --reply-to and --body-file")
+		if !session.ValidID(request.ID) || !session.ValidID(request.ReplyTo) || bodyFile == "" || claimFile == "" {
+			return fmt.Errorf("reply requires --reply-id, --reply-to, --claim-file and --body-file")
 		}
 		request.Body, err = readMessageBody(bodyFile, input)
 		if err != nil {
 			return err
+		}
+		request.Claim, _, err = loadTaskClaimFile(claimFile)
+		if err != nil {
+			return err
+		}
+		if request.Claim.MessageID != request.ReplyTo {
+			return fmt.Errorf("claim file does not match reply-to")
 		}
 	}
 	b, err := backend.New(opts)

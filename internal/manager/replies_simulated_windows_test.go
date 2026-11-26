@@ -135,8 +135,21 @@ func TestReplyAgentProcess(t *testing.T) {
 		if request.Target.ID != c.Target.ID || request.Target.RunID != c.Target.RunID || request.Body != c.Task {
 			t.Fatal("wrong request reached receiver")
 		}
+		claimID, e := session.NewID()
+		if e != nil {
+			t.Fatal(e)
+		}
+		claimFile := c.CredentialFile + ".claim"
+		claimData, e := replyProcessCall(ctx, c, "", "claim", "--token-file", c.CredentialFile, "--claim-file", claimFile, "--claim-id", claimID, "--message-id", request.ID)
+		if e != nil {
+			t.Fatal(e)
+		}
+		var grant session.TaskClaim
+		if json.Unmarshal(claimData, &grant) != nil || !grant.NewlyClaimed || grant.State != "active" {
+			t.Fatal("receiver did not get a new processing grant")
+		}
 		body := simulatedReply(request.Body) // computed from the actual tool response
-		args := []string{"reply", "--token-file", c.CredentialFile, "--reply-id", c.ReplyID, "--reply-to", request.ID, "--body-file", "-"}
+		args := []string{"reply", "--token-file", c.CredentialFile, "--claim-file", claimFile, "--reply-id", c.ReplyID, "--reply-to", request.ID, "--body-file", "-"}
 		data, err := replyProcessCall(ctx, c, body, args...)
 		if err != nil {
 			t.Fatal(err)

@@ -1,6 +1,6 @@
 # Agent 接入：后端 CLI 接口参考
 
-更新日期：2026-11-26。实现范围：[ADR-0047](adr/0047-run-bound-inbox-and-structured-replies.md) 的后端消息／回复切片；源码与实际验证见[执行报告](testing/results/2026-11-26-structured-replies.md)。当前开发版，没有独立 `api_version` 字段。本参考描述已经实现的命令，不代表真实模型 agent 兼容性或稳定版发布接受。调用方应固定经过验证的程序版本；`asd version` 返回人类可读文本，不是 JSON 能力协商。
+更新日期：2026-11-26。实现范围：[ADR-0048](adr/0048-exclusive-processing-claims-and-uncertain-recovery.md) 的后端消息／领取／回复切片；源码与实际验证见[执行报告](testing/results/2026-11-26-task-claims.md)。当前开发版，没有独立 `api_version` 字段。本参考描述已经实现的命令，不代表真实模型 agent 兼容性或稳定版发布接受。调用方应固定经过验证的程序版本；`asd version` 返回人类可读文本，不是 JSON 能力协商。
 
 不同开发构建可能共用相同版本文本，接入记录还应保留发布标签／源码提交和 exe 的 SHA-256，不能仅凭 version 文本认定二进制相同。
 
@@ -22,7 +22,7 @@ asd [全局参数] 子命令 [子命令参数] [位置参数]
 | `--namespace NAME` | 原会话使用的 namespace；默认 `asd-m0`，格式为 `asd-` 后 1–48 个字母、数字、下划线或连字符 |
 | `--state-dir DIR` | metadata.sqlite3 所在目录 |
 
-所有 `list/read/send/deliver/status/agent-bind/inbox/reply/replies` 调用共用原会话的同一套参数。推荐接入配置保存 exe、bundle、runtime、namespace、state 的绝对路径／值，复用完整参数数组。消息命令不使用 `--config`，传入会拒绝。使用同一个 exe 不等于进入同一个数据作用域；不要根据安装目录或当前工作目录猜测日常 UI 的数据路径。
+所有 `list/read/send/deliver/status/agent-bind/inbox/claim/renew/claim-status/reply/replies` 调用共用原会话的同一套参数。推荐接入配置保存 exe、bundle、runtime、namespace、state 的绝对路径／值，复用完整参数数组。消息命令不使用 `--config`，传入会拒绝。使用同一个 exe 不等于进入同一个数据作用域；不要根据安装目录或当前工作目录猜测日常 UI 的数据路径。
 
 消息幂等作用域是同一 metadata.sqlite3 内的后端种类 + 绝对运行目录 + namespace；Windows 将该作用域转为小写。只复用 `--state-dir`、却改变 runtime 或 namespace，无法查询原消息。`status` 不启动或探测后端，但仍要求相同作用域，且会打开／初始化对应数据库；它不是任意数据库文件的只读检查工具。
 
@@ -48,7 +48,10 @@ asd [全局参数] 子命令 [子命令参数] [位置参数]
 | `deliver MESSAGE_ID` | Message 对象，失败时可能没有对象 | 需要 | 明确尝试一次原生粘贴 |
 | `status MESSAGE_ID` | Message 对象 | 不需要后端可执行文件在线 | 无 |
 | `agent-bind --session ID --run ID --token-file FILE` | 绑定回执 | 需要 | 无；发布私有凭据文件并保存摘要 |
-| `inbox --token-file FILE` | 无回复的 Message 数组 | 需要核对原 Run | 无；不领取任务 |
+| `inbox --token-file FILE` | queued、未领取且无回复的 Message 数组 | 需要核对原 Run | 无；不领取任务 |
+| `claim ...` | TaskClaim 对象 | 需要核对原 Run | 无；独占领取处理权 |
+| `renew ...` | TaskClaim 对象 | 需要核对原 Run | 无；续期有效领取 |
+| `claim-status MESSAGE_ID` | message_id 与可空 claim | 不需要后端在线 | 无；可持久化 unknown |
 | `reply ...` | Reply 对象 | 需要核对原 Run | 无；保存关联结果 |
 | `replies MESSAGE_ID` | Reply 数组，空或一条 | 不需要后端在线 | 无 |
 
@@ -179,7 +182,7 @@ source 字段为 session_id、run_id、record_id、recorded_at、start_line、en
 
 | state | 已知事实 | 调用方后续动作 |
 | --- | --- | --- |
-| queued | 请求持久化，尚无已提交的投递领取 | 保留请求；在明确允许时选择 deliver |
+| queued | 请求持久化，尚无已提交的终端投递领取 | 保留请求；另查 claim-status，明确选择终端或结构化处理路径 |
 | unknown | 投递已领取，输入或回执结果无法确认；可能部分或全部写入 | 停止自动投递，查询／检查原目标；不能自动换 ID 重发 |
 | input_written | 原生粘贴处理屏障确认并保存回执 | 不重复投递；agent 接收和任务完成仍未知 |
 
@@ -231,7 +234,7 @@ if ($statusExitCode -ne 0) { throw "status 失败；保留原请求，不自动�
 
 ## 6. 结构化请求／回复
 
-此路径让合作 agent 通过工具读取请求并提交结果，不解析终端文字。A 使用 send 建单，B 通过 inbox 获取真实 message_id，reply 提交关联结果，A 用 replies 查询。仅走这条路径时，无需 deliver；原消息仍 queued，因为没有向终端写入。回复不是终端投递回执，也不是产品验证过的任务完成。
+此路径让合作 agent 通过工具读取请求并提交结果，不解析终端文字。A 使用 send 建单，B 通过 inbox 获取真实 message_id，先 claim 独占领取，再 reply 提交关联结果，A 用 replies 查询。仅走这条路径时，无需 deliver；原消息仍 queued，因为没有向终端写入。回复不是终端投递回执，也不是产品验证过的任务完成。
 
 ### 6.1 控制端绑定原 Run
 
@@ -262,18 +265,18 @@ asd [全局参数] agent-bind --session SESSION_ID --run RUN_ID --token-file FIL
 asd [全局参数] inbox --token-file FILE
 ```
 
-仅 --token-file 必填，无位置参数。返回该凭据 Run 尚无回复的 Message 数组，无待处理记录时为 []。按 created_at、message_id 升序，最多 128 条；不把名称／当前 Tab 当目标，不返回其他 Run 的请求。查询重新发现原 backend_id／command 和终端状态，并拒绝已记录停止／pane 退出的 Run。
+仅 --token-file 必填，无位置参数。返回该凭据 Run 的 queued、未结构化领取且尚无回复的 Message 数组，无待处理记录时为 []。按 created_at、message_id 升序，最多 128 条；不把名称／当前 Tab 当目标，不返回其他 Run 的请求。查询重新发现原 backend_id／command 和终端状态，并拒绝已记录停止／pane 退出的 Run。
 
-inbox 只读请求，不标已读、不领取、不宣告 agent accepted，更不触发终端粘贴。返回可包含 queued、unknown、input_written，调用者必须读取 state；unknown 需要先核对，不能作为无条件自动执行清单。不要同时让终端文本和 inbox 两条接收路径无协调地执行同一任务。并发读取和保存回复去重不等于任务执行 exactly-once，接入方仍需协调实际处理者。
+inbox 只读请求，不标已读、不领取、不宣告 agent accepted，更不触发终端粘贴。unknown／input_written 或已领取的请求不再进入普通 inbox。原请求可按保存的 ID 用 status、claim-status、replies 检查；空 inbox 不表示所有工作已经完成。不要同时让终端文本和 inbox 两条接收路径无协调地执行同一任务。并发读取和保存回复去重不等于任务执行 exactly-once，接入方仍需协调实际处理者。
 
 ### 6.3 B 提交结果：reply
 
 ```text
-asd [全局参数] reply --token-file FILE --reply-id REPLY_ID --reply-to MESSAGE_ID --body-file FILE
-asd [全局参数] reply --token-file FILE --reply-id REPLY_ID --reply-to MESSAGE_ID --body-file -
+asd [全局参数] reply --token-file FILE --claim-file CLAIM_FILE --reply-id REPLY_ID --reply-to MESSAGE_ID --body-file FILE
+asd [全局参数] reply --token-file FILE --claim-file CLAIM_FILE --reply-id REPLY_ID --reply-to MESSAGE_ID --body-file -
 ```
 
-四个选项均必填，无位置参数。正文的 UTF-8、BOM、非空、64 KiB 和控制字符规则与 send 相同。reply_id 是调用方首次提交前持久保存的稳定 32 位小写十六进制 ID，与 message_id 的标识域分别使用；reply_to 必须是实际 inbox 返回的原 message_id。
+五个选项均必填，无位置参数。--claim-file 使用第 6.6 节成功领取后保留的私有文件，新结果的消息／原 Run／密钥和有效租约均需通过验证；已保存结果的同参数重试只返回原回执，不新授予执行权。正文的 UTF-8、BOM、非空、64 KiB 和控制字符规则与 send 相同。reply_id 是调用方首次提交前持久保存的稳定 32 位小写十六进制 ID，与 message_id 的标识域分别使用；reply_to 必须是实际 inbox 返回的原 message_id。
 
 服务端依据凭据取得来源，再核对原请求的 Session/Run/backend_id/command；不接受 --from，也不信任正文中的名称或 ID 字样。来源不匹配、凭据错误／跨 scope、未知 reply_to、已记录退出的 Run 均拒绝。进程状态与 SQLite 不是原子资源：只保证重验原身份及已观察的停止信息，不声称能识别尚未观测到的退出；任何已保存结果仍绑定原 Run，不改挂新运行。
 
@@ -283,6 +286,7 @@ asd [全局参数] reply --token-file FILE --reply-id REPLY_ID --reply-to MESSAG
 {
   "reply_id": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
   "reply_to": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "claim_id": "cccccccccccccccccccccccccccccccc",
   "source": {
     "session_id": "44444444444444444444444444444444",
     "run_id": "55555555555555555555555555555555",
@@ -300,13 +304,14 @@ asd [全局参数] reply --token-file FILE --reply-id REPLY_ID --reply-to MESSAG
 | --- | --- |
 | reply_id | 稳定回复 ID；首次持久保存的值 |
 | reply_to | 原请求 message_id，不使用最近请求或当前选择推测 |
+| claim_id | 本次独占领取 ID；旧 v7 结果可能没有，不能为旧数据推断领取 |
 | source | 凭据绑定并核对的原 Run 身份快照；其中 terminal_state=unknown，不是查询时实时存活证明 |
 | body | 显式提交的结果正文 |
 | recorded_at | 产品保存结果的 UTC 时间，不是 agent 任务完成时间 |
 
-每条请求先支持一份结果。相同 reply_id、来源、reply_to、正文重试返回原记录与原时间；相同 ID 改内容／父请求，或另一个 ID 再回复同一请求，均冲突，不覆盖已有结果。已存结果使请求从 inbox 移除，但不改变 Message.state，不自动生成 accepted/completed、完成通知或用户验收。
+每条请求先支持一份结果。相同 reply_id、来源、reply_to、领取密钥及正文重试返回原记录与原时间；相同 ID 改内容／父请求，或另一个 ID 再回复同一请求，均冲突，不覆盖已有结果。已存结果使请求从 inbox 移除，但不改变 Message.state，不自动生成 accepted/completed、完成通知或用户验收。
 
-reply 只写元数据，不追加终端输入。结果响应丢失时，先用 replies MESSAGE_ID 查询；原 Run 仍有效且需补确认时，可以用完全相同的 reply_id／参数重试，定位原提交。原 Run 结束后提交会被拒绝，但已保存结果仍可离线查。此重试规则与 deliver 的不确定终端副作用不同。
+reply 只写元数据，不追加终端输入。新结果要求有效的 active 领取，并在同一事务保存回复和封存 replied；租约到期／已知原 Run 退出后不能再提交新结果。结果响应丢失时，先用 replies MESSAGE_ID 查询；原 Run 仍有效且需补确认时，可以用完全相同的 reply_id／参数重试，定位原提交。原 Run 结束后提交会被拒绝，但已保存结果仍可离线查。此重试规则与 deliver 的不确定终端副作用不同。
 
 ### 6.4 A 查询关联结果：replies
 
@@ -323,12 +328,82 @@ asd [同一套全局参数] replies MESSAGE_ID
 1. 控制端对 B 的原 Session/Run 执行 agent-bind，把生成的 token-file 路径交给 B 的接入配置。
 2. A 持久保存 request ID 和目标，执行 send 建单，保存返回 message_id；本路径不需要 --deliver。
 3. B 执行 inbox，读取实际请求正文和 message_id；由接入工作流明确决定处理，不根据无输出猜 ready。
-4. B 持久保存 reply_id 和结果正文，执行 reply，reply_to 使用刚读取的原 message_id。
+4. B 先持久保存 claim_id，执行 claim；仅首次 newly_claimed=true、state=active 且未过期时开始处理。处理期间按需 renew。保存 reply_id 和结果正文，执行带 --claim-file 的 reply，reply_to 使用刚读取的原 message_id。
 5. A 执行 replies 原 message_id，核对 reply_to、source.session_id/source.run_id 和结果；保留原记录供后续审阅。
 6. 错误／超时后保留全部 ID 和原参数，分别用 status 查询投递、replies 查询结果，不把文字 done 或结果到达当作用户验收。
 
+### 6.6 独占领取：claim
+
+```text
+asd [全局参数] claim --token-file RUN_FILE --claim-file PRIVATE_FILE --claim-id CLAIM_ID --message-id MESSAGE_ID --lease-seconds 300
+```
+
+四个路径／ID 参数均必填，无位置参数；--lease-seconds 默认 300，允许 1–3600 的整数秒。调用前保存稳定 claim_id、原 message_id 和全部参数。工具创建独立的随机处理密钥并非覆盖发布 PRIVATE_FILE，父目录须已存在且支持硬链接；已有文件必须匹配原 ID／消息／租约参数。私有文件 v1 包含 claim_id、message_id、lease_seconds、token，与原 Run 的 agent token-file 是两份文件；不要把处理 token 放入命令参数、终端正文或日志。
+
+同一请求只保存一条领取，且只能从 queued、无结果、从未结构化领取的请求建立。与终端 deliver 的领取在同库事务内互斥；领取过的请求无论 active、unknown 或 replied，都不能再自动粘贴到终端。普通终端用户的直接输入不在这个仲裁范围内。
+
+成功新建的示例：
+
+```json
+{
+  "newly_claimed": true,
+  "claim_id": "cccccccccccccccccccccccccccccccc",
+  "message_id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "owner": {
+    "session_id": "44444444444444444444444444444444",
+    "run_id": "55555555555555555555555555555555",
+    "backend_id": "asd_target",
+    "title": "Review",
+    "command": "agent.exe",
+    "terminal_state": "unknown"
+  },
+  "state": "active",
+  "reason": "explicit_processing_claim",
+  "lease_seconds": 300,
+  "expires_at": "2026-11-26T00:05:00Z",
+  "created_at": "2026-11-26T00:00:00Z",
+  "updated_at": "2026-11-26T00:00:00Z"
+}
+```
+
+首次提交成功且尚未过期才返回 newly_claimed=true。相同文件／ID／原参数重试只返回旧记录，newly_claimed=false，不延长截止时间、不再次授予执行权；原记录 unknown 时同时错误退出。新文件或新 ID 不能替换已有领取。公开 claim_id、owner 和状态不包含处理密钥，不能用来伪造续期／回复。
+
+执行方必须同时检查退出码、newly_claimed、state 和 expires_at。首次响应丢失或进程重启后，即使查到 active，也不能推断之前尚未执行；恢复回执不授权重做。超时不能撤回已发生的副作用。先核对原领取与外部工作，没有可靠依据时保持不确定，不自动换 ID 接管。
+
+### 6.7 显式续期：renew
+
+```text
+asd [全局参数] renew --token-file RUN_FILE --claim-file PRIVATE_FILE
+```
+
+两参数必填，无位置参数。核对原 Run 与私有领取密钥后，只有尚未到期的 active 可以续期。延长为当前时间加原 lease_seconds，保留更晚的原截止时间，不修改原期限参数；返回 TaskClaim，newly_claimed 始终 false。unknown／replied 或已知结束的原 Run 拒绝续期，没有自动后台心跳。处理者在有效期间根据任务需要续期，不能在过期后恢复许可。
+
+期限为持久化 UTC 墙钟时间，不是子程序执行时长保证。宿主时钟回拨、未观测的进程退出和外部工作无法通过 SQL 凭空精确判断；一旦 unknown 已持久化，即使时间后来变化也不复活。租约到期不会终止外部进程；本阶段不自动将任务交给另一处理者。
+
+### 6.8 查询处理归属：claim-status
+
+```text
+asd [同一套全局参数] claim-status MESSAGE_ID
+```
+
+离线返回 {"message_id": "原 ID", "claim": null} 或同样包装的 TaskClaim。null 只表示没有结构化领取，不证明没有终端投递或外部执行。未知 message_id／错误 scope 报错，不回落到当前请求。
+
+TaskClaim 在 status／renew／重试回执中 newly_claimed=false。state 与 Message.state 是两个独立状态域：
+
+| claim.state | 含义与后续 |
+| --- | --- |
+| active | 已独占领取，当前观察尚未到期；不证明执行尚未开始或外部任务仍存活 |
+| unknown | 到期或已知原 Run／pane 退出，处理结果无法确认；不能续期、替换或提交新结果 |
+| replied | 同一事务已经保存显式结果；不是 completed 或用户验收 |
+
+查询／相关操作会将已到期或已记录原 Run／pane 退出的 active 持久化为 unknown，因此 claim-status 不是严格只读 SQL 操作；不启动后端，也没有后台扫描。reason 只供解释，不作为稳定错误码。状态不会从 unknown 回 active／queued，所有自动重分配均未实现。
+
+### 6.9 从 v7 接入升级
+
+这是开发版写接口变更：新 reply 必须提供 --claim-file，流程为 inbox → claim → 处理／renew → reply。旧 v7 结果继续由 replies 读取，没有 claim_id 或领取状态，不为它们生成执行许可。旧写调用不提供无领取兼容旁路。私有 claim-file 不包含在 metadata 备份中；恢复旧备份也不能证明外部副作用没发生，不据此重新执行。
+
 ## 7. 版本、证据与接入检查
 
-每次接口行为或字段变化，同步更新本参考、ADR、对应行为测试及实际执行报告；参数／字段删除、重命名或状态语义变化需给出迁移说明。SQLite schema 版本不等于公共 API 版本。当前数据库为 v7，升级和回退按[消息说明](MESSAGING.md)执行，不让 Agent 自行修改表结构。
+每次接口行为或字段变化，同步更新本参考、ADR、对应行为测试及实际执行报告；参数／字段删除、重命名或状态语义变化需给出迁移说明。SQLite schema 版本不等于公共 API 版本。当前数据库为 v8，升级和回退按[消息说明](MESSAGING.md)执行，不让 Agent 自行修改表结构。
 
 接入前核对：固定 exe／bundle；使用原会话作用域；保存完整 Session/Run；持久保存请求 ID 和原参数；明确区分 queued、input_written、unknown；在错误和超时后查询原 ID。用[模拟接口合同](testing/MESSAGING_CONTRACT.md)复验故障行为，再在实际 agent／版本上补接入证据。现有模拟通过不代表它已理解任务或能够回复。

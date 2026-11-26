@@ -1,0 +1,78 @@
+=== RUN   TestMessageSchemaV5UpgradeBackupAndCapacity
+--- PASS: TestMessageSchemaV5UpgradeBackupAndCapacity (0.34s)
+=== RUN   TestMessageOutboxPersistsAndDeduplicatesExactIntent
+--- PASS: TestMessageOutboxPersistsAndDeduplicatesExactIntent (0.02s)
+=== RUN   TestMessageClaimIsExclusiveAndNeverReplaysUncertainWrite
+--- PASS: TestMessageClaimIsExclusiveAndNeverReplaysUncertainWrite (0.02s)
+=== RUN   TestReplySchemaV6MigrationRecoveryAndNoPlaintextCredential
+--- PASS: TestReplySchemaV6MigrationRecoveryAndNoPlaintextCredential (0.05s)
+=== RUN   TestReplyFailedV6MigrationRollsBackBindingTable
+--- PASS: TestReplyFailedV6MigrationRollsBackBindingTable (0.02s)
+=== RUN   TestReplyRejectsWrongSourceAndPreservesConflictingResults
+--- PASS: TestReplyRejectsWrongSourceAndPreservesConflictingResults (0.02s)
+=== RUN   TestReplyConcurrentWritersDeduplicateOrRefuseReplacement
+=== RUN   TestReplyConcurrentWritersDeduplicateOrRefuseReplacement/true
+=== RUN   TestReplyConcurrentWritersDeduplicateOrRefuseReplacement/false
+--- PASS: TestReplyConcurrentWritersDeduplicateOrRefuseReplacement (1.58s)
+    --- PASS: TestReplyConcurrentWritersDeduplicateOrRefuseReplacement/true (0.78s)
+    --- PASS: TestReplyConcurrentWritersDeduplicateOrRefuseReplacement/false (0.80s)
+=== RUN   TestReplyCredentialScopeRotationAndPaneExitRejections
+--- PASS: TestReplyCredentialScopeRotationAndPaneExitRejections (0.02s)
+=== RUN   TestReplyBindingCapacityDoesNotRotateOrPrune
+--- PASS: TestReplyBindingCapacityDoesNotRotateOrPrune (0.44s)
+=== RUN   TestReplyBoundInboxRoundTripDoesNotAdvanceDelivery
+--- PASS: TestReplyBoundInboxRoundTripDoesNotAdvanceDelivery (0.02s)
+=== RUN   TestClaimReplyCannotBypassOwnership
+--- PASS: TestClaimReplyCannotBypassOwnership (0.01s)
+=== RUN   TestClaimSixteenConsumersOnlyOneNewGrant
+--- PASS: TestClaimSixteenConsumersOnlyOneNewGrant (0.78s)
+=== RUN   TestClaimExpiredOwnerNeverReactivatesAfterReopen
+--- PASS: TestClaimExpiredOwnerNeverReactivatesAfterReopen (0.02s)
+=== RUN   TestClaimTerminalRaceHasOneOwnershipPath
+--- PASS: TestClaimTerminalRaceHasOneOwnershipPath (0.12s)
+=== RUN   TestClaimObservedOwnerStopBecomesUnknown
+--- PASS: TestClaimObservedOwnerStopBecomesUnknown (0.02s)
+PASS
+ok  	github.com/liuhui-code/agent-session-desk/internal/store	5.267s
+=== RUN   TestMessageFaultProcessRecoveryNeverReplays
+=== RUN   TestMessageFaultProcessRecoveryNeverReplays/queued
+=== RUN   TestMessageFaultProcessRecoveryNeverReplays/claimed
+=== RUN   TestMessageFaultProcessRecoveryNeverReplays/partial
+=== RUN   TestMessageFaultProcessRecoveryNeverReplays/written
+=== RUN   TestMessageFaultProcessRecoveryNeverReplays/receipt
+--- PASS: TestMessageFaultProcessRecoveryNeverReplays (0.27s)
+    --- PASS: TestMessageFaultProcessRecoveryNeverReplays/queued (0.06s)
+    --- PASS: TestMessageFaultProcessRecoveryNeverReplays/claimed (0.04s)
+    --- PASS: TestMessageFaultProcessRecoveryNeverReplays/partial (0.06s)
+    --- PASS: TestMessageFaultProcessRecoveryNeverReplays/written (0.05s)
+    --- PASS: TestMessageFaultProcessRecoveryNeverReplays/receipt (0.06s)
+=== RUN   TestMessageFaultWorkerProcess
+--- PASS: TestMessageFaultWorkerProcess (0.00s)
+=== RUN   TestMessageFaultSixteenConsumersWriteOnce
+--- PASS: TestMessageFaultSixteenConsumersWriteOnce (0.09s)
+=== RUN   TestMessageFaultBusyDatabaseNeverWritesInput
+--- PASS: TestMessageFaultBusyDatabaseNeverWritesInput (0.11s)
+=== RUN   TestMessageSnapshotTransferCopiesRangeAndWritesOnlyAfterDurableClaim
+--- PASS: TestMessageSnapshotTransferCopiesRangeAndWritesOnlyAfterDurableClaim (0.12s)
+=== RUN   TestMessageRejectsNewRunAndKeepsUncertainInputUnknown
+--- PASS: TestMessageRejectsNewRunAndKeepsUncertainInputUnknown (0.02s)
+=== RUN   TestMessageWrittenBeforeReceiptCancellationStaysUnknown
+--- PASS: TestMessageWrittenBeforeReceiptCancellationStaysUnknown (0.02s)
+=== RUN   TestReplyRechecksLiveIdentityWithoutTerminalWrites
+--- PASS: TestReplyRechecksLiveIdentityWithoutTerminalWrites (0.02s)
+PASS
+ok  	github.com/liuhui-code/agent-session-desk/internal/manager	1.552s
+=== RUN   TestReplyCredentialFilePublicationIsPrivateAndRepeatable
+--- PASS: TestReplyCredentialFilePublicationIsPrivateAndRepeatable (0.03s)
+=== RUN   TestReplyInvalidArgumentsHaveNoStateOrBackendEffects
+--- PASS: TestReplyInvalidArgumentsHaveNoStateOrBackendEffects (0.02s)
+=== RUN   TestRepliesQueryIsOfflineAndScopeIsolated
+--- PASS: TestRepliesQueryIsOfflineAndScopeIsolated (0.03s)
+=== RUN   TestClaimFileRetainsPrivateKeyAndOriginalIntent
+--- PASS: TestClaimFileRetainsPrivateKeyAndOriginalIntent (0.04s)
+=== RUN   TestClaimInvalidCommandsHaveNoEffects
+--- PASS: TestClaimInvalidCommandsHaveNoEffects (0.00s)
+=== RUN   TestClaimStatusIsOfflineAndDoesNotExposePrivateKey
+--- PASS: TestClaimStatusIsOfflineAndDoesNotExposePrivateKey (0.06s)
+PASS
+ok  	github.com/liuhui-code/agent-session-desk/internal/cli	2.961s

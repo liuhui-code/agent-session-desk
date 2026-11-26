@@ -32,17 +32,25 @@ func TestReplyRechecksLiveIdentityWithoutTerminalWrites(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
+	secret, e := session.NewAgentCredential(strings.Repeat("d", 32), q.ID)
+	if e != nil {
+		t.Fatal(e)
+	}
+	key := session.TaskClaimCredential{ID: strings.Repeat("d", 32), MessageID: q.ID, Secret: secret.Secret}
+	if _, e = m.ClaimTask(ctx, c, key, 300); e != nil {
+		t.Fatal(e)
+	}
 	f.items[0].RunID = strings.Repeat("b", 32)
 	if _, err = m.Inbox(ctx, c); err == nil {
 		t.Fatal("old credential followed new Run")
 	}
-	r := session.ReplyRequest{ID: strings.Repeat("c", 32), ReplyTo: q.ID, Body: "result"}
+	r := session.ReplyRequest{ID: strings.Repeat("c", 32), ReplyTo: q.ID, Body: "result", Claim: key}
 	if _, err = m.Reply(ctx, c, r); err == nil {
 		t.Fatal("stale source replied")
 	}
 	f.items[0] = v
 	rows, err := m.Inbox(ctx, c)
-	if err != nil || len(rows) != 1 {
+	if err != nil || len(rows) != 0 {
 		t.Fatalf("inbox %+v %v", rows, err)
 	}
 	if _, err = m.Reply(ctx, c, r); err != nil {

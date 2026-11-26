@@ -48,7 +48,7 @@ func TestSessionOrderV4ReadOnlyMigrationAndV5Snapshot(t *testing.T) {
 		t.Fatal(e)
 	}
 	check, e = store.Check(ctx, path)
-	if e != nil || check.SchemaVersion != 7 {
+	if e != nil || check.SchemaVersion != 8 {
 		t.Fatalf("v5 migration: %+v %v", check, e)
 	}
 	original, e := db.History(ctx, 10)
