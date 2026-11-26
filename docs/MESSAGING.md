@@ -1,6 +1,6 @@
 # 显式跨会话消息
 
-当前为开发切片：读取带来源的屏幕快照，建立持久请求，再由目标 psmux 视图明确粘贴。状态最多证明 input_written；agent 的接收和任务完成仍未知。
+当前为后端／CLI 开发切片，供 agent 或工具调用；前端没有消息操作入口，管理大写 `M` 仍为 Move。读取来源快照、建立持久请求及明确投递均可在没有 TUI 时运行。状态最多证明 input_written，agent 接收和任务完成仍未知。
 
 下面的命令共用原会话的 `--terminal-bundle`、`--namespace`、`--runtime-dir` 和 `--state-dir` 全局选项，放在子命令前。ID 使用 list/read 返回的完整值；示例变量不是会话名称或行号。
 
@@ -9,6 +9,7 @@ asd list --json
 $source = asd read --lines 60 $sourceSessionId | ConvertFrom-Json
 $requestId = [guid]::NewGuid().ToString('N')
 asd send --request-id $requestId --to $targetSessionId --run $targetRunId --source-run $source.run_id --record $source.record_id --start-line 1 --end-line 3
+asd deliver $requestId
 asd status $requestId
 ```
 
@@ -21,7 +22,9 @@ asd send --request-id $requestId --to $targetSessionId --run $targetRunId --body
 # --body-file - 显式读取 stdin；同一请求不可同时指定文件和来源快照。
 ```
 
-发送命令只落盘，返回 queued，不向终端写入。请进入目标会话，F6 到管理模式，选中当前已打开的同一会话，按 m。检查目标、来源及正文；上下／翻页键滚动，默认 Cancel，Tab 选择 Paste 后 Enter 确认。正文按转义预览展示，实际粘贴仍保留原 UTF-8 文本。Esc 返回后 F6 恢复终端输入，用户自行决定是否按 Enter 提交。多个 queued 请求按当前 Run 的最早记录逐条复核。
+`send` 默认只落盘，返回 queued；agent／工具调用 `deliver MESSAGE_ID` 完成明确投递，也可在 send 参数中加 `--deliver`，一次建单并投递。同一请求已写入时重复 `send --deliver` 返回原记录，不再次写入；unknown 保留错误与不确定状态，不重放。`deliver` 重复已消费请求会拒绝。整个路径不要求打开 TUI 或进入管理模式。
+
+底层复用原生认证控制通道和 send-paste，通过显式原 pane 路由；不创建持久视图、不发送尺寸、不抢焦点。正文不追加 Enter，多行在部分程序中仍可能执行；调用方必须明确选择是否投递，不依据无输出时间猜测 agent ready。
 
 | 状态 | 含义 |
 | --- | --- |
@@ -31,6 +34,6 @@ asd send --request-id $requestId --to $targetSessionId --run $targetRunId --body
 
 同一请求 ID 重复同一参数会定位原请求；改变目标、正文或来源区间需要新的请求 ID。写入结果不明时先 status 核对，不能换 ID 当成安全重试。status 不需要后端程序在线。
 
-正文每条最多 64 KiB、同库最多 128 条消息，满时保留既有记录并拒绝新请求；当前没有自动清理。粘贴不追加 Enter，多行在部分程序中仍可能执行，确认前检查原程序。首轮按一个管理视图操作同一目标；多 TUI／辅助 attach／外部客户端同时输入的全局仲裁、自动投递、后台 Host 和真实 agent 接收证据仍未实现。
+正文每条最多 64 KiB、同库最多 128 条消息，满时保留既有记录并拒绝新请求；当前没有自动清理。粘贴不追加 Enter，多行在部分程序中仍可能执行，确认前检查原程序。服务端处理单次粘贴控制请求；多调用者任务级全局 FIFO、后台自动投递、共享 Host 和真实 agent 接收证据仍未实现。
 
-此功能将 metadata.sqlite3 升级至 v6；旧版不能读取 v6。升级实际数据前先退出旧界面（原 Run 保持），使用既有 metadata backup 保存一份 v5 快照，再切换新版；回退时使用独立状态目录恢复，不能直接覆盖现有数据库。功能合同见 [ADR-0045](adr/0045-explicit-message-outbox-and-owned-paste.md)，验证见[报告](testing/results/2026-11-26-explicit-messaging.md)。
+此功能将 metadata.sqlite3 升级至 v6；旧版不能读取 v6。升级实际数据前先退出旧界面（原 Run 保持），使用既有 metadata backup 保存一份 v5 快照，再切换新版；回退时使用独立状态目录恢复，不能直接覆盖现有数据库。功能合同见 [ADR-0046](adr/0046-backend-only-message-delivery.md)，验证见[报告](testing/results/2026-11-26-headless-messaging.md)。

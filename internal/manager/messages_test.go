@@ -129,3 +129,47 @@ func TestMessageWrittenBeforeReceiptCancellationStaysUnknown(t *testing.T) {
 		t.Fatalf("durable uncertainty: %+v %v", durable, e)
 	}
 }
+
+type headlessMessageTerminal struct {
+	terminal
+	paste func(context.Context, session.Session, string) error
+}
+
+func (s *headlessMessageTerminal) Paste(ctx context.Context, v session.Session, body string) error {
+	return s.paste(ctx, v, body)
+}
+
+func TestHeadlessMessageDeliveryNeedsNoUIOrInjectedCallback(t *testing.T) {
+	ctx := context.Background()
+	db, e := store.Open(ctx, filepath.Join(t.TempDir(), "metadata.sqlite3"), "a")
+	if e != nil {
+		t.Fatal(e)
+	}
+	defer db.Close()
+	v := observed()
+	writes := 0
+	native := &headlessMessageTerminal{terminal: terminal{items: []session.Session{v}}}
+	native.paste = func(ctx context.Context, target session.Session, body string) error {
+		writes++
+		stored, e := db.Message(ctx, strings.Repeat("a", 32))
+		if e != nil || stored.State != "unknown" {
+			t.Fatal("backend input before durable claim")
+		}
+		if target.ID != v.ID || target.RunID != v.RunID || body != "literal task" {
+			t.Fatal("backend target or payload changed")
+		}
+		return nil
+	}
+	m := manager.New(native, db)
+	q, e := m.QueueMessage(ctx, session.MessageRequest{RequestID: strings.Repeat("a", 32), TargetSessionID: v.ID, TargetRunID: v.RunID, Body: "literal task"})
+	if e != nil {
+		t.Fatal(e)
+	}
+	written, e := m.DeliverQueued(ctx, q.ID)
+	if e != nil || written.State != "input_written" || writes != 1 {
+		t.Fatalf("headless receipt %+v %v", written, e)
+	}
+	if _, e = m.DeliverQueued(ctx, q.ID); e == nil || writes != 1 {
+		t.Fatal("headless request replayed")
+	}
+}

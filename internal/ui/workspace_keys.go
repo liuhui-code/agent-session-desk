@@ -81,8 +81,6 @@ func (m *Model) workspaceKeyNow(msg tea.KeyPressMsg) tea.Cmd {
 		return cmd
 	}
 	switch msg.String() {
-	case "m":
-		return m.beginMessageDelivery()
 	case "V":
 		return m.copyVisiblePane()
 	case "d":

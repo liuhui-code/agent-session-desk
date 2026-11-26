@@ -20,7 +20,7 @@ import (
 )
 
 // Opt-in functional slice only. No desktop/IME/soak or real-agent claim.
-func TestWindowsNativeMessagePasteUsesOriginalRunWithoutEnter(t *testing.T) {
+func TestWindowsNativeHeadlessMessagesWithoutUIAndWithoutResize(t *testing.T) {
 	bundle, shell := os.Getenv("ASD_NATIVE_MESSAGING_BUNDLE"), os.Getenv("ASD_NATIVE_MESSAGING_SHELL")
 	if bundle == "" || shell == "" {
 		t.Skip("explicit pinned bundle and shell required")
@@ -97,6 +97,24 @@ func TestWindowsNativeMessagePasteUsesOriginalRunWithoutEnter(t *testing.T) {
 	if sourceLine == 0 {
 		t.Fatal("independent source marker not captured")
 	}
+	// No terminal client or UI exists while the first message is delivered.
+	var q session.Message
+	if e = json.Unmarshal(call("send", "--request-id", id, "--to", c.ID, "--run", c.RunID, "--source-run", a.RunID, "--record", record.ID, "--start-line", fmt.Sprint(sourceLine), "--end-line", fmt.Sprint(sourceLine), "--deliver"), &q); e != nil || q.State != "input_written" {
+		t.Fatalf("headless send: %+v %v", q, e)
+	}
+	observedDraft := false
+	for i := 0; i < 40; i++ {
+		p, e := b.Preview(ctx, c, 60)
+		if e == nil && strings.HasSuffix(strings.TrimSpace(p.Text), marker) {
+			observedDraft = true
+			break
+		}
+		time.Sleep(100 * time.Millisecond)
+	}
+	if !observedDraft {
+		t.Fatal("headless source paste was not retained as a draft without Enter")
+	}
+	// A later observer acts like an existing TUI; delivery must not alter its size.
 	conn, e := m.OpenTerminal(ctx, c, 300, 24)
 	if e != nil {
 		t.Fatal(e)
@@ -107,15 +125,15 @@ func TestWindowsNativeMessagePasteUsesOriginalRunWithoutEnter(t *testing.T) {
 			if e := conn.Refresh(ctx); e != nil {
 				t.Fatal(e)
 			}
-			s, e := conn.Next(ctx)
+			frame, e := conn.Next(ctx)
 			if e != nil {
 				t.Fatal(e)
 			}
-			if s.Cursor.Visible && strings.Contains(s.Render(300, 24), "PS ") {
-				return s
+			if frame.Cursor.Visible && strings.Contains(frame.Render(300, 24), "PS ") {
+				return frame
 			}
 		}
-		t.Fatal("target prompt not observed")
+		t.Fatal("original prompt unavailable")
 		return terminalTransport.Screen{}
 	}
 	before := screen()
@@ -124,45 +142,34 @@ func TestWindowsNativeMessagePasteUsesOriginalRunWithoutEnter(t *testing.T) {
 		t.Fatal(e)
 	}
 	bodyPath := filepath.Join(root, "message.txt")
-	body := "literal $() ` ;\n\u4e2d\u6587"
+	body := " literal $() ` ; \u4e2d\u6587"
 	if e = os.WriteFile(bodyPath, append([]byte{0xef, 0xbb, 0xbf}, []byte(body)...), 0600); e != nil {
 		t.Fatal(e)
 	}
 	var fileMessage session.Message
-	if e = json.Unmarshal(call("send", "--request-id", fileID, "--to", c.ID, "--run", c.RunID, "--body-file", bodyPath), &fileMessage); e != nil || fileMessage.Body != body || fileMessage.State != "queued" {
-		t.Fatalf("UTF-8 BOM file altered: %+v %v", fileMessage, e)
+	if e = json.Unmarshal(call("send", "--request-id", fileID, "--to", c.ID, "--run", c.RunID, "--body-file", bodyPath), &fileMessage); e != nil || fileMessage.State != "queued" || fileMessage.Body != body {
+		t.Fatalf("UTF-8 file request: %+v %v", fileMessage, e)
 	}
-
-	var q session.Message
-	if e = json.Unmarshal(call("send", "--request-id", id, "--to", c.ID, "--run", c.RunID, "--source-run", a.RunID, "--record", record.ID, "--start-line", fmt.Sprint(sourceLine), "--end-line", fmt.Sprint(sourceLine)), &q); e != nil {
-		t.Fatal(e)
-	}
-	if q.State != "queued" {
-		t.Fatal("CLI send wrote input instead of only creating intent")
-	}
-
-	result, e := m.DeliverMessage(ctx, q.ID, c, conn.Paste)
-	if e != nil || result.State != "input_written" {
-		t.Fatalf("native input receipt: %+v %v", result, e)
+	if e = json.Unmarshal(call("deliver", fileID), &fileMessage); e != nil || fileMessage.State != "input_written" {
+		t.Fatalf("CLI deliver receipt: %+v %v", fileMessage, e)
 	}
 	var after terminalTransport.Screen
 	for i := 0; i < 40; i++ {
 		after = screen()
-		if strings.Contains(after.Render(300, 24), marker) {
+		if strings.Contains(after.Render(300, 24), "literal $() ` ;") {
 			break
 		}
 		time.Sleep(100 * time.Millisecond)
 	}
-	if !strings.Contains(after.Render(300, 24), marker) || after.Cursor.Y != before.Cursor.Y {
-		t.Fatal("paste not retained as a draft on the original prompt; Enter may have been added")
+	if after.Width != before.Width || after.Height != before.Height || after.Cursor.Y != before.Cursor.Y {
+		t.Fatal("headless delivery changed the existing viewport or appended Enter")
 	}
 	var receipt session.Message
-	if e = json.Unmarshal(call("status", q.ID), &receipt); e != nil || receipt.State != "input_written" {
-		t.Fatalf("native CLI status: %+v %v", receipt, e)
+	if e = json.Unmarshal(call("status", fileID), &receipt); e != nil || receipt.State != "input_written" {
+		t.Fatalf("CLI status: %+v %v", receipt, e)
 	}
-	writes := 0
-	if _, e = m.DeliverMessage(ctx, q.ID, c, func(context.Context, string) error { writes++; return nil }); e == nil || writes != 0 {
-		t.Fatal("duplicate native delivery was attempted")
+	if _, e = m.DeliverQueued(ctx, fileID); e == nil {
+		t.Fatal("delivered message became replayable")
 	}
 	rows, e := m.List(ctx)
 	if e != nil {
@@ -179,5 +186,5 @@ func TestWindowsNativeMessagePasteUsesOriginalRunWithoutEnter(t *testing.T) {
 			t.Fatal("original native Run identity changed")
 		}
 	}
-	t.Log("two original native shell Runs retained; snapshot provenance, draft paste, no appended Enter, no duplicate callback; owned cleanup follows")
+	t.Log("headless CLI send/deliver/status, Chinese source, no UI dependency, existing viewport unchanged, original Runs retained; owned cleanup follows")
 }

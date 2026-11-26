@@ -11,7 +11,6 @@ import (
 const workspaceInputCapacity = 64 // defensive input bound, not an agent queue
 
 type workspaceInput struct {
-	deliver          func(context.Context, terminal.Connection) error
 	kind, text       string
 	button           string
 	modifiers        uint8
@@ -80,8 +79,6 @@ func startWorkspaceWriter(ctx context.Context, conn terminal.Connection, inputs 
 				}
 				var err error
 				switch action.kind {
-				case "delivery":
-					err = action.deliver(ctx, conn)
 				case "text":
 					err = conn.SendText(ctx, action.text)
 				case "key":

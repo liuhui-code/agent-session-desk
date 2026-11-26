@@ -18,11 +18,13 @@ func messagingCommand(ctx context.Context, command string, args []string, opts b
 	f.SetOutput(errorOutput)
 	var request session.MessageRequest
 	var file string
+	var deliver bool
 	lines := 60
 	if command == "read" {
 		f.IntVar(&lines, "lines", 60, "screen snapshot lines (1-200)")
 	}
 	if command == "send" {
+		f.BoolVar(&deliver, "deliver", false, "explicitly paste through the backend; no Enter is appended")
 		f.StringVar(&request.RequestID, "request-id", "", "stable 32-hex idempotency key")
 		f.StringVar(&request.TargetSessionID, "to", "", "exact target Session ID")
 		f.StringVar(&request.TargetRunID, "run", "", "exact target Run ID")
@@ -102,7 +104,34 @@ func messagingCommand(ctx context.Context, command string, args []string, opts b
 		if e != nil {
 			return e
 		}
-		return writeJSON(output, msg)
+		if !deliver {
+			return writeJSON(output, msg)
+		}
+		if msg.State != "queued" {
+			if err := writeJSON(output, msg); err != nil {
+				return err
+			}
+			if msg.State == "unknown" {
+				return fmt.Errorf("previous delivery result unknown; no replay attempted")
+			}
+			return nil
+		}
+		result, e := service.DeliverQueued(ctx, msg.ID)
+		if result.ID != "" {
+			if err := writeJSON(output, result); err != nil {
+				return err
+			}
+		}
+		return e
+	}
+	if command == "deliver" {
+		result, e := service.DeliverQueued(ctx, id)
+		if result.ID != "" {
+			if err := writeJSON(output, result); err != nil {
+				return err
+			}
+		}
+		return e
 	}
 	rows, err := service.List(ctx)
 	if err != nil {

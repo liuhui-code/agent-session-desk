@@ -32,6 +32,7 @@ Usage:
   asd [global options] history [--limit N]     Read recorded metadata as JSON
   asd [global options] read [--lines N] SESSION_ID  Capture source-tagged screen lines
   asd [global options] send --request-id ID --to SESSION_ID --run RUN_ID --body-file FILE
+  asd [global options] deliver MESSAGE_ID       Explicit backend paste; no UI or appended Enter
   asd [global options] status MESSAGE_ID        Read a delivery receipt offline
   asd [global options] record SESSION_ID       Save a bounded screen snapshot
   asd [global options] output RUN_ID           Read retained screen records as JSON
@@ -123,7 +124,7 @@ func run(ctx context.Context, args []string, input io.Reader, output, errorOutpu
 		fmt.Fprintln(output, "Agent Session Desk", Version)
 		return nil
 	}
-	if command == "read" || command == "send" || command == "status" {
+	if command == "read" || command == "send" || command == "status" || command == "deliver" {
 		if configPath != "" {
 			return fmt.Errorf("--config is not used by messaging commands")
 		}

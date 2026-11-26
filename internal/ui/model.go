@@ -142,7 +142,6 @@ func newModelWithTokens(ctx context.Context, service Service, tokens designToken
 func (m *Model) Close() {
 	m.closed = true
 	if m.workspace != nil {
-		m.workspace.delivery = nil
 		m.workspace.disconnect()
 		m.workspace.buffered = nil
 	}
@@ -178,7 +177,43 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		return m, cmd
 	}
 	if m.workspace != nil {
-		if cmd, handled := m.workspaceEvents(msg); handled {
+		if cmd, handled := m.sessionStopEvent(msg); handled {
+			return m, cmd
+		}
+		if cmd, handled := m.helpEvent(msg); handled {
+			return m, cmd
+		}
+		if cmd, handled := m.groupRemovalEvent(msg); handled {
+			return m, cmd
+		}
+		if cmd, handled := m.sessionOrderEvent(msg); handled {
+			return m, cmd
+		}
+		if cmd, handled := m.groupOrderEvent(msg); handled {
+			return m, cmd
+		}
+		if cmd, handled := m.groupDialogEvent(msg); handled {
+			return m, cmd
+		}
+		if cmd, handled := m.uiPreferencesEvent(msg); handled {
+			return m, cmd
+		}
+		if cmd, handled := m.sessionRenameEvent(msg); handled {
+			return m, cmd
+		}
+		if cmd, handled := m.sessionSearchEvent(msg); handled {
+			return m, cmd
+		}
+		if cmd, handled := m.densitySettingsEvent(msg); handled {
+			return m, cmd
+		}
+		if cmd, handled := m.quickLaunchEvent(msg); handled {
+			return m, cmd
+		}
+		if cmd, handled := m.launchEvent(msg); handled {
+			return m, cmd
+		}
+		if cmd, handled := m.workspaceEvent(msg); handled {
 			return m, cmd
 		}
 	}

@@ -92,11 +92,11 @@ func (m *Manager) QueueMessage(ctx context.Context, r session.MessageRequest) (s
 	return m.metadata.QueueMessage(ctx, msg)
 }
 
-// DeliverMessage is called by the UI's existing single input writer only.
-// paste must use its identity-bound native connection, never a second client.
+// DeliverMessage coordinates a durable attempt with an explicit backend transport.
+// It does not depend on a TUI, focused view or confirmation dialog.
 func (m *Manager) DeliverMessage(ctx context.Context, id string, target session.Session, paste func(context.Context, string) error) (session.Message, error) {
 	if paste == nil {
-		return session.Message{}, fmt.Errorf("no input owner; explicit UI delivery required")
+		return session.Message{}, fmt.Errorf("no paste transport; backend delivery required")
 	}
 	live, err := m.messageTarget(ctx, target.ID, target.RunID)
 	if err != nil {
@@ -124,4 +124,25 @@ func (m *Manager) DeliverMessage(ctx context.Context, id string, target session.
 		return attempt.Message, fmt.Errorf("input write completed but receipt unconfirmed for %s; do not replay", id)
 	}
 	return saved, nil
+}
+
+// DeliverQueued is the headless protocol operation used by agents and the CLI.
+func (m *Manager) DeliverQueued(ctx context.Context, id string) (session.Message, error) {
+	message, err := m.metadata.Message(ctx, id)
+	if err != nil {
+		return message, err
+	}
+	if message.State != "queued" {
+		return message, fmt.Errorf("message is not queued; no replay attempted")
+	}
+	transport, ok := m.Terminal.(interface {
+		Paste(context.Context, session.Session, string) error
+	})
+	if !ok {
+		return message, fmt.Errorf("backend does not support headless delivery")
+	}
+	if capability, ok := m.Terminal.(interface{ SupportsMessageDelivery() bool }); ok && !capability.SupportsMessageDelivery() {
+		return message, fmt.Errorf("headless delivery not available for this backend")
+	}
+	return m.DeliverMessage(ctx, id, message.Target, func(ctx context.Context, text string) error { return transport.Paste(ctx, message.Target, text) })
 }

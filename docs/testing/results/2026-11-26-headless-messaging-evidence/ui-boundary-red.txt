@@ -1,0 +1,5 @@
+--- FAIL: TestMessagingDoesNotAddManagementKeybindings (0.00s)
+    messaging_boundary_test.go:29: lowercase m introduced a frontend messaging operation
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	1.102s
+FAIL

@@ -55,7 +55,7 @@ func TestMessagingInvalidArgumentsHaveNoBackendOrStateEffects(t *testing.T) {
 	root := t.TempDir()
 	state := filepath.Join(root, "state")
 	runtime := filepath.Join(root, "runtime")
-	tails := [][]string{{"read", "--lines", "0", strings.Repeat("1", 32)}, {"read", "name"}, {"status", "name"}, {"send", "--to", "name", "--body-file", "-"}, {"send", "--request-id", strings.Repeat("a", 32), "--to", strings.Repeat("1", 32), "--run", strings.Repeat("2", 32), "--body-file", "-"}}
+	tails := [][]string{{"read", "--lines", "0", strings.Repeat("1", 32)}, {"read", "name"}, {"status", "name"}, {"deliver", "name"}, {"send", "--to", "name", "--body-file", "-"}, {"send", "--request-id", strings.Repeat("a", 32), "--to", strings.Repeat("1", 32), "--run", strings.Repeat("2", 32), "--body-file", "-"}}
 	for _, tail := range tails {
 		var out, errOut bytes.Buffer
 		args := append([]string{"--backend", filepath.Join(root, "missing"), "--runtime-dir", runtime, "--state-dir", state}, tail...)
