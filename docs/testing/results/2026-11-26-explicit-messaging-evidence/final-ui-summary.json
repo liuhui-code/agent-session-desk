@@ -1,0 +1,29 @@
+{
+  "exit_code": 0,
+  "product_sha256": "5337de52095f61a5096d5cc63df6be71fc6ff3ef1038a39c05b4192e72f3dcce",
+  "top_skip": 0,
+  "runtime_files": [
+    {
+      "sha256": "e971856f89748dc3b458125e9afdd79b5e9574a7c937676116d3cbbd3b71f492",
+      "name": "conpty.dll"
+    },
+    {
+      "sha256": "b17e48b07ef153b420f0a6e178bacd31fb4c3390e21ae746586213fc0719a775",
+      "name": "OpenConsole.exe"
+    },
+    {
+      "sha256": "ff9d8893ecc53ac5caca3bae0146d75ebcaf2cf7edc4abf9d87578469fb7b16b",
+      "name": "psmux.exe"
+    }
+  ],
+  "top_fail": 0,
+  "source": "e80e874",
+  "personal_state_migrated": false,
+  "ui_test_sha256": "c382dc11226b6eb339846c98f35d3ed135dae4292b8977a638d4dccc2c75b64d",
+  "windows_version": "10.0.19045",
+  "top_pass": 6,
+  "desktop_calls": 0,
+  "shell_sha256": "f2833e07a5a7d59153ffc63db83bd6b62f6c63ffd8b5b5099a2feadf6b605336",
+  "windows_build": "19045",
+  "clipboard_calls": 0
+}

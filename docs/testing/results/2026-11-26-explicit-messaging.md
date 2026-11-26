@@ -22,4 +22,6 @@ Windows UI 的默认取消、原 FIFO、完整来源、窄窗禁确认和正文�
 
 此次未改日常 Windows 安装的 manifest、未迁移其个人 metadata、无桌面或剪贴板 API。测试 exe 和开发构建保存在隔离验证目录；实际使用升级须按消息说明先备份，再切换到 v6 构建。
 
+最后仅将两处界面提示改为面向用户的“Pasting once／Paste did not start”，无行为修改；最终源提交 `e80e874` 重新从 clean archive 构建。本机及 Windows 的相关 6 项 UI 顶层检查再次全部通过，失败／跳过 0；这是前述 27 项中 UI 部分的复验，不累加成新的覆盖项，也不把前轮 Manager／Store／CLI 二进制算作最终重新执行。最终 exe SHA-256 `5337de52095f61a5096d5cc63df6be71fc6ff3ef1038a39c05b4192e72f3dcce`，UI 测试及 Windows 10.0.19045、三个运行库文件、shell 的精确散列见[最终摘要](2026-11-26-explicit-messaging-evidence/final-ui-summary.json)。该运行库为既有显式开发 bundle，不将其描述为未经修改的官方发行物。后续文档提交只补证据，不改变此二进制。
+
 本轮不会关闭多客户端全局仲裁、不同请求全局 FIFO、自动队列／Host、agent 回执、输出流／历史、整体 UI、资源或发布门槛。示例只使用合成内容，不记录用户会话正文。
