@@ -77,7 +77,7 @@ func longFieldDialog(m *Model, mode string) *textinput.Model {
 		return &m.launch.fields[index]
 	case "rename":
 		s := sampleSessions()[0]
-		m.renameTarget = &s
+		m.renameTarget = &sessionRename{target: s}
 		m.openSessionRename()
 		return &m.rename.input
 	case "group-name", "group-dir", "group-rename":

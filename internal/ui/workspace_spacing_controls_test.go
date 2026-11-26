@@ -125,7 +125,7 @@ func TestF2RenamesSelectedGroupWithoutTerminalInput(t *testing.T) {
 	}
 }
 
-func TestF2FromHiddenSidebarReturnsToVisibleNavigation(t *testing.T) {
+func TestF2FromHiddenSidebarRestoresHiddenTerminal(t *testing.T) {
 	h := newWorkspaceHarness(t, newRenameFixture())
 	h.until(func() bool { return h.m.workspace.conn != nil })
 	h.send(tea.KeyPressMsg{Code: 's', Mod: tea.ModCtrl})
@@ -133,7 +133,7 @@ func TestF2FromHiddenSidebarReturnsToVisibleNavigation(t *testing.T) {
 	h.until(func() bool { return h.m.rename != nil })
 	h.send(tea.KeyPressMsg{Code: tea.KeyEscape})
 	h.until(func() bool { return h.m.workspace.conn != nil })
-	if h.m.workspace.sidebarHidden || h.m.workspace.focused {
-		t.Fatal("F2 left management acting on hidden selection")
+	if !h.m.workspace.sidebarHidden || !h.m.workspace.focused {
+		t.Fatal("F2 did not restore the hidden terminal origin")
 	}
 }

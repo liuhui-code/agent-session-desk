@@ -63,7 +63,7 @@ func TestSessionRenameWaitsForAcceptedInputAndRejectsReplacedRun(t *testing.T) {
 	h.send(tea.KeyPressMsg{Code: 'u', Mod: tea.ModCtrl})
 	h.send(tea.PasteMsg{Content: "new name"})
 	h.send(tea.KeyPressMsg{Code: tea.KeyEnter})
-	if !strings.Contains(ansi.Strip(h.m.View().Content), "原 Session/Run") {
+	if !strings.Contains(ansi.Strip(h.m.View().Content), "Session/Run changed") {
 		t.Fatal("replaced Run was not rejected")
 	}
 	service.mu.Lock()
@@ -89,7 +89,7 @@ func TestSessionRenameErrorRequiresReconcileInsteadOfRepeatedSubmit(t *testing.T
 	h.send(tea.KeyPressMsg{Code: 'u', Mod: tea.ModCtrl})
 	h.send(tea.PasteMsg{Content: "edited"})
 	h.send(tea.KeyPressMsg{Code: tea.KeyEnter})
-	h.until(func() bool { return strings.Contains(h.m.View().Content, "请Back") })
+	h.until(func() bool { return strings.Contains(h.m.View().Content, "Go back and refresh") })
 	h.send(tea.KeyPressMsg{Code: tea.KeyEnter})
 	h.send(tea.KeyPressMsg{Code: tea.KeyPgDown, Mod: tea.ModCtrl})
 	service.mu.Lock()
@@ -188,7 +188,7 @@ func TestSessionRenameRejectsMultilinePasteAndKeepsTerminalShortcutsLiteral(t *t
 	h.send(tea.KeyPressMsg{Code: 'r', Text: "r"})
 	h.until(func() bool { return strings.Contains(h.m.View().Content, "Rename session") })
 	h.send(tea.PasteMsg{Content: "should\nnot\nsubmit"})
-	if strings.Contains(ansi.Strip(h.m.View().Content), "> should") || !strings.Contains(h.m.View().Content, "单行") {
+	if strings.Contains(ansi.Strip(h.m.View().Content), "> should") || !strings.Contains(h.m.View().Content, "single-line") {
 		t.Fatal("multiline paste was sanitized into a different accepted name")
 	}
 	service.mu.Lock()

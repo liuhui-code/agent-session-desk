@@ -21,10 +21,11 @@ type renameService interface {
 	Rename(context.Context, session.Session, string) (session.Session, error)
 }
 type sessionRename struct {
-	input           textinput.Model
-	target          session.Session
-	busy, submitted bool
-	err             error
+	input                              textinput.Model
+	target                             session.Session
+	busy, submitted                    bool
+	err                                error
+	returnFocused, returnSidebarHidden bool
 }
 type renameResult struct {
 	dialog  *sessionRename
@@ -40,23 +41,24 @@ func (m *Model) beginSessionRename() tea.Cmd {
 	if !ok {
 		return nil
 	}
-	m.renameTarget = &target
+	// Capture the origin before draining accepted input for the dialog.
+	m.renameTarget = &sessionRename{target: target, returnFocused: m.workspace.focused, returnSidebarHidden: m.workspace.sidebarHidden}
 	return m.navigateWorkspace(workspaceRename)
 }
 
 func (m *Model) openSessionRename() tea.Cmd {
-	target := m.renameTarget
+	d := m.renameTarget
 	m.renameTarget = nil
-	if target == nil {
+	if d == nil {
 		return m.connectWorkspace()
 	}
-	d := &sessionRename{input: textinput.New(), target: *target}
+	d.input = textinput.New()
 	d.input.CharLimit = session.MaxTitleInputBytes
 	d.input.Prompt = m.tokens.rename.prompt
 	d.input.SetVirtualCursor(false)
 	d.input.SetStyles(m.styles.renameInput)
 	d.input.KeyMap.Paste.SetEnabled(false)
-	d.input.SetValue(target.Title)
+	d.input.SetValue(d.target.Title)
 	d.input.CursorEnd()
 	m.rename = d
 	m.workspace.focused = false
@@ -81,11 +83,9 @@ func (m *Model) sessionRenameEvent(msg tea.Msg) (tea.Cmd, bool) {
 			m.listCancel()
 		}
 		m.acceptSessionName(result.session)
-		m.rename = nil
-		m.status = ""
 		// The new name also changes discovery order and its reviewed stamp.
 		// Reconcile both from the service for subsequent reviewed moves.
-		return tea.Batch(m.connectWorkspace(), m.loadSessions()), true
+		return m.closeSessionRename(d), true
 	}
 	d := m.rename
 	if d == nil {
@@ -104,8 +104,7 @@ func (m *Model) sessionRenameEvent(msg tea.Msg) (tea.Cmd, bool) {
 		}
 		switch msg.String() {
 		case "esc", "ctrl+c":
-			m.rename = nil
-			return tea.Batch(m.connectWorkspace(), m.loadSessions()), true
+			return m.closeSessionRename(d), true
 		case "enter":
 			return m.submitSessionRename(), true
 		case "tab", "shift+tab", "ctrl+pgup", "ctrl+pgdown", "f6":
@@ -132,6 +131,14 @@ func (m *Model) sessionRenameEvent(msg tea.Msg) (tea.Cmd, bool) {
 		return cmd, true
 	}
 	return nil, false
+}
+
+func (m *Model) closeSessionRename(d *sessionRename) tea.Cmd {
+	m.rename = nil
+	m.status = ""
+	m.workspace.focused = d.returnFocused
+	m.workspace.sidebarHidden = d.returnSidebarHidden
+	return tea.Batch(m.connectWorkspace(), m.loadSessions())
 }
 
 func renameInputSafe(current, added string) bool {

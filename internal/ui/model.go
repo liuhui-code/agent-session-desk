@@ -77,7 +77,7 @@ type Model struct {
 	sidebarMode                      string
 	sidebarCollapsed                 bool
 	rename                           *sessionRename
-	renameTarget                     *session.Session
+	renameTarget                     *sessionRename
 	search                           *sessionSearch
 	clipboard                        hostClipboardState
 	sidebarDensity                   string
