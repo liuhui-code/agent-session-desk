@@ -1,0 +1,40 @@
+//go:build windows
+
+package document
+
+import (
+	"context"
+	"errors"
+	"fmt"
+	"os/exec"
+	"path/filepath"
+
+	"golang.org/x/sys/windows"
+)
+
+// Missing associations use the user's selected system editor fallback. Other
+// association errors remain errors; no registry or default application changes.
+func associatedOrSystemEditor(ctx context.Context, path string, associated func() error, fallback func(string) error) error {
+	err := associated()
+	if !errors.Is(err, windows.ERROR_NO_ASSOCIATION) {
+		return err
+	}
+	if err := ctx.Err(); err != nil {
+		return err
+	}
+	return fallback(path)
+}
+func systemNotepad(path string) error {
+	directory, err := windows.GetSystemDirectory()
+	if err != nil {
+		return err
+	}
+	cmd := exec.Command(filepath.Join(directory, "notepad.exe"), path)
+	cmd.Dir = filepath.Dir(path)
+	if err := cmd.Start(); err != nil {
+		return fmt.Errorf("could not open system Notepad: %w", err)
+	}
+	// The external editor belongs to the user after launch. Cancelling a view
+	// must not terminate it; release only our process handle, never its lifetime.
+	return cmd.Process.Release()
+}

@@ -1,0 +1,39 @@
+{
+  "forced_product_ends": 0,
+  "result": "failed",
+  "stage": "initial-workbench",
+  "controlled_failure_surface": {
+    "open_error": false,
+    "review_reference": false,
+    "open_requested": false,
+    "owner_binding": true
+  },
+  "manager_ends": [
+    true
+  ],
+  "stages": [
+    {
+      "stage": "preflight",
+      "utc": "2026-11-26T13:27:14.9422560Z"
+    },
+    {
+      "stage": "initial-workbench",
+      "utc": "2026-11-26T13:27:15.8412985Z"
+    }
+  ],
+  "error": "Owned terminal lost foreground; no input replay",
+  "wrapper_ends": [
+    true
+  ],
+  "cursor_restored": false,
+  "mouse_api": "SendInput",
+  "product_sha256": "74a86959355ba37ea641d08c8664602fd8daa8e8313c1b621fffe4986fe31d99",
+  "automatic_input_replay": false,
+  "run": "r4",
+  "registry_writes": 0,
+  "clipboard_calls": 0,
+  "personal_state_changed": false,
+  "original_fixture_ends": [
+    true
+  ]
+}

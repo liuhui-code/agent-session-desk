@@ -125,7 +125,7 @@ func (m *Model) documentEvent(msg tea.Msg) (tea.Cmd, bool) {
 		if v.err != nil {
 			m.status = "Could not open Markdown: " + label(v.err.Error())
 		} else {
-			m.status = "Markdown open requested in the default app"
+			m.status = "Markdown open requested in the external editor"
 		}
 		return nil, true
 	}

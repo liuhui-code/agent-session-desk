@@ -20,3 +20,5 @@ file:///C:/project/docs/plan.md
 打开失败会在底部显示原因；没有默认应用时，先在 Windows 中为 .md 配置默认编辑器／阅读器。成功提示表示已请求打开，不表示已阅读。切换会话或断连会取消尚未提交的解析结果。
 
 该功能在 main 开发源码与本轮隔离构建中；历史 Alpha ZIP 和日常 exe 尚未更新。默认个人阅读器及实体 Ctrl+单击仍待桌面验证，准确执行范围见[实际报告](testing/results/2026-11-26-external-markdown.md)和 [ADR-0052](adr/0052-open-external-markdown-documents.md)。
+
+用户可在工作台启动时显式指定 `--document-app system-notepad`，使用系统记事本，不修改默认关联；省略或 `--document-app default` 继续使用 Windows 有效关联。[R5 桌面报告](testing/results/2026-11-26-integrated-desktop.md)已验证受控文档实际可见及外部编辑器跨 UI 退出存活，其他阅读器和实体鼠标仍另验。

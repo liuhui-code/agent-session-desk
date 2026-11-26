@@ -1,0 +1,53 @@
+{
+  "mouse_api": "SendInput",
+  "clipboard_calls": 0,
+  "notepad_closed_normally": true,
+  "forced_product_ends": 0,
+  "cursor_restored": false,
+  "controlled_failure_surface": {
+    "open_requested": true,
+    "open_error": false,
+    "owner_binding": true,
+    "review_reference": true
+  },
+  "automatic_input_replay": false,
+  "wrapper_ends": [
+    true
+  ],
+  "result": "failed",
+  "error": "Notepad did not display controlled Markdown",
+  "stage": "ctrl-click-opens-system-notepad",
+  "registry_writes": 0,
+  "manager_ends": [
+    true
+  ],
+  "product_sha256": "74a86959355ba37ea641d08c8664602fd8daa8e8313c1b621fffe4986fe31d99",
+  "original_fixture_ends": [
+    true,
+    true
+  ],
+  "stages": [
+    {
+      "utc": "2026-11-26T13:25:03.3338127Z",
+      "stage": "preflight"
+    },
+    {
+      "utc": "2026-11-26T13:25:04.6484948Z",
+      "stage": "initial-workbench"
+    },
+    {
+      "utc": "2026-11-26T13:25:07.2910341Z",
+      "stage": "original-decision-created"
+    },
+    {
+      "utc": "2026-11-26T13:25:08.7476651Z",
+      "stage": "pet-opens-original-form"
+    },
+    {
+      "utc": "2026-11-26T13:25:09.2609099Z",
+      "stage": "ctrl-click-opens-system-notepad"
+    }
+  ],
+  "run": "r3",
+  "personal_state_changed": false
+}

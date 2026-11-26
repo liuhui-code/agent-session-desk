@@ -1,0 +1,81 @@
+{
+  "decision_only_after_explicit_y_enter": true,
+  "mouse_api": "SendInput",
+  "notepad_closed_normally": true,
+  "ui_reopen_preserved_original_fixtures": true,
+  "editor_survived_ui_exit": true,
+  "stages": [
+    {
+      "stage": "preflight",
+      "utc": "2026-11-26T13:29:27.8738487Z"
+    },
+    {
+      "stage": "initial-workbench",
+      "utc": "2026-11-26T13:29:28.4409534Z"
+    },
+    {
+      "stage": "focus-current-terminal",
+      "utc": "2026-11-26T13:29:30.9362287Z"
+    },
+    {
+      "stage": "type-current-draft",
+      "utc": "2026-11-26T13:29:31.0123589Z"
+    },
+    {
+      "stage": "original-decision-created",
+      "utc": "2026-11-26T13:29:31.1961761Z"
+    },
+    {
+      "stage": "pet-opens-original-form",
+      "utc": "2026-11-26T13:29:32.7237287Z"
+    },
+    {
+      "stage": "ctrl-click-opens-system-notepad",
+      "utc": "2026-11-26T13:29:33.2028049Z"
+    },
+    {
+      "stage": "pet-returns-from-notepad",
+      "utc": "2026-11-26T13:29:33.6842456Z"
+    },
+    {
+      "stage": "explicit-native-decision",
+      "utc": "2026-11-26T13:29:34.1547033Z"
+    },
+    {
+      "stage": "original-draft-and-identities",
+      "utc": "2026-11-26T13:29:34.6897419Z"
+    },
+    {
+      "stage": "normal-ui-close",
+      "utc": "2026-11-26T13:29:35.2557313Z"
+    },
+    {
+      "stage": "reopen-original-workspace",
+      "utc": "2026-11-26T13:29:35.5021582Z"
+    }
+  ],
+  "clipboard_calls": 0,
+  "owner_window_binding_present": true,
+  "cursor_restored": true,
+  "registry_writes": 0,
+  "wrapper_ends": [
+    true,
+    true
+  ],
+  "personal_state_changed": false,
+  "product_sha256": "74a86959355ba37ea641d08c8664602fd8daa8e8313c1b621fffe4986fe31d99",
+  "forced_product_ends": 0,
+  "original_runs_and_unsubmitted_draft_preserved": true,
+  "manager_ends": [
+    true,
+    true
+  ],
+  "original_fixture_ends": [
+    true,
+    true
+  ],
+  "run": "r5",
+  "pet_restored_original_terminal_foreground": true,
+  "markdown_opened_in_system_notepad": true,
+  "result": "verified"
+}

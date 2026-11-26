@@ -17,3 +17,5 @@ asd --terminal-bundle DIR --runtime-dir DIR --namespace NAME --state-dir DIR --p
 普通状态变化不抢焦点；Windows 若拒绝前台激活或窗口归属无法确认，工作台会提示自行切回原窗口。同宿主多个 Tab 的精确前台选择仍待验；不使用模拟快捷键强行激活。
 
 [ADR-0051](adr/0051-pet-existing-blocking-reminders.md)记录边界，[局部执行报告](testing/results/2026-11-26-pet-blocking.md)记录实际通过范围。原生窗口／后端模拟表单通过不等于实体鼠标、真实 Agent、长期资源或完整 Windows Terminal 桌面验收。
+
+后续 [R5 实机集成](testing/results/2026-11-26-integrated-desktop.md)已在指定宿主中验证从记事本点击猫恢复原 Windows Terminal 前台及原表单；不提高同宿主多个原生 Tab、其他应用或实体鼠标的接受范围。

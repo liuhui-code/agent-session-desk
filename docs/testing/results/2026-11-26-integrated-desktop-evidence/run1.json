@@ -1,0 +1,42 @@
+{
+  "personal_state_changed": false,
+  "product_sha256": "89eeb96477ada4165d53e9bbc7bdd9c3472cabdcb549684dfdc275b813cd4a72",
+  "wrapper_ends": [],
+  "clipboard_calls": 0,
+  "error": "Timed out: owned system Notepad process; no input replay",
+  "forced_product_ends": 0,
+  "mouse_api": "SendInput",
+  "cursor_restored": false,
+  "stage": "ctrl-click-opens-system-notepad",
+  "manager_ends": [],
+  "run": "r1",
+  "automatic_input_replay": false,
+  "result": "failed",
+  "original_fixture_ends": [
+    true,
+    true
+  ],
+  "stages": [
+    {
+      "utc": "2026-11-26T13:13:28.7553673Z",
+      "stage": "preflight"
+    },
+    {
+      "utc": "2026-11-26T13:13:30.0529001Z",
+      "stage": "initial-workbench"
+    },
+    {
+      "utc": "2026-11-26T13:13:33.9197080Z",
+      "stage": "original-decision-created"
+    },
+    {
+      "utc": "2026-11-26T13:13:36.0056476Z",
+      "stage": "pet-opens-original-form"
+    },
+    {
+      "utc": "2026-11-26T13:13:36.6678308Z",
+      "stage": "ctrl-click-opens-system-notepad"
+    }
+  ],
+  "registry_writes": 0
+}

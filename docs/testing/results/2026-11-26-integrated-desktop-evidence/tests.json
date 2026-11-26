@@ -1,0 +1,23 @@
+﻿[
+    {
+        "top_pass":  4,
+        "top_skip":  0,
+        "exe":  "document-integration.test.exe",
+        "top_fail":  0,
+        "exit_code":  0
+    },
+    {
+        "top_pass":  1,
+        "top_skip":  0,
+        "exe":  "fixture-integration.test.exe",
+        "top_fail":  0,
+        "exit_code":  0
+    },
+    {
+        "top_pass":  2,
+        "top_skip":  0,
+        "exe":  "cli-integration.test.exe",
+        "top_fail":  0,
+        "exit_code":  0
+    }
+]

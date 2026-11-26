@@ -13,9 +13,12 @@ import (
 	"github.com/liuhui-code/agent-session-desk/internal/ui"
 )
 
-func runWorkbench(ctx context.Context, service *manager.Manager, options backend.Options, stateDir, configPath string, desktopPet bool, input io.Reader, output io.Writer) error {
+func runWorkbench(ctx context.Context, service *manager.Manager, options backend.Options, stateDir, configPath string, desktopPet bool, documentApp string, input io.Reader, output io.Writer) error {
 	settings := withQuickLaunch(loadUIOptions(options, stateDir), options, stateDir, configPath)
 	settings.OpenDocument = document.Open
+	if documentApp == "system-notepad" {
+		settings.OpenDocument = document.OpenInSystemNotepad
+	}
 	petCtx, cancel := context.WithCancel(ctx)
 	defer cancel()
 	var companion *pet.Companion

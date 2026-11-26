@@ -10,11 +10,11 @@ main 开发版支持[桌宠阻塞提醒](docs/DESKTOP_REMINDERS.md)：复用已�
 asd --terminal-bundle DIR --runtime-dir DIR --namespace NAME --state-dir DIR --pet
 ```
 
-桌宠默认关闭；工作台退出一起关闭，隐藏或退出桌宠不解决事项、不停止会话。该功能已通过 [24 项 Windows 局部验证](docs/testing/results/2026-11-26-pet-blocking.md)，Windows Terminal 自动前台恢复仍待实测；决定见 [ADR-0051](docs/adr/0051-pet-existing-blocking-reminders.md)。
+桌宠默认关闭；工作台退出一起关闭，隐藏或退出桌宠不解决事项、不停止会话。该功能已通过 [24 项 Windows 局部验证](docs/testing/results/2026-11-26-pet-blocking.md)，指定宿主的[完整桌面流](docs/testing/results/2026-11-26-integrated-desktop.md)已验证从记事本点猫切回原窗；决定见 [ADR-0051](docs/adr/0051-pet-existing-blocking-reminders.md)。
 
 Windows x64 体验包：[v0.1.0-alpha.1 预发布](https://github.com/liuhui-code/agent-session-desk/releases/tag/v0.1.0-alpha.1)。下载 ZIP 后按[启动说明](docs/WINDOWS_ALPHA.md)解压并在 Windows Terminal 中运行；该历史预发布不包含上述 `--pet` 联动，日常 exe 也尚未被本轮构建替换。未签名，完整发布验收仍开放。
 
-开发版支持[打开外置 Markdown 文档](docs/EXTERNAL_MARKDOWN.md)：终端焦点下 `Ctrl+单击` 完整可见的本地 `.md`／`.markdown` 路径或基本 Markdown 链接，按 Windows 默认编辑器／阅读器打开。相对路径按原 pane 报告目录解析，推荐绝对路径；实体点击与默认阅读器桌面验收仍开放。
+开发版支持[打开外置 Markdown 文档](docs/EXTERNAL_MARKDOWN.md)：终端焦点下 `Ctrl+单击` 完整可见的本地 `.md`／`.markdown` 路径或基本 Markdown 链接，按 Windows 默认编辑器／阅读器打开。相对路径按原 pane 报告目录解析，推荐绝对路径；可显式加 `--document-app system-notepad`，保持默认关联；受控文档实际打开与原窗恢复见[桌面报告](docs/testing/results/2026-11-26-integrated-desktop.md)，其他阅读器与实体鼠标仍另验。
 
 当前工作区只显示侧栏会话／分组导航，共享左右留白与顶部间距，隐藏侧栏后内容仍保留边距。`Alt+J/K` 切换会话视图，`Ctrl+S` 显隐侧栏，`F6` 切换管理／终端焦点；管理模式固定显示底部快捷键。`F2` 重命名当前活动／所选项；管理 `n` 直接沿最近成功／默认配置创建，`N` 显式编辑，`x` 只关闭视图。最新本机范围见[留白与快捷键验证](docs/testing/results/2026-11-26-workspace-spacing-controls.md)，公开 Alpha 字节仍以其发布报告为准。
 

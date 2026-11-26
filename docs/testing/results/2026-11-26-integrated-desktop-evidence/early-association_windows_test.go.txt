@@ -1,0 +1,36 @@
+//go:build windows
+
+package document
+
+import (
+	"context"
+	"errors"
+	"golang.org/x/sys/windows"
+	"testing"
+)
+
+func TestMarkdownNoAssociationUsesSystemEditorOnlyForMissingAssociation(t *testing.T) {
+	const path = `C:\fixture\notes & plans.md`
+	calls := 0
+	fallback := func(got string) error {
+		calls++
+		if got != path {
+			t.Fatal("path changed")
+		}
+		return nil
+	}
+	if err := associatedOrSystemEditor(context.Background(), path, func() error { return windows.ERROR_NO_ASSOCIATION }, fallback); err != nil || calls != 1 {
+		t.Fatal("missing association did not open editor", err)
+	}
+	if err := associatedOrSystemEditor(context.Background(), path, func() error { return windows.ERROR_ACCESS_DENIED }, fallback); !errors.Is(err, windows.ERROR_ACCESS_DENIED) || calls != 1 {
+		t.Fatal("unrelated failure launched a different app")
+	}
+	if err := associatedOrSystemEditor(context.Background(), path, func() error { return nil }, fallback); err != nil || calls != 1 {
+		t.Fatal("existing association bypassed")
+	}
+	ctx, cancel := context.WithCancel(context.Background())
+	cancel()
+	if err := associatedOrSystemEditor(ctx, path, func() error { return windows.ERROR_NO_ASSOCIATION }, fallback); !errors.Is(err, context.Canceled) || calls != 1 {
+		t.Fatal("cancelled request launched editor")
+	}
+}

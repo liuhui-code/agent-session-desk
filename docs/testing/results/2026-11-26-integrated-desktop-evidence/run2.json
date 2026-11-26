@@ -1,0 +1,52 @@
+{
+  "product_sha256": "89eeb96477ada4165d53e9bbc7bdd9c3472cabdcb549684dfdc275b813cd4a72",
+  "personal_state_changed": false,
+  "manager_ends": [
+    true
+  ],
+  "wrapper_ends": [
+    true
+  ],
+  "cursor_restored": false,
+  "mouse_api": "SendInput",
+  "original_fixture_ends": [
+    true,
+    true
+  ],
+  "stage": "ctrl-click-opens-system-notepad",
+  "error": "Timed out: owned system Notepad process; no input replay",
+  "run": "r2",
+  "automatic_input_replay": false,
+  "controlled_failure_surface": {
+    "review_reference": true,
+    "owner_binding": true,
+    "open_requested": true,
+    "open_error": false
+  },
+  "stages": [
+    {
+      "utc": "2026-11-26T13:17:38.2115747Z",
+      "stage": "preflight"
+    },
+    {
+      "utc": "2026-11-26T13:17:38.9128985Z",
+      "stage": "initial-workbench"
+    },
+    {
+      "utc": "2026-11-26T13:17:41.4434933Z",
+      "stage": "original-decision-created"
+    },
+    {
+      "utc": "2026-11-26T13:17:43.0168354Z",
+      "stage": "pet-opens-original-form"
+    },
+    {
+      "utc": "2026-11-26T13:17:43.5206514Z",
+      "stage": "ctrl-click-opens-system-notepad"
+    }
+  ],
+  "forced_product_ends": 0,
+  "clipboard_calls": 0,
+  "result": "failed",
+  "registry_writes": 0
+}

@@ -588,3 +588,5 @@ M1 恢复补充（2026-11-22）：按用户继续完成 M1 的授权实现 metad
 2026-11-26 桌宠阻塞联动：FL-020 按用户澄清与 [ADR-0051](adr/0051-pet-existing-blocking-reminders.md)，显式 --pet 消费既有工作台快照；WAIT 数量／LINK 未知、原 ID／版本导航、查看仍 pending、隐藏更新与 UI 退出取消，不新增 Agent 接入或数据库。实际范围见[局部报告](testing/results/2026-11-26-pet-blocking.md)；Windows Terminal 精确前台选择、实体鼠标／多屏、资源与完整接受仍开放。
 
 2026-11-26 外置 Markdown：FL-012/016/018 按 [ADR-0052](adr/0052-open-external-markdown-documents.md)加入终端 Ctrl+单击本地文件引用、单元格坐标、原 pane 目录查询与 Windows 默认关联；不注入终端输入。实现和[实际报告](testing/results/2026-11-26-external-markdown.md)分别记录，动态 shell 目录、实体鼠标／默认阅读器桌面和完整接受仍开放，339 项设计执行状态不提升。
+
+2026-11-26 Windows 集成：FL-012/016/018/020 按 [ADR-0053](adr/0053-windows-workflow-and-explicit-system-editor.md)，新增每工作台 --document-app system-notepad，保持默认关联；[R5 实际桌面](testing/results/2026-11-26-integrated-desktop.md)通过原表单／点猫／真实文档／切回原窗／显式选择／UI 关闭重开及外部编辑器存活。日常入口结果另记，真实 Agent、多 Tab、资源及完整接受保持开放。

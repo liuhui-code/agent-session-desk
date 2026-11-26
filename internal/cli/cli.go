@@ -64,6 +64,7 @@ Global options (before the subcommand):
   --state-dir DIR      Persistent metadata directory
   --config PATH        TOML launch configuration (default UI template or start --template)
   --pet                Show existing blocking reminders in a Windows desktop pet
+  --document-app APP   Windows workbench: default or system-notepad
 
 Start options:
   --name NAME          Session label (defaults to executable name)
@@ -106,8 +107,9 @@ func run(ctx context.Context, args []string, input io.Reader, output, errorOutpu
 	flags := flag.NewFlagSet("asd", flag.ContinueOnError)
 	flags.SetOutput(errorOutput)
 	var options backend.Options
-	var configPath, stateDir string
+	var configPath, stateDir, documentApp string
 	var insideTerminal, desktopPet bool
+	flags.StringVar(&documentApp, "document-app", "", "external Markdown app: default or system-notepad")
 	flags.BoolVar(&desktopPet, "pet", false, "native desktop blocking reminder")
 	flags.BoolVar(&insideTerminal, "inside-terminal", false, "internal terminal handoff")
 	flags.StringVar(&options.Binary, "backend", "", "terminal backend executable")
@@ -124,6 +126,9 @@ func run(ctx context.Context, args []string, input io.Reader, output, errorOutpu
 	command := ""
 	if len(commandArgs) > 0 {
 		command, commandArgs = commandArgs[0], commandArgs[1:]
+	}
+	if documentApp != "" && (command != "" || runtime.GOOS != "windows" || (documentApp != "default" && documentApp != "system-notepad")) {
+		return fmt.Errorf("--document-app requires the Windows workbench and default or system-notepad")
 	}
 	if desktopPet && (command != "" || runtime.GOOS != "windows") {
 		return fmt.Errorf("--pet requires the Windows workbench without a subcommand")
@@ -272,7 +277,7 @@ func run(ctx context.Context, args []string, input io.Reader, output, errorOutpu
 	defer metadata.Close()
 	service := manager.New(terminal, metadata)
 	if command == "" {
-		return runWorkbench(ctx, service, options, stateDir, configPath, desktopPet, input, output)
+		return runWorkbench(ctx, service, options, stateDir, configPath, desktopPet, documentApp, input, output)
 	}
 	if command == "start" {
 		created, err := service.Start(ctx, launch)

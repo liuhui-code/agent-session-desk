@@ -22,6 +22,7 @@ func runAttentionFixture(input io.Reader, sink *fixtureSink, path string) (io.Re
 		CLI                         string
 		Globals                     []string
 		CredentialFile, AttentionID string
+		DocumentFile                string
 	}
 	ctx, cancel := context.WithTimeout(context.Background(), 90*time.Second)
 	defer cancel()
@@ -58,6 +59,9 @@ func runAttentionFixture(input io.Reader, sink *fixtureSink, path string) (io.Re
 			return fmt.Errorf("attention fixture receipt mismatch")
 		}
 		return nil
+	}
+	if err := printAttentionDocument(sink, config.DocumentFile); err != nil {
+		return input, err
 	}
 	if _, err := fmt.Fprintln(sink, "Allow the simulated operation? [y/N]"); err != nil {
 		return input, err
