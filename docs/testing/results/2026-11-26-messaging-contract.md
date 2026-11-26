@@ -38,3 +38,7 @@ fixture Scanner 观察的是终端行规处理后的行文本，不能据此声�
 构建准备曾遇本机 Python tarfile 不支持 filter 参数，改为解包本地 git archive；首个副本测试启动过早、未命中最终变异，已舍弃该通过结果，保留的是准备完成后的明确 RED。文档 catalog 首次误用 `--check` 被参数解析拒绝，改为 `check --generated` 后通过；它只校验 339 项设计结构，不执行产品测试。500 物理行检查通过。
 
 本轮未发现必须修正的生产逻辑失败，因此交付为可重复的接口回归与故障验证。真实模型 agent、FX-READY／accepted／completed、自动消费、共享 Host、多请求全局 FIFO、Windows Terminal 桌面输入、UI 长稳和发布接受继续开放。339 catalog 保持 designed/not_run；本报告仅为 TC-SEND-001/010/013/015/016、TC-CTL-007/010 等相关不变量提供局部证据，不能将共享 Host／完整工具调用／原始字节场景整体判为通过。[STAB-001～005](../DEFERRED_STABILITY.md)的界面／资源专项继续保留。
+
+## Agent 接入文档后续
+
+用户随后要求为后续 agent 写好接口资料，新增[CLI 接口参考](../../AGENT_API.md)，以 c5e8226 的实现为依据，覆盖作用域、全部消息选项、JSON 字段、退出结果／超时、幂等与 PowerShell 示例；reply／reply_to 明确为未实现。静态核验解析两份 JSON 示例、解析新增／修改资料的相对链接，并将 10 个消息选项与实际 flag 声明逐项对照；git diff --check 通过。本次仅文档，不重跑产品／Windows 测试，也不增加上述通过数。

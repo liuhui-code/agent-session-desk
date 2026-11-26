@@ -28,6 +28,8 @@ psmux Tab 的管理焦点 `V` 新鲜捕获并复制列表所选会话的当前 p
 
 后端协作切片提供 `read`、`send`、`deliver`、`status`：读取来源片段、持久建单，通过 `send --deliver` 或 `deliver` 明确投递；前端不增加通信入口，大写 `M` 仍是 Move。原生粘贴不追加 Enter，写入不代表 agent 接收或完成。数据库为 v6；方法及回退边界见[消息说明](docs/MESSAGING.md)。
 
+Agent 接入的命令参数、JSON 字段、作用域、幂等和错误恢复合同见[接口参考](docs/AGENT_API.md)，含 PowerShell 调用示例；下一阶段的请求／回复能力会在实现时同步补充，当前未提供 reply 命令。
+
 ## 产品目标
 
 - **Windows 原生运行**：目标是在 Windows Terminal 中使用，核心使用流程不要求 WSL。

@@ -1,5 +1,7 @@
 # 显式跨会话消息
 
+Agent 开发者的命令参数、JSON 字段、错误／超时恢复及接入示例统一见[Agent CLI 接口参考](AGENT_API.md)。本文保留操作概览；reply／reply_to 尚未实现，不作为可调用接口发布。
+
 当前为后端／CLI 开发切片，供 agent 或工具调用；前端没有消息操作入口，管理大写 `M` 仍为 Move。读取来源快照、建立持久请求及明确投递均可在没有 TUI 时运行。状态最多证明 input_written，agent 接收和任务完成仍未知。
 
 下面的命令共用原会话的 `--terminal-bundle`、`--namespace`、`--runtime-dir` 和 `--state-dir` 全局选项，放在子命令前。ID 使用 list/read 返回的完整值；示例变量不是会话名称或行号。

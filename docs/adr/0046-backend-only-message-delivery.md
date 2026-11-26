@@ -18,3 +18,5 @@ CLI 暴露后端接口给 agent／工具：send 默认只建单，send --deliver
 验证见[报告](../testing/results/2026-11-26-headless-messaging.md)。稳定性专项、真实 agent、自动消费与共享 Host 继续分别处理。
 
 2026-11-26 后续验证：用户没有真实 agent，授权先通过模拟完善消息接口稳定性。沿用既有可控 CLI、实际 SQLite／独立故障进程与传输模拟器，合同见[消息接口验证](../testing/MESSAGING_CONTRACT.md)。只恢复该接口的局部故障／并发检查；不增加产品信号或改变前端，不将模拟输入日志当 agent 回执。实际结果另见[报告](../testing/results/2026-11-26-messaging-contract.md)。
+
+2026-11-26 接入文档：用户要求方便后续 agent 接入，统一维护[CLI 接口参考](../AGENT_API.md)，覆盖参数、作用域、ID、JSON、状态／退出码、幂等与不确定恢复，并区分当前实现和下一阶段回复合同。新增／改变公共行为时同步文档、行为测试与证据；本次仅补文档，不发布 reply 占位命令。

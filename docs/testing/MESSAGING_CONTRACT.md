@@ -4,6 +4,8 @@
 
 ## 对外保持的合同
 
+Agent 接入的完整参数／JSON／示例以[CLI 接口参考](../AGENT_API.md)为入口；本文描述验证范围和故障屏障，不是额外的产品命令接口。
+
 - `read` 返回带来源的有界快照，`complete=false`，行号只属于该份快照。
 - `send` 默认只建单；稳定 request ID、相同参数定位同一请求，参数变化冲突。请求和正文不会因发送进程重启而丢失。
 - `deliver`／`send --deliver` 明确投递原 Session/Run；最多确认 `input_written`。不存在 agent 接收／完成证据时不产生 accepted/completed。

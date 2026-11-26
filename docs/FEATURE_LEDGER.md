@@ -576,3 +576,5 @@ M1 恢复补充（2026-11-22）：按用户继续完成 M1 的授权实现 metad
 2026-11-26 后端通信边界修正：按用户澄清与 ADR-0046，撤销前端 m／确认窗和 UI 消息动作，大写 M 仍是 Move；CLI 增加 deliver 与 send --deliver，复用原生 one-shot send-paste 和处理屏障，无 TUI 依赖、尺寸变化或自动 Enter。[执行报告](testing/results/2026-11-26-headless-messaging.md)单列；稳定性专项继续暂缓。
 
 2026-11-26 消息接口验证：用户授权在没有真实 agent 时先做模拟，FL-008/010/013 增加可控 CLI、16 消费者／同一请求单次写入、数据库写锁、五个实际工作进程中断点及认证／回执超时的[局部证据](testing/results/2026-11-26-messaging-contract.md)。复用既有 fixture 与 SQLite，生产接口／前端不变；不将模拟日志作为 agent 接收／完成依据，也不提升整项实现或发布接受状态。
+
+2026-11-26 Agent 接入资料：新增[CLI 接口参考](AGENT_API.md)，逐项对照当前参数、JSON、作用域、退出码、幂等与超时恢复，并提供 PowerShell 示例；reply／reply_to 标记未实现，后续随接口补齐。此为文档交付，不增加功能或原生执行通过数。
