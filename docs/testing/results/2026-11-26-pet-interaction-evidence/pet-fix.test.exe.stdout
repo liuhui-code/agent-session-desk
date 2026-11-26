@@ -1,0 +1,32 @@
+=== RUN   TestWindowsIdleBlinkStillPaintsOpenAndClosedFrames
+--- PASS: TestWindowsIdleBlinkStillPaintsOpenAndClosedFrames (4.57s)
+=== RUN   TestDemoSpritesAndFramesRemainTransparentPremultipliedAndBounded
+--- PASS: TestDemoSpritesAndFramesRemainTransparentPremultipliedAndBounded (2.53s)
+=== RUN   TestDemoPositionHandlesNegativeMonitorCoordinates
+--- PASS: TestDemoPositionHandlesNegativeMonitorCoordinates (0.00s)
+=== RUN   TestIdlePetClickRequestsWorkbenchWithoutInventingAttention
+=== RUN   TestIdlePetClickRequestsWorkbenchWithoutInventingAttention/idle
+=== RUN   TestIdlePetClickRequestsWorkbenchWithoutInventingAttention/unknown
+=== RUN   TestIdlePetClickRequestsWorkbenchWithoutInventingAttention/unreachable
+--- PASS: TestIdlePetClickRequestsWorkbenchWithoutInventingAttention (0.00s)
+    --- PASS: TestIdlePetClickRequestsWorkbenchWithoutInventingAttention/idle (0.00s)
+    --- PASS: TestIdlePetClickRequestsWorkbenchWithoutInventingAttention/unknown (0.00s)
+    --- PASS: TestIdlePetClickRequestsWorkbenchWithoutInventingAttention/unreachable (0.00s)
+=== RUN   TestBlinkKeepsTheCatsHorizontalAnchor
+--- PASS: TestBlinkKeepsTheCatsHorizontalAnchor (3.82s)
+=== RUN   TestLivePetUsesExistingPendingAndViewedNeverClearsIt
+--- PASS: TestLivePetUsesExistingPendingAndViewedNeverClearsIt (0.00s)
+=== RUN   TestLivePetClickOnlyRequestsExactNavigationAndDoesNotMutatePending
+--- PASS: TestLivePetClickOnlyRequestsExactNavigationAndDoesNotMutatePending (0.00s)
+=== RUN   TestWindowsLivePetExistingBlockingForm
+    live_windows_test.go:283: existing pending -> real native pet click -> original form/viewed still pending -> explicit y/Enter -> source resolved/idle; original Run 9b83f9c942c5b9770b995ba3556a9c6e/20029696c1ddf5be232d03948ed00feb preserved; no desktop focus/clipboard APIs
+--- PASS: TestWindowsLivePetExistingBlockingForm (14.37s)
+=== RUN   TestDemoStatesCannotBecomeRealApproval
+--- PASS: TestDemoStatesCannotBecomeRealApproval (0.00s)
+=== RUN   TestDemoAnimationIsBoundedAndClickOnlyCyclesPreview
+--- PASS: TestDemoAnimationIsBoundedAndClickOnlyCyclesPreview (0.00s)
+=== RUN   TestWindowsNativePetABISizes
+--- PASS: TestWindowsNativePetABISizes (0.00s)
+=== RUN   TestWindowsNativePetGDISurfacesReleaseOriginalObjects
+--- PASS: TestWindowsNativePetGDISurfacesReleaseOriginalObjects (0.01s)
+PASS

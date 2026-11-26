@@ -44,6 +44,7 @@ type PetTokens struct {
 	BadgeX, BadgeY, BadgeRadius, BadgeScale                int
 	CaptionY, CaptionWidth, CaptionHeight, CaptionScale    int
 	OpenMS, BlinkMS, AlertMS, BreathOffset                 int
+	SpriteAnchorAlpha                                      uint8
 	Ink, Cream, Alert, Unknown                             color.RGBA
 }
 
@@ -178,7 +179,8 @@ func defaultDesignTokens() designTokens {
 			BadgeX: 126, BadgeY: 24, BadgeRadius: 17, BadgeScale: 2,
 			CaptionY: 152, CaptionWidth: 62, CaptionHeight: 20, CaptionScale: 2,
 			OpenMS: 3200, BlinkMS: 160, AlertMS: 600, BreathOffset: 1,
-			Ink: color.RGBA{R: 83, G: 48, B: 32, A: 255}, Cream: color.RGBA{R: 255, G: 245, B: 222, A: 255},
+			SpriteAnchorAlpha: 200,
+			Ink:               color.RGBA{R: 83, G: 48, B: 32, A: 255}, Cream: color.RGBA{R: 255, G: 245, B: 222, A: 255},
 			Alert: color.RGBA{R: 255, G: 198, B: 81, A: 255}, Unknown: color.RGBA{R: 195, G: 197, B: 202, A: 255}},
 		attention: attentionTokens{marker: "! ", label: "! %d need attention · Alt+N", uncertain: " · last observed"},
 		paths:     pathTokens{background: lipgloss.Color("#222222"), purple: purple, paddingX: 1, width: 60, minWidth: 32, minHeight: 12, rows: 5, shortRows: 3, shortAt: 30, selected: "▶ ", idle: "  ", custom: "✎ Enter a custom path…", above: "↑ More above ", below: "↓ More below ", italic: true},

@@ -60,7 +60,7 @@ func TestLivePetClickOnlyRequestsExactNavigationAndDoesNotMutatePending(t *testi
 		t.Fatal("navigation cleared pending or retained caller slice")
 	}
 	c.Publish([]session.AttentionItem{a, b}, false)
-	if c.Activate() {
-		t.Fatal("stale view authorized navigation")
+	if !c.Activate() || len(requests) != 2 || requests[1] != (Activation{}) {
+		t.Fatal("stale view must restore only the workbench, without authorizing item navigation")
 	}
 }

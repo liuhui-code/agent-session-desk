@@ -51,7 +51,11 @@ func runWorkbench(ctx context.Context, service *manager.Manager, options backend
 				case <-petCtx.Done():
 					return
 				case a := <-requests:
-					program.Send(ui.AttentionActivate{ID: a.ID, Version: a.Version})
+					if a.ID == "" {
+						program.Send(ui.WorkbenchActivate{})
+					} else {
+						program.Send(ui.AttentionActivate{ID: a.ID, Version: a.Version})
+					}
 				}
 			}
 		}()

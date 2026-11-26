@@ -1,0 +1,5 @@
+# github.com/liuhui-code/agent-session-desk/internal/pet [github.com/liuhui-code/agent-session-desk/internal/pet.test]
+internal/pet/interaction_regression_test.go:69:6: opaqueExtent redeclared in this block
+	internal/pet/interaction_regression_test.go:36:6: other declaration of opaqueExtent
+FAIL	github.com/liuhui-code/agent-session-desk/internal/pet [build failed]
+FAIL

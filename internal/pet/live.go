@@ -7,6 +7,8 @@ import (
 )
 
 type Activation struct {
+	// The zero value requests only the existing workbench window. A nonempty
+	// ID requests revalidation and navigation to that exact attention item.
 	ID      string
 	Version int64
 }
@@ -57,19 +59,21 @@ func (c *Companion) setWake(wake func()) {
 
 func (c *Companion) Activate() bool {
 	c.mu.Lock()
-	if !c.view.known || c.activate == nil {
+	if c.activate == nil {
 		c.mu.Unlock()
 		return false
 	}
 	var pending []session.AttentionItem
 	for _, item := range c.view.items {
-		if item.State == "pending" && item.TerminalAvailable {
+		if c.view.known && item.State == "pending" && item.TerminalAvailable {
 			pending = append(pending, item)
 		}
 	}
 	if len(pending) == 0 {
+		callback := c.activate
 		c.mu.Unlock()
-		return false
+		callback(Activation{})
+		return true
 	}
 	index := 0
 	for i, item := range pending {

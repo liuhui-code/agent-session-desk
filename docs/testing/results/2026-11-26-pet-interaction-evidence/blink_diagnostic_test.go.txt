@@ -1,0 +1,49 @@
+package pet
+
+import (
+	"image"
+	"image/png"
+	"os"
+	"path/filepath"
+	"testing"
+)
+
+func TestBlinkAlignmentDiagnostic(t *testing.T) {
+	images, err := sprites(256)
+	if err != nil {
+		t.Fatal(err)
+	}
+	for i := 0; i < 2; i++ {
+		im := images[i]
+		box := image.Rectangle{}
+		var sx, sy, weight int64
+		for y := 0; y < im.Bounds().Dy(); y++ {
+			for x := 0; x < im.Bounds().Dx(); x++ {
+				a := im.RGBAAt(x, y).A
+				if a < 200 {
+					continue
+				}
+				if box.Empty() {
+					box = image.Rect(x, y, x+1, y+1)
+				} else {
+					box = box.Union(image.Rect(x, y, x+1, y+1))
+				}
+				sx += int64(x) * int64(a)
+				sy += int64(y) * int64(a)
+				weight += int64(a)
+			}
+		}
+		t.Logf("cell %d bounds %v center %f,%f", i, box, float64(sx)/float64(weight), float64(sy)/float64(weight))
+		if dir := os.Getenv("ASD_BLINK_PREVIEW"); dir != "" {
+			f, e := os.Create(filepath.Join(dir, []string{"open.png", "blink.png"}[i]))
+			if e != nil {
+				t.Fatal(e)
+			}
+			e = png.Encode(f, im)
+			f.Close()
+			if e != nil {
+				t.Fatal(e)
+			}
+		}
+	}
+}

@@ -13,6 +13,10 @@ type AttentionActivate struct {
 }
 type AttentionCompanionFailure struct{ Err error }
 
+// WorkbenchActivate restores only the already bound native window. It never
+// switches a Run, closes a modal, marks an item viewed or writes terminal input.
+type WorkbenchActivate struct{}
+
 func (m *Model) publishAttention(known bool) {
 	if m.attentionObserver != nil {
 		m.attentionObserver(append([]session.AttentionItem(nil), m.attention.items...), known)
@@ -21,6 +25,11 @@ func (m *Model) publishAttention(known bool) {
 
 func (m *Model) companionEvent(msg tea.Msg) (tea.Cmd, bool) {
 	switch v := msg.(type) {
+	case WorkbenchActivate:
+		if m.attentionFocus == nil || !m.attentionFocus() {
+			m.status = "Bring the original workbench window to the foreground"
+		}
+		return nil, true
 	case AttentionCompanionFailure:
 		m.status = "Desktop reminder unavailable; use Alt+N in the workbench"
 		return nil, true

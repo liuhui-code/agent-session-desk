@@ -1,0 +1,6 @@
+=== RUN   TestBlinkAlignmentDiagnostic
+    blink_diagnostic_test.go:36: cell 0 bounds (39,28)-(243,256) center 135.911421,133.762246
+    blink_diagnostic_test.go:36: cell 1 bounds (29,28)-(233,256) center 125.554833,133.887743
+--- PASS: TestBlinkAlignmentDiagnostic (0.35s)
+PASS
+ok  	github.com/liuhui-code/agent-session-desk/internal/pet	2.111s

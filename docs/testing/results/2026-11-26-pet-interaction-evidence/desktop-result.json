@@ -1,0 +1,97 @@
+{
+  "original_fixture_ends": [
+    true,
+    true
+  ],
+  "cursor_restored": true,
+  "editor_survived_ui_exit": true,
+  "pet_window_y_range": 0.0,
+  "stages": [
+    {
+      "utc": "2026-11-26T14:23:54.9390110Z",
+      "stage": "preflight"
+    },
+    {
+      "utc": "2026-11-26T14:23:57.1335127Z",
+      "stage": "initial-workbench"
+    },
+    {
+      "utc": "2026-11-26T14:24:00.9846865Z",
+      "stage": "focus-current-terminal"
+    },
+    {
+      "utc": "2026-11-26T14:24:01.2639121Z",
+      "stage": "type-current-draft"
+    },
+    {
+      "utc": "2026-11-26T14:24:01.6287814Z",
+      "stage": "original-decision-created"
+    },
+    {
+      "utc": "2026-11-26T14:24:07.2226686Z",
+      "stage": "pet-opens-original-form"
+    },
+    {
+      "utc": "2026-11-26T14:24:08.5877627Z",
+      "stage": "ctrl-click-opens-system-notepad"
+    },
+    {
+      "utc": "2026-11-26T14:24:10.3307246Z",
+      "stage": "pet-returns-from-notepad"
+    },
+    {
+      "utc": "2026-11-26T14:24:11.4670719Z",
+      "stage": "explicit-native-decision"
+    },
+    {
+      "utc": "2026-11-26T14:24:12.3141384Z",
+      "stage": "original-draft-and-identities"
+    },
+    {
+      "utc": "2026-11-26T14:24:14.4735005Z",
+      "stage": "idle-click-from-editor"
+    },
+    {
+      "utc": "2026-11-26T14:24:14.7387163Z",
+      "stage": "idle-click-restores-minimized-terminal"
+    },
+    {
+      "utc": "2026-11-26T14:24:15.1351697Z",
+      "stage": "observe-two-idle-blinks"
+    },
+    {
+      "utc": "2026-11-26T14:24:29.3121516Z",
+      "stage": "normal-ui-close"
+    },
+    {
+      "utc": "2026-11-26T14:24:29.8366888Z",
+      "stage": "reopen-original-workspace"
+    }
+  ],
+  "ui_reopen_preserved_original_fixtures": true,
+  "wrapper_ends": [
+    true,
+    true
+  ],
+  "notepad_closed_normally": true,
+  "clipboard_calls": 0,
+  "manager_ends": [
+    true,
+    true
+  ],
+  "forced_product_ends": 0,
+  "decision_only_after_explicit_y_enter": true,
+  "idle_click_restored_original_terminal": true,
+  "run": "pet-fix",
+  "result": "verified",
+  "pet_restored_original_terminal_foreground": true,
+  "product_sha256": "1897bc9dc73fe519b256a073b368695d3e6accc3495933189ba9d68d9d167105",
+  "mouse_api": "SendInput",
+  "personal_state_changed": false,
+  "owner_window_binding_present": true,
+  "markdown_opened_in_system_notepad": true,
+  "registry_writes": 0,
+  "pet_window_x_range": 0.0,
+  "original_runs_and_unsubmitted_draft_preserved": true,
+  "idle_click_restored_minimized_terminal": true
+}

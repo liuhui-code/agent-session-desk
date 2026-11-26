@@ -1,0 +1,12 @@
+--- FAIL: TestIdlePetClickRequestsWorkbenchWithoutInventingAttention (0.00s)
+    --- FAIL: TestIdlePetClickRequestsWorkbenchWithoutInventingAttention/idle (0.00s)
+        interaction_regression_test.go:27: pet click silently ignored instead of opening its workbench
+    --- FAIL: TestIdlePetClickRequestsWorkbenchWithoutInventingAttention/unknown (0.00s)
+        interaction_regression_test.go:27: pet click silently ignored instead of opening its workbench
+    --- FAIL: TestIdlePetClickRequestsWorkbenchWithoutInventingAttention/unreachable (0.00s)
+        interaction_regression_test.go:27: pet click silently ignored instead of opening its workbench
+--- FAIL: TestBlinkKeepsTheCatsHorizontalAnchor (0.31s)
+    interaction_regression_test.go:47: DPI 96: blink shifts body horizontally by 5 pixels
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/pet	1.782s
+FAIL

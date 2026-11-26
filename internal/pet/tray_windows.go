@@ -67,7 +67,7 @@ func (w *nativeWindow) menu() {
 	labels := []string{"Idle (demo)", "Approval (demo)", "Question (demo)", "Unknown (demo)", "Show / hide", "Exit demo"}
 	commands := []uintptr{1, 2, 3, 4, 5, 6}
 	if w.live != nil {
-		labels = []string{"Open pending item", "Show / hide", "Close desktop reminder"}
+		labels = []string{"Open workbench / pending item", "Show / hide", "Close desktop reminder"}
 		commands = []uintptr{7, 5, 6}
 	}
 	for i, label := range labels {

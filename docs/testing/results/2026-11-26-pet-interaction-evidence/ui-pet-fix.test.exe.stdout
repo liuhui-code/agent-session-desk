@@ -1,0 +1,35 @@
+=== RUN   TestCompanionActivationReusesAttentionNavigationWithoutAnswering
+--- PASS: TestCompanionActivationReusesAttentionNavigationWithoutAnswering (0.00s)
+=== RUN   TestCompanionStaleActivationDoesNotOpenNewerPrompt
+--- PASS: TestCompanionStaleActivationDoesNotOpenNewerPrompt (0.01s)
+=== RUN   TestAttentionReminderPreservesGeometryFocusAndInput
+--- PASS: TestAttentionReminderPreservesGeometryFocusAndInput (0.02s)
+=== RUN   TestAttentionShortcutNavigatesWithoutAnsweringAndViewedStaysPending
+--- PASS: TestAttentionShortcutNavigatesWithoutAnsweringAndViewedStaysPending (0.00s)
+=== RUN   TestAttentionDrainsAcceptedInputAndConsumesLaterPaste
+--- PASS: TestAttentionDrainsAcceptedInputAndConsumesLaterPaste (0.00s)
+=== RUN   TestAttentionLateResolvedResultAndUnavailableObservationDoNotNavigate
+--- PASS: TestAttentionLateResolvedResultAndUnavailableObservationDoNotNavigate (0.01s)
+=== RUN   TestAttentionHeaderClickAndRenderingBoundaries
+=== RUN   TestAttentionHeaderClickAndRenderingBoundaries/[160_40]
+=== RUN   TestAttentionHeaderClickAndRenderingBoundaries/[120_32]
+=== RUN   TestAttentionHeaderClickAndRenderingBoundaries/[63_20]
+=== RUN   TestAttentionHeaderClickAndRenderingBoundaries/[49_12]
+=== RUN   TestAttentionHeaderClickAndRenderingBoundaries/[12_4]
+=== RUN   TestAttentionHeaderClickAndRenderingBoundaries/[2_1]
+--- PASS: TestAttentionHeaderClickAndRenderingBoundaries (0.01s)
+    --- PASS: TestAttentionHeaderClickAndRenderingBoundaries/[160_40] (0.00s)
+    --- PASS: TestAttentionHeaderClickAndRenderingBoundaries/[120_32] (0.00s)
+    --- PASS: TestAttentionHeaderClickAndRenderingBoundaries/[63_20] (0.00s)
+    --- PASS: TestAttentionHeaderClickAndRenderingBoundaries/[49_12] (0.00s)
+    --- PASS: TestAttentionHeaderClickAndRenderingBoundaries/[12_4] (0.00s)
+    --- PASS: TestAttentionHeaderClickAndRenderingBoundaries/[2_1] (0.00s)
+=== RUN   TestAttentionHeaderClickWorksWithSidebarHidden
+--- PASS: TestAttentionHeaderClickWorksWithSidebarHidden (0.01s)
+=== RUN   TestAttentionHeaderClickReleasesOriginalProgramPointer
+--- PASS: TestAttentionHeaderClickReleasesOriginalProgramPointer (0.00s)
+=== RUN   TestCompanionWorkbenchClickRestoresWindowWithoutChangingNavigation
+--- PASS: TestCompanionWorkbenchClickRestoresWindowWithoutChangingNavigation (0.00s)
+=== RUN   TestCompanionWorkbenchRestoreFailureIsVisibleWithoutSwitchingRun
+--- PASS: TestCompanionWorkbenchRestoreFailureIsVisibleWithoutSwitchingRun (0.00s)
+PASS

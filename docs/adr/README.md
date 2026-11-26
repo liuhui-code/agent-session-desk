@@ -83,3 +83,4 @@ ADR-0014 依据用户 2026-11-22 的明确要求接受，部分替代 0001/0002 
 | [0052](0052-open-external-markdown-documents.md) | Ctrl+单击本地 Markdown，原 pane 目录与 Windows 默认关联 | 已接受（开发切片） | [原生局部报告](../testing/results/2026-11-26-external-markdown.md)；实体点击／默认阅读器及动态 shell 目录开放 |
 
 | [0053](0053-windows-workflow-and-explicit-system-editor.md) | Windows 集成工作流、显式系统记事本与日常交付边界 | 已接受 | [实际桌面与交付](../testing/results/2026-11-26-integrated-desktop.md)；真实 Agent／多 Tab／长稳仍开放 |
+| [0054](0054-pet-workbench-restore-and-blink-anchor.md) | 空闲猫恢复原工作台、保留眨眼并对齐图像锚点 | 已接受 | [局部与实际 Windows 桌面](../testing/results/2026-11-26-pet-interaction.md)；多 Tab／多屏／发布开放 |

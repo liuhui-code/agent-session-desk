@@ -4,6 +4,8 @@
 - 状态：已接受，开发切片；完整桌面／资源接受仍开放
 - 关联：FR-14、FL-020；补充 ADR-0006/0049，替代 ADR-0050 的仅演示交付范围
 
+后续 [ADR-0054](0054-pet-workbench-restore-and-blink-anchor.md)补充无可验证事项时的纯窗口恢复；待办导航继续遵循下列核验与输入约束。
+
 ## 背景与决定
 
 用户澄清需要联动上一轮已开发的授权／选择阻塞提示，而不是新增 Agent 接入。桌宠消费现有工作台的 AttentionItem 快照，使用原 attention_id、version、Session／Run 与 pending 生命周期；不新增检测器、Agent 协议、待办库、迁移或来源事件。pet-demo 保留为独立外观诊断，不能代表实际提醒。
