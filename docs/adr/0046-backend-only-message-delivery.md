@@ -16,3 +16,5 @@ CLI 暴露后端接口给 agent／工具：send 默认只建单，send --deliver
 依据：Context7 v3.4.0 文档与固定源码 [connection.rs](https://github.com/psmux/psmux/blob/20aa1d7254ee93f64dafa059ef89341d9767470a/src/server/connection.rs)、[server/mod.rs](https://github.com/psmux/psmux/blob/20aa1d7254ee93f64dafa059ef89341d9767470a/src/server/mod.rs)、[main.rs](https://github.com/psmux/psmux/blob/20aa1d7254ee93f64dafa059ef89341d9767470a/src/main.rs)。复用既有传输语义，不复制 Rust、不升级依赖、不增加常驻 Host。Unix headless 投递暂未接入并明确拒绝。
 
 验证见[报告](../testing/results/2026-11-26-headless-messaging.md)。稳定性专项、真实 agent、自动消费与共享 Host 继续分别处理。
+
+2026-11-26 后续验证：用户没有真实 agent，授权先通过模拟完善消息接口稳定性。沿用既有可控 CLI、实际 SQLite／独立故障进程与传输模拟器，合同见[消息接口验证](../testing/MESSAGING_CONTRACT.md)。只恢复该接口的局部故障／并发检查；不增加产品信号或改变前端，不将模拟输入日志当 agent 回执。实际结果另见[报告](../testing/results/2026-11-26-messaging-contract.md)。

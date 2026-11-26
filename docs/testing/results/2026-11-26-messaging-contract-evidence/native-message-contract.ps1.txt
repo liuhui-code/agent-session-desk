@@ -1,0 +1,27 @@
+$ErrorActionPreference='Stop';$ProgressPreference='SilentlyContinue'
+[Console]::OutputEncoding=[Text.Encoding]::UTF8
+$base=Join-Path $env:USERPROFILE 'asd-acceptance-20261122'
+$root=Join-Path ([Environment]::GetFolderPath('Desktop')) 'Agent Session Desk Alpha 8234c4e'
+$out=Join-Path $base 'messaging-contract-run1-20261126'
+if(Test-Path $out){throw 'Fresh output required'}
+New-Item -ItemType Directory $out|Out-Null
+$m=Get-Content -Raw (Join-Path $root 'alpha.json')|ConvertFrom-Json
+foreach($entry in $m.files.PSObject.Properties){if((Get-FileHash -LiteralPath (Join-Path $root $entry.Name)).Hash.ToLowerInvariant() -cne $entry.Value){throw 'Pinned package changed'}}
+if((Get-FileHash (Join-Path $base 'asd-fixture-sim-contract.exe')).Hash.ToLowerInvariant() -cne '842e6de3f61623bf1451311a183f1d353f505c5308467faec058f7e5c8e8450d'){throw 'Test artifact hash mismatch'}
+if((Get-FileHash (Join-Path $base 'manager-sim-contract.test.exe')).Hash.ToLowerInvariant() -cne '5223cbe78dd0f0d58e005667538d4814e087fb4f810b36423a31dfe398fa7769'){throw 'Test artifact hash mismatch'}
+if((Get-FileHash (Join-Path $base 'session-sim-contract.test.exe')).Hash.ToLowerInvariant() -cne '33ddac40184b8f2783e9059584e1dfb216704fd01452c2ba043e26ef858f8bca'){throw 'Test artifact hash mismatch'}
+if((Get-FileHash (Join-Path $base 'terminal-sim-contract.test.exe')).Hash.ToLowerInvariant() -cne '5f442d47dfd2e0ea35188874cd688c600885ae8c29fde3d45ff4dbd4188de5c3'){throw 'Test artifact hash mismatch'}
+$env:ASD_NATIVE_MESSAGING_BUNDLE=Join-Path $root 'terminal-runtime'
+$env:ASD_NATIVE_MESSAGING_FIXTURE=Join-Path $base 'asd-fixture-sim-contract.exe'
+$cases=@(@{name='session';pattern='^TestMessageContract'},@{name='terminal';pattern='^TestHeadlessPaste'},@{name='manager';pattern='^Test(MessageFault(ProcessRecovery|Sixteen|Busy)|MessageSnapshot|MessageRejects|MessageWritten|HeadlessMessage|WindowsNativeSimulatedAgentMessageContract)'})
+$results=@()
+foreach($case in $cases){
+ $exe=Join-Path $base ($case.name+'-sim-contract.test.exe');$log=Join-Path $out ($case.name+'.stdout')
+ & $exe '-test.v' '-test.run' $case.pattern '-test.timeout' '150s' 2>&1|Set-Content $log -Encoding utf8
+ $code=$LASTEXITCODE;$lines=Get-Content $log
+ $results+=@{name=$case.name;exit_code=$code;top_pass=@($lines|Where-Object{$_ -match '^--- PASS:'}).Count;top_fail=@($lines|Where-Object{$_ -match '^--- FAIL:'}).Count;top_skip=@($lines|Where-Object{$_ -match '^--- SKIP:'}).Count;sha256=(Get-FileHash $exe).Hash.ToLowerInvariant()}
+ if($code -ne 0){$lines|Write-Output;break}
+}
+$summary=@{base_source='b5bb4169073d5ee72d40b25d7003e59de2e7c5ea';results=$results;fixture_sha256=(Get-FileHash $env:ASD_NATIVE_MESSAGING_FIXTURE).Hash.ToLowerInvariant();personal_state_migrated=$false;desktop_calls=0;clipboard_calls=0;simulated_cli_not_real_agent=$true}
+$summary|ConvertTo-Json -Depth 5|Set-Content (Join-Path $out 'summary.json') -Encoding utf8
+$summary|ConvertTo-Json -Depth 5

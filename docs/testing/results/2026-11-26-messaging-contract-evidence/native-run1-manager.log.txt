@@ -1,0 +1,28 @@
+=== RUN   TestMessageFaultProcessRecoveryNeverReplays
+=== RUN   TestMessageFaultProcessRecoveryNeverReplays/queued
+=== RUN   TestMessageFaultProcessRecoveryNeverReplays/claimed
+=== RUN   TestMessageFaultProcessRecoveryNeverReplays/partial
+=== RUN   TestMessageFaultProcessRecoveryNeverReplays/written
+=== RUN   TestMessageFaultProcessRecoveryNeverReplays/receipt
+--- PASS: TestMessageFaultProcessRecoveryNeverReplays (0.39s)
+    --- PASS: TestMessageFaultProcessRecoveryNeverReplays/queued (0.08s)
+    --- PASS: TestMessageFaultProcessRecoveryNeverReplays/claimed (0.08s)
+    --- PASS: TestMessageFaultProcessRecoveryNeverReplays/partial (0.08s)
+    --- PASS: TestMessageFaultProcessRecoveryNeverReplays/written (0.08s)
+    --- PASS: TestMessageFaultProcessRecoveryNeverReplays/receipt (0.08s)
+=== RUN   TestMessageFaultSixteenConsumersWriteOnce
+--- PASS: TestMessageFaultSixteenConsumersWriteOnce (0.07s)
+=== RUN   TestMessageFaultBusyDatabaseNeverWritesInput
+--- PASS: TestMessageFaultBusyDatabaseNeverWritesInput (0.12s)
+=== RUN   TestWindowsNativeSimulatedAgentMessageContract
+    messages_simulated_windows_test.go:211: native controlled CLI: snapshot -> copied input; literal Unicode/multiline; idempotent retry; two CLI consumers/one write; stopped Run rejected; 4 target input lines
+--- PASS: TestWindowsNativeSimulatedAgentMessageContract (3.62s)
+=== RUN   TestMessageSnapshotTransferCopiesRangeAndWritesOnlyAfterDurableClaim
+--- PASS: TestMessageSnapshotTransferCopiesRangeAndWritesOnlyAfterDurableClaim (0.07s)
+=== RUN   TestMessageRejectsNewRunAndKeepsUncertainInputUnknown
+--- PASS: TestMessageRejectsNewRunAndKeepsUncertainInputUnknown (0.03s)
+=== RUN   TestMessageWrittenBeforeReceiptCancellationStaysUnknown
+--- PASS: TestMessageWrittenBeforeReceiptCancellationStaysUnknown (0.02s)
+=== RUN   TestHeadlessMessageDeliveryNeedsNoUIOrInjectedCallback
+--- PASS: TestHeadlessMessageDeliveryNeedsNoUIOrInjectedCallback (0.02s)
+PASS

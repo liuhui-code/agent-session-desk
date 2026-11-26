@@ -1,0 +1,34 @@
+=== RUN   TestHeadlessPasteFaultContract
+=== RUN   TestHeadlessPasteFaultContract/fragmented
+=== RUN   TestHeadlessPasteFaultContract/auth-refused
+=== RUN   TestHeadlessPasteFaultContract/wrong-nonce
+=== RUN   TestHeadlessPasteFaultContract/duplicate
+=== RUN   TestHeadlessPasteFaultContract/oversized
+=== RUN   TestHeadlessPasteFaultContract/truncated
+=== RUN   TestHeadlessPasteFaultContract/lost-ack
+=== RUN   TestHeadlessPasteFaultContract/cancel-auth
+=== RUN   TestHeadlessPasteFaultContract/cancel-write
+=== RUN   TestHeadlessPasteFaultContract/cancel-ack
+=== RUN   TestHeadlessPasteFaultContract/timeout-auth
+=== RUN   TestHeadlessPasteFaultContract/timeout-ack
+=== RUN   TestHeadlessPasteFaultContract/ack-without-eof
+--- PASS: TestHeadlessPasteFaultContract (0.46s)
+    --- PASS: TestHeadlessPasteFaultContract/fragmented (0.01s)
+    --- PASS: TestHeadlessPasteFaultContract/auth-refused (0.00s)
+    --- PASS: TestHeadlessPasteFaultContract/wrong-nonce (0.01s)
+    --- PASS: TestHeadlessPasteFaultContract/duplicate (0.01s)
+    --- PASS: TestHeadlessPasteFaultContract/oversized (0.01s)
+    --- PASS: TestHeadlessPasteFaultContract/truncated (0.01s)
+    --- PASS: TestHeadlessPasteFaultContract/lost-ack (0.01s)
+    --- PASS: TestHeadlessPasteFaultContract/cancel-auth (0.00s)
+    --- PASS: TestHeadlessPasteFaultContract/cancel-write (0.00s)
+    --- PASS: TestHeadlessPasteFaultContract/cancel-ack (0.01s)
+    --- PASS: TestHeadlessPasteFaultContract/timeout-auth (0.20s)
+    --- PASS: TestHeadlessPasteFaultContract/timeout-ack (0.20s)
+    --- PASS: TestHeadlessPasteFaultContract/ack-without-eof (0.01s)
+=== RUN   TestHeadlessPasteUsesNativePasteAndAckWithoutAttachResizeOrEnter
+--- PASS: TestHeadlessPasteUsesNativePasteAndAckWithoutAttachResizeOrEnter (0.00s)
+=== RUN   TestHeadlessPasteMissingAckRemainsUncertain
+--- PASS: TestHeadlessPasteMissingAckRemainsUncertain (0.00s)
+PASS
+ok  	github.com/liuhui-code/agent-session-desk/internal/terminal	2.619s

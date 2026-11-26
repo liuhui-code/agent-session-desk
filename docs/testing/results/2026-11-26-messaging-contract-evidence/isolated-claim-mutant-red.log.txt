@@ -1,0 +1,6 @@
+--- FAIL: TestMessageFaultProcessRecoveryNeverReplays (0.03s)
+    --- FAIL: TestMessageFaultProcessRecoveryNeverReplays/claimed (0.03s)
+        messages_faults_test.go:84: recovered state=queued want=unknown error=<nil>
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/manager	1.120s
+FAIL

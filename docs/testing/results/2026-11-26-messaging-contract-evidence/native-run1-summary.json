@@ -1,0 +1,34 @@
+{
+  "personal_state_migrated": false,
+  "fixture_sha256": "842e6de3f61623bf1451311a183f1d353f505c5308467faec058f7e5c8e8450d",
+  "desktop_calls": 0,
+  "simulated_cli_not_real_agent": true,
+  "base_source": "b5bb4169073d5ee72d40b25d7003e59de2e7c5ea",
+  "results": [
+    {
+      "exit_code": 0,
+      "name": "session",
+      "top_skip": 0,
+      "top_fail": 0,
+      "sha256": "33ddac40184b8f2783e9059584e1dfb216704fd01452c2ba043e26ef858f8bca",
+      "top_pass": 2
+    },
+    {
+      "exit_code": 0,
+      "name": "terminal",
+      "top_skip": 0,
+      "top_fail": 0,
+      "sha256": "5f442d47dfd2e0ea35188874cd688c600885ae8c29fde3d45ff4dbd4188de5c3",
+      "top_pass": 3
+    },
+    {
+      "exit_code": 0,
+      "name": "manager",
+      "top_skip": 0,
+      "top_fail": 0,
+      "sha256": "5223cbe78dd0f0d58e005667538d4814e087fb4f810b36423a31dfe398fa7769",
+      "top_pass": 8
+    }
+  ],
+  "clipboard_calls": 0
+}

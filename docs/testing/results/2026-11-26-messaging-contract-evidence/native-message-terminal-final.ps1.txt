@@ -1,0 +1,16 @@
+$ErrorActionPreference='Stop';$ProgressPreference='SilentlyContinue'
+[Console]::OutputEncoding=[Text.Encoding]::UTF8
+$base=Join-Path $env:USERPROFILE 'asd-acceptance-20261122'
+$out=Join-Path $base 'messaging-contract-terminal-final-20261126'
+if(Test-Path $out){throw 'Fresh output required'}
+New-Item -ItemType Directory $out|Out-Null
+$exe=Join-Path $base 'terminal-sim-contract-final.test.exe'
+if((Get-FileHash $exe).Hash.ToLowerInvariant() -cne '18fcd9a1ab80f25f1d2f30c4ff64083b9626d3d829609f9b021d6909cb608550'){throw 'Artifact hash mismatch'}
+$log=Join-Path $out 'terminal.stdout'
+& $exe '-test.v' '-test.run' '^TestHeadlessPaste' '-test.timeout' '30s' 2>&1|Set-Content $log -Encoding utf8
+$code=$LASTEXITCODE;$lines=Get-Content $log
+$os=Get-CimInstance Win32_OperatingSystem
+$summary=@{exit_code=$code;top_pass=@($lines|Where-Object{$_ -match '^--- PASS:'}).Count;top_fail=@($lines|Where-Object{$_ -match '^--- FAIL:'}).Count;top_skip=@($lines|Where-Object{$_ -match '^--- SKIP:'}).Count;sha256=(Get-FileHash $exe).Hash.ToLowerInvariant();os_version=$os.Version;os_build=$os.BuildNumber}
+$summary|ConvertTo-Json|Set-Content (Join-Path $out 'summary.json') -Encoding utf8
+$summary|ConvertTo-Json
+if($code -ne 0){$lines|Write-Output;exit $code}

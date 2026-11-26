@@ -6,6 +6,8 @@
 
 2026-11-26 执行顺序调整：用户要求稳定性专项先登记、后续执行。[遗留清单 STAB-001～005](testing/DEFERRED_STABILITY.md)保留切换退出、焦点／输入归属、真实 agent、重开生命周期及长稳资源缺口；不改变发布和阶段接受门槛。用户随后同意显式跨会话读取／投递／回执并要求成熟方案，按 [ADR-0045](adr/0045-explicit-message-outbox-and-owned-paste.md)实施 SQLite outbox、CLI 建单及原视图确认粘贴；实际范围见[报告](testing/results/2026-11-26-explicit-messaging.md)，不代表 M3 或前置阶段完成。
 
+2026-11-26 后续顺序：通信已按 ADR-0046 收回后端／CLI，用户授权先用模拟完善该接口稳定性。[可控 CLI／并发／中断报告](testing/results/2026-11-26-messaging-contract.md)已有局部本机／Windows 结果；不恢复界面长稳和资源专项，不用模拟关闭真实 agent 或发布门槛。
+
 **当前没有已完成的软件阶段。** 已在指定 Windows Server 2025 runner 通过常规检查与五项可控原生后端场景，完整记录见[Windows 执行报告](testing/results/2026-11-21-m0-native-windows.md)。另有[原生 Windows 短资源实验](testing/results/2026-11-21-m0-windows-resources.md)，覆盖 0/1/5/10 会话、真实 TUI 启停与直接程序对照。这些局部证据不代替 Windows Terminal 桌面交互、完整资源预算与 M0 验收；M4 发布前还必须复验对应发布组合。
 
 2026-11-22 范围更新：[ADR-0014](adr/0014-upstream-ui-tabs-and-general-terminals.md) 要求上游体验尽可能还原、Tab 主工作区及普通 shell／CLI。现有阶段和证据保留；M0 增补视觉与技术可行性，M1 交付单 Tab 原生终端，M2 交付多 Tab。后续 ADR-0016 已进入局部实现，完整范围仍未验收，不能用旧全屏 attach 结果关闭。
