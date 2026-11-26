@@ -1,0 +1,59 @@
+{
+  "preferences_saved": true,
+  "forced_product_ends": 0,
+  "automatic_input_replay": false,
+  "no_terminal_input_submitted": true,
+  "intentional_owned_ui_crashes": 0,
+  "session_content_exported": 0,
+  "fixture_ends": [
+    true,
+    true
+  ],
+  "group_create_move_rename_fold_delete_verified": true,
+  "stages": [
+    {
+      "stage": "input-idle-preflight",
+      "utc": "2026-11-26T17:12:52.2364956Z"
+    },
+    {
+      "stage": "create-group-through-form",
+      "utc": "2026-11-26T17:12:55.4144226Z"
+    },
+    {
+      "stage": "move-original-session-into-group",
+      "utc": "2026-11-26T17:12:56.1672618Z"
+    },
+    {
+      "stage": "rename-group-with-f2",
+      "utc": "2026-11-26T17:12:56.9062327Z"
+    },
+    {
+      "stage": "fold-unfold-with-original-terminal-draft",
+      "utc": "2026-11-26T17:12:57.2419329Z"
+    },
+    {
+      "stage": "group-delete-default-cancel",
+      "utc": "2026-11-26T17:12:57.4194188Z"
+    },
+    {
+      "stage": "group-delete-confirm-preserves-original-run",
+      "utc": "2026-11-26T17:12:57.5766982Z"
+    },
+    {
+      "stage": "settings-theme-and-density-persist",
+      "utc": "2026-11-26T17:12:57.9835907Z"
+    },
+    {
+      "stage": "normal-quit",
+      "utc": "2026-11-26T17:12:58.7155512Z"
+    }
+  ],
+  "registry_writes": 0,
+  "result": "verified",
+  "product_sha256": "0af83573d9e5aee55e26a31ff32aab84aa1da45b6e58523b9ff220abc49a330f",
+  "cursor_restored": true,
+  "clipboard_calls": 0,
+  "manager_ends": [
+    true
+  ]
+}

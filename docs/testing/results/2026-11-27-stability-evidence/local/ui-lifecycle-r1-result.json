@@ -1,0 +1,36 @@
+{
+  "manager_ends": [
+    true
+  ],
+  "owned_failure_surface": "                                                                                                                                                            \r\n                                                                                                                                                            \r\n                                                                                                                                                            \r\n                                                                                                                                                            \r\n                                                                                                                                                            \r\n                                                                                                                                                            \r\n                                                                                                                                                            \r\n                                                                                                                                                            \r\n                                                                                                                                                            \r\n                                                                                                                                                            \r\n                                                                                                                                                            \r\n                                                                                                                                                            \r\n                                                                                                                                                            \r\n                                               ╭────────────────────────────────────────────────────────────╮                                               \r\n                                               │                                                            │                                               \r\n                                               │  🔍 Local session search                                   │                                               \r\n                                               │                                                            │                                               \r\n                                               │  ╭──────────────────────────────────────────────────╮      │                                               \r\n                                               │  │ > NO_SUCH_SESSION_2711                           │      │                                               \r\n                                               │  ╰──────────────────────────────────────────────────╯      │                                               \r\n                                               │                                                            │                                               \r\n                                               │  No matching sessions                                      │                                               \r\n                                               │  Enter Open · ↑↓ Navigate · Esc Cancel                     │                                               \r\n                                               │                                                            │                                               \r\n                                               ╰────────────────────────────────────────────────────────────╯                                               \r\n",
+  "forced_product_ends": 0,
+  "cursor_restored": true,
+  "intentional_owned_ui_crashes": 0,
+  "clipboard_calls": 0,
+  "session_content_exported": 0,
+  "stage": "search-existing-original-and-no-match-cancel",
+  "result": "failed",
+  "product_sha256": "0af83573d9e5aee55e26a31ff32aab84aa1da45b6e58523b9ff220abc49a330f",
+  "intentional_child_faults": 0,
+  "registry_writes": 0,
+  "stages": [
+    {
+      "stage": "input-idle-preflight",
+      "utc": "2026-11-26T17:36:49.7915217Z"
+    },
+    {
+      "stage": "session-row-order-saved-without-changing-active-run",
+      "utc": "2026-11-26T17:36:53.5658082Z"
+    },
+    {
+      "stage": "search-existing-original-and-no-match-cancel",
+      "utc": "2026-11-26T17:36:54.4883081Z"
+    }
+  ],
+  "automatic_input_replay": false,
+  "error": "Timed out: original fixture surface ready; no automatic replay",
+  "fixture_ends": [
+    true,
+    true
+  ]
+}

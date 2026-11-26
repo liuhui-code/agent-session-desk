@@ -140,7 +140,7 @@ func TestSuccessfulLaunchSavesHintFailureWithoutRetryingOrBlockingTab(t *testing
 	h.send(tea.KeyPressMsg{Code: 's', Mod: tea.ModCtrl})
 	h.until(func() bool { return h.m.launch == nil && h.m.workspace.conn != nil })
 	close(gate)
-	h.until(func() bool { return strings.Contains(h.m.status, "最近目录未保存") })
+	h.until(func() bool { return strings.Contains(h.m.status, "recent directory not saved") })
 	s.mu.Lock()
 	defer s.mu.Unlock()
 	if len(s.starts) != 1 || saved.Load() != 1 {

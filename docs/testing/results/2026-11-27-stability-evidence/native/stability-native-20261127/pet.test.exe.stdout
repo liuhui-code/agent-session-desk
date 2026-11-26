@@ -1,0 +1,41 @@
+=== RUN   TestWindowsIdleBlinkStillPaintsOpenAndClosedFrames
+    blink_windows_test.go:18: explicit interactive desktop required
+--- SKIP: TestWindowsIdleBlinkStillPaintsOpenAndClosedFrames (0.00s)
+=== RUN   TestDemoSpritesAndFramesRemainTransparentPremultipliedAndBounded
+--- PASS: TestDemoSpritesAndFramesRemainTransparentPremultipliedAndBounded (0.35s)
+=== RUN   TestDemoPositionHandlesNegativeMonitorCoordinates
+--- PASS: TestDemoPositionHandlesNegativeMonitorCoordinates (0.00s)
+=== RUN   TestIdlePetClickRequestsWorkbenchWithoutInventingAttention
+=== RUN   TestIdlePetClickRequestsWorkbenchWithoutInventingAttention/idle
+=== RUN   TestIdlePetClickRequestsWorkbenchWithoutInventingAttention/unknown
+=== RUN   TestIdlePetClickRequestsWorkbenchWithoutInventingAttention/unreachable
+--- PASS: TestIdlePetClickRequestsWorkbenchWithoutInventingAttention (0.00s)
+    --- PASS: TestIdlePetClickRequestsWorkbenchWithoutInventingAttention/idle (0.00s)
+    --- PASS: TestIdlePetClickRequestsWorkbenchWithoutInventingAttention/unknown (0.00s)
+    --- PASS: TestIdlePetClickRequestsWorkbenchWithoutInventingAttention/unreachable (0.00s)
+=== RUN   TestBlinkKeepsTheCatsHorizontalAnchor
+--- PASS: TestBlinkKeepsTheCatsHorizontalAnchor (0.72s)
+=== RUN   TestLivePetUsesExistingPendingAndViewedNeverClearsIt
+--- PASS: TestLivePetUsesExistingPendingAndViewedNeverClearsIt (0.00s)
+=== RUN   TestLivePetClickOnlyRequestsExactNavigationAndDoesNotMutatePending
+--- PASS: TestLivePetClickOnlyRequestsExactNavigationAndDoesNotMutatePending (0.00s)
+=== RUN   TestWindowsLivePetExistingBlockingForm
+    live_windows_test.go:57: explicit native bundle, fixture and CLI required
+--- SKIP: TestWindowsLivePetExistingBlockingForm (0.00s)
+=== RUN   TestDemoStatesCannotBecomeRealApproval
+--- PASS: TestDemoStatesCannotBecomeRealApproval (0.00s)
+=== RUN   TestDemoAnimationIsBoundedAndClickOnlyCyclesPreview
+--- PASS: TestDemoAnimationIsBoundedAndClickOnlyCyclesPreview (0.00s)
+=== RUN   TestWindowsNativePetABISizes
+--- PASS: TestWindowsNativePetABISizes (0.00s)
+=== RUN   TestWindowsNativePetGDISurfacesReleaseOriginalObjects
+--- PASS: TestWindowsNativePetGDISurfacesReleaseOriginalObjects (0.00s)
+=== RUN   TestWindowsCaptureWindowBindsTokenInsteadOfForegroundAndRejectsChangedCaption
+--- PASS: TestWindowsCaptureWindowBindsTokenInsteadOfForegroundAndRejectsChangedCaption (0.04s)
+=== RUN   TestWindowMarkerAcceptsOnlyLauncherAuthoredTokenShape
+--- PASS: TestWindowMarkerAcceptsOnlyLauncherAuthoredTokenShape (0.00s)
+=== RUN   TestIdleSpritesHaveNoDetachedInkBelowTheCat
+--- PASS: TestIdleSpritesHaveNoDetachedInkBelowTheCat (0.74s)
+=== RUN   TestSpriteBandCleanupPreservesBodyPixelsAndCanvas
+--- PASS: TestSpriteBandCleanupPreservesBodyPixelsAndCanvas (0.00s)
+PASS

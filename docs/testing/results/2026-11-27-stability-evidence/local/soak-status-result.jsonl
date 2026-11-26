@@ -1,0 +1,72 @@
+{
+  "ui_exit_code": 0,
+  "forced_product_ends": 0,
+  "elapsed_ms": 18962.4633,
+  "product_sha256": "0af83573d9e5aee55e26a31ff32aab84aa1da45b6e58523b9ff220abc49a330f",
+  "ui_exit_method": "validated single-tab native window close, no foreground keys",
+  "phases": [],
+  "intentional_load": "100 lines/s x256 bytes x60s every30min, explicit owned fixture only",
+  "clipboard_calls": 0,
+  "task_registration_removed": true,
+  "no_run_identity_change": true,
+  "sample_semantics": "non_atomic; gaps are not zero; CPU lower bound; shared Terminal excluded from product sums",
+  "cleanup": [
+    {
+      "normal_fixtures": [
+        true,
+        true
+      ],
+      "scenario": "managed-2",
+      "held_private_remaining": 0
+    }
+  ],
+  "stages": [
+    {
+      "stage": "prepare-ten-originals-and-bound-native-ui",
+      "utc": "2026-11-26T17:48:51.3117926Z"
+    },
+    {
+      "stage": "eight-hour-passive-observation",
+      "utc": "2026-11-26T17:48:56.3354959Z"
+    },
+    {
+      "stage": "native-window-close-preserves-original-runs",
+      "utc": "2026-11-26T17:49:08.7573803Z"
+    }
+  ],
+  "full_requested_duration": true,
+  "total_samples": 1,
+  "actual_observation_seconds": 12.4188776,
+  "manager_ends": [
+    true
+  ],
+  "requested_duration_seconds": 12,
+  "shared_terminal_samples": [
+    {
+      "sample": 0,
+      "pid": 21732,
+      "creation_filetime": "134401841547751417",
+      "working_set_bytes": 135860224,
+      "shared_host": true,
+      "private_bytes": 149086208,
+      "included_in_product": false
+    }
+  ],
+  "result": "verified",
+  "registry_writes": 0,
+  "automatic_input_replay": false,
+  "fixture_ends": [
+    true,
+    true
+  ],
+  "intentional_owned_ui_crashes": 0,
+  "session_content_exported": 0,
+  "max_sample_bytes": 134217728,
+  "sample_interval_seconds": 15,
+  "passive_after_ready": true
+}
+
+{
+    "round":  "soak-r1",
+    "state":  "not_started_or_not_ready"
+}

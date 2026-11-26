@@ -1,0 +1,73 @@
+{
+  "intentional_owned_ui_crashes": 1,
+  "session_order_persisted": true,
+  "original_draft_after_crash": true,
+  "session_content_exported": 0,
+  "fixture_ends": [
+    true,
+    true,
+    true,
+    true
+  ],
+  "tab_close_did_not_stop_run": true,
+  "stages": [
+    {
+      "utc": "2026-11-26T17:41:34.5983427Z",
+      "stage": "input-idle-preflight"
+    },
+    {
+      "utc": "2026-11-26T17:41:38.5618076Z",
+      "stage": "session-row-order-saved-without-changing-active-run"
+    },
+    {
+      "utc": "2026-11-26T17:41:39.4540916Z",
+      "stage": "search-existing-original-and-no-match-cancel"
+    },
+    {
+      "utc": "2026-11-26T17:41:40.3106050Z",
+      "stage": "close-only-tab-and-reopen-original"
+    },
+    {
+      "utc": "2026-11-26T17:41:41.4615170Z",
+      "stage": "stop-selected-b-default-enter-cancels"
+    },
+    {
+      "utc": "2026-11-26T17:41:42.1128150Z",
+      "stage": "stop-selected-b-once-original-a-survives"
+    },
+    {
+      "utc": "2026-11-26T17:41:42.8957925Z",
+      "stage": "real-history-list-and-details-remain-read-only"
+    },
+    {
+      "utc": "2026-11-26T17:41:43.6841288Z",
+      "stage": "controlled-normal-child-exit"
+    },
+    {
+      "utc": "2026-11-26T17:41:45.6956569Z",
+      "stage": "controlled-child-abnormal-exit-is-not-manager-exit"
+    },
+    {
+      "utc": "2026-11-26T17:41:47.8364537Z",
+      "stage": "intentional-ui-crash-and-reconnect-original"
+    },
+    {
+      "utc": "2026-11-26T17:41:50.6577253Z",
+      "stage": "normal-quit-with-original-draft"
+    }
+  ],
+  "stop_cancel_and_confirm": true,
+  "intentional_child_faults": 1,
+  "forced_product_ends": 0,
+  "registry_writes": 0,
+  "manager_ends": [
+    true,
+    true
+  ],
+  "cursor_restored": true,
+  "product_sha256": "0af83573d9e5aee55e26a31ff32aab84aa1da45b6e58523b9ff220abc49a330f",
+  "result": "verified",
+  "search_and_history_read_only": true,
+  "automatic_input_replay": false,
+  "clipboard_calls": 0
+}

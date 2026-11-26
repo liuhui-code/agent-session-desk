@@ -1,0 +1,40 @@
+{
+  "error": "Timed out: original fixture surface ready; no automatic replay",
+  "result": "failed",
+  "session_content_exported": 0,
+  "stages": [
+    {
+      "stage": "input-idle-preflight",
+      "utc": "2026-11-26T17:37:55.3734122Z"
+    },
+    {
+      "stage": "session-row-order-saved-without-changing-active-run",
+      "utc": "2026-11-26T17:37:59.1629659Z"
+    },
+    {
+      "stage": "search-existing-original-and-no-match-cancel",
+      "utc": "2026-11-26T17:38:00.0152737Z"
+    },
+    {
+      "stage": "close-only-tab-and-reopen-original",
+      "utc": "2026-11-26T17:38:00.9227909Z"
+    }
+  ],
+  "product_sha256": "0af83573d9e5aee55e26a31ff32aab84aa1da45b6e58523b9ff220abc49a330f",
+  "intentional_owned_ui_crashes": 0,
+  "automatic_input_replay": false,
+  "clipboard_calls": 0,
+  "owned_failure_surface": "                                                                                                                                                            \r\n  ▾ My Sessions (2)                                       No open views · Create a terminal or reopen one from the sidebar                                  \r\n                                                                                                                                                            \r\n    Lifecycle B                                         │                                                                                                   \r\n    ╰ Connected · asd-stability-fixture.exe             │                                                                                                   \r\n                                                        │                                                                                                   \r\n    Instance A                                          │                                                                                                   \r\n    ╰ Connected · asd-stability-fixture.exe             │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                                                                                                                            \r\n                                                                                                                                                            \r\n  Navigation focus; n New, Enter Reopen. The original run continues.                                                                                       ",
+  "manager_ends": [
+    true
+  ],
+  "intentional_child_faults": 0,
+  "stage": "close-only-tab-and-reopen-original",
+  "forced_product_ends": 0,
+  "cursor_restored": true,
+  "fixture_ends": [
+    true,
+    true
+  ],
+  "registry_writes": 0
+}

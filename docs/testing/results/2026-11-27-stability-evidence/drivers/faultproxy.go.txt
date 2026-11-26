@@ -1,0 +1,37 @@
+// Controlled native test proxy: relay ordinary control clients and truncate
+// only a PERSISTENT terminal handshake. Never record authentication contents.
+package main
+
+import (
+ "bufio"
+ "encoding/json"
+ "flag"
+ "fmt"
+ "io"
+ "net"
+ "os"
+ "strings"
+ "sync"
+ "time"
+)
+func save(path string, value any) { b,_:=json.Marshal(value);_ = os.WriteFile(path,append(b,'\n'),0600) }
+func main() {
+ var ready,done,upstream string
+ flag.StringVar(&ready,"ready","","");flag.StringVar(&done,"done","","");flag.StringVar(&upstream,"upstream","","");flag.Parse()
+ ln,e:=net.Listen("tcp","127.0.0.1:0");if e!=nil { os.Exit(2) };defer ln.Close()
+ save(ready,map[string]any{"port":ln.Addr().(*net.TCPAddr).Port})
+ var once sync.Once;var wg sync.WaitGroup
+ timer:=time.AfterFunc(45*time.Second,func(){ln.Close()});defer timer.Stop()
+ for { c,e:=ln.Accept();if e!=nil {break};wg.Add(1);go func(){defer wg.Done();defer c.Close();_ = c.SetDeadline(time.Now().Add(8*time.Second))
+  b,e:=net.DialTimeout("tcp",net.JoinHostPort("127.0.0.1",upstream),time.Second);if e!=nil{return};defer b.Close();_ = b.SetDeadline(time.Now().Add(8*time.Second))
+  cr,br:=bufio.NewReader(c),bufio.NewReader(b)
+  auth,e:=cr.ReadString('\n');if e!=nil||!strings.HasPrefix(auth,"AUTH "){return};if _,e=io.WriteString(b,auth);e!=nil{return}
+  ack,e:=br.ReadString('\n');if e!=nil{return};if _,e=io.WriteString(c,ack);e!=nil{return}
+  command,e:=cr.ReadString('\n');if e!=nil{return}
+  if command=="PERSISTENT\n" { once.Do(func(){save(done,map[string]any{"auth_received":ack=="OK\n","poll_received":true,"persistent_boundary":true})});return }
+  if _,e=fmt.Fprint(b,command);e!=nil{return}
+  copied:=make(chan struct{});go func(){_,_=io.Copy(b,cr);if tcp,ok:=b.(*net.TCPConn);ok{_ = tcp.CloseWrite()};close(copied)}()
+  _,_=io.Copy(c,br);_ = c.Close();_ = b.Close();<-copied
+ }() }
+ wg.Wait()
+}

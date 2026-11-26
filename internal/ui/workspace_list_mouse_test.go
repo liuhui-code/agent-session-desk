@@ -102,7 +102,7 @@ func TestWorkspaceListMouseUsesVisibleRowsAndIgnoresIndicators(t *testing.T) {
 	if beforeY != afterY {
 		t.Fatal("clicked list row jumped to another viewport position")
 	}
-	for _, marker := range []string{"上方", "下方"} {
+	for _, marker := range []string{"above", "below"} {
 		found := false
 		for y, line := range strings.Split(after, "\n") {
 			if strings.Contains(line, marker) {
@@ -148,7 +148,7 @@ func TestWorkspaceListDoubleClickDoesNotActivateAReplacementRun(t *testing.T) {
 		rows := sampleSessions()
 		if replaced.Load() {
 			rows[1].RunID += "-replacement"
-			rows[1].Title = "评审重启"
+			rows[1].Title = "评审restart"
 		}
 		return rows, nil
 	}}}
@@ -158,9 +158,9 @@ func TestWorkspaceListDoubleClickDoesNotActivateAReplacementRun(t *testing.T) {
 	clickWorkspaceListRow(t, h, "评审")
 	replaced.Store(true)
 	h.send(pollMsg{generation: h.m.pollGeneration})
-	h.until(func() bool { return strings.Contains(h.m.View().Content, "评审重启") })
-	clickWorkspaceListRow(t, h, "评审重启")
-	if h.m.View().Cursor != nil || !strings.Contains(ansi.Strip(h.m.View().Content), "  评审重启") {
+	h.until(func() bool { return strings.Contains(h.m.View().Content, "评审restart") })
+	clickWorkspaceListRow(t, h, "评审restart")
+	if h.m.View().Cursor != nil || !strings.Contains(ansi.Strip(h.m.View().Content), "  评审restart") {
 		t.Fatal("two different Runs were treated as one double click")
 	}
 	service.mu.Lock()
@@ -174,7 +174,7 @@ func TestWorkspaceListDoubleClickWhileConnectingKeepsManagementFocus(t *testing.
 	gate := make(chan struct{})
 	service := &workspaceFixture{openGate: gate, fakeService: fakeService{list: func(context.Context) ([]session.Session, error) { return sampleSessions(), nil }}}
 	h := newWorkspaceHarness(t, service)
-	h.until(func() bool { return strings.Contains(h.m.View().Content, "正在连接原Terminal") })
+	h.until(func() bool { return strings.Contains(h.m.View().Content, "Connecting to the original terminal") })
 	// The list is visible in the compact sidebar even while the active Tab opens.
 	clickWorkspaceListRow(t, h, "评审")
 	clickWorkspaceListRow(t, h, "评审")

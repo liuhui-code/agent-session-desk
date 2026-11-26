@@ -1,0 +1,205 @@
+$round='input-r2'
+try {
+$ErrorActionPreference='Stop';$ProgressPreference='SilentlyContinue';[Console]::OutputEncoding=[Text.UTF8Encoding]::new($false);$OutputEncoding=[Console]::OutputEncoding
+$base=Join-Path $env:USERPROFILE 'asd-acceptance-20261122'
+$package=Join-Path ([Environment]::GetFolderPath('Desktop')) 'Agent Session Desk Alpha 8234c4e'
+$out=Join-Path $base ('stability-ui-'+$round+'-20261127');if(Test-Path $out){throw 'Fresh desktop output required'};New-Item -ItemType Directory $out|Out-Null
+$root=Join-Path $base ('stability-ui-product-'+$round+'-20261127');if(Test-Path $root){throw 'Fresh product directory required'};New-Item -ItemType Directory $root|Out-Null
+$artifacts=Get-Content -Raw (Join-Path $base 'instance-artifacts-r3.json')|ConvertFrom-Json
+foreach($item in $artifacts.PSObject.Properties){if((Get-FileHash (Join-Path $base $item.Name)).Hash.ToLowerInvariant()-cne $item.Value){throw 'Artifact fingerprint changed'}}
+$source=if($round.StartsWith('red')){Join-Path $base 'asd-instance-r3.exe'}else{Join-Path $base 'asd-stability.exe'}
+$expected=if($round.StartsWith('red')){'c7821a3a4c9ec044c51d00d38da47c9d2a4d1d647ae30c7c6c5f068d6b0f4290'}else{(Get-Content -Raw (Join-Path $base 'stability-artifacts.json')|ConvertFrom-Json).'asd-stability.exe'}
+if((Get-FileHash $source).Hash.ToLowerInvariant()-cne $expected){throw 'Fault-test product fingerprint changed'}
+Copy-Item $source (Join-Path $root 'asd-instance-r3.exe')
+Copy-Item (Join-Path $package 'local-host.json') (Join-Path $root 'local-host.json')
+$product=Join-Path $root 'asd-instance-r3.exe';$inspector=Join-Path $base 'instance-r3.test.exe';$fixture=Join-Path $base 'asd-stability-fixture.exe'
+if((Get-FileHash $fixture).Hash.ToLowerInvariant()-cne (Get-Content -Raw (Join-Path $base 'stability-artifacts.json')|ConvertFrom-Json).'asd-stability-fixture.exe'){throw 'Fixture changed'}
+$hostInfo=Get-Content -Raw (Join-Path $root 'local-host.json')|ConvertFrom-Json
+foreach($entry in @($hostInfo.shell,$hostInfo.terminal)){if((Get-FileHash $entry.path).Hash.ToLowerInvariant()-cne $entry.sha256){throw 'Pinned host changed'}}
+& ([ScriptBlock]::Create([IO.File]::ReadAllText((Join-Path $base 'desktop-api.ps1'))))
+Add-Type @'
+using System;using System.Collections.Generic;using System.Runtime.InteropServices;
+public class InstanceDesktop {
+ [DllImport("user32.dll",CharSet=CharSet.Unicode)]public static extern bool SetProp(IntPtr h,string name,IntPtr data);
+ [DllImport("user32.dll",CharSet=CharSet.Unicode)]public static extern IntPtr GetProp(IntPtr h,string name);
+ public delegate int PropProc(IntPtr h,IntPtr name,IntPtr data,IntPtr extra);
+ [DllImport("user32.dll",CharSet=CharSet.Unicode)]public static extern int EnumPropsEx(IntPtr h,PropProc callback,IntPtr extra);
+ [DllImport("user32.dll")]public static extern bool IsWindow(IntPtr h);
+ [DllImport("user32.dll")]public static extern bool IsIconic(IntPtr h);
+ [DllImport("user32.dll")]public static extern bool ShowWindow(IntPtr h,int command);
+ public static string Stamp(IntPtr h){var names=new List<string>();EnumPropsEx(h,(w,n,d,x)=>{if(n.ToInt64()>65535){var s=Marshal.PtrToStringUni(n);if(s.StartsWith("ASD.Attention.Owner.",StringComparison.Ordinal))names.Add(s);}return 1;},IntPtr.Zero);names.Sort(StringComparer.Ordinal);return String.Join(";",names);}
+}
+'@
+$previousDpi=[DeskFlow]::SetThreadDpiAwarenessContext([IntPtr](-4));if($previousDpi-eq [IntPtr]::Zero){throw 'DPI context unavailable'}
+$initialHosts=@([DeskFlow]::HostWindows($hostInfo.terminal.path))
+$cursor=[DeskFlow+P]::new();$null=[DeskFlow]::GetCursorPos([ref]$cursor)
+$r=@{result='started';stages=@();clipboard_calls=0;registry_writes=0;session_content_exported=0;forced_product_ends=0;intentional_owned_ui_crashes=0;automatic_input_replay=$false}
+$script:scopes=@();$script:launches=@();$script:managers=@();$script:fixtures=@();$script:windows=@();$script:inspectIndex=0;$script:window=[IntPtr]::Zero;$script:manager=$null
+function Stage([string]$name){$script:stage=$name;$r.stages+=@{stage=$name;utc=[DateTime]::UtcNow.ToString('o')}}
+function Wait([string]$label,[scriptblock]$check,[int]$seconds=30){$until=[DateTime]::UtcNow.AddSeconds($seconds);do{if(& $check){return};Start-Sleep -Milliseconds 150}while([DateTime]::UtcNow-lt $until);throw ('Timed out: '+$label+'; no automatic replay')}
+function Product($scope,[string[]]$arguments){$g=$scope.globals;$text=(& $product @g @arguments 2>$null|Out-String);if($LASTEXITCODE-ne 0){throw 'Controlled product CLI failed'};return $text}
+function Journal([string]$path){
+ if(!(Test-Path $path)){return @()};$f=[IO.File]::Open($path,[IO.FileMode]::Open,[IO.FileAccess]::Read,[IO.FileShare]::ReadWrite-bor[IO.FileShare]::Delete)
+ try{$reader=[IO.StreamReader]::new($f);try{$text=$reader.ReadToEnd()}finally{$reader.Dispose()}}finally{$f.Dispose()}
+ $end=$text.LastIndexOf("`n");if($end-lt 0){return @()};return @($text.Substring(0,$end)-split "`r?`n"|Where-Object{$_}|ForEach-Object{$_|ConvertFrom-Json})
+}
+function Inspect($scope){
+ $script:inspectIndex++;if($script:inspectIndex-gt 160){throw 'Observer bound exceeded'}
+ $file=Join-Path $out ('inspect-'+$script:inspectIndex+'.json')
+ $env:ASD_INSTANCE_INSPECT_OUTPUT=$file;$env:ASD_INSTANCE_INSPECT_LOCATION=Join-Path $scope.runtime $scope.ns;$env:ASD_INSTANCE_INSPECT_METADATA=Join-Path $scope.state 'metadata.sqlite3'
+ & $inspector '-test.run' '^TestInstanceInspectHelper$' '-test.timeout' '10s' 1>$null 2>$null
+ if($LASTEXITCODE-ne 0 -or !(Test-Path $file)){throw 'Read-only synthetic scope observer failed'}
+ return Get-Content -Raw $file|ConvertFrom-Json
+}
+function Launch($scope){
+ $info=[Diagnostics.ProcessStartInfo]::new();$info.FileName=$product;$info.UseShellExecute=$false;$info.WorkingDirectory=$scope.cwd
+ foreach($arg in @($scope.globals)+@('--pet','--document-app','system-notepad')){$info.ArgumentList.Add($arg)}
+ $p=[Diagnostics.Process]::Start($info);$null=$p.Handle;$script:launches+=$p;return $p
+}
+function WaitLauncher($p){if(!$p.WaitForExit(25000)-or $p.ExitCode-ne 0){throw 'Controlled launcher failed or timed out'}}
+function RegisterWindow($scope){
+ Wait 'one bound synthetic scope' {
+  $id=Inspect $scope;if($id.owner_pid-eq 0 -or $id.target-eq 0){return $false}
+  $w=[IntPtr]([long]$id.target);if($w-in $initialHosts){throw 'Endpoint points at a pre-existing user window; no UI actions'}
+  foreach($other in $script:scopes){if($other-ne $scope -and $other.ContainsKey('window') -and $other.window-eq $w){throw 'Scopes point at the same native window'}}
+  $p=Get-Process -Id $id.owner_pid -ErrorAction SilentlyContinue;if(!$p -or $p.Path-ine $product){throw 'Endpoint owner path mismatch'};$null=$p.Handle
+  if([DeskFlow]::Title($w)-cne 'Agent Session Desk' -or [DeskFlow]::OwnerBindings($w)-ne 1){return $false}
+  $pets=@([DeskFlow]::Find('ASD Blocking Reminders',$p.Id));if($pets.Count-ne 1){return $false}
+  $scope.manager=$p;$scope.window=$w;$scope.pet=$pets[0];$scope.stamp=[InstanceDesktop]::Stamp($w)
+  $script:manager=$p;$script:window=$w;$script:managers+=$p
+  $script:windows+=@{scope=$scope;handle=$w;stamp=$scope.stamp;manager=$p}
+  return $true
+ }
+}
+function Surface($scope){
+ if(!$scope.ContainsKey('driver_stamp')-or ![InstanceDesktop]::IsWindow($scope.window)-or [InstanceDesktop]::GetProp($scope.window,$scope.driver_stamp)-ne [IntPtr]1-or $scope.host.HasExited){throw 'Driver-owned window identity changed'}
+ $rootElement=[Windows.Automation.AutomationElement]::FromHandle($scope.window)
+ $items=$rootElement.FindAll([Windows.Automation.TreeScope]::Descendants,[Windows.Automation.Condition]::TrueCondition);$best=$null
+ foreach($item in $items){$pattern=$null;if($item.TryGetCurrentPattern([Windows.Automation.TextPattern]::Pattern,[ref]$pattern)){$text=$pattern.DocumentRange.GetText(65536);if(!$best-or $text.Length-gt $best.text.Length){$best=@{text=$text;pattern=$pattern}}}}
+ if(!$best){throw 'Driver-owned fixture surface unavailable'};return $best
+}
+function Ready($scope,[string]$marker){Wait 'original fixture surface ready' {$v=Surface $scope;return $v.text.Contains($marker)-and !$v.text.Contains('Connecting to')-and !$v.text.Contains('Read-only last')-and !$v.text.Contains('Terminal not interactive')}}
+function Guard($scope){
+ if($scope.manager.HasExited-or [DeskFlow]::GetForegroundWindow()-ne $scope.window){throw 'Owned foreground changed; no input replay'}
+ foreach($key in @(1,2,4,16,17,18,91,92)){if(([DeskFlow]::GetAsyncKeyState($key)-band 32768)-ne 0){throw 'User key/button held; no input'}}
+ $null=Surface $scope
+}
+function ClickAt([double]$x,[double]$y){$script:lastX=[int]$x;$script:lastY=[int]$y;if([DeskFlow]::Move($script:lastX,$script:lastY)-ne 1 -or [DeskFlow]::Click()-ne 2){throw 'Owned click incomplete'}}
+function ClickText($scope,[string]$text){$v=Surface $scope;$range=$v.pattern.DocumentRange.FindText($text,$false,$false);if(!$range){throw 'Controlled text range missing'};$rects=@($range.GetBoundingRectangles());if($rects.Count-ne 1){throw 'Controlled text range clipped'};Guard $scope;ClickAt ($rects[0].Left+$rects[0].Width/2) ($rects[0].Top+$rects[0].Height/2)}
+function Foreground($scope){$null=[DeskFlow]::SetForegroundWindow($scope.window);Wait 'owned fixture foreground' {[DeskFlow]::GetForegroundWindow()-eq $scope.window};Guard $scope}
+function CreateScope([string]$label){
+ $cwd=Join-Path $out $label;New-Item -ItemType Directory $cwd|Out-Null
+ $runtime=Join-Path $cwd 'runtime';$state=Join-Path $cwd 'state';$ns='asd-inst-'+$label+'-20261126'
+ $scope=@{label=$label;cwd=$cwd;runtime=$runtime;state=$state;ns=$ns;log=(Join-Path $cwd 'fixture.jsonl')}
+ $scope.globals=@('--terminal-bundle',(Join-Path $package 'terminal-runtime'),'--runtime-dir',$runtime,'--namespace',$ns,'--state-dir',$state)
+ $script:scopes+=$scope
+ $record=(Product $scope @('start','--name',('Instance '+$label),'--cwd',$cwd,'--env',('ASD_FIXTURE_REPORT_PATH='+$scope.log),'--',$fixture))|ConvertFrom-Json
+ $scope.original=$record
+ Wait 'fixture identity receipt' {@(Journal $scope.log).Count-gt 0}
+ $start=@(Journal $scope.log)[0];$p=Get-Process -Id $start.pid;$null=$p.Handle;if($p.Path-ine $fixture){throw 'Original fixture path mismatch'};$scope.fixture=$p;$script:fixtures+=$p
+ return $scope
+}
+function AssertOriginal($scope){
+ if($scope.fixture.HasExited){throw 'Original fixture ended'}
+ if(@(Journal $scope.log|Where-Object{$_.event-eq 'input'}).Count){throw 'Original draft was submitted'}
+ $rows=(Product $scope @('list','--json'))|ConvertFrom-Json;$original=$scope.original
+ if(@($rows|Where-Object{$_.session_id-ceq $original.session_id-and $_.run_id-ceq $original.run_id-and $_.backend_id-ceq $original.backend_id}).Count-ne 1){throw 'Original Session/Run/pane changed'}
+}
+function Quit($scope){
+ Foreground $scope;ClickText $scope ('Instance '+$scope.label)
+ Wait 'management footer' {(Surface $scope).text.Contains('Alt+J/K')}
+ Guard $scope;if([DeskFlow]::Text('q')-ne 2){throw 'Management quit incomplete'}
+ if(!$scope.manager.WaitForExit(15000)-or $scope.manager.ExitCode-ne 0){throw 'Owned manager did not quit normally'}
+ Wait 'instance endpoint gone' {$id=Inspect $scope;return $id.endpoint-eq 0}
+ Wait 'owned window ended' {return ![InstanceDesktop]::IsWindow($scope.window)}
+ AssertOriginal $scope
+}
+function CloseOwnedWindow($entry){
+ $w=$entry.handle;if(![InstanceDesktop]::IsWindow($w)){return}
+ if(!$entry.scope.ContainsKey('driver_stamp')-or [InstanceDesktop]::GetProp($w,$entry.scope.driver_stamp)-ne [IntPtr]1-or $entry.scope.host.HasExited){throw 'Driver-owned window stamp changed; no close'}
+ $rootElement=[Windows.Automation.AutomationElement]::FromHandle($w)
+ $tabs=$rootElement.FindAll([Windows.Automation.TreeScope]::Descendants,[Windows.Automation.PropertyCondition]::new([Windows.Automation.AutomationElement]::ControlTypeProperty,[Windows.Automation.ControlType]::TabItem))
+ if($tabs.Count-gt 1){throw 'Owned window gained another native tab; no close'}
+ $null=[DeskFlow]::SendMessage($w,0x10,[UIntPtr]::Zero,[IntPtr]::Zero)
+}
+
+
+
+
+Add-Type @'
+using System;using System.Runtime.InteropServices;
+public class InputFlow{
+ [DllImport("user32.dll")]public static extern bool MoveWindow(IntPtr h,int x,int y,int w,int height,bool redraw);
+ public static uint Mouse(uint flags,uint data=0){var a=new I[1];a[0].d.m.flags=flags;a[0].d.m.data=data;return SendInput(1,a,Marshal.SizeOf(typeof(I)));}
+ [StructLayout(LayoutKind.Sequential)]public struct M{public int x,y;public uint data,flags,time;public UIntPtr extra;}
+ [StructLayout(LayoutKind.Sequential)]public struct K{public ushort key,scan;public uint flags,time;public UIntPtr extra;}
+ [StructLayout(LayoutKind.Explicit)]public struct D{[FieldOffset(0)]public M m;[FieldOffset(0)]public K k;}
+ [StructLayout(LayoutKind.Sequential)]public struct I{public uint type;public D d;}
+ [DllImport("user32.dll")]public static extern uint SendInput(uint count,I[] input,int size);
+}
+'@
+. ([ScriptBlock]::Create([IO.File]::ReadAllText((Join-Path $base 'stability-clipboard.ps1'))))
+$script:originals=@();$a=$null;$backup=$null;$script:mouseHeld=$false;$script:inputChildren=@();$r.resize_observations=@();$r.clipboard_calls='backup and controlled subflow only; original values never exported'
+function Press($scope,[int]$key){Guard $scope;if([DeskFlow]::Key([ushort]$key)-ne 2){throw 'Owned key incomplete'}}
+function Chord($scope,[int]$mod,[int]$key){Guard $scope;if([DeskFlow]::Chord([ushort]$mod,[ushort]$key)-ne 4){throw 'Owned chord incomplete'}}
+function SendText($scope,[string]$text){Guard $scope;if([DeskFlow]::Text($text)-ne $text.Length*2){throw 'Owned text incomplete'}}
+function BindDriver($scope){RegisterWindow $scope;$scope.driver_stamp='ASD.Test.Stability.'+[Guid]::NewGuid().ToString('N');[uint32]$hostPID=0;$null=[DeskFlow]::GetWindowThreadProcessId($scope.window,[ref]$hostPID);$scope.host=Get-Process -Id $hostPID;$null=$scope.host.Handle;if($scope.host.Path-ine $hostInfo.terminal.path-or ![InstanceDesktop]::SetProp($scope.window,$scope.driver_stamp,[IntPtr]1)){throw 'Host binding failed'}}
+function StartProbe([string]$mode){
+ $log=Join-Path $out ('input-'+$mode+'.jsonl');$childArgs=@('-NoProfile','-File',(Join-Path $base 'stability-input-fixture-r2.ps1'),'-Report',$log,'-Mode',$mode)
+ $o=(Product $a (@('start','--name',('Probe '+$mode),'--cwd',$a.cwd,'--',$hostInfo.shell.path)+$childArgs))|ConvertFrom-Json;$script:originals+=$o
+ Wait 'independent probe start' {@(Journal $log|Where-Object{$_.event-ceq 'started'}).Count-eq 1};$id=@(Journal $log|Where-Object{$_.event-ceq 'started'})[0].pid;$p=Get-Process -Id $id;$null=$p.Handle;if($p.Path-ine $hostInfo.shell.path){throw 'Probe path mismatch'}
+ $result=@{record=$o;log=$log;process=$p;mode=$mode};$script:inputChildren+=$result;return $result
+}
+function OpenProbe($probe){Foreground $a;ClickText $a ('Probe '+$probe.mode);Start-Sleep -Milliseconds 200;Press $a 0x0d;Ready $a ('INPUT_'+$probe.mode+'_READY');Start-Sleep -Milliseconds 200}
+function ProbeBytes($probe){return [Text.Encoding]::UTF8.GetString([Convert]::FromHexString((@(Journal $probe.log|Where-Object{$_.event-ceq 'bytes'}|ForEach-Object{$_.hex})-join '')))}
+function ProbeClick($probe){ClickText $a ('INPUT_'+$probe.mode+'_READY');Guard $a;if([InputFlow]::Mouse(0x800,120)-ne 1){throw 'Wheel incomplete'}}
+try{
+ $helperManifest=Get-Content -Raw (Join-Path $base 'stability-input-artifacts-r2.json')|ConvertFrom-Json
+ foreach($entry in $helperManifest.PSObject.Properties){if((Get-FileHash (Join-Path $base $entry.Name)).Hash.ToLowerInvariant()-cne $entry.Value){throw 'Input helper changed'}}
+ Stage 'input-idle-preflight';Wait 'input idle' {[DeskFlow]::IdleMilliseconds()-ge 45000} 60
+ $a=CreateScope 'A';$script:originals+=$a.original;$p=Launch $a;WaitLauncher $p;BindDriver $a;Ready $a 'CLI fixture';Foreground $a;ClickText $a 'CLI fixture';SendText $a 'COPY_A_中文';Press $a 0x0d
+ Wait 'one original fixture input' {@(Journal $a.log|Where-Object{$_.event-ceq 'input'-and $_.text-ceq 'COPY_A_中文'}).Count-eq 1};SendText $a 'INPUT_DRAFT_A';Ready $a 'INPUT_DRAFT_A'
+ Stage 'five-concurrent-launches-reuse-exact-workbench'
+ $owner=$a.manager.Id;$target=$a.window;$launches=@();for($i=0;$i-lt 5;$i++){$launches+=Launch $a};foreach($launch in $launches){WaitLauncher $launch}
+ $id=Inspect $a;if($id.owner_pid-ne $owner-or [long]$id.target-ne $target.ToInt64()-or @([DeskFlow]::Find('ASD Blocking Reminders',$owner)).Count-ne 1){throw 'Concurrent launch changed owner, target or pet count'};Ready $a 'INPUT_DRAFT_A';$r.concurrent_same_scope_launches=5
+ Stage 'vt-real-input-ctrl-c-and-program-mouse'
+ $vt=StartProbe 'VT';Wait 'VT row visible' {(Surface $a).text.Contains('Probe VT')};OpenProbe $vt;SendText $a 'RAW_UNICODE_中文_🧪';Chord $a 0x11 0x43
+ Wait 'independent VT unicode and ctrl-c' {$t=ProbeBytes $vt;return $t.Contains('RAW_UNICODE_中文_🧪')-and $t.Contains([string][char]3)}
+ ProbeClick $vt;Wait 'VT SGR mouse press release and wheel' {$t=ProbeBytes $vt;return $t-match '\x1b\[<0;\d+;\d+M'-and $t-match '\x1b\[<0;\d+;\d+m'-and $t-match '\x1b\[<64;\d+;\d+M'}
+ Stage 'real-window-resize-and-original-input'
+ foreach($size in @(@(600,440),@(900,300),@(1280,800),@(900,650))){Guard $a;$width=[Math]::Min($size[0],[DeskFlow]::GetSystemMetrics(78)-80);$height=[Math]::Min($size[1],[DeskFlow]::GetSystemMetrics(79)-80)
+ if(![InputFlow]::MoveWindow($a.window,40,40,$width,$height,$true)){throw 'Owned resize failed'};Start-Sleep -Milliseconds 400;Ready $a 'INPUT_VT_READY';$r.resize_observations+=@{width=$width;height=$height;marker_visible=$true}}
+ Stage 'win32-native-mouse-press-release-wheel'
+ $win=StartProbe 'WIN32';Wait 'native row visible' {(Surface $a).text.Contains('Probe WIN32')};OpenProbe $win;ProbeClick $win
+ Wait 'native mouse records' {$events=@(Journal $win.log|Where-Object{$_.event-ceq 'mouse'});return @($events|Where-Object{$_.buttons-eq 1-and $_.flags-eq 0}).Count-gt 0-and @($events|Where-Object{$_.buttons-eq 0-and $_.flags-eq 0}).Count-gt 0-and @($events|Where-Object{$_.flags-eq 4}).Count-gt 0}
+ Stage 'clipboard-backup-before-copy-and-paste'
+ try{$backup=SaveClipboard}catch{$r.clipboard_subflow='blocked before writes: backup unavailable';$r.clipboard_block_reason=$_.Exception.Message}
+ if($backup){
+  Stage 'selected-a-visible-copy-while-native-probe-active'
+  ClickText $a 'Instance A';SendText $a 'V';Wait 'actual system clipboard received A only' {AcceptControlledCopy $backup 'COPY_A_中文' 'INPUT_WIN32_READY'}
+  $r.system_clipboard_accept_verified=$true
+  Stage 'multiline-paste-through-real-windows-terminal'
+  OpenProbe $vt;$payload="PASTE_ONE_中`nPASTE_TWO_🧪";SetControlledClipboard $backup $payload;Guard $a;if([DeskFlow]::Keys([ushort[]]@(17,16,86,86,16,17),[uint[]]@(0,0,0,2,2,2))-ne 6){throw 'Paste chord incomplete'}
+  Wait 'independent multiline VT bytes' {$t=ProbeBytes $vt;return $t.Contains('PASTE_ONE_中')-and $t.Contains('PASTE_TWO_🧪')}
+  $bytes=ProbeBytes $vt;if($bytes-notmatch '\x1b\[200~PASTE_ONE_中\r?\nPASTE_TWO_🧪\x1b\[201~'){throw 'Bracketed multiline paste differed from literal payload'}
+  $r.clipboard_subflow='verified';$r.multiline_bracketed_paste_verified=$true
+ }
+ Stage 'original-draft-and-no-terminal-leak'
+ Foreground $a;ClickText $a 'Instance A';Press $a 0x0d;Ready $a 'INPUT_DRAFT_A'
+ $inputs=@(Journal $a.log|Where-Object{$_.event-ceq 'input'});if($inputs.Count-ne 1-or $inputs[0].text-cne 'COPY_A_中文'){throw 'Other input entered original A'}
+ foreach($probe in $script:inputChildren){OpenProbe $probe;SendText $a 'q';Wait 'probe ended with native q' {$probe.process.HasExited}}
+ # Return to the original available view before management quit.
+ Foreground $a;ClickText $a 'Instance A';Press $a 0x0d;Ready $a 'INPUT_DRAFT_A';ClickText $a 'Instance A';SendText $a 'q'
+ if(!$a.manager.WaitForExit(15000)-or $a.manager.ExitCode-ne 0){throw 'Normal UI quit failed'}
+ $r.result='verified';$r.ctrl_c_raw_input_verified=$true;$r.unicode_native_input_verified=$true;$r.vt_and_win32_mouse_verified=$true;$r.original_draft_preserved=$true
+}catch{try{if($a-and $a.ContainsKey('driver_stamp')-and !$a.manager.HasExited){$r.owned_failure_surface=(Surface $a).text}}catch{};$r.result='failed';$r.stage=$script:stage;$r.error=$_.Exception.Message.Replace($env:USERPROFILE,'<USERPROFILE>')}
+finally{
+ if($script:mouseHeld){$null=[InputFlow]::Mouse(4)}
+ if($backup){try{$r.clipboard_all_formats_and_values_restored=RestoreClipboard $backup}catch{$r.clipboard_restore_failed=$true;$r.clipboard_restore_reason=$_.Exception.Message}}
+ foreach($entry in $script:windows){try{CloseOwnedWindow $entry}catch{$r.window_cleanup_blocked=$true}}
+ foreach($o in $script:originals){try{$rows=(Product $a @('list','--json'))|ConvertFrom-Json;if(@($rows|Where-Object{$_.session_id-ceq $o.session_id-and $_.run_id-ceq $o.run_id-and $_.backend_id-ceq $o.backend_id}).Count-eq 1){$null=Product $a @('stop',$o.session_id)}}catch{$r.cleanup_failed=$true}}
+ $r.fixture_ends=@($script:fixtures|ForEach-Object{if(!$_.HasExited){$null=$_.WaitForExit(10000)};$_.HasExited});$r.probe_ends=@($script:inputChildren|ForEach-Object{$_.process.HasExited});$r.manager_ends=@($script:managers|ForEach-Object{if(!$_.HasExited){$null=$_.WaitForExit(10000)};$_.HasExited})
+ $now=[DeskFlow+P]::new();$null=[DeskFlow]::GetCursorPos([ref]$now);if($null-ne $script:lastX-and $now.X-eq $script:lastX-and $now.Y-eq $script:lastY){$r.cursor_restored=([DeskFlow]::Move($cursor.X,$cursor.Y)-eq 1)}
+ $null=[DeskFlow]::SetThreadDpiAwarenessContext($previousDpi);$r.product_sha256=(Get-FileHash $product).Hash.ToLowerInvariant();$r|ConvertTo-Json -Depth 8|Set-Content (Join-Path $out 'result.json') -Encoding utf8
+}
+} catch {@{result='failed';stage='outer-driver';error=$_.Exception.Message.Replace($env:USERPROFILE,'<USERPROFILE>');line=$_.InvocationInfo.ScriptLineNumber}|ConvertTo-Json|Set-Content (Join-Path $env:USERPROFILE 'asd-acceptance-20261122/stability-ui-input-r2-20261127/result.json') -Encoding utf8}

@@ -1,0 +1,5 @@
+{"event":"started","pid":23116,"args":[],"cwd":"C:\\Users\\<WINDOWS_USER>\\asd-acceptance-20261122\\stability-ui-resources-r3-20261127\\managed-10","env":{}}
+{"event":"input","text":"load 100 256 60000"}
+{"event":"load-start","load_id":1,"line_bytes":256,"lines_per_second":100,"duration_ms":60000,"lines_written":0,"bytes_written":0,"status":"running","started_utc":"2026-11-26T17:46:30.0771635Z"}
+{"event":"input","text":"load-stop"}
+{"event":"load-finished","load_id":1,"line_bytes":256,"lines_per_second":100,"duration_ms":60000,"lines_written":2089,"bytes_written":534784,"status":"cancelled","started_utc":"2026-11-26T17:46:30.0771635Z","finished_utc":"2026-11-26T17:46:50.9751083Z"}

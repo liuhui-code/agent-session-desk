@@ -39,7 +39,7 @@ func TestWorkspaceScrollModeShowsHistoryAndNativePrompt(t *testing.T) {
 	h.until(func() bool { return strings.Contains(h.m.View().Content, "shell marker first") })
 	h.send(tea.MouseMotionMsg{X: h.m.workspaceGeometry().x + 1, Y: h.m.height - 1, Button: tea.MouseNone})
 	view := ansi.Strip(h.m.View().Content)
-	if !strings.Contains(view, "ScrollHistory") || !strings.Contains(view, "Search: rare-token") || h.m.View().Cursor != nil {
+	if !strings.Contains(view, "History") || !strings.Contains(view, "Search: rare-token") || h.m.View().Cursor != nil {
 		t.Fatal("history mode is indistinguishable from live input or hides its native prompt")
 	}
 }
@@ -82,9 +82,9 @@ func TestWorkspaceWheelIsIgnoredOutsideContentAndInDialog(t *testing.T) {
 	service := &workspaceFixture{fakeService: fakeService{list: func(context.Context) ([]session.Session, error) { return sampleSessions(), nil }}}
 	h := newWorkspaceHarness(t, service)
 	h.until(func() bool { return strings.Contains(h.m.View().Content, "shell marker first") })
-	h.send(tea.MouseWheelMsg{X: h.m.workspaceGeometry().left + 1, Y: 1, Button: tea.MouseWheelUp})
+	h.send(tea.MouseWheelMsg{X: 0, Y: 0, Button: tea.MouseWheelUp})
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
-	h.send(tea.KeyPressMsg{Code: 'n', Text: "n"})
+	h.send(tea.KeyPressMsg{Code: 'N', Text: "N"})
 	h.until(func() bool { return strings.Contains(h.m.View().Content, "New terminal") })
 	h.send(tea.MouseWheelMsg{X: 70, Y: 10, Button: tea.MouseWheelUp})
 	service.mu.Lock()

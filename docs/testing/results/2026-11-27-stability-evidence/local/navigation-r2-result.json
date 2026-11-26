@@ -1,0 +1,30 @@
+{
+  "cursor_restored": true,
+  "manager_ends": [
+    true
+  ],
+  "registry_writes": 0,
+  "clipboard_calls": 0,
+  "forced_product_ends": 0,
+  "fixture_ends": [
+    true,
+    true
+  ],
+  "stage": "committed-unicode-input-and-independent-receipts",
+  "automatic_input_replay": false,
+  "stages": [
+    {
+      "utc": "2026-11-26T17:00:38.0647334Z",
+      "stage": "input-idle-preflight"
+    },
+    {
+      "utc": "2026-11-26T17:00:40.6619446Z",
+      "stage": "committed-unicode-input-and-independent-receipts"
+    }
+  ],
+  "result": "failed",
+  "intentional_owned_ui_crashes": 0,
+  "product_sha256": "0af83573d9e5aee55e26a31ff32aab84aa1da45b6e58523b9ff220abc49a330f",
+  "session_content_exported": 0,
+  "error": "A positional parameter cannot be found that accepts argument 'UI_A_涓枃_馃И_e虂'."
+}

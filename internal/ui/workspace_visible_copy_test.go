@@ -49,7 +49,9 @@ func TestVisibleCopyTargetsSelectedSessionAndNeverWritesTerminalInput(t *testing
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	h.send(tea.KeyPressMsg{Code: tea.KeyDown})
 	h.send(tea.KeyPressMsg{Code: 'V', Text: "V"})
-	h.until(func() bool { return s.captureCount() == 1 && strings.Contains(h.m.status, "复制请求") })
+	h.until(func() bool {
+		return s.captureCount() == 1 && h.m.clipboard.inflight != nil && h.m.workspace.visibleCopy == nil
+	})
 	s.mu.Lock()
 	defer s.mu.Unlock()
 	if s.captures[0].ID != "second" || s.captures[0].RunID != sampleSessions()[1].RunID || h.m.workspace.active != 0 {
@@ -99,7 +101,7 @@ func TestVisibleCopyUsesActualTeaOSC52OutputWithoutClipboardReads(t *testing.T) 
 	payload := "https://example.test\n  中文\ttext"
 	encoded := base64.StdEncoding.EncodeToString([]byte(payload))
 	await("]52;c;" + encoded)
-	await("Copy request sent to the terminal")
+	await("Copy request sent (")
 	out.Lock()
 	captured := out.buffer.String()
 	out.Unlock()

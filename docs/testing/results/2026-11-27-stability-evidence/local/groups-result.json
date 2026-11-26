@@ -1,0 +1,30 @@
+{
+  "clipboard_calls": 0,
+  "automatic_input_replay": false,
+  "fixture_ends": [
+    true,
+    true
+  ],
+  "forced_product_ends": 0,
+  "stage": "create-group-through-form",
+  "cursor_restored": true,
+  "registry_writes": 0,
+  "stages": [
+    {
+      "utc": "2026-11-26T17:09:40.9054575Z",
+      "stage": "input-idle-preflight"
+    },
+    {
+      "utc": "2026-11-26T17:09:44.2534490Z",
+      "stage": "create-group-through-form"
+    }
+  ],
+  "result": "failed",
+  "session_content_exported": 0,
+  "product_sha256": "0af83573d9e5aee55e26a31ff32aab84aa1da45b6e58523b9ff220abc49a330f",
+  "intentional_owned_ui_crashes": 0,
+  "manager_ends": [
+    true
+  ],
+  "error": "Timed out: group creation committed; no automatic replay"
+}

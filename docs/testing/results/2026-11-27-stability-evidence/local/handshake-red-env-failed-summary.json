@@ -1,0 +1,23 @@
+{
+  "exit_code": 1,
+  "source": "red",
+  "command": [
+    "test",
+    "-json",
+    "-count=1",
+    "-run",
+    "^TestFailedTerminalHandshakeReturnsNilConnection$",
+    "./internal/backend"
+  ],
+  "top_pass": 0,
+  "top_skip": 0,
+  "failed": [
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/backend",
+      "test": null
+    }
+  ],
+  "failure_output": [
+    "FAIL\tgithub.com/liuhui-code/agent-session-desk/internal/backend [setup failed]\n"
+  ]
+}

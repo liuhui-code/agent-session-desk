@@ -1,0 +1,3 @@
+$ErrorActionPreference='Stop';$ProgressPreference='SilentlyContinue'
+$base=Join-Path $env:USERPROFILE 'asd-acceptance-20261122'
+& ([ScriptBlock]::Create([IO.File]::ReadAllText((Join-Path $base 'stability-desktop-task.ps1')))) -Driver (Join-Path $base 'stability-ui-reminders-r2.ps1') -Task 'AsdStabilityRemindersR220261127' -Receipt (Join-Path $base 'stability-ui-reminders-r2-20261127/result.json') -Seconds 270

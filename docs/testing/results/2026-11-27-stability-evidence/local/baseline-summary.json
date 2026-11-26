@@ -1,0 +1,764 @@
+{
+  "exit_code": 1,
+  "source": "baseline",
+  "command": [
+    "test",
+    "-json",
+    "-count=1",
+    "-timeout=5m",
+    "./..."
+  ],
+  "top_pass": 561,
+  "top_skip": 1,
+  "failed": [
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestGroupOrderQuitIsCancelledWhenPreferencesFailBeforeOrderAcknowledgement"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestGroupOrderFailureCancelsQuitAndRequiresAFreshSnapshotBeforeAnotherEdit"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestGroupRemovalNeverConfirmsWhenTheCompleteReviewDoesNotFit"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestGroupRemovalDefaultsToCancelThenCollectsMembersWithoutChangingOriginalTabsOrInput"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestGroupRenameWaitsForAcceptedTerminalInputAndCancelNeverSaves"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestGroupRenameFailureCannotResubmitOrSwitchTabsAndOldResultCannotCloseNewDialog"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestGroupDialogsFitTinyViewportsAndKeepTheFocusedFieldVisible"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestGroupMoveRejectsAnOriginalRunReplacedWhileTheDialogWasOpen"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestHistoryOpensOnDemandAndEnterNeverAttaches"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestHistoryDetailsWrapScrollAndKeepObservationsSeparate"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestHistoryRefreshPreservesRunIdentityAndHandlesErrors"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestLaunchEnvironmentFailureDoesNotExposeValuesOrRetryUncertainRun"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestEnvironmentFailureKeepsSafeFieldLocationWithoutBackendDetails/程序"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestEnvironmentFailureKeepsSafeFieldLocationWithoutBackendDetails/工作目录"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestEnvironmentFailureKeepsSafeFieldLocationWithoutBackendDetails/环境覆盖"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestEnvironmentFailureKeepsSafeFieldLocationWithoutBackendDetails"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestExitedPaneCanBeInspectedWithoutAttaching"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestSuccessfulLaunchSavesHintFailureWithoutRetryingOrBlockingTab"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/TrueColor/[50_16]"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/TrueColor/[32_12]"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/ANSI256/[50_16]"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/ANSI256/[32_12]"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/ANSI/[50_16]"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/ANSI/[32_12]"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/Ascii/[50_16]"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/Ascii/[32_12]"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/TrueColor/[50_16]"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/TrueColor/[32_12]"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/ANSI256/[50_16]"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/ANSI256/[32_12]"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/ANSI/[50_16]"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/ANSI/[32_12]"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/Ascii/[50_16]"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/Ascii/[32_12]"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestDirectoryPopupViewportFocusAndThemeMatrix"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestSessionStopDefaultsToCancelAndStopsSelectedNotActiveRunOnce"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestSidebarNavigationAndDensityShareOneSerializedPreferenceWriter"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestSystemThemeUnknownRetainsLastGoodAndSanitizesCaption"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestSystemThemeCloseFailurePreventsReplacement"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestThemeAndDensitySerializeLatestChoicesBeforeClosing"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestThemeFailedSavePreservesAppliedPaletteAndCancelsWaitingClose"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestThemeNeedsWholeDocumentSaveCapability"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/27x8/row1"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/27x8/row1"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/27x8/row1"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestDesignTokensReachVisibleListAndHelp"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceNativeSearchPromptKeepsCursorAndUnicodeInputVisible/120"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceNativeSearchPromptKeepsCursorAndUnicodeInputVisible/27"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceNativeSearchPromptKeepsCursorAndUnicodeInputVisible"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceDensitySettingsApplyFullCardsWithoutTerminalInput"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceDensitySettingsSelectedChoiceRemainsVisibleInShortNarrowView"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceDensitySavesSerializeLatestChoiceBeforeClosing"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceDensitySaveFailureKeepsAppliedChoiceAndVisibleError"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceDensityOpeningWaitsForAcceptedTerminalWrite"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceDensityAutoUsesCurrentBudgetWithoutOscillation"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceDensitySpaceCyclesFromAutoToFull"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/22/focustrue"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/27/focustrue"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/49/focustrue"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/50/focustrue"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/63/focustrue"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/69/focustrue"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/70/focustrue"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/80/focustrue"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/100/focustrue"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/101/focustrue"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/120/focustrue"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/160/focustrue"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/22/focustrue"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/27/focustrue"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/49/focustrue"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/50/focustrue"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/63/focustrue"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/69/focustrue"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/70/focustrue"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/80/focustrue"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/100/focustrue"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/101/focustrue"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/120/focustrue"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/160/focustrue"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/22/focustrue"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/27/focustrue"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/49/focustrue"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/50/focustrue"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/63/focustrue"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/69/focustrue"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/70/focustrue"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/80/focustrue"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/100/focustrue"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/101/focustrue"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/120/focustrue"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/160/focustrue"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/22/focustrue"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/27/focustrue"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/49/focustrue"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/50/focusfalse"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/50/focustrue"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/63/focustrue"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/69/focustrue"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/70/focustrue"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/80/focustrue"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/100/focustrue"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/101/focustrue"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/120/focustrue"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/160/focustrue"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceManagementFooterUsesSourceKeyChipsAtWideCompactAndMinimalWidths"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFullFooterKeepsQuitAtSourceRightGutter"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceNarrowTerminalFooterOmitsUnrenderableTargetInsteadOfAnIDSuffix"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceListMouseUsesVisibleRowsAndIgnoresIndicators"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceListDoubleClickWhileConnectingKeepsManagementFocus"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestLongUnicodeCardsKeepFixedRowsAndSelectedBackground"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestQuietFooterConsumesItsMouseSurfaceButPreservesNativeDragRelease"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestProgramMouseKeepsOneReleaseSlotUnderMotionPressure"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestProgramMouseExternalModeChangesDoNotReleaseIntoAnotherMode/copy-mode"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestProgramMouseExternalModeChangesDoNotReleaseIntoAnotherMode/mouse-off"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestProgramMouseExternalModeChangesDoNotReleaseIntoAnotherMode/prompt"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestProgramMouseExternalModeChangesDoNotReleaseIntoAnotherMode/height"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestProgramMouseExternalModeChangesDoNotReleaseIntoAnotherMode"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestProgramMouseExternalScreenGrowthThenRestoreCannotResumeGesture"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceDisconnectKeepsLastObservedScreenReadOnly"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceDialogOuterWidthsMatchUpstreamActualFrames/settings"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceDialogOuterWidthsMatchUpstreamActualFrames"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceScrollModeShowsHistoryAndNativePrompt"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceWheelIsIgnoredOutsideContentAndInDialog"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceSplitSaveFailureRollsBackAndCancelsWaitingQuit"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceSplitRollbackErrorRemainsVisibleWhenResizeCannotBeEnqueued"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceOversizedInputIsRefusedBeforeQueueing"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceClosingAndReopeningTabKeepsOriginalRun"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestVisibleCopyTargetsSelectedSessionAndNeverWritesTerminalInput"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestVisibleCopyUsesActualTeaOSC52OutputWithoutClipboardReads"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": null
+    }
+  ],
+  "failure_output": [
+    "--- FAIL: TestGroupOrderQuitIsCancelledWhenPreferencesFailBeforeOrderAcknowledgement (0.00s)\n",
+    "--- FAIL: TestGroupOrderFailureCancelsQuitAndRequiresAFreshSnapshotBeforeAnotherEdit (3.00s)\n",
+    "--- FAIL: TestGroupRemovalNeverConfirmsWhenTheCompleteReviewDoesNotFit (3.00s)\n",
+    "--- FAIL: TestGroupRemovalDefaultsToCancelThenCollectsMembersWithoutChangingOriginalTabsOrInput (3.00s)\n",
+    "--- FAIL: TestGroupRenameWaitsForAcceptedTerminalInputAndCancelNeverSaves (0.00s)\n",
+    "--- FAIL: TestGroupRenameFailureCannotResubmitOrSwitchTabsAndOldResultCannotCloseNewDialog (3.00s)\n",
+    "--- FAIL: TestGroupDialogsFitTinyViewportsAndKeepTheFocusedFieldVisible (0.01s)\n",
+    "--- FAIL: TestGroupMoveRejectsAnOriginalRunReplacedWhileTheDialogWasOpen (0.01s)\n",
+    "--- FAIL: TestHistoryOpensOnDemandAndEnterNeverAttaches (0.00s)\n",
+    "--- FAIL: TestHistoryDetailsWrapScrollAndKeepObservationsSeparate (0.00s)\n",
+    "--- FAIL: TestHistoryRefreshPreservesRunIdentityAndHandlesErrors (0.00s)\n",
+    "--- FAIL: TestLaunchEnvironmentFailureDoesNotExposeValuesOrRetryUncertainRun (0.00s)\n",
+    "--- FAIL: TestEnvironmentFailureKeepsSafeFieldLocationWithoutBackendDetails/程序 (0.00s)\n",
+    "--- FAIL: TestEnvironmentFailureKeepsSafeFieldLocationWithoutBackendDetails/工作目录 (0.00s)\n",
+    "--- FAIL: TestEnvironmentFailureKeepsSafeFieldLocationWithoutBackendDetails/环境覆盖 (0.00s)\n",
+    "--- FAIL: TestEnvironmentFailureKeepsSafeFieldLocationWithoutBackendDetails (0.00s)\n",
+    "--- FAIL: TestExitedPaneCanBeInspectedWithoutAttaching (0.00s)\n",
+    "--- FAIL: TestSuccessfulLaunchSavesHintFailureWithoutRetryingOrBlockingTab (3.00s)\n",
+    "--- FAIL: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/TrueColor/[50_16] (0.00s)\n",
+    "--- FAIL: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/TrueColor/[32_12] (0.00s)\n",
+    "--- FAIL: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/ANSI256/[50_16] (0.00s)\n",
+    "--- FAIL: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/ANSI256/[32_12] (0.00s)\n",
+    "--- FAIL: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/ANSI/[50_16] (0.00s)\n",
+    "--- FAIL: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/ANSI/[32_12] (0.00s)\n",
+    "--- FAIL: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/Ascii/[50_16] (0.00s)\n",
+    "--- FAIL: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/dark/Ascii/[32_12] (0.00s)\n",
+    "--- FAIL: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/TrueColor/[50_16] (0.00s)\n",
+    "--- FAIL: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/TrueColor/[32_12] (0.00s)\n",
+    "--- FAIL: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/ANSI256/[50_16] (0.00s)\n",
+    "--- FAIL: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/ANSI256/[32_12] (0.00s)\n",
+    "--- FAIL: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/ANSI/[50_16] (0.00s)\n",
+    "--- FAIL: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/ANSI/[32_12] (0.00s)\n",
+    "--- FAIL: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/Ascii/[50_16] (0.00s)\n",
+    "--- FAIL: TestDirectoryPopupViewportFocusAndThemeMatrix/launch/light/Ascii/[32_12] (0.00s)\n",
+    "--- FAIL: TestDirectoryPopupViewportFocusAndThemeMatrix (0.17s)\n",
+    "--- FAIL: TestSessionStopDefaultsToCancelAndStopsSelectedNotActiveRunOnce (3.00s)\n",
+    "--- FAIL: TestSidebarNavigationAndDensityShareOneSerializedPreferenceWriter (3.00s)\n",
+    "--- FAIL: TestSystemThemeUnknownRetainsLastGoodAndSanitizesCaption (0.00s)\n",
+    "--- FAIL: TestSystemThemeCloseFailurePreventsReplacement (0.00s)\n",
+    "--- FAIL: TestThemeAndDensitySerializeLatestChoicesBeforeClosing (0.03s)\n",
+    "--- FAIL: TestThemeFailedSavePreservesAppliedPaletteAndCancelsWaitingClose (0.00s)\n",
+    "--- FAIL: TestThemeNeedsWholeDocumentSaveCapability (0.00s)\n",
+    "--- FAIL: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/dark/27x8/row1 (0.00s)\n",
+    "--- FAIL: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/light/27x8/row1 (0.00s)\n",
+    "--- FAIL: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames/system/27x8/row1 (0.00s)\n",
+    "--- FAIL: TestThemeSettingsKeepFocusedChoiceInsideAllBoundedFrames (0.10s)\n",
+    "--- FAIL: TestDesignTokensReachVisibleListAndHelp (0.00s)\n",
+    "    workspace_copy_test.go:206: native search cursor is not at the visible prompt: &{Position:{X:97 Y:31} Color:<nil> Shape:2 Blink:true}\n",
+    "--- FAIL: TestWorkspaceNativeSearchPromptKeepsCursorAndUnicodeInputVisible/120 (0.01s)\n",
+    "    workspace_copy_test.go:206: native search cursor is not at the visible prompt: &{Position:{X:24 Y:31} Color:<nil> Shape:2 Blink:true}\n",
+    "--- FAIL: TestWorkspaceNativeSearchPromptKeepsCursorAndUnicodeInputVisible/27 (0.01s)\n",
+    "--- FAIL: TestWorkspaceNativeSearchPromptKeepsCursorAndUnicodeInputVisible (0.01s)\n",
+    "    workspace_density_test.go:21: workspace did not reach expected state:\n",
+    "--- FAIL: TestWorkspaceDensitySettingsApplyFullCardsWithoutTerminalInput (3.01s)\n",
+    "    workspace_density_test.go:48: workspace did not reach expected state:\n",
+    "--- FAIL: TestWorkspaceDensitySettingsSelectedChoiceRemainsVisibleInShortNarrowView (3.01s)\n",
+    "    workspace_density_test.go:76: workspace did not reach expected state:\n",
+    "--- FAIL: TestWorkspaceDensitySavesSerializeLatestChoiceBeforeClosing (3.01s)\n",
+    "    workspace_density_test.go:137: workspace did not reach expected state:\n",
+    "--- FAIL: TestWorkspaceDensitySaveFailureKeepsAppliedChoiceAndVisibleError (3.01s)\n",
+    "    workspace_density_test.go:170: workspace did not reach expected state:\n",
+    "--- FAIL: TestWorkspaceDensityOpeningWaitsForAcceptedTerminalWrite (3.01s)\n",
+    "    workspace_density_test.go:215: {width:28 height:6 metadata:4}: unexpected card budget:\n",
+    "--- FAIL: TestWorkspaceDensityAutoUsesCurrentBudgetWithoutOscillation (0.00s)\n",
+    "    workspace_density_test.go:226: workspace did not reach expected state:\n",
+    "--- FAIL: TestWorkspaceDensitySpaceCyclesFromAutoToFull (3.01s)\n",
+    "    workspace_footer_modes_test.go:97: footer preference hid terminal input ownership\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/22/focustrue (0.00s)\n",
+    "    workspace_footer_modes_test.go:97: footer preference hid terminal input ownership\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/27/focustrue (0.00s)\n",
+    "    workspace_footer_modes_test.go:97: footer preference hid terminal input ownership\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/49/focustrue (0.00s)\n",
+    "    workspace_footer_modes_test.go:97: footer preference hid terminal input ownership\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/50/focustrue (0.00s)\n",
+    "    workspace_footer_modes_test.go:97: footer preference hid terminal input ownership\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/63/focustrue (0.00s)\n",
+    "    workspace_footer_modes_test.go:97: footer preference hid terminal input ownership\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/69/focustrue (0.00s)\n",
+    "    workspace_footer_modes_test.go:97: footer preference hid terminal input ownership\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/70/focustrue (0.00s)\n",
+    "    workspace_footer_modes_test.go:97: footer preference hid terminal input ownership\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/80/focustrue (0.00s)\n",
+    "    workspace_footer_modes_test.go:97: footer preference hid terminal input ownership\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/100/focustrue (0.00s)\n",
+    "    workspace_footer_modes_test.go:97: footer preference hid terminal input ownership\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/101/focustrue (0.00s)\n",
+    "    workspace_footer_modes_test.go:97: footer preference hid terminal input ownership\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/120/focustrue (0.00s)\n",
+    "    workspace_footer_modes_test.go:97: footer preference hid terminal input ownership\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/full/160/focustrue (0.00s)\n",
+    "    workspace_footer_modes_test.go:97: footer preference hid terminal input ownership\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/22/focustrue (0.00s)\n",
+    "    workspace_footer_modes_test.go:97: footer preference hid terminal input ownership\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/27/focustrue (0.00s)\n",
+    "    workspace_footer_modes_test.go:97: footer preference hid terminal input ownership\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/49/focustrue (0.00s)\n",
+    "    workspace_footer_modes_test.go:97: footer preference hid terminal input ownership\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/50/focustrue (0.00s)\n",
+    "    workspace_footer_modes_test.go:97: footer preference hid terminal input ownership\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/63/focustrue (0.00s)\n",
+    "    workspace_footer_modes_test.go:97: footer preference hid terminal input ownership\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/69/focustrue (0.00s)\n",
+    "    workspace_footer_modes_test.go:97: footer preference hid terminal input ownership\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/70/focustrue (0.00s)\n",
+    "    workspace_footer_modes_test.go:97: footer preference hid terminal input ownership\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/80/focustrue (0.00s)\n",
+    "    workspace_footer_modes_test.go:97: footer preference hid terminal input ownership\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/100/focustrue (0.00s)\n",
+    "    workspace_footer_modes_test.go:97: footer preference hid terminal input ownership\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/101/focustrue (0.00s)\n",
+    "    workspace_footer_modes_test.go:97: footer preference hid terminal input ownership\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/120/focustrue (0.00s)\n",
+    "    workspace_footer_modes_test.go:97: footer preference hid terminal input ownership\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/compact/160/focustrue (0.00s)\n",
+    "    workspace_footer_modes_test.go:97: footer preference hid terminal input ownership\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/22/focustrue (0.00s)\n",
+    "    workspace_footer_modes_test.go:97: footer preference hid terminal input ownership\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/27/focustrue (0.00s)\n",
+    "    workspace_footer_modes_test.go:97: footer preference hid terminal input ownership\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/49/focustrue (0.00s)\n",
+    "    workspace_footer_modes_test.go:97: footer preference hid terminal input ownership\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/50/focustrue (0.00s)\n",
+    "    workspace_footer_modes_test.go:97: footer preference hid terminal input ownership\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/63/focustrue (0.00s)\n",
+    "    workspace_footer_modes_test.go:97: footer preference hid terminal input ownership\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/69/focustrue (0.00s)\n",
+    "    workspace_footer_modes_test.go:97: footer preference hid terminal input ownership\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/70/focustrue (0.00s)\n",
+    "    workspace_footer_modes_test.go:97: footer preference hid terminal input ownership\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/80/focustrue (0.00s)\n",
+    "    workspace_footer_modes_test.go:97: footer preference hid terminal input ownership\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/100/focustrue (0.00s)\n",
+    "    workspace_footer_modes_test.go:97: footer preference hid terminal input ownership\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/101/focustrue (0.00s)\n",
+    "    workspace_footer_modes_test.go:97: footer preference hid terminal input ownership\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/120/focustrue (0.00s)\n",
+    "    workspace_footer_modes_test.go:97: footer preference hid terminal input ownership\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/minimal/160/focustrue (0.00s)\n",
+    "    workspace_footer_modes_test.go:97: footer preference hid terminal input ownership\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/22/focustrue (0.00s)\n",
+    "    workspace_footer_modes_test.go:97: footer preference hid terminal input ownership\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/27/focustrue (0.00s)\n",
+    "    workspace_footer_modes_test.go:97: footer preference hid terminal input ownership\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/49/focustrue (0.00s)\n",
+    "    workspace_footer_modes_test.go:100: curated globals cropped\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/50/focusfalse (0.00s)\n",
+    "    workspace_footer_modes_test.go:97: footer preference hid terminal input ownership\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/50/focustrue (0.00s)\n",
+    "    workspace_footer_modes_test.go:97: footer preference hid terminal input ownership\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/63/focustrue (0.00s)\n",
+    "    workspace_footer_modes_test.go:97: footer preference hid terminal input ownership\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/69/focustrue (0.00s)\n",
+    "    workspace_footer_modes_test.go:97: footer preference hid terminal input ownership\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/70/focustrue (0.00s)\n",
+    "    workspace_footer_modes_test.go:97: footer preference hid terminal input ownership\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/80/focustrue (0.00s)\n",
+    "    workspace_footer_modes_test.go:97: footer preference hid terminal input ownership\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/100/focustrue (0.00s)\n",
+    "    workspace_footer_modes_test.go:97: footer preference hid terminal input ownership\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/101/focustrue (0.00s)\n",
+    "    workspace_footer_modes_test.go:97: footer preference hid terminal input ownership\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/120/focustrue (0.00s)\n",
+    "    workspace_footer_modes_test.go:97: footer preference hid terminal input ownership\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/160/focustrue (0.00s)\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership (0.07s)\n",
+    "    workspace_footer_test.go:29: 80 footer lost selected-session Enter action: \"Navigation: …      ↑↓ Select │ Alt+J/K Sessions │ F6 Terminal │ ? Help │ q Quit\"\n",
+    "--- FAIL: TestWorkspaceManagementFooterUsesSourceKeyChipsAtWideCompactAndMinimalWidths (0.00s)\n",
+    "    workspace_footer_test.go:97: source full-tier quit/right-gutter anchor missing: width=160 \"Navigation:  Enter  Open  n  New  F2  Rename  M  Move  ↑↓ Select │ Alt+J/K Sessions │ F6 Terminal │ ? Help │ / Search │ S Settings │ Alt+V Grouped/Flat │ q Quit\"\n",
+    "--- FAIL: TestWorkspaceFullFooterKeepsQuitAtSourceRightGutter (0.00s)\n",
+    "    workspace_footer_test.go:112: narrow footer displays a target fragment or loses navigation: \"  -- Terminal --    F6 Navigate · Alt+J/K\"\n",
+    "--- FAIL: TestWorkspaceNarrowTerminalFooterOmitsUnrenderableTargetInsteadOfAnIDSuffix (0.00s)\n",
+    "    workspace_list_mouse_test.go:118: missing 上方 indicator\n",
+    "--- FAIL: TestWorkspaceListMouseUsesVisibleRowsAndIgnoresIndicators (0.01s)\n",
+    "    workspace_list_mouse_test.go:177: workspace did not reach expected state:\n",
+    "--- FAIL: TestWorkspaceListDoubleClickWhileConnectingKeepsManagementFocus (3.00s)\n",
+    "    workspace_long_cards_test.go:66: long selected card background hole at 0/0\n",
+    "--- FAIL: TestLongUnicodeCardsKeepFixedRowsAndSelectedBackground (0.00s)\n",
+    "    workspace_minimal_test.go:73: bottom edge stole a native drag/release: \"pointer:down,3,29;pointer:drag,4,30;pointer:up,4,30\"\n",
+    "--- FAIL: TestQuietFooterConsumesItsMouseSurfaceButPreservesNativeDragRelease (0.00s)\n",
+    "    workspace_program_pointer_lifecycle_test.go:31: rejected motion was not reported\n",
+    "--- FAIL: TestProgramMouseKeepsOneReleaseSlotUnderMotionPressure (0.00s)\n",
+    "    workspace_program_pointer_lifecycle_test.go:134: release uncertainty missing\n",
+    "--- FAIL: TestProgramMouseExternalModeChangesDoNotReleaseIntoAnotherMode/copy-mode (0.00s)\n",
+    "    workspace_program_pointer_lifecycle_test.go:134: release uncertainty missing\n",
+    "--- FAIL: TestProgramMouseExternalModeChangesDoNotReleaseIntoAnotherMode/mouse-off (0.00s)\n",
+    "    workspace_program_pointer_lifecycle_test.go:134: release uncertainty missing\n",
+    "--- FAIL: TestProgramMouseExternalModeChangesDoNotReleaseIntoAnotherMode/prompt (0.00s)\n",
+    "    workspace_program_pointer_lifecycle_test.go:134: release uncertainty missing\n",
+    "--- FAIL: TestProgramMouseExternalModeChangesDoNotReleaseIntoAnotherMode/height (0.00s)\n",
+    "--- FAIL: TestProgramMouseExternalModeChangesDoNotReleaseIntoAnotherMode (0.00s)\n",
+    "    workspace_program_pointer_test.go:83: external change lost uncertain release notice\n",
+    "--- FAIL: TestProgramMouseExternalScreenGrowthThenRestoreCannotResumeGesture (0.00s)\n",
+    "    workspace_reconcile_test.go:86: workspace did not reach expected state:\n",
+    "--- FAIL: TestWorkspaceDisconnectKeepsLastObservedScreenReadOnly (3.01s)\n",
+    "    workspace_reference_geometry_test.go:42: workspace did not reach expected state:\n",
+    "--- FAIL: TestWorkspaceDialogOuterWidthsMatchUpstreamActualFrames/settings (3.00s)\n",
+    "--- FAIL: TestWorkspaceDialogOuterWidthsMatchUpstreamActualFrames (3.01s)\n",
+    "    workspace_scroll_test.go:43: history mode is indistinguishable from live input or hides its native prompt\n",
+    "--- FAIL: TestWorkspaceScrollModeShowsHistoryAndNativePrompt (0.01s)\n",
+    "    workspace_scroll_test.go:88: workspace did not reach expected state:\n",
+    "--- FAIL: TestWorkspaceWheelIsIgnoredOutsideContentAndInDialog (3.01s)\n",
+    "    workspace_split_preferences_test.go:232: failed preference hid error, kept new ratio, or quit\n",
+    "--- FAIL: TestWorkspaceSplitSaveFailureRollsBackAndCancelsWaitingQuit (0.00s)\n",
+    "    workspace_split_preferences_test.go:253: rollback masked preference error: UI preferences not saved: synthetic save failure\n",
+    "--- FAIL: TestWorkspaceSplitRollbackErrorRemainsVisibleWhenResizeCannotBeEnqueued (0.00s)\n",
+    "    workspace_test.go:312: oversized input was not refused at the UI boundary\n",
+    "--- FAIL: TestWorkspaceOversizedInputIsRefusedBeforeQueueing (0.01s)\n",
+    "    workspace_test.go:379: workspace did not reach expected state:\n",
+    "--- FAIL: TestWorkspaceClosingAndReopeningTabKeepsOriginalRun (3.01s)\n",
+    "    workspace_visible_copy_test.go:52: workspace did not reach expected state:\n",
+    "--- FAIL: TestVisibleCopyTargetsSelectedSessionAndNeverWritesTerminalInput (3.00s)\n",
+    "    workspace_visible_copy_test.go:102: Tea output missing \"Copy request sent to the terminal\"\n",
+    "--- FAIL: TestVisibleCopyUsesActualTeaOSC52OutputWithoutClipboardReads (3.04s)\n",
+    "FAIL\n",
+    "FAIL\tgithub.com/liuhui-code/agent-session-desk/internal/ui\t75.267s\n"
+  ]
+}

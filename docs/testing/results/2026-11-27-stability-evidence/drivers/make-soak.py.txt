@@ -1,0 +1,55 @@
+from pathlib import Path
+p=Path('/private/tmp/asd-stability-20261127');s=(p/'stability-ui-resources-r3.ps1').read_text();s=s[:s.index("try{\n Stage 'input-idle-preflight'")];s=s.replace("$round='resources-r3'","$round='soak-r1'")
+# Bounded passive collection. No periodic focus, UI keys, clipboard, or registry changes.
+body=r'''
+$durationSeconds=28800;$intervalSeconds=15;$maxSamples=1921;$maxSampleBytes=128MB;$taskName='AsdStabilitySoakR120261127'
+$r.requested_duration_seconds=$durationSeconds;$r.sample_interval_seconds=$intervalSeconds;$r.max_sample_bytes=$maxSampleBytes;$r.passive_after_ready=$true;$r.ui_exit_method='validated single-tab native window close, no foreground keys';$r.intentional_load='100 lines/s x256 bytes x60s every30min, explicit owned fixture only'
+$script:soakStart=$null;$script:current=$null;$r.task_registration_removed=$false
+function Heartbeat([string]$state){
+ $record=@{state=$state;utc=[DateTime]::UtcNow.ToString('o');samples=$script:sampleIndex;stage=$script:stage;requested_duration_seconds=$durationSeconds;elapsed_seconds=$(if($script:soakStart){([DateTime]::UtcNow-$script:soakStart).TotalSeconds}else{0});product_sha256=$expected}
+ $temp=Join-Path $out 'heartbeat.tmp';[IO.File]::WriteAllText($temp,($record|ConvertTo-Json -Compress),[Text.UTF8Encoding]::new($false));Move-Item $temp (Join-Path $out 'heartbeat.json') -Force
+}
+try{
+ Stage 'prepare-ten-originals-and-bound-native-ui';$scope=NewResourceScope 10;$script:current=$scope;BindResource $scope;CheckScope $scope
+ foreach($item in $scope.items){if((Mux $scope @('show-options','-t',$item.record.backend_id,'-g','-v','warm')).Trim()-cne 'off'-or (Mux $scope @('show-options','-t',$item.record.backend_id,'-g','-v','warm-pool-size')).Trim()-cne '0'){throw 'Warm process not disabled'}}
+ Stage 'eight-hour-passive-observation';$script:soakStart=[DateTime]::UtcNow;$deadline=$script:soakStart.AddSeconds($durationSeconds);$nextLoad=$script:soakStart.AddMinutes(30);$loadEnds=$null;$loading=$false;Heartbeat 'running'
+ while([DateTime]::UtcNow-lt $deadline){
+  $tick=[Diagnostics.Stopwatch]::StartNew()
+  if(Test-Path (Join-Path $out 'stop.request')){$r.stopped_by_request=$true;throw 'Explicit stop request; full duration not achieved'}
+  if($scope.manager.HasExited){throw 'Original UI exited during soak'};foreach($item in $scope.items){if($item.process.HasExited){throw 'Original fixture exited during soak'}}
+  if(!$loading-and [DateTime]::UtcNow-ge $nextLoad){CheckScope $scope;LoadManaged $scope $scope.items;$loading=$true;$loadEnds=[DateTime]::UtcNow.AddSeconds(65);$nextLoad=$nextLoad.AddMinutes(30)}
+  if($loading-and [DateTime]::UtcNow-ge $loadEnds){foreach($item in $scope.items){if(@(Journal $item.log|Where-Object{$_.event-ceq 'load-finished'-and $_.load_id-eq $item.loadID}).Count-ne 1){throw 'Finite soak output failed to finish'}};$loading=$false}
+  Sample $scope $(if($loading){'soak-finite-output'}else{'soak-idle'}) 10
+  if($script:sampleIndex-gt $maxSamples-or (Get-Item (Join-Path $out 'samples.jsonl')).Length-gt $maxSampleBytes){throw 'Soak evidence bound exceeded'};Heartbeat 'running'
+  $delay=[Math]::Min($intervalSeconds*1000-$tick.Elapsed.TotalMilliseconds,($deadline-[DateTime]::UtcNow).TotalMilliseconds);if($delay-gt 0){Start-Sleep -Milliseconds ([int]$delay)}
+ }
+ CheckScope $scope;$r.actual_observation_seconds=([DateTime]::UtcNow-$script:soakStart).TotalSeconds;if($r.actual_observation_seconds-lt $durationSeconds){throw 'Duration incomplete'}
+ Stage 'native-window-close-preserves-original-runs';CloseOwnedWindow $script:windows[-1];if(!$scope.manager.WaitForExit(15000)){throw 'Native close did not end original UI'};CheckScope $scope
+ $r.ui_exit_code=$scope.manager.ExitCode;CleanupScope $scope;$r.result='verified';$r.no_run_identity_change=$true;$r.full_requested_duration=$true
+}catch{$r.result='failed';$r.stage=$script:stage;$r.error=$_.Exception.Message.Replace($env:USERPROFILE,'<USERPROFILE>')}
+finally{
+ foreach($entry in $script:windows){try{CloseOwnedWindow $entry}catch{$r.window_cleanup_blocked=$true}}
+ foreach($scope in $script:resourceScopes){try{foreach($item in $scope.items){if(!$item.process.HasExited){$null=Product $scope @('stop',$item.record.session_id);$null=$item.process.WaitForExit(15000)}}}catch{$r.cleanup_failed=$true}}
+ $r.elapsed_ms=$clock.Elapsed.TotalMilliseconds;$r.total_samples=$script:sampleIndex;$r.fixture_ends=@($script:fixtures|ForEach-Object{$_.HasExited});$r.manager_ends=@($script:managers|ForEach-Object{if(!$_.HasExited){$null=$_.WaitForExit(10000)};$_.HasExited});$r.product_sha256=(Get-FileHash $product).Hash.ToLowerInvariant()
+ $null=[DeskFlow]::SetThreadDpiAwarenessContext($previousDpi);Heartbeat $r.result
+ $driver=Join-Path $base 'stability-ui-soak-r1.ps1';$code="& ([ScriptBlock]::Create([IO.File]::ReadAllText('"+$driver.Replace("'","''")+"')))";$taskArgs='-NoProfile -NonInteractive -WindowStyle Hidden -STA -EncodedCommand '+[Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($code))
+ # Exact one-task cleanup; does not stop a process or another registered action.
+ try{$task=Get-ScheduledTask -TaskName $taskName -ErrorAction SilentlyContinue;if($task-and $task.Actions.Execute-ieq $hostInfo.shell.path-and $task.Actions.Arguments-ceq $taskArgs){Unregister-ScheduledTask -TaskName $taskName -Confirm:$false;$r.task_registration_removed=$true}}catch{$r.task_cleanup_failed=$true}
+ $r|ConvertTo-Json -Depth 12|Set-Content (Join-Path $out 'result.json') -Encoding utf8
+}
+} catch {@{result='failed';stage='outer-driver';error=$_.Exception.Message.Replace($env:USERPROFILE,'<USERPROFILE>');line=$_.InvocationInfo.ScriptLineNumber}|ConvertTo-Json|Set-Content (Join-Path $env:USERPROFILE 'asd-acceptance-20261122/stability-ui-soak-r1-20261127/result.json') -Encoding utf8}
+'''
+(p/'stability-ui-soak-r1.ps1').write_text(s+body)
+(p/'start-soak-r1.ps1').write_text(r'''$ErrorActionPreference='Stop';$base=Join-Path $env:USERPROFILE 'asd-acceptance-20261122';$task='AsdStabilitySoakR120261127';$driver=Join-Path $base 'stability-ui-soak-r1.ps1';$out=Join-Path $base 'stability-ui-soak-r1-20261127'
+$package=Join-Path ([Environment]::GetFolderPath('Desktop')) 'Agent Session Desk Alpha 8234c4e';$h=Get-Content -Raw (Join-Path $package 'local-host.json')|ConvertFrom-Json
+if((Get-FileHash $h.shell.path).Hash.ToLowerInvariant()-cne $h.shell.sha256){throw 'Pinned shell changed'}
+if((Test-Path $out)-or (Get-ScheduledTask -TaskName $task -ErrorAction SilentlyContinue)){throw 'Fresh soak and task required'}
+$tokens=$null;$parse=$null;$null=[Management.Automation.Language.Parser]::ParseFile($driver,[ref]$tokens,[ref]$parse);if($parse.Count){throw 'Soak script parse failed before action'}
+$code="& ([ScriptBlock]::Create([IO.File]::ReadAllText('"+$driver.Replace("'","''")+"')))";$args='-NoProfile -NonInteractive -WindowStyle Hidden -STA -EncodedCommand '+[Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($code))
+$principal=New-ScheduledTaskPrincipal -UserId ([Security.Principal.WindowsIdentity]::GetCurrent().User.Value) -LogonType Interactive -RunLevel Limited
+$settings=New-ScheduledTaskSettingsSet -ExecutionTimeLimit (New-TimeSpan -Hours 9)
+Register-ScheduledTask -TaskName $task -Action (New-ScheduledTaskAction -Execute $h.shell.path -Argument $args) -Principal $principal -Settings $settings|Out-Null
+Start-ScheduledTask -TaskName $task
+@{task=$task;state=[string](Get-ScheduledTask -TaskName $task).State;driver_sha256=(Get-FileHash $driver).Hash.ToLowerInvariant();requested_seconds=28800;heartbeat='stability-ui-soak-r1-20261127/heartbeat.json';result='stability-ui-soak-r1-20261127/result.json'}|ConvertTo-Json
+''')
+print('Soak driver lines',len((s+body).splitlines()))

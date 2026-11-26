@@ -1,0 +1,103 @@
+from pathlib import Path
+p=Path('/private/tmp/asd-stability-20261127')
+s=Path('docs/testing/results/2026-11-26-workbench-instance-evidence/instance-desktop-r3.ps1').read_text()
+s=s[:s.index("try{\n Stage 'input-idle-preflight'")]
+s=s.replace("'instance-desktop-r3-20261126'","('stability-fault-'+$round+'-20261127')").replace("'instance-final-product-r3-20261126'","('stability-fault-product-'+$round+'-20261127')")
+s=s.replace("Copy-Item (Join-Path $base 'asd-instance-r3.exe') (Join-Path $root 'asd-instance-r3.exe')", """$source=if($round-eq 'red'){Join-Path $base 'asd-instance-r3.exe'}else{Join-Path $base 'asd-stability.exe'}
+$expected=if($round-eq 'red'){'c7821a3a4c9ec044c51d00d38da47c9d2a4d1d647ae30c7c6c5f068d6b0f4290'}else{(Get-Content -Raw (Join-Path $base 'stability-artifacts.json')|ConvertFrom-Json).'asd-stability.exe'}
+if((Get-FileHash $source).Hash.ToLowerInvariant()-cne $expected){throw 'Fault-test product fingerprint changed'}
+Copy-Item $source (Join-Path $root 'asd-instance-r3.exe')""")
+s=s.replace("'asd-fixture-integrated.exe'","'asd-stability-fixture.exe'")
+s=s.replace("if((Get-FileHash $fixture).Hash.ToLowerInvariant()-cne 'b4405f298f3beef8cf61f4fff12d7d71f37f74d5e323535dd1076616f477ede3'){throw 'Fixture changed'}", "if((Get-FileHash $fixture).Hash.ToLowerInvariant()-cne (Get-Content -Raw (Join-Path $base 'stability-artifacts.json')|ConvertFrom-Json).'asd-stability-fixture.exe'){throw 'Fixture changed'}")
+s=s.replace('public class InstanceDesktop {','''public class InstanceDesktop {
+ [DllImport("user32.dll",CharSet=CharSet.Unicode)]public static extern bool SetProp(IntPtr h,string name,IntPtr data);
+ [DllImport("user32.dll",CharSet=CharSet.Unicode)]public static extern IntPtr GetProp(IntPtr h,string name);''')
+a=s.index('function Surface($scope){');b=s.index('function Ready(',a)
+s=s[:a]+'''function Surface($scope){
+ if(!$scope.ContainsKey('driver_stamp')-or ![InstanceDesktop]::IsWindow($scope.window)-or [InstanceDesktop]::GetProp($scope.window,$scope.driver_stamp)-ne [IntPtr]1-or $scope.host.HasExited){throw 'Driver-owned window identity changed'}
+ $rootElement=[Windows.Automation.AutomationElement]::FromHandle($scope.window)
+ $items=$rootElement.FindAll([Windows.Automation.TreeScope]::Descendants,[Windows.Automation.Condition]::TrueCondition);$best=$null
+ foreach($item in $items){$pattern=$null;if($item.TryGetCurrentPattern([Windows.Automation.TextPattern]::Pattern,[ref]$pattern)){$text=$pattern.DocumentRange.GetText(65536);if(!$best-or $text.Length-gt $best.text.Length){$best=@{text=$text;pattern=$pattern}}}}
+ if(!$best){throw 'Driver-owned fixture surface unavailable'};return $best
+}
+''' + s[b:]
+s=s.replace("if([InstanceDesktop]::Stamp($w)-cne $entry.stamp){if($entry.manager.HasExited){$r.reused_or_closed_window_skipped=$true;return};throw 'Owned window stamp changed; no close'}", "if(!$entry.scope.ContainsKey('driver_stamp')-or [InstanceDesktop]::GetProp($w,$entry.scope.driver_stamp)-ne [IntPtr]1-or $entry.scope.host.HasExited){throw 'Driver-owned window stamp changed; no close'}")
+body=r'''
+$script:portPath=$null;$script:originalPort=$null;$script:fakePort=$null;$b=$null;$proxy=$null
+try{
+ Stage 'input-idle-preflight';Wait 'user input idle' {[DeskFlow]::IdleMilliseconds()-ge 45000} 60
+ $a=CreateScope 'A';$p=Launch $a;WaitLauncher $p;RegisterWindow $a
+ $a.driver_stamp='ASD.Test.Stability.'+[Guid]::NewGuid().ToString('N')
+ [uint32]$hostPID=0;$null=[DeskFlow]::GetWindowThreadProcessId($a.window,[ref]$hostPID)
+ $a.host=Get-Process -Id $hostPID;$null=$a.host.Handle;if($a.host.Path-ine $hostInfo.terminal.path){throw 'Owned host path changed'}
+ if(![InstanceDesktop]::SetProp($a.window,$a.driver_stamp,[IntPtr]1)){throw 'Driver window stamp failed'}
+ Ready $a 'CLI fixture';Foreground $a;ClickText $a 'CLI fixture';Guard $a
+ if([DeskFlow]::Text('FAULT_DRAFT_A')-ne 26){throw 'Draft input incomplete'};Ready $a 'FAULT_DRAFT_A'
+ Stage 'create-original-target-b'
+ $bLog=Join-Path $out 'B.jsonl';$b=(Product $a @('start','--name','Fault B','--cwd',$a.cwd,'--env',('ASD_FIXTURE_REPORT_PATH='+$bLog),'--',$fixture))|ConvertFrom-Json
+ Wait 'B fixture identity' {@(Journal $bLog).Count-gt 0};$bs=@(Journal $bLog)[0];$bp=Get-Process -Id $bs.pid;$null=$bp.Handle;if($bp.Path-ine $fixture){throw 'B fixture identity mismatch'};$script:fixtures+=$bp
+ $script:portPath=Join-Path (Join-Path $a.runtime $a.ns) ($a.ns+'__'+$b.backend_id+'.port')
+ if((Get-Item $script:portPath).Attributes-band [IO.FileAttributes]::ReparsePoint){throw 'Owned endpoint is linked'}
+ $script:originalPort=[IO.File]::ReadAllText($script:portPath)
+ $ready=Join-Path $out 'proxy-ready.json';$done=Join-Path $out 'proxy-done.json'
+ $psi=[Diagnostics.ProcessStartInfo]::new();$psi.FileName=$hostInfo.shell.path;$psi.UseShellExecute=$false;$psi.CreateNoWindow=$true
+ $code="& ([ScriptBlock]::Create([IO.File]::ReadAllText('"+(Join-Path $base 'stability-fault-peer.ps1').Replace("'","''")+"'))) -Ready '"+$ready.Replace("'","''")+"' -Done '"+$done.Replace("'","''")+"'"
+ foreach($arg in @('-NoProfile','-EncodedCommand',[Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($code)))){$psi.ArgumentList.Add($arg)}
+ $proxy=[Diagnostics.Process]::Start($psi);$null=$proxy.Handle
+ Wait 'owned loopback peer ready' {Test-Path $ready};$script:fakePort=[string](Get-Content -Raw $ready|ConvertFrom-Json).port
+ [IO.File]::WriteAllText($script:portPath,$script:fakePort)
+ Stage 'real-alt-j-switch-into-truncated-handshake'
+ Guard $a;if([DeskFlow]::Chord(0x12,0x4a)-ne 4){throw 'Switch input incomplete'}
+ Wait 'fault peer observed actual auth and poll' {Test-Path $done}
+ $peer=Get-Content -Raw $done|ConvertFrom-Json
+ if(!$peer.auth_received-or !$peer.poll_received){throw 'Failure boundary not observed'}
+ $r.handshake_auth_and_poll_observed=$true
+ if($round-eq 'red'){
+  Wait 'baseline UI exits on failed switch' {$a.manager.HasExited}
+  $r.baseline_manager_exit_code=$a.manager.ExitCode
+  $surface=Surface $a;$r.panic_in_owned_surface=$surface.text.Contains('panic')-or $surface.text.Contains('nil pointer')
+  if(!$r.panic_in_owned_surface-or $a.manager.ExitCode-eq 0){throw 'Baseline did not reproduce the intended UI panic'}
+  $r.result='reproduced_crash'
+ }else{
+  Wait 'failed view is visible while manager survives' {if($a.manager.HasExited){throw 'Candidate manager crashed'};return (Surface $a).text.Contains('Terminal not interactive')}
+  $r.manager_survived_failed_switch=$true
+  [IO.File]::WriteAllText($script:portPath,$script:originalPort);$script:portPath=$null
+  Guard $a;if([DeskFlow]::Text('r')-ne 2){throw 'Explicit retry incomplete'};Ready $a 'CLI fixture'
+  Guard $a;if([DeskFlow]::Chord(0x12,0x4b)-ne 4){throw 'Return to original incomplete'};Ready $a 'FAULT_DRAFT_A'
+  AssertOriginal $a
+  if(@(Journal $bLog|Where-Object{$_.event-eq 'input'}).Count){throw 'Failure or retry injected target input'}
+  $r.original_draft_and_runs_preserved=$true
+  Quit $a;$r.result='verified'
+ }
+ if($a.fixture.HasExited-or $bp.HasExited){throw 'Original fixture ended during UI fault'}
+}catch{$r.result='failed';$r.stage=$script:stage;$r.error=$_.Exception.Message.Replace($env:USERPROFILE,'<USERPROFILE>')}
+finally{
+ if($script:portPath){if([IO.File]::ReadAllText($script:portPath)-ceq $script:fakePort){[IO.File]::WriteAllText($script:portPath,$script:originalPort);$r.endpoint_restored=$true}else{$r.endpoint_restore_blocked=$true}}
+ foreach($entry in $script:windows){try{CloseOwnedWindow $entry}catch{$r.window_cleanup_blocked=$true}}
+ if($b){try{$null=Product $a @('stop',$b.session_id)}catch{$r.target_cleanup_error=$true}}
+ foreach($scope in $script:scopes){try{$null=Product $scope @('stop',$scope.original.session_id)}catch{$r.fixture_cleanup_error=$true}}
+ $r.fixture_ends=@($script:fixtures|ForEach-Object{if(!$_.HasExited){$null=$_.WaitForExit(10000)};$_.HasExited})
+ $r.manager_ends=@($script:managers|ForEach-Object{if(!$_.HasExited){$null=$_.WaitForExit(10000)};$_.HasExited})
+ if($proxy){$r.fault_peer_ended=$proxy.WaitForExit(10000)}
+ $now=[DeskFlow+P]::new();$null=[DeskFlow]::GetCursorPos([ref]$now);if($null-ne $script:lastX-and $now.X-eq $script:lastX-and $now.Y-eq $script:lastY){$r.cursor_restored=([DeskFlow]::Move($cursor.X,$cursor.Y)-eq 1)}
+ $null=[DeskFlow]::SetThreadDpiAwarenessContext($previousDpi)
+ $r.product_sha256=(Get-FileHash $product).Hash.ToLowerInvariant();$r|ConvertTo-Json -Depth 6|Set-Content (Join-Path $out 'result.json') -Encoding utf8
+}
+} catch {
+ @{result='failed';stage='outer-driver';error=$_.Exception.Message.Replace($env:USERPROFILE,'<USERPROFILE>');line=$_.InvocationInfo.ScriptLineNumber}|ConvertTo-Json|Set-Content (Join-Path $env:USERPROFILE ('asd-acceptance-20261122/stability-fault-'+$round+'-20261127/result.json')) -Encoding utf8
+}
+'''
+for round in ['red','green']:(p/('fault-'+round+'.ps1')).write_text("$round='"+round+"'\n"+s+body)
+(p/'stability-fault-peer.ps1').write_text(r'''param([string]$Ready,[string]$Done)
+$ErrorActionPreference='Stop';$listener=[Net.Sockets.TcpListener]::new([Net.IPAddress]::Loopback,0)
+$r=@{auth_received=$false;poll_received=$false}
+try{
+ $listener.Start();@{port=$listener.LocalEndpoint.Port}|ConvertTo-Json|Set-Content $Ready -Encoding utf8
+ $async=$listener.AcceptTcpClientAsync();if(!$async.Wait(30000)){throw 'Owned peer accept timed out'};$client=$async.Result
+ try{
+  $client.ReceiveTimeout=5000;$client.SendTimeout=5000;$stream=$client.GetStream();$reader=[IO.StreamReader]::new($stream);$writer=[IO.StreamWriter]::new($stream,[Text.UTF8Encoding]::new($false));$writer.NewLine="`n";$writer.AutoFlush=$true
+  $auth=$reader.ReadLine();$r.auth_received=$auth.StartsWith('AUTH ',[StringComparison]::Ordinal);$writer.WriteLine('OK');$r.poll_received=($null-ne $reader.ReadLine())
+ }finally{$client.Dispose()}
+}catch{$r.error='Controlled peer failed'}finally{$listener.Stop();$r|ConvertTo-Json|Set-Content $Done -Encoding utf8}
+''')
+print('Fault drivers created',len((p/'fault-red.ps1').read_text().splitlines()))

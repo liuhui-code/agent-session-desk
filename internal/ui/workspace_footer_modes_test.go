@@ -93,10 +93,10 @@ func TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership(t *testing.
 						t.Fatal("footer overflow was hidden by final frame crop")
 					}
 					plain := ansi.Strip(lines[31])
-					if focused && width >= 22 && !strings.Contains(plain, "F6") {
-						t.Fatal("footer preference hid terminal input ownership")
+					if focused && strings.Contains(plain, "F6") {
+						t.Fatal("ordinary terminal hint remained visible without management focus")
 					}
-					if !focused && width >= 50 && mode == "curated" && !strings.HasSuffix(strings.TrimSpace(plain), "S Settings  ? Help") {
+					if !focused && m.workspaceGeometry().bodyWidth >= m.tokens.layout.singleBelow && mode == "curated" && !strings.HasSuffix(strings.TrimSpace(plain), "S Settings  ? Help") {
 						t.Fatal("curated globals cropped")
 					}
 				})

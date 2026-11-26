@@ -1,0 +1,100 @@
+[
+  {
+    "exit_code": 0,
+    "top_pass": 327,
+    "exe": "ui.test.exe",
+    "top_fail": 0,
+    "top_skip": 1
+  },
+  {
+    "exit_code": 0,
+    "top_pass": 97,
+    "exe": "store.test.exe",
+    "top_fail": 0,
+    "top_skip": 0
+  },
+  {
+    "exit_code": 0,
+    "top_pass": 25,
+    "exe": "backend.test.exe",
+    "top_fail": 0,
+    "top_skip": 10
+  },
+  {
+    "exit_code": 0,
+    "top_pass": 11,
+    "exe": "session.test.exe",
+    "top_fail": 0,
+    "top_skip": 0
+  },
+  {
+    "exit_code": 0,
+    "top_pass": 14,
+    "exe": "pet.test.exe",
+    "top_fail": 0,
+    "top_skip": 2
+  },
+  {
+    "exit_code": 0,
+    "top_pass": 8,
+    "exe": "instance.test.exe",
+    "top_fail": 0,
+    "top_skip": 0
+  },
+  {
+    "exit_code": 0,
+    "top_pass": 28,
+    "exe": "terminal.test.exe",
+    "top_fail": 0,
+    "top_skip": 0
+  },
+  {
+    "exit_code": 1,
+    "top_pass": 3,
+    "exe": "document.test.exe",
+    "top_fail": 1,
+    "top_skip": 0
+  },
+  {
+    "exit_code": 0,
+    "top_pass": 33,
+    "exe": "cli.test.exe",
+    "top_fail": 0,
+    "top_skip": 0
+  },
+  {
+    "exit_code": 0,
+    "top_pass": 12,
+    "exe": "asd-fixture.test.exe",
+    "top_fail": 0,
+    "top_skip": 0
+  },
+  {
+    "exit_code": 0,
+    "top_pass": 3,
+    "exe": "appearance.test.exe",
+    "top_fail": 0,
+    "top_skip": 1
+  },
+  {
+    "exit_code": 0,
+    "top_pass": 33,
+    "exe": "config.test.exe",
+    "top_fail": 0,
+    "top_skip": 0
+  },
+  {
+    "exit_code": 0,
+    "top_pass": 34,
+    "exe": "manager.test.exe",
+    "top_fail": 0,
+    "top_skip": 4
+  },
+  {
+    "exit_code": 0,
+    "top_pass": 2,
+    "exe": "pathsuggest.test.exe",
+    "top_fail": 0,
+    "top_skip": 1
+  }
+]

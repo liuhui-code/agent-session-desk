@@ -1,0 +1,16 @@
+{
+  "exit_code": 0,
+  "source": "candidate",
+  "command": [
+    "test",
+    "-json",
+    "-count=1",
+    "-run",
+    "^TestFailedTerminalHandshakeReturnsNilConnection$",
+    "./internal/backend"
+  ],
+  "top_pass": 1,
+  "top_skip": 0,
+  "failed": [],
+  "failure_output": []
+}

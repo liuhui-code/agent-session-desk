@@ -82,7 +82,7 @@ func (m *Model) renderGroupDialog() (string, *tea.Cursor) {
 			lines = append(lines, center(m.styles.groupContext.Render("Parent: "+m.groupPath(d.parentID))), "")
 		}
 		inputRow = len(lines) + d.focus
-		for i, name := range []string{"Name:", "Default directory:"} {
+		for i, name := range []string{"Name:", "Directory:"} {
 			labelText := fitFrame(name, t.group.labelWidth, 1)
 			lines = append(lines, center(m.styles.groupLabel.Render(labelText)+fitFrame(inputView(d.inputs[i]), fieldWidth, 1)))
 		}

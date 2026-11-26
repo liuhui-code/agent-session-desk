@@ -61,7 +61,13 @@ func (b *Backend) OpenTerminal(ctx context.Context, s session.Session, width, he
 	}
 	// The first native frame must name the same session and active original pane
 	// before any user input can be written. Endpoint keys and frames are not logged.
-	return terminal.OpenPSMux(ctx, conn, terminal.PSMuxOptions{Key: key, Session: s.BackendID, Pane: pane, Width: width, Height: height})
+	client, err := terminal.OpenPSMux(ctx, conn, terminal.PSMuxOptions{Key: key, Session: s.BackendID, Pane: pane, Width: width, Height: height})
+	if err != nil {
+		// Keep a failed *PSMux constructor's nil pointer out of the Connection
+		// interface; view cleanup may close any non-nil interface result.
+		return nil, err
+	}
+	return client, nil
 }
 
 func readTerminalEndpoint(path string) (string, error) {

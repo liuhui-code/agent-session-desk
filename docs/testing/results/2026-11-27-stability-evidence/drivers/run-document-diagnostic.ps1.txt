@@ -1,0 +1,4 @@
+$ErrorActionPreference='Stop';$ProgressPreference='SilentlyContinue'
+[Console]::OutputEncoding=[Text.UTF8Encoding]::new($false)
+$base=Join-Path $env:USERPROFILE 'asd-acceptance-20261122'
+& (Join-Path $base 'document-diagnostic.test.exe') '-test.v' '-test.run' '^TestMarkdownWindowsOpenAssociationContract$' 2>&1

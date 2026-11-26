@@ -1,0 +1,119 @@
+=== RUN   TestAttentionOpenRevalidatesOriginalRunAndNeverControlsTerminal
+--- PASS: TestAttentionOpenRevalidatesOriginalRunAndNeverControlsTerminal (0.12s)
+=== RUN   TestMarkdownResolutionKeepsOriginalRunDirectory
+--- PASS: TestMarkdownResolutionKeepsOriginalRunDirectory (0.04s)
+=== RUN   TestGroupOrderNeedsNoTerminalAndKeepsTheOriginalSiblingIdentities
+--- PASS: TestGroupOrderNeedsNoTerminalAndKeepsTheOriginalSiblingIdentities (0.07s)
+=== RUN   TestGroupRemovalPreviewsAndCollectsMembersWithoutATerminal
+--- PASS: TestGroupRemovalPreviewsAndCollectsMembersWithoutATerminal (0.09s)
+=== RUN   TestGroupRenameNeedsNoTerminalAndKeepsOriginalTree
+--- PASS: TestGroupRenameNeedsNoTerminalAndKeepsOriginalTree (0.05s)
+=== RUN   TestWorkspaceGroupMovePersistsWithoutTerminalMutation
+--- PASS: TestWorkspaceGroupMovePersistsWithoutTerminalMutation (0.07s)
+=== RUN   TestGroupedLaunchValidatesBeforeStartAndCommitsRunWithMembership
+--- PASS: TestGroupedLaunchValidatesBeforeStartAndCommitsRunWithMembership (0.05s)
+=== RUN   TestGroupedLaunchMetadataFailureRollsBackRunAndNeverRetriesOrStopsTheTerminal
+--- PASS: TestGroupedLaunchMetadataFailureRollsBackRunAndNeverRetriesOrStopsTheTerminal (0.05s)
+=== RUN   TestStartPersistsBeforeReportingSuccess
+--- PASS: TestStartPersistsBeforeReportingSuccess (0.04s)
+=== RUN   TestMetadataFailureBeforeAndAfterExternalStartIsExplicit
+=== RUN   TestMetadataFailureBeforeAndAfterExternalStartIsExplicit/false
+=== RUN   TestMetadataFailureBeforeAndAfterExternalStartIsExplicit/true
+--- PASS: TestMetadataFailureBeforeAndAfterExternalStartIsExplicit (0.08s)
+    --- PASS: TestMetadataFailureBeforeAndAfterExternalStartIsExplicit/false (0.03s)
+    --- PASS: TestMetadataFailureBeforeAndAfterExternalStartIsExplicit/true (0.05s)
+=== RUN   TestDiscoveryPersistsWithoutResolvingDisconnectOrMissingRun
+--- PASS: TestDiscoveryPersistsWithoutResolvingDisconnectOrMissingRun (0.05s)
+=== RUN   TestPaneExitObservationSurvivesMissingBackendWithoutClaimingAgentOutcome
+--- PASS: TestPaneExitObservationSurvivesMissingBackendWithoutClaimingAgentOutcome (0.08s)
+=== RUN   TestHistoryDoesNotNeedTerminalAndRetainsMetadataSemantics
+--- PASS: TestHistoryDoesNotNeedTerminalAndRetainsMetadataSemantics (0.07s)
+=== RUN   TestMessageFaultProcessRecoveryNeverReplays
+=== RUN   TestMessageFaultProcessRecoveryNeverReplays/queued
+=== RUN   TestMessageFaultProcessRecoveryNeverReplays/claimed
+=== RUN   TestMessageFaultProcessRecoveryNeverReplays/partial
+=== RUN   TestMessageFaultProcessRecoveryNeverReplays/written
+=== RUN   TestMessageFaultProcessRecoveryNeverReplays/receipt
+--- PASS: TestMessageFaultProcessRecoveryNeverReplays (0.52s)
+    --- PASS: TestMessageFaultProcessRecoveryNeverReplays/queued (0.09s)
+    --- PASS: TestMessageFaultProcessRecoveryNeverReplays/claimed (0.09s)
+    --- PASS: TestMessageFaultProcessRecoveryNeverReplays/partial (0.09s)
+    --- PASS: TestMessageFaultProcessRecoveryNeverReplays/written (0.11s)
+    --- PASS: TestMessageFaultProcessRecoveryNeverReplays/receipt (0.14s)
+=== RUN   TestMessageFaultWorkerProcess
+--- PASS: TestMessageFaultWorkerProcess (0.00s)
+=== RUN   TestMessageFaultSixteenConsumersWriteOnce
+--- PASS: TestMessageFaultSixteenConsumersWriteOnce (0.13s)
+=== RUN   TestMessageFaultBusyDatabaseNeverWritesInput
+--- PASS: TestMessageFaultBusyDatabaseNeverWritesInput (0.15s)
+=== RUN   TestWindowsNativeSimulatedAgentMessageContract
+    messages_simulated_windows_test.go:29: explicit pinned bundle and fixture required
+--- SKIP: TestWindowsNativeSimulatedAgentMessageContract (0.00s)
+=== RUN   TestMessageSnapshotTransferCopiesRangeAndWritesOnlyAfterDurableClaim
+--- PASS: TestMessageSnapshotTransferCopiesRangeAndWritesOnlyAfterDurableClaim (0.20s)
+=== RUN   TestMessageRejectsNewRunAndKeepsUncertainInputUnknown
+--- PASS: TestMessageRejectsNewRunAndKeepsUncertainInputUnknown (0.07s)
+=== RUN   TestMessageWrittenBeforeReceiptCancellationStaysUnknown
+--- PASS: TestMessageWrittenBeforeReceiptCancellationStaysUnknown (0.05s)
+=== RUN   TestHeadlessMessageDeliveryNeedsNoUIOrInjectedCallback
+--- PASS: TestHeadlessMessageDeliveryNeedsNoUIOrInjectedCallback (0.06s)
+=== RUN   TestWindowsNativeHeadlessMessagesWithoutUIAndWithoutResize
+    messages_windows_test.go:26: explicit pinned bundle and shell required
+--- SKIP: TestWindowsNativeHeadlessMessagesWithoutUIAndWithoutResize (0.00s)
+=== RUN   TestExplicitOutputCaptureUsesBackendAndPersistenceWithoutControlEffects
+--- PASS: TestExplicitOutputCaptureUsesBackendAndPersistenceWithoutControlEffects (0.05s)
+=== RUN   TestRenameRejectsStaleRevisionEvenAfterNameReturnsToOriginal
+--- PASS: TestRenameRejectsStaleRevisionEvenAfterNameReturnsToOriginal (0.06s)
+=== RUN   TestRenamePersistsDisplayNameWithoutChangingBackendRun
+--- PASS: TestRenamePersistsDisplayNameWithoutChangingBackendRun (0.05s)
+=== RUN   TestRenameRefusesTargetNoLongerDiscovered
+--- PASS: TestRenameRefusesTargetNoLongerDiscovered (0.06s)
+=== RUN   TestReplyAgentProcess
+--- PASS: TestReplyAgentProcess (0.00s)
+=== RUN   TestWindowsNativeReplyTwoAgentProcesses
+    replies_simulated_windows_test.go:192: explicit pinned bundle and newly built product required
+--- SKIP: TestWindowsNativeReplyTwoAgentProcesses (0.00s)
+=== RUN   TestReplyRechecksLiveIdentityWithoutTerminalWrites
+--- PASS: TestReplyRechecksLiveIdentityWithoutTerminalWrites (0.10s)
+=== RUN   TestSessionOrderRevalidatesDiscoveryAndNeverStartsOrStopsTerminals
+--- PASS: TestSessionOrderRevalidatesDiscoveryAndNeverStartsOrStopsTerminals (0.06s)
+=== RUN   TestReviewedStopRejectsChangedTargetBeforeTerminalEffect
+=== RUN   TestReviewedStopRejectsChangedTargetBeforeTerminalEffect/same
+=== RUN   TestReviewedStopRejectsChangedTargetBeforeTerminalEffect/missing
+=== RUN   TestReviewedStopRejectsChangedTargetBeforeTerminalEffect/run
+=== RUN   TestReviewedStopRejectsChangedTargetBeforeTerminalEffect/backend
+=== RUN   TestReviewedStopRejectsChangedTargetBeforeTerminalEffect/command
+=== RUN   TestReviewedStopRejectsChangedTargetBeforeTerminalEffect/name
+=== RUN   TestReviewedStopRejectsChangedTargetBeforeTerminalEffect/unknown
+=== RUN   TestReviewedStopRejectsChangedTargetBeforeTerminalEffect/duplicate
+=== RUN   TestReviewedStopRejectsChangedTargetBeforeTerminalEffect/exited
+--- PASS: TestReviewedStopRejectsChangedTargetBeforeTerminalEffect (0.46s)
+    --- PASS: TestReviewedStopRejectsChangedTargetBeforeTerminalEffect/same (0.05s)
+    --- PASS: TestReviewedStopRejectsChangedTargetBeforeTerminalEffect/missing (0.04s)
+    --- PASS: TestReviewedStopRejectsChangedTargetBeforeTerminalEffect/run (0.05s)
+    --- PASS: TestReviewedStopRejectsChangedTargetBeforeTerminalEffect/backend (0.04s)
+    --- PASS: TestReviewedStopRejectsChangedTargetBeforeTerminalEffect/command (0.04s)
+    --- PASS: TestReviewedStopRejectsChangedTargetBeforeTerminalEffect/name (0.08s)
+    --- PASS: TestReviewedStopRejectsChangedTargetBeforeTerminalEffect/unknown (0.05s)
+    --- PASS: TestReviewedStopRejectsChangedTargetBeforeTerminalEffect/duplicate (0.06s)
+    --- PASS: TestReviewedStopRejectsChangedTargetBeforeTerminalEffect/exited (0.06s)
+=== RUN   TestReviewedStopNameABAMustBeReviewedAgain
+--- PASS: TestReviewedStopNameABAMustBeReviewedAgain (0.05s)
+=== RUN   TestReviewedStopSeparatesBackendEffectFromMetadataFailure
+=== RUN   TestReviewedStopSeparatesBackendEffectFromMetadataFailure/discovery
+=== RUN   TestReviewedStopSeparatesBackendEffectFromMetadataFailure/backend
+=== RUN   TestReviewedStopSeparatesBackendEffectFromMetadataFailure/metadata-after-stop
+--- PASS: TestReviewedStopSeparatesBackendEffectFromMetadataFailure (0.10s)
+    --- PASS: TestReviewedStopSeparatesBackendEffectFromMetadataFailure/discovery (0.03s)
+    --- PASS: TestReviewedStopSeparatesBackendEffectFromMetadataFailure/backend (0.03s)
+    --- PASS: TestReviewedStopSeparatesBackendEffectFromMetadataFailure/metadata-after-stop (0.04s)
+=== RUN   TestTaskClaimWorkerProcess
+--- PASS: TestTaskClaimWorkerProcess (0.00s)
+=== RUN   TestWindowsNativeTaskClaimCompetitionAndCrash
+    task_claims_simulated_windows_test.go:92: explicit pinned bundle, product and controlled CLI required
+--- SKIP: TestWindowsNativeTaskClaimCompetitionAndCrash (0.00s)
+=== RUN   TestOpenTerminalForwardsStableRunWithoutStartingOrStopping
+--- PASS: TestOpenTerminalForwardsStableRunWithoutStartingOrStopping (0.00s)
+=== RUN   TestVisibleCopyDelegatesWithoutMetadataOrOtherTerminalEffects
+--- PASS: TestVisibleCopyDelegatesWithoutMetadataOrOtherTerminalEffects (0.00s)
+PASS

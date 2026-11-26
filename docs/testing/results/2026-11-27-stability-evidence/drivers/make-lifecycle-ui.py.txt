@@ -1,0 +1,66 @@
+from pathlib import Path
+p=Path('/private/tmp/asd-stability-20261127');s=(p/'stability-ui-reminders-r4.ps1').read_text().split('$script:originals=@()')[0].replace("$round='reminders-r4'","$round='lifecycle-r1'")
+body=r'''
+$script:originals=@();$a=$null;$script:childFaults=0
+function Press($scope,[int]$key){Guard $scope;if([DeskFlow]::Key([ushort]$key)-ne 2){throw 'Owned key incomplete'}}
+function Chord($scope,[int]$mod,[int]$key){Guard $scope;if([DeskFlow]::Chord([ushort]$mod,[ushort]$key)-ne 4){throw 'Owned chord incomplete'}}
+function SendText($scope,[string]$text){Guard $scope;if([DeskFlow]::Text($text)-ne $text.Length*2){throw 'Owned text incomplete'}}
+function BindDriver($scope){RegisterWindow $scope;$scope.driver_stamp='ASD.Test.Stability.'+[Guid]::NewGuid().ToString('N');[uint32]$hostPID=0;$null=[DeskFlow]::GetWindowThreadProcessId($scope.window,[ref]$hostPID);$scope.host=Get-Process -Id $hostPID;$null=$scope.host.Handle;if($scope.host.Path-ine $hostInfo.terminal.path-or ![InstanceDesktop]::SetProp($scope.window,$scope.driver_stamp,[IntPtr]1)){throw 'Driver host binding failed'}}
+function Manage($scope){ClickText $scope 'Instance A';Wait 'management footer' {(Surface $scope).text.Contains('Alt+J/K')}}
+function Rows(){return @((Product $a @('list','--json'))|ConvertFrom-Json|ForEach-Object{$_})}
+function StartChild([string]$name){
+ $log=Join-Path $out ($name+'.jsonl');$o=(Product $a @('start','--name',$name,'--cwd',$a.cwd,'--env',('ASD_FIXTURE_REPORT_PATH='+$log),'--',$fixture))|ConvertFrom-Json;$script:originals+=$o
+ Wait 'child receipt' {@(Journal $log).Count-gt 0};$start=@(Journal $log)[0];$p=Get-Process -Id $start.pid;$null=$p.Handle;if($p.Path-ine $fixture){throw 'Child path mismatch'};$script:fixtures+=$p;return @{record=$o;process=$p;log=$log}
+}
+function OpenChild([string]$name,[string]$marker){
+ Foreground $a;ClickText $a $name;Wait 'management focus' {(Surface $a).text.Contains('Alt+J/K')};Press $a 0x0d;Ready $a $marker
+}
+function QuitUi(){Manage $a;SendText $a 'q';if(!$a.manager.WaitForExit(15000)-or $a.manager.ExitCode-ne 0){throw 'Normal UI quit failed'};AssertOriginal $a}
+try{
+ Stage 'input-idle-preflight';Wait 'input idle' {[DeskFlow]::IdleMilliseconds()-ge 45000} 60
+ $a=CreateScope 'A';$script:originals+=$a.original;$p=Launch $a;WaitLauncher $p;BindDriver $a;Ready $a 'CLI fixture';Foreground $a;ClickText $a 'CLI fixture';SendText $a 'LIFE_DRAFT_A';Ready $a 'LIFE_DRAFT_A'
+ $b=StartChild 'Lifecycle B';Wait 'new row visible' {(Surface $a).text.Contains('Lifecycle B')};Manage $a
+ Stage 'session-row-order-saved-without-changing-active-run'
+ $before=Rows;$oldRevision=@($before|Where-Object{$_.session_id-ceq $a.original.session_id})[0].order_revision
+ # Discovery sorts names before a manual order exists; Instance A precedes Lifecycle B.
+ SendText $a '-';Wait 'order revision changed' {$v=@(Rows|Where-Object{$_.session_id-ceq $a.original.session_id})[0];return $v.order_revision-gt $oldRevision};Ready $a 'LIFE_DRAFT_A';$sorted=Rows
+ if($sorted[0].session_id-cne $b.record.session_id){throw 'Session move did not change row order'}
+ Stage 'search-existing-original-and-no-match-cancel'
+ SendText $a '/';Ready $a 'Search sessions';SendText $a 'Instance A';Press $a 0x0d;Ready $a 'LIFE_DRAFT_A';Manage $a
+ SendText $a '/';Ready $a 'Search sessions';SendText $a 'NO_SUCH_SESSION_2711';Ready $a 'No matches';Press $a 0x1b;Ready $a 'LIFE_DRAFT_A'
+ Stage 'close-only-tab-and-reopen-original'
+ Manage $a;SendText $a 'x';Ready $a 'CLI fixture';AssertOriginal $a;OpenChild 'Instance A' 'LIFE_DRAFT_A';AssertOriginal $a
+ Stage 'stop-selected-b-default-enter-cancels'
+ ClickText $a 'Lifecycle B';Wait 'management footer' {(Surface $a).text.Contains('Alt+J/K')};SendText $a 'd';Ready $a 'Stop session?';Ready $a 'Lifecycle B';Press $a 0x0d
+ Wait 'stop cancelled' {!(Surface $a).text.Contains('Stop session?')};if($b.process.HasExited){throw 'Default Enter stopped B'};Ready $a 'LIFE_DRAFT_A'
+ Stage 'stop-selected-b-once-original-a-survives'
+ SendText $a 'd';Ready $a 'Stop session?';SendText $a 'y';Wait 'B stopped' {$b.process.HasExited};Wait 'stop dialog gone' {!(Surface $a).text.Contains('Stop session?')};AssertOriginal $a;Ready $a 'LIFE_DRAFT_A'
+ Stage 'real-history-list-and-details-remain-read-only'
+ Manage $a;SendText $a 'h';Ready $a 'History';Press $a 0x0d;Ready $a $b.record.run_id;Press $a 0x1b;Press $a 0x1b;Wait 'history closed' {(Surface $a).text.Contains('Alt+J/K')};Ready $a 'LIFE_DRAFT_A'
+ Stage 'controlled-normal-child-exit'
+ $c=StartChild 'Lifecycle C';Wait 'C row visible' {(Surface $a).text.Contains('Lifecycle C')};OpenChild 'Lifecycle C' 'CLI fixture';SendText $a 'exit';Press $a 0x0d;Wait 'C ended normally' {$c.process.HasExited};Wait 'C exit observation' {@(Rows|Where-Object{$_.session_id-ceq $c.record.session_id-and $_.terminal_state-ceq 'exited'}).Count-eq 1}
+ OpenChild 'Instance A' 'LIFE_DRAFT_A';AssertOriginal $a
+ Stage 'controlled-child-abnormal-exit-is-not-manager-exit'
+ $d=StartChild 'Lifecycle D';Wait 'D row visible' {(Surface $a).text.Contains('Lifecycle D')};OpenChild 'Lifecycle D' 'CLI fixture'
+ if($d.process.HasExited-or $d.process.Path-ine $fixture){throw 'Fault target identity changed'};$d.process.Kill();$script:childFaults++;if(!$d.process.WaitForExit(10000)){throw 'Owned child fault not complete'}
+ Wait 'D exit observation' {@(Rows|Where-Object{$_.session_id-ceq $d.record.session_id-and $_.terminal_state-ceq 'exited'}).Count-eq 1};if($a.manager.HasExited){throw 'Manager ended with child'};OpenChild 'Instance A' 'LIFE_DRAFT_A';AssertOriginal $a
+ Stage 'intentional-ui-crash-and-reconnect-original'
+ if($a.manager.HasExited-or $a.manager.Path-ine $product){throw 'Fault owner identity changed'};$a.manager.Kill();$r.intentional_owned_ui_crashes=1;if(!$a.manager.WaitForExit(10000)){throw 'UI fault did not complete'}
+ CloseOwnedWindow $script:windows[-1];Wait 'faulted native window closed' {![InstanceDesktop]::IsWindow($a.window)};AssertOriginal $a
+ $p=Launch $a;WaitLauncher $p;BindDriver $a;Ready $a 'CLI fixture';Start-Sleep -Milliseconds 350;OpenChild 'Instance A' 'LIFE_DRAFT_A';AssertOriginal $a
+ $restored=Rows;if($restored[0].session_id-cne $b.record.session_id){throw 'Session order not retained after crash'}
+ Stage 'normal-quit-with-original-draft'
+ QuitUi;$r.result='verified';$r.session_order_persisted=$true;$r.tab_close_did_not_stop_run=$true;$r.stop_cancel_and_confirm=$true;$r.search_and_history_read_only=$true;$r.original_draft_after_crash=$true
+}catch{try{if($a-and $a.ContainsKey('driver_stamp')-and !$a.manager.HasExited){$r.owned_failure_surface=(Surface $a).text}}catch{};$r.result='failed';$r.stage=$script:stage;$r.error=$_.Exception.Message.Replace($env:USERPROFILE,'<USERPROFILE>')}
+finally{
+ foreach($entry in $script:windows){try{CloseOwnedWindow $entry}catch{$r.window_cleanup_blocked=$true}}
+ foreach($o in $script:originals){try{$null=Product $a @('stop',$o.session_id)}catch{$r.cleanup_stop_rejected=$true}}
+ $r.fixture_ends=@($script:fixtures|ForEach-Object{if(!$_.HasExited){$null=$_.WaitForExit(10000)};$_.HasExited});$r.manager_ends=@($script:managers|ForEach-Object{if(!$_.HasExited){$null=$_.WaitForExit(10000)};$_.HasExited});$r.intentional_child_faults=$script:childFaults
+ $now=[DeskFlow+P]::new();$null=[DeskFlow]::GetCursorPos([ref]$now);if($null-ne $script:lastX-and $now.X-eq $script:lastX-and $now.Y-eq $script:lastY){$r.cursor_restored=([DeskFlow]::Move($cursor.X,$cursor.Y)-eq 1)}
+ $null=[DeskFlow]::SetThreadDpiAwarenessContext($previousDpi);$r.product_sha256=(Get-FileHash $product).Hash.ToLowerInvariant();$r|ConvertTo-Json -Depth 8|Set-Content (Join-Path $out 'result.json') -Encoding utf8
+}
+} catch {@{result='failed';stage='outer-driver';error=$_.Exception.Message.Replace($env:USERPROFILE,'<USERPROFILE>');line=$_.InvocationInfo.ScriptLineNumber}|ConvertTo-Json|Set-Content (Join-Path $env:USERPROFILE 'asd-acceptance-20261122/stability-ui-lifecycle-r1-20261127/result.json') -Encoding utf8}
+'''
+(p/'stability-ui-lifecycle-r1.ps1').write_text(s+body)
+(p/'run-ui-lifecycle-r1.ps1').write_text((p/'run-ui-reminders-r4.ps1').read_text().replace('reminders-r4','lifecycle-r1').replace('RemindersR4','LifecycleR1'))
+print('lines',len((s+body).splitlines()))

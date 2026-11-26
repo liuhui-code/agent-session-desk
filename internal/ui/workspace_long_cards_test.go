@@ -53,7 +53,7 @@ func TestLongUnicodeCardsKeepFixedRowsAndSelectedBackground(t *testing.T) {
 						m.Close()
 						t.Fatal("title/metadata expanded fixed card height")
 					}
-					r, g, b, _ := m.tokens.colors.surface.RGBA()
+					r, g, b, _ := m.tokens.colors.focusBackground.RGBA()
 					want := fmt.Sprintf("%d,%d,%d", r>>8, g>>8, b>>8)
 					for y, line := range lines {
 						if ansi.StringWidth(line) != width {

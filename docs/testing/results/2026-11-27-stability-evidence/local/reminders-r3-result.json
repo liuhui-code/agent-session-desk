@@ -1,0 +1,61 @@
+{
+  "session_content_exported": 0,
+  "error": "Timed out: original fixture surface ready; no automatic replay",
+  "manager_ends": [
+    true,
+    true
+  ],
+  "intentional_owned_ui_crashes": 0,
+  "registry_writes": 0,
+  "result": "failed",
+  "stages": [
+    {
+      "stage": "input-idle-preflight",
+      "utc": "2026-11-26T17:28:28.3081243Z"
+    },
+    {
+      "stage": "native-approval-arrives-without-stealing-a-draft",
+      "utc": "2026-11-26T17:28:30.7088980Z"
+    },
+    {
+      "stage": "alt-n-opens-original-prompt-but-does-not-answer",
+      "utc": "2026-11-26T17:28:32.0352120Z"
+    },
+    {
+      "stage": "ctrl-click-unicode-space-document-in-system-editor",
+      "utc": "2026-11-26T17:28:32.4717515Z"
+    },
+    {
+      "stage": "pet-restores-correct-prompt-from-notepad",
+      "utc": "2026-11-26T17:28:33.1232437Z"
+    },
+    {
+      "stage": "pet-restores-minimized-original-window",
+      "utc": "2026-11-26T17:28:33.5705891Z"
+    },
+    {
+      "stage": "explicit-y-enter-resolves-only-original-request",
+      "utc": "2026-11-26T17:28:34.1145724Z"
+    },
+    {
+      "stage": "normal-ui-exit-does-not-end-runs-or-editor",
+      "utc": "2026-11-26T17:28:35.5084628Z"
+    },
+    {
+      "stage": "reopen-preserves-draft-run-and-resolved-request",
+      "utc": "2026-11-26T17:28:35.9617341Z"
+    }
+  ],
+  "automatic_input_replay": false,
+  "forced_product_ends": 0,
+  "fixture_ends": [
+    true,
+    true
+  ],
+  "stage": "reopen-preserves-draft-run-and-resolved-request",
+  "cursor_restored": true,
+  "clipboard_calls": 0,
+  "owned_failure_surface": "                                                                                                                                                            \r\n  ▾ My Sessions (2)                                       {\"event\":\"started\",\"pid\":13976,\"args\":[],\"cwd\":\"C:\\\\Users\\\\<WINDOWS_USER>\\\\asd-acceptance-20261122  \r\n                                                          -r3-20261127\\\\A\",\"env\":{}}                                                                        \r\n  ┃ Decision B                                          │ Review document: \"审阅 notes.md\"                                                                  \r\n    ╰ Connected · asd-stability-fixture.exe             │ Allow the simulated operation? [y/N]                                                              \r\n                                                        │ {\"event\":\"decision_waiting\"}                                                                      \r\n    Instance A                                          │ y                                                                                                 \r\n    ╰ Connected · asd-stability-fixture.exe             │ {\"event\":\"input\",\"text\":\"y\"}                                                                      \r\n                                                        │ {\"event\":\"decision_resolved\",\"answer\":\"y\"}                                                        \r\n                                                        │ CLI fixture · 中文 · é · 🧪 — type exit to end                                                    \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                                                                                                                            \r\n                                                                                                                                                            \r\n  Tab is connecting or switching; wait before opening another terminal                                                                                     ",
+  "notepad_closed_normally": true,
+  "product_sha256": "0af83573d9e5aee55e26a31ff32aab84aa1da45b6e58523b9ff220abc49a330f"
+}

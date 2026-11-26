@@ -202,7 +202,7 @@ func TestWorkspaceNativeSearchPromptKeepsCursorAndUnicodeInputVisible(t *testing
 			h.send(tea.WindowSizeMsg{Width: width, Height: 32})
 			view := h.m.View()
 			cursor := view.Cursor
-			if cursor == nil || cursor.X != min(95, width-1) || cursor.Y != 31 {
+			if cursor == nil || cursor.X != h.m.workspaceGeometry().bodyX+min(95, h.m.workspaceGeometry().bodyWidth-1) || cursor.Y != h.m.height-1-h.m.tokens.workspace.footerBottomGapRows {
 				t.Fatalf("native search cursor is not at the visible prompt: %+v", cursor)
 			}
 			footer := ansi.Strip(strings.Split(view.Content, "\n")[31])

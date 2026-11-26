@@ -57,7 +57,7 @@ func TestThemeAndDensitySerializeLatestChoicesBeforeClosing(t *testing.T) {
 		t.Fatalf("concurrent preference writer: %+v", s)
 	default:
 	}
-	if !strings.Contains(h.m.View().Content, "正在保存") {
+	if !strings.Contains(h.m.View().Content, "Saving") {
 		t.Fatal("close discarded accepted choices")
 	}
 	release <- struct{}{}
@@ -89,8 +89,8 @@ func TestThemeFailedSavePreservesAppliedPaletteAndCancelsWaitingClose(t *testing
 		return h.m.densitySettings != nil && !h.m.densitySettings.busy && h.m.densitySettings.err != nil
 	})
 	h.send(tea.WindowSizeMsg{Width: 27, Height: 8})
-	if colorHex(h.m.View().BackgroundColor) != "d5d6db" || !strings.Contains(h.m.View().Content, "未保存") || h.m.densitySettings.closing {
-		t.Fatal("failed save applied dark, hid error or closed dialog")
+	if colorHex(h.m.View().BackgroundColor) != "d5d6db" || !strings.Contains(h.m.View().Content, "Not saved") || h.m.densitySettings.closing {
+		t.Fatalf("failed save applied dark, hid error or closed dialog: %s", h.m.View().Content)
 	}
 	h.send(tea.KeyPressMsg{Code: tea.KeyEscape})
 	h.until(func() bool { return h.m.densitySettings == nil })
@@ -101,7 +101,7 @@ func TestThemeNeedsWholeDocumentSaveCapability(t *testing.T) {
 	openThemeSettings(t, h)
 	h.send(tea.KeyPressMsg{Code: tea.KeyRight})
 	h.until(func() bool { return h.m.densitySettings.err != nil })
-	if colorHex(h.m.View().BackgroundColor) != "000000" || !strings.Contains(h.m.View().Content, "不支持Theme") {
+	if colorHex(h.m.View().BackgroundColor) != "000000" || !strings.Contains(h.m.View().Content, "Theme persistence is unsupported") {
 		t.Fatal("unsupported writer falsely applied theme")
 	}
 }

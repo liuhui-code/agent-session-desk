@@ -1,0 +1,11 @@
+param([string]$Ready,[string]$Done)
+$ErrorActionPreference='Stop';$listener=[Net.Sockets.TcpListener]::new([Net.IPAddress]::Loopback,0)
+$r=@{auth_received=$false;poll_received=$false}
+try{
+ $listener.Start();@{port=$listener.LocalEndpoint.Port}|ConvertTo-Json|Set-Content $Ready -Encoding utf8
+ $async=$listener.AcceptTcpClientAsync();if(!$async.Wait(30000)){throw 'Owned peer accept timed out'};$client=$async.Result
+ try{
+  $client.ReceiveTimeout=5000;$client.SendTimeout=5000;$stream=$client.GetStream();$reader=[IO.StreamReader]::new($stream);$writer=[IO.StreamWriter]::new($stream,[Text.UTF8Encoding]::new($false));$writer.NewLine="`n";$writer.AutoFlush=$true
+  $auth=$reader.ReadLine();$r.auth_received=$auth.StartsWith('AUTH ',[StringComparison]::Ordinal);$writer.WriteLine('OK');$r.poll_received=($null-ne $reader.ReadLine())
+ }finally{$client.Dispose()}
+}catch{$r.error='Controlled peer failed'}finally{$listener.Stop();$r|ConvertTo-Json|Set-Content $Done -Encoding utf8}

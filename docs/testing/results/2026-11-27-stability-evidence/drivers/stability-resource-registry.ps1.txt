@@ -1,0 +1,57 @@
+function Remember-ProcessHandles {
+    param([object[]]$Identities)
+    foreach ($key in @($script:held.Keys)) {
+        if ($script:held[$key].process.HasExited) {
+            $script:held[$key].process.Dispose()
+            $script:held.Remove($key)
+        }
+    }
+    foreach ($identity in $Identities) {
+        if ($identity.executable_path -notin $imageRoles.Keys) { continue }
+        $key = "$($identity.process_id):$($identity.creation_filetime)"
+        if ($script:held.ContainsKey($key)) { continue }
+        $process = $null
+        try {
+            $process = Get-Process -Id $identity.process_id -ErrorAction Stop
+            $null = $process.Handle # Keep the original kernel object, including across PID reuse.
+            if ($process.StartTime.ToFileTimeUtc().ToString() -ne $identity.creation_filetime -or
+                $process.MainModule.FileName -ne $identity.executable_path) { $process.Dispose(); continue }
+            $script:held[$key] = [pscustomobject]@{ identity = $identity; process = $process }
+        } catch { if ($null -ne $process) { $process.Dispose() } }
+    }
+}
+
+function Get-RegistryEvidence {
+    param([string]$DataDirectory, [string]$ExpectedImage)
+    $files = @(Get-ChildItem -LiteralPath $DataDirectory -Filter '*.pid' -File -ErrorAction SilentlyContinue)
+    $markers = Join-Path $DataDirectory 'servers'
+    if (Test-Path -LiteralPath $markers) { $files += @(Get-ChildItem -LiteralPath $markers -File) }
+    $records = @()
+    foreach ($file in $files) {
+        # Stable psmux rewrites server markers every five seconds. A shared
+        # read may see that bounded truncate/write interval; retry observation
+        # only, never a process start or input write. Persistent failure is not
+        # a silently absent server.
+        $valid = $false
+        for ($attempt = 1; $attempt -le 5; $attempt++) {
+            try {
+                $value = (Get-AsdSharedText $file.FullName).Trim()
+                $valid = $value -match '^(\d+):(\d+)$'
+                if ($valid) { break }
+            } catch { if ($attempt -eq 5) { throw } }
+            if ($attempt -lt 5) { Start-Sleep -Milliseconds 20 }
+        }
+        if (-not $valid) { throw "Invalid owned server identity marker after bounded rereads: $($file.Name)" }
+        $processID = [int]$Matches[1]
+        $created = [string]$Matches[2]
+        $live = $false
+        $process = $null
+        try {
+            $process = Get-Process -Id $processID -ErrorAction Stop
+            $live = $process.StartTime.ToFileTimeUtc().ToString() -eq $created -and $process.MainModule.FileName -eq $ExpectedImage
+            if ($live) { Remember-ProcessHandles @([pscustomobject]@{ process_id = $processID; creation_filetime = $created; executable_path = $ExpectedImage }) }
+        } catch { $live = $false } finally { if ($null -ne $process) { $process.Dispose() } }
+        $records += [pscustomobject][ordered]@{ marker = [IO.Path]::GetRelativePath($DataDirectory, $file.FullName); process_id = $processID; creation_filetime = $created; live_identity_verified = $live; read_attempts = $attempt }
+    }
+    return $records
+}

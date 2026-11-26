@@ -1,6 +1,7 @@
 package ui
 
 import (
+	"fmt"
 	"reflect"
 	"strings"
 	"testing"
@@ -69,7 +70,7 @@ func TestQuietFooterConsumesItsMouseSurfaceButPreservesNativeDragRelease(t *test
 	h.send(tea.MouseMotionMsg{X: g.x + 4, Y: h.m.height - 1, Button: tea.MouseLeft})
 	h.send(tea.MouseReleaseMsg{X: g.x + 4, Y: h.m.height - 1, Button: tea.MouseLeft})
 	h.until(func() bool { return h.m.workspace.pending == 0 })
-	if got := directDragWrites(s, "first"); got != "pointer:down,3,30;pointer:drag,4,31;pointer:up,4,31" {
+	if got := directDragWrites(s, "first"); got != fmt.Sprintf("pointer:down,3,%d;pointer:drag,4,%d;pointer:up,4,%d", h.m.height-2-g.y, h.m.height-1-g.y, h.m.height-1-g.y) {
 		t.Fatalf("bottom edge stole a native drag/release: %q", got)
 	}
 }

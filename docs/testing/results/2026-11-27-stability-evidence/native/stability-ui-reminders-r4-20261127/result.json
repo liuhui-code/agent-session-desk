@@ -1,0 +1,64 @@
+{
+  "product_sha256": "0af83573d9e5aee55e26a31ff32aab84aa1da45b6e58523b9ff220abc49a330f",
+  "explicit_decision_only": true,
+  "manager_ends": [
+    true,
+    true
+  ],
+  "forced_product_ends": 0,
+  "prompt_viewing_did_not_answer": true,
+  "default_association_unchanged": true,
+  "runs_draft_editor_survived_reopen": true,
+  "cursor_restored": true,
+  "pet_return_and_minimize_verified": true,
+  "unicode_space_markdown_loaded": true,
+  "result": "verified",
+  "registry_writes": 0,
+  "notepad_closed_normally": true,
+  "session_content_exported": 0,
+  "clipboard_calls": 0,
+  "intentional_owned_ui_crashes": 0,
+  "automatic_input_replay": false,
+  "fixture_ends": [
+    true,
+    true
+  ],
+  "stages": [
+    {
+      "stage": "input-idle-preflight",
+      "utc": "2026-11-26T17:29:38.4530720Z"
+    },
+    {
+      "stage": "native-approval-arrives-without-stealing-a-draft",
+      "utc": "2026-11-26T17:29:40.6789082Z"
+    },
+    {
+      "stage": "alt-n-opens-original-prompt-but-does-not-answer",
+      "utc": "2026-11-26T17:29:42.0316142Z"
+    },
+    {
+      "stage": "ctrl-click-unicode-space-document-in-system-editor",
+      "utc": "2026-11-26T17:29:42.4855407Z"
+    },
+    {
+      "stage": "pet-restores-correct-prompt-from-notepad",
+      "utc": "2026-11-26T17:29:43.1017715Z"
+    },
+    {
+      "stage": "pet-restores-minimized-original-window",
+      "utc": "2026-11-26T17:29:43.5452061Z"
+    },
+    {
+      "stage": "explicit-y-enter-resolves-only-original-request",
+      "utc": "2026-11-26T17:29:44.0483498Z"
+    },
+    {
+      "stage": "normal-ui-exit-does-not-end-runs-or-editor",
+      "utc": "2026-11-26T17:29:45.4459283Z"
+    },
+    {
+      "stage": "reopen-preserves-draft-run-and-resolved-request",
+      "utc": "2026-11-26T17:29:45.6415993Z"
+    }
+  ]
+}

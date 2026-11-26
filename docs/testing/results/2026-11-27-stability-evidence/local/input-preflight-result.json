@@ -1,0 +1,59 @@
+[
+    {
+        "errors":  [
+                       {
+                           "message":  "方法调用中缺少“)”。",
+                           "column":  111,
+                           "line":  181
+                       },
+                       {
+                           "message":  "表达式或语句中包含意外的标记“PASTE_TWO_馃И\u0027)}\n  $bytes=ProbeBytes $vt;if($bytes-notmatch \u0027\\x1b\\[200~PASTE_ONE_涓璡r?\\nPASTE_TWO_馃И\\x1b\\[201~\u0027){throw \u0027Bracketed”。",
+                           "column":  111,
+                           "line":  181
+                       },
+                       {
+                           "message":  "字符串缺少终止符: \u0027。",
+                           "column":  281,
+                           "line":  203
+                       },
+                       {
+                           "message":  "语句块或类型定义中缺少右“}”。",
+                           "column":  41,
+                           "line":  181
+                       },
+                       {
+                           "message":  "语句块或类型定义中缺少右“}”。",
+                           "column":  13,
+                           "line":  175
+                       },
+                       {
+                           "message":  "语句块或类型定义中缺少右“}”。",
+                           "column":  4,
+                           "line":  156
+                       },
+                       {
+                           "message":  "Try 语句缺少自己的 Catch 或 Finally 块。",
+                           "column":  1,
+                           "line":  204
+                       },
+                       {
+                           "message":  "语句块或类型定义中缺少右“}”。",
+                           "column":  5,
+                           "line":  2
+                       }
+                   ],
+        "file":  "stability-ui-input-r1.ps1"
+    },
+    {
+        "errors":  [
+
+                   ],
+        "file":  "stability-input-fixture.ps1"
+    },
+    {
+        "errors":  [
+
+                   ],
+        "file":  "stability-clipboard.ps1"
+    }
+]

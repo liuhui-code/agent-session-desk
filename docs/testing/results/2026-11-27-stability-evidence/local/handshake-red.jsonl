@@ -1,0 +1,9 @@
+{"Time":"2026-11-27T00:39:04.171871+08:00","Action":"start","Package":"github.com/liuhui-code/agent-session-desk/internal/backend"}
+{"Time":"2026-11-27T00:39:05.154979+08:00","Action":"run","Package":"github.com/liuhui-code/agent-session-desk/internal/backend","Test":"TestFailedTerminalHandshakeReturnsNilConnection"}
+{"Time":"2026-11-27T00:39:05.155122+08:00","Action":"output","Package":"github.com/liuhui-code/agent-session-desk/internal/backend","Test":"TestFailedTerminalHandshakeReturnsNilConnection","Output":"=== RUN   TestFailedTerminalHandshakeReturnsNilConnection\n","OutputType":"frame"}
+{"Time":"2026-11-27T00:39:05.235577+08:00","Action":"output","Package":"github.com/liuhui-code/agent-session-desk/internal/backend","Test":"TestFailedTerminalHandshakeReturnsNilConnection","Output":"    terminal_failure_test.go:22: listen tcp 127.0.0.1:0: bind: operation not permitted\n","OutputType":"error"}
+{"Time":"2026-11-27T00:39:05.236651+08:00","Action":"output","Package":"github.com/liuhui-code/agent-session-desk/internal/backend","Test":"TestFailedTerminalHandshakeReturnsNilConnection","Output":"--- FAIL: TestFailedTerminalHandshakeReturnsNilConnection (0.08s)\n","OutputType":"frame"}
+{"Time":"2026-11-27T00:39:05.236704+08:00","Action":"fail","Package":"github.com/liuhui-code/agent-session-desk/internal/backend","Test":"TestFailedTerminalHandshakeReturnsNilConnection","Elapsed":0.08}
+{"Time":"2026-11-27T00:39:05.236768+08:00","Action":"output","Package":"github.com/liuhui-code/agent-session-desk/internal/backend","Output":"FAIL\n","OutputType":"frame"}
+{"Time":"2026-11-27T00:39:05.237761+08:00","Action":"output","Package":"github.com/liuhui-code/agent-session-desk/internal/backend","Output":"FAIL\tgithub.com/liuhui-code/agent-session-desk/internal/backend\t1.065s\n","OutputType":"frame"}
+{"Time":"2026-11-27T00:39:05.237825+08:00","Action":"fail","Package":"github.com/liuhui-code/agent-session-desk/internal/backend","Elapsed":1.066}

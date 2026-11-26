@@ -1,0 +1,73 @@
+from pathlib import Path
+p=Path('/private/tmp/asd-stability-20261127');s=(p/'stability-ui-navigation-r5.ps1').read_text();s=s[:s.index('$script:originals=@()')];s=s.replace("$round='navigation-r5'","$round='reminders'")
+body=r'''
+$script:originals=@();$a=$null;$note=$null;$noteWindow=[IntPtr]::Zero;$ctrlHeld=$false
+function Press($scope,[int]$key){Guard $scope;if([DeskFlow]::Key([ushort]$key)-ne 2){throw 'Owned key incomplete'}}
+function Chord($scope,[int]$mod,[int]$key){Guard $scope;if([DeskFlow]::Chord([ushort]$mod,[ushort]$key)-ne 4){throw 'Owned chord incomplete'}}
+function SendText($scope,[string]$text){Guard $scope;if([DeskFlow]::Text($text)-ne $text.Length*2){throw 'Owned text incomplete'}}
+function BindDriver($scope){RegisterWindow $scope;$scope.driver_stamp='ASD.Test.Stability.'+[Guid]::NewGuid().ToString('N');[uint32]$hostPID=0;$null=[DeskFlow]::GetWindowThreadProcessId($scope.window,[ref]$hostPID);$scope.host=Get-Process -Id $hostPID;$null=$scope.host.Handle;if($scope.host.Path-ine $hostInfo.terminal.path-or ![InstanceDesktop]::SetProp($scope.window,$scope.driver_stamp,[IntPtr]1)){throw 'Driver host binding failed'}}
+function Manage($scope){ClickText $scope 'Instance A';Wait 'management footer' {(Surface $scope).text.Contains('Alt+J/K')}}
+function QuitCurrent($scope){Manage $scope;SendText $scope 'q';if(!$scope.manager.WaitForExit(15000)-or $scope.manager.ExitCode-ne 0){throw 'Manager did not quit normally'};foreach($f in $script:fixtures){if($f.HasExited){throw 'Original fixture ended with UI'}};Wait 'instance released' {(Inspect $scope).endpoint-eq 0}}
+function ClickPetFromEditor($scope){if(!$note-or $note.HasExited-or [DeskFlow]::GetForegroundWindow()-ne $noteWindow){throw 'Owned editor not foreground'};foreach($k in @(1,2,4,16,17,18,91,92)){if(([DeskFlow]::GetAsyncKeyState($k)-band 32768)-ne 0){throw 'User input held'}};$rect=[DeskFlow+R]::new();if(![DeskFlow]::GetWindowRect($scope.pet,[ref]$rect)){throw 'Pet rectangle unavailable'};ClickAt (($rect.Left+$rect.Right)/2) ($rect.Top+($rect.Bottom-$rect.Top)*0.92);Wait 'pet returns to exact workbench' {[DeskFlow]::GetForegroundWindow()-eq $scope.window}}
+try{
+ Stage 'input-idle-preflight';Wait 'input idle' {[DeskFlow]::IdleMilliseconds()-ge 45000} 60
+ $assocBefore=[DeskFlow]::AssociationStamp();$a=CreateScope 'A';$script:originals+=$a.original
+ $p=Launch $a;WaitLauncher $p;BindDriver $a;Ready $a 'CLI fixture';Foreground $a;ClickText $a 'CLI fixture';SendText $a 'ATTENTION_DRAFT_A';Ready $a 'ATTENTION_DRAFT_A'
+ Stage 'native-approval-arrives-without-stealing-a-draft'
+ $docName='审阅 notes.md';$doc=Join-Path $a.cwd $docName;[IO.File]::WriteAllText($doc,"# STABILITY_MARKDOWN_v1`r`nControlled review document.`r`n",[Text.UTF8Encoding]::new($false))
+ $bLog=Join-Path $out 'B.jsonl';$form=Join-Path $out 'form.json';$cred=Join-Path $out 'source-private.json';$id='33333333333333333333333333333333'
+ $b=(Product $a @('start','--name','Decision B','--cwd',$a.cwd,'--env',('ASD_FIXTURE_REPORT_PATH='+$bLog),'--env',('ASD_FIXTURE_ATTENTION_CONFIG='+$form),'--',$fixture))|ConvertFrom-Json;$script:originals+=$b
+ Wait 'B original identity' {@(Journal $bLog).Count-gt 0};$bs=@(Journal $bLog)[0];$bp=Get-Process -Id $bs.pid;$null=$bp.Handle;if($bp.Path-ine $fixture){throw 'B image changed'};$script:fixtures+=$bp
+ $null=Product $a @('agent-bind','--session',$b.session_id,'--run',$b.run_id,'--token-file',$cred)
+ @{CLI=$product;Globals=$a.globals;CredentialFile=$cred;AttentionID=$id;DocumentFile=$docName}|ConvertTo-Json -Depth 4|Set-Content $form -Encoding utf8
+ Wait 'pet pending' {[DeskFlow]::Title($a.pet)-ceq 'ASD Blocking Reminders · approval · 1'};Ready $a 'ATTENTION_DRAFT_A'
+ if(@(Journal $bLog|Where-Object{$_.event-eq 'input'}).Count){throw 'Passive event answered the prompt'}
+ Stage 'alt-n-opens-original-prompt-but-does-not-answer'
+ Chord $a 0x12 0x4e;Ready $a '[y/N]';$item=(Product $a @('attention-status',$id))|ConvertFrom-Json
+ if($item.state-cne 'pending'-or !$item.viewed_at-or @(Journal $bLog|Where-Object{$_.event-eq 'input'}).Count){throw 'Navigation resolved or answered prompt'}
+ Stage 'ctrl-click-unicode-space-document-in-system-editor'
+ $v=Surface $a;$range=$v.pattern.DocumentRange.FindText($docName,$false,$false);if(!$range){throw 'Controlled document reference absent'};$rects=@($range.GetBoundingRectangles());if($rects.Count-ne 1){throw 'Document reference clipped'}
+ Guard $a;if([DeskFlow]::Keys([ushort[]]@(0x11),[uint[]]@(0))-ne 1){throw 'Ctrl down incomplete'};$ctrlHeld=$true
+ try{ClickAt ($rects[0].Left+$rects[0].Width/2) ($rects[0].Top+$rects[0].Height/2)}finally{$null=[DeskFlow]::Keys([ushort[]]@(0x11),[uint[]]@(2));$ctrlHeld=$false}
+ Wait 'owned Notepad process' {$matches=@(Get-CimInstance Win32_Process -Property ProcessId,ParentProcessId,ExecutablePath -Filter "Name='notepad.exe'"|Where-Object{$_.ParentProcessId-eq $a.manager.Id});if($matches.Count-eq 1){$script:note=Get-Process -Id $matches[0].ProcessId;$null=$script:note.Handle;if((Get-FileHash $script:note.Path).Hash-cne(Get-FileHash (Join-Path ([Environment]::SystemDirectory) 'notepad.exe')).Hash){throw 'Unexpected editor'};return $true};return $false}
+ Wait 'owned editor window' {$w=@([DeskFlow]::Find('',$note.Id));if($w.Count-eq 1){$script:noteWindow=$w[0];return $true};return $false}
+ Wait 'actual controlled document body' {[DeskFlow]::EditContains($noteWindow,$note.Id,'STABILITY_MARKDOWN_v1')}
+ Wait 'editor foreground' {[DeskFlow]::GetForegroundWindow()-eq $noteWindow}
+ Stage 'pet-restores-correct-prompt-from-notepad'
+ ClickPetFromEditor $a;Ready $a '[y/N]'
+ $item=(Product $a @('attention-status',$id))|ConvertFrom-Json;if($item.state-cne 'pending'-or @(Journal $bLog|Where-Object{$_.event-eq 'input'}).Count){throw 'Pet click answered prompt'}
+ Stage 'pet-restores-minimized-original-window'
+ Guard $a;$null=[InstanceDesktop]::ShowWindow($a.window,6);$null=[DeskFlow]::SetForegroundWindow($noteWindow);Wait 'editor foreground before pet' {[DeskFlow]::GetForegroundWindow()-eq $noteWindow};ClickPetFromEditor $a
+ if([InstanceDesktop]::IsIconic($a.window)){throw 'Original remained minimized'};Ready $a '[y/N]'
+ Stage 'explicit-y-enter-resolves-only-original-request'
+ SendText $a 'y';Press $a 0x0d;Wait 'one explicit resolution' {@(Journal $bLog|Where-Object{$_.event-eq 'decision_resolved'}).Count-eq 1}
+ Wait 'pet idle after source resolution' {[DeskFlow]::Title($a.pet)-ceq 'ASD Blocking Reminders · idle · 0'}
+ $inputs=@(Journal $bLog|Where-Object{$_.event-eq 'input'});if($inputs.Count-ne 1-or $inputs[0].text-cne 'y'){throw 'Decision did not receive exactly one y'}
+ Chord $a 0x12 0x4b;Ready $a 'ATTENTION_DRAFT_A';AssertOriginal $a
+ Stage 'normal-ui-exit-does-not-end-runs-or-editor'
+ QuitCurrent $a;if($note.HasExited){throw 'Editor ended with workbench'}
+ Stage 'reopen-preserves-draft-run-and-resolved-request'
+ $p=Launch $a;WaitLauncher $p;BindDriver $a;Ready $a 'ATTENTION_DRAFT_A';AssertOriginal $a
+ $item=(Product $a @('attention-status',$id))|ConvertFrom-Json;if($item.state-cne 'resolved'){throw 'Resolved request revived'}
+ foreach($o in $script:originals){$rows=(Product $a @('list','--json'))|ConvertFrom-Json;if(@($rows|Where-Object{$_.session_id-ceq $o.session_id-and $_.run_id-ceq $o.run_id-and $_.backend_id-ceq $o.backend_id}).Count-ne 1){throw 'Original identity changed'}}
+ QuitCurrent $a;if($note.HasExited){throw 'Editor ended with reopened workbench'}
+ $r.default_association_unchanged=($assocBefore-ceq [DeskFlow]::AssociationStamp());if(!$r.default_association_unchanged){throw 'Default association changed'}
+ $r.prompt_viewing_did_not_answer=$true;$r.explicit_decision_only=$true;$r.unicode_space_markdown_loaded=$true;$r.pet_return_and_minimize_verified=$true;$r.runs_draft_editor_survived_reopen=$true;$r.result='verified'
+}catch{$r.result='failed';$r.stage=$script:stage;$r.error=$_.Exception.Message.Replace($env:USERPROFILE,'<USERPROFILE>')}
+finally{
+ if($ctrlHeld){$null=[DeskFlow]::Keys([ushort[]]@(0x11),[uint[]]@(2))}
+ if($note-and !$note.HasExited-and $noteWindow-ne [IntPtr]::Zero){$null=[DeskFlow]::SendMessage($noteWindow,0x10,[UIntPtr]::Zero,[IntPtr]::Zero);$r.notepad_closed_normally=$note.WaitForExit(10000)}
+ foreach($entry in $script:windows){try{CloseOwnedWindow $entry}catch{$r.window_cleanup_blocked=$true}}
+ foreach($o in $script:originals){try{$rows=(Product $a @('list','--json'))|ConvertFrom-Json;if(@($rows|Where-Object{$_.session_id-ceq $o.session_id-and $_.run_id-ceq $o.run_id-and $_.backend_id-ceq $o.backend_id}).Count-eq 1){$null=Product $a @('stop',$o.session_id)}}catch{$r.fixture_cleanup_error=$true}}
+ $r.fixture_ends=@($script:fixtures|ForEach-Object{if(!$_.HasExited){$null=$_.WaitForExit(10000)};$_.HasExited});$r.manager_ends=@($script:managers|ForEach-Object{if(!$_.HasExited){$null=$_.WaitForExit(10000)};$_.HasExited})
+ $now=[DeskFlow+P]::new();$null=[DeskFlow]::GetCursorPos([ref]$now);if($null-ne $script:lastX-and $now.X-eq $script:lastX-and $now.Y-eq $script:lastY){$r.cursor_restored=([DeskFlow]::Move($cursor.X,$cursor.Y)-eq 1)}
+ $null=[DeskFlow]::SetThreadDpiAwarenessContext($previousDpi);$r.product_sha256=(Get-FileHash $product).Hash.ToLowerInvariant();$r|ConvertTo-Json -Depth 6|Set-Content (Join-Path $out 'result.json') -Encoding utf8
+}
+} catch {@{result='failed';stage='outer-driver';error=$_.Exception.Message.Replace($env:USERPROFILE,'<USERPROFILE>');line=$_.InvocationInfo.ScriptLineNumber}|ConvertTo-Json|Set-Content (Join-Path $env:USERPROFILE 'asd-acceptance-20261122/stability-ui-reminders-20261127/result.json') -Encoding utf8}
+'''
+(p/'stability-ui-reminders.ps1').write_text(s+body)
+(p/'run-ui-reminders.ps1').write_text("""$ErrorActionPreference='Stop';$ProgressPreference='SilentlyContinue'
+$base=Join-Path $env:USERPROFILE 'asd-acceptance-20261122'
+& ([ScriptBlock]::Create([IO.File]::ReadAllText((Join-Path $base 'stability-desktop-task.ps1')))) -Driver (Join-Path $base 'stability-ui-reminders.ps1') -Task 'AsdStabilityReminders20261127' -Receipt (Join-Path $base 'stability-ui-reminders-20261127/result.json') -Seconds 270
+""")
+print('Reminders driver lines',len((s+body).splitlines()))

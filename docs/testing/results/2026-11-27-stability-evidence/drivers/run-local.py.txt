@@ -1,0 +1,10 @@
+import sys,subprocess,os,pathlib,json
+root=pathlib.Path('/private/tmp/asd-stability-20261127');src=root/sys.argv[1];tag=sys.argv[2];args=sys.argv[3:]
+env=os.environ.copy();env.update(GOCACHE='/private/tmp/asd-stability-20261127/go-cache',GOMODCACHE='/private/tmp/asd-stability-20261127/mod-cache',GOPATH='/private/tmp/asd-stability-20261127/go-path',GOTOOLCHAIN='local')
+with (root/(tag+'.jsonl')).open('w') as f:r=subprocess.run(['/private/tmp/git-intent-tools/go/bin/go',*args],cwd=src,env=env,stdout=f,stderr=subprocess.STDOUT)
+rows=[]
+for l in (root/(tag+'.jsonl')).read_text().splitlines():
+ try:rows.append(json.loads(l))
+ except:pass
+result={'exit_code':r.returncode,'source':sys.argv[1],'command':args,'top_pass':sum(x.get('Action')=='pass' and 'Test' in x and '/' not in x['Test'] for x in rows),'top_skip':sum(x.get('Action')=='skip' and 'Test' in x and '/' not in x['Test'] for x in rows),'failed':[{'package':x.get('Package'),'test':x.get('Test')} for x in rows if x.get('Action')=='fail'],'failure_output':[x['Output'] for x in rows if any(s in x.get('Output','') for s in ['Error:','FAIL','panic:','    workspace_','    terminal_failure_'])]}
+(root/(tag+'-summary.json')).write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n');print(json.dumps(result,ensure_ascii=False))

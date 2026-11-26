@@ -1,0 +1,5 @@
+$base=Join-Path $env:USERPROFILE 'asd-acceptance-20261122';$r=@()
+foreach($name in @('stability-ui-input-r1.ps1','stability-input-fixture.ps1','stability-clipboard.ps1')){
+ $path=Join-Path $base $name;$tokens=$null;$errors=$null;$null=[Management.Automation.Language.Parser]::ParseFile($path,[ref]$tokens,[ref]$errors)
+ $r+=@{file=$name;errors=@($errors|ForEach-Object{@{message=$_.Message;line=$_.Extent.StartLineNumber;column=$_.Extent.StartColumnNumber}})}
+};$r|ConvertTo-Json -Depth 5

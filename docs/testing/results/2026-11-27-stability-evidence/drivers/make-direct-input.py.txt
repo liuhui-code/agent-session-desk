@@ -1,0 +1,28 @@
+from pathlib import Path
+p=Path('/private/tmp/asd-stability-20261127');s=(p/'stability-ui-reminders-r4.ps1').read_text().split('$script:originals=@()')[0].replace("$round='reminders-r4'","$round='direct-input-r1'")
+body=r'''
+$scope=$null;$probe=$null
+try{
+ Stage 'input-idle-preflight';Wait 'input idle' {[DeskFlow]::IdleMilliseconds()-ge 45000} 60
+ $log=Join-Path $out 'input-VT.jsonl';$title='ASD Direct Input '+[Guid]::NewGuid().ToString('N');$info=[Diagnostics.ProcessStartInfo]::new();$info.FileName=$hostInfo.terminal.path;$info.UseShellExecute=$false
+ foreach($arg in @('--window','new','new-tab','--profile',$hostInfo.terminal.profile,'--title',$title,'--suppressApplicationTitle','--startingDirectory',$out,'--',$hostInfo.shell.path,'-NoProfile','-File',(Join-Path $base 'stability-input-fixture-r2.ps1'),'-Report',$log,'-Mode','VT')){if($arg){$info.ArgumentList.Add($arg)}}
+ # The profile is owned by local-host terminal_profile, when present; omit the optional pair if unavailable.
+ $launcher=[Diagnostics.Process]::Start($info);$null=$launcher.Handle
+ Wait 'direct fixture journal' {@(Journal $log).Count-gt 0};$first=@(Journal $log)[0];$probe=Get-Process -Id $first.pid;$null=$probe.Handle;if($probe.Path-ine $hostInfo.shell.path){throw 'Direct probe path mismatch'}
+ Wait 'unique own direct window' {$found=@([DeskFlow]::Find($title));return $found.Count-eq 1}
+ $w=@([DeskFlow]::Find($title))[0];if($w-in $initialHosts){throw 'Direct window pre-existing'};[uint32]$owner=0;$null=[DeskFlow]::GetWindowThreadProcessId($w,[ref]$owner);$hostProcess=Get-Process -Id $owner;$null=$hostProcess.Handle;if($hostProcess.Path-ine $hostInfo.terminal.path){throw 'Host path mismatch'}
+ $scope=@{window=$w;manager=$probe;host=$hostProcess;driver_stamp=('ASD.Test.Stability.'+[Guid]::NewGuid().ToString('N'))};if(![InstanceDesktop]::SetProp($w,$scope.driver_stamp,[IntPtr]1)){throw 'Own stamp failed'};$script:windows+=@{scope=$scope;handle=$w;manager=$probe}
+ Ready $scope 'INPUT_VT_READY';Foreground $scope;Guard $scope;if([DeskFlow]::Text('RAW_UNICODE_中文_🧪')-ne 'RAW_UNICODE_中文_🧪'.Length*2){throw 'Direct text incomplete'}
+ Guard $scope;if([DeskFlow]::Chord(0x11,0x43)-ne 4){throw 'Direct ctrl-c incomplete'}
+ Wait 'direct received ctrl-c' {$bytes=[Convert]::FromHexString((@(Journal $log|Where-Object{$_.event-ceq 'bytes'}|ForEach-Object{$_.hex})-join ''));return $bytes-contains 3}
+ $bytes=[Convert]::FromHexString((@(Journal $log|Where-Object{$_.event-ceq 'bytes'}|ForEach-Object{$_.hex})-join ''));$text=[Text.Encoding]::UTF8.GetString($bytes)
+ $r.literal_bmp=$text.Contains('RAW_UNICODE_中文_');$r.literal_supplementary=$text.Contains('🧪');$r.controlled_raw_hex=[Convert]::ToHexString($bytes);$r.input_code_page=$first.input_code_page
+ Guard $scope;if([DeskFlow]::Text('q')-ne 2){throw 'Direct quit incomplete'};if(!$probe.WaitForExit(10000)){throw 'Direct probe did not quit'};$r.result='observed'
+}catch{$r.result='failed';$r.stage=$script:stage;$r.error=$_.Exception.Message.Replace($env:USERPROFILE,'<USERPROFILE>')}
+finally{foreach($entry in $script:windows){try{CloseOwnedWindow $entry}catch{$r.window_cleanup_blocked=$true}};$r.probe_ended=($probe-and $probe.HasExited);$r|ConvertTo-Json -Depth 6|Set-Content (Join-Path $out 'result.json') -Encoding utf8}
+} catch {@{result='failed';stage='outer-driver';error=$_.Exception.Message.Replace($env:USERPROFILE,'<USERPROFILE>');line=$_.InvocationInfo.ScriptLineNumber}|ConvertTo-Json|Set-Content (Join-Path $env:USERPROFILE 'asd-acceptance-20261122/stability-ui-direct-input-r1-20261127/result.json') -Encoding utf8}
+'''
+# Use the already validated explicit host without guessing a profile field.
+body=body.replace("'--profile',$hostInfo.terminal.profile,",'')
+(p/'stability-ui-direct-input-r1.ps1').write_text(s+body)
+(p/'run-direct-input-r1.ps1').write_text((p/'run-ui-input-r2.ps1').read_text().replace('stability-ui-input-r2.ps1','stability-ui-direct-input-r1.ps1').replace('stability-ui-input-r2-20261127','stability-ui-direct-input-r1-20261127').replace('InputR2','DirectInputR1'))

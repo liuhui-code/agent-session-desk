@@ -1,0 +1,32 @@
+from pathlib import Path
+import json,hashlib,gzip,zipfile
+p=Path('/private/tmp/asd-stability-20261127');dest=Path('docs/testing/results/2026-11-27-stability-evidence');old=json.loads((dest/'manifest.json').read_text());previous={r['path']:r for r in old['files']}
+assert hashlib.sha256((p/'stability-export-r5.zip').read_bytes()).hexdigest()=='199bf8154f32d4cee4a3a981191e5a3203c0ede3f28449b18755b9cb8f82d381'
+with zipfile.ZipFile(p/'stability-export-r5.zip') as z:
+ for f in z.infolist():
+  name=f.filename.replace('\\','/');assert '..' not in name.split('/') and not name.startswith('/')
+  if not name.endswith('/'):
+   path=p/'remote-selected'/name;path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(z.read(f))
+records=[]
+def save(src,rel):
+ raw=src.read_bytes();s=raw.decode('utf-8-sig');s=s.replace('<WINDOWS_USER>','<WINDOWS_USER>').replace('/Users/<LOCAL_USER>/','/Users/<LOCAL_USER>/');s=s.replace('\r\n','\n').rstrip('\n')+'\n';b=s.encode();uncompressed=hashlib.sha256(b).hexdigest();encoding=None
+ if len(b)>131072 and rel.suffix in ('.jsonl','.stdout','.txt'):
+  b=gzip.compress(b,mtime=0);rel=rel.with_name(rel.name+'.gz');encoding='gzip of redacted UTF-8'
+ out=dest/rel;out.parent.mkdir(parents=True,exist_ok=True)
+ if str(rel) in previous and out.exists():assert hashlib.sha256(out.read_bytes()).hexdigest()==previous[str(rel)]['archived_sha256'],'Archive edited unexpectedly'
+ out.write_bytes(b);record={'path':str(rel),'original_sha256':hashlib.sha256(raw).hexdigest(),'archived_sha256':hashlib.sha256(b).hexdigest(),'redacted':raw.decode('utf-8-sig')!=s}
+ if encoding:record.update(encoding=encoding,uncompressed_archived_sha256=uncompressed)
+ records.append(record)
+for f in (p/'remote-selected').rglob('*'):
+ if f.is_file():save(f,Path('native')/f.relative_to(p/'remote-selected'))
+for f in p.iterdir():
+ if f.is_file() and f.suffix in ['.json','.jsonl','.txt','.log'] and not f.name.startswith(('editor-all','resource-progress','remote-evidence')):save(f,Path('local')/f.name)
+for f in p.iterdir():
+ if f.is_file() and f.suffix in ['.ps1','.py','.go'] and (f.name.startswith(('stability-','run-','fault','inspect-owned-editor','editor-cleanup','make-','summarize-','start-soak','cleanup-canary','input-preflight','soak-')) or f.name in ['build.py','build-tests.py','export-selected-evidence.ps1','archive-evidence.py']):save(f,Path('drivers')/(f.name+'.txt'))
+current={r['path'] for r in records}
+for rel,oldr in previous.items():
+ f=dest/rel
+ if rel not in current and f.exists():
+  assert hashlib.sha256(f.read_bytes()).hexdigest()==oldr['archived_sha256'];f.unlink()
+manifest={'base_commit':'9cb4dc3','product_sha256':'0af83573d9e5aee55e26a31ff32aab84aa1da45b6e58523b9ff220abc49a330f','status':'bounded suites complete; eight-hour soak running, not acceptance','redaction':'Windows account and local user path replaced; text CRLF normalized to LF and exactly one final LF; original hashes retained; original clipboard/data/credentials/endpoint keys/databases/executables excluded','files':records}
+(dest/'manifest.json').write_text(json.dumps(manifest,indent=2,ensure_ascii=False)+'\n');print('Archived',len(records),'files; bytes',sum((dest/r['path']).stat().st_size for r in records))

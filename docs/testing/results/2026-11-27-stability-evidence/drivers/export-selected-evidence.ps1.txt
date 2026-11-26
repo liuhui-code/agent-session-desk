@@ -1,0 +1,12 @@
+$ErrorActionPreference='Stop';$base=Join-Path $env:USERPROFILE 'asd-acceptance-20261122'
+$dirs=@('stability-native-20261127','stability-optin-backend-20261127','stability-optin-messaging-20261127','stability-optin-attention-20261127','stability-ui-navigation-r5-20261127','stability-ui-groups-r2-20261127','stability-ui-reminders-r4-20261127','stability-cli-lifecycle-r2-20261127','stability-ui-resources-r1-20261127','stability-ui-resources-r2-20261127','stability-document-green-r2-20261127')
+$target=Join-Path $base 'stability-export-r1';if(Test-Path $target){throw 'Fresh export required'};New-Item -ItemType Directory $target|Out-Null
+foreach($dir in $dirs){$source=Join-Path $base $dir;if(!(Test-Path $source)){continue};$dest=Join-Path $target $dir;New-Item -ItemType Directory $dest|Out-Null
+ foreach($f in @(Get-ChildItem $source -File|Where-Object{$_.Name-in @('result.json','samples.jsonl','stdout.txt')-or $_.Name.EndsWith('.stdout')})){Copy-Item $f.FullName (Join-Path $dest $f.Name)}
+ # Only independently emitted, synthetic fixture journals; never databases, endpoint keys or binding credentials.
+ foreach($f in @(Get-ChildItem $source -File -Recurse|Where-Object{$_.Name-match '^(fixture(-[0-9]+)?|[ABC]|direct-[0-9]+-[0-9]+)\.jsonl$'})){
+  $rel=[IO.Path]::GetRelativePath($source,$f.FullName);$path=Join-Path $dest $rel;$null=New-Item -ItemType Directory ([IO.Path]::GetDirectoryName($path)) -Force;Copy-Item $f.FullName $path
+ }
+}
+Compress-Archive -Path (Join-Path $target '*') -DestinationPath (Join-Path $base 'stability-export-r1.zip')
+@{bytes=(Get-Item (Join-Path $base 'stability-export-r1.zip')).Length;sha256=(Get-FileHash (Join-Path $base 'stability-export-r1.zip')).Hash.ToLowerInvariant()}|ConvertTo-Json

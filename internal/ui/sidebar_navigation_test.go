@@ -119,7 +119,7 @@ func TestSidebarNavigationAndDensityShareOneSerializedPreferenceWriter(t *testin
 		t.Fatal("navigation save not started")
 	}
 	h.send(tea.KeyPressMsg{Code: 'S', Text: "S"})
-	h.until(func() bool { return strings.Contains(h.m.View().Content, "侧栏密度") })
+	h.until(func() bool { return strings.Contains(h.m.View().Content, "Settings") })
 	h.send(tea.KeyPressMsg{Code: tea.KeyDown}) // Theme is now the first settings row.
 	h.send(tea.KeyPressMsg{Code: tea.KeyLeft})
 	h.send(tea.KeyPressMsg{Code: tea.KeyEscape})
@@ -140,7 +140,7 @@ func TestSidebarNavigationAndDensityShareOneSerializedPreferenceWriter(t *testin
 	}
 	release <- struct{}{}
 	h.until(func() bool {
-		return !strings.Contains(h.m.View().Content, "侧栏密度") && h.m.sidebarMode == "flat"
+		return !strings.Contains(h.m.View().Content, "Settings") && h.m.sidebarMode == "flat"
 	})
 }
 

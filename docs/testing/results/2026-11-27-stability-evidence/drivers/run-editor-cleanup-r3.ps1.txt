@@ -1,0 +1,3 @@
+$ErrorActionPreference='Stop';$ProgressPreference='SilentlyContinue'
+$base=Join-Path $env:USERPROFILE 'asd-acceptance-20261122'
+& ([ScriptBlock]::Create([IO.File]::ReadAllText((Join-Path $base 'stability-desktop-task.ps1')))) -Driver (Join-Path $base 'editor-cleanup-r3-worker.ps1') -Task 'AsdStabilityEditorCleanupR320261127' -Receipt (Join-Path $base 'stability-editor-cleanup-r3-20261127/result.json') -Seconds 60

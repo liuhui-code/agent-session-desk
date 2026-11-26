@@ -1,0 +1,7 @@
+import pathlib,os,subprocess,hashlib,json
+root=pathlib.Path('/private/tmp/asd-stability-20261127');env=os.environ.copy();env.update(GOCACHE=str(root/'go-cache'),GOMODCACHE=str(root/'mod-cache'),GOPATH=str(root/'go-path'),GOTOOLCHAIN='local',GOOS='windows',GOARCH='amd64',CGO_ENABLED='0')
+items=[('asd-stability.exe',['build','-o',str(root/'asd-stability.exe'),'./cmd/asd']),('asd-stability-fixture.exe',['build','-o',str(root/'asd-stability-fixture.exe'),'./cmd/asd-fixture']),('backend-stability.test.exe',['test','-c','-o',str(root/'backend-stability.test.exe'),'./internal/backend'])]
+for name,args in items:
+ r=subprocess.run(['/private/tmp/git-intent-tools/go/bin/go',*args],env=env,cwd=root/'candidate',capture_output=True,text=True)
+ if r.returncode:print(r.stderr);raise SystemExit(r.returncode)
+result={n:hashlib.sha256((root/n).read_bytes()).hexdigest() for n,_ in items};(root/'stability-artifacts.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result))

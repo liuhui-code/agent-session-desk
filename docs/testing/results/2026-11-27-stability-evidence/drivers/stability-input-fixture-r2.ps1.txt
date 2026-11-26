@@ -1,0 +1,41 @@
+param([string]$Report,[ValidateSet('VT','WIN32')][string]$Mode='VT')
+$ErrorActionPreference='Stop'
+Add-Type @'
+using System;using System.IO;using System.Text;using System.Runtime.InteropServices;
+public class StabilityInput{
+ [DllImport("kernel32.dll")]static extern uint GetConsoleCP();
+ [DllImport("kernel32.dll")]static extern uint GetConsoleOutputCP();
+ [DllImport("kernel32.dll")]static extern bool SetConsoleCP(uint cp);
+ [DllImport("kernel32.dll")]static extern bool SetConsoleOutputCP(uint cp);
+ [DllImport("kernel32.dll")]static extern IntPtr GetStdHandle(int n);
+ [DllImport("kernel32.dll")]static extern bool GetConsoleMode(IntPtr h,out uint mode);
+ [DllImport("kernel32.dll")]static extern bool SetConsoleMode(IntPtr h,uint mode);
+ [DllImport("kernel32.dll")]static extern uint WaitForSingleObject(IntPtr h,uint ms);
+ [DllImport("kernel32.dll")]static extern bool ReadFile(IntPtr h,byte[] b,uint n,out uint read,IntPtr ov);
+ [StructLayout(LayoutKind.Explicit,Size=20)]public struct Rec{
+ [FieldOffset(0)]public ushort type;[FieldOffset(4)]public short x;[FieldOffset(6)]public short y;
+ [FieldOffset(8)]public uint buttons;[FieldOffset(12)]public uint control;[FieldOffset(16)]public uint flags;
+ [FieldOffset(4)]public int down;[FieldOffset(14)]public ushort character;}
+ [DllImport("kernel32.dll",EntryPoint="ReadConsoleInputW")]static extern bool ReadConsoleInput(IntPtr h,out Rec r,uint n,out uint read);
+ public static void Run(string file,bool vt){
+ var input=GetStdHandle(-10);var output=GetStdHandle(-11);uint oldIn,oldOut;
+ if(!GetConsoleMode(input,out oldIn)||!GetConsoleMode(output,out oldOut))throw new Exception("Console required");
+ if(File.Exists(file))throw new Exception("Fresh journal required");var enc=new UTF8Encoding(false);uint oldCP=GetConsoleCP(),oldOutputCP=GetConsoleOutputCP();Console.OutputEncoding=enc;if(vt&&!SetConsoleCP(65001))throw new Exception("UTF-8 input code page");
+ var mode=(oldIn&~(1u|2u|4u|64u|512u))|(vt?0x280u:0x90u);
+ if(!SetConsoleMode(input,mode)||!SetConsoleMode(output,oldOut|5))throw new Exception("Console setup failed");
+ File.WriteAllText(file,"{\"event\":\"started\",\"pid\":"+System.Diagnostics.Process.GetCurrentProcess().Id+",\"mode\":"+mode+",\"input_code_page\":"+GetConsoleCP()+"}\n",enc);
+ Console.Write("\x1b[?1049h\x1b[2J\x1b[H\x1b[?2004h\x1b[?1000h\x1b[?1002h\x1b[?1003h\x1b[?1006hINPUT_"+(vt?"VT":"WIN32")+"_READY\r\nControlled native input; q exits");
+ var until=DateTime.UtcNow.AddMinutes(5);int n=0;
+ try{while(DateTime.UtcNow<until){if(WaitForSingleObject(input,200)!=0)continue;uint count;bool quit=false;
+ if(vt){var b=new byte[4096];if(!ReadFile(input,b,4096,out count,IntPtr.Zero))throw new Exception("ReadFile");if(count==0)break;
+ File.AppendAllText(file,"{\"event\":\"bytes\",\"hex\":\""+BitConverter.ToString(b,0,(int)count).Replace("-","")+"\"}\n",enc);
+ for(int i=0;i<count;i++)if(b[i]==113)quit=true;
+ }else{Rec r;if(!ReadConsoleInput(input,out r,1,out count))throw new Exception("ReadConsoleInput");if(count==0)continue;
+ if(r.type==2)File.AppendAllText(file,"{\"event\":\"mouse\",\"x\":"+r.x+",\"y\":"+r.y+",\"buttons\":"+r.buttons+",\"flags\":"+r.flags+"}\n",enc);
+ if(r.type==1&&r.down!=0){File.AppendAllText(file,"{\"event\":\"key\",\"char\":"+r.character+"}\n",enc);if(r.character==113)quit=true;}}
+ if(++n>4000||new FileInfo(file).Length>262144)throw new Exception("Journal bound");if(quit)break;}}
+ finally{Console.Write("\x1b[?1000l\x1b[?1002l\x1b[?1003l\x1b[?1006l\x1b[?2004l\x1b[?1049l");SetConsoleMode(input,oldIn);SetConsoleMode(output,oldOut);SetConsoleCP(oldCP);SetConsoleOutputCP(oldOutputCP);File.AppendAllText(file,"{\"event\":\"ended\"}\n",enc);}
+ }
+}
+'@
+[StabilityInput]::Run($Report,($Mode-ceq 'VT'))

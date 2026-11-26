@@ -67,7 +67,7 @@ func TestLaunchEnvironmentFailureDoesNotExposeValuesOrRetryUncertainRun(t *testi
 	h.send(tea.PasteMsg{Content: `["ASD_UI_VALUE=` + value + `"]`})
 	h.send(tea.KeyPressMsg{Code: 's', Mod: tea.ModCtrl})
 	h.until(func() bool { return h.m.launch != nil && h.m.launch.uncertain })
-	if got := h.m.launch.err.Error(); strings.Contains(got, value) || !strings.Contains(got, "env-created-session") || !strings.Contains(got, "不会自动重试") {
+	if got := h.m.launch.err.Error(); strings.Contains(got, value) || !strings.Contains(got, "env-created-session") || !strings.Contains(got, "no automatic retry") {
 		t.Fatalf("unsafe or unidentified failure summary: %q", got)
 	}
 	h.send(tea.KeyPressMsg{Code: 's', Mod: tea.ModCtrl})
@@ -137,7 +137,7 @@ func TestBlankLaunchEnvironmentKeepsInheritedEnvironmentAndCanReachCreateButton(
 }
 
 func TestEnvironmentFailureKeepsSafeFieldLocationWithoutBackendDetails(t *testing.T) {
-	for _, c := range []struct{ source, field string }{{"executable not found or not executable: synthetic-private", "程序"}, {"working directory: synthetic-private is unavailable", "工作目录"}, {"environment key ASD_PRIVATE has invalid synthetic-private value", "环境覆盖"}} {
+	for _, c := range []struct{ source, field string }{{"executable not found or not executable: synthetic-private", "Program"}, {"working directory: synthetic-private is unavailable", "Working directory"}, {"environment key ASD_PRIVATE has invalid synthetic-private value", "Environment overrides"}} {
 		t.Run(c.field, func(t *testing.T) {
 			service := &workspaceFixture{startErr: fmt.Errorf("%s", c.source), fakeService: fakeService{list: func(context.Context) ([]session.Session, error) { return nil, nil }}}
 			h := newWorkspaceHarness(t, service)

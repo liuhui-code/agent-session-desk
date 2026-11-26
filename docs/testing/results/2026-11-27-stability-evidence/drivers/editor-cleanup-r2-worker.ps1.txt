@@ -1,0 +1,4 @@
+$ErrorActionPreference='Stop';$ProgressPreference='SilentlyContinue'
+$base=Join-Path $env:USERPROFILE 'asd-acceptance-20261122';$out=Join-Path $base 'stability-editor-cleanup-r2-20261127'
+if(Test-Path $out){throw 'Fresh output required'};New-Item -ItemType Directory $out|Out-Null
+try { & ([ScriptBlock]::Create([IO.File]::ReadAllText((Join-Path $base 'inspect-owned-editor-cleanup.ps1'))))|Set-Content (Join-Path $out 'result.json') -Encoding utf8 } catch { @{result='failed';error=$_.Exception.Message.Replace($env:USERPROFILE,'<USERPROFILE>')}|ConvertTo-Json|Set-Content (Join-Path $out 'result.json') -Encoding utf8 }

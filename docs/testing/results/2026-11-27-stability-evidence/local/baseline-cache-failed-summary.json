@@ -1,0 +1,77 @@
+{
+  "exit_code": 1,
+  "source": "baseline",
+  "command": [
+    "test",
+    "-json",
+    "-count=1",
+    "-timeout=5m",
+    "./..."
+  ],
+  "top_pass": 17,
+  "top_skip": 1,
+  "failed": [
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/cmd/asd",
+      "test": null
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/cmd/asd-pet",
+      "test": null
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/cmd/asd-fixture",
+      "test": null
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/backend",
+      "test": null
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/cli",
+      "test": null
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/config",
+      "test": null
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/document",
+      "test": null
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/manager",
+      "test": null
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/pet",
+      "test": null
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/store",
+      "test": null
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/terminal",
+      "test": null
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": null
+    }
+  ],
+  "failure_output": [
+    "FAIL\tgithub.com/liuhui-code/agent-session-desk/cmd/asd [build failed]\n",
+    "FAIL\tgithub.com/liuhui-code/agent-session-desk/cmd/asd-pet [build failed]\n",
+    "FAIL\tgithub.com/liuhui-code/agent-session-desk/cmd/asd-fixture [build failed]\n",
+    "FAIL\tgithub.com/liuhui-code/agent-session-desk/internal/backend [build failed]\n",
+    "FAIL\tgithub.com/liuhui-code/agent-session-desk/internal/cli [build failed]\n",
+    "FAIL\tgithub.com/liuhui-code/agent-session-desk/internal/config [build failed]\n",
+    "FAIL\tgithub.com/liuhui-code/agent-session-desk/internal/document [build failed]\n",
+    "FAIL\tgithub.com/liuhui-code/agent-session-desk/internal/manager [build failed]\n",
+    "FAIL\tgithub.com/liuhui-code/agent-session-desk/internal/pet [build failed]\n",
+    "FAIL\tgithub.com/liuhui-code/agent-session-desk/internal/store [build failed]\n",
+    "FAIL\tgithub.com/liuhui-code/agent-session-desk/internal/terminal [build failed]\n",
+    "FAIL\tgithub.com/liuhui-code/agent-session-desk/internal/ui [build failed]\n"
+  ]
+}

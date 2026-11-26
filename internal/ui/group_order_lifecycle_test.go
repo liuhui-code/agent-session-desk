@@ -99,7 +99,7 @@ func TestGroupOrderQuitIsCancelledWhenPreferencesFailBeforeOrderAcknowledgement(
 	h.until(func() bool { return !h.m.preferences.busy && h.m.sidebarPreferenceError != nil })
 	close(metadataGate)
 	h.until(func() bool { return h.m.groupOrder == nil })
-	if h.m.closed || !strings.Contains(h.m.View().Content, "界面偏好未保存") {
+	if h.m.closed || !strings.Contains(h.m.View().Content, "UI preferences not saved") {
 		t.Fatal("order acknowledgement hid preference failure and quit")
 	}
 }

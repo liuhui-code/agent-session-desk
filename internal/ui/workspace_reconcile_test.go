@@ -84,7 +84,7 @@ func TestWorkspaceDisconnectKeepsLastObservedScreenReadOnly(t *testing.T) {
 	service.mu.Unlock()
 	_ = stream.Close()
 	h.until(func() bool {
-		return strings.Contains(h.m.View().Content, "只读") && strings.Contains(h.m.View().Content, "shell marker first")
+		return strings.Contains(h.m.View().Content, "Read-only") && strings.Contains(h.m.View().Content, "shell marker first")
 	})
 	if h.m.workspace.focused || h.m.View().Cursor != nil {
 		t.Fatal("disconnected screen still has terminal input focus")

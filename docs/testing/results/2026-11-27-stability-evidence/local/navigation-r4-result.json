@@ -1,0 +1,56 @@
+{
+  "product_sha256": "0af83573d9e5aee55e26a31ff32aab84aa1da45b6e58523b9ff220abc49a330f",
+  "stage": "invalid-program-has-no-run-or-retry",
+  "result": "failed",
+  "forced_product_ends": 0,
+  "cursor_restored": true,
+  "registry_writes": 0,
+  "clipboard_calls": 0,
+  "error": "Timed out: safe launch error; no automatic replay",
+  "intentional_owned_ui_crashes": 0,
+  "session_content_exported": 0,
+  "manager_ends": [
+    true
+  ],
+  "stages": [
+    {
+      "utc": "2026-11-26T17:05:13.3124912Z",
+      "stage": "input-idle-preflight"
+    },
+    {
+      "utc": "2026-11-26T17:05:16.3435798Z",
+      "stage": "committed-unicode-input-and-independent-receipts"
+    },
+    {
+      "utc": "2026-11-26T17:05:17.5706201Z",
+      "stage": "forty-real-alt-session-switches"
+    },
+    {
+      "utc": "2026-11-26T17:05:26.6786560Z",
+      "stage": "collapsed-sidebar-navigation"
+    },
+    {
+      "utc": "2026-11-26T17:05:27.5008561Z",
+      "stage": "f2-save-and-cancel-return-to-native-draft"
+    },
+    {
+      "utc": "2026-11-26T17:05:28.4524328Z",
+      "stage": "help-consumes-input-without-child-leak"
+    },
+    {
+      "utc": "2026-11-26T17:05:28.8864139Z",
+      "stage": "native-create-form-five-fields"
+    },
+    {
+      "utc": "2026-11-26T17:05:32.6624326Z",
+      "stage": "invalid-program-has-no-run-or-retry"
+    }
+  ],
+  "switches": 40,
+  "automatic_input_replay": false,
+  "fixture_ends": [
+    true,
+    true,
+    true
+  ]
+}

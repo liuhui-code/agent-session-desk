@@ -73,7 +73,7 @@ func TestDirectoryPopupViewportFocusAndThemeMatrix(t *testing.T) {
 						if v.Cursor != nil && (v.Cursor.X < 0 || v.Cursor.Y < 0 || v.Cursor.X >= size[0] || v.Cursor.Y >= size[1]) {
 							t.Fatal("cursor outside viewport")
 						}
-						if size[0] >= 32 && size[1] >= 12 && !strings.Contains(v.Content, "Select") && !strings.Contains(v.Content, "浏览") {
+						if size[0] >= 32 && size[1] >= 12 && !strings.Contains(v.Content, "Select") && !strings.Contains(v.Content, "Browse") {
 							t.Fatal("operable picker not rendered")
 						}
 						if !m.pathPopupAvailable() {

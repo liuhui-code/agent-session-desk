@@ -27,7 +27,7 @@ func TestProgramMouseKeepsOneReleaseSlotUnderMotionPressure(t *testing.T) {
 	if got := len(h.m.workspace.inputs); got != workspaceInputCapacity-1 {
 		t.Fatalf("no bounded release reserve: %d", got)
 	}
-	if !strings.Contains(h.m.status, "释放位置") {
+	if !strings.Contains(h.m.status, "release position") {
 		t.Fatal("rejected motion was not reported")
 	}
 	h.send(tea.MouseReleaseMsg{X: g.x + 9, Y: g.y + 2, Button: tea.MouseLeft})
@@ -130,7 +130,7 @@ func TestProgramMouseExternalModeChangesDoNotReleaseIntoAnotherMode(t *testing.T
 			if got := directDragWrites(s, "first"); got != "pointer:down,3,2" {
 				t.Fatalf("unknown hold replayed/released in new mode: %q", got)
 			}
-			if !strings.Contains(h.m.status, "Unknown") {
+			if !strings.Contains(h.m.status, "unknown") {
 				t.Fatal("release uncertainty missing")
 			}
 		})

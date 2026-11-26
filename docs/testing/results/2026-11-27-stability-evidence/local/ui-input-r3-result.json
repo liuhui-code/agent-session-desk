@@ -1,0 +1,84 @@
+{
+  "system_clipboard_accept_verified": true,
+  "probe_ends": [
+    true,
+    true
+  ],
+  "forced_product_ends": 0,
+  "clipboard_all_formats_and_values_restored": true,
+  "resize_observations": [
+    {
+      "height": 440,
+      "width": 600,
+      "marker_visible": true
+    },
+    {
+      "height": 300,
+      "width": 900,
+      "marker_visible": true
+    },
+    {
+      "height": 800,
+      "width": 1280,
+      "marker_visible": true
+    },
+    {
+      "height": 650,
+      "width": 900,
+      "marker_visible": true
+    }
+  ],
+  "product_sha256": "0af83573d9e5aee55e26a31ff32aab84aa1da45b6e58523b9ff220abc49a330f",
+  "cursor_restored": true,
+  "result": "failed",
+  "error": "Timed out: independent multiline VT bytes; no automatic replay",
+  "concurrent_same_scope_launches": 5,
+  "registry_writes": 0,
+  "owned_failure_surface": "                                                                                                                              \r\n  ▾ My Sessions (3)       INPUT_VT_READY                                                                                      \r\n                          Controlled native input; q exits                                                                    \r\n    Instance A          │                                                                                                     \r\n                        │                                                                                                     \r\n  ┃ Probe VT            │                                                                                                     \r\n                        │                                                                                                     \r\n    Probe WIN32         │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n",
+  "fixture_ends": [
+    true
+  ],
+  "raw_vt_supplementary_unicode_verified": false,
+  "intentional_owned_ui_crashes": 0,
+  "clipboard_calls": "backup and controlled subflow only; original values never exported",
+  "manager_ends": [
+    true
+  ],
+  "stages": [
+    {
+      "stage": "input-idle-preflight",
+      "utc": "2026-11-26T17:56:53.6856210Z"
+    },
+    {
+      "stage": "five-concurrent-launches-reuse-exact-workbench",
+      "utc": "2026-11-26T17:56:56.0831526Z"
+    },
+    {
+      "stage": "vt-real-input-ctrl-c-and-program-mouse",
+      "utc": "2026-11-26T17:56:56.1968601Z"
+    },
+    {
+      "stage": "real-window-resize-and-original-input",
+      "utc": "2026-11-26T17:56:59.1252489Z"
+    },
+    {
+      "stage": "win32-native-mouse-press-release-wheel",
+      "utc": "2026-11-26T17:57:00.9794465Z"
+    },
+    {
+      "stage": "clipboard-backup-before-copy-and-paste",
+      "utc": "2026-11-26T17:57:03.7382675Z"
+    },
+    {
+      "stage": "selected-a-visible-copy-while-native-probe-active",
+      "utc": "2026-11-26T17:57:03.8642429Z"
+    },
+    {
+      "stage": "multiline-paste-through-real-windows-terminal",
+      "utc": "2026-11-26T17:57:04.1941998Z"
+    }
+  ],
+  "session_content_exported": 0,
+  "automatic_input_replay": false,
+  "stage": "multiline-paste-through-real-windows-terminal"
+}

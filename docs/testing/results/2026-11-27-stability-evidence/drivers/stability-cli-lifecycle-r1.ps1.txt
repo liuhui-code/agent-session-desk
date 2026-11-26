@@ -1,0 +1,60 @@
+$ErrorActionPreference='Stop';$ProgressPreference='SilentlyContinue'
+[Console]::OutputEncoding=[Text.UTF8Encoding]::new($false);$OutputEncoding=[Console]::OutputEncoding
+$base=Join-Path $env:USERPROFILE 'asd-acceptance-20261122';$out=Join-Path $base 'stability-cli-lifecycle-r1-20261127'
+if(Test-Path $out){throw 'Fresh CLI scope required'};New-Item -ItemType Directory $out|Out-Null
+$package=Join-Path ([Environment]::GetFolderPath('Desktop')) 'Agent Session Desk Alpha 8234c4e'
+$manifest=Get-Content -Raw (Join-Path $base 'stability-artifacts.json')|ConvertFrom-Json
+$product=Join-Path $base 'asd-stability.exe';$fixture=Join-Path $base 'asd-stability-fixture.exe'
+foreach($path in @($product,$fixture)){if((Get-FileHash $path).Hash.ToLowerInvariant()-cne $manifest.([IO.Path]::GetFileName($path))){throw 'Artifact changed'}}
+. ([ScriptBlock]::Create([IO.File]::ReadAllText((Join-Path $base 'windows-resource-process.ps1'))))
+. ([ScriptBlock]::Create([IO.File]::ReadAllText((Join-Path $base 'windows-fixture-journal.ps1'))))
+$experiment=$out;$runtime=Join-Path $out 'runtime';$state=Join-Path $out 'state';$ns='asd-cli-lifecycle-r1';$bundle=Join-Path $package 'terminal-runtime';$data=Join-Path $runtime $ns;$config=Join-Path $data 'psmux-m0.conf';$log=Join-Path $out 'fixture.jsonl'
+$globals=@('--terminal-bundle',$bundle,'--runtime-dir',$runtime,'--namespace',$ns,'--state-dir',$state)
+$r=@{result='started';stages=@();forced_product_ends=0;clipboard_calls=0;registry_writes=0};$o=$null;$p=$null
+function Stage([string]$name){$script:stage=$name;$r.stages+=@{stage=$name;utc=[DateTime]::UtcNow.ToString('o')}}
+function CLI([string[]]$tail,[switch]$Reject,[string[]]$Global=$globals){
+ $child=Start-RecordedProcess $product (@($Global)+$tail)
+ if(!$child.process.WaitForExit(40000)){throw 'CLI timeout; action not replayed'};$stdout=$child.stdout.GetAwaiter().GetResult();$stderr=$child.stderr.GetAwaiter().GetResult();$exit=$child.process.ExitCode;$child.process.Dispose()
+ if($Reject){if($exit-eq 0){throw 'Expected safe rejection was accepted'};return $true};if($exit-ne 0){throw ('CLI failed: '+$stderr)};return $stdout
+}
+function Wait([string]$label,[scriptblock]$check){$end=[DateTime]::UtcNow.AddSeconds(20);do{if(& $check){return};Start-Sleep -Milliseconds 150}while([DateTime]::UtcNow-lt $end);throw ('Timed out: '+$label+'; no replay')}
+function Mux([string[]]$tail){
+ $envs=Get-MuxEnvironment $data $config;$envs.PSMUX_CONPTY_DIR=$bundle;$envs.PSMUX_CONPTY_PIPE_MOUSE_ONLY='1'
+ $child=Start-RecordedProcess (Join-Path $bundle 'psmux.exe') (@('-L',$ns,'-f',$config)+$tail) $envs
+ if(!$child.process.WaitForExit(20000)){throw 'Mux timeout; no replay'};$code=$child.process.ExitCode;$text=$child.stdout.GetAwaiter().GetResult();$null=$child.stderr.GetAwaiter().GetResult();$child.process.Dispose();if($code-ne 0){throw 'Owned mux command failed'};return $text
+}
+try{
+ Stage 'real-fixture-and-live-metadata'
+ $o=(CLI @('start','--name','CLI lifecycle','--cwd',$out,'--env',('ASD_FIXTURE_REPORT_PATH='+$log),'--',$fixture))|ConvertFrom-Json
+ Wait 'fixture identity' {@(Get-AsdFixtureJournal $log).Count-gt 0};$first=@(Get-AsdFixtureJournal $log)[0];$p=Get-Process -Id $first.pid;$null=$p.Handle;if($p.Path-ine $fixture){throw 'Fixture path mismatch'}
+ $history=@((CLI @('history'))|ConvertFrom-Json|ForEach-Object{$_});if($history.Count-ne 1-or $history[0].session.run_id-cne $o.run_id){throw 'Live history lost original Run'}
+ Stage 'three-explicit-screen-records-rotate-to-two'
+ $records=@();for($i=1;$i-le 3;$i++){
+  $marker='LIFECYCLE_MARKER_'+$i;$null=Mux @('send-keys','-t',$o.backend_id,'-l',$marker);$null=Mux @('send-keys','-t',$o.backend_id,'Enter')
+  Wait 'independent original input' {@(Get-AsdFixtureJournal $log|Where-Object{$_.event-ceq 'input'-and $_.text-ceq $marker}).Count-eq 1}
+  $record=(CLI @('record',$o.session_id))|ConvertFrom-Json
+  if($record.complete-or $record.source-cne 'screen_snapshot'-or $record.run_id-cne $o.run_id-or !$record.text.Contains($marker)){throw 'Snapshot content or completeness contract wrong'};$records+=$record
+ }
+ $saved=@((CLI @('output',$o.run_id))|ConvertFrom-Json|ForEach-Object{$_});if($saved.Count-ne 2-or $saved[0].id-cne $records[2].id-or $saved[1].id-cne $records[1].id){throw 'Output rotation wrong'}
+ Stage 'normal-stop-history-and-offline-output'
+ $null=CLI @('stop',$o.session_id);if(!$p.WaitForExit(20000)){throw 'Original did not stop normally'}
+ $history=@((CLI @('history'))|ConvertFrom-Json|ForEach-Object{$_});if($history.Count-ne 1-or !$history[0].stop_confirmed_at-or $history[0].session.run_id-cne $o.run_id){throw 'Stopped history changed identity or omitted stop evidence'}
+ $offline=@((CLI @('output',$o.run_id))|ConvertFrom-Json|ForEach-Object{$_});if(($offline|ConvertTo-Json -Depth 10 -Compress)-cne($saved|ConvertTo-Json -Depth 10 -Compress)){throw 'Stopped output changed'}
+ Stage 'check-backup-restore-to-new-state-only'
+ $backup=Join-Path $out 'backup.sqlite3';$null=CLI @('metadata','check');$null=CLI @('metadata','backup',$backup);$null=CLI @('metadata','check',$backup);$hash=(Get-FileHash $backup).Hash
+ $null=CLI @('metadata','backup',$backup) -Reject;if((Get-FileHash $backup).Hash-cne $hash){throw 'Rejected backup overwrote target'}
+ $restored=Join-Path $out 'restored';$restoreGlobals=@('--runtime-dir',$runtime,'--namespace',$ns,'--state-dir',$restored)
+ $null=CLI @('metadata','restore',$backup) -Global $restoreGlobals;$null=CLI @('metadata','check') -Global $restoreGlobals
+ $restoredHistory=@((CLI @('history') -Global $restoreGlobals)|ConvertFrom-Json|ForEach-Object{$_});if(($restoredHistory|ConvertTo-Json -Depth 12 -Compress)-cne($history|ConvertTo-Json -Depth 12 -Compress)){throw 'Restored metadata changed history'}
+ $restoreHash=(Get-FileHash (Join-Path $restored 'metadata.sqlite3')).Hash;$null=CLI @('metadata','restore',$backup) -Global $restoreGlobals -Reject
+ if((Get-FileHash (Join-Path $restored 'metadata.sqlite3')).Hash-cne $restoreHash){throw 'Restore overwrote existing target'}
+ $restoredOutput=@((CLI @('output',$o.run_id) -Global $restoreGlobals)|ConvertFrom-Json|ForEach-Object{$_});if($restoredOutput.Count-ne 0-or (Test-Path (Join-Path $restored 'output-records'))){throw 'Metadata restore pretended to restore output files'}
+ Stage 'corrupt-source-refused-without-destination'
+ $bad=Join-Path $out 'invalid.sqlite3';[IO.File]::WriteAllText($bad,'controlled invalid database');$badHash=(Get-FileHash $bad).Hash;$badState=Join-Path $out 'invalid-restore'
+ $null=CLI @('metadata','check',$bad) -Reject
+ $null=CLI @('metadata','restore',$bad) -Global @('--state-dir',$badState) -Reject
+ if((Get-FileHash $bad).Hash-cne $badHash-or (Test-Path (Join-Path $badState 'metadata.sqlite3'))){throw 'Invalid source was altered or destination initialized'}
+ if(!$p.HasExited-or @((CLI @('list','--json'))|ConvertFrom-Json|ForEach-Object{$_}).Count-ne 0){throw 'Metadata operations resurrected a Run'}
+ $r.result='verified';$r.screen_records=3;$r.retained_records=2;$r.history_identity_unchanged=$true;$r.metadata_only_restore=$true;$r.nonoverwrite_refusals=2;$r.corrupt_refusals=2;$r.no_process_resurrection=$true
+}catch{$r.result='failed';$r.stage=$script:stage;$r.error=$_.Exception.Message.Replace($env:USERPROFILE,'<USERPROFILE>')}
+finally{if($o-and $p-and !$p.HasExited){try{$null=CLI @('stop',$o.session_id);$null=$p.WaitForExit(15000)}catch{$r.cleanup_failed=$true}};$r.original_fixture_ended=($p-and $p.HasExited);$r.product_sha256=(Get-FileHash $product).Hash.ToLowerInvariant();$r|ConvertTo-Json -Depth 8|Set-Content (Join-Path $out 'result.json') -Encoding utf8;$r|ConvertTo-Json -Depth 8}

@@ -1,0 +1,43 @@
+# All original bytes remain in memory. Unknown formats block this subflow before any write.
+Add-Type -AssemblyName System.Windows.Forms
+Add-Type @'
+using System;using System.Runtime.InteropServices;
+public class ClipSequence{[DllImport("user32.dll")]public static extern uint GetClipboardSequenceNumber();[DllImport("user32.dll")]public static extern int CountClipboardFormats();}
+'@
+function ClipFingerprint($value){
+ if($value-is [string]){return 'text:'+([Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($value)))}
+ if($value-is [byte[]]){return 'bytes:'+([Convert]::ToBase64String($value))}
+ if($value-is [IO.MemoryStream]){return 'stream:'+([Convert]::ToBase64String($value.ToArray()))}
+ if($value-is [string[]]){return 'files:'+($value|ConvertTo-Json -Compress)}
+ if($value-is [System.Drawing.Bitmap]){$stream=[IO.MemoryStream]::new();try{$value.Save($stream,[Drawing.Imaging.ImageFormat]::Png);return 'bitmap:'+([Convert]::ToBase64String($stream.ToArray()))}finally{$stream.Dispose()}}
+ throw 'Unsupported clipboard format; no clipboard writes'
+}
+function SaveClipboard(){
+ $seq=[ClipSequence]::GetClipboardSequenceNumber();$original=[Windows.Forms.Clipboard]::GetDataObject();$saved=[Windows.Forms.DataObject]::new();$fingerprints=@{}
+ $formats=@();if($original){$formats=@($original.GetFormats($false))}
+ if(!$formats.Count-and [ClipSequence]::CountClipboardFormats()-ne 0){throw 'Clipboard backup incomplete; no clipboard writes'}
+ foreach($format in $formats){$value=$original.GetData($format,$false);$fp=ClipFingerprint $value
+  if($value-is [IO.MemoryStream]){$copy=[IO.MemoryStream]::new($value.ToArray())}elseif($value-is [byte[]]-or $value-is [string[]]){$copy=$value.Clone()}elseif($value-is [Drawing.Bitmap]){$copy=$value.Clone()}else{$copy=$value}
+  $saved.SetData($format,$false,$copy);if((ClipFingerprint ($saved.GetData($format,$false)))-cne $fp){throw 'Clipboard clone mismatch; no writes'};$fingerprints[$format]=$fp
+ }
+ if([ClipSequence]::GetClipboardSequenceNumber()-ne $seq){throw 'Clipboard changed during backup; no writes'}
+ return @{saved=$saved;fingerprints=$fingerprints;sequence=$seq;changed=$false;empty=($formats.Count-eq 0);owned_sequence=$seq}
+}
+function SetControlledClipboard($backup,[string]$text){
+ if([ClipSequence]::GetClipboardSequenceNumber()-ne $backup.owned_sequence){throw 'Clipboard changed externally; no overwrite'}
+ [Windows.Forms.Clipboard]::SetText($text);$backup.changed=$true;$backup.owned_sequence=[ClipSequence]::GetClipboardSequenceNumber()
+}
+function AcceptControlledCopy($backup,[string]$contains,[string]$excludes){
+ $text=[Windows.Forms.Clipboard]::GetText()
+ if(!$text.Contains($contains)-or ($excludes-and $text.Contains($excludes))){return $false}
+ $backup.owned_sequence=[ClipSequence]::GetClipboardSequenceNumber();$backup.changed=$true;return $true
+}
+function RestoreClipboard($backup){
+ if(!$backup.changed){return $true}
+ if([ClipSequence]::GetClipboardSequenceNumber()-ne $backup.owned_sequence){throw 'Clipboard changed externally; restoration refused'}
+ if($backup.empty){[Windows.Forms.Clipboard]::Clear()}else{[Windows.Forms.Clipboard]::SetDataObject($backup.saved,$true,10,100)}
+ $actual=[Windows.Forms.Clipboard]::GetDataObject();$formats=@();if($actual){$formats=@($actual.GetFormats($false))}
+ if(([string]::Join([char]0,@($formats|Sort-Object)))-cne([string]::Join([char]0,@($backup.fingerprints.Keys|Sort-Object)))){throw 'Clipboard format restoration mismatch'}
+ foreach($format in $formats){if((ClipFingerprint ($actual.GetData($format,$false)))-cne $backup.fingerprints[$format]){throw 'Clipboard value restoration mismatch'}}
+ return $true
+}

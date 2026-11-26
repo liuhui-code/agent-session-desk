@@ -1,0 +1,3 @@
+$base=Join-Path $env:USERPROFILE 'asd-acceptance-20261122';$package=Join-Path ([Environment]::GetFolderPath('Desktop')) 'Agent Session Desk Alpha 8234c4e';$h=Get-Content -Raw (Join-Path $package 'local-host.json')|ConvertFrom-Json
+if((Get-FileHash $h.shell.path).Hash.ToLowerInvariant()-cne $h.shell.sha256){throw 'Pinned shell changed'}
+& $h.shell.path -NoProfile -NonInteractive -File (Join-Path $base 'export-selected-evidence.ps1')

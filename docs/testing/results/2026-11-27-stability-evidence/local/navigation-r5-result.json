@@ -1,0 +1,66 @@
+{
+  "intentional_owned_ui_crashes": 0,
+  "result": "verified",
+  "no_cross_session_input": true,
+  "switches": 40,
+  "cursor_restored": true,
+  "registry_writes": 0,
+  "fixture_ends": [
+    true,
+    true,
+    true
+  ],
+  "session_content_exported": 0,
+  "automatic_input_replay": false,
+  "forced_product_ends": 0,
+  "stages": [
+    {
+      "utc": "2026-11-26T17:08:29.9470121Z",
+      "stage": "input-idle-preflight"
+    },
+    {
+      "utc": "2026-11-26T17:08:32.4051925Z",
+      "stage": "committed-unicode-input-and-independent-receipts"
+    },
+    {
+      "utc": "2026-11-26T17:08:33.6887360Z",
+      "stage": "forty-real-alt-session-switches"
+    },
+    {
+      "utc": "2026-11-26T17:08:42.9473701Z",
+      "stage": "collapsed-sidebar-navigation"
+    },
+    {
+      "utc": "2026-11-26T17:08:43.6815618Z",
+      "stage": "f2-save-and-cancel-return-to-native-draft"
+    },
+    {
+      "utc": "2026-11-26T17:08:44.8689639Z",
+      "stage": "help-consumes-input-without-child-leak"
+    },
+    {
+      "utc": "2026-11-26T17:08:45.2745790Z",
+      "stage": "native-create-form-five-fields"
+    },
+    {
+      "utc": "2026-11-26T17:08:49.2330564Z",
+      "stage": "invalid-program-has-no-run-or-retry"
+    },
+    {
+      "utc": "2026-11-26T17:08:50.5199358Z",
+      "stage": "original-identities-and-no-cross-session-input"
+    },
+    {
+      "utc": "2026-11-26T17:08:50.8410755Z",
+      "stage": "normal-manager-quit"
+    }
+  ],
+  "unicode_argv_cwd_env_verified": true,
+  "original_run_identities_preserved": true,
+  "product_sha256": "0af83573d9e5aee55e26a31ff32aab84aa1da45b6e58523b9ff220abc49a330f",
+  "manager_ends": [
+    true
+  ],
+  "clipboard_calls": 0,
+  "rename_saved_and_cancelled": true
+}

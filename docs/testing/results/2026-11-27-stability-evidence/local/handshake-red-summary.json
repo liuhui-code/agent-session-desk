@@ -1,0 +1,30 @@
+{
+  "exit_code": 1,
+  "source": "red",
+  "command": [
+    "test",
+    "-json",
+    "-count=1",
+    "-run",
+    "^TestFailedTerminalHandshakeReturnsNilConnection$",
+    "./internal/backend"
+  ],
+  "top_pass": 0,
+  "top_skip": 0,
+  "failed": [
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/backend",
+      "test": "TestFailedTerminalHandshakeReturnsNilConnection"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/backend",
+      "test": null
+    }
+  ],
+  "failure_output": [
+    "    terminal_failure_test.go:22: listen tcp 127.0.0.1:0: bind: operation not permitted\n",
+    "--- FAIL: TestFailedTerminalHandshakeReturnsNilConnection (0.08s)\n",
+    "FAIL\n",
+    "FAIL\tgithub.com/liuhui-code/agent-session-desk/internal/backend\t1.065s\n"
+  ]
+}

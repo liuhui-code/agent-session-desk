@@ -1,0 +1,2 @@
+$base=Join-Path $env:USERPROFILE 'asd-acceptance-20261122'
+foreach($round in @('soak-canary','soak-r1')){$out=Join-Path $base ('stability-ui-'+$round+'-20261127');$f=Join-Path $out 'result.json';$h=Join-Path $out 'heartbeat.json';if(Test-Path $f){Get-Content -Raw -Encoding utf8 $f}elseif(Test-Path $h){Get-Content -Raw -Encoding utf8 $h}else{@{round=$round;state='not_started_or_not_ready'}|ConvertTo-Json}}

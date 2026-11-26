@@ -1,0 +1,11 @@
+$ErrorActionPreference='Stop';$base=Join-Path $env:USERPROFILE 'asd-acceptance-20261122';$task='AsdStabilitySoakR120261127';$driver=Join-Path $base 'stability-ui-soak-r1.ps1';$out=Join-Path $base 'stability-ui-soak-r1-20261127'
+$package=Join-Path ([Environment]::GetFolderPath('Desktop')) 'Agent Session Desk Alpha 8234c4e';$h=Get-Content -Raw (Join-Path $package 'local-host.json')|ConvertFrom-Json
+if((Get-FileHash $h.shell.path).Hash.ToLowerInvariant()-cne $h.shell.sha256){throw 'Pinned shell changed'}
+if((Test-Path $out)-or (Get-ScheduledTask -TaskName $task -ErrorAction SilentlyContinue)){throw 'Fresh soak and task required'}
+$tokens=$null;$parse=$null;$null=[Management.Automation.Language.Parser]::ParseFile($driver,[ref]$tokens,[ref]$parse);if($parse.Count){throw 'Soak script parse failed before action'}
+$code="& ([ScriptBlock]::Create([IO.File]::ReadAllText('"+$driver.Replace("'","''")+"')))";$args='-NoProfile -NonInteractive -WindowStyle Hidden -STA -EncodedCommand '+[Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($code))
+$principal=New-ScheduledTaskPrincipal -UserId ([Security.Principal.WindowsIdentity]::GetCurrent().User.Value) -LogonType Interactive -RunLevel Limited
+$settings=New-ScheduledTaskSettingsSet -ExecutionTimeLimit (New-TimeSpan -Hours 9)
+Register-ScheduledTask -TaskName $task -Action (New-ScheduledTaskAction -Execute $h.shell.path -Argument $args) -Principal $principal -Settings $settings|Out-Null
+Start-ScheduledTask -TaskName $task
+@{task=$task;state=[string](Get-ScheduledTask -TaskName $task).State;driver_sha256=(Get-FileHash $driver).Hash.ToLowerInvariant();requested_seconds=28800;heartbeat='stability-ui-soak-r1-20261127/heartbeat.json';result='stability-ui-soak-r1-20261127/result.json'}|ConvertTo-Json

@@ -1,0 +1,38 @@
+{
+  "error": "Timed out: owned editor window; no automatic replay",
+  "product_sha256": "0af83573d9e5aee55e26a31ff32aab84aa1da45b6e58523b9ff220abc49a330f",
+  "result": "failed",
+  "session_content_exported": 0,
+  "fixture_ends": [
+    true,
+    true
+  ],
+  "manager_ends": [
+    true
+  ],
+  "registry_writes": 0,
+  "stages": [
+    {
+      "stage": "input-idle-preflight",
+      "utc": "2026-11-26T17:15:24.7945438Z"
+    },
+    {
+      "stage": "native-approval-arrives-without-stealing-a-draft",
+      "utc": "2026-11-26T17:15:27.0538406Z"
+    },
+    {
+      "stage": "alt-n-opens-original-prompt-but-does-not-answer",
+      "utc": "2026-11-26T17:15:28.4154542Z"
+    },
+    {
+      "stage": "ctrl-click-unicode-space-document-in-system-editor",
+      "utc": "2026-11-26T17:15:28.8913728Z"
+    }
+  ],
+  "clipboard_calls": 0,
+  "forced_product_ends": 0,
+  "cursor_restored": true,
+  "automatic_input_replay": false,
+  "stage": "ctrl-click-unicode-space-document-in-system-editor",
+  "intentional_owned_ui_crashes": 0
+}

@@ -74,7 +74,7 @@ func TestExitedPaneCanBeInspectedWithoutAttaching(t *testing.T) {
 	}
 	m.Update(command())
 	frame := m.renderPreviewPane(80, 20)
-	if !strings.Contains(frame, "retained output") || !strings.Contains(frame, "不可输入") {
+	if !strings.Contains(frame, "retained output") || !strings.Contains(frame, "input disabled") {
 		t.Fatalf("retained output or exit boundary missing: %q", frame)
 	}
 	_, command = m.Update(tea.KeyPressMsg{Code: tea.KeyEnter})

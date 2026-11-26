@@ -1,0 +1,79 @@
+=== RUN   TestAttentionEventStrictBoundedJSON
+--- PASS: TestAttentionEventStrictBoundedJSON (0.00s)
+=== RUN   TestAttentionInvalidCommandHasNoEffects
+--- PASS: TestAttentionInvalidCommandHasNoEffects (0.00s)
+=== RUN   TestAttentionQueriesOfflineWithoutLeakingCredential
+--- PASS: TestAttentionQueriesOfflineWithoutLeakingCredential (0.06s)
+=== RUN   TestStartKeepsUserArgumentBoundaries
+--- PASS: TestStartKeepsUserArgumentBoundaries (0.00s)
+=== RUN   TestInvalidCommandsAndHelpDoNotNeedBackend
+--- PASS: TestInvalidCommandsAndHelpDoNotNeedBackend (0.00s)
+=== RUN   TestSessionLookupUsesFullStableIDAndRejectsAmbiguity
+--- PASS: TestSessionLookupUsesFullStableIDAndRejectsAmbiguity (0.00s)
+=== RUN   TestCLIErrorCannotExecuteTerminalEscapes
+--- PASS: TestCLIErrorCannotExecuteTerminalEscapes (0.00s)
+=== RUN   TestDocumentAppRejectsUnsupportedUseBeforeState
+--- PASS: TestDocumentAppRejectsUnsupportedUseBeforeState (0.00s)
+=== RUN   TestMessagingStatusIsOfflineAndScopeIsolated
+--- PASS: TestMessagingStatusIsOfflineAndScopeIsolated (0.07s)
+=== RUN   TestMessagingInvalidArgumentsHaveNoBackendOrStateEffects
+--- PASS: TestMessagingInvalidArgumentsHaveNoBackendOrStateEffects (0.00s)
+=== RUN   TestPetDemoInvalidOptionsDoNotTouchBackendOrState
+--- PASS: TestPetDemoInvalidOptionsDoNotTouchBackendOrState (0.00s)
+=== RUN   TestPetFlagRejectsUnsupportedUseBeforeTouchingState
+--- PASS: TestPetFlagRejectsUnsupportedUseBeforeTouchingState (0.00s)
+=== RUN   TestRecentDirectoryCallbacksUseBackendScopeAndKeepLaunchAcknowledgement
+--- PASS: TestRecentDirectoryCallbacksUseBackendScopeAndKeepLaunchAcknowledgement (0.04s)
+=== RUN   TestReplyCredentialFilePublicationIsPrivateAndRepeatable
+--- PASS: TestReplyCredentialFilePublicationIsPrivateAndRepeatable (0.03s)
+=== RUN   TestReplyInvalidArgumentsHaveNoStateOrBackendEffects
+--- PASS: TestReplyInvalidArgumentsHaveNoStateOrBackendEffects (0.02s)
+=== RUN   TestRepliesQueryIsOfflineAndScopeIsolated
+--- PASS: TestRepliesQueryIsOfflineAndScopeIsolated (0.10s)
+=== RUN   TestClaimFileRetainsPrivateKeyAndOriginalIntent
+--- PASS: TestClaimFileRetainsPrivateKeyAndOriginalIntent (0.03s)
+=== RUN   TestClaimInvalidCommandsHaveNoEffects
+--- PASS: TestClaimInvalidCommandsHaveNoEffects (0.00s)
+=== RUN   TestClaimStatusIsOfflineAndDoesNotExposePrivateKey
+--- PASS: TestClaimStatusIsOfflineAndDoesNotExposePrivateKey (0.11s)
+=== RUN   TestTerminalHandoffDoesNotWaitForHostWindowLifetime
+--- PASS: TestTerminalHandoffDoesNotWaitForHostWindowLifetime (0.87s)
+=== RUN   TestTerminalHostPreservesGlobalArgumentsAndEscapesWTSeparators
+--- PASS: TestTerminalHostPreservesGlobalArgumentsAndEscapesWTSeparators (0.00s)
+=== RUN   TestPortableOptionsUseManifestNamespaceAndKeepExplicitFlags
+--- PASS: TestPortableOptionsUseManifestNamespaceAndKeepExplicitFlags (0.02s)
+=== RUN   TestPinnedLocalTerminalRefusesChangedHost
+--- PASS: TestPinnedLocalTerminalRefusesChangedHost (0.05s)
+=== RUN   TestUILaunchOptionsCarryAndSaveManualSplitWithoutChangingOtherState
+--- PASS: TestUILaunchOptionsCarryAndSaveManualSplitWithoutChangingOtherState (0.04s)
+=== RUN   TestWindowTokenRejectsWrongRoleBeforeStateOrBackendInitialization
+--- PASS: TestWindowTokenRejectsWrongRoleBeforeStateOrBackendInitialization (0.00s)
+=== RUN   TestInvalidConfigurationFailsBeforeBackendInitialization
+=== RUN   TestInvalidConfigurationFailsBeforeBackendInitialization/future_schema
+=== RUN   TestInvalidConfigurationFailsBeforeBackendInitialization/unknown_field
+=== RUN   TestInvalidConfigurationFailsBeforeBackendInitialization/missing_selection
+=== RUN   TestInvalidConfigurationFailsBeforeBackendInitialization/missing_template
+=== RUN   TestInvalidConfigurationFailsBeforeBackendInitialization/empty_selection
+=== RUN   TestInvalidConfigurationFailsBeforeBackendInitialization/mixed_executable
+--- PASS: TestInvalidConfigurationFailsBeforeBackendInitialization (0.04s)
+    --- PASS: TestInvalidConfigurationFailsBeforeBackendInitialization/future_schema (0.01s)
+    --- PASS: TestInvalidConfigurationFailsBeforeBackendInitialization/unknown_field (0.01s)
+    --- PASS: TestInvalidConfigurationFailsBeforeBackendInitialization/missing_selection (0.00s)
+    --- PASS: TestInvalidConfigurationFailsBeforeBackendInitialization/missing_template (0.01s)
+    --- PASS: TestInvalidConfigurationFailsBeforeBackendInitialization/empty_selection (0.00s)
+    --- PASS: TestInvalidConfigurationFailsBeforeBackendInitialization/mixed_executable (0.00s)
+=== RUN   TestCLIStartsExplicitNamedTemplate
+--- PASS: TestCLIStartsExplicitNamedTemplate (0.17s)
+=== RUN   TestCLIOverridesTemplateWorkingDirectoryAndEnvironment
+--- PASS: TestCLIOverridesTemplateWorkingDirectoryAndEnvironment (0.15s)
+=== RUN   TestHistoryWorksWithoutBackendAndSeparatesScope
+--- PASS: TestHistoryWorksWithoutBackendAndSeparatesScope (0.03s)
+=== RUN   TestMetadataCommandsBackupCheckAndRestoreWithoutBackend
+--- PASS: TestMetadataCommandsBackupCheckAndRestoreWithoutBackend (0.09s)
+=== RUN   TestSavedOutputCanBeReadOfflineOnlyInItsOriginalScope
+--- PASS: TestSavedOutputCanBeReadOfflineOnlyInItsOriginalScope (0.07s)
+=== RUN   TestRecordValidatesFullSessionTargetBeforeTouchingRuntimeFiles
+--- PASS: TestRecordValidatesFullSessionTargetBeforeTouchingRuntimeFiles (0.00s)
+=== RUN   TestTerminalBundleRejectsInvalidSelectionBeforeRuntimeCreation
+--- PASS: TestTerminalBundleRejectsInvalidSelectionBeforeRuntimeCreation (0.00s)
+PASS

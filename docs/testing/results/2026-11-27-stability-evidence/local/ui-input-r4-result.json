@@ -1,0 +1,74 @@
+{
+  "intentional_owned_ui_crashes": 0,
+  "stages": [
+    {
+      "stage": "input-idle-preflight",
+      "utc": "2026-11-26T17:59:15.4374458Z"
+    },
+    {
+      "stage": "five-concurrent-launches-reuse-exact-workbench",
+      "utc": "2026-11-26T17:59:18.5466516Z"
+    },
+    {
+      "stage": "vt-real-input-ctrl-c-and-program-mouse",
+      "utc": "2026-11-26T17:59:18.7127265Z"
+    },
+    {
+      "stage": "real-window-resize-and-original-input",
+      "utc": "2026-11-26T17:59:22.4512928Z"
+    },
+    {
+      "stage": "win32-native-mouse-press-release-wheel",
+      "utc": "2026-11-26T17:59:24.3390501Z"
+    },
+    {
+      "stage": "win32-utf16-supplementary-input",
+      "utc": "2026-11-26T17:59:27.8177701Z"
+    }
+  ],
+  "concurrent_same_scope_launches": 5,
+  "raw_vt_supplementary_unicode_verified": false,
+  "clipboard_calls": "backup and controlled subflow only; original values never exported",
+  "manager_ends": [
+    true
+  ],
+  "forced_product_ends": 0,
+  "fixture_ends": [
+    true
+  ],
+  "resize_observations": [
+    {
+      "width": 600,
+      "marker_visible": true,
+      "height": 440
+    },
+    {
+      "width": 900,
+      "marker_visible": true,
+      "height": 300
+    },
+    {
+      "width": 1280,
+      "marker_visible": true,
+      "height": 800
+    },
+    {
+      "width": 900,
+      "marker_visible": true,
+      "height": 650
+    }
+  ],
+  "owned_failure_surface": "                                                                                                                              \r\n  ▾ My Sessions (3)       INPUT_WIN32_READY                                                                                   \r\n                          Controlled native input; q exits                                                                    \r\n    Instance A          │                                                                                                     \r\n                        │                                                                                                     \r\n    Probe VT            │                                                                                                     \r\n                        │                                                                                                     \r\n  ┃ Probe WIN32         │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n                        │                                                                                                     \r\n",
+  "probe_ends": [
+    true,
+    true
+  ],
+  "error": "Timed out: native wide input preserves surrogate pair; no automatic replay",
+  "result": "failed",
+  "product_sha256": "0af83573d9e5aee55e26a31ff32aab84aa1da45b6e58523b9ff220abc49a330f",
+  "automatic_input_replay": false,
+  "stage": "win32-utf16-supplementary-input",
+  "session_content_exported": 0,
+  "cursor_restored": true,
+  "registry_writes": 0
+}

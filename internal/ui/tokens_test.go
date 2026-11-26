@@ -19,7 +19,7 @@ func TestDesignTokensReachVisibleListAndHelp(t *testing.T) {
 	m.sessions = append(m.sessions, m.sessions...)
 	m.sessions = append(m.sessions, m.sessions...)
 	view := ansi.Strip(m.View().Content)
-	if !strings.Contains(view, "v 下方") || strings.Contains(view, "⋮ 下方") {
+	if !strings.Contains(view, "v ") || !strings.Contains(view, "below") || strings.Contains(view, "⋮ ") {
 		t.Fatalf("list indicator ignored its token: %s", view)
 	}
 	if !strings.Contains(view, "↑↓   :   Select") {

@@ -1,0 +1,51 @@
+{
+  "exit_code": 1,
+  "source": "candidate",
+  "command": [
+    "test",
+    "-json",
+    "-count=1",
+    "-run",
+    "^Test(GroupDialogsFit|GroupRenameWaits|ThemeFailedSave|SystemThemeUnknown|WorkspaceDensitySaveFailure|SuccessfulLaunchSaves|WorkspaceWheelIsIgnored|VisibleCopyTargets)",
+    "./internal/ui"
+  ],
+  "top_pass": 3,
+  "top_skip": 0,
+  "failed": [
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestGroupRenameWaitsForAcceptedTerminalInputAndCancelNeverSaves"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestGroupDialogsFitTinyViewportsAndKeepTheFocusedFieldVisible"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestSuccessfulLaunchSavesHintFailureWithoutRetryingOrBlockingTab"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceWheelIsIgnoredOutsideContentAndInDialog"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestVisibleCopyTargetsSelectedSessionAndNeverWritesTerminalInput"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": null
+    }
+  ],
+  "failure_output": [
+    "--- FAIL: TestGroupRenameWaitsForAcceptedTerminalInputAndCancelNeverSaves (0.00s)\n",
+    "--- FAIL: TestGroupDialogsFitTinyViewportsAndKeepTheFocusedFieldVisible (0.01s)\n",
+    "--- FAIL: TestSuccessfulLaunchSavesHintFailureWithoutRetryingOrBlockingTab (3.00s)\n",
+    "    workspace_scroll_test.go:88: workspace did not reach expected state:\n",
+    "--- FAIL: TestWorkspaceWheelIsIgnoredOutsideContentAndInDialog (3.01s)\n",
+    "    workspace_visible_copy_test.go:52: workspace did not reach expected state:\n",
+    "--- FAIL: TestVisibleCopyTargetsSelectedSessionAndNeverWritesTerminalInput (3.00s)\n",
+    "FAIL\n",
+    "FAIL\tgithub.com/liuhui-code/agent-session-desk/internal/ui\t12.404s\n"
+  ]
+}

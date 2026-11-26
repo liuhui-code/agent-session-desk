@@ -1,0 +1,101 @@
+=== RUN   TestStartPreservesCommandBoundaryAndPrivateMetadata
+--- PASS: TestStartPreservesCommandBoundaryAndPrivateMetadata (0.21s)
+=== RUN   TestChangedRunCannotCaptureAttachOrStop
+--- PASS: TestChangedRunCannotCaptureAttachOrStop (0.22s)
+=== RUN   TestPreviewIsBoundedAndNeverResizesOrWrites
+--- PASS: TestPreviewIsBoundedAndNeverResizesOrWrites (0.16s)
+=== RUN   TestPreviewDiscardsCaptureWhenOriginalPaneDisappears
+--- PASS: TestPreviewDiscardsCaptureWhenOriginalPaneDisappears (0.15s)
+=== RUN   TestAttachDoesNotStealClientOrInheritProbeDeadline
+--- PASS: TestAttachDoesNotStealClientOrInheritProbeDeadline (0.15s)
+=== RUN   TestMetadataFailureCleansOnlyNewTarget
+--- PASS: TestMetadataFailureCleansOnlyNewTarget (0.10s)
+=== RUN   TestFailedCleanupPreservesUncertainCreationResult
+--- PASS: TestFailedCleanupPreservesUncertainCreationResult (0.16s)
+=== RUN   TestListRefusalIsNotAnEmptySuccess
+--- PASS: TestListRefusalIsNotAnEmptySuccess (0.03s)
+=== RUN   TestCommandDeadlineStopsProbe
+--- PASS: TestCommandDeadlineStopsProbe (0.04s)
+=== RUN   TestDeadOriginalPaneDoesNotAttach
+--- PASS: TestDeadOriginalPaneDoesNotAttach (0.32s)
+=== RUN   TestDifferentActivePaneDoesNotAttachOrChangeFocus
+--- PASS: TestDifferentActivePaneDoesNotAttachOrChangeFocus (0.17s)
+=== RUN   TestMetadataLimitAllowsProtocolNewlineButRejectsExtraPayload
+--- PASS: TestMetadataLimitAllowsProtocolNewlineButRejectsExtraPayload (0.00s)
+=== RUN   TestPsmuxVersionRequiresOwnExactStableRelease
+--- PASS: TestPsmuxVersionRequiresOwnExactStableRelease (0.00s)
+=== RUN   TestKnownMultiplexerRewritesFailBeforeLaunch
+--- PASS: TestKnownMultiplexerRewritesFailBeforeLaunch (0.00s)
+=== RUN   TestEnvironmentIsolationDoesNotMutateCaller
+--- PASS: TestEnvironmentIsolationDoesNotMutateCaller (0.00s)
+=== RUN   TestConfigDoesNotOverwriteUnknownExistingFile
+--- PASS: TestConfigDoesNotOverwriteUnknownExistingFile (0.01s)
+=== RUN   TestWindowsTerminalBundleInputHistoryAndReconnect
+    bundle_flow_windows_test.go:26: requires a pinned bundle and explicit PowerShell 7 executable
+--- SKIP: TestWindowsTerminalBundleInputHistoryAndReconnect (0.00s)
+=== RUN   TestWindowsTerminalBundleRejectsSystemHostedExistingRun
+    bundle_windows_test.go:15: requires an explicitly prepared pinned terminal bundle
+--- SKIP: TestWindowsTerminalBundleRejectsSystemHostedExistingRun (0.00s)
+=== RUN   TestWindowsTerminalBundleRejectsUnpinnedFilesBeforeRuntimeCreation
+--- PASS: TestWindowsTerminalBundleRejectsUnpinnedFilesBeforeRuntimeCreation (0.01s)
+=== RUN   TestMarkdownDirectoryUsesOriginalPaneAndRejectsUnknown
+--- PASS: TestMarkdownDirectoryUsesOriginalPaneAndRejectsUnknown (0.36s)
+=== RUN   TestWindowsPsmuxNativeMarkdownDirectory
+    directory_windows_test.go:13: native Windows psmux integration is opt-in: set ASD_PSMUX_TEST_BINARY and ASD_FIXTURE_TEST_BINARY
+--- SKIP: TestWindowsPsmuxNativeMarkdownDirectory (0.00s)
+=== RUN   TestExitedOriginalPaneCarriesBoundedObservationNotExitCode
+--- PASS: TestExitedOriginalPaneCarriesBoundedObservationNotExitCode (0.29s)
+=== RUN   TestMalformedOrDifferentPaneDoesNotBecomeExitEvidence
+=== RUN   TestMalformedOrDifferentPaneDoesNotBecomeExitEvidence/%9|1
+=== RUN   TestMalformedOrDifferentPaneDoesNotBecomeExitEvidence/%7|bad
+=== RUN   TestMalformedOrDifferentPaneDoesNotBecomeExitEvidence/%7|1_%7|0
+--- PASS: TestMalformedOrDifferentPaneDoesNotBecomeExitEvidence (0.43s)
+    --- PASS: TestMalformedOrDifferentPaneDoesNotBecomeExitEvidence/%9|1 (0.14s)
+    --- PASS: TestMalformedOrDifferentPaneDoesNotBecomeExitEvidence/%7|bad (0.14s)
+    --- PASS: TestMalformedOrDifferentPaneDoesNotBecomeExitEvidence/%7|1_%7|0 (0.15s)
+=== RUN   TestWindowsPsmuxNativeLaunchLifecycle
+    integration_windows_test.go:382: native Windows psmux integration is opt-in: set ASD_PSMUX_TEST_BINARY and ASD_FIXTURE_TEST_BINARY
+--- SKIP: TestWindowsPsmuxNativeLaunchLifecycle (0.00s)
+=== RUN   TestWindowsPsmuxNativeIsolationAndRejectedLaunches
+    integration_windows_test.go:458: native Windows psmux integration is opt-in: set ASD_PSMUX_TEST_BINARY and ASD_FIXTURE_TEST_BINARY
+--- SKIP: TestWindowsPsmuxNativeIsolationAndRejectedLaunches (0.00s)
+=== RUN   TestWindowsPsmuxNativeRapidExitRetainsScreen
+    integration_windows_test.go:518: native Windows psmux integration is opt-in: set ASD_PSMUX_TEST_BINARY and ASD_FIXTURE_TEST_BINARY
+--- SKIP: TestWindowsPsmuxNativeRapidExitRetainsScreen (0.00s)
+=== RUN   TestWindowsPsmuxNativeMissingOriginalPaneNeverFallsBack
+    integration_windows_test.go:540: native Windows psmux integration is opt-in: set ASD_PSMUX_TEST_BINARY and ASD_FIXTURE_TEST_BINARY
+--- SKIP: TestWindowsPsmuxNativeMissingOriginalPaneNeverFallsBack (0.00s)
+=== RUN   TestWindowsPsmuxNativeCLIProcessExitAndReconnect
+    integration_windows_test.go:628: native Windows psmux integration is opt-in
+--- SKIP: TestWindowsPsmuxNativeCLIProcessExitAndReconnect (0.00s)
+=== RUN   TestSingleMousePipeIsRequestedOnlyForTheVerifiedBundle
+--- PASS: TestSingleMousePipeIsRequestedOnlyForTheVerifiedBundle (0.01s)
+=== RUN   TestFailedTerminalHandshakeReturnsNilConnection
+--- PASS: TestFailedTerminalHandshakeReturnsNilConnection (0.18s)
+=== RUN   TestWindowsPsmuxNativeTerminalScreenInputResizeAndReconnect
+    terminal_windows_test.go:19: native Windows psmux integration is opt-in: set ASD_PSMUX_TEST_BINARY and ASD_FIXTURE_TEST_BINARY
+--- SKIP: TestWindowsPsmuxNativeTerminalScreenInputResizeAndReconnect (0.00s)
+=== RUN   TestWindowsPsmuxNativeTerminalOrdinaryShellKeepsPromptAndDraft
+    terminal_windows_test.go:94: native Windows psmux integration is opt-in: set ASD_PSMUX_TEST_BINARY and ASD_FIXTURE_TEST_BINARY
+--- SKIP: TestWindowsPsmuxNativeTerminalOrdinaryShellKeepsPromptAndDraft (0.00s)
+=== RUN   TestVisibleCaptureUsesFreshOriginalPaneWithoutHistoryOrTerminalEffects
+--- PASS: TestVisibleCaptureUsesFreshOriginalPaneWithoutHistoryOrTerminalEffects (0.36s)
+=== RUN   TestVisibleCaptureRejectsIncompleteOrChangedOriginalWithoutCopying
+=== RUN   TestVisibleCaptureRejectsIncompleteOrChangedOriginalWithoutCopying/stale-run
+=== RUN   TestVisibleCaptureRejectsIncompleteOrChangedOriginalWithoutCopying/changed-command-before
+=== RUN   TestVisibleCaptureRejectsIncompleteOrChangedOriginalWithoutCopying/changed-tag
+=== RUN   TestVisibleCaptureRejectsIncompleteOrChangedOriginalWithoutCopying/removed-pane
+=== RUN   TestVisibleCaptureRejectsIncompleteOrChangedOriginalWithoutCopying/oversize
+=== RUN   TestVisibleCaptureRejectsIncompleteOrChangedOriginalWithoutCopying/invalid-utf8
+=== RUN   TestVisibleCaptureRejectsIncompleteOrChangedOriginalWithoutCopying/backend-failure
+--- PASS: TestVisibleCaptureRejectsIncompleteOrChangedOriginalWithoutCopying (1.20s)
+    --- PASS: TestVisibleCaptureRejectsIncompleteOrChangedOriginalWithoutCopying/stale-run (0.11s)
+    --- PASS: TestVisibleCaptureRejectsIncompleteOrChangedOriginalWithoutCopying/changed-command-before (0.11s)
+    --- PASS: TestVisibleCaptureRejectsIncompleteOrChangedOriginalWithoutCopying/changed-tag (0.17s)
+    --- PASS: TestVisibleCaptureRejectsIncompleteOrChangedOriginalWithoutCopying/removed-pane (0.18s)
+    --- PASS: TestVisibleCaptureRejectsIncompleteOrChangedOriginalWithoutCopying/oversize (0.22s)
+    --- PASS: TestVisibleCaptureRejectsIncompleteOrChangedOriginalWithoutCopying/invalid-utf8 (0.25s)
+    --- PASS: TestVisibleCaptureRejectsIncompleteOrChangedOriginalWithoutCopying/backend-failure (0.16s)
+=== RUN   TestVisibleCaptureAcceptsC1VTControlsWithoutTreatingThemAsTextEncodingDamage
+--- PASS: TestVisibleCaptureAcceptsC1VTControlsWithoutTreatingThemAsTextEncodingDamage (0.18s)
+PASS

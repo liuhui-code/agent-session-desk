@@ -1,0 +1,8 @@
+=== RUN   TestHiddenControlUnicodeAndResultBounds
+--- PASS: TestHiddenControlUnicodeAndResultBounds (0.03s)
+=== RUN   TestSymlinkParentTraversalUsesFilesystemMeaning
+    boundaries_test.go:69: symlink privilege-dependent; Windows junction gate remains separate
+--- SKIP: TestSymlinkParentTraversalUsesFilesystemMeaning (0.00s)
+=== RUN   TestDirectoryCompletionAndFuzzyCorpus
+--- PASS: TestDirectoryCompletionAndFuzzyCorpus (0.00s)
+PASS

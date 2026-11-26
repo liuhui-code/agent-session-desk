@@ -1,0 +1,4 @@
+=== RUN   TestWindowsNativeAttentionOriginalForm
+    attention_windows_test.go:222: pending -> reminder without focus/size change -> Alt+N/viewed still pending -> explicit y/Enter -> resolved; original fixture PIDs 8540/8876 and Session/Run retained, A draft unsubmitted
+--- PASS: TestWindowsNativeAttentionOriginalForm (3.48s)
+PASS

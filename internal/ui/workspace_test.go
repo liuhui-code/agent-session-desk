@@ -308,7 +308,7 @@ func TestWorkspaceOversizedInputIsRefusedBeforeQueueing(t *testing.T) {
 	h := newWorkspaceHarness(t, service)
 	h.until(func() bool { return strings.Contains(h.m.View().Content, "shell marker first") })
 	h.send(tea.KeyPressMsg{Code: 'a', Text: strings.Repeat("a", terminal.MaxInputBytes+1)})
-	if !strings.Contains(h.m.View().Content, "上限") {
+	if !strings.Contains(h.m.View().Content, "limit") {
 		t.Fatal("oversized input was not refused at the UI boundary")
 	}
 	service.mu.Lock()
@@ -378,7 +378,7 @@ func TestWorkspaceClosingAndReopeningTabKeepsOriginalRun(t *testing.T) {
 	h.send(tea.KeyPressMsg{Code: 'x', Text: "x"})
 	h.until(func() bool {
 		lines := strings.Split(ansi.Strip(h.m.View().Content), "\n")
-		return len(lines) > 1 && !strings.Contains(lines[1], "开发") && strings.Contains(h.m.View().Content, "shell marker second")
+		return len(lines) > 1 && len(h.m.workspace.tabs) == 1 && h.m.workspace.tabs[0].session.ID == "second" && strings.Contains(h.m.View().Content, "shell marker second")
 	})
 	h.send(tea.KeyPressMsg{Code: tea.KeyUp})
 	h.send(tea.KeyPressMsg{Code: tea.KeyEnter})

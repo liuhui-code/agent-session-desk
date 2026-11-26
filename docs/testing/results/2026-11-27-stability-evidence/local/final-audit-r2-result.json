@@ -1,0 +1,353 @@
+{
+  "tasks": [
+    {
+      "state": "Running",
+      "audit_task": true,
+      "expected_soak": false,
+      "name": "AsdStabilityFinalAuditR220261127"
+    },
+    {
+      "state": "Running",
+      "audit_task": false,
+      "expected_soak": true,
+      "name": "AsdStabilitySoakR120261127"
+    }
+  ],
+  "unexpected_private_image_count": 0,
+  "owned_observed_processes": [
+    {
+      "pid": 2492,
+      "private_image": "C:\\Windows\\system32\\conhost.exe",
+      "role": "console_aux",
+      "creation_filetime": "134401895106581379",
+      "expected_soak": true,
+      "owner_role": "soak_private"
+    },
+    {
+      "pid": 2828,
+      "private_image": "C:\\Windows\\system32\\conhost.exe",
+      "role": "console_aux",
+      "creation_filetime": "134401895095894298",
+      "expected_soak": true,
+      "owner_role": "soak_private"
+    },
+    {
+      "pid": 3148,
+      "private_image": "<TEST_ROOT>\\stability-ui-product-soak-r1-20261127\\terminal-runtime\\psmux.exe",
+      "role": "soak_private",
+      "creation_filetime": "134401895085573400",
+      "expected_soak": true,
+      "owner_role": "soak_private"
+    },
+    {
+      "pid": 3936,
+      "private_image": "<TEST_ROOT>\\stability-ui-product-soak-r1-20261127\\terminal-runtime\\OpenConsole.exe",
+      "role": "soak_private",
+      "creation_filetime": "134401895096718462",
+      "expected_soak": true,
+      "owner_role": "soak_private"
+    },
+    {
+      "pid": 5388,
+      "private_image": "<TEST_ROOT>\\stability-ui-product-soak-r1-20261127\\terminal-runtime\\OpenConsole.exe",
+      "role": "soak_private",
+      "creation_filetime": "134401895113915067",
+      "expected_soak": true,
+      "owner_role": "soak_private"
+    },
+    {
+      "pid": 7204,
+      "private_image": "<TEST_ROOT>\\stability-ui-product-soak-r1-20261127\\terminal-runtime\\OpenConsole.exe",
+      "role": "soak_private",
+      "creation_filetime": "134401895118816567",
+      "expected_soak": true,
+      "owner_role": "soak_private"
+    },
+    {
+      "pid": 8188,
+      "private_image": "<TEST_ROOT>\\stability-ui-product-soak-r1-20261127\\terminal-runtime\\OpenConsole.exe",
+      "role": "soak_private",
+      "creation_filetime": "134401895073977246",
+      "expected_soak": true,
+      "owner_role": "soak_private"
+    },
+    {
+      "pid": 8540,
+      "private_image": "<TEST_ROOT>\\stability-ui-product-soak-r1-20261127\\asd-stability-fixture.exe",
+      "role": "soak_private",
+      "creation_filetime": "134401895096796233",
+      "expected_soak": true,
+      "owner_role": "soak_private"
+    },
+    {
+      "pid": 8888,
+      "private_image": "C:\\Windows\\system32\\conhost.exe",
+      "role": "console_aux",
+      "creation_filetime": "134401895113010530",
+      "expected_soak": true,
+      "owner_role": "soak_private"
+    },
+    {
+      "pid": 9144,
+      "private_image": "C:\\Windows\\system32\\conhost.exe",
+      "role": "console_aux",
+      "creation_filetime": "134401895128463092",
+      "expected_soak": true,
+      "owner_role": "soak_private"
+    },
+    {
+      "pid": 10116,
+      "private_image": "C:\\Windows\\system32\\conhost.exe",
+      "role": "console_aux",
+      "creation_filetime": "134401895123602796",
+      "expected_soak": true,
+      "owner_role": "soak_private"
+    },
+    {
+      "pid": 10332,
+      "private_image": "<TEST_ROOT>\\stability-ui-product-soak-r1-20261127\\terminal-runtime\\OpenConsole.exe",
+      "role": "soak_private",
+      "creation_filetime": "134401895124487567",
+      "expected_soak": true,
+      "owner_role": "soak_private"
+    },
+    {
+      "pid": 10972,
+      "private_image": "<TEST_ROOT>\\stability-ui-product-soak-r1-20261127\\terminal-runtime\\psmux.exe",
+      "role": "soak_private",
+      "creation_filetime": "134401895102046953",
+      "expected_soak": true,
+      "owner_role": "soak_private"
+    },
+    {
+      "pid": 11408,
+      "private_image": "<TEST_ROOT>\\stability-ui-product-soak-r1-20261127\\terminal-runtime\\psmux.exe",
+      "role": "soak_private",
+      "creation_filetime": "134401895095819823",
+      "expected_soak": true,
+      "owner_role": "soak_private"
+    },
+    {
+      "pid": 11620,
+      "private_image": "C:\\Windows\\system32\\conhost.exe",
+      "role": "console_aux",
+      "creation_filetime": "134401895102117072",
+      "expected_soak": true,
+      "owner_role": "soak_private"
+    },
+    {
+      "pid": 12180,
+      "private_image": "<TEST_ROOT>\\stability-ui-product-soak-r1-20261127\\asd-stability-fixture.exe",
+      "role": "soak_private",
+      "creation_filetime": "134401895107535692",
+      "expected_soak": true,
+      "owner_role": "soak_private"
+    },
+    {
+      "pid": 13016,
+      "private_image": "<TEST_ROOT>\\stability-ui-product-soak-r1-20261127\\asd-stability-fixture.exe",
+      "role": "soak_private",
+      "creation_filetime": "134401895124565580",
+      "expected_soak": true,
+      "owner_role": "soak_private"
+    },
+    {
+      "pid": 13336,
+      "private_image": "<TEST_ROOT>\\stability-ui-product-soak-r1-20261127\\terminal-runtime\\OpenConsole.exe",
+      "role": "soak_private",
+      "creation_filetime": "134401895129893675",
+      "expected_soak": true,
+      "owner_role": "soak_private"
+    },
+    {
+      "pid": 14256,
+      "private_image": "<TEST_ROOT>\\stability-ui-product-soak-r1-20261127\\terminal-runtime\\OpenConsole.exe",
+      "role": "soak_private",
+      "creation_filetime": "134401895092506522",
+      "expected_soak": true,
+      "owner_role": "soak_private"
+    },
+    {
+      "pid": 14356,
+      "private_image": "<TEST_ROOT>\\stability-ui-product-soak-r1-20261127\\terminal-runtime\\psmux.exe",
+      "role": "soak_private",
+      "creation_filetime": "134401895072934290",
+      "expected_soak": true,
+      "owner_role": "soak_private"
+    },
+    {
+      "pid": 15520,
+      "private_image": "C:\\Windows\\system32\\conhost.exe",
+      "role": "console_aux",
+      "creation_filetime": "134401895117597997",
+      "expected_soak": true,
+      "owner_role": "soak_private"
+    },
+    {
+      "pid": 16372,
+      "private_image": "C:\\Windows\\system32\\conhost.exe",
+      "role": "console_aux",
+      "creation_filetime": "134401895085640758",
+      "expected_soak": true,
+      "owner_role": "soak_private"
+    },
+    {
+      "pid": 17440,
+      "private_image": "<TEST_ROOT>\\stability-ui-product-soak-r1-20261127\\terminal-runtime\\psmux.exe",
+      "role": "soak_private",
+      "creation_filetime": "134401895091595587",
+      "expected_soak": true,
+      "owner_role": "soak_private"
+    },
+    {
+      "pid": 19412,
+      "private_image": "<TEST_ROOT>\\stability-ui-product-soak-r1-20261127\\asd-stability-fixture.exe",
+      "role": "soak_private",
+      "creation_filetime": "134401895129971941",
+      "expected_soak": true,
+      "owner_role": "soak_private"
+    },
+    {
+      "pid": 19444,
+      "private_image": "C:\\Windows\\system32\\conhost.exe",
+      "role": "console_aux",
+      "creation_filetime": "134401895091662235",
+      "expected_soak": true,
+      "owner_role": "soak_private"
+    },
+    {
+      "pid": 19808,
+      "private_image": "<TEST_ROOT>\\stability-ui-product-soak-r1-20261127\\asd-stability-fixture.exe",
+      "role": "soak_private",
+      "creation_filetime": "134401895086515328",
+      "expected_soak": true,
+      "owner_role": "soak_private"
+    },
+    {
+      "pid": 20668,
+      "private_image": "<TEST_ROOT>\\stability-ui-product-soak-r1-20261127\\terminal-runtime\\psmux.exe",
+      "role": "soak_private",
+      "creation_filetime": "134401895106510930",
+      "expected_soak": true,
+      "owner_role": "soak_private"
+    },
+    {
+      "pid": 21224,
+      "private_image": "<TEST_ROOT>\\stability-ui-product-soak-r1-20261127\\terminal-runtime\\psmux.exe",
+      "role": "soak_private",
+      "creation_filetime": "134401895112942099",
+      "expected_soak": true,
+      "owner_role": "soak_private"
+    },
+    {
+      "pid": 21448,
+      "private_image": "<TEST_ROOT>\\stability-ui-product-soak-r1-20261127\\asd-stability-fixture.exe",
+      "role": "soak_private",
+      "creation_filetime": "134401895118894900",
+      "expected_soak": true,
+      "owner_role": "soak_private"
+    },
+    {
+      "pid": 21780,
+      "private_image": "<TEST_ROOT>\\stability-ui-product-soak-r1-20261127\\terminal-runtime\\psmux.exe",
+      "role": "soak_private",
+      "creation_filetime": "134401895128381878",
+      "expected_soak": true,
+      "owner_role": "soak_private"
+    },
+    {
+      "pid": 21884,
+      "private_image": "<TEST_ROOT>\\stability-ui-product-soak-r1-20261127\\asd-stability-fixture.exe",
+      "role": "soak_private",
+      "creation_filetime": "134401895077729582",
+      "expected_soak": true,
+      "owner_role": "soak_private"
+    },
+    {
+      "pid": 21992,
+      "private_image": "C:\\Windows\\system32\\conhost.exe",
+      "role": "console_aux",
+      "creation_filetime": "134401895073002955",
+      "expected_soak": true,
+      "owner_role": "soak_private"
+    },
+    {
+      "pid": 22092,
+      "private_image": "<TEST_ROOT>\\stability-ui-product-soak-r1-20261127\\asd-stability-fixture.exe",
+      "role": "soak_private",
+      "creation_filetime": "134401895103078528",
+      "expected_soak": true,
+      "owner_role": "soak_private"
+    },
+    {
+      "pid": 22096,
+      "private_image": "<TEST_ROOT>\\stability-ui-product-soak-r1-20261127\\terminal-runtime\\psmux.exe",
+      "role": "soak_private",
+      "creation_filetime": "134401895123533712",
+      "expected_soak": true,
+      "owner_role": "soak_private"
+    },
+    {
+      "pid": 22432,
+      "private_image": "<TEST_ROOT>\\stability-ui-product-soak-r1-20261127\\terminal-runtime\\OpenConsole.exe",
+      "role": "soak_private",
+      "creation_filetime": "134401895086437277",
+      "expected_soak": true,
+      "owner_role": "soak_private"
+    },
+    {
+      "pid": 22556,
+      "private_image": "<TEST_ROOT>\\stability-ui-product-soak-r1-20261127\\terminal-runtime\\OpenConsole.exe",
+      "role": "soak_private",
+      "creation_filetime": "134401895103000160",
+      "expected_soak": true,
+      "owner_role": "soak_private"
+    },
+    {
+      "pid": 23060,
+      "private_image": "<TEST_ROOT>\\stability-ui-product-soak-r1-20261127\\terminal-runtime\\psmux.exe",
+      "role": "soak_private",
+      "creation_filetime": "134401895117489334",
+      "expected_soak": true,
+      "owner_role": "soak_private"
+    },
+    {
+      "pid": 23248,
+      "private_image": "<TEST_ROOT>\\stability-ui-product-soak-r1-20261127\\asd-instance-r3.exe",
+      "role": "soak_private",
+      "creation_filetime": "134401895133775671",
+      "expected_soak": true,
+      "owner_role": "soak_private"
+    },
+    {
+      "pid": 23544,
+      "private_image": "<TEST_ROOT>\\stability-ui-product-soak-r1-20261127\\terminal-runtime\\OpenConsole.exe",
+      "role": "soak_private",
+      "creation_filetime": "134401895107458435",
+      "expected_soak": true,
+      "owner_role": "soak_private"
+    },
+    {
+      "pid": 23888,
+      "private_image": "<TEST_ROOT>\\stability-ui-product-soak-r1-20261127\\asd-stability-fixture.exe",
+      "role": "soak_private",
+      "creation_filetime": "134401895113988829",
+      "expected_soak": true,
+      "owner_role": "soak_private"
+    },
+    {
+      "pid": 24520,
+      "private_image": "<TEST_ROOT>\\stability-ui-product-soak-r1-20261127\\asd-stability-fixture.exe",
+      "role": "soak_private",
+      "creation_filetime": "134401895092583887",
+      "expected_soak": true,
+      "owner_role": "soak_private"
+    }
+  ],
+  "clipboard_calls": 0,
+  "gaps": [],
+  "direct_probe_windows": 0,
+  "ui_input_calls": 0,
+  "utc": "2026-11-26T18:05:34.9969960Z",
+  "registry_writes": 0
+}

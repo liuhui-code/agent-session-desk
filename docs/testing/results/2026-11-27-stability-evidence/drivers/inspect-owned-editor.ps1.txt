@@ -1,0 +1,16 @@
+$ErrorActionPreference='Stop';$ProgressPreference='SilentlyContinue'
+$base=Join-Path $env:USERPROFILE 'asd-acceptance-20261122';$out=Join-Path $base 'stability-ui-reminders-20261127'
+$owner=(Get-Content -Raw -Encoding utf8 (Join-Path $out 'inspect-1.json')|ConvertFrom-Json).owner_pid
+$doc=Join-Path $out 'A/审阅 notes.md'
+& ([ScriptBlock]::Create([IO.File]::ReadAllText((Join-Path $base 'desktop-api.ps1'))))
+Add-Type @'
+using System;using System.Text;using System.Runtime.InteropServices;
+public class EditorInspect{[DllImport("user32.dll",CharSet=CharSet.Unicode)]public static extern int GetClassName(IntPtr h,StringBuilder b,int n);public static string Class(IntPtr h){var b=new StringBuilder(128);GetClassName(h,b,128);return b.ToString();}}
+'@
+$r=@();foreach($c in @(Get-CimInstance Win32_Process -Property ProcessId,ParentProcessId,ExecutablePath,CommandLine,CreationDate -Filter "Name='notepad.exe'"|Where-Object{$_.ParentProcessId-eq $owner})){
+ $p=Get-Process -Id $c.ProcessId;$null=$p.Handle
+ $pathMatches=$c.CommandLine.IndexOf($doc,[StringComparison]::OrdinalIgnoreCase)-ge 0
+ $windows=@();foreach($w in @([DeskFlow]::Find('',$p.Id))){$windows+=@{handle=$w.ToInt64();class=[EditorInspect]::Class($w);document_title=[DeskFlow]::Title($w).Contains('notes');modified_title=[DeskFlow]::Title($w).StartsWith('*')}}
+ $r+=@{pid=$p.Id;parent_is_recorded_owner=$true;test_document_argument=$pathMatches;system_editor_hash=((Get-FileHash $p.Path).Hash-ceq (Get-FileHash (Join-Path ([Environment]::SystemDirectory) 'notepad.exe')).Hash);windows=$windows}
+}
+$r|ConvertTo-Json -Depth 5

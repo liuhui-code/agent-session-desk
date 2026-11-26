@@ -1,0 +1,6 @@
+=== RUN   TestWindowsIdleBlinkStillPaintsOpenAndClosedFrames
+--- PASS: TestWindowsIdleBlinkStillPaintsOpenAndClosedFrames (4.08s)
+=== RUN   TestWindowsLivePetExistingBlockingForm
+    live_windows_test.go:283: existing pending -> real native pet click -> original form/viewed still pending -> explicit y/Enter -> source resolved/idle; original Run d2a19d3131e09ee9a961e7201e66fb91/138997271c7fbc75fe84ad389d5b4803 preserved; no desktop focus/clipboard APIs
+--- PASS: TestWindowsLivePetExistingBlockingForm (3.44s)
+PASS

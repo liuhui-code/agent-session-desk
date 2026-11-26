@@ -13,7 +13,7 @@ import (
 	"github.com/liuhui-code/agent-session-desk/internal/session"
 )
 
-func TestWorkspaceManagementFooterUsesSourceKeyChipsAtWideCompactAndMinimalWidths(t *testing.T) {
+func TestWorkspaceManagementFooterKeepsWideActionChipsAndCompactNavigation(t *testing.T) {
 	service := &workspaceFixture{fakeService: fakeService{list: func(context.Context) ([]session.Session, error) { return sampleSessions(), nil }}}
 	h := newWorkspaceHarness(t, service)
 	h.until(func() bool { return h.m.workspace.conn != nil && !h.m.workspace.busy })
@@ -24,13 +24,16 @@ func TestWorkspaceManagementFooterUsesSourceKeyChipsAtWideCompactAndMinimalWidth
 		h.send(tea.WindowSizeMsg{Width: width, Height: 32})
 		line := h.m.renderManagementFooter()
 		plain := ansi.Strip(line)
-		i := strings.Index(plain, "Enter")
-		if i < 0 {
-			t.Fatalf("%d footer lost selected-session Enter action: %q", width, plain)
-		}
-		x := ansi.StringWidth(plain[:i])
-		if got := testBackgroundAt(line, x); got != want {
-			t.Fatalf("%d footer key lost source accent chip: %s want %s", width, got, want)
+		if width == 120 {
+			i := strings.Index(plain, "Enter")
+			if i < 0 {
+				t.Fatalf("wide footer lost selected-session Enter action: %q", plain)
+			}
+			if got := testBackgroundAt(line, ansi.StringWidth(plain[:i])); got != want {
+				t.Fatalf("wide action lost accent chip: %s want %s", got, want)
+			}
+		} else if !strings.Contains(plain, "Alt+J/K") {
+			t.Fatalf("compact footer lost session navigation: %q", plain)
 		}
 		for _, key := range []string{"F6", "?", "q"} {
 			if !strings.Contains(plain, key) {
@@ -93,7 +96,7 @@ func TestWorkspaceFullFooterKeepsQuitAtSourceRightGutter(t *testing.T) {
 	m.width, m.height = 160, 32
 	m.sidebarMode = "flat"
 	line := ansi.Strip(m.renderManagementFooter())
-	if !strings.HasSuffix(line, "q Quit") || lipgloss.Width(line) != 158 {
+	if !strings.HasSuffix(line, "q Quit") || lipgloss.Width(line) != m.width {
 		t.Fatalf("source full-tier quit/right-gutter anchor missing: width=%d %q", lipgloss.Width(line), line)
 	}
 }
@@ -108,7 +111,7 @@ func TestWorkspaceNarrowTerminalFooterOmitsUnrenderableTargetInsteadOfAnIDSuffix
 	m.workspace.tabs = []workspaceTab{{viewID: 1, session: m.sessions[0]}, {viewID: 2, session: m.sessions[1]}}
 	m.workspace.focused = true
 	line := ansi.Strip(m.renderTerminalFooter())
-	if strings.Contains(line, m.tokens.footer.targetPrefix) || strings.Contains(line, "]") || !strings.Contains(line, "F6") || !strings.Contains(line, "Ctrl+PgUp/PgDn") {
+	if strings.Contains(line, m.tokens.footer.targetPrefix) || strings.Contains(line, "]") || !strings.Contains(line, "F6") || !strings.Contains(line, "Alt+J/K") {
 		t.Fatalf("narrow footer displays a target fragment or loses navigation: %q", line)
 	}
 }

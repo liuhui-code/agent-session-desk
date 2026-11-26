@@ -1,0 +1,3 @@
+$ErrorActionPreference='Stop';$base=Join-Path $env:USERPROFILE 'asd-acceptance-20261122';$out=Join-Path $base 'stability-ui-soak-r1-20261127'
+if(Test-Path (Join-Path $out 'result.json')){Get-Content -Raw -Encoding utf8 (Join-Path $out 'result.json')}elseif(Test-Path (Join-Path $out 'heartbeat.json')){Get-Content -Raw -Encoding utf8 (Join-Path $out 'heartbeat.json')}
+$t=Get-ScheduledTask -TaskName AsdStabilitySoakR120261127 -ErrorAction SilentlyContinue;if($t){@{task_state=[string]$t.State;last_result=(Get-ScheduledTaskInfo $t).LastTaskResult}|ConvertTo-Json}

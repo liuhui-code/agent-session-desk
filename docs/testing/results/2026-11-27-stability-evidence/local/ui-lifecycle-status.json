@@ -1,0 +1,58 @@
+{
+  "forced_product_ends": 0,
+  "fixture_ends": [
+    true,
+    true,
+    true
+  ],
+  "stages": [
+    {
+      "utc": "2026-11-26T17:39:24.7418692Z",
+      "stage": "input-idle-preflight"
+    },
+    {
+      "utc": "2026-11-26T17:39:28.6595341Z",
+      "stage": "session-row-order-saved-without-changing-active-run"
+    },
+    {
+      "utc": "2026-11-26T17:39:29.6267094Z",
+      "stage": "search-existing-original-and-no-match-cancel"
+    },
+    {
+      "utc": "2026-11-26T17:39:30.5745834Z",
+      "stage": "close-only-tab-and-reopen-original"
+    },
+    {
+      "utc": "2026-11-26T17:39:31.6696403Z",
+      "stage": "stop-selected-b-default-enter-cancels"
+    },
+    {
+      "utc": "2026-11-26T17:39:32.0667433Z",
+      "stage": "stop-selected-b-once-original-a-survives"
+    },
+    {
+      "utc": "2026-11-26T17:39:33.0530778Z",
+      "stage": "real-history-list-and-details-remain-read-only"
+    },
+    {
+      "utc": "2026-11-26T17:39:33.7905710Z",
+      "stage": "controlled-normal-child-exit"
+    }
+  ],
+  "manager_ends": [
+    true
+  ],
+  "owned_failure_surface": "                                                                                                                                                            \r\n  ▾ My Sessions (2)                                       {\"event\":\"started\",\"pid\":23792,\"args\":[],\"cwd\":\"C:\\\\Users\\\\<WINDOWS_USER>\\\\asd-acceptance-20261122  \r\n                                                          -r3-20261127\\\\A\",\"env\":{}}                                                                        \r\n    Instance A                                          │ CLI fixture · 中文 · é · 🧪 — type exit to end                                                    \r\n    ╰ Connected · asd-stability-fixture.exe             │ exit                                                                                              \r\n                                                        │ {\"event\":\"input\",\"text\":\"exit\"}                                                                   \r\n  ┃ Lifecycle C                                         │ {\"event\":\"exiting\",\"code\":0}                                                                      \r\n    ╰ Exited · asd-stability-fixture.exe                │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                        │                                                                                                   \r\n                                                                                                                                                            \r\n                                                                                                                                                            \r\n  Read-only last observed screen; disconnected. r Retry. Target terminal is not interactive; view retained, no automatic restart                           ",
+  "session_content_exported": 0,
+  "result": "failed",
+  "intentional_owned_ui_crashes": 0,
+  "cursor_restored": true,
+  "error": "Timed out: management focus; no automatic replay",
+  "stage": "controlled-normal-child-exit",
+  "product_sha256": "0af83573d9e5aee55e26a31ff32aab84aa1da45b6e58523b9ff220abc49a330f",
+  "intentional_child_faults": 0,
+  "registry_writes": 0,
+  "clipboard_calls": 0,
+  "automatic_input_replay": false,
+  "cleanup_stop_rejected": true
+}

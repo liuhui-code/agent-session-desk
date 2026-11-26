@@ -228,7 +228,7 @@ func TestWorkspaceSplitSaveFailureRollsBackAndCancelsWaitingQuit(t *testing.T) {
 	}
 	close(release)
 	h.until(func() bool { return !h.m.preferences.busy })
-	if h.m.closed || h.m.workspace.transition != workspaceIdle || h.m.workspaceSidebarPercent() != 35 || h.m.preferences.wanted.SidebarPercent != 35 || !strings.Contains(h.m.status, "偏好未保存") {
+	if h.m.closed || h.m.workspace.transition != workspaceIdle || h.m.workspaceSidebarPercent() != 35 || h.m.preferences.wanted.SidebarPercent != 35 || !strings.Contains(h.m.status, "preferences not saved") {
 		t.Fatal("failed preference hid error, kept new ratio, or quit")
 	}
 	<-started
@@ -249,7 +249,7 @@ func TestWorkspaceSplitRollbackErrorRemainsVisibleWhenResizeCannotBeEnqueued(t *
 	// preference failure must still remain visible, with its saved ratio restored.
 	h.m.workspace.inputs = nil
 	h.send(uiPreferencesSaved{generation: 77, settings: config.UISettings{SidebarPercent: 40}, err: errors.New("synthetic save failure")})
-	if h.m.workspaceSidebarPercent() != 35 || !strings.Contains(h.m.status, "偏好未保存") {
+	if h.m.workspaceSidebarPercent() != 35 || !strings.Contains(h.m.status, "preferences not saved") {
 		t.Fatalf("rollback masked preference error: %s", h.m.status)
 	}
 }

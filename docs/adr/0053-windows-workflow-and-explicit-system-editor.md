@@ -29,3 +29,5 @@
 共享 Host、UI 退出后的持续监控、跨应用多 Tab 精确激活、其他阅读器／动态 cwd、长稳／资源与真实 Agent 继续后置。已有未提交 terminal.go 候选不属于本轮；旧鼠标五项失败仍按 STAB-006/007 保留。
 
 依据：[GetSystemDirectoryW](https://learn.microsoft.com/en-us/windows/win32/api/sysinfoapi/nf-sysinfoapi-getsystemdirectoryw)、[AssocQueryStringW](https://learn.microsoft.com/en-us/windows/win32/api/shlwapi/nf-shlwapi-assocquerystringw)、[ASSOCF](https://learn.microsoft.com/en-us/windows/win32/shell/assocf_str)、[GetWindowTextW](https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getwindowtextw)、[SendMessageTimeoutW](https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-sendmessagetimeoutw)。Context7 查询官方文档；有效关联查询不以是否有 exe 命令判断所有现代应用能力。
+
+2026-11-27 稳定性复验补充：本轮真实交互桌面完成 Ctrl+点中文空格 Markdown→系统记事本读取自有标记、点猫返回／最小化恢复、正常 UI 退出及重开后编辑器独立存活、默认关联保持。首轮窗口观察器作用域失败与跨桌面枚举的无效零窗口结论保留，未修改产品编辑器启动方式。详见[本轮证据与限制](../testing/results/2026-11-27-stability.md)。既有架构、依赖和未决门槛保持。

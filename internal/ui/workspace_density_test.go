@@ -18,11 +18,11 @@ func TestWorkspaceDensitySettingsApplyFullCardsWithoutTerminalInput(t *testing.T
 	h.until(func() bool { return strings.Contains(h.m.View().Content, "shell marker first") })
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	h.send(tea.KeyPressMsg{Code: 'S', Text: "S"})
-	h.until(func() bool { return strings.Contains(ansi.Strip(h.m.View().Content), "侧栏密度") })
+	h.until(func() bool { return strings.Contains(ansi.Strip(h.m.View().Content), "Settings") })
 	h.send(tea.KeyPressMsg{Code: tea.KeyDown}) // Theme is now the first settings row.
 	h.send(tea.KeyPressMsg{Code: tea.KeyLeft})
 	h.send(tea.KeyPressMsg{Code: tea.KeyEscape})
-	h.until(func() bool { return !strings.Contains(ansi.Strip(h.m.View().Content), "侧栏密度") })
+	h.until(func() bool { return !strings.Contains(ansi.Strip(h.m.View().Content), "Settings") })
 	view := ansi.Strip(h.m.View().Content)
 	if !strings.Contains("\n"+view, "\n    │ Connected") || !strings.Contains("\n"+view, "\n    ╰ ") {
 		t.Fatalf("full card did not render two metadata lines:\n%s", view)
@@ -45,7 +45,7 @@ func TestWorkspaceDensitySettingsSelectedChoiceRemainsVisibleInShortNarrowView(t
 	h.until(func() bool { return strings.Contains(h.m.View().Content, "shell marker first") })
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	h.send(tea.KeyPressMsg{Code: 'S', Text: "S"})
-	h.until(func() bool { return strings.Contains(ansi.Strip(h.m.View().Content), "侧栏密度") })
+	h.until(func() bool { return strings.Contains(ansi.Strip(h.m.View().Content), "Settings") })
 	h.send(tea.KeyPressMsg{Code: tea.KeyDown}) // Theme is now the first settings row.
 	h.send(tea.KeyPressMsg{Code: tea.KeyRight})
 	h.send(tea.KeyPressMsg{Code: tea.KeyRight})
@@ -73,7 +73,7 @@ func TestWorkspaceDensitySavesSerializeLatestChoiceBeforeClosing(t *testing.T) {
 	h.until(func() bool { return strings.Contains(h.m.View().Content, "shell marker first") })
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	h.send(tea.KeyPressMsg{Code: 'S', Text: "S"})
-	h.until(func() bool { return strings.Contains(h.m.View().Content, "侧栏密度") })
+	h.until(func() bool { return strings.Contains(h.m.View().Content, "Settings") })
 	h.send(tea.KeyPressMsg{Code: tea.KeyDown}) // Theme is now the first settings row.
 	h.send(tea.KeyPressMsg{Code: tea.KeyLeft})
 	select {
@@ -88,7 +88,7 @@ func TestWorkspaceDensitySavesSerializeLatestChoiceBeforeClosing(t *testing.T) {
 		h.send(tea.KeyPressMsg{Code: tea.KeyRight})
 	}
 	h.send(tea.KeyPressMsg{Code: tea.KeyEscape})
-	if !strings.Contains(h.m.View().Content, "正在保存") {
+	if !strings.Contains(h.m.View().Content, "Saving") {
 		t.Fatal("closing discarded an accepted pending choice")
 	}
 	select {
@@ -108,7 +108,7 @@ func TestWorkspaceDensitySavesSerializeLatestChoiceBeforeClosing(t *testing.T) {
 	}
 	release <- struct{}{}
 	h.until(func() bool {
-		return strings.Contains(h.m.View().Content, "shell marker first") && !strings.Contains(h.m.View().Content, "侧栏密度")
+		return strings.Contains(h.m.View().Content, "shell marker first") && !strings.Contains(h.m.View().Content, "Settings")
 	})
 	if h.m.sidebarDensity != "auto" {
 		t.Fatal("closed settings before applying the last successful save")
@@ -123,7 +123,7 @@ func TestWorkspaceDensitySavesSerializeLatestChoiceBeforeClosing(t *testing.T) {
 		defer stream.mu.Unlock()
 		return strings.Contains(strings.Join(stream.writes, ","), "text:S")
 	})
-	if strings.Contains(h.m.View().Content, "侧栏密度") {
+	if strings.Contains(h.m.View().Content, "Settings") {
 		t.Fatal("terminal S opened management settings")
 	}
 }
@@ -134,16 +134,16 @@ func TestWorkspaceDensitySaveFailureKeepsAppliedChoiceAndVisibleError(t *testing
 	h.until(func() bool { return strings.Contains(h.m.View().Content, "shell marker first") })
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	h.send(tea.KeyPressMsg{Code: 'S', Text: "S"})
-	h.until(func() bool { return strings.Contains(h.m.View().Content, "侧栏密度") })
+	h.until(func() bool { return strings.Contains(h.m.View().Content, "Settings") })
 	h.send(tea.KeyPressMsg{Code: tea.KeyDown}) // Theme is now the first settings row.
 	h.send(tea.KeyPressMsg{Code: tea.KeyLeft})
-	h.until(func() bool { return strings.Contains(h.m.View().Content, "未保存") })
+	h.until(func() bool { return strings.Contains(h.m.View().Content, "Not saved") })
 	h.send(tea.WindowSizeMsg{Width: 27, Height: 8})
-	if h.m.sidebarDensity != "compact" || !strings.Contains(h.m.View().Content, "未保存") {
+	if h.m.sidebarDensity != "compact" || !strings.Contains(h.m.View().Content, "Not saved") {
 		t.Fatal("failed save changed applied density or hid error")
 	}
 	h.send(tea.KeyPressMsg{Code: tea.KeyEscape})
-	if strings.Contains(h.m.View().Content, "侧栏密度") {
+	if strings.Contains(h.m.View().Content, "Settings") {
 		t.Fatal("save failure trapped the settings dialog")
 	}
 }
@@ -163,11 +163,11 @@ func TestWorkspaceDensityOpeningWaitsForAcceptedTerminalWrite(t *testing.T) {
 	h.send(tea.KeyPressMsg{Code: 'z', Text: "z"})
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	h.send(tea.KeyPressMsg{Code: 'S', Text: "S"})
-	if strings.Contains(h.m.View().Content, "侧栏密度") {
+	if strings.Contains(h.m.View().Content, "Settings") {
 		t.Fatal("settings disconnected before accepted input drained")
 	}
 	close(gate)
-	h.until(func() bool { return strings.Contains(h.m.View().Content, "侧栏密度") })
+	h.until(func() bool { return strings.Contains(h.m.View().Content, "Settings") })
 	h.send(tea.KeyPressMsg{Code: tea.KeyDown}) // Theme is now the first settings row.
 	h.send(tea.PasteMsg{Content: "never sent"})
 	h.send(tea.MouseClickMsg{X: 90, Y: 10, Button: tea.MouseLeft})
@@ -196,7 +196,7 @@ func TestWorkspaceDensityAutoUsesCurrentBudgetWithoutOscillation(t *testing.T) {
 	service := &workspaceFixture{fakeService: fakeService{list: func(context.Context) ([]session.Session, error) { return sampleSessions(), nil }}}
 	h := newWorkspaceHarness(t, service, Options{SidebarDensity: "auto", SidebarMode: "flat"})
 	h.until(func() bool { return strings.Contains(h.m.View().Content, "shell marker first") })
-	for _, tc := range []struct{ width, height, metadata int }{{28, 6, 4}, {28, 5, 2}, {28, 3, 0}, {27, 10, 0}, {28, 6, 4}, {28, 5, 2}, {28, 3, 0}} {
+	for _, tc := range []struct{ width, height, metadata int }{{28, 6, 2}, {28, 5, 0}, {28, 3, 0}, {27, 10, 0}, {28, 6, 2}, {28, 5, 0}, {28, 3, 0}} {
 		view := ansi.Strip(h.m.renderSessionList(tc.width, tc.height))
 		if view != ansi.Strip(h.m.renderSessionList(tc.width, tc.height)) {
 			t.Fatal("auto density oscillated without a geometry change")
@@ -223,7 +223,7 @@ func TestWorkspaceDensitySpaceCyclesFromAutoToFull(t *testing.T) {
 	h.until(func() bool { return strings.Contains(h.m.View().Content, "shell marker first") })
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	h.send(tea.KeyPressMsg{Code: 'S', Text: "S"})
-	h.until(func() bool { return strings.Contains(h.m.View().Content, "侧栏密度") })
+	h.until(func() bool { return strings.Contains(h.m.View().Content, "Settings") })
 	h.send(tea.KeyPressMsg{Code: tea.KeyDown}) // Theme is now the first settings row.
 	h.send(tea.KeyPressMsg{Code: tea.KeySpace, Text: " "})
 	h.until(func() bool { return h.m.sidebarDensity == "full" })

@@ -21,8 +21,8 @@ func TestGroupDialogsFitTinyViewportsAndKeepTheFocusedFieldVisible(t *testing.T)
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	h.send(tea.KeyPressMsg{Code: 'g', Text: "g"})
 	h.until(func() bool { return h.m.groupDialog != nil })
-	if plain := ansi.Strip(h.m.View().Content); !strings.Contains(plain, "Group name") || !strings.Contains(plain, "Optional working directory") {
-		t.Fatal("source form placeholders are missing")
+	if plain := ansi.Strip(h.m.View().Content); !strings.Contains(plain, "Group name") || !strings.Contains(plain, "Optional working") {
+		t.Fatalf("source form placeholders are missing: %s", plain)
 	}
 	h.send(tea.PasteMsg{Content: "项目"})
 	h.send(tea.KeyPressMsg{Code: tea.KeyTab})
@@ -43,7 +43,7 @@ func TestGroupDialogsFitTinyViewportsAndKeepTheFocusedFieldVisible(t *testing.T)
 		if view.Cursor != nil && (view.Cursor.X < 0 || view.Cursor.X >= size[0] || view.Cursor.Y < 0 || view.Cursor.Y >= size[1]) {
 			t.Fatalf("cursor outside viewport %v: %+v", size, view.Cursor)
 		}
-		if size[0] >= 27 && !strings.Contains(plain, "Default directory:") {
+		if size[0] >= 27 && !strings.Contains(plain, "Directory:") {
 			t.Fatalf("focused directory hidden %v:\n%s", size, plain)
 		}
 	}
@@ -74,7 +74,7 @@ func TestGroupMoveRejectsAnOriginalRunReplacedWhileTheDialogWasOpen(t *testing.T
 	h.send(sessionsMsg{generation: h.m.listGeneration, sessions: replaced, groups: s.groups})
 	h.send(tea.KeyPressMsg{Code: tea.KeyDown})
 	h.send(tea.KeyPressMsg{Code: tea.KeyEnter})
-	if !strings.Contains(h.m.View().Content, "原 Session/Run 已变化") {
+	if !strings.Contains(h.m.View().Content, "Session/Run changed") {
 		t.Fatal("replacement was not rejected")
 	}
 	s.groupMu.Lock()

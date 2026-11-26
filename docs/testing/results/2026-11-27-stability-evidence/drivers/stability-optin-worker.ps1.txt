@@ -1,0 +1,19 @@
+param([string]$Part)
+$ErrorActionPreference='Stop';$ProgressPreference='SilentlyContinue';[Console]::OutputEncoding=[Text.UTF8Encoding]::new($false);$OutputEncoding=[Console]::OutputEncoding
+$base=Join-Path $env:USERPROFILE 'asd-acceptance-20261122';$out=Join-Path $base ('stability-optin-'+$Part+'-20261127')
+if(Test-Path $out){throw 'Fresh opt-in directory required'};New-Item -ItemType Directory $out|Out-Null
+$package=Join-Path ([Environment]::GetFolderPath('Desktop')) 'Agent Session Desk Alpha 8234c4e';$hostInfo=Get-Content -Raw (Join-Path $package 'local-host.json')|ConvertFrom-Json
+$bundle=Join-Path $package 'terminal-runtime';$product=Join-Path $base 'asd-stability.exe';$fixture=Join-Path $base 'asd-stability-fixture.exe';$tests=Join-Path $base 'windows-tests'
+$art=Get-Content -Raw (Join-Path $base 'stability-artifacts.json')|ConvertFrom-Json
+foreach($n in @('asd-stability.exe','asd-stability-fixture.exe')){if((Get-FileHash (Join-Path $base $n)).Hash.ToLowerInvariant()-cne $art.$n){throw 'Product/fixture changed'}}
+$env:ASD_PSMUX_TEST_BINARY=Join-Path $bundle 'psmux.exe';$env:ASD_PSMUX_TEST_SHA256='ff9d8893ecc53ac5caca3bae0146d75ebcaf2cf7edc4abf9d87578469fb7b16b';if((Get-FileHash $env:ASD_PSMUX_TEST_BINARY).Hash.ToLowerInvariant()-cne $env:ASD_PSMUX_TEST_SHA256){throw 'Pinned development backend changed'};$env:ASD_FIXTURE_TEST_BINARY=$fixture;$env:ASD_PRODUCT_TEST_BINARY=$product;$env:ASD_SHELL_TEST_BINARY=$hostInfo.shell.path;$env:ASD_TERMINAL_BUNDLE_TEST_DIR=$bundle
+$env:ASD_NATIVE_MESSAGING_BUNDLE=$bundle;$env:ASD_NATIVE_MESSAGING_FIXTURE=$fixture;$env:ASD_NATIVE_REPLY_CLI=$product;$env:ASD_NATIVE_MESSAGING_SHELL=$hostInfo.shell.path;$env:ASD_NATIVE_EVIDENCE_DIR=Join-Path $out 'backend-evidence';$env:ASD_NATIVE_PET_INTERACTIVE='1';$env:ASD_NATIVE_APPEARANCE='1'
+$cases=switch($Part){'backend'{@(@{exe='backend.test.exe';pattern='^TestWindows(PsmuxNative|TerminalBundle)'})};'messaging'{@(@{exe='manager.test.exe';pattern='^TestWindowsNative'})};'attention'{@(@{exe='ui.test.exe';pattern='^TestWindowsNativeAttention'},@{exe='pet.test.exe';pattern='^TestWindows(LivePet|IdleBlink)'},@{exe='appearance.test.exe';pattern='^TestWindowsAppearance'})};default{throw 'Unknown opt-in part'}}
+$m=Get-Content -Raw (Join-Path $base 'windows-tests.json')|ConvertFrom-Json;$results=@()
+foreach($case in $cases){$exe=Join-Path $tests $case.exe;if((Get-FileHash $exe).Hash.ToLowerInvariant()-cne $m.($case.exe)){throw 'Opt-in test binary changed'}
+ & $exe '-test.v' '-test.run' $case.pattern '-test.timeout' '220s' 2>&1|Set-Content (Join-Path $out ($case.exe+'.stdout')) -Encoding utf8
+ $code=$LASTEXITCODE;$log=@(Get-Content (Join-Path $out ($case.exe+'.stdout')))
+ $results+=@{exe=$case.exe;exit_code=$code;top_pass=@($log|Where-Object{$_-match '^--- PASS:'}).Count;top_fail=@($log|Where-Object{$_-match '^--- FAIL:'}).Count;top_skip=@($log|Where-Object{$_-match '^--- SKIP:'}).Count}
+ $results|ConvertTo-Json -Depth 4|Set-Content (Join-Path $out 'progress.json') -Encoding utf8
+}
+$results|ConvertTo-Json -Depth 4|Set-Content (Join-Path $out 'result.json') -Encoding utf8

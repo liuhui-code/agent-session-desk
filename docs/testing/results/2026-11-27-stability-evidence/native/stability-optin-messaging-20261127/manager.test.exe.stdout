@@ -1,0 +1,18 @@
+=== RUN   TestWindowsNativeSimulatedAgentMessageContract
+    messages_simulated_windows_test.go:211: native controlled CLI: snapshot -> copied input; literal Unicode/multiline; idempotent retry; two CLI consumers/one write; stopped Run rejected; 4 target input lines
+--- PASS: TestWindowsNativeSimulatedAgentMessageContract (6.44s)
+=== RUN   TestWindowsNativeHeadlessMessagesWithoutUIAndWithoutResize
+    messages_windows_test.go:228: headless CLI send/deliver/status, Chinese source, no UI dependency, existing viewport unchanged, original Runs retained; owned cleanup follows
+--- PASS: TestWindowsNativeHeadlessMessagesWithoutUIAndWithoutResize (5.37s)
+=== RUN   TestWindowsNativeReplyTwoAgentProcesses
+    replies_simulated_windows_test.go:301: two independent simulated agent processes used separate asd.exe tool calls: A send -> B inbox -> computed reply -> A replies; separate-process retry retained one result; queued unchanged
+--- PASS: TestWindowsNativeReplyTwoAgentProcesses (3.41s)
+=== RUN   TestWindowsNativeTaskClaimCompetitionAndCrash
+=== RUN   TestWindowsNativeTaskClaimCompetitionAndCrash/competition
+    task_claims_simulated_windows_test.go:285: two separate processing workers, one effect; private claim fencing; crash uses exact owned Kill and real 2-second lease; no automatic reassignment or terminal fallback
+=== RUN   TestWindowsNativeTaskClaimCompetitionAndCrash/killed_after_effect
+    task_claims_simulated_windows_test.go:285: two separate processing workers, one effect; private claim fencing; crash uses exact owned Kill and real 2-second lease; no automatic reassignment or terminal fallback
+--- PASS: TestWindowsNativeTaskClaimCompetitionAndCrash (6.69s)
+    --- PASS: TestWindowsNativeTaskClaimCompetitionAndCrash/competition (2.14s)
+    --- PASS: TestWindowsNativeTaskClaimCompetitionAndCrash/killed_after_effect (4.55s)
+PASS

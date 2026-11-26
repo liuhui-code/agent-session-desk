@@ -1,0 +1,44 @@
+from pathlib import Path
+import json,collections,math,datetime,re,decimal,calendar
+p=Path('/private/tmp/asd-stability-20261127');raw=p/'remote-selected/stability-ui-resources-r3-20261127';samples=[json.loads(s) for s in (raw/'samples.jsonl').read_text(encoding='utf-8-sig').splitlines() if s.strip()];result=json.loads((raw/'result.json').read_text(encoding='utf-8-sig'))
+def stats(values):
+ if not values:return None
+ v=sorted(values);return {'min':v[0],'p50':v[math.ceil(len(v)*.5)-1],'p95':v[math.ceil(len(v)*.95)-1],'max':v[-1]}
+rows=[]
+for phase in result['phases']:
+ matches=[s for s in samples if s['scenario']==phase['scenario'] and s['phase']==phase['phase']];ui=[];product=[];coverage=0;gaps=collections.Counter();cpudelta=0;previous={};byRole=collections.defaultdict(list)
+ for s in matches:
+  snap=s['snapshot'];records=[r for r in snap['processes'] if r['owner_role']!='sampler'];ug=[r for r in records if r['role']=='ui'];ui.append(sum(r['private_bytes'] for r in ug) if ug else None);product.append(sum(r['private_bytes'] for r in records))
+  # Unknown or product-owned read gaps affect complete observation; sampler-only gaps stay separate.
+  pg=[g for g in snap['gaps'] if g.get('owner_role')!='sampler'];coverage+=not pg
+  for gap in pg:gaps[gap['reason']]+=1
+  present={}
+  for r in records:
+   key=(r['process_id'],r['creation_filetime'],r['executable_path']);present[key]=r['cpu_total_ms']
+   if key in previous:cpudelta+=max(0,r['cpu_total_ms']-previous[key])
+  previous=present
+  for role in {r['role'] for r in records}:byRole[role].append(sum(r['private_bytes'] for r in records if r['role']==role))
+ payload=[]
+ if 'output' in phase['phase']:
+  for f in raw.rglob('*.jsonl'):
+   if f.name=='samples.jsonl':continue
+   if phase['scenario'].startswith('managed-') and f.parent.name!=phase['scenario']:continue
+   if phase['scenario'].startswith('direct-') and not f.name.startswith(phase['scenario']+'-'):continue
+   for line in f.read_text(encoding='utf-8-sig').splitlines():
+    event=json.loads(line)
+    if event.get('event')=='load-finished':payload.append({'fixture':str(f.relative_to(raw)),'load_id':event['load_id'],'lines':event['lines_written'],'bytes':event['bytes_written'],'start':event['started_utc'],'end':event['finished_utc'],'status':event['status']})
+ def stamp(value):
+  match=re.fullmatch(r'(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2})(?:\.(\d{1,9}))?(?:Z|\+00:00)',value)
+  if not match:raise ValueError('Expected explicit UTC timestamp')
+  seconds=calendar.timegm(datetime.datetime.strptime(match[1],'%Y-%m-%dT%H:%M:%S').timetuple())
+  return decimal.Decimal(seconds)*1000000000+decimal.Decimal((match[2] or '').ljust(9,'0'))
+ first=stamp(matches[0]['snapshot']['sample_utc']);last=stamp(matches[-1]['snapshot']['sample_utc'])+decimal.Decimal(str(matches[-1]['snapshot']['sample_duration_ms']))*1000000
+ payload=[v for v in payload if stamp(v['start'])<=last and stamp(v['end'])>=first]
+ for v in payload:v['covers_phase_samples']=stamp(v['start'])<=first and stamp(v['end'])>=last;v['byte_count_consistent']=v['lines']>0 and v['bytes']==v['lines']*256
+ expected=phase['count'] if phase['phase']=='all-output' else 1 if phase['phase']=='single-output' else 0
+ rows.append({'scenario':phase['scenario'],'phase':phase['phase'],'samples':len(matches),'complete_product_observation':coverage,'product_read_gaps':dict(gaps),'ui_private_bytes':stats([v for v in ui if v is not None]),'observed_product_tree_private_bytes':stats(product),'role_private_bytes':{k:stats(v) for k,v in byRole.items()},'observed_cpu_delta_lower_bound_ms':cpudelta,'expected_output_fixtures':expected,'payload_observations_for_phase':payload,'output_window_coverage_verified':bool(expected) and len(payload)==expected and all(v['covers_phase_samples'] and v['byte_count_consistent'] for v in payload)})
+out={'result':result['result'],'samples':len(samples),'phases':rows,'semantics':'private-byte sums are observed owned process trees, not full lifetime cost; shared Terminal and sampler excluded; missing observations are not zero; CPU deltas lower bound; direct pipes differ from terminal','parallel_activity':'managed phases ended before input/canary drivers; last direct controls overlap isolated canary/preflight; no no-interference claim','cleanup':result['cleanup']}
+(p/'resource-summary.json').write_text(json.dumps(out,indent=2)+'\n')
+print('resource result',out['result'],'phases',len(rows),'samples',len(samples))
+for r in rows:
+ u=r['ui_private_bytes'];a=r['observed_product_tree_private_bytes'];print(r['scenario'],r['phase'],'UI P50 MiB',round(u['p50']/1048576,2) if u else None,'tree P50/P95 MiB',round(a['p50']/1048576,2),round(a['p95']/1048576,2),'coverage',str(r['complete_product_observation'])+'/'+str(r['samples']))

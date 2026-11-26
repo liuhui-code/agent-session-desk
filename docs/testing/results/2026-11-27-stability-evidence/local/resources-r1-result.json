@@ -1,0 +1,404 @@
+{
+  "total_samples": 36,
+  "phases": [
+    {
+      "count": 0,
+      "scenario": "managed-0",
+      "phase": "idle",
+      "first_sample": 0,
+      "samples": 12,
+      "elapsed_ms": 11248.8367
+    },
+    {
+      "count": 0,
+      "scenario": "managed-0",
+      "phase": "reopened-idle",
+      "first_sample": 12,
+      "samples": 12,
+      "elapsed_ms": 10923.0142
+    },
+    {
+      "count": 1,
+      "scenario": "managed-1",
+      "phase": "idle",
+      "first_sample": 24,
+      "samples": 12,
+      "elapsed_ms": 11329.0715
+    }
+  ],
+  "error": "Timed out: independent managed load started; no automatic replay",
+  "sample_semantics": "non_atomic; gaps are not zero; CPU lower bound; shared Terminal excluded from product sums",
+  "manager_ends": [
+    true,
+    true,
+    true
+  ],
+  "automatic_input_replay": false,
+  "elapsed_ms": 80141.7835,
+  "product_sha256": "0af83573d9e5aee55e26a31ff32aab84aa1da45b6e58523b9ff220abc49a330f",
+  "stages": [
+    {
+      "stage": "input-idle-preflight",
+      "utc": "2026-11-26T17:31:19.7533426Z"
+    },
+    {
+      "stage": "managed-0/idle",
+      "utc": "2026-11-26T17:31:22.1755619Z"
+    },
+    {
+      "stage": "managed-0/normal-ui-reopen",
+      "utc": "2026-11-26T17:31:36.4327524Z"
+    },
+    {
+      "stage": "managed-0/reopened-idle",
+      "utc": "2026-11-26T17:31:37.7284873Z"
+    },
+    {
+      "stage": "managed-1/idle",
+      "utc": "2026-11-26T17:31:54.3874994Z"
+    }
+  ],
+  "cleanup": [
+    {
+      "held_private_remaining": 0,
+      "scenario": "managed-0",
+      "normal_fixtures": []
+    }
+  ],
+  "result": "failed",
+  "registry_writes": 0,
+  "clipboard_calls": 0,
+  "forced_product_ends": 0,
+  "shared_terminal_samples": [
+    {
+      "sample": 0,
+      "private_bytes": 120840192,
+      "shared_host": true,
+      "creation_filetime": "134401841547751417",
+      "included_in_product": false,
+      "pid": 21732,
+      "working_set_bytes": 107163648
+    },
+    {
+      "sample": 1,
+      "private_bytes": 120840192,
+      "shared_host": true,
+      "creation_filetime": "134401841547751417",
+      "included_in_product": false,
+      "pid": 21732,
+      "working_set_bytes": 107163648
+    },
+    {
+      "sample": 2,
+      "private_bytes": 120840192,
+      "shared_host": true,
+      "creation_filetime": "134401841547751417",
+      "included_in_product": false,
+      "pid": 21732,
+      "working_set_bytes": 107163648
+    },
+    {
+      "sample": 3,
+      "private_bytes": 120840192,
+      "shared_host": true,
+      "creation_filetime": "134401841547751417",
+      "included_in_product": false,
+      "pid": 21732,
+      "working_set_bytes": 107163648
+    },
+    {
+      "sample": 4,
+      "private_bytes": 120840192,
+      "shared_host": true,
+      "creation_filetime": "134401841547751417",
+      "included_in_product": false,
+      "pid": 21732,
+      "working_set_bytes": 107163648
+    },
+    {
+      "sample": 5,
+      "private_bytes": 120840192,
+      "shared_host": true,
+      "creation_filetime": "134401841547751417",
+      "included_in_product": false,
+      "pid": 21732,
+      "working_set_bytes": 107163648
+    },
+    {
+      "sample": 6,
+      "private_bytes": 120840192,
+      "shared_host": true,
+      "creation_filetime": "134401841547751417",
+      "included_in_product": false,
+      "pid": 21732,
+      "working_set_bytes": 107163648
+    },
+    {
+      "sample": 7,
+      "private_bytes": 120840192,
+      "shared_host": true,
+      "creation_filetime": "134401841547751417",
+      "included_in_product": false,
+      "pid": 21732,
+      "working_set_bytes": 107163648
+    },
+    {
+      "sample": 8,
+      "private_bytes": 120840192,
+      "shared_host": true,
+      "creation_filetime": "134401841547751417",
+      "included_in_product": false,
+      "pid": 21732,
+      "working_set_bytes": 107163648
+    },
+    {
+      "sample": 9,
+      "private_bytes": 120840192,
+      "shared_host": true,
+      "creation_filetime": "134401841547751417",
+      "included_in_product": false,
+      "pid": 21732,
+      "working_set_bytes": 107163648
+    },
+    {
+      "sample": 10,
+      "private_bytes": 120840192,
+      "shared_host": true,
+      "creation_filetime": "134401841547751417",
+      "included_in_product": false,
+      "pid": 21732,
+      "working_set_bytes": 107163648
+    },
+    {
+      "sample": 11,
+      "private_bytes": 120840192,
+      "shared_host": true,
+      "creation_filetime": "134401841547751417",
+      "included_in_product": false,
+      "pid": 21732,
+      "working_set_bytes": 107163648
+    },
+    {
+      "sample": 12,
+      "private_bytes": 123392000,
+      "shared_host": true,
+      "creation_filetime": "134401841547751417",
+      "included_in_product": false,
+      "pid": 21732,
+      "working_set_bytes": 110268416
+    },
+    {
+      "sample": 13,
+      "private_bytes": 123392000,
+      "shared_host": true,
+      "creation_filetime": "134401841547751417",
+      "included_in_product": false,
+      "pid": 21732,
+      "working_set_bytes": 110268416
+    },
+    {
+      "sample": 14,
+      "private_bytes": 123392000,
+      "shared_host": true,
+      "creation_filetime": "134401841547751417",
+      "included_in_product": false,
+      "pid": 21732,
+      "working_set_bytes": 110268416
+    },
+    {
+      "sample": 15,
+      "private_bytes": 123379712,
+      "shared_host": true,
+      "creation_filetime": "134401841547751417",
+      "included_in_product": false,
+      "pid": 21732,
+      "working_set_bytes": 110256128
+    },
+    {
+      "sample": 16,
+      "private_bytes": 123379712,
+      "shared_host": true,
+      "creation_filetime": "134401841547751417",
+      "included_in_product": false,
+      "pid": 21732,
+      "working_set_bytes": 110256128
+    },
+    {
+      "sample": 17,
+      "private_bytes": 123379712,
+      "shared_host": true,
+      "creation_filetime": "134401841547751417",
+      "included_in_product": false,
+      "pid": 21732,
+      "working_set_bytes": 110256128
+    },
+    {
+      "sample": 18,
+      "private_bytes": 123379712,
+      "shared_host": true,
+      "creation_filetime": "134401841547751417",
+      "included_in_product": false,
+      "pid": 21732,
+      "working_set_bytes": 110256128
+    },
+    {
+      "sample": 19,
+      "private_bytes": 123379712,
+      "shared_host": true,
+      "creation_filetime": "134401841547751417",
+      "included_in_product": false,
+      "pid": 21732,
+      "working_set_bytes": 110256128
+    },
+    {
+      "sample": 20,
+      "private_bytes": 123379712,
+      "shared_host": true,
+      "creation_filetime": "134401841547751417",
+      "included_in_product": false,
+      "pid": 21732,
+      "working_set_bytes": 110256128
+    },
+    {
+      "sample": 21,
+      "private_bytes": 123379712,
+      "shared_host": true,
+      "creation_filetime": "134401841547751417",
+      "included_in_product": false,
+      "pid": 21732,
+      "working_set_bytes": 110256128
+    },
+    {
+      "sample": 22,
+      "private_bytes": 123379712,
+      "shared_host": true,
+      "creation_filetime": "134401841547751417",
+      "included_in_product": false,
+      "pid": 21732,
+      "working_set_bytes": 110256128
+    },
+    {
+      "sample": 23,
+      "private_bytes": 123379712,
+      "shared_host": true,
+      "creation_filetime": "134401841547751417",
+      "included_in_product": false,
+      "pid": 21732,
+      "working_set_bytes": 110256128
+    },
+    {
+      "sample": 24,
+      "private_bytes": 124342272,
+      "shared_host": true,
+      "creation_filetime": "134401841547751417",
+      "included_in_product": false,
+      "pid": 21732,
+      "working_set_bytes": 112287744
+    },
+    {
+      "sample": 25,
+      "private_bytes": 124329984,
+      "shared_host": true,
+      "creation_filetime": "134401841547751417",
+      "included_in_product": false,
+      "pid": 21732,
+      "working_set_bytes": 112275456
+    },
+    {
+      "sample": 26,
+      "private_bytes": 124309504,
+      "shared_host": true,
+      "creation_filetime": "134401841547751417",
+      "included_in_product": false,
+      "pid": 21732,
+      "working_set_bytes": 112254976
+    },
+    {
+      "sample": 27,
+      "private_bytes": 124293120,
+      "shared_host": true,
+      "creation_filetime": "134401841547751417",
+      "included_in_product": false,
+      "pid": 21732,
+      "working_set_bytes": 112238592
+    },
+    {
+      "sample": 28,
+      "private_bytes": 124293120,
+      "shared_host": true,
+      "creation_filetime": "134401841547751417",
+      "included_in_product": false,
+      "pid": 21732,
+      "working_set_bytes": 112238592
+    },
+    {
+      "sample": 29,
+      "private_bytes": 124153856,
+      "shared_host": true,
+      "creation_filetime": "134401841547751417",
+      "included_in_product": false,
+      "pid": 21732,
+      "working_set_bytes": 112099328
+    },
+    {
+      "sample": 30,
+      "private_bytes": 124166144,
+      "shared_host": true,
+      "creation_filetime": "134401841547751417",
+      "included_in_product": false,
+      "pid": 21732,
+      "working_set_bytes": 112111616
+    },
+    {
+      "sample": 31,
+      "private_bytes": 124166144,
+      "shared_host": true,
+      "creation_filetime": "134401841547751417",
+      "included_in_product": false,
+      "pid": 21732,
+      "working_set_bytes": 112111616
+    },
+    {
+      "sample": 32,
+      "private_bytes": 124166144,
+      "shared_host": true,
+      "creation_filetime": "134401841547751417",
+      "included_in_product": false,
+      "pid": 21732,
+      "working_set_bytes": 112111616
+    },
+    {
+      "sample": 33,
+      "private_bytes": 124133376,
+      "shared_host": true,
+      "creation_filetime": "134401841547751417",
+      "included_in_product": false,
+      "pid": 21732,
+      "working_set_bytes": 112078848
+    },
+    {
+      "sample": 34,
+      "private_bytes": 124133376,
+      "shared_host": true,
+      "creation_filetime": "134401841547751417",
+      "included_in_product": false,
+      "pid": 21732,
+      "working_set_bytes": 112078848
+    },
+    {
+      "sample": 35,
+      "private_bytes": 124133376,
+      "shared_host": true,
+      "creation_filetime": "134401841547751417",
+      "included_in_product": false,
+      "pid": 21732,
+      "working_set_bytes": 112078848
+    }
+  ],
+  "fixture_ends": [
+    true
+  ],
+  "intentional_owned_ui_crashes": 0,
+  "session_content_exported": 0,
+  "stage": "managed-1/idle"
+}

@@ -1,0 +1,37 @@
+{
+  "stage": "real-alt-j-switch-into-truncated-handshake",
+  "cursor_restored": true,
+  "stages": [
+    {
+      "utc": "2026-11-26T16:49:14.9327403Z",
+      "stage": "input-idle-preflight"
+    },
+    {
+      "utc": "2026-11-26T16:49:17.1211465Z",
+      "stage": "create-original-target-b"
+    },
+    {
+      "utc": "2026-11-26T16:49:18.7663243Z",
+      "stage": "real-alt-j-switch-into-truncated-handshake"
+    }
+  ],
+  "clipboard_calls": 0,
+  "intentional_owned_ui_crashes": 0,
+  "session_content_exported": 0,
+  "fault_peer_ended": true,
+  "endpoint_restore_blocked": true,
+  "result": "failed",
+  "error": "Timed out: failed view is visible while manager survives; no automatic replay",
+  "registry_writes": 0,
+  "automatic_input_replay": false,
+  "handshake_auth_and_poll_observed": true,
+  "fixture_ends": [
+    true,
+    true
+  ],
+  "forced_product_ends": 0,
+  "product_sha256": "2ff92c2fa356edf33e516fa01191ae7094658bd68f53cee714f5122c5ce48882",
+  "manager_ends": [
+    true
+  ]
+}

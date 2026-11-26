@@ -1,0 +1,12 @@
+{"ImportPath":"github.com/charmbracelet/x/ansi/parser","Action":"build-output","Output":"# github.com/charmbracelet/x/ansi/parser\n"}
+{"ImportPath":"github.com/charmbracelet/x/ansi/parser","Action":"build-output","Output":"open ../../asd-detach-20261122/go-mod-cache/github.com/charmbracelet/x/ansi@v0.11.9/parser/const.go: no such file or directory\n"}
+{"ImportPath":"github.com/charmbracelet/x/ansi/parser","Action":"build-fail"}
+{"ImportPath":"github.com/clipperhouse/uax29/v2/graphemes","Action":"build-output","Output":"# github.com/clipperhouse/uax29/v2/graphemes\n"}
+{"ImportPath":"github.com/clipperhouse/uax29/v2/graphemes","Action":"build-output","Output":"open ../../asd-detach-20261122/go-mod-cache/github.com/clipperhouse/uax29/v2@v2.7.0/graphemes/ansi.go: no such file or directory\n"}
+{"ImportPath":"github.com/clipperhouse/uax29/v2/graphemes","Action":"build-fail"}
+{"ImportPath":"github.com/lucasb-eyer/go-colorful","Action":"build-output","Output":"# github.com/lucasb-eyer/go-colorful\n"}
+{"ImportPath":"github.com/lucasb-eyer/go-colorful","Action":"build-output","Output":"open ../../asd-detach-20261122/go-mod-cache/github.com/lucasb-eyer/go-colorful@v1.4.1/colorgens.go: no such file or directory\n"}
+{"ImportPath":"github.com/lucasb-eyer/go-colorful","Action":"build-fail"}
+{"Time":"2026-11-27T00:37:40.972799+08:00","Action":"start","Package":"github.com/liuhui-code/agent-session-desk/internal/backend"}
+{"Time":"2026-11-27T00:37:40.973717+08:00","Action":"output","Package":"github.com/liuhui-code/agent-session-desk/internal/backend","Output":"FAIL\tgithub.com/liuhui-code/agent-session-desk/internal/backend [build failed]\n","OutputType":"frame"}
+{"Time":"2026-11-27T00:37:40.973835+08:00","Action":"fail","Package":"github.com/liuhui-code/agent-session-desk/internal/backend","Elapsed":0.001,"FailedBuild":"github.com/lucasb-eyer/go-colorful"}

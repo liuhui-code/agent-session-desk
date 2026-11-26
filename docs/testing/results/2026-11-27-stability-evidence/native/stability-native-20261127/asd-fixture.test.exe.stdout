@@ -1,0 +1,31 @@
+=== RUN   TestAttentionFixturePrintsExistingMarkdownReferenceOnly
+--- PASS: TestAttentionFixturePrintsExistingMarkdownReferenceOnly (0.01s)
+=== RUN   TestReportObservesExactPayloadAndExit
+--- PASS: TestReportObservesExactPayloadAndExit (0.01s)
+=== RUN   TestReportCannotReplaceExistingFile
+--- PASS: TestReportCannotReplaceExistingFile (0.00s)
+=== RUN   TestImmediateExitDoesNotReadInput
+--- PASS: TestImmediateExitDoesNotReadInput (0.00s)
+=== RUN   TestLoadCommandsRequireExplicitOptIn
+--- PASS: TestLoadCommandsRequireExplicitOptIn (0.00s)
+=== RUN   TestLoadParameterBounds
+--- PASS: TestLoadParameterBounds (0.00s)
+=== RUN   TestLoadOutputLengthAccountingAndDeadline
+=== RUN   TestLoadOutputLengthAccountingAndDeadline/32
+=== RUN   TestLoadOutputLengthAccountingAndDeadline/256
+=== RUN   TestLoadOutputLengthAccountingAndDeadline/4096
+--- PASS: TestLoadOutputLengthAccountingAndDeadline (0.00s)
+    --- PASS: TestLoadOutputLengthAccountingAndDeadline/32 (0.00s)
+    --- PASS: TestLoadOutputLengthAccountingAndDeadline/256 (0.00s)
+    --- PASS: TestLoadOutputLengthAccountingAndDeadline/4096 (0.00s)
+=== RUN   TestLoadCancellationJoinsWithoutAnotherTick
+--- PASS: TestLoadCancellationJoinsWithoutAnotherTick (0.00s)
+=== RUN   TestLoadWriteErrorsReportOnlyActualBytes
+--- PASS: TestLoadWriteErrorsReportOnlyActualBytes (0.00s)
+=== RUN   TestLoadFiniteRunReportsTotalsAndReturnsToIdle
+--- PASS: TestLoadFiniteRunReportsTotalsAndReturnsToIdle (0.14s)
+=== RUN   TestLoadRejectsInvalidAndConcurrentJobsThenCanRestart
+--- PASS: TestLoadRejectsInvalidAndConcurrentJobsThenCanRestart (0.01s)
+=== RUN   TestLoadEOFJoinsBeforeExitRecord
+--- PASS: TestLoadEOFJoinsBeforeExitRecord (0.02s)
+PASS

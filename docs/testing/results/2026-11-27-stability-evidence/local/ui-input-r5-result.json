@@ -1,0 +1,98 @@
+{
+  "multiline_bracketed_paste_verified": true,
+  "stages": [
+    {
+      "utc": "2026-11-26T18:02:05.9646935Z",
+      "stage": "input-idle-preflight"
+    },
+    {
+      "utc": "2026-11-26T18:02:09.8097556Z",
+      "stage": "five-concurrent-launches-reuse-exact-workbench"
+    },
+    {
+      "utc": "2026-11-26T18:02:10.3421063Z",
+      "stage": "vt-real-input-ctrl-c-and-program-mouse"
+    },
+    {
+      "utc": "2026-11-26T18:02:13.6380322Z",
+      "stage": "real-window-resize-and-original-input"
+    },
+    {
+      "utc": "2026-11-26T18:02:15.5273661Z",
+      "stage": "win32-native-mouse-press-release-wheel"
+    },
+    {
+      "utc": "2026-11-26T18:02:18.8152778Z",
+      "stage": "win32-utf16-supplementary-input"
+    },
+    {
+      "utc": "2026-11-26T18:02:19.0255968Z",
+      "stage": "clipboard-backup-before-copy-and-paste"
+    },
+    {
+      "utc": "2026-11-26T18:02:19.3052103Z",
+      "stage": "selected-a-visible-copy-while-native-probe-active"
+    },
+    {
+      "utc": "2026-11-26T18:02:19.5739538Z",
+      "stage": "multiline-paste-through-real-windows-terminal"
+    },
+    {
+      "utc": "2026-11-26T18:02:20.6566830Z",
+      "stage": "original-draft-and-no-terminal-leak"
+    }
+  ],
+  "fixture_ends": [
+    true
+  ],
+  "clipboard_calls": "backup and controlled subflow only; original values never exported",
+  "clipboard_subflow": "verified",
+  "cursor_restored": true,
+  "ctrl_c_raw_input_verified": true,
+  "resize_observations": [
+    {
+      "marker_visible": true,
+      "width": 600,
+      "height": 440
+    },
+    {
+      "marker_visible": true,
+      "width": 900,
+      "height": 300
+    },
+    {
+      "marker_visible": true,
+      "width": 1280,
+      "height": 800
+    },
+    {
+      "marker_visible": true,
+      "width": 900,
+      "height": 650
+    }
+  ],
+  "system_clipboard_accept_verified": true,
+  "probe_ends": [
+    true,
+    true
+  ],
+  "supplementary_win32_unicode_verified": true,
+  "vt_and_win32_mouse_verified": true,
+  "raw_vt_supplementary_boundary": "identical replacement bytes in direct Windows Terminal control; unresolved injector/ReadFile boundary",
+  "raw_vt_supplementary_unicode_verified": false,
+  "automatic_input_replay": false,
+  "concurrent_same_scope_launches": 5,
+  "forced_product_ends": 0,
+  "paste_line_break_observed": "CR",
+  "session_content_exported": 0,
+  "manager_ends": [
+    true
+  ],
+  "product_sha256": "0af83573d9e5aee55e26a31ff32aab84aa1da45b6e58523b9ff220abc49a330f",
+  "registry_writes": 0,
+  "original_draft_preserved": true,
+  "intentional_owned_ui_crashes": 0,
+  "bmp_unicode_raw_input_verified": true,
+  "result": "verified_bounded",
+  "clipboard_all_formats_and_values_restored": true
+}

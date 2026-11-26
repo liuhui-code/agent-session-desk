@@ -1,0 +1,3 @@
+$ErrorActionPreference='Stop';$base=Join-Path $env:USERPROFILE 'asd-acceptance-20261122'
+$t=Get-ScheduledTask -TaskName AsdStabilityEditorCleanup20261127 -ErrorAction SilentlyContinue;$i=if($t){Get-ScheduledTaskInfo -TaskName $t.TaskName}
+@{task_state=if($t){[string]$t.State}else{'absent'};task_result=if($i){$i.LastTaskResult};receipt_exists=(Test-Path (Join-Path $base 'stability-editor-cleanup-20261127/result.json'));old_editor_pid_live=($null-ne (Get-Process -Id 4160 -ErrorAction SilentlyContinue))}|ConvertTo-Json

@@ -1,0 +1,6 @@
+import os,pathlib,subprocess,json,hashlib
+r=pathlib.Path('/private/tmp/asd-stability-20261127');d=r/'windows-tests';d.mkdir(exist_ok=True)
+e=os.environ.copy();e.update(GOTOOLCHAIN='local',GOOS='windows',GOARCH='amd64',CGO_ENABLED='0',GOCACHE=str(r/'go-cache'),GOMODCACHE=str(r/'mod-cache'))
+x=subprocess.run(['/private/tmp/git-intent-tools/go/bin/go','test','-c','-o',str(d)+'/', './...'],cwd=r/'candidate',env=e,capture_output=True,text=True)
+if x.returncode:print(x.stderr);raise SystemExit(x.returncode)
+f={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in d.glob('*.exe')};(r/'windows-tests.json').write_text(json.dumps(f,indent=2)+'\n');print('Native test binaries:',len(f))

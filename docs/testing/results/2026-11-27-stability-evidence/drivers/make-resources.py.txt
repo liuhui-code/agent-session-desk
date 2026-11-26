@@ -1,0 +1,118 @@
+from pathlib import Path
+p=Path('/private/tmp/asd-stability-20261127');s=(p/'stability-ui-reminders-r4.ps1').read_text().split('$script:originals=@()')[0].replace("$round='reminders-r4'","$round='resources-r1'")
+s=s.replace("foreach($other in $script:scopes){if($other-ne $scope -and $other.ContainsKey('window') -and $other.window-eq $w)","foreach($other in $script:scopes){if($other-ne $scope -and $other.ContainsKey('window') -and [InstanceDesktop]::IsWindow($other.window) -and $other.window-eq $w)")
+# Source-side helpers preserve exact identity checks and independently observed counters.
+old=Path('tools/ci/windows-resources.ps1').read_text()
+helpers=old[old.index('function Remember-ProcessHandles'):old.index('function Read-Snapshot')]+old[old.index('function Get-RegistryEvidence'):old.index('function Check-Backend')]
+(p/'stability-resource-registry.ps1').write_text(helpers)
+body=r'''
+$clock=[Diagnostics.Stopwatch]::StartNew();$experiment=$out;$evidence=$out
+foreach($helper in @('windows-process-metrics.ps1','windows-resource-process.ps1','windows-fixture-journal.ps1','stability-resource-registry.ps1')){. ([ScriptBlock]::Create([IO.File]::ReadAllText((Join-Path $base $helper))))}
+$bundle=Join-Path $root 'terminal-runtime';Copy-Item (Join-Path $package 'terminal-runtime') $bundle -Recurse
+$privateFixture=Join-Path $root 'asd-stability-fixture.exe';Copy-Item $fixture $privateFixture;$fixture=$privateFixture
+$backend=Join-Path $bundle 'psmux.exe';$imageRoles=@{};$imageRoles[$product]='ui';$imageRoles[$fixture]='fixture';$imageRoles[$backend]='backend_control';$imageRoles[(Join-Path $bundle 'OpenConsole.exe')]='backend_console'
+$script:held=@{};$script:previousOwned=@();$script:sampleIndex=0;$script:resourceScopes=@();$script:direct=@();$script:current=$null
+$r.phases=@();$r.cleanup=@();$r.sample_semantics='non_atomic; gaps are not zero; CPU lower bound; shared Terminal excluded from product sums';$r.shared_terminal_samples=@()
+function NewResourceScope([int]$count){
+ $label='managed-'+$count;$cwd=Join-Path $out $label;New-Item -ItemType Directory $cwd|Out-Null
+ $scope=@{label=$label;cwd=$cwd;runtime=(Join-Path $cwd 'runtime');state=(Join-Path $cwd 'state');ns=('asd-res-'+$round+'-'+$count);items=@()}
+ $scope.globals=@('--terminal-bundle',$bundle,'--runtime-dir',$scope.runtime,'--namespace',$scope.ns,'--state-dir',$scope.state)
+ $scope.data=Join-Path $scope.runtime $scope.ns;$scope.config=Join-Path $scope.data 'psmux-m0.conf';$script:scopes+=$scope;$script:resourceScopes+=$scope
+ for($i=0;$i-lt $count;$i++){
+  $log=Join-Path $cwd ('fixture-'+$i+'.jsonl');$name='Resource '+$i.ToString('00')
+  $o=(Product $scope @('start','--name',$name,'--cwd',$cwd,'--env',('ASD_FIXTURE_REPORT_PATH='+$log),'--env','ASD_FIXTURE_ENABLE_LOAD=1','--',$fixture))|ConvertFrom-Json
+  Wait 'resource fixture identity' {@(Journal $log).Count-gt 0};$first=@(Journal $log)[0];$f=Get-Process -Id $first.pid;$null=$f.Handle;if($f.Path-ine $fixture){throw 'Fixture identity mismatch'};$script:fixtures+=$f
+  $scope.items+=@{record=$o;log=$log;process=$f;name=$name}
+ }
+ return $scope
+}
+function BindResource($scope){
+ $p=Launch $scope;WaitLauncher $p;RegisterWindow $scope;$scope.driver_stamp='ASD.Test.Stability.'+[Guid]::NewGuid().ToString('N')
+ [uint32]$hostPID=0;$null=[DeskFlow]::GetWindowThreadProcessId($scope.window,[ref]$hostPID);$scope.host=Get-Process -Id $hostPID;$null=$scope.host.Handle
+ if($scope.host.Path-ine $hostInfo.terminal.path-or ![InstanceDesktop]::SetProp($scope.window,$scope.driver_stamp,[IntPtr]1)){throw 'Host binding failed'}
+ if($scope.items.Count){Ready $scope 'CLI fixture'}else{Wait 'empty management ready' {(Surface $scope).text.Contains('Alt+J/K')}}
+}
+function Mux($scope,[string[]]$arguments){
+ $envMap=Get-MuxEnvironment $scope.data $scope.config;$envMap.PSMUX_CONPTY_DIR=$bundle;$envMap.PSMUX_CONPTY_PIPE_MOUSE_ONLY='1'
+ $c=Start-RecordedProcess $backend (@('-L',$scope.ns,'-f',$scope.config)+$arguments) $envMap
+ try{if(!$c.process.WaitForExit(15000)){throw 'Owned mux command timeout; no replay'};$o=$c.stdout.GetAwaiter().GetResult();$e=$c.stderr.GetAwaiter().GetResult();if($c.process.ExitCode-ne 0){throw 'Owned mux command failed; no replay'};return $o}finally{$c.process.Dispose()}
+}
+function CheckScope($scope){
+ $rows=@((Product $scope @('list','--json'))|ConvertFrom-Json|ForEach-Object{$_})
+ if($rows.Count-ne $scope.items.Count){throw 'Resource live count changed'}
+ foreach($item in $scope.items){$o=$item.record;if($item.process.HasExited-or @($rows|Where-Object{$_.session_id-ceq $o.session_id-and $_.run_id-ceq $o.run_id-and $_.backend_id-ceq $o.backend_id-and $_.terminal_state-ceq 'available'}).Count-ne 1){throw 'Resource Run or process identity changed'}}
+}
+function Sample($scope,[string]$phase,[int]$count){
+ $registry=@();$roots=@();if($scope){$registry=@(Get-RegistryEvidence $scope.data $backend)
+ foreach($id in @($registry|Where-Object{$_.live_identity_verified}|Select-Object process_id,creation_filetime -Unique)){$roots+=@{process_id=$id.process_id;creation_filetime=$id.creation_filetime;executable_path=$backend;role='backend_server';context='backend_server'}}}
+ $snap=Get-AsdWindowsProcessSnapshot -ImageRoles $imageRoles -RootIdentities $roots -PreviousOwned $script:previousOwned -SampleIndex $script:sampleIndex -ElapsedMilliseconds $clock.Elapsed.TotalMilliseconds
+ $script:previousOwned=@($snap.owned_identities);Remember-ProcessHandles $script:previousOwned;$script:sampleIndex++
+ @{scenario=$(if($scope){$scope.label}else{'direct-'+$count});phase=$phase;session_count=$count;registry=$registry;snapshot=$snap}|ConvertTo-Json -Depth 20 -Compress|Add-Content (Join-Path $out 'samples.jsonl') -Encoding utf8
+ if($scope-and !$scope.host.HasExited){$scope.host.Refresh();$r.shared_terminal_samples+=@{sample=$snap.sample_index;pid=$scope.host.Id;creation_filetime=$scope.host.StartTime.ToFileTimeUtc().ToString();private_bytes=$scope.host.PrivateMemorySize64;working_set_bytes=$scope.host.WorkingSet64;shared_host=$true;included_in_product=$false}}
+ if(@($snap.processes|Where-Object{$_.executable_path-ieq $fixture}).Count-ne $count){throw 'Fixture sample count changed'}
+ if($scope-and @($snap.processes|Where-Object{$_.executable_path-ieq $product}).Count-ne 1){throw 'UI process missing in resource sample'}
+ if($scope-and @($snap.processes|Where-Object{$_.role-ceq 'backend_server'-and !$_.is_descendant}).Count-ne $count){throw 'Registry-verified server count changed'}
+}
+function Phase($scope,[string]$phase,[int]$count){
+ Stage ($(if($scope){$scope.label}else{'direct-'+$count})+'/'+$phase);Start-Sleep -Seconds 3;$first=$script:sampleIndex;$timer=[Diagnostics.Stopwatch]::StartNew()
+ for($i=0;$i-lt 12;$i++){Sample $scope $phase $count;Start-Sleep -Milliseconds 800}
+ $r.phases+=@{scenario=$(if($scope){$scope.label}else{'direct-'+$count});phase=$phase;count=$count;first_sample=$first;samples=($script:sampleIndex-$first);elapsed_ms=$timer.Elapsed.TotalMilliseconds}
+}
+function LoadManaged($scope,$items){
+ CheckScope $scope
+ foreach($item in $items){$id=@(Journal $item.log|Where-Object{$_.event-ceq 'load-started'}).Count+1;$item.loadID=$id
+ $null=Mux $scope @('send-keys','-t',$item.record.backend_id,'-l','load 100 256 60000');$null=Mux $scope @('send-keys','-t',$item.record.backend_id,'Enter')
+ Wait 'independent managed load started' {@(Journal $item.log|Where-Object{$_.event-ceq 'load-started'-and $_.load_id-eq $id}).Count-eq 1}
+ }
+}
+function StopLoads($scope,$items){
+ foreach($item in $items){$null=Mux $scope @('send-keys','-t',$item.record.backend_id,'-l','load-stop');$null=Mux $scope @('send-keys','-t',$item.record.backend_id,'Enter')
+ Wait 'independent managed load finished' {@(Journal $item.log|Where-Object{$_.event-ceq 'load-finished'-and $_.load_id-eq $item.loadID}).Count-eq 1}}
+}
+function QuitResource($scope){
+ Foreground $scope;if($scope.items.Count){ClickText $scope $scope.items[0].name};Wait 'resource management footer' {(Surface $scope).text.Contains('Alt+J/K')}
+ Guard $scope;if([DeskFlow]::Text('q')-ne 2){throw 'Quit input incomplete'};if(!$scope.manager.WaitForExit(15000)-or $scope.manager.ExitCode-ne 0){throw 'Resource UI normal quit failed'}
+ Wait 'resource endpoint released' {(Inspect $scope).endpoint-eq 0};CheckScope $scope
+}
+function CleanupScope($scope){
+ foreach($item in $scope.items){if(!$item.process.HasExited){$null=Product $scope @('stop',$item.record.session_id);if(!$item.process.WaitForExit(15000)){throw 'Resource fixture normal stop failed'}}}
+ $deadline=[DateTime]::UtcNow.AddSeconds(15)
+ do{$live=@($script:held.Values|Where-Object{!$_.process.HasExited});if(!$live.Count){break};Start-Sleep -Milliseconds 250}while([DateTime]::UtcNow-lt $deadline)
+ $r.cleanup+=@{scenario=$scope.label;normal_fixtures=@($scope.items|ForEach-Object{$_.process.HasExited});held_private_remaining=$live.Count};if($live.Count){throw 'Owned resource process remained; no broad kill'}
+}
+try{
+ Stage 'input-idle-preflight';Wait 'input idle' {[DeskFlow]::IdleMilliseconds()-ge 45000} 60
+ foreach($count in @(0,1,5,10)){
+  $scope=NewResourceScope $count;$script:current=$scope;BindResource $scope;CheckScope $scope
+  foreach($item in $scope.items){if((Mux $scope @('show-options','-t',$item.record.backend_id,'-g','-v','warm')).Trim()-cne 'off'-or (Mux $scope @('show-options','-t',$item.record.backend_id,'-g','-v','warm-pool-size')).Trim()-cne '0'){throw 'Warm process not disabled'}}
+  Phase $scope 'idle' $count
+  if($count){$one=@($scope.items[0]);LoadManaged $scope $one;Phase $scope 'single-output' $count;StopLoads $scope $one
+   if($count-gt 1){LoadManaged $scope $scope.items;Phase $scope 'all-output' $count;StopLoads $scope $scope.items}
+   Phase $scope 'recovery-idle' $count}
+  Stage ($scope.label+'/normal-ui-reopen');QuitResource $scope;BindResource $scope;CheckScope $scope;Phase $scope 'reopened-idle' $count;QuitResource $scope;CleanupScope $scope
+ }
+ foreach($count in @(1,5,10)){
+  $script:direct=@();for($i=0;$i-lt $count;$i++){$log=Join-Path $out ('direct-'+$count+'-'+$i+'.jsonl');$d=Start-RecordedProcess $fixture @() @{ASD_FIXTURE_REPORT_PATH=$log;ASD_FIXTURE_ENABLE_LOAD='1'} -DiscardOutput;$d|Add-Member -NotePropertyName log -NotePropertyValue $log;$script:direct+=$d;Wait 'direct fixture started' {@(Journal $log).Count-gt 0}}
+  Phase $null 'idle' $count
+  foreach($d in $script:direct){$d.process.StandardInput.WriteLine('load 100 256 60000');$d.process.StandardInput.Flush();Wait 'direct load started' {@(Journal $d.log|Where-Object{$_.event-ceq 'load-started'}).Count-eq 1}}
+  Phase $null 'all-output' $count
+  foreach($d in $script:direct){$d.process.StandardInput.WriteLine('load-stop');$d.process.StandardInput.WriteLine('exit');$d.process.StandardInput.Flush();if(!$d.process.WaitForExit(15000)-or $d.process.ExitCode-ne 0){throw 'Direct fixture normal exit failed'};$d.stdout.GetAwaiter().GetResult();$d.stderr.GetAwaiter().GetResult()}
+  $r.cleanup+=@{scenario=('direct-'+$count);normal_fixtures=@($script:direct|ForEach-Object{$_.process.HasExited})};$script:direct=@()
+ }
+ $r.result='verified'
+}catch{$r.result='failed';$r.stage=$script:stage;$r.error=$_.Exception.Message.Replace($env:USERPROFILE,'<USERPROFILE>')}
+finally{
+ foreach($entry in $script:windows){try{CloseOwnedWindow $entry}catch{$r.window_cleanup_blocked=$true}}
+ foreach($scope in $script:resourceScopes){try{foreach($item in $scope.items){if(!$item.process.HasExited){$null=Product $scope @('stop',$item.record.session_id);$null=$item.process.WaitForExit(15000)}}}catch{$r.cleanup_failed=$true}}
+ foreach($d in $script:direct){try{if(!$d.process.HasExited){$d.process.StandardInput.WriteLine('exit');$d.process.StandardInput.Flush();$null=$d.process.WaitForExit(15000)}}catch{$r.cleanup_failed=$true}}
+ $r.elapsed_ms=$clock.Elapsed.TotalMilliseconds;$r.total_samples=$script:sampleIndex;$r.fixture_ends=@($script:fixtures|ForEach-Object{$_.HasExited});$r.manager_ends=@($script:managers|ForEach-Object{$_.HasExited})
+ $now=[DeskFlow+P]::new();$null=[DeskFlow]::GetCursorPos([ref]$now);if($null-ne $script:lastX-and $now.X-eq $script:lastX-and $now.Y-eq $script:lastY){$r.cursor_restored=([DeskFlow]::Move($cursor.X,$cursor.Y)-eq 1)}
+ $null=[DeskFlow]::SetThreadDpiAwarenessContext($previousDpi);$r.product_sha256=(Get-FileHash $product).Hash.ToLowerInvariant();$r|ConvertTo-Json -Depth 12|Set-Content (Join-Path $out 'result.json') -Encoding utf8
+}
+} catch {@{result='failed';stage='outer-driver';error=$_.Exception.Message.Replace($env:USERPROFILE,'<USERPROFILE>');line=$_.InvocationInfo.ScriptLineNumber}|ConvertTo-Json|Set-Content (Join-Path $env:USERPROFILE 'asd-acceptance-20261122/stability-ui-resources-r1-20261127/result.json') -Encoding utf8}
+'''
+(p/'stability-ui-resources-r1.ps1').write_text(s+body)
+controller=(p/'stability-desktop-task.ps1').read_text().replace('New-TimeSpan -Minutes 5','New-TimeSpan -Minutes 30')
+(p/'stability-resource-task.ps1').write_text(controller)
+(p/'run-resources-r1.ps1').write_text("$base=Join-Path $env:USERPROFILE 'asd-acceptance-20261122'\n& ([ScriptBlock]::Create([IO.File]::ReadAllText((Join-Path $base 'stability-resource-task.ps1')))) -Driver (Join-Path $base 'stability-ui-resources-r1.ps1') -Task 'AsdStabilityResourcesR120261127' -Receipt (Join-Path $base 'stability-ui-resources-r1-20261127/result.json') -Seconds 1500\n")
+print('resource driver lines',len((s+body).splitlines()))

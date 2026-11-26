@@ -18,6 +18,9 @@ func (m *Model) settingsRow(row, width int, compact bool) string {
 	}
 	if row == 1 {
 		names, selected, labelText = []string{"Full", "Compact", "Minimal", "Auto"}, d.choice, "Sidebar density: "
+		if compact {
+			labelText = "Density: "
+		}
 	}
 	base, radio, choice, prefix := m.styles.settingsText, m.styles.settingsRadioIdle, m.styles.settingsChoiceIdle, t.sidebar.settingsIdlePrefix
 	marker := base
@@ -36,6 +39,9 @@ func (m *Model) settingsRow(row, width int, compact bool) string {
 	radioText := strings.Join(parts, base.Render(strings.Repeat(" ", t.sidebar.radioGap)))
 	if lipgloss.Width(prefix+labelText)+lipgloss.Width(radioText) > width {
 		radioText = choice.Render(t.sidebar.radioMarker + names[selected])
+		if lipgloss.Width(prefix+labelText)+lipgloss.Width(radioText) > width {
+			labelText = ""
+		}
 	}
 	line := marker.Render(prefix) + base.Render(labelText) + radioText
 	return line + base.Render(strings.Repeat(" ", max(0, width-lipgloss.Width(line))))

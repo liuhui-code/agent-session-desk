@@ -39,7 +39,7 @@ func TestHistoryOpensOnDemandAndEnterNeverAttaches(t *testing.T) {
 		m.Update(cmd())
 	}
 	view = ansi.Strip(m.View().Content)
-	if attaches != 0 || !strings.Contains(view, "historical-run") || !strings.Contains(view, "只读") {
+	if attaches != 0 || !strings.Contains(view, "historical-run") || !strings.Contains(view, "Read-only") {
 		t.Fatalf("history Enter was not read-only: %s", view)
 	}
 	m.Update(tea.KeyPressMsg{Code: tea.KeyEscape})
@@ -136,7 +136,7 @@ func TestHistoryDetailsWrapScrollAndKeepObservationsSeparate(t *testing.T) {
 	m.Update(cmd())
 	m.Update(tea.KeyPressMsg{Code: tea.KeyEnter})
 	full := ansi.Strip(m.View().Content)
-	for _, want := range []string{"historical-session", "historical-run", "agent", "2026-11-22T03:04:05Z", "psmux.pane_dead", "%7", "Exit code: unknown"} {
+	for _, want := range []string{"historical-session", "historical-run", "Agent result: unknown", "2026-11-22T03:04:05Z", "psmux.pane_dead", "%7", "Exit code: unknown"} {
 		if !strings.Contains(full, want) {
 			t.Fatalf("missing detail %q: %s", want, full)
 		}
@@ -188,7 +188,7 @@ func TestHistoryRefreshPreservesRunIdentityAndHandlesErrors(t *testing.T) {
 	_, cmd = m.Update(tea.KeyPressMsg{Code: 'r'})
 	m.Update(cmd())
 	view := m.View().Content
-	if !strings.Contains(ansi.Strip(view), "读取History失败") || strings.Contains(view, "\x1b]52;") {
+	if !strings.Contains(ansi.Strip(view), "Failed to load history") || strings.Contains(view, "\x1b]52;") {
 		t.Fatal("history failure missing or unsafe")
 	}
 	readErr = nil

@@ -1,0 +1,47 @@
+{
+  "error": "Timed out: original fixture surface ready; no automatic replay",
+  "forced_product_ends": 0,
+  "registry_writes": 0,
+  "automatic_input_replay": false,
+  "manager_ends": [
+    true
+  ],
+  "product_sha256": "0af83573d9e5aee55e26a31ff32aab84aa1da45b6e58523b9ff220abc49a330f",
+  "clipboard_calls": 0,
+  "switches": 40,
+  "fixture_ends": [
+    true,
+    true
+  ],
+  "stages": [
+    {
+      "utc": "2026-11-26T17:01:47.0874341Z",
+      "stage": "input-idle-preflight"
+    },
+    {
+      "utc": "2026-11-26T17:01:49.6802794Z",
+      "stage": "committed-unicode-input-and-independent-receipts"
+    },
+    {
+      "utc": "2026-11-26T17:01:50.7690456Z",
+      "stage": "forty-real-alt-session-switches"
+    },
+    {
+      "utc": "2026-11-26T17:01:59.7338566Z",
+      "stage": "collapsed-sidebar-navigation"
+    },
+    {
+      "utc": "2026-11-26T17:02:00.4929943Z",
+      "stage": "f2-save-and-cancel-return-to-native-draft"
+    },
+    {
+      "utc": "2026-11-26T17:02:01.5439265Z",
+      "stage": "help-consumes-input-without-child-leak"
+    }
+  ],
+  "intentional_owned_ui_crashes": 0,
+  "session_content_exported": 0,
+  "stage": "help-consumes-input-without-child-leak",
+  "result": "failed",
+  "cursor_restored": true
+}

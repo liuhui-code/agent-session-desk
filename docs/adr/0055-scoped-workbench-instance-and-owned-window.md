@@ -25,3 +25,7 @@ Windows 每个交互登录会话、当前用户与数据作用域最多一个参
 首次升级须先退出不参与本协议的旧版 UI；不自动接管／关闭旧版。同宿主额外原生 Tab 的精确选择、混合权限／多用户、全部路径别名、多屏、资源及完整发布接受仍独立开放。UI 异常退出后宿主可能保留错误页／窗口属性；在线判断以存活 mutex 与端点进程为准，不能据旧窗口属性声称仍在线。
 
 依据为 Context7 查询的 Microsoft [CreateMutexW](https://learn.microsoft.com/en-us/windows/win32/api/synchapi/nf-synchapi-createmutexw)、[FindWindowExW](https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-findwindowexw)、[SendMessageTimeoutW](https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-sendmessagetimeoutw)、[GetFinalPathNameByHandleW](https://learn.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-getfinalpathnamebyhandlew)及 [Terminal 参数源码](https://github.com/microsoft/terminal/blob/main/src/cascadia/TerminalApp/AppCommandlineArgs.cpp)。索引的 main 只解释接口，实际支持仍以固定本机 Terminal 的执行为准。
+
+2026-11-27 稳定性复验补充：本轮生命周期组合完成正常 q 与受控原 UI 强制结束后的重新启动，原 Run／未提交草稿及行序保留，子程序异常退出不结束管理器。主动故障与兜底清理分别计数；8 小时及完整发布接受仍需独立结果。详见[本轮证据与限制](../testing/results/2026-11-27-stability.md)。既有架构、依赖和未决门槛保持。
+
+同日输入组合 R5 追加：实际 5 路并发启动全部恢复同一原 manager／HWND，只有一只猫，草稿保留；它与原生互斥 helper 结果分开计账，见上述报告。

@@ -1,0 +1,7 @@
+import os,subprocess,pathlib,json,time
+p=pathlib.Path('/private/tmp/asd-stability-20261127');env=os.environ.copy();env.update(GOCACHE=str(p/'go-cache'),GOMODCACHE=str(p/'mod-cache'),GOPATH=str(p/'go-path'),GOTOOLCHAIN='local')
+commands=[['/private/tmp/git-intent-tools/go/bin/go','mod','verify'],['python3','-B','tools/ci/check_source_limits.py'],['python3','-B','tools/test_catalog.py','check','--generated']]
+results=[]
+for i,c in enumerate(commands):
+ t=time.time();r=subprocess.run(c,env=env,capture_output=True,text=True);(p/f'final-check-{i}.txt').write_text(r.stdout+r.stderr);results.append({'command':c,'exit_code':r.returncode,'elapsed_seconds':time.time()-t})
+(p/'final-checks.json').write_text(json.dumps(results,indent=2)+'\n');print(json.dumps(results))

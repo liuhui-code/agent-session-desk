@@ -1,0 +1,39 @@
+{
+  "automatic_input_replay": false,
+  "concurrent_same_scope_launches": 5,
+  "registry_writes": 0,
+  "clipboard_calls": "backup and controlled subflow only; original values never exported",
+  "product_sha256": "0af83573d9e5aee55e26a31ff32aab84aa1da45b6e58523b9ff220abc49a330f",
+  "stages": [
+    {
+      "stage": "input-idle-preflight",
+      "utc": "2026-11-26T17:50:32.8204140Z"
+    },
+    {
+      "stage": "five-concurrent-launches-reuse-exact-workbench",
+      "utc": "2026-11-26T17:50:35.4520881Z"
+    },
+    {
+      "stage": "vt-real-input-ctrl-c-and-program-mouse",
+      "utc": "2026-11-26T17:50:35.6464173Z"
+    }
+  ],
+  "resize_observations": [],
+  "intentional_owned_ui_crashes": 0,
+  "session_content_exported": 0,
+  "probe_ends": [
+    true
+  ],
+  "result": "failed",
+  "cursor_restored": true,
+  "stage": "vt-real-input-ctrl-c-and-program-mouse",
+  "owned_failure_surface": "                                                                                                                                                            \r\n  ▾ My Sessions (2)             INPUT_VT_READY                                                                                                              \r\n                                Controlled native input; q exits                                                                                            \r\n    Instance A                │                                                                                                                             \r\n                              │                                                                                                                             \r\n  ┃ Probe VT                  │                                                                                                                             \r\n                              │                                                                                                                             \r\n                              │                                                                                                                             \r\n                              │                                                                                                                             \r\n                              │                                                                                                                             \r\n                              │                                                                                                                             \r\n                              │                                                                                                                             \r\n                              │                                                                                                                             \r\n                              │                                                                                                                             \r\n                              │                                                                                                                             \r\n                              │                                                                                                                             \r\n                              │                                                                                                                             \r\n                              │                                                                                                                             \r\n                              │                                                                                                                             \r\n                              │                                                                                                                             \r\n                              │                                                                                                                             \r\n                              │                                                                                                                             \r\n                              │                                                                                                                             \r\n                              │                                                                                                                             \r\n                              │                                                                                                                             \r\n                              │                                                                                                                             \r\n                              │                                                                                                                             \r\n                              │                                                                                                                             \r\n                              │                                                                                                                             \r\n                              │                                                                                                                             \r\n                              │                                                                                                                             \r\n                              │                                                                                                                             \r\n                              │                                                                                                                             \r\n                              │                                                                                                                             \r\n                              │                                                                                                                             \r\n                              │                                                                                                                             \r\n",
+  "fixture_ends": [
+    true
+  ],
+  "manager_ends": [
+    true
+  ],
+  "error": "Timed out: independent VT unicode and ctrl-c; no automatic replay",
+  "forced_product_ends": 0
+}

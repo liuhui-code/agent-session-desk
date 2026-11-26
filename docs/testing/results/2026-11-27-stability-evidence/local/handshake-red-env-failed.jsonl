@@ -1,0 +1,76 @@
+go: downloading github.com/charmbracelet/x/ansi v0.11.9
+{"ImportPath":"context","Action":"build-output","Output":"# github.com/liuhui-code/agent-session-desk/internal/backend\n"}
+{"ImportPath":"context","Action":"build-output","Output":"internal/backend/backend.go:6:2: charm.land/bubbletea/v2@v2.1.2: GOPROXY list is not the empty string, but contains no entries\n"}
+{"ImportPath":"context","Action":"build-fail"}
+{"ImportPath":"crypto/sha256","Action":"build-output","Output":"# github.com/liuhui-code/agent-session-desk/internal/backend\n"}
+{"ImportPath":"crypto/sha256","Action":"build-output","Output":"internal/backend/bundle.go:5:2: charm.land/bubbletea/v2@v2.1.2: GOPROXY list is not the empty string, but contains no entries\n"}
+{"ImportPath":"crypto/sha256","Action":"build-fail"}
+{"ImportPath":"encoding/base64","Action":"build-output","Output":"# github.com/liuhui-code/agent-session-desk/internal/backend\n"}
+{"ImportPath":"encoding/base64","Action":"build-output","Output":"internal/backend/backend.go:7:2: charm.land/bubbletea/v2@v2.1.2: GOPROXY list is not the empty string, but contains no entries\n"}
+{"ImportPath":"encoding/base64","Action":"build-fail"}
+{"ImportPath":"encoding/hex","Action":"build-output","Output":"# github.com/liuhui-code/agent-session-desk/internal/backend\n"}
+{"ImportPath":"encoding/hex","Action":"build-output","Output":"internal/backend/bundle.go:6:2: charm.land/bubbletea/v2@v2.1.2: GOPROXY list is not the empty string, but contains no entries\n"}
+{"ImportPath":"encoding/hex","Action":"build-fail"}
+{"ImportPath":"encoding/json","Action":"build-output","Output":"# github.com/liuhui-code/agent-session-desk/internal/backend\n"}
+{"ImportPath":"encoding/json","Action":"build-output","Output":"internal/backend/backend.go:8:2: charm.land/bubbletea/v2@v2.1.2: GOPROXY list is not the empty string, but contains no entries\n"}
+{"ImportPath":"encoding/json","Action":"build-fail"}
+{"ImportPath":"errors","Action":"build-output","Output":"# github.com/liuhui-code/agent-session-desk/internal/backend\n"}
+{"ImportPath":"errors","Action":"build-output","Output":"internal/backend/backend.go:9:2: charm.land/bubbletea/v2@v2.1.2: GOPROXY list is not the empty string, but contains no entries\n"}
+{"ImportPath":"errors","Action":"build-fail"}
+{"ImportPath":"fmt","Action":"build-output","Output":"# github.com/liuhui-code/agent-session-desk/internal/backend\n"}
+{"ImportPath":"fmt","Action":"build-output","Output":"internal/backend/backend.go:10:2: charm.land/bubbletea/v2@v2.1.2: GOPROXY list is not the empty string, but contains no entries\n"}
+{"ImportPath":"fmt","Action":"build-fail"}
+{"ImportPath":"crypto/rand","Action":"build-output","Output":"# github.com/liuhui-code/agent-session-desk/internal/backend\n"}
+{"ImportPath":"crypto/rand","Action":"build-output","Output":"internal/session/reply.go:4:2: charm.land/bubbletea/v2@v2.1.2: GOPROXY list is not the empty string, but contains no entries\n"}
+{"ImportPath":"crypto/rand","Action":"build-fail"}
+{"ImportPath":"os","Action":"build-output","Output":"# github.com/liuhui-code/agent-session-desk/internal/backend\n"}
+{"ImportPath":"os","Action":"build-output","Output":"internal/session/launch.go:5:2: charm.land/bubbletea/v2@v2.1.2: GOPROXY list is not the empty string, but contains no entries\n"}
+{"ImportPath":"os","Action":"build-fail"}
+{"ImportPath":"path/filepath","Action":"build-output","Output":"# github.com/liuhui-code/agent-session-desk/internal/backend\n"}
+{"ImportPath":"path/filepath","Action":"build-output","Output":"internal/session/launch.go:6:2: charm.land/bubbletea/v2@v2.1.2: GOPROXY list is not the empty string, but contains no entries\n"}
+{"ImportPath":"path/filepath","Action":"build-fail"}
+{"ImportPath":"runtime","Action":"build-output","Output":"# github.com/liuhui-code/agent-session-desk/internal/backend\n"}
+{"ImportPath":"runtime","Action":"build-output","Output":"internal/session/launch.go:7:2: charm.land/bubbletea/v2@v2.1.2: GOPROXY list is not the empty string, but contains no entries\n"}
+{"ImportPath":"runtime","Action":"build-fail"}
+{"ImportPath":"sort","Action":"build-output","Output":"# github.com/liuhui-code/agent-session-desk/internal/backend\n"}
+{"ImportPath":"sort","Action":"build-output","Output":"internal/session/order.go:3:8: charm.land/bubbletea/v2@v2.1.2: GOPROXY list is not the empty string, but contains no entries\n"}
+{"ImportPath":"sort","Action":"build-fail"}
+{"ImportPath":"strings","Action":"build-output","Output":"# github.com/liuhui-code/agent-session-desk/internal/backend\n"}
+{"ImportPath":"strings","Action":"build-output","Output":"internal/session/group.go:9:2: charm.land/bubbletea/v2@v2.1.2: GOPROXY list is not the empty string, but contains no entries\n"}
+{"ImportPath":"strings","Action":"build-fail"}
+{"ImportPath":"time","Action":"build-output","Output":"# github.com/liuhui-code/agent-session-desk/internal/backend\n"}
+{"ImportPath":"time","Action":"build-output","Output":"internal/session/attention.go:8:2: charm.land/bubbletea/v2@v2.1.2: GOPROXY list is not the empty string, but contains no entries\n"}
+{"ImportPath":"time","Action":"build-fail"}
+{"ImportPath":"unicode","Action":"build-output","Output":"# github.com/liuhui-code/agent-session-desk/internal/backend\n"}
+{"ImportPath":"unicode","Action":"build-output","Output":"internal/session/attention.go:9:2: charm.land/bubbletea/v2@v2.1.2: GOPROXY list is not the empty string, but contains no entries\n"}
+{"ImportPath":"unicode","Action":"build-fail"}
+{"ImportPath":"unicode/utf8","Action":"build-output","Output":"# github.com/liuhui-code/agent-session-desk/internal/backend\n"}
+{"ImportPath":"unicode/utf8","Action":"build-output","Output":"internal/session/attention.go:10:2: charm.land/bubbletea/v2@v2.1.2: GOPROXY list is not the empty string, but contains no entries\n"}
+{"ImportPath":"unicode/utf8","Action":"build-fail"}
+{"ImportPath":"bufio","Action":"build-output","Output":"# github.com/liuhui-code/agent-session-desk/internal/backend\n"}
+{"ImportPath":"bufio","Action":"build-output","Output":"internal/terminal/headless_paste.go:4:2: charm.land/bubbletea/v2@v2.1.2: GOPROXY list is not the empty string, but contains no entries\n"}
+{"ImportPath":"bufio","Action":"build-fail"}
+{"ImportPath":"github.com/charmbracelet/x/ansi","Action":"build-output","Output":"# github.com/liuhui-code/agent-session-desk/internal/backend\n"}
+{"ImportPath":"github.com/charmbracelet/x/ansi","Action":"build-output","Output":"internal/terminal/capture_encoding.go:4:2: GOPROXY list is not the empty string, but contains no entries\n"}
+{"ImportPath":"github.com/charmbracelet/x/ansi","Action":"build-fail"}
+{"ImportPath":"net","Action":"build-output","Output":"# github.com/liuhui-code/agent-session-desk/internal/backend\n"}
+{"ImportPath":"net","Action":"build-output","Output":"internal/terminal/headless_paste.go:11:2: charm.land/bubbletea/v2@v2.1.2: GOPROXY list is not the empty string, but contains no entries\n"}
+{"ImportPath":"net","Action":"build-fail"}
+{"ImportPath":"regexp","Action":"build-output","Output":"# github.com/liuhui-code/agent-session-desk/internal/backend\n"}
+{"ImportPath":"regexp","Action":"build-output","Output":"internal/terminal/input.go:8:2: charm.land/bubbletea/v2@v2.1.2: GOPROXY list is not the empty string, but contains no entries\n"}
+{"ImportPath":"regexp","Action":"build-fail"}
+{"ImportPath":"strconv","Action":"build-output","Output":"# github.com/liuhui-code/agent-session-desk/internal/backend\n"}
+{"ImportPath":"strconv","Action":"build-output","Output":"internal/terminal/render.go:5:2: charm.land/bubbletea/v2@v2.1.2: GOPROXY list is not the empty string, but contains no entries\n"}
+{"ImportPath":"strconv","Action":"build-fail"}
+{"ImportPath":"sync","Action":"build-output","Output":"# github.com/liuhui-code/agent-session-desk/internal/backend\n"}
+{"ImportPath":"sync","Action":"build-output","Output":"internal/terminal/psmux.go:10:2: charm.land/bubbletea/v2@v2.1.2: GOPROXY list is not the empty string, but contains no entries\n"}
+{"ImportPath":"sync","Action":"build-fail"}
+{"ImportPath":"io","Action":"build-output","Output":"# github.com/liuhui-code/agent-session-desk/internal/backend\n"}
+{"ImportPath":"io","Action":"build-output","Output":"internal/backend/bundle.go:9:2: charm.land/bubbletea/v2@v2.1.2: GOPROXY list is not the empty string, but contains no entries\n"}
+{"ImportPath":"io","Action":"build-fail"}
+{"ImportPath":"os/exec","Action":"build-output","Output":"# github.com/liuhui-code/agent-session-desk/internal/backend\n"}
+{"ImportPath":"os/exec","Action":"build-output","Output":"internal/backend/backend.go:12:2: charm.land/bubbletea/v2@v2.1.2: GOPROXY list is not the empty string, but contains no entries\n"}
+{"ImportPath":"os/exec","Action":"build-fail"}
+{"Time":"2026-11-27T00:36:05.233603+08:00","Action":"start","Package":"github.com/liuhui-code/agent-session-desk/internal/backend"}
+{"Time":"2026-11-27T00:36:05.234077+08:00","Action":"output","Package":"github.com/liuhui-code/agent-session-desk/internal/backend","Output":"FAIL\tgithub.com/liuhui-code/agent-session-desk/internal/backend [setup failed]\n","OutputType":"frame"}
+{"Time":"2026-11-27T00:36:05.234282+08:00","Action":"fail","Package":"github.com/liuhui-code/agent-session-desk/internal/backend","Elapsed":0.001,"FailedBuild":"context"}

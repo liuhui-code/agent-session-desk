@@ -1,0 +1,9 @@
+{
+  "artifact": "document-green-r2.test.exe",
+  "sha256": "d2c459c3e3bcd0ba559faba7e334c905c45a64108fd66da4a55c5238fb37cafc",
+  "source_sha256": "48e6d5978f36f4143c62915568fea1dc7cafcc8f53c37e98b58c3c735c7f1a1f",
+  "test_run": "document-green-r2-result.json",
+  "initial_manifest_delta": [
+    "internal/document/open_windows_test.go"
+  ]
+}

@@ -1,0 +1,1783 @@
+{
+  "result": "verified",
+  "samples": 264,
+  "phases": [
+    {
+      "scenario": "managed-0",
+      "phase": "idle",
+      "samples": 12,
+      "complete_product_observation": 12,
+      "product_read_gaps": {},
+      "ui_private_bytes": {
+        "min": 60698624,
+        "p50": 61153280,
+        "p95": 61661184,
+        "max": 61661184
+      },
+      "observed_product_tree_private_bytes": {
+        "min": 60698624,
+        "p50": 61153280,
+        "p95": 61661184,
+        "max": 61661184
+      },
+      "role_private_bytes": {
+        "ui": {
+          "min": 60698624,
+          "p50": 61153280,
+          "p95": 61661184,
+          "max": 61661184
+        }
+      },
+      "observed_cpu_delta_lower_bound_ms": 562.5,
+      "expected_output_fixtures": 0,
+      "payload_observations_for_phase": [],
+      "output_window_coverage_verified": false,
+      "observed_core_excluding_fixture_private_bytes": {
+        "p50": 61153280,
+        "p95": 61661184,
+        "max": 61661184
+      },
+      "observed_core_handles": {
+        "p50": 244,
+        "p95": 247,
+        "max": 247
+      },
+      "ui_handles": {
+        "p50": 244,
+        "p95": 247,
+        "max": 247
+      }
+    },
+    {
+      "scenario": "managed-0",
+      "phase": "reopened-idle",
+      "samples": 12,
+      "complete_product_observation": 11,
+      "product_read_gaps": {
+        "previous_owned_not_observed": 1
+      },
+      "ui_private_bytes": {
+        "min": 59834368,
+        "p50": 60678144,
+        "p95": 61423616,
+        "max": 61423616
+      },
+      "observed_product_tree_private_bytes": {
+        "min": 59834368,
+        "p50": 60678144,
+        "p95": 61423616,
+        "max": 61423616
+      },
+      "role_private_bytes": {
+        "ui": {
+          "min": 59834368,
+          "p50": 60678144,
+          "p95": 61423616,
+          "max": 61423616
+        }
+      },
+      "observed_cpu_delta_lower_bound_ms": 265.625,
+      "expected_output_fixtures": 0,
+      "payload_observations_for_phase": [],
+      "output_window_coverage_verified": false,
+      "observed_core_excluding_fixture_private_bytes": {
+        "p50": 60678144,
+        "p95": 61423616,
+        "max": 61423616
+      },
+      "observed_core_handles": {
+        "p50": 234,
+        "p95": 254,
+        "max": 254
+      },
+      "ui_handles": {
+        "p50": 234,
+        "p95": 254,
+        "max": 254
+      }
+    },
+    {
+      "scenario": "managed-1",
+      "phase": "idle",
+      "samples": 12,
+      "complete_product_observation": 11,
+      "product_read_gaps": {
+        "previous_owned_not_observed": 1
+      },
+      "ui_private_bytes": {
+        "min": 61149184,
+        "p50": 61607936,
+        "p95": 62373888,
+        "max": 62373888
+      },
+      "observed_product_tree_private_bytes": {
+        "min": 121970688,
+        "p50": 122429440,
+        "p95": 123195392,
+        "max": 123195392
+      },
+      "role_private_bytes": {
+        "ui": {
+          "min": 61149184,
+          "p50": 61607936,
+          "p95": 62373888,
+          "max": 62373888
+        },
+        "console_aux": {
+          "min": 7098368,
+          "p50": 7098368,
+          "p95": 7098368,
+          "max": 7098368
+        },
+        "fixture": {
+          "min": 48889856,
+          "p50": 48889856,
+          "p95": 48889856,
+          "max": 48889856
+        },
+        "backend_console": {
+          "min": 2019328,
+          "p50": 2019328,
+          "p95": 2019328,
+          "max": 2019328
+        },
+        "backend_server": {
+          "min": 2674688,
+          "p50": 2813952,
+          "p95": 2813952,
+          "max": 2813952
+        }
+      },
+      "observed_cpu_delta_lower_bound_ms": 437.5,
+      "expected_output_fixtures": 0,
+      "payload_observations_for_phase": [],
+      "output_window_coverage_verified": false,
+      "observed_core_excluding_fixture_private_bytes": {
+        "p50": 73539584,
+        "p95": 74305536,
+        "max": 74305536
+      },
+      "observed_core_handles": {
+        "p50": 655,
+        "p95": 655,
+        "max": 655
+      },
+      "ui_handles": {
+        "p50": 268,
+        "p95": 268,
+        "max": 268
+      }
+    },
+    {
+      "scenario": "managed-1",
+      "phase": "single-output",
+      "samples": 12,
+      "complete_product_observation": 11,
+      "product_read_gaps": {
+        "process_read_failed": 1
+      },
+      "ui_private_bytes": {
+        "min": 61620224,
+        "p50": 61755392,
+        "p95": 62590976,
+        "max": 62590976
+      },
+      "observed_product_tree_private_bytes": {
+        "min": 126763008,
+        "p50": 131575808,
+        "p95": 132837376,
+        "max": 132837376
+      },
+      "role_private_bytes": {
+        "ui": {
+          "min": 61620224,
+          "p50": 61755392,
+          "p95": 62590976,
+          "max": 62590976
+        },
+        "console_aux": {
+          "min": 7069696,
+          "p50": 7098368,
+          "p95": 7098368,
+          "max": 7098368
+        },
+        "fixture": {
+          "min": 49418240,
+          "p50": 49672192,
+          "p95": 49991680,
+          "max": 49991680
+        },
+        "backend_console": {
+          "min": 2027520,
+          "p50": 2027520,
+          "p95": 2027520,
+          "max": 2027520
+        },
+        "backend_server": {
+          "min": 6443008,
+          "p50": 11018240,
+          "p95": 11157504,
+          "max": 11157504
+        }
+      },
+      "observed_cpu_delta_lower_bound_ms": 5406.25,
+      "expected_output_fixtures": 1,
+      "payload_observations_for_phase": [
+        {
+          "fixture": "managed-1/fixture-0.jsonl",
+          "load_id": 1,
+          "lines": 1458,
+          "bytes": 373248,
+          "start": "2026-11-26T17:43:24.8198009Z",
+          "end": "2026-11-26T17:43:39.4085389Z",
+          "status": "cancelled",
+          "covers_phase_samples": true,
+          "byte_count_consistent": true
+        }
+      ],
+      "output_window_coverage_verified": true,
+      "observed_core_excluding_fixture_private_bytes": {
+        "p50": 81821696,
+        "p95": 82845696,
+        "max": 82845696
+      },
+      "observed_core_handles": {
+        "p50": 659,
+        "p95": 662,
+        "max": 662
+      },
+      "ui_handles": {
+        "p50": 270,
+        "p95": 273,
+        "max": 273
+      }
+    },
+    {
+      "scenario": "managed-1",
+      "phase": "recovery-idle",
+      "samples": 12,
+      "complete_product_observation": 12,
+      "product_read_gaps": {},
+      "ui_private_bytes": {
+        "min": 62099456,
+        "p50": 62459904,
+        "p95": 63057920,
+        "max": 63057920
+      },
+      "observed_product_tree_private_bytes": {
+        "min": 132354048,
+        "p50": 132714496,
+        "p95": 133312512,
+        "max": 133312512
+      },
+      "role_private_bytes": {
+        "ui": {
+          "min": 62099456,
+          "p50": 62459904,
+          "p95": 63057920,
+          "max": 63057920
+        },
+        "console_aux": {
+          "min": 7069696,
+          "p50": 7069696,
+          "p95": 7069696,
+          "max": 7069696
+        },
+        "fixture": {
+          "min": 50081792,
+          "p50": 50081792,
+          "p95": 50081792,
+          "max": 50081792
+        },
+        "backend_console": {
+          "min": 2027520,
+          "p50": 2027520,
+          "p95": 2027520,
+          "max": 2027520
+        },
+        "backend_server": {
+          "min": 11075584,
+          "p50": 11075584,
+          "p95": 11075584,
+          "max": 11075584
+        }
+      },
+      "observed_cpu_delta_lower_bound_ms": 593.75,
+      "expected_output_fixtures": 0,
+      "payload_observations_for_phase": [],
+      "output_window_coverage_verified": false,
+      "observed_core_excluding_fixture_private_bytes": {
+        "p50": 82632704,
+        "p95": 83230720,
+        "max": 83230720
+      },
+      "observed_core_handles": {
+        "p50": 659,
+        "p95": 659,
+        "max": 659
+      },
+      "ui_handles": {
+        "p50": 270,
+        "p95": 270,
+        "max": 270
+      }
+    },
+    {
+      "scenario": "managed-1",
+      "phase": "reopened-idle",
+      "samples": 12,
+      "complete_product_observation": 10,
+      "product_read_gaps": {
+        "previous_owned_not_observed": 1,
+        "process_read_failed": 1
+      },
+      "ui_private_bytes": {
+        "min": 61206528,
+        "p50": 62054400,
+        "p95": 62603264,
+        "max": 62603264
+      },
+      "observed_product_tree_private_bytes": {
+        "min": 131911680,
+        "p50": 132759552,
+        "p95": 133308416,
+        "max": 133308416
+      },
+      "role_private_bytes": {
+        "ui": {
+          "min": 61206528,
+          "p50": 62054400,
+          "p95": 62603264,
+          "max": 62603264
+        },
+        "console_aux": {
+          "min": 7041024,
+          "p50": 7069696,
+          "p95": 7069696,
+          "max": 7069696
+        },
+        "fixture": {
+          "min": 50081792,
+          "p50": 50081792,
+          "p95": 50081792,
+          "max": 50081792
+        },
+        "backend_console": {
+          "min": 2031616,
+          "p50": 2031616,
+          "p95": 2031616,
+          "max": 2031616
+        },
+        "backend_server": {
+          "min": 11522048,
+          "p50": 11522048,
+          "p95": 11522048,
+          "max": 11522048
+        }
+      },
+      "observed_cpu_delta_lower_bound_ms": 750.0,
+      "expected_output_fixtures": 0,
+      "payload_observations_for_phase": [],
+      "output_window_coverage_verified": false,
+      "observed_core_excluding_fixture_private_bytes": {
+        "p50": 82677760,
+        "p95": 83226624,
+        "max": 83226624
+      },
+      "observed_core_handles": {
+        "p50": 655,
+        "p95": 659,
+        "max": 659
+      },
+      "ui_handles": {
+        "p50": 266,
+        "p95": 270,
+        "max": 270
+      }
+    },
+    {
+      "scenario": "managed-5",
+      "phase": "idle",
+      "samples": 12,
+      "complete_product_observation": 5,
+      "product_read_gaps": {
+        "previous_owned_not_observed": 5,
+        "process_read_failed": 6
+      },
+      "ui_private_bytes": {
+        "min": 61575168,
+        "p50": 61771776,
+        "p95": 62140416,
+        "max": 62140416
+      },
+      "observed_product_tree_private_bytes": {
+        "min": 361582592,
+        "p50": 361762816,
+        "p95": 362131456,
+        "max": 362131456
+      },
+      "role_private_bytes": {
+        "ui": {
+          "min": 61575168,
+          "p50": 61771776,
+          "p95": 62140416,
+          "max": 62140416
+        },
+        "console_aux": {
+          "min": 35368960,
+          "p50": 35368960,
+          "p95": 35368960,
+          "max": 35368960
+        },
+        "fixture": {
+          "min": 243552256,
+          "p50": 243552256,
+          "p95": 243552256,
+          "max": 243552256
+        },
+        "backend_console": {
+          "min": 10063872,
+          "p50": 10063872,
+          "p95": 10063872,
+          "max": 10063872
+        },
+        "backend_server": {
+          "min": 11001856,
+          "p50": 11005952,
+          "p95": 11026432,
+          "max": 11026432
+        }
+      },
+      "observed_cpu_delta_lower_bound_ms": 953.125,
+      "expected_output_fixtures": 0,
+      "payload_observations_for_phase": [],
+      "output_window_coverage_verified": false,
+      "observed_core_excluding_fixture_private_bytes": {
+        "p50": 118210560,
+        "p95": 118579200,
+        "max": 118579200
+      },
+      "observed_core_handles": {
+        "p50": 2154,
+        "p95": 2154,
+        "max": 2154
+      },
+      "ui_handles": {
+        "p50": 270,
+        "p95": 270,
+        "max": 270
+      }
+    },
+    {
+      "scenario": "managed-5",
+      "phase": "single-output",
+      "samples": 12,
+      "complete_product_observation": 9,
+      "product_read_gaps": {
+        "process_read_failed": 3
+      },
+      "ui_private_bytes": {
+        "min": 61501440,
+        "p50": 61947904,
+        "p95": 62517248,
+        "max": 62517248
+      },
+      "observed_product_tree_private_bytes": {
+        "min": 366432256,
+        "p50": 370405376,
+        "p95": 371032064,
+        "max": 371032064
+      },
+      "role_private_bytes": {
+        "ui": {
+          "min": 61501440,
+          "p50": 61947904,
+          "p95": 62517248,
+          "max": 62517248
+        },
+        "console_aux": {
+          "min": 35225600,
+          "p50": 35368960,
+          "p95": 35368960,
+          "max": 35368960
+        },
+        "fixture": {
+          "min": 243830784,
+          "p50": 244076544,
+          "p95": 244187136,
+          "max": 244187136
+        },
+        "backend_console": {
+          "min": 10072064,
+          "p50": 10072064,
+          "p95": 10072064,
+          "max": 10072064
+        },
+        "backend_server": {
+          "min": 14708736,
+          "p50": 18841600,
+          "p95": 19263488,
+          "max": 19263488
+        }
+      },
+      "observed_cpu_delta_lower_bound_ms": 6015.625,
+      "expected_output_fixtures": 1,
+      "payload_observations_for_phase": [
+        {
+          "fixture": "managed-5/fixture-0.jsonl",
+          "load_id": 1,
+          "lines": 1562,
+          "bytes": 399872,
+          "start": "2026-11-26T17:44:31.2237209Z",
+          "end": "2026-11-26T17:44:46.8508496Z",
+          "status": "cancelled",
+          "covers_phase_samples": true,
+          "byte_count_consistent": true
+        }
+      ],
+      "output_window_coverage_verified": true,
+      "observed_core_excluding_fixture_private_bytes": {
+        "p50": 126222336,
+        "p95": 126906368,
+        "max": 126906368
+      },
+      "observed_core_handles": {
+        "p50": 2156,
+        "p95": 2166,
+        "max": 2166
+      },
+      "ui_handles": {
+        "p50": 270,
+        "p95": 280,
+        "max": 280
+      }
+    },
+    {
+      "scenario": "managed-5",
+      "phase": "all-output",
+      "samples": 12,
+      "complete_product_observation": 11,
+      "product_read_gaps": {
+        "process_read_failed": 1
+      },
+      "ui_private_bytes": {
+        "min": 61849600,
+        "p50": 62177280,
+        "p95": 62636032,
+        "max": 62636032
+      },
+      "observed_product_tree_private_bytes": {
+        "min": 390123520,
+        "p50": 407764992,
+        "p95": 410071040,
+        "max": 410071040
+      },
+      "role_private_bytes": {
+        "ui": {
+          "min": 61849600,
+          "p50": 62177280,
+          "p95": 62636032,
+          "max": 62636032
+        },
+        "console_aux": {
+          "min": 35225600,
+          "p50": 35225600,
+          "p95": 35225600,
+          "max": 35225600
+        },
+        "fixture": {
+          "min": 247529472,
+          "p50": 248979456,
+          "p95": 250777600,
+          "max": 250777600
+        },
+        "backend_console": {
+          "min": 10104832,
+          "p50": 10104832,
+          "p95": 10104832,
+          "max": 10104832
+        },
+        "backend_server": {
+          "min": 34816000,
+          "p50": 51474432,
+          "p95": 51752960,
+          "max": 51752960
+        }
+      },
+      "observed_cpu_delta_lower_bound_ms": 5828.125,
+      "expected_output_fixtures": 5,
+      "payload_observations_for_phase": [
+        {
+          "fixture": "managed-5/fixture-1.jsonl",
+          "load_id": 1,
+          "lines": 1632,
+          "bytes": 417792,
+          "start": "2026-11-26T17:44:47.6508882Z",
+          "end": "2026-11-26T17:45:03.9779146Z",
+          "status": "cancelled",
+          "covers_phase_samples": true,
+          "byte_count_consistent": true
+        },
+        {
+          "fixture": "managed-5/fixture-3.jsonl",
+          "load_id": 1,
+          "lines": 1627,
+          "bytes": 416512,
+          "start": "2026-11-26T17:44:47.917602Z",
+          "end": "2026-11-26T17:45:04.1939078Z",
+          "status": "cancelled",
+          "covers_phase_samples": true,
+          "byte_count_consistent": true
+        },
+        {
+          "fixture": "managed-5/fixture-4.jsonl",
+          "load_id": 1,
+          "lines": 1628,
+          "bytes": 416768,
+          "start": "2026-11-26T17:44:48.0303338Z",
+          "end": "2026-11-26T17:45:04.3169689Z",
+          "status": "cancelled",
+          "covers_phase_samples": true,
+          "byte_count_consistent": true
+        },
+        {
+          "fixture": "managed-5/fixture-2.jsonl",
+          "load_id": 1,
+          "lines": 1628,
+          "bytes": 416768,
+          "start": "2026-11-26T17:44:47.8031611Z",
+          "end": "2026-11-26T17:45:04.0850119Z",
+          "status": "cancelled",
+          "covers_phase_samples": true,
+          "byte_count_consistent": true
+        },
+        {
+          "fixture": "managed-5/fixture-0.jsonl",
+          "load_id": 2,
+          "lines": 1647,
+          "bytes": 421632,
+          "start": "2026-11-26T17:44:47.3894671Z",
+          "end": "2026-11-26T17:45:03.8663358Z",
+          "status": "cancelled",
+          "covers_phase_samples": true,
+          "byte_count_consistent": true
+        }
+      ],
+      "output_window_coverage_verified": true,
+      "observed_core_excluding_fixture_private_bytes": {
+        "p50": 158846976,
+        "p95": 159715328,
+        "max": 159715328
+      },
+      "observed_core_handles": {
+        "p50": 2174,
+        "p95": 2177,
+        "max": 2177
+      },
+      "ui_handles": {
+        "p50": 280,
+        "p95": 283,
+        "max": 283
+      }
+    },
+    {
+      "scenario": "managed-5",
+      "phase": "recovery-idle",
+      "samples": 12,
+      "complete_product_observation": 6,
+      "product_read_gaps": {
+        "process_read_failed": 6
+      },
+      "ui_private_bytes": {
+        "min": 61861888,
+        "p50": 62214144,
+        "p95": 63156224,
+        "max": 63156224
+      },
+      "observed_product_tree_private_bytes": {
+        "min": 410402816,
+        "p50": 410755072,
+        "p95": 411713536,
+        "max": 411713536
+      },
+      "role_private_bytes": {
+        "ui": {
+          "min": 61861888,
+          "p50": 62214144,
+          "p95": 63156224,
+          "max": 63156224
+        },
+        "console_aux": {
+          "min": 35074048,
+          "p50": 35074048,
+          "p95": 35225600,
+          "max": 35225600
+        },
+        "fixture": {
+          "min": 251338752,
+          "p50": 251338752,
+          "p95": 251338752,
+          "max": 251338752
+        },
+        "backend_console": {
+          "min": 10104832,
+          "p50": 10104832,
+          "p95": 10104832,
+          "max": 10104832
+        },
+        "backend_server": {
+          "min": 51888128,
+          "p50": 52023296,
+          "p95": 52027392,
+          "max": 52027392
+        }
+      },
+      "observed_cpu_delta_lower_bound_ms": 1218.75,
+      "expected_output_fixtures": 0,
+      "payload_observations_for_phase": [],
+      "output_window_coverage_verified": false,
+      "observed_core_excluding_fixture_private_bytes": {
+        "p50": 159416320,
+        "p95": 160374784,
+        "max": 160374784
+      },
+      "observed_core_handles": {
+        "p50": 2174,
+        "p95": 2177,
+        "max": 2177
+      },
+      "ui_handles": {
+        "p50": 280,
+        "p95": 283,
+        "max": 283
+      }
+    },
+    {
+      "scenario": "managed-5",
+      "phase": "reopened-idle",
+      "samples": 12,
+      "complete_product_observation": 8,
+      "product_read_gaps": {
+        "previous_owned_not_observed": 1,
+        "process_read_failed": 4
+      },
+      "ui_private_bytes": {
+        "min": 61423616,
+        "p50": 61886464,
+        "p95": 62488576,
+        "max": 62488576
+      },
+      "observed_product_tree_private_bytes": {
+        "min": 410628096,
+        "p50": 411090944,
+        "p95": 411693056,
+        "max": 411693056
+      },
+      "role_private_bytes": {
+        "ui": {
+          "min": 61423616,
+          "p50": 61886464,
+          "p95": 62488576,
+          "max": 62488576
+        },
+        "console_aux": {
+          "min": 35074048,
+          "p50": 35074048,
+          "p95": 35074048,
+          "max": 35074048
+        },
+        "fixture": {
+          "min": 251338752,
+          "p50": 251338752,
+          "p95": 251338752,
+          "max": 251338752
+        },
+        "backend_console": {
+          "min": 10108928,
+          "p50": 10108928,
+          "p95": 10108928,
+          "max": 10108928
+        },
+        "backend_server": {
+          "min": 52682752,
+          "p50": 52682752,
+          "p95": 52682752,
+          "max": 52682752
+        }
+      },
+      "observed_cpu_delta_lower_bound_ms": 1234.375,
+      "expected_output_fixtures": 0,
+      "payload_observations_for_phase": [],
+      "output_window_coverage_verified": false,
+      "observed_core_excluding_fixture_private_bytes": {
+        "p50": 159752192,
+        "p95": 160354304,
+        "max": 160354304
+      },
+      "observed_core_handles": {
+        "p50": 2162,
+        "p95": 2163,
+        "max": 2163
+      },
+      "ui_handles": {
+        "p50": 268,
+        "p95": 269,
+        "max": 269
+      }
+    },
+    {
+      "scenario": "managed-10",
+      "phase": "idle",
+      "samples": 12,
+      "complete_product_observation": 10,
+      "product_read_gaps": {
+        "previous_owned_not_observed": 21,
+        "process_read_failed": 2
+      },
+      "ui_private_bytes": {
+        "min": 62066688,
+        "p50": 62328832,
+        "p95": 63643648,
+        "max": 63643648
+      },
+      "observed_product_tree_private_bytes": {
+        "min": 661643264,
+        "p50": 661893120,
+        "p95": 663220224,
+        "max": 663220224
+      },
+      "role_private_bytes": {
+        "ui": {
+          "min": 62066688,
+          "p50": 62328832,
+          "p95": 63643648,
+          "max": 63643648
+        },
+        "console_aux": {
+          "min": 70733824,
+          "p50": 70733824,
+          "p95": 70733824,
+          "max": 70733824
+        },
+        "fixture": {
+          "min": 487215104,
+          "p50": 487215104,
+          "p95": 487215104,
+          "max": 487215104
+        },
+        "backend_console": {
+          "min": 20164608,
+          "p50": 20164608,
+          "p95": 20164608,
+          "max": 20164608
+        },
+        "backend_server": {
+          "min": 21450752,
+          "p50": 21454848,
+          "p95": 21463040,
+          "max": 21463040
+        }
+      },
+      "observed_cpu_delta_lower_bound_ms": 2062.5,
+      "expected_output_fixtures": 0,
+      "payload_observations_for_phase": [],
+      "output_window_coverage_verified": false,
+      "observed_core_excluding_fixture_private_bytes": {
+        "p50": 174678016,
+        "p95": 176005120,
+        "max": 176005120
+      },
+      "observed_core_handles": {
+        "p50": 4025,
+        "p95": 4030,
+        "max": 4030
+      },
+      "ui_handles": {
+        "p50": 266,
+        "p95": 271,
+        "max": 271
+      }
+    },
+    {
+      "scenario": "managed-10",
+      "phase": "single-output",
+      "samples": 12,
+      "complete_product_observation": 9,
+      "product_read_gaps": {
+        "process_read_failed": 3
+      },
+      "ui_private_bytes": {
+        "min": 62078976,
+        "p50": 62234624,
+        "p95": 62578688,
+        "max": 62578688
+      },
+      "observed_product_tree_private_bytes": {
+        "min": 666042368,
+        "p50": 669503488,
+        "p95": 670015488,
+        "max": 670015488
+      },
+      "role_private_bytes": {
+        "ui": {
+          "min": 62078976,
+          "p50": 62234624,
+          "p95": 62578688,
+          "max": 62578688
+        },
+        "console_aux": {
+          "min": 70504448,
+          "p50": 70504448,
+          "p95": 70647808,
+          "max": 70647808
+        },
+        "fixture": {
+          "min": 487555072,
+          "p50": 487686144,
+          "p95": 488120320,
+          "max": 488120320
+        },
+        "backend_console": {
+          "min": 20119552,
+          "p50": 20119552,
+          "p95": 20172800,
+          "max": 20172800
+        },
+        "backend_server": {
+          "min": 25395200,
+          "p50": 28901376,
+          "p95": 29036544,
+          "max": 29036544
+        }
+      },
+      "observed_cpu_delta_lower_bound_ms": 8453.125,
+      "expected_output_fixtures": 1,
+      "payload_observations_for_phase": [
+        {
+          "fixture": "managed-10/fixture-0.jsonl",
+          "load_id": 1,
+          "lines": 1903,
+          "bytes": 487168,
+          "start": "2026-11-26T17:46:09.6493739Z",
+          "end": "2026-11-26T17:46:28.6856137Z",
+          "status": "cancelled",
+          "covers_phase_samples": true,
+          "byte_count_consistent": true
+        }
+      ],
+      "output_window_coverage_verified": true,
+      "observed_core_excluding_fixture_private_bytes": {
+        "p50": 181653504,
+        "p95": 182104064,
+        "max": 182104064
+      },
+      "observed_core_handles": {
+        "p50": 4041,
+        "p95": 4044,
+        "max": 4044
+      },
+      "ui_handles": {
+        "p50": 280,
+        "p95": 283,
+        "max": 283
+      }
+    },
+    {
+      "scenario": "managed-10",
+      "phase": "all-output",
+      "samples": 12,
+      "complete_product_observation": 8,
+      "product_read_gaps": {
+        "process_read_failed": 4
+      },
+      "ui_private_bytes": {
+        "min": 61890560,
+        "p50": 62308352,
+        "p95": 62767104,
+        "max": 62767104
+      },
+      "observed_product_tree_private_bytes": {
+        "min": 721772544,
+        "p50": 753545216,
+        "p95": 757403648,
+        "max": 757403648
+      },
+      "role_private_bytes": {
+        "ui": {
+          "min": 61890560,
+          "p50": 62308352,
+          "p95": 62767104,
+          "max": 62767104
+        },
+        "console_aux": {
+          "min": 70135808,
+          "p50": 70410240,
+          "p95": 70504448,
+          "max": 70504448
+        },
+        "fixture": {
+          "min": 494260224,
+          "p50": 497930240,
+          "p95": 502304768,
+          "max": 502304768
+        },
+        "backend_console": {
+          "min": 20193280,
+          "p50": 20193280,
+          "p95": 20193280,
+          "max": 20193280
+        },
+        "backend_server": {
+          "min": 74309632,
+          "p50": 102502400,
+          "p95": 102535168,
+          "max": 102535168
+        }
+      },
+      "observed_cpu_delta_lower_bound_ms": 9250.0,
+      "expected_output_fixtures": 10,
+      "payload_observations_for_phase": [
+        {
+          "fixture": "managed-10/fixture-7.jsonl",
+          "load_id": 1,
+          "lines": 2080,
+          "bytes": 532480,
+          "start": "2026-11-26T17:46:31.0307205Z",
+          "end": "2026-11-26T17:46:51.8364993Z",
+          "status": "cancelled",
+          "covers_phase_samples": true,
+          "byte_count_consistent": true
+        },
+        {
+          "fixture": "managed-10/fixture-5.jsonl",
+          "load_id": 1,
+          "lines": 2080,
+          "bytes": 532480,
+          "start": "2026-11-26T17:46:30.7728766Z",
+          "end": "2026-11-26T17:46:51.5791629Z",
+          "status": "cancelled",
+          "covers_phase_samples": true,
+          "byte_count_consistent": true
+        },
+        {
+          "fixture": "managed-10/fixture-1.jsonl",
+          "load_id": 1,
+          "lines": 2091,
+          "bytes": 535296,
+          "start": "2026-11-26T17:46:29.9383494Z",
+          "end": "2026-11-26T17:46:50.8573745Z",
+          "status": "cancelled",
+          "covers_phase_samples": true,
+          "byte_count_consistent": true
+        },
+        {
+          "fixture": "managed-10/fixture-3.jsonl",
+          "load_id": 1,
+          "lines": 2085,
+          "bytes": 533760,
+          "start": "2026-11-26T17:46:30.2569203Z",
+          "end": "2026-11-26T17:46:51.1141899Z",
+          "status": "cancelled",
+          "covers_phase_samples": true,
+          "byte_count_consistent": true
+        },
+        {
+          "fixture": "managed-10/fixture-4.jsonl",
+          "load_id": 1,
+          "lines": 2063,
+          "bytes": 528128,
+          "start": "2026-11-26T17:46:30.6369121Z",
+          "end": "2026-11-26T17:46:51.2689118Z",
+          "status": "cancelled",
+          "covers_phase_samples": true,
+          "byte_count_consistent": true
+        },
+        {
+          "fixture": "managed-10/fixture-6.jsonl",
+          "load_id": 1,
+          "lines": 2082,
+          "bytes": 532992,
+          "start": "2026-11-26T17:46:30.8986378Z",
+          "end": "2026-11-26T17:46:51.7258553Z",
+          "status": "cancelled",
+          "covers_phase_samples": true,
+          "byte_count_consistent": true
+        },
+        {
+          "fixture": "managed-10/fixture-2.jsonl",
+          "load_id": 1,
+          "lines": 2089,
+          "bytes": 534784,
+          "start": "2026-11-26T17:46:30.0771635Z",
+          "end": "2026-11-26T17:46:50.9751083Z",
+          "status": "cancelled",
+          "covers_phase_samples": true,
+          "byte_count_consistent": true
+        },
+        {
+          "fixture": "managed-10/fixture-0.jsonl",
+          "load_id": 2,
+          "lines": 2093,
+          "bytes": 535808,
+          "start": "2026-11-26T17:46:29.8012885Z",
+          "end": "2026-11-26T17:46:50.7406138Z",
+          "status": "cancelled",
+          "covers_phase_samples": true,
+          "byte_count_consistent": true
+        },
+        {
+          "fixture": "managed-10/fixture-8.jsonl",
+          "load_id": 1,
+          "lines": 2072,
+          "bytes": 530432,
+          "start": "2026-11-26T17:46:31.2284752Z",
+          "end": "2026-11-26T17:46:51.9577623Z",
+          "status": "cancelled",
+          "covers_phase_samples": true,
+          "byte_count_consistent": true
+        },
+        {
+          "fixture": "managed-10/fixture-9.jsonl",
+          "load_id": 1,
+          "lines": 2044,
+          "bytes": 523264,
+          "start": "2026-11-26T17:46:31.625899Z",
+          "end": "2026-11-26T17:46:52.0754846Z",
+          "status": "cancelled",
+          "covers_phase_samples": true,
+          "byte_count_consistent": true
+        }
+      ],
+      "output_window_coverage_verified": true,
+      "observed_core_excluding_fixture_private_bytes": {
+        "p50": 255098880,
+        "p95": 255725568,
+        "max": 255725568
+      },
+      "observed_core_handles": {
+        "p50": 4059,
+        "p95": 4067,
+        "max": 4067
+      },
+      "ui_handles": {
+        "p50": 280,
+        "p95": 288,
+        "max": 288
+      }
+    },
+    {
+      "scenario": "managed-10",
+      "phase": "recovery-idle",
+      "samples": 12,
+      "complete_product_observation": 7,
+      "product_read_gaps": {
+        "process_read_failed": 5
+      },
+      "ui_private_bytes": {
+        "min": 62136320,
+        "p50": 62603264,
+        "p95": 63811584,
+        "max": 63811584
+      },
+      "observed_product_tree_private_bytes": {
+        "min": 758706176,
+        "p50": 759173120,
+        "p95": 760381440,
+        "max": 760381440
+      },
+      "role_private_bytes": {
+        "ui": {
+          "min": 62136320,
+          "p50": 62603264,
+          "p95": 63811584,
+          "max": 63811584
+        },
+        "console_aux": {
+          "min": 70135808,
+          "p50": 70135808,
+          "p95": 70135808,
+          "max": 70135808
+        },
+        "fixture": {
+          "min": 503730176,
+          "p50": 503730176,
+          "p95": 503730176,
+          "max": 503730176
+        },
+        "backend_console": {
+          "min": 20193280,
+          "p50": 20193280,
+          "p95": 20193280,
+          "max": 20193280
+        },
+        "backend_server": {
+          "min": 102510592,
+          "p50": 102510592,
+          "p95": 102563840,
+          "max": 102563840
+        }
+      },
+      "observed_cpu_delta_lower_bound_ms": 2296.875,
+      "expected_output_fixtures": 0,
+      "payload_observations_for_phase": [],
+      "output_window_coverage_verified": false,
+      "observed_core_excluding_fixture_private_bytes": {
+        "p50": 255442944,
+        "p95": 256651264,
+        "max": 256651264
+      },
+      "observed_core_handles": {
+        "p50": 4059,
+        "p95": 4064,
+        "max": 4064
+      },
+      "ui_handles": {
+        "p50": 280,
+        "p95": 283,
+        "max": 283
+      }
+    },
+    {
+      "scenario": "managed-10",
+      "phase": "reopened-idle",
+      "samples": 12,
+      "complete_product_observation": 5,
+      "product_read_gaps": {
+        "previous_owned_not_observed": 1,
+        "process_read_failed": 7
+      },
+      "ui_private_bytes": {
+        "min": 61431808,
+        "p50": 62054400,
+        "p95": 63074304,
+        "max": 63074304
+      },
+      "observed_product_tree_private_bytes": {
+        "min": 758906880,
+        "p50": 759529472,
+        "p95": 760545280,
+        "max": 760545280
+      },
+      "role_private_bytes": {
+        "ui": {
+          "min": 61431808,
+          "p50": 62054400,
+          "p95": 63074304,
+          "max": 63074304
+        },
+        "console_aux": {
+          "min": 70135808,
+          "p50": 70135808,
+          "p95": 70135808,
+          "max": 70135808
+        },
+        "fixture": {
+          "min": 503730176,
+          "p50": 503730176,
+          "p95": 503730176,
+          "max": 503730176
+        },
+        "backend_console": {
+          "min": 20197376,
+          "p50": 20197376,
+          "p95": 20197376,
+          "max": 20197376
+        },
+        "backend_server": {
+          "min": 103407616,
+          "p50": 103411712,
+          "p95": 103411712,
+          "max": 103411712
+        }
+      },
+      "observed_cpu_delta_lower_bound_ms": 2265.625,
+      "expected_output_fixtures": 0,
+      "payload_observations_for_phase": [],
+      "output_window_coverage_verified": false,
+      "observed_core_excluding_fixture_private_bytes": {
+        "p50": 255799296,
+        "p95": 256815104,
+        "max": 256815104
+      },
+      "observed_core_handles": {
+        "p50": 4053,
+        "p95": 4060,
+        "max": 4060
+      },
+      "ui_handles": {
+        "p50": 274,
+        "p95": 281,
+        "max": 281
+      }
+    },
+    {
+      "scenario": "direct-1",
+      "phase": "idle",
+      "samples": 12,
+      "complete_product_observation": 11,
+      "product_read_gaps": {
+        "previous_owned_not_observed": 41
+      },
+      "ui_private_bytes": null,
+      "observed_product_tree_private_bytes": {
+        "min": 55123968,
+        "p50": 55123968,
+        "p95": 55123968,
+        "max": 55123968
+      },
+      "role_private_bytes": {
+        "console_aux": {
+          "min": 6545408,
+          "p50": 6545408,
+          "p95": 6545408,
+          "max": 6545408
+        },
+        "fixture": {
+          "min": 48578560,
+          "p50": 48578560,
+          "p95": 48578560,
+          "max": 48578560
+        }
+      },
+      "observed_cpu_delta_lower_bound_ms": 0,
+      "expected_output_fixtures": 0,
+      "payload_observations_for_phase": [],
+      "output_window_coverage_verified": false,
+      "observed_core_excluding_fixture_private_bytes": null,
+      "observed_core_handles": null,
+      "ui_handles": null
+    },
+    {
+      "scenario": "direct-1",
+      "phase": "all-output",
+      "samples": 12,
+      "complete_product_observation": 12,
+      "product_read_gaps": {},
+      "ui_private_bytes": null,
+      "observed_product_tree_private_bytes": {
+        "min": 55689216,
+        "p50": 55713792,
+        "p95": 55713792,
+        "max": 55713792
+      },
+      "role_private_bytes": {
+        "console_aux": {
+          "min": 6545408,
+          "p50": 6545408,
+          "p95": 6545408,
+          "max": 6545408
+        },
+        "fixture": {
+          "min": 49143808,
+          "p50": 49168384,
+          "p95": 49168384,
+          "max": 49168384
+        }
+      },
+      "observed_cpu_delta_lower_bound_ms": 78.125,
+      "expected_output_fixtures": 1,
+      "payload_observations_for_phase": [
+        {
+          "fixture": "direct-1-0.jsonl",
+          "load_id": 1,
+          "lines": 1383,
+          "bytes": 354048,
+          "start": "2026-11-26T17:47:54.4320101Z",
+          "end": "2026-11-26T17:48:08.2671259Z",
+          "status": "cancelled",
+          "covers_phase_samples": true,
+          "byte_count_consistent": true
+        }
+      ],
+      "output_window_coverage_verified": true,
+      "observed_core_excluding_fixture_private_bytes": null,
+      "observed_core_handles": null,
+      "ui_handles": null
+    },
+    {
+      "scenario": "direct-5",
+      "phase": "idle",
+      "samples": 12,
+      "complete_product_observation": 11,
+      "product_read_gaps": {
+        "previous_owned_not_observed": 2
+      },
+      "ui_private_bytes": null,
+      "observed_product_tree_private_bytes": {
+        "min": 275746816,
+        "p50": 275746816,
+        "p95": 275746816,
+        "max": 275746816
+      },
+      "role_private_bytes": {
+        "console_aux": {
+          "min": 32788480,
+          "p50": 32788480,
+          "p95": 32788480,
+          "max": 32788480
+        },
+        "fixture": {
+          "min": 242958336,
+          "p50": 242958336,
+          "p95": 242958336,
+          "max": 242958336
+        }
+      },
+      "observed_cpu_delta_lower_bound_ms": 0,
+      "expected_output_fixtures": 0,
+      "payload_observations_for_phase": [],
+      "output_window_coverage_verified": false,
+      "observed_core_excluding_fixture_private_bytes": null,
+      "observed_core_handles": null,
+      "ui_handles": null
+    },
+    {
+      "scenario": "direct-5",
+      "phase": "all-output",
+      "samples": 12,
+      "complete_product_observation": 12,
+      "product_read_gaps": {},
+      "ui_private_bytes": null,
+      "observed_product_tree_private_bytes": {
+        "min": 277856256,
+        "p50": 278036480,
+        "p95": 278151168,
+        "max": 278151168
+      },
+      "role_private_bytes": {
+        "console_aux": {
+          "min": 32788480,
+          "p50": 32788480,
+          "p95": 32788480,
+          "max": 32788480
+        },
+        "fixture": {
+          "min": 245067776,
+          "p50": 245248000,
+          "p95": 245362688,
+          "max": 245362688
+        }
+      },
+      "observed_cpu_delta_lower_bound_ms": 281.25,
+      "expected_output_fixtures": 5,
+      "payload_observations_for_phase": [
+        {
+          "fixture": "direct-5-4.jsonl",
+          "load_id": 1,
+          "lines": 1434,
+          "bytes": 367104,
+          "start": "2026-11-26T17:48:23.480144Z",
+          "end": "2026-11-26T17:48:37.8476266Z",
+          "status": "cancelled",
+          "covers_phase_samples": true,
+          "byte_count_consistent": true
+        },
+        {
+          "fixture": "direct-5-0.jsonl",
+          "load_id": 1,
+          "lines": 1435,
+          "bytes": 367360,
+          "start": "2026-11-26T17:48:23.4258505Z",
+          "end": "2026-11-26T17:48:37.815628Z",
+          "status": "cancelled",
+          "covers_phase_samples": true,
+          "byte_count_consistent": true
+        },
+        {
+          "fixture": "direct-5-2.jsonl",
+          "load_id": 1,
+          "lines": 1435,
+          "bytes": 367360,
+          "start": "2026-11-26T17:48:23.453616Z",
+          "end": "2026-11-26T17:48:37.8330573Z",
+          "status": "cancelled",
+          "covers_phase_samples": true,
+          "byte_count_consistent": true
+        },
+        {
+          "fixture": "direct-5-3.jsonl",
+          "load_id": 1,
+          "lines": 1434,
+          "bytes": 367104,
+          "start": "2026-11-26T17:48:23.4640802Z",
+          "end": "2026-11-26T17:48:37.8379341Z",
+          "status": "cancelled",
+          "covers_phase_samples": true,
+          "byte_count_consistent": true
+        },
+        {
+          "fixture": "direct-5-1.jsonl",
+          "load_id": 1,
+          "lines": 1435,
+          "bytes": 367360,
+          "start": "2026-11-26T17:48:23.4375558Z",
+          "end": "2026-11-26T17:48:37.8240816Z",
+          "status": "cancelled",
+          "covers_phase_samples": true,
+          "byte_count_consistent": true
+        }
+      ],
+      "output_window_coverage_verified": true,
+      "observed_core_excluding_fixture_private_bytes": null,
+      "observed_core_handles": null,
+      "ui_handles": null
+    },
+    {
+      "scenario": "direct-10",
+      "phase": "idle",
+      "samples": 12,
+      "complete_product_observation": 11,
+      "product_read_gaps": {
+        "previous_owned_not_observed": 10
+      },
+      "ui_private_bytes": null,
+      "observed_product_tree_private_bytes": {
+        "min": 550039552,
+        "p50": 550039552,
+        "p95": 550039552,
+        "max": 550039552
+      },
+      "role_private_bytes": {
+        "console_aux": {
+          "min": 65568768,
+          "p50": 65568768,
+          "p95": 65568768,
+          "max": 65568768
+        },
+        "fixture": {
+          "min": 484470784,
+          "p50": 484470784,
+          "p95": 484470784,
+          "max": 484470784
+        }
+      },
+      "observed_cpu_delta_lower_bound_ms": 0,
+      "expected_output_fixtures": 0,
+      "payload_observations_for_phase": [],
+      "output_window_coverage_verified": false,
+      "observed_core_excluding_fixture_private_bytes": null,
+      "observed_core_handles": null,
+      "ui_handles": null
+    },
+    {
+      "scenario": "direct-10",
+      "phase": "all-output",
+      "samples": 12,
+      "complete_product_observation": 12,
+      "product_read_gaps": {},
+      "ui_private_bytes": null,
+      "observed_product_tree_private_bytes": {
+        "min": 554610688,
+        "p50": 554692608,
+        "p95": 555671552,
+        "max": 555671552
+      },
+      "role_private_bytes": {
+        "console_aux": {
+          "min": 64962560,
+          "p50": 65568768,
+          "p95": 65568768,
+          "max": 65568768
+        },
+        "fixture": {
+          "min": 489041920,
+          "p50": 489504768,
+          "p95": 490102784,
+          "max": 490102784
+        }
+      },
+      "observed_cpu_delta_lower_bound_ms": 531.25,
+      "expected_output_fixtures": 10,
+      "payload_observations_for_phase": [
+        {
+          "fixture": "direct-10-0.jsonl",
+          "load_id": 1,
+          "lines": 1660,
+          "bytes": 424960,
+          "start": "2026-11-26T17:48:54.7547666Z",
+          "end": "2026-11-26T17:49:11.6044266Z",
+          "status": "cancelled",
+          "covers_phase_samples": true,
+          "byte_count_consistent": true
+        },
+        {
+          "fixture": "direct-10-2.jsonl",
+          "load_id": 1,
+          "lines": 1640,
+          "bytes": 419840,
+          "start": "2026-11-26T17:48:55.0055437Z",
+          "end": "2026-11-26T17:49:11.6349133Z",
+          "status": "cancelled",
+          "covers_phase_samples": true,
+          "byte_count_consistent": true
+        },
+        {
+          "fixture": "direct-10-6.jsonl",
+          "load_id": 1,
+          "lines": 1589,
+          "bytes": 406784,
+          "start": "2026-11-26T17:48:55.7617611Z",
+          "end": "2026-11-26T17:49:11.7188379Z",
+          "status": "cancelled",
+          "covers_phase_samples": true,
+          "byte_count_consistent": true
+        },
+        {
+          "fixture": "direct-10-4.jsonl",
+          "load_id": 1,
+          "lines": 1616,
+          "bytes": 413696,
+          "start": "2026-11-26T17:48:55.3864673Z",
+          "end": "2026-11-26T17:49:11.6758628Z",
+          "status": "cancelled",
+          "covers_phase_samples": true,
+          "byte_count_consistent": true
+        },
+        {
+          "fixture": "direct-10-3.jsonl",
+          "load_id": 1,
+          "lines": 1626,
+          "bytes": 416256,
+          "start": "2026-11-26T17:48:55.2305557Z",
+          "end": "2026-11-26T17:49:11.6609025Z",
+          "status": "cancelled",
+          "covers_phase_samples": true,
+          "byte_count_consistent": true
+        },
+        {
+          "fixture": "direct-10-1.jsonl",
+          "load_id": 1,
+          "lines": 1639,
+          "bytes": 419584,
+          "start": "2026-11-26T17:48:54.989362Z",
+          "end": "2026-11-26T17:49:11.6213816Z",
+          "status": "cancelled",
+          "covers_phase_samples": true,
+          "byte_count_consistent": true
+        },
+        {
+          "fixture": "direct-10-5.jsonl",
+          "load_id": 1,
+          "lines": 1606,
+          "bytes": 411136,
+          "start": "2026-11-26T17:48:55.5837815Z",
+          "end": "2026-11-26T17:49:11.7014098Z",
+          "status": "cancelled",
+          "covers_phase_samples": true,
+          "byte_count_consistent": true
+        },
+        {
+          "fixture": "direct-10-7.jsonl",
+          "load_id": 1,
+          "lines": 1572,
+          "bytes": 402432,
+          "start": "2026-11-26T17:48:55.9386298Z",
+          "end": "2026-11-26T17:49:11.7335133Z",
+          "status": "cancelled",
+          "covers_phase_samples": true,
+          "byte_count_consistent": true
+        },
+        {
+          "fixture": "direct-10-9.jsonl",
+          "load_id": 1,
+          "lines": 1536,
+          "bytes": 393216,
+          "start": "2026-11-26T17:48:56.3066155Z",
+          "end": "2026-11-26T17:49:11.7573215Z",
+          "status": "cancelled",
+          "covers_phase_samples": true,
+          "byte_count_consistent": true
+        },
+        {
+          "fixture": "direct-10-8.jsonl",
+          "load_id": 1,
+          "lines": 1555,
+          "bytes": 398080,
+          "start": "2026-11-26T17:48:56.1245626Z",
+          "end": "2026-11-26T17:49:11.7413638Z",
+          "status": "cancelled",
+          "covers_phase_samples": true,
+          "byte_count_consistent": true
+        }
+      ],
+      "output_window_coverage_verified": true,
+      "observed_core_excluding_fixture_private_bytes": null,
+      "observed_core_handles": null,
+      "ui_handles": null
+    }
+  ],
+  "semantics": "private-byte sums are observed owned process trees, not full lifetime cost; shared Terminal and sampler excluded; missing observations are not zero; CPU deltas lower bound; direct pipes differ from terminal",
+  "parallel_activity": "managed phases ended before input/canary drivers; last direct controls overlap isolated canary/preflight; no no-interference claim",
+  "cleanup": [
+    {
+      "held_private_remaining": 0,
+      "scenario": "managed-0",
+      "normal_fixtures": []
+    },
+    {
+      "held_private_remaining": 0,
+      "scenario": "managed-1",
+      "normal_fixtures": [
+        true
+      ]
+    },
+    {
+      "held_private_remaining": 0,
+      "scenario": "managed-5",
+      "normal_fixtures": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "held_private_remaining": 0,
+      "scenario": "managed-10",
+      "normal_fixtures": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "normal_fixtures": [
+        true
+      ],
+      "scenario": "direct-1"
+    },
+    {
+      "normal_fixtures": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "scenario": "direct-5"
+    },
+    {
+      "normal_fixtures": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "scenario": "direct-10"
+    }
+  ]
+}

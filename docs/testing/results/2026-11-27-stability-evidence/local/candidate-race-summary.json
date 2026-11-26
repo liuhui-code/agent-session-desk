@@ -1,0 +1,16 @@
+{
+  "exit_code": 0,
+  "source": "candidate",
+  "command": [
+    "test",
+    "-race",
+    "-json",
+    "-count=1",
+    "-timeout=6m",
+    "./..."
+  ],
+  "top_pass": 616,
+  "top_skip": 1,
+  "failed": [],
+  "failure_output": []
+}

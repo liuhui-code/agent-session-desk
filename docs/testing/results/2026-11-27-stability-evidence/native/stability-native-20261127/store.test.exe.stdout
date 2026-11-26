@@ -1,0 +1,283 @@
+=== RUN   TestAttentionViewedIsNotResolvedAndBlocksDelivery
+--- PASS: TestAttentionViewedIsNotResolvedAndBlocksDelivery (0.10s)
+=== RUN   TestAttentionMigrationConflictRollsBackAndSnapshotPreservesReadState
+--- PASS: TestAttentionMigrationConflictRollsBackAndSnapshotPreservesReadState (0.11s)
+=== RUN   TestAttentionVersionOrderingTombstonesAndViewedRevision
+--- PASS: TestAttentionVersionOrderingTombstonesAndViewedRevision (0.11s)
+=== RUN   TestAttentionSourceScopeExitAndDisconnect
+--- PASS: TestAttentionSourceScopeExitAndDisconnect (0.32s)
+=== RUN   TestAttentionBoundedCapacityNeverPrunesClosedIdentity
+--- PASS: TestAttentionBoundedCapacityNeverPrunesClosedIdentity (3.05s)
+=== RUN   TestAttentionV8MigrationAndScopeIsolation
+--- PASS: TestAttentionV8MigrationAndScopeIsolation (0.10s)
+=== RUN   TestConcurrentConnectionsKeepAllCommittedIdentities
+--- PASS: TestConcurrentConnectionsKeepAllCommittedIdentities (0.08s)
+=== RUN   TestCommittedMetadataSurvivesKilledWriter
+--- PASS: TestCommittedMetadataSurvivesKilledWriter (0.15s)
+=== RUN   TestPaneExitObservationSurvivesReopenAndDoesNotClaimCurrentState
+--- PASS: TestPaneExitObservationSurvivesReopenAndDoesNotClaimCurrentState (0.03s)
+=== RUN   TestRepeatedPaneExitPreservesFirstObservationWithoutWriterLock
+--- PASS: TestRepeatedPaneExitPreservesFirstObservationWithoutWriterLock (0.03s)
+=== RUN   TestExitEvidenceCannotClaimMoreThanBackendProves
+=== RUN   TestExitEvidenceCannotClaimMoreThanBackendProves/live
+=== RUN   TestExitEvidenceCannotClaimMoreThanBackendProves/code
+=== RUN   TestExitEvidenceCannotClaimMoreThanBackendProves/source
+=== RUN   TestExitEvidenceCannotClaimMoreThanBackendProves/pane
+=== RUN   TestExitEvidenceCannotClaimMoreThanBackendProves/time
+--- PASS: TestExitEvidenceCannotClaimMoreThanBackendProves (0.10s)
+    --- PASS: TestExitEvidenceCannotClaimMoreThanBackendProves/live (0.02s)
+    --- PASS: TestExitEvidenceCannotClaimMoreThanBackendProves/code (0.02s)
+    --- PASS: TestExitEvidenceCannotClaimMoreThanBackendProves/source (0.02s)
+    --- PASS: TestExitEvidenceCannotClaimMoreThanBackendProves/pane (0.02s)
+    --- PASS: TestExitEvidenceCannotClaimMoreThanBackendProves/time (0.02s)
+=== RUN   TestGroupOrderChildSwapKeepsOtherParentsAndRootOrder
+--- PASS: TestGroupOrderChildSwapKeepsOtherParentsAndRootOrder (0.11s)
+=== RUN   TestGroupOrderRejectsStaleSiblingEditsInsertionsAndABA
+--- PASS: TestGroupOrderRejectsStaleSiblingEditsInsertionsAndABA (0.15s)
+=== RUN   TestGroupOrderConcurrentConnectionsOnlyOneCommits
+--- PASS: TestGroupOrderConcurrentConnectionsOnlyOneCommits (0.13s)
+=== RUN   TestGroupOrderPinnedBoundariesAndMalformedSnapshotsDoNotWrite
+--- PASS: TestGroupOrderPinnedBoundariesAndMalformedSnapshotsDoNotWrite (0.05s)
+=== RUN   TestGroupOrderRollsBackAllWritesOnFailureAndRevisionExhaustion
+--- PASS: TestGroupOrderRollsBackAllWritesOnFailureAndRevisionExhaustion (0.07s)
+=== RUN   TestGroupOrderKeepsDefaultFirstWhenLegacySiblingsHaveEqualOrdinals
+--- PASS: TestGroupOrderKeepsDefaultFirstWhenLegacySiblingsHaveEqualOrdinals (0.05s)
+=== RUN   TestGroupOrderSkipsExpandedDescendantsAndPersistsTheOriginalTree
+--- PASS: TestGroupOrderSkipsExpandedDescendantsAndPersistsTheOriginalTree (0.08s)
+=== RUN   TestGroupRemovalRejectsChangedTreeSameCountMemberReplacementAndABA
+=== RUN   TestGroupRemovalRejectsChangedTreeSameCountMemberReplacementAndABA/new-child
+=== RUN   TestGroupRemovalRejectsChangedTreeSameCountMemberReplacementAndABA/destination-name
+=== RUN   TestGroupRemovalRejectsChangedTreeSameCountMemberReplacementAndABA/unrelated-group-name
+=== RUN   TestGroupRemovalRejectsChangedTreeSameCountMemberReplacementAndABA/same-count-replacement
+=== RUN   TestGroupRemovalRejectsChangedTreeSameCountMemberReplacementAndABA/membership-ABA
+--- PASS: TestGroupRemovalRejectsChangedTreeSameCountMemberReplacementAndABA (0.50s)
+    --- PASS: TestGroupRemovalRejectsChangedTreeSameCountMemberReplacementAndABA/new-child (0.09s)
+    --- PASS: TestGroupRemovalRejectsChangedTreeSameCountMemberReplacementAndABA/destination-name (0.09s)
+    --- PASS: TestGroupRemovalRejectsChangedTreeSameCountMemberReplacementAndABA/unrelated-group-name (0.09s)
+    --- PASS: TestGroupRemovalRejectsChangedTreeSameCountMemberReplacementAndABA/same-count-replacement (0.10s)
+    --- PASS: TestGroupRemovalRejectsChangedTreeSameCountMemberReplacementAndABA/membership-ABA (0.14s)
+=== RUN   TestGroupRemovalPreservesIndependentMembershipAndNameEditsInItsProjection
+--- PASS: TestGroupRemovalPreservesIndependentMembershipAndNameEditsInItsProjection (0.14s)
+=== RUN   TestGroupRemovalPreviewUsesAReadOnlySnapshotWhileAWriterIsReserved
+--- PASS: TestGroupRemovalPreviewUsesAReadOnlySnapshotWhileAWriterIsReserved (0.11s)
+=== RUN   TestGroupRemovalConcurrentConnectionsOnlyOneCommits
+--- PASS: TestGroupRemovalConcurrentConnectionsOnlyOneCommits (0.13s)
+=== RUN   TestGroupRemovalRollsBackOnProjectionSQLFailureAndVersionExhaustion
+=== RUN   TestGroupRemovalRollsBackOnProjectionSQLFailureAndVersionExhaustion/projection
+=== RUN   TestGroupRemovalRollsBackOnProjectionSQLFailureAndVersionExhaustion/parent-delete
+=== RUN   TestGroupRemovalRollsBackOnProjectionSQLFailureAndVersionExhaustion/membership-exhaustion
+--- PASS: TestGroupRemovalRollsBackOnProjectionSQLFailureAndVersionExhaustion (0.28s)
+    --- PASS: TestGroupRemovalRollsBackOnProjectionSQLFailureAndVersionExhaustion/projection (0.09s)
+    --- PASS: TestGroupRemovalRollsBackOnProjectionSQLFailureAndVersionExhaustion/parent-delete (0.10s)
+    --- PASS: TestGroupRemovalRollsBackOnProjectionSQLFailureAndVersionExhaustion/membership-exhaustion (0.09s)
+=== RUN   TestGroupRemovalProtectsDefaultScopeAndTheReviewedPlanFields
+--- PASS: TestGroupRemovalProtectsDefaultScopeAndTheReviewedPlanFields (0.12s)
+=== RUN   TestGroupRemovalPreservesLiveAndHistoricalMembersOriginalRunsAfterReopen
+--- PASS: TestGroupRemovalPreservesLiveAndHistoricalMembersOriginalRunsAfterReopen (0.15s)
+=== RUN   TestGroupRenameRejectsStaleABAAndSiblingCollision
+--- PASS: TestGroupRenameRejectsStaleABAAndSiblingCollision (0.11s)
+=== RUN   TestGroupRenameScopesDefaultAndTwoConcurrentEditors
+--- PASS: TestGroupRenameScopesDefaultAndTwoConcurrentEditors (0.07s)
+=== RUN   TestGroupRenameRejectsInvalidInputAndRevisionExhaustionWithoutChangingMetadata
+--- PASS: TestGroupRenameRejectsInvalidInputAndRevisionExhaustionWithoutChangingMetadata (0.05s)
+=== RUN   TestGroupRenamePersistsWithoutChangingDescendantsMembershipOrRun
+--- PASS: TestGroupRenamePersistsWithoutChangingDescendantsMembershipOrRun (0.09s)
+=== RUN   TestGroupMoveCASRejectsABAAndOtherScopeWithoutChangingRun
+--- PASS: TestGroupMoveCASRejectsABAAndOtherScopeWithoutChangingRun (0.12s)
+=== RUN   TestGroupCreateDuplicateIsIdempotentAndKeepsEmptyGroups
+--- PASS: TestGroupCreateDuplicateIsIdempotentAndKeepsEmptyGroups (0.05s)
+=== RUN   TestGroupMigrationConflictsRollbackTheWholeUpgrade
+=== RUN   TestGroupMigrationConflictsRollbackTheWholeUpgrade/v1/groups
+=== RUN   TestGroupMigrationConflictsRollbackTheWholeUpgrade/v1/session_groups
+=== RUN   TestGroupMigrationConflictsRollbackTheWholeUpgrade/v2/groups
+=== RUN   TestGroupMigrationConflictsRollbackTheWholeUpgrade/v2/session_groups
+=== RUN   TestGroupMigrationConflictsRollbackTheWholeUpgrade/v3/groups
+=== RUN   TestGroupMigrationConflictsRollbackTheWholeUpgrade/v3/session_groups
+--- PASS: TestGroupMigrationConflictsRollbackTheWholeUpgrade (0.81s)
+    --- PASS: TestGroupMigrationConflictsRollbackTheWholeUpgrade/v1/groups (0.14s)
+    --- PASS: TestGroupMigrationConflictsRollbackTheWholeUpgrade/v1/session_groups (0.10s)
+    --- PASS: TestGroupMigrationConflictsRollbackTheWholeUpgrade/v2/groups (0.11s)
+    --- PASS: TestGroupMigrationConflictsRollbackTheWholeUpgrade/v2/session_groups (0.11s)
+    --- PASS: TestGroupMigrationConflictsRollbackTheWholeUpgrade/v3/groups (0.16s)
+    --- PASS: TestGroupMigrationConflictsRollbackTheWholeUpgrade/v3/session_groups (0.18s)
+=== RUN   TestRecoveryRefusesCyclicGroupMetadataWithoutChangingSource
+--- PASS: TestRecoveryRefusesCyclicGroupMetadataWithoutChangingSource (0.06s)
+=== RUN   TestWorkspaceRejectsAnInvalidStoredDisplayName
+--- PASS: TestWorkspaceRejectsAnInvalidStoredDisplayName (0.06s)
+=== RUN   TestConcurrentGroupMovesHaveOneWinnerAndPreserveTheOtherRevision
+--- PASS: TestConcurrentGroupMovesHaveOneWinnerAndPreserveTheOtherRevision (0.07s)
+=== RUN   TestGroupCreationEnforcesDocumentedCountAndDepthBounds
+--- PASS: TestGroupCreationEnforcesDocumentedCountAndDepthBounds (3.33s)
+=== RUN   TestV3GroupMigrationAndSnapshotPreserveOriginalEvidence
+--- PASS: TestV3GroupMigrationAndSnapshotPreserveOriginalEvidence (0.23s)
+=== RUN   TestGroupsSurviveReopenAndMoveKeepsOriginalRunAndHistory
+--- PASS: TestGroupsSurviveReopenAndMoveKeepsOriginalRunAndHistory (0.09s)
+=== RUN   TestWorkspaceReadDoesNotTakeTheGroupWriterLock
+--- PASS: TestWorkspaceReadDoesNotTakeTheGroupWriterLock (0.04s)
+=== RUN   TestMessageSchemaV5UpgradeBackupAndCapacity
+--- PASS: TestMessageSchemaV5UpgradeBackupAndCapacity (1.65s)
+=== RUN   TestMessageOutboxPersistsAndDeduplicatesExactIntent
+--- PASS: TestMessageOutboxPersistsAndDeduplicatesExactIntent (0.08s)
+=== RUN   TestMessageClaimIsExclusiveAndNeverReplaysUncertainWrite
+--- PASS: TestMessageClaimIsExclusiveAndNeverReplaysUncertainWrite (0.07s)
+=== RUN   TestV1UpgradePreservesIdentityAndStopEvidence
+--- PASS: TestV1UpgradePreservesIdentityAndStopEvidence (0.15s)
+=== RUN   TestFailedV1UpgradeDoesNotModifyExistingDatabase
+--- PASS: TestFailedV1UpgradeDoesNotModifyExistingDatabase (0.09s)
+=== RUN   TestV2UpgradeAndNamedSnapshotPreserveOriginalRunEvidence
+--- PASS: TestV2UpgradeAndNamedSnapshotPreserveOriginalRunEvidence (0.15s)
+=== RUN   TestFailedNameMigrationRollsBackWholeV1OrV2Upgrade
+=== RUN   TestFailedNameMigrationRollsBackWholeV1OrV2Upgrade/v1
+=== RUN   TestFailedNameMigrationRollsBackWholeV1OrV2Upgrade/v2
+--- PASS: TestFailedNameMigrationRollsBackWholeV1OrV2Upgrade (0.25s)
+    --- PASS: TestFailedNameMigrationRollsBackWholeV1OrV2Upgrade/v1 (0.12s)
+    --- PASS: TestFailedNameMigrationRollsBackWholeV1OrV2Upgrade/v2 (0.14s)
+=== RUN   TestRenamedRunStillRecordsOutputWithoutChangingLaunchSnapshot
+--- PASS: TestRenamedRunStillRecordsOutputWithoutChangingLaunchSnapshot (0.06s)
+=== RUN   TestConcurrentNameWritersCommitOnlyOneRevision
+--- PASS: TestConcurrentNameWritersCommitOnlyOneRevision (0.04s)
+=== RUN   TestNamesStayScopedAndRejectUnrelatedRunOrExpectedTitle
+--- PASS: TestNamesStayScopedAndRejectUnrelatedRunOrExpectedTitle (0.06s)
+=== RUN   TestOutputWritersShareTheDatabaseLockAndRetainScopedOrder
+--- PASS: TestOutputWritersShareTheDatabaseLockAndRetainScopedOrder (0.74s)
+=== RUN   TestOutputClearsOnlyRecognizedOrphanStageUnderDatabaseLock
+--- PASS: TestOutputClearsOnlyRecognizedOrphanStageUnderDatabaseLock (0.07s)
+=== RUN   TestOutputPublicationNeverExposesIncompleteOrExcessFiles
+--- PASS: TestOutputPublicationNeverExposesIncompleteOrExcessFiles (2.44s)
+=== RUN   TestOutputObserverDoesNotPreventPublishedRecordRotation
+--- PASS: TestOutputObserverDoesNotPreventPublishedRecordRotation (0.09s)
+=== RUN   TestOutputRecordSurvivesReopenWithoutBecomingConversationOrLiveness
+--- PASS: TestOutputRecordSurvivesReopenWithoutBecomingConversationOrLiveness (0.06s)
+=== RUN   TestOutputRecordBoundsTextAndKeepsUTF8WithExplicitTruncation
+--- PASS: TestOutputRecordBoundsTextAndKeepsUTF8WithExplicitTruncation (0.05s)
+=== RUN   TestOutputRetentionKeepsTwoPerScopedRunWithoutMixingIdentities
+--- PASS: TestOutputRetentionKeepsTwoPerScopedRunWithoutMixingIdentities (0.22s)
+=== RUN   TestOutputDoesNotAdoptAnUnrecognizedDirectoryOrDeleteItsFiles
+--- PASS: TestOutputDoesNotAdoptAnUnrecognizedDirectoryOrDeleteItsFiles (0.05s)
+=== RUN   TestOutputGlobalRetentionBoundsPublishedFilesAcrossRuns
+--- PASS: TestOutputGlobalRetentionBoundsPublishedFilesAcrossRuns (4.29s)
+=== RUN   TestOutputRejectsUnexpectedOrUnboundedFilesWithoutDeletingThem
+=== RUN   TestOutputRejectsUnexpectedOrUnboundedFilesWithoutDeletingThem/unrelated
+=== RUN   TestOutputRejectsUnexpectedOrUnboundedFilesWithoutDeletingThem/file-budget
+=== RUN   TestOutputRejectsUnexpectedOrUnboundedFilesWithoutDeletingThem/text-budget
+=== RUN   TestOutputRejectsUnexpectedOrUnboundedFilesWithoutDeletingThem/complete-claim
+=== RUN   TestOutputRejectsUnexpectedOrUnboundedFilesWithoutDeletingThem/backend-conflict
+--- PASS: TestOutputRejectsUnexpectedOrUnboundedFilesWithoutDeletingThem (0.35s)
+    --- PASS: TestOutputRejectsUnexpectedOrUnboundedFilesWithoutDeletingThem/unrelated (0.06s)
+    --- PASS: TestOutputRejectsUnexpectedOrUnboundedFilesWithoutDeletingThem/file-budget (0.06s)
+    --- PASS: TestOutputRejectsUnexpectedOrUnboundedFilesWithoutDeletingThem/text-budget (0.08s)
+    --- PASS: TestOutputRejectsUnexpectedOrUnboundedFilesWithoutDeletingThem/complete-claim (0.07s)
+    --- PASS: TestOutputRejectsUnexpectedOrUnboundedFilesWithoutDeletingThem/backend-conflict (0.08s)
+=== RUN   TestSnapshotRetainsAllScopedEvidenceWithoutNeedingBackend
+--- PASS: TestSnapshotRetainsAllScopedEvidenceWithoutNeedingBackend (0.10s)
+=== RUN   TestSnapshotRejectsInvalidDatabaseAndPreservesBothPaths
+=== RUN   TestSnapshotRejectsInvalidDatabaseAndPreservesBothPaths/foreign
+=== RUN   TestSnapshotRejectsInvalidDatabaseAndPreservesBothPaths/future
+=== RUN   TestSnapshotRejectsInvalidDatabaseAndPreservesBothPaths/corrupt
+=== RUN   TestSnapshotRejectsInvalidDatabaseAndPreservesBothPaths/missing-table
+--- PASS: TestSnapshotRejectsInvalidDatabaseAndPreservesBothPaths (0.16s)
+    --- PASS: TestSnapshotRejectsInvalidDatabaseAndPreservesBothPaths/foreign (0.03s)
+    --- PASS: TestSnapshotRejectsInvalidDatabaseAndPreservesBothPaths/future (0.06s)
+    --- PASS: TestSnapshotRejectsInvalidDatabaseAndPreservesBothPaths/corrupt (0.02s)
+    --- PASS: TestSnapshotRejectsInvalidDatabaseAndPreservesBothPaths/missing-table (0.05s)
+=== RUN   TestCheckIsReadOnlyAndDoesNotMigrateV1OrCreateMissingSource
+--- PASS: TestCheckIsReadOnlyAndDoesNotMigrateV1OrCreateMissingSource (0.10s)
+=== RUN   TestSnapshotNeverOverwritesAndCancellationLeavesNoOutput
+--- PASS: TestSnapshotNeverOverwritesAndCancellationLeavesNoOutput (0.05s)
+=== RUN   TestCheckAndSnapshotRejectBrokenForeignKeyEvidence
+--- PASS: TestCheckAndSnapshotRejectBrokenForeignKeyEvidence (0.05s)
+=== RUN   TestV1SnapshotRestoresThroughNormalMigrationWithoutChangingBackup
+--- PASS: TestV1SnapshotRestoresThroughNormalMigrationWithoutChangingBackup (0.11s)
+=== RUN   TestSnapshotDestinationIsNeverPublishedAsAnIncompleteFile
+--- PASS: TestSnapshotDestinationIsNeverPublishedAsAnIncompleteFile (4.92s)
+=== RUN   TestReplySchemaV6MigrationRecoveryAndNoPlaintextCredential
+--- PASS: TestReplySchemaV6MigrationRecoveryAndNoPlaintextCredential (0.18s)
+=== RUN   TestReplyFailedV6MigrationRollsBackBindingTable
+--- PASS: TestReplyFailedV6MigrationRollsBackBindingTable (0.08s)
+=== RUN   TestReplyRejectsWrongSourceAndPreservesConflictingResults
+--- PASS: TestReplyRejectsWrongSourceAndPreservesConflictingResults (0.12s)
+=== RUN   TestReplyConcurrentWritersDeduplicateOrRefuseReplacement
+=== RUN   TestReplyConcurrentWritersDeduplicateOrRefuseReplacement/true
+=== RUN   TestReplyConcurrentWritersDeduplicateOrRefuseReplacement/false
+--- PASS: TestReplyConcurrentWritersDeduplicateOrRefuseReplacement (0.71s)
+    --- PASS: TestReplyConcurrentWritersDeduplicateOrRefuseReplacement/true (0.26s)
+    --- PASS: TestReplyConcurrentWritersDeduplicateOrRefuseReplacement/false (0.45s)
+=== RUN   TestReplyCredentialScopeRotationAndPaneExitRejections
+--- PASS: TestReplyCredentialScopeRotationAndPaneExitRejections (0.06s)
+=== RUN   TestReplyBindingCapacityDoesNotRotateOrPrune
+--- PASS: TestReplyBindingCapacityDoesNotRotateOrPrune (2.93s)
+=== RUN   TestReplyBoundInboxRoundTripDoesNotAdvanceDelivery
+--- PASS: TestReplyBoundInboxRoundTripDoesNotAdvanceDelivery (0.08s)
+=== RUN   TestUnrecognizedOrCorruptDatabaseIsPreserved
+=== RUN   TestUnrecognizedOrCorruptDatabaseIsPreserved/corrupt
+=== RUN   TestUnrecognizedOrCorruptDatabaseIsPreserved/foreign
+=== RUN   TestUnrecognizedOrCorruptDatabaseIsPreserved/future
+=== RUN   TestUnrecognizedOrCorruptDatabaseIsPreserved/missing-table
+--- PASS: TestUnrecognizedOrCorruptDatabaseIsPreserved (0.11s)
+    --- PASS: TestUnrecognizedOrCorruptDatabaseIsPreserved/corrupt (0.01s)
+    --- PASS: TestUnrecognizedOrCorruptDatabaseIsPreserved/foreign (0.03s)
+    --- PASS: TestUnrecognizedOrCorruptDatabaseIsPreserved/future (0.03s)
+    --- PASS: TestUnrecognizedOrCorruptDatabaseIsPreserved/missing-table (0.04s)
+=== RUN   TestBusyPreflightFailsWithinBoundWithoutChangingHistory
+--- PASS: TestBusyPreflightFailsWithinBoundWithoutChangingHistory (1.05s)
+=== RUN   TestRepeatedDiscoveryDoesNotNeedWriterLock
+--- PASS: TestRepeatedDiscoveryDoesNotNeedWriterLock (0.04s)
+=== RUN   TestSessionOrderRejectsStaleSnapshotsABAAndObservedSetChanges
+=== RUN   TestSessionOrderRejectsStaleSnapshotsABAAndObservedSetChanges/missing
+=== RUN   TestSessionOrderRejectsStaleSnapshotsABAAndObservedSetChanges/inserted
+=== RUN   TestSessionOrderRejectsStaleSnapshotsABAAndObservedSetChanges/replacement
+=== RUN   TestSessionOrderRejectsStaleSnapshotsABAAndObservedSetChanges/rename
+=== RUN   TestSessionOrderRejectsStaleSnapshotsABAAndObservedSetChanges/membership
+=== RUN   TestSessionOrderRejectsStaleSnapshotsABAAndObservedSetChanges/stopped
+=== RUN   TestSessionOrderRejectsStaleSnapshotsABAAndObservedSetChanges/duplicate
+=== RUN   TestSessionOrderRejectsStaleSnapshotsABAAndObservedSetChanges/foreign
+--- PASS: TestSessionOrderRejectsStaleSnapshotsABAAndObservedSetChanges (0.69s)
+    --- PASS: TestSessionOrderRejectsStaleSnapshotsABAAndObservedSetChanges/missing (0.06s)
+    --- PASS: TestSessionOrderRejectsStaleSnapshotsABAAndObservedSetChanges/inserted (0.07s)
+    --- PASS: TestSessionOrderRejectsStaleSnapshotsABAAndObservedSetChanges/replacement (0.09s)
+    --- PASS: TestSessionOrderRejectsStaleSnapshotsABAAndObservedSetChanges/rename (0.06s)
+    --- PASS: TestSessionOrderRejectsStaleSnapshotsABAAndObservedSetChanges/membership (0.09s)
+    --- PASS: TestSessionOrderRejectsStaleSnapshotsABAAndObservedSetChanges/stopped (0.10s)
+    --- PASS: TestSessionOrderRejectsStaleSnapshotsABAAndObservedSetChanges/duplicate (0.07s)
+    --- PASS: TestSessionOrderRejectsStaleSnapshotsABAAndObservedSetChanges/foreign (0.06s)
+=== RUN   TestSessionOrderBoundariesNoWriteAndTransactionalFailure
+--- PASS: TestSessionOrderBoundariesNoWriteAndTransactionalFailure (0.11s)
+=== RUN   TestSessionOrderConcurrentConnectionsOnlyOneCommits
+--- PASS: TestSessionOrderConcurrentConnectionsOnlyOneCommits (0.07s)
+=== RUN   TestSessionOrderNewAndMovedMembersFollowManualRowsAndRemovalClearsOldPositions
+--- PASS: TestSessionOrderNewAndMovedMembersFollowManualRowsAndRemovalClearsOldPositions (0.14s)
+=== RUN   TestSessionOrderRejectsMetadataInsertionAfterDiscoveryWithoutReplaying
+--- PASS: TestSessionOrderRejectsMetadataInsertionAfterDiscoveryWithoutReplaying (0.07s)
+=== RUN   TestSessionOrderV4ReadOnlyMigrationAndV5Snapshot
+--- PASS: TestSessionOrderV4ReadOnlyMigrationAndV5Snapshot (0.35s)
+=== RUN   TestSessionOrderMigrationConflictRollsBackAndCorruptPositionIsRejected
+--- PASS: TestSessionOrderMigrationConflictRollsBackAndCorruptPositionIsRejected (0.35s)
+=== RUN   TestSessionOrderPersistsOriginalRowsAcrossDiscoveryAndReopen
+--- PASS: TestSessionOrderPersistsOriginalRowsAcrossDiscoveryAndReopen (0.07s)
+=== RUN   TestMetadataSurvivesReopenWithoutClaimingLiveness
+--- PASS: TestMetadataSurvivesReopenWithoutClaimingLiveness (0.03s)
+=== RUN   TestScopeAndIdentityConflictsCannotOverwriteOrLeaveHalfRecords
+--- PASS: TestScopeAndIdentityConflictsCannotOverwriteOrLeaveHalfRecords (0.07s)
+=== RUN   TestConfirmedStopKeepsHistoryAndChecksExactRun
+--- PASS: TestConfirmedStopKeepsHistoryAndChecksExactRun (0.04s)
+=== RUN   TestHistoryReadIsBounded
+--- PASS: TestHistoryReadIsBounded (0.02s)
+=== RUN   TestInvalidIdentityCannotBecomePersistentMetadata
+--- PASS: TestInvalidIdentityCannotBecomePersistentMetadata (0.02s)
+=== RUN   TestClaimV7MigrationPreservesLegacyReplyWithoutMintingOwnership
+--- PASS: TestClaimV7MigrationPreservesLegacyReplyWithoutMintingOwnership (0.13s)
+=== RUN   TestClaimSnapshotPreservesUnknownAndHidesPrivateKey
+--- PASS: TestClaimSnapshotPreservesUnknownAndHidesPrivateKey (0.12s)
+=== RUN   TestClaimFailedMigrationPreservesV7Source
+--- PASS: TestClaimFailedMigrationPreservesV7Source (0.11s)
+=== RUN   TestClaimReplyCannotBypassOwnership
+--- PASS: TestClaimReplyCannotBypassOwnership (0.05s)
+=== RUN   TestClaimSixteenConsumersOnlyOneNewGrant
+--- PASS: TestClaimSixteenConsumersOnlyOneNewGrant (0.44s)
+=== RUN   TestClaimExpiredOwnerNeverReactivatesAfterReopen
+--- PASS: TestClaimExpiredOwnerNeverReactivatesAfterReopen (0.10s)
+=== RUN   TestClaimTerminalRaceHasOneOwnershipPath
+--- PASS: TestClaimTerminalRaceHasOneOwnershipPath (0.40s)
+=== RUN   TestClaimObservedOwnerStopBecomesUnknown
+--- PASS: TestClaimObservedOwnerStopBecomesUnknown (0.10s)
+PASS

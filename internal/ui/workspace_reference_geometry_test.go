@@ -32,7 +32,7 @@ func TestWorkspaceDialogOuterWidthsMatchUpstreamActualFrames(t *testing.T) {
 		name, text string
 		key        rune
 		width      int
-	}{{"settings", "侧栏密度", 'S', 66}, {"new-terminal", "New terminal", 'n', 86}} {
+	}{{"settings", "Settings", 'S', 66}, {"new-terminal", "New terminal", 'n', 86}} {
 		t.Run(tc.name, func(t *testing.T) {
 			service := &workspaceFixture{fakeService: fakeService{list: func(context.Context) ([]session.Session, error) { return sampleSessions(), nil }}}
 			h := newWorkspaceHarness(t, service)

@@ -169,8 +169,8 @@ func TestGroupRenameWaitsForAcceptedTerminalInputAndCancelNeverSaves(t *testing.
 	close(gate)
 	h.until(func() bool { return h.m.groupDialog != nil })
 	h.send(tea.PasteMsg{Content: "invalid\nmulti-line"})
-	if !strings.Contains(h.m.View().Content, "有界单行") {
-		t.Fatal("multiline paste was not rejected")
+	if !strings.Contains(h.m.groupDialog.err.Error(), "bounded single-line") {
+		t.Fatalf("multiline paste was not rejected: %v; %s", h.m.groupDialog.err, h.m.View().Content)
 	}
 	h.send(tea.KeyPressMsg{Code: tea.KeyEsc})
 	h.until(func() bool { return h.m.groupDialog == nil && h.m.workspace.conn != nil })
@@ -206,7 +206,7 @@ func TestGroupRenameFailureCannotResubmitOrSwitchTabsAndOldResultCannotCloseNewD
 	if h.m.groupDialog != old {
 		t.Fatal("busy commit was abandoned")
 	}
-	h.until(func() bool { return strings.Contains(h.m.View().Content, "请Back并Refresh") })
+	h.until(func() bool { return strings.Contains(h.m.View().Content, "Go back and refresh") })
 	h.send(tea.KeyPressMsg{Code: tea.KeyEnter})
 	h.send(tea.KeyPressMsg{Code: tea.KeyPgDown, Mod: tea.ModCtrl})
 	s.groupMu.Lock()

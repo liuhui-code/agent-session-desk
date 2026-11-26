@@ -1,0 +1,20 @@
+from pathlib import Path
+p=Path('/private/tmp/asd-stability-20261127')
+for kind in ['red','green']:
+ s=(p/('fault-red2.ps1' if kind=='red' else 'fault-green.ps1')).read_text()
+ s=s.replace("$round='red2'","$round='red-selective'").replace("$round='green'","$round='green-selective'")
+ s=s.replace("$round-eq 'red'","$round.StartsWith('red')")
+ a=s.index(' $psi=[Diagnostics.ProcessStartInfo]');b=s.index(' $proxy=[Diagnostics.Process]::Start($psi)',a)
+ s=s[:a]+''' $psi=[Diagnostics.ProcessStartInfo]::new();$psi.FileName=Join-Path $base 'stability-fault-proxy.exe';$psi.UseShellExecute=$false;$psi.CreateNoWindow=$true
+ foreach($arg in @('-ready',$ready,'-done',$done,'-upstream',$script:originalPort.Trim())){$psi.ArgumentList.Add($arg)}
+''' +s[b:]
+ s=s.replace(" Stage 'real-alt-j-switch-into-truncated-handshake'"," Wait 'B appears in original sidebar' {(Surface $a).text.Contains('Fault B')}\n Stage 'real-alt-j-switch-into-truncated-handshake'")
+ s=s.replace('$r.handshake_auth_and_poll_observed=$true', '''if(!$peer.persistent_boundary){throw 'Wrong proxy failure boundary'}
+ $r.handshake_auth_and_poll_observed=$true
+ [IO.File]::WriteAllText($script:portPath,$script:originalPort);$script:portPath=$null''')
+ # The original endpoint was already restored after the exact boundary.
+ s=s.replace('  [IO.File]::WriteAllText($script:portPath,$script:originalPort);$script:portPath=$null\n','')
+ s=s.replace("if($proxy){$r.fault_peer_ended=$proxy.WaitForExit(10000)}", "if($proxy){if(!$proxy.HasExited){$proxy.Kill();$null=$proxy.WaitForExit(5000);$r.owned_proxy_forced_end=1};$r.fault_peer_ended=$proxy.HasExited}")
+ (p/('fault-'+kind+'-selective.ps1')).write_text(s)
+ controller=(p/('run-fault-'+kind+'.ps1')).read_text().replace('fault-'+kind+'.ps1','fault-'+kind+'-selective.ps1').replace('AsdStabilityFault'+kind+'20261127','AsdStabilityFault'+kind+'Selective20261127').replace('stability-fault-'+kind+'-20261127','stability-fault-'+kind+'-selective-20261127')
+ (p/('run-fault-'+kind+'-selective.ps1')).write_text(controller)

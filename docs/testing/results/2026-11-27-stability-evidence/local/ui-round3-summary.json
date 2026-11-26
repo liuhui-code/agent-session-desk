@@ -1,0 +1,34 @@
+{
+  "exit_code": 1,
+  "source": "candidate",
+  "command": [
+    "test",
+    "-json",
+    "-count=1",
+    "-timeout=4m",
+    "./internal/ui"
+  ],
+  "top_pass": 326,
+  "top_skip": 0,
+  "failed": [
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/50/focusfalse"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": "TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership"
+    },
+    {
+      "package": "github.com/liuhui-code/agent-session-desk/internal/ui",
+      "test": null
+    }
+  ],
+  "failure_output": [
+    "    workspace_footer_modes_test.go:100: curated globals cropped\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership/curated/50/focusfalse (0.00s)\n",
+    "--- FAIL: TestWorkspaceFooterModesRetainBoundedFramesAndTerminalOwnership (0.08s)\n",
+    "FAIL\n",
+    "FAIL\tgithub.com/liuhui-code/agent-session-desk/internal/ui\t7.810s\n"
+  ]
+}

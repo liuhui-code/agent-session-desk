@@ -1,0 +1,37 @@
+{
+  "intentional_owned_ui_crashes": 0,
+  "result": "failed",
+  "error": "Timed out: fault peer observed actual auth and poll; no automatic replay",
+  "stages": [
+    {
+      "utc": "2026-11-26T16:54:59.1106633Z",
+      "stage": "input-idle-preflight"
+    },
+    {
+      "utc": "2026-11-26T16:55:01.7567163Z",
+      "stage": "create-original-target-b"
+    },
+    {
+      "utc": "2026-11-26T16:55:03.0800114Z",
+      "stage": "real-alt-j-switch-into-truncated-handshake"
+    }
+  ],
+  "stage": "real-alt-j-switch-into-truncated-handshake",
+  "registry_writes": 0,
+  "fixture_ends": [
+    true,
+    true
+  ],
+  "clipboard_calls": 0,
+  "endpoint_restore_blocked": true,
+  "automatic_input_replay": false,
+  "manager_ends": [
+    true
+  ],
+  "cursor_restored": true,
+  "forced_product_ends": 0,
+  "product_sha256": "c7821a3a4c9ec044c51d00d38da47c9d2a4d1d647ae30c7c6c5f068d6b0f4290",
+  "owned_proxy_forced_end": 1,
+  "session_content_exported": 0,
+  "fault_peer_ended": true
+}

@@ -1,0 +1,37 @@
+{
+  "registry_writes": 0,
+  "error": "Timed out: baseline UI exits on failed switch; no automatic replay",
+  "fault_peer_ended": true,
+  "manager_ends": [
+    true
+  ],
+  "forced_product_ends": 0,
+  "intentional_owned_ui_crashes": 0,
+  "stage": "real-alt-j-switch-into-truncated-handshake",
+  "clipboard_calls": 0,
+  "product_sha256": "c7821a3a4c9ec044c51d00d38da47c9d2a4d1d647ae30c7c6c5f068d6b0f4290",
+  "fixture_ends": [
+    true,
+    true
+  ],
+  "automatic_input_replay": false,
+  "endpoint_restore_blocked": true,
+  "cursor_restored": true,
+  "handshake_auth_and_poll_observed": true,
+  "session_content_exported": 0,
+  "result": "failed",
+  "stages": [
+    {
+      "stage": "input-idle-preflight",
+      "utc": "2026-11-26T16:45:22.4639503Z"
+    },
+    {
+      "stage": "create-original-target-b",
+      "utc": "2026-11-26T16:45:24.9670663Z"
+    },
+    {
+      "stage": "real-alt-j-switch-into-truncated-handshake",
+      "utc": "2026-11-26T16:45:26.8836557Z"
+    }
+  ]
+}

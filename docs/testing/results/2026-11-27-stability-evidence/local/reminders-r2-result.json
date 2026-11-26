@@ -1,0 +1,60 @@
+{
+  "notepad_closed_normally": true,
+  "intentional_owned_ui_crashes": 0,
+  "result": "failed",
+  "stages": [
+    {
+      "stage": "input-idle-preflight",
+      "utc": "2026-11-26T17:25:19.2518205Z"
+    },
+    {
+      "stage": "native-approval-arrives-without-stealing-a-draft",
+      "utc": "2026-11-26T17:25:22.0472011Z"
+    },
+    {
+      "stage": "alt-n-opens-original-prompt-but-does-not-answer",
+      "utc": "2026-11-26T17:25:24.3148991Z"
+    },
+    {
+      "stage": "ctrl-click-unicode-space-document-in-system-editor",
+      "utc": "2026-11-26T17:25:25.1293276Z"
+    },
+    {
+      "stage": "pet-restores-correct-prompt-from-notepad",
+      "utc": "2026-11-26T17:25:25.8375665Z"
+    },
+    {
+      "stage": "pet-restores-minimized-original-window",
+      "utc": "2026-11-26T17:25:26.5066041Z"
+    },
+    {
+      "stage": "explicit-y-enter-resolves-only-original-request",
+      "utc": "2026-11-26T17:25:27.0860889Z"
+    },
+    {
+      "stage": "normal-ui-exit-does-not-end-runs-or-editor",
+      "utc": "2026-11-26T17:25:28.6530654Z"
+    },
+    {
+      "stage": "reopen-preserves-draft-run-and-resolved-request",
+      "utc": "2026-11-26T17:25:28.9591780Z"
+    }
+  ],
+  "cursor_restored": true,
+  "clipboard_calls": 0,
+  "automatic_input_replay": false,
+  "fixture_ends": [
+    true,
+    true
+  ],
+  "registry_writes": 0,
+  "manager_ends": [
+    true,
+    true
+  ],
+  "session_content_exported": 0,
+  "product_sha256": "0af83573d9e5aee55e26a31ff32aab84aa1da45b6e58523b9ff220abc49a330f",
+  "stage": "reopen-preserves-draft-run-and-resolved-request",
+  "error": "Timed out: original fixture surface ready; no automatic replay",
+  "forced_product_ends": 0
+}

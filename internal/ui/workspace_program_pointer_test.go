@@ -79,7 +79,7 @@ func TestProgramMouseExternalScreenGrowthThenRestoreCannotResumeGesture(t *testi
 	if got := directDragWrites(s, "first"); got != "pointer:down,3,2" {
 		t.Fatalf("unknown external geometry resumed/released old gesture: %q", got)
 	}
-	if !strings.Contains(h.m.status, "Unknown") {
+	if !strings.Contains(h.m.status, "unknown") {
 		t.Fatal("external change lost uncertain release notice")
 	}
 }

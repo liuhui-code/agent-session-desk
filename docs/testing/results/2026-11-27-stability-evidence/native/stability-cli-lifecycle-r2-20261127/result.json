@@ -1,0 +1,37 @@
+{
+  "retained_records": 2,
+  "screen_records": 3,
+  "product_sha256": "0af83573d9e5aee55e26a31ff32aab84aa1da45b6e58523b9ff220abc49a330f",
+  "clipboard_calls": 0,
+  "result": "verified",
+  "nonoverwrite_refusals": 2,
+  "registry_writes": 0,
+  "history_identity_unchanged": true,
+  "metadata_only_restore": true,
+  "corrupt_refusals": 2,
+  "forced_product_ends": 0,
+  "stages": [
+    {
+      "stage": "real-fixture-and-live-metadata",
+      "utc": "2026-11-26T17:33:19.7221783Z"
+    },
+    {
+      "stage": "three-explicit-screen-records-rotate-to-two",
+      "utc": "2026-11-26T17:33:20.3750943Z"
+    },
+    {
+      "stage": "normal-stop-history-and-offline-output",
+      "utc": "2026-11-26T17:33:21.4821350Z"
+    },
+    {
+      "stage": "check-backup-restore-to-new-state-only",
+      "utc": "2026-11-26T17:33:22.0770180Z"
+    },
+    {
+      "stage": "corrupt-source-refused-without-destination",
+      "utc": "2026-11-26T17:33:22.6152152Z"
+    }
+  ],
+  "original_fixture_ended": true,
+  "no_process_resurrection": true
+}

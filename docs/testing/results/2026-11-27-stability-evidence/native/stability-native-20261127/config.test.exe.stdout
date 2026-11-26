@@ -1,0 +1,145 @@
+=== RUN   TestQuickLaunchUsesDefaultThenLastAndPreservesArguments
+--- PASS: TestQuickLaunchUsesDefaultThenLastAndPreservesArguments (0.05s)
+=== RUN   TestLoadNamedTemplatePreservesLaunchData
+--- PASS: TestLoadNamedTemplatePreservesLaunchData (0.02s)
+=== RUN   TestUnsupportedSchemaDoesNotProduceLaunch
+--- PASS: TestUnsupportedSchemaDoesNotProduceLaunch (0.03s)
+=== RUN   TestUnknownFieldsAreRejectedWithoutEchoingInput
+--- PASS: TestUnknownFieldsAreRejectedWithoutEchoingInput (0.03s)
+=== RUN   TestMalformedConfigDoesNotExposeSourceOrValues
+--- PASS: TestMalformedConfigDoesNotExposeSourceOrValues (0.06s)
+=== RUN   TestMissingTemplateAndInvalidLaunchAreRejected
+--- PASS: TestMissingTemplateAndInvalidLaunchAreRejected (0.07s)
+=== RUN   TestSchemaKeysAreCaseSensitive
+--- PASS: TestSchemaKeysAreCaseSensitive (0.01s)
+=== RUN   TestConfigurationReadHasABound
+--- PASS: TestConfigurationReadHasABound (0.04s)
+=== RUN   TestTemplateHasNoInterpolationOrSharedLaunchData
+--- PASS: TestTemplateHasNoInterpolationOrSharedLaunchData (0.01s)
+=== RUN   TestRecentDirectoriesRememberLatestThenRestoreWithoutRewritingOnRead
+--- PASS: TestRecentDirectoriesRememberLatestThenRestoreWithoutRewritingOnRead (0.05s)
+=== RUN   TestRecentDirectoryCacheRejectsInvalidDataWithoutReplacingIt
+=== RUN   TestRecentDirectoryCacheRejectsInvalidDataWithoutReplacingIt/32schema_version=2_dir
+=== RUN   TestRecentDirectoryCacheRejectsInvalidDataWithoutReplacingIt/27schema_version=1_unk
+=== RUN   TestRecentDirectoryCacheRejectsInvalidDataWithoutReplacingIt/43schema_version=1_dir
+=== RUN   TestRecentDirectoryCacheRejectsInvalidDataWithoutReplacingIt/196609####################
+--- PASS: TestRecentDirectoryCacheRejectsInvalidDataWithoutReplacingIt (0.06s)
+    --- PASS: TestRecentDirectoryCacheRejectsInvalidDataWithoutReplacingIt/32schema_version=2_dir (0.02s)
+    --- PASS: TestRecentDirectoryCacheRejectsInvalidDataWithoutReplacingIt/27schema_version=1_unk (0.01s)
+    --- PASS: TestRecentDirectoryCacheRejectsInvalidDataWithoutReplacingIt/43schema_version=1_dir (0.01s)
+    --- PASS: TestRecentDirectoryCacheRejectsInvalidDataWithoutReplacingIt/196609#################### (0.02s)
+=== RUN   TestRecentDirectoryCacheBoundsCancellationAndMissingRead
+--- PASS: TestRecentDirectoryCacheBoundsCancellationAndMissingRead (0.04s)
+=== RUN   TestUIFooterV7LoadsAndRoundTripsModeWithoutChangingOtherPreferences
+--- PASS: TestUIFooterV7LoadsAndRoundTripsModeWithoutChangingOtherPreferences (0.03s)
+=== RUN   TestUIFooterNormalizesLikeSourceAndRetainsDefaultZero
+=== RUN   TestUIFooterNormalizesLikeSourceAndRetainsDefaultZero/#00
+=== RUN   TestUIFooterNormalizesLikeSourceAndRetainsDefaultZero/full
+=== RUN   TestUIFooterNormalizesLikeSourceAndRetainsDefaultZero/curated
+=== RUN   TestUIFooterNormalizesLikeSourceAndRetainsDefaultZero/compact
+=== RUN   TestUIFooterNormalizesLikeSourceAndRetainsDefaultZero/minimal
+=== RUN   TestUIFooterNormalizesLikeSourceAndRetainsDefaultZero/_MINIMAL_
+=== RUN   TestUIFooterNormalizesLikeSourceAndRetainsDefaultZero/unknown
+--- PASS: TestUIFooterNormalizesLikeSourceAndRetainsDefaultZero (0.17s)
+    --- PASS: TestUIFooterNormalizesLikeSourceAndRetainsDefaultZero/#00 (0.02s)
+    --- PASS: TestUIFooterNormalizesLikeSourceAndRetainsDefaultZero/full (0.03s)
+    --- PASS: TestUIFooterNormalizesLikeSourceAndRetainsDefaultZero/curated (0.02s)
+    --- PASS: TestUIFooterNormalizesLikeSourceAndRetainsDefaultZero/compact (0.03s)
+    --- PASS: TestUIFooterNormalizesLikeSourceAndRetainsDefaultZero/minimal (0.03s)
+    --- PASS: TestUIFooterNormalizesLikeSourceAndRetainsDefaultZero/_MINIMAL_ (0.02s)
+    --- PASS: TestUIFooterNormalizesLikeSourceAndRetainsDefaultZero/unknown (0.02s)
+=== RUN   TestUIFooterLegacyLoadRemainsReadOnlyUntilExplicitUpgrade
+--- PASS: TestUIFooterLegacyLoadRemainsReadOnlyUntilExplicitUpgrade (0.12s)
+=== RUN   TestUIFooterRejectsVersionOrTypeMismatchWithoutOverwritingSource
+--- PASS: TestUIFooterRejectsVersionOrTypeMismatchWithoutOverwritingSource (0.09s)
+=== RUN   TestUIV3GroupFoldsPersistWithLegacyReadOnlyLoading
+--- PASS: TestUIV3GroupFoldsPersistWithLegacyReadOnlyLoading (0.03s)
+=== RUN   TestUINavigationV2RoundTripsWithoutLosingDensityOrFoldChoice
+--- PASS: TestUINavigationV2RoundTripsWithoutLosingDensityOrFoldChoice (0.03s)
+=== RUN   TestUILegacyDensityReadDoesNotRewriteAndUsesGroupedExpandedDefaults
+--- PASS: TestUILegacyDensityReadDoesNotRewriteAndUsesGroupedExpandedDefaults (0.01s)
+=== RUN   TestUINavigationRefusesUnknownKeysAndWrongTypesWithoutOverwriting
+--- PASS: TestUINavigationRefusesUnknownKeysAndWrongTypesWithoutOverwriting (0.08s)
+=== RUN   TestUISplitV4RoundTripsManualAndAutoWithOtherPreferences
+--- PASS: TestUISplitV4RoundTripsManualAndAutoWithOtherPreferences (0.13s)
+=== RUN   TestUISplitRejectsInvalidOrVersionMismatchedValuesWithoutReplacing
+=== RUN   TestUISplitRejectsInvalidOrVersionMismatchedValuesWithoutReplacing/4/-1
+=== RUN   TestUISplitRejectsInvalidOrVersionMismatchedValuesWithoutReplacing/4/1
+=== RUN   TestUISplitRejectsInvalidOrVersionMismatchedValuesWithoutReplacing/4/9
+=== RUN   TestUISplitRejectsInvalidOrVersionMismatchedValuesWithoutReplacing/4/91
+=== RUN   TestUISplitRejectsInvalidOrVersionMismatchedValuesWithoutReplacing/4/100
+=== RUN   TestUISplitRejectsInvalidOrVersionMismatchedValuesWithoutReplacing/4/1.5
+=== RUN   TestUISplitRejectsInvalidOrVersionMismatchedValuesWithoutReplacing/4/true
+=== RUN   TestUISplitRejectsInvalidOrVersionMismatchedValuesWithoutReplacing/4/'40'
+=== RUN   TestUISplitRejectsInvalidOrVersionMismatchedValuesWithoutReplacing/4/9223372036854775808
+=== RUN   TestUISplitRejectsInvalidOrVersionMismatchedValuesWithoutReplacing/3/40
+=== RUN   TestUISplitRejectsInvalidOrVersionMismatchedValuesWithoutReplacing/2/0
+=== RUN   TestUISplitRejectsInvalidOrVersionMismatchedValuesWithoutReplacing/1/40
+=== RUN   TestUISplitRejectsInvalidOrVersionMismatchedValuesWithoutReplacing/8/40
+--- PASS: TestUISplitRejectsInvalidOrVersionMismatchedValuesWithoutReplacing (0.18s)
+    --- PASS: TestUISplitRejectsInvalidOrVersionMismatchedValuesWithoutReplacing/4/-1 (0.02s)
+    --- PASS: TestUISplitRejectsInvalidOrVersionMismatchedValuesWithoutReplacing/4/1 (0.02s)
+    --- PASS: TestUISplitRejectsInvalidOrVersionMismatchedValuesWithoutReplacing/4/9 (0.01s)
+    --- PASS: TestUISplitRejectsInvalidOrVersionMismatchedValuesWithoutReplacing/4/91 (0.02s)
+    --- PASS: TestUISplitRejectsInvalidOrVersionMismatchedValuesWithoutReplacing/4/100 (0.01s)
+    --- PASS: TestUISplitRejectsInvalidOrVersionMismatchedValuesWithoutReplacing/4/1.5 (0.02s)
+    --- PASS: TestUISplitRejectsInvalidOrVersionMismatchedValuesWithoutReplacing/4/true (0.02s)
+    --- PASS: TestUISplitRejectsInvalidOrVersionMismatchedValuesWithoutReplacing/4/'40' (0.01s)
+    --- PASS: TestUISplitRejectsInvalidOrVersionMismatchedValuesWithoutReplacing/4/9223372036854775808 (0.01s)
+    --- PASS: TestUISplitRejectsInvalidOrVersionMismatchedValuesWithoutReplacing/3/40 (0.01s)
+    --- PASS: TestUISplitRejectsInvalidOrVersionMismatchedValuesWithoutReplacing/2/0 (0.01s)
+    --- PASS: TestUISplitRejectsInvalidOrVersionMismatchedValuesWithoutReplacing/1/40 (0.01s)
+    --- PASS: TestUISplitRejectsInvalidOrVersionMismatchedValuesWithoutReplacing/8/40 (0.01s)
+=== RUN   TestUISplitLegacyLoadRemainsReadOnlyUntilExplicitSave
+--- PASS: TestUISplitLegacyLoadRemainsReadOnlyUntilExplicitSave (0.09s)
+=== RUN   TestUISplitInvalidSavePreservesExistingAndLeavesNoTemporaryFiles
+--- PASS: TestUISplitInvalidSavePreservesExistingAndLeavesNoTemporaryFiles (0.02s)
+=== RUN   TestUISystemThemeV6UpgradesWithoutResolvingPreference
+--- PASS: TestUISystemThemeV6UpgradesWithoutResolvingPreference (0.03s)
+=== RUN   TestUIPreferencesPersistAcrossLoadsAndReplaceExistingChoice
+--- PASS: TestUIPreferencesPersistAcrossLoadsAndReplaceExistingChoice (0.06s)
+=== RUN   TestUIPreferencesRefuseToOverwriteUnrecognizedOrInvalidFiles
+--- PASS: TestUIPreferencesRefuseToOverwriteUnrecognizedOrInvalidFiles (0.05s)
+=== RUN   TestUIPreferencesNormalizeUpstreamDensityValues
+--- PASS: TestUIPreferencesNormalizeUpstreamDensityValues (0.04s)
+=== RUN   TestUIPreferencesRejectCaseVariantSchemaKeys
+--- PASS: TestUIPreferencesRejectCaseVariantSchemaKeys (0.01s)
+=== RUN   TestUIThemeV5LoadsAndRoundTripsWithoutLosingOtherPreferences
+--- PASS: TestUIThemeV5LoadsAndRoundTripsWithoutLosingOtherPreferences (0.03s)
+=== RUN   TestUIThemeLegacyLoadsReadOnlyAndUpgradesOnlyOnExplicitSave
+=== RUN   TestUIThemeLegacyLoadsReadOnlyAndUpgradesOnlyOnExplicitSave/1
+=== RUN   TestUIThemeLegacyLoadsReadOnlyAndUpgradesOnlyOnExplicitSave/2
+=== RUN   TestUIThemeLegacyLoadsReadOnlyAndUpgradesOnlyOnExplicitSave/3
+=== RUN   TestUIThemeLegacyLoadsReadOnlyAndUpgradesOnlyOnExplicitSave/4
+--- PASS: TestUIThemeLegacyLoadsReadOnlyAndUpgradesOnlyOnExplicitSave (0.07s)
+    --- PASS: TestUIThemeLegacyLoadsReadOnlyAndUpgradesOnlyOnExplicitSave/1 (0.02s)
+    --- PASS: TestUIThemeLegacyLoadsReadOnlyAndUpgradesOnlyOnExplicitSave/2 (0.02s)
+    --- PASS: TestUIThemeLegacyLoadsReadOnlyAndUpgradesOnlyOnExplicitSave/3 (0.02s)
+    --- PASS: TestUIThemeLegacyLoadsReadOnlyAndUpgradesOnlyOnExplicitSave/4 (0.02s)
+=== RUN   TestUIThemeRejectsInvalidFilesWithoutReplacingOrExposingContent
+=== RUN   TestUIThemeRejectsInvalidFilesWithoutReplacingOrExposingContent/schema_version=1_theme='light'
+=== RUN   TestUIThemeRejectsInvalidFilesWithoutReplacingOrExposingContent/schema_version=2_theme='light'
+=== RUN   TestUIThemeRejectsInvalidFilesWithoutReplacingOrExposingContent/schema_version=3_theme='light'
+=== RUN   TestUIThemeRejectsInvalidFilesWithoutReplacingOrExposingContent/schema_version=4_theme='light'
+=== RUN   TestUIThemeRejectsInvalidFilesWithoutReplacingOrExposingContent/schema_version=8_theme='light'
+=== RUN   TestUIThemeRejectsInvalidFilesWithoutReplacingOrExposingContent/schema_version=5_theme=''
+=== RUN   TestUIThemeRejectsInvalidFilesWithoutReplacingOrExposingContent/schema_version=5_theme='system'
+=== RUN   TestUIThemeRejectsInvalidFilesWithoutReplacingOrExposingContent/schema_version=5_theme='LIGHT'
+=== RUN   TestUIThemeRejectsInvalidFilesWithoutReplacingOrExposingContent/schema_version=5_theme=true
+=== RUN   TestUIThemeRejectsInvalidFilesWithoutReplacingOrExposingContent/schema_version=5_theme=['light']
+=== RUN   TestUIThemeRejectsInvalidFilesWithoutReplacingOrExposingContent/schema_version=5_theme='PRIVATE-SYNTHETIC'
+--- PASS: TestUIThemeRejectsInvalidFilesWithoutReplacingOrExposingContent (0.12s)
+    --- PASS: TestUIThemeRejectsInvalidFilesWithoutReplacingOrExposingContent/schema_version=1_theme='light' (0.01s)
+    --- PASS: TestUIThemeRejectsInvalidFilesWithoutReplacingOrExposingContent/schema_version=2_theme='light' (0.01s)
+    --- PASS: TestUIThemeRejectsInvalidFilesWithoutReplacingOrExposingContent/schema_version=3_theme='light' (0.01s)
+    --- PASS: TestUIThemeRejectsInvalidFilesWithoutReplacingOrExposingContent/schema_version=4_theme='light' (0.01s)
+    --- PASS: TestUIThemeRejectsInvalidFilesWithoutReplacingOrExposingContent/schema_version=8_theme='light' (0.01s)
+    --- PASS: TestUIThemeRejectsInvalidFilesWithoutReplacingOrExposingContent/schema_version=5_theme='' (0.01s)
+    --- PASS: TestUIThemeRejectsInvalidFilesWithoutReplacingOrExposingContent/schema_version=5_theme='system' (0.01s)
+    --- PASS: TestUIThemeRejectsInvalidFilesWithoutReplacingOrExposingContent/schema_version=5_theme='LIGHT' (0.01s)
+    --- PASS: TestUIThemeRejectsInvalidFilesWithoutReplacingOrExposingContent/schema_version=5_theme=true (0.01s)
+    --- PASS: TestUIThemeRejectsInvalidFilesWithoutReplacingOrExposingContent/schema_version=5_theme=['light'] (0.01s)
+    --- PASS: TestUIThemeRejectsInvalidFilesWithoutReplacingOrExposingContent/schema_version=5_theme='PRIVATE-SYNTHETIC' (0.01s)
+=== RUN   TestUIThemeDefaultAndExplicitDarkRoundTripAndRejectBadWrites
+--- PASS: TestUIThemeDefaultAndExplicitDarkRoundTripAndRejectBadWrites (0.07s)
+PASS
