@@ -1,0 +1,14 @@
+{
+  "automatic_retry": false,
+  "error": "Expected active terminal not ready; no keyboard replay",
+  "result": "failed",
+  "last_ready": {
+    "error": false,
+    "read_only": false,
+    "prompt": true,
+    "target_marker": false,
+    "color": "000000",
+    "connecting": false
+  },
+  "stage": "verify-retained-B"
+}
