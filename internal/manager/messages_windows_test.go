@@ -97,22 +97,36 @@ func TestWindowsNativeHeadlessMessagesWithoutUIAndWithoutResize(t *testing.T) {
 	if sourceLine == 0 {
 		t.Fatal("independent source marker not captured")
 	}
+	ready := false
+	for i := 0; i < 40; i++ {
+		preview, err := b.Preview(ctx, c, 60)
+		if err == nil && strings.Contains(preview.Text, "TARGET_READY_"+id) && strings.Contains(preview.Text, "PS ") {
+			ready = true
+			break
+		}
+		time.Sleep(100 * time.Millisecond)
+	}
+	if !ready {
+		t.Fatal("controlled target shell prompt not ready before explicit delivery")
+	}
 	// No terminal client or UI exists while the first message is delivered.
 	var q session.Message
 	if e = json.Unmarshal(call("send", "--request-id", id, "--to", c.ID, "--run", c.RunID, "--source-run", a.RunID, "--record", record.ID, "--start-line", fmt.Sprint(sourceLine), "--end-line", fmt.Sprint(sourceLine), "--deliver"), &q); e != nil || q.State != "input_written" {
 		t.Fatalf("headless send: %+v %v", q, e)
 	}
 	observedDraft := false
+	lastPreview := ""
 	for i := 0; i < 40; i++ {
 		p, e := b.Preview(ctx, c, 60)
-		if e == nil && strings.HasSuffix(strings.TrimSpace(p.Text), marker) {
+		lastPreview = p.Text
+		if e == nil && strings.HasSuffix(strings.Join(strings.Fields(p.Text), ""), marker) {
 			observedDraft = true
 			break
 		}
 		time.Sleep(100 * time.Millisecond)
 	}
 	if !observedDraft {
-		t.Fatal("headless source paste was not retained as a draft without Enter")
+		t.Fatalf("headless source paste not observed at draft tail; marker_present=%v", strings.Contains(strings.Join(strings.Fields(lastPreview), ""), marker))
 	}
 	// A later observer acts like an existing TUI; delivery must not alter its size.
 	conn, e := m.OpenTerminal(ctx, c, 300, 24)
