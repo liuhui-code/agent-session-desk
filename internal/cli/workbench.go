@@ -13,8 +13,9 @@ import (
 	"github.com/liuhui-code/agent-session-desk/internal/ui"
 )
 
-func runWorkbench(ctx context.Context, service *manager.Manager, options backend.Options, stateDir, configPath string, desktopPet bool, documentApp string, input io.Reader, output io.Writer) error {
+func runWorkbench(ctx context.Context, service *manager.Manager, options backend.Options, stateDir, configPath string, desktopPet bool, documentApp string, focus func() bool, input io.Reader, output io.Writer) error {
 	settings := withQuickLaunch(loadUIOptions(options, stateDir), options, stateDir, configPath)
+	settings.AttentionFocus = focus
 	settings.OpenDocument = document.Open
 	if documentApp == "system-notepad" {
 		settings.OpenDocument = document.OpenInSystemNotepad
@@ -24,15 +25,13 @@ func runWorkbench(ctx context.Context, service *manager.Manager, options backend
 	var companion *pet.Companion
 	requests := make(chan pet.Activation, 1)
 	if desktopPet {
-		owner, _ := pet.CaptureOwner()
-		defer owner.Close()
 		companion = pet.NewCompanion(func(a pet.Activation) {
 			select {
 			case requests <- a:
 			default:
 			}
 		})
-		settings.AttentionObserver, settings.AttentionFocus = companion.Publish, owner.Activate
+		settings.AttentionObserver = companion.Publish
 	}
 	model := ui.NewWithOptions(ctx, service, settings)
 	defer model.Close()

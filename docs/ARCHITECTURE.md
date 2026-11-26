@@ -36,6 +36,8 @@ TUI 的按键处理与绘制不应直接散落 tmux 或 Windows 进程调用。�
 
 M0–M2 由按需运行的 TUI/CLI 调用共享核心，psmux/tmux 承担后台终端托管。M3 为关闭界面后的自动投递引入共享 Host，并按 ADR-0006 复用它持续接收人工介入事件和发送提醒；管理命令可按需执行，无消费者时落盘队列等待，也不承诺持续监测。具体 IPC、单实例和恢复机制在 M3 实施前固定。
 
+[ADR-0055](adr/0055-scoped-workbench-instance-and-owned-window.md)只固定 Windows 工作台的单实例／窗口唤起：当前用户、交互登录会话和 backend/runtime/metadata 作用域的命名互斥与有界本机消息端点，随 UI 退出，不增加常驻进程，不传输命令或任务。它不提前实现 M3 Host 或消息消费协议；独立 CLI 命令仍可并发按需运行。
+
 ### 默认界面与终端交接
 
 按 [ADR-0014](adr/0014-upstream-ui-tabs-and-general-terminals.md)，产品内 Tab 是主要会话工作区，活动 Tab 直接操作 agent 或普通 shell／CLI 并保留 Tab 导航；列表／搜索辅助组织，新建、发送和设置按需打开。终端实时输入由目标程序处理，不增加日常聊天输入框。现有全屏 attach 可保留为显式辅助模式，当前代码尚未实现新的 Tab 路径。

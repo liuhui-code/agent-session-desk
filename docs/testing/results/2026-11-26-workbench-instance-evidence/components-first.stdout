@@ -1,0 +1,16 @@
+=== RUN   TestScopeKeyReusesEquivalentPathsAndSeparatesDataScopes
+--- PASS: TestScopeKeyReusesEquivalentPathsAndSeparatesDataScopes (0.19s)
+=== RUN   TestWindowsInstanceScopeSurvivesCreationCaseAndExtendedPathSpelling
+--- PASS: TestWindowsInstanceScopeSurvivesCreationCaseAndExtendedPathSpelling (0.07s)
+=== RUN   TestWindowsInstanceConcurrentStartupKeepsOneOwner
+--- PASS: TestWindowsInstanceConcurrentStartupKeepsOneOwner (0.20s)
+=== RUN   TestWindowsInstanceKilledOwnerReleasesAnAbandonedMutex
+--- PASS: TestWindowsInstanceKilledOwnerReleasesAnAbandonedMutex (1.47s)
+=== RUN   TestWindowsInstanceUnresponsiveOwnerDoesNotPermitAnotherUI
+    recovery_windows_test.go:114: unresponsive owner was treated as absent/success: true false <nil>
+--- FAIL: TestWindowsInstanceUnresponsiveOwnerDoesNotPermitAnotherUI (0.26s)
+=== RUN   TestWindowsInstanceReusesOnlyTheMatchingScopeAndClosesCleanly
+--- PASS: TestWindowsInstanceReusesOnlyTheMatchingScopeAndClosesCleanly (0.15s)
+=== RUN   TestWindowsInstanceCanceledLookupDoesNotClaimAnExistingOwner
+--- PASS: TestWindowsInstanceCanceledLookupDoesNotClaimAnExistingOwner (0.02s)
+FAIL

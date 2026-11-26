@@ -1,5 +1,7 @@
 # 决策记录
 
+2026-11-26：用户确认优先单实例启动与可靠窗口定位。按 [ADR-0055](adr/0055-scoped-workbench-instance-and-owned-window.md)采用 Windows 命名互斥、随 UI 存活的窗口唤起端点及首次 WT 的明确窗口标识；不新增常驻进程或任务传输。重复启动不创建第二工作台，异常释放不保留锁文件；实际执行另记。
+
 2026-11-26：按 [ADR-0052](adr/0052-open-external-markdown-documents.md)从终端 Ctrl+单击本地 Markdown，复用 Windows 默认文件关联与原 pane 报告目录；不内嵌阅读器，默认阅读器桌面接受另验。
 
 2026-11-26：用户明确桌宠应联动上一轮已有阻塞提示。按 [ADR-0051](adr/0051-pet-existing-blocking-reminders.md)复用现有事项和导航，不新增 Agent 接入；独立 Demo 只保留外观诊断。

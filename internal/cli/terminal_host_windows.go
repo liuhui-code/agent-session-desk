@@ -12,8 +12,8 @@ import (
 	"path/filepath"
 )
 
-func openTerminalHost(ctx context.Context, args []string, inside bool, input io.Reader, output io.Writer) (bool, error) {
-	if inside || os.Getenv("WT_SESSION") != "" || input != os.Stdin || output != os.Stdout {
+func openTerminalHost(ctx context.Context, args []string, inside bool, token string, input io.Reader, output io.Writer) (bool, error) {
+	if inside || input != os.Stdin || output != os.Stdout {
 		return false, nil
 	}
 	executable, err := os.Executable()
@@ -35,7 +35,7 @@ func openTerminalHost(ctx context.Context, args []string, inside bool, input io.
 	if err != nil {
 		return true, err
 	}
-	hostArgs := terminalHostArgs(executable, dir, args)
+	hostArgs := terminalHostArgs(executable, dir, args, token)
 	if host.Profile != "" {
 		hostArgs = append([]string{"--window", "new", "new-tab", "--profile", host.Profile}, hostArgs[3:]...)
 	}

@@ -1,0 +1,17 @@
+=== RUN   TestScopeKeyReusesEquivalentPathsAndSeparatesDataScopes
+--- PASS: TestScopeKeyReusesEquivalentPathsAndSeparatesDataScopes (0.03s)
+=== RUN   TestWindowsInstanceScopeSurvivesCreationCaseAndExtendedPathSpelling
+--- PASS: TestWindowsInstanceScopeSurvivesCreationCaseAndExtendedPathSpelling (0.11s)
+=== RUN   TestWindowsInstanceConcurrentStartupKeepsOneOwner
+--- PASS: TestWindowsInstanceConcurrentStartupKeepsOneOwner (0.68s)
+=== RUN   TestWindowsInstanceKilledOwnerReleasesAnAbandonedMutex
+--- PASS: TestWindowsInstanceKilledOwnerReleasesAnAbandonedMutex (1.06s)
+=== RUN   TestWindowsInstanceUnresponsiveOwnerDoesNotPermitAnotherUI
+--- PASS: TestWindowsInstanceUnresponsiveOwnerDoesNotPermitAnotherUI (2.06s)
+=== RUN   TestWindowsInstanceReusesOnlyTheMatchingScopeAndClosesCleanly
+--- PASS: TestWindowsInstanceReusesOnlyTheMatchingScopeAndClosesCleanly (0.03s)
+=== RUN   TestWindowsInstanceCanceledLookupDoesNotClaimAnExistingOwner
+--- PASS: TestWindowsInstanceCanceledLookupDoesNotClaimAnExistingOwner (0.25s)
+=== RUN   TestWindowsInstanceReadyRequiresBindingAndDoesNotOverstateForeground
+--- PASS: TestWindowsInstanceReadyRequiresBindingAndDoesNotOverstateForeground (0.85s)
+PASS

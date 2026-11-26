@@ -1,0 +1,85 @@
+{
+  "crash_released_instance_and_preserved_run": true,
+  "cursor_restored": true,
+  "intentional_owned_ui_crashes": 1,
+  "registry_writes": 0,
+  "automatic_input_replay": false,
+  "fixture_ends": [
+    true,
+    true
+  ],
+  "forced_product_ends": 0,
+  "clipboard_calls": 0,
+  "first_five_launches_one_owner": true,
+  "pet_restored_correct_scope_from_other_window": true,
+  "product_sha256": "c7821a3a4c9ec044c51d00d38da47c9d2a4d1d647ae30c7c6c5f068d6b0f4290",
+  "minimized_duplicate_restored_original": true,
+  "separate_scope_windows": true,
+  "stages": [
+    {
+      "utc": "2026-11-26T16:12:41.8416274Z",
+      "stage": "input-idle-preflight"
+    },
+    {
+      "utc": "2026-11-26T16:12:52.6266028Z",
+      "stage": "five-simultaneous-first-launches"
+    },
+    {
+      "utc": "2026-11-26T16:12:55.1486882Z",
+      "stage": "second-scope-same-terminal-broker"
+    },
+    {
+      "utc": "2026-11-26T16:12:57.4482658Z",
+      "stage": "pet-a-returns-from-b"
+    },
+    {
+      "utc": "2026-11-26T16:12:59.5389246Z",
+      "stage": "five-duplicate-launches-preserve-original-owner"
+    },
+    {
+      "utc": "2026-11-26T16:13:02.4663761Z",
+      "stage": "duplicate-launch-restores-minimized-a"
+    },
+    {
+      "utc": "2026-11-26T16:13:04.9278342Z",
+      "stage": "normal-quit-and-reopen-original-run"
+    },
+    {
+      "utc": "2026-11-26T16:13:09.0782755Z",
+      "stage": "intentional-owned-ui-crash-and-reopen"
+    },
+    {
+      "utc": "2026-11-26T16:13:14.0088225Z",
+      "stage": "final-normal-quit"
+    }
+  ],
+  "launcher_ends": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "repeated_launch_kept_original_owner": true,
+  "result": "verified",
+  "manager_ends": [
+    true,
+    true,
+    true,
+    true
+  ],
+  "session_content_exported": 0,
+  "original_runs_and_unsubmitted_drafts_preserved": true,
+  "normal_quit_released_instance_and_preserved_run": true,
+  "same_terminal_broker": true,
+  "no_fixture_input_submitted": true
+}

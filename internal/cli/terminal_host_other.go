@@ -8,7 +8,7 @@ import (
 	"io"
 )
 
-func openTerminalHost(context.Context, []string, bool, io.Reader, io.Writer) (bool, error) {
+func openTerminalHost(context.Context, []string, bool, string, io.Reader, io.Writer) (bool, error) {
 	return false, nil
 }
 

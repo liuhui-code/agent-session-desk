@@ -2,6 +2,8 @@
 
 **面向 Windows 的本地 CLI Agent 多会话工作台。**
 
+开发版新增[工作台单实例与窗口定位](docs/WORKBENCH_INSTANCES.md)：同一数据作用域重复启动只尝试恢复原工作台，首次启动使用专属 Windows Terminal 窗口；不同作用域分别打开。首次升级须先退出旧版 UI；后台 Run 保留。实际验证范围见[专项报告](docs/testing/results/2026-11-26-workbench-instance.md)。
+
 main 开发版支持[桌宠阻塞提醒](docs/DESKTOP_REMINDERS.md)：复用已有待批准／待回答事项，显示待处理数量。有可验证待办时，点击重新核验并打开原会话；空闲或没有可验证目标时，只恢复原工作台窗口，也支持从最小化状态恢复。查看后仍待处理，继续在原终端表单中选择。没有 pending 时显示 ASD，等待时显示 WAIT，观察未知时显示 LINK。独立 `pet-demo` 只用于外观诊断。
 
 使用新的 Windows 工作台构建，在原启动参数后加 `--pet`；原来的 backend／runtime／namespace／state 参数保持一致。例如：

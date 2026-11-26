@@ -13,8 +13,9 @@ import (
 
 func TestTerminalHostPreservesGlobalArgumentsAndEscapesWTSeparators(t *testing.T) {
 	args := []string{"--state-dir", `C:\中文 path;a`, "--namespace", "asd-test"}
-	got := terminalHostArgs(`C:\a path\asd.exe`, `C:\cwd`, args)
-	want := []string{"--window", "new", "new-tab", "--startingDirectory", `C:\cwd`, "--", `C:\a path\asd.exe`, "--state-dir", `C:\中文 path\;a`, "--namespace", "asd-test", "--inside-terminal"}
+	token := "11111111111111111111111111111111"
+	got := terminalHostArgs(`C:\a path\asd.exe`, `C:\cwd`, args, token)
+	want := []string{"--window", "new", "new-tab", "--title", "ASD Workbench " + token, "--useApplicationTitle", "--startingDirectory", `C:\cwd`, "--", `C:\a path\asd.exe`, "--state-dir", `C:\中文 path\;a`, "--namespace", "asd-test", "--inside-terminal", "--window-token", token}
 	if !reflect.DeepEqual(got, want) {
 		t.Fatalf("host argv changed: %#v", got)
 	}

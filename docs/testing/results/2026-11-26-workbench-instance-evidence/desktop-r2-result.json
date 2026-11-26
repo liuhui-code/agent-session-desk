@@ -1,0 +1,6 @@
+{
+  "line": 16,
+  "error": "(6,68): error CS0103: The name 'DeskFlow' does not exist in the current context\r\n public static string Stamp(IntPtr h){var names=new List<string>();DeskFlow.EnumPropsEx(h,(w,n,d,x)=>{if(n.ToInt64()>65535){var s=Marshal.PtrToStringUni(n);if(s.StartsWith(\"ASD.Attention.Owner.\",StringComparison.Ordinal))names.Add(s);}return 1;},IntPtr.Zero);names.Sort(StringComparer.Ordinal);return String.Join(\";\",names);}\r\n                                                                   ^\r\n",
+  "result": "failed",
+  "stage": "outer-driver"
+}

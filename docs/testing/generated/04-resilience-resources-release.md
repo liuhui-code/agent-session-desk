@@ -1886,9 +1886,9 @@
 
 **相同包多次启动与配置目录选择**
 
-- 功能：[FL-017](../COVERAGE.md#fl-017)、[FL-009](../COVERAGE.md#fl-009)、[FL-013](../COVERAGE.md#fl-013)
-- 需求：[FR-08](../COVERAGE.md#fr-08)、[FR-12](../COVERAGE.md#fr-12)
-- 决策：[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 功能：[FL-017](../COVERAGE.md#fl-017)、[FL-009](../COVERAGE.md#fl-009)、[FL-013](../COVERAGE.md#fl-013)、[FL-001](../COVERAGE.md#fl-001)、[FL-016](../COVERAGE.md#fl-016)、[FL-020](../COVERAGE.md#fl-020)
+- 需求：[FR-08](../COVERAGE.md#fr-08)、[FR-12](../COVERAGE.md#fr-12)、[FR-01](../COVERAGE.md#fr-01)、[FR-14](../COVERAGE.md#fr-14)
+- 决策：[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0055](../../adr/0055-scoped-workbench-instance-and-owned-window.md)
 - 优先级 / 阶段 / 层次：P0 / M4 / release
 - 类型：release、concurrency、state
 - 设计 / 执行：`designed / not_run`
@@ -1907,18 +1907,25 @@
 1. 同时启动两个 TUI 和多个管理 CLI 指向同一数据目录
 2. 再启动指向另一数据目录的实例
 3. 观察 Host 与队列消费者
+4. 在 ADR-0055 Windows 工作台子范围，对同一用户／交互登录会话／backend/runtime/metadata 同时启动五次并顺序重复启动，记录 owner、端点及猫的实际数量；管理 CLI 仍独立工作。
+5. 在不同作用域的两个专属 WT 窗口之间切换，从另一受控窗口点猫／重复启动，核对原 HWND、Session/Run 和未提交草稿；最小化后重试。
+6. 正常退出及明确终止测试自己的 TUI／实例 helper 后重新启动；分别制造初始化中、端点超时和取消，核对不误报在线／成功且不因此另建工作台。
 
 #### 预期与不变量
 
 - 同一作用域不会因竞争产生未协调的双消费者
 - 不同目录/namespace 不混淆 Session/Run 与配置
 - 并发允许或拒绝按已记录策略执行，错误明确且无误投
+- Windows 工作台参与本协议的同作用域只有一个 UI／猫；明确 token 绑定而非前台猜测，失败提示且不注入终端输入。
+- UI 退出释放实例占用，仍存活的原 Run／草稿不因唤起或重开改变；旧版、不支持的多原生 Tab／混合权限仍明确分列。
 
 #### 需要的证据
 
 - 实例/endpoint/目录映射
 - 消费者日志
 - 消息与输入证据
+
+说明：ADR-0055 固定的是 Windows UI 单实例与纯窗口唤起，不固定 M3 Host／双消费者的完整发行合同；原 needs_decision／设计执行状态保持，局部结果另存报告。
 
 
 ### TC-DEFER-001

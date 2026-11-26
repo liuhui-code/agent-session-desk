@@ -293,7 +293,7 @@
 | [TC-REL-013](generated/04-resilience-resources-release.md#tc-rel-013) | 低内存宣传与测量范围一致 | FL-017、FL-015 | P0 | M4 | manual | 待决策 |
 | [TC-REL-014](generated/04-resilience-resources-release.md#tc-rel-014) | 发布依赖升级触发相应回归 | FL-019、FL-017 | P1 | M4 | release | 依据明确 |
 | [TC-REL-015](generated/04-resilience-resources-release.md#tc-rel-015) | 诊断和恢复说明可由新用户完成 | FL-017、FL-013 | P1 | M4 | manual | 依据明确 |
-| [TC-REL-016](generated/04-resilience-resources-release.md#tc-rel-016) | 相同包多次启动与配置目录选择 | FL-017、FL-009、FL-013 | P0 | M4 | release | 待决策 |
+| [TC-REL-016](generated/04-resilience-resources-release.md#tc-rel-016) | 相同包多次启动与配置目录选择 | FL-017、FL-009、FL-013、FL-001、FL-016、FL-020 | P0 | M4 | release | 待决策 |
 | [TC-DEFER-001](generated/04-resilience-resources-release.md#tc-defer-001) | Tab 内终端与管理导航的焦点合同 | FL-018 | P1 | M2 | manual | 待决策 |
 | [TC-DEFER-002](generated/04-resilience-resources-release.md#tc-defer-002) | Tab 内终端资源与 VT 完整性 | FL-018、FL-015 | P1 | M2 | windows_e2e | 待决策 |
 | [TC-PROP-001](generated/04-resilience-resources-release.md#tc-prop-001) | 随机生命周期操作保持 Session/Run 不变量 | FL-004、FL-005、FL-006、FL-013 | P1 | M2 | integration | 待决策 |

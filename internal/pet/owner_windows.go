@@ -5,6 +5,7 @@ package pet
 import (
 	"fmt"
 	"os"
+	"sync"
 	"unsafe"
 
 	"github.com/liuhui-code/agent-session-desk/internal/session"
@@ -24,6 +25,8 @@ var (
 // process handle and per-window nonce reject reused PID/HWND identities.
 // Failure never falls back to title search or manufactured keyboard input.
 type Owner struct {
+	mu       sync.Mutex
+	caption  string
 	hwnd     uintptr
 	pid      uint32
 	process  windows.Handle
@@ -31,9 +34,21 @@ type Owner struct {
 }
 
 func CaptureOwner() (*Owner, error) {
+	parents, err := ownerParents()
+	if err != nil {
+		return nil, err
+	}
 	hwnd, _, _ := getForeground.Call()
-	var pid uint32
-	windowPID.Call(hwnd, uintptr(unsafe.Pointer(&pid)))
+	// Legacy/manual handoff is accepted only when this process has one visible
+	// ancestor window. The managed path uses an explicit one-use window token.
+	candidates := ownerWindows(parents, "")
+	if len(candidates) != 1 || candidates[0] != hwnd {
+		return nil, fmt.Errorf("workbench host is ambiguous; use the managed Windows Terminal launch")
+	}
+	return bindOwner(hwnd, parents)
+}
+
+func ownerParents() (map[uint32]uint32, error) {
 	snapshot, err := windows.CreateToolhelp32Snapshot(windows.TH32CS_SNAPPROCESS, 0)
 	if err != nil {
 		return nil, err
@@ -44,8 +59,14 @@ func CaptureOwner() (*Owner, error) {
 	for e := windows.Process32First(snapshot, &entry); e == nil; e = windows.Process32Next(snapshot, &entry) {
 		parents[entry.ProcessID] = entry.ParentProcessID
 	}
+	return parents, nil
+}
+
+func bindOwner(hwnd uintptr, parents map[uint32]uint32) (*Owner, error) {
+	var pid uint32
+	windowPID.Call(hwnd, uintptr(unsafe.Pointer(&pid)))
 	if hwnd == 0 || pid == 0 {
-		return nil, fmt.Errorf("foreground window is not the workbench host")
+		return nil, fmt.Errorf("workbench host is unavailable")
 	}
 	handle, err := ancestorHandle(pid, parents)
 	if err != nil {
@@ -109,7 +130,12 @@ func (o *Owner) current() bool {
 }
 
 func (o *Owner) Activate() bool {
-	if !o.current() {
+	if o == nil {
+		return false
+	}
+	o.mu.Lock()
+	defer o.mu.Unlock()
+	if !o.current() || (o.caption != "" && ownerCaption(o.hwnd) != o.caption) {
 		return false
 	}
 	if iconic, _, _ := isIconic.Call(o.hwnd); iconic != 0 {
@@ -117,10 +143,15 @@ func (o *Owner) Activate() bool {
 	}
 	setForeground.Call(o.hwnd) // May be refused by Windows foreground policy.
 	foreground, _, _ := getForeground.Call()
-	return foreground == o.hwnd && o.current()
+	return foreground == o.hwnd && o.current() && (o.caption == "" || ownerCaption(o.hwnd) == o.caption)
 }
 
 func (o *Owner) Close() {
+	if o == nil {
+		return
+	}
+	o.mu.Lock()
+	defer o.mu.Unlock()
 	if o == nil || o.process == 0 {
 		return
 	}
@@ -129,4 +160,16 @@ func (o *Owner) Close() {
 	}
 	windows.CloseHandle(o.process)
 	o.process = 0
+}
+
+func (o *Owner) WindowHandle() uintptr {
+	if o == nil {
+		return 0
+	}
+	o.mu.Lock()
+	defer o.mu.Unlock()
+	if !o.current() {
+		return 0
+	}
+	return o.hwnd
 }

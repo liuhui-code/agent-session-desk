@@ -161,3 +161,5 @@ M0 已有“列表/预览 → 自定义命令 → 全屏 attach → 返回”的
 2026-11-26 后端回复：沿用既有 Go／SQLite 依赖，按 [ADR-0047](adr/0047-run-bound-inbox-and-structured-replies.md)事务升级 metadata schema v7，新增随机 capability 摘要和单份关联结果；不新增网络协议服务、Host、SDK 或 UI 依赖。凭据文件不在数据库备份中；实际验证另见[报告](testing/results/2026-11-26-structured-replies.md)。
 
 2026-11-26 领取基础：按 [ADR-0048](adr/0048-exclusive-processing-claims-and-uncertain-recovery.md)沿用 SQLite 立即写事务、唯一约束和现有私有文件发布逻辑，升级 metadata v8；没有新增库、中间件、Host 或前端依赖。租约到期保留不确定，不套用通用自动重投策略，证据见[报告](testing/results/2026-11-26-task-claims.md)。
+
+2026-11-27 工作台入口按 [ADR-0055](adr/0055-scoped-workbench-instance-and-owned-window.md)使用现有 x/sys/windows 和 Win32 命名 mutex／message-only 窗口；仅传递窗口恢复信号，不增加依赖、常驻进程或数据库迁移。它与 M3 后台任务通信、消费仲裁分别接受。

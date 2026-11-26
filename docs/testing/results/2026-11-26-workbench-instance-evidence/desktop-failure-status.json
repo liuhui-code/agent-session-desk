@@ -1,0 +1,28 @@
+{
+    "paths":  [
+                  {
+                      "name":  "instance-desktop-20261126",
+                      "children":  [
+
+                                   ],
+                      "exists":  true
+                  },
+                  {
+                      "name":  "instance-final-product-20261126",
+                      "children":  [
+                                       "asd-instance-r3.exe",
+                                       "local-host.json"
+                                   ],
+                      "exists":  true
+                  },
+                  {
+                      "name":  "instance-desktop.ps1",
+                      "children":  [
+                                       "instance-desktop.ps1"
+                                   ],
+                      "exists":  true
+                  }
+              ],
+    "task_state":  "Ready",
+    "last_result":  1
+}

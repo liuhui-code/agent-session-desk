@@ -16,6 +16,7 @@ import (
 
 	"github.com/liuhui-code/agent-session-desk/internal/backend"
 	"github.com/liuhui-code/agent-session-desk/internal/manager"
+	"github.com/liuhui-code/agent-session-desk/internal/pet"
 	"github.com/liuhui-code/agent-session-desk/internal/session"
 )
 
@@ -107,10 +108,11 @@ func run(ctx context.Context, args []string, input io.Reader, output, errorOutpu
 	flags := flag.NewFlagSet("asd", flag.ContinueOnError)
 	flags.SetOutput(errorOutput)
 	var options backend.Options
-	var configPath, stateDir, documentApp string
+	var configPath, stateDir, documentApp, windowToken string
 	var insideTerminal, desktopPet bool
 	flags.StringVar(&documentApp, "document-app", "", "external Markdown app: default or system-notepad")
 	flags.BoolVar(&desktopPet, "pet", false, "native desktop blocking reminder")
+	flags.StringVar(&windowToken, "window-token", "", "internal Windows Terminal launch identity")
 	flags.BoolVar(&insideTerminal, "inside-terminal", false, "internal terminal handoff")
 	flags.StringVar(&options.Binary, "backend", "", "terminal backend executable")
 	flags.StringVar(&options.TerminalBundle, "terminal-bundle", "", "pinned Windows x64 development terminal bundle")
@@ -126,6 +128,14 @@ func run(ctx context.Context, args []string, input io.Reader, output, errorOutpu
 	command := ""
 	if len(commandArgs) > 0 {
 		command, commandArgs = commandArgs[0], commandArgs[1:]
+	}
+	if windowToken != "" {
+		if command != "" || !insideTerminal || runtime.GOOS != "windows" {
+			return fmt.Errorf("--window-token requires an internal Windows workbench handoff")
+		}
+		if _, err := pet.WindowMarker(windowToken); err != nil {
+			return err
+		}
 	}
 	if documentApp != "" && (command != "" || runtime.GOOS != "windows" || (documentApp != "default" && documentApp != "system-notepad")) {
 		return fmt.Errorf("--document-app requires the Windows workbench and default or system-notepad")
@@ -180,15 +190,19 @@ func run(ctx context.Context, args []string, input io.Reader, output, errorOutpu
 	if configPath != "" && command != "start" && command != "" {
 		return fmt.Errorf("--config is used by the UI default template or start --template")
 	}
+	var workbench *workbenchHost
 	if command == "" {
 		var err error
 		options, stateDir, err = applyPortableOptions(options, stateDir)
 		if err != nil {
 			return err
 		}
-		if handled, err := openTerminalHost(ctx, args, insideTerminal, input, output); handled {
+		var handled bool
+		workbench, handled, err = prepareWorkbench(ctx, args, insideTerminal, windowToken, options, stateDir, input, output, errorOutput)
+		if err != nil || handled {
 			return err
 		}
+		defer workbench.Close()
 	}
 	if command == "metadata" {
 		return metadataCommand(ctx, commandArgs, options, stateDir, output)
@@ -277,7 +291,7 @@ func run(ctx context.Context, args []string, input io.Reader, output, errorOutpu
 	defer metadata.Close()
 	service := manager.New(terminal, metadata)
 	if command == "" {
-		return runWorkbench(ctx, service, options, stateDir, configPath, desktopPet, documentApp, input, output)
+		return runWorkbench(ctx, service, options, stateDir, configPath, desktopPet, documentApp, workbench.focus, input, output)
 	}
 	if command == "start" {
 		created, err := service.Start(ctx, launch)

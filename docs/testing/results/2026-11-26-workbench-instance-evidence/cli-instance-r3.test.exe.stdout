@@ -1,0 +1,13 @@
+=== RUN   TestDocumentAppRejectsUnsupportedUseBeforeState
+--- PASS: TestDocumentAppRejectsUnsupportedUseBeforeState (0.01s)
+=== RUN   TestPetFlagRejectsUnsupportedUseBeforeTouchingState
+--- PASS: TestPetFlagRejectsUnsupportedUseBeforeTouchingState (0.00s)
+=== RUN   TestTerminalHostPreservesGlobalArgumentsAndEscapesWTSeparators
+--- PASS: TestTerminalHostPreservesGlobalArgumentsAndEscapesWTSeparators (0.00s)
+=== RUN   TestPortableOptionsUseManifestNamespaceAndKeepExplicitFlags
+--- PASS: TestPortableOptionsUseManifestNamespaceAndKeepExplicitFlags (0.05s)
+=== RUN   TestPinnedLocalTerminalRefusesChangedHost
+--- PASS: TestPinnedLocalTerminalRefusesChangedHost (0.16s)
+=== RUN   TestWindowTokenRejectsWrongRoleBeforeStateOrBackendInitialization
+--- PASS: TestWindowTokenRejectsWrongRoleBeforeStateOrBackendInitialization (0.81s)
+PASS

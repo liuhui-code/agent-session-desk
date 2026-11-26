@@ -594,3 +594,5 @@ M1 恢复补充（2026-11-22）：按用户继续完成 M1 的授权实现 metad
 2026-11-26 桌宠交互修复：FL-016/020 按 [ADR-0054](adr/0054-pet-workbench-restore-and-blink-anchor.md)补齐空闲／未知／不可达时仅恢复原窗口，待办仍严格重验；修复闭眼素材横向偏移，保留眨眼。23 项 Windows 定向检查与独立记事本／最小化／原草稿桌面通过，准确交付范围见[报告](testing/results/2026-11-26-pet-interaction.md)，不关闭多 Tab／实体输入／资源／发布门槛。
 
 2026-11-26 桌宠碎片修正：同 ADR-0054，在两张蜷卧缓存中清除主体之外分离的图像行段，移除猫与名字之间随眨眼跳动的小点；主体位置、眨眼和点击路径保持。四档 DPI／race 与六项 Windows 原生定向检查见[补充报告](testing/results/2026-11-26-pet-fragment.md)，日常入口与实际进程替换分别记账。
+
+2026-11-27 工作台入口：FL-001/006/016/020 按 [ADR-0055](adr/0055-scoped-workbench-instance-and-owned-window.md)加入当前用户／登录会话／数据作用域单实例、专属 Terminal 标识绑定及有界恢复消息。16 项最终原生定向检查、共用同一 Terminal 进程的两个隔离窗口与正常／受控崩溃重开流程通过；实际桌面与交付范围见[报告](testing/results/2026-11-26-workbench-instance.md)，M3 Host／额外原生 Tab／资源与完整发布不在此接受。

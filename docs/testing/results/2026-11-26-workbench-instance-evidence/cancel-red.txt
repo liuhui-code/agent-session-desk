@@ -1,0 +1,4 @@
+=== RUN   TestWindowsInstanceCanceledLookupDoesNotClaimAnExistingOwner
+    server_windows_test.go:59: canceled query invented owner: true false context canceled
+--- FAIL: TestWindowsInstanceCanceledLookupDoesNotClaimAnExistingOwner (0.00s)
+FAIL

@@ -1,0 +1,6 @@
+# github.com/liuhui-code/agent-session-desk/internal/cli [github.com/liuhui-code/agent-session-desk/internal/cli.test]
+internal/cli/terminal_host_args_test.go:17:63: too many arguments in call to terminalHostArgs
+	have (string, string, []string, string)
+	want (string, string, []string)
+FAIL	github.com/liuhui-code/agent-session-desk/internal/cli [build failed]
+FAIL

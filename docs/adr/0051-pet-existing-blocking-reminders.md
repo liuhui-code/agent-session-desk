@@ -29,3 +29,5 @@ Windows 可能拒绝前台切换；无法确认归属时不做标题匹配、跨
 跨进程通知、后台 Host、系统 toast／声音、Explorer 重启恢复、多工作台单实例、实体鼠标／多屏、长稳与联动资源预算均保持开放。不把上一轮独立 Demo 的 26–27 MiB 观察当作本轮工作台增量成本。
 
 Windows API 依据：[SetPropW](https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-setpropw)、[SetForegroundWindow](https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-setforegroundwindow)。Context7 的 Bubble Tea 索引返回 beta.6，外部 Send 的生命周期另核对实际固定 2.1.2 源码；不升级依赖。
+
+2026-11-27 后续：[ADR-0055](0055-scoped-workbench-instance-and-owned-window.md)将正常入口的前台祖先捕获替换为专属 Terminal 窗口标识绑定，并让重复启动请求恢复已有窗口。上述历史执行证据仍只代表原构建，新的绑定／多窗口验证另记。
