@@ -60,6 +60,7 @@ func (m *Model) openSessionRename() tea.Cmd {
 	d.input.CursorEnd()
 	m.rename = d
 	m.workspace.focused = false
+	m.workspace.sidebarHidden = false
 	m.sizeSessionRename()
 	return d.input.Focus()
 }

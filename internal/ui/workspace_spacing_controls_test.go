@@ -124,3 +124,16 @@ func TestF2RenamesSelectedGroupWithoutTerminalInput(t *testing.T) {
 		t.Fatal("cancelled F2 editor changed group")
 	}
 }
+
+func TestF2FromHiddenSidebarReturnsToVisibleNavigation(t *testing.T) {
+	h := newWorkspaceHarness(t, newRenameFixture())
+	h.until(func() bool { return h.m.workspace.conn != nil })
+	h.send(tea.KeyPressMsg{Code: 's', Mod: tea.ModCtrl})
+	h.send(tea.KeyPressMsg{Code: tea.KeyF2})
+	h.until(func() bool { return h.m.rename != nil })
+	h.send(tea.KeyPressMsg{Code: tea.KeyEscape})
+	h.until(func() bool { return h.m.workspace.conn != nil })
+	if h.m.workspace.sidebarHidden || h.m.workspace.focused {
+		t.Fatal("F2 left management acting on hidden selection")
+	}
+}
