@@ -54,6 +54,7 @@ Usage:
   asd [global options] metadata backup FILE    Back up metadata to a new file
   asd [global options] metadata restore FILE   Restore into an absent database
   asd version
+  asd pet-demo [--state idle|approval|question|unknown]  Native Windows visual demo
 
 Global options (before the subcommand):
   --backend PATH       psmux on Windows; tmux for Unix development
@@ -133,6 +134,12 @@ func run(ctx context.Context, args []string, input io.Reader, output, errorOutpu
 		}
 		fmt.Fprintln(output, "Agent Session Desk", Version)
 		return nil
+	}
+	if command == "pet-demo" {
+		if configPath != "" || stateDir != "" || options.RuntimeDir != "" || options.Namespace != "" || options.Binary != "" || options.TerminalBundle != "" {
+			return fmt.Errorf("pet-demo uses no backend/config/state options")
+		}
+		return petDemo(ctx, commandArgs, errorOutput)
 	}
 	if command == "read" || command == "send" || command == "status" || command == "deliver" {
 		if configPath != "" {

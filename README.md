@@ -2,6 +2,10 @@
 
 **面向 Windows 的本地 CLI Agent 多会话工作台。**
 
+实验桌宠：[原生橘白猫样机](docs/PET_DEMO.md)采用 Go／Win32 透明窗口，支持合成姿态、普通点击不激活、拖动和托盘隐藏／恢复。明确标有 DEMO，尚未连接真实 Agent 提醒；独立 GUI 入口不会替换日常工作台。设计与 500 行约束见 [ADR-0050](docs/adr/0050-native-windows-pet-demo.md)，[实际验证](docs/testing/results/2026-11-26-pet-demo.md)含最终短时资源观察。
+
+实验性[橘白猫桌宠样机](docs/PET_DEMO.md)已加入：原生透明窗口、Demo 状态、拖动和托盘隐藏／恢复；按 [ADR-0050](docs/adr/0050-native-windows-pet-demo.md)先试外观与资源，不连接真实授权，不随工作台默认启动。
+
 Windows x64 体验包：[v0.1.0-alpha.1 预发布](https://github.com/liuhui-code/agent-session-desk/releases/tag/v0.1.0-alpha.1)。下载 ZIP 后按[启动说明](docs/WINDOWS_ALPHA.md)解压并在 Windows Terminal 中运行；未签名，完整发布验收仍开放。
 
 当前工作区只显示侧栏会话／分组导航，共享左右留白与顶部间距，隐藏侧栏后内容仍保留边距。`Alt+J/K` 切换会话视图，`Ctrl+S` 显隐侧栏，`F6` 切换管理／终端焦点；管理模式固定显示底部快捷键。`F2` 重命名当前活动／所选项；管理 `n` 直接沿最近成功／默认配置创建，`N` 显式编辑，`x` 只关闭视图。最新本机范围见[留白与快捷键验证](docs/testing/results/2026-11-26-workspace-spacing-controls.md)，公开 Alpha 字节仍以其发布报告为准。

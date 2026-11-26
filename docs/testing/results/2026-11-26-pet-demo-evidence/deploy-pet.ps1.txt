@@ -1,0 +1,32 @@
+$ErrorActionPreference='Stop'
+[Console]::OutputEncoding=[Text.Encoding]::UTF8
+$base=Join-Path $env:USERPROFILE 'asd-acceptance-20261122'
+$source=Join-Path $base 'asd-pet-demo.exe'
+$expected='5b897dbb1cc5e0626a9755b4dfc89a6d794a4f8df60195301a22edb24252be8c'
+if((Get-FileHash $source).Hash.ToLowerInvariant() -cne $expected){throw 'Demo artifact mismatch'}
+$desktop=[Environment]::GetFolderPath('Desktop')
+$folder=Join-Path $desktop 'Agent Session Desk Pet Demo 0050'
+$link=Join-Path $desktop 'ASD Pet Demo.lnk'
+if((Test-Path $folder) -or (Test-Path $link)){throw 'Fresh demo installation required'}
+New-Item -ItemType Directory $folder|Out-Null
+$target=Join-Path $folder 'asd-pet-demo.exe'
+Copy-Item -LiteralPath $source -Destination $target
+if((Get-FileHash $target).Hash.ToLowerInvariant() -cne $expected){throw 'Installed demo hash mismatch'}
+$notes=@'
+Agent Session Desk - Pet Demo (ADR-0050)
+Double-click asd-pet-demo.exe or the desktop ASD Pet Demo shortcut.
+Click the cat: cycle synthetic states. Drag: move it.
+Right-click the cat or tray: choose a state, hide/show, exit.
+Click the tray icon to restore a hidden cat.
+DEMO is a visual prototype; no Agent authorization or terminal input is connected.
+This folder does not replace the Alpha workbench or its data.
+'@
+[IO.File]::WriteAllText((Join-Path $folder 'README.txt'),$notes,[Text.UTF8Encoding]::new($false))
+$ws=New-Object -ComObject WScript.Shell
+$shortcut=$ws.CreateShortcut($link);$shortcut.TargetPath=$target;$shortcut.WorkingDirectory=$folder;$shortcut.Description='Native orange-cat visual prototype; no real approvals';$shortcut.Save()
+$check=$ws.CreateShortcut($link)
+if($check.TargetPath -ine $target -or $check.Arguments -ne ''){throw 'Shortcut target differs'}
+$taskNames=@('AsdPetPrototype20261126Run1','AsdPetPrototype20261126Run2','AsdPetPrototype20261126Run3')
+$tasks=@($taskNames|ForEach-Object{Get-ScheduledTask -TaskName $_ -ErrorAction SilentlyContinue})
+$remaining=@(Get-CimInstance Win32_Process -Filter "Name='asd-pet-demo.exe'"|Where-Object{$_.ExecutablePath -ieq $source -or $_.ExecutablePath -ieq $target})
+@{sha256=$expected;installed_folder='Desktop/Agent Session Desk Pet Demo 0050';shortcut='Desktop/ASD Pet Demo.lnk';remaining_test_images=$remaining.Count;remaining_test_tasks=$tasks.Count;daily_entrypoint_changed=$false;personal_state_migrated=$false}|ConvertTo-Json -Depth 5

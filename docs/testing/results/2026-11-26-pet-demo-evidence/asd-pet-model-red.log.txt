@@ -1,0 +1,14 @@
+# github.com/liuhui-code/agent-session-desk/internal/pet [github.com/liuhui-code/agent-session-desk/internal/pet.test]
+internal/pet/model_test.go:6:25: undefined: Kind
+internal/pet/model_test.go:6:30: undefined: Idle
+internal/pet/model_test.go:6:36: undefined: Approval
+internal/pet/model_test.go:6:46: undefined: Question
+internal/pet/model_test.go:6:56: undefined: Unknown
+internal/pet/model_test.go:7:13: undefined: New
+internal/pet/model_test.go:12:23: undefined: Kind
+internal/pet/model_test.go:13:13: undefined: New
+internal/pet/model_test.go:15:12: undefined: New
+internal/pet/model_test.go:15:16: undefined: Approval
+internal/pet/model_test.go:15:16: too many errors
+FAIL	github.com/liuhui-code/agent-session-desk/internal/pet [build failed]
+FAIL

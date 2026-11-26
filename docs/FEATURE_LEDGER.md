@@ -381,6 +381,8 @@ ADR-0026 局部进展：[显式停止原 Run](testing/results/2026-11-24-session
 
 ### FL-020：人工介入提醒
 
+2026-11-26 桌宠方向：用户授权 [ADR-0050](adr/0050-native-windows-pet-demo.md) 的原生橘白猫样机，先验证外观、窗口交互与资源。独立 Demo 命令固定显示 DEMO，不读取或改变真实事项、不批准或发送终端输入；[局部实际报告](testing/results/2026-11-26-pet-demo.md)不提升真实提醒、桌面通知／导航或完整 FL-020 接受。所有新增代码、测试与驱动文件均不超过 500 物理行，生产代码继续执行全仓库既有门禁。
+
 测试设计：[FL-020 用例与映射](testing/COVERAGE.md#fl-020)、[人工介入与通知套件](testing/generated/05-attention-notifications.md)；catalog 保留 designed/not_run，实际局部执行单列于下方。
 
 - **用户价值：**用户在其他会话工作时及时发现哪个 agent 需要批准、回答或检查，减少逐个会话巡查，并能定位正确工作现场。

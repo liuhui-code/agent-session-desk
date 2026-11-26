@@ -18,6 +18,7 @@ import (
 // there is no mutable global palette, file watcher or arbitrary theme format.
 // Zero/one in viewport algorithms are counts, not additional style choices.
 type designTokens struct {
+	pet       PetTokens
 	attention attentionTokens
 	paths     pathTokens
 	footer    footerTokens
@@ -34,6 +35,27 @@ type designTokens struct {
 	layout    layoutTokens
 	marks     markTokens
 	bold      bool
+}
+
+// PetTokens keeps the native demo's visual values in the same design entry.
+type PetTokens struct {
+	MaxDPI                                                 int
+	Width, Height, SpriteSize, SpriteTop, Margin, DragSlop int
+	BadgeX, BadgeY, BadgeRadius, BadgeScale                int
+	CaptionY, CaptionWidth, CaptionHeight, CaptionScale    int
+	OpenMS, BlinkMS, AlertMS, BreathOffset                 int
+	Ink, Cream, Alert, Unknown                             color.RGBA
+}
+
+func PetDesign() PetTokens { return defaultDesignTokens().pet }
+
+func PetDesignAtDPI(dpi int) PetTokens {
+	t := PetDesign()
+	dpi = max(96, min(dpi, t.MaxDPI))
+	for _, v := range []*int{&t.Width, &t.Height, &t.SpriteSize, &t.SpriteTop, &t.Margin, &t.DragSlop, &t.BadgeX, &t.BadgeY, &t.BadgeRadius, &t.BadgeScale, &t.CaptionY, &t.CaptionWidth, &t.CaptionHeight, &t.CaptionScale, &t.BreathOffset} {
+		*v = max(1, (*v*dpi+48)/96)
+	}
+	return t
 }
 
 type attentionTokens struct{ marker, label, uncertain string }
@@ -152,6 +174,12 @@ type markTokens struct {
 func defaultDesignTokens() designTokens {
 	colors, purple := themePalette("dark")
 	return designTokens{
+		pet: PetTokens{MaxDPI: 384, Width: 160, Height: 176, SpriteSize: 128, SpriteTop: 18, Margin: 16, DragSlop: 4,
+			BadgeX: 126, BadgeY: 24, BadgeRadius: 17, BadgeScale: 2,
+			CaptionY: 152, CaptionWidth: 62, CaptionHeight: 20, CaptionScale: 2,
+			OpenMS: 3200, BlinkMS: 160, AlertMS: 600, BreathOffset: 1,
+			Ink: color.RGBA{R: 83, G: 48, B: 32, A: 255}, Cream: color.RGBA{R: 255, G: 245, B: 222, A: 255},
+			Alert: color.RGBA{R: 255, G: 198, B: 81, A: 255}, Unknown: color.RGBA{R: 195, G: 197, B: 202, A: 255}},
 		attention: attentionTokens{marker: "! ", label: "! %d need attention · Alt+N", uncertain: " · last observed"},
 		paths:     pathTokens{background: lipgloss.Color("#222222"), purple: purple, paddingX: 1, width: 60, minWidth: 32, minHeight: 12, rows: 5, shortRows: 3, shortAt: 30, selected: "▶ ", idle: "  ", custom: "✎ Enter a custom path…", above: "↑ More above ", below: "↓ More below ", italic: true},
 		footer:    footerTokens{curatedHintLimit: 3, curatedGap: 2, fullRightGutter: 2, compactRightGutter: 1, compactBelow: 70, fullAbove: 100, fullKeyPadding: 1, labelGap: 1, hintGap: 1, blockGap: 2, separator: " │ ", inlineSeparator: " · ", targetPrefix: "→ ", contextSuffix: ":", badgePrefix: " -- ", badgeSuffix: " -- ", badgePadding: 1, contextColor: purple},

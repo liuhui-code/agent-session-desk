@@ -1,0 +1,16 @@
+=== RUN   TestDemoSpritesAndFramesRemainTransparentPremultipliedAndBounded
+    frame_test.go:19: expected an even 2x2 sprite sheet
+--- FAIL: TestDemoSpritesAndFramesRemainTransparentPremultipliedAndBounded (0.10s)
+=== RUN   TestDemoPositionHandlesNegativeMonitorCoordinates
+--- PASS: TestDemoPositionHandlesNegativeMonitorCoordinates (0.00s)
+=== RUN   TestDemoStatesCannotBecomeRealApproval
+--- PASS: TestDemoStatesCannotBecomeRealApproval (0.00s)
+=== RUN   TestDemoAnimationIsBoundedAndClickOnlyCyclesPreview
+--- PASS: TestDemoAnimationIsBoundedAndClickOnlyCyclesPreview (0.00s)
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/pet	1.094s
+=== RUN   TestPetDemoInvalidOptionsDoNotTouchBackendOrState
+--- PASS: TestPetDemoInvalidOptionsDoNotTouchBackendOrState (0.00s)
+PASS
+ok  	github.com/liuhui-code/agent-session-desk/internal/cli	1.826s
+FAIL

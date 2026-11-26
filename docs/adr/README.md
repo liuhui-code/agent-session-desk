@@ -78,3 +78,5 @@ ADR-0014 依据用户 2026-11-22 的明确要求接受，部分替代 0001/0002 
 | [0047](0047-run-bound-inbox-and-structured-replies.md) | Run 绑定凭据、请求查询与单份关联回复 | 已接受 | [实际执行](../testing/results/2026-11-26-structured-replies.md)；不推断任务完成，真实 agent 与完整接受开放 |
 | [0048](0048-exclusive-processing-claims-and-uncertain-recovery.md) | 独占处理领取、私有凭据和不确定恢复 | 已接受 | [领取验证](../testing/results/2026-11-26-task-claims.md)；无自动接管，不推断任务完成 |
 | [0049](0049-native-agent-decision-attention.md) | 原生授权／选择事项的应用内提醒与定位 | 已接受 | [模拟原生菜单及局部验证](../testing/results/2026-11-26-native-decision-attention.md)；真实适配、桌面／后台和完整 FL-020 仍开放 |
+| [0050](0050-native-windows-pet-demo.md) | 原生 Windows 橘白猫桌宠样机与 500 行文件约束 | 已接受（仅样机） | [原生窗口／焦点／短时资源](../testing/results/2026-11-26-pet-demo.md)；真实事项／导航、实体交互与完整接受开放 |
+| [0050](0050-native-windows-pet-demo.md) | 原生 Windows 橘白猫可试用样机与 500 行约束 | 已接受（样机） | [实际局部验证](../testing/results/2026-11-26-pet-demo.md)；Demo 不接真实授权，实际导航／后台和完整交互开放 |

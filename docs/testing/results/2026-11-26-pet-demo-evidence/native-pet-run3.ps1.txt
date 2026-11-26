@@ -1,0 +1,126 @@
+param([switch]$Worker)
+$ErrorActionPreference='Stop';$ProgressPreference='SilentlyContinue'
+[Console]::OutputEncoding=[Text.Encoding]::UTF8
+$base=Join-Path $env:USERPROFILE 'asd-acceptance-20261122'
+$out=Join-Path $base 'pet-prototype-run3-20261126'
+$product=Join-Path $base 'asd-pet-demo.exe'
+if((Get-FileHash $product).Hash.ToLowerInvariant() -cne '5b897dbb1cc5e0626a9755b4dfc89a6d794a4f8df60195301a22edb24252be8c'){throw 'Product hash mismatch'}
+if(!$Worker){
+ if(Test-Path $out){throw 'Fresh evidence directory required'}
+ New-Item -ItemType Directory $out|Out-Null
+ $results=@()
+ foreach($case in @(@{exe='pet-native.test.exe';pattern='^Test(Demo|WindowsNativePet)'},@{exe='cli-pet.test.exe';pattern='^TestPetDemo'})){
+  & (Join-Path $base $case.exe) '-test.v' '-test.run' $case.pattern '-test.timeout' '60s' 2>&1|Set-Content (Join-Path $out ($case.exe+'.log')) -Encoding utf8
+  $code=$LASTEXITCODE;$log=Get-Content (Join-Path $out ($case.exe+'.log'))
+  $results+=@{exe=$case.exe;exit_code=$code;top_pass=@($log|Where-Object{$_ -match '^--- PASS:'}).Count;top_fail=@($log|Where-Object{$_ -match '^--- FAIL:'}).Count;top_skip=@($log|Where-Object{$_ -match '^--- SKIP:'}).Count}
+  if($code -ne 0){$log|Write-Output;throw 'Native component tests failed'}
+ }
+ $results|ConvertTo-Json -Depth 5|Set-Content (Join-Path $out 'tests.json') -Encoding utf8
+ $package=Join-Path ([Environment]::GetFolderPath('Desktop')) 'Agent Session Desk Alpha 8234c4e'
+ $hostConfig=Get-Content -Raw (Join-Path $package 'local-host.json')|ConvertFrom-Json
+ if((Get-FileHash $hostConfig.shell.path).Hash.ToLowerInvariant() -cne $hostConfig.shell.sha256){throw 'Pinned PowerShell changed'}
+ $workerFile=Join-Path $base 'native-pet-run3.ps1'
+ $code="& ([ScriptBlock]::Create([IO.File]::ReadAllText('"+$workerFile.Replace("'","''")+"'))) -Worker"
+ $arguments='-NoProfile -NonInteractive -WindowStyle Hidden -EncodedCommand '+[Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($code))
+ $task='AsdPetPrototype20261126Run3'
+ if(Get-ScheduledTask -TaskName $task -ErrorAction SilentlyContinue){throw 'Fresh task name required'}
+ $action=New-ScheduledTaskAction -Execute $hostConfig.shell.path -Argument $arguments
+ $principal=New-ScheduledTaskPrincipal -UserId ([Security.Principal.WindowsIdentity]::GetCurrent().User.Value) -LogonType Interactive -RunLevel Limited
+ $settings=New-ScheduledTaskSettingsSet -ExecutionTimeLimit (New-TimeSpan -Minutes 2)
+ Register-ScheduledTask -TaskName $task -Action $action -Principal $principal -Settings $settings|Out-Null
+ try{
+  Start-ScheduledTask -TaskName $task
+  $until=[DateTime]::UtcNow.AddSeconds(100)
+  while(!(Test-Path (Join-Path $out 'desktop.json')) -and [DateTime]::UtcNow -lt $until){Start-Sleep -Milliseconds 500}
+  $t=Get-ScheduledTask -TaskName $task
+  if($t.Actions.Arguments -cne $arguments){throw 'Task identity changed'}
+  for($i=0;$i -lt 30 -and $t.State -eq 'Running';$i++){Start-Sleep -Milliseconds 200;$t=Get-ScheduledTask -TaskName $task}
+  if($t.State -eq 'Running'){throw 'Desktop worker still running; not forcibly stopped'}
+  if(!(Test-Path (Join-Path $out 'desktop.json'))){throw 'No desktop result; launch not replayed'}
+  Get-Content -Raw (Join-Path $out 'desktop.json')
+ }finally{
+  $t=Get-ScheduledTask -TaskName $task -ErrorAction SilentlyContinue
+  if($t -and $t.Actions.Arguments -ceq $arguments -and $t.State -ne 'Running'){Unregister-ScheduledTask -TaskName $task -Confirm:$false}
+ }
+ return
+}
+$result=@{result='started';desktop_automation='owned pet HWND messages only';clipboard_calls=0;forced_cleanup=0}
+$child=$null;$window=[IntPtr]::Zero;$started=$false;$script:samples=@()
+Add-Type @'
+using System;using System.Text;using System.Runtime.InteropServices;
+public class PetProbe {
+ public delegate bool EnumProc(IntPtr h,IntPtr p);
+ [DllImport("user32.dll")]public static extern bool EnumWindows(EnumProc e,IntPtr p);
+ [DllImport("user32.dll")]public static extern uint GetWindowThreadProcessId(IntPtr h,out uint p);
+ [DllImport("user32.dll")]public static extern IntPtr GetForegroundWindow();
+ [DllImport("user32.dll")]public static extern bool IsWindowVisible(IntPtr h);
+ [DllImport("user32.dll")]public static extern IntPtr GetWindowLongPtr(IntPtr h,int i);
+ [DllImport("user32.dll")]public static extern IntPtr SendMessage(IntPtr h,uint m,UIntPtr w,IntPtr l);
+ [DllImport("user32.dll")]public static extern bool GetWindowRect(IntPtr h,out Rect r);
+ [DllImport("user32.dll",CharSet=CharSet.Unicode)]public static extern int GetWindowText(IntPtr h,StringBuilder b,int n);
+ [DllImport("user32.dll")]public static extern uint GetGuiResources(IntPtr p,uint flags);
+ [StructLayout(LayoutKind.Sequential)]public struct Rect {public int Left,Top,Right,Bottom;}
+ public static IntPtr Find(int id){IntPtr result=IntPtr.Zero;EnumWindows((h,p)=>{uint owner;GetWindowThreadProcessId(h,out owner);if(owner==(uint)id){var text=new StringBuilder(256);GetWindowText(h,text,256);if(text.ToString().StartsWith("ASD Pet Demo")){result=h;return false;}}return true;},IntPtr.Zero);return result;}
+ public static string Title(IntPtr h){var b=new StringBuilder(256);GetWindowText(h,b,256);return b.ToString();}
+}
+'@
+$result=@{result='started';desktop_automation='owned native messages only';clipboard_calls=0;forced_cleanup=0;product_sha256=(Get-FileHash $product).Hash.ToLowerInvariant()}
+$child=$null;$window=[IntPtr]::Zero;$script:samples=@()
+try{
+ $foreground=[PetProbe]::GetForegroundWindow()
+ if($foreground -eq [IntPtr]::Zero){$result.result='blocked';$result.reason='No interactive foreground desktop';return}
+ $info=[Diagnostics.ProcessStartInfo]::new();$info.FileName=$product;$info.WorkingDirectory=$out;$info.UseShellExecute=$false;$info.CreateNoWindow=$true
+ foreach($arg in @('--state','idle','--count','2','--duration','90s','--report',(Join-Path $out 'pet.json'))){$info.ArgumentList.Add($arg)}
+ $info.RedirectStandardOutput=$true;$info.RedirectStandardError=$true
+ if([PetProbe]::GetForegroundWindow() -eq [IntPtr]::Zero){$result.result='blocked';$result.error='No interactive foreground desktop';return}
+ $child=[Diagnostics.Process]::new();$child.StartInfo=$info
+ if(!$child.Start()){throw 'Pet launch failed'};$started=$true
+ $stdout=$child.StandardOutput.ReadToEndAsync();$stderr=$child.StandardError.ReadToEndAsync();$null=$child.Handle
+ $created=$child.StartTime.ToUniversalTime().ToFileTimeUtc().ToString()
+ $until=[DateTime]::UtcNow.AddSeconds(15)
+ do{if($child.HasExited){throw ('Pet exited before ready: '+$stderr.GetAwaiter().GetResult())};$window=[PetProbe]::Find($child.Id);if($window -ne [IntPtr]::Zero -and [PetProbe]::IsWindowVisible($window)){break};Start-Sleep -Milliseconds 100}while([DateTime]::UtcNow -lt $until)
+ if($window -eq [IntPtr]::Zero){throw 'Pet window not observed; start not retried'}
+ $style=[PetProbe]::GetWindowLongPtr($window,-20).ToInt64()
+ if(($style -band 0x08080088) -ne 0x08080088){throw 'Native window styles differ'}
+ $result.identity=@{pid=$child.Id;creation_filetime=$created;path=$product;hwnd=$window.ToInt64();actual_ex_style=$style}
+ function Observe([string]$phase){
+  for($j=0;$j -lt 3;$j++){
+   $child.Refresh();$check=Get-Process -Id $child.Id
+   if($check.Path -ine $product -or $check.StartTime.ToUniversalTime().ToFileTimeUtc().ToString() -cne $created){throw 'Pet identity changed during observation'}
+   $r=[PetProbe+Rect]::new();if(![PetProbe]::GetWindowRect($window,[ref]$r)){throw 'Pet geometry unavailable'}
+   $script:samples+=@{phase=$phase;utc=[DateTime]::UtcNow.ToString('o');private_bytes=$child.PrivateMemorySize64;working_set_bytes=$child.WorkingSet64;cpu_ms=$child.TotalProcessorTime.TotalMilliseconds;gdi=[PetProbe]::GetGuiResources($child.Handle,0);user=[PetProbe]::GetGuiResources($child.Handle,1);visible=[PetProbe]::IsWindowVisible($window);title=[PetProbe]::Title($window);bounds=@($r.Left,$r.Top,$r.Right,$r.Bottom);foreground_unchanged=([PetProbe]::GetForegroundWindow() -eq $foreground)}
+   $check.Dispose();Start-Sleep -Milliseconds 700
+  }
+ }
+ Start-Sleep -Seconds 2
+ Observe 'idle'
+ $mouseActivate=[PetProbe]::SendMessage($window,0x21,[UIntPtr]::Zero,[IntPtr]::Zero).ToInt64()
+ if($mouseActivate -ne 3){throw 'Pet would activate on ordinary click'}
+ $null=[PetProbe]::SendMessage($window,0x201,[UIntPtr]::Zero,[IntPtr]::Zero)
+ $null=[PetProbe]::SendMessage($window,0x202,[UIntPtr]::Zero,[IntPtr]::Zero)
+ if([PetProbe]::Title($window) -notmatch 'approval'){throw 'Demo click did not cycle state'}
+ Observe 'approval'
+ $null=[PetProbe]::SendMessage($window,0x111,[UIntPtr]::new(3),[IntPtr]::Zero)
+ Observe 'question'
+ $null=[PetProbe]::SendMessage($window,0x111,[UIntPtr]::new(4),[IntPtr]::Zero)
+ Observe 'unknown'
+ $null=[PetProbe]::SendMessage($window,0x111,[UIntPtr]::new(2),[IntPtr]::Zero)
+ $null=[PetProbe]::SendMessage($window,0x111,[UIntPtr]::new(5),[IntPtr]::Zero)
+ if([PetProbe]::IsWindowVisible($window)){throw 'Hide failed'}
+ Observe 'hidden'
+ $null=[PetProbe]::SendMessage($window,0x8001,[UIntPtr]::new(1),[IntPtr]::new(0x202))
+ if(![PetProbe]::IsWindowVisible($window)){throw 'Tray restore failed'}
+ Observe 'restored'
+ $null=[PetProbe]::SendMessage($window,0x10,[UIntPtr]::Zero,[IntPtr]::Zero)
+ if(!$child.WaitForExit(15000) -or $null -eq $child.ExitCode -or $child.ExitCode -ne 0){throw 'Pet normal exit not confirmed zero'}
+ $result.exit_code=$child.ExitCode;$result.original_ended=$child.HasExited
+ $result.all_focus_samples_unchanged=@($script:samples|Where-Object{!$_.foreground_unchanged}).Count -eq 0
+ if($script:samples.Count -ne 18){throw 'Expected 18 complete memory/focus samples'}
+ $result.sample_count=$script:samples.Count
+ $result.result='passed'
+}catch{$result.result='failed';$result.error=$_.Exception.Message}finally{
+ if($started -and !$child.HasExited -and $window -ne [IntPtr]::Zero){$null=[PetProbe]::SendMessage($window,0x10,[UIntPtr]::Zero,[IntPtr]::Zero);$null=$child.WaitForExit(15000)}
+ if($started){$result.original_ended=$child.HasExited;if($child.HasExited){$stderr.GetAwaiter().GetResult()|Set-Content (Join-Path $out 'stderr.log') -Encoding utf8};$child.Dispose()}
+ $script:samples|ConvertTo-Json -Depth 6|Set-Content (Join-Path $out 'samples.json') -Encoding utf8
+ $result|ConvertTo-Json -Depth 6|Set-Content (Join-Path $out 'desktop.json') -Encoding utf8
+}
