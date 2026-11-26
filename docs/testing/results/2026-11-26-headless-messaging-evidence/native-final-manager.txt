@@ -1,0 +1,12 @@
+=== RUN   TestMessageSnapshotTransferCopiesRangeAndWritesOnlyAfterDurableClaim
+--- PASS: TestMessageSnapshotTransferCopiesRangeAndWritesOnlyAfterDurableClaim (0.18s)
+=== RUN   TestMessageRejectsNewRunAndKeepsUncertainInputUnknown
+--- PASS: TestMessageRejectsNewRunAndKeepsUncertainInputUnknown (0.07s)
+=== RUN   TestMessageWrittenBeforeReceiptCancellationStaysUnknown
+--- PASS: TestMessageWrittenBeforeReceiptCancellationStaysUnknown (0.08s)
+=== RUN   TestHeadlessMessageDeliveryNeedsNoUIOrInjectedCallback
+--- PASS: TestHeadlessMessageDeliveryNeedsNoUIOrInjectedCallback (0.06s)
+=== RUN   TestWindowsNativeHeadlessMessagesWithoutUIAndWithoutResize
+    messages_windows_test.go:228: headless CLI send/deliver/status, Chinese source, no UI dependency, existing viewport unchanged, original Runs retained; owned cleanup follows
+--- PASS: TestWindowsNativeHeadlessMessagesWithoutUIAndWithoutResize (3.12s)
+PASS
