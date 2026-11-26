@@ -12,6 +12,8 @@ psmux Tab 工作区已有顶部留白显示数量，原会话行增加标记；�
 
 ## 源码与构建
 
+实现提交 `35f433d`；该提交的全部 365 个 Go／模块文件与最终原生构建指纹逐一相同。后续仅补本段提交关联，不改变源码或构建物。
+
 正式构建从 `6326029` 的 go.mod/go.sum/internal/cmd clean archive 加本轮 Go 修改／新增组成；[365 个 Go／模块文件指纹](2026-11-26-native-decision-attention-evidence/source-fingerprints.json)包含测试与归档参考文件，不是 365 个产品模块。与最终工作树逐一核对，仅原有未提交 internal/backend/terminal.go 候选不同，额外 terminal_failure_test.go 同样排除。最初误在工作树运行的一次产品交叉构建已由隔离源码构建覆盖，未上传或计入正式证据，不把本轮当作切换退出根因修复。
 
 Go 1.27.4，Windows 10 `10.0.19045`／amd64，使用现有清单校验的显式 terminal bundle；产品 SHA-256 `3ed71dff916fcd8fa5ffa0aca0aec76697b8fe25ed27a494d3400a8d2290be8e`。[六个构建物散列](2026-11-26-native-decision-attention-evidence/artifact-fingerprints.json)、[运行器](2026-11-26-native-decision-attention-evidence/native-runner.ps1.txt)与原始日志完整保留。未替换 Windows 日常 exe／manifest、未升级个人数据库、未发布或推送。
