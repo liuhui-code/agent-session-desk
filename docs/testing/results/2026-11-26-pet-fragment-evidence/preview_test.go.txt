@@ -1,0 +1,3 @@
+package pet
+import("os";"testing";"image/png";"path/filepath";"github.com/liuhui-code/agent-session-desk/internal/ui")
+func TestDotPreview(t *testing.T){tkn:=ui.PetDesign();imgs,e:=sprites(tkn.SpriteSize);if e!=nil{t.Fatal(e)};m:=Model{Kind:Idle};for _,name:=range []string{"open","blink"}{f,e:=os.Create(filepath.Join(os.Getenv("ASD_DOT_PREVIEW"),name+".png"));if e!=nil{t.Fatal(e)};e=png.Encode(f,frame(m,tkn,imgs));f.Close();if e!=nil{t.Fatal(e)};m.Tick()}}

@@ -52,6 +52,9 @@ func sprites(size int) ([4]*image.RGBA, error) {
 		}
 		out[i] = dst
 	}
+	for _, pose := range out[:2] {
+		keepPrimaryInkBand(pose)
+	}
 	alignBlink(out[:], ui.PetDesign().SpriteAnchorAlpha)
 	return out, nil
 }
