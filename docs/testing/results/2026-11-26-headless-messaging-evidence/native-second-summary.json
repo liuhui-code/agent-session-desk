@@ -1,0 +1,26 @@
+{
+  "personal_state_migrated": false,
+  "source": "811644f",
+  "product_sha256": "a12effdd4cb2b2ce045203a8d1e5d08f86f14ff0323411e83957d9801029e309",
+  "desktop_calls": 0,
+  "results": [
+    {
+      "exit_code": 0,
+      "name": "terminal",
+      "top_skip": 0,
+      "top_fail": 0,
+      "sha256": "e6873b316294ba8988edb7a39d35a25d62e47b648821a0b3fe903c0b3be1ae64",
+      "top_pass": 2
+    },
+    {
+      "exit_code": 1,
+      "name": "manager",
+      "top_skip": 0,
+      "top_fail": 1,
+      "sha256": "e45941fef2c237d6babd9f12257159ad1b18aa48ca14d496af2b099b1eaaf889",
+      "top_pass": 4
+    }
+  ],
+  "clipboard_calls": 0,
+  "native_feature_only": true
+}

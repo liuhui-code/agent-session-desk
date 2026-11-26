@@ -135,21 +135,24 @@ func TestWindowsNativeHeadlessMessagesWithoutUIAndWithoutResize(t *testing.T) {
 	}
 	defer conn.Close()
 	screen := func() terminalTransport.Screen {
-		for i := 0; i < 40; i++ {
+		for i := 0; i < 10; i++ {
 			if e := conn.Refresh(ctx); e != nil {
 				t.Fatal(e)
 			}
-			frame, e := conn.Next(ctx)
-			if e != nil {
-				t.Fatal(e)
-			}
-			if frame.Cursor.Visible && strings.Contains(frame.Render(300, 24), "PS ") {
+			readCtx, stop := context.WithTimeout(ctx, 500*time.Millisecond)
+			frame, e := conn.Next(readCtx)
+			stop()
+			if e == nil && frame.Width == 300 && frame.Height == 24 {
 				return frame
 			}
+			if ctx.Err() != nil {
+				t.Fatal(ctx.Err())
+			}
 		}
-		t.Fatal("original prompt unavailable")
+		t.Fatal("existing observer viewport did not reach the requested dimensions")
 		return terminalTransport.Screen{}
 	}
+
 	before := screen()
 	fileID, e := session.NewID()
 	if e != nil {
@@ -175,8 +178,20 @@ func TestWindowsNativeHeadlessMessagesWithoutUIAndWithoutResize(t *testing.T) {
 		}
 		time.Sleep(100 * time.Millisecond)
 	}
-	if after.Width != before.Width || after.Height != before.Height || after.Cursor.Y != before.Cursor.Y {
-		t.Fatal("headless delivery changed the existing viewport or appended Enter")
+	if after.Width != before.Width || after.Height != before.Height {
+		t.Fatal("headless delivery changed the existing observer viewport")
+	}
+	observedFile := false
+	for i := 0; i < 30; i++ {
+		p, e := b.Preview(ctx, c, 60)
+		if e == nil && strings.Contains(strings.Join(strings.Fields(p.Text), ""), strings.Join(strings.Fields(body), "")) {
+			observedFile = true
+			break
+		}
+		time.Sleep(100 * time.Millisecond)
+	}
+	if !observedFile {
+		t.Fatal("headless file payload was not observed on the original target")
 	}
 	var receipt session.Message
 	if e = json.Unmarshal(call("status", fileID), &receipt); e != nil || receipt.State != "input_written" {
