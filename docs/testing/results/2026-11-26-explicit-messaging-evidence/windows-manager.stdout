@@ -1,0 +1,10 @@
+=== RUN   TestMessageSnapshotTransferCopiesRangeAndWritesOnlyAfterDurableClaim
+--- PASS: TestMessageSnapshotTransferCopiesRangeAndWritesOnlyAfterDurableClaim (0.14s)
+=== RUN   TestMessageRejectsNewRunAndKeepsUncertainInputUnknown
+--- PASS: TestMessageRejectsNewRunAndKeepsUncertainInputUnknown (0.07s)
+=== RUN   TestMessageWrittenBeforeReceiptCancellationStaysUnknown
+--- PASS: TestMessageWrittenBeforeReceiptCancellationStaysUnknown (0.05s)
+=== RUN   TestWindowsNativeMessagePasteUsesOriginalRunWithoutEnter
+    messages_windows_test.go:182: two original native shell Runs retained; snapshot provenance, draft paste, no appended Enter, no duplicate callback; owned cleanup follows
+--- PASS: TestWindowsNativeMessagePasteUsesOriginalRunWithoutEnter (2.81s)
+PASS

@@ -29,7 +29,7 @@ func (m *Model) messageDeliveryBox() (string, bool) {
 	}
 	warning := "Paste only; no Enter is appended.\nMultiline paste may execute in some shells. Review the target program; agent readiness is unknown."
 	if d.busy {
-		hint = "Writing once through the original input owner; wait…"
+		hint = "Pasting once; wait for the result…"
 	}
 	if d.submitted {
 		title = "Message input result"

@@ -1,0 +1,25 @@
+=== RUN   TestMessageDeliveryDefaultsToCancelAndUsesOriginalFIFOOnce
+--- PASS: TestMessageDeliveryDefaultsToCancelAndUsesOriginalFIFOOnce (0.12s)
+=== RUN   TestMessageDeliveryNarrowReviewCannotConfirm
+--- PASS: TestMessageDeliveryNarrowReviewCannotConfirm (0.07s)
+=== RUN   TestMessageDeliveryPreviewPagesEntireBodyWithoutLabelTruncation
+--- PASS: TestMessageDeliveryPreviewPagesEntireBodyWithoutLabelTruncation (0.11s)
+=== RUN   TestF2RestoresOriginFocusAndSidebarAfterClosing
+=== RUN   TestF2RestoresOriginFocusAndSidebarAfterClosing/terminal/cancel
+=== RUN   TestF2RestoresOriginFocusAndSidebarAfterClosing/terminal/save
+=== RUN   TestF2RestoresOriginFocusAndSidebarAfterClosing/hidden-terminal/cancel
+=== RUN   TestF2RestoresOriginFocusAndSidebarAfterClosing/hidden-terminal/save
+=== RUN   TestF2RestoresOriginFocusAndSidebarAfterClosing/management/cancel
+=== RUN   TestF2RestoresOriginFocusAndSidebarAfterClosing/management/save
+--- PASS: TestF2RestoresOriginFocusAndSidebarAfterClosing (0.00s)
+    --- PASS: TestF2RestoresOriginFocusAndSidebarAfterClosing/terminal/cancel (0.00s)
+    --- PASS: TestF2RestoresOriginFocusAndSidebarAfterClosing/terminal/save (0.00s)
+    --- PASS: TestF2RestoresOriginFocusAndSidebarAfterClosing/hidden-terminal/cancel (0.00s)
+    --- PASS: TestF2RestoresOriginFocusAndSidebarAfterClosing/hidden-terminal/save (0.00s)
+    --- PASS: TestF2RestoresOriginFocusAndSidebarAfterClosing/management/cancel (0.00s)
+    --- PASS: TestF2RestoresOriginFocusAndSidebarAfterClosing/management/save (0.00s)
+=== RUN   TestAltJKPreservesCurrentFocusWithoutRename
+--- PASS: TestAltJKPreservesCurrentFocusWithoutRename (0.00s)
+=== RUN   TestNavigationFooterIsAlwaysVisibleAndReservesItsOwnRow
+--- PASS: TestNavigationFooterIsAlwaysVisibleAndReservesItsOwnRow (0.00s)
+PASS

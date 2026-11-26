@@ -33,4 +33,4 @@ asd send --request-id $requestId --to $targetSessionId --run $targetRunId --body
 
 正文每条最多 64 KiB、同库最多 128 条消息，满时保留既有记录并拒绝新请求；当前没有自动清理。粘贴不追加 Enter，多行在部分程序中仍可能执行，确认前检查原程序。首轮按一个管理视图操作同一目标；多 TUI／辅助 attach／外部客户端同时输入的全局仲裁、自动投递、后台 Host 和真实 agent 接收证据仍未实现。
 
-此功能将 metadata.sqlite3 升级至 v6；旧版不能读取 v6。升级实际数据前使用既有 metadata backup 保存一份 v5 快照；回退时使用独立状态目录恢复，不能直接覆盖现有数据库。功能合同见 [ADR-0045](adr/0045-explicit-message-outbox-and-owned-paste.md)，验证见[报告](testing/results/2026-11-26-explicit-messaging.md)。
+此功能将 metadata.sqlite3 升级至 v6；旧版不能读取 v6。升级实际数据前先退出旧界面（原 Run 保持），使用既有 metadata backup 保存一份 v5 快照，再切换新版；回退时使用独立状态目录恢复，不能直接覆盖现有数据库。功能合同见 [ADR-0045](adr/0045-explicit-message-outbox-and-owned-paste.md)，验证见[报告](testing/results/2026-11-26-explicit-messaging.md)。

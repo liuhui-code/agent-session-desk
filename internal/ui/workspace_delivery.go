@@ -157,7 +157,7 @@ func (m *Model) submitMessageDelivery() tea.Cmd {
 	cmd := m.workspaceWrite(action)
 	if cmd == nil {
 		d.busy = false
-		d.err = fmt.Errorf("Input writer did not accept the request; check its status before continuing")
+		d.err = fmt.Errorf("Paste did not start; check message status before continuing")
 		return nil
 	}
 	return func() tea.Msg {

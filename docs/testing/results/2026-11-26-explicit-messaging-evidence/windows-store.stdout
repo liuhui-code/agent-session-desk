@@ -1,0 +1,43 @@
+=== RUN   TestV3GroupMigrationAndSnapshotPreserveOriginalEvidence
+--- PASS: TestV3GroupMigrationAndSnapshotPreserveOriginalEvidence (0.30s)
+=== RUN   TestMessageSchemaV5UpgradeBackupAndCapacity
+--- PASS: TestMessageSchemaV5UpgradeBackupAndCapacity (1.23s)
+=== RUN   TestMessageOutboxPersistsAndDeduplicatesExactIntent
+--- PASS: TestMessageOutboxPersistsAndDeduplicatesExactIntent (0.05s)
+=== RUN   TestMessageClaimIsExclusiveAndNeverReplaysUncertainWrite
+--- PASS: TestMessageClaimIsExclusiveAndNeverReplaysUncertainWrite (0.06s)
+=== RUN   TestV1UpgradePreservesIdentityAndStopEvidence
+--- PASS: TestV1UpgradePreservesIdentityAndStopEvidence (0.08s)
+=== RUN   TestFailedV1UpgradeDoesNotModifyExistingDatabase
+--- PASS: TestFailedV1UpgradeDoesNotModifyExistingDatabase (0.07s)
+=== RUN   TestV2UpgradeAndNamedSnapshotPreserveOriginalRunEvidence
+--- PASS: TestV2UpgradeAndNamedSnapshotPreserveOriginalRunEvidence (0.12s)
+=== RUN   TestFailedNameMigrationRollsBackWholeV1OrV2Upgrade
+=== RUN   TestFailedNameMigrationRollsBackWholeV1OrV2Upgrade/v1
+=== RUN   TestFailedNameMigrationRollsBackWholeV1OrV2Upgrade/v2
+--- PASS: TestFailedNameMigrationRollsBackWholeV1OrV2Upgrade (0.16s)
+    --- PASS: TestFailedNameMigrationRollsBackWholeV1OrV2Upgrade/v1 (0.07s)
+    --- PASS: TestFailedNameMigrationRollsBackWholeV1OrV2Upgrade/v2 (0.09s)
+=== RUN   TestSnapshotRetainsAllScopedEvidenceWithoutNeedingBackend
+--- PASS: TestSnapshotRetainsAllScopedEvidenceWithoutNeedingBackend (0.08s)
+=== RUN   TestSnapshotRejectsInvalidDatabaseAndPreservesBothPaths
+=== RUN   TestSnapshotRejectsInvalidDatabaseAndPreservesBothPaths/foreign
+=== RUN   TestSnapshotRejectsInvalidDatabaseAndPreservesBothPaths/future
+=== RUN   TestSnapshotRejectsInvalidDatabaseAndPreservesBothPaths/corrupt
+=== RUN   TestSnapshotRejectsInvalidDatabaseAndPreservesBothPaths/missing-table
+--- PASS: TestSnapshotRejectsInvalidDatabaseAndPreservesBothPaths (0.09s)
+    --- PASS: TestSnapshotRejectsInvalidDatabaseAndPreservesBothPaths/foreign (0.03s)
+    --- PASS: TestSnapshotRejectsInvalidDatabaseAndPreservesBothPaths/future (0.03s)
+    --- PASS: TestSnapshotRejectsInvalidDatabaseAndPreservesBothPaths/corrupt (0.01s)
+    --- PASS: TestSnapshotRejectsInvalidDatabaseAndPreservesBothPaths/missing-table (0.03s)
+=== RUN   TestCheckIsReadOnlyAndDoesNotMigrateV1OrCreateMissingSource
+--- PASS: TestCheckIsReadOnlyAndDoesNotMigrateV1OrCreateMissingSource (0.06s)
+=== RUN   TestSnapshotNeverOverwritesAndCancellationLeavesNoOutput
+--- PASS: TestSnapshotNeverOverwritesAndCancellationLeavesNoOutput (0.03s)
+=== RUN   TestSnapshotDestinationIsNeverPublishedAsAnIncompleteFile
+--- PASS: TestSnapshotDestinationIsNeverPublishedAsAnIncompleteFile (3.97s)
+=== RUN   TestSessionOrderV4ReadOnlyMigrationAndV5Snapshot
+--- PASS: TestSessionOrderV4ReadOnlyMigrationAndV5Snapshot (0.33s)
+=== RUN   TestSessionOrderMigrationConflictRollsBackAndCorruptPositionIsRejected
+--- PASS: TestSessionOrderMigrationConflictRollsBackAndCorruptPositionIsRejected (0.25s)
+PASS

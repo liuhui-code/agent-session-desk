@@ -1,0 +1,42 @@
+{
+  "personal_state_migrated": false,
+  "source": "e7cd380",
+  "desktop_calls": 0,
+  "clipboard_calls": 0,
+  "product_sha256": "1fa416364baab16cd21b8e4ecc8708add4372847df359500e8034ec4c2cfbf00",
+  "results": [
+    {
+      "exit_code": 0,
+      "name": "store",
+      "top_skip": 0,
+      "top_fail": 0,
+      "sha256": "f8f70e6f0af7005dcc60eb29accca962925c923251e7a5cf75146e2a267c4e84",
+      "top_pass": 15
+    },
+    {
+      "exit_code": 0,
+      "name": "manager",
+      "top_skip": 0,
+      "top_fail": 0,
+      "sha256": "ccc4d358fd76a4c05a79ecfd3f67cc1a25738a945689e3b6e1ed4614b9c7bbe0",
+      "top_pass": 4
+    },
+    {
+      "exit_code": 0,
+      "name": "cli",
+      "top_skip": 0,
+      "top_fail": 0,
+      "sha256": "94e8db1b9fd93a34ceb5e0af6c4bcf510a4ac06d21924041c5dd154097377097",
+      "top_pass": 2
+    },
+    {
+      "exit_code": 0,
+      "name": "ui",
+      "top_skip": 0,
+      "top_fail": 0,
+      "sha256": "a83ea3e77e7d4e4802d70690c4be75f3706f8606f65ee947be92505c115d4c50",
+      "top_pass": 6
+    }
+  ],
+  "native_feature_only": true
+}
