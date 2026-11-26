@@ -2,9 +2,17 @@
 
 **面向 Windows 的本地 CLI Agent 多会话工作台。**
 
-桌宠已增加[已有阻塞提醒联动](docs/DESKTOP_REMINDERS.md)：Windows 工作台显式加 `--pet`，显示待批准／待回答数量，点击重新核验并打开原会话，查看不解决请求。独立 `pet-demo` 保留为外观诊断；[局部原生证据](docs/testing/results/2026-11-26-pet-blocking.md)与真实 Agent／完整桌面接受分开。
+main 开发版支持[桌宠阻塞提醒](docs/DESKTOP_REMINDERS.md)：复用已有待批准／待回答事项，显示待处理数量；点击重新核验并打开原会话，查看后仍待处理，继续在原终端表单中选择。没有 pending 时显示 ASD，等待时显示 WAIT，观察未知时显示 LINK。独立 `pet-demo` 只用于外观诊断。
 
-Windows x64 体验包：[v0.1.0-alpha.1 预发布](https://github.com/liuhui-code/agent-session-desk/releases/tag/v0.1.0-alpha.1)。下载 ZIP 后按[启动说明](docs/WINDOWS_ALPHA.md)解压并在 Windows Terminal 中运行；未签名，完整发布验收仍开放。
+使用新的 Windows 工作台构建，在原启动参数后加 `--pet`；原来的 backend／runtime／namespace／state 参数保持一致。例如：
+
+```text
+asd --terminal-bundle DIR --runtime-dir DIR --namespace NAME --state-dir DIR --pet
+```
+
+桌宠默认关闭；工作台退出一起关闭，隐藏或退出桌宠不解决事项、不停止会话。该功能已通过 [24 项 Windows 局部验证](docs/testing/results/2026-11-26-pet-blocking.md)，Windows Terminal 自动前台恢复仍待实测；决定见 [ADR-0051](docs/adr/0051-pet-existing-blocking-reminders.md)。
+
+Windows x64 体验包：[v0.1.0-alpha.1 预发布](https://github.com/liuhui-code/agent-session-desk/releases/tag/v0.1.0-alpha.1)。下载 ZIP 后按[启动说明](docs/WINDOWS_ALPHA.md)解压并在 Windows Terminal 中运行；该历史预发布不包含上述 `--pet` 联动，日常 exe 也尚未被本轮构建替换。未签名，完整发布验收仍开放。
 
 当前工作区只显示侧栏会话／分组导航，共享左右留白与顶部间距，隐藏侧栏后内容仍保留边距。`Alt+J/K` 切换会话视图，`Ctrl+S` 显隐侧栏，`F6` 切换管理／终端焦点；管理模式固定显示底部快捷键。`F2` 重命名当前活动／所选项；管理 `n` 直接沿最近成功／默认配置创建，`N` 显式编辑，`x` 只关闭视图。最新本机范围见[留白与快捷键验证](docs/testing/results/2026-11-26-workspace-spacing-controls.md)，公开 Alpha 字节仍以其发布报告为准。
 
@@ -30,7 +38,7 @@ psmux Tab 的管理焦点 `V` 新鲜捕获并复制列表所选会话的当前 p
 
 > 当前阶段：**M0 首批源码迁入已落地，五项 Windows 原生后端场景已在指定 Windows Server 2025 runner 通过；完整验收仍待完成。** 已有 Go / Charm v2 开发切片，包含 psmux Tab 工作区、原生终端输入、通用 CLI 创建、辅助列表／预览及全屏 attach；已有供体验的实验性预发布，尚未完成稳定版验收。运行方法见 [M0 开发指南](docs/M0_DEVELOPMENT.md)，证据分别记录在[源码迁入报告](docs/testing/results/2026-11-21-m0-source-migration.md)和[Windows 执行报告](docs/testing/results/2026-11-21-m0-native-windows.md)。另已完成 0/1/5/10 会话的[原生 Windows 短资源实验](docs/testing/results/2026-11-21-m0-windows-resources.md)，含真实 TUI 启停、重开与直接程序对照。桌面交互、资源预算、长稳和发布仍需独立验收。项目名称与原创部分的许可证仍待定。
 
-后端协作切片提供 `read`、`send`、`deliver`、`status`：读取来源片段、持久建单，通过 `send --deliver` 或 `deliver` 明确投递；前端不增加通信入口，大写 `M` 仍是 Move。原生粘贴不追加 Enter，写入不代表 agent 接收或完成。数据库为 v8；方法及回退边界见[消息说明](docs/MESSAGING.md)。
+后端协作切片提供 `read`、`send`、`deliver`、`status`：读取来源片段、持久建单，通过 `send --deliver` 或 `deliver` 明确投递；前端不增加通信入口，大写 `M` 仍是 Move。原生粘贴不追加 Enter，写入不代表 agent 接收或完成。当前数据库为 v9；方法及回退边界见[消息说明](docs/MESSAGING.md)。
 
 Agent 接入的命令参数、JSON 字段、作用域、幂等和错误恢复合同见[接口参考](docs/AGENT_API.md)，含 PowerShell 调用示例；已提供 agent-bind／inbox／reply／replies，用绑定原 Run 的凭据提交关联结果；实际范围见[结构化回复验证](docs/testing/results/2026-11-26-structured-replies.md)。
 
@@ -86,6 +94,8 @@ Agent 接入的命令参数、JSON 字段、作用域、幂等和错误恢复合
 | [Feature Ledger](docs/FEATURE_LEDGER.md) | 20 项能力、需求映射、状态与验收证据 |
 | [测试设计与用例库](docs/testing/README.md) | 339 项设计基线与独立执行报告；设计覆盖和实际测试分别记录 |
 | [M0 开发指南](docs/M0_DEVELOPMENT.md) | 构建、CLI 用法、Windows 验证步骤和已知限制 |
+| [原生授权／选择提醒](docs/ATTENTION.md) | 既有阻塞事项、Alt+N 定位与查看／解决的区别 |
+| [桌宠阻塞提醒](docs/DESKTOP_REMINDERS.md) | Windows --pet 启用方式、状态、交互和剩余验证范围 |
 | [原生 Windows 自动化](docs/testing/NATIVE_WINDOWS.md) | 固定发行物、真实 fixture、运行与复现方法；[实际结果](docs/testing/results/2026-11-21-m0-native-windows.md)另行记录 |
 | [Windows 资源实验](docs/testing/WINDOWS_RESOURCES.md) | 进程身份、负载、内存/CPU 口径与复现；[实际结果](docs/testing/results/2026-11-21-m0-windows-resources.md)含失败与修复 |
 | [源码复用清单](docs/REUSE_MANIFEST.md) | 实际迁入文件、固定提交、修改点与许可证 |
