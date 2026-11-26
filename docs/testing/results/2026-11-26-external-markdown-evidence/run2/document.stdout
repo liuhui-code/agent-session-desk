@@ -1,0 +1,30 @@
+﻿=== RUN   TestMarkdownLinkAtTerminalCell
+=== RUN   TestMarkdownLinkAtTerminalCell/See_docs/plan.md_now
+=== RUN   TestMarkdownLinkAtTerminalCell/中文_`docs/设计.md`_已写好
+=== RUN   TestMarkdownLinkAtTerminalCell/Open_"C:\work_space\计划.md"_today
+=== RUN   TestMarkdownLinkAtTerminalCell/[设计文档](docs/设计.md)
+=== RUN   TestMarkdownLinkAtTerminalCell/[notes](<C:/work_space/notes.md>)
+=== RUN   TestMarkdownLinkAtTerminalCell/see_docs/test.md:12:3,_done
+=== RUN   TestMarkdownLinkAtTerminalCell/file:///C:/work%20space/notes.md#intro
+=== RUN   TestMarkdownLinkAtTerminalCell/not_document.txt_or_script.md.exe
+=== RUN   TestMarkdownLinkAtTerminalCell/中文_👩\u200d💻_`a.md`
+=== RUN   TestMarkdownLinkAtTerminalCell/See_C:\work_space\plan.md
+=== RUN   TestMarkdownLinkAtTerminalCell/[notes](docs/(old)plan.md)
+--- PASS: TestMarkdownLinkAtTerminalCell (0.00s)
+    --- PASS: TestMarkdownLinkAtTerminalCell/See_docs/plan.md_now (0.00s)
+    --- PASS: TestMarkdownLinkAtTerminalCell/中文_`docs/设计.md`_已写好 (0.00s)
+    --- PASS: TestMarkdownLinkAtTerminalCell/Open_"C:\work_space\计划.md"_today (0.00s)
+    --- PASS: TestMarkdownLinkAtTerminalCell/[设计文档](docs/设计.md) (0.00s)
+    --- PASS: TestMarkdownLinkAtTerminalCell/[notes](<C:/work_space/notes.md>) (0.00s)
+    --- PASS: TestMarkdownLinkAtTerminalCell/see_docs/test.md:12:3,_done (0.00s)
+    --- PASS: TestMarkdownLinkAtTerminalCell/file:///C:/work%20space/notes.md#intro (0.00s)
+    --- PASS: TestMarkdownLinkAtTerminalCell/not_document.txt_or_script.md.exe (0.00s)
+    --- PASS: TestMarkdownLinkAtTerminalCell/中文_👩\u200d💻_`a.md` (0.00s)
+    --- PASS: TestMarkdownLinkAtTerminalCell/See_C:\work_space\plan.md (0.00s)
+    --- PASS: TestMarkdownLinkAtTerminalCell/[notes](docs/(old)plan.md) (0.00s)
+=== RUN   TestMarkdownWindowsOpenAssociationContract
+    open_windows_test.go:42: native COM/ABI and separated path contract; ShellExecuteEx replaced by observer, default viewer not launched
+--- PASS: TestMarkdownWindowsOpenAssociationContract (0.01s)
+=== RUN   TestMarkdownResolveLocalExistingFileOnly
+--- PASS: TestMarkdownResolveLocalExistingFileOnly (0.01s)
+PASS

@@ -39,6 +39,8 @@ const (
 )
 
 type workspaceState struct {
+	document                              *documentOpen
+	documentPointer                       bool
 	sidebarHidden, sidebarFocusBeforeHide bool
 	footerHovered                         bool
 	directories                           directoryState
@@ -85,6 +87,11 @@ type workspaceResized struct {
 }
 
 func (w *workspaceState) disconnect() {
+	if w.document != nil {
+		w.document.cancel()
+		w.document = nil
+	}
+	w.documentPointer = false
 	w.footerHovered = false
 	w.programPointer = nil
 	w.programHover = workspaceProgramHover{}
@@ -200,6 +207,9 @@ func (m *Model) readWorkspace() tea.Cmd {
 
 func (m *Model) workspaceEvent(msg tea.Msg) (tea.Cmd, bool) {
 	w := m.workspace
+	if cmd, handled := m.documentEvent(msg); handled {
+		return cmd, true
+	}
 	if cmd, handled := m.programHoverEvent(msg); handled {
 		return cmd, true
 	}

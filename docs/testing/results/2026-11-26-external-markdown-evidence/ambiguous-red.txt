@@ -1,0 +1,8 @@
+--- FAIL: TestMarkdownLinkAtTerminalCell (0.00s)
+    --- FAIL: TestMarkdownLinkAtTerminalCell/See_C:\work_space\plan.md (0.00s)
+        links_test.go:30: cell 18: "space\\plan.md"/true want ""
+    --- FAIL: TestMarkdownLinkAtTerminalCell/[notes](docs/(old)plan.md) (0.00s)
+        links_test.go:30: cell 18: "plan.md"/true want ""
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/document	1.406s
+FAIL

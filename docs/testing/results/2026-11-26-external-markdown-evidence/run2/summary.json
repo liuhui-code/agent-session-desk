@@ -1,0 +1,50 @@
+﻿{
+    "fixture_sha256":  "6ed5ed77e84835dddf699b1ea9e695d04c0f489e403eb85ad3111e104c73388f",
+    "os_version":  "10.0.19045",
+    "psmux_sha256":  "ff9d8893ecc53ac5caca3bae0146d75ebcaf2cf7edc4abf9d87578469fb7b16b",
+    "physical_desktop_input":  false,
+    "backend_global_audit":  false,
+    "remaining_test_images":  [
+
+                              ],
+    "tests":  [
+                  {
+                      "exit_code":  0,
+                      "name":  "document",
+                      "top_skip":  0,
+                      "top_fail":  0,
+                      "sha256":  "c5d7afcdf6eea9c501bdda8e50e42f7f40eea95d9d7912179f8704072bbbe7b7",
+                      "top_pass":  3
+                  },
+                  {
+                      "exit_code":  0,
+                      "name":  "backend",
+                      "top_skip":  0,
+                      "top_fail":  0,
+                      "sha256":  "7aae2d8cf670a61f52d82ecf4a17e8f57418af6b51ce3a3a904982df31e047b9",
+                      "top_pass":  2
+                  },
+                  {
+                      "exit_code":  0,
+                      "name":  "manager",
+                      "top_skip":  0,
+                      "top_fail":  0,
+                      "sha256":  "0884cc86e99e9cad8cf054749257b230b485094b7265e44baca907a9c853090e",
+                      "top_pass":  1
+                  },
+                  {
+                      "exit_code":  0,
+                      "name":  "ui",
+                      "top_skip":  0,
+                      "top_fail":  0,
+                      "sha256":  "4e69a4fbce5746533ee522f5a04a6d1d8683fe504e9cffeaa8b12540a0850e6f",
+                      "top_pass":  2
+                  }
+              ],
+    "daily_entry_modified":  false,
+    "shell_execute_observer":  true,
+    "personal_state_migrated":  false,
+    "os_build":  "19045",
+    "clipboard_calls":  0,
+    "default_viewer_launched":  false
+}

@@ -44,6 +44,7 @@ func workspaceHelpSections() []helpSection {
 			{"h", "Read-only history; no terminal input"},
 			{"v", "Native selection/search; Space Select, Enter Copy, / Search"},
 			{"V", "Copy the selected session's current screen, excluding history"},
+			{"Ctrl+click", "Open a visible local .md/.markdown reference in the default app"},
 			{"Left drag", "Drag to select when the program has not requested mouse input"},
 			{"Left button", "Mouse-enabled programs receive press, drag and release"},
 			{"Wheel", "Scroll the list or native terminal history under the pointer"},

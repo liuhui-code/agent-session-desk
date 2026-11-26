@@ -1,0 +1,52 @@
+--- FAIL: TestWorkspaceListMouseUsesVisibleRowsAndIgnoresIndicators (0.02s)
+    workspace_list_mouse_test.go:118: missing 上方 indicator
+--- FAIL: TestWorkspaceListDoubleClickWhileConnectingKeepsManagementFocus (3.00s)
+    workspace_list_mouse_test.go:177: workspace did not reach expected state:
+                                                                                                                                
+          [38;2;188;212;226;48;2;32;48;59m┃ 开发              [m   [38;2;119;119;119mConnecting to the original terminal…[m                                                           
+                                                                                                                                
+          [38;2;187;187;187m  评审              [m[38;2;51;51;51m │ [m                                                                                               
+                              [38;2;51;51;51m │ [m                                                                                               
+                              [38;2;51;51;51m │ [m                                                                                               
+                              [38;2;51;51;51m │ [m                                                                                               
+                              [38;2;51;51;51m │ [m                                                                                               
+                              [38;2;51;51;51m │ [m                                                                                               
+                              [38;2;51;51;51m │ [m                                                                                               
+                              [38;2;51;51;51m │ [m                                                                                               
+                              [38;2;51;51;51m │ [m                                                                                               
+                              [38;2;51;51;51m │ [m                                                                                               
+                              [38;2;51;51;51m │ [m                                                                                               
+                              [38;2;51;51;51m │ [m                                                                                               
+                              [38;2;51;51;51m │ [m                                                                                               
+                              [38;2;51;51;51m │ [m                                                                                               
+                              [38;2;51;51;51m │ [m                                                                                               
+                              [38;2;51;51;51m │ [m                                                                                               
+                              [38;2;51;51;51m │ [m                                                                                               
+                              [38;2;51;51;51m │ [m                                                                                               
+                              [38;2;51;51;51m │ [m                                                                                               
+                              [38;2;51;51;51m │ [m                                                                                               
+                              [38;2;51;51;51m │ [m                                                                                               
+                              [38;2;51;51;51m │ [m                                                                                               
+                              [38;2;51;51;51m │ [m                                                                                               
+                              [38;2;51;51;51m │ [m                                                                                               
+                              [38;2;51;51;51m │ [m                                                                                               
+                              [38;2;51;51;51m │ [m                                                                                               
+                              [38;2;51;51;51m │ [m                                                                                               
+                                                                                                                                
+                                                                                                                                
+--- FAIL: TestProgramMouseKeepsOneReleaseSlotUnderMotionPressure (0.00s)
+    workspace_program_pointer_lifecycle_test.go:31: rejected motion was not reported
+--- FAIL: TestProgramMouseExternalModeChangesDoNotReleaseIntoAnotherMode (0.00s)
+    --- FAIL: TestProgramMouseExternalModeChangesDoNotReleaseIntoAnotherMode/copy-mode (0.00s)
+        workspace_program_pointer_lifecycle_test.go:134: release uncertainty missing
+    --- FAIL: TestProgramMouseExternalModeChangesDoNotReleaseIntoAnotherMode/mouse-off (0.00s)
+        workspace_program_pointer_lifecycle_test.go:134: release uncertainty missing
+    --- FAIL: TestProgramMouseExternalModeChangesDoNotReleaseIntoAnotherMode/prompt (0.00s)
+        workspace_program_pointer_lifecycle_test.go:134: release uncertainty missing
+    --- FAIL: TestProgramMouseExternalModeChangesDoNotReleaseIntoAnotherMode/height (0.00s)
+        workspace_program_pointer_lifecycle_test.go:134: release uncertainty missing
+--- FAIL: TestProgramMouseExternalScreenGrowthThenRestoreCannotResumeGesture (0.00s)
+    workspace_program_pointer_test.go:83: external change lost uncertain release notice
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	5.190s
+FAIL

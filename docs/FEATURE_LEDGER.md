@@ -586,3 +586,5 @@ M1 恢复补充（2026-11-22）：按用户继续完成 M1 的授权实现 metad
 2026-11-26 处理归属：按 ADR-0048 增加 claim／renew／claim-status 和私有领取密钥；inbox 收窄为未领取的 queued，新 reply 必须带 --claim-file，领取和保存结果原子封存。恢复回执不再次授权执行，租约不确定不自动接管；终端投递与结构化领取同库互斥。当前 SQLite v8，实际竞争／终止及迁移证据见[领取报告](testing/results/2026-11-26-task-claims.md)，参数与开发版接入调整见[接口参考](AGENT_API.md)。这是 FL-009 自动消费的基础，不宣布自动消费者／Host、真实 agent 或完整接受完成。
 
 2026-11-26 桌宠阻塞联动：FL-020 按用户澄清与 [ADR-0051](adr/0051-pet-existing-blocking-reminders.md)，显式 --pet 消费既有工作台快照；WAIT 数量／LINK 未知、原 ID／版本导航、查看仍 pending、隐藏更新与 UI 退出取消，不新增 Agent 接入或数据库。实际范围见[局部报告](testing/results/2026-11-26-pet-blocking.md)；Windows Terminal 精确前台选择、实体鼠标／多屏、资源与完整接受仍开放。
+
+2026-11-26 外置 Markdown：FL-012/016/018 按 [ADR-0052](adr/0052-open-external-markdown-documents.md)加入终端 Ctrl+单击本地文件引用、单元格坐标、原 pane 目录查询与 Windows 默认关联；不注入终端输入。实现和[实际报告](testing/results/2026-11-26-external-markdown.md)分别记录，动态 shell 目录、实体鼠标／默认阅读器桌面和完整接受仍开放，339 项设计执行状态不提升。

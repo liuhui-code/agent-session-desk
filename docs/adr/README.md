@@ -80,3 +80,4 @@ ADR-0014 依据用户 2026-11-22 的明确要求接受，部分替代 0001/0002 
 | [0049](0049-native-agent-decision-attention.md) | 原生授权／选择事项的应用内提醒与定位 | 已接受 | [模拟原生菜单及局部验证](../testing/results/2026-11-26-native-decision-attention.md)；真实适配、桌面／后台和完整 FL-020 仍开放 |
 | [0050](0050-native-windows-pet-demo.md) | 原生 Windows 橘白猫桌宠样机与 500 行文件约束 | 已接受（仅样机） | [原生窗口／焦点／短时资源](../testing/results/2026-11-26-pet-demo.md)；真实事项由 ADR-0051 跟进，实体交互与完整接受开放 |
 | [0051](0051-pet-existing-blocking-reminders.md) | 桌宠复用已有阻塞快照、原事项核验与会话导航 | 已接受（开发切片） | [Windows 模拟表单与原生窗口](../testing/results/2026-11-26-pet-blocking.md)；实际 WT 前台选择、实体输入和资源接受开放 |
+| [0052](0052-open-external-markdown-documents.md) | Ctrl+单击本地 Markdown，原 pane 目录与 Windows 默认关联 | 已接受（开发切片） | [原生局部报告](../testing/results/2026-11-26-external-markdown.md)；实体点击／默认阅读器及动态 shell 目录开放 |

@@ -1,5 +1,9 @@
 # 决策记录
 
+2026-11-26：按 [ADR-0052](adr/0052-open-external-markdown-documents.md)从终端 Ctrl+单击本地 Markdown，复用 Windows 默认文件关联与原 pane 报告目录；不内嵌阅读器，默认阅读器桌面接受另验。
+
+2026-11-26：按用户需求与 [ADR-0052](adr/0052-open-external-markdown-documents.md)，从终端 Ctrl+单击本地 Markdown 引用，通过 Windows 默认文件关联打开外置阅读器／编辑器，复用原 pane 身份，不新增 Agent 接口或内嵌阅读器。
+
 2026-11-26：用户明确桌宠应联动上一轮已有阻塞提示。按 [ADR-0051](adr/0051-pet-existing-blocking-reminders.md)复用现有事项和导航，不新增 Agent 接入；独立 Demo 只保留外观诊断。
 
 2026-11-26：用户将任务列表、取消和 unknown 人工处置后置，优先 [ADR-0049](adr/0049-native-agent-decision-attention.md) 的原生 Agent 授权／选择提醒。沿用原 CLI 表单，只显示待处理并显式导航，不另建批准 UI、不代发按键；事件与 viewed 分离，旧 Run／乱序／墓碑与自动输入守卫持久化。接口见 [ATTENTION.md](ATTENTION.md)，[Windows 模拟菜单验证](testing/results/2026-11-26-native-decision-attention.md)不替代真实 Agent、桌面通知或完整 FL-020 接受。

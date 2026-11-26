@@ -7,6 +7,7 @@ import (
 
 	tea "charm.land/bubbletea/v2"
 	"github.com/liuhui-code/agent-session-desk/internal/backend"
+	"github.com/liuhui-code/agent-session-desk/internal/document"
 	"github.com/liuhui-code/agent-session-desk/internal/manager"
 	"github.com/liuhui-code/agent-session-desk/internal/pet"
 	"github.com/liuhui-code/agent-session-desk/internal/ui"
@@ -14,6 +15,7 @@ import (
 
 func runWorkbench(ctx context.Context, service *manager.Manager, options backend.Options, stateDir, configPath string, desktopPet bool, input io.Reader, output io.Writer) error {
 	settings := withQuickLaunch(loadUIOptions(options, stateDir), options, stateDir, configPath)
+	settings.OpenDocument = document.Open
 	petCtx, cancel := context.WithCancel(ctx)
 	defer cancel()
 	var companion *pet.Companion

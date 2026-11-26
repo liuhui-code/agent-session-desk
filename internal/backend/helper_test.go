@@ -100,7 +100,9 @@ func fakeBackend(args []string) int {
 		if state.Missing || route != "" || flag("-t") != state.Name+":.%7" {
 			return 94
 		}
-		if args[len(args)-1] == "#{pane_id}|#{pane_dead}" {
+		if args[len(args)-1] == "#{pane_current_path}" {
+			fmt.Println(os.Getenv("ASD_TEST_PANE_DIRECTORY"))
+		} else if args[len(args)-1] == "#{pane_id}|#{pane_dead}" {
 			if raw := os.Getenv("ASD_TEST_PANE_TUPLE"); raw != "" {
 				fmt.Println(raw)
 			} else {

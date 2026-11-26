@@ -1,0 +1,29 @@
+# github.com/liuhui-code/agent-session-desk/internal/ui [github.com/liuhui-code/agent-session-desk/internal/ui.test]
+internal/ui/workspace_document_test.go:39:84: unknown field sessions in struct literal of type fakeService
+=== RUN   TestMarkdownLinkAtTerminalCell
+=== RUN   TestMarkdownLinkAtTerminalCell/See_docs/plan.md_now
+=== RUN   TestMarkdownLinkAtTerminalCell/中文_`docs/设计.md`_已写好
+=== RUN   TestMarkdownLinkAtTerminalCell/Open_"C:\work_space\计划.md"_today
+=== RUN   TestMarkdownLinkAtTerminalCell/[设计文档](docs/设计.md)
+=== RUN   TestMarkdownLinkAtTerminalCell/[notes](<C:/work_space/notes.md>)
+=== RUN   TestMarkdownLinkAtTerminalCell/see_docs/test.md:12:3,_done
+=== RUN   TestMarkdownLinkAtTerminalCell/file:///C:/work%20space/notes.md#intro
+=== RUN   TestMarkdownLinkAtTerminalCell/not_document.txt_or_script.md.exe
+=== RUN   TestMarkdownLinkAtTerminalCell/中文_👩\u200d💻_`a.md`
+--- PASS: TestMarkdownLinkAtTerminalCell (0.00s)
+    --- PASS: TestMarkdownLinkAtTerminalCell/See_docs/plan.md_now (0.00s)
+    --- PASS: TestMarkdownLinkAtTerminalCell/中文_`docs/设计.md`_已写好 (0.00s)
+    --- PASS: TestMarkdownLinkAtTerminalCell/Open_"C:\work_space\计划.md"_today (0.00s)
+    --- PASS: TestMarkdownLinkAtTerminalCell/[设计文档](docs/设计.md) (0.00s)
+    --- PASS: TestMarkdownLinkAtTerminalCell/[notes](<C:/work_space/notes.md>) (0.00s)
+    --- PASS: TestMarkdownLinkAtTerminalCell/see_docs/test.md:12:3,_done (0.00s)
+    --- PASS: TestMarkdownLinkAtTerminalCell/file:///C:/work%20space/notes.md#intro (0.00s)
+    --- PASS: TestMarkdownLinkAtTerminalCell/not_document.txt_or_script.md.exe (0.00s)
+    --- PASS: TestMarkdownLinkAtTerminalCell/中文_👩\u200d💻_`a.md` (0.00s)
+=== RUN   TestMarkdownResolveLocalExistingFileOnly
+    resolve_test.go:18: "/var/folders/6x/y713d9_n1gl90wk20zms7q5m0000gn/T/TestMarkdownResolveLocalExistingFileOnly2800671770/001/计划 & notes.md": "/private/var/folders/6x/y713d9_n1gl90wk20zms7q5m0000gn/T/TestMarkdownResolveLocalExistingFileOnly2800671770/001/计划 & notes.md" <nil>
+--- FAIL: TestMarkdownResolveLocalExistingFileOnly (0.00s)
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/document	1.747s
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui [build failed]
+FAIL

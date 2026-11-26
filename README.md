@@ -14,6 +14,8 @@ asd --terminal-bundle DIR --runtime-dir DIR --namespace NAME --state-dir DIR --p
 
 Windows x64 体验包：[v0.1.0-alpha.1 预发布](https://github.com/liuhui-code/agent-session-desk/releases/tag/v0.1.0-alpha.1)。下载 ZIP 后按[启动说明](docs/WINDOWS_ALPHA.md)解压并在 Windows Terminal 中运行；该历史预发布不包含上述 `--pet` 联动，日常 exe 也尚未被本轮构建替换。未签名，完整发布验收仍开放。
 
+开发版支持[打开外置 Markdown 文档](docs/EXTERNAL_MARKDOWN.md)：终端焦点下 `Ctrl+单击` 完整可见的本地 `.md`／`.markdown` 路径或基本 Markdown 链接，按 Windows 默认编辑器／阅读器打开。相对路径按原 pane 报告目录解析，推荐绝对路径；实体点击与默认阅读器桌面验收仍开放。
+
 当前工作区只显示侧栏会话／分组导航，共享左右留白与顶部间距，隐藏侧栏后内容仍保留边距。`Alt+J/K` 切换会话视图，`Ctrl+S` 显隐侧栏，`F6` 切换管理／终端焦点；管理模式固定显示底部快捷键。`F2` 重命名当前活动／所选项；管理 `n` 直接沿最近成功／默认配置创建，`N` 显式编辑，`x` 只关闭视图。最新本机范围见[留白与快捷键验证](docs/testing/results/2026-11-26-workspace-spacing-controls.md)，公开 Alpha 字节仍以其发布报告为准。
 
 开发版新增[原生 Agent 决策提醒](docs/ATTENTION.md)：已绑定的适配器上报授权／选择事件后，顶部留白和会话行显示待处理标记，`Alt+N` 或点击定位原终端，查看不会解决事项或代答。目前以模拟 CLI 验证，真实 Agent 适配、桌面通知与后台提醒仍开放。
@@ -96,6 +98,7 @@ Agent 接入的命令参数、JSON 字段、作用域、幂等和错误恢复合
 | [M0 开发指南](docs/M0_DEVELOPMENT.md) | 构建、CLI 用法、Windows 验证步骤和已知限制 |
 | [原生授权／选择提醒](docs/ATTENTION.md) | 既有阻塞事项、Alt+N 定位与查看／解决的区别 |
 | [桌宠阻塞提醒](docs/DESKTOP_REMINDERS.md) | Windows --pet 启用方式、状态、交互和剩余验证范围 |
+| [外置 Markdown](docs/EXTERNAL_MARKDOWN.md) | Ctrl+单击文件引用、相对路径边界与默认应用 |
 | [原生 Windows 自动化](docs/testing/NATIVE_WINDOWS.md) | 固定发行物、真实 fixture、运行与复现方法；[实际结果](docs/testing/results/2026-11-21-m0-native-windows.md)另行记录 |
 | [Windows 资源实验](docs/testing/WINDOWS_RESOURCES.md) | 进程身份、负载、内存/CPU 口径与复现；[实际结果](docs/testing/results/2026-11-21-m0-windows-resources.md)含失败与修复 |
 | [源码复用清单](docs/REUSE_MANIFEST.md) | 实际迁入文件、固定提交、修改点与许可证 |

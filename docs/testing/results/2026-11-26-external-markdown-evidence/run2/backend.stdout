@@ -1,0 +1,7 @@
+﻿=== RUN   TestMarkdownDirectoryUsesOriginalPaneAndRejectsUnknown
+--- PASS: TestMarkdownDirectoryUsesOriginalPaneAndRejectsUnknown (0.27s)
+=== RUN   TestWindowsPsmuxNativeMarkdownDirectory
+    directory_windows_test.go:13: native Windows backend=psmux version=3.4.0 sha256=ff9d8893ecc53ac5caca3bae0146d75ebcaf2cf7edc4abf9d87578469fb7b16b namespace=asd-native-5ceebf35f385
+    directory_windows_test.go:32: original fixture reports the same absolute directory; changed Run rejected; changing shell cwd is not covered
+--- PASS: TestWindowsPsmuxNativeMarkdownDirectory (0.62s)
+PASS
