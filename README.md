@@ -2,7 +2,7 @@
 
 **面向 Windows 的本地 CLI Agent 多会话工作台。**
 
-main 开发版支持[桌宠阻塞提醒](docs/DESKTOP_REMINDERS.md)：复用已有待批准／待回答事项，显示待处理数量；点击重新核验并打开原会话，查看后仍待处理，继续在原终端表单中选择。没有 pending 时显示 ASD，等待时显示 WAIT，观察未知时显示 LINK。独立 `pet-demo` 只用于外观诊断。
+main 开发版支持[桌宠阻塞提醒](docs/DESKTOP_REMINDERS.md)：复用已有待批准／待回答事项，显示待处理数量。有可验证待办时，点击重新核验并打开原会话；空闲或没有可验证目标时，只恢复原工作台窗口，也支持从最小化状态恢复。查看后仍待处理，继续在原终端表单中选择。没有 pending 时显示 ASD，等待时显示 WAIT，观察未知时显示 LINK。独立 `pet-demo` 只用于外观诊断。
 
 使用新的 Windows 工作台构建，在原启动参数后加 `--pet`；原来的 backend／runtime／namespace／state 参数保持一致。例如：
 
@@ -10,13 +10,17 @@ main 开发版支持[桌宠阻塞提醒](docs/DESKTOP_REMINDERS.md)：复用已�
 asd --terminal-bundle DIR --runtime-dir DIR --namespace NAME --state-dir DIR --pet
 ```
 
-桌宠默认关闭；工作台退出一起关闭，隐藏或退出桌宠不解决事项、不停止会话。该功能已通过 [24 项 Windows 局部验证](docs/testing/results/2026-11-26-pet-blocking.md)，指定宿主的[完整桌面流](docs/testing/results/2026-11-26-integrated-desktop.md)已验证从记事本点猫切回原窗；决定见 [ADR-0051](docs/adr/0051-pet-existing-blocking-reminders.md)。
+桌宠默认关闭；工作台退出一起关闭，隐藏或退出桌宠不解决事项、不停止会话。拖动可移动，右键或托盘可隐藏／恢复。原事项联动的[Windows 局部验证](docs/testing/results/2026-11-26-pet-blocking.md)和指定宿主的[桌面流程](docs/testing/results/2026-11-26-integrated-desktop.md)分别留证；决定见 [ADR-0051](docs/adr/0051-pet-existing-blocking-reminders.md)。
 
 Windows x64 体验包：[v0.1.0-alpha.1 预发布](https://github.com/liuhui-code/agent-session-desk/releases/tag/v0.1.0-alpha.1)。下载 ZIP 后按[启动说明](docs/WINDOWS_ALPHA.md)解压并在 Windows Terminal 中运行；该历史预发布不包含上述 `--pet` 联动。本机日常快捷方式已更新到含桌宠和系统记事本开关的开发构建，安装失败及修复见[交付报告](docs/testing/results/2026-11-26-integrated-desktop.md)。未签名，完整发布验收仍开放。
 
 开发版支持[打开外置 Markdown 文档](docs/EXTERNAL_MARKDOWN.md)：终端焦点下 `Ctrl+单击` 完整可见的本地 `.md`／`.markdown` 路径或基本 Markdown 链接，按 Windows 默认编辑器／阅读器打开。相对路径按原 pane 报告目录解析，推荐绝对路径；可显式加 `--document-app system-notepad`，保持默认关联；受控文档实际打开与原窗恢复见[桌面报告](docs/testing/results/2026-11-26-integrated-desktop.md)，其他阅读器与实体鼠标仍另验。
 
-桌宠后续[修复空闲点击与眨眼跳动](docs/testing/results/2026-11-26-pet-interaction.md)：眨眼保留、身体帧横向对齐，空闲点击可恢复原窗口；Windows 日常入口已更新，当前旧界面需退出后重开生效。
+桌宠最近更新（[ADR-0054](docs/adr/0054-pet-workbench-restore-and-blink-anchor.md)）：
+
+- **空闲点击唤起**：从记事本等应用点猫，可回到原工作台；最小化恢复和草稿保持已有[Windows 实机验证](docs/testing/results/2026-11-26-pet-interaction.md)。
+- **眨眼保持稳定**：保留眨眼，修正睁眼／闭眼图的身体横向偏移；清理猫身与名字之间随换帧跳动的碎片，见[补充验证](docs/testing/results/2026-11-26-pet-fragment.md)。
+- **日常入口已更新**：退出旧工作台，再用桌面快捷方式重开即可生效，后台 Run 保留；公开 Alpha ZIP 仍为历史版本。
 
 当前工作区只显示侧栏会话／分组导航，共享左右留白与顶部间距，隐藏侧栏后内容仍保留边距。`Alt+J/K` 切换会话视图，`Ctrl+S` 显隐侧栏，`F6` 切换管理／终端焦点；管理模式固定显示底部快捷键。`F2` 重命名当前活动／所选项；管理 `n` 直接沿最近成功／默认配置创建，`N` 显式编辑，`x` 只关闭视图。最新本机范围见[留白与快捷键验证](docs/testing/results/2026-11-26-workspace-spacing-controls.md)，公开 Alpha 字节仍以其发布报告为准。
 
