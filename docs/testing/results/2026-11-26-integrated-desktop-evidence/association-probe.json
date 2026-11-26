@@ -1,0 +1,28 @@
+{
+    "md_prog":  [
+                    {
+                        "result":  "00000001",
+                        "required_chars":  7
+                    },
+                    {
+                        "result":  "00000001",
+                        "required_chars":  7
+                    }
+                ],
+    "registry_writes":  0,
+    "applications_launched":  0,
+    "unknown_prog":  {
+                         "result":  "80070483",
+                         "required_chars":  0
+                     },
+    "md_exec":  [
+                    {
+                        "result":  "00000001",
+                        "required_chars":  28
+                    },
+                    {
+                        "result":  "00000001",
+                        "required_chars":  28
+                    }
+                ]
+}

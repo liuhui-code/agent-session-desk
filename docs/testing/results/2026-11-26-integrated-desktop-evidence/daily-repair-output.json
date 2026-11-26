@@ -1,0 +1,50 @@
+{
+  "live_identity_projection_preserved": true,
+  "forced_product_ends": 0,
+  "native_client_connections": 1,
+  "original_ui_ended": true,
+  "manager_count": 1,
+  "automatic_launch_replay": false,
+  "stages": [
+    {
+      "utc": "2026-11-26T13:59:59.5672003Z",
+      "stage": "guards-and-private-source"
+    },
+    {
+      "utc": "2026-11-26T14:00:01.7080336Z",
+      "stage": "wait-for-input-idle"
+    },
+    {
+      "utc": "2026-11-26T14:00:01.8726610Z",
+      "stage": "close-only-current-ui-and-settle"
+    },
+    {
+      "utc": "2026-11-26T14:00:10.7290481Z",
+      "stage": "preserve-current-and-restore-validated-source"
+    },
+    {
+      "utc": "2026-11-26T14:00:11.7061891Z",
+      "stage": "launch-actual-shortcut-once"
+    },
+    {
+      "utc": "2026-11-26T14:00:17.5280195Z",
+      "stage": "verify-original-metadata-and-running-workspace"
+    }
+  ],
+  "registry_writes": 0,
+  "history_projection_preserved": true,
+  "result": "repaired-updated-and-running",
+  "session_content_exported": 0,
+  "original_history_count": 6,
+  "current_data_retained_locally": true,
+  "effective_association_preserved": true,
+  "current_integrity": "ok",
+  "bound_terminal_count": 1,
+  "configs_and_outputs_preserved": true,
+  "pet_count": 1,
+  "automatic_metadata_rollback": false,
+  "original_history_restored": true,
+  "current_schema": 9,
+  "shortcut_launches": 1,
+  "clipboard_calls": 0
+}

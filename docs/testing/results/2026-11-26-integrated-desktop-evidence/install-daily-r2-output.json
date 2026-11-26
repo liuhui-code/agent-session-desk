@@ -1,0 +1,43 @@
+{
+  "stage": "launch-actual-daily-shortcut",
+  "rollback_paused": true,
+  "registry_writes": 0,
+  "manifest_changed": true,
+  "original_ui_already_closed": true,
+  "stages": [
+    {
+      "utc": "2026-11-26T13:49:54.6504462Z",
+      "stage": "guards"
+    },
+    {
+      "utc": "2026-11-26T13:50:04.6525005Z",
+      "stage": "wait-for-input-idle"
+    },
+    {
+      "utc": "2026-11-26T13:50:07.2842721Z",
+      "stage": "close-only-original-ui"
+    },
+    {
+      "utc": "2026-11-26T13:50:07.2844040Z",
+      "stage": "final-private-backup"
+    },
+    {
+      "utc": "2026-11-26T13:50:14.6436705Z",
+      "stage": "switch-manifest-and-shortcut"
+    },
+    {
+      "utc": "2026-11-26T13:50:15.4347702Z",
+      "stage": "launch-actual-daily-shortcut"
+    }
+  ],
+  "clipboard_calls": 0,
+  "result": "failed",
+  "rollback_reason": "Metadata restore failed; updated database retained",
+  "automatic_replay": false,
+  "new_launch_attempted": true,
+  "forced_product_ends": 0,
+  "session_content_exported": 0,
+  "product_sha256": "74a86959355ba37ea641d08c8664602fd8daa8e8313c1b621fffe4986fe31d99",
+  "entrypoint": "asd-integrated-74a86959.exe",
+  "error": "one hosted manager and live pet failed; no automatic replay"
+}

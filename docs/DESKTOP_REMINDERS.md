@@ -6,7 +6,7 @@
 asd --terminal-bundle DIR --runtime-dir DIR --namespace NAME --state-dir DIR --pet
 ```
 
-保留原来那套 backend／runtime／namespace／state 参数，才能看到同一作用域的事项；本功能不新增 Agent 接入步骤，也不自动识别所有终端中的授权文字。旧 exe 不支持此开关，独立 `asd-pet-demo.exe` 仍是外观演示。当前个人日常入口和数据库没有被这轮隔离验证替换／迁移。
+保留原来那套 backend／runtime／namespace／state 参数，才能看到同一作用域的事项；本功能不新增 Agent 接入步骤，也不自动识别所有终端中的授权文字。旧 exe 不支持此开关，独立 `asd-pet-demo.exe` 仍是外观演示。本机日常快捷方式已启用桌宠与系统记事本，数据库备份、升级及安装竞争修复见[交付报告](testing/results/2026-11-26-integrated-desktop.md)；历史公开 ZIP 未更新。
 
 - 空闲猫显示 ASD；待处理显示 WAIT 及数量，待批准为 `!`、待回答为 `?`。
 - 点击猫／右键 Open pending item：优先打开未查看事项，重新核验后定位原会话。看过仍待处理，继续在原终端表单中选择。

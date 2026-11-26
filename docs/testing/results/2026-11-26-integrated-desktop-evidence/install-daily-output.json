@@ -1,0 +1,20 @@
+{
+  "registry_writes": 0,
+  "forced_product_ends": 0,
+  "product_sha256": "74a86959355ba37ea641d08c8664602fd8daa8e8313c1b621fffe4986fe31d99",
+  "clipboard_calls": 0,
+  "new_launch_attempted": false,
+  "entrypoint": "asd-integrated-74a86959.exe",
+  "session_content_exported": 0,
+  "result": "failed",
+  "stages": [
+    {
+      "stage": "guards",
+      "utc": "2026-11-26T13:47:21.0880884Z"
+    }
+  ],
+  "automatic_replay": false,
+  "manifest_changed": false,
+  "error": "Old manager not unique; no close",
+  "stage": "guards"
+}
