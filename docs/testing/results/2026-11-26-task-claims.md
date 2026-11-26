@@ -14,6 +14,8 @@ SQLite v8 增加有唯一／外键／状态和大小约束的 task_claims，沿�
 
 ## 源码与构建
 
+实现提交 `4f39de6`；该提交的 353 个 Go／模块文件与正式原生构建指纹逐一相同。后续本段证据补充不改 Go 源码或二进制。
+
 正式原生构建从 `605a49f` 的 go.mod/go.sum/internal/cmd clean archive 加本轮 Go 修改／新增组成。最终工作树与[353 个 Go／模块指纹](2026-11-26-task-claims-evidence/source-fingerprints.json)逐一核对，原有未提交 internal/backend/terminal.go typed-nil 候选和其测试未纳入；不将本轮结果当作切换退出根因修复。
 
 Go 1.27.4；Windows 10 `10.0.19045`／amd64。产品 SHA-256 为 `843525663415d095a7be0fae2375b8c069d130ebcef3ed0b52030d4569d53b04`；[五个构建物散列](2026-11-26-task-claims-evidence/artifact-fingerprints.json)包括产品、fixture 和三个测试 exe。[运行器](2026-11-26-task-claims-evidence/native-runner.ps1.txt)核验原安装清单和测试构建物后使用既有显式 terminal bundle。没有改变日常 exe／manifest 或迁移个人数据库。
