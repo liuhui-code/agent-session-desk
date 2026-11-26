@@ -42,7 +42,7 @@ func validateMetadata(ctx context.Context, db *sql.DB) (int, error) {
 	if err = tx.QueryRowContext(ctx, "PRAGMA user_version").Scan(&version); err != nil {
 		return 0, err
 	}
-	if app != 0x41534431 || (version != 1 && version != 2 && version != 3 && version != 4 && version != 5 && version != 6) {
+	if app != 0x41534431 || (version < 1 || version > 7) {
 		return 0, fmt.Errorf("unsupported metadata application/schema; source preserved")
 	}
 	var integrity string
@@ -74,6 +74,9 @@ func validateMetadata(ctx context.Context, db *sql.DB) (int, error) {
 	}
 	if version >= 6 {
 		queries = append(queries, messageColumns+" LIMIT 0")
+	}
+	if version >= 7 {
+		queries = append(queries, replyColumns+" LIMIT 0", "SELECT scope,run_id,token_hash FROM agent_credentials LIMIT 0")
 	}
 	for _, query := range queries {
 		rows, e := tx.QueryContext(ctx, query)

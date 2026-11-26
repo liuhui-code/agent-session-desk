@@ -2655,7 +2655,7 @@
 
 - 功能：[FL-014](../COVERAGE.md#fl-014)、[FL-010](../COVERAGE.md#fl-010)
 - 需求：[FR-13](../COVERAGE.md#fr-13)、[FR-09](../COVERAGE.md#fr-09)
-- 决策：[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 决策：[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0047](../../adr/0047-run-bound-inbox-and-structured-replies.md)
 - 优先级 / 阶段 / 层次：P0 / M3 / windows_e2e
 - 类型：functional
 - 设计 / 执行：`designed / not_run`
@@ -2685,6 +2685,8 @@
 - 产品/agent/依赖版本与实际使用命令（凭据脱敏）
 - CLI stdout、stderr、退出结果及 agent 实际工具调用记录
 - 关联 message_id、Session/Run、投递/回复证据与 fixture 独立日志
+
+说明：ADR-0047 当前切片使用原 Run 本地委派凭据、只读 inbox、每请求一份关联结果与离线查询；不验证真实模型 agent、进度聚合或 completed。实际局部执行见 2026-11-26-structured-replies 报告，目录仍为 designed/not_run。
 
 
 ### TC-REPLY-002
@@ -2736,7 +2738,7 @@
 
 - 功能：[FL-014](../COVERAGE.md#fl-014)、[FL-005](../COVERAGE.md#fl-005)、[FL-013](../COVERAGE.md#fl-013)
 - 需求：[FR-13](../COVERAGE.md#fr-13)、[FR-04](../COVERAGE.md#fr-04)、[FR-12](../COVERAGE.md#fr-12)
-- 决策：[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 决策：[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0047](../../adr/0047-run-bound-inbox-and-structured-replies.md)
 - 优先级 / 阶段 / 层次：P0 / M3 / integration
 - 类型：negative、state
 - 设计 / 执行：`designed / not_run`
@@ -2765,6 +2767,8 @@
 - CLI stdout、stderr、退出结果及 agent 实际工具调用记录
 - 关联 message_id、Session/Run、投递/回复证据与 fixture 独立日志
 
+说明：ADR-0047 当前切片使用原 Run 本地委派凭据、只读 inbox、每请求一份关联结果与离线查询；不验证真实模型 agent、进度聚合或 completed。实际局部执行见 2026-11-26-structured-replies 报告，目录仍为 designed/not_run。
+
 
 ### TC-REPLY-004
 
@@ -2772,7 +2776,7 @@
 
 - 功能：[FL-014](../COVERAGE.md#fl-014)、[FL-013](../COVERAGE.md#fl-013)
 - 需求：[FR-13](../COVERAGE.md#fr-13)、[FR-12](../COVERAGE.md#fr-12)
-- 决策：[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 决策：[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0047](../../adr/0047-run-bound-inbox-and-structured-replies.md)
 - 优先级 / 阶段 / 层次：P0 / M3 / integration
 - 类型：negative、boundary
 - 设计 / 执行：`designed / not_run`
@@ -2801,6 +2805,8 @@
 - CLI stdout、stderr、退出结果及 agent 实际工具调用记录
 - 关联 message_id、Session/Run、投递/回复证据与 fixture 独立日志
 
+说明：ADR-0047 当前切片使用原 Run 本地委派凭据、只读 inbox、每请求一份关联结果与离线查询；不验证真实模型 agent、进度聚合或 completed。实际局部执行见 2026-11-26-structured-replies 报告，目录仍为 designed/not_run。
+
 
 ### TC-REPLY-005
 
@@ -2808,7 +2814,7 @@
 
 - 功能：[FL-014](../COVERAGE.md#fl-014)、[FL-005](../COVERAGE.md#fl-005)
 - 需求：[FR-13](../COVERAGE.md#fr-13)、[FR-04](../COVERAGE.md#fr-04)
-- 决策：[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 决策：[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0047](../../adr/0047-run-bound-inbox-and-structured-replies.md)
 - 优先级 / 阶段 / 层次：P0 / M3 / integration
 - 类型：state、recovery
 - 设计 / 执行：`designed / not_run`
@@ -2838,6 +2844,8 @@
 - CLI stdout、stderr、退出结果及 agent 实际工具调用记录
 - 关联 message_id、Session/Run、投递/回复证据与 fixture 独立日志
 
+说明：ADR-0047 当前切片使用原 Run 本地委派凭据、只读 inbox、每请求一份关联结果与离线查询；不验证真实模型 agent、进度聚合或 completed。实际局部执行见 2026-11-26-structured-replies 报告，目录仍为 designed/not_run。
+
 
 ### TC-REPLY-006
 
@@ -2845,7 +2853,7 @@
 
 - 功能：[FL-014](../COVERAGE.md#fl-014)、[FL-013](../COVERAGE.md#fl-013)
 - 需求：[FR-13](../COVERAGE.md#fr-13)、[FR-12](../COVERAGE.md#fr-12)
-- 决策：[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 决策：[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0047](../../adr/0047-run-bound-inbox-and-structured-replies.md)
 - 优先级 / 阶段 / 层次：P1 / M3 / integration
 - 类型：recovery、concurrency
 - 设计 / 执行：`designed / not_run`
@@ -2875,6 +2883,8 @@
 - CLI stdout、stderr、退出结果及 agent 实际工具调用记录
 - 关联 message_id、Session/Run、投递/回复证据与 fixture 独立日志
 
+说明：ADR-0047 当前切片使用原 Run 本地委派凭据、只读 inbox、每请求一份关联结果与离线查询；不验证真实模型 agent、进度聚合或 completed。实际局部执行见 2026-11-26-structured-replies 报告，目录仍为 designed/not_run。
+
 
 ### TC-REPLY-007
 
@@ -2882,7 +2892,7 @@
 
 - 功能：[FL-014](../COVERAGE.md#fl-014)
 - 需求：[FR-13](../COVERAGE.md#fr-13)
-- 决策：[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 决策：[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0047](../../adr/0047-run-bound-inbox-and-structured-replies.md)
 - 优先级 / 阶段 / 层次：P1 / M3 / integration
 - 类型：functional、boundary
 - 设计 / 执行：`designed / not_run`
@@ -2910,6 +2920,8 @@
 - 产品/agent/依赖版本与实际使用命令（凭据脱敏）
 - CLI stdout、stderr、退出结果及 agent 实际工具调用记录
 - 关联 message_id、Session/Run、投递/回复证据与 fixture 独立日志
+
+说明：ADR-0047 当前切片使用原 Run 本地委派凭据、只读 inbox、每请求一份关联结果与离线查询；不验证真实模型 agent、进度聚合或 completed。实际局部执行见 2026-11-26-structured-replies 报告，目录仍为 designed/not_run。
 
 
 ### TC-REPLY-008
@@ -2995,7 +3007,7 @@
 
 - 功能：[FL-014](../COVERAGE.md#fl-014)、[FL-005](../COVERAGE.md#fl-005)、[FL-013](../COVERAGE.md#fl-013)
 - 需求：[FR-13](../COVERAGE.md#fr-13)、[FR-04](../COVERAGE.md#fr-04)、[FR-12](../COVERAGE.md#fr-12)
-- 决策：[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 决策：[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0047](../../adr/0047-run-bound-inbox-and-structured-replies.md)
 - 优先级 / 阶段 / 层次：P0 / M3 / integration
 - 类型：negative、security
 - 设计 / 执行：`designed / not_run`
@@ -3023,3 +3035,5 @@
 - 产品/agent/依赖版本与实际使用命令（凭据脱敏）
 - CLI stdout、stderr、退出结果及 agent 实际工具调用记录
 - 关联 message_id、Session/Run、投递/回复证据与 fixture 独立日志
+
+说明：ADR-0047 当前切片使用原 Run 本地委派凭据、只读 inbox、每请求一份关联结果与离线查询；不验证真实模型 agent、进度聚合或 completed。实际局部执行见 2026-11-26-structured-replies 报告，目录仍为 designed/not_run。

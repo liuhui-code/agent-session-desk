@@ -214,3 +214,5 @@ M1 收尾按[验收清单](testing/M1_ACCEPTANCE.md)推进；显式有界屏幕�
 2026-11-24：[ADR-0039](adr/0039-launch-dialog-environment-overrides.md) 补通用新建环境覆盖及错误字段定位，本地接口／布局与原始目标核验见[报告](testing/results/2026-11-24-launch-environment.md)。继续完整 Windows 新建→终端输入→A/B/A→重开／重连、原来源同尺寸视觉和真实 agent；模板 UI、Tab 状态持久化及其他展示项仍按差异清单保留，不提升阶段状态。
 
 2026-11-26 用户进一步明确通信属于后端／agent 工具，前端无需入口；按 [ADR-0046](adr/0046-backend-only-message-delivery.md)撤销 m 确认选择，改为无 UI 依赖的 CLI 显式投递。SQLite v6、幂等与 unknown 保持，不升级为自动消费或完整 M3 接受。
+
+2026-11-26 后端回复切片：用户同意完成结构化请求／回复，按 [ADR-0047](adr/0047-run-bound-inbox-and-structured-replies.md)接入原 Run 凭据、只读 inbox、单份关联 reply 与离线 replies。结果和[接口文档](AGENT_API.md)同步，不增加 UI 或 Host，不把回复到达当作 completed；[实际执行](testing/results/2026-11-26-structured-replies.md)与真实 agent／M3 接受分别处理。

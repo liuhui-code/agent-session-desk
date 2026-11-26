@@ -34,6 +34,10 @@ Usage:
   asd [global options] send --request-id ID --to SESSION_ID --run RUN_ID --body-file FILE
   asd [global options] deliver MESSAGE_ID       Explicit backend paste; no UI or appended Enter
   asd [global options] status MESSAGE_ID        Read a delivery receipt offline
+  asd [global options] agent-bind --session ID --run ID --token-file FILE
+  asd [global options] inbox --token-file FILE  Read bound Run requests without replies
+  asd [global options] reply --token-file FILE --reply-id ID --reply-to ID --body-file FILE
+  asd [global options] replies MESSAGE_ID       Read recorded replies offline
   asd [global options] record SESSION_ID       Save a bounded screen snapshot
   asd [global options] output RUN_ID           Read retained screen records as JSON
   asd [global options] list [--json]            List live backend records
@@ -129,6 +133,12 @@ func run(ctx context.Context, args []string, input io.Reader, output, errorOutpu
 			return fmt.Errorf("--config is not used by messaging commands")
 		}
 		return messagingCommand(ctx, command, commandArgs, options, stateDir, input, output, errorOutput)
+	}
+	if command == "agent-bind" || command == "inbox" || command == "reply" || command == "replies" {
+		if configPath != "" {
+			return fmt.Errorf("--config is not used by messaging commands")
+		}
+		return agentMessagingCommand(ctx, command, commandArgs, options, stateDir, input, output, errorOutput)
 	}
 	if command != "" && command != "doctor" && command != "start" && command != "list" && command != "preview" && command != "attach" && command != "stop" && command != "history" && command != "metadata" && command != "output" && command != "record" {
 		return fmt.Errorf("unknown command %q; run asd help", command)

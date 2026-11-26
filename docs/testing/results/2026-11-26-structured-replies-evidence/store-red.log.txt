@@ -1,0 +1,12 @@
+# github.com/liuhui-code/agent-session-desk/internal/store_test [github.com/liuhui-code/agent-session-desk/internal/store.test]
+internal/store/replies_test.go:13:49: undefined: session.AgentCredential
+internal/store/replies_test.go:14:17: undefined: session.AgentCredential
+internal/store/replies_test.go:25:14: db.BindAgent undefined (type *store.Store has no field or method BindAgent)
+internal/store/replies_test.go:28:18: db.Inbox undefined (type *store.Store has no field or method Inbox)
+internal/store/replies_test.go:30:15: undefined: session.ReplyRequest
+internal/store/replies_test.go:31:16: db.RecordReply undefined (type *store.Store has no field or method RecordReply)
+internal/store/replies_test.go:33:18: db.RecordReply undefined (type *store.Store has no field or method RecordReply)
+internal/store/replies_test.go:35:17: db.Inbox undefined (type *store.Store has no field or method Inbox)
+internal/store/replies_test.go:37:16: db.Replies undefined (type *store.Store has no field or method Replies)
+FAIL	github.com/liuhui-code/agent-session-desk/internal/store [build failed]
+FAIL

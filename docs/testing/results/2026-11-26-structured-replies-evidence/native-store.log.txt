@@ -1,0 +1,55 @@
+=== RUN   TestGroupMigrationConflictsRollbackTheWholeUpgrade
+=== RUN   TestGroupMigrationConflictsRollbackTheWholeUpgrade/v1/groups
+=== RUN   TestGroupMigrationConflictsRollbackTheWholeUpgrade/v1/session_groups
+=== RUN   TestGroupMigrationConflictsRollbackTheWholeUpgrade/v2/groups
+=== RUN   TestGroupMigrationConflictsRollbackTheWholeUpgrade/v2/session_groups
+=== RUN   TestGroupMigrationConflictsRollbackTheWholeUpgrade/v3/groups
+=== RUN   TestGroupMigrationConflictsRollbackTheWholeUpgrade/v3/session_groups
+--- PASS: TestGroupMigrationConflictsRollbackTheWholeUpgrade (0.98s)
+    --- PASS: TestGroupMigrationConflictsRollbackTheWholeUpgrade/v1/groups (0.11s)
+    --- PASS: TestGroupMigrationConflictsRollbackTheWholeUpgrade/v1/session_groups (0.12s)
+    --- PASS: TestGroupMigrationConflictsRollbackTheWholeUpgrade/v2/groups (0.18s)
+    --- PASS: TestGroupMigrationConflictsRollbackTheWholeUpgrade/v2/session_groups (0.17s)
+    --- PASS: TestGroupMigrationConflictsRollbackTheWholeUpgrade/v3/groups (0.20s)
+    --- PASS: TestGroupMigrationConflictsRollbackTheWholeUpgrade/v3/session_groups (0.20s)
+=== RUN   TestV3GroupMigrationAndSnapshotPreserveOriginalEvidence
+--- PASS: TestV3GroupMigrationAndSnapshotPreserveOriginalEvidence (0.33s)
+=== RUN   TestMessageSchemaV5UpgradeBackupAndCapacity
+--- PASS: TestMessageSchemaV5UpgradeBackupAndCapacity (2.12s)
+=== RUN   TestV1UpgradePreservesIdentityAndStopEvidence
+--- PASS: TestV1UpgradePreservesIdentityAndStopEvidence (0.12s)
+=== RUN   TestFailedV1UpgradeDoesNotModifyExistingDatabase
+--- PASS: TestFailedV1UpgradeDoesNotModifyExistingDatabase (0.07s)
+=== RUN   TestV2UpgradeAndNamedSnapshotPreserveOriginalRunEvidence
+--- PASS: TestV2UpgradeAndNamedSnapshotPreserveOriginalRunEvidence (0.26s)
+=== RUN   TestFailedNameMigrationRollsBackWholeV1OrV2Upgrade
+=== RUN   TestFailedNameMigrationRollsBackWholeV1OrV2Upgrade/v1
+=== RUN   TestFailedNameMigrationRollsBackWholeV1OrV2Upgrade/v2
+--- PASS: TestFailedNameMigrationRollsBackWholeV1OrV2Upgrade (0.21s)
+    --- PASS: TestFailedNameMigrationRollsBackWholeV1OrV2Upgrade/v1 (0.10s)
+    --- PASS: TestFailedNameMigrationRollsBackWholeV1OrV2Upgrade/v2 (0.11s)
+=== RUN   TestV1SnapshotRestoresThroughNormalMigrationWithoutChangingBackup
+--- PASS: TestV1SnapshotRestoresThroughNormalMigrationWithoutChangingBackup (0.13s)
+=== RUN   TestReplySchemaV6MigrationRecoveryAndNoPlaintextCredential
+--- PASS: TestReplySchemaV6MigrationRecoveryAndNoPlaintextCredential (0.15s)
+=== RUN   TestReplyFailedV6MigrationRollsBackBindingTable
+--- PASS: TestReplyFailedV6MigrationRollsBackBindingTable (0.09s)
+=== RUN   TestReplyRejectsWrongSourceAndPreservesConflictingResults
+--- PASS: TestReplyRejectsWrongSourceAndPreservesConflictingResults (0.13s)
+=== RUN   TestReplyConcurrentWritersDeduplicateOrRefuseReplacement
+=== RUN   TestReplyConcurrentWritersDeduplicateOrRefuseReplacement/true
+=== RUN   TestReplyConcurrentWritersDeduplicateOrRefuseReplacement/false
+--- PASS: TestReplyConcurrentWritersDeduplicateOrRefuseReplacement (0.54s)
+    --- PASS: TestReplyConcurrentWritersDeduplicateOrRefuseReplacement/true (0.32s)
+    --- PASS: TestReplyConcurrentWritersDeduplicateOrRefuseReplacement/false (0.22s)
+=== RUN   TestReplyCredentialScopeRotationAndPaneExitRejections
+--- PASS: TestReplyCredentialScopeRotationAndPaneExitRejections (0.08s)
+=== RUN   TestReplyBindingCapacityDoesNotRotateOrPrune
+--- PASS: TestReplyBindingCapacityDoesNotRotateOrPrune (3.62s)
+=== RUN   TestReplyBoundInboxRoundTripDoesNotAdvanceDelivery
+--- PASS: TestReplyBoundInboxRoundTripDoesNotAdvanceDelivery (0.10s)
+=== RUN   TestSessionOrderV4ReadOnlyMigrationAndV5Snapshot
+--- PASS: TestSessionOrderV4ReadOnlyMigrationAndV5Snapshot (0.34s)
+=== RUN   TestSessionOrderMigrationConflictRollsBackAndCorruptPositionIsRejected
+--- PASS: TestSessionOrderMigrationConflictRollsBackAndCorruptPositionIsRejected (0.39s)
+PASS

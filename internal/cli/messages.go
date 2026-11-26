@@ -6,7 +6,6 @@ import (
 	"flag"
 	"fmt"
 	"io"
-	"os"
 
 	"github.com/liuhui-code/agent-session-desk/internal/backend"
 	"github.com/liuhui-code/agent-session-desk/internal/manager"
@@ -46,23 +45,11 @@ func messagingCommand(ctx context.Context, command string, args []string, opts b
 			return fmt.Errorf("send requires full --request-id, --to and --run IDs")
 		}
 		if file != "" {
-			reader := input
-			if file != "-" {
-				r, err := os.Open(file)
-				if err != nil {
-					return fmt.Errorf("cannot read message file")
-				}
-				defer r.Close()
-				reader = r
-			}
-			if reader == nil {
-				return fmt.Errorf("message stdin unavailable")
-			}
-			data, err := io.ReadAll(io.LimitReader(reader, session.MaxMessageBytes+4))
+			var err error
+			request.Body, err = readMessageBody(file, input)
 			if err != nil {
-				return fmt.Errorf("cannot read message body")
+				return err
 			}
-			request.Body = string(bytes.TrimPrefix(data, []byte{0xef, 0xbb, 0xbf}))
 		}
 		if _, err := request.Fingerprint(); err != nil {
 			return err

@@ -238,7 +238,7 @@ func TestV1SnapshotRestoresThroughNormalMigrationWithoutChangingBackup(t *testin
 		t.Fatalf("restored v1 changed: %#v %v", rows, err)
 	}
 	result, err := store.Check(ctx, target)
-	if err != nil || result.SchemaVersion != 6 {
+	if err != nil || result.SchemaVersion != 7 {
 		t.Fatalf("migration: %#v %v", result, err)
 	}
 	after, err := os.ReadFile(backup)

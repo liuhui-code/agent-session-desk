@@ -62,11 +62,11 @@
 | FL-007 | 带来源的输出读取：交接内容可追溯 | FR-06 | M3 | 实现中 | [显式快照／来源行区间与消息副本](testing/results/2026-11-26-explicit-messaging.md)；完整输出流／游标及整体验收开放 / 未发布 |
 | FL-008 | 跨会话显式投递：把指令交给明确目标 | FR-07 | M3 | 实现中 | [后端 CLI 显式投递](testing/results/2026-11-26-headless-messaging.md)；未知不重放，agent 回执／多客户端仲裁开放 / 未发布 |
 | FL-009 | 按能力排队与自动投递：避免向未知状态盲目注入 | FR-08 | M3 | 计划 | 未提供 / 未发布 |
-| FL-010 | Agent 控制 CLI：让有工具能力的 agent 主动协作 | FR-09 | M3 | 计划 | 未提供 / 未发布 |
+| FL-010 | Agent 控制 CLI：让有工具能力的 agent 主动协作 | FR-09 | M3 | 实现中 | [后端接口](AGENT_API.md)与[绑定请求／回复](testing/results/2026-11-26-structured-replies.md)；真实 agent 与完整工具能力待验 / 未发布 |
 | FL-011 | 历史与恢复边界：知道接回、重启与续聊的区别 | FR-10 | M1、M2 | 实现中 | [最小元数据证据](testing/results/2026-11-22-m1-metadata.md)、[只读历史 UI](testing/results/2026-11-22-m1-history-ui.md) ；[持久显示名／重命名](testing/results/2026-11-23-session-rename.md)；[持久组／创建移动](testing/results/2026-11-23-custom-groups.md)；[分组来源／实机](testing/results/2026-11-23-groups-desktop.md)；[组重命名](testing/results/2026-11-23-group-rename.md)；[同级组排序](testing/results/2026-11-23-group-order.md)；[删除组／成员保留](testing/results/2026-11-23-group-removal.md)；[持久会话排序](testing/results/2026-11-24-session-order.md) / 未发布 |
 | FL-012 | 焦点与草稿：输入不串用，切换不丢失管理器草稿 | FR-11 | M1、M2 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)；[显式终端 bundle](testing/results/2026-11-23-terminal-bundle.md)；[本地会话搜索](testing/results/2026-11-23-session-search.md) ；[持久显示名／重命名](testing/results/2026-11-23-session-rename.md)；[默认组导航／模型](testing/results/2026-11-23-sidebar-navigation.md)／[限定桌面及键位未决](testing/results/2026-11-23-sidebar-navigation-desktop.md)；[持久组／创建移动](testing/results/2026-11-23-custom-groups.md)；[分组来源／实机](testing/results/2026-11-23-groups-desktop.md)；[组重命名](testing/results/2026-11-23-group-rename.md)；[同级组排序](testing/results/2026-11-23-group-order.md)；[删除组／成员保留](testing/results/2026-11-23-group-removal.md)；[帮助还原／差异审计](testing/results/2026-11-23-help-parity.md)；[底栏／输入归属](testing/results/2026-11-23-footer-input-parity.md)；[主界面角色审计](testing/results/2026-11-23-main-screen-parity.md)；[长字段／光标复验](testing/results/2026-11-24-long-fields.md)；[持久会话排序](testing/results/2026-11-24-session-order.md) ；[比例持久化／本地](testing/results/2026-11-24-split-preferences.md) ；[长卡片／本地源码对照](testing/results/2026-11-24-long-cards.md) ；[可见页复制／本地](testing/results/2026-11-24-visible-copy.md)；[复制鼠标／本地](testing/results/2026-11-24-copy-pointer.md)；[直接拖选／本地](testing/results/2026-11-24-direct-drag.md)；[程序左键／本地](testing/results/2026-11-24-program-mouse.md)；[暗／亮主题／本地](testing/results/2026-11-24-themes.md)；[System／本地](testing/results/2026-11-24-system-theme.md)；[页脚模式／本地](testing/results/2026-11-24-footer-modes.md)；[显示色值／本地](testing/results/2026-11-24-source-colors.md)；[颜色能力／本地](testing/results/2026-11-24-color-profiles.md)；[目录选择／本地](testing/results/2026-11-24-directory-pickers.md)；[程序三按钮／本地](testing/results/2026-11-24-program-mouse-buttons.md)；[新建环境覆盖／本地](testing/results/2026-11-24-launch-environment.md) / 未发布 |
 | FL-013 | 异常、重试和运行变化：保留不确定性并避免误投 | FR-12 | M1 至 M3 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md) ；[持久显示名／重命名](testing/results/2026-11-23-session-rename.md)；[持久组／创建移动](testing/results/2026-11-23-custom-groups.md)；[分组来源／实机](testing/results/2026-11-23-groups-desktop.md)；[组重命名](testing/results/2026-11-23-group-rename.md)；[同级组排序](testing/results/2026-11-23-group-order.md)；[删除组／成员保留](testing/results/2026-11-23-group-removal.md)；[持久会话排序](testing/results/2026-11-24-session-order.md) ；[比例持久化／本地](testing/results/2026-11-24-split-preferences.md) ；[可见页复制／本地](testing/results/2026-11-24-visible-copy.md)；[复制鼠标／本地](testing/results/2026-11-24-copy-pointer.md)；[直接拖选／本地](testing/results/2026-11-24-direct-drag.md)；[程序左键／本地](testing/results/2026-11-24-program-mouse.md)；[暗／亮主题／本地](testing/results/2026-11-24-themes.md)；[System／本地](testing/results/2026-11-24-system-theme.md)；[页脚模式／本地](testing/results/2026-11-24-footer-modes.md)；[目录选择／本地](testing/results/2026-11-24-directory-pickers.md)；[程序三按钮／本地](testing/results/2026-11-24-program-mouse-buttons.md)；[新建环境覆盖／本地](testing/results/2026-11-24-launch-environment.md) / 未发布 |
-| FL-014 | 请求与回复关联：按消息查询合作结果 | FR-13 | M3 | 计划 | 未提供 / 未发布 |
+| FL-014 | 请求与回复关联：按消息查询合作结果 | FR-13 | M3 | 实现中 | [原 Run 绑定／单份关联回复](testing/results/2026-11-26-structured-replies.md)；真实 agent、进度与完整接受开放 / 未发布 |
 | FL-015 | 有界资源：多会话和持续输出下内存可控 | 产品质量标准 | M0 基线、M1 至 M4 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[短资源实验](testing/results/2026-11-21-m0-windows-resources.md)；[Tab 资源失败](testing/results/2026-11-23-tab-resources.md)／[显式宿主短复测](testing/results/2026-11-23-tab-resource-host.md)；[显式终端 bundle](testing/results/2026-11-23-terminal-bundle.md)；[主界面鼠标声明与未测成本](testing/results/2026-11-23-main-screen-parity.md)；[目录选择／本地](testing/results/2026-11-24-directory-pickers.md)；[程序三按钮／本地](testing/results/2026-11-24-program-mouse-buttons.md) / 未发布 |
 | FL-016 | Windows 兼容门槛：核心流程原生运行 | FR-01、FR-02、FR-05、FR-07、FR-11 | M0、M4 | 实现中 | [M0 局部证据](testing/results/2026-11-21-m0-source-migration.md)、[Windows 执行记录](testing/results/2026-11-21-m0-native-windows.md)、[短资源实验](testing/results/2026-11-21-m0-windows-resources.md)；[Tab 资源失败](testing/results/2026-11-23-tab-resources.md)／[显式宿主短复测](testing/results/2026-11-23-tab-resource-host.md)；[显式终端 bundle](testing/results/2026-11-23-terminal-bundle.md)；[底栏／输入归属](testing/results/2026-11-23-footer-input-parity.md)；[主界面角色审计](testing/results/2026-11-23-main-screen-parity.md)；[长字段／光标复验](testing/results/2026-11-24-long-fields.md)；[持久会话排序](testing/results/2026-11-24-session-order.md) ；[长卡片／本地源码对照](testing/results/2026-11-24-long-cards.md) ；[可见页复制／本地](testing/results/2026-11-24-visible-copy.md)；[复制鼠标／本地](testing/results/2026-11-24-copy-pointer.md)；[直接拖选／本地](testing/results/2026-11-24-direct-drag.md)；[程序左键／本地](testing/results/2026-11-24-program-mouse.md)；[暗／亮主题／本地](testing/results/2026-11-24-themes.md)；[System／本地](testing/results/2026-11-24-system-theme.md)；[页脚模式／本地](testing/results/2026-11-24-footer-modes.md)；[显示色值／本地](testing/results/2026-11-24-source-colors.md)；[颜色能力／本地](testing/results/2026-11-24-color-profiles.md)；[目录选择／本地](testing/results/2026-11-24-directory-pickers.md)；[程序三按钮／本地](testing/results/2026-11-24-program-mouse-buttons.md)；[新建环境覆盖／本地](testing/results/2026-11-24-launch-environment.md) / 未发布 |
 | FL-017 | 可安装预览版：用户可独立完成完整流程 | 全部首版需求 | M4 | 计划 | 未提供 / 未发布 |
@@ -217,12 +217,12 @@ ADR-0026 局部进展：[显式停止原 Run](testing/results/2026-11-24-session
 
 ### FL-010：Agent 控制 CLI
 
-测试设计：[FL-010 用例与映射](testing/COVERAGE.md#fl-010)；当前仅设计，未执行。
+测试设计：[FL-010 用例与映射](testing/COVERAGE.md#fl-010)；目录保留 designed/not_run，局部实现与实际执行另见下方报告。
 
-- **范围与边界：**以同一核心提供 list/read/send/status 等管理命令，返回稳定身份与明确状态；只有具备执行工具、访问条件和说明的 agent 才能主动调用。运行中的任意 CLI 不会因此自动获得工具能力。
+- **范围与边界：**以同一核心提供 list/read/send/deliver/status 及 agent-bind/inbox/reply/replies 等管理命令，返回稳定身份与明确状态；只有具备执行工具、访问条件和说明的 agent 才能主动调用。运行中的任意 CLI 不会因此自动获得工具能力。
 - **验收：**测试 agent 实际调用命令并取得结果，输出进入其工具上下文；目标缺失、运行变化和错误状态可机器识别；不以“把命令文字粘进终端”代替工具调用验证。
 - **依据：**[FR-09](PRODUCT_PLAN.md)、[ADR-0004](adr/0004-cli-agents-and-session-messaging.md)。
-- **实现与验收证据：**未提供。
+- **实现与验收证据：**[ADR-0047](adr/0047-run-bound-inbox-and-structured-replies.md)与[结构化回复报告](testing/results/2026-11-26-structured-replies.md)记录绑定凭据、请求查询、单份关联结果及两个独立模拟进程的实际工具闭环；真实模型 agent、完成声明与整体验收未完成。
 
 ### FL-011：历史与恢复边界
 
@@ -296,12 +296,12 @@ ADR-0026 局部进展：[显式停止原 Run](testing/results/2026-11-24-session
 
 ### FL-014：请求与回复关联
 
-测试设计：[FL-014 用例与映射](testing/COVERAGE.md#fl-014)；当前仅设计，未执行。
+测试设计：[FL-014 用例与映射](testing/COVERAGE.md#fl-014)；目录保留 designed/not_run，局部实现与实际执行另见下方报告。
 
 - **范围与边界：**回复携带 message_id/reply_to 和来源，保留请求、回复与证据阶段。收到回复、agent 声称完成和用户验收通过分别表达。
 - **验收：**合作式 agent A 请求 B，B 返回关联回复；A 能按消息编号查询正确结果；无关输出或错误 Run 的回复不被误挂到原任务。
 - **依据：**[FR-13](PRODUCT_PLAN.md)、[ADR-0004](adr/0004-cli-agents-and-session-messaging.md)。
-- **实现与验收证据：**未提供。
+- **实现与验收证据：**[ADR-0047](adr/0047-run-bound-inbox-and-structured-replies.md)与[结构化回复报告](testing/results/2026-11-26-structured-replies.md)记录绑定凭据、请求查询、单份关联结果及两个独立模拟进程的实际工具闭环；真实模型 agent、完成声明与整体验收未完成。
 
 ### FL-015：有界资源
 
@@ -578,3 +578,5 @@ M1 恢复补充（2026-11-22）：按用户继续完成 M1 的授权实现 metad
 2026-11-26 消息接口验证：用户授权在没有真实 agent 时先做模拟，FL-008/010/013 增加可控 CLI、16 消费者／同一请求单次写入、数据库写锁、五个实际工作进程中断点及认证／回执超时的[局部证据](testing/results/2026-11-26-messaging-contract.md)。复用既有 fixture 与 SQLite，生产接口／前端不变；不将模拟日志作为 agent 接收／完成依据，也不提升整项实现或发布接受状态。
 
 2026-11-26 Agent 接入资料：新增[CLI 接口参考](AGENT_API.md)，逐项对照当前参数、JSON、作用域、退出码、幂等与超时恢复，并提供 PowerShell 示例；reply／reply_to 标记未实现，后续随接口补齐。此为文档交付，不增加功能或原生执行通过数。
+
+2026-11-26 结构化回复：按 ADR-0047 增加 agent-bind、inbox、reply、replies，原 Run 委派凭据、来源重验与单结果幂等，SQLite v7。既有投递状态不变；inbox 不领取或执行任务。实现及两个独立模拟进程的证据见[报告](testing/results/2026-11-26-structured-replies.md)，接口参数与示例见[接入参考](AGENT_API.md)；真实 agent、完成声明、自动消费及整体验收保持开放。

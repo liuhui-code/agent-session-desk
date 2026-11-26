@@ -1,0 +1,28 @@
+$ErrorActionPreference='Stop';$ProgressPreference='SilentlyContinue'
+[Console]::OutputEncoding=[Text.Encoding]::UTF8
+$base=Join-Path $env:USERPROFILE 'asd-acceptance-20261122'
+$root=Join-Path ([Environment]::GetFolderPath('Desktop')) 'Agent Session Desk Alpha 8234c4e'
+$out=Join-Path $base 'structured-replies-run1-20261126'
+if(Test-Path $out){throw 'Fresh output required'}
+New-Item -ItemType Directory $out|Out-Null
+$m=Get-Content -Raw (Join-Path $root 'alpha.json')|ConvertFrom-Json
+foreach($entry in $m.files.PSObject.Properties){if((Get-FileHash -LiteralPath (Join-Path $root $entry.Name)).Hash.ToLowerInvariant() -cne $entry.Value){throw 'Pinned package changed'}}
+if((Get-FileHash (Join-Path $base 'store-structured-replies.test.exe')).Hash.ToLowerInvariant() -cne '4faf2183b33699048db2b4b740196f10c10c81d6cfa553ed5350a361077b07e6'){throw 'Artifact hash mismatch'}
+if((Get-FileHash (Join-Path $base 'cli-structured-replies.test.exe')).Hash.ToLowerInvariant() -cne '42630ffcfd0a815f0de875562fff575749643ae10527e72f1c355ab1174bd953'){throw 'Artifact hash mismatch'}
+if((Get-FileHash (Join-Path $base 'asd-structured-replies.exe')).Hash.ToLowerInvariant() -cne '1077b872000fae572e5b3d2912491f83e917cc79fa854ec7f93aa2631e8090cd'){throw 'Artifact hash mismatch'}
+if((Get-FileHash (Join-Path $base 'manager-structured-replies.test.exe')).Hash.ToLowerInvariant() -cne '64c30e9979f0ea5557384bc7a096c509a16921b819b88d29647f498c0f787917'){throw 'Artifact hash mismatch'}
+$env:ASD_NATIVE_MESSAGING_BUNDLE=Join-Path $root 'terminal-runtime'
+$env:ASD_NATIVE_REPLY_CLI=Join-Path $base 'asd-structured-replies.exe'
+$cases=@(@{name='store';pattern='^Test(Reply|.*Migration|.*Upgrade)'},@{name='cli';pattern='^TestRepl'},@{name='manager';pattern='^Test(ReplyRechecks|WindowsNativeReplyTwoAgentProcesses)'})
+$results=@()
+foreach($case in $cases){
+ $exe=Join-Path $base ($case.name+'-structured-replies.test.exe');$log=Join-Path $out ($case.name+'.stdout')
+ & $exe '-test.v' '-test.run' $case.pattern '-test.timeout' '180s' 2>&1|Set-Content $log -Encoding utf8
+ $code=$LASTEXITCODE;$lines=Get-Content $log
+ $results+=@{name=$case.name;exit_code=$code;top_pass=@($lines|Where-Object{$_ -match '^--- PASS:'}).Count;top_fail=@($lines|Where-Object{$_ -match '^--- FAIL:'}).Count;top_skip=@($lines|Where-Object{$_ -match '^--- SKIP:'}).Count;sha256=(Get-FileHash $exe).Hash.ToLowerInvariant()}
+ if($code -ne 0){$lines|Write-Output;break}
+}
+$os=Get-CimInstance Win32_OperatingSystem
+$summary=@{results=$results;product_sha256=(Get-FileHash $env:ASD_NATIVE_REPLY_CLI).Hash.ToLowerInvariant();os_version=$os.Version;os_build=$os.BuildNumber;simulated_agents_not_models=$true;personal_state_migrated=$false;desktop_calls=0;clipboard_calls=0}
+$summary|ConvertTo-Json -Depth 5|Set-Content (Join-Path $out 'summary.json') -Encoding utf8
+$summary|ConvertTo-Json -Depth 5

@@ -75,3 +75,4 @@ ADR-0014 依据用户 2026-11-22 的明确要求接受，部分替代 0001/0002 
 | [0044](0044-rename-restores-origin-focus.md) | 改名结束恢复原焦点与侧栏状态 | 已接受 | [相关局部检查](../testing/results/2026-11-26-shortcut-focus.md)；其他断连原因分开 |
 | [0045](0045-explicit-message-outbox-and-owned-paste.md) | SQLite outbox、显式读取／建单与原视图确认粘贴 | 已接受 | [局部功能与迁移检查](../testing/results/2026-11-26-explicit-messaging.md)；自动消费／全局仲裁和完整接受开放 |
 | [0046](0046-backend-only-message-delivery.md) | 后端／CLI 独立投递，撤销前端消息入口 | 已接受 | [局部执行](../testing/results/2026-11-26-headless-messaging.md)；M 保留 Move，稳定性专项暂缓 |
+| [0047](0047-run-bound-inbox-and-structured-replies.md) | Run 绑定凭据、请求查询与单份关联回复 | 已接受 | [实际执行](../testing/results/2026-11-26-structured-replies.md)；不推断任务完成，真实 agent 与完整接受开放 |

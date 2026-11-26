@@ -157,3 +157,5 @@ M0 已有“列表/预览 → 自定义命令 → 全屏 attach → 返回”的
 2026-11-26 显式协作切片按 [ADR-0045](adr/0045-explicit-message-outbox-and-owned-paste.md)采用既有 SQLite 事务 outbox、条件领取与原生粘贴／UI FIFO，无新增模块、进程或外部代码复用。metadata.sqlite3 升级 v6 并沿用 DELETE/FULL；ui.toml 保持 v7。多客户端全局仲裁、自动消费和完整阶段接受继续开放。
 
 2026-11-26 通信边界进一步按 [ADR-0046](adr/0046-backend-only-message-delivery.md)明确为后端／CLI：撤销前端 m 确认及 UI writer 耦合，复用认证 one-shot send-paste 与原生控制队列屏障。原有库、SQLite v6、ui.toml v7 不变，TUI 不参与协议建单或投递确认。
+
+2026-11-26 后端回复：沿用既有 Go／SQLite 依赖，按 [ADR-0047](adr/0047-run-bound-inbox-and-structured-replies.md)事务升级 metadata schema v7，新增随机 capability 摘要和单份关联结果；不新增网络协议服务、Host、SDK 或 UI 依赖。凭据文件不在数据库备份中；实际验证另见[报告](testing/results/2026-11-26-structured-replies.md)。

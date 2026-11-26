@@ -1,6 +1,6 @@
 # Agent 接入：后端 CLI 接口参考
 
-更新日期：2026-11-26。实现基线：`c5e8226`；当前开发版，没有独立 `api_version` 字段。本参考描述已经实现的命令，不代表真实模型 agent 兼容性或稳定版发布接受。调用方应固定经过验证的程序版本；`asd version` 返回人类可读文本，不是 JSON 能力协商。
+更新日期：2026-11-26。实现范围：[ADR-0047](adr/0047-run-bound-inbox-and-structured-replies.md) 的后端消息／回复切片；源码与实际验证见[执行报告](testing/results/2026-11-26-structured-replies.md)。当前开发版，没有独立 `api_version` 字段。本参考描述已经实现的命令，不代表真实模型 agent 兼容性或稳定版发布接受。调用方应固定经过验证的程序版本；`asd version` 返回人类可读文本，不是 JSON 能力协商。
 
 不同开发构建可能共用相同版本文本，接入记录还应保留发布标签／源码提交和 exe 的 SHA-256，不能仅凭 version 文本认定二进制相同。
 
@@ -22,7 +22,7 @@ asd [全局参数] 子命令 [子命令参数] [位置参数]
 | `--namespace NAME` | 原会话使用的 namespace；默认 `asd-m0`，格式为 `asd-` 后 1–48 个字母、数字、下划线或连字符 |
 | `--state-dir DIR` | metadata.sqlite3 所在目录 |
 
-所有 `list/read/send/deliver/status` 调用共用原会话的同一套参数。推荐接入配置保存 exe、bundle、runtime、namespace、state 的绝对路径／值，复用完整参数数组。消息命令不使用 `--config`，传入会拒绝。使用同一个 exe 不等于进入同一个数据作用域；不要根据安装目录或当前工作目录猜测日常 UI 的数据路径。
+所有 `list/read/send/deliver/status/agent-bind/inbox/reply/replies` 调用共用原会话的同一套参数。推荐接入配置保存 exe、bundle、runtime、namespace、state 的绝对路径／值，复用完整参数数组。消息命令不使用 `--config`，传入会拒绝。使用同一个 exe 不等于进入同一个数据作用域；不要根据安装目录或当前工作目录猜测日常 UI 的数据路径。
 
 消息幂等作用域是同一 metadata.sqlite3 内的后端种类 + 绝对运行目录 + namespace；Windows 将该作用域转为小写。只复用 `--state-dir`、却改变 runtime 或 namespace，无法查询原消息。`status` 不启动或探测后端，但仍要求相同作用域，且会打开／初始化对应数据库；它不是任意数据库文件的只读检查工具。
 
@@ -47,6 +47,10 @@ asd [全局参数] 子命令 [子命令参数] [位置参数]
 | `send ... --deliver` | Message 对象，失败时也可能返回对象 | 需要 | 明确尝试一次原生粘贴 |
 | `deliver MESSAGE_ID` | Message 对象，失败时可能没有对象 | 需要 | 明确尝试一次原生粘贴 |
 | `status MESSAGE_ID` | Message 对象 | 不需要后端可执行文件在线 | 无 |
+| `agent-bind --session ID --run ID --token-file FILE` | 绑定回执 | 需要 | 无；发布私有凭据文件并保存摘要 |
+| `inbox --token-file FILE` | 无回复的 Message 数组 | 需要核对原 Run | 无；不领取任务 |
+| `reply ...` | Reply 对象 | 需要核对原 Run | 无；保存关联结果 |
+| `replies MESSAGE_ID` | Reply 数组，空或一条 | 不需要后端在线 | 无 |
 
 以下命令的 JSON 均直接写入 stdout，无外层 `data` 或 `ok` 包装。JSON 对象可能跨多行，不按单行 JSONL 解析。正常操作成功退出码为 0，错误为 1；外部终止、信号或包装程序可能产生其他退出码。帮助／版本输出不是业务 JSON。
 
@@ -136,7 +140,7 @@ asd [全局参数] deliver MESSAGE_ID
 asd [同一套全局参数] status MESSAGE_ID
 ```
 
-返回最新可读取的持久 Message；无需后端在线。它不探测 agent，也不会改变投递状态或触发重新投递。没有消息订阅、等待完成、回复列表或批量状态接口；调用方按自身工作流进行有界查询，读取状态本身不会推进任务。
+返回最新可读取的持久 Message；无需后端在线。它不探测 agent，也不会改变投递状态或触发重新投递。回复使用第 6 节的 replies 查询；没有消息订阅、等待完成或批量状态接口；调用方按自身工作流进行有界查询，读取状态本身不会推进任务。
 
 ## 3. Message JSON 与状态
 
@@ -225,16 +229,106 @@ if ($statusExitCode -ne 0) { throw "status 失败；保留原请求，不自动�
 
 其他语言遵循相同过程：使用参数数组启动 exe；stdin 发送 UTF-8 字节或使用 UTF-8 文件；保存 stdout/stderr/退出码；完整解析 JSON；独立保存 request ID 和作用域。无需调用 psmux 私有端口、读取 .key 文件或直接写 SQLite；这些属于后端实现细节。
 
-## 6. 下一阶段的请求／回复合同
+## 6. 结构化请求／回复
 
-`reply`、`reply_to`、回复查询及 agent accepted/completed **当前未实现**。不要把这些字段或命令写进现有接入代码，也不要用轮询终端出现某段文字来冒充结构化回复。
+此路径让合作 agent 通过工具读取请求并提交结果，不解析终端文字。A 使用 send 建单，B 通过 inbox 获取真实 message_id，reply 提交关联结果，A 用 replies 查询。仅走这条路径时，无需 deliver；原消息仍 queued，因为没有向终端写入。回复不是终端投递回执，也不是产品验证过的任务完成。
 
-后续实现应同步补齐本参考和可执行示例，明确：回复 ID 与幂等范围、reply_to 原消息关联、来源 Session/Run 的可信绑定与重验、正文／容量限制、回复查询／顺序、重复冲突、旧 Run／错误来源拒绝，以及回复记录与投递状态的关系。请求 ID 不能仅凭回复中的同名字符串取得可信来源。
+### 6.1 控制端绑定原 Run
 
-当前是同机同用户的本地控制接口，没有独立 agent 调用者认证。Session/Run 是路由身份，不是调用者凭据；不能只增加一个可任填的 --from 参数就声称验证了回复来源。具体来源绑定方案、CLI 语法和 JSON 合同在该阶段确定后再发布，不在本参考预写可执行占位接口。
+```text
+asd [全局参数] agent-bind --session SESSION_ID --run RUN_ID --token-file FILE
+```
+
+三个参数均必填，不接受位置参数。绑定原终端当前可用的完整 Session/Run。FILE 的父目录必须存在且支持同目录硬链接；工具生成 schema_version=1 的完整凭据文件后再提交绑定，不覆盖已有文件。成功仅返回：
+
+```json
+{
+  "session_id": "44444444444444444444444444444444",
+  "run_id": "55555555555555555555555555555555",
+  "credential_file": "C:\\ASD\\private\\review.json",
+  "result": "bound"
+}
+```
+
+凭据文件由工具生成，包含 schema_version、session_id、run_id、随机 token。token 为 256-bit 随机数的十六进制编码，不出现在公开回执、终端正文或数据库明文中。不要手填 token、打印文件正文或将文件提交 Git；通过接入配置向受委派的 B 提供文件路径。同机同用户内的管理员显式执行绑定，不要求普通 CLI 都支持此接口。
+
+同一 Run 重试绑定必须复用原文件与凭据；不同凭据不能替换已有绑定。同库最多 128 份绑定，每 Run 一份，不自动删除。文件先发布、数据库随后提交；绑定失败／超时可能留下有效或尚未生效的完整文件，应保留并用相同参数重试。支持的文件格式仅 v1、最多 4 KiB，拒绝链接文件、非普通文件、不完整或未知格式，不回显秘密内容。Unix 暂存文件为 0600；Windows 的实际访问控制由目录 ACL 决定，不声称该权限数值提供额外 Windows 隔离。
+
+这是一份本地委派 capability：来源依据是持有与该原 Run 绑定的随机凭据，随后重验实际终端身份。不是对 agent 程序的远程认证，也不能隔离有同用户文件／数据库控制权的调用者。原 Run 退出后不能提交新结果；新 Run 必须使用新凭据和新文件。当前没有凭据轮换、撤销／密钥恢复命令。数据库备份包含摘要与关联，不包含私有凭据文件。
+
+### 6.2 B 查询请求：inbox
+
+```text
+asd [全局参数] inbox --token-file FILE
+```
+
+仅 --token-file 必填，无位置参数。返回该凭据 Run 尚无回复的 Message 数组，无待处理记录时为 []。按 created_at、message_id 升序，最多 128 条；不把名称／当前 Tab 当目标，不返回其他 Run 的请求。查询重新发现原 backend_id／command 和终端状态，并拒绝已记录停止／pane 退出的 Run。
+
+inbox 只读请求，不标已读、不领取、不宣告 agent accepted，更不触发终端粘贴。返回可包含 queued、unknown、input_written，调用者必须读取 state；unknown 需要先核对，不能作为无条件自动执行清单。不要同时让终端文本和 inbox 两条接收路径无协调地执行同一任务。并发读取和保存回复去重不等于任务执行 exactly-once，接入方仍需协调实际处理者。
+
+### 6.3 B 提交结果：reply
+
+```text
+asd [全局参数] reply --token-file FILE --reply-id REPLY_ID --reply-to MESSAGE_ID --body-file FILE
+asd [全局参数] reply --token-file FILE --reply-id REPLY_ID --reply-to MESSAGE_ID --body-file -
+```
+
+四个选项均必填，无位置参数。正文的 UTF-8、BOM、非空、64 KiB 和控制字符规则与 send 相同。reply_id 是调用方首次提交前持久保存的稳定 32 位小写十六进制 ID，与 message_id 的标识域分别使用；reply_to 必须是实际 inbox 返回的原 message_id。
+
+服务端依据凭据取得来源，再核对原请求的 Session/Run/backend_id/command；不接受 --from，也不信任正文中的名称或 ID 字样。来源不匹配、凭据错误／跨 scope、未知 reply_to、已记录退出的 Run 均拒绝。进程状态与 SQLite 不是原子资源：只保证重验原身份及已观察的停止信息，不声称能识别尚未观测到的退出；任何已保存结果仍绑定原 Run，不改挂新运行。
+
+成功返回 Reply：
+
+```json
+{
+  "reply_id": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "reply_to": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "source": {
+    "session_id": "44444444444444444444444444444444",
+    "run_id": "55555555555555555555555555555555",
+    "backend_id": "asd_target",
+    "title": "Review",
+    "command": "agent.exe",
+    "terminal_state": "unknown"
+  },
+  "body": "检查结果：需要补充边界条件。",
+  "recorded_at": "2026-11-26T00:00:02Z"
+}
+```
+
+| 字段 | 含义 |
+| --- | --- |
+| reply_id | 稳定回复 ID；首次持久保存的值 |
+| reply_to | 原请求 message_id，不使用最近请求或当前选择推测 |
+| source | 凭据绑定并核对的原 Run 身份快照；其中 terminal_state=unknown，不是查询时实时存活证明 |
+| body | 显式提交的结果正文 |
+| recorded_at | 产品保存结果的 UTC 时间，不是 agent 任务完成时间 |
+
+每条请求先支持一份结果。相同 reply_id、来源、reply_to、正文重试返回原记录与原时间；相同 ID 改内容／父请求，或另一个 ID 再回复同一请求，均冲突，不覆盖已有结果。已存结果使请求从 inbox 移除，但不改变 Message.state，不自动生成 accepted/completed、完成通知或用户验收。
+
+reply 只写元数据，不追加终端输入。结果响应丢失时，先用 replies MESSAGE_ID 查询；原 Run 仍有效且需补确认时，可以用完全相同的 reply_id／参数重试，定位原提交。原 Run 结束后提交会被拒绝，但已保存结果仍可离线查。此重试规则与 deliver 的不确定终端副作用不同。
+
+### 6.4 A 查询关联结果：replies
+
+```text
+asd [同一套全局参数] replies MESSAGE_ID
+```
+
+位置参数为完整原 message_id。原请求不存在或 scope 不匹配时报错，不回落到其他消息；存在但无结果时返回 []，有结果时返回包含上述 Reply 的数组。结果最多一条，数组预留后续协议演进形式；当前不支持进度流／多份最终结果。不要求后端在线，原 Run 退出后仍可查。查询不会重新投递、提交回复或改变原消息状态。
+
+### 6.5 最小 A／B 工具调用步骤
+
+下面各调用均使用第 1 节同一套全局参数；路径与 ID 从接入配置、list、send、inbox 的真实结果获取，不硬编码示例 ID。两个 agent 可作为独立 CLI 进程运行，工具使用标准进程参数数组调用 asd.exe。
+
+1. 控制端对 B 的原 Session/Run 执行 agent-bind，把生成的 token-file 路径交给 B 的接入配置。
+2. A 持久保存 request ID 和目标，执行 send 建单，保存返回 message_id；本路径不需要 --deliver。
+3. B 执行 inbox，读取实际请求正文和 message_id；由接入工作流明确决定处理，不根据无输出猜 ready。
+4. B 持久保存 reply_id 和结果正文，执行 reply，reply_to 使用刚读取的原 message_id。
+5. A 执行 replies 原 message_id，核对 reply_to、source.session_id/source.run_id 和结果；保留原记录供后续审阅。
+6. 错误／超时后保留全部 ID 和原参数，分别用 status 查询投递、replies 查询结果，不把文字 done 或结果到达当作用户验收。
 
 ## 7. 版本、证据与接入检查
 
-每次接口行为或字段变化，同步更新本参考、ADR、对应行为测试及实际执行报告；参数／字段删除、重命名或状态语义变化需给出迁移说明。SQLite schema 版本不等于公共 API 版本。当前数据库为 v6，升级和回退按[消息说明](MESSAGING.md)执行，不让 Agent 自行修改表结构。
+每次接口行为或字段变化，同步更新本参考、ADR、对应行为测试及实际执行报告；参数／字段删除、重命名或状态语义变化需给出迁移说明。SQLite schema 版本不等于公共 API 版本。当前数据库为 v7，升级和回退按[消息说明](MESSAGING.md)执行，不让 Agent 自行修改表结构。
 
 接入前核对：固定 exe／bundle；使用原会话作用域；保存完整 Session/Run；持久保存请求 ID 和原参数；明确区分 queued、input_written、unknown；在错误和超时后查询原 ID。用[模拟接口合同](testing/MESSAGING_CONTRACT.md)复验故障行为，再在实际 agent／版本上补接入证据。现有模拟通过不代表它已理解任务或能够回复。
