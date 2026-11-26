@@ -4,7 +4,7 @@
 
 Windows x64 体验包：[v0.1.0-alpha.1 预发布](https://github.com/liuhui-code/agent-session-desk/releases/tag/v0.1.0-alpha.1)。下载 ZIP 后按[启动说明](docs/WINDOWS_ALPHA.md)解压并在 Windows Terminal 中运行；未签名，完整发布验收仍开放。
 
-当前工作区只显示侧栏会话／分组导航，顶部重复会话条、产品标题、终端框及常驻底栏已按用户反馈移除。Ctrl+PgUp/PgDn 切换逻辑视图；管理 `[`／`]` 调整本次视图顺序，`n` 新建、`x` 只关闭视图。普通提示移到底边显示、移开隐藏；关键错误和搜索输入仍可见。黑底灰字与 Windows 内测版的实际范围见[样式复验](docs/testing/results/2026-11-25-minimal-workspace.md)。
+当前工作区只显示侧栏会话／分组导航，共享左右留白与顶部间距，隐藏侧栏后内容仍保留边距。`Alt+J/K` 切换会话视图，`Ctrl+S` 显隐侧栏，`F6` 切换管理／终端焦点；管理模式固定显示底部快捷键。`F2` 重命名当前活动／所选项；管理 `n` 直接沿最近成功／默认配置创建，`N` 显式编辑，`x` 只关闭视图。最新本机范围见[留白与快捷键验证](docs/testing/results/2026-11-26-workspace-spacing-controls.md)，公开 Alpha 字节仍以其发布报告为准。
 
 管理模式 `r` 重命名所选会话或分组，`Ctrl+R` 刷新；连接失败时 `r` 重试。会话名称独立保存，列表、Tab、搜索和离线历史使用当前显示名，原终端身份与启动快照不变；会话同名增加简短身份标记。当前数据库为 schema v5，旧程序不能直接读取新 schema。分组改名保留稳定 ID、成员和折叠状态，默认组也可改显示名；同级重名／旧版本提交拒绝。实际验证与剩余范围见[会话重命名](docs/testing/results/2026-11-23-session-rename.md)及[组重命名](docs/testing/results/2026-11-23-group-rename.md)。
 

@@ -23,10 +23,10 @@ func TestMinimalWorkspaceUsesAllRowsWithoutDuplicateChrome(t *testing.T) {
 	if strings.Count(view, h.m.workspace.tabs[0].session.Title) != 1 {
 		t.Fatal("session title is duplicated outside the sidebar")
 	}
-	if g.y != 0 || g.height != h.m.height || g.width != g.outerWidth {
+	if g.y != 1 || g.height != h.m.height-1 || g.width != g.outerWidth {
 		t.Fatalf("content still reserves header/footer/border: %+v", g)
 	}
-	if h.m.View().Cursor == nil || h.m.View().Cursor.Y != 0 {
+	if h.m.View().Cursor == nil || h.m.View().Cursor.Y != 1 {
 		t.Fatal("native cursor did not follow borderless content")
 	}
 }
@@ -35,9 +35,9 @@ func TestQuietFooterRestoresLastRowAndCursorAndKeepsCriticalFeedback(t *testing.
 	h := newWorkspaceHarness(t, &workspaceFixture{fakeService: directDragFixture().fakeService})
 	h.until(func() bool { return strings.Contains(h.m.View().Content, "shell marker") })
 	w := h.m.workspace
-	w.screen.Rows = make([]terminal.Row, h.m.height)
-	w.screen.Rows[h.m.height-1] = terminal.Row{Runs: []terminal.Run{{Text: "LAST_ROW", Width: 8}}}
-	w.screen.Cursor.Y = h.m.height - 1
+	w.screen.Rows = make([]terminal.Row, h.m.workspaceGeometry().height)
+	w.screen.Rows[h.m.workspaceGeometry().height-1] = terminal.Row{Runs: []terminal.Run{{Text: "LAST_ROW", Width: 8}}}
+	w.screen.Cursor.Y = h.m.workspaceGeometry().height - 1
 	h.m.status = "Save failed"
 	h.send(tea.MouseMotionMsg{X: h.m.width - 1, Y: h.m.height - 1, Button: tea.MouseNone})
 	if strings.Contains(h.m.View().Content, "LAST_ROW") || h.m.View().Cursor != nil {

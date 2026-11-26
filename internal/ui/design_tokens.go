@@ -118,6 +118,7 @@ type dialogTokens struct {
 
 type workspaceTokens struct {
 	terminalHint, managementHint, copyHint                            string
+	sideInset, topInsetRows                                           int
 	footerRevealRows, dividerInsetRows                                int
 	headerGapRows, footerGapRows, footerRuleRows, footerBottomGapRows int
 	minTerminalRows                                                   int
@@ -159,9 +160,9 @@ func defaultDesignTokens() designTokens {
 		search: searchTokens{preferredWidth: 62, minWidth: 32, responsiveBelow: 70, gutter: 8, paddingX: 2, paddingY: 1, inputPaddingX: 1, inputRightGap: 4, resultPadding: 2, maxResults: 10, prompt: "> ", selected: "› ", titlePrefix: "🔍 ", programPrefix: " (", programSuffix: ")", countColor: lipgloss.Color("241"), placeholderColor: lipgloss.Color("240"), hintItalic: true},
 		// Pinned native copy-mode defaults; interpreted as character attributes.
 		copy:      copyTokens{foreground: "idx:0", selection: "idx:3", match: "idx:6", current: "idx:5", mark: "idx:1", cursorShape: tea.CursorBlock},
-		sidebar:   sidebarTokens{cardGap: 1, groupRows: 2, groupBold: true, cardMinWidth: 28, cardRows: 2, fullRows: 3, selected: "  ", active: "┃ ", metadata: "  ╰ ", metadataMiddle: "  │ ", separator: " · ", settingsWidth: 66, settingsPaddingX: 2, settingsPaddingY: 1, radioGap: 2, radioMarker: ">", radioUnselected: " ", underlineChoice: true, settingsFocusedPrefix: "▶ ", settingsIdlePrefix: "  ", groupExpanded: "▾", groupCollapsed: "▸", rootShortcut: "1·", groupCountPrefix: " (", groupCountSuffix: ")", groupGutter: 2, indentWidth: 2, rootShortcutSuffix: "·"},
+		sidebar:   sidebarTokens{cardGap: 1, groupRows: 2, groupBold: true, cardMinWidth: 28, cardRows: 2, fullRows: 3, selected: "  ", active: "┃ ", metadata: "  ╰ ", metadataMiddle: "  │ ", separator: " · ", settingsWidth: 66, settingsPaddingX: 2, settingsPaddingY: 1, radioGap: 2, radioMarker: ">", radioUnselected: " ", underlineChoice: true, settingsFocusedPrefix: "▶ ", settingsIdlePrefix: "  ", groupExpanded: "▾", groupCollapsed: "▸", rootShortcut: "1·", groupCountPrefix: " (", groupCountSuffix: ")", groupGutter: 0, indentWidth: 2, rootShortcutSuffix: "·"},
 		dialog:    dialogTokens{preferredWidth: 86, minWidth: 44, gutter: 10, paddingX: 4, paddingY: 2, firstPaddingY: 1, titleGap: 1, fieldGap: 1, dimBackdrop: true, cursorShape: tea.CursorBar, cursorBlink: true},
-		workspace: workspaceTokens{terminalHint: "F6 Navigate · Ctrl+PgUp/PgDn Switch sessions", managementHint: "F6 Terminal · n New · / Search · S Settings · ? Help", copyHint: "Space Select · Enter Copy · / Search · Esc/q Back", footerRevealRows: 1, dividerInsetRows: 2, sidebarPercent: 35, compactPercent: 18, minPane: 8, tabPadding: 1, maxTabWidth: 32, splitStep: 5, minSplitPercent: 10, maxSplitPercent: 90, dividerGrabSlop: 2, minTerminalRows: 3, splitNoticeDuration: 1500 * time.Millisecond, doubleClickInterval: 500 * time.Millisecond, border: lipgloss.RoundedBorder()},
+		workspace: workspaceTokens{terminalHint: "F6 Navigate · Alt+J/K Switch sessions", managementHint: "F6 Terminal · n New · / Search · S Settings · ? Help", copyHint: "Space Select · Enter Copy · / Search · Esc/q Back", sideInset: 2, topInsetRows: 1, footerRevealRows: 1, dividerInsetRows: 2, sidebarPercent: 35, compactPercent: 18, minPane: 8, tabPadding: 1, maxTabWidth: 32, splitStep: 5, minSplitPercent: 10, maxSplitPercent: 90, dividerGrabSlop: 2, minTerminalRows: 3, splitNoticeDuration: 1500 * time.Millisecond, doubleClickInterval: 500 * time.Millisecond, border: lipgloss.RoundedBorder()},
 		colors:    colors,
 		layout: layoutTokens{
 			singleBelow: 50, stackedBelow: 80, minFrameHeight: 5, minPreviewHeight: 10,

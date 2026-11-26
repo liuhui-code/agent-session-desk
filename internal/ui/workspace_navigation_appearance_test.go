@@ -20,14 +20,14 @@ func TestWorkspaceNavigationStartsAtTopAndClickUsesTheSameRow(t *testing.T) {
 		m.workspace.screen = terminal.Screen{Width: 10, Height: 1, Rows: []terminal.Row{{Runs: []terminal.Run{{Text: "CONTENT", Width: 7}}}}}
 		m.workspace.tabs = []workspaceTab{{session: m.sessions[0]}}
 		view := ansi.Strip(m.View().Content)
-		first := strings.Split(view, "\n")[0]
+		first := strings.Split(view, "\n")[m.workspaceGeometry().listY]
 		if !strings.Contains(first, m.sessions[0].Title) || strings.Contains(view, "Sessions 平铺") {
 			t.Errorf("width %d: navigation has a heading or top offset", width)
 		}
 		if width == 120 && !strings.Contains(first, "CONTENT") {
 			t.Error("content and navigation do not start on the same row")
 		}
-		m.workspaceClick(tea.MouseClickMsg{X: 3, Y: 0, Button: tea.MouseLeft})
+		m.workspaceClick(tea.MouseClickMsg{X: m.workspaceGeometry().listX + 1, Y: m.workspaceGeometry().listY, Button: tea.MouseLeft})
 		if m.cursor != 0 {
 			t.Errorf("width %d: first visible row did not select first session", width)
 		}

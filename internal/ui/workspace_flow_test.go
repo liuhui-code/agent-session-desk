@@ -40,7 +40,7 @@ func TestControlSTogglesSidebarWithoutSendingSaveToTerminal(t *testing.T) {
 	h.until(func() bool { return h.m.workspace.conn != nil })
 	original := h.m.workspaceGeometry()
 	h.send(tea.KeyPressMsg{Code: 's', Mod: tea.ModCtrl})
-	if h.m.workspaceGeometry().left != 0 || h.m.workspaceGeometry().width != h.m.width {
+	if h.m.workspaceGeometry().left != 0 || h.m.workspaceGeometry().width != h.m.width-2*h.m.tokens.workspace.sideInset {
 		t.Fatal("Ctrl+S did not collapse sidebar")
 	}
 	h.send(tea.KeyPressMsg{Code: 's', Mod: tea.ModCtrl})

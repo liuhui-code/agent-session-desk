@@ -15,16 +15,16 @@ func TestWorkspaceDividerLeavesTopAndBottomBreathingRoom(t *testing.T) {
 		g := m.workspaceGeometry()
 		lines := strings.Split(m.View().Content, "\n")
 		for y := range height {
-			cell := ansi.Strip(ansi.Cut(lines[y], g.left, g.x))
+			cell := ansi.Strip(ansi.Cut(lines[y], g.bodyX+g.left, g.x))
 			want := "   "
-			if y >= 2 && y < height-2 {
+			if y >= g.bodyY+2 && y < g.bodyY+g.bodyHeight-2 {
 				want = " │ "
 			}
 			if cell != want {
 				t.Errorf("height %d row %d: separator %q, want %q", height, y, cell, want)
 			}
 		}
-		if g.height != height || len(lines) != height {
+		if g.height != height-g.bodyY || len(lines) != height {
 			t.Errorf("divider inset changed terminal/frame height at %d", height)
 		}
 		m.Close()

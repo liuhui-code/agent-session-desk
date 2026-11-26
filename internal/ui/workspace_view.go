@@ -13,50 +13,6 @@ import (
 	"charm.land/lipgloss/v2"
 )
 
-type workspaceGeometry struct{ x, y, width, height, left, outerWidth, bodyHeight, above, terminalHeight, listWidth, listHeight int }
-
-func (m *Model) workspaceGeometry() workspaceGeometry {
-	t := m.tokens
-	bodyHeight := max(0, m.height-t.workspaceChromeRows()) // Full-height terminal; hints overlay without resizing the child.
-	left := 0
-	gap := lipgloss.Width(t.divider())
-	if !m.workspace.sidebarHidden && m.width >= t.layout.stackedBelow {
-		percent := m.workspaceSidebarPercent()
-		left = max(t.workspace.minPane, m.width*percent/100)
-		left = min(left, max(0, m.width-gap-t.workspace.minPane))
-	} else {
-		gap = 0
-	}
-	outer := max(0, m.width-left-gap)
-	style := m.styles.terminalFrame
-	above, terminalHeight := 0, bodyHeight
-	minList := t.layout.stackedListMin
-	minFrame := style.GetVerticalFrameSize() + t.workspace.minTerminalRows
-	if !m.workspace.sidebarHidden && m.width < t.layout.stackedBelow && !m.workspace.focused {
-		above, terminalHeight = bodyHeight, 0
-		if m.width >= t.layout.singleBelow && bodyHeight >= minList+t.layout.stackedGap+minFrame {
-			listHeight := max(minList, bodyHeight*m.workspaceSidebarPercent()/100)
-			listHeight = min(listHeight, bodyHeight-t.layout.stackedGap-minFrame)
-			above = listHeight + t.layout.stackedGap
-			terminalHeight = bodyHeight - above
-		}
-	}
-	listWidth, listHeight := left, bodyHeight
-	if above > 0 {
-		listWidth, listHeight = m.width, above
-		if terminalHeight > 0 {
-			listHeight -= t.layout.stackedGap
-		}
-	}
-
-	return workspaceGeometry{
-		x: left + gap + style.GetBorderLeftSize(), y: above + style.GetBorderTopSize(),
-		width: max(0, outer-style.GetHorizontalFrameSize()), height: max(0, terminalHeight-style.GetVerticalFrameSize()),
-		left: left, outerWidth: outer, bodyHeight: bodyHeight, above: above, terminalHeight: terminalHeight,
-		listWidth: listWidth, listHeight: listHeight,
-	}
-}
-
 func (m *Model) renderWorkspace() string {
 	if m.width <= 0 || m.height <= 0 {
 		return ""
@@ -106,13 +62,13 @@ func (m *Model) renderWorkspace() string {
 	}
 	if g.above > 0 {
 		listHeight := g.listHeight
-		list := m.renderSessionList(m.width, listHeight)
-		body = fitFrame(list, m.width, listHeight)
+		list := m.renderSessionList(g.listWidth, listHeight)
+		body = fitFrame(list, g.bodyWidth, listHeight)
 		if g.terminalHeight > 0 {
 			body += strings.Repeat("\n", m.tokens.layout.stackedGap+1) + right
 		}
 	}
-	return m.renderWorkspaceOverlay(fitFrame(body, m.width, m.height))
+	return m.renderWorkspaceOverlay(m.padWorkspaceBody(body, g))
 }
 
 func (m *Model) workspaceCursor() *tea.Cursor {

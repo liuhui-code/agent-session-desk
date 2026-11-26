@@ -4,17 +4,17 @@ import (
 	"strings"
 
 	tea "charm.land/bubbletea/v2"
-	"github.com/charmbracelet/x/ansi"
 )
 
 func (m *Model) workspaceFooterVisible() bool {
 	w := m.workspace
 	_, prompt := m.workspaceCopyPrompt()
-	return m.status != "" || w.err != nil || m.listErr != nil || prompt != nil || (w.screen.CopyMode && w.screen.Status != "")
+	return !w.focused || m.status != "" || w.err != nil || m.listErr != nil || prompt != nil || (w.screen.CopyMode && w.screen.Status != "")
 }
 
 func (m *Model) workspaceFooterHit(x, y int) bool {
-	return x >= 0 && x < m.width && y >= m.height-m.tokens.workspace.footerRevealRows && y < m.height && m.workspaceFooterVisible()
+	g := m.workspaceGeometry()
+	return x >= g.bodyX && x < g.bodyX+g.bodyWidth && y >= m.height-m.tokens.workspace.footerRevealRows && y < m.height && m.workspaceFooterVisible()
 }
 
 func (m *Model) workspaceFooterMotion(msg tea.MouseMotionMsg) bool {
@@ -37,7 +37,9 @@ func (m *Model) renderWorkspaceOverlay(body string) string {
 	w := m.workspace
 	text := m.tokens.workspace.terminalHint
 	if !w.focused {
-		text = ansi.Strip(m.renderManagementFooter())
+		view := *m
+		view.width = m.workspaceGeometry().bodyWidth
+		text = view.renderManagementFooter()
 	} else if w.screen.CopyMode {
 		text = m.tokens.workspace.copyHint
 		if w.screen.Status != "" {
@@ -60,6 +62,8 @@ func (m *Model) renderWorkspaceOverlay(body string) string {
 		text = prompt
 	}
 	lines := strings.Split(body, "\n")
-	lines[m.height-1] = m.styles.dim.Background(m.tokens.colors.bg).Render(ensureExactWidth(cellTruncate(text, m.width, ""), m.width))
+	g := m.workspaceGeometry()
+	line := strings.Repeat(" ", g.bodyX) + ensureExactWidth(cellTruncate(text, g.bodyWidth, ""), g.bodyWidth)
+	lines[m.height-1] = m.styles.dim.Background(m.tokens.colors.bg).Render(ensureExactWidth(line, m.width))
 	return strings.Join(lines, "\n")
 }

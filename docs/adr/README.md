@@ -71,3 +71,4 @@ ADR-0014 依据用户 2026-11-22 的明确要求接受，部分替代 0001/0002 
 | [0040](0040-verified-conpty-single-mouse-channel.md) | 实际目录宿主的单通道鼠标候选 | 已接受（开发候选） | [严格原生复验及接入](../testing/results/2026-11-25-single-mouse-channel.md)；系统宿主、实体硬件、混合读取器及发布仍开放 |
 | [0041](0041-minimal-workspace-and-iterm-appearance.md) | 单一侧栏、无框工作区、悬浮提示和 iTerm 外观 | 已接受（用户新方向） | [Windows 293 UI／实际 hover](../testing/results/2026-11-25-minimal-workspace.md)；当前 Consolas 10 可用，同款 Meslo 系统安装待授权，完整视觉／发布开放 |
 | [0042](0042-direct-create-terminal-host-and-focus.md) | 默认 WT、最近成功配置直接新建、Ctrl+S 侧栏与明确管理焦点 | 已接受（用户决定） | [局部实现与执行](../testing/results/2026-11-26-direct-create-focus.md)；原生与完整接受分别记账 |
+| [0043](0043-workspace-insets-and-alt-navigation.md) | 统一留白、F2、管理固定底栏与 Alt+J/K 会话切换 | 已接受（用户反馈） | [局部检查与实际结果](../testing/results/2026-11-26-workspace-spacing-controls.md)分别记录；其他宿主／完整接受开放 |

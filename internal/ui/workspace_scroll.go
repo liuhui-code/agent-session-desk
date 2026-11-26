@@ -30,9 +30,9 @@ func (m *Model) workspaceWheelNow(msg tea.MouseWheelMsg) tea.Cmd {
 		return nil
 	}
 	g := m.workspaceGeometry()
-	listTop := g.y - g.above - m.styles.terminalFrame.GetBorderTopSize()
+	listTop := g.listY
 	listHeight := g.listHeight
-	if msg.X >= 0 && msg.X < g.listWidth && msg.Y >= listTop && msg.Y < listTop+listHeight {
+	if msg.X >= g.listX && msg.X < g.listX+g.listWidth && msg.Y >= listTop && msg.Y < listTop+listHeight {
 		w.focused = false
 		m.status = ""
 		return tea.Batch(m.move(delta), m.workspaceSize())

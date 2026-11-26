@@ -107,17 +107,19 @@ func (m *Model) workspaceSplitExpired() tea.Cmd {
 
 func (m *Model) workspaceDividerHit(x, y int) bool {
 	g := m.workspaceGeometry()
-	top := g.y - m.styles.terminalFrame.GetBorderTopSize()
-	return g.left > 0 && y >= top && y < top+g.bodyHeight && x >= g.left-m.tokens.workspace.dividerGrabSlop && x < g.left+lipgloss.Width(m.tokens.divider())+m.tokens.workspace.dividerGrabSlop
+	top := g.bodyY
+	dividerX := g.bodyX + g.left
+	return g.left > 0 && y >= top && y < top+g.bodyHeight && x >= dividerX-m.tokens.workspace.dividerGrabSlop && x < dividerX+lipgloss.Width(m.tokens.divider())+m.tokens.workspace.dividerGrabSlop
 }
 func (m *Model) workspaceSplitMouseX(x int) tea.Cmd {
-	if m.width <= 0 {
+	g := m.workspaceGeometry()
+	if g.bodyWidth <= 0 {
 		return nil
 	}
-	x = max(0, min(m.width, x))
+	x = max(0, min(g.bodyWidth, x-g.bodyX))
 	old := m.workspaceSidebarPercent()
 	t := m.tokens.workspace
-	m.workspace.split.preview = max(t.minSplitPercent, min(t.maxSplitPercent, x*100/m.width))
+	m.workspace.split.preview = max(t.minSplitPercent, min(t.maxSplitPercent, x*100/g.bodyWidth))
 	m.status = ""
 	var resize tea.Cmd
 	if old != m.workspaceSidebarPercent() {

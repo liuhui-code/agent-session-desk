@@ -28,6 +28,17 @@ func (m *Model) workspaceKeyNow(msg tea.KeyPressMsg) tea.Cmd {
 	if w.transition != workspaceIdle && w.transition != workspaceSwitch {
 		return nil
 	}
+	if msg.Mod&tea.ModAlt != 0 && msg.Mod&(tea.ModCtrl|tea.ModShift) == 0 {
+		switch msg.Code {
+		case 'j', 'J':
+			return m.activateWorkspace(w.active + 1)
+		case 'k', 'K':
+			return m.activateWorkspace(w.active - 1)
+		}
+	}
+	if msg.Code == tea.KeyF2 && msg.Mod == 0 {
+		return m.workspaceRenameKey()
+	}
 	if msg.Mod&tea.ModCtrl != 0 && msg.Mod&(tea.ModAlt|tea.ModShift) == 0 {
 		switch msg.Code {
 		case tea.KeyPgDown:

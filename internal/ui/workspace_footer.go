@@ -35,12 +35,20 @@ func (m *Model) managementFooterHints() (primary, secondary []footerHint) {
 		if _, ok := m.service.(groupService); ok {
 			primary = append(primary, footerHint{"g", "Groups"})
 		}
-		secondary = append(secondary, footerHint{"r", name})
+		key := "F2"
+		if m.workspace.err != nil {
+			key = "r"
+		}
+		secondary = append(secondary, footerHint{key, name})
 		if m.selectedGroup().ID != session.DefaultGroupID {
 			secondary = append(secondary, footerHint{"d", "Delete group"})
 		}
 	} else if _, ok := m.selected(); ok {
-		secondary = append(secondary, footerHint{"r", name})
+		key := "F2"
+		if m.workspace.err != nil {
+			key = "r"
+		}
+		secondary = append(secondary, footerHint{key, name})
 		if _, ok := m.service.(visiblePaneService); ok {
 			secondary = append(secondary, footerHint{"V", "Copy screen"})
 		}
@@ -99,7 +107,7 @@ func (m *Model) renderManagementFooter() string {
 		}
 		return left
 	}
-	pinned := []footerHint{{"↑↓", "Select"}, {"F6", "Terminal"}, {"?", "Help"}, {"q", "Quit"}}
+	pinned := []footerHint{{"↑↓", "Select"}, {"Alt+J/K", "Sessions"}, {"F6", "Terminal"}, {"?", "Help"}, {"q", "Quit"}}
 	optional := []footerHint{{"/", "Search"}, {"S", "Settings"}, {"Alt+V", "Grouped/Flat"}}
 	right := func(n int) string {
 		parts := make([]string, 0, len(pinned)+n)
@@ -139,7 +147,7 @@ func (m *Model) renderTerminalFooter() string {
 	space := strings.Repeat(" ", t.labelGap)
 	gap := strings.Repeat(" ", t.blockGap)
 	badge := m.styles.footerBadge.Render(t.badgePrefix + "Terminal" + t.badgeSuffix)
-	choices := []string{"F6 Navigate" + t.inlineSeparator + "Ctrl+PgUp/PgDn switch tabs", "F6 Navigate" + t.inlineSeparator + "Ctrl+PgUp/PgDn", "F6 Navigate"}
+	choices := []string{"F6 Navigate" + t.inlineSeparator + "Alt+J/K switch tabs", "F6 Navigate" + t.inlineSeparator + "Alt+J/K", "F6 Navigate"}
 	hint := choices[len(choices)-1]
 	for _, choice := range choices {
 		if lipgloss.Width(badge)+t.blockGap+lipgloss.Width(choice) <= m.width {

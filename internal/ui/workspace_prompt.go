@@ -9,20 +9,24 @@ import (
 func (m *Model) workspaceCopyPrompt() (string, *tea.Cursor) {
 	w := m.workspace
 	prompt := w.screen.CopyPrompt
-	if !w.focused || w.conn == nil || w.err != nil || !w.screen.CopyMode || prompt == nil || m.width < 1 || m.height < m.tokens.workspaceChromeRows() {
+	if !w.focused || w.conn == nil || w.err != nil || !w.screen.CopyMode || prompt == nil || m.width < 1 || m.height < 1 {
 		return "", nil
 	}
 	if prompt.LabelBytes < 0 || prompt.CursorBytes < prompt.LabelBytes || prompt.CursorBytes > len(prompt.Text) {
 		return "", nil
 	}
-	prefix := cellTruncate(prompt.Text[:prompt.LabelBytes], m.width-1, "")
+	g := m.workspaceGeometry()
+	if g.bodyWidth < 1 {
+		return "", nil
+	}
+	prefix := cellTruncate(prompt.Text[:prompt.LabelBytes], g.bodyWidth-1, "")
 	input := prompt.Text[prompt.LabelBytes:]
 	prefixWidth := lipgloss.Width(prefix)
-	available := m.width - prefixWidth
+	available := g.bodyWidth - prefixWidth
 	at := ansi.StringWidth(input[:prompt.CursorBytes-prompt.LabelBytes])
 	start := max(0, at-available+1)
 	text := prefix + ansi.Cut(input, start, start+available)
-	cursor := tea.NewCursor(prefixWidth+at-start, m.height-1-m.tokens.workspace.footerBottomGapRows)
+	cursor := tea.NewCursor(g.bodyX+prefixWidth+at-start, m.height-1-m.tokens.workspace.footerBottomGapRows)
 	cursor.Shape, cursor.Blink = m.tokens.dialog.cursorShape, m.tokens.dialog.cursorBlink
 	return text, cursor
 }

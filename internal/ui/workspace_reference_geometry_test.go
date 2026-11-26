@@ -22,7 +22,7 @@ func TestWorkspaceUserLayoutSupersedesUpstreamFrameBands(t *testing.T) {
 	if strings.Contains(view.Content, "╭") || strings.Contains(lines[0], "Agent Session Desk") {
 		t.Fatal("removed frame bands returned")
 	}
-	if view.Cursor == nil || view.Cursor.Y != 0 || len(lines) != 32 {
+	if view.Cursor == nil || view.Cursor.Y != 1 || len(lines) != 32 {
 		t.Fatalf("borderless full-height cursor/frame mismatch: %+v", view.Cursor)
 	}
 }

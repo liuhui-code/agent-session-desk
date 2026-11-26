@@ -10,7 +10,7 @@ func workspaceHelpSections() []helpSection {
 		{"Tabs and terminals", [][2]string{
 			{"F6", "Toggle navigation/terminal focus"},
 			{"Ctrl+S", "Show/hide sidebar (outside dialogs)"},
-			{"Ctrl+PgUp / Ctrl+PgDn", "Switch tabs; preserve the terminal draft"},
+			{"Alt+J / Alt+K", "Next / previous session; preserve terminal draft"},
 			{"Enter", "Open the selected session's original run"},
 			{"N", "Edit a launch configuration"},
 			{"n / + button", "Create from last/default configuration"},
@@ -24,7 +24,7 @@ func workspaceHelpSections() []helpSection {
 			{"↑ / ↓ / k / j", "Select a list item; click Select, double-click Open"},
 			{"Home / End", "Select first/last item"},
 			{"/", "Search local session names or programs"},
-			{"r", "Rename selected session/group; retry when disconnected"},
+			{"F2 / r", "Rename selected session/group (F2 uses active terminal with terminal focus)"},
 			{"Ctrl+R", "Refresh backend observations"},
 		}},
 		{"Groups (navigation focus)", [][2]string{

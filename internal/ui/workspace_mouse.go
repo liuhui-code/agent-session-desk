@@ -49,9 +49,9 @@ func (m *Model) workspaceClickNow(msg tea.MouseClickMsg) tea.Cmd {
 		w.split.dragStart = msg.X
 		return nil
 	}
-	listTop := g.y - g.above - m.styles.terminalFrame.GetBorderTopSize()
+	listTop := g.listY
 	listHeight := g.listHeight
-	if msg.X >= 0 && msg.X < g.listWidth && msg.Y >= listTop && msg.Y < listTop+listHeight {
+	if msg.X >= g.listX && msg.X < g.listX+g.listWidth && msg.Y >= listTop && msg.Y < listTop+listHeight {
 		window := m.sidebarNavigationWindow(g.listWidth, listHeight)
 		w.focused = false
 		m.status = ""
@@ -82,7 +82,7 @@ func (m *Model) workspaceClickNow(msg tea.MouseClickMsg) tea.Cmd {
 			return m.workspaceSize()
 		}
 	}
-	if g.left > 0 && msg.X >= 0 && msg.X < g.left && msg.Y >= g.y-1 && msg.Y < g.y+g.height {
+	if g.left > 0 && msg.X >= g.listX && msg.X < g.listX+g.left && msg.Y >= g.listY && msg.Y < g.listY+g.listHeight {
 		w.focused = false
 		return m.workspaceSize()
 	}

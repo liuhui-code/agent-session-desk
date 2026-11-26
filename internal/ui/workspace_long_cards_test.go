@@ -19,7 +19,7 @@ func TestLongCardTitleUsesSourceColumnCropWithoutInventingAnEllipsis(t *testing.
 	m.workspace.focused = false
 	got := ansi.Strip(m.workspaceSidebarCard(0, 28, 1, 0)[0])
 	// The pinned card renderer fits the identity line with an empty tail.
-	if got != "    abcdefghijklmnopqrstuvwx" {
+	if got != "  abcdefghijklmnopqrstuvwxyz" {
 		t.Fatalf("card differs from source column crop: %q", got)
 	}
 }
