@@ -4,6 +4,8 @@
 
 阶段按可验证结果推进，暂不承诺固定周数。Go/Charm v2、选择性 UI 复用及 Windows psmux 路线已经记录，具体移植范围、兼容性与资源预算由 M0 确认。选型见[技术栈](TECH_STACK.md)及 [ADR](adr/README.md)，初始需求见[产品计划](PRODUCT_PLAN.md)，实际状态与证据见 [Feature Ledger](FEATURE_LEDGER.md)。
 
+2026-11-26 执行顺序调整：用户要求稳定性专项先登记、后续执行。[遗留清单 STAB-001～005](testing/DEFERRED_STABILITY.md)保留切换退出、焦点／输入归属、真实 agent、重开生命周期及长稳资源缺口；不改变发布和阶段接受门槛。下一功能切片建议为显式跨会话读取／投递／回执，尚未启动实施，不代表 M3 或前置阶段完成。
+
 **当前没有已完成的软件阶段。** 已在指定 Windows Server 2025 runner 通过常规检查与五项可控原生后端场景，完整记录见[Windows 执行报告](testing/results/2026-11-21-m0-native-windows.md)。另有[原生 Windows 短资源实验](testing/results/2026-11-21-m0-windows-resources.md)，覆盖 0/1/5/10 会话、真实 TUI 启停与直接程序对照。这些局部证据不代替 Windows Terminal 桌面交互、完整资源预算与 M0 验收；M4 发布前还必须复验对应发布组合。
 
 2026-11-22 范围更新：[ADR-0014](adr/0014-upstream-ui-tabs-and-general-terminals.md) 要求上游体验尽可能还原、Tab 主工作区及普通 shell／CLI。现有阶段和证据保留；M0 增补视觉与技术可行性，M1 交付单 Tab 原生终端，M2 交付多 Tab。后续 ADR-0016 已进入局部实现，完整范围仍未验收，不能用旧全屏 attach 结果关闭。

@@ -2,6 +2,8 @@
 
 更新时间：2026-11-24。用途：持续记录用户能力的范围、实现状态与验收证据。
 
+2026-11-26 执行安排：按用户要求，稳定性专项[登记后暂缓](testing/DEFERRED_STABILITY.md)，保留 STAB-001～005 与既有未通过／未测边界；各 FL 实现、接受与发布状态不因此提升。后续功能切片建议见路线图，尚未实施。
+
 **已有首批 M0 源码迁入及 Linux／Windows 局部自动化证据；五项可控原生后端场景在指定 Windows Server 2025 runner 通过，尚无已验收/已发布功能。** 列表、预览、CLI 启动、终端适配与身份边界保持实现中，已有受控短资源实验，完整 Windows 交互、资源预算、长稳与验收未完成。设计资料、代码存在、交叉编译和实际执行分别记录，范围及历史失败见[源码迁入报告](testing/results/2026-11-21-m0-source-migration.md)和[Windows 执行报告](testing/results/2026-11-21-m0-native-windows.md)。
 
 产品意图与需求原文见[产品计划](PRODUCT_PLAN.md)，阶段安排见[路线图](ROADMAP.md)，架构理由见下列 ADR，测试设计见[用例库](testing/README.md)与[覆盖表](testing/COVERAGE.md)。本台账负责回答“能力做到哪里、凭什么认定做到”，不重复替代这些文档。
