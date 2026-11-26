@@ -1,5 +1,7 @@
 # 决策记录
 
+2026-11-26：用户将任务列表、取消和 unknown 人工处置后置，优先 [ADR-0049](adr/0049-native-agent-decision-attention.md) 的原生 Agent 授权／选择提醒。沿用原 CLI 表单，只显示待处理并显式导航，不另建批准 UI、不代发按键；事件与 viewed 分离，旧 Run／乱序／墓碑与自动输入守卫持久化。接口见 [ATTENTION.md](ATTENTION.md)，[Windows 模拟菜单验证](testing/results/2026-11-26-native-decision-attention.md)不替代真实 Agent、桌面通知或完整 FL-020 接受。
+
 创建日期：2026-11-20。更新日期：2026-11-22。状态分为“已确定方向”“建议默认”“待验证/待决定”。
 
 已确定方向来自产品需求及本轮记录选型的授权；建议默认可在原型体验后调整。技术决定的完整依据移至 [ADR](adr/README.md)，当前汇总见 [TECH_STACK.md](TECH_STACK.md)，功能实现与验收见 [FEATURE_LEDGER.md](FEATURE_LEDGER.md)。决定已接受不表示软件已完成。

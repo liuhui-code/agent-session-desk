@@ -1,0 +1,6 @@
+=== RUN   TestAttentionDrainsAcceptedInputAndConsumesLaterPaste
+    attention_test.go:114: navigation accepted later input: "text:accepted draft,paste:y\n"
+--- FAIL: TestAttentionDrainsAcceptedInputAndConsumesLaterPaste (0.00s)
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.789s
+FAIL

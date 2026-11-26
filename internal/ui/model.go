@@ -26,6 +26,7 @@ type Service interface {
 }
 
 type sessionsMsg struct {
+	attention   []session.AttentionItem
 	orderStamps map[string]string
 	generation  uint64
 	sessions    []session.Session
@@ -52,6 +53,7 @@ type pollMsg struct{ generation uint64 }
 // Model implements the stable Bubble Tea v2 API. Mutable UI state is touched
 // only by Init/Update; asynchronous commands return values, never mutate it.
 type Model struct {
+	attention                        attentionState
 	colorProfile                     colorprofile.Profile
 	systemTheme                      systemThemeState
 	sessionStop, sessionStopIntent   *sessionStopDialog
@@ -177,6 +179,9 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		return m, cmd
 	}
 	if m.workspace != nil {
+		if cmd, handled := m.attentionEvent(msg); handled {
+			return m, cmd
+		}
 		if cmd, handled := m.sessionStopEvent(msg); handled {
 			return m, cmd
 		}
@@ -252,6 +257,7 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		m.groupOrderFailed = false
 		m.sessionOrderFailed = false
 		selected, hadSelection := m.selected()
+		m.attention.items = msg.attention
 		m.sessions = msg.sessions
 		m.groups = msg.groups
 		m.orderStamps = msg.orderStamps
@@ -412,34 +418,10 @@ func (m *Model) loadSessions() tea.Cmd {
 		defer cancel()
 		if service, ok := m.service.(groupService); ok {
 			view, err := service.Workspace(ctx)
-			return sessionsMsg{generation: generation, sessions: view.Sessions, groups: view.Groups, orderStamps: view.OrderStamps, err: err}
+			return sessionsMsg{generation: generation, attention: view.Attention, sessions: view.Sessions, groups: view.Groups, orderStamps: view.OrderStamps, err: err}
 		}
 		sessions, err := m.service.List(ctx)
 		return sessionsMsg{generation: generation, sessions: sessions, err: err}
-	}
-}
-
-func (m *Model) loadPreview() tea.Cmd {
-	if m.workspace != nil {
-		return nil
-	}
-	s, ok := m.selected()
-	if !ok || m.previewBusy || m.attaching || m.closed || m.listErr != nil || !m.previewVisible() {
-		return nil
-	}
-	if s.TerminalState != session.TerminalAvailable && s.TerminalState != session.TerminalExited {
-		m.invalidatePreview()
-		return nil
-	}
-	m.previewBusy = true
-	ctx, cancel := context.WithTimeout(m.ctx, 5*time.Second)
-	m.previewCancel = cancel
-	generation := m.previewGeneration
-	lines := min(maxPreviewLines, max(1, m.height))
-	return func() tea.Msg {
-		defer cancel()
-		preview, err := m.service.Preview(ctx, s, lines)
-		return previewMsg{generation: generation, sessionID: s.ID, runID: s.RunID, preview: preview, err: err}
 	}
 }
 

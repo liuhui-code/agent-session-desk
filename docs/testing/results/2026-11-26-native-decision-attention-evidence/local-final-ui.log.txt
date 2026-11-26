@@ -1,0 +1,64 @@
+=== RUN   TestAttentionReminderPreservesGeometryFocusAndInput
+--- PASS: TestAttentionReminderPreservesGeometryFocusAndInput (0.00s)
+=== RUN   TestAttentionShortcutNavigatesWithoutAnsweringAndViewedStaysPending
+--- PASS: TestAttentionShortcutNavigatesWithoutAnsweringAndViewedStaysPending (0.00s)
+=== RUN   TestAttentionDrainsAcceptedInputAndConsumesLaterPaste
+--- PASS: TestAttentionDrainsAcceptedInputAndConsumesLaterPaste (0.00s)
+=== RUN   TestAttentionLateResolvedResultAndUnavailableObservationDoNotNavigate
+--- PASS: TestAttentionLateResolvedResultAndUnavailableObservationDoNotNavigate (0.00s)
+=== RUN   TestAttentionHeaderClickAndRenderingBoundaries
+=== RUN   TestAttentionHeaderClickAndRenderingBoundaries/[160_40]
+=== RUN   TestAttentionHeaderClickAndRenderingBoundaries/[120_32]
+=== RUN   TestAttentionHeaderClickAndRenderingBoundaries/[63_20]
+=== RUN   TestAttentionHeaderClickAndRenderingBoundaries/[49_12]
+=== RUN   TestAttentionHeaderClickAndRenderingBoundaries/[12_4]
+=== RUN   TestAttentionHeaderClickAndRenderingBoundaries/[2_1]
+--- PASS: TestAttentionHeaderClickAndRenderingBoundaries (0.01s)
+    --- PASS: TestAttentionHeaderClickAndRenderingBoundaries/[160_40] (0.00s)
+    --- PASS: TestAttentionHeaderClickAndRenderingBoundaries/[120_32] (0.00s)
+    --- PASS: TestAttentionHeaderClickAndRenderingBoundaries/[63_20] (0.00s)
+    --- PASS: TestAttentionHeaderClickAndRenderingBoundaries/[49_12] (0.00s)
+    --- PASS: TestAttentionHeaderClickAndRenderingBoundaries/[12_4] (0.00s)
+    --- PASS: TestAttentionHeaderClickAndRenderingBoundaries/[2_1] (0.00s)
+=== RUN   TestAttentionHeaderClickWorksWithSidebarHidden
+--- PASS: TestAttentionHeaderClickWorksWithSidebarHidden (0.00s)
+=== RUN   TestAttentionHeaderClickReleasesOriginalProgramPointer
+--- PASS: TestAttentionHeaderClickReleasesOriginalProgramPointer (0.00s)
+=== RUN   TestWorkspaceHelpOpensSourceStyleShortCard
+--- PASS: TestWorkspaceHelpOpensSourceStyleShortCard (0.01s)
+=== RUN   TestWorkspaceHelpConsumesMouseAndClosingKeysOnce
+--- PASS: TestWorkspaceHelpConsumesMouseAndClosingKeysOnce (0.00s)
+=== RUN   TestWorkspaceHelpBothPagesStayInsideResizedViewport
+--- PASS: TestWorkspaceHelpBothPagesStayInsideResizedViewport (0.40s)
+=== RUN   TestWorkspaceHelpWaitsForAcceptedTerminalInput
+--- PASS: TestWorkspaceHelpWaitsForAcceptedTerminalInput (0.01s)
+=== RUN   TestWorkspaceHelpLastPageMatchesSourceTrailingRow
+--- PASS: TestWorkspaceHelpLastPageMatchesSourceTrailingRow (0.01s)
+=== RUN   TestWorkspaceHelpPasteClosesWithoutInterpretingOrForwardingPayload
+--- PASS: TestWorkspaceHelpPasteClosesWithoutInterpretingOrForwardingPayload (0.00s)
+=== RUN   TestWorkspaceHelpFillsEveryInteriorCellWithSurface
+--- PASS: TestWorkspaceHelpFillsEveryInteriorCellWithSurface (0.20s)
+=== RUN   TestWorkspaceSidebarSelectionOpensOriginalViewWithoutSendingInput
+--- PASS: TestWorkspaceSidebarSelectionOpensOriginalViewWithoutSendingInput (0.01s)
+=== RUN   TestWorkspaceNavigationStartsAtTopAndClickUsesTheSameRow
+--- PASS: TestWorkspaceNavigationStartsAtTopAndClickUsesTheSameRow (0.00s)
+=== RUN   TestProgramMouseSwitchReleasesOriginalBeforeNewRunInput
+--- PASS: TestProgramMouseSwitchReleasesOriginalBeforeNewRunInput (0.00s)
+=== RUN   TestWorkspaceSidebarDefaultCardsSeparateTerminalMetadata
+--- PASS: TestWorkspaceSidebarDefaultCardsSeparateTerminalMetadata (0.01s)
+=== RUN   TestWorkspaceSidebarMetadataClickSelectsItsOwnSession
+--- PASS: TestWorkspaceSidebarMetadataClickSelectsItsOwnSession (0.01s)
+=== RUN   TestWorkspaceSidebarShowsBothCardsWhenTheyExactlyFit
+--- PASS: TestWorkspaceSidebarShowsBothCardsWhenTheyExactlyFit (0.01s)
+=== RUN   TestWorkspaceSidebarKeepsSelectedCardVisibleAcrossWidthAndHeight
+--- PASS: TestWorkspaceSidebarKeepsSelectedCardVisibleAcrossWidthAndHeight (0.03s)
+=== RUN   TestWorkspaceOuterInsetsRemainWhenSidebarIsHidden
+--- PASS: TestWorkspaceOuterInsetsRemainWhenSidebarIsHidden (0.00s)
+=== RUN   TestWorkspaceShowsNativeTerminalWithTabNavigationAndRealCursor
+--- PASS: TestWorkspaceShowsNativeTerminalWithTabNavigationAndRealCursor (0.01s)
+=== RUN   TestWorkspaceSwitchesTabsByStableRunWithoutExtraInput
+--- PASS: TestWorkspaceSwitchesTabsByStableRunWithoutExtraInput (0.01s)
+=== RUN   TestWorkspaceSwitchDrainsOldInputAndKeepsNewInputOnNewTab
+--- PASS: TestWorkspaceSwitchDrainsOldInputAndKeepsNewInputOnNewTab (0.01s)
+PASS
+ok  	github.com/liuhui-code/agent-session-desk/internal/ui	1.486s

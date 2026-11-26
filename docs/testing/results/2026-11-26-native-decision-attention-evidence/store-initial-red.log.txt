@@ -1,0 +1,9 @@
+# github.com/liuhui-code/agent-session-desk/internal/store_test [github.com/liuhui-code/agent-session-desk/internal/store.test]
+internal/store/attention_test.go:17:13: undefined: session.AttentionEvent
+internal/store/attention_test.go:18:15: db.ReportAttention undefined (type *store.Store has no field or method ReportAttention)
+internal/store/attention_test.go:19:14: db.MarkAttentionViewed undefined (type *store.Store has no field or method MarkAttentionViewed)
+internal/store/attention_test.go:20:15: db.PendingAttention undefined (type *store.Store has no field or method PendingAttention)
+internal/store/attention_test.go:26:14: db.ReportAttention undefined (type *store.Store has no field or method ReportAttention)
+internal/store/attention_test.go:27:14: db.PendingAttention undefined (type *store.Store has no field or method PendingAttention)
+FAIL	github.com/liuhui-code/agent-session-desk/internal/store [build failed]
+FAIL

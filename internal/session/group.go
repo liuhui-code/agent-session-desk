@@ -25,6 +25,7 @@ type Group struct {
 }
 
 type Workspace struct {
+	Attention   []AttentionItem   `json:"attention"`
 	OrderStamps map[string]string `json:"order_stamps,omitempty"`
 	Sessions    []Session         `json:"sessions"`
 	Groups      []Group           `json:"groups"`

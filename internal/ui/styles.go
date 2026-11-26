@@ -17,6 +17,7 @@ import (
 )
 
 type styles struct {
+	attention                                                                                                                            lipgloss.Style
 	pathBox, pathBrowseBox, pathText, pathSelected, pathCustom, pathCustomSelected, pathHint                                             lipgloss.Style
 	footerCuratedKey                                                                                                                     lipgloss.Style
 	settingsSection, settingsFocusMarker, settingsChoiceIdle, settingsRadioIdle                                                          lipgloss.Style
@@ -46,6 +47,7 @@ type styles struct {
 func newStyles(t designTokens, profile colorprofile.Profile) styles {
 	t = t.forDisplay(profile)
 	return styles{
+		attention:                 lipgloss.NewStyle().Foreground(t.colors.yellow).Bold(t.bold),
 		pathBox:                   lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.colors.border).Background(t.paths.background).Padding(t.paths.paddingY, t.paths.paddingX),
 		pathBrowseBox:             lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.colors.cyan).Background(t.paths.background).Padding(t.paths.paddingY, t.paths.paddingX),
 		pathText:                  lipgloss.NewStyle().Foreground(t.colors.dim).Background(t.paths.background),

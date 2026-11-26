@@ -1,0 +1,58 @@
+=== RUN   TestAttentionViewedIsNotResolvedAndBlocksDelivery
+--- PASS: TestAttentionViewedIsNotResolvedAndBlocksDelivery (0.02s)
+=== RUN   TestAttentionVersionOrderingTombstonesAndViewedRevision
+--- PASS: TestAttentionVersionOrderingTombstonesAndViewedRevision (0.02s)
+=== RUN   TestAttentionSourceScopeExitAndDisconnect
+    attention_test.go:153: agent binding could not be saved
+--- FAIL: TestAttentionSourceScopeExitAndDisconnect (0.01s)
+=== RUN   TestAttentionBoundedCapacityNeverPrunesClosedIdentity
+--- PASS: TestAttentionBoundedCapacityNeverPrunesClosedIdentity (0.45s)
+=== RUN   TestAttentionV8MigrationAndScopeIsolation
+--- PASS: TestAttentionV8MigrationAndScopeIsolation (0.02s)
+=== RUN   TestGroupMigrationConflictsRollbackTheWholeUpgrade
+=== RUN   TestGroupMigrationConflictsRollbackTheWholeUpgrade/v1/groups
+=== RUN   TestGroupMigrationConflictsRollbackTheWholeUpgrade/v1/session_groups
+=== RUN   TestGroupMigrationConflictsRollbackTheWholeUpgrade/v2/groups
+=== RUN   TestGroupMigrationConflictsRollbackTheWholeUpgrade/v2/session_groups
+=== RUN   TestGroupMigrationConflictsRollbackTheWholeUpgrade/v3/groups
+=== RUN   TestGroupMigrationConflictsRollbackTheWholeUpgrade/v3/session_groups
+--- PASS: TestGroupMigrationConflictsRollbackTheWholeUpgrade (0.09s)
+    --- PASS: TestGroupMigrationConflictsRollbackTheWholeUpgrade/v1/groups (0.01s)
+    --- PASS: TestGroupMigrationConflictsRollbackTheWholeUpgrade/v1/session_groups (0.01s)
+    --- PASS: TestGroupMigrationConflictsRollbackTheWholeUpgrade/v2/groups (0.01s)
+    --- PASS: TestGroupMigrationConflictsRollbackTheWholeUpgrade/v2/session_groups (0.02s)
+    --- PASS: TestGroupMigrationConflictsRollbackTheWholeUpgrade/v3/groups (0.02s)
+    --- PASS: TestGroupMigrationConflictsRollbackTheWholeUpgrade/v3/session_groups (0.02s)
+=== RUN   TestV3GroupMigrationAndSnapshotPreserveOriginalEvidence
+--- PASS: TestV3GroupMigrationAndSnapshotPreserveOriginalEvidence (0.05s)
+=== RUN   TestMessageSchemaV5UpgradeBackupAndCapacity
+--- PASS: TestMessageSchemaV5UpgradeBackupAndCapacity (0.22s)
+=== RUN   TestV1UpgradePreservesIdentityAndStopEvidence
+--- PASS: TestV1UpgradePreservesIdentityAndStopEvidence (0.01s)
+=== RUN   TestFailedV1UpgradeDoesNotModifyExistingDatabase
+--- PASS: TestFailedV1UpgradeDoesNotModifyExistingDatabase (0.01s)
+=== RUN   TestV2UpgradeAndNamedSnapshotPreserveOriginalRunEvidence
+--- PASS: TestV2UpgradeAndNamedSnapshotPreserveOriginalRunEvidence (0.03s)
+=== RUN   TestFailedNameMigrationRollsBackWholeV1OrV2Upgrade
+=== RUN   TestFailedNameMigrationRollsBackWholeV1OrV2Upgrade/v1
+=== RUN   TestFailedNameMigrationRollsBackWholeV1OrV2Upgrade/v2
+--- PASS: TestFailedNameMigrationRollsBackWholeV1OrV2Upgrade (0.03s)
+    --- PASS: TestFailedNameMigrationRollsBackWholeV1OrV2Upgrade/v1 (0.01s)
+    --- PASS: TestFailedNameMigrationRollsBackWholeV1OrV2Upgrade/v2 (0.01s)
+=== RUN   TestV1SnapshotRestoresThroughNormalMigrationWithoutChangingBackup
+--- PASS: TestV1SnapshotRestoresThroughNormalMigrationWithoutChangingBackup (0.02s)
+=== RUN   TestReplySchemaV6MigrationRecoveryAndNoPlaintextCredential
+--- PASS: TestReplySchemaV6MigrationRecoveryAndNoPlaintextCredential (0.04s)
+=== RUN   TestReplyFailedV6MigrationRollsBackBindingTable
+--- PASS: TestReplyFailedV6MigrationRollsBackBindingTable (0.02s)
+=== RUN   TestSessionOrderV4ReadOnlyMigrationAndV5Snapshot
+--- PASS: TestSessionOrderV4ReadOnlyMigrationAndV5Snapshot (0.06s)
+=== RUN   TestSessionOrderMigrationConflictRollsBackAndCorruptPositionIsRejected
+--- PASS: TestSessionOrderMigrationConflictRollsBackAndCorruptPositionIsRejected (0.05s)
+=== RUN   TestClaimV7MigrationPreservesLegacyReplyWithoutMintingOwnership
+--- PASS: TestClaimV7MigrationPreservesLegacyReplyWithoutMintingOwnership (0.03s)
+=== RUN   TestClaimFailedMigrationPreservesV7Source
+--- PASS: TestClaimFailedMigrationPreservesV7Source (0.02s)
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/store	2.335s
+FAIL

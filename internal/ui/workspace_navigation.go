@@ -58,6 +58,8 @@ func (m *Model) finishWorkspaceNavigation() tea.Cmd {
 		return m.openGroupRemoval()
 	case workspaceStop:
 		return m.openSessionStop()
+	case workspaceAttention:
+		return m.openAttention()
 	}
 	return nil
 }

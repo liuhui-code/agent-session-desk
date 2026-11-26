@@ -1,0 +1,7 @@
+$ErrorActionPreference='Stop'
+[Console]::OutputEncoding=[Text.Encoding]::UTF8
+$expected=Join-Path $env:USERPROFILE 'asd-acceptance-20261122/asd-fixture-attention.exe'
+$originals=@(21788,23608)
+$rows=@(Get-CimInstance Win32_Process -Filter "Name='asd-fixture-attention.exe'")
+$result=@{original_pids=$originals;remaining_fixture_images=@($rows|Where-Object{$_.ExecutablePath -ieq $expected}).Count;original_pid_image_matches=@($rows|Where-Object{($_.ProcessId -in $originals) -and ($_.ExecutablePath -ieq $expected)}).Count;action='read_only_identity_audit';forced_cleanup=0}
+$result|ConvertTo-Json -Depth 4

@@ -1,6 +1,6 @@
 # Agent 接入：后端 CLI 接口参考
 
-更新日期：2026-11-26。实现范围：[ADR-0048](adr/0048-exclusive-processing-claims-and-uncertain-recovery.md) 的后端消息／领取／回复切片；源码与实际验证见[执行报告](testing/results/2026-11-26-task-claims.md)。当前开发版，没有独立 `api_version` 字段。本参考描述已经实现的命令，不代表真实模型 agent 兼容性或稳定版发布接受。调用方应固定经过验证的程序版本；`asd version` 返回人类可读文本，不是 JSON 能力协商。
+更新日期：2026-11-26。实现范围：[ADR-0048](adr/0048-exclusive-processing-claims-and-uncertain-recovery.md) 的后端消息／领取／回复切片与 [ADR-0049](adr/0049-native-agent-decision-attention.md) 的原生决策事项；源码与实际验证分别见[领取报告](testing/results/2026-11-26-task-claims.md)和[提醒报告](testing/results/2026-11-26-native-decision-attention.md)。当前开发版，没有独立 `api_version` 字段。本参考描述已经实现的命令，不代表真实模型 agent 兼容性或稳定版发布接受。调用方应固定经过验证的程序版本；`asd version` 返回人类可读文本，不是 JSON 能力协商。
 
 不同开发构建可能共用相同版本文本，接入记录还应保留发布标签／源码提交和 exe 的 SHA-256，不能仅凭 version 文本认定二进制相同。
 
@@ -402,8 +402,22 @@ TaskClaim 在 status／renew／重试回执中 newly_claimed=false。state 与 M
 
 这是开发版写接口变更：新 reply 必须提供 --claim-file，流程为 inbox → claim → 处理／renew → reply。旧 v7 结果继续由 replies 读取，没有 claim_id 或领取状态，不为它们生成执行许可。旧写调用不提供无领取兼容旁路。私有 claim-file 不包含在 metadata 备份中；恢复旧备份也不能证明外部副作用没发生，不据此重新执行。
 
+## 6.10 原生授权／选择事项提醒
+
+用户决定仍在 Agent 原有终端表单中进行；本 API 只保存来源事件，不提供批准／答案／回车接口。完整 JSON、状态机、去重、迁移与容量合同见 [ATTENTION.md](ATTENTION.md)。调用使用与原会话完全相同的全局参数和作用域。
+
+```text
+attention-event --token-file FILE --event-file FILE|-
+attention-list
+attention-status ATTENTION_ID
+```
+
+事件绑定凭据原 Session/Run，attention_id 为完整 32 位小写十六进制，version 为正 int64。kind 为 approval／question，state 上报为 pending／resolved／withdrawn。同版本同正文幂等、冲突拒绝、低版本返回最新，结束墓碑不复活。恢复后保留原请求 ID／版本／正文，不自动创建替代请求。
+
+attention-list/status 离线可用，但会打开／升级库并根据已知 Run 退出持久化 invalidated，不是严格只读 SQL；离线 terminal_available=false。应用内 Alt+N／点击只重新核验并定位原生表单，viewed_at 不解决 pending。pending 阻止该 Run 的新自动 deliver 和新 claim；既有领取续期／结果元数据、普通用户原生输入不受此仲裁限制，不撤销在途副作用。全部 scope 合计保留最多 256 个事项／墓碑，没有自动清理或新后台消费者。真实 Agent hook 需先核验稳定请求 ID 与关闭关联，不按终端关键字建立确定提醒。
+
 ## 7. 版本、证据与接入检查
 
-每次接口行为或字段变化，同步更新本参考、ADR、对应行为测试及实际执行报告；参数／字段删除、重命名或状态语义变化需给出迁移说明。SQLite schema 版本不等于公共 API 版本。当前数据库为 v8，升级和回退按[消息说明](MESSAGING.md)执行，不让 Agent 自行修改表结构。
+每次接口行为或字段变化，同步更新本参考、ADR、对应行为测试及实际执行报告；参数／字段删除、重命名或状态语义变化需给出迁移说明。SQLite schema 版本不等于公共 API 版本。当前数据库为 v9，升级和回退按[消息说明](MESSAGING.md)执行，不让 Agent 自行修改表结构。
 
 接入前核对：固定 exe／bundle；使用原会话作用域；保存完整 Session/Run；持久保存请求 ID 和原参数；明确区分 queued、input_written、unknown；在错误和超时后查询原 ID。用[模拟接口合同](testing/MESSAGING_CONTRACT.md)复验故障行为，再在实际 agent／版本上补接入证据。现有模拟通过不代表它已理解任务或能够回复。

@@ -143,7 +143,7 @@ func (s *Store) ClaimMessage(ctx context.Context, id string, target session.Sess
 		return zero, err
 	}
 	now := time.Now().UTC()
-	result, err := tx.ExecContext(ctx, `UPDATE messages SET state='unknown',reason='delivery_started_result_unconfirmed',attempt=?,updated_ns=? WHERE scope=? AND id=? AND state='queued' AND EXISTS(SELECT 1 FROM runs WHERE scope=? AND id=? AND stopped_ns IS NULL) AND NOT EXISTS(SELECT 1 FROM task_claims c WHERE c.scope=messages.scope AND c.message_id=messages.id)`, token, now.UnixNano(), s.scope, id, s.scope, target.RunID)
+	result, err := tx.ExecContext(ctx, `UPDATE messages SET state='unknown',reason='delivery_started_result_unconfirmed',attempt=?,updated_ns=? WHERE scope=? AND id=? AND state='queued' AND EXISTS(SELECT 1 FROM runs WHERE scope=? AND id=? AND stopped_ns IS NULL) AND NOT EXISTS(SELECT 1 FROM task_claims c WHERE c.scope=messages.scope AND c.message_id=messages.id) AND NOT EXISTS(SELECT 1 FROM attention a WHERE a.scope=messages.scope AND a.run_id=messages.target_run_id AND a.state='pending')`, token, now.UnixNano(), s.scope, id, s.scope, target.RunID)
 	if err != nil {
 		return zero, err
 	}

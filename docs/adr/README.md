@@ -22,7 +22,7 @@ ADR 保存重要选择的背景、决定、替代方案、代价和重新评估�
 | [0003](0003-bounded-resources-and-background-work.md) | 有界资源、落盘存储和按阶段引入 Host | 已接受 | 选中预览/命令边界与 Windows 短资源基线已有；存储、Host、完整预算与长稳待做 |
 | [0004](0004-cli-agents-and-session-messaging.md) | CLI-first、稳定身份与可核对的消息语义 | 已接受；0014 扩展普通终端范围 | M0 模型与部分原生 fixture 接入证据已有；真实 agent 完整验收和 M3 消息待做 |
 | [0005](0005-dependency-lifecycle-and-upgrades.md) | 活跃稳定依赖与 Charm v1 → v2 迁移 | 已接受 | 模块／外部发行物已锁定，Windows 局部检查已有记录；完整迁移与桌面交互待做 |
-| [0006](0006-human-attention-and-notifications.md) | 人工介入事项、可信状态与分层提醒 | 已接受 | FR-14 / FL-020 与测试设计已记录；事件、通知、后台与 Windows 待实现验证 |
+| [0006](0006-human-attention-and-notifications.md) | 人工介入事项、可信状态与分层提醒 | 已接受 | FR-14 / FL-020 设计保留；ADR-0049 已补合作式事件／应用内提醒局部实现，完整通知与后台待实现验证 |
 | [0007](0007-explicit-launch-configuration.md) | 显式 TOML 只读启动模板与严格 schema | 已接受 | CLI、局部 Go 测试与 Windows fixture 原生证据；保存／迁移及真实 agent 待做 |
 | [0008](0008-ui-design-tokens.md) | 产品 UI 样式统一由设计 tokens 管理 | 已接受 | 当前样式集中、渲染和尺寸回归；新版本 Windows 视觉接受待做 |
 | [0009](0009-session-run-metadata.md) | SQLite 最小 Session/Run 元数据、独立历史与非原子副作用 | 已接受 | 最小实现、Go 检查与 Windows 局部执行；完整恢复、迁移和资源门槛待做 |
@@ -77,3 +77,4 @@ ADR-0014 依据用户 2026-11-22 的明确要求接受，部分替代 0001/0002 
 | [0046](0046-backend-only-message-delivery.md) | 后端／CLI 独立投递，撤销前端消息入口 | 已接受 | [局部执行](../testing/results/2026-11-26-headless-messaging.md)；M 保留 Move，稳定性专项暂缓 |
 | [0047](0047-run-bound-inbox-and-structured-replies.md) | Run 绑定凭据、请求查询与单份关联回复 | 已接受 | [实际执行](../testing/results/2026-11-26-structured-replies.md)；不推断任务完成，真实 agent 与完整接受开放 |
 | [0048](0048-exclusive-processing-claims-and-uncertain-recovery.md) | 独占处理领取、私有凭据和不确定恢复 | 已接受 | [领取验证](../testing/results/2026-11-26-task-claims.md)；无自动接管，不推断任务完成 |
+| [0049](0049-native-agent-decision-attention.md) | 原生授权／选择事项的应用内提醒与定位 | 已接受 | [模拟原生菜单及局部验证](../testing/results/2026-11-26-native-decision-attention.md)；真实适配、桌面／后台和完整 FL-020 仍开放 |

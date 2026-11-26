@@ -1,0 +1,179 @@
+=== RUN   TestAttentionReminderPreservesGeometryFocusAndInput
+--- PASS: TestAttentionReminderPreservesGeometryFocusAndInput (0.00s)
+=== RUN   TestAttentionShortcutNavigatesWithoutAnsweringAndViewedStaysPending
+--- PASS: TestAttentionShortcutNavigatesWithoutAnsweringAndViewedStaysPending (0.00s)
+=== RUN   TestAttentionDrainsAcceptedInputAndConsumesLaterPaste
+--- PASS: TestAttentionDrainsAcceptedInputAndConsumesLaterPaste (0.00s)
+=== RUN   TestAttentionLateResolvedResultAndUnavailableObservationDoNotNavigate
+--- PASS: TestAttentionLateResolvedResultAndUnavailableObservationDoNotNavigate (0.00s)
+=== RUN   TestAttentionHeaderClickAndRenderingBoundaries
+=== RUN   TestAttentionHeaderClickAndRenderingBoundaries/[160_40]
+=== RUN   TestAttentionHeaderClickAndRenderingBoundaries/[120_32]
+=== RUN   TestAttentionHeaderClickAndRenderingBoundaries/[63_20]
+=== RUN   TestAttentionHeaderClickAndRenderingBoundaries/[49_12]
+=== RUN   TestAttentionHeaderClickAndRenderingBoundaries/[12_4]
+=== RUN   TestAttentionHeaderClickAndRenderingBoundaries/[2_1]
+--- PASS: TestAttentionHeaderClickAndRenderingBoundaries (0.01s)
+    --- PASS: TestAttentionHeaderClickAndRenderingBoundaries/[160_40] (0.00s)
+    --- PASS: TestAttentionHeaderClickAndRenderingBoundaries/[120_32] (0.00s)
+    --- PASS: TestAttentionHeaderClickAndRenderingBoundaries/[63_20] (0.00s)
+    --- PASS: TestAttentionHeaderClickAndRenderingBoundaries/[49_12] (0.00s)
+    --- PASS: TestAttentionHeaderClickAndRenderingBoundaries/[12_4] (0.00s)
+    --- PASS: TestAttentionHeaderClickAndRenderingBoundaries/[2_1] (0.00s)
+=== RUN   TestAttentionHeaderClickWorksWithSidebarHidden
+--- PASS: TestAttentionHeaderClickWorksWithSidebarHidden (0.00s)
+=== RUN   TestAttentionHeaderClickReleasesOriginalProgramPointer
+--- PASS: TestAttentionHeaderClickReleasesOriginalProgramPointer (0.00s)
+=== RUN   TestWorkspaceHelpOpensSourceStyleShortCard
+--- PASS: TestWorkspaceHelpOpensSourceStyleShortCard (0.01s)
+=== RUN   TestWorkspaceHelpConsumesMouseAndClosingKeysOnce
+--- PASS: TestWorkspaceHelpConsumesMouseAndClosingKeysOnce (0.00s)
+=== RUN   TestWorkspaceHelpBothPagesStayInsideResizedViewport
+--- PASS: TestWorkspaceHelpBothPagesStayInsideResizedViewport (0.35s)
+=== RUN   TestWorkspaceHelpWaitsForAcceptedTerminalInput
+--- PASS: TestWorkspaceHelpWaitsForAcceptedTerminalInput (0.01s)
+=== RUN   TestWorkspaceHelpLastPageMatchesSourceTrailingRow
+--- PASS: TestWorkspaceHelpLastPageMatchesSourceTrailingRow (0.01s)
+=== RUN   TestWorkspaceHelpPasteClosesWithoutInterpretingOrForwardingPayload
+--- PASS: TestWorkspaceHelpPasteClosesWithoutInterpretingOrForwardingPayload (0.00s)
+=== RUN   TestWorkspaceHelpFillsEveryInteriorCellWithSurface
+--- PASS: TestWorkspaceHelpFillsEveryInteriorCellWithSurface (0.18s)
+=== RUN   TestWorkspaceSidebarSelectionOpensOriginalViewWithoutSendingInput
+--- PASS: TestWorkspaceSidebarSelectionOpensOriginalViewWithoutSendingInput (0.01s)
+=== RUN   TestWorkspaceNavigationStartsAtTopAndClickUsesTheSameRow
+--- PASS: TestWorkspaceNavigationStartsAtTopAndClickUsesTheSameRow (0.00s)
+=== RUN   TestProgramMouseRightGestureKeepsModifiersAndOriginalTarget
+--- PASS: TestProgramMouseRightGestureKeepsModifiersAndOriginalTarget (0.00s)
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix/left/0
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix/left/1
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix/left/2
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix/left/3
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix/left/4
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix/left/5
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix/left/6
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix/left/7
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix/middle/0
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix/middle/1
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix/middle/2
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix/middle/3
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix/middle/4
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix/middle/5
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix/middle/6
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix/middle/7
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix/right/0
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix/right/1
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix/right/2
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix/right/3
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix/right/4
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix/right/5
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix/right/6
+=== RUN   TestProgramMouseThreeButtonsAndModifierMatrix/right/7
+--- PASS: TestProgramMouseThreeButtonsAndModifierMatrix (0.01s)
+    --- PASS: TestProgramMouseThreeButtonsAndModifierMatrix/left/0 (0.00s)
+    --- PASS: TestProgramMouseThreeButtonsAndModifierMatrix/left/1 (0.00s)
+    --- PASS: TestProgramMouseThreeButtonsAndModifierMatrix/left/2 (0.00s)
+    --- PASS: TestProgramMouseThreeButtonsAndModifierMatrix/left/3 (0.00s)
+    --- PASS: TestProgramMouseThreeButtonsAndModifierMatrix/left/4 (0.00s)
+    --- PASS: TestProgramMouseThreeButtonsAndModifierMatrix/left/5 (0.00s)
+    --- PASS: TestProgramMouseThreeButtonsAndModifierMatrix/left/6 (0.00s)
+    --- PASS: TestProgramMouseThreeButtonsAndModifierMatrix/left/7 (0.00s)
+    --- PASS: TestProgramMouseThreeButtonsAndModifierMatrix/middle/0 (0.00s)
+    --- PASS: TestProgramMouseThreeButtonsAndModifierMatrix/middle/1 (0.00s)
+    --- PASS: TestProgramMouseThreeButtonsAndModifierMatrix/middle/2 (0.00s)
+    --- PASS: TestProgramMouseThreeButtonsAndModifierMatrix/middle/3 (0.00s)
+    --- PASS: TestProgramMouseThreeButtonsAndModifierMatrix/middle/4 (0.00s)
+    --- PASS: TestProgramMouseThreeButtonsAndModifierMatrix/middle/5 (0.00s)
+    --- PASS: TestProgramMouseThreeButtonsAndModifierMatrix/middle/6 (0.00s)
+    --- PASS: TestProgramMouseThreeButtonsAndModifierMatrix/middle/7 (0.00s)
+    --- PASS: TestProgramMouseThreeButtonsAndModifierMatrix/right/0 (0.00s)
+    --- PASS: TestProgramMouseThreeButtonsAndModifierMatrix/right/1 (0.00s)
+    --- PASS: TestProgramMouseThreeButtonsAndModifierMatrix/right/2 (0.00s)
+    --- PASS: TestProgramMouseThreeButtonsAndModifierMatrix/right/3 (0.00s)
+    --- PASS: TestProgramMouseThreeButtonsAndModifierMatrix/right/4 (0.00s)
+    --- PASS: TestProgramMouseThreeButtonsAndModifierMatrix/right/5 (0.00s)
+    --- PASS: TestProgramMouseThreeButtonsAndModifierMatrix/right/6 (0.00s)
+    --- PASS: TestProgramMouseThreeButtonsAndModifierMatrix/right/7 (0.00s)
+=== RUN   TestProgramMouseModifierChangeReleasesLastAcceptedOriginalStateBeforeSwitch
+--- PASS: TestProgramMouseModifierChangeReleasesLastAcceptedOriginalStateBeforeSwitch (0.00s)
+=== RUN   TestProgramMousePressureReleasesLastAcceptedModifierBeforeSwitch
+--- PASS: TestProgramMousePressureReleasesLastAcceptedModifierBeforeSwitch (0.00s)
+=== RUN   TestProgramMouseKeepsOneReleaseSlotUnderMotionPressure
+    workspace_program_pointer_lifecycle_test.go:31: rejected motion was not reported
+--- FAIL: TestProgramMouseKeepsOneReleaseSlotUnderMotionPressure (0.00s)
+=== RUN   TestProgramMouseCrossesControlsOnlyWithinOriginalPaneCoordinates
+--- PASS: TestProgramMouseCrossesControlsOnlyWithinOriginalPaneCoordinates (0.00s)
+=== RUN   TestProgramMouseDeliberateActionsReleaseBeforeTheirOwnInput
+=== RUN   TestProgramMouseDeliberateActionsReleaseBeforeTheirOwnInput/key
+=== RUN   TestProgramMouseDeliberateActionsReleaseBeforeTheirOwnInput/paste
+=== RUN   TestProgramMouseDeliberateActionsReleaseBeforeTheirOwnInput/wheel
+=== RUN   TestProgramMouseDeliberateActionsReleaseBeforeTheirOwnInput/resize
+=== RUN   TestProgramMouseDeliberateActionsReleaseBeforeTheirOwnInput/focus
+=== RUN   TestProgramMouseDeliberateActionsReleaseBeforeTheirOwnInput/help
+=== RUN   TestProgramMouseDeliberateActionsReleaseBeforeTheirOwnInput/no-button
+=== RUN   TestProgramMouseDeliberateActionsReleaseBeforeTheirOwnInput/modified-motion
+--- PASS: TestProgramMouseDeliberateActionsReleaseBeforeTheirOwnInput (0.00s)
+    --- PASS: TestProgramMouseDeliberateActionsReleaseBeforeTheirOwnInput/key (0.00s)
+    --- PASS: TestProgramMouseDeliberateActionsReleaseBeforeTheirOwnInput/paste (0.00s)
+    --- PASS: TestProgramMouseDeliberateActionsReleaseBeforeTheirOwnInput/wheel (0.00s)
+    --- PASS: TestProgramMouseDeliberateActionsReleaseBeforeTheirOwnInput/resize (0.00s)
+    --- PASS: TestProgramMouseDeliberateActionsReleaseBeforeTheirOwnInput/focus (0.00s)
+    --- PASS: TestProgramMouseDeliberateActionsReleaseBeforeTheirOwnInput/help (0.00s)
+    --- PASS: TestProgramMouseDeliberateActionsReleaseBeforeTheirOwnInput/no-button (0.00s)
+    --- PASS: TestProgramMouseDeliberateActionsReleaseBeforeTheirOwnInput/modified-motion (0.00s)
+=== RUN   TestProgramMouseExternalModeChangesDoNotReleaseIntoAnotherMode
+=== RUN   TestProgramMouseExternalModeChangesDoNotReleaseIntoAnotherMode/copy-mode
+    workspace_program_pointer_lifecycle_test.go:134: release uncertainty missing
+=== RUN   TestProgramMouseExternalModeChangesDoNotReleaseIntoAnotherMode/mouse-off
+    workspace_program_pointer_lifecycle_test.go:134: release uncertainty missing
+=== RUN   TestProgramMouseExternalModeChangesDoNotReleaseIntoAnotherMode/prompt
+    workspace_program_pointer_lifecycle_test.go:134: release uncertainty missing
+=== RUN   TestProgramMouseExternalModeChangesDoNotReleaseIntoAnotherMode/height
+    workspace_program_pointer_lifecycle_test.go:134: release uncertainty missing
+--- FAIL: TestProgramMouseExternalModeChangesDoNotReleaseIntoAnotherMode (0.00s)
+    --- FAIL: TestProgramMouseExternalModeChangesDoNotReleaseIntoAnotherMode/copy-mode (0.00s)
+    --- FAIL: TestProgramMouseExternalModeChangesDoNotReleaseIntoAnotherMode/mouse-off (0.00s)
+    --- FAIL: TestProgramMouseExternalModeChangesDoNotReleaseIntoAnotherMode/prompt (0.00s)
+    --- FAIL: TestProgramMouseExternalModeChangesDoNotReleaseIntoAnotherMode/height (0.00s)
+=== RUN   TestProgramMouseStartsOnlyInUnmodifiedFocusedProgramContent
+=== RUN   TestProgramMouseStartsOnlyInUnmodifiedFocusedProgramContent/management
+=== RUN   TestProgramMouseStartsOnlyInUnmodifiedFocusedProgramContent/border
+=== RUN   TestProgramMouseStartsOnlyInUnmodifiedFocusedProgramContent/tab
+=== RUN   TestProgramMouseStartsOnlyInUnmodifiedFocusedProgramContent/modified
+=== RUN   TestProgramMouseStartsOnlyInUnmodifiedFocusedProgramContent/prompt
+=== RUN   TestProgramMouseStartsOnlyInUnmodifiedFocusedProgramContent/right
+--- PASS: TestProgramMouseStartsOnlyInUnmodifiedFocusedProgramContent (0.00s)
+    --- PASS: TestProgramMouseStartsOnlyInUnmodifiedFocusedProgramContent/management (0.00s)
+    --- PASS: TestProgramMouseStartsOnlyInUnmodifiedFocusedProgramContent/border (0.00s)
+    --- PASS: TestProgramMouseStartsOnlyInUnmodifiedFocusedProgramContent/tab (0.00s)
+    --- PASS: TestProgramMouseStartsOnlyInUnmodifiedFocusedProgramContent/modified (0.00s)
+    --- PASS: TestProgramMouseStartsOnlyInUnmodifiedFocusedProgramContent/prompt (0.00s)
+    --- PASS: TestProgramMouseStartsOnlyInUnmodifiedFocusedProgramContent/right (0.00s)
+=== RUN   TestProgramMouseCopyModeKeepsSelectionCancellationWithoutSyntheticRelease
+--- PASS: TestProgramMouseCopyModeKeepsSelectionCancellationWithoutSyntheticRelease (0.00s)
+=== RUN   TestProgramMouseLeftGestureReachesOriginalProgramWithoutSelectionOrKeys
+--- PASS: TestProgramMouseLeftGestureReachesOriginalProgramWithoutSelectionOrKeys (0.00s)
+=== RUN   TestProgramMouseSwitchReleasesOriginalBeforeNewRunInput
+--- PASS: TestProgramMouseSwitchReleasesOriginalBeforeNewRunInput (0.00s)
+=== RUN   TestProgramMouseExternalScreenGrowthThenRestoreCannotResumeGesture
+    workspace_program_pointer_test.go:83: external change lost uncertain release notice
+--- FAIL: TestProgramMouseExternalScreenGrowthThenRestoreCannotResumeGesture (0.00s)
+=== RUN   TestWorkspaceSidebarDefaultCardsSeparateTerminalMetadata
+--- PASS: TestWorkspaceSidebarDefaultCardsSeparateTerminalMetadata (0.01s)
+=== RUN   TestWorkspaceSidebarMetadataClickSelectsItsOwnSession
+--- PASS: TestWorkspaceSidebarMetadataClickSelectsItsOwnSession (0.01s)
+=== RUN   TestWorkspaceSidebarShowsBothCardsWhenTheyExactlyFit
+--- PASS: TestWorkspaceSidebarShowsBothCardsWhenTheyExactlyFit (0.01s)
+=== RUN   TestWorkspaceSidebarKeepsSelectedCardVisibleAcrossWidthAndHeight
+--- PASS: TestWorkspaceSidebarKeepsSelectedCardVisibleAcrossWidthAndHeight (0.03s)
+=== RUN   TestWorkspaceOuterInsetsRemainWhenSidebarIsHidden
+--- PASS: TestWorkspaceOuterInsetsRemainWhenSidebarIsHidden (0.00s)
+=== RUN   TestWorkspaceShowsNativeTerminalWithTabNavigationAndRealCursor
+--- PASS: TestWorkspaceShowsNativeTerminalWithTabNavigationAndRealCursor (0.01s)
+=== RUN   TestWorkspaceSwitchesTabsByStableRunWithoutExtraInput
+--- PASS: TestWorkspaceSwitchesTabsByStableRunWithoutExtraInput (0.01s)
+=== RUN   TestWorkspaceSwitchDrainsOldInputAndKeepsNewInputOnNewTab
+--- PASS: TestWorkspaceSwitchDrainsOldInputAndKeepsNewInputOnNewTab (0.00s)
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	1.450s
+FAIL

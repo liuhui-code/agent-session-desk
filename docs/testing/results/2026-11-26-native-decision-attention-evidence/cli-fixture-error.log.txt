@@ -1,0 +1,32 @@
+=== RUN   TestAttentionViewedIsNotResolvedAndBlocksDelivery
+--- PASS: TestAttentionViewedIsNotResolvedAndBlocksDelivery (0.03s)
+=== RUN   TestAttentionVersionOrderingTombstonesAndViewedRevision
+--- PASS: TestAttentionVersionOrderingTombstonesAndViewedRevision (0.02s)
+=== RUN   TestAttentionSourceScopeExitAndDisconnect
+--- PASS: TestAttentionSourceScopeExitAndDisconnect (0.02s)
+=== RUN   TestAttentionBoundedCapacityNeverPrunesClosedIdentity
+--- PASS: TestAttentionBoundedCapacityNeverPrunesClosedIdentity (0.43s)
+=== RUN   TestAttentionV8MigrationAndScopeIsolation
+--- PASS: TestAttentionV8MigrationAndScopeIsolation (0.02s)
+PASS
+ok  	github.com/liuhui-code/agent-session-desk/internal/store	1.385s
+=== RUN   TestAttentionEventStrictBoundedJSON
+--- PASS: TestAttentionEventStrictBoundedJSON (0.00s)
+=== RUN   TestAttentionInvalidCommandHasNoEffects
+--- PASS: TestAttentionInvalidCommandHasNoEffects (0.00s)
+=== RUN   TestAttentionQueriesOfflineWithoutLeakingCredential
+    attention_test.go:53: namespace must start with asd- and contain 1–48 letters, digits, underscores or hyphens after it
+--- FAIL: TestAttentionQueriesOfflineWithoutLeakingCredential (0.00s)
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/cli	1.658s
+=== RUN   TestAttentionOpenRevalidatesOriginalRunAndNeverControlsTerminal
+--- PASS: TestAttentionOpenRevalidatesOriginalRunAndNeverControlsTerminal (0.03s)
+PASS
+ok  	github.com/liuhui-code/agent-session-desk/internal/manager	2.538s
+=== RUN   TestAttentionReminderPreservesGeometryFocusAndInput
+--- PASS: TestAttentionReminderPreservesGeometryFocusAndInput (0.00s)
+=== RUN   TestAttentionShortcutNavigatesWithoutAnsweringAndViewedStaysPending
+--- PASS: TestAttentionShortcutNavigatesWithoutAnsweringAndViewedStaysPending (0.00s)
+PASS
+ok  	github.com/liuhui-code/agent-session-desk/internal/ui	2.358s
+FAIL

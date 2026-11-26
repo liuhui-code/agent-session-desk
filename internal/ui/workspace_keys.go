@@ -30,6 +30,8 @@ func (m *Model) workspaceKeyNow(msg tea.KeyPressMsg) tea.Cmd {
 	}
 	if msg.Mod&tea.ModAlt != 0 && msg.Mod&(tea.ModCtrl|tea.ModShift) == 0 {
 		switch msg.Code {
+		case 'n', 'N':
+			return m.nextAttention()
 		case 'j', 'J':
 			return m.activateWorkspace(w.active + 1)
 		case 'k', 'K':

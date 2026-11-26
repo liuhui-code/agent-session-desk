@@ -1,0 +1,23 @@
+=== RUN   TestProgramMouseKeepsOneReleaseSlotUnderMotionPressure
+    workspace_program_pointer_lifecycle_test.go:31: rejected motion was not reported
+--- FAIL: TestProgramMouseKeepsOneReleaseSlotUnderMotionPressure (0.00s)
+=== RUN   TestProgramMouseExternalModeChangesDoNotReleaseIntoAnotherMode
+=== RUN   TestProgramMouseExternalModeChangesDoNotReleaseIntoAnotherMode/copy-mode
+    workspace_program_pointer_lifecycle_test.go:134: release uncertainty missing
+=== RUN   TestProgramMouseExternalModeChangesDoNotReleaseIntoAnotherMode/mouse-off
+    workspace_program_pointer_lifecycle_test.go:134: release uncertainty missing
+=== RUN   TestProgramMouseExternalModeChangesDoNotReleaseIntoAnotherMode/prompt
+    workspace_program_pointer_lifecycle_test.go:134: release uncertainty missing
+=== RUN   TestProgramMouseExternalModeChangesDoNotReleaseIntoAnotherMode/height
+    workspace_program_pointer_lifecycle_test.go:134: release uncertainty missing
+--- FAIL: TestProgramMouseExternalModeChangesDoNotReleaseIntoAnotherMode (0.00s)
+    --- FAIL: TestProgramMouseExternalModeChangesDoNotReleaseIntoAnotherMode/copy-mode (0.00s)
+    --- FAIL: TestProgramMouseExternalModeChangesDoNotReleaseIntoAnotherMode/mouse-off (0.00s)
+    --- FAIL: TestProgramMouseExternalModeChangesDoNotReleaseIntoAnotherMode/prompt (0.00s)
+    --- FAIL: TestProgramMouseExternalModeChangesDoNotReleaseIntoAnotherMode/height (0.00s)
+=== RUN   TestProgramMouseExternalScreenGrowthThenRestoreCannotResumeGesture
+    workspace_program_pointer_test.go:83: external change lost uncertain release notice
+--- FAIL: TestProgramMouseExternalScreenGrowthThenRestoreCannotResumeGesture (0.00s)
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	1.333s
+FAIL

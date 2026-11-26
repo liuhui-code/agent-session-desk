@@ -38,7 +38,9 @@ asd send --request-id $requestId --to $targetSessionId --run $targetRunId --body
 
 正文每条最多 64 KiB、同库最多 128 条消息，满时保留既有记录并拒绝新请求；当前没有自动清理。粘贴不追加 Enter，多行在部分程序中仍可能执行，确认前检查原程序。服务端处理单次粘贴控制请求；多调用者任务级全局 FIFO、后台自动投递、共享 Host 和真实 agent 接收证据仍未实现。
 
-当前 metadata.sqlite3 为 v8，增加 Run 凭据摘要和关联回复；v1–v7 可事务升级，旧程序不能读取 v8。升级真实数据前先退出旧界面（原 Run 保持），用 metadata backup 保存旧版快照，再切换新版。回退时使用独立状态目录恢复，不能覆盖现有数据库。凭据文件由调用方单独保管，不包含在元数据备份中。消息合同见 [ADR-0046](adr/0046-backend-only-message-delivery.md)，结构化回复见 [ADR-0047](adr/0047-run-bound-inbox-and-structured-replies.md)。
+当前 metadata.sqlite3 为 v9，包含 Run 凭据、关联回复、处理领取及原生决策事项；v1–v8 可事务升级，旧程序不能读取 v9。升级真实数据前先退出旧界面（原 Run 保持），用 metadata backup 保存旧版快照，再切换新版。回退时使用独立状态目录恢复，不能覆盖现有数据库。凭据文件由调用方单独保管，不包含在元数据备份中。消息合同见 [ADR-0046](adr/0046-backend-only-message-delivery.md)，结构化回复见 [ADR-0047](adr/0047-run-bound-inbox-and-structured-replies.md)。
+
+原生授权／选择的[待处理提醒](ATTENTION.md)加入同库守卫，pending 时拒绝该 Run 的新自动终端投递和新处理领取。普通用户仍在原终端决定；提醒导航／查看不写输入，不说明 ready 或 completed。
 
 调用方必须同时检查退出码与 JSON 状态；失败时保留原 request ID，再用 `status` 查询，不能根据超时或 stdout 缺失认定没有写入。可控 CLI、并发和进程中断的复验方法见[消息接口合同](testing/MESSAGING_CONTRACT.md)，实际结果见[接口报告](testing/results/2026-11-26-messaging-contract.md)；真实 agent 兼容性仍待验证。
 

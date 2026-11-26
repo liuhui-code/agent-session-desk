@@ -1,0 +1,6 @@
+=== RUN   TestAttentionHeaderClickReleasesOriginalProgramPointer
+    attention_test.go:192: program gesture did not start
+--- FAIL: TestAttentionHeaderClickReleasesOriginalProgramPointer (0.00s)
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.771s
+FAIL

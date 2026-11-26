@@ -92,7 +92,11 @@ func (m *Model) workspaceSidebarCard(index, width, rowLines, level int) []string
 	prefix = gutter + prefix
 	// The pinned card crops its first line without a tail; metadata wrapping
 	// owns its separate ellipsis. Keep product collision identity suffixes.
-	title := m.sessionTitleWithTail(s, m.sessions, max(0, width-lipgloss.Width(prefix)), "")
+	marker := ""
+	if m.sessionNeedsAttention(s) {
+		marker = m.tokens.attention.marker
+	}
+	title := m.sessionTitleWithTail(s, m.sessions, max(0, width-lipgloss.Width(prefix+marker)), "")
 	fit := func(text string) string {
 		text = cellTruncate(text, width, "")
 		return text + strings.Repeat(" ", max(0, width-lipgloss.Width(text)))
@@ -107,7 +111,11 @@ func (m *Model) workspaceSidebarCard(index, width, rowLines, level int) []string
 	if selected && !w.focused {
 		titleStyle, metadataStyle = m.styles.sidebarNavigationSelected, m.styles.sidebarNavigationMetadata
 	}
-	lines := []string{titleStyle.Render(fit(prefix + title))}
+	line := fit(prefix + marker + title)
+	if marker != "" && lipgloss.Width(prefix+marker) <= width {
+		line = prefix + m.styles.attention.Inherit(titleStyle).Render(marker) + strings.TrimPrefix(line, prefix+marker)
+	}
+	lines := []string{titleStyle.Render(line)}
 	if rowLines > 1 {
 		state := s.TerminalState
 		if m.listErr != nil {

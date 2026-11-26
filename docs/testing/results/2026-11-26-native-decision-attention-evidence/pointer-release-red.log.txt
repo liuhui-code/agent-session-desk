@@ -1,0 +1,6 @@
+=== RUN   TestAttentionHeaderClickReleasesOriginalProgramPointer
+    attention_test.go:205: reminder lost original program release: pointer:down,1,0
+--- FAIL: TestAttentionHeaderClickReleasesOriginalProgramPointer (0.00s)
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.717s
+FAIL

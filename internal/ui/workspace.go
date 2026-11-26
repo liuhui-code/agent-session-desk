@@ -35,6 +35,7 @@ const (
 	workspaceGroup
 	workspaceRemoval
 	workspaceStop
+	workspaceAttention
 )
 
 type workspaceState struct {
@@ -147,7 +148,7 @@ func (m *Model) workspaceSessions() tea.Cmd {
 
 func (m *Model) connectWorkspace() tea.Cmd {
 	w := m.workspace
-	if len(w.tabs) == 0 || m.closed || m.attaching || m.history.open || m.help || m.launch != nil || m.densitySettings != nil || m.search != nil || m.rename != nil || m.groupDialog != nil || m.groupRemoval != nil || m.sessionStop != nil {
+	if len(w.tabs) == 0 || m.closed || m.attention.busy || m.attaching || m.history.open || m.help || m.launch != nil || m.densitySettings != nil || m.search != nil || m.rename != nil || m.groupDialog != nil || m.groupRemoval != nil || m.sessionStop != nil {
 		return nil
 	}
 	g := m.workspaceGeometry()
@@ -255,7 +256,7 @@ func (m *Model) workspaceEvent(msg tea.Msg) (tea.Cmd, bool) {
 		w.footerHovered = false
 		release := m.finishProgramPointer()
 		w.copyPointer = nil
-		if !m.attaching && !m.history.open && !m.help && w.focused && len(w.tabs) > 0 && w.transition != workspaceQuit && w.transition != workspaceClose {
+		if !m.attaching && !m.history.open && !m.help && w.focused && len(w.tabs) > 0 && w.transition != workspaceQuit && w.transition != workspaceClose && w.transition != workspaceAttention {
 			return tea.Batch(release, m.workspaceWrite(workspaceInput{kind: "paste", text: msg.Content})), true
 		}
 		return release, true

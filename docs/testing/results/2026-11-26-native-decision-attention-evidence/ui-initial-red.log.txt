@@ -1,0 +1,14 @@
+# github.com/liuhui-code/agent-session-desk/internal/ui [github.com/liuhui-code/agent-session-desk/internal/ui.test]
+internal/ui/attention.go:29:53: m.attention undefined (type *Model has no field or method attention)
+internal/ui/attention.go:36:13: m.attention undefined (type *Model has no field or method attention)
+internal/ui/attention.go:39:19: m.attention undefined (type *Model has no field or method attention)
+internal/ui/attention.go:47:4: m.attention undefined (type *Model has no field or method attention)
+internal/ui/attention.go:48:4: m.attention undefined (type *Model has no field or method attention)
+internal/ui/attention.go:53:13: m.attention undefined (type *Model has no field or method attention)
+internal/ui/attention.go:67:8: m.attention undefined (type *Model has no field or method attention)
+internal/ui/attention.go:68:14: m.attention undefined (type *Model has no field or method attention)
+internal/ui/attention.go:69:4: m.attention undefined (type *Model has no field or method attention)
+internal/ui/attention.go:72:28: m.attention undefined (type *Model has no field or method attention)
+internal/ui/attention.go:72:28: too many errors
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui [build failed]
+FAIL

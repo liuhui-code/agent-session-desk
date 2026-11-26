@@ -98,7 +98,7 @@ func (s *Store) initialize(ctx context.Context) error {
 			return err
 		}
 		version = 3
-	} else if app != applicationID || (version < 1 || version > 8) {
+	} else if app != applicationID || (version < 1 || version > 9) {
 		return fmt.Errorf("unsupported metadata application/schema; file preserved")
 	}
 	var journal string
@@ -152,6 +152,14 @@ func (s *Store) initialize(ctx context.Context) error {
 		if _, err = tx.ExecContext(ctx, taskClaimSchema+" PRAGMA user_version=8;"); err != nil {
 			return err
 		}
+	}
+	if version <= 8 {
+		if _, err = tx.ExecContext(ctx, attentionSchema+" PRAGMA user_version=9;"); err != nil {
+			return err
+		}
+	}
+	if _, err = tx.ExecContext(ctx, attentionColumns+" LIMIT 0"); err != nil {
+		return err
 	}
 	if _, err = tx.ExecContext(ctx, taskClaimColumns+" LIMIT 0"); err != nil {
 		return err

@@ -68,7 +68,7 @@ func (m *Model) renderWorkspace() string {
 			body += strings.Repeat("\n", m.tokens.layout.stackedGap+1) + right
 		}
 	}
-	return m.renderWorkspaceOverlay(m.padWorkspaceBody(body, g))
+	return m.renderWorkspaceOverlay(m.renderAttentionHeader(m.padWorkspaceBody(body, g)))
 }
 
 func (m *Model) workspaceCursor() *tea.Cursor {

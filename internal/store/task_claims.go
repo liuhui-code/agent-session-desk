@@ -131,6 +131,13 @@ func (s *Store) ClaimTask(ctx context.Context, agent session.AgentCredential, ke
 		}
 		return owned, nil
 	}
+	var humanPending bool
+	if err = tx.QueryRowContext(ctx, `SELECT EXISTS(SELECT 1 FROM attention WHERE scope=? AND run_id=? AND state='pending')`, s.scope, source.RunID).Scan(&humanPending); err != nil {
+		return nil, err
+	}
+	if humanPending {
+		return nil, fmt.Errorf("original Run has a pending human decision; new work paused")
+	}
 	if msg.State != "queued" {
 		return nil, fmt.Errorf("terminal delivery already attempted; task ownership refused")
 	}

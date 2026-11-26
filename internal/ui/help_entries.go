@@ -11,6 +11,7 @@ func workspaceHelpSections() []helpSection {
 			{"F6", "Toggle navigation/terminal focus"},
 			{"Ctrl+S", "Show/hide sidebar (outside dialogs)"},
 			{"Alt+J / Alt+K", "Next / previous session; preserve terminal draft"},
+			{"Alt+N / reminder", "Open next pending decision in its original terminal; never answer it"},
 			{"Enter", "Open the selected session's original run"},
 			{"N", "Edit a launch configuration"},
 			{"n / + button", "Create from last/default configuration"},

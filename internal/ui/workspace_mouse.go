@@ -31,6 +31,9 @@ func (m *Model) workspaceClickNow(msg tea.MouseClickMsg) tea.Cmd {
 	if w.transition != workspaceIdle {
 		return nil
 	}
+	if msg.Button == tea.MouseLeft && m.attentionHeaderHit(msg.X, msg.Y) {
+		return tea.Batch(m.finishProgramPointer(), m.nextAttention())
+	}
 	w.split.dragging = false
 	w.split.hovered = false
 	if cmd, handled := m.startProgramPointer(msg); handled {

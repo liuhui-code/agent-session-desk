@@ -1,5 +1,7 @@
 # 阶段路线图
 
+2026-11-26 当前顺序：任务列表／筛选、取消尚未处理任务、unknown 人工核验与处置记为后续遗留。取消不能撤销已有副作用；unknown 重置／接管须先解决旧执行者隔离与事实核验，后续另立合同。优先 [ADR-0049](adr/0049-native-agent-decision-attention.md) 原生 Agent 授权／选择表单的待处理提醒：合作式上报、应用内标记、Alt+N／点击回到原终端、查看与解决分离。实际模拟证据见[报告](testing/results/2026-11-26-native-decision-attention.md)；真实 hook／Agent、桌面通知／后台消费者和完整 FL-020 仍开放，不恢复 STAB-001～005 专项。
+
 状态：M0 首批源码迁入与原生 Windows 自动化已落地，继续完整流程验证。更新日期：2026-11-22。初始规划基线：2026-11-20。
 
 阶段按可验证结果推进，暂不承诺固定周数。Go/Charm v2、选择性 UI 复用及 Windows psmux 路线已经记录，具体移植范围、兼容性与资源预算由 M0 确认。选型见[技术栈](TECH_STACK.md)及 [ADR](adr/README.md)，初始需求见[产品计划](PRODUCT_PLAN.md)，实际状态与证据见 [Feature Ledger](FEATURE_LEDGER.md)。

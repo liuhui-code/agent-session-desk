@@ -1,5 +1,5 @@
 // asd-fixture is a controlled CLI for the M0 launch/attach checks. It is not an
-// agent and does not emit readiness, completion, or attention protocol events.
+// agent. Attention simulation requires an explicit test-owned configuration.
 package main
 
 import (
@@ -96,6 +96,12 @@ func run(stdin io.Reader, stdout, stderr io.Writer, args []string, getenv func(s
 	}
 	if getenv("ASD_FIXTURE_EXIT_AFTER_START") == "1" {
 		return finish(exitCode)
+	}
+	if path := getenv("ASD_FIXTURE_ATTENTION_CONFIG"); path != "" {
+		stdin, err = runAttentionFixture(stdin, sink, path)
+		if err != nil {
+			return fail(err)
+		}
 	}
 	if _, err := fmt.Fprintln(sink, "CLI fixture · 中文 · e\u0301 · 🧪 — type exit to end"); err != nil {
 		return fail(err)

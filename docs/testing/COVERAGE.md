@@ -5,7 +5,7 @@
 - 用例：339；全部 designed / not_run。
 - 依据明确：216；待决策：123；后置：0。
 - FL：20；FR：14，均有设计引用。
-- 已记录 ADR：48；本库引用 ADR：37。下方逐项列出数量，零引用不等于已覆盖。
+- 已记录 ADR：49；本库引用 ADR：37。下方逐项列出数量，零引用不等于已覆盖。
 - 本轮设计基线执行：0；没有产品通过结论。本表不统计后续独立运行报告，实际证据见 [results/](results/)。
 
 [总索引](CASE_INDEX.md) · [测试策略](TEST_STRATEGY.md) · [未决项](BUDGETS_AND_DECISIONS.md)
@@ -337,5 +337,6 @@
 | [ADR-0046](../adr/0046-backend-only-message-delivery.md) | 0 |
 | [ADR-0047](../adr/0047-run-bound-inbox-and-structured-replies.md) | 7 |
 | [ADR-0048](../adr/0048-exclusive-processing-claims-and-uncertain-recovery.md) | 6 |
+| [ADR-0049](../adr/0049-native-agent-decision-attention.md) | 0 |
 
 FL-018 按 ADR-0014 纳入首版计划；沿用原 TC-DEFER 编号，不代表已实现或已验收。

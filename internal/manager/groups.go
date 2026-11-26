@@ -23,6 +23,20 @@ func (m *Manager) Workspace(ctx context.Context) (session.Workspace, error) {
 	if err != nil {
 		return session.Workspace{}, err
 	}
+	view.Attention, err = m.metadata.PendingAttention(ctx)
+	if err != nil {
+		return session.Workspace{}, err
+	}
+	for i := range view.Attention {
+		item := &view.Attention[i]
+		for _, live := range view.Sessions {
+			if item.Source.ID == live.ID && item.Source.RunID == live.RunID && item.Source.BackendID == live.BackendID && item.Source.Command == live.Command {
+				item.Source = live
+				item.TerminalAvailable = live.TerminalState == session.TerminalAvailable
+				break
+			}
+		}
+	}
 	return view, nil
 }
 
