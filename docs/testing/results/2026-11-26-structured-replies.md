@@ -12,6 +12,8 @@ SQLite v7 增加凭据和回复表，v1–v6 事务迁移、check 与非覆盖�
 
 ## 源码与构建
 
+实现提交为 `67c505e`。该提交的 344 个 Go／模块文件与正式原生构建指纹逐一相同；本段后续证据补充不更换 Go 源码或二进制。
+
 正式构建从 `5da1413` 的 go.mod/go.sum/internal/cmd clean archive 加本轮修改／新增 Go 文件组成；[344 个 Go／模块指纹](2026-11-26-structured-replies-evidence/source-fingerprints.json)核对最终工作树，刻意排除原有 internal/backend/terminal.go typed-nil 候选及其未提交测试。不能据本轮结果认定此前切换退出根因已解决。产品 SHA-256：`1077b872000fae572e5b3d2912491f83e917cc79fa854ec7f93aa2631e8090cd`；[四个构建物指纹](2026-11-26-structured-replies-evidence/artifact-fingerprints.json)另存。
 
 Go 1.27.4；原生环境 Windows 10 `10.0.19045`／amd64。[运行器](2026-11-26-structured-replies-evidence/native-runner.ps1.txt)先核验当前安装清单与本轮四个构建物散列，再使用现有显式 terminal bundle。测试只用临时 metadata/runtime、独立 namespace 和本轮原 Run；没有迁移日常数据库、更新日常 exe／manifest、桌面／剪贴板 API 或定时任务。
