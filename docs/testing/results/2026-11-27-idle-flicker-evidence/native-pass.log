@@ -1,0 +1,14 @@
+=== RUN   TestIdleSurvivesOrdinarySamplingDelay
+--- PASS: TestIdleSurvivesOrdinarySamplingDelay (0.00s)
+=== RUN   TestIdleSurvivesOnePreviewFailure
+--- PASS: TestIdleSurvivesOnePreviewFailure (0.00s)
+=== RUN   TestActivitySamplingRotatesFirstTarget
+--- PASS: TestActivitySamplingRotatesFirstTarget (0.00s)
+=== RUN   TestActivityFailureStillExpiresAndPrunes
+--- PASS: TestActivityFailureStillExpiresAndPrunes (0.00s)
+=== RUN   TestIdleAndSpinnerKeepBlueOnSelectedSurface
+--- PASS: TestIdleAndSpinnerKeepBlueOnSelectedSurface (0.00s)
+=== RUN   TestWindowsNativeActivityChangesAndSilence
+    activity_windows_test.go:118: real fixture -> capture baseline -> native output -> moving -> silence; no agent-state inference
+--- PASS: TestWindowsNativeActivityChangesAndSilence (23.88s)
+PASS

@@ -96,7 +96,10 @@ func TestWindowsNativeActivityChangesAndSilence(t *testing.T) {
 	if !h.m.activity.entries[activityKey(v)].moving(time.Now()) {
 		t.Fatal("output not active")
 	}
-	time.Sleep(activityQuiet + 100*time.Millisecond)
+	time.Sleep(activityQuiet + 1100*time.Millisecond)
+	if h.m.activityMark(v) != h.m.tokens.activityIdle {
+		t.Fatal("quiet dot flickered during four-second capture gap")
+	}
 	sample()
 	if h.m.activityMark(v) != h.m.tokens.activityIdle {
 		t.Fatal("silence")

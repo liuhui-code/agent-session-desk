@@ -1,0 +1,7 @@
+--- FAIL: TestIdleSurvivesOrdinarySamplingDelay (0.00s)
+    activity_flicker_test.go:13: quiet dot vanished between polls: ""
+--- FAIL: TestIdleSurvivesOnePreviewFailure (0.00s)
+    activity_flicker_test.go:22: single preview failure removed quiet dot: ""
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	1.145s
+FAIL

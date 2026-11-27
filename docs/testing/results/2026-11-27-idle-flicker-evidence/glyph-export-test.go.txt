@@ -1,0 +1,14 @@
+package ui
+import("os";"path/filepath";"testing";"time";"strings")
+func TestActivityGlyphProbe(t *testing.T) {
+ d:=os.Getenv("ASD_GLYPH_PROBE");if d=="" { t.Skip("local rendering probe") }
+ h,_:=attentionUIFixture(t);m:=h.m;m.workspace.focused=false;m.cursor=0
+ m.sessions[0].Title="Synthetic idle"
+ m.activity.entries=map[string]activityEntry{activityKey(m.sessions[0]):{seen:time.Now()}}
+ var rows []string
+ for _,g:=range []string{" ⬤"," ●"," •"," ◐"," ⠋"} {
+ m.tokens.activityIdle=g
+ rows=append(rows,m.workspaceSidebarCard(0,40,2,1)[0])
+ }
+ if err:=os.WriteFile(filepath.Join(d,"glyphs.ansi"),[]byte(strings.Join(rows,"\r\n")+"\r\n"),0600);err!=nil{t.Fatal(err)}
+}

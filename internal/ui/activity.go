@@ -8,7 +8,11 @@ import (
 	"time"
 )
 
-const activityQuiet = 3 * time.Second
+const (
+	activityQuiet = 3 * time.Second
+	// Allow ordinary serial capture delays without erasing the last observation.
+	activityFreshFor = 15 * time.Second
+)
 
 type activityEntry struct {
 	hash          [32]byte
@@ -85,7 +89,9 @@ func (m *Model) sampleActivity() tea.Cmd {
 		ctx, cancel := context.WithTimeout(ctx, 2*time.Second)
 		defer cancel()
 		samples := make([]activitySample, 0, len(targets))
-		for _, s := range targets {
+		// Rotate the first pane so a shared deadline cannot starve later rows.
+		for i := range targets {
+			s := targets[(i+int((gen-1)%uint64(len(targets))))%len(targets)]
 			p, err := svc.Preview(ctx, s, 100)
 			v := activitySample{key: activityKey(s), ok: err == nil && len(p.Text) <= 65536}
 			if v.ok {
@@ -124,15 +130,19 @@ func (m *Model) activityEvent(msg tea.Msg) (tea.Cmd, bool) {
 		next := make(map[string]activityEntry, len(x.samples))
 		now := time.Now()
 		for _, v := range x.samples {
-			if v.ok {
-				e := m.activity.entries[v.key]
-				if v.key == m.activity.muteKey && (now.Before(m.activity.mutedUntil) || e.seen.Before(m.activity.mutedUntil.Add(-activityQuiet))) {
-					e.seen = time.Time{}
-					e.changed = time.Time{}
+			e, known := m.activity.entries[v.key]
+			if !v.ok {
+				if known && now.Sub(e.seen) <= activityFreshFor {
+					next[v.key] = e
 				}
-				e.observe(v.hash, now)
-				next[v.key] = e
+				continue
 			}
+			if v.key == m.activity.muteKey && (now.Before(m.activity.mutedUntil) || e.seen.Before(m.activity.mutedUntil.Add(-activityQuiet))) {
+				e.seen = time.Time{}
+				e.changed = time.Time{}
+			}
+			e.observe(v.hash, now)
+			next[v.key] = e
 		}
 		m.activity.entries = next
 		return m.activityTick(), true
@@ -145,7 +155,7 @@ func (m *Model) activityEvent(msg tea.Msg) (tea.Cmd, bool) {
 func (m *Model) activityMark(s session.Session) string {
 	e, ok := m.activity.entries[activityKey(s)]
 	now := time.Now()
-	if !ok || now.Sub(e.seen) > activityQuiet || m.listErr != nil {
+	if !ok || now.Sub(e.seen) > activityFreshFor || m.listErr != nil {
 		return ""
 	}
 	if e.moving(now) {

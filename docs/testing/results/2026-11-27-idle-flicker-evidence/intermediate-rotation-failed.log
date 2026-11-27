@@ -1,0 +1,5 @@
+--- FAIL: TestActivitySamplingRotatesFirstTarget (0.00s)
+    activity_flicker_test.go:56: same pane always first within shared deadline: [first first]
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.854s
+FAIL
