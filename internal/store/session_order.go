@@ -58,7 +58,7 @@ func (s *Store) ReorderSession(ctx context.Context, expected session.SessionOrde
 	index := -1
 	for i, v := range peers {
 		var count int
-		err = tx.QueryRowContext(ctx, `SELECT count(*) FROM runs r JOIN sessions s ON s.scope=r.scope AND s.id=r.session_id WHERE r.scope=? AND r.id=? AND r.session_id=? AND r.backend_id=? AND s.command=? AND r.stopped_ns IS NULL`, s.scope, v.RunID, v.ID, v.BackendID, v.Command).Scan(&count)
+		err = tx.QueryRowContext(ctx, `SELECT count(*) FROM runs r JOIN sessions s ON s.scope=r.scope AND s.id=r.session_id WHERE r.scope=? AND r.id=? AND r.session_id=? AND r.backend_id=? AND r.launch_command=? AND r.stopped_ns IS NULL`, s.scope, v.RunID, v.ID, v.BackendID, v.Command).Scan(&count)
 		if err != nil {
 			return session.Workspace{}, err
 		}

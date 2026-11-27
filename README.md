@@ -2,7 +2,7 @@
 
 其他 Agent 接手先看[配置与接入说明](docs/CONFIGURATION.md)和[功能与适配索引](docs/AGENT_ADAPTATION.md)，含配置位置、作用域、优先级、可复制示例与验证边界。
 
-自定义 Agent 可按[简易恢复协议 v1](docs/AGENT_RECOVERY.md)和[填写说明](docs/AGENT_RECOVERY_INSTRUCTIONS.md)准备自己的恢复配置；附 JSON Schema 与示例。当前完成文件合同，工作台的导入和恢复执行尚未实现。
+自定义 Agent 可按[简易恢复协议 v1](docs/AGENT_RECOVERY.md)和[填写说明](docs/AGENT_RECOVERY_INSTRUCTIONS.md)准备自己的恢复配置；附 JSON Schema 与示例。main 开发版已有声明登记、持久配置、显式恢复与结果提交 CLI；恢复到原 Session 的新 Run，历史由 Agent 保存。实际范围见[验证报告](docs/testing/results/2026-11-27-agent-recovery-execution.md)，真实 Agent／完整重启仍需另验。
 
 **面向 Windows 的本地 CLI Agent 多会话工作台。**
 

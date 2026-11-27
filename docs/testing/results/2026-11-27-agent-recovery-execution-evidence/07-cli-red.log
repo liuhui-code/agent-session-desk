@@ -1,0 +1,5 @@
+# github.com/liuhui-code/agent-session-desk/internal/cli [github.com/liuhui-code/agent-session-desk/internal/cli.test]
+internal/cli/agent_recovery_test.go:17:11: invalid operation: err == nil (mismatched types int and untyped nil)
+internal/cli/agent_recovery_test.go:17:45: err.Error undefined (type int has no field or method Error)
+FAIL	github.com/liuhui-code/agent-session-desk/internal/cli [build failed]
+FAIL

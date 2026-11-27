@@ -5,7 +5,7 @@
 - 用例：339；全部 designed / not_run。
 - 依据明确：216；待决策：123；后置：0。
 - FL：20；FR：14，均有设计引用。
-- 已记录 ADR：56；本库引用 ADR：39。下方逐项列出数量，零引用不等于已覆盖。
+- 已记录 ADR：64；本库引用 ADR：41。下方逐项列出数量，零引用不等于已覆盖。
 - 本轮设计基线执行：0；没有产品通过结论。本表不统计后续独立运行报告，实际证据见 [results/](results/)。
 
 [总索引](CASE_INDEX.md) · [测试策略](TEST_STRATEGY.md) · [未决项](BUDGETS_AND_DECISIONS.md)
@@ -345,5 +345,13 @@
 | [ADR-0054](../adr/0054-pet-workbench-restore-and-blink-anchor.md) | 0 |
 | [ADR-0055](../adr/0055-scoped-workbench-instance-and-owned-window.md) | 1 |
 | [ADR-0056](../adr/0056-bounded-attention-center-and-snooze.md) | 1 |
+| [ADR-0057](../adr/0057-terminal-activity.md) | 0 |
+| [ADR-0058](../adr/0058-build-and-release-check.md) | 0 |
+| [ADR-0059](../adr/0059-navigation-workspaces.md) | 0 |
+| [ADR-0060](../adr/0060-configurable-keybindings.md) | 0 |
+| [ADR-0061](../adr/0061-observed-program-label.md) | 0 |
+| [ADR-0062](../adr/0062-bounded-warm-session-switch.md) | 0 |
+| [ADR-0063](../adr/0063-agent-recovery-declaration-v1.md) | 3 |
+| [ADR-0064](../adr/0064-explicit-agent-recovery-execution.md) | 3 |
 
 FL-018 按 ADR-0014 纳入首版计划；沿用原 TC-DEFER 编号，不代表已实现或已验收。

@@ -1,0 +1,5 @@
+--- FAIL: TestRecoveryReservationFencesDuplicateStartsAndKeepsPerRunSnapshot (0.03s)
+    agent_recovery_test.go:158: late start receipt recovery start receipt not accepted
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/store	0.910s
+FAIL

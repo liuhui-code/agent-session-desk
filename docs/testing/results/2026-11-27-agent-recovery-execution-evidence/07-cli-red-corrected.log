@@ -1,0 +1,5 @@
+--- FAIL: TestRecoveryProfileAndStatusAreOffline (0.00s)
+    agent_recovery_test.go:17: offline recovery-profile: unknown command "recovery-profile"; run asd help
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/cli	1.703s
+FAIL

@@ -36,6 +36,11 @@ Usage:
   asd [global options] deliver MESSAGE_ID       Explicit backend paste; no UI or appended Enter
   asd [global options] status MESSAGE_ID        Read a delivery receipt offline
   asd [global options] agent-bind --session ID --run ID --token-file FILE
+  asd [global options] recovery-register --token-file FILE --file FILE --revision N
+  asd [global options] recovery-profile --session ID
+  asd [global options] recover --session ID --previous-run ID --revision N --confirm-ended --context-dir DIR
+  asd [global options] recovery-result --token-file FILE --file FILE
+  asd [global options] recovery-status --session ID
   asd [global options] inbox --token-file FILE  Read bound Run requests without replies
   asd [global options] attention-event --token-file FILE --event-file FILE
   asd [global options] attention-list           Read pending native decision requests
@@ -187,6 +192,12 @@ func run(ctx context.Context, args []string, input io.Reader, output, errorOutpu
 			return fmt.Errorf("--config is not used by attention commands")
 		}
 		return attentionCommand(ctx, command, commandArgs, options, stateDir, input, output, errorOutput)
+	}
+	if command == "recovery-register" || command == "recovery-profile" || command == "recover" || command == "recovery-result" || command == "recovery-status" {
+		if configPath != "" {
+			return fmt.Errorf("--config is not used by recovery commands")
+		}
+		return agentRecoveryCommand(ctx, command, commandArgs, options, stateDir, output, errorOutput)
 	}
 	if command != "" && command != "workspace" && command != "doctor" && command != "start" && command != "list" && command != "preview" && command != "attach" && command != "stop" && command != "history" && command != "metadata" && command != "output" && command != "record" {
 		return fmt.Errorf("unknown command %q; run asd help", command)

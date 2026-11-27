@@ -165,3 +165,5 @@ M0 已有“列表/预览 → 自定义命令 → 全屏 attach → 返回”的
 2026-11-27 工作台入口按 [ADR-0055](adr/0055-scoped-workbench-instance-and-owned-window.md)使用现有 x/sys/windows 和 Win32 命名 mutex／message-only 窗口；仅传递窗口恢复信号，不增加依赖、常驻进程或数据库迁移。它与 M3 后台任务通信、消费仲裁分别接受。
 
 2026-11-27：[ADR-0062](adr/0062-bounded-warm-session-switch.md) 允许 UI 进程内四个原 Run／512 KiB 总保守计费的末帧，独立复制且不写盘；仍只有一个活动终端连接。缓存先显示只读旧观察，控制身份必须重新核验。连接优先于可选采样／轮询，未新增依赖或数据库。计费边界不是完整 RSS 预算。
+
+2026-11-27 可选原生恢复：[ADR-0064](adr/0064-explicit-agent-recovery-execution.md) 使用现有 Go／SQLite／后端依赖接通 v1 声明与显式新 Run，无 SDK、服务或新增模块。SQLite 当前 v11，事务迁移旧每 Session 启动名称／程序至每 Run 快照；每 Session 最近完整启动描述、恢复声明与当前尝试分别有界，历史正文仍由 Agent 管理。实际范围见[专项报告](testing/results/2026-11-27-agent-recovery-execution.md)。

@@ -225,7 +225,10 @@ func (b *Backend) validateTarget(ctx context.Context, s session.Session) (liveRe
 	return r, nil
 }
 
-func (b *Backend) Start(ctx context.Context, launch session.Launch) (session.Session, error) {
+func (b *Backend) StartRun(ctx context.Context, launch session.Launch, id, runID string) (session.Session, error) {
+	if !session.ValidID(id) || !session.ValidID(runID) {
+		return session.Session{}, errors.New("full reserved Session/Run identity required")
+	}
 	var result session.Session
 	if err := launch.Validate(); err != nil {
 		return result, err
@@ -242,14 +245,6 @@ func (b *Backend) Start(ctx context.Context, launch session.Launch) (session.Ses
 		return result, err
 	}
 	if _, err = b.Probe(ctx); err != nil {
-		return result, err
-	}
-	id, err := session.NewID()
-	if err != nil {
-		return result, err
-	}
-	runID, err := session.NewID()
-	if err != nil {
 		return result, err
 	}
 	name := "asd_" + id + "_" + runID

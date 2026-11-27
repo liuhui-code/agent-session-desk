@@ -1,0 +1,6 @@
+=== RUN   TestWindowsNativeRecoveryCLI
+    agent_recovery_windows_test.go:148: fixture pid=8904 creation=1795784291648830000
+    agent_recovery_windows_test.go:170: recover: exit status 1 asd: ASD_RECOVERY_ environment keys are reserved
+    agent_recovery_windows_test.go:143: cleanup: exit status 1 asd: session b3d624a63a9739f5978f119c1cb5e004 is not present in this backend; use asd history for metadata; no implicit restart is available
+--- FAIL: TestWindowsNativeRecoveryCLI (9.94s)
+FAIL

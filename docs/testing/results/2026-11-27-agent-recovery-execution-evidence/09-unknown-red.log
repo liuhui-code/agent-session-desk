@@ -1,0 +1,5 @@
+--- FAIL: TestRecoveryUnknownAttemptCannotBeConfirmedAway (0.02s)
+    agent_recovery_test.go:175: unknown in-flight launch bypassed by another ended confirmation
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/store	1.484s
+FAIL

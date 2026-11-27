@@ -1,0 +1,4 @@
+=== RUN   TestRecoveryRefusesLiveUnknownOrStaleSourceBeforeLaunch
+    agent_recovery_test.go:40: open ../../docs/examples/agent-recovery.json: The system cannot find the path specified.
+--- FAIL: TestRecoveryRefusesLiveUnknownOrStaleSourceBeforeLaunch (0.05s)
+FAIL

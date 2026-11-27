@@ -28,6 +28,14 @@ func New(terminal Terminal, metadata *store.Store) *Manager {
 	return &Manager{Terminal: terminal, metadata: metadata}
 }
 func (m *Manager) Start(ctx context.Context, l session.Launch) (session.Session, error) {
+
+	if l.Executable != "" {
+		var err error
+		l, err = session.ResolveLaunch(l)
+		if err != nil {
+			return session.Session{}, err
+		}
+	}
 	if l.GroupID != "" {
 		groups, err := m.metadata.Groups(ctx)
 		if err != nil {
@@ -57,6 +65,11 @@ func (m *Manager) Start(ctx context.Context, l session.Launch) (session.Session,
 	}
 	if err != nil {
 		return v, fmt.Errorf("terminal created (session_id=%s run_id=%s); metadata commit failed; do not retry start: %w", v.ID, v.RunID, err)
+	}
+	if l.Executable != "" {
+		if err = m.metadata.SaveLaunch(ctx, v, l); err != nil {
+			return v, fmt.Errorf("terminal created (session_id=%s run_id=%s); launch description commit failed; do not retry start: %w", v.ID, v.RunID, err)
+		}
 	}
 	if l.GroupID != "" {
 		view, e := m.metadata.Workspace(ctx, []session.Session{v})

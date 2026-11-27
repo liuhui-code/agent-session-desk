@@ -1,0 +1,15 @@
+=== RUN   TestRecoveryV10MigrationBackupAndRunSnapshot
+--- PASS: TestRecoveryV10MigrationBackupAndRunSnapshot (0.43s)
+=== RUN   TestRecoveryProfileIsBoundRevisionedAndDurable
+    agent_recovery_test.go:47: open ../../docs/examples/agent-recovery.json: The system cannot find the path specified.
+    testing.go:1619: TempDir RemoveAll cleanup: unlinkat C:\Users\<user>\AppData\Local\Temp\TestRecoveryProfileIsBoundRevisionedAndDurable2230680105\001\metadata.sqlite3: The process cannot access the file because it is being used by another process.
+--- FAIL: TestRecoveryProfileIsBoundRevisionedAndDurable (1.47s)
+=== RUN   TestRecoveryReservationFencesDuplicateStartsAndKeepsPerRunSnapshot
+    agent_recovery_test.go:110: open ../../docs/examples/agent-recovery.json: The system cannot find the path specified.
+--- FAIL: TestRecoveryReservationFencesDuplicateStartsAndKeepsPerRunSnapshot (0.13s)
+=== RUN   TestRecoveryUnknownAttemptCannotBeConfirmedAway
+    agent_recovery_test.go:185: open ../../docs/examples/agent-recovery.json: The system cannot find the path specified.
+--- FAIL: TestRecoveryUnknownAttemptCannotBeConfirmedAway (0.04s)
+=== RUN   TestRecoveryRefusesCyclicGroupMetadataWithoutChangingSource
+--- PASS: TestRecoveryRefusesCyclicGroupMetadataWithoutChangingSource (0.08s)
+FAIL

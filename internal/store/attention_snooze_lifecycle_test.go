@@ -88,6 +88,7 @@ func TestAttentionSnoozeV9MigrationRecoveryAndConflictPreservation(t *testing.T)
 	if err != nil {
 		t.Fatal(err)
 	}
+	removeRecoveryV11(t, raw)
 	if _, err = raw.Exec(`ALTER TABLE attention DROP COLUMN snoozed_ns; ALTER TABLE attention DROP COLUMN reminder_revision; PRAGMA user_version=9;`); err != nil {
 		t.Fatal(err)
 	}
@@ -106,7 +107,7 @@ func TestAttentionSnoozeV9MigrationRecoveryAndConflictPreservation(t *testing.T)
 	}
 	db.Close()
 	check, err = store.Check(ctx, backup)
-	if err != nil || check.SchemaVersion != 10 {
+	if err != nil || check.SchemaVersion != 11 {
 		t.Fatal("v9 migration", check, err)
 	}
 	raw, err = sql.Open("sqlite", path)

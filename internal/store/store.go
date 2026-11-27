@@ -98,7 +98,7 @@ func (s *Store) initialize(ctx context.Context) error {
 			return err
 		}
 		version = 3
-	} else if app != applicationID || (version < 1 || version > 10) {
+	} else if app != applicationID || (version < 1 || version > 11) {
 		return fmt.Errorf("unsupported metadata application/schema; file preserved")
 	}
 	var journal string
@@ -161,6 +161,20 @@ func (s *Store) initialize(ctx context.Context) error {
 	if version <= 9 {
 		if _, err = tx.ExecContext(ctx, attentionSnoozeSchema+" PRAGMA user_version=10;"); err != nil {
 			return err
+		}
+	}
+	if version <= 10 {
+		if _, err = tx.ExecContext(ctx, recoverySchema+" PRAGMA user_version=11;"); err != nil {
+			return err
+		}
+	}
+	for _, query := range recoveryQueries {
+		rows, e := tx.QueryContext(ctx, query)
+		if e != nil {
+			return e
+		}
+		if e = rows.Close(); e != nil {
+			return e
 		}
 	}
 	if _, err = tx.ExecContext(ctx, attentionColumns+" LIMIT 0"); err != nil {
@@ -278,7 +292,7 @@ func (s *Store) save(ctx context.Context, v session.Session, initialGroup string
 	if _, err = tx.ExecContext(ctx, `INSERT INTO sessions VALUES(?,?,?,?) ON CONFLICT DO NOTHING`, s.scope, v.ID, v.Title, v.Command); err != nil {
 		return err
 	}
-	if _, err = tx.ExecContext(ctx, `INSERT INTO runs VALUES(?,?,?,?,?,NULL) ON CONFLICT DO NOTHING`, s.scope, v.RunID, v.ID, v.BackendID, time.Now().UnixNano()); err != nil {
+	if _, err = tx.ExecContext(ctx, `INSERT INTO runs(scope,id,session_id,backend_id,recorded_ns,stopped_ns,launch_title,launch_command) VALUES(?,?,?,?,?,NULL,?,?) ON CONFLICT DO NOTHING`, s.scope, v.RunID, v.ID, v.BackendID, time.Now().UnixNano(), v.Title, v.Command); err != nil {
 		return err
 	}
 	if found, err := s.matches(ctx, tx, v); err != nil {
@@ -308,7 +322,7 @@ func (s *Store) History(ctx context.Context, limit int) ([]Record, error) {
 	if limit < 1 || limit > 1000 {
 		return nil, fmt.Errorf("history limit must be 1–1000")
 	}
-	rows, err := s.db.QueryContext(ctx, `SELECT s.id,r.id,r.backend_id,COALESCE(n.title,s.title),s.command,r.recorded_ns,r.stopped_ns,e.pane_id,e.source,e.observed_ns,COALESCE(n.revision,0),coalesce(g.group_id,''),coalesce(g.revision,0) FROM runs r JOIN sessions s ON s.scope=r.scope AND s.id=r.session_id LEFT JOIN pane_exits e ON e.scope=r.scope AND e.run_id=r.id LEFT JOIN session_names n ON n.scope=s.scope AND n.session_id=s.id LEFT JOIN session_groups g ON g.scope=s.scope AND g.session_id=s.id WHERE r.scope=? ORDER BY r.recorded_ns DESC,r.id DESC LIMIT ?`, s.scope, limit)
+	rows, err := s.db.QueryContext(ctx, `SELECT s.id,r.id,r.backend_id,COALESCE(n.title,s.title),r.launch_command,r.recorded_ns,r.stopped_ns,e.pane_id,e.source,e.observed_ns,COALESCE(n.revision,0),coalesce(g.group_id,''),coalesce(g.revision,0) FROM runs r JOIN sessions s ON s.scope=r.scope AND s.id=r.session_id LEFT JOIN pane_exits e ON e.scope=r.scope AND e.run_id=r.id LEFT JOIN session_names n ON n.scope=s.scope AND n.session_id=s.id LEFT JOIN session_groups g ON g.scope=s.scope AND g.session_id=s.id WHERE r.scope=? ORDER BY r.recorded_ns DESC,r.id DESC LIMIT ?`, s.scope, limit)
 	if err != nil {
 		return nil, err
 	}
@@ -372,7 +386,7 @@ type rowReader interface {
 
 func (s *Store) matches(ctx context.Context, q rowReader, v session.Session) (bool, error) {
 	var title, command, owner, backendID string
-	err := q.QueryRowContext(ctx, `SELECT s.title,s.command,r.session_id,r.backend_id FROM runs r JOIN sessions s ON s.scope=r.scope AND s.id=r.session_id WHERE r.scope=? AND r.id=?`, s.scope, v.RunID).Scan(&title, &command, &owner, &backendID)
+	err := q.QueryRowContext(ctx, `SELECT r.launch_title,r.launch_command,r.session_id,r.backend_id FROM runs r JOIN sessions s ON s.scope=r.scope AND s.id=r.session_id WHERE r.scope=? AND r.id=?`, s.scope, v.RunID).Scan(&title, &command, &owner, &backendID)
 	if errors.Is(err, sql.ErrNoRows) {
 		return false, nil
 	}

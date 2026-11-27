@@ -1,0 +1,13 @@
+=== RUN   TestRecoveryV10MigrationBackupAndRunSnapshot
+--- PASS: TestRecoveryV10MigrationBackupAndRunSnapshot (1.02s)
+=== RUN   TestRecoveryProfileIsBoundRevisionedAndDurable
+--- PASS: TestRecoveryProfileIsBoundRevisionedAndDurable (0.51s)
+=== RUN   TestRecoveryReservationFencesDuplicateStartsAndKeepsPerRunSnapshot
+--- PASS: TestRecoveryReservationFencesDuplicateStartsAndKeepsPerRunSnapshot (0.31s)
+=== RUN   TestRecoveryUnknownAttemptCannotBeConfirmedAway
+--- PASS: TestRecoveryUnknownAttemptCannotBeConfirmedAway (0.53s)
+=== RUN   TestRecoveryConcurrentReservationsChooseOneRun
+--- PASS: TestRecoveryConcurrentReservationsChooseOneRun (0.42s)
+=== RUN   TestRecoveryRefusesCyclicGroupMetadataWithoutChangingSource
+--- PASS: TestRecoveryRefusesCyclicGroupMetadataWithoutChangingSource (0.19s)
+PASS

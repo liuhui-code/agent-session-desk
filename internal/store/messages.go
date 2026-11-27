@@ -96,7 +96,7 @@ func (s *Store) QueueMessage(ctx context.Context, m session.Message) (session.Me
 		return m, fmt.Errorf("message capacity reached; no receipts pruned")
 	}
 	var exact bool
-	if err = tx.QueryRowContext(ctx, `SELECT EXISTS(SELECT 1 FROM runs r JOIN sessions s ON s.scope=r.scope AND s.id=r.session_id WHERE r.scope=? AND r.id=? AND r.session_id=? AND r.backend_id=? AND s.command=? AND r.stopped_ns IS NULL)`, s.scope, m.Target.RunID, m.Target.ID, m.Target.BackendID, m.Target.Command).Scan(&exact); err != nil {
+	if err = tx.QueryRowContext(ctx, `SELECT EXISTS(SELECT 1 FROM runs r JOIN sessions s ON s.scope=r.scope AND s.id=r.session_id WHERE r.scope=? AND r.id=? AND r.session_id=? AND r.backend_id=? AND r.launch_command=? AND r.stopped_ns IS NULL)`, s.scope, m.Target.RunID, m.Target.ID, m.Target.BackendID, m.Target.Command).Scan(&exact); err != nil {
 		return m, err
 	}
 	if !exact {

@@ -29,6 +29,7 @@ func TestClaimV7MigrationPreservesLegacyReplyWithoutMintingOwnership(t *testing.
 	if _, err = raw.Exec(`INSERT INTO replies VALUES(?,?,?,?,?,?)`, "a", legacy.ID, msg.ID, msg.Target.RunID, string(data), legacy.RecordedAt.UnixNano()); err != nil {
 		t.Fatal(err)
 	}
+	removeRecoveryV11(t, raw)
 	if _, err = raw.Exec(`DROP TABLE attention; DROP TABLE task_claims; PRAGMA user_version=7`); err != nil {
 		t.Fatal(err)
 	}
@@ -58,7 +59,7 @@ func TestClaimV7MigrationPreservesLegacyReplyWithoutMintingOwnership(t *testing.
 		t.Fatal("answered legacy work became runnable")
 	}
 	check, err = store.Check(ctx, path)
-	if err != nil || check.SchemaVersion != 10 {
+	if err != nil || check.SchemaVersion != 11 {
 		t.Fatal("v8 validation failed")
 	}
 }
@@ -108,6 +109,7 @@ func TestClaimFailedMigrationPreservesV7Source(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
+	removeRecoveryV11(t, raw)
 	if _, err = raw.Exec(`DROP TABLE attention; DROP TABLE task_claims; CREATE TABLE task_claims(unrelated TEXT); PRAGMA user_version=7`); err != nil {
 		t.Fatal(err)
 	}

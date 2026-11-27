@@ -32,7 +32,7 @@ func TestCommittedMetadataSurvivesKilledWriter(t *testing.T) {
 			if _, err = raw.Exec("INSERT INTO sessions VALUES(?,?,?,?)", "scope-a", id, strings.Repeat("x", 4000), "synthetic.exe"); err != nil {
 				t.Fatal(err)
 			}
-			if _, err = raw.Exec("INSERT INTO runs VALUES(?,?,?,?,?,NULL)", "scope-a", fmt.Sprintf("%032x", i+2000), id, "asd_partial", 1234); err != nil {
+			if _, err = raw.Exec("INSERT INTO runs(scope,id,session_id,backend_id,recorded_ns,stopped_ns) VALUES(?,?,?,?,?,NULL)", "scope-a", fmt.Sprintf("%032x", i+2000), id, "asd_partial", 1234); err != nil {
 				t.Fatal(err)
 			}
 		}

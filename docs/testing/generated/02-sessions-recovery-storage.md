@@ -2097,7 +2097,7 @@
 
 - 功能：[FL-005](../COVERAGE.md#fl-005)、[FL-013](../COVERAGE.md#fl-013)
 - 需求：[FR-04](../COVERAGE.md#fr-04)、[FR-12](../COVERAGE.md#fr-12)
-- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0063](../../adr/0063-agent-recovery-declaration-v1.md)、[ADR-0064](../../adr/0064-explicit-agent-recovery-execution.md)
 - 优先级 / 阶段 / 层次：P1 / M1 / integration
 - 类型：negative、recovery
 - 设计 / 执行：`designed / not_run`
@@ -2114,12 +2114,14 @@
 
 1. 创建 A，触发失败并刷新会话列表。
 2. 明确重试创建，读取旧失败与新尝试的记录。
+3. 对恢复声明执行显式 recover，注入后端启动失败；查询恢复尝试，不盲目重试。
 
 #### 预期与不变量
 
 - 失败尝试不显示为活跃 Run，错误来源可定位。
 - 重试不会把失败记录伪装成仍存活的旧实例。
 - 没有未记录的后台 session 或重复 agent。
+- 恢复在外部启动前持久化新 Run 与 launch_unknown；没有确定结束证据时，确认参数或另一个请求不得越过旧不确定屏障。
 
 #### 需要的证据
 
@@ -2133,7 +2135,7 @@
 
 - 功能：[FL-005](../COVERAGE.md#fl-005)、[FL-006](../COVERAGE.md#fl-006)、[FL-013](../COVERAGE.md#fl-013)
 - 需求：[FR-04](../COVERAGE.md#fr-04)、[FR-05](../COVERAGE.md#fr-05)、[FR-12](../COVERAGE.md#fr-12)
-- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0063](../../adr/0063-agent-recovery-declaration-v1.md)、[ADR-0064](../../adr/0064-explicit-agent-recovery-execution.md)
 - 优先级 / 阶段 / 层次：P0 / M1 / integration
 - 类型：recovery、state
 - 设计 / 执行：`designed / not_run`
@@ -2157,6 +2159,7 @@
 - 不盲目重发创建命令而产生第二个 agent。
 - 恢复仅针对可验证属于该创建尝试的对象，不能按相同名称认领外部会话。
 - 无法确认时呈现不确定状态，处置过程和原尝试有可追溯关联。
+- 恢复结果须认证新 Run 并核对 Session／Run／attempt／conversation；旧凭据和冲突最终结果拒绝，迟到启动回执不得回退 restored。
 
 #### 需要的证据
 
@@ -2170,7 +2173,7 @@
 
 - 功能：[FL-005](../COVERAGE.md#fl-005)、[FL-013](../COVERAGE.md#fl-013)
 - 需求：[FR-04](../COVERAGE.md#fr-04)、[FR-12](../COVERAGE.md#fr-12)
-- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0063](../../adr/0063-agent-recovery-declaration-v1.md)、[ADR-0064](../../adr/0064-explicit-agent-recovery-execution.md)
 - 优先级 / 阶段 / 层次：P1 / M1 / integration
 - 类型：recovery、state
 - 设计 / 执行：`designed / not_run`
@@ -2187,12 +2190,14 @@
 
 1. 终止测试管理进程，确认未出现后端创建事件。
 2. 重开并执行规定的恢复或重试动作。
+3. 使用 Agent v1 恢复声明保存合成原生历史并结束原进程；显式恢复到同一逻辑 Session，核对新 Run 与持久标记。
 
 #### 预期与不变量
 
 - 不能把残留 starting 当作活进程，也不能无说明永久卡在启动中。
 - 恢复行为符合已记录策略，最终每个成功 Run 有对应实际启动证据。
 - 不复用旧 PID/后端名猜测启动已经成功。
+- 工作台重启、发现或配置读取不执行恢复；显式恢复不重放命令／批准。原终端仍存在或后端未知时拒绝创建；原生记录缺失不得回落新对话。
 
 #### 需要的证据
 

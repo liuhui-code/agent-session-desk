@@ -105,6 +105,7 @@ func TestAttentionMigrationConflictRollsBackAndSnapshotPreservesReadState(t *tes
 	if err != nil {
 		t.Fatal(err)
 	}
+	removeRecoveryV11(t, raw)
 	if _, err = raw.Exec(`PRAGMA user_version=8`); err != nil {
 		t.Fatal(err)
 	}
@@ -272,6 +273,7 @@ func TestAttentionV8MigrationAndScopeIsolation(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
+	removeRecoveryV11(t, raw)
 	if _, err = raw.Exec(`DROP TABLE attention; PRAGMA user_version=8`); err != nil {
 		t.Fatal(err)
 	}
@@ -307,7 +309,7 @@ func TestAttentionV8MigrationAndScopeIsolation(t *testing.T) {
 	if _, err = other.Attention(ctx, e.ID); err == nil {
 		t.Fatal("cross-scope lookup")
 	}
-	if check, err := store.Check(ctx, path); err != nil || check.SchemaVersion != 10 {
+	if check, err := store.Check(ctx, path); err != nil || check.SchemaVersion != 11 {
 		t.Fatal("schema10 invalid", err)
 	}
 }

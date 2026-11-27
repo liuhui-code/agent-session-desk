@@ -1,0 +1,7 @@
+import subprocess,os,pathlib
+p=pathlib.Path(__file__).parent
+e=os.environ.copy();e.update(GOTOOLCHAIN='local',GOPATH='/private/tmp/asd-stability-20261127/go-path',GOMODCACHE='/private/tmp/asd-stability-20261127/mod-cache',GOCACHE='/private/tmp/asd-stability-20261127/go-cache')
+for name,args in [('final-all',['test','./...']),('final-race',['test','-race','./...']),('final-vet',['vet','./...']),('final-modules',['mod','verify'])]:
+ with (p/(name+'.log')).open('wb') as f:r=subprocess.run(['/private/tmp/git-intent-tools/go/bin/go',*args],env=e,stdout=f,stderr=subprocess.STDOUT)
+ print(name,'exit',r.returncode,flush=True)
+ if r.returncode:raise SystemExit(r.returncode)

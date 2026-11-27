@@ -1,0 +1,6 @@
+--- FAIL: TestDeclarationRejectsAmbiguousOrLossyJSON (0.00s)
+    --- FAIL: TestDeclarationRejectsAmbiguousOrLossyJSON/surrogate (0.00s)
+        declaration_test.go:46: ambiguous or lossy JSON accepted
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/recovery	0.968s
+FAIL

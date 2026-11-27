@@ -28,6 +28,7 @@ func TestMessageSchemaV5UpgradeBackupAndCapacity(t *testing.T) {
 	if e != nil {
 		t.Fatal(e)
 	}
+	removeRecoveryV11(t, raw)
 	if _, e = raw.Exec(`DROP TABLE attention; DROP TABLE task_claims; DROP TABLE replies; DROP TABLE agent_credentials; DROP TABLE messages; PRAGMA user_version=5`); e != nil {
 		t.Fatal(e)
 	}
@@ -55,7 +56,7 @@ func TestMessageSchemaV5UpgradeBackupAndCapacity(t *testing.T) {
 		t.Fatal(e)
 	}
 	check, e := store.Check(ctx, path)
-	if e != nil || check.SchemaVersion != 10 {
+	if e != nil || check.SchemaVersion != 11 {
 		t.Fatalf("v6 integrity: %+v %v", check, e)
 	}
 	backup := filepath.Join(t.TempDir(), "backup.sqlite3")

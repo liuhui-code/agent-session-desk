@@ -1,0 +1,15 @@
+=== RUN   TestRecoveryRefusesLiveUnknownOrStaleSourceBeforeLaunch
+=== RUN   TestRecoveryRefusesLiveUnknownOrStaleSourceBeforeLaunch/live
+=== RUN   TestRecoveryRefusesLiveUnknownOrStaleSourceBeforeLaunch/retained-exit
+=== RUN   TestRecoveryRefusesLiveUnknownOrStaleSourceBeforeLaunch/unknown
+=== RUN   TestRecoveryRefusesLiveUnknownOrStaleSourceBeforeLaunch/disconnected
+=== RUN   TestRecoveryRefusesLiveUnknownOrStaleSourceBeforeLaunch/stale
+=== RUN   TestRecoveryRefusesLiveUnknownOrStaleSourceBeforeLaunch/unconfirmed
+--- PASS: TestRecoveryRefusesLiveUnknownOrStaleSourceBeforeLaunch (0.26s)
+    --- PASS: TestRecoveryRefusesLiveUnknownOrStaleSourceBeforeLaunch/live (0.01s)
+    --- PASS: TestRecoveryRefusesLiveUnknownOrStaleSourceBeforeLaunch/retained-exit (0.00s)
+    --- PASS: TestRecoveryRefusesLiveUnknownOrStaleSourceBeforeLaunch/unknown (0.01s)
+    --- PASS: TestRecoveryRefusesLiveUnknownOrStaleSourceBeforeLaunch/disconnected (0.00s)
+    --- PASS: TestRecoveryRefusesLiveUnknownOrStaleSourceBeforeLaunch/stale (0.00s)
+    --- PASS: TestRecoveryRefusesLiveUnknownOrStaleSourceBeforeLaunch/unconfirmed (0.00s)
+PASS

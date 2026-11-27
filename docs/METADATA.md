@@ -33,7 +33,7 @@ v1 数据库打开时事务性追加观测表并升级为 v2，原有身份与�
 
 详情区分首次记录、停止确认和 pane 退出观测；所有时间显示 UTC。历史不显示当前在线证明、agent 成功结果或可靠数值退出码。刷新按 Run ID 保留选择；结果不再包含该 Run 时关闭详情。记录与错误清洗后按窗口宽度换行，完整正常身份可滚动查看。
 
-历史最多保留一个读取请求，关闭时取消，忽略迟到结果；窗口缩放和实时发现轮询不自动重读。TUI 当前仍需初始后端探测成功，随后发现失败时可打开历史；后端程序缺失时可使用独立 CLI history。最近 100 条以外的 TUI 查询、完整数据库分页、日志及原对话恢复尚未实现。见 [ADR-0011](adr/0011-read-only-tui-history.md) 与[局部证据](testing/results/2026-11-22-m1-history-ui.md)。
+历史最多保留一个读取请求，关闭时取消，忽略迟到结果；窗口缩放和实时发现轮询不自动重读。TUI 当前仍需初始后端探测成功，随后发现失败时可打开历史；后端程序缺失时可使用独立 CLI history。最近 100 条以外的 TUI 查询、完整数据库分页和日志尚未实现；后续可选原生恢复 CLI 见本文末尾。见 [ADR-0011](adr/0011-read-only-tui-history.md) 与[局部证据](testing/results/2026-11-22-m1-history-ui.md)。
 
 ## 离线检查、备份与恢复
 
@@ -85,4 +85,11 @@ v1–v4 通过同一事务升级；v5 的 check／backup／restore 包含位置�
 
 2026-11-24：[ADR-0026](adr/0026-explicit-session-stop.md) 增加管理 Session 行 `d` 的停止确认，复用固定来源确认样式并默认取消；确认前重新发现并核对原 Session／Run／名称，单次提交，未知结果不自动重放。后端停止和元数据停止确认仍非原子事务；Tab x／UI 退出继续保留进程，显式停止保留逻辑身份／历史。schema v5、ui.toml v3、依赖与 tokens 不变。实现和平台证据见[报告](testing/results/2026-11-24-session-stop.md)，完整接受仍开放。
 
-当前数据库 schema v10：在 v9 追加事项 snoozed_ns／reminder_revision，随正常 Open 事务迁移；旧版拒读。离线检查／备份／恢复支持 v1–v10，旧备份不会在检查时升级。暂停仅改变提醒，不改变 Run、事项生命周期或输出文件。参见 [ADR-0056](adr/0056-bounded-attention-center-and-snooze.md)。
+此前数据库 schema v10：在 v9 追加事项 snoozed_ns／reminder_revision，随正常 Open 事务迁移；旧版拒读。离线检查／备份／恢复支持 v1–v10，旧备份不会在检查时升级。暂停仅改变提醒，不改变 Run、事项生命周期或输出文件。参见 [ADR-0056](adr/0056-bounded-attention-center-and-snooze.md)。
+
+
+## v11：每 Run 启动快照与可选恢复
+
+[ADR-0064](adr/0064-explicit-agent-recovery-execution.md) 将不可变启动名称／程序移到每个 Run，v1–v10 正常打开时事务迁移至 v11；旧程序拒读，无降级迁移。离线 check／backup／restore 支持 v1–v11，检查与备份不升级源文件。
+
+显式启动保留每 Session 最近一份完整 executable／args／cwd／env，最多 64 KiB；旧发现记录缺失的参数不补造。完整启动描述仅包含显式覆盖环境，不复制全部父进程环境；其中可能含调用者提供的敏感值，数据库及备份需按私有配置保管。另保存每 Session 一份恢复声明和当前尝试、新 Run 凭据摘要，不存 Agent 原生历史。备份不包含私有 context-dir、凭据正文或 Agent 历史；恢复数据库不启动进程。原生对话需由用户按[恢复协议](AGENT_RECOVERY.md)显式执行。

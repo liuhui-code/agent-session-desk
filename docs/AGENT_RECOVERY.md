@@ -2,7 +2,7 @@
 
 更新：2026-11-27；决定见 [ADR-0063](adr/0063-agent-recovery-declaration-v1.md)。
 
-**状态：文件合同、JSON Schema 与接入说明已定义；工作台的声明导入、持久绑定、恢复执行和回执接收尚未实现。** 当前 exe 不读取这些文件；也不要把字段加入 launch.toml 或直接写 SQLite。这里定义的是后续实现与 Agent 适配共同遵守的合同。
+**状态：main 开发版已接通声明导入、SQLite 持久绑定、显式恢复和回执提交 CLI。** 执行限原生 Windows；实际验证见[报告](testing/results/2026-11-27-agent-recovery-execution.md)，执行决定见 [ADR-0064](adr/0064-explicit-agent-recovery-execution.md)。不要把字段加入 launch.toml 或直接写 SQLite。真实品牌／自定义 Agent 恢复仍需分别验证。
 
 ## 1. Agent 要做什么
 
@@ -59,29 +59,29 @@ session_id／run_id 可来自控制端提供的上下文，或已由 [agent-bind
 
 ## 3. 文件与接收规则
 
-- UTF-8 无 BOM 的单个 JSON 对象；不接收注释、重复键、尾随数据、未知字段或未知版本。声明整体最多 16 KiB；字符串不得含 C0／DEL／C1 控制字符。
+- UTF-8 无 BOM 的单个 JSON 对象；不接收注释、重复键、尾随数据、未知字段或未知版本。声明原文件及规范化入库 JSON 均最多 16 KiB；字符串不得含 C0／DEL／C1 控制字符。
 - 单个 exe／cwd／参数／env 值最多 4096 字符；env 最多 64 项，键为 ASCII 标识符、最长 64 字符。字段 Schema 按字符限制，文件总量另按实际 UTF-8 字节限制。
 - 写入控制端明确给出的本机私有路径：先写同目录临时文件，完整关闭后原子发布；不要改写作者 launch.toml、其他 Session 的文件或扫描目录自动注册。
-- 文件只表达配置，不授予执行或控制权限。未来接收器必须在外部已验证 scope 下核对原 Session／Run 和提交者绑定身份；凭据走独立通道，不把文件中的 ID 当作认证。
+- 文件只表达配置，不授予执行或控制权限。接收器必须在外部已验证 scope 下核对原 Session／Run 和提交者绑定身份；凭据走独立通道，不把文件中的 ID 当作认证。
 - 已接收配置归逻辑 Session；每个 Session 只保留一份当前有效配置。变更完整验证后整体替换，失败保留旧值；重复相同内容不制造新版本。替换须比较接收端修订，冲突拒绝，不按文件时间决定胜者。
 - 旧 Run 的迟到声明不能覆盖新 Run 已接受的声明。已经接受的恢复配置可以跨原进程退出保留，但原绑定凭据不因此获得跨 Run 权限。
-- 存储目录、修订／导入命令与迁移由消费者实现时固定。当前只可生成、保存并离线校验声明，尚不能用现有 exe 注册。
+- 配置与当前尝试存入相同作用域的 metadata.sqlite3（schema v11）。recovery-register 的 --revision=0 用于首次登记，其后提交当前配置修订；见下面的实际命令。
 
 完整接入提示可直接交给 Agent：[让 Agent 填写恢复配置](AGENT_RECOVERY_INSTRUCTIONS.md)。
 
 ## 4. 恢复执行的约定
 
-下面是后续执行器必须满足的行为，不是当前功能声明：
+当前 CLI 执行器遵守以下行为：
 
-1. 加载原分组、逻辑 Session 及其启动／恢复配置；能接回仍存活的原 Run 时优先接回。原状态不确定时不擅自再开一份。
+1. 加载原分组、逻辑 Session 及其启动／恢复配置；能接回仍存活的原 Run 时优先接回。recover 遇到任何原后端终端（含保留的退出屏幕）都拒绝新建，需先接回或显式 stop；原状态不确定时不再开一份。
 2. v1 仅由用户明确触发恢复，不在重启工作台／发现文件时自动执行。创建新的 Run，原 Run 仍是历史；恢复文件不能自行指定新 Run ID。
 3. 重新校验程序、目录和参数，沿现有原生终端启动／输入边界执行。若原会话是在 shell 内手工启动 Agent，恢复入口必须明确，不能把 shell 存活当作 Agent 仍在或已经恢复。
-4. 工作台为这次尝试生成独立 attempt_id，并将逻辑 Session ID、新 Run ID、预期 conversation_id 和私有结果文件路径明确交给 Agent／恢复包装器。传递渠道由消费者实现固定；当前没有自动注入这些变量或参数。
+4. 工作台为这次尝试生成独立 attempt_id，并将逻辑 Session ID、新 Run ID、预期 conversation_id 和私有结果文件路径明确交给 Agent／恢复包装器。只注入 ASD_RECOVERY_CONTEXT_FILE 指向私有 context.json；不追加命令参数。文件包含这些值及 credential_file、result_file、asd_executable、global_args。
 5. Agent 加载自己的原生历史后写恢复结果；缺少或无法核对结果时，只能标记“已启动／恢复结果未知”。失败不自动回落成新对话，不重试不确定启动。
 
 历史载入不是重放终端命令。不能为了恢复而重新执行旧工具调用、批准旧表单或自动续发旧任务；未完成工作仍需核对真实结果。恢复成功也不等于 Agent ready、任务完成或授权已获准。
 
-原生对话恢复与“恢复界面名称／分组”“显示屏幕缓存”分开。执行器落地还需要每 Session 完整启动配置持久化，以及在原逻辑 Session 下创建新 Run 的支持；现有 start 不能据此被认为已经具备这些能力。
+原生对话恢复与“恢复界面名称／分组”“显示屏幕缓存”分开。新显式启动保存每 Session 最近一份完整启动描述；旧元数据缺失的 argv／cwd／env 不会被补造。恢复在原逻辑 Session 下创建新 Run，保留名称／组／排序，使用恢复声明的完整启动描述；普通 start 仍创建全新 Session。
 
 ## 5. 恢复结果
 
@@ -97,9 +97,9 @@ session_id／run_id 可来自控制端提供的上下文，或已由 [agent-bind
 | status | restored／not_found／failed |
 | message | 可选，最多 512 字符的简短说明，不放聊天正文、密钥或异常堆栈 |
 
-结果整体最多 4 KiB，其余 JSON／字符规则与声明相同。restored 只能在 Agent 确认真正载入原对话后上报；not_found 表示原生记录不存在，不能偷偷改用新对话再报成功。failed 不证明启动或外部操作没有发生。
+结果原文件及规范化入库 JSON 均最多 4 KiB，其余 JSON／字符规则与声明相同。restored 只能在 Agent 确认真正载入原对话后上报；not_found 表示原生记录不存在，不能偷偷改用新对话再报成功。failed 不证明启动或外部操作没有发生。
 
-未来接收器必须验证新 Run 的提交身份、scope、完整 Session／Run／attempt／conversation 四项关联；不接收旧凭据、另一尝试的结果或已结束 Run 的成功回执。相同 attempt 的相同结果幂等，不同最终结果冲突。结果是 Agent 的明确声明，不是工作台独立证明其内部上下文完整无损；需另有重启恢复验证证据。
+接收器验证新 Run 的提交身份、scope、完整 Session／Run／attempt／conversation 四项关联；不接收旧凭据、另一尝试的结果或已结束 Run 的成功回执。相同 attempt 的相同结果幂等，不同最终结果冲突。结果是 Agent 的明确声明，不是工作台独立证明其内部上下文完整无损；需另有重启恢复验证证据。
 
 ## 6. 最小接入验收
 
@@ -110,3 +110,32 @@ session_id／run_id 可来自控制端提供的上下文，或已由 [agent-bind
 5. 测试记录缺失、错误 ID、错误／旧 Run、超时及失败后不重试；确认没有创建替代对话、重放命令或复用旧批准。
 
 只在 JSON／Schema 验证通过时，不得标注“原生恢复已通过”。工作台按需读取小配置，不常驻复制完整历史、不建立每 Agent 恢复守护进程。ACP 可作为可选适配，但 v1 文件合同不是 ACP 实现或对任意 CLI 的恢复承诺。
+
+
+## 7. 实际 CLI 流程
+
+所有命令前使用与原会话完全相同的全局作用域选项，见[配置说明](CONFIGURATION.md)。下面的 ID／路径需要替换为真实值；先按现有 agent-bind 取得原 Run 的凭据。
+
+```powershell
+# $Scope 为原会话的 --backend/--terminal-bundle/--runtime-dir/--namespace/--state-dir 参数数组。
+asd @Scope recovery-register --token-file C:\Private\original-token.json --file C:\Private\agent-recovery.json --revision 0
+asd @Scope recovery-profile --session SESSION_ID
+# 确认旧 Agent 已结束；若原终端仍在，先接回或显式 stop SESSION_ID。
+# previous-run 必须是 history 中该 Session 最新的 Run；不是始终沿用声明的源 Run。
+asd @Scope recover --session SESSION_ID --previous-run LATEST_RUN_ID --revision 1 --confirm-ended --context-dir C:\Private\recovery-attempt-1
+asd @Scope recovery-status --session SESSION_ID
+```
+
+context-dir 必须不存在，父目录必须存在；使用目标用户的私有目录。一次失败后保留该目录，先查状态，不复用目录或盲目重跑。当前尝试状态为 launch_unknown／started／restored／not_found／failed；查询本身完全离线。launch_unknown 且没有明确结束证据时禁止新尝试；v1 不提供强制清除。当匹配回执经过新 Run 凭据和实时后端核验时，可核对已丢失的启动收据，不执行第二次启动。
+
+恢复 Agent／包装器读取环境变量指定的 context.json，加载并核对自己的原生对话，再原子写入 result_file。使用文件给出的作用域参数提交：
+
+```powershell
+$c = Get-Content -Raw $env:ASD_RECOVERY_CONTEXT_FILE | ConvertFrom-Json
+$scopeArgs = @($c.global_args)
+& $c.asd_executable @scopeArgs recovery-result --token-file $c.credential_file --file $c.result_file
+```
+
+凭据正文不打印、不放进结果。ASD_RECOVERY_ 环境键由工作台保留，不能在 resume.env 覆盖。结果文件不会自动被读取；写文件后仍需显式 recovery-result。没有集成回执的 Agent 最多显示 started，不能凭屏幕宣布 restored。既有 Agent 也可由轻量包装器完成此合同。
+
+元数据备份包含恢复配置、当前尝试、启动描述和凭据摘要；不包含 Agent 原生历史、context-dir 或凭据正文。普通 Run 的记录仍独立保留，旧待办／消息／批准不转移给新 Run。暂无管理 UI 恢复按钮或自动恢复。

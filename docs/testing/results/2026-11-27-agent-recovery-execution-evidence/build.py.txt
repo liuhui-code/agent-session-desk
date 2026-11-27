@@ -1,0 +1,11 @@
+import os,subprocess,pathlib,hashlib,json
+p=pathlib.Path(__file__).parent
+e=os.environ.copy();e.update(GOTOOLCHAIN='local',GOOS='windows',GOARCH='amd64',CGO_ENABLED='0',GOPATH='/private/tmp/asd-stability-20261127/go-path',GOMODCACHE='/private/tmp/asd-stability-20261127/mod-cache',GOCACHE='/private/tmp/asd-stability-20261127/go-cache')
+for name,args in [('asd.exe',['build','./cmd/asd']),('cli.test.exe',['test','-c','./internal/cli']),('store.test.exe',['test','-c','./internal/store']),('manager.test.exe',['test','-c','./internal/manager'])]:
+ r=subprocess.run(['/private/tmp/git-intent-tools/go/bin/go',*args[:-1],'-o',str(p/name),args[-1]],env=e,capture_output=True)
+ (p/(name+'.build.log')).write_bytes(r.stdout+r.stderr)
+ if r.returncode:print(r.stderr.decode());raise SystemExit(r.returncode)
+ print(name,'cross-build passed')
+(p/'artifacts.json').write_text(json.dumps({n:hashlib.sha256((p/n).read_bytes()).hexdigest() for n in ['asd.exe','cli.test.exe','store.test.exe','manager.test.exe']},indent=2)+'\n')
+files=sorted([*pathlib.Path('internal').rglob('*.go'),*pathlib.Path('cmd').rglob('*.go'),pathlib.Path('go.mod'),pathlib.Path('go.sum')])
+(p/'sources.json').write_text(json.dumps({str(n):hashlib.sha256(n.read_bytes()).hexdigest() for n in files},indent=2)+'\n')

@@ -1,0 +1,5 @@
+# github.com/liuhui-code/agent-session-desk/internal/backend [github.com/liuhui-code/agent-session-desk/internal/backend.test]
+internal/backend/backend_test.go:421:9: b.StartRun undefined (type *Backend has no field or method StartRun)
+internal/backend/backend_test.go:424:11: b.StartRun undefined (type *Backend has no field or method StartRun)
+FAIL	github.com/liuhui-code/agent-session-desk/internal/backend [build failed]
+FAIL

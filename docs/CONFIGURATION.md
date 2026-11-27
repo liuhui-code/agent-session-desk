@@ -35,7 +35,7 @@
 | `ui.toml` | 当前写 v7，读 v1–v7 | 启动读取；界面接受的偏好修改会保存，手改前退出 UI，避免被内存中的旧偏好覆盖 |
 | `keybindings.toml` | schema_version=1 | 启动只读；重启后生效，缺项继承默认；详见 [快捷键](KEYBINDINGS.md) |
 | `recent-dirs-<scope哈希>.toml` | schema_version=1 | 产品维护有界最近目录；通常无需手改，最多 20 项 |
-| `metadata.sqlite3` 与 output-records | 当前数据库 v10／有界屏幕记录 | 运行数据，不是配置文件；不要用改表、清库代替配置修改 |
+| `metadata.sqlite3` 与 output-records | 当前数据库 v11／有界屏幕记录 | 运行数据，不是配置文件；不要用改表、清库代替配置修改 |
 
 不要把不同文件的字段合成一个 TOML。各文件版本独立；SQLite 版本不是配置版本或公共 API 版本。用户环境覆盖、last-launch、绑定凭据等本机数据不要提交 Git。
 
@@ -116,7 +116,7 @@ $Scope = @(
 
 需要 Agent 主动上报授权／问题或接收结构化任务时，再按 [Agent API](AGENT_API.md) 的 agent-bind／attention-event／inbox／claim／reply 合同接入。token-file 和 claim-file 由相应命令生成，向受委派 Agent 提供路径，不打印凭据正文。查看提醒、蓝点或程序标签都不是批准、ready 或完成信号。
 
-可选恢复配置另见[简易恢复协议 v1](AGENT_RECOVERY.md)及[Agent 填写说明](AGENT_RECOVERY_INSTRUCTIONS.md)。它使用独立 JSON 文件，不是 launch.toml 的新字段；当前尚未实现导入和执行。
+可选恢复配置另见[简易恢复协议 v1](AGENT_RECOVERY.md)及[Agent 填写说明](AGENT_RECOVERY_INSTRUCTIONS.md)。它使用独立 JSON 文件，不是 launch.toml 的新字段；通过 recovery-register 导入，用户显式 recover 执行；配置与当前尝试持久化至同 scope 的 SQLite v11，不自动执行。
 
 ## 5. 界面与快捷键
 

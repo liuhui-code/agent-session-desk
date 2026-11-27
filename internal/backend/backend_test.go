@@ -414,3 +414,21 @@ func TestConfigDoesNotOverwriteUnknownExistingFile(t *testing.T) {
 		t.Fatalf("config modified: %q", got)
 	}
 }
+
+func TestStartRunUsesReservedIdentityAndRejectsAliases(t *testing.T) {
+	b := newFake(t)
+	ctx := context.Background()
+	sid := "11111111111111111111111111111111"
+	rid := "33333333333333333333333333333333"
+	v, e := b.StartRun(ctx, session.Launch{Executable: b.bin, Dir: t.TempDir()}, sid, rid)
+	if e != nil || v.ID != sid || v.RunID != rid || v.BackendID != "asd_"+sid+"_"+rid {
+		t.Fatalf("reserved start: %#v %v", v, e)
+	}
+	before := len(commandLog(t))
+	if _, e = b.StartRun(ctx, session.Launch{Executable: b.bin}, "alias", rid); e == nil {
+		t.Fatal("invalid reserved identity accepted")
+	}
+	if len(commandLog(t)) != before {
+		t.Fatal("invalid reservation touched backend")
+	}
+}

@@ -1,0 +1,6 @@
+=== RUN   TestWindowsNativeRecoveryCLI
+    agent_recovery_windows_test.go:152: fixture pid=22160 creation=1795784667642161900
+    agent_recovery_windows_test.go:180: fixture pid=21032 creation=1795784679807178500
+    agent_recovery_windows_test.go:228: same Session, two exact native processes, persisted marker, new credential/result, backup; attempt=f65e5362ab6a07dca3fba9687ab703f2
+--- PASS: TestWindowsNativeRecoveryCLI (31.76s)
+PASS

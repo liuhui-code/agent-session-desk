@@ -420,7 +420,7 @@ attention-list/status 离线可用，但会打开／升级库并根据已知 Run
 
 ## 7. 版本、证据与接入检查
 
-每次接口行为或字段变化，同步更新本参考、ADR、对应行为测试及实际执行报告；参数／字段删除、重命名或状态语义变化需给出迁移说明。SQLite schema 版本不等于公共 API 版本。当前数据库为 v10，升级和回退按[消息说明](MESSAGING.md)执行，不让 Agent 自行修改表结构。
+每次接口行为或字段变化，同步更新本参考、ADR、对应行为测试及实际执行报告；参数／字段删除、重命名或状态语义变化需给出迁移说明。SQLite schema 版本不等于公共 API 版本。当前数据库为 v11，升级和回退按[消息说明](MESSAGING.md)执行，不让 Agent 自行修改表结构。
 
 接入前核对：固定 exe／bundle；使用原会话作用域；保存完整 Session/Run；持久保存请求 ID 和原参数；明确区分 queued、input_written、unknown；在错误和超时后查询原 ID。用[模拟接口合同](testing/MESSAGING_CONTRACT.md)复验故障行为，再在实际 agent／版本上补接入证据。现有模拟通过不代表它已理解任务或能够回复。
 
@@ -430,6 +430,18 @@ AttentionItem 额外返回 `snoozed_until`（可省略，UTC）与 `reminder_rev
 
 功能入口、开发状态和快捷键配置见[适配索引](AGENT_ADAPTATION.md)。keybindings.toml 为v1只读配置，见 KEYBINDINGS.md；不是 Agent终端指令。
 
-## 8. 可选恢复声明（合同已定义，消费者未实现）
+## 8. 可选原生对话恢复（v1，CLI）
 
-自定义 Agent 填写原生 conversation_id 和字面恢复启动描述的规则见 [AGENT_RECOVERY.md](AGENT_RECOVERY.md)，可直接交给适配 Agent 的任务见[填写说明](AGENT_RECOVERY_INSTRUCTIONS.md)。声明／恢复结果有独立 JSON Schema。当前没有接收或执行这些文件的 CLI；不要向现有 attention-event／reply 添加恢复字段，也不要用旧 Run 凭据证明新 Run 恢复成功。现有已实现接口不因该文件合同而改变。
+格式与完整流程见 [AGENT_RECOVERY.md](AGENT_RECOVERY.md)，可直接交给接入 Agent 的任务见[填写说明](AGENT_RECOVERY_INSTRUCTIONS.md)。声明／恢复结果有独立 JSON Schema。使用原会话的相同全局 scope 参数：
+
+| 命令 | 必填参数／结果 |
+| --- | --- |
+| recovery-register | --token-file FILE --file FILE --revision N；首次 N=0，替换用当前修订；认证原 Run，只允许最新 Run 填报；返回 revision 与 declaration |
+| recovery-profile | --session ID；离线读取当前配置，不探测／启动后端 |
+| recover | --session ID --previous-run ID --revision N --confirm-ended --context-dir DIR；原生 Windows、用户确认旧 Run 已结束，私有目录必须全新；返回当前尝试 |
+| recovery-result | --token-file FILE --file FILE；认证新 Run、匹配 attempt／conversation，提交结果；不注入终端输入 |
+| recovery-status | --session ID；离线读取当前尝试，包含 attempt_id、run_id、profile_revision、state 和可选 result |
+
+文件只接受真实本机常规文件（不接收 stdin 或符号链接入口），上限分别 16／4 KiB；严格字段、版本、重复键、控制字符和 UTF-8 校验在探测后端前执行。配置修订冲突先重读，不盲目重试；同内容登记／相同最终结果幂等。超时先用 recovery-status／原后端核对，不重新执行 recover。
+
+恢复只注入 ASD_RECOVERY_CONTEXT_FILE 指向私有上下文，不改 Agent 参数；上下文给出新 Run 的凭据文件和结果文件、提交所需可执行文件／scope。旧 Run 凭据不能证明新 Run 恢复成功；不向 attention-event／reply 添加恢复字段。launch_unknown／started 与 restored 分开，未得到匹配回执则不宣称对话已恢复。新 Run 不继承旧批准、消息或领取权限；原终端仍存在或后端不明时拒绝再启动。

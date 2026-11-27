@@ -1,0 +1,5 @@
+--- FAIL: TestRecoveryReservationFencesDuplicateStartsAndKeepsPerRunSnapshot (0.02s)
+    agent_recovery_test.go:122: recovery launch snapshot mismatch
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/store	1.321s
+FAIL

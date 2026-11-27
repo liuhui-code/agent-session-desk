@@ -49,7 +49,7 @@ func (s *Store) Rename(ctx context.Context, expected session.Session, value stri
 	defer tx.Rollback()
 	var current string
 	var revision int64
-	err = tx.QueryRowContext(ctx, `SELECT COALESCE(n.title,s.title),COALESCE(n.revision,0) FROM runs r JOIN sessions s ON s.scope=r.scope AND s.id=r.session_id LEFT JOIN session_names n ON n.scope=s.scope AND n.session_id=s.id WHERE r.scope=? AND r.id=? AND r.session_id=? AND r.backend_id=? AND s.command=?`, s.scope, expected.RunID, expected.ID, expected.BackendID, expected.Command).Scan(&current, &revision)
+	err = tx.QueryRowContext(ctx, `SELECT COALESCE(n.title,s.title),COALESCE(n.revision,0) FROM runs r JOIN sessions s ON s.scope=r.scope AND s.id=r.session_id LEFT JOIN session_names n ON n.scope=s.scope AND n.session_id=s.id WHERE r.scope=? AND r.id=? AND r.session_id=? AND r.backend_id=? AND r.launch_command=?`, s.scope, expected.RunID, expected.ID, expected.BackendID, expected.Command).Scan(&current, &revision)
 	if err != nil {
 		return session.Session{}, fmt.Errorf("exact metadata Run required for rename: %w", err)
 	}

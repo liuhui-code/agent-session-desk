@@ -1,0 +1,27 @@
+{
+    "backend_sha256":  "ff9d8893ecc53ac5caca3bae0146d75ebcaf2cf7edc4abf9d87578469fb7b16b",
+    "os":  "10.0.19045.0",
+    "results":  [
+                    {
+                        "fail":  0,
+                        "code":  0,
+                        "pass":  6,
+                        "skip":  0,
+                        "package":  "store"
+                    },
+                    {
+                        "fail":  0,
+                        "code":  0,
+                        "pass":  1,
+                        "skip":  0,
+                        "package":  "manager"
+                    },
+                    {
+                        "fail":  0,
+                        "code":  0,
+                        "pass":  1,
+                        "skip":  0,
+                        "package":  "cli"
+                    }
+                ]
+}

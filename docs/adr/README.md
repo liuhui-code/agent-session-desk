@@ -97,4 +97,6 @@ ADR-0014 依据用户 2026-11-22 的明确要求接受，部分替代 0001/0002 
 
 | [0062](0062-bounded-warm-session-switch.md) | 有界末帧与回切优先级 | 已接受 | 定向实现／验证，整体接受开放 |
 
-| [0063](0063-agent-recovery-declaration-v1.md) | Agent 自报简易恢复配置 | 已接受（文件合同） | Schema／说明已定义；导入／执行／真实恢复未实现 |
+| [0063](0063-agent-recovery-declaration-v1.md) | Agent 自报简易恢复配置 | 已接受（文件合同） | 初始文件合同；后续 CLI 执行见 0064，真实 Agent 恢复另验 |
+
+| [0064](0064-explicit-agent-recovery-execution.md) | 显式原生恢复、新 Run 与不重放屏障 | 已接受／CLI 实现 | SQLite v11；实际范围见专项报告 |

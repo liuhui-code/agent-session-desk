@@ -228,3 +228,5 @@ M1 收尾按[验收清单](testing/M1_ACCEPTANCE.md)推进；显式有界屏幕�
 2026-11-26 桌宠切片：按用户澄清补齐 [ADR-0051](adr/0051-pet-existing-blocking-reminders.md) 的既有阻塞事项联动；只在工作台进程内显示／请求导航，不增加 Agent 接入或 Host。验证和开放门槛见[报告](testing/results/2026-11-26-pet-blocking.md)，此前后置任务继续后置。
 
 2026-11-27：本轮补充 [待办中心](adr/0056-bounded-attention-center-and-snooze.md)，先到此止。用固定数据测资源，勿追加功能。
+
+2026-11-27：可选原生恢复 CLI 已按 ADR-0063/0064 推进：声明登记／查询、显式新 Run 与恢复回执，不自动重放。实际证据见[报告](testing/results/2026-11-27-agent-recovery-execution.md)；管理 UI 入口、真实 Agent、完整电脑重启和长期资源仍保留独立门槛，不提升 M1/M2 整体验收。

@@ -32,3 +32,5 @@ v1 恢复由用户明确触发，不重放旧终端命令或旧授权，不把�
 ## 依据
 
 本项目 Session／Run、Launch 及原 AgentCredential 合同；[ADR-0004](0004-cli-agents-and-session-messaging.md)、[配置说明](../CONFIGURATION.md)。2026-11-27 核对的 [ACP v1 会话加载](https://agentclientprotocol.com/protocol/v1/session-setup)提供恢复能力声明／ID 绑定的参考；当前文件合同不是 ACP 兼容实现，v2 Preview 不作为发布依赖。
+
+2026-11-27 后续：文件合同字段保持 v1，CLI 消费／执行由 [ADR-0064](0064-explicit-agent-recovery-execution.md)落地；本记录的初始离线验证不作为后续执行证据。

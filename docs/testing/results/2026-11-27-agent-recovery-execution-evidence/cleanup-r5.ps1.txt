@@ -1,0 +1,42 @@
+$ErrorActionPreference='Stop'
+$names=@('asd-recovery-20261127-r5')
+$files=@('asd.exe','cli.test.exe','store.test.exe','manager.test.exe')
+$plan=@()
+foreach($name in $names){
+ $dir=Join-Path $env:USERPROFILE $name
+ $running=@(Get-CimInstance Win32_Process|Where-Object{$_.ExecutablePath -and [IO.Path]::GetDirectoryName($_.ExecutablePath)-eq $dir})
+ if($running.Count-ne 0){throw 'Owned test image is still running; no binary cleanup'}
+ $manifest=Get-Content -Raw (Join-Path $dir 'artifacts.json')|ConvertFrom-Json
+ foreach($file in $files){
+  $path=Join-Path $dir $file
+  $item=Get-Item -LiteralPath $path
+  if($item.Attributes-band [IO.FileAttributes]::ReparsePoint){throw 'Unexpected binary reparse point'}
+  if((Get-FileHash -LiteralPath $path).Hash.ToLowerInvariant()-cne $manifest.$file){throw 'Owned binary hash changed'}
+  $plan+=@{path=$path;name=($name+'/'+$file)}
+ }
+}
+$failed=Join-Path ([IO.Path]::GetTempPath()) 'TestRecoveryProfileIsBoundRevisionedAndDurable2230680105'
+$tempResult='absent'
+if(Test-Path -LiteralPath $failed){
+ $items=@(Get-ChildItem -LiteralPath $failed -Force -Recurse)
+ $expected=@('001','001\metadata.sqlite3')
+ if($items.Count-ne 2){throw 'Unexpected failed-test contents; preserve'}
+ if((Get-Item -LiteralPath $failed).Attributes-band [IO.FileAttributes]::ReparsePoint){throw 'Unexpected failed-test root link'}
+ foreach($item in $items){
+  if($item.Attributes-band [IO.FileAttributes]::ReparsePoint){throw 'Unexpected failed-test link'}
+  if($expected-cnotcontains $item.FullName.Substring($failed.Length+1)){throw 'Unexpected failed-test path'}
+ }
+ $db=Join-Path $failed '001\metadata.sqlite3'
+ if((Get-Item -LiteralPath $db).Length-gt 4194304){throw 'Unexpected failed-test database size'}
+ $checker=Join-Path $env:USERPROFILE 'asd-recovery-20261127-r5\asd.exe'
+ & $checker metadata check $db|Out-Null
+ if($LASTEXITCODE-ne 0){throw 'Failed-test metadata validation failed; preserve'}
+ Remove-Item -LiteralPath $db -Force
+ [IO.Directory]::Delete((Join-Path $failed '001'))
+ [IO.Directory]::Delete($failed)
+ $tempResult='removed exact receipt-linked synthetic database and empty parents'
+}
+foreach($entry in $plan){Remove-Item -LiteralPath $entry.path -Force}
+$out=Join-Path $env:USERPROFILE 'asd-recovery-20261127-r5\cleanup.json'
+@{forced_process_ends=0;removed_binaries=@($plan|ForEach-Object{$_.name});failed_test_temp=$tempResult;kept='logs, manifests and driver scripts'}|ConvertTo-Json -Depth 5|Set-Content $out
+Get-Content $out

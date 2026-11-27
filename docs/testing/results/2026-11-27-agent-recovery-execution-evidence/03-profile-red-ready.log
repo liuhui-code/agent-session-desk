@@ -1,0 +1,10 @@
+# github.com/liuhui-code/agent-session-desk/internal/store_test [github.com/liuhui-code/agent-session-desk/internal/store.test]
+internal/store/agent_recovery_test.go:26:10: db.RegisterRecovery undefined (type *store.Store has no field or method RegisterRecovery)
+internal/store/agent_recovery_test.go:28:14: db.RegisterRecovery undefined (type *store.Store has no field or method RegisterRecovery)
+internal/store/agent_recovery_test.go:30:12: db.RegisterRecovery undefined (type *store.Store has no field or method RegisterRecovery)
+internal/store/agent_recovery_test.go:31:12: db.RegisterRecovery undefined (type *store.Store has no field or method RegisterRecovery)
+internal/store/agent_recovery_test.go:33:12: db.RegisterRecovery undefined (type *store.Store has no field or method RegisterRecovery)
+internal/store/agent_recovery_test.go:35:9: db.RecoveryProfile undefined (type *store.Store has no field or method RecoveryProfile)
+internal/store/agent_recovery_test.go:38:15: other.RecoveryProfile undefined (type *store.Store has no field or method RecoveryProfile)
+FAIL	github.com/liuhui-code/agent-session-desk/internal/store [build failed]
+FAIL

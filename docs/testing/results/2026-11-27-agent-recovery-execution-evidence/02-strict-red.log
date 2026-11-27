@@ -1,0 +1,10 @@
+--- FAIL: TestDeclarationRejectsAmbiguousOrLossyJSON (0.00s)
+    --- FAIL: TestDeclarationRejectsAmbiguousOrLossyJSON/surrogate (0.00s)
+        declaration_test.go:42: ambiguous or lossy JSON accepted
+    --- FAIL: TestDeclarationRejectsAmbiguousOrLossyJSON/null_args (0.00s)
+        declaration_test.go:42: ambiguous or lossy JSON accepted
+    --- FAIL: TestDeclarationRejectsAmbiguousOrLossyJSON/missing_args (0.00s)
+        declaration_test.go:42: ambiguous or lossy JSON accepted
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/recovery	1.051s
+FAIL

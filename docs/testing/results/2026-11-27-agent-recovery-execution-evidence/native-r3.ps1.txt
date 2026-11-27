@@ -1,0 +1,22 @@
+$ErrorActionPreference='Stop'
+$dest=Join-Path $env:USERPROFILE 'asd-recovery-20261127-r3'
+$m=Get-Content -Raw (Join-Path $dest 'artifacts.json')|ConvertFrom-Json
+foreach($item in $m.PSObject.Properties){if((Get-FileHash (Join-Path $dest $item.Name)).Hash.ToLowerInvariant()-cne $item.Value){throw 'Artifact hash mismatch'}}
+$bundle=Join-Path ([Environment]::GetFolderPath('Desktop')) 'Agent Session Desk Alpha 8234c4e\terminal-runtime'
+$backendHash=(Get-FileHash (Join-Path $bundle 'psmux.exe')).Hash.ToLowerInvariant()
+if($backendHash-cne 'ff9d8893ecc53ac5caca3bae0146d75ebcaf2cf7edc4abf9d87578469fb7b16b'){throw 'Pinned existing development backend mismatch'}
+$env:ASD_RECOVERY_NATIVE_BUNDLE=$bundle
+$env:ASD_RECOVERY_PRODUCT=Join-Path $dest 'asd.exe'
+$manifest=Get-Content -Raw (Join-Path $dest 'artifacts.json')|ConvertFrom-Json
+foreach($item in $manifest.PSObject.Properties){if((Get-FileHash (Join-Path $dest $item.Name)).Hash.ToLowerInvariant()-cne $item.Value){throw 'Product/test hash mismatch'}}
+$results=@()
+foreach($pkg in @('store','manager','cli')){
+$pattern='^TestRecovery';if($pkg-eq 'cli'){$pattern='^TestWindowsNativeRecoveryCLI$'}
+$log=Join-Path $dest ($pkg+'.log')
+& (Join-Path $dest ($pkg+'.test.exe')) '-test.v' '-test.timeout' '3m' '-test.run' $pattern *> $log
+$code=$LASTEXITCODE
+$lines=Get-Content $log
+$results+=@{package=$pkg;code=$code;pass=@($lines|Where-Object{$_-match '^--- PASS:'}).Count;fail=@($lines|Where-Object{$_-match '^--- FAIL:'}).Count;skip=@($lines|Where-Object{$_-match '^--- SKIP:'}).Count}
+}
+@{os=[Environment]::OSVersion.Version.ToString();backend_sha256=$backendHash;results=$results}|ConvertTo-Json -Depth 6|Set-Content (Join-Path $dest 'result.json')
+Get-Content (Join-Path $dest 'result.json')

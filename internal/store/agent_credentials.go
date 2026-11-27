@@ -22,7 +22,7 @@ const replySchema = `CREATE TABLE agent_credentials(
  FOREIGN KEY(scope,reply_to) REFERENCES messages(scope,id),
  FOREIGN KEY(scope,source_run_id) REFERENCES runs(scope,id));`
 
-const activeAgent = `SELECT r.session_id,r.id,r.backend_id,s.title,s.command FROM runs r
+const activeAgent = `SELECT r.session_id,r.id,r.backend_id,r.launch_title,r.launch_command FROM runs r
  JOIN sessions s ON s.scope=r.scope AND s.id=r.session_id
  WHERE r.scope=? AND r.id=? AND r.session_id=? AND r.stopped_ns IS NULL
  AND NOT EXISTS(SELECT 1 FROM pane_exits e WHERE e.scope=r.scope AND e.run_id=r.id)`
