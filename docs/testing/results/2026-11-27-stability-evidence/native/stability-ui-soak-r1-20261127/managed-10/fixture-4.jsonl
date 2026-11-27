@@ -1,0 +1,46 @@
+{"event":"started","pid":22092,"args":[],"cwd":"C:\\Users\\<WINDOWS_USER>\\asd-acceptance-20261122\\stability-ui-soak-r1-20261127\\managed-10","env":{}}
+{"event":"input","text":"load 100 256 60000"}
+{"event":"load-start","load_id":1,"line_bytes":256,"lines_per_second":100,"duration_ms":60000,"lines_written":0,"bytes_written":0,"status":"running","started_utc":"2026-11-26T18:28:42.2519608Z"}
+{"event":"load-finished","load_id":1,"line_bytes":256,"lines_per_second":100,"duration_ms":60000,"lines_written":5995,"bytes_written":1534720,"status":"completed","started_utc":"2026-11-26T18:28:42.2519608Z","finished_utc":"2026-11-26T18:29:42.2522592Z"}
+{"event":"input","text":"load 100 256 60000"}
+{"event":"load-start","load_id":2,"line_bytes":256,"lines_per_second":100,"duration_ms":60000,"lines_written":0,"bytes_written":0,"status":"running","started_utc":"2026-11-26T18:58:43.695679Z"}
+{"event":"load-finished","load_id":2,"line_bytes":256,"lines_per_second":100,"duration_ms":60000,"lines_written":5998,"bytes_written":1535488,"status":"completed","started_utc":"2026-11-26T18:58:43.695679Z","finished_utc":"2026-11-26T18:59:43.6965291Z"}
+{"event":"input","text":"load 100 256 60000"}
+{"event":"load-start","load_id":3,"line_bytes":256,"lines_per_second":100,"duration_ms":60000,"lines_written":0,"bytes_written":0,"status":"running","started_utc":"2026-11-26T19:28:44.7794145Z"}
+{"event":"load-finished","load_id":3,"line_bytes":256,"lines_per_second":100,"duration_ms":60000,"lines_written":5997,"bytes_written":1535232,"status":"completed","started_utc":"2026-11-26T19:28:44.7794145Z","finished_utc":"2026-11-26T19:29:44.7799172Z"}
+{"event":"input","text":"load 100 256 60000"}
+{"event":"load-start","load_id":4,"line_bytes":256,"lines_per_second":100,"duration_ms":60000,"lines_written":0,"bytes_written":0,"status":"running","started_utc":"2026-11-26T19:58:46.0055628Z"}
+{"event":"load-finished","load_id":4,"line_bytes":256,"lines_per_second":100,"duration_ms":60000,"lines_written":5999,"bytes_written":1535744,"status":"completed","started_utc":"2026-11-26T19:58:46.0055628Z","finished_utc":"2026-11-26T19:59:46.0057457Z"}
+{"event":"input","text":"load 100 256 60000"}
+{"event":"load-start","load_id":5,"line_bytes":256,"lines_per_second":100,"duration_ms":60000,"lines_written":0,"bytes_written":0,"status":"running","started_utc":"2026-11-26T20:28:47.739101Z"}
+{"event":"load-finished","load_id":5,"line_bytes":256,"lines_per_second":100,"duration_ms":60000,"lines_written":5991,"bytes_written":1533696,"status":"completed","started_utc":"2026-11-26T20:28:47.739101Z","finished_utc":"2026-11-26T20:29:47.7396101Z"}
+{"event":"input","text":"load 100 256 60000"}
+{"event":"load-start","load_id":6,"line_bytes":256,"lines_per_second":100,"duration_ms":60000,"lines_written":0,"bytes_written":0,"status":"running","started_utc":"2026-11-26T20:58:49.101591Z"}
+{"event":"load-finished","load_id":6,"line_bytes":256,"lines_per_second":100,"duration_ms":60000,"lines_written":5995,"bytes_written":1534720,"status":"completed","started_utc":"2026-11-26T20:58:49.101591Z","finished_utc":"2026-11-26T20:59:49.1019438Z"}
+{"event":"input","text":"load 100 256 60000"}
+{"event":"load-start","load_id":7,"line_bytes":256,"lines_per_second":100,"duration_ms":60000,"lines_written":0,"bytes_written":0,"status":"running","started_utc":"2026-11-26T21:28:50.258018Z"}
+{"event":"load-finished","load_id":7,"line_bytes":256,"lines_per_second":100,"duration_ms":60000,"lines_written":5994,"bytes_written":1534464,"status":"completed","started_utc":"2026-11-26T21:28:50.258018Z","finished_utc":"2026-11-26T21:29:50.2584039Z"}
+{"event":"input","text":"load 100 256 60000"}
+{"event":"load-start","load_id":8,"line_bytes":256,"lines_per_second":100,"duration_ms":60000,"lines_written":0,"bytes_written":0,"status":"running","started_utc":"2026-11-26T21:58:51.8863431Z"}
+{"event":"load-finished","load_id":8,"line_bytes":256,"lines_per_second":100,"duration_ms":60000,"lines_written":5998,"bytes_written":1535488,"status":"completed","started_utc":"2026-11-26T21:58:51.8863431Z","finished_utc":"2026-11-26T21:59:51.8873973Z"}
+{"event":"input","text":"load 100 256 60000"}
+{"event":"load-start","load_id":9,"line_bytes":256,"lines_per_second":100,"duration_ms":60000,"lines_written":0,"bytes_written":0,"status":"running","started_utc":"2026-11-26T22:28:53.2836157Z"}
+{"event":"load-finished","load_id":9,"line_bytes":256,"lines_per_second":100,"duration_ms":60000,"lines_written":5997,"bytes_written":1535232,"status":"completed","started_utc":"2026-11-26T22:28:53.2836157Z","finished_utc":"2026-11-26T22:29:53.2841916Z"}
+{"event":"input","text":"load 100 256 60000"}
+{"event":"load-start","load_id":10,"line_bytes":256,"lines_per_second":100,"duration_ms":60000,"lines_written":0,"bytes_written":0,"status":"running","started_utc":"2026-11-26T22:58:54.4660555Z"}
+{"event":"load-finished","load_id":10,"line_bytes":256,"lines_per_second":100,"duration_ms":60000,"lines_written":5997,"bytes_written":1535232,"status":"completed","started_utc":"2026-11-26T22:58:54.4660555Z","finished_utc":"2026-11-26T22:59:54.4667063Z"}
+{"event":"input","text":"load 100 256 60000"}
+{"event":"load-start","load_id":11,"line_bytes":256,"lines_per_second":100,"duration_ms":60000,"lines_written":0,"bytes_written":0,"status":"running","started_utc":"2026-11-26T23:28:55.9727465Z"}
+{"event":"load-finished","load_id":11,"line_bytes":256,"lines_per_second":100,"duration_ms":60000,"lines_written":5992,"bytes_written":1533952,"status":"completed","started_utc":"2026-11-26T23:28:55.9727465Z","finished_utc":"2026-11-26T23:29:55.9736038Z"}
+{"event":"input","text":"load 100 256 60000"}
+{"event":"load-start","load_id":12,"line_bytes":256,"lines_per_second":100,"duration_ms":60000,"lines_written":0,"bytes_written":0,"status":"running","started_utc":"2026-11-26T23:58:42.4627672Z"}
+{"event":"load-finished","load_id":12,"line_bytes":256,"lines_per_second":100,"duration_ms":60000,"lines_written":5990,"bytes_written":1533440,"status":"completed","started_utc":"2026-11-26T23:58:42.4627672Z","finished_utc":"2026-11-26T23:59:42.4630177Z"}
+{"event":"input","text":"load 100 256 60000"}
+{"event":"load-start","load_id":13,"line_bytes":256,"lines_per_second":100,"duration_ms":60000,"lines_written":0,"bytes_written":0,"status":"running","started_utc":"2026-11-27T00:28:44.29528Z"}
+{"event":"load-finished","load_id":13,"line_bytes":256,"lines_per_second":100,"duration_ms":60000,"lines_written":5982,"bytes_written":1531392,"status":"completed","started_utc":"2026-11-27T00:28:44.29528Z","finished_utc":"2026-11-27T00:29:44.300856Z"}
+{"event":"input","text":"load 100 256 60000"}
+{"event":"load-start","load_id":14,"line_bytes":256,"lines_per_second":100,"duration_ms":60000,"lines_written":0,"bytes_written":0,"status":"running","started_utc":"2026-11-27T00:58:45.1594472Z"}
+{"event":"load-finished","load_id":14,"line_bytes":256,"lines_per_second":100,"duration_ms":60000,"lines_written":5966,"bytes_written":1527296,"status":"completed","started_utc":"2026-11-27T00:58:45.1594472Z","finished_utc":"2026-11-27T00:59:45.1601712Z"}
+{"event":"input","text":"load 100 256 60000"}
+{"event":"load-start","load_id":15,"line_bytes":256,"lines_per_second":100,"duration_ms":60000,"lines_written":0,"bytes_written":0,"status":"running","started_utc":"2026-11-27T01:28:46.3354251Z"}
+{"event":"load-finished","load_id":15,"line_bytes":256,"lines_per_second":100,"duration_ms":60000,"lines_written":5952,"bytes_written":1523712,"status":"completed","started_utc":"2026-11-27T01:28:46.3354251Z","finished_utc":"2026-11-27T01:29:46.335808Z"}

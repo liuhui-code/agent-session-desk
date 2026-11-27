@@ -1,0 +1,49 @@
+from pathlib import Path
+import json,hashlib,zipfile,collections,math,datetime,re,decimal,calendar
+p=Path('/private/tmp/asd-stability-20261127');zpath=p/'stability-export-soak-r1.zip'
+assert hashlib.sha256(zpath.read_bytes()).hexdigest()=='70b56253eef74cae05f5cf58a6dca9531ffacb80372d16ece3ba1ff9e489c133'
+with zipfile.ZipFile(zpath) as z:
+ for f in z.infolist():
+  name=f.filename.replace('\\','/');assert '..' not in name.split('/') and not name.startswith('/')
+  if not name.endswith('/'):
+   out=p/'remote-selected'/name;out.parent.mkdir(parents=True,exist_ok=True);out.write_bytes(z.read(f))
+raw=p/'remote-selected/stability-ui-soak-r1-20261127';result=json.loads((raw/'result.json').read_text(encoding='utf-8-sig'))
+def stamp(value):
+ m=re.fullmatch(r'(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2})(?:\.(\d{1,9}))?(?:Z|\+00:00)',value);assert m
+ return decimal.Decimal(calendar.timegm(datetime.datetime.strptime(m[1],'%Y-%m-%dT%H:%M:%S').timetuple()))*1000000000+decimal.Decimal((m[2] or '').ljust(9,'0'))
+def stats(v):
+ if not v:return None
+ s=sorted(v);return {'first':v[0],'last':v[-1],'min':s[0],'p50':s[math.ceil(len(s)*.5)-1],'p95':s[math.ceil(len(s)*.95)-1],'max':s[-1]}
+started=[s['utc'] for s in result['stages'] if s['stage']=='eight-hour-passive-observation'][0];begin=stamp(started)
+loads={};fixtures={};load_counts={};load_details=[]
+for f in sorted((raw/'managed-10').glob('fixture-*.jsonl')):
+ rows=[json.loads(s) for s in f.read_text(encoding='utf-8-sig').splitlines() if s.strip()];fixtures[f.name]=rows[0]['pid'];starts={r['load_id']:r for r in rows if r.get('event')=='load-start'};ends={r['load_id']:r for r in rows if r.get('event')=='load-finished'}
+ assert len(starts)==len(ends)==15,(f.name,len(starts),len(ends));ranges=[];load_counts[f.name]=len(ends)
+ for id,e in ends.items():
+  assert id in starts and e['bytes_written']==e['lines_written']*256 and e['lines_written']>0
+  assert e['status']=='completed',e['status'];ranges.append((stamp(e['started_utc']),stamp(e['finished_utc'])))
+  load_details.append({'fixture':f.name,'load_id':id,'lines':e['lines_written'],'bytes':e['bytes_written'],'status':e['status'],'started_utc':e['started_utc'],'finished_utc':e['finished_utc']})
+ loads[f.name]=ranges
+all_values=collections.defaultdict(list);hours={};gap_reasons=collections.Counter();identities=collections.defaultdict(set);count=0;complete=0;last_elapsed=None;intervals=[];all_output_whole=0;any_output=0;label_no_output=0;first_sample=None;last_sample=None
+with (raw/'samples.jsonl').open(encoding='utf-8-sig') as file:
+ for line in file:
+  r=json.loads(line);s=r['snapshot'];procs=[v for v in s['processes'] if v['owner_role']!='sampler'];uis=[v for v in procs if v['role']=='ui'];fs=[v for v in procs if v['role']=='fixture'];bs=[v for v in procs if v['role']=='backend_server' and not v['is_descendant']]
+  assert len(uis)==1 and len(fs)==10 and len(bs)==10
+  assert {v['process_id'] for v in fs}==set(fixtures.values())
+  for role,values in [('ui',uis),('fixture',fs),('backend_server',bs)]:
+   for v in values:identities[role].add((v['process_id'],v['creation_filetime']))
+  t=stamp(s['sample_utc']);end=t+decimal.Decimal(str(s['sample_duration_ms']))*1000000;hour=int((t-begin)//decimal.Decimal(3600000000000));assert 0<=hour<8
+  bucket=hours.setdefault(hour,{'samples':0,'complete_observations':0,'ui_private':[],'ui_handles':[],'tree_private':[]})
+  g=[v for v in s['gaps'] if v.get('owner_role')!='sampler'];complete+=not g;bucket['complete_observations']+=not g
+  for v in g:gap_reasons[v['reason']]+=1
+  ui=uis[0];values={'ui_private_bytes':ui['private_bytes'],'ui_working_set_bytes':ui['working_set_bytes'],'ui_handle_count':ui['handle_count'],'ui_thread_count':ui['thread_count'],'ui_cpu_total_ms':ui['cpu_total_ms'],'owned_tree_private_bytes':sum(v['private_bytes'] for v in procs),'collection_ms':s['sample_duration_ms']}
+  for k,v in values.items():all_values[k].append(v)
+  bucket['ui_private'].append(ui['private_bytes']);bucket['ui_handles'].append(ui['handle_count']);bucket['tree_private'].append(values['owned_tree_private_bytes']);bucket['samples']+=1
+  if last_elapsed is not None:intervals.append(s['sample_elapsed_ms']-last_elapsed)
+  last_elapsed=s['sample_elapsed_ms'];first_sample=first_sample or s['sample_utc'];last_sample=s['sample_utc']
+  active=[any(a<=t and b>=t for a,b in ranges) for ranges in loads.values()];whole=[any(a<=t and b>=end for a,b in ranges) for ranges in loads.values()]
+  any_output+=any(active);all_output_whole+=all(whole);label_no_output+=(r['phase']=='soak-finite-output' and not any(active));count+=1
+assert count==result['total_samples']==1919
+assert {k:len(v) for k,v in identities.items()}=={'ui':1,'fixture':10,'backend_server':10}
+summary={'result':result['result'],'requested_seconds':28800,'observed_seconds':result['actual_observation_seconds'],'start_utc':started,'end_stage_utc':result['stages'][-1]['utc'],'first_sample_utc':first_sample,'last_sample_utc':last_sample,'samples':count,'complete_product_read_observations':complete,'product_gap_reasons':dict(gap_reasons),'sample_interval_ms':stats(intervals),'metrics':{k:stats(v) for k,v in all_values.items()},'stable_identity_counts':{k:len(v) for k,v in identities.items()},'load_cycles_per_fixture':load_counts,'finished_loads':len(load_details),'actual_output_lines':sum(v['lines'] for v in load_details),'actual_output_bytes':sum(v['bytes'] for v in load_details),'samples_with_any_output_at_start':any_output,'samples_with_all_output_for_collection':all_output_whole,'finite_phase_label_without_active_output_at_start':label_no_output,'hourly':[{'hour':h,'samples':b['samples'],'complete_observations':b['complete_observations'],'ui_private_bytes':stats(b['ui_private']),'ui_handle_count':stats(b['ui_handles']),'owned_tree_private_bytes':stats(b['tree_private'])} for h,b in sorted(hours.items())],'loads':load_details,'cleanup':result['cleanup'],'ui_exit_code':result['ui_exit_code'],'forced_product_ends':result['forced_product_ends'],'semantics':'Non-atomic samples; read gaps preserved, not zero. No population/lifetime completeness claim; shared Terminal and sampler excluded. Finite-phase labels include completion tails; actual active windows independently counted. No numerical budget or real-agent acceptance.'}
+(p/'soak-summary.json').write_text(json.dumps(summary,indent=2)+'\n');print({k:summary[k] for k in ['result','observed_seconds','samples','complete_product_read_observations','finished_loads','actual_output_bytes','product_gap_reasons','sample_interval_ms']});print('UI private bytes',summary['metrics']['ui_private_bytes']);print('UI handles',summary['metrics']['ui_handle_count'])

@@ -1,0 +1,2 @@
+$base=Join-Path $env:USERPROFILE 'asd-acceptance-20261122'
+& ([ScriptBlock]::Create([IO.File]::ReadAllText((Join-Path $base 'stability-desktop-task-utf8.ps1')))) -Driver (Join-Path $base 'stability-final-audit-r3-worker.ps1') -Task 'AsdStabilityFinalAuditR320261127' -Receipt (Join-Path $base 'stability-final-audit-r3-20261127/result.json') -Seconds 60

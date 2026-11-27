@@ -1,0 +1,1712 @@
+{
+  "result": "verified",
+  "requested_seconds": 28800,
+  "observed_seconds": 28801.750401,
+  "start_utc": "2026-11-26T17:58:37.4541898Z",
+  "end_stage_utc": "2026-11-27T01:58:39.2326523Z",
+  "first_sample_utc": "2026-11-26T17:58:37.6674462Z",
+  "last_sample_utc": "2026-11-27T01:58:28.7849003Z",
+  "samples": 1919,
+  "complete_product_read_observations": 988,
+  "product_gap_reasons": {
+    "process_read_failed": 931,
+    "parent_not_in_verified_snapshot": 4,
+    "cim_image_identity_mismatch": 1
+  },
+  "sample_interval_ms": {
+    "first": 14936.677699999998,
+    "last": 15075.90740000084,
+    "min": 8822.995199996978,
+    "p50": 15010.565700002015,
+    "p95": 15077.909700000659,
+    "max": 21210.783200003207
+  },
+  "metrics": {
+    "ui_private_bytes": {
+      "first": 62144512,
+      "last": 63184896,
+      "min": 61059072,
+      "p50": 62726144,
+      "p95": 63356928,
+      "max": 64004096
+    },
+    "ui_working_set_bytes": {
+      "first": 30224384,
+      "last": 42921984,
+      "min": 30064640,
+      "p50": 42729472,
+      "p95": 43442176,
+      "max": 77127680
+    },
+    "ui_handle_count": {
+      "first": 261,
+      "last": 289,
+      "min": 261,
+      "p50": 289,
+      "p95": 292,
+      "max": 302
+    },
+    "ui_thread_count": {
+      "first": 15,
+      "last": 15,
+      "min": 14,
+      "p50": 15,
+      "p95": 15,
+      "max": 16
+    },
+    "ui_cpu_total_ms": {
+      "first": 812.5,
+      "last": 4028781.25,
+      "min": 812.5,
+      "p50": 1999453.125,
+      "p95": 3844921.875,
+      "max": 4028781.25
+    },
+    "owned_tree_private_bytes": {
+      "first": 661561344,
+      "last": 761032704,
+      "min": 658763776,
+      "p50": 759836672,
+      "p95": 792883200,
+      "max": 794296320
+    },
+    "collection_ms": {
+      "first": 830.5453,
+      "last": 524.1921,
+      "min": 220.8393,
+      "p50": 414.3122,
+      "p95": 716.5539,
+      "max": 1307.8483
+    }
+  },
+  "stable_identity_counts": {
+    "ui": 1,
+    "fixture": 10,
+    "backend_server": 10
+  },
+  "load_cycles_per_fixture": {
+    "fixture-0.jsonl": 15,
+    "fixture-1.jsonl": 15,
+    "fixture-2.jsonl": 15,
+    "fixture-3.jsonl": 15,
+    "fixture-4.jsonl": 15,
+    "fixture-5.jsonl": 15,
+    "fixture-6.jsonl": 15,
+    "fixture-7.jsonl": 15,
+    "fixture-8.jsonl": 15,
+    "fixture-9.jsonl": 15
+  },
+  "finished_loads": 150,
+  "actual_output_lines": 898447,
+  "actual_output_bytes": 230002432,
+  "samples_with_any_output_at_start": 75,
+  "samples_with_all_output_for_collection": 75,
+  "finite_phase_label_without_active_output_at_start": 0,
+  "hourly": [
+    {
+      "hour": 0,
+      "samples": 240,
+      "complete_observations": 10,
+      "ui_private_bytes": {
+        "first": 62144512,
+        "last": 62332928,
+        "min": 61059072,
+        "p50": 62398464,
+        "p95": 63004672,
+        "max": 63516672
+      },
+      "ui_handle_count": {
+        "first": 261,
+        "last": 279,
+        "min": 261,
+        "p50": 282,
+        "p95": 282,
+        "max": 291
+      },
+      "owned_tree_private_bytes": {
+        "first": 661561344,
+        "last": 758386688,
+        "min": 658763776,
+        "p50": 663322624,
+        "p95": 785182720,
+        "max": 791506944
+      }
+    },
+    {
+      "hour": 1,
+      "samples": 240,
+      "complete_observations": 172,
+      "ui_private_bytes": {
+        "first": 63205376,
+        "last": 62406656,
+        "min": 61775872,
+        "p50": 62791680,
+        "p95": 63496192,
+        "max": 63987712
+      },
+      "ui_handle_count": {
+        "first": 279,
+        "last": 289,
+        "min": 279,
+        "p50": 289,
+        "p95": 289,
+        "max": 297
+      },
+      "owned_tree_private_bytes": {
+        "first": 760426496,
+        "last": 758476800,
+        "min": 758153216,
+        "p50": 759033856,
+        "p95": 792276992,
+        "max": 793247744
+      }
+    },
+    {
+      "hour": 2,
+      "samples": 240,
+      "complete_observations": 125,
+      "ui_private_bytes": {
+        "first": 62726144,
+        "last": 62873600,
+        "min": 61894656,
+        "p50": 62750720,
+        "p95": 63447040,
+        "max": 64004096
+      },
+      "ui_handle_count": {
+        "first": 289,
+        "last": 289,
+        "min": 289,
+        "p50": 292,
+        "p95": 297,
+        "max": 302
+      },
+      "owned_tree_private_bytes": {
+        "first": 760066048,
+        "last": 759308288,
+        "min": 757985280,
+        "p50": 759177216,
+        "p95": 792453120,
+        "max": 793337856
+      }
+    },
+    {
+      "hour": 3,
+      "samples": 240,
+      "complete_observations": 171,
+      "ui_private_bytes": {
+        "first": 62824448,
+        "last": 62005248,
+        "min": 61788160,
+        "p50": 62799872,
+        "p95": 63348736,
+        "max": 63750144
+      },
+      "ui_handle_count": {
+        "first": 289,
+        "last": 292,
+        "min": 289,
+        "p50": 289,
+        "p95": 292,
+        "max": 292
+      },
+      "owned_tree_private_bytes": {
+        "first": 760545280,
+        "last": 759128064,
+        "min": 758599680,
+        "p50": 760020992,
+        "p95": 793382912,
+        "max": 794128384
+      }
+    },
+    {
+      "hour": 4,
+      "samples": 240,
+      "complete_observations": 84,
+      "ui_private_bytes": {
+        "first": 63315968,
+        "last": 62857216,
+        "min": 61652992,
+        "p50": 62644224,
+        "p95": 63283200,
+        "max": 63619072
+      },
+      "ui_handle_count": {
+        "first": 289,
+        "last": 292,
+        "min": 289,
+        "p50": 292,
+        "p95": 297,
+        "max": 301
+      },
+      "owned_tree_private_bytes": {
+        "first": 761683968,
+        "last": 760041472,
+        "min": 758939648,
+        "p50": 759877632,
+        "p95": 793108480,
+        "max": 794296320
+      }
+    },
+    {
+      "hour": 5,
+      "samples": 239,
+      "complete_observations": 59,
+      "ui_private_bytes": {
+        "first": 62611456,
+        "last": 63242240,
+        "min": 61730816,
+        "p50": 62619648,
+        "p95": 63217664,
+        "max": 63569920
+      },
+      "ui_handle_count": {
+        "first": 297,
+        "last": 289,
+        "min": 289,
+        "p50": 289,
+        "p95": 292,
+        "max": 297
+      },
+      "owned_tree_private_bytes": {
+        "first": 761163776,
+        "last": 760492032,
+        "min": 758923264,
+        "p50": 759980032,
+        "p95": 793264128,
+        "max": 793890816
+      }
+    },
+    {
+      "hour": 6,
+      "samples": 240,
+      "complete_observations": 224,
+      "ui_private_bytes": {
+        "first": 62889984,
+        "last": 62808064,
+        "min": 61857792,
+        "p50": 62750720,
+        "p95": 63365120,
+        "max": 63766528
+      },
+      "ui_handle_count": {
+        "first": 292,
+        "last": 292,
+        "min": 289,
+        "p50": 292,
+        "p95": 292,
+        "max": 301
+      },
+      "owned_tree_private_bytes": {
+        "first": 761499648,
+        "last": 760168448,
+        "min": 759083008,
+        "p50": 760168448,
+        "p95": 790753280,
+        "max": 794271744
+      }
+    },
+    {
+      "hour": 7,
+      "samples": 240,
+      "complete_observations": 143,
+      "ui_private_bytes": {
+        "first": 62840832,
+        "last": 63184896,
+        "min": 61734912,
+        "p50": 62889984,
+        "p95": 63479808,
+        "max": 63856640
+      },
+      "ui_handle_count": {
+        "first": 289,
+        "last": 289,
+        "min": 289,
+        "p50": 292,
+        "p95": 297,
+        "max": 302
+      },
+      "owned_tree_private_bytes": {
+        "first": 761430016,
+        "last": 761032704,
+        "min": 759431168,
+        "p50": 760918016,
+        "p95": 793575424,
+        "max": 794267648
+      }
+    }
+  ],
+  "loads": [
+    {
+      "fixture": "fixture-0.jsonl",
+      "load_id": 1,
+      "lines": 5992,
+      "bytes": 1533952,
+      "status": "completed",
+      "started_utc": "2026-11-26T18:28:41.3539351Z",
+      "finished_utc": "2026-11-26T18:29:41.3542712Z"
+    },
+    {
+      "fixture": "fixture-0.jsonl",
+      "load_id": 2,
+      "lines": 5996,
+      "bytes": 1534976,
+      "status": "completed",
+      "started_utc": "2026-11-26T18:58:42.7308089Z",
+      "finished_utc": "2026-11-26T18:59:42.7309658Z"
+    },
+    {
+      "fixture": "fixture-0.jsonl",
+      "load_id": 3,
+      "lines": 5997,
+      "bytes": 1535232,
+      "status": "completed",
+      "started_utc": "2026-11-26T19:28:43.862869Z",
+      "finished_utc": "2026-11-26T19:29:43.8631214Z"
+    },
+    {
+      "fixture": "fixture-0.jsonl",
+      "load_id": 4,
+      "lines": 6000,
+      "bytes": 1536000,
+      "status": "completed",
+      "started_utc": "2026-11-26T19:58:45.4347719Z",
+      "finished_utc": "2026-11-26T19:59:45.4351685Z"
+    },
+    {
+      "fixture": "fixture-0.jsonl",
+      "load_id": 5,
+      "lines": 5995,
+      "bytes": 1534720,
+      "status": "completed",
+      "started_utc": "2026-11-26T20:28:46.7933225Z",
+      "finished_utc": "2026-11-26T20:29:46.7938679Z"
+    },
+    {
+      "fixture": "fixture-0.jsonl",
+      "load_id": 6,
+      "lines": 5992,
+      "bytes": 1533952,
+      "status": "completed",
+      "started_utc": "2026-11-26T20:58:48.0826813Z",
+      "finished_utc": "2026-11-26T20:59:48.0833194Z"
+    },
+    {
+      "fixture": "fixture-0.jsonl",
+      "load_id": 7,
+      "lines": 5994,
+      "bytes": 1534464,
+      "status": "completed",
+      "started_utc": "2026-11-26T21:28:49.3052749Z",
+      "finished_utc": "2026-11-26T21:29:49.3055607Z"
+    },
+    {
+      "fixture": "fixture-0.jsonl",
+      "load_id": 8,
+      "lines": 5997,
+      "bytes": 1535232,
+      "status": "completed",
+      "started_utc": "2026-11-26T21:58:50.9863488Z",
+      "finished_utc": "2026-11-26T21:59:50.9868597Z"
+    },
+    {
+      "fixture": "fixture-0.jsonl",
+      "load_id": 9,
+      "lines": 5996,
+      "bytes": 1534976,
+      "status": "completed",
+      "started_utc": "2026-11-26T22:28:52.3083733Z",
+      "finished_utc": "2026-11-26T22:29:52.308599Z"
+    },
+    {
+      "fixture": "fixture-0.jsonl",
+      "load_id": 10,
+      "lines": 5997,
+      "bytes": 1535232,
+      "status": "completed",
+      "started_utc": "2026-11-26T22:58:53.4910552Z",
+      "finished_utc": "2026-11-26T22:59:53.4918589Z"
+    },
+    {
+      "fixture": "fixture-0.jsonl",
+      "load_id": 11,
+      "lines": 5990,
+      "bytes": 1533440,
+      "status": "completed",
+      "started_utc": "2026-11-26T23:28:54.8078019Z",
+      "finished_utc": "2026-11-26T23:29:54.8082921Z"
+    },
+    {
+      "fixture": "fixture-0.jsonl",
+      "load_id": 12,
+      "lines": 5988,
+      "bytes": 1532928,
+      "status": "completed",
+      "started_utc": "2026-11-26T23:58:41.432578Z",
+      "finished_utc": "2026-11-26T23:59:41.4336373Z"
+    },
+    {
+      "fixture": "fixture-0.jsonl",
+      "load_id": 13,
+      "lines": 5985,
+      "bytes": 1532160,
+      "status": "completed",
+      "started_utc": "2026-11-27T00:28:43.0668265Z",
+      "finished_utc": "2026-11-27T00:29:43.0671017Z"
+    },
+    {
+      "fixture": "fixture-0.jsonl",
+      "load_id": 14,
+      "lines": 5966,
+      "bytes": 1527296,
+      "status": "completed",
+      "started_utc": "2026-11-27T00:58:44.1321439Z",
+      "finished_utc": "2026-11-27T00:59:44.1324031Z"
+    },
+    {
+      "fixture": "fixture-0.jsonl",
+      "load_id": 15,
+      "lines": 5957,
+      "bytes": 1524992,
+      "status": "completed",
+      "started_utc": "2026-11-27T01:28:45.25891Z",
+      "finished_utc": "2026-11-27T01:29:45.2591002Z"
+    },
+    {
+      "fixture": "fixture-1.jsonl",
+      "load_id": 1,
+      "lines": 5994,
+      "bytes": 1534464,
+      "status": "completed",
+      "started_utc": "2026-11-26T18:28:41.488774Z",
+      "finished_utc": "2026-11-26T18:29:41.4896177Z"
+    },
+    {
+      "fixture": "fixture-1.jsonl",
+      "load_id": 2,
+      "lines": 5998,
+      "bytes": 1535488,
+      "status": "completed",
+      "started_utc": "2026-11-26T18:58:43.1127128Z",
+      "finished_utc": "2026-11-26T18:59:43.1137558Z"
+    },
+    {
+      "fixture": "fixture-1.jsonl",
+      "load_id": 3,
+      "lines": 5998,
+      "bytes": 1535488,
+      "status": "completed",
+      "started_utc": "2026-11-26T19:28:44.2792712Z",
+      "finished_utc": "2026-11-26T19:29:44.2803123Z"
+    },
+    {
+      "fixture": "fixture-1.jsonl",
+      "load_id": 4,
+      "lines": 5997,
+      "bytes": 1535232,
+      "status": "completed",
+      "started_utc": "2026-11-26T19:58:45.6477579Z",
+      "finished_utc": "2026-11-26T19:59:45.6481899Z"
+    },
+    {
+      "fixture": "fixture-1.jsonl",
+      "load_id": 5,
+      "lines": 5995,
+      "bytes": 1534720,
+      "status": "completed",
+      "started_utc": "2026-11-26T20:28:46.9238355Z",
+      "finished_utc": "2026-11-26T20:29:46.9242409Z"
+    },
+    {
+      "fixture": "fixture-1.jsonl",
+      "load_id": 6,
+      "lines": 5993,
+      "bytes": 1534208,
+      "status": "completed",
+      "started_utc": "2026-11-26T20:58:48.3322415Z",
+      "finished_utc": "2026-11-26T20:59:48.3332842Z"
+    },
+    {
+      "fixture": "fixture-1.jsonl",
+      "load_id": 7,
+      "lines": 5995,
+      "bytes": 1534720,
+      "status": "completed",
+      "started_utc": "2026-11-26T21:28:49.8262355Z",
+      "finished_utc": "2026-11-26T21:29:49.8266144Z"
+    },
+    {
+      "fixture": "fixture-1.jsonl",
+      "load_id": 8,
+      "lines": 5996,
+      "bytes": 1534976,
+      "status": "completed",
+      "started_utc": "2026-11-26T21:58:51.1609362Z",
+      "finished_utc": "2026-11-26T21:59:51.1610766Z"
+    },
+    {
+      "fixture": "fixture-1.jsonl",
+      "load_id": 9,
+      "lines": 5994,
+      "bytes": 1534464,
+      "status": "completed",
+      "started_utc": "2026-11-26T22:28:52.4422412Z",
+      "finished_utc": "2026-11-26T22:29:52.4425986Z"
+    },
+    {
+      "fixture": "fixture-1.jsonl",
+      "load_id": 10,
+      "lines": 5996,
+      "bytes": 1534976,
+      "status": "completed",
+      "started_utc": "2026-11-26T22:58:53.6132796Z",
+      "finished_utc": "2026-11-26T22:59:53.6135618Z"
+    },
+    {
+      "fixture": "fixture-1.jsonl",
+      "load_id": 11,
+      "lines": 5991,
+      "bytes": 1533696,
+      "status": "completed",
+      "started_utc": "2026-11-26T23:28:55.4234264Z",
+      "finished_utc": "2026-11-26T23:29:55.4235593Z"
+    },
+    {
+      "fixture": "fixture-1.jsonl",
+      "load_id": 12,
+      "lines": 5990,
+      "bytes": 1533440,
+      "status": "completed",
+      "started_utc": "2026-11-26T23:58:41.6736598Z",
+      "finished_utc": "2026-11-26T23:59:41.6745163Z"
+    },
+    {
+      "fixture": "fixture-1.jsonl",
+      "load_id": 13,
+      "lines": 5981,
+      "bytes": 1531136,
+      "status": "completed",
+      "started_utc": "2026-11-27T00:28:43.657961Z",
+      "finished_utc": "2026-11-27T00:29:43.6585815Z"
+    },
+    {
+      "fixture": "fixture-1.jsonl",
+      "load_id": 14,
+      "lines": 5966,
+      "bytes": 1527296,
+      "status": "completed",
+      "started_utc": "2026-11-27T00:58:44.3472628Z",
+      "finished_utc": "2026-11-27T00:59:44.348175Z"
+    },
+    {
+      "fixture": "fixture-1.jsonl",
+      "load_id": 15,
+      "lines": 5951,
+      "bytes": 1523456,
+      "status": "completed",
+      "started_utc": "2026-11-27T01:28:45.397117Z",
+      "finished_utc": "2026-11-27T01:29:45.3975795Z"
+    },
+    {
+      "fixture": "fixture-2.jsonl",
+      "load_id": 1,
+      "lines": 5994,
+      "bytes": 1534464,
+      "status": "completed",
+      "started_utc": "2026-11-26T18:28:41.6157677Z",
+      "finished_utc": "2026-11-26T18:29:41.6170642Z"
+    },
+    {
+      "fixture": "fixture-2.jsonl",
+      "load_id": 2,
+      "lines": 5998,
+      "bytes": 1535488,
+      "status": "completed",
+      "started_utc": "2026-11-26T18:58:43.4025187Z",
+      "finished_utc": "2026-11-26T18:59:43.4027662Z"
+    },
+    {
+      "fixture": "fixture-2.jsonl",
+      "load_id": 3,
+      "lines": 5995,
+      "bytes": 1534720,
+      "status": "completed",
+      "started_utc": "2026-11-26T19:28:44.5149346Z",
+      "finished_utc": "2026-11-26T19:29:44.5160134Z"
+    },
+    {
+      "fixture": "fixture-2.jsonl",
+      "load_id": 4,
+      "lines": 5997,
+      "bytes": 1535232,
+      "status": "completed",
+      "started_utc": "2026-11-26T19:58:45.7651115Z",
+      "finished_utc": "2026-11-26T19:59:45.7652256Z"
+    },
+    {
+      "fixture": "fixture-2.jsonl",
+      "load_id": 5,
+      "lines": 5997,
+      "bytes": 1535232,
+      "status": "completed",
+      "started_utc": "2026-11-26T20:28:47.0444195Z",
+      "finished_utc": "2026-11-26T20:29:47.0448709Z"
+    },
+    {
+      "fixture": "fixture-2.jsonl",
+      "load_id": 6,
+      "lines": 5994,
+      "bytes": 1534464,
+      "status": "completed",
+      "started_utc": "2026-11-26T20:58:48.84031Z",
+      "finished_utc": "2026-11-26T20:59:48.8407991Z"
+    },
+    {
+      "fixture": "fixture-2.jsonl",
+      "load_id": 7,
+      "lines": 5997,
+      "bytes": 1535232,
+      "status": "completed",
+      "started_utc": "2026-11-26T21:28:50.0114039Z",
+      "finished_utc": "2026-11-26T21:29:50.0118901Z"
+    },
+    {
+      "fixture": "fixture-2.jsonl",
+      "load_id": 8,
+      "lines": 5996,
+      "bytes": 1534976,
+      "status": "completed",
+      "started_utc": "2026-11-26T21:58:51.2803927Z",
+      "finished_utc": "2026-11-26T21:59:51.2815656Z"
+    },
+    {
+      "fixture": "fixture-2.jsonl",
+      "load_id": 9,
+      "lines": 5994,
+      "bytes": 1534464,
+      "status": "completed",
+      "started_utc": "2026-11-26T22:28:52.729957Z",
+      "finished_utc": "2026-11-26T22:29:52.7305813Z"
+    },
+    {
+      "fixture": "fixture-2.jsonl",
+      "load_id": 10,
+      "lines": 5998,
+      "bytes": 1535488,
+      "status": "completed",
+      "started_utc": "2026-11-26T22:58:54.021232Z",
+      "finished_utc": "2026-11-26T22:59:54.0227324Z"
+    },
+    {
+      "fixture": "fixture-2.jsonl",
+      "load_id": 11,
+      "lines": 5993,
+      "bytes": 1534208,
+      "status": "completed",
+      "started_utc": "2026-11-26T23:28:55.6185843Z",
+      "finished_utc": "2026-11-26T23:29:55.6199304Z"
+    },
+    {
+      "fixture": "fixture-2.jsonl",
+      "load_id": 12,
+      "lines": 5991,
+      "bytes": 1533696,
+      "status": "completed",
+      "started_utc": "2026-11-26T23:58:41.7927804Z",
+      "finished_utc": "2026-11-26T23:59:41.7937517Z"
+    },
+    {
+      "fixture": "fixture-2.jsonl",
+      "load_id": 13,
+      "lines": 5985,
+      "bytes": 1532160,
+      "status": "completed",
+      "started_utc": "2026-11-27T00:28:43.8728017Z",
+      "finished_utc": "2026-11-27T00:29:43.8732964Z"
+    },
+    {
+      "fixture": "fixture-2.jsonl",
+      "load_id": 14,
+      "lines": 5963,
+      "bytes": 1526528,
+      "status": "completed",
+      "started_utc": "2026-11-27T00:58:44.8906262Z",
+      "finished_utc": "2026-11-27T00:59:44.8912302Z"
+    },
+    {
+      "fixture": "fixture-2.jsonl",
+      "load_id": 15,
+      "lines": 5958,
+      "bytes": 1525248,
+      "status": "completed",
+      "started_utc": "2026-11-27T01:28:46.0110348Z",
+      "finished_utc": "2026-11-27T01:29:46.0116373Z"
+    },
+    {
+      "fixture": "fixture-3.jsonl",
+      "load_id": 1,
+      "lines": 5995,
+      "bytes": 1534720,
+      "status": "completed",
+      "started_utc": "2026-11-26T18:28:41.8721194Z",
+      "finished_utc": "2026-11-26T18:29:41.8728241Z"
+    },
+    {
+      "fixture": "fixture-3.jsonl",
+      "load_id": 2,
+      "lines": 5997,
+      "bytes": 1535232,
+      "status": "completed",
+      "started_utc": "2026-11-26T18:58:43.5675936Z",
+      "finished_utc": "2026-11-26T18:59:43.5681662Z"
+    },
+    {
+      "fixture": "fixture-3.jsonl",
+      "load_id": 3,
+      "lines": 5997,
+      "bytes": 1535232,
+      "status": "completed",
+      "started_utc": "2026-11-26T19:28:44.6567327Z",
+      "finished_utc": "2026-11-26T19:29:44.6570041Z"
+    },
+    {
+      "fixture": "fixture-3.jsonl",
+      "load_id": 4,
+      "lines": 6000,
+      "bytes": 1536000,
+      "status": "completed",
+      "started_utc": "2026-11-26T19:58:45.8843728Z",
+      "finished_utc": "2026-11-26T19:59:45.8855132Z"
+    },
+    {
+      "fixture": "fixture-3.jsonl",
+      "load_id": 5,
+      "lines": 5994,
+      "bytes": 1534464,
+      "status": "completed",
+      "started_utc": "2026-11-26T20:28:47.5250523Z",
+      "finished_utc": "2026-11-26T20:29:47.5255261Z"
+    },
+    {
+      "fixture": "fixture-3.jsonl",
+      "load_id": 6,
+      "lines": 5994,
+      "bytes": 1534464,
+      "status": "completed",
+      "started_utc": "2026-11-26T20:58:48.9760667Z",
+      "finished_utc": "2026-11-26T20:59:48.9766595Z"
+    },
+    {
+      "fixture": "fixture-3.jsonl",
+      "load_id": 7,
+      "lines": 5996,
+      "bytes": 1534976,
+      "status": "completed",
+      "started_utc": "2026-11-26T21:28:50.135279Z",
+      "finished_utc": "2026-11-26T21:29:50.1360229Z"
+    },
+    {
+      "fixture": "fixture-3.jsonl",
+      "load_id": 8,
+      "lines": 5998,
+      "bytes": 1535488,
+      "status": "completed",
+      "started_utc": "2026-11-26T21:58:51.4087691Z",
+      "finished_utc": "2026-11-26T21:59:51.4093808Z"
+    },
+    {
+      "fixture": "fixture-3.jsonl",
+      "load_id": 9,
+      "lines": 5991,
+      "bytes": 1533696,
+      "status": "completed",
+      "started_utc": "2026-11-26T22:28:53.1244044Z",
+      "finished_utc": "2026-11-26T22:29:53.1251226Z"
+    },
+    {
+      "fixture": "fixture-3.jsonl",
+      "load_id": 10,
+      "lines": 5997,
+      "bytes": 1535232,
+      "status": "completed",
+      "started_utc": "2026-11-26T22:58:54.3103126Z",
+      "finished_utc": "2026-11-26T22:59:54.3108778Z"
+    },
+    {
+      "fixture": "fixture-3.jsonl",
+      "load_id": 11,
+      "lines": 5990,
+      "bytes": 1533440,
+      "status": "completed",
+      "started_utc": "2026-11-26T23:28:55.7428159Z",
+      "finished_utc": "2026-11-26T23:29:55.7435021Z"
+    },
+    {
+      "fixture": "fixture-3.jsonl",
+      "load_id": 12,
+      "lines": 5990,
+      "bytes": 1533440,
+      "status": "completed",
+      "started_utc": "2026-11-26T23:58:41.9143618Z",
+      "finished_utc": "2026-11-26T23:59:41.9146496Z"
+    },
+    {
+      "fixture": "fixture-3.jsonl",
+      "load_id": 13,
+      "lines": 5978,
+      "bytes": 1530368,
+      "status": "completed",
+      "started_utc": "2026-11-27T00:28:44.0121523Z",
+      "finished_utc": "2026-11-27T00:29:44.012527Z"
+    },
+    {
+      "fixture": "fixture-3.jsonl",
+      "load_id": 14,
+      "lines": 5971,
+      "bytes": 1528576,
+      "status": "completed",
+      "started_utc": "2026-11-27T00:58:45.0364997Z",
+      "finished_utc": "2026-11-27T00:59:45.0368096Z"
+    },
+    {
+      "fixture": "fixture-3.jsonl",
+      "load_id": 15,
+      "lines": 5964,
+      "bytes": 1526784,
+      "status": "completed",
+      "started_utc": "2026-11-27T01:28:46.210296Z",
+      "finished_utc": "2026-11-27T01:29:46.2108709Z"
+    },
+    {
+      "fixture": "fixture-4.jsonl",
+      "load_id": 1,
+      "lines": 5995,
+      "bytes": 1534720,
+      "status": "completed",
+      "started_utc": "2026-11-26T18:28:42.2519608Z",
+      "finished_utc": "2026-11-26T18:29:42.2522592Z"
+    },
+    {
+      "fixture": "fixture-4.jsonl",
+      "load_id": 2,
+      "lines": 5998,
+      "bytes": 1535488,
+      "status": "completed",
+      "started_utc": "2026-11-26T18:58:43.695679Z",
+      "finished_utc": "2026-11-26T18:59:43.6965291Z"
+    },
+    {
+      "fixture": "fixture-4.jsonl",
+      "load_id": 3,
+      "lines": 5997,
+      "bytes": 1535232,
+      "status": "completed",
+      "started_utc": "2026-11-26T19:28:44.7794145Z",
+      "finished_utc": "2026-11-26T19:29:44.7799172Z"
+    },
+    {
+      "fixture": "fixture-4.jsonl",
+      "load_id": 4,
+      "lines": 5999,
+      "bytes": 1535744,
+      "status": "completed",
+      "started_utc": "2026-11-26T19:58:46.0055628Z",
+      "finished_utc": "2026-11-26T19:59:46.0057457Z"
+    },
+    {
+      "fixture": "fixture-4.jsonl",
+      "load_id": 5,
+      "lines": 5991,
+      "bytes": 1533696,
+      "status": "completed",
+      "started_utc": "2026-11-26T20:28:47.739101Z",
+      "finished_utc": "2026-11-26T20:29:47.7396101Z"
+    },
+    {
+      "fixture": "fixture-4.jsonl",
+      "load_id": 6,
+      "lines": 5995,
+      "bytes": 1534720,
+      "status": "completed",
+      "started_utc": "2026-11-26T20:58:49.101591Z",
+      "finished_utc": "2026-11-26T20:59:49.1019438Z"
+    },
+    {
+      "fixture": "fixture-4.jsonl",
+      "load_id": 7,
+      "lines": 5994,
+      "bytes": 1534464,
+      "status": "completed",
+      "started_utc": "2026-11-26T21:28:50.258018Z",
+      "finished_utc": "2026-11-26T21:29:50.2584039Z"
+    },
+    {
+      "fixture": "fixture-4.jsonl",
+      "load_id": 8,
+      "lines": 5998,
+      "bytes": 1535488,
+      "status": "completed",
+      "started_utc": "2026-11-26T21:58:51.8863431Z",
+      "finished_utc": "2026-11-26T21:59:51.8873973Z"
+    },
+    {
+      "fixture": "fixture-4.jsonl",
+      "load_id": 9,
+      "lines": 5997,
+      "bytes": 1535232,
+      "status": "completed",
+      "started_utc": "2026-11-26T22:28:53.2836157Z",
+      "finished_utc": "2026-11-26T22:29:53.2841916Z"
+    },
+    {
+      "fixture": "fixture-4.jsonl",
+      "load_id": 10,
+      "lines": 5997,
+      "bytes": 1535232,
+      "status": "completed",
+      "started_utc": "2026-11-26T22:58:54.4660555Z",
+      "finished_utc": "2026-11-26T22:59:54.4667063Z"
+    },
+    {
+      "fixture": "fixture-4.jsonl",
+      "load_id": 11,
+      "lines": 5992,
+      "bytes": 1533952,
+      "status": "completed",
+      "started_utc": "2026-11-26T23:28:55.9727465Z",
+      "finished_utc": "2026-11-26T23:29:55.9736038Z"
+    },
+    {
+      "fixture": "fixture-4.jsonl",
+      "load_id": 12,
+      "lines": 5990,
+      "bytes": 1533440,
+      "status": "completed",
+      "started_utc": "2026-11-26T23:58:42.4627672Z",
+      "finished_utc": "2026-11-26T23:59:42.4630177Z"
+    },
+    {
+      "fixture": "fixture-4.jsonl",
+      "load_id": 13,
+      "lines": 5982,
+      "bytes": 1531392,
+      "status": "completed",
+      "started_utc": "2026-11-27T00:28:44.29528Z",
+      "finished_utc": "2026-11-27T00:29:44.300856Z"
+    },
+    {
+      "fixture": "fixture-4.jsonl",
+      "load_id": 14,
+      "lines": 5966,
+      "bytes": 1527296,
+      "status": "completed",
+      "started_utc": "2026-11-27T00:58:45.1594472Z",
+      "finished_utc": "2026-11-27T00:59:45.1601712Z"
+    },
+    {
+      "fixture": "fixture-4.jsonl",
+      "load_id": 15,
+      "lines": 5952,
+      "bytes": 1523712,
+      "status": "completed",
+      "started_utc": "2026-11-27T01:28:46.3354251Z",
+      "finished_utc": "2026-11-27T01:29:46.335808Z"
+    },
+    {
+      "fixture": "fixture-5.jsonl",
+      "load_id": 1,
+      "lines": 5994,
+      "bytes": 1534464,
+      "status": "completed",
+      "started_utc": "2026-11-26T18:28:42.4053401Z",
+      "finished_utc": "2026-11-26T18:29:42.4059773Z"
+    },
+    {
+      "fixture": "fixture-5.jsonl",
+      "load_id": 2,
+      "lines": 5998,
+      "bytes": 1535488,
+      "status": "completed",
+      "started_utc": "2026-11-26T18:58:43.8535951Z",
+      "finished_utc": "2026-11-26T18:59:43.8542553Z"
+    },
+    {
+      "fixture": "fixture-5.jsonl",
+      "load_id": 3,
+      "lines": 5997,
+      "bytes": 1535232,
+      "status": "completed",
+      "started_utc": "2026-11-26T19:28:44.8958617Z",
+      "finished_utc": "2026-11-26T19:29:44.8969657Z"
+    },
+    {
+      "fixture": "fixture-5.jsonl",
+      "load_id": 4,
+      "lines": 5997,
+      "bytes": 1535232,
+      "status": "completed",
+      "started_utc": "2026-11-26T19:58:46.5164178Z",
+      "finished_utc": "2026-11-26T19:59:46.5166011Z"
+    },
+    {
+      "fixture": "fixture-5.jsonl",
+      "load_id": 5,
+      "lines": 5995,
+      "bytes": 1534720,
+      "status": "completed",
+      "started_utc": "2026-11-26T20:28:47.8593004Z",
+      "finished_utc": "2026-11-26T20:29:47.8595882Z"
+    },
+    {
+      "fixture": "fixture-5.jsonl",
+      "load_id": 6,
+      "lines": 5992,
+      "bytes": 1533952,
+      "status": "completed",
+      "started_utc": "2026-11-26T20:58:49.486791Z",
+      "finished_utc": "2026-11-26T20:59:49.488293Z"
+    },
+    {
+      "fixture": "fixture-5.jsonl",
+      "load_id": 7,
+      "lines": 5995,
+      "bytes": 1534720,
+      "status": "completed",
+      "started_utc": "2026-11-26T21:28:50.7650581Z",
+      "finished_utc": "2026-11-26T21:29:50.7654917Z"
+    },
+    {
+      "fixture": "fixture-5.jsonl",
+      "load_id": 8,
+      "lines": 5995,
+      "bytes": 1534720,
+      "status": "completed",
+      "started_utc": "2026-11-26T21:58:52.1096265Z",
+      "finished_utc": "2026-11-26T21:59:52.110223Z"
+    },
+    {
+      "fixture": "fixture-5.jsonl",
+      "load_id": 9,
+      "lines": 5994,
+      "bytes": 1534464,
+      "status": "completed",
+      "started_utc": "2026-11-26T22:28:53.4156808Z",
+      "finished_utc": "2026-11-26T22:29:53.415958Z"
+    },
+    {
+      "fixture": "fixture-5.jsonl",
+      "load_id": 10,
+      "lines": 5998,
+      "bytes": 1535488,
+      "status": "completed",
+      "started_utc": "2026-11-26T22:58:54.5865485Z",
+      "finished_utc": "2026-11-26T22:59:54.5869173Z"
+    },
+    {
+      "fixture": "fixture-5.jsonl",
+      "load_id": 11,
+      "lines": 5989,
+      "bytes": 1533184,
+      "status": "completed",
+      "started_utc": "2026-11-26T23:28:56.4720093Z",
+      "finished_utc": "2026-11-26T23:29:56.4727819Z"
+    },
+    {
+      "fixture": "fixture-5.jsonl",
+      "load_id": 12,
+      "lines": 5988,
+      "bytes": 1532928,
+      "status": "completed",
+      "started_utc": "2026-11-26T23:58:42.6928584Z",
+      "finished_utc": "2026-11-26T23:59:42.6931287Z"
+    },
+    {
+      "fixture": "fixture-5.jsonl",
+      "load_id": 13,
+      "lines": 5978,
+      "bytes": 1530368,
+      "status": "completed",
+      "started_utc": "2026-11-27T00:28:44.8055256Z",
+      "finished_utc": "2026-11-27T00:29:44.8060361Z"
+    },
+    {
+      "fixture": "fixture-5.jsonl",
+      "load_id": 14,
+      "lines": 5965,
+      "bytes": 1527040,
+      "status": "completed",
+      "started_utc": "2026-11-27T00:58:45.5905133Z",
+      "finished_utc": "2026-11-27T00:59:45.5913904Z"
+    },
+    {
+      "fixture": "fixture-5.jsonl",
+      "load_id": 15,
+      "lines": 5963,
+      "bytes": 1526528,
+      "status": "completed",
+      "started_utc": "2026-11-27T01:28:46.8404364Z",
+      "finished_utc": "2026-11-27T01:29:46.8427111Z"
+    },
+    {
+      "fixture": "fixture-6.jsonl",
+      "load_id": 1,
+      "lines": 5993,
+      "bytes": 1534208,
+      "status": "completed",
+      "started_utc": "2026-11-26T18:28:42.5448927Z",
+      "finished_utc": "2026-11-26T18:29:42.5458644Z"
+    },
+    {
+      "fixture": "fixture-6.jsonl",
+      "load_id": 2,
+      "lines": 5997,
+      "bytes": 1535232,
+      "status": "completed",
+      "started_utc": "2026-11-26T18:58:44.3613683Z",
+      "finished_utc": "2026-11-26T18:59:44.3618331Z"
+    },
+    {
+      "fixture": "fixture-6.jsonl",
+      "load_id": 3,
+      "lines": 5996,
+      "bytes": 1534976,
+      "status": "completed",
+      "started_utc": "2026-11-26T19:28:45.3860548Z",
+      "finished_utc": "2026-11-26T19:29:45.3865983Z"
+    },
+    {
+      "fixture": "fixture-6.jsonl",
+      "load_id": 4,
+      "lines": 6000,
+      "bytes": 1536000,
+      "status": "completed",
+      "started_utc": "2026-11-26T19:58:46.6946135Z",
+      "finished_utc": "2026-11-26T19:59:46.6956763Z"
+    },
+    {
+      "fixture": "fixture-6.jsonl",
+      "load_id": 5,
+      "lines": 5997,
+      "bytes": 1535232,
+      "status": "completed",
+      "started_utc": "2026-11-26T20:28:47.9839452Z",
+      "finished_utc": "2026-11-26T20:29:47.9851251Z"
+    },
+    {
+      "fixture": "fixture-6.jsonl",
+      "load_id": 6,
+      "lines": 5995,
+      "bytes": 1534720,
+      "status": "completed",
+      "started_utc": "2026-11-26T20:58:49.7946343Z",
+      "finished_utc": "2026-11-26T20:59:49.7949514Z"
+    },
+    {
+      "fixture": "fixture-6.jsonl",
+      "load_id": 7,
+      "lines": 5998,
+      "bytes": 1535488,
+      "status": "completed",
+      "started_utc": "2026-11-26T21:28:50.9721833Z",
+      "finished_utc": "2026-11-26T21:29:50.9723508Z"
+    },
+    {
+      "fixture": "fixture-6.jsonl",
+      "load_id": 8,
+      "lines": 5998,
+      "bytes": 1535488,
+      "status": "completed",
+      "started_utc": "2026-11-26T21:58:52.2359624Z",
+      "finished_utc": "2026-11-26T21:59:52.2367501Z"
+    },
+    {
+      "fixture": "fixture-6.jsonl",
+      "load_id": 9,
+      "lines": 5994,
+      "bytes": 1534464,
+      "status": "completed",
+      "started_utc": "2026-11-26T22:28:53.541471Z",
+      "finished_utc": "2026-11-26T22:29:53.5422312Z"
+    },
+    {
+      "fixture": "fixture-6.jsonl",
+      "load_id": 10,
+      "lines": 5998,
+      "bytes": 1535488,
+      "status": "completed",
+      "started_utc": "2026-11-26T22:58:54.8013325Z",
+      "finished_utc": "2026-11-26T22:59:54.8015171Z"
+    },
+    {
+      "fixture": "fixture-6.jsonl",
+      "load_id": 11,
+      "lines": 5991,
+      "bytes": 1533696,
+      "status": "completed",
+      "started_utc": "2026-11-26T23:28:56.6172763Z",
+      "finished_utc": "2026-11-26T23:29:56.6181303Z"
+    },
+    {
+      "fixture": "fixture-6.jsonl",
+      "load_id": 12,
+      "lines": 5988,
+      "bytes": 1532928,
+      "status": "completed",
+      "started_utc": "2026-11-26T23:58:42.8177696Z",
+      "finished_utc": "2026-11-26T23:59:42.8180319Z"
+    },
+    {
+      "fixture": "fixture-6.jsonl",
+      "load_id": 13,
+      "lines": 5983,
+      "bytes": 1531648,
+      "status": "completed",
+      "started_utc": "2026-11-27T00:28:44.9659523Z",
+      "finished_utc": "2026-11-27T00:29:44.967131Z"
+    },
+    {
+      "fixture": "fixture-6.jsonl",
+      "load_id": 14,
+      "lines": 5961,
+      "bytes": 1526016,
+      "status": "completed",
+      "started_utc": "2026-11-27T00:58:45.9677353Z",
+      "finished_utc": "2026-11-27T00:59:45.9682351Z"
+    },
+    {
+      "fixture": "fixture-6.jsonl",
+      "load_id": 15,
+      "lines": 5961,
+      "bytes": 1526016,
+      "status": "completed",
+      "started_utc": "2026-11-27T01:28:47.1790483Z",
+      "finished_utc": "2026-11-27T01:29:47.1792668Z"
+    },
+    {
+      "fixture": "fixture-7.jsonl",
+      "load_id": 1,
+      "lines": 5995,
+      "bytes": 1534720,
+      "status": "completed",
+      "started_utc": "2026-11-26T18:28:42.6787547Z",
+      "finished_utc": "2026-11-26T18:29:42.6794437Z"
+    },
+    {
+      "fixture": "fixture-7.jsonl",
+      "load_id": 2,
+      "lines": 5999,
+      "bytes": 1535744,
+      "status": "completed",
+      "started_utc": "2026-11-26T18:58:44.5334459Z",
+      "finished_utc": "2026-11-26T18:59:44.5343809Z"
+    },
+    {
+      "fixture": "fixture-7.jsonl",
+      "load_id": 3,
+      "lines": 5998,
+      "bytes": 1535488,
+      "status": "completed",
+      "started_utc": "2026-11-26T19:28:45.5774962Z",
+      "finished_utc": "2026-11-26T19:29:45.5779665Z"
+    },
+    {
+      "fixture": "fixture-7.jsonl",
+      "load_id": 4,
+      "lines": 6000,
+      "bytes": 1536000,
+      "status": "completed",
+      "started_utc": "2026-11-26T19:58:46.8151362Z",
+      "finished_utc": "2026-11-26T19:59:46.815435Z"
+    },
+    {
+      "fixture": "fixture-7.jsonl",
+      "load_id": 5,
+      "lines": 5996,
+      "bytes": 1534976,
+      "status": "completed",
+      "started_utc": "2026-11-26T20:28:48.1520128Z",
+      "finished_utc": "2026-11-26T20:29:48.1532624Z"
+    },
+    {
+      "fixture": "fixture-7.jsonl",
+      "load_id": 6,
+      "lines": 5995,
+      "bytes": 1534720,
+      "status": "completed",
+      "started_utc": "2026-11-26T20:58:49.9460424Z",
+      "finished_utc": "2026-11-26T20:59:49.9468878Z"
+    },
+    {
+      "fixture": "fixture-7.jsonl",
+      "load_id": 7,
+      "lines": 5998,
+      "bytes": 1535488,
+      "status": "completed",
+      "started_utc": "2026-11-26T21:28:51.1007869Z",
+      "finished_utc": "2026-11-26T21:29:51.1018278Z"
+    },
+    {
+      "fixture": "fixture-7.jsonl",
+      "load_id": 8,
+      "lines": 5997,
+      "bytes": 1535232,
+      "status": "completed",
+      "started_utc": "2026-11-26T21:58:52.3648153Z",
+      "finished_utc": "2026-11-26T21:59:52.3652763Z"
+    },
+    {
+      "fixture": "fixture-7.jsonl",
+      "load_id": 9,
+      "lines": 5994,
+      "bytes": 1534464,
+      "status": "completed",
+      "started_utc": "2026-11-26T22:28:54.1156716Z",
+      "finished_utc": "2026-11-26T22:29:54.1162659Z"
+    },
+    {
+      "fixture": "fixture-7.jsonl",
+      "load_id": 10,
+      "lines": 5998,
+      "bytes": 1535488,
+      "status": "completed",
+      "started_utc": "2026-11-26T22:58:55.2972305Z",
+      "finished_utc": "2026-11-26T22:59:55.2973273Z"
+    },
+    {
+      "fixture": "fixture-7.jsonl",
+      "load_id": 11,
+      "lines": 5991,
+      "bytes": 1533696,
+      "status": "completed",
+      "started_utc": "2026-11-26T23:28:56.7376973Z",
+      "finished_utc": "2026-11-26T23:29:56.738204Z"
+    },
+    {
+      "fixture": "fixture-7.jsonl",
+      "load_id": 12,
+      "lines": 5989,
+      "bytes": 1533184,
+      "status": "completed",
+      "started_utc": "2026-11-26T23:58:42.9409819Z",
+      "finished_utc": "2026-11-26T23:59:42.9417243Z"
+    },
+    {
+      "fixture": "fixture-7.jsonl",
+      "load_id": 13,
+      "lines": 5978,
+      "bytes": 1530368,
+      "status": "completed",
+      "started_utc": "2026-11-27T00:28:45.1128466Z",
+      "finished_utc": "2026-11-27T00:29:45.1132952Z"
+    },
+    {
+      "fixture": "fixture-7.jsonl",
+      "load_id": 14,
+      "lines": 5965,
+      "bytes": 1527040,
+      "status": "completed",
+      "started_utc": "2026-11-27T00:58:46.0921021Z",
+      "finished_utc": "2026-11-27T00:59:46.0925727Z"
+    },
+    {
+      "fixture": "fixture-7.jsonl",
+      "load_id": 15,
+      "lines": 5953,
+      "bytes": 1523968,
+      "status": "completed",
+      "started_utc": "2026-11-27T01:28:47.3061157Z",
+      "finished_utc": "2026-11-27T01:29:47.3067884Z"
+    },
+    {
+      "fixture": "fixture-8.jsonl",
+      "load_id": 1,
+      "lines": 5992,
+      "bytes": 1533952,
+      "status": "completed",
+      "started_utc": "2026-11-26T18:28:43.1788548Z",
+      "finished_utc": "2026-11-26T18:29:43.1794568Z"
+    },
+    {
+      "fixture": "fixture-8.jsonl",
+      "load_id": 2,
+      "lines": 5996,
+      "bytes": 1534976,
+      "status": "completed",
+      "started_utc": "2026-11-26T18:58:44.6709215Z",
+      "finished_utc": "2026-11-26T18:59:44.6714169Z"
+    },
+    {
+      "fixture": "fixture-8.jsonl",
+      "load_id": 3,
+      "lines": 5997,
+      "bytes": 1535232,
+      "status": "completed",
+      "started_utc": "2026-11-26T19:28:45.706279Z",
+      "finished_utc": "2026-11-26T19:29:45.7075127Z"
+    },
+    {
+      "fixture": "fixture-8.jsonl",
+      "load_id": 4,
+      "lines": 5996,
+      "bytes": 1534976,
+      "status": "completed",
+      "started_utc": "2026-11-26T19:58:46.9384805Z",
+      "finished_utc": "2026-11-26T19:59:46.9388091Z"
+    },
+    {
+      "fixture": "fixture-8.jsonl",
+      "load_id": 5,
+      "lines": 5991,
+      "bytes": 1533696,
+      "status": "completed",
+      "started_utc": "2026-11-26T20:28:48.6594072Z",
+      "finished_utc": "2026-11-26T20:29:48.6603622Z"
+    },
+    {
+      "fixture": "fixture-8.jsonl",
+      "load_id": 6,
+      "lines": 5994,
+      "bytes": 1534464,
+      "status": "completed",
+      "started_utc": "2026-11-26T20:58:50.0748952Z",
+      "finished_utc": "2026-11-26T20:59:50.0759164Z"
+    },
+    {
+      "fixture": "fixture-8.jsonl",
+      "load_id": 7,
+      "lines": 5997,
+      "bytes": 1535232,
+      "status": "completed",
+      "started_utc": "2026-11-26T21:28:51.2231177Z",
+      "finished_utc": "2026-11-26T21:29:51.2239343Z"
+    },
+    {
+      "fixture": "fixture-8.jsonl",
+      "load_id": 8,
+      "lines": 5994,
+      "bytes": 1534464,
+      "status": "completed",
+      "started_utc": "2026-11-26T21:58:52.8540795Z",
+      "finished_utc": "2026-11-26T21:59:52.8543681Z"
+    },
+    {
+      "fixture": "fixture-8.jsonl",
+      "load_id": 9,
+      "lines": 5996,
+      "bytes": 1534976,
+      "status": "completed",
+      "started_utc": "2026-11-26T22:28:54.2887933Z",
+      "finished_utc": "2026-11-26T22:29:54.2889925Z"
+    },
+    {
+      "fixture": "fixture-8.jsonl",
+      "load_id": 10,
+      "lines": 5999,
+      "bytes": 1535744,
+      "status": "completed",
+      "started_utc": "2026-11-26T22:58:55.4674748Z",
+      "finished_utc": "2026-11-26T22:59:55.4681564Z"
+    },
+    {
+      "fixture": "fixture-8.jsonl",
+      "load_id": 11,
+      "lines": 5991,
+      "bytes": 1533696,
+      "status": "completed",
+      "started_utc": "2026-11-26T23:28:56.9987824Z",
+      "finished_utc": "2026-11-26T23:29:57.0017137Z"
+    },
+    {
+      "fixture": "fixture-8.jsonl",
+      "load_id": 12,
+      "lines": 5988,
+      "bytes": 1532928,
+      "status": "completed",
+      "started_utc": "2026-11-26T23:58:43.5049686Z",
+      "finished_utc": "2026-11-26T23:59:43.5051971Z"
+    },
+    {
+      "fixture": "fixture-8.jsonl",
+      "load_id": 13,
+      "lines": 5981,
+      "bytes": 1531136,
+      "status": "completed",
+      "started_utc": "2026-11-27T00:28:45.8394941Z",
+      "finished_utc": "2026-11-27T00:29:45.8399577Z"
+    },
+    {
+      "fixture": "fixture-8.jsonl",
+      "load_id": 14,
+      "lines": 5966,
+      "bytes": 1527296,
+      "status": "completed",
+      "started_utc": "2026-11-27T00:58:46.2226929Z",
+      "finished_utc": "2026-11-27T00:59:46.2230471Z"
+    },
+    {
+      "fixture": "fixture-8.jsonl",
+      "load_id": 15,
+      "lines": 5961,
+      "bytes": 1526016,
+      "status": "completed",
+      "started_utc": "2026-11-27T01:28:47.590624Z",
+      "finished_utc": "2026-11-27T01:29:47.5960732Z"
+    },
+    {
+      "fixture": "fixture-9.jsonl",
+      "load_id": 1,
+      "lines": 5994,
+      "bytes": 1534464,
+      "status": "completed",
+      "started_utc": "2026-11-26T18:28:43.360443Z",
+      "finished_utc": "2026-11-26T18:29:43.3606544Z"
+    },
+    {
+      "fixture": "fixture-9.jsonl",
+      "load_id": 2,
+      "lines": 5997,
+      "bytes": 1535232,
+      "status": "completed",
+      "started_utc": "2026-11-26T18:58:44.8118215Z",
+      "finished_utc": "2026-11-26T18:59:44.8123627Z"
+    },
+    {
+      "fixture": "fixture-9.jsonl",
+      "load_id": 3,
+      "lines": 5997,
+      "bytes": 1535232,
+      "status": "completed",
+      "started_utc": "2026-11-26T19:28:45.8291312Z",
+      "finished_utc": "2026-11-26T19:29:45.8296691Z"
+    },
+    {
+      "fixture": "fixture-9.jsonl",
+      "load_id": 4,
+      "lines": 5998,
+      "bytes": 1535488,
+      "status": "completed",
+      "started_utc": "2026-11-26T19:58:47.354504Z",
+      "finished_utc": "2026-11-26T19:59:47.355683Z"
+    },
+    {
+      "fixture": "fixture-9.jsonl",
+      "load_id": 5,
+      "lines": 5993,
+      "bytes": 1534208,
+      "status": "completed",
+      "started_utc": "2026-11-26T20:28:48.8279865Z",
+      "finished_utc": "2026-11-26T20:29:48.8285326Z"
+    },
+    {
+      "fixture": "fixture-9.jsonl",
+      "load_id": 6,
+      "lines": 5993,
+      "bytes": 1534208,
+      "status": "completed",
+      "started_utc": "2026-11-26T20:58:50.3093493Z",
+      "finished_utc": "2026-11-26T20:59:50.3097104Z"
+    },
+    {
+      "fixture": "fixture-9.jsonl",
+      "load_id": 7,
+      "lines": 5996,
+      "bytes": 1534976,
+      "status": "completed",
+      "started_utc": "2026-11-26T21:28:51.6469917Z",
+      "finished_utc": "2026-11-26T21:29:51.6475894Z"
+    },
+    {
+      "fixture": "fixture-9.jsonl",
+      "load_id": 8,
+      "lines": 5997,
+      "bytes": 1535232,
+      "status": "completed",
+      "started_utc": "2026-11-26T21:58:53.0813805Z",
+      "finished_utc": "2026-11-26T21:59:53.0818581Z"
+    },
+    {
+      "fixture": "fixture-9.jsonl",
+      "load_id": 9,
+      "lines": 5997,
+      "bytes": 1535232,
+      "status": "completed",
+      "started_utc": "2026-11-26T22:28:54.4196879Z",
+      "finished_utc": "2026-11-26T22:29:54.4200285Z"
+    },
+    {
+      "fixture": "fixture-9.jsonl",
+      "load_id": 10,
+      "lines": 5997,
+      "bytes": 1535232,
+      "status": "completed",
+      "started_utc": "2026-11-26T22:58:55.5951879Z",
+      "finished_utc": "2026-11-26T22:59:55.5958865Z"
+    },
+    {
+      "fixture": "fixture-9.jsonl",
+      "load_id": 11,
+      "lines": 5990,
+      "bytes": 1533440,
+      "status": "completed",
+      "started_utc": "2026-11-26T23:28:57.5167415Z",
+      "finished_utc": "2026-11-26T23:29:57.5172065Z"
+    },
+    {
+      "fixture": "fixture-9.jsonl",
+      "load_id": 12,
+      "lines": 5988,
+      "bytes": 1532928,
+      "status": "completed",
+      "started_utc": "2026-11-26T23:58:43.7395607Z",
+      "finished_utc": "2026-11-26T23:59:43.7405866Z"
+    },
+    {
+      "fixture": "fixture-9.jsonl",
+      "load_id": 13,
+      "lines": 5982,
+      "bytes": 1531392,
+      "status": "completed",
+      "started_utc": "2026-11-27T00:28:46.0309189Z",
+      "finished_utc": "2026-11-27T00:29:46.0313036Z"
+    },
+    {
+      "fixture": "fixture-9.jsonl",
+      "load_id": 14,
+      "lines": 5971,
+      "bytes": 1528576,
+      "status": "completed",
+      "started_utc": "2026-11-27T00:58:46.9440812Z",
+      "finished_utc": "2026-11-27T00:59:46.9446149Z"
+    },
+    {
+      "fixture": "fixture-9.jsonl",
+      "load_id": 15,
+      "lines": 5962,
+      "bytes": 1526272,
+      "status": "completed",
+      "started_utc": "2026-11-27T01:28:48.1715983Z",
+      "finished_utc": "2026-11-27T01:29:48.1722527Z"
+    }
+  ],
+  "cleanup": [
+    {
+      "held_private_remaining": 0,
+      "normal_fixtures": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "scenario": "managed-10"
+    }
+  ],
+  "ui_exit_code": 0,
+  "forced_product_ends": 0,
+  "semantics": "Non-atomic samples; read gaps preserved, not zero. No population/lifetime completeness claim; shared Terminal and sampler excluded. Finite-phase labels include completion tails; actual active windows independently counted. No numerical budget or real-agent acceptance."
+}

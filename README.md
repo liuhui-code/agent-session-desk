@@ -52,7 +52,7 @@ psmux Tab 的管理焦点 `V` 新鲜捕获并复制列表所选会话的当前 p
 
 Agent 接入的命令参数、JSON 字段、作用域、幂等和错误恢复合同见[接口参考](docs/AGENT_API.md)，含 PowerShell 调用示例；已提供 agent-bind／inbox／reply／replies，用绑定原 Run 的凭据提交关联结果；实际范围见[结构化回复验证](docs/testing/results/2026-11-26-structured-replies.md)。
 
-2026-11-27 已恢复遗留稳定性专项，包含实际 Windows Terminal 操作、受控模拟与原生合同。当前通过项、失败轮和未完成门槛见[稳定性报告](docs/testing/results/2026-11-27-stability.md)；短轮通过不等于完整发布验收。
+2026-11-27 已恢复遗留稳定性专项，包含实际 Windows Terminal 操作、受控模拟与原生合同。限定 8 小时长稳已完成；当前通过项、失败轮和未完成门槛见[稳定性报告](docs/testing/results/2026-11-27-stability.md)；短轮通过不等于完整发布验收。
 
 ## 产品目标
 

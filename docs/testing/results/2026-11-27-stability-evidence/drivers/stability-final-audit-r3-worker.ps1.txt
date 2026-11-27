@@ -1,0 +1,15 @@
+$ErrorActionPreference='Stop';$base=Join-Path $env:USERPROFILE 'asd-acceptance-20261122';$out=Join-Path $base 'stability-final-audit-r3-20261127'
+if(Test-Path $out){throw 'Fresh audit required'};New-Item -ItemType Directory $out|Out-Null
+& ([ScriptBlock]::Create([IO.File]::ReadAllText((Join-Path $base 'desktop-api.ps1'))))
+. ([ScriptBlock]::Create([IO.File]::ReadAllText((Join-Path $base 'windows-process-metrics.ps1'))))
+$roles=@{}
+foreach($dir in @(Get-ChildItem $base -Directory -Filter 'stability-ui-product-*-20261127')){
+ $role='finished_private'
+ foreach($name in @('asd-instance-r3.exe','asd-stability-fixture.exe','terminal-runtime/psmux.exe','terminal-runtime/OpenConsole.exe')){$file=Join-Path $dir.FullName $name;if(Test-Path $file){$roles[$file]=$role}}
+}
+foreach($name in @('asd-stability-fixture.exe','stability-fault-proxy.exe')){$path=Join-Path $base $name;if(Test-Path $path){$roles[$path]='finished_private'}}
+$snap=Get-AsdWindowsProcessSnapshot -ImageRoles $roles
+$rows=@($snap.processes|Where-Object{$_.owner_role-ne 'sampler'}|ForEach-Object{@{pid=$_.process_id;creation_filetime=$_.creation_filetime;private_image=$_.executable_path.Replace($base,'<TEST_ROOT>');role=$_.role;owner_role=$_.owner_role;expected_soak=($_.owner_role-ceq 'soak_private')}})
+$tasks=@(Get-ScheduledTask -TaskName 'AsdStability*20261127' -ErrorAction SilentlyContinue|ForEach-Object{@{name=$_.TaskName;state=[string]$_.State;expected_soak=($_.TaskName-ceq 'AsdStabilitySoakR120261127');audit_task=($_.TaskName-ceq 'AsdStabilityFinalAuditR320261127')}})
+$r=@{utc=[DateTime]::UtcNow.ToString('o');owned_observed_processes=$rows;gaps=$snap.gaps;unexpected_private_image_count=@($rows|Where-Object{!$_.expected_soak}).Count;tasks=$tasks;direct_probe_windows=@([DeskFlow]::Find('ASD Direct Input ')).Count;clipboard_calls=0;registry_writes=0;ui_input_calls=0}
+$r|ConvertTo-Json -Depth 6|Set-Content (Join-Path $out 'result.json') -Encoding utf8

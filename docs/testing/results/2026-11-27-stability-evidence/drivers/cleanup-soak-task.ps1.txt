@@ -1,0 +1,9 @@
+$ErrorActionPreference='Stop';$base=Join-Path $env:USERPROFILE 'asd-acceptance-20261122';$name='AsdStabilitySoakR120261127';$driver=Join-Path $base 'stability-ui-soak-r1.ps1'
+$package=Join-Path ([Environment]::GetFolderPath('Desktop')) 'Agent Session Desk Alpha 8234c4e';$hostInfo=Get-Content -Raw (Join-Path $package 'local-host.json')|ConvertFrom-Json
+$code="& ([ScriptBlock]::Create([IO.File]::ReadAllText('"+$driver.Replace("'","''")+"')))";$args='-NoProfile -NonInteractive -WindowStyle Hidden -STA -EncodedCommand '+[Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($code))
+if((Get-FileHash $driver).Hash.ToLowerInvariant()-cne 'fd9e846e2dc25941e3b483b5fdd7cb42ea493ad90f5fa6d35e78a85bdde6d667'){throw 'Original driver changed'}
+$r=Get-Content -Raw -Encoding utf8 (Join-Path $base 'stability-ui-soak-r1-20261127/result.json')|ConvertFrom-Json
+if($r.result-cne 'verified'-or !$r.full_requested_duration-or $r.actual_observation_seconds-lt 28800-or $r.fixture_ends.Count-ne 10-or @($r.fixture_ends|Where-Object{!$_}).Count-or @($r.manager_ends|Where-Object{!$_}).Count-or $r.forced_product_ends-ne 0){throw 'Soak incomplete or cleanup requires review'}
+$t=Get-ScheduledTask -TaskName $name -ErrorAction SilentlyContinue
+if($t){if($t.State-eq 'Running'-or $t.Actions.Execute-ine $hostInfo.shell.path-or $t.Actions.Arguments-cne $args-or (Get-ScheduledTaskInfo $t).LastTaskResult-ne 0){throw 'Canary task identity/result changed; no removal'};Unregister-ScheduledTask -TaskName $name -Confirm:$false}
+@{soak_task_absent=!(Get-ScheduledTask -TaskName $name -ErrorAction SilentlyContinue)}|ConvertTo-Json
