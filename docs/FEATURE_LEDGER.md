@@ -598,3 +598,5 @@ M1 恢复补充（2026-11-22）：按用户继续完成 M1 的授权实现 metad
 2026-11-27 工作台入口：FL-001/006/016/020 按 [ADR-0055](adr/0055-scoped-workbench-instance-and-owned-window.md)加入当前用户／登录会话／数据作用域单实例、专属 Terminal 标识绑定及有界恢复消息。16 项最终原生定向检查、共用同一 Terminal 进程的两个隔离窗口与正常／受控崩溃重开流程通过；实际桌面与交付范围见[报告](testing/results/2026-11-26-workbench-instance.md)，M3 Host／额外原生 Tab／资源与完整发布不在此接受。
 
 2026-11-27 有界待办中心：FL-020/012/015/016 按 [ADR-0056](adr/0056-bounded-attention-center-and-snooze.md)复用至多 256 条快照，增加 Alt+A／管理 t、All/Due/Snoozed；s/S 暂停 10/30 分钟与 u 恢复。SQLite v10 独立提醒修订，暂停仍 pending，阻止自动投递／新领取。见[报告](testing/results/2026-11-27-attention-center.md)；真实 Agent、全局免打扰、后台提醒与整体资源仍开放。各项保持实现中／未发布，339 项设计状态不提升。
+
+2026-11-27 FL-020补模拟：[故障报告](testing/results/2026-11-27-simulated-attention.md)，含重复/旧事件、注入断连、重开与异常退出；不是品牌或整体验收。

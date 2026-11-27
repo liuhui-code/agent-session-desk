@@ -30,3 +30,5 @@ SQLite v9→v10 在同一事务追加 snoozed_ns 与 reminder_revision；后者�
 按行为 RED→GREEN 验证持久化／到期、旧修订竞争、内容变化、恢复备份、自动投递继续阻塞、输入排空与失败释放、选择／筛选／鼠标、窄窗、提交不确定及晚到结果。普通／race／vet／模块、原生 Windows 与实际桌面分开；用相同数据在关闭／打开／反复开关弹层间比较私有字节、句柄、线程和采样缺口。完整通知渠道、全局免打扰、真实 Agent 和旧退出问题继续保留各自门槛。
 
 Context7 的 Tick 文档索引返回通用／beta.6 资料，只用作 MVU 与单次 Tick 的说明；实际沿用仓库锁定 Bubble Tea 2.1.2 的 Update／Cmd／schedulePoll，不据索引升级依赖。
+
+2026-11-27补[模拟故障](../testing/results/2026-11-27-simulated-attention.md)，决策不变。
