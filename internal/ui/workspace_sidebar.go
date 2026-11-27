@@ -130,7 +130,7 @@ func (m *Model) workspaceSidebarCard(index, width, rowLines, level int) []string
 			state = session.TerminalUnknown
 		}
 		metadata := terminalLabel(state)
-		if command := session.ProgramLabel(s.CurrentProgram); command != "" {
+		if command := session.ProgramLabel(s.CurrentProgram); state==session.TerminalAvailable && command != "" {
 			metadata += m.tokens.sidebar.separator + command
 		}
 		count := rowLines - 1
