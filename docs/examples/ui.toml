@@ -1,0 +1,10 @@
+# 放在 metadata.sqlite3 同目录；手改前退出工作台。
+schema_version = 7
+sidebar_density = "compact"
+sidebar_mode = "grouped"
+sidebar_percent = 0
+# system 需要 v6+；当前示例采用 v7。
+theme = "system"
+footer = "compact"
+default_group_collapsed = false
+collapsed_groups = ""

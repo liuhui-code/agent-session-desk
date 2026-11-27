@@ -1,6 +1,6 @@
 # Agent Session Desk
 
-其他 Agent 接手请看[功能与适配索引](docs/AGENT_ADAPTATION.md)，含当前入口、源码、验证边界和快捷键配置。
+其他 Agent 接手先看[配置与接入说明](docs/CONFIGURATION.md)和[功能与适配索引](docs/AGENT_ADAPTATION.md)，含配置位置、作用域、优先级、可复制示例与验证边界。
 
 **面向 Windows 的本地 CLI Agent 多会话工作台。**
 
@@ -109,6 +109,7 @@ Agent 接入的命令参数、JSON 字段、作用域、幂等和错误恢复合
 | [ADR](docs/adr/README.md) | 架构决定的背景、取舍、代价和重新评估条件 |
 | [Feature Ledger](docs/FEATURE_LEDGER.md) | 20 项能力、需求映射、状态与验收证据 |
 | [测试设计与用例库](docs/testing/README.md) | 339 项设计基线与独立执行报告；设计覆盖和实际测试分别记录 |
+| [配置与 Agent 接入](docs/CONFIGURATION.md) | 文件位置、默认／最近配置、启动示例、界面和快捷键、作用域隔离与当前限制 |
 | [M0 开发指南](docs/M0_DEVELOPMENT.md) | 构建、CLI 用法、Windows 验证步骤和已知限制 |
 | [原生授权／选择提醒](docs/ATTENTION.md) | 既有阻塞事项、Alt+N 定位与查看／解决的区别 |
 | [桌宠阻塞提醒](docs/DESKTOP_REMINDERS.md) | Windows --pet 启用方式、状态、交互和剩余验证范围 |

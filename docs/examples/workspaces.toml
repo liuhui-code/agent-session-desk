@@ -1,0 +1,12 @@
+# 仅用于 workspace 命令；不要和普通 launch.toml 混用。
+# 路径为占位值；只在用户明确要求创建时执行。
+schema_version = 1
+
+[templates.shell]
+name = ""
+executable = "powershell.exe"
+args = ["-NoLogo", "-NoProfile", "-NoExit"]
+cwd = 'C:\Work\project'
+
+[workspaces.default]
+templates = ["shell"]

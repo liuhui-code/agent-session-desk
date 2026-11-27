@@ -2,10 +2,13 @@
 
 更新：2026-11-27。本文是 main 开发版索引，不等于 Windows 日常安装包或公开 Alpha 已包含全部功能。先读仓库 AGENTS.md，再核对 `git log`、`asd version` 和实际执行报告。
 
+首次接入先读[配置说明](CONFIGURATION.md)：固定 exe／bundle／runtime／namespace／state，再配置启动模板。示例位于 docs/examples，不会自动装入日常环境。
+
 ## 快速定位
 
 | 功能 | 当前入口 | 源码／合同 | 状态与边界 |
 | --- | --- | --- | --- |
+| 配置总览 | launch／last-launch／ui／keybindings | [配置说明与示例](CONFIGURATION.md)；`internal/config` | 各文件独立版本；含最近配置优先、便携缺省与工作区读取器限制 |
 | 待办中心 | Alt+A；管理 t | `internal/ui/attention_center*.go`；[ADR-0056](adr/0056-bounded-attention-center-and-snooze.md) | All/Due/Snoozed；s/S 暂停10/30分钟，u恢复；Enter只定位原表单 |
 | 桌宠提醒 | 启动 `--pet` | [说明](DESKTOP_REMINDERS.md) | 复用待办；不批准；工作台退出即停 |
 | 终端活动 | 会话名后转圈／蓝点 | `internal/ui/activity.go`；[ADR-0057](adr/0057-terminal-activity.md) | 比较有界页，不是 Agent忙闲；离屏不监控、断连不报静默 |
@@ -19,7 +22,7 @@
 
 ## 适配步骤
 
-1. 按 executable/args/cwd/env 配启动；项目组复用 launch.toml 模板，不添加聊天输入框。
+1. 按[配置说明](CONFIGURATION.md)中的 executable/args/cwd/env 配启动；项目组复用 launch.toml 模板，不添加聊天输入框。
 2. 调用工具前固定 exe/bundle/runtime/namespace/state；保存完整 Session/Run。命令参数、字段、幂等与恢复规则见 [Agent API](AGENT_API.md)。
 3. 授权／问题只上报合作式 attention-event；保留原 ID、版本及结束关联。查看／暂停／静默都不能变成批准、ready或completed。
 4. 先跑[模拟合同](testing/MESSAGING_CONTRACT.md)，再记录目标Agent名称、版本、hook和原生表单证据。当前模拟不是品牌兼容声明。

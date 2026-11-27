@@ -1,0 +1,64 @@
+package main
+
+import (
+	"fmt"
+	"github.com/liuhui-code/agent-session-desk/internal/config"
+	"github.com/liuhui-code/agent-session-desk/internal/keybindings"
+	"os"
+	"path/filepath"
+	"regexp"
+)
+
+func main() {
+	if err := check(); err != nil {
+		fmt.Fprintln(os.Stderr, err)
+		os.Exit(1)
+	}
+}
+func check() error {
+	if _, err := config.LoadLaunch("docs/examples/launch.toml", "default"); err != nil {
+		return err
+	}
+	fmt.Println("PASS example launch/default")
+	if _, err := config.LoadUI("docs/examples/ui.toml"); err != nil {
+		return err
+	}
+	fmt.Println("PASS example ui/v7")
+	if _, err := keybindings.Load("docs/examples/keybindings.toml"); err != nil {
+		return err
+	}
+	fmt.Println("PASS example keybindings/v1")
+	if _, err := config.LoadWorkspace("docs/examples/workspaces.toml", "default"); err != nil {
+		return err
+	}
+	fmt.Println("PASS example workspace/default")
+	if _, err := config.LoadLaunch("docs/examples/workspaces.toml", "shell"); err == nil {
+		return fmt.Errorf("documented workspace/launch limitation changed")
+	}
+	fmt.Println("CONFIRMED mixed workspace file rejected by LoadLaunch")
+	data, err := os.ReadFile("docs/CONFIGURATION.md")
+	if err != nil {
+		return err
+	}
+	blocks := regexp.MustCompile("(?s)```toml\\n(.*?)```").FindAllSubmatch(data, -1)
+	if len(blocks) != 2 {
+		return fmt.Errorf("expected two inline launch examples, got %d", len(blocks))
+	}
+	root, err := os.MkdirTemp("", "asd-config-doccheck-")
+	if err != nil {
+		return err
+	}
+	defer os.RemoveAll(root)
+	for i, b := range blocks {
+		p := filepath.Join(root, fmt.Sprintf("example-%d.toml", i))
+		if err := os.WriteFile(p, b[1], 0600); err != nil {
+			return err
+		}
+		if _, err := config.LoadLaunch(p, "default"); err != nil {
+			return err
+		}
+		fmt.Printf("PASS inline launch %d\n", i+1)
+	}
+	fmt.Println("Only configuration parsing checked; no terminal or Agent process started")
+	return nil
+}

@@ -1,0 +1,10 @@
+# 复制后先将 cwd 改为真实存在的项目目录；产品不会自动加载本示例。
+schema_version = 1
+
+[templates.default]
+name = ""
+executable = "powershell.exe"
+args = ["-NoLogo", "-NoProfile", "-NoExit"]
+cwd = 'C:\Work\project'
+
+[templates.default.env]

@@ -1,5 +1,7 @@
 # 启动模板
 
+完整的配置位置、scope、默认／最近配置优先级及可复制文件见[配置与 Agent 接入](CONFIGURATION.md)。本页保留启动模板字段与历史验证依据。
+
 2026-11-26 UI 更新（[ADR-0042](adr/0042-direct-create-terminal-host-and-focus.md)）：管理 `n` 直接使用最近一次成功的完整配置，首次读 `--config` 的 `templates.default`；未指定配置文件时使用 scoped 元数据旁的 `launch.toml`，缺失时生成一次系统 shell 默认模板。`N` 才明确打开编辑表单。最近成功记录独立为 `last-launch.toml`，包含明确 env 覆盖、按私有运行数据保管；不写回作者的默认配置。CLI start 成功也更新最近配置，失败／不确定结果不更新，不从列表的 Command 重建 args。
 
 例如默认配置：
@@ -22,19 +24,19 @@ cwd = 'C:\project'
 ```toml
 schema_version = 1
 
-[templates.dev]
-name = "开发"
+[templates.agent]
+name = ""
 executable = "你的程序.exe"
 args = ["参数", "含 空格", ""]
 cwd = "."
 
-[templates.dev.env]
+[templates.agent.env]
 ASD_PROJECT = "示例"
 ```
 
 ```powershell
-asd --config .\agents.toml start --template dev
-asd --config .\agents.toml start --template dev --name 评审 --cwd C:\project --env ASD_PROJECT=review
+asd --config .\agents.toml start --template agent
+asd --config .\agents.toml start --template agent --name Review --cwd C:\project --env ASD_PROJECT=review
 ```
 
 后端路径、runtime-dir、namespace 等全局选项也必须放在 `start` 之前。原有 `asd start -- EXE ARG...` 保持可用。
@@ -48,6 +50,6 @@ asd --config .\agents.toml start --template dev --name 评审 --cwd C:\project -
 
 配置解析与后端传输是两层边界。psmux 3.4.0/tmux 的已知参数改写形式仍明确拒绝，见 [开发指南](M0_DEVELOPMENT.md)。没有把 TOML 支持等同于任意 argv 都支持。
 
-本次没有保存／迁移／热重载、主题文件或持久 Session 数据库。实际证据见[执行报告](testing/results/2026-11-22-m1-config-tokens.md)。UI 样式开发入口见 [ADR-0008](adr/0008-ui-design-tokens.md)。
+作者启动模板不自动保存或热重载；最近成功配置、UI 偏好与 SQLite 运行数据分别管理，见[当前配置说明](CONFIGURATION.md)。首个历史切片的实际证据见[执行报告](testing/results/2026-11-22-m1-config-tokens.md)。UI 样式开发入口见 [ADR-0008](adr/0008-ui-design-tokens.md)。
 
 2026-11-24 UI 补充：[ADR-0039](adr/0039-launch-dialog-environment-overrides.md) 在 Tab 新建表单提供临时环境覆盖（JSON KEY=value 字符串数组），不读取／写回此模板。空白继承、重复键和平台解析仍沿既有后端合同；取消或重开不保留表单。此次只补启动请求，不新增配置编辑／保存／迁移，实际范围见[报告](testing/results/2026-11-24-launch-environment.md)。

@@ -1,0 +1,15 @@
+# 放在 metadata.sqlite3 同目录，重启生效；缺项沿用默认。
+schema_version = 1
+
+[global]
+wake = "ctrl+alt+space"
+
+[workspace]
+next = "alt+j"
+back = "alt+k"
+toggle_sidebar = "ctrl+s"
+rename = "f2"
+
+[management]
+new = "n"
+new_dialog = "N"

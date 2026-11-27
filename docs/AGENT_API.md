@@ -6,6 +6,8 @@
 
 接口使用本地 CLI，不要求 TUI、管理模式、HTTP 服务或品牌 SDK。当前显式投递仅接入 Windows psmux；Unix 后端明确拒绝 headless 投递。操作说明见[跨会话消息](MESSAGING.md)，状态与故障依据见 [ADR-0046](adr/0046-backend-only-message-delivery.md)和[接口验证报告](testing/results/2026-11-26-messaging-contract.md)。
 
+首次配置与目录优先级见[配置与 Agent 接入](CONFIGURATION.md)。该页覆盖启动模板及 UI 配置；本页负责命令、凭据、JSON、状态与重试边界。
+
 ## 1. 调用约定与作用域
 
 ```text
@@ -426,4 +428,4 @@ attention-list/status 离线可用，但会打开／升级库并根据已知 Run
 
 AttentionItem 额外返回 `snoozed_until`（可省略，UTC）与 `reminder_revision`（零可省略）。它们是用户提醒策略，不是来源事件版本；适配器不得向 attention-event 提交这两个字段。暂停仍 pending，viewed_at 不变，自动 deliver／新 claim 继续受阻；到期不产生新事件或答案。更高版本改变标题／详情会清除暂停，相同内容更新保留。只用 version/state 判断来源状态，不凭提醒隐藏推断已批准。用户在待办中心修改；本轮无 CLI 暂停命令。
 
-功能入口、开发状态和快捷键配置提案见[适配索引](AGENT_ADAPTATION.md)。keybindings.toml 为v1只读配置，见 KEYBINDINGS.md；不是 Agent终端指令。
+功能入口、开发状态和快捷键配置见[适配索引](AGENT_ADAPTATION.md)。keybindings.toml 为v1只读配置，见 KEYBINDINGS.md；不是 Agent终端指令。

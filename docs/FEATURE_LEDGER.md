@@ -614,3 +614,5 @@ FL-012/015/018：ADR-0057 有界页变化标识，静默不代表 ready；见[�
 2026-11-27 FL-012/015/018：按 [ADR-0062](adr/0062-bounded-warm-session-switch.md)加入四份／512 KiB 总计费有界末帧、连接优先与首屏原子提交，合并重复 attach 查询且保留控制身份检查；[实际报告](testing/results/2026-11-27-warm-session-switch.md)记录证据，不提升整体资源或发布接受。
 
 2026-11-27 FL-001/002/012/018：[旧示例清理](testing/results/2026-11-27-example-session-cleanup.md)移除另一旧测试作用域中的三条 fixture，会话列表归零、两个活动 fixture 退出，日常身份集合保持。当前产品不内置这些名称；此次为运行数据维护，不提升功能／发布接受。
+
+2026-11-27 FL-001/002/012/016：新增[配置与 Agent 接入说明](CONFIGURATION.md)及 docs/examples，统一 README、接手索引与 API 入口。说明实际 scope／文件版本／默认和最近配置优先，以及批量读取器兼容缺口；只更新文档，验证见[记录](testing/results/2026-11-27-configuration-guide.md)，不计新功能或发布接受。

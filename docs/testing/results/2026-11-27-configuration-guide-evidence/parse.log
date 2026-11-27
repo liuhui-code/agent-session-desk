@@ -1,0 +1,8 @@
+PASS example launch/default
+PASS example ui/v7
+PASS example keybindings/v1
+PASS example workspace/default
+CONFIRMED mixed workspace file rejected by LoadLaunch
+PASS inline launch 1
+PASS inline launch 2
+Only configuration parsing checked; no terminal or Agent process started
