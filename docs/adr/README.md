@@ -86,3 +86,5 @@ ADR-0014 依据用户 2026-11-22 的明确要求接受，部分替代 0001/0002 
 | [0054](0054-pet-workbench-restore-and-blink-anchor.md) | 空闲猫恢复原工作台、保留眨眼并对齐图像锚点 | 已接受 | [局部与实际 Windows 桌面](../testing/results/2026-11-26-pet-interaction.md)；多 Tab／多屏／发布开放 |
 | [0055](0055-scoped-workbench-instance-and-owned-window.md) | 按用户／登录会话／数据作用域单实例与明确窗口绑定 | 已接受 | [16 项原生及双作用域桌面](../testing/results/2026-11-26-workbench-instance.md)；M3 Host／多原生 Tab 与完整发布仍开放 |
 | [0056](0056-bounded-attention-center-and-snooze.md) | 有界待办中心、SQLite v10 持久稍后与独立修订 | 已接受 | 实施与实际资源验证中；复用现有快照和刷新，无每事项调度器 |
+
+| [0057](0057-terminal-activity.md) | 近期终端页活动 | 已接受 | 实现/资源验证中 |

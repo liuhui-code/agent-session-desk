@@ -96,6 +96,7 @@ type Model struct {
 	styles                           styles
 	tokens                           designTokens
 	history                          historyState
+	activity                         activityState
 	workspace                        *workspaceState
 
 	width, height      int
@@ -232,6 +233,9 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			return m, cmd
 		}
 	}
+	if cmd, ok := m.activityEvent(msg); ok {
+		return m, cmd
+	}
 	switch msg := msg.(type) {
 	case historyMsg:
 		return m, m.historyResult(msg)
@@ -322,7 +326,7 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			return m, nil
 		}
 		m.pollPending = false
-		return m, tea.Batch(m.loadSessions(), m.loadPreview(), m.refreshWorkspace(), m.schedulePoll())
+		return m, tea.Batch(m.refreshWorkspace(), m.sampleActivity(), m.loadSessions(), m.loadPreview(), m.schedulePoll())
 	case attachReadyMsg:
 		if msg.err != nil || msg.cmd == nil {
 			if msg.err == nil {

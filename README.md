@@ -218,3 +218,5 @@ Tab 管理模式现可按 `/` 搜索当前会话，选择后接回原 Run；查�
 新建终端的“环境覆盖”字段可填 JSON 字符串数组，例如 `["ASD_MODE=dev","ASD_EMPTY="]`；空白或 `[]` 保留继承环境，值中的等号、空格和 `$HOME` 保持字面，不经 shell 插值。覆盖仅用于这次启动，取消／重开不记忆，不写启动模板或 UI 偏好。带环境覆盖的启动错误显示字段定位或通用摘要，保留不确定 Session/Run，避免错误详情回显环境值；编辑字段本身可见。现有 Windows 变量名及 psmux 传输限制继续适用，详见[验证与范围](docs/testing/results/2026-11-24-launch-environment.md)。
 
 后端处理归属已有 claim／renew／claim-status：原 Run 凭据之外，使用单独的私有领取文件授权处理和回复；新 reply 必须带 --claim-file。租约不确定时不自动接管，不改前端；接口与 v7→v8 接入调整见[参考](docs/AGENT_API.md)，实际范围见[领取验证](docs/testing/results/2026-11-26-task-claims.md)。
+
+开发版会话名称后显示近期页变化：转圈/静默蓝点；当前只看最多8个可见项，未知无标识。见 [ADR-0057](docs/adr/0057-terminal-activity.md)。

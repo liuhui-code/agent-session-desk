@@ -96,7 +96,8 @@ func (m *Model) workspaceSidebarCard(index, width, rowLines, level int) []string
 	if m.sessionNeedsAttention(s) {
 		marker = m.tokens.attention.marker
 	}
-	title := m.sessionTitleWithTail(s, m.sessions, max(0, width-lipgloss.Width(prefix+marker)), "")
+	status := m.activityMark(s)
+	title := m.sessionTitleWithTail(s, m.sessions, max(0, width-lipgloss.Width(prefix+marker+status)), "")
 	fit := func(text string) string {
 		text = cellTruncate(text, width, "")
 		return text + strings.Repeat(" ", max(0, width-lipgloss.Width(text)))
@@ -111,9 +112,12 @@ func (m *Model) workspaceSidebarCard(index, width, rowLines, level int) []string
 	if selected && !w.focused {
 		titleStyle, metadataStyle = m.styles.sidebarNavigationSelected, m.styles.sidebarNavigationMetadata
 	}
-	line := fit(prefix + marker + title)
+	line := fit(prefix + marker + title + status)
 	if marker != "" && lipgloss.Width(prefix+marker) <= width {
 		line = prefix + m.styles.attention.Inherit(titleStyle).Render(marker) + strings.TrimPrefix(line, prefix+marker)
+	}
+	if status != "" {
+		line = strings.Replace(line, status, m.styles.key.Inherit(titleStyle).Render(status), 1)
 	}
 	lines := []string{titleStyle.Render(line)}
 	if rowLines > 1 {

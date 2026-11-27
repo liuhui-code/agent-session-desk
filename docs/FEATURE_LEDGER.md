@@ -600,3 +600,5 @@ M1 恢复补充（2026-11-22）：按用户继续完成 M1 的授权实现 metad
 2026-11-27 有界待办中心：FL-020/012/015/016 按 [ADR-0056](adr/0056-bounded-attention-center-and-snooze.md)复用至多 256 条快照，增加 Alt+A／管理 t、All/Due/Snoozed；s/S 暂停 10/30 分钟与 u 恢复。SQLite v10 独立提醒修订，暂停仍 pending，阻止自动投递／新领取。见[报告](testing/results/2026-11-27-attention-center.md)；真实 Agent、全局免打扰、后台提醒与整体资源仍开放。各项保持实现中／未发布，339 项设计状态不提升。
 
 2026-11-27 FL-020补模拟：[故障报告](testing/results/2026-11-27-simulated-attention.md)，含重复/旧事件、注入断连、重开与异常退出；不是品牌或整体验收。
+
+FL-012/015/018：ADR-0057 有界页变化标识，静默不代表 ready；见[验证](testing/results/2026-11-27-activity.md)。资源/桌面另验。
