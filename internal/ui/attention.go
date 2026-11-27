@@ -15,10 +15,11 @@ type attentionService interface {
 	OpenAttention(context.Context, string, int64) (session.AttentionItem, error)
 }
 type attentionState struct {
-	items   []session.AttentionItem
-	last    string
-	opening *session.AttentionItem
-	busy    bool
+	center, centerIntent *attentionCenter
+	items                []session.AttentionItem
+	last                 string
+	opening              *session.AttentionItem
+	busy                 bool
 }
 type attentionOpened struct {
 	item session.AttentionItem
@@ -34,18 +35,29 @@ func (m *Model) nextAttention() tea.Cmd {
 		return nil
 	}
 	items := m.attention.items
-	index := 0
+	start := 0
 	for i, item := range items {
 		if item.ID == m.attention.last {
-			index = (i + 1) % len(items)
+			start = (i + 1) % len(items)
 		}
 	}
+	index := -1
+	now := time.Now()
 	for n := range items {
-		i := (index + n) % len(items)
+		i := (start + n) % len(items)
+		if !items[i].ReminderDue(now) {
+			continue
+		}
+		if index < 0 {
+			index = i
+		}
 		if items[i].ViewedAt == nil {
 			index = i
 			break
 		}
+	}
+	if index < 0 {
+		return nil
 	}
 	item := items[index]
 	return m.beginAttention(item)
@@ -117,7 +129,7 @@ func (m *Model) attentionEvent(msg tea.Msg) (tea.Cmd, bool) {
 
 func (m *Model) sessionNeedsAttention(target session.Session) bool {
 	for _, item := range m.attention.items {
-		if item.State == "pending" && sameRun(item.Source, target) {
+		if item.ReminderDue(time.Now()) && sameRun(item.Source, target) {
 			return true
 		}
 	}
@@ -130,7 +142,16 @@ func (m *Model) attentionHeader() (string, int, int) {
 	if len(m.attention.items) == 0 || g.bodyY == 0 || g.bodyWidth == 0 {
 		return "", 0, 0
 	}
-	text := fmt.Sprintf(m.tokens.attention.label, len(m.attention.items))
+	due := 0
+	for _, item := range m.attention.items {
+		if item.ReminderDue(time.Now()) {
+			due++
+		}
+	}
+	text := fmt.Sprintf(m.tokens.attention.label, due)
+	if snoozed := len(m.attention.items) - due; snoozed > 0 {
+		text += fmt.Sprintf(m.tokens.attention.snoozedLabel, snoozed)
+	}
 	uncertain := m.listErr != nil
 	for _, item := range m.attention.items {
 		uncertain = uncertain || !item.TerminalAvailable

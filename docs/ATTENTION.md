@@ -1,8 +1,8 @@
 # 原生 Agent 决策提醒
 
-更新日期：2026-11-26；[ADR-0049](adr/0049-native-agent-decision-attention.md)。这是开发版的合作式事件接口和 psmux Tab 工作区内提醒，实际范围见[验证报告](testing/results/2026-11-26-native-decision-attention.md)。当前没有真实 Agent 接入证据。
+更新日期：2026-11-27；[ADR-0049](adr/0049-native-agent-decision-attention.md)。这是开发版的合作式事件接口和 psmux Tab 工作区内提醒，实际范围见[验证报告](testing/results/2026-11-26-native-decision-attention.md)。当前没有真实 Agent 接入证据。
 
-Agent 终端里已有授权菜单、问题或选项时，由经过绑定的适配器上报事件。顶部已有留白出现 `! N need attention · Alt+N`，对应会话行显示 `!`。不会抢焦点或改变终端尺寸；点击提醒或按 `Alt+N` 回到原会话。看过仍为待处理，用户在原 Agent 界面操作；只有来源明确结束事件或已知 Run 退出才移除。所有新 UI 文字保持英文。
+Agent 终端里已有授权菜单、问题或选项时，由经过绑定的适配器上报事件。顶部已有留白出现 `! N need attention · Alt+N`，对应会话行显示 `!`。不会抢焦点或改变终端尺寸；点击汇总打开待办，按 `Alt+N` 回到原会话。看过仍为待处理，用户在原 Agent 界面操作；只有来源明确结束事件或已知 Run 退出才移除。所有新 UI 文字保持英文。
 
 ## 桌宠显示现有事项
 
@@ -67,3 +67,9 @@ pending 阻止本产品对该 Run 的新 `deliver`／`send --deliver` 和新 `cl
 尚无通用屏幕识别或自动安装 hook。真实适配器须先证明来源绑定、稳定请求身份、版本／关闭关联，重试与进程退出处理，且不能通过 hook 决策输出改变原生授权行为。比如当前 Claude Code PermissionRequest 文档没有稳定 tool_use_id 的保证，不能直接假设某个 hook 字段足以去重和关闭，见 ADR-0049。
 
 本轮只提供 UI 运行时的应用内提示／定位；桌面通知、声音、系统激活、稍后提醒、全屏 attach 可见通知、后台 Host 和真实 Agent 适配没有交付。UI 外显式生产者保存的事件可在重新打开后读取，但没有生产者运行时不会凭空检测授权菜单。
+
+## 待办中心与稍后提醒
+
+按 `Alt+A`、管理模式 `t` 或点击顶部汇总。`Tab` 切换 All／Due／Snoozed，方向键选中；`s`／`S` 稍后 10／30 分钟，`u` 恢复。`Enter` 重新核验原事项并打开原终端，`Esc` 返回。已查看、暂停、到期均不解决事项，也不发送答案。暂停仍阻止自动投递／新领取；改动后的提示清除旧暂停，相同内容只升版本则保留。
+
+复用最多 256 条，关闭时不新增常驻组件；到期通过现有轮询，退出 UI 后不承诺持续提醒。SQLite 升至 v10，旧程序拒读；详见 [ADR-0056](adr/0056-bounded-attention-center-and-snooze.md)。

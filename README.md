@@ -26,9 +26,9 @@ Windows x64 体验包：[v0.1.0-alpha.1 预发布](https://github.com/liuhui-cod
 
 当前工作区只显示侧栏会话／分组导航，共享左右留白与顶部间距，隐藏侧栏后内容仍保留边距。`Alt+J/K` 切换会话视图，`Ctrl+S` 显隐侧栏，`F6` 切换管理／终端焦点；管理模式固定显示底部快捷键。`F2` 重命名当前活动／所选项；管理 `n` 直接沿最近成功／默认配置创建，`N` 显式编辑，`x` 只关闭视图。最新本机范围见[留白与快捷键验证](docs/testing/results/2026-11-26-workspace-spacing-controls.md)，公开 Alpha 字节仍以其发布报告为准。
 
-开发版新增[原生 Agent 决策提醒](docs/ATTENTION.md)：已绑定的适配器上报授权／选择事件后，顶部留白和会话行显示待处理标记，`Alt+N` 或点击定位原终端，查看不会解决事项或代答。目前以模拟 CLI 验证，真实 Agent 适配、桌面通知与后台提醒仍开放。
+开发版新增[原生 Agent 决策提醒](docs/ATTENTION.md)：已绑定的适配器上报授权／选择事件后，顶部留白和会话行显示待处理标记，`Alt+N` 定位原终端，查看不会解决事项或代答。新增 Alt+A／管理 t 打开待办中心，s／S 稍后 10／30 分钟、u 恢复；稍后仍 pending；当前以模拟 CLI 验证，真实 Agent 适配、桌面通知与后台提醒仍开放。
 
-管理模式 `r` 重命名所选会话或分组，`Ctrl+R` 刷新；连接失败时 `r` 重试。会话名称独立保存，列表、Tab、搜索和离线历史使用当前显示名，原终端身份与启动快照不变；会话同名增加简短身份标记。当前数据库为 schema v9，旧程序不能直接读取新 schema。分组改名保留稳定 ID、成员和折叠状态，默认组也可改显示名；同级重名／旧版本提交拒绝。实际验证与剩余范围见[会话重命名](docs/testing/results/2026-11-23-session-rename.md)及[组重命名](docs/testing/results/2026-11-23-group-rename.md)。
+管理模式 `r` 重命名所选会话或分组，`Ctrl+R` 刷新；连接失败时 `r` 重试。会话名称独立保存，列表、Tab、搜索和离线历史使用当前显示名，原终端身份与启动快照不变；会话同名增加简短身份标记。当前数据库为 schema v10，旧程序不能直接读取新 schema。分组改名保留稳定 ID、成员和折叠状态，默认组也可改显示名；同级重名／旧版本提交拒绝。实际验证与剩余范围见[会话重命名](docs/testing/results/2026-11-23-session-rename.md)及[组重命名](docs/testing/results/2026-11-23-group-rename.md)。
 
 管理焦点用 `Shift/Ctrl+↑↓`、`K/J` 或 `+/-` 调整并保存所选会话的同组顺序，组标题仍调整同级组，默认组固定首位；终端焦点的同名键仍交给原程序。详见[组排序验证](docs/testing/results/2026-11-23-group-order.md)及[会话排序验证](docs/testing/results/2026-11-24-session-order.md)。
 
@@ -48,7 +48,7 @@ psmux Tab 的管理焦点 `V` 新鲜捕获并复制列表所选会话的当前 p
 
 > 当前阶段：**M0 首批源码迁入已落地，五项 Windows 原生后端场景已在指定 Windows Server 2025 runner 通过；完整验收仍待完成。** 已有 Go / Charm v2 开发切片，包含 psmux Tab 工作区、原生终端输入、通用 CLI 创建、辅助列表／预览及全屏 attach；已有供体验的实验性预发布，尚未完成稳定版验收。运行方法见 [M0 开发指南](docs/M0_DEVELOPMENT.md)，证据分别记录在[源码迁入报告](docs/testing/results/2026-11-21-m0-source-migration.md)和[Windows 执行报告](docs/testing/results/2026-11-21-m0-native-windows.md)。另已完成 0/1/5/10 会话的[原生 Windows 短资源实验](docs/testing/results/2026-11-21-m0-windows-resources.md)，含真实 TUI 启停、重开与直接程序对照。桌面交互、资源预算、长稳和发布仍需独立验收。项目名称与原创部分的许可证仍待定。
 
-后端协作切片提供 `read`、`send`、`deliver`、`status`：读取来源片段、持久建单，通过 `send --deliver` 或 `deliver` 明确投递；前端不增加通信入口，大写 `M` 仍是 Move。原生粘贴不追加 Enter，写入不代表 agent 接收或完成。当前数据库为 v9；方法及回退边界见[消息说明](docs/MESSAGING.md)。
+后端协作切片提供 `read`、`send`、`deliver`、`status`：读取来源片段、持久建单，通过 `send --deliver` 或 `deliver` 明确投递；前端不增加通信入口，大写 `M` 仍是 Move。原生粘贴不追加 Enter，写入不代表 agent 接收或完成。当前数据库为 v10；方法及回退边界见[消息说明](docs/MESSAGING.md)。
 
 Agent 接入的命令参数、JSON 字段、作用域、幂等和错误恢复合同见[接口参考](docs/AGENT_API.md)，含 PowerShell 调用示例；已提供 agent-bind／inbox／reply／replies，用绑定原 Run 的凭据提交关联结果；实际范围见[结构化回复验证](docs/testing/results/2026-11-26-structured-replies.md)。
 

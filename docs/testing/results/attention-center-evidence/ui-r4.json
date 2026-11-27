@@ -1,0 +1,41 @@
+{
+  "session_content_exported": 0,
+  "clipboard_calls": 0,
+  "snooze_start": "2026-11-27T03:49:55.5854102Z",
+  "snooze_until": "2026-11-27T03:59:55.4012814Z",
+  "automatic_input_replay": false,
+  "intentional_owned_ui_crashes": 0,
+  "result": "verified",
+  "registry_writes": 0,
+  "stages": [
+    {
+      "stage": "create-originals",
+      "utc": "2026-11-27T03:49:49.1483281Z"
+    },
+    {
+      "stage": "ten-minute-snooze",
+      "utc": "2026-11-27T03:49:55.3053490Z"
+    },
+    {
+      "stage": "capacity",
+      "utc": "2026-11-27T03:49:56.5209072Z"
+    },
+    {
+      "stage": "persist",
+      "utc": "2026-11-27T03:51:03.5260521Z"
+    },
+    {
+      "stage": "only-explicit-answer",
+      "utc": "2026-11-27T03:51:07.4207590Z"
+    }
+  ],
+  "fixture_ends": [
+    true,
+    true
+  ],
+  "manager_ends": [
+    true,
+    true
+  ],
+  "forced_product_ends": 0
+}

@@ -146,6 +146,7 @@ func newModelWithTokens(ctx context.Context, service Service, tokens designToken
 // exits because of an external error or signal. It does not stop a session.
 func (m *Model) Close() {
 	m.closed = true
+	m.attention.center, m.attention.centerIntent = nil, nil
 	if m.workspace != nil {
 		m.workspace.disconnect()
 		m.workspace.buffered = nil
@@ -186,6 +187,9 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	}
 	if m.workspace != nil {
 		if cmd, handled := m.attentionEvent(msg); handled {
+			return m, cmd
+		}
+		if cmd, handled := m.attentionCenterEvent(msg); handled {
 			return m, cmd
 		}
 		if cmd, handled := m.sessionStopEvent(msg); handled {
@@ -264,7 +268,7 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		m.groupOrderFailed = false
 		m.sessionOrderFailed = false
 		selected, hadSelection := m.selected()
-		m.attention.items = msg.attention
+		m.acceptAttentionSnapshot(msg.attention)
 		m.publishAttention(true)
 		m.sessions = msg.sessions
 		m.groups = msg.groups

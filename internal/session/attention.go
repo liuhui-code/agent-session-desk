@@ -55,7 +55,14 @@ type AttentionItem struct {
 	EventID           string     `json:"event_id"`
 	Source            Session    `json:"source"`
 	ViewedAt          *time.Time `json:"viewed_at,omitempty"`
+	SnoozedUntil      *time.Time `json:"snoozed_until,omitempty"`
+	ReminderRevision  int64      `json:"reminder_revision,omitempty"`
 	CreatedAt         time.Time  `json:"created_at"`
 	UpdatedAt         time.Time  `json:"updated_at"`
 	TerminalAvailable bool       `json:"terminal_available"`
+}
+
+// ReminderDue controls presentation only; pending still blocks automated input.
+func (i AttentionItem) ReminderDue(now time.Time) bool {
+	return i.State == "pending" && (i.SnoozedUntil == nil || !i.SnoozedUntil.After(now))
 }

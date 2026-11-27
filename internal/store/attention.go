@@ -18,14 +18,16 @@ const attentionSchema = `CREATE TABLE attention(
  state TEXT NOT NULL CHECK(state IN ('pending','resolved','withdrawn','invalidated')),
  viewed_ns INTEGER,created_ns INTEGER NOT NULL,updated_ns INTEGER NOT NULL,
  PRIMARY KEY(scope,id),FOREIGN KEY(scope,run_id) REFERENCES runs(scope,id));`
-const attentionColumns = `SELECT id,run_id,version,fingerprint,document,state,viewed_ns,created_ns,updated_ns FROM attention`
+const attentionV9Columns = `SELECT id,run_id,version,fingerprint,document,state,viewed_ns,created_ns,updated_ns FROM attention`
+const attentionColumns = `SELECT id,run_id,version,fingerprint,document,state,viewed_ns,created_ns,updated_ns,snoozed_ns,reminder_revision FROM attention`
 
 func scanAttention(row messageRow) (session.AttentionItem, string, error) {
 	var item session.AttentionItem
 	var id, run, fp, doc, state string
 	var version, created, updated int64
-	var viewed sql.NullInt64
-	if err := row.Scan(&id, &run, &version, &fp, &doc, &state, &viewed, &created, &updated); err != nil {
+	var viewed, snoozed sql.NullInt64
+	var revision int64
+	if err := row.Scan(&id, &run, &version, &fp, &doc, &state, &viewed, &created, &updated, &snoozed, &revision); err != nil {
 		return item, fp, err
 	}
 	if len(doc) > 24576 || json.Unmarshal([]byte(doc), &item) != nil || item.ID != id || item.Source.RunID != run {
@@ -35,6 +37,14 @@ func scanAttention(row messageRow) (session.AttentionItem, string, error) {
 	item.EventID = id + "." + strconv.FormatInt(version, 10)
 	item.CreatedAt, item.UpdatedAt = time.Unix(0, created).UTC(), time.Unix(0, updated).UTC()
 	item.ViewedAt = nil
+	item.SnoozedUntil, item.ReminderRevision = nil, revision
+	if revision < 0 || (snoozed.Valid && snoozed.Int64 <= 0) {
+		return item, fp, fmt.Errorf("invalid attention reminder metadata")
+	}
+	if snoozed.Valid {
+		v := time.Unix(0, snoozed.Int64).UTC()
+		item.SnoozedUntil = &v
+	}
 	if viewed.Valid {
 		v := time.Unix(0, viewed.Int64).UTC()
 		item.ViewedAt = &v
@@ -66,7 +76,8 @@ func (s *Store) ReportAttention(ctx context.Context, c session.AgentCredential, 
 	old, oldFP, err := scanAttention(tx.QueryRowContext(ctx, attentionColumns+` WHERE scope=? AND id=?`, s.scope, e.ID))
 	now := time.Now().UTC()
 	created := now
-	var viewed any
+	var viewed, snoozed any
+	var revision int64
 	if err == nil {
 		if !sameMessageTarget(old.Source, source) || old.Kind != e.Kind {
 			return zero, fmt.Errorf("attention identity already belongs to another source/kind")
@@ -84,6 +95,13 @@ func (s *Store) ReportAttention(ctx context.Context, c session.AgentCredential, 
 			return zero, fmt.Errorf("ended attention cannot be reopened; new request ID required")
 		}
 		created = old.CreatedAt
+		if old.ReminderRevision == int64(^uint64(0)>>1) {
+			return zero, fmt.Errorf("attention reminder revision exhausted")
+		}
+		revision = old.ReminderRevision + 1
+		if e.State == "pending" && old.Title == e.Title && old.Detail == e.Detail && old.SnoozedUntil != nil {
+			snoozed = old.SnoozedUntil.UnixNano()
+		}
 		if old.ViewedAt != nil && old.Title == e.Title && old.Detail == e.Detail {
 			viewed = old.ViewedAt.UnixNano()
 		}
@@ -103,7 +121,7 @@ func (s *Store) ReportAttention(ctx context.Context, c session.AgentCredential, 
 	if err != nil || len(data) > 24576 {
 		return zero, fmt.Errorf("attention document exceeds bound")
 	}
-	_, err = tx.ExecContext(ctx, `INSERT INTO attention VALUES(?,?,?,?,?,?,?,?,?,?) ON CONFLICT(scope,id) DO UPDATE SET version=excluded.version,fingerprint=excluded.fingerprint,document=excluded.document,state=excluded.state,viewed_ns=excluded.viewed_ns,updated_ns=excluded.updated_ns`, s.scope, e.ID, source.RunID, e.Version, fp, string(data), e.State, viewed, created.UnixNano(), now.UnixNano())
+	_, err = tx.ExecContext(ctx, `INSERT INTO attention VALUES(?,?,?,?,?,?,?,?,?,?,?,?) ON CONFLICT(scope,id) DO UPDATE SET version=excluded.version,fingerprint=excluded.fingerprint,document=excluded.document,state=excluded.state,viewed_ns=excluded.viewed_ns,updated_ns=excluded.updated_ns,snoozed_ns=excluded.snoozed_ns,reminder_revision=excluded.reminder_revision`, s.scope, e.ID, source.RunID, e.Version, fp, string(data), e.State, viewed, created.UnixNano(), now.UnixNano(), snoozed, revision)
 	if err != nil {
 		return zero, err
 	}

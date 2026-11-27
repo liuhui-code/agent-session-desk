@@ -307,7 +307,7 @@ func TestAttentionV8MigrationAndScopeIsolation(t *testing.T) {
 	if _, err = other.Attention(ctx, e.ID); err == nil {
 		t.Fatal("cross-scope lookup")
 	}
-	if check, err := store.Check(ctx, path); err != nil || check.SchemaVersion != 9 {
-		t.Fatal("schema9 invalid", err)
+	if check, err := store.Check(ctx, path); err != nil || check.SchemaVersion != 10 {
+		t.Fatal("schema10 invalid", err)
 	}
 }

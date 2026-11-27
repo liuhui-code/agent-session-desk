@@ -59,7 +59,11 @@ func PetDesignAtDPI(dpi int) PetTokens {
 	return t
 }
 
-type attentionTokens struct{ marker, label, uncertain string }
+type attentionTokens struct {
+	snoozedLabel                                                                string
+	marker, idle, label, uncertain                                              string
+	centerWidth, centerGutter, centerRows, actionWidth, actionHeight, helpBelow int
+}
 
 type pathTokens struct {
 	background, purple                                                       color.Color
@@ -182,7 +186,7 @@ func defaultDesignTokens() designTokens {
 			SpriteAnchorAlpha: 200,
 			Ink:               color.RGBA{R: 83, G: 48, B: 32, A: 255}, Cream: color.RGBA{R: 255, G: 245, B: 222, A: 255},
 			Alert: color.RGBA{R: 255, G: 198, B: 81, A: 255}, Unknown: color.RGBA{R: 195, G: 197, B: 202, A: 255}},
-		attention: attentionTokens{marker: "! ", label: "! %d need attention · Alt+N", uncertain: " · last observed"},
+		attention: attentionTokens{marker: "! ", idle: "  ", label: "! %d need attention · Alt+N · Alt+A All", uncertain: " · last observed", snoozedLabel: " · %d snoozed", centerWidth: 84, centerGutter: 4, centerRows: 14, actionWidth: 27, actionHeight: 10, helpBelow: 58},
 		paths:     pathTokens{background: lipgloss.Color("#222222"), purple: purple, paddingX: 1, width: 60, minWidth: 32, minHeight: 12, rows: 5, shortRows: 3, shortAt: 30, selected: "▶ ", idle: "  ", custom: "✎ Enter a custom path…", above: "↑ More above ", below: "↓ More below ", italic: true},
 		footer:    footerTokens{curatedHintLimit: 3, curatedGap: 2, fullRightGutter: 2, compactRightGutter: 1, compactBelow: 70, fullAbove: 100, fullKeyPadding: 1, labelGap: 1, hintGap: 1, blockGap: 2, separator: " │ ", inlineSeparator: " · ", targetPrefix: "→ ", contextSuffix: ":", badgePrefix: " -- ", badgeSuffix: " -- ", badgePadding: 1, contextColor: purple},
 		help:      helpTokens{hintItalic: true, shortWidth: 58, fullWidth: 72, wideWidth: 82, wideAt: 100, minWidth: 37, gutter: 8, paddingX: 2, paddingY: 1, shortKeyWidth: 9, keyWidth: 14, compactKeyWidth: 10, compactBelow: 47, shortIndent: 1, rowIndent: 2, columnGap: 1, sectionGap: 1, footerGap: 1, screenReserve: 8, minContentRows: 10, pageStep: 10, keyColor: purple, above: "▲ More above", below: "▼ More below", separator: " │ "},

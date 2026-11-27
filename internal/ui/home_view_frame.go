@@ -20,6 +20,13 @@ import (
 )
 
 func (m *Model) View() tea.View {
+	if m.workspace != nil && m.attention.center != nil {
+		view := tea.NewView(m.renderAttentionCenter())
+		view.AltScreen = true
+		m.applyViewColors(&view)
+		view.MouseMode = tea.MouseModeCellMotion
+		return view
+	}
 	if m.workspace != nil && m.help {
 		view := tea.NewView(m.renderHelpOverlay())
 		view.AltScreen = true

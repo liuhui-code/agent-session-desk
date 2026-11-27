@@ -3,6 +3,7 @@ package ui
 import (
 	tea "charm.land/bubbletea/v2"
 	"github.com/liuhui-code/agent-session-desk/internal/session"
+	"time"
 )
 
 // AttentionActivate is only a navigation intent. Authority comes from the
@@ -34,12 +35,12 @@ func (m *Model) companionEvent(msg tea.Msg) (tea.Cmd, bool) {
 		m.status = "Desktop reminder unavailable; use Alt+N in the workbench"
 		return nil, true
 	case AttentionActivate:
-		if m.workspace == nil || m.attaching || m.history.open || m.help || m.launch != nil || m.search != nil || m.rename != nil || m.groupDialog != nil || m.groupRemoval != nil || m.sessionStop != nil || m.densitySettings != nil {
+		if m.workspace == nil || m.attention.center != nil || m.attaching || m.history.open || m.help || m.launch != nil || m.search != nil || m.rename != nil || m.groupDialog != nil || m.groupRemoval != nil || m.sessionStop != nil || m.densitySettings != nil {
 			m.status = "Finish the current navigation before opening the pending item"
 			return nil, true
 		}
 		for _, item := range m.attention.items {
-			if item.ID == v.ID && item.Version == v.Version && item.State == "pending" {
+			if item.ID == v.ID && item.Version == v.Version && item.ReminderDue(time.Now()) {
 				return m.beginAttention(item), true
 			}
 		}

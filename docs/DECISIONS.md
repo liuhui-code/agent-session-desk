@@ -171,3 +171,5 @@ M0 使用后端 user option 做存活终端的发现，不建立临时 JSON 文�
 2026-11-24：[ADR-0038](adr/0038-program-mouse-buttons-and-motion.md) 扩展声明 WantsMouse 的程序输入至三按钮与 Shift／Alt／Ctrl，并以一个已接受／一个最新位置合并无修饰悬停；复制选区保留既有左键规则。固定后台修饰悬停 gate 和旧宿主 record bypass 限制明确保留，不以[Go 协议／模型](testing/results/2026-11-24-program-mouse-buttons.md)冒充程序处理或原生兼容。
 
 2026-11-24：[ADR-0039](adr/0039-launch-dialog-environment-overrides.md) 补齐通用新建表单的临时 Launch.Env，JSON KEY=value 数组、空白继承、字面值与既有后端守卫，原 TOML 只读。带覆盖的失败仅保留静态字段定位／通用摘要，不原文展示 stderr，未知 Session/Run 仍核对且不重试。[本地证据](testing/results/2026-11-24-launch-environment.md)不替代真实子进程／Windows 或整体接受。
+
+2026-11-27：[ADR-0056](adr/0056-bounded-attention-center-and-snooze.md) 复用有界快照，提供待办中心；SQLite v10 保存单项暂停及独立修订，无每项定时器。

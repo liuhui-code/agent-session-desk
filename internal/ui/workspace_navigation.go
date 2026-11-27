@@ -60,6 +60,9 @@ func (m *Model) finishWorkspaceNavigation() tea.Cmd {
 		return m.openSessionStop()
 	case workspaceAttention:
 		return m.openAttention()
+	case workspaceAttentionCenter:
+		m.attention.center, m.attention.centerIntent = m.attention.centerIntent, nil
+		m.workspace.focused = false
 	}
 	return nil
 }

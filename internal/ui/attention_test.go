@@ -156,7 +156,7 @@ func TestAttentionHeaderClickAndRenderingBoundaries(t *testing.T) {
 			text, x, y := h.m.attentionHeader()
 			if text != "" {
 				h.send(tea.MouseClickMsg{X: x, Y: y, Button: tea.MouseLeft})
-				if !h.m.attention.busy {
+				if h.m.attention.center == nil && h.m.attention.centerIntent == nil {
 					t.Fatal("reminder not clickable")
 				}
 			}
@@ -173,6 +173,10 @@ func TestAttentionHeaderClickWorksWithSidebarHidden(t *testing.T) {
 		t.Fatal("hidden sidebar lost reminder")
 	}
 	h.send(tea.MouseClickMsg{Button: tea.MouseLeft, X: x, Y: y})
+	h.until(func() bool { return h.m.attention.center != nil })
+	h.send(tea.KeyPressMsg{Code: tea.KeyEsc})
+	h.until(func() bool { return h.m.workspace.conn != nil && !h.m.workspace.busy })
+	h.send(tea.KeyPressMsg{Code: 'n', Mod: tea.ModAlt})
 	h.until(func() bool { return h.m.workspace.active == 1 && h.m.workspace.conn != nil && !h.m.attention.busy })
 	if !h.m.workspace.sidebarHidden || !h.m.workspace.focused {
 		t.Fatal("reminder changed sidebar preference or failed to focus original form")
@@ -194,6 +198,8 @@ func TestAttentionHeaderClickReleasesOriginalProgramPointer(t *testing.T) {
 	}
 	_, x, y := h.m.attentionHeader()
 	h.send(tea.MouseClickMsg{X: x, Y: y, Button: tea.MouseLeft})
+	h.until(func() bool { return h.m.attention.center != nil })
+	h.send(tea.KeyPressMsg{Code: tea.KeyEnter})
 	h.until(func() bool { return h.m.workspace.active == 1 && h.m.workspace.conn != nil })
 	s.mu.Lock()
 	first := s.streams["first"]

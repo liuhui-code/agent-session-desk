@@ -58,7 +58,7 @@ func TestClaimV7MigrationPreservesLegacyReplyWithoutMintingOwnership(t *testing.
 		t.Fatal("answered legacy work became runnable")
 	}
 	check, err = store.Check(ctx, path)
-	if err != nil || check.SchemaVersion != 9 {
+	if err != nil || check.SchemaVersion != 10 {
 		t.Fatal("v8 validation failed")
 	}
 }

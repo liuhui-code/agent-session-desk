@@ -996,7 +996,7 @@
 
 - 功能：[FL-020](../COVERAGE.md#fl-020)、[FL-015](../COVERAGE.md#fl-015)
 - 需求：[FR-14](../COVERAGE.md#fr-14)
-- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)
+- 决策：[ADR-0006](../../adr/0006-human-attention-and-notifications.md)、[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0056](../../adr/0056-bounded-attention-center-and-snooze.md)
 - 优先级 / 阶段 / 层次：P1 / M2 / integration
 - 类型：boundary、concurrency、state
 - 设计 / 执行：`designed / not_run`
@@ -1027,6 +1027,8 @@
 - 产品/适配器/夹具版本、能力声明、配置与 Session/Run 对照表
 - 固定时间规则、虚拟时钟与通知调用时间
 - 请求终态和计时器/任务数量
+
+说明：ADR-0056 固定当前应用内／桌宠的 10/30 分钟、到期等号、显式恢复、独立提醒修订及相同内容续版保留／内容改变清除；仍 pending 并阻止自动输入。无每事项 timer，依靠既有刷新。系统通知与 UI 退出后的消费者仍未接受，本完整设计用例继续 needs_decision/not_run；局部实际证据单独记录。
 
 
 ### TC-ATTN-027

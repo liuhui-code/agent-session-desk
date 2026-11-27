@@ -226,3 +226,5 @@ M1 收尾按[验收清单](testing/M1_ACCEPTANCE.md)推进；显式有界屏幕�
 2026-11-26 领取切片：用户同意补齐处理归属，按 [ADR-0048](adr/0048-exclusive-processing-claims-and-uncertain-recovery.md)推进单请求独占、显式续期、结果凭据绑定与 unknown 保守恢复。两个独立模拟处理进程竞争／终止使用独立测试状态，结果见[报告](testing/results/2026-11-26-task-claims.md)。不恢复暂缓的 UI／长稳专项，不增加 Host 或自动重新分配。
 
 2026-11-26 桌宠切片：按用户澄清补齐 [ADR-0051](adr/0051-pet-existing-blocking-reminders.md) 的既有阻塞事项联动；只在工作台进程内显示／请求导航，不增加 Agent 接入或 Host。验证和开放门槛见[报告](testing/results/2026-11-26-pet-blocking.md)，此前后置任务继续后置。
+
+2026-11-27：本轮补充 [待办中心](adr/0056-bounded-attention-center-and-snooze.md)，先到此止。用固定数据测资源，勿追加功能。

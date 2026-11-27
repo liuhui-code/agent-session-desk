@@ -3,6 +3,7 @@ package manager
 import (
 	"context"
 	"fmt"
+	"time"
 
 	"github.com/liuhui-code/agent-session-desk/internal/session"
 )
@@ -16,6 +17,11 @@ func (m *Manager) ReportAttention(ctx context.Context, c session.AgentCredential
 		return session.AttentionItem{}, err
 	}
 	return m.metadata.ReportAttention(ctx, c, event)
+}
+
+// Snooze changes presentation only and performs no terminal discovery or input.
+func (m *Manager) SnoozeAttention(ctx context.Context, expected session.AttentionItem, duration time.Duration) (session.AttentionItem, error) {
+	return m.metadata.SnoozeAttention(ctx, expected, duration)
 }
 
 // OpenAttention revalidates the request and original live Run. Viewed is only a

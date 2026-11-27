@@ -2,6 +2,7 @@ package pet
 
 import (
 	"sync"
+	"time"
 
 	"github.com/liuhui-code/agent-session-desk/internal/session"
 )
@@ -65,7 +66,7 @@ func (c *Companion) Activate() bool {
 	}
 	var pending []session.AttentionItem
 	for _, item := range c.view.items {
-		if c.view.known && item.State == "pending" && item.TerminalAvailable {
+		if c.view.known && item.ReminderDue(time.Now()) && item.TerminalAvailable {
 			pending = append(pending, item)
 		}
 	}
@@ -98,7 +99,7 @@ func (c *Companion) Activate() bool {
 func project(items []session.AttentionItem, known bool) Model {
 	m := Model{Kind: Idle}
 	for _, item := range items {
-		if item.State != "pending" {
+		if !item.ReminderDue(time.Now()) {
 			continue
 		}
 		m.Count++

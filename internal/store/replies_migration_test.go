@@ -73,7 +73,7 @@ func TestReplySchemaV6MigrationRecoveryAndNoPlaintextCredential(t *testing.T) {
 		t.Fatal(err)
 	}
 	check, err = store.Check(ctx, backup)
-	if err != nil || check.SchemaVersion != 9 {
+	if err != nil || check.SchemaVersion != 10 {
 		t.Fatalf("v7 snapshot %+v %v", check, err)
 	}
 	data, _ := os.ReadFile(backup)

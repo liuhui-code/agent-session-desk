@@ -418,6 +418,10 @@ attention-list/status 离线可用，但会打开／升级库并根据已知 Run
 
 ## 7. 版本、证据与接入检查
 
-每次接口行为或字段变化，同步更新本参考、ADR、对应行为测试及实际执行报告；参数／字段删除、重命名或状态语义变化需给出迁移说明。SQLite schema 版本不等于公共 API 版本。当前数据库为 v9，升级和回退按[消息说明](MESSAGING.md)执行，不让 Agent 自行修改表结构。
+每次接口行为或字段变化，同步更新本参考、ADR、对应行为测试及实际执行报告；参数／字段删除、重命名或状态语义变化需给出迁移说明。SQLite schema 版本不等于公共 API 版本。当前数据库为 v10，升级和回退按[消息说明](MESSAGING.md)执行，不让 Agent 自行修改表结构。
 
 接入前核对：固定 exe／bundle；使用原会话作用域；保存完整 Session/Run；持久保存请求 ID 和原参数；明确区分 queued、input_written、unknown；在错误和超时后查询原 ID。用[模拟接口合同](testing/MESSAGING_CONTRACT.md)复验故障行为，再在实际 agent／版本上补接入证据。现有模拟通过不代表它已理解任务或能够回复。
+
+### 待办展示字段（ADR-0056）
+
+AttentionItem 额外返回 `snoozed_until`（可省略，UTC）与 `reminder_revision`（零可省略）。它们是用户提醒策略，不是来源事件版本；适配器不得向 attention-event 提交这两个字段。暂停仍 pending，viewed_at 不变，自动 deliver／新 claim 继续受阻；到期不产生新事件或答案。更高版本改变标题／详情会清除暂停，相同内容更新保留。只用 version/state 判断来源状态，不凭提醒隐藏推断已批准。用户在待办中心修改；本轮无 CLI 暂停命令。

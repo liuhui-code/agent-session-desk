@@ -1,0 +1,43 @@
+{
+  "forced_product_ends": 0,
+  "snooze_until": "2026-11-27T03:44:37.0378001Z",
+  "stage": "persist",
+  "error": "Timed out: original fixture surface ready; no automatic replay",
+  "registry_writes": 0,
+  "stages": [
+    {
+      "utc": "2026-11-27T03:34:29.5648079Z",
+      "stage": "create-originals"
+    },
+    {
+      "utc": "2026-11-27T03:34:36.7306965Z",
+      "stage": "ten-minute-snooze"
+    },
+    {
+      "utc": "2026-11-27T03:34:38.5319038Z",
+      "stage": "expiry-wait"
+    },
+    {
+      "utc": "2026-11-27T03:44:40.0160861Z",
+      "stage": "capacity"
+    },
+    {
+      "utc": "2026-11-27T03:45:43.5379053Z",
+      "stage": "persist"
+    }
+  ],
+  "result": "failed",
+  "intentional_owned_ui_crashes": 0,
+  "automatic_input_replay": false,
+  "clipboard_calls": 0,
+  "snooze_start": "2026-11-27T03:34:37.4690321Z",
+  "fixture_ends": [
+    true,
+    true
+  ],
+  "manager_ends": [
+    true,
+    true
+  ],
+  "session_content_exported": 0
+}

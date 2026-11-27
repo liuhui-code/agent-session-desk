@@ -55,7 +55,7 @@ func TestMessageSchemaV5UpgradeBackupAndCapacity(t *testing.T) {
 		t.Fatal(e)
 	}
 	check, e := store.Check(ctx, path)
-	if e != nil || check.SchemaVersion != 9 {
+	if e != nil || check.SchemaVersion != 10 {
 		t.Fatalf("v6 integrity: %+v %v", check, e)
 	}
 	backup := filepath.Join(t.TempDir(), "backup.sqlite3")

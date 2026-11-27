@@ -21,3 +21,5 @@ asd --terminal-bundle DIR --runtime-dir DIR --namespace NAME --state-dir DIR --p
 后续 [R5 实机集成](testing/results/2026-11-26-integrated-desktop.md)已在指定宿主中验证从记事本点击猫恢复原 Windows Terminal 前台及原表单；不提高同宿主多个原生 Tab、其他应用或实体鼠标的接受范围。
 
 [ADR-0054 修复](adr/0054-pet-workbench-restore-and-blink-anchor.md)补齐空闲点击，并将闭眼图的身体锚点对齐睁眼图，保留原眨眼节奏。针对记事本／最小化与草稿的实际验证见[报告](testing/results/2026-11-26-pet-interaction.md)；名字上方跳动碎片的[补充修复](testing/results/2026-11-26-pet-fragment.md)也已更新到日常入口。已运行的旧界面不会自动替换，须退出后再用快捷方式启动，后台 Run 保留。
+
+暂停的 pending 不计入 WAIT／点击定位；到期后由原刷新恢复。Alt+A 可查看全部。工作台退出没有后台计时；详见 [ADR-0056](adr/0056-bounded-attention-center-and-snooze.md)。
