@@ -437,6 +437,8 @@ func (m *Model) activateWorkspaceNow(index int) tea.Cmd {
 	if index == w.active && w.conn != nil {
 		return nil
 	}
+	// Take the incoming original before the outgoing screen can evict it.
+	screen := w.takeScreen(index)
 	w.rememberScreen()
 	w.disconnect()
 	w.active = index
@@ -444,6 +446,9 @@ func (m *Model) activateWorkspaceNow(index int) tea.Cmd {
 	m.status = ""
 	m.selectWorkspaceSession(w.tabs[index].session)
 	cmd := m.connectWorkspace()
+	if w.busy && screen.Width > 0 {
+		w.screen = screen
+	}
 	if !w.busy {
 		w.transition = workspaceIdle
 	}

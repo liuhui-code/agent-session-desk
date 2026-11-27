@@ -37,6 +37,7 @@ type activityState struct {
 	width, height      int
 	mutedUntil         time.Time
 	entries            map[string]activityEntry
+	invalidated        map[string]bool
 	busy, ticking      bool
 	generation         uint64
 }
@@ -79,6 +80,11 @@ func (m *Model) sampleActivity() tea.Cmd {
 	}
 	if len(targets) == 0 {
 		return nil
+	}
+	// A layout change invalidates only its original, not completed peer samples.
+	m.activity.invalidated = make(map[string]bool, len(targets))
+	for _, s := range targets {
+		m.activity.invalidated[activityKey(s)] = false
 	}
 	m.activity.busy = true
 	m.activity.generation++
@@ -125,14 +131,12 @@ func (m *Model) activityEvent(msg tea.Msg) (tea.Cmd, bool) {
 			return nil, true
 		}
 		m.activity.busy = false
-		if x.epoch != m.activity.epoch {
-			return m.activityTick(), true
-		}
 		next := make(map[string]activityEntry, len(x.samples))
 		now := time.Now()
 		for _, v := range x.samples {
 			e, known := m.activity.entries[v.key]
-			if !v.ok {
+			invalid, sampled := m.activity.invalidated[v.key]
+			if !v.ok || (x.epoch != m.activity.epoch && (!sampled || invalid)) {
 				if known && now.Sub(e.seen) <= activityFreshFor {
 					next[v.key] = e
 				}
@@ -145,6 +149,7 @@ func (m *Model) activityEvent(msg tea.Msg) (tea.Cmd, bool) {
 			e.observe(v.hash, now)
 			next[v.key] = e
 		}
+		m.activity.invalidated = nil
 		m.activity.entries = next
 		return m.activityTick(), true
 	case activityTick:
@@ -182,6 +187,9 @@ func (m *Model) activityViewport(width, height int) {
 	a.width = width
 	a.height = height
 	a.epoch++
+	if _, sampled := a.invalidated[key]; sampled {
+		a.invalidated[key] = true
+	}
 	a.muteKey = key
 	a.mutedUntil = time.Now().Add(activityQuiet)
 	if e, ok := a.entries[key]; ok {

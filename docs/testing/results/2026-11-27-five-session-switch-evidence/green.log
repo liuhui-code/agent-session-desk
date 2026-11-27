@@ -1,0 +1,20 @@
+=== RUN   TestIdleSurvivesOrdinarySamplingDelay
+--- PASS: TestIdleSurvivesOrdinarySamplingDelay (0.00s)
+=== RUN   TestIdleSurvivesOnePreviewFailure
+--- PASS: TestIdleSurvivesOnePreviewFailure (0.00s)
+=== RUN   TestActivityFailureStillExpiresAndPrunes
+--- PASS: TestActivityFailureStillExpiresAndPrunes (0.00s)
+=== RUN   TestSwitchKeepsCompletedSamplesOfUnaffectedOriginals
+--- PASS: TestSwitchKeepsCompletedSamplesOfUnaffectedOriginals (0.00s)
+=== RUN   TestLayoutChangeDoesNotBecomeOutput
+--- PASS: TestLayoutChangeDoesNotBecomeOutput (0.00s)
+=== RUN   TestDelayedLayoutSampleStartsNewBaseline
+--- PASS: TestDelayedLayoutSampleStartsNewBaseline (0.00s)
+=== RUN   TestWorkspaceReturnShowsItsOwnLastScreenWhileRevalidating
+--- PASS: TestWorkspaceReturnShowsItsOwnLastScreenWhileRevalidating (0.01s)
+=== RUN   TestWorkspaceSnapshotBudgetAndIdentity
+--- PASS: TestWorkspaceSnapshotBudgetAndIdentity (0.00s)
+=== RUN   TestFiveSessionCycleKeepsTargetScreenBeforeSavingOutgoing
+--- PASS: TestFiveSessionCycleKeepsTargetScreenBeforeSavingOutgoing (0.02s)
+PASS
+ok  	github.com/liuhui-code/agent-session-desk/internal/ui	0.855s

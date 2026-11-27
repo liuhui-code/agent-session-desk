@@ -63,13 +63,23 @@ func (w *workspaceState) rememberScreen() {
 	}
 	w.snapshots = append([]workspaceSnapshot{{key: key, bytes: size, screen: s}}, next...)
 }
-func (w *workspaceState) lastScreen() terminal.Screen {
-	if w.active < 0 || w.active >= len(w.tabs) || !w.tabs[w.active].live || w.tabs[w.active].session.TerminalState != session.TerminalAvailable {
+func (w *workspaceState) lastScreen() terminal.Screen { return w.snapshotScreen(w.active, false) }
+
+// Transfer an incoming cached screen before retaining the outgoing view.
+// The current view is separate from the four inactive retention slots.
+func (w *workspaceState) takeScreen(index int) terminal.Screen { return w.snapshotScreen(index, true) }
+func (w *workspaceState) snapshotScreen(index int, take bool) terminal.Screen {
+	if index < 0 || index >= len(w.tabs) || !w.tabs[index].live || w.tabs[index].session.TerminalState != session.TerminalAvailable {
 		return terminal.Screen{}
 	}
-	key := activityKey(w.tabs[w.active].session)
-	for _, entry := range w.snapshots {
+	key := activityKey(w.tabs[index].session)
+	for i, entry := range w.snapshots {
 		if entry.key == key {
+			if take {
+				copy(w.snapshots[i:], w.snapshots[i+1:])
+				w.snapshots[len(w.snapshots)-1] = workspaceSnapshot{}
+				w.snapshots = w.snapshots[:len(w.snapshots)-1]
+			}
 			return entry.screen
 		}
 	}
