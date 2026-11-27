@@ -1,0 +1,9 @@
+基线 30ade3a；新增 TestDiscovery 两条行为后、生产修复前执行：
+go test ./internal/backend ./internal/ui -run TestDiscovery -count=1
+--- FAIL: TestDiscoveryRevalidatesOmittedOriginal
+    omitted original lost: rows=[] err=<nil>
+--- FAIL: TestDiscoveryAbsenceDoesNotCloseHealthyNativeClient
+    enumeration absence disconnected native client: Target terminal is not interactive; view retained, no automatic restart
+exit 1
+
+此摘录来自工具实际回执，不是重新执行的日志；原临时诊断／完整后续日志分别保留。

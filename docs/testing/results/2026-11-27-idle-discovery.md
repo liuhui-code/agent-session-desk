@@ -14,7 +14,7 @@
 
 [RED 摘录](2026-11-27-idle-discovery-evidence/red.log)来自实际工具失败回执：原 List 丢失被遗漏的存活会话，UI 关闭原连接。修改后四项 backend 回归覆盖连续遗漏、原 pane 身份变化拒绝／淘汰、真实消失／Stop 清理和重新观测退出；两项 UI 回归验证缺席后原连接不变、重新协调无需重连，明确退出／真实流错误仍失败。
 
-Darwin Go 1.27.4 `go test ./...`、`go test -race ./...`、`go vet ./...`、`go mod verify`通过；新增最后一项 UI 错误路径后又定向通过。首轮沙箱全套的旧握手测试无法绑定 127.0.0.1，并非产品断言失败；允许本机回环后的全套通过。生产源码 500 行、catalog check --generated（339 项设计状态不提升）与 diff 检查通过。正式 Windows amd64 产品交叉构建与诊断构建的哈希分列在 binaries.json，交叉构建不计原生测试。
+Darwin Go 1.27.4 `go test ./...`、`go test -race ./...`、`go vet ./...`、`go mod verify`通过；新增最后一项 UI 错误路径后又定向通过。首轮沙箱全套的旧握手测试无法绑定 127.0.0.1，并非产品断言失败；允许本机回环后的全套通过。生产源码 500 行、catalog check --generated（339 项设计状态不提升）与 diff 检查通过。正式 Windows amd64 产品交叉构建与诊断构建的哈希分列在 binaries.json。正式 exe 在提交前构建，内嵌 vcs.revision=30ade3a、modified=true；业务源码与随后提交的 1d842c0 一致，source-sha256.json 单独列明，不伪称内嵌版本已更新。交叉构建不计原生测试。
 
 ## Windows 实际复验
 
@@ -28,6 +28,12 @@ Darwin Go 1.27.4 `go test ./...`、`go test -race ./...`、`go vet ./...`、`go 
 
 r1 在进入场景前 unsigned tick 转换失败，旧控制器未保留 worker 异常，随后超时。r2 增加 bootstrap receipt 仍在场景前因负数转 uint 失败；r3 改用原生 uint tick。r3 控制器 150 秒先超时且未等到回执，但 worker 后来完整完成；未盲重跑，最终结果和原进程审计独立核对。r4 延长控制器到 300 秒，正常回执／task result 0。
 
-首次原生定向命令使用 PowerShell 直接调用及 Stop 错误策略，中途退出且仅留空 backend 日志、没有完整回执；不计通过或推断产品失败。改为 Start-Process 独立 stdout/stderr 与明确 ExitCode 后，两包通过，stderr 均空。诊断 exe／任务清理单独审计；私有 fixture journal／元数据库没有进入仓库。
+首次原生定向命令使用 PowerShell 直接调用及 Stop 错误策略，中途退出且仅留空 backend 日志、没有完整回执；不计通过或推断产品失败。改为 Start-Process 独立 stdout/stderr 与明确 ExitCode 后，两包通过，stderr 均空。[最终清理审计](2026-11-27-idle-discovery-evidence/cleanup.json)确认四个独立目录无运行镜像，移除十份匹配哈希的私有 exe，r2/r3/r4 任务均不存在；私有 fixture journal／元数据库没有进入仓库。
 
 本次确认并修复“成功枚举漏列 → 健康原客户端被断开”的路径。真正断连／查询失败继续呈现未知；更长 soak、所有宿主、真实 Agent、整体内存预算和完整用户现场仍是单独门槛。
+
+## Windows 日常交付
+
+已将原日常 `asd-warm-bd409fa.exe` 正常关闭并从原快捷方式单次重开 `asd-idle-1d842c0.exe`；正式产品 SHA256 `977ecb62f8a952fffa8a57f744224cd925923b61e5f6de4f3e620e3cd1f587d7`，业务源码对应 `1d842c0`（内嵌 Go VCS 元数据见前文）。[交付回执](2026-11-27-idle-discovery-evidence/delivery-result.json)为 updated-running，新 UI PID 21832。原 live Session／Run／backend 集合一致；核对的 ui.toml、launch.toml、last-launch.toml、recent-dirs.toml、keybindings.toml 存在性／哈希一致。没有停止 Run、输入注入、剪贴板访问或强制结束。
+
+日常安装仍为较早 v10 元数据，因此在关闭原 UI 后，先使用原产品做非覆盖快照，再用原产品检查备份 v10／integrity=ok；备份留在 Windows 用户目录下 `asd-acceptance-20261122/idle-discovery-delivery-1d842c0/metadata-v10-private.sqlite3`，不进入 Git。随后最新代码按已实现 ADR-0064 迁移到 v11，最终 integrity=ok；本修复自身未引入 schema。未尝试自动降级／回滚或恢复数据库。交付控制器 task result=0；日常 UI 的完整用户现场仍待后续实际观察。

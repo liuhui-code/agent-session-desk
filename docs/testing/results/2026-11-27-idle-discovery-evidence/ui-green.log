@@ -1,0 +1,6 @@
+=== RUN   TestDiscoveryAbsenceDoesNotCloseHealthyNativeClient
+--- PASS: TestDiscoveryAbsenceDoesNotCloseHealthyNativeClient (0.00s)
+=== RUN   TestDiscoveryAbsenceStillAcceptsNativeStreamFailure
+--- PASS: TestDiscoveryAbsenceStillAcceptsNativeStreamFailure (0.00s)
+PASS
+ok  	github.com/liuhui-code/agent-session-desk/internal/ui	1.876s

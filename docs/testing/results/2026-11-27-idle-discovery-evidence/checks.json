@@ -1,0 +1,10 @@
+{
+  "go": "1.27.4 darwin/amd64",
+  "go_test_all": "passed (loopback-enabled run)",
+  "go_test_race_all": "passed",
+  "go_vet_all": "passed",
+  "go_mod_verify": "all modules verified",
+  "last_ui_stream_error_test": "passed separately after full suites",
+  "production_source_limits": "all <=500 physical lines",
+  "catalog": "339 design cases; product_tests_executed_by_this_tool=0"
+}

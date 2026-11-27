@@ -1,0 +1,9 @@
+=== RUN   TestDiscoveryRevalidatesOmittedOriginal
+--- PASS: TestDiscoveryRevalidatesOmittedOriginal (1.07s)
+=== RUN   TestDiscoveryStopForgetsOriginal
+--- PASS: TestDiscoveryStopForgetsOriginal (0.70s)
+=== RUN   TestDiscoveryMissingTargetDoesNotStayCached
+--- PASS: TestDiscoveryMissingTargetDoesNotStayCached (0.58s)
+=== RUN   TestDiscoveryOmittedPaneStateIsObservedAgain
+--- PASS: TestDiscoveryOmittedPaneStateIsObservedAgain (0.58s)
+PASS
