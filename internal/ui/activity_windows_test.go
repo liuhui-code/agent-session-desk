@@ -3,6 +3,7 @@
 package ui
 
 import (
+	tea "charm.land/bubbletea/v2"
 	"context"
 	"github.com/liuhui-code/agent-session-desk/internal/backend"
 	"github.com/liuhui-code/agent-session-desk/internal/manager"
@@ -49,11 +50,26 @@ func TestWindowsNativeActivityChangesAndSilence(t *testing.T) {
 		db.Close()
 	}()
 	h := newWorkspaceHarness(t, m)
-	h.until(func() bool { return h.m.workspace.conn != nil && !h.m.workspace.busy })
-	sample := func() { h.run(h.m.sampleActivity()); h.until(func() bool { return !h.m.activity.busy }) }
+	// Native cold-start may exceed the model harness's three-second limit.
+	ready := time.NewTimer(12 * time.Second)
+	defer ready.Stop()
+	for h.m.workspace.conn == nil || h.m.workspace.busy {
+		select {
+		case msg := <-h.messages:
+			h.send(msg)
+		case <-ready.C:
+			t.Fatal("native connection deadline")
+		}
+	}
+	sample := func() {
+		h.until(func() bool { return !h.m.activity.busy })
+		h.run(h.m.sampleActivity())
+		h.until(func() bool { return !h.m.activity.busy })
+	}
+	time.Sleep(activityQuiet + 100*time.Millisecond)
 	sample()
 	if h.m.activityMark(v) != h.m.tokens.activityIdle {
-		t.Fatal("baseline")
+		t.Fatalf("baseline mark=%q entry=%+v", h.m.activityMark(v), h.m.activity.entries[activityKey(v)])
 	}
 	c, err := b.OpenTerminal(ctx, v, 80, 24)
 	if err != nil {
@@ -84,6 +100,17 @@ func TestWindowsNativeActivityChangesAndSilence(t *testing.T) {
 	sample()
 	if h.m.activityMark(v) != h.m.tokens.activityIdle {
 		t.Fatal("silence")
+	}
+	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
+	h.until(func() bool { return h.m.workspace.pending == 0 })
+	sample()
+	if h.m.activity.entries[activityKey(v)].moving(time.Now()) {
+		t.Fatal("focus resize became output")
+	}
+	time.Sleep(activityQuiet + 100*time.Millisecond)
+	sample()
+	if h.m.activity.entries[activityKey(v)].moving(time.Now()) {
+		t.Fatal("settled idle became activity")
 	}
 	t.Log("real fixture -> capture baseline -> native output -> moving -> silence; no agent-state inference")
 }

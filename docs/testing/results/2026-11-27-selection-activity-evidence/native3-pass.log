@@ -1,0 +1,4 @@
+=== RUN   TestWindowsNativeActivityChangesAndSilence
+    activity_windows_test.go:115: real fixture -> capture baseline -> native output -> moving -> silence; no agent-state inference
+--- PASS: TestWindowsNativeActivityChangesAndSilence (21.10s)
+PASS

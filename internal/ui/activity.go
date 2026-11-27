@@ -27,9 +27,13 @@ func (a activityEntry) moving(now time.Time) bool {
 }
 
 type activityState struct {
-	entries       map[string]activityEntry
-	busy, ticking bool
-	generation    uint64
+	epoch              uint64
+	layoutKey, muteKey string
+	width, height      int
+	mutedUntil         time.Time
+	entries            map[string]activityEntry
+	busy, ticking      bool
+	generation         uint64
 }
 type activitySample struct {
 	key  string
@@ -37,6 +41,7 @@ type activitySample struct {
 	ok   bool
 }
 type activityReceipt struct {
+	epoch      uint64
 	generation uint64
 	samples    []activitySample
 }
@@ -73,6 +78,7 @@ func (m *Model) sampleActivity() tea.Cmd {
 	m.activity.busy = true
 	m.activity.generation++
 	gen := m.activity.generation
+	epoch := m.activity.epoch
 	svc := m.service
 	ctx := m.ctx
 	return func() tea.Msg {
@@ -87,7 +93,7 @@ func (m *Model) sampleActivity() tea.Cmd {
 			}
 			samples = append(samples, v)
 		}
-		return activityReceipt{gen, samples}
+		return activityReceipt{generation: gen, epoch: epoch, samples: samples}
 	}
 }
 func (m *Model) activityTick() tea.Cmd {
@@ -112,11 +118,18 @@ func (m *Model) activityEvent(msg tea.Msg) (tea.Cmd, bool) {
 			return nil, true
 		}
 		m.activity.busy = false
+		if x.epoch != m.activity.epoch {
+			return m.activityTick(), true
+		}
 		next := make(map[string]activityEntry, len(x.samples))
 		now := time.Now()
 		for _, v := range x.samples {
 			if v.ok {
 				e := m.activity.entries[v.key]
+				if v.key == m.activity.muteKey && (now.Before(m.activity.mutedUntil) || e.seen.Before(m.activity.mutedUntil.Add(-activityQuiet))) {
+					e.seen = time.Time{}
+					e.changed = time.Time{}
+				}
 				e.observe(v.hash, now)
 				next[v.key] = e
 			}
@@ -140,4 +153,28 @@ func (m *Model) activityMark(s session.Session) string {
 		return f[int(now.UnixNano()/int64(150*time.Millisecond))%len(f)]
 	}
 	return m.tokens.activityIdle
+}
+
+// A view resize can reflow captured lines without any process output. Keep only
+// the active identity and one settle deadline, never a timer per Session.
+func (m *Model) activityViewport(width, height int) {
+	w := m.workspace
+	if w == nil || w.active < 0 || w.active >= len(w.tabs) {
+		return
+	}
+	key := activityKey(w.tabs[w.active].session)
+	a := &m.activity
+	if a.layoutKey == key && a.width == width && a.height == height {
+		return
+	}
+	a.layoutKey = key
+	a.width = width
+	a.height = height
+	a.epoch++
+	a.muteKey = key
+	a.mutedUntil = time.Now().Add(activityQuiet)
+	if e, ok := a.entries[key]; ok {
+		e.changed = time.Time{}
+		a.entries[key] = e
+	}
 }

@@ -117,10 +117,7 @@ func (m *Model) workspaceSidebarCard(index, width, rowLines, level int) []string
 		line = prefix + m.styles.attention.Inherit(titleStyle).Render(marker) + strings.TrimPrefix(line, prefix+marker)
 	}
 	if status != "" {
-		style := m.styles.key
-		if status == m.tokens.activityIdle {
-			style = m.styles.activityIdle
-		}
+		style := m.styles.activityIdle
 		line = strings.Replace(line, status, style.Inherit(titleStyle).Render(status), 1)
 	}
 	lines := []string{titleStyle.Render(line)}
@@ -130,7 +127,7 @@ func (m *Model) workspaceSidebarCard(index, width, rowLines, level int) []string
 			state = session.TerminalUnknown
 		}
 		metadata := terminalLabel(state)
-		if command := session.ProgramLabel(s.CurrentProgram); state==session.TerminalAvailable && command != "" {
+		if command := session.ProgramLabel(s.CurrentProgram); state == session.TerminalAvailable && command != "" {
 			metadata += m.tokens.sidebar.separator + command
 		}
 		count := rowLines - 1

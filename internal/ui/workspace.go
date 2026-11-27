@@ -199,6 +199,7 @@ func (m *Model) workspaceSize() tea.Cmd {
 	if g.width < 1 || g.height < 1 {
 		return release
 	}
+	m.activityViewport(g.width, g.height)
 	return tea.Batch(release, m.workspaceWrite(workspaceInput{kind: "resize", width: g.width, height: g.height}))
 }
 
@@ -344,6 +345,8 @@ func (m *Model) workspaceEvent(msg tea.Msg) (tea.Cmd, bool) {
 		}
 		if msg.err == nil && msg.conn != nil {
 			w.conn = msg.conn
+			m.activity.layoutKey = ""
+			m.activityViewport(msg.width, msg.height)
 			m.rememberWorkspace()
 			w.inputs = make(chan workspaceInput, workspaceInputCapacity)
 			startWorkspaceWriter(w.ctx, w.conn, w.inputs)
