@@ -626,3 +626,5 @@ FL-012/015/018：ADR-0057 有界页变化标识，静默不代表 ready；见[�
 2026-11-27 FL-001/012/015/018/020：按 [ADR-0066](adr/0066-revalidate-incomplete-terminal-discovery.md)处理 psmux 成功枚举临时漏列：有界原身份补查，列表缺席不切断健康原连接。[实际报告](testing/results/2026-11-27-idle-discovery.md)区分 Windows 真实漏列、模型错误注入和仪器变体；完整用户现场／真实 Agent、长期资源与发布仍开放。
 
 2026-11-27 FL-012/015/018：按 [ADR-0067](adr/0067-five-session-warm-return-and-partial-activity.md)修复五会话先保存导致目标末帧被淘汰及全批 epoch 丢弃有效 peer 样本；[模型与原生后端回归](testing/results/2026-11-27-five-session-switch.md)独立记录，保留原缓存／采样边界，不提升整体验收。
+
+2026-11-28 FL-012/015/018：ADR-0067 的正式 Windows 日常镜像已切换至 5f5e6d3；[交付复核](testing/results/2026-11-27-five-session-switch.md)保留首次等待超时、后续已有窗口核验、严格状态统计和清理。原六条元数据身份保留，前后 live／配置哈希未完整落盘的限制明确保留，不提升长期资源或整体验收。

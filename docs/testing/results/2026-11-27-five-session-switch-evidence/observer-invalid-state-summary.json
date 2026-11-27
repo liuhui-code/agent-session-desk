@@ -1,0 +1,22 @@
+{
+  "valid": false,
+  "reason": "PowerShell collection projection returned an empty state and a single invalid identity; excluded from product conclusions. Use typed identity-v2.json.",
+  "receipt": {
+    "states": [
+      {
+        "state": "",
+        "count": 1
+      }
+    ],
+    "available_comparison": {
+      "backup_run_count": 6,
+      "backup_unstopped_without_exit_count": 5,
+      "comparison": "backup metadata candidates versus current live, not a saved pre-update live receipt",
+      "current_live_count": 1,
+      "current_run_count": 6,
+      "live_equals_backup_candidates": false,
+      "original_metadata_identities_preserved": true
+    },
+    "namespace_verified": true
+  }
+}

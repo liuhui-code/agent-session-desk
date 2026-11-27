@@ -1,0 +1,28 @@
+{
+  "backup_schema": 11,
+  "error": "New manager timeout; no replay",
+  "backup_valid": true,
+  "result": "failed",
+  "terminal_input": 0,
+  "manifest_switched": true,
+  "clipboard_apis": 0,
+  "forced": 0,
+  "stages": [
+    {
+      "at": "2026-11-27T15:42:28.9400131Z",
+      "name": "guards"
+    },
+    {
+      "at": "2026-11-27T15:42:55.5984530Z",
+      "name": "close-ui"
+    },
+    {
+      "at": "2026-11-27T15:43:12.3146489Z",
+      "name": "metadata-backup"
+    },
+    {
+      "at": "2026-11-27T15:43:13.9871910Z",
+      "name": "launch-once"
+    }
+  ]
+}

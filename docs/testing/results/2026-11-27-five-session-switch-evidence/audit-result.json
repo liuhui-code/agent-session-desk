@@ -1,0 +1,52 @@
+{
+  "metadata_integrity": "ok",
+  "pet_count": 1,
+  "source": "5f5e6d3",
+  "clipboard_apis": 0,
+  "terminal_input": 0,
+  "identities": {
+    "backup_run_count": 6,
+    "backup_unstopped_without_exit_count": 5,
+    "comparison": "backup metadata candidates versus current live, not a saved pre-update live receipt",
+    "current_live_count": 6,
+    "current_run_count": 6,
+    "live_equals_backup_candidates": false,
+    "original_metadata_identities_preserved": true
+  },
+  "manager_start": "2026-11-27T15:44:42.4895336Z",
+  "result": "existing-updated-workbench-verified",
+  "hash": "6a96f1c34aeb5c1e51bd2a171e46696e7f9e71ef803ecaae3d5ce99c3ca3c060",
+  "config_last_write_before_update": [
+    {
+      "name": "ui.toml",
+      "before": true
+    },
+    {
+      "name": "launch.toml",
+      "before": true
+    },
+    {
+      "name": "last-launch.toml",
+      "before": true
+    }
+  ],
+  "stages": [
+    {
+      "name": "guards",
+      "at": "2026-11-27T16:43:20.5781612Z"
+    },
+    {
+      "name": "window-bindings",
+      "at": "2026-11-27T16:43:25.0096957Z"
+    },
+    {
+      "name": "metadata-and-live",
+      "at": "2026-11-27T16:43:25.1453163Z"
+    }
+  ],
+  "forced": 0,
+  "manager_pid": 14940,
+  "launches": 0,
+  "bound_host_count": 1,
+  "metadata_schema": 11
+}

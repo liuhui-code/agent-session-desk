@@ -1,0 +1,50 @@
+package main
+
+import (
+ "context"
+ "database/sql"
+ "encoding/json"
+ "fmt"
+ "io"
+ "net/url"
+ "os"
+ "path/filepath"
+ "strings"
+ "regexp"
+ "time"
+ _ "modernc.org/sqlite"
+)
+
+type live struct {Session string `json:"session_id"`;Run string `json:"run_id"`;Backend string `json:"backend_id"`;State string `json:"terminal_state"`}
+func key(s,r,b string)string{return s+":"+r+":"+b}
+func records(ctx context.Context,path,scope string)(map[string]bool,map[string]bool,error){
+ p,err:=filepath.Abs(path);if err!=nil{return nil,nil,err};p=filepath.ToSlash(p);if !strings.HasPrefix(p,"/"){p="/"+p}
+ u:=url.URL{Scheme:"file",Path:p,RawQuery:"mode=ro&_pragma=query_only(1)&_pragma=busy_timeout(1000)"}
+ db,err:=sql.Open("sqlite",u.String());if err!=nil{return nil,nil,err};defer db.Close();db.SetMaxOpenConns(1)
+ rows,err:=db.QueryContext(ctx,`SELECT session_id,id,backend_id,stopped_ns IS NULL AND NOT EXISTS(SELECT 1 FROM pane_exits e WHERE e.scope=r.scope AND e.run_id=r.id) FROM runs r WHERE scope=?`,scope);if err!=nil{return nil,nil,err};defer rows.Close()
+ all,candidates:=map[string]bool{},map[string]bool{}
+ for rows.Next(){var s,r,b string;var active bool;if err=rows.Scan(&s,&r,&b,&active);err!=nil{return nil,nil,err};if len(all)>=16384{return nil,nil,fmt.Errorf("audit row bound exceeded")};k:=key(s,r,b);all[k]=true;if active{candidates[k]=true}}
+ return all,candidates,rows.Err()
+}
+func run()error{
+ if len(os.Args)!=5{return fmt.Errorf("audit arguments invalid")}
+ ctx,cancel:=context.WithTimeout(context.Background(),10*time.Second);defer cancel()
+ before,candidates,err:=records(ctx,os.Args[1],os.Args[4]);if err!=nil{return err}
+ after,_,err:=records(ctx,os.Args[2],os.Args[4]);if err!=nil{return err}
+ f,err:=os.Open(os.Args[3]);if err!=nil{return err};defer f.Close();data,err:=io.ReadAll(io.LimitReader(f,4*1024*1024+1));if err!=nil||len(data)>4*1024*1024{return fmt.Errorf("bounded live receipt unreadable")}
+ var rows []live;if err=json.Unmarshal(data,&rows);err!=nil{return err}
+ preserved:=true;for k:=range before{preserved=preserved&&after[k]}
+ current,available:=map[string]bool{},map[string]bool{}
+ states:=map[string]int{}
+ valid:=regexp.MustCompile(`^[0-9a-f]{32}$`)
+ for _,r:=range rows{
+  if !valid.MatchString(r.Session)||!valid.MatchString(r.Run)||r.Backend!="asd_"+r.Session+"_"+r.Run{return fmt.Errorf("invalid identity receipt")}
+  if r.State!="available" && r.State!="exited" && r.State!="unknown" {return fmt.Errorf("invalid terminal state")}
+  k:=key(r.Session,r.Run,r.Backend);current[k]=true;states[r.State]++;if r.State=="available"{available[k]=true}
+ }
+ match:=len(current)==len(candidates);availableMatch:=len(available)==len(candidates)
+ for k:=range candidates{match=match&&current[k];availableMatch=availableMatch&&available[k]}
+
+ return json.NewEncoder(os.Stdout).Encode(map[string]any{"backup_run_count":len(before),"current_run_count":len(after),"original_metadata_identities_preserved":preserved,"backup_unstopped_without_exit_count":len(candidates),"current_discovered_count":len(current),"terminal_states":states,"available_equals_backup_candidates":availableMatch,"live_equals_backup_candidates":match,"comparison":"backup metadata candidates versus current live, not a saved pre-update live receipt"})
+}
+func main(){if err:=run();err!=nil{fmt.Fprintln(os.Stderr,"read-only identity audit failed");os.Exit(1)}}

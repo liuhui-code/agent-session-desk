@@ -21,3 +21,19 @@ Windows 10 19045 使用同一显式开发 bundle，psmux SHA256 `ff9d8893ecc53ac
 - 这两项通过 UI 模型驱动实际原生连接／渲染，不使用 Windows Terminal 的实体键鼠或真实 Agent；没有桌面 API、剪贴板或日常会话操作。最后新增的反例仅在本机执行，不伪称已纳入前述 Windows 程序。
 
 六个及更多会话、超界／复杂画面和复制状态仍受缓存淘汰规则约束；长时间无有效观察仍显示未知。真实 Agent、整体 Windows 桌面回切节奏、内存 RSS／长 soak 与完整接受仍开放。[原始证据](2026-11-27-five-session-switch-evidence/)不含用户终端正文。
+
+## Windows 日常交付复核（2026-11-28 CST）
+
+正式产品为 `asd-five-5f5e6d3.exe`，源提交 `5f5e6d3`、内嵌 VCS modified=false，SHA256 `6a96f1c34aeb5c1e51bd2a171e46696e7f9e71ef803ecaae3d5ce99c3ca3c060`。原日常 UI 正常退出后，先验证 v11 非覆盖备份，再切换清单并单次调用原快捷方式；未停止 Run、注入终端输入、恢复或迁移数据库。备份保留在 Windows 用户目录 `asd-acceptance-20261122/five-switch-delivery-5f5e6d3/metadata-v11-private.sqlite3`，不进入 Git。
+
+[首次交付回执](2026-11-27-five-session-switch-evidence/delivery-first-result.json)失败在 60 秒内没有确认新 manager，不是交付通过。请求时间 UTC 15:43:13.987；后来观察到新 manager 14940 创建于 15:44:42.489，约晚 89 秒。仅从这两个时间不能断言延迟根因或排除外部再次打开；没有盲目重放启动，也不将后来成功改写成首次等待通过。
+
+[后续只读核验](2026-11-27-five-session-switch-evidence/audit-result.json)确认已有正确镜像的内层 workbench、原 Windows Terminal 路径祖先及唯一 owner binding、同 manager 的一个桌宠；旧 manager 不存在。审计产品启动／输入／剪贴板 API 均为 0，task result=0；没有操作前台、关闭现有窗口或再次启动产品。备份和当前数据库均 v11／integrity=ok。
+
+[严格类型的身份／状态统计](2026-11-27-five-session-switch-evidence/identity-v2.json)从首次只读核验保存的原始私有列表解析：发现六条记录，其中五条 available、一条 exited。备份中六条元数据 Run 身份全部保留；五条 available 身份与备份中“未停止且无 pane exit 记录”的五个候选完全相等。这是元数据候选与当前后端观测的比较，不是更新前 live 集合的独立回执，更不能作为 Agent 仍存活或原 PID／FILETIME 不变的证明。此次实际观测数量也不追溯当作用户已确认的会话数。
+
+首次更新脚本只在内存中留了配置哈希，启动确认超时后未落盘，故无法补称前后哈希完全一致。后续只观察到 ui.toml、launch.toml、last-launch.toml 的写入时间都早于本次更新；另两份被检查的配置当时不存在。原脚本和只读审计均没有执行配置写入。
+
+中间一次 PowerShell 数组投影给出空状态／单项错误统计，已标记为[无效观察器结果](2026-11-27-five-session-switch-evidence/observer-invalid-state-summary.json)，不能据此说会话变成一条或状态未知。改用严格校验 Session／Run／backend／terminal_state 的 Go 只读解析，得到上述 5 available／1 exited；原始用户列表和 SQLite 只留在 Windows 私有目录，公开证据仅有数量、布尔值和镜像哈希。
+
+[最终清理](2026-11-27-five-session-switch-evidence/delivery-cleanup.json)确认两个临时任务不存在，三份未运行的上传／审计镜像按精确哈希移除，日常程序与备份保留，forced=0。以上为版本交付和现有窗口核验，不代替用户整套闪烁现场的复看、完整桌面键鼠接受或长期 RSS 测量。
