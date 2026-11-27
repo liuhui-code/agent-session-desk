@@ -16,6 +16,9 @@ import (
 type footerHint struct{ key, label string }
 
 func (m *Model) managementFooterHints() (primary, secondary []footerHint) {
+	if len(m.workspace.bindings.Overrides) > 0 {
+		return []footerHint{{m.keyLabel("management", "help"), "Help"}, {m.keyLabel("workspace", "toggle_focus"), "Focus"}}, nil
+	}
 	group := m.sidebarGroupSelected()
 	if group {
 		label := "Collapse"
@@ -109,6 +112,10 @@ func (m *Model) renderManagementFooter() string {
 	}
 	pinned := []footerHint{{"↑↓", "Select"}, {"Alt+J/K", "Sessions"}, {"F6", "Terminal"}, {"?", "Help"}, {"q", "Quit"}}
 	optional := []footerHint{{"/", "Search"}, {"S", "Settings"}, {"Alt+V", "Grouped/Flat"}}
+	if len(m.workspace.bindings.Overrides) > 0 {
+		pinned = []footerHint{{m.keyLabel("workspace", "toggle_focus"), "Focus"}, {m.keyLabel("management", "help"), "Help"}, {m.keyLabel("management", "quit"), "Quit"}}
+		optional = nil
+	}
 	right := func(n int) string {
 		parts := make([]string, 0, len(pinned)+n)
 		ordered := append(append([]footerHint(nil), pinned[:len(pinned)-1]...), optional[:n]...)
@@ -148,6 +155,9 @@ func (m *Model) renderTerminalFooter() string {
 	gap := strings.Repeat(" ", t.blockGap)
 	badge := m.styles.footerBadge.Render(t.badgePrefix + "Terminal" + t.badgeSuffix)
 	choices := []string{"F6 Navigate" + t.inlineSeparator + "Alt+J/K switch tabs", "F6 Navigate" + t.inlineSeparator + "Alt+J/K", "F6 Navigate"}
+	if len(m.workspace.bindings.Overrides) > 0 {
+		choices = []string{m.keyLabel("workspace", "toggle_focus") + " Navigate · " + m.keyLabel("workspace", "next") + " Next", m.keyLabel("workspace", "toggle_focus") + " Navigate"}
+	}
 	hint := choices[len(choices)-1]
 	for _, choice := range choices {
 		if lipgloss.Width(badge)+t.blockGap+lipgloss.Width(choice) <= m.width {
@@ -159,7 +169,7 @@ func (m *Model) renderTerminalFooter() string {
 		badge = m.styles.footerCompactBadge.Render("Terminal")
 	}
 	if lipgloss.Width(badge)+t.blockGap+lipgloss.Width(hint) > m.width {
-		return cellTruncate(m.styles.dim.Render("F6"), m.width, "")
+		return cellTruncate(m.styles.dim.Render(m.keyLabel("workspace", "toggle_focus")), m.width, "")
 	}
 	line := badge
 	budget := m.width - lipgloss.Width(badge) - t.labelGap - lipgloss.Width(t.targetPrefix) - t.blockGap - lipgloss.Width(hint)

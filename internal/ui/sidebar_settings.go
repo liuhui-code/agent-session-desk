@@ -8,6 +8,7 @@ package ui
 
 import (
 	"context"
+	"github.com/liuhui-code/agent-session-desk/internal/keybindings"
 	"strings"
 
 	tea "charm.land/bubbletea/v2"
@@ -17,6 +18,7 @@ import (
 )
 
 type Options struct {
+	Keybindings       keybindings.Map
 	LoadProject       func(context.Context) ([]session.Launch, error)
 	OpenDocument      func(context.Context, string) error
 	AttentionObserver func([]session.AttentionItem, bool)
@@ -42,6 +44,9 @@ type Options struct {
 
 func NewWithOptions(ctx context.Context, service Service, options Options) *Model {
 	m := New(ctx, service)
+	if m.workspace != nil {
+		m.workspace.bindings = options.Keybindings
+	}
 	m.openDocument = options.OpenDocument
 	m.attentionObserver, m.attentionFocus = options.AttentionObserver, options.AttentionFocus
 	m.project.load = options.LoadProject

@@ -90,3 +90,5 @@ ADR-0014 依据用户 2026-11-22 的明确要求接受，部分替代 0001/0002 
 | [0057](0057-terminal-activity.md) | 近期终端页活动 | 已接受 | 实现/资源验证中 |
 
 | [0059](0059-navigation-workspaces.md) | 唤起、MRU、模板组 | 已接受 | 本地测试 |
+
+| [0060](0060-configurable-keybindings.md) | 键配置v1 | 已接受 | [本地/Windows](../testing/results/2026-11-27-keybindings.md) |

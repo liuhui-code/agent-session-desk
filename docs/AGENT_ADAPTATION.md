@@ -27,9 +27,9 @@
 
 项目启动不是事务：已开的Run不因后续失败自动停止。失败／回执不明后检查实际列表，不重放整组。UI会阻止本次不确定启动的再次触发；CLI重复命令仍有真实副作用。
 
-## 快捷键配置：待实现提案
+## 快捷键配置
 
-**当前没有 keybindings.toml 加载器**。下面仅是讨论中的格式，放入文件不会生效：
+已实现启动读取，见[配置合同](KEYBINDINGS.md)。放在 metadata.sqlite3 同目录；重启生效。
 
 ```toml
 schema_version = 1
@@ -43,6 +43,6 @@ toggle_sidebar = "ctrl+s"
 open_project = "W"
 ```
 
-拟按 global/workspace/management 分域，缺省继承、空值禁用、冲突报错、重启生效。尚未接受为接口；最终名称、修饰键归一化、IME／终端保留键、帮助同步、Windows全局键冲突与迁移需在实现ADR中固定。
+按 global/workspace/management 分域，缺省继承、空值禁用、冲突报错；对话框／复制模式内部键和数字分组等固定手势不属v1。
 
 适配时先搜索 `workspace_keys.go`、各模态事件及 `hotkey_windows.go`；不要只替换一处字符串。全局事件与终端输入不同，字母大小写可能代表不同动作。配置不能绕过原输入排空、身份核验及不确定结果不重试。

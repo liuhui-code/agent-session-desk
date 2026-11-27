@@ -138,4 +138,4 @@ Session-order final follow-up: the first membership receipt left old order field
 
 Alpha 发布实际结果：v0.1.0-alpha.1 于 2026-11-25T02:58:24Z 公开为 prerelease，Release 457588984；标签 b5953b3，产品源码仍7691a2b／同字节7cd746fd。四附件公开匿名下载的大小／SHA256 全部一致，回执见 alpha-release-evidence/published-verified.json。HTTPS 失败／超时及草稿422均保留，最终已有SSH成功，仅推送此标签，没有写远端main；不移动tag或替换旧Release。
 
-2026-11-27 接手入口：docs/AGENT_ADAPTATION.md 汇总功能、源码与证据。keybindings.toml 仅提案，尚无加载器；不可当作已存在接口。
+2026-11-27 接手入口：docs/AGENT_ADAPTATION.md 汇总功能、源码与证据。keybindings.toml v1 已有有界加载器；见 docs/KEYBINDINGS.md，不包含模态内部键。

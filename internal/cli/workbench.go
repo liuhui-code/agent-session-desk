@@ -3,7 +3,9 @@ package cli
 import (
 	"context"
 	"github.com/liuhui-code/agent-session-desk/internal/hotkey"
+	"github.com/liuhui-code/agent-session-desk/internal/keybindings"
 	"io"
+	"path/filepath"
 	"time"
 
 	tea "charm.land/bubbletea/v2"
@@ -15,7 +17,16 @@ import (
 )
 
 func runWorkbench(ctx context.Context, service *manager.Manager, options backend.Options, stateDir, configPath string, desktopPet bool, documentApp string, focus func() bool, input io.Reader, output io.Writer) error {
+	metadata, _, e := metadataPath(options, stateDir)
+	if e != nil {
+		return e
+	}
+	keys, e := keybindings.Load(filepath.Join(filepath.Dir(metadata), "keybindings.toml"))
+	if e != nil {
+		return e
+	}
 	settings := withQuickLaunch(loadUIOptions(options, stateDir), options, stateDir, configPath)
+	settings.Keybindings = keys
 	settings.AttentionFocus = focus
 	settings.OpenDocument = document.Open
 	if documentApp == "system-notepad" {
@@ -38,7 +49,7 @@ func runWorkbench(ctx context.Context, service *manager.Manager, options backend
 	defer model.Close()
 	program := tea.NewProgram(model, tea.WithInput(input), tea.WithOutput(output), tea.WithContext(ctx))
 	go func() {
-		if e := hotkey.Run(petCtx, func() { program.Send(ui.GlobalActivate{}) }); e != nil {
+		if e := hotkey.Run(petCtx, keys.Wake(), func() { program.Send(ui.GlobalActivate{}) }); e != nil {
 			program.Send(ui.HotkeyFailure{})
 		}
 	}()

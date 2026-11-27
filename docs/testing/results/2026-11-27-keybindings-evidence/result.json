@@ -1,0 +1,37 @@
+{
+  "session_content_exported": 0,
+  "registry_writes": 0,
+  "stages": [
+    {
+      "stage": "configure",
+      "utc": "2026-11-27T08:30:20.7863058Z"
+    },
+    {
+      "stage": "open",
+      "utc": "2026-11-27T08:30:23.7967960Z"
+    },
+    {
+      "stage": "workspace",
+      "utc": "2026-11-27T08:30:26.5039801Z"
+    },
+    {
+      "stage": "custom switching",
+      "utc": "2026-11-27T08:30:31.2288037Z"
+    },
+    {
+      "stage": "global restore",
+      "utc": "2026-11-27T08:30:35.0291929Z"
+    },
+    {
+      "stage": "quit",
+      "utc": "2026-11-27T08:30:35.5441337Z"
+    }
+  ],
+  "clipboard_calls": 0,
+  "intentional_owned_ui_crashes": 0,
+  "project_live": 3,
+  "result": "verified",
+  "global_restored": true,
+  "forced_product_ends": 0,
+  "automatic_input_replay": false
+}

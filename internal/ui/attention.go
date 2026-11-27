@@ -159,6 +159,10 @@ func (m *Model) attentionHeader() (string, int, int) {
 	if uncertain {
 		text += m.tokens.attention.uncertain
 	}
+	if m.workspace != nil && len(m.workspace.bindings.Overrides) > 0 {
+		text = strings.ReplaceAll(text, "Alt+A", m.keyLabel("workspace", "attention"))
+		text = strings.ReplaceAll(text, "Alt+N", m.keyLabel("workspace", "next_attention"))
+	}
 	text = cellTruncate(text, g.bodyWidth, "")
 	return text, g.bodyX, g.bodyY - 1
 }

@@ -3,6 +3,7 @@ package ui
 import (
 	"context"
 	"fmt"
+	"github.com/liuhui-code/agent-session-desk/internal/keybindings"
 
 	tea "charm.land/bubbletea/v2"
 	"github.com/liuhui-code/agent-session-desk/internal/session"
@@ -40,6 +41,7 @@ const (
 )
 
 type workspaceState struct {
+	bindings                              keybindings.Map
 	document                              *documentOpen
 	documentPointer                       bool
 	sidebarHidden, sidebarFocusBeforeHide bool

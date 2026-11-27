@@ -53,7 +53,7 @@ func (m *Model) helpRows(key, desc string, width int, short bool) []string {
 
 func (m *Model) allHelpRows(width int) []string {
 	rows := []string{m.styles.helpTitle.Render("All shortcuts"), ""}
-	for i, section := range workspaceHelpSections() {
+	for i, section := range m.configuredHelp() {
 		if i > 0 {
 			rows = append(rows, make([]string, m.tokens.help.sectionGap)...)
 		}

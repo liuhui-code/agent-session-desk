@@ -7,6 +7,19 @@ import (
 )
 
 func (m *Model) workspaceKey(msg tea.KeyPressMsg) tea.Cmd {
+	original := msg
+	var off bool
+	msg, off = m.resolveWorkspaceKey(msg)
+	if off {
+		w := m.workspace
+		if (w.transition != workspaceIdle && w.transition != workspaceSwitch) || m.project.busy || m.quickCreate != nil {
+			return nil
+		}
+		if m.workspace.focused && len(m.workspace.tabs) > 0 {
+			return tea.Batch(m.finishProgramPointer(), m.finishWorkspaceSplit(), m.workspaceTerminalKey(original))
+		}
+		return nil
+	}
 	return tea.Batch(m.finishProgramPointer(), m.finishWorkspaceSplit(), m.workspaceKeyNow(msg))
 }
 

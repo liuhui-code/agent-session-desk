@@ -6,6 +6,8 @@ import (
 	"context"
 	"fmt"
 	"runtime"
+	"strconv"
+	"strings"
 	"syscall"
 	"unsafe"
 )
@@ -19,7 +21,14 @@ type message struct {
 	Private uint32
 }
 
-func Run(ctx context.Context, activate func()) error {
+func Run(ctx context.Context, key string, activate func()) error {
+	if key == "" {
+		return nil
+	}
+	mods, vk, e := nativeKey(key)
+	if e != nil {
+		return e
+	}
 	runtime.LockOSThread()
 	defer runtime.UnlockOSThread()
 	u := syscall.NewLazyDLL("user32.dll")
@@ -31,7 +40,7 @@ func Run(ctx context.Context, activate func()) error {
 	var msg message
 	peek.Call(uintptr(unsafe.Pointer(&msg)), 0, 0, 0, 0)
 	tid, _, _ := syscall.NewLazyDLL("kernel32.dll").NewProc("GetCurrentThreadId").Call()
-	ok, _, _ := reg.Call(0, 1, 0x4003, 0x20)
+	ok, _, _ := reg.Call(0, 1, mods|0x4000, vk)
 	if ok == 0 {
 		return fmt.Errorf("Ctrl+Alt+Space unavailable")
 	}
@@ -57,4 +66,34 @@ func Run(ctx context.Context, activate func()) error {
 			activate()
 		}
 	}
+}
+
+func nativeKey(key string) (uintptr, uintptr, error) {
+	var mods uintptr
+	parts := strings.Split(key, "+")
+	for _, p := range parts[:len(parts)-1] {
+		switch p {
+		case "ctrl":
+			mods |= 2
+		case "alt":
+			mods |= 1
+		case "shift":
+			mods |= 4
+		default:
+			return 0, 0, fmt.Errorf("invalid modifier")
+		}
+	}
+	k := parts[len(parts)-1]
+	if k == "space" {
+		return mods, 32, nil
+	}
+	if len(k) == 1 && ((k[0] >= 'a' && k[0] <= 'z') || (k[0] >= '0' && k[0] <= '9')) {
+		return mods, uintptr(strings.ToUpper(k)[0]), nil
+	}
+	if strings.HasPrefix(k, "f") {
+		if n, e := strconv.Atoi(k[1:]); e == nil && n >= 1 && n <= 11 {
+			return mods, uintptr(111 + n), nil
+		}
+	}
+	return 0, 0, fmt.Errorf("unsupported global key")
 }

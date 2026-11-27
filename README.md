@@ -1,6 +1,6 @@
 # Agent Session Desk
 
-其他 Agent 接手请看[功能与适配索引](docs/AGENT_ADAPTATION.md)，含当前入口、源码、验证边界和未实现的快捷键配置提案。
+其他 Agent 接手请看[功能与适配索引](docs/AGENT_ADAPTATION.md)，含当前入口、源码、验证边界和快捷键配置。
 
 **面向 Windows 的本地 CLI Agent 多会话工作台。**
 
@@ -222,5 +222,7 @@ Tab 管理模式现可按 `/` 搜索当前会话，选择后接回原 Run；查�
 后端处理归属已有 claim／renew／claim-status：原 Run 凭据之外，使用单独的私有领取文件授权处理和回复；新 reply 必须带 --claim-file。租约不确定时不自动接管，不改前端；接口与 v7→v8 接入调整见[参考](docs/AGENT_API.md)，实际范围见[领取验证](docs/testing/results/2026-11-26-task-claims.md)。
 
 开发版会话名称后显示近期页变化：转圈/静默蓝点；当前只看最多8个可见项，未知无标识。见 [ADR-0057](docs/adr/0057-terminal-activity.md)。
+
+可在[快捷键配置](docs/KEYBINDINGS.md)替换工作区／管理动作及全局唤起，重启生效。
 
 版本：version 显示revision；管理 U 或 check-update 查公开release，仅查询。

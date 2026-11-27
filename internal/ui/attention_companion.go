@@ -29,11 +29,11 @@ func (m *Model) publishAttention(known bool) {
 func (m *Model) companionEvent(msg tea.Msg) (tea.Cmd, bool) {
 	switch v := msg.(type) {
 	case HotkeyFailure:
-		m.status = "Ctrl+Alt+Space unavailable"
+		m.status = "Global shortcut unavailable"
 		return nil, true
 	case GlobalActivate:
 		if m.attentionFocus != nil && m.attentionFocus() {
-			if m.groupDialog==nil && m.groupRemoval==nil && m.sessionStop==nil && !m.project.busy && m.attention.center == nil && !m.help && m.launch == nil && m.search == nil && m.rename == nil && !m.history.open {
+			if m.groupDialog == nil && m.groupRemoval == nil && m.sessionStop == nil && !m.project.busy && m.attention.center == nil && !m.help && m.launch == nil && m.search == nil && m.rename == nil && !m.history.open {
 				return m.nextAttention(), true
 			}
 			return nil, true
