@@ -217,7 +217,8 @@ func (m *Model) workspaceEvent(msg tea.Msg) (tea.Cmd, bool) {
 	if cmd, handled := m.workspaceClipboardEvent(msg); handled {
 		return cmd, true
 	}
-	switch msg := msg.(type) {
+	if c,ok:=m.releaseEvent(msg);ok{return c,true}
+ switch msg := msg.(type) {
 	case workspaceSplitTick:
 		return m.workspaceSplitExpired(), true
 	case tea.MouseWheelMsg:

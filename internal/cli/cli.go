@@ -4,6 +4,7 @@ package cli
 
 import (
 	"context"
+ "github.com/liuhui-code/agent-session-desk/internal/release"
 	"encoding/json"
 	"errors"
 	"flag"
@@ -20,7 +21,7 @@ import (
 	"github.com/liuhui-code/agent-session-desk/internal/session"
 )
 
-const Version = "0.0.0-m0-dev"
+const Version = release.Version
 
 const usage = `Agent Session Desk — M0 source migration slice
 
@@ -147,11 +148,12 @@ func run(ctx context.Context, args []string, input io.Reader, output, errorOutpu
 		fmt.Fprint(output, usage)
 		return nil
 	}
-	if command == "version" {
+	if command == "check-update" {return checkUpdate(ctx,commandArgs,output)}
+ if command == "version" {
 		if len(commandArgs) > 0 {
 			return fmt.Errorf("version accepts no arguments")
 		}
-		fmt.Fprintln(output, "Agent Session Desk", Version)
+		fmt.Fprintln(output, "Agent Session Desk", release.Build())
 		return nil
 	}
 	if command == "pet-demo" {

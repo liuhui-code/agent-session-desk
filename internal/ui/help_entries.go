@@ -1,4 +1,5 @@
 package ui
+import "github.com/liuhui-code/agent-session-desk/internal/release"
 
 type helpSection struct {
 	title string
@@ -7,6 +8,7 @@ type helpSection struct {
 
 func workspaceHelpSections() []helpSection {
 	return []helpSection{
+ {"Build",[][2]string{{release.Build(),"U Check releases"}}},
 		{"Tabs and terminals", [][2]string{
 			{"F6", "Toggle navigation/terminal focus"},
 			{"Ctrl+S", "Show/hide sidebar (outside dialogs)"},
