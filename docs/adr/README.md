@@ -92,3 +92,5 @@ ADR-0014 依据用户 2026-11-22 的明确要求接受，部分替代 0001/0002 
 | [0059](0059-navigation-workspaces.md) | 唤起、MRU、模板组 | 已接受 | 本地测试 |
 
 | [0060](0060-configurable-keybindings.md) | 键配置v1 | 已接受 | [本地/Windows](../testing/results/2026-11-27-keybindings.md) |
+
+| [0061](0061-observed-program-label.md) | 当前程序与启动快照分离 | 已接受 | [原生模拟](../testing/results/2026-11-27-program-label.md) |

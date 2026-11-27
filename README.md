@@ -226,3 +226,5 @@ Tab 管理模式现可按 `/` 搜索当前会话，选择后接回原 Run；查�
 可在[快捷键配置](docs/KEYBINDINGS.md)替换工作区／管理动作及全局唤起，重启生效。
 
 版本：version 显示revision；管理 U 或 check-update 查公开release，仅查询。
+
+连接行显示终端观测到的当前程序，隐藏 pwsh/powershell 等启动shell；无法识别则只显示连接状态。启动命令/历史保持原值。

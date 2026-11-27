@@ -338,8 +338,8 @@ func (b *Backend) List(ctx context.Context) ([]session.Session, error) {
 		if err != nil {
 			return nil, fmt.Errorf("read live session %s: %w", name, err)
 		}
-		state, exit := b.observePane(ctx, name, r.PaneID)
-		sessions = append(sessions, session.Session{ID: r.SessionID, RunID: r.RunID, BackendID: name, Title: r.Title, Command: r.Command, TerminalState: state, PaneExit: exit})
+		state, exit, program := b.observePaneProgram(ctx, name, r.PaneID, true)
+		sessions = append(sessions, session.Session{ID: r.SessionID, RunID: r.RunID, BackendID: name, Title: r.Title, Command: r.Command, CurrentProgram: program, TerminalState: state, PaneExit: exit})
 	}
 	sort.Slice(sessions, func(i, j int) bool {
 		if sessions[i].Title == sessions[j].Title {

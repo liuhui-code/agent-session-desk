@@ -117,9 +117,11 @@ func (m *Model) workspaceSidebarCard(index, width, rowLines, level int) []string
 		line = prefix + m.styles.attention.Inherit(titleStyle).Render(marker) + strings.TrimPrefix(line, prefix+marker)
 	}
 	if status != "" {
-		style:=m.styles.key
- if status==m.tokens.activityIdle{style=m.styles.activityIdle}
- line = strings.Replace(line, status, style.Inherit(titleStyle).Render(status), 1)
+		style := m.styles.key
+		if status == m.tokens.activityIdle {
+			style = m.styles.activityIdle
+		}
+		line = strings.Replace(line, status, style.Inherit(titleStyle).Render(status), 1)
 	}
 	lines := []string{titleStyle.Render(line)}
 	if rowLines > 1 {
@@ -128,15 +130,8 @@ func (m *Model) workspaceSidebarCard(index, width, rowLines, level int) []string
 			state = session.TerminalUnknown
 		}
 		metadata := terminalLabel(state)
-		if command := plainText(s.Command); command != "" {
-			// Display the executable name, not a machine-specific launch path.
-			// Both separators are recognized for cross-platform metadata views.
-			// Strip controls before splitting, then bound just the basename so
-			// a long directory or an OSC URI cannot become the program label.
-			command = label(command[strings.LastIndexAny(command, `/\`)+1:])
-			if command != "" {
-				metadata += m.tokens.sidebar.separator + command
-			}
+		if command := session.ProgramLabel(s.CurrentProgram); command != "" {
+			metadata += m.tokens.sidebar.separator + command
 		}
 		count := rowLines - 1
 		metadataWidth := max(1, width-lipgloss.Width(gutter+m.tokens.sidebar.metadata))

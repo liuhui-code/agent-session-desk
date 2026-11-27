@@ -604,3 +604,5 @@ M1 恢复补充（2026-11-22）：按用户继续完成 M1 的授权实现 metad
 FL-012/015/018：ADR-0057 有界页变化标识，静默不代表 ready；见[验证](testing/results/2026-11-27-activity.md)。资源/桌面另验。
 
 2026-11-27 FL-012/015/018：快捷键配置v1及导航复验见[报告](testing/results/2026-11-27-keybindings.md)，固定模态键/整体资源与发布仍开放。
+
+2026-11-27 FL-012/018：卡片改观测程序名，启动Command保持；见[报告](testing/results/2026-11-27-program-label.md)。

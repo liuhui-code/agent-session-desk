@@ -46,3 +46,5 @@ open_project = "W"
 按 global/workspace/management 分域，缺省继承、空值禁用、冲突报错；对话框／复制模式内部键和数字分组等固定手势不属v1。
 
 适配时先搜索 `workspace_keys.go`、各模态事件及 `hotkey_windows.go`；不要只替换一处字符串。全局事件与终端输入不同，字母大小写可能代表不同动作。配置不能绕过原输入排空、身份核验及不确定结果不重试。
+
+连接行程序标签：CurrentProgram仅内部瞬态；Command仍为启动快照。勿从标签/消失推断就绪或完成，见[ADR-0061](adr/0061-observed-program-label.md)。

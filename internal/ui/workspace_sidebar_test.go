@@ -15,6 +15,7 @@ func TestWorkspaceSidebarDefaultCardsSeparateTerminalMetadata(t *testing.T) {
 	service := &workspaceFixture{fakeService: fakeService{list: func(context.Context) ([]session.Session, error) {
 		rows := sampleSessions()
 		rows[0].Command = `C:\Synthetic Tools\PowerShell\pwsh.exe`
+		rows[0].CurrentProgram = "codex"
 		return rows, nil
 	}}}
 	h := newWorkspaceHarness(t, service)
@@ -27,7 +28,7 @@ func TestWorkspaceSidebarDefaultCardsSeparateTerminalMetadata(t *testing.T) {
 	for y, line := range lines {
 		if strings.HasPrefix(line, "  ┃ 开发") {
 			found = true
-			if y+1 >= len(lines) || !strings.HasPrefix(lines[y+1], "    ╰ Connected · pwsh.exe") {
+			if y+1 >= len(lines) || !strings.HasPrefix(lines[y+1], "    ╰ Connected · codex") {
 				t.Fatalf("terminal metadata did not occupy its own card line:\n%s", view)
 			}
 		}
@@ -44,8 +45,8 @@ func TestWorkspaceSidebarDefaultCardsSeparateTerminalMetadata(t *testing.T) {
 func TestWorkspaceSidebarMetadataClickSelectsItsOwnSession(t *testing.T) {
 	service := &workspaceFixture{fakeService: fakeService{list: func(context.Context) ([]session.Session, error) {
 		rows := sampleSessions()
-		rows[0].Command = "pwsh-first.exe"
-		rows[1].Command = "pwsh-second.exe"
+		rows[0].CurrentProgram = "codex"
+		rows[1].CurrentProgram = "claude"
 		return rows, nil
 	}}}
 	h := newWorkspaceHarness(t, service)
@@ -53,7 +54,7 @@ func TestWorkspaceSidebarMetadataClickSelectsItsOwnSession(t *testing.T) {
 	h.send(tea.WindowSizeMsg{Width: 120, Height: 24})
 	h.send(tea.KeyPressMsg{Code: tea.KeyF6})
 	for y, line := range strings.Split(ansi.Strip(h.m.View().Content), "\n") {
-		if strings.Contains(line, "pwsh-second.exe") {
+		if strings.Contains(line, "claude") {
 			h.send(tea.MouseClickMsg{X: 3, Y: y, Button: tea.MouseLeft})
 			if !strings.Contains(ansi.Strip(h.m.View().Content), "  评审") {
 				t.Fatal("metadata click did not select its own card")

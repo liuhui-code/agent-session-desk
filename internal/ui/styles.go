@@ -93,7 +93,7 @@ func newStyles(t designTokens, profile colorprofile.Profile) styles {
 		groupChoiceSelected:       lipgloss.NewStyle().Foreground(t.colors.bg).Background(t.colors.accent).Bold(t.bold).PaddingLeft(t.group.choicePadding).PaddingRight(t.group.choicePadding),
 		groupName:                 lipgloss.NewStyle().Foreground(t.colors.groupText).Bold(t.sidebar.groupBold),
 		groupPart:                 lipgloss.NewStyle().Foreground(t.colors.dim),
-		groupHotkey: lipgloss.NewStyle().Foreground(t.colors.dim),
+		groupHotkey:               lipgloss.NewStyle().Foreground(t.colors.dim),
 		groupSelectedName:         lipgloss.NewStyle().Foreground(t.colors.focusText).Background(t.colors.focusBackground).Bold(t.sidebar.groupBold),
 		groupSelectedPart:         lipgloss.NewStyle().Foreground(t.colors.focusText).Background(t.colors.focusBackground),
 		renameBox:                 lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.rename.borderColor).Background(t.colors.surface).Padding(t.rename.paddingY, t.rename.paddingX),

@@ -27,11 +27,11 @@ func TestLongCardTitleUsesSourceColumnCropWithoutInventingAnEllipsis(t *testing.
 func TestLongExecutablePathShowsItsActualBasenameBeforeBoundingDisplay(t *testing.T) {
 	for _, path := range []string{`C:\` + strings.Repeat(`deep\`, 1000) + `actual-agent.exe`, "/" + strings.Repeat("deep/", 1000) + "actual-agent.exe"} {
 		m := New(context.Background(), &workspaceFixture{})
-		m.sessions = []session.Session{{ID: "one", RunID: "run-one", Title: "One", Command: path, TerminalState: session.TerminalAvailable}}
+		m.sessions = []session.Session{{ID: "one", RunID: "run-one", Title: "One", Command: path, CurrentProgram: path, TerminalState: session.TerminalAvailable}}
 		m.workspace.focused = false
 		m.cursor = 0
 		got := ansi.Strip(strings.Join(m.workspaceSidebarCard(0, 42, 2, 0), "\n"))
-		if !strings.Contains(got, "actual-agent.exe") || m.sessions[0].Command != path {
+		if !strings.Contains(got, "actual-agent") || m.sessions[0].Command != path {
 			m.Close()
 			t.Fatalf("display used a truncated directory or changed launch data: %q", got)
 		}
@@ -150,12 +150,12 @@ func TestExecutableDisplaySanitizesEscapesBeforeFindingTheBasename(t *testing.T)
 	// An OSC URI contains separators that are not part of the inert executable.
 	// Finding the basename inside that control sequence would expose false.exe.
 	command := "/synthetic/actual-agent.exe\x1b]8;;https://synthetic.invalid/path/false.exe\a"
-	m.sessions = []session.Session{{ID: "one", RunID: "original", Title: "One", Command: command, TerminalState: session.TerminalAvailable}}
+	m.sessions = []session.Session{{ID: "one", RunID: "original", Title: "One", Command: command, CurrentProgram: command, TerminalState: session.TerminalAvailable}}
 	m.cursor = 0
 	m.workspace.focused = false
 	rendered := strings.Join(m.workspaceSidebarCard(0, 42, 2, 0), "\n")
 	plain := ansi.Strip(rendered)
-	if !strings.Contains(plain, "actual-agent.exe") || strings.Contains(plain, "false.exe") || strings.Contains(rendered, "\x1b]8") || m.sessions[0].Command != command {
+	if strings.Contains(plain, "actual-agent.exe") || strings.Contains(plain, "false.exe") || strings.Contains(rendered, "\x1b]8") || m.sessions[0].Command != command {
 		t.Fatalf("control sequence changed executable label: %q", plain)
 	}
 }

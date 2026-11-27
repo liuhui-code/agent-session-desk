@@ -22,18 +22,20 @@ const (
 // Command is display-only (the executable), never a reconstructed shell command.
 // An available terminal does not establish that an agent is busy or ready.
 type Session struct {
-	Order         int64         `json:"order,omitempty"`
-	OrderRevision int64         `json:"order_revision,omitempty"`
-	GroupID       string        `json:"group_id,omitempty"`
-	GroupRevision int64         `json:"group_revision,omitempty"`
-	ID            string        `json:"session_id"`
-	RunID         string        `json:"run_id"`
-	BackendID     string        `json:"backend_id"`
-	Title         string        `json:"title"`
-	TitleRevision int64         `json:"title_revision,omitempty"`
-	Command       string        `json:"command"`
-	TerminalState TerminalState `json:"terminal_state"`
-	PaneExit      *PaneExit     `json:"pane_exit,omitempty"`
+	// CurrentProgram is a transient observation, not the immutable launch command.
+	CurrentProgram string        `json:"-"`
+	Order          int64         `json:"order,omitempty"`
+	OrderRevision  int64         `json:"order_revision,omitempty"`
+	GroupID        string        `json:"group_id,omitempty"`
+	GroupRevision  int64         `json:"group_revision,omitempty"`
+	ID             string        `json:"session_id"`
+	RunID          string        `json:"run_id"`
+	BackendID      string        `json:"backend_id"`
+	Title          string        `json:"title"`
+	TitleRevision  int64         `json:"title_revision,omitempty"`
+	Command        string        `json:"command"`
+	TerminalState  TerminalState `json:"terminal_state"`
+	PaneExit       *PaneExit     `json:"pane_exit,omitempty"`
 }
 
 // PaneExit is an observation of the product-associated pane, not an agent

@@ -102,11 +102,15 @@ func fakeBackend(args []string) int {
 		}
 		if args[len(args)-1] == "#{pane_current_path}" {
 			fmt.Println(os.Getenv("ASD_TEST_PANE_DIRECTORY"))
-		} else if args[len(args)-1] == "#{pane_id}|#{pane_dead}" {
+		} else if args[len(args)-1] == "#{pane_id}|#{pane_dead}" || args[len(args)-1] == "#{pane_id}|#{pane_dead}|#{pane_current_command}" {
 			if raw := os.Getenv("ASD_TEST_PANE_TUPLE"); raw != "" {
 				fmt.Println(raw)
 			} else {
-				fmt.Println("%7|" + state.Dead)
+				suffix := ""
+				if strings.Contains(args[len(args)-1], "pane_current_command") {
+					suffix = "|" + os.Getenv("ASD_TEST_PANE_PROGRAM")
+				}
+				fmt.Println("%7|" + state.Dead + suffix)
 			}
 		} else {
 			fmt.Println(state.Dead)
