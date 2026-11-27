@@ -14,3 +14,7 @@
 - `test_catalog.py check --generated` 报已有 `docs/testing/COVERAGE.md` 过期，本次不改用例或派生文档，不作为产品测试失败或成功。
 
 [定向证据目录](2026-11-27-selection-activity-evidence/)。未关闭整体 UI、资源与发布门槛。
+
+## Windows 日常交付
+
+日常入口更新并运行 `asd-selection-67c2aa2.exe`，源提交 `67c2aa2`，SHA256 `5f3e9aedb94bd6575b1b1ba29507791a2c85a36ca0e68a2481e1f790eba43dda`。回执 `updated-running`、`live_preserved=true`、`forced=0`；只正常关闭原 UI 宿主，更新独立版本文件后通过原快捷方式重开，Session／Run／pane 身份集合保持。未声称实体选中视觉接受或后台资源预算通过。
