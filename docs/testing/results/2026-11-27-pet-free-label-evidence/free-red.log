@@ -1,0 +1,5 @@
+--- FAIL: TestLivePetUsesExistingPendingAndViewedNeverClearsIt (0.00s)
+    live_test.go:40: closed source retained an active marker
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/pet	2.065s
+FAIL

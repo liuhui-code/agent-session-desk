@@ -70,17 +70,14 @@ func frame(m Model, t ui.PetTokens, images [4]*image.RGBA) *image.RGBA {
 	caption := image.Rect((t.Width-t.CaptionWidth)/2, t.CaptionY, (t.Width+t.CaptionWidth)/2, t.CaptionY+t.CaptionHeight)
 	pill(dst, caption, t.Cream)
 	text(dst, caption, m.Label(), t.CaptionScale, t.Ink)
-	if m.Kind != Idle {
+	if m.Kind == Approval || m.Kind == Question {
 		bg, symbol := t.Alert, "!"
 		if m.Kind == Question {
 			symbol = "?"
 		}
-		if m.Kind == Unknown {
-			bg, symbol = t.Unknown, "-"
-		}
 		r := image.Rect(t.BadgeX-t.BadgeRadius, t.BadgeY-t.BadgeRadius, t.BadgeX+t.BadgeRadius, t.BadgeY+t.BadgeRadius)
 		pill(dst, r, bg)
-		if m.Count > 1 && m.Kind != Unknown {
+		if m.Count > 1 {
 			symbol = strconv.Itoa(m.Count) + symbol
 		}
 		scale := t.BadgeScale
@@ -115,6 +112,8 @@ var glyphs = map[rune][7]string{
 	'N': {"10001", "11001", "11001", "10101", "10011", "10011", "10001"},
 	'K': {"10001", "10010", "10100", "11000", "10100", "10010", "10001"},
 	'D': {"11110", "10001", "10001", "10001", "10001", "10001", "11110"},
+	'F': {"11111", "10000", "10000", "11110", "10000", "10000", "10000"},
+	'R': {"11110", "10001", "10001", "11110", "10100", "10010", "10001"},
 	'E': {"11111", "10000", "10000", "11110", "10000", "10000", "11111"},
 	'M': {"10001", "11011", "10101", "10101", "10001", "10001", "10001"},
 	'O': {"01110", "10001", "10001", "10001", "10001", "10001", "01110"},

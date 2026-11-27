@@ -84,3 +84,33 @@ func TestDemoPositionHandlesNegativeMonitorCoordinates(t *testing.T) {
 		}
 	}
 }
+
+func TestUnknownPetHasNoBadgeAndKnownRequestsKeepTheirBadge(t *testing.T) {
+	for _, dpi := range []int{96, 144, 192} {
+		t.Run(fmt.Sprint(dpi), func(t *testing.T) {
+			tokens := ui.PetDesignAtDPI(dpi)
+			images, err := sprites(tokens.SpriteSize)
+			if err != nil {
+				t.Fatal(err)
+			}
+			base := frame(Model{Kind: Idle}, tokens, images)
+			for _, kind := range []Kind{Unknown, Approval, Question} {
+				pixels := frame(Model{Kind: kind, Count: 2}, tokens, images)
+				different := false
+				for y := tokens.BadgeY - tokens.BadgeRadius; y < tokens.BadgeY+tokens.BadgeRadius; y++ {
+					for x := tokens.BadgeX - tokens.BadgeRadius; x < tokens.BadgeX+tokens.BadgeRadius; x++ {
+						if pixels.RGBAAt(x, y) != base.RGBAAt(x, y) {
+							different = true
+						}
+					}
+				}
+				if kind == Unknown && different {
+					t.Fatal("LINK still draws a badge")
+				}
+				if kind != Unknown && !different {
+					t.Fatal("known blocking request lost its badge", kind)
+				}
+			}
+		})
+	}
+}

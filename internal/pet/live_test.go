@@ -36,7 +36,7 @@ func TestLivePetUsesExistingPendingAndViewedNeverClearsIt(t *testing.T) {
 	}
 	b.State = "invalidated"
 	model = project([]session.AttentionItem{a, b}, true)
-	if model.Kind != Idle || model.Count != 0 || model.Label() != "ASD" {
+	if model.Kind != Idle || model.Count != 0 || model.Label() != "FREE" {
 		t.Fatal("closed source retained an active marker")
 	}
 }

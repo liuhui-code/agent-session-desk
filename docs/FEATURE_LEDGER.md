@@ -620,3 +620,5 @@ FL-012/015/018：ADR-0057 有界页变化标识，静默不代表 ready；见[�
 2026-11-27 FL-001/002/011/013：按 [ADR-0063](adr/0063-agent-recovery-declaration-v1.md)定义 Agent 自报原生对话 ID 与恢复启动描述的可选 v1 JSON 合同，附 Schema、填写说明与示例；[离线验证](testing/results/2026-11-27-agent-recovery-contract.md)仅核对文件合同。配置导入、逐 Session 持久化、新 Run 执行和真实历史恢复仍未实现，不提升功能或发布接受。
 
 2026-11-27 FL-001/002/011/013：按 [ADR-0064](adr/0064-explicit-agent-recovery-execution.md)接通可选 v1 声明登记／查询、显式恢复与回执 CLI。SQLite v11 每 Run 启动快照与同 Session 新 Run、独立凭据、修订／未知启动屏障；[局部执行报告](testing/results/2026-11-27-agent-recovery-execution.md)分别记录本机、Windows 合成 Agent 与失败轮。真实 Agent、电脑重启、管理 UI 恢复、资源与整体接受继续开放，不把配置或 Agent 自报当作上下文完整证明。
+
+2026-11-27 FL-020：按 [ADR-0065](adr/0065-pet-free-label-and-no-unknown-badge.md)将桌宠空闲文案改为 FREE，LINK 去掉右上角减号／底色角标，保留 !／? 与内部提醒状态。[定向验证](testing/results/2026-11-27-pet-free-label.md)与本机预览单列，不计真实 Windows 桌面或整体验收。

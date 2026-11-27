@@ -100,3 +100,5 @@ ADR-0014 依据用户 2026-11-22 的明确要求接受，部分替代 0001/0002 
 | [0063](0063-agent-recovery-declaration-v1.md) | Agent 自报简易恢复配置 | 已接受（文件合同） | 初始文件合同；后续 CLI 执行见 0064，真实 Agent 恢复另验 |
 
 | [0064](0064-explicit-agent-recovery-execution.md) | 显式原生恢复、新 Run 与不重放屏障 | 已接受／CLI 实现 | SQLite v11；实际范围见专项报告 |
+
+| [0065](0065-pet-free-label-and-no-unknown-badge.md) | 桌宠 FREE 与 LINK 无角标 | 已接受／已实现 | 桌宠定向与渲染预览；日常 Windows 未替换 |

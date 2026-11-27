@@ -1,0 +1,10 @@
+--- FAIL: TestUnknownPetHasNoBadgeAndKnownRequestsKeepTheirBadge (0.34s)
+    --- FAIL: TestUnknownPetHasNoBadgeAndKnownRequestsKeepTheirBadge/96 (0.11s)
+        frame_test.go:108: LINK still draws a badge
+    --- FAIL: TestUnknownPetHasNoBadgeAndKnownRequestsKeepTheirBadge/144 (0.10s)
+        frame_test.go:108: LINK still draws a badge
+    --- FAIL: TestUnknownPetHasNoBadgeAndKnownRequestsKeepTheirBadge/192 (0.13s)
+        frame_test.go:108: LINK still draws a badge
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/pet	1.703s
+FAIL

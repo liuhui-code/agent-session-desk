@@ -39,7 +39,7 @@ func (m Model) Label() string {
 	if m.Count > 0 {
 		return "WAIT"
 	}
-	return "ASD"
+	return "FREE"
 }
 func (m Model) Cell() int {
 	switch m.Kind {
