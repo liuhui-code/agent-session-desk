@@ -26,6 +26,7 @@ type fakeState struct {
 	Dead     string
 	Active   string
 	Missing  bool
+	OmitList bool
 }
 
 func fakeBackend(args []string) int {
@@ -85,7 +86,7 @@ func fakeBackend(args []string) int {
 		}
 		fmt.Println(state.Metadata)
 	case "list-sessions":
-		if state.Name != "" {
+		if state.Name != "" && !state.OmitList {
 			fmt.Println(state.Name)
 		}
 	case "display-message":

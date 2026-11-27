@@ -1,0 +1,35 @@
+{
+  "keyboard_apis": 0,
+  "fixture_ends": [
+    {
+      "pid": 12880,
+      "start": "2026-11-27T14:56:17.1378828Z",
+      "ended": true
+    },
+    {
+      "pid": 4124,
+      "start": "2026-11-27T14:57:15.8122569Z",
+      "ended": true
+    }
+  ],
+  "manager_start": "2026-11-27T14:57:29.7162304Z",
+  "clipboard_apis": 0,
+  "baseline_ready": true,
+  "manager_exit": 0,
+  "stops": [
+    {
+      "code": 0,
+      "session": "64d1ebe5028f0695884204abed71f195"
+    },
+    {
+      "code": 0,
+      "session": "996408563529aa841788da6c18ecec4f"
+    }
+  ],
+  "pet_observed": true,
+  "forced": 0,
+  "manager_pid": 20628,
+  "launch_code": 0,
+  "foreground_restore": "skipped: input changed",
+  "result": "completed"
+}

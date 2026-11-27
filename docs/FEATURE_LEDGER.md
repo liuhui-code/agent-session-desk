@@ -622,3 +622,5 @@ FL-012/015/018：ADR-0057 有界页变化标识，静默不代表 ready；见[�
 2026-11-27 FL-001/002/011/013：按 [ADR-0064](adr/0064-explicit-agent-recovery-execution.md)接通可选 v1 声明登记／查询、显式恢复与回执 CLI。SQLite v11 每 Run 启动快照与同 Session 新 Run、独立凭据、修订／未知启动屏障；[局部执行报告](testing/results/2026-11-27-agent-recovery-execution.md)分别记录本机、Windows 合成 Agent 与失败轮。真实 Agent、电脑重启、管理 UI 恢复、资源与整体接受继续开放，不把配置或 Agent 自报当作上下文完整证明。
 
 2026-11-27 FL-020：按 [ADR-0065](adr/0065-pet-free-label-and-no-unknown-badge.md)将桌宠空闲文案改为 FREE，LINK 去掉右上角减号／底色角标，保留 !／? 与内部提醒状态。[定向验证](testing/results/2026-11-27-pet-free-label.md)与本机预览单列，不计真实 Windows 桌面或整体验收。
+
+2026-11-27 FL-001/012/015/018/020：按 [ADR-0066](adr/0066-revalidate-incomplete-terminal-discovery.md)处理 psmux 成功枚举临时漏列：有界原身份补查，列表缺席不切断健康原连接。[实际报告](testing/results/2026-11-27-idle-discovery.md)区分 Windows 真实漏列、模型错误注入和仪器变体；完整用户现场／真实 Agent、长期资源与发布仍开放。

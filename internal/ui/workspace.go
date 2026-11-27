@@ -149,6 +149,11 @@ func (m *Model) workspaceSessions() tea.Cmd {
 		return nil
 	}
 	tab := w.tabs[w.active]
+	// Enumeration absence is uncertainty, not a failure of the native client.
+	// Its own identity checks and stream errors remain authoritative.
+	if !tab.live && (w.conn != nil || w.busy) {
+		return nil
+	}
 	if !tab.live || tab.session.TerminalState != session.TerminalAvailable {
 		m.failWorkspace(fmt.Errorf("Target terminal is not interactive; view retained, no automatic restart"))
 		return nil

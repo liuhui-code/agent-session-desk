@@ -1,0 +1,27 @@
+package ui
+
+import (
+ "crypto/sha256"
+ "encoding/json"
+ "fmt"
+ "os"
+ "sync"
+ "time"
+ tea "charm.land/bubbletea/v2"
+)
+var idleDiag struct { sync.Mutex; n int; f *os.File; busy bool; started time.Time }
+func (m *Model) idleDiagnostic(msg tea.Msg) {
+ path:=os.Getenv("ASD_IDLE_DIAGNOSTIC");if path==""{return}
+ switch msg.(type){case pollMsg,sessionsMsg,tea.WindowSizeMsg:default:return}
+ idleDiag.Lock();defer idleDiag.Unlock()
+ if idleDiag.n>=1024{return}
+ if idleDiag.f==nil{f,err:=os.OpenFile(path,os.O_CREATE|os.O_EXCL|os.O_WRONLY,0600);if err!=nil{return};idleDiag.f=f}
+ if m.listBusy && !idleDiag.busy {idleDiag.started=time.Now()};idleDiag.busy=m.listBusy
+ r:=map[string]any{"at":time.Now().UTC(),"pid":os.Getpid(),"type":fmt.Sprintf("%T",msg),"width":m.width,"height":m.height,"sessions":len(m.sessions),"list_busy":m.listBusy}
+ if _,ok:=msg.(sessionsMsg);ok && !idleDiag.started.IsZero(){r["list_ms"]=time.Since(idleDiag.started).Milliseconds()}
+ if m.listErr!=nil{r["list_error"]=m.listErr.Error()}
+ if w:=m.workspace;w!=nil{r["conn"]=w.conn!=nil;r["conn_generation"]=w.generation;r["pending"]=w.pending;r["focused"]=w.focused;r["screen_width"]=w.screen.Width;r["screen_height"]=w.screen.Height;if w.err!=nil{r["terminal_error"]=w.err.Error()}}
+ marks:=[]string{};for _,s:=range m.sessions{marks=append(marks,m.activityMark(s))};r["marks"]=marks
+ sum:=sha256.Sum256([]byte(m.View().Content));r["view_sha256"]=fmt.Sprintf("%x",sum)
+ _=json.NewEncoder(idleDiag.f).Encode(r);idleDiag.n++
+}

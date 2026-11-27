@@ -102,3 +102,5 @@ ADR-0014 依据用户 2026-11-22 的明确要求接受，部分替代 0001/0002 
 | [0064](0064-explicit-agent-recovery-execution.md) | 显式原生恢复、新 Run 与不重放屏障 | 已接受／CLI 实现 | SQLite v11；实际范围见专项报告 |
 
 | [0065](0065-pet-free-label-and-no-unknown-badge.md) | 桌宠 FREE 与 LINK 无角标 | 已接受／已实现 | 桌宠定向与渲染预览；日常 Windows 未替换 |
+
+| [0066](0066-revalidate-incomplete-terminal-discovery.md) | 漏列原目标复验、128 条身份提示与原客户端独立存活 | 已接受 | [Windows 四轮回归与失败记录](../testing/results/2026-11-27-idle-discovery.md)，完整现场／资源与发布仍开放 |

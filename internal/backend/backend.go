@@ -12,7 +12,6 @@ import (
 	"os/exec"
 	"path/filepath"
 	"regexp"
-	"sort"
 	"strconv"
 	"strings"
 	"time"
@@ -52,6 +51,7 @@ type Info struct {
 type Backend struct {
 	bin, kind, dataDir, config, namespace string
 	bundle                                string
+	discovery                             discoveryHints
 }
 
 // New prepares only product-owned paths. It neither starts a server nor changes
@@ -313,38 +313,6 @@ func (b *Backend) failedStart(name string, cause error) error {
 	return fmt.Errorf("launch failed; newly created backend session removed: %w", cause)
 }
 
-func (b *Backend) List(ctx context.Context) ([]session.Session, error) {
-	out, err := b.run(ctx, maxControlBytes, "list-sessions", "-F", "#{session_name}")
-	if err != nil {
-		if noServer(err) {
-			return []session.Session{}, nil
-		}
-		return nil, err
-	}
-	if out.truncated {
-		return nil, errors.New("backend session list exceeded M0 output limit")
-	}
-	var sessions []session.Session
-	for _, name := range strings.Fields(out.text) {
-		if !namePattern.MatchString(name) {
-			continue
-		}
-		r, err := b.readRecord(ctx, name)
-		if err != nil {
-			return nil, fmt.Errorf("read live session %s: %w", name, err)
-		}
-		state, exit, program := b.observePaneProgram(ctx, name, r.PaneID, true)
-		sessions = append(sessions, session.Session{ID: r.SessionID, RunID: r.RunID, BackendID: name, Title: r.Title, Command: r.Command, CurrentProgram: program, TerminalState: state, PaneExit: exit})
-	}
-	sort.Slice(sessions, func(i, j int) bool {
-		if sessions[i].Title == sessions[j].Title {
-			return sessions[i].ID < sessions[j].ID
-		}
-		return sessions[i].Title < sessions[j].Title
-	})
-	return sessions, nil
-}
-
 func (b *Backend) paneArgs(name, pane, command string, args ...string) []string {
 	target := pane
 	if b.kind == "psmux" {
@@ -451,5 +419,10 @@ func (b *Backend) Stop(ctx context.Context, s session.Session) error {
 		return err
 	}
 	_, err := b.run(ctx, maxControlBytes, "kill-session", "-t", s.BackendID)
+	if err == nil {
+		b.discovery.mu.Lock()
+		delete(b.discovery.records, s.BackendID)
+		b.discovery.mu.Unlock()
+	}
 	return err
 }

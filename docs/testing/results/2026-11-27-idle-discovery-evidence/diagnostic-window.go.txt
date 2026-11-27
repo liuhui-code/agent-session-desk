@@ -1,0 +1,3 @@
+package cli
+import("os";"encoding/json")
+func writeIdleWindow(hwnd uintptr){path:=os.Getenv("ASD_IDLE_DIAGNOSTIC");if path==""{return};f,e:=os.OpenFile(path+".window.json",os.O_CREATE|os.O_EXCL|os.O_WRONLY,0600);if e!=nil{return};defer f.Close();_=json.NewEncoder(f).Encode(map[string]any{"hwnd":hwnd,"manager_pid":os.Getpid()})}
