@@ -1,0 +1,17 @@
+{
+  "python": "3.9.6 (default, Apr 17 2026, 18:15:52) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+  "packages": {
+    "jsonschema": "4.25.1",
+    "referencing": "0.36.2",
+    "rpds-py": "0.27.1",
+    "jsonschema-specifications": "2025.9.1",
+    "attrs": "26.1.0",
+    "typing-extensions": "4.16.0"
+  },
+  "sha256": {
+    "docs/schemas/agent-recovery-v1.schema.json": "9fe2541a182bb655fde06201a4d5e627e5e76a6a6a18c07257e3b9944f940464",
+    "docs/schemas/agent-recovery-result-v1.schema.json": "a27823cd45e8eadcc91a9dc05e4d2374d7c158ac2a47df713acb802293accb64",
+    "docs/examples/agent-recovery.json": "0c5cfcef1a7550f7b3055d76ee8dfb82439bf6ee858e727cc291c31e65d1f92e",
+    "docs/examples/agent-recovery-result.json": "86c228a375c77e3fd465012ab29d3050b4d712d6f998d1d75b8b61c9532669b2"
+  }
+}

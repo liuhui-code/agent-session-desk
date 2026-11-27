@@ -616,3 +616,5 @@ FL-012/015/018：ADR-0057 有界页变化标识，静默不代表 ready；见[�
 2026-11-27 FL-001/002/012/018：[旧示例清理](testing/results/2026-11-27-example-session-cleanup.md)移除另一旧测试作用域中的三条 fixture，会话列表归零、两个活动 fixture 退出，日常身份集合保持。当前产品不内置这些名称；此次为运行数据维护，不提升功能／发布接受。
 
 2026-11-27 FL-001/002/012/016：新增[配置与 Agent 接入说明](CONFIGURATION.md)及 docs/examples，统一 README、接手索引与 API 入口。说明实际 scope／文件版本／默认和最近配置优先，以及批量读取器兼容缺口；只更新文档，验证见[记录](testing/results/2026-11-27-configuration-guide.md)，不计新功能或发布接受。
+
+2026-11-27 FL-001/002/011/013：按 [ADR-0063](adr/0063-agent-recovery-declaration-v1.md)定义 Agent 自报原生对话 ID 与恢复启动描述的可选 v1 JSON 合同，附 Schema、填写说明与示例；[离线验证](testing/results/2026-11-27-agent-recovery-contract.md)仅核对文件合同。配置导入、逐 Session 持久化、新 Run 执行和真实历史恢复仍未实现，不提升功能或发布接受。

@@ -1,0 +1,123 @@
+import copy
+import importlib.metadata
+import json
+from pathlib import Path
+import sys
+
+sys.path.insert(0, sys.argv[1])
+from jsonschema import Draft202012Validator
+
+root = Path.cwd()
+print('validator=jsonschema ' + importlib.metadata.version('jsonschema'))
+checks = 0
+failures = []
+
+
+def check(name, ok):
+    global checks
+    checks += 1
+    if not ok:
+        failures.append(name)
+        print('FAIL ' + name)
+
+
+def pairs(items):
+    result = {}
+    for key, value in items:
+        if key in result:
+            raise ValueError('duplicate key')
+        result[key] = value
+    return result
+
+
+def parse(data, limit):
+    if len(data) > limit:
+        raise ValueError('byte limit')
+    value = json.loads(data.decode('utf-8'), object_pairs_hook=pairs)
+    if not isinstance(value, dict):
+        raise ValueError('object required')
+    return value
+
+
+validators = {}
+examples = {}
+for kind, filename, limit in [
+    ('declaration', 'agent-recovery', 16384),
+    ('result', 'agent-recovery-result', 4096),
+]:
+    schema = json.loads((root / 'docs/schemas' / (filename + '-v1.schema.json')).read_text())
+    Draft202012Validator.check_schema(schema)
+    validators[kind] = Draft202012Validator(schema)
+    data = (root / 'docs/examples' / (filename + '.json')).read_bytes()
+    examples[kind] = parse(data, limit)
+    check(kind + ' schema/example', validators[kind].is_valid(examples[kind]))
+
+
+def negative(name, kind, path, value):
+    payload = copy.deepcopy(examples[kind])
+    target = payload
+    for part in path[:-1]:
+        target = target[part]
+    target[path[-1]] = value
+    check(name, not validators[kind].is_valid(payload))
+
+
+for field in examples['declaration']:
+    if field in ('agent_version',):
+        continue
+    value = copy.deepcopy(examples['declaration'])
+    del value[field]
+    check('missing ' + field, not validators['declaration'].is_valid(value))
+for name, path, value in [
+    ('version', ['schema_version'], 2),
+    ('boolean version', ['schema_version'], True),
+    ('wrong protocol', ['protocol'], 'other'),
+    ('session alias', ['session_id'], 'my-tab'),
+    ('source run LF', ['run_id'], '2' * 32 + '\n'),
+    ('agent LF', ['agent_id'], 'agent\n'),
+    ('conversation empty', ['conversation_id'], ''),
+    ('conversation too long', ['conversation_id'], 'x' * 513),
+    ('conversation LF', ['conversation_id'], 'original\n'),
+    ('history field', ['history'], ['chat transcript']),
+    ('token field', ['token'], 'secret'),
+    ('relative exe', ['resume', 'executable'], 'agent.exe'),
+    ('UNC exe', ['resume', 'executable'], '\\\\host\\share\\agent.exe'),
+    ('direct script', ['resume', 'executable'], 'C:\\agent.CmD'),
+    ('relative cwd', ['resume', 'cwd'], '.'),
+    ('cwd NUL', ['resume', 'cwd'], 'C:\\work\0'),
+    ('args string', ['resume', 'args'], 'resume original'),
+    ('too many args', ['resume', 'args'], [''] * 129),
+    ('arg LF', ['resume', 'args'], ['original\n']),
+    ('env scalar', ['resume', 'env'], {'MODE': 1}),
+    ('env key LF', ['resume', 'env'], {'MODE\n': 'x'}),
+    ('env key invalid', ['resume', 'env'], {'MY-KEY': 'x'}),
+    ('too many env', ['resume', 'env'], {f'K{i}': 'x' for i in range(65)}),
+]:
+    negative(name, 'declaration', path, value)
+for status in ['started', 'ready', 'completed', 'success']:
+    negative('unproven result ' + status, 'result', ['status'], status)
+negative('result old protocol', 'result', ['protocol'], 'asd.agent-recovery')
+negative('result attempt alias', 'result', ['attempt_id'], 'latest')
+negative('result LF', 'result', ['message'], 'text\n')
+for status in ['restored', 'not_found', 'failed']:
+    value = copy.deepcopy(examples['result'])
+    value['status'] = status
+    check('valid result ' + status, validators['result'].is_valid(value))
+for name, data, limit in [
+    ('duplicate root', b'{"a":1,"a":2}', 16384),
+    ('duplicate nested', b'{"a":{"b":1,"b":2}}', 16384),
+    ('trailing document', b'{} {}', 16384),
+    ('array', b'[]', 16384),
+    ('BOM', b'\xef\xbb\xbf{}', 16384),
+    ('oversized declaration', b' ' * 16385, 16384),
+    ('oversized result', b' ' * 4097, 4096),
+]:
+    try:
+        parse(data, limit)
+    except (ValueError, UnicodeDecodeError):
+        check(name, True)
+    else:
+        check(name, False)
+print(f'checks={checks} failures={len(failures)}')
+print('Offline contract validation only; no Agent, terminal or recovery command executed')
+sys.exit(bool(failures))

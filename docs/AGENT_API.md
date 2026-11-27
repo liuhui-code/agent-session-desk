@@ -429,3 +429,7 @@ attention-list/status 离线可用，但会打开／升级库并根据已知 Run
 AttentionItem 额外返回 `snoozed_until`（可省略，UTC）与 `reminder_revision`（零可省略）。它们是用户提醒策略，不是来源事件版本；适配器不得向 attention-event 提交这两个字段。暂停仍 pending，viewed_at 不变，自动 deliver／新 claim 继续受阻；到期不产生新事件或答案。更高版本改变标题／详情会清除暂停，相同内容更新保留。只用 version/state 判断来源状态，不凭提醒隐藏推断已批准。用户在待办中心修改；本轮无 CLI 暂停命令。
 
 功能入口、开发状态和快捷键配置见[适配索引](AGENT_ADAPTATION.md)。keybindings.toml 为v1只读配置，见 KEYBINDINGS.md；不是 Agent终端指令。
+
+## 8. 可选恢复声明（合同已定义，消费者未实现）
+
+自定义 Agent 填写原生 conversation_id 和字面恢复启动描述的规则见 [AGENT_RECOVERY.md](AGENT_RECOVERY.md)，可直接交给适配 Agent 的任务见[填写说明](AGENT_RECOVERY_INSTRUCTIONS.md)。声明／恢复结果有独立 JSON Schema。当前没有接收或执行这些文件的 CLI；不要向现有 attention-event／reply 添加恢复字段，也不要用旧 Run 凭据证明新 Run 恢复成功。现有已实现接口不因该文件合同而改变。

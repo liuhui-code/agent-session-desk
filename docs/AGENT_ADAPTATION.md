@@ -9,6 +9,7 @@
 | 功能 | 当前入口 | 源码／合同 | 状态与边界 |
 | --- | --- | --- | --- |
 | 配置总览 | launch／last-launch／ui／keybindings | [配置说明与示例](CONFIGURATION.md)；`internal/config` | 各文件独立版本；含最近配置优先、便携缺省与工作区读取器限制 |
+| 原生对话恢复声明 | 可选 JSON 文件合同 v1 | [协议](AGENT_RECOVERY.md)／[Agent 填写说明](AGENT_RECOVERY_INSTRUCTIONS.md) | Schema／示例已定义；消费者／执行器未实现，不是现有 CLI 命令 |
 | 待办中心 | Alt+A；管理 t | `internal/ui/attention_center*.go`；[ADR-0056](adr/0056-bounded-attention-center-and-snooze.md) | All/Due/Snoozed；s/S 暂停10/30分钟，u恢复；Enter只定位原表单 |
 | 桌宠提醒 | 启动 `--pet` | [说明](DESKTOP_REMINDERS.md) | 复用待办；不批准；工作台退出即停 |
 | 终端活动 | 会话名后转圈／蓝点 | `internal/ui/activity.go`；[ADR-0057](adr/0057-terminal-activity.md) | 比较有界页，不是 Agent忙闲；离屏不监控、断连不报静默 |

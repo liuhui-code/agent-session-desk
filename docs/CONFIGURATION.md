@@ -116,6 +116,8 @@ $Scope = @(
 
 需要 Agent 主动上报授权／问题或接收结构化任务时，再按 [Agent API](AGENT_API.md) 的 agent-bind／attention-event／inbox／claim／reply 合同接入。token-file 和 claim-file 由相应命令生成，向受委派 Agent 提供路径，不打印凭据正文。查看提醒、蓝点或程序标签都不是批准、ready 或完成信号。
 
+可选恢复配置另见[简易恢复协议 v1](AGENT_RECOVERY.md)及[Agent 填写说明](AGENT_RECOVERY_INSTRUCTIONS.md)。它使用独立 JSON 文件，不是 launch.toml 的新字段；当前尚未实现导入和执行。
+
 ## 5. 界面与快捷键
 
 [ui.toml 示例](examples/ui.toml) 使用当前 v7：sidebar_density 为 full／compact／minimal／auto；sidebar_mode 为 grouped／flat；sidebar_percent=0 表示自动，否则为 10–90；theme 为 dark／light／system，省略则采用产品默认；footer 为 full／curated／compact／minimal。collapsed_groups 保存稳定 Group ID，不是组名。管理 S 可修改受支持偏好，实际格式见 [UI 配置源码](../internal/config/ui.go)。

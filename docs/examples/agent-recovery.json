@@ -1,0 +1,18 @@
+{
+  "protocol": "asd.agent-recovery",
+  "schema_version": 1,
+  "session_id": "11111111111111111111111111111111",
+  "run_id": "22222222222222222222222222222222",
+  "agent_id": "my-agent",
+  "agent_version": "1.0.0",
+  "conversation_id": "conversation-example-42",
+  "resume": {
+    "executable": "C:\\Tools\\MyAgent\\agent.exe",
+    "args": [
+      "resume",
+      "conversation-example-42"
+    ],
+    "cwd": "C:\\Work\\project",
+    "env": {}
+  }
+}

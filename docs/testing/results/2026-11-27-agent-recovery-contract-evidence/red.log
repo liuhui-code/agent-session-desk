@@ -1,0 +1,9 @@
+validator=jsonschema 4.25.1
+FAIL source run LF
+FAIL agent LF
+FAIL conversation LF
+FAIL arg LF
+FAIL env key LF
+FAIL result LF
+checks=49 failures=6
+Offline contract validation only; no Agent, terminal or recovery command executed

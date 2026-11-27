@@ -2,6 +2,8 @@
 
 其他 Agent 接手先看[配置与接入说明](docs/CONFIGURATION.md)和[功能与适配索引](docs/AGENT_ADAPTATION.md)，含配置位置、作用域、优先级、可复制示例与验证边界。
 
+自定义 Agent 可按[简易恢复协议 v1](docs/AGENT_RECOVERY.md)和[填写说明](docs/AGENT_RECOVERY_INSTRUCTIONS.md)准备自己的恢复配置；附 JSON Schema 与示例。当前完成文件合同，工作台的导入和恢复执行尚未实现。
+
 **面向 Windows 的本地 CLI Agent 多会话工作台。**
 
 开发版新增[工作台单实例与窗口定位](docs/WORKBENCH_INSTANCES.md)：同一数据作用域重复启动只尝试恢复原工作台，首次启动使用专属 Windows Terminal 窗口；不同作用域分别打开。首次升级须先退出旧版 UI；后台 Run 保留。实际验证范围见[专项报告](docs/testing/results/2026-11-26-workbench-instance.md)。
