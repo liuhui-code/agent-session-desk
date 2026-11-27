@@ -17,3 +17,7 @@
 - [受控字形截图](2026-11-27-idle-flicker-evidence/glyphs.png)：五行依次为大圆、单格圆、bullet、半圆、Braille。数据来自真实卡片渲染，仅合成标题；PS 打印到实际 Terminal。首次截图早于 child ready 为空白；第二次输出编码未设，出现问号；第三次显式 UTF-8 并等待 ready 才有效。公开截图裁掉窗口外内容；测试未访问剪贴板／修改设置。仅是字形对照，不是完整产品桌面接受。
 
 [原始定向日志与诊断脚本](2026-11-27-idle-flicker-evidence/)。真实 Agent、所有字体／宿主、持续故障／资源预算及整体接受仍开放。
+
+## Windows 日常交付
+
+已运行 `asd-flicker-dcceb74.exe`，源提交 `dcceb74`，SHA256 `dfb3e0106928c15d60b8dc7c357b9c99a524f0e47b94ed87151e44723ac4ef0b`。[交付回执](2026-11-27-idle-flicker-evidence/delivery.json)为 updated-running、live_preserved=true、forced=0。只正常重开原 UI／宿主，保留原 Session／Run／pane 身份集合；没有停止现有会话。
