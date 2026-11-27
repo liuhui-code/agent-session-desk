@@ -1,5 +1,7 @@
 # Agent Session Desk
 
+其他 Agent 接手请看[功能与适配索引](docs/AGENT_ADAPTATION.md)，含当前入口、源码、验证边界和未实现的快捷键配置提案。
+
 **面向 Windows 的本地 CLI Agent 多会话工作台。**
 
 开发版新增[工作台单实例与窗口定位](docs/WORKBENCH_INSTANCES.md)：同一数据作用域重复启动只尝试恢复原工作台，首次启动使用专属 Windows Terminal 窗口；不同作用域分别打开。首次升级须先退出旧版 UI；后台 Run 保留。实际验证范围见[专项报告](docs/testing/results/2026-11-26-workbench-instance.md)。

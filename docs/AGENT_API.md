@@ -425,3 +425,5 @@ attention-list/status 离线可用，但会打开／升级库并根据已知 Run
 ### 待办展示字段（ADR-0056）
 
 AttentionItem 额外返回 `snoozed_until`（可省略，UTC）与 `reminder_revision`（零可省略）。它们是用户提醒策略，不是来源事件版本；适配器不得向 attention-event 提交这两个字段。暂停仍 pending，viewed_at 不变，自动 deliver／新 claim 继续受阻；到期不产生新事件或答案。更高版本改变标题／详情会清除暂停，相同内容更新保留。只用 version/state 判断来源状态，不凭提醒隐藏推断已批准。用户在待办中心修改；本轮无 CLI 暂停命令。
+
+功能入口、开发状态和快捷键配置提案见[适配索引](AGENT_ADAPTATION.md)。keybindings.toml 尚未实现；不要生成它来声称已修改快捷键。

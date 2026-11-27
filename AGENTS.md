@@ -137,3 +137,5 @@ Session-order final follow-up: the first membership receipt left old order field
 2026-11-25 Alpha Release：用户授权公开预发布当前样式版，沿用 7691a2b 的同一 Go 字节；独立便携包不含 local-host／专属 profile／字体或运行数据。真实 Windows 中文空格路径中 237 负载哈希、真实 shell 启动／预览／停止通过，238 ZIP 文件含 manifest。前轮 Go／293 UI 测试未重跑；详见 docs/testing/results/2026-11-25-alpha-release.md 和 docs/WINDOWS_ALPHA.md。不要把预发布上架与完整稳定版／许可／兼容接受混同，保留现有用户 Alpha 与字体系统安装待答复状态。
 
 Alpha 发布实际结果：v0.1.0-alpha.1 于 2026-11-25T02:58:24Z 公开为 prerelease，Release 457588984；标签 b5953b3，产品源码仍7691a2b／同字节7cd746fd。四附件公开匿名下载的大小／SHA256 全部一致，回执见 alpha-release-evidence/published-verified.json。HTTPS 失败／超时及草稿422均保留，最终已有SSH成功，仅推送此标签，没有写远端main；不移动tag或替换旧Release。
+
+2026-11-27 接手入口：docs/AGENT_ADAPTATION.md 汇总功能、源码与证据。keybindings.toml 仅提案，尚无加载器；不可当作已存在接口。
