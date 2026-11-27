@@ -2,6 +2,7 @@ package cli
 
 import (
 	"context"
+	"github.com/liuhui-code/agent-session-desk/internal/hotkey"
 	"io"
 	"time"
 
@@ -36,6 +37,11 @@ func runWorkbench(ctx context.Context, service *manager.Manager, options backend
 	model := ui.NewWithOptions(ctx, service, settings)
 	defer model.Close()
 	program := tea.NewProgram(model, tea.WithInput(input), tea.WithOutput(output), tea.WithContext(ctx))
+	go func() {
+		if e := hotkey.Run(petCtx, func() { program.Send(ui.GlobalActivate{}) }); e != nil {
+			program.Send(ui.HotkeyFailure{})
+		}
+	}()
 	if companion != nil {
 		done := make(chan struct{})
 		go func() {

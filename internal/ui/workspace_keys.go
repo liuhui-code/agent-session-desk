@@ -17,6 +17,9 @@ func (m *Model) workspaceKeyNow(msg tea.KeyPressMsg) tea.Cmd {
 	if msg.Code == 's' && msg.Mod == tea.ModCtrl {
 		return m.toggleWorkspaceSidebar()
 	}
+	if m.project.busy {
+		return nil
+	}
 	if m.quickCreate != nil {
 		if msg.String() == "q" || msg.String() == "ctrl+c" {
 			m.quickCreate.quitting = true
@@ -30,6 +33,8 @@ func (m *Model) workspaceKeyNow(msg tea.KeyPressMsg) tea.Cmd {
 	}
 	if msg.Mod&tea.ModAlt != 0 && msg.Mod&(tea.ModCtrl|tea.ModShift) == 0 {
 		switch msg.Code {
+		case 'p', 'P':
+			return m.previousWorkspace()
 		case 'a', 'A':
 			return m.beginAttentionCenter()
 		case 'n', 'N':
@@ -85,8 +90,11 @@ func (m *Model) workspaceKeyNow(msg tea.KeyPressMsg) tea.Cmd {
 		return cmd
 	}
 	switch msg.String() {
-	case "U": return m.checkRelease()
- case "t":
+	case "W":
+		return m.startProject()
+	case "U":
+		return m.checkRelease()
+	case "t":
 		return m.beginAttentionCenter()
 	case "V":
 		return m.copyVisiblePane()

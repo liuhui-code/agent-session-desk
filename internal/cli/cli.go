@@ -4,11 +4,11 @@ package cli
 
 import (
 	"context"
- "github.com/liuhui-code/agent-session-desk/internal/release"
 	"encoding/json"
 	"errors"
 	"flag"
 	"fmt"
+	"github.com/liuhui-code/agent-session-desk/internal/release"
 	"io"
 	"runtime"
 	"strconv"
@@ -148,8 +148,10 @@ func run(ctx context.Context, args []string, input io.Reader, output, errorOutpu
 		fmt.Fprint(output, usage)
 		return nil
 	}
-	if command == "check-update" {return checkUpdate(ctx,commandArgs,output)}
- if command == "version" {
+	if command == "check-update" {
+		return checkUpdate(ctx, commandArgs, output)
+	}
+	if command == "version" {
 		if len(commandArgs) > 0 {
 			return fmt.Errorf("version accepts no arguments")
 		}
@@ -186,10 +188,10 @@ func run(ctx context.Context, args []string, input io.Reader, output, errorOutpu
 		}
 		return attentionCommand(ctx, command, commandArgs, options, stateDir, input, output, errorOutput)
 	}
-	if command != "" && command != "doctor" && command != "start" && command != "list" && command != "preview" && command != "attach" && command != "stop" && command != "history" && command != "metadata" && command != "output" && command != "record" {
+	if command != "" && command != "workspace" && command != "doctor" && command != "start" && command != "list" && command != "preview" && command != "attach" && command != "stop" && command != "history" && command != "metadata" && command != "output" && command != "record" {
 		return fmt.Errorf("unknown command %q; run asd help", command)
 	}
-	if configPath != "" && command != "start" && command != "" {
+	if configPath != "" && command != "workspace" && command != "start" && command != "" {
 		return fmt.Errorf("--config is used by the UI default template or start --template")
 	}
 	var workbench *workbenchHost
@@ -292,6 +294,9 @@ func run(ctx context.Context, args []string, input io.Reader, output, errorOutpu
 	}
 	defer metadata.Close()
 	service := manager.New(terminal, metadata)
+	if command == "workspace" {
+		return startWorkspace(ctx, service, configPath, commandArgs, output)
+	}
 	if command == "" {
 		return runWorkbench(ctx, service, options, stateDir, configPath, desktopPet, documentApp, workbench.focus, input, output)
 	}

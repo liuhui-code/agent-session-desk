@@ -17,6 +17,8 @@ type AttentionCompanionFailure struct{ Err error }
 // WorkbenchActivate restores only the already bound native window. It never
 // switches a Run, closes a modal, marks an item viewed or writes terminal input.
 type WorkbenchActivate struct{}
+type GlobalActivate struct{}
+type HotkeyFailure struct{}
 
 func (m *Model) publishAttention(known bool) {
 	if m.attentionObserver != nil {
@@ -26,6 +28,17 @@ func (m *Model) publishAttention(known bool) {
 
 func (m *Model) companionEvent(msg tea.Msg) (tea.Cmd, bool) {
 	switch v := msg.(type) {
+	case HotkeyFailure:
+		m.status = "Ctrl+Alt+Space unavailable"
+		return nil, true
+	case GlobalActivate:
+		if m.attentionFocus != nil && m.attentionFocus() {
+			if m.groupDialog==nil && m.groupRemoval==nil && m.sessionStop==nil && !m.project.busy && m.attention.center == nil && !m.help && m.launch == nil && m.search == nil && m.rename == nil && !m.history.open {
+				return m.nextAttention(), true
+			}
+			return nil, true
+		}
+		return nil, true
 	case WorkbenchActivate:
 		if m.attentionFocus == nil || !m.attentionFocus() {
 			m.status = "Bring the original workbench window to the foreground"

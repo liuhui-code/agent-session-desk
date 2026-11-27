@@ -63,6 +63,7 @@ type workspaceState struct {
 	tabs                                  []workspaceTab
 	active                                int
 	nextID                                uint64
+	recent                                []string
 	initialized, focused, busy            bool
 	generation                            uint64
 	cancel                                context.CancelFunc
@@ -217,8 +218,13 @@ func (m *Model) workspaceEvent(msg tea.Msg) (tea.Cmd, bool) {
 	if cmd, handled := m.workspaceClipboardEvent(msg); handled {
 		return cmd, true
 	}
-	if c,ok:=m.releaseEvent(msg);ok{return c,true}
- switch msg := msg.(type) {
+	if c, ok := m.releaseEvent(msg); ok {
+		return c, true
+	}
+	if c, ok := m.projectEvent(msg); ok {
+		return c, true
+	}
+	switch msg := msg.(type) {
 	case workspaceSplitTick:
 		return m.workspaceSplitExpired(), true
 	case tea.MouseWheelMsg:
@@ -336,6 +342,7 @@ func (m *Model) workspaceEvent(msg tea.Msg) (tea.Cmd, bool) {
 		}
 		if msg.err == nil && msg.conn != nil {
 			w.conn = msg.conn
+			m.rememberWorkspace()
 			w.inputs = make(chan workspaceInput, workspaceInputCapacity)
 			startWorkspaceWriter(w.ctx, w.conn, w.inputs)
 			if w.transition == workspaceSwitch {

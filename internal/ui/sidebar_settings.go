@@ -17,6 +17,7 @@ import (
 )
 
 type Options struct {
+	LoadProject       func(context.Context) ([]session.Launch, error)
 	OpenDocument      func(context.Context, string) error
 	AttentionObserver func([]session.AttentionItem, bool)
 	AttentionFocus    func() bool
@@ -43,6 +44,7 @@ func NewWithOptions(ctx context.Context, service Service, options Options) *Mode
 	m := New(ctx, service)
 	m.openDocument = options.OpenDocument
 	m.attentionObserver, m.attentionFocus = options.AttentionObserver, options.AttentionFocus
+	m.project.load = options.LoadProject
 	m.loadQuickLaunch, m.rememberLaunch = options.LoadQuickLaunch, options.RememberLaunch
 	m.systemTheme.open = options.OpenSystemTheme
 	if m.workspace != nil {

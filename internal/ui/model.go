@@ -48,12 +48,12 @@ type attachReadyMsg struct {
 }
 
 type attachDoneMsg struct{ err error }
-type pollMsg struct{ generation uint64 }
 
 // Model implements the stable Bubble Tea v2 API. Mutable UI state is touched
 // only by Init/Update; asynchronous commands return values, never mutate it.
 type Model struct {
- releaseBusy bool
+	project                          projectState
+	releaseBusy                      bool
 	openDocument                     func(context.Context, string) error
 	attentionObserver                func([]session.AttentionItem, bool)
 	attentionFocus                   func() bool

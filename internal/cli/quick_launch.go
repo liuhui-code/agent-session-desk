@@ -20,6 +20,7 @@ func withQuickLaunch(settings ui.Options, opts backend.Options, stateDir, explic
 	if defaults == "" {
 		defaults = filepath.Join(dir, "launch.toml")
 	}
+	settings.LoadProject = func(ctx context.Context) ([]session.Launch, error) { return config.LoadWorkspace(defaults, "default") }
 	last := filepath.Join(dir, "last-launch.toml")
 	settings.LoadQuickLaunch = func(ctx context.Context) (session.Launch, error) {
 		if err := ctx.Err(); err != nil {

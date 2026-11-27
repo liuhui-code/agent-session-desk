@@ -16,8 +16,9 @@ import (
 )
 
 type document struct {
-	Version   int                 `toml:"schema_version"`
-	Templates map[string]template `toml:"templates"`
+	Workspaces map[string]workspace `toml:"workspaces"`
+	Version    int                  `toml:"schema_version"`
+	Templates  map[string]template  `toml:"templates"`
 }
 
 type template struct {
@@ -71,6 +72,9 @@ func LoadLaunch(path, id string) (session.Launch, error) {
 	if doc.Version != 1 {
 		return session.Launch{}, fmt.Errorf("configuration schema_version must be 1")
 	}
+	return launchFrom(doc, path, id)
+}
+func launchFrom(doc document, path, id string) (session.Launch, error) {
 	t, ok := doc.Templates[id]
 	if id == "" || !ok {
 		return session.Launch{}, fmt.Errorf("launch template not found")
