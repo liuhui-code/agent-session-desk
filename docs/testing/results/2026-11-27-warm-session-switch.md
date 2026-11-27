@@ -20,3 +20,7 @@
 - native UI 测试 SHA256 `a920dc0f14d8e2c88af50313e5651325a7c6a19b32effd49bd72727047640994`；优化后 backend 测试 `f6279c0a07d882566466028977652bf26eec9b0026ae4ea9e401137755e25f05`。
 
 [实际日志](2026-11-27-warm-session-switch-evidence/)。首次打开／缓存淘汰／超界仍可显示连接提示；真实 Agent、整个 Windows Terminal 桌面、完整进程内存／长稳和发布接受保持开放。所有原生测试使用本轮私有 namespace，不读取日常会话正文；没有剪贴板 API 或终端设置修改。
+
+## Windows 日常交付
+
+原快捷方式已启动 `asd-warm-bd409fa.exe`，源提交 `bd409fa`，SHA256 `4d30a676941b324f0e6c0dbb1fa1b35e1a5b0459f06060b9a332837206650f48`。[回执](2026-11-27-warm-session-switch-evidence/delivery.json)为 updated-running、live_preserved=true、forced=0。只正常关闭／重开原工作台 UI 宿主，现有 Session/Run/pane 身份集合保持；不修改用户启动模板或终端设置。
