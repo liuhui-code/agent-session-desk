@@ -117,7 +117,9 @@ func (m *Model) workspaceSidebarCard(index, width, rowLines, level int) []string
 		line = prefix + m.styles.attention.Inherit(titleStyle).Render(marker) + strings.TrimPrefix(line, prefix+marker)
 	}
 	if status != "" {
-		line = strings.Replace(line, status, m.styles.key.Inherit(titleStyle).Render(status), 1)
+		style:=m.styles.key
+ if status==m.tokens.activityIdle{style=m.styles.activityIdle}
+ line = strings.Replace(line, status, style.Inherit(titleStyle).Render(status), 1)
 	}
 	lines := []string{titleStyle.Render(line)}
 	if rowLines > 1 {

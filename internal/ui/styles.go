@@ -17,6 +17,7 @@ import (
 )
 
 type styles struct {
+	activityIdle                                                                                                                         lipgloss.Style
 	attention                                                                                                                            lipgloss.Style
 	pathBox, pathBrowseBox, pathText, pathSelected, pathCustom, pathCustomSelected, pathHint                                             lipgloss.Style
 	footerCuratedKey                                                                                                                     lipgloss.Style
@@ -92,7 +93,7 @@ func newStyles(t designTokens, profile colorprofile.Profile) styles {
 		groupChoiceSelected:       lipgloss.NewStyle().Foreground(t.colors.bg).Background(t.colors.accent).Bold(t.bold).PaddingLeft(t.group.choicePadding).PaddingRight(t.group.choicePadding),
 		groupName:                 lipgloss.NewStyle().Foreground(t.colors.groupText).Bold(t.sidebar.groupBold),
 		groupPart:                 lipgloss.NewStyle().Foreground(t.colors.dim),
-		groupHotkey:               lipgloss.NewStyle().Foreground(t.colors.dim),
+		groupHotkey: lipgloss.NewStyle().Foreground(t.colors.dim),
 		groupSelectedName:         lipgloss.NewStyle().Foreground(t.colors.focusText).Background(t.colors.focusBackground).Bold(t.sidebar.groupBold),
 		groupSelectedPart:         lipgloss.NewStyle().Foreground(t.colors.focusText).Background(t.colors.focusBackground),
 		renameBox:                 lipgloss.NewStyle().Border(t.workspace.border).BorderForeground(t.rename.borderColor).Background(t.colors.surface).Padding(t.rename.paddingY, t.rename.paddingX),
@@ -142,14 +143,15 @@ func newStyles(t designTokens, profile colorprofile.Profile) styles {
 			Foreground(t.colors.accent),
 		highlight: lipgloss.NewStyle().Foreground(t.colors.bg).
 			Background(t.colors.accent).Bold(t.bold),
-		dim:        lipgloss.NewStyle().Foreground(t.colors.dim),
-		error:      lipgloss.NewStyle().Foreground(t.colors.red).Bold(t.bold),
-		text:       lipgloss.NewStyle().Foreground(t.colors.text),
-		key:        lipgloss.NewStyle().Foreground(t.colors.accent).Bold(t.bold),
-		separator:  lipgloss.NewStyle().Foreground(t.colors.border),
-		panelTitle: lipgloss.NewStyle().Foreground(t.colors.cyan).Bold(t.bold),
-		menuDot:    t.marks.menuDot,
-		menuGap:    strings.Repeat(" ", t.layout.menuGap),
+		dim:          lipgloss.NewStyle().Foreground(t.colors.dim),
+		error:        lipgloss.NewStyle().Foreground(t.colors.red).Bold(t.bold),
+		text:         lipgloss.NewStyle().Foreground(t.colors.text),
+		activityIdle: lipgloss.NewStyle().Foreground(t.colors.activityBlue).Bold(t.bold),
+		key:          lipgloss.NewStyle().Foreground(t.colors.accent).Bold(t.bold),
+		separator:    lipgloss.NewStyle().Foreground(t.colors.border),
+		panelTitle:   lipgloss.NewStyle().Foreground(t.colors.cyan).Bold(t.bold),
+		menuDot:      t.marks.menuDot,
+		menuGap:      strings.Repeat(" ", t.layout.menuGap),
 	}
 }
 
