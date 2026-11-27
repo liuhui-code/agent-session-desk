@@ -1,0 +1,12 @@
+=== RUN   TestWindowsNativeSwitchLatencyProbe
+    switch_latency_windows_test.go:54: probe elapsed=387.2781ms
+    switch_latency_windows_test.go:55: validate elapsed=473.9003ms
+    switch_latency_windows_test.go:56: attach_checks elapsed=1.9208723s
+    switch_latency_windows_test.go:70: idle_open_to_first_frame elapsed=1.4101933s
+    switch_latency_windows_test.go:70: idle_open_to_first_frame elapsed=1.5091654s
+    switch_latency_windows_test.go:70: idle_open_to_first_frame elapsed=1.1916857s
+    switch_latency_windows_test.go:99: loaded_open_to_first_frame elapsed=1.7258594s
+    switch_latency_windows_test.go:99: loaded_open_to_first_frame elapsed=2.1499214s
+    switch_latency_windows_test.go:99: loaded_open_to_first_frame elapsed=2.709563s
+--- PASS: TestWindowsNativeSwitchLatencyProbe (23.08s)
+PASS

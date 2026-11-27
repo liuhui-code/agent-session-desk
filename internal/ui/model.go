@@ -150,8 +150,7 @@ func (m *Model) Close() {
 	m.closed = true
 	m.attention.center, m.attention.centerIntent = nil, nil
 	if m.workspace != nil {
-		m.workspace.disconnect()
-		m.workspace.buffered = nil
+		m.workspace.closeViews()
 	}
 	m.launch = nil
 	m.groupDialog, m.groupIntent = nil, nil
@@ -327,7 +326,7 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			return m, nil
 		}
 		m.pollPending = false
-		return m, tea.Batch(m.refreshWorkspace(), m.sampleActivity(), m.loadSessions(), m.loadPreview(), m.schedulePoll())
+		return m, m.pollWorkspace()
 	case attachReadyMsg:
 		if msg.err != nil || msg.cmd == nil {
 			if msg.err == nil {

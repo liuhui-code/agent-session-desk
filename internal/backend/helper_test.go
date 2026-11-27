@@ -89,6 +89,17 @@ func fakeBackend(args []string) int {
 			fmt.Println(state.Name)
 		}
 	case "display-message":
+		if args[len(args)-1] == "#{pane_id}|#{pane_dead}" && flag("-t") == state.Name {
+			if state.Missing {
+				return 94
+			}
+			active := state.Active
+			if active == "" {
+				active = "%7"
+			}
+			fmt.Println(active + "|" + state.Dead)
+			break
+		}
 		if args[len(args)-1] == "#{pane_id}" && flag("-t") == state.Name {
 			if state.Active == "" {
 				fmt.Println("%7")

@@ -416,30 +416,39 @@ func (b *Backend) Preview(ctx context.Context, s session.Session, lines int) (se
 }
 
 func (b *Backend) Attach(ctx context.Context, s session.Session) (*exec.Cmd, error) {
+	if _, err := b.attachRecord(ctx, s); err != nil {
+		return nil, err
+	}
+	// The caller owns handoff. Never detach another client or bind its lifetime
+	// to the short metadata probe context.
+	return b.command("attach-session", "-t", s.BackendID), nil
+}
+
+func (b *Backend) attachRecord(ctx context.Context, s session.Session) (liveRecord, error) {
 	r, err := b.validateTarget(ctx, s)
 	if err != nil {
-		return nil, err
+		return r, err
 	}
-	if err := b.verifyTerminalBundle(ctx, s.BackendID); err != nil {
-		return nil, err
+	if err = b.verifyTerminalBundle(ctx, s.BackendID); err != nil {
+		return r, err
 	}
-	state := b.paneState(ctx, s.BackendID, r.PaneID)
-	if state == session.TerminalExited {
-		return nil, errors.New("the original pane process has exited; its retained screen is available as a preview")
-	}
-	if state != session.TerminalAvailable {
-		return nil, errors.New("could not verify the original pane; refresh before attaching")
-	}
-	active, err := b.run(ctx, maxControlBytes, "display-message", "-p", "-t", s.BackendID, "#{pane_id}")
+	// Query the active pane and its liveness together. A different pane is a
+	// rejection, never a reason to select it or to reinterpret this Run.
+	out, err := b.run(ctx, maxControlBytes, "display-message", "-p", "-t", s.BackendID, "#{pane_id}|#{pane_dead}")
 	if err != nil {
-		return nil, err
+		return r, err
 	}
-	if strings.TrimSpace(active.text) != r.PaneID {
-		return nil, errors.New("another pane is active in this backend session; M0 will not switch its focus automatically")
+	parts := strings.Split(strings.TrimSpace(out.text), "|")
+	if out.truncated || len(parts) != 2 || parts[0] != r.PaneID {
+		return r, errors.New("could not verify the original active pane; no focus change")
 	}
-	// The caller owns terminal handoff and lifetime. Do not use CommandContext
-	// with a short metadata probe context, and never pass -d to steal a client.
-	return b.command("attach-session", "-t", s.BackendID), nil
+	if parts[1] == "1" {
+		return r, errors.New("the original pane process has exited; its retained screen is available as a preview")
+	}
+	if parts[1] != "0" {
+		return r, errors.New("could not verify the original pane; refresh before attaching")
+	}
+	return r, nil
 }
 
 func (b *Backend) Stop(ctx context.Context, s session.Session) error {

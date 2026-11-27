@@ -31,6 +31,7 @@ func (a activityEntry) moving(now time.Time) bool {
 }
 
 type activityState struct {
+	cancel             context.CancelFunc
 	epoch              uint64
 	layoutKey, muteKey string
 	width, height      int
@@ -53,7 +54,7 @@ type activityTick struct{}
 
 func activityKey(s session.Session) string { return s.ID + ":" + s.RunID + ":" + s.BackendID }
 func (m *Model) sampleActivity() tea.Cmd {
-	if m.activity.busy || m.workspace == nil || m.closed || m.attaching {
+	if m.activity.busy || m.workspace == nil || m.closed || m.attaching || m.workspace.busy || m.workspace.transition != workspaceIdle {
 		return nil
 	}
 	g := m.workspaceGeometry()
@@ -84,9 +85,9 @@ func (m *Model) sampleActivity() tea.Cmd {
 	gen := m.activity.generation
 	epoch := m.activity.epoch
 	svc := m.service
-	ctx := m.ctx
+	ctx, cancel := context.WithTimeout(m.ctx, 2*time.Second)
+	m.activity.cancel = cancel
 	return func() tea.Msg {
-		ctx, cancel := context.WithTimeout(ctx, 2*time.Second)
 		defer cancel()
 		samples := make([]activitySample, 0, len(targets))
 		// Rotate the first pane so a shared deadline cannot starve later rows.
@@ -187,4 +188,14 @@ func (m *Model) activityViewport(width, height int) {
 		e.changed = time.Time{}
 		a.entries[key] = e
 	}
+}
+
+// Connection work has priority over optional passive snapshots. Old receipts
+// may clear busy, but epoch checking prevents them from updating observations.
+func (m *Model) pauseActivity() {
+	if m.activity.cancel != nil {
+		m.activity.cancel()
+		m.activity.cancel = nil
+	}
+	m.activity.epoch++
 }

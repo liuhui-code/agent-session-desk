@@ -53,12 +53,24 @@ func TestFailedTerminalHandshakeReturnsNilConnection(t *testing.T) {
 	}()
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
+	before := len(commandLog(t))
 	connection, err := b.OpenTerminal(ctx, target, 80, 24)
 	if err == nil {
 		t.Fatal("disconnected handshake unexpectedly succeeded")
 	}
 	if connection != nil {
 		t.Fatalf("failed open returned non-nil Connection (%T); caller cleanup can panic", connection)
+	}
+	checks := 0
+	for _, args := range commandLog(t)[before:] {
+		for _, arg := range args {
+			if arg == metadataOption {
+				checks++
+			}
+		}
+	}
+	if checks != 1 {
+		t.Fatalf("one open revalidated the same Run %d times", checks)
 	}
 	select {
 	case <-finished:

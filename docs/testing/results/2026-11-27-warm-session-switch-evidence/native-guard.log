@@ -1,0 +1,6 @@
+=== RUN   TestWindowsPsmuxNativeMissingOriginalPaneNeverFallsBack
+    integration_windows_test.go:540: native Windows backend=psmux version=3.4.0 sha256=ff9d8893ecc53ac5caca3bae0146d75ebcaf2cf7edc4abf9d87578469fb7b16b namespace=asd-native-28bdacddd368
+    integration_windows_test.go:586: native missing-pane injection: original window=@1 pane=%1; alternate pane=%2
+    integration_windows_test.go:617: native missing-pane injection confirmed: original %1 absent; alternate %2 accepted input
+--- PASS: TestWindowsPsmuxNativeMissingOriginalPaneNeverFallsBack (4.34s)
+PASS

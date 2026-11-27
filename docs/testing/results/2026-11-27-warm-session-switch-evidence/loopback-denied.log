@@ -1,0 +1,5 @@
+--- FAIL: TestFailedTerminalHandshakeReturnsNilConnection (0.06s)
+    terminal_failure_test.go:22: listen tcp 127.0.0.1:0: bind: operation not permitted
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/backend	1.164s
+FAIL

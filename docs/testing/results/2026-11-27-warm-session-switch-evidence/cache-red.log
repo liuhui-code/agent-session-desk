@@ -1,0 +1,5 @@
+--- FAIL: TestWorkspaceReturnShowsItsOwnLastScreenWhileRevalidating (0.01s)
+    workspace_first_frame_test.go:36: return replaced the target's own last screen with connecting page
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.919s
+FAIL

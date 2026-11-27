@@ -78,3 +78,12 @@ func (m *Model) refreshWorkspace() tea.Cmd {
 	}
 	return m.workspaceWrite(workspaceInput{kind: "refresh"})
 }
+
+// Defer only optional polling; explicit metadata reconciliation after a user
+// action must still run while its terminal view reconnects.
+func (m *Model) pollWorkspace() tea.Cmd {
+	if m.workspaceConnecting() {
+		return m.schedulePoll()
+	}
+	return tea.Batch(m.refreshWorkspace(), m.sampleActivity(), m.loadSessions(), m.loadPreview(), m.schedulePoll())
+}

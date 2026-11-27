@@ -1,0 +1,5 @@
+--- FAIL: TestFailedTerminalHandshakeReturnsNilConnection (0.10s)
+    terminal_failure_test.go:73: one open revalidated the same Run 2 times
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/backend	0.811s
+FAIL

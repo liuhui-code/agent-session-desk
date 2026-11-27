@@ -41,6 +41,7 @@ const (
 )
 
 type workspaceState struct {
+	snapshots                             []workspaceSnapshot
 	bindings                              keybindings.Map
 	document                              *documentOpen
 	documentPointer                       bool
@@ -75,6 +76,7 @@ type workspaceState struct {
 	err                                   error
 }
 type workspaceOpened struct {
+	screen        terminal.Screen
 	generation    uint64
 	conn          terminal.Connection
 	err           error
@@ -166,20 +168,30 @@ func (m *Model) connectWorkspace() tea.Cmd {
 	if g.width < 1 || g.height < 1 {
 		return nil
 	}
+	w.rememberScreen()
 	w.disconnect()
-	w.screen = terminal.Screen{}
+	w.screen = w.lastScreen()
 	w.err = nil
 	w.busy = true
+	m.pauseActivity()
 	w.ctx, w.cancel = context.WithCancel(m.ctx)
 	generation, ctx, service, target := w.generation, w.ctx, w.service, w.tabs[w.active].session
 	return func() tea.Msg {
 		conn, err := service.OpenTerminal(ctx, target, g.width, g.height)
+		var screen terminal.Screen
+		if err == nil && conn != nil {
+			screen, err = conn.Next(ctx)
+		}
+		if err != nil && conn != nil {
+			_ = conn.Close()
+			conn = nil
+		}
 		if ctx.Err() != nil && conn != nil {
 			_ = conn.Close()
 			conn = nil
 			err = ctx.Err()
 		}
-		return workspaceOpened{generation: generation, conn: conn, err: err, width: g.width, height: g.height}
+		return workspaceOpened{screen: screen, generation: generation, conn: conn, err: err, width: g.width, height: g.height}
 	}
 }
 
@@ -345,6 +357,7 @@ func (m *Model) workspaceEvent(msg tea.Msg) (tea.Cmd, bool) {
 		}
 		if msg.err == nil && msg.conn != nil {
 			w.conn = msg.conn
+			w.screen = msg.screen
 			m.activity.layoutKey = ""
 			m.activityViewport(msg.width, msg.height)
 			m.rememberWorkspace()
@@ -419,6 +432,7 @@ func (m *Model) activateWorkspaceNow(index int) tea.Cmd {
 	if index == w.active && w.conn != nil {
 		return nil
 	}
+	w.rememberScreen()
 	w.disconnect()
 	w.active = index
 	w.err = nil

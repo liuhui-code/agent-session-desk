@@ -1,0 +1,7 @@
+--- FAIL: TestRenameRefreshesNameOrderBeforeMovingSelectedOriginalSession (0.00s)
+    session_rename_order_test.go:45: successful rename left old name order instead of reconciling discovery
+--- FAIL: TestWorkspaceFinishesIssuedClipboardBeforeReadingNewTabCopies (1.00s)
+    workspace_copy_test.go:62: initial clipboard reader did not start
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	10.068s
+FAIL

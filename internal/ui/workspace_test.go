@@ -166,6 +166,12 @@ func (h *workspaceHarness) run(cmd tea.Cmd) {
 	}
 	go func() {
 		msg := cmd()
+		if batch, ok := msg.(tea.BatchMsg); ok {
+			for _, child := range batch {
+				h.run(child)
+			}
+			return
+		}
 		select {
 		case h.messages <- msg:
 		case <-h.ctx.Done():

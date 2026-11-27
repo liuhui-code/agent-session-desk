@@ -9,7 +9,7 @@ import (
 func (m *Model) workspaceFooterVisible() bool {
 	w := m.workspace
 	_, prompt := m.workspaceCopyPrompt()
-	return !w.focused || m.status != "" || w.err != nil || m.listErr != nil || prompt != nil || (w.screen.CopyMode && w.screen.Status != "")
+	return (w.busy && w.screen.Width > 0) || !w.focused || m.status != "" || w.err != nil || m.listErr != nil || prompt != nil || (w.screen.CopyMode && w.screen.Status != "")
 }
 
 func (m *Model) workspaceFooterHit(x, y int) bool {
@@ -48,6 +48,9 @@ func (m *Model) renderWorkspaceOverlay(body string) string {
 	}
 	if m.status != "" {
 		text = label(m.status)
+	}
+	if w.busy && w.screen.Width > 0 {
+		text = "Reconnecting · read-only last observed screen"
 	}
 	if m.listErr != nil {
 		text = "Backend state unknown: " + label(m.listErr.Error())

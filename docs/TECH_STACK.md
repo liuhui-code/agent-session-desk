@@ -163,3 +163,5 @@ M0 已有“列表/预览 → 自定义命令 → 全屏 attach → 返回”的
 2026-11-26 领取基础：按 [ADR-0048](adr/0048-exclusive-processing-claims-and-uncertain-recovery.md)沿用 SQLite 立即写事务、唯一约束和现有私有文件发布逻辑，升级 metadata v8；没有新增库、中间件、Host 或前端依赖。租约到期保留不确定，不套用通用自动重投策略，证据见[报告](testing/results/2026-11-26-task-claims.md)。
 
 2026-11-27 工作台入口按 [ADR-0055](adr/0055-scoped-workbench-instance-and-owned-window.md)使用现有 x/sys/windows 和 Win32 命名 mutex／message-only 窗口；仅传递窗口恢复信号，不增加依赖、常驻进程或数据库迁移。它与 M3 后台任务通信、消费仲裁分别接受。
+
+2026-11-27：[ADR-0062](adr/0062-bounded-warm-session-switch.md) 允许 UI 进程内四个原 Run／512 KiB 总保守计费的末帧，独立复制且不写盘；仍只有一个活动终端连接。缓存先显示只读旧观察，控制身份必须重新核验。连接优先于可选采样／轮询，未新增依赖或数据库。计费边界不是完整 RSS 预算。

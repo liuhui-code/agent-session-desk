@@ -30,12 +30,8 @@ func (b *Backend) OpenTerminal(ctx context.Context, s session.Session, width, he
 	if _, err := b.Probe(ctx); err != nil {
 		return nil, err
 	}
-	r, err := b.validateTarget(ctx, s)
+	r, err := b.attachRecord(ctx, s)
 	if err != nil {
-		return nil, err
-	}
-	// Reuse the existing attach checks: live original pane and no focus steal.
-	if _, err = b.Attach(ctx, s); err != nil {
 		return nil, err
 	}
 	base := filepath.Join(b.dataDir, b.namespace+"__"+s.BackendID)

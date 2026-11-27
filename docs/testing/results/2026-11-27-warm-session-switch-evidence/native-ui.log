@@ -1,0 +1,18 @@
+=== RUN   TestWorkspaceOpenPublishesFirstScreenTogether
+--- PASS: TestWorkspaceOpenPublishesFirstScreenTogether (0.07s)
+=== RUN   TestWorkspaceReturnShowsItsOwnLastScreenWhileRevalidating
+--- PASS: TestWorkspaceReturnShowsItsOwnLastScreenWhileRevalidating (0.05s)
+=== RUN   TestWorkspaceSnapshotBudgetAndIdentity
+--- PASS: TestWorkspaceSnapshotBudgetAndIdentity (0.05s)
+=== RUN   TestConnectingPausesOptionalRefreshWork
+--- PASS: TestConnectingPausesOptionalRefreshWork (0.00s)
+=== RUN   TestWindowsNativeWarmSessionSwitch
+    workspace_switch_windows_test.go:113: warm target=0 visible=58.8347ms connected=574.6032ms retained_charge=26240
+    workspace_switch_windows_test.go:113: warm target=1 visible=3.9882ms connected=517.3871ms retained_charge=26240
+    workspace_switch_windows_test.go:113: warm target=0 visible=25.2993ms connected=1.4492118s retained_charge=26240
+    workspace_switch_windows_test.go:113: warm target=1 visible=3.1275ms connected=721.3057ms retained_charge=26240
+    workspace_switch_windows_test.go:113: warm target=0 visible=4.8418ms connected=819.3691ms retained_charge=26240
+    workspace_switch_windows_test.go:113: warm target=1 visible=11.9881ms connected=1.5176075s retained_charge=26240
+    workspace_switch_windows_test.go:131: two original Runs retained; six warm switches; no draft submission or automatic input replay
+--- PASS: TestWindowsNativeWarmSessionSwitch (24.83s)
+PASS

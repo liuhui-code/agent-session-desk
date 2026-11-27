@@ -22,7 +22,7 @@ func (m *Model) renderWorkspace() string {
 	switch {
 	case len(w.tabs) == 0:
 		content = m.styles.dim.Render("No open views · Create a terminal or reopen one from the sidebar")
-	case w.busy:
+	case w.busy && w.screen.Width == 0:
 		content = m.styles.dim.Render("Connecting to the original terminal…")
 	case w.err != nil:
 		if w.screen.Width > 0 && w.screen.Height > 0 {
