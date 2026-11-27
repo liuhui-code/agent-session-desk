@@ -19,3 +19,5 @@
 借鉴 [Zellij 的显式模式](https://zellij.dev/documentation/keybindings-modes)与[模式切换键](https://zellij.dev/documentation/keybindings)，以及 [VS Code 的侧栏可见性／焦点键](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf)。这是交互借鉴，没有迁入其代码或依赖。宿主参数按 Context7 的 [Microsoft Terminal 原始规格](https://github.com/microsoft/terminal/tree/main/doc/specs)及实际运行核对，TOML 按现有 BurntSushi/toml v1.6.0 使用，不升级依赖。
 
 SQLite v5／ui.toml v7 保持。直接托管、实际 quick-create、Ctrl+S/F6、异常／不确定结果、输入归属和跨 UI 最近配置分别留证；只做相关局部检查，不将全量历史测试或交叉构建计作 Windows 执行。真实 agent、任意 WT 版本／路径、IME／组合键完整矩阵、资源与发布仍开放。结果见[执行报告](../testing/results/2026-11-26-direct-create-focus.md)。
+
+2026-11-27 体验清理补充：默认工作台不注入示例会话。现场“开发／守护／旁观”来自旧测试作用域，已按完整身份清除，见[清理记录](../testing/results/2026-11-27-example-session-cleanup.md)。不按这些名称过滤或删除用户会话，不改变显式模板与最近启动配置复用合同。
