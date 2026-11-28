@@ -3,7 +3,7 @@
 FAIL: test_referenced_color_scheme_has_all_sixteen_ansi_colors (test_terminal_profile.PortableTerminalTests)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File "/Users/liuhui/Documents/code/agent-session-desk/tools/release/test_terminal_profile.py", line 19, in test_referenced_color_scheme_has_all_sixteen_ansi_colors
+  File "<repo>/tools/release/test_terminal_profile.py", line 19, in test_referenced_color_scheme_has_all_sixteen_ansi_colors
     self.assertTrue(required <= set(scheme), "Incomplete palette causes a native settings warning")
 AssertionError: False is not true : Incomplete palette causes a native settings warning
 

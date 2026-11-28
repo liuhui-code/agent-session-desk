@@ -1,0 +1,95 @@
+{
+  "assets": [
+    {
+      "digest": "sha256:0f91b771da7e151fcca833b32763b42b10e72c787137e49df3a2a4591270bcf6",
+      "id": 803364012,
+      "name": "asd-update.json",
+      "size": 702,
+      "state": "uploaded"
+    },
+    {
+      "digest": "sha256:3ba4f3cf93072d8e3b29abd82466a603cb2fe4b1d6f05140d8772ffe573d8a01",
+      "id": 803364014,
+      "name": "asd-windows-amd64.exe",
+      "size": 25261056,
+      "state": "uploaded"
+    },
+    {
+      "digest": "sha256:c596345be1e0ba85ccdf10686f5bcf2d68379ff4303df0432f33722594aa6bc8",
+      "id": 803364023,
+      "name": "asd-windows-x64-0.1.0-alpha.2.zip",
+      "size": 34612820,
+      "state": "uploaded"
+    },
+    {
+      "digest": "sha256:d7e9167b29fdd4f93994bc9da1f436a9abec65a47b7d299b72e662863f2b3d6f",
+      "id": 803364009,
+      "name": "manifest.json",
+      "size": 37773,
+      "state": "uploaded"
+    },
+    {
+      "digest": "sha256:536b372ae1de96bc084a5dab44e7fba5cd8a9947fda224ce3da5d094e7588767",
+      "id": 803364019,
+      "name": "psmux-source.zip",
+      "size": 1389299,
+      "state": "uploaded"
+    },
+    {
+      "digest": "sha256:dd36e0d595ab06d043f41d2aa7c9db1d6b2153dd49c3d47182c2880c005812bd",
+      "id": 803364073,
+      "name": "SHA256SUMS",
+      "size": 433,
+      "state": "uploaded"
+    }
+  ],
+  "draft": true,
+  "html_url": "https://github.com/liuhui-code/agent-session-desk/releases/tag/untagged-50caef99b4d719d78703",
+  "id": 461325010,
+  "prerelease": true,
+  "tag_name": "v0.1.0-alpha.2",
+  "target_commitish": "ce2066e755b32561700836873209e02175ff92bb",
+  "download_verification": {
+    "authenticated": true,
+    "anonymous": false,
+    "assets": [
+      {
+        "name": "asd-update.json",
+        "size": 702,
+        "sha256": "0f91b771da7e151fcca833b32763b42b10e72c787137e49df3a2a4591270bcf6",
+        "matches": true
+      },
+      {
+        "name": "asd-windows-amd64.exe",
+        "size": 25261056,
+        "sha256": "3ba4f3cf93072d8e3b29abd82466a603cb2fe4b1d6f05140d8772ffe573d8a01",
+        "matches": true
+      },
+      {
+        "name": "asd-windows-x64-0.1.0-alpha.2.zip",
+        "size": 34612820,
+        "sha256": "c596345be1e0ba85ccdf10686f5bcf2d68379ff4303df0432f33722594aa6bc8",
+        "matches": true
+      },
+      {
+        "name": "manifest.json",
+        "size": 37773,
+        "sha256": "d7e9167b29fdd4f93994bc9da1f436a9abec65a47b7d299b72e662863f2b3d6f",
+        "matches": true
+      },
+      {
+        "name": "psmux-source.zip",
+        "size": 1389299,
+        "sha256": "536b372ae1de96bc084a5dab44e7fba5cd8a9947fda224ce3da5d094e7588767",
+        "matches": true
+      },
+      {
+        "name": "SHA256SUMS",
+        "size": 433,
+        "sha256": "dd36e0d595ab06d043f41d2aa7c9db1d6b2153dd49c3d47182c2880c005812bd",
+        "matches": true
+      }
+    ],
+    "utc": "2026-11-28T05:29:56.792416+00:00"
+  }
+}

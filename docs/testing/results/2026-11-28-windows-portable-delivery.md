@@ -52,3 +52,11 @@ Windows 10 19045 上最终 updater **19 顶层通过**、CLI **4 顶层通过**�
 前两失败轮的剩余管理器正常退出（记录到的最终原 manager exit 0）。最终 05:23:23 UTC 审计确认整个私有交付测试目录内镜像为 0、共 12 个临时任务已删除且剩余为 0；原日常 manager PID／创建时间／路径保持。不能把“产品未强制结束”改写为所有宿主无强制回收。旧第一次审计的 1 个残留与最终 0 均归档。
 
 候选包括完整 ZIP、同字节 exe、原生 update 合同、manifest、SHA256SUMS 与修改 psmux 源码 ZIP。公开版本仍为历史 Alpha 1；本轮准备新的候选草稿，公网更新／匿名下载需公开后另核对，不能把受控 transport 测试或草稿资产当作线上更新已通过。
+
+## GitHub 候选草稿
+
+已创建 [Alpha 2 candidate](https://github.com/liuhui-code/agent-session-desk/releases/tag/untagged-50caef99b4d719d78703)，Release ID `461325010`，tag_name 为 `v0.1.0-alpha.2`，draft=true／prerelease=true，显式 latest=false。目标为准备提交 `ce2066e755b32561700836873209e02175ff92bb`，程序源码仍为上述 f89444c。没有替换旧 Release、发布新版本或更换日常安装。
+
+六附件均为 uploaded，API size／SHA256 digest 与本地已测原件一致；随后以仓库授权身份从 GitHub 重新下载全部六附件，逐一大小／SHA256 全匹配，见[草稿及回下载收据](2026-11-28-windows-portable-delivery-evidence/draft-verified.json)。这不是匿名下载或产品 update download 的公开端到端验证。草稿须登录且有权限才能查看；现有用户的 U 仍只见公开版本。
+
+首次创建请求使用缩写 target_commitish 被 API 422 拒绝，未创建 Release 或上传附件；只读确认不存在草稿、完整提交可由 GitHub API 读取后，改用完整 SHA 成功。失败保留，不把第二次成功说成首次无故障。Git 源实现为 f89444c，配色修正／原生执行与清理记录在 ce2066e，草稿回下载证据随下一文档提交记录。
