@@ -1,0 +1,5 @@
+--- FAIL: TestSnippetsOnlyOneLoadCanRemainOutstandingAfterCancel (0.00s)
+    snippets_test.go:175: cancelled slow file read allowed a second outstanding load
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	1.103s
+FAIL

@@ -13,6 +13,7 @@ type Definition struct {
 
 var Definitions = []Definition{
 	{"global", "wake", []string{"ctrl+alt+space"}},
+	{"workspace", "snippets", []string{"f7"}},
 	{"workspace", "previous", []string{"alt+p"}}, {"workspace", "next", []string{"alt+j", "ctrl+pgdown"}}, {"workspace", "back", []string{"alt+k", "ctrl+pgup"}},
 	{"workspace", "attention", []string{"alt+a"}}, {"workspace", "next_attention", []string{"alt+n"}}, {"workspace", "toggle_sidebar", []string{"ctrl+s"}}, {"workspace", "rename", []string{"f2"}}, {"workspace", "toggle_focus", []string{"f6"}},
 	{"management", "diagnostics", []string{"D"}}, {"management", "recovery", []string{"R"}},

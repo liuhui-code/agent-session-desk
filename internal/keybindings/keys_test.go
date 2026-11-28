@@ -46,3 +46,23 @@ func TestLoadValid(t *testing.T) {
 		t.Fatal(e)
 	}
 }
+
+func TestSnippetShortcutCanBeReplacedAndDisabled(t *testing.T) {
+	m := Map{Overrides: map[string]string{"workspace.snippets": "alt+i"}}
+	if err := m.Validate(); err != nil {
+		t.Fatal(err)
+	}
+	if k, mapped, off := m.Translate("workspace", "alt+i"); k != "f7" || !mapped || off {
+		t.Fatal("custom snippet shortcut not routed")
+	}
+	if _, _, off := m.Translate("workspace", "f7"); !off {
+		t.Fatal("old shortcut not returned to original terminal")
+	}
+	m.Overrides["workspace.snippets"] = ""
+	if err := m.Validate(); err != nil {
+		t.Fatal(err)
+	}
+	if _, _, off := m.Translate("workspace", "f7"); !off {
+		t.Fatal("snippet shortcut not disabled")
+	}
+}

@@ -22,6 +22,7 @@ func workspaceHelpSections() []helpSection {
 			{"x / × button", "Close only the view; keep the run alive"},
 			{"d (navigation focus)", "Confirm stopping the selected session; preserve tab and history"},
 			{"[ / ]", "Move the active tab left or right"},
+			{"F7", "Search instruction snippets; preview then paste without adding Enter"},
 			{"Paste", "Use the host terminal paste shortcut"},
 			{"q / Ctrl+C", "Sent to the target program with terminal focus"},
 		}},

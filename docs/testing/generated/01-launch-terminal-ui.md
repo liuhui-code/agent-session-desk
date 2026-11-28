@@ -2020,7 +2020,7 @@
 
 - 功能：[FL-003](../COVERAGE.md#fl-003)
 - 需求：[FR-03](../COVERAGE.md#fr-03)、[FR-11](../COVERAGE.md#fr-11)
-- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0005](../../adr/0005-dependency-lifecycle-and-upgrades.md)、[ADR-0017](../../adr/0017-sidebar-density-preferences.md)、[ADR-0022](../../adr/0022-default-group-sidebar-navigation.md)、[ADR-0023](../../adr/0023-persistent-groups-and-membership.md)、[ADR-0027](../../adr/0027-persistent-workspace-split.md)、[ADR-0016](../../adr/0016-tab-workspaces-and-input-ownership.md)
+- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0005](../../adr/0005-dependency-lifecycle-and-upgrades.md)、[ADR-0017](../../adr/0017-sidebar-density-preferences.md)、[ADR-0022](../../adr/0022-default-group-sidebar-navigation.md)、[ADR-0023](../../adr/0023-persistent-groups-and-membership.md)、[ADR-0027](../../adr/0027-persistent-workspace-split.md)、[ADR-0016](../../adr/0016-tab-workspaces-and-input-ownership.md)、[ADR-0074](../../adr/0074-bounded-instruction-snippets.md)
 - 优先级 / 阶段 / 层次：P1 / M0 / windows_e2e
 - 类型：boundary、usability
 - 设计 / 执行：`designed / not_run`
@@ -2042,6 +2042,7 @@
 4. 创建嵌套组，在 g 名称／目录及 M 移动列表中缩放、切字段、滚动选择；核对真实光标和末项可见。
 5. 调整并保存侧栏比例，拖动中观测磁盘不变；用无按钮松开／漏松开后移动等结束，再重开。穿插其他偏好保存、旧回执、写失败和等待退出。
 6. 使用长 ASCII／CJK／组合字符／keycap／ZWJ 标题、超长目录路径及同前缀名称，在四种卡片密度下缩放并点击元信息后 Enter 打开。对照固定源首行裁切和元信息末行；另测路径控制序列。
+7. 在 120/63/49/32 列和 32/20/12/10 行验证片段搜索／预览与长正文滚动；缩至 12 列 3 行后尝试确认。
 
 #### 预期与不变量
 
@@ -2051,6 +2052,7 @@
 - 一行组标题与 1–3 行卡片共用渲染命中矩形，缩放或滚动不导致打开相邻 Session。
 - ui.toml v4 的 0 自动／10–90 手动保持选择；旧 v1–v3 加载不改写，显式保存才升级，旧版拒读 v4。拖动结束仅保存最后预览一次，不依赖松开坐标；运动预览不夹带进其他整份保存，旧成功不回退较新比例，失败恢复旧有效值、显示错误并取消等待退出。终端键仍只输入原 Run。
 - 卡片首行沿源空尾裁切，元信息独立省略，完整行背景和宽高不溢出。原命令路径不变，程序标签先去控制序列再取完整路径 basename 后有界显示；可见重名仍有身份提示。选中／点击／Enter 绑定原 Session/Run，原终端草稿不被提交／重放；源文字合同、原始组件与真实桌面分别记账。
+- 片段帧与光标不溢出；小于片段可确认尺寸只提示放大，不能在预览不可见时粘贴。原终端正文和显示投影分开。
 
 #### 需要的证据
 
@@ -2405,7 +2407,7 @@
 
 - 功能：[FL-012](../COVERAGE.md#fl-012)
 - 需求：[FR-11](../COVERAGE.md#fr-11)
-- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0074](../../adr/0074-bounded-instruction-snippets.md)
 - 优先级 / 阶段 / 层次：P0 / M1 / windows_e2e
 - 类型：functional、negative
 - 设计 / 执行：`designed / not_run`
@@ -2423,11 +2425,13 @@
 
 1. A/B 均运行输入记录 fixture，在管理器打开新建或通信草稿表单。
 2. 输入唯一文本、Tab、方向键并取消；查看两个 agent 的输入记录。
+3. 打开 F7 指令片段库，输入／粘贴查询、切换预览并取消；再明确预览／确认一个合成片段。
 
 #### 预期与不变量
 
 - 管理器编辑只改变当前表单，A/B 均未收到正文或按键。
 - 取消不会产生发送或提交动作，返回后列表焦点明确。
+- 查询、导航和确认键不进目标；只有明确确认的原文通过原终端一次 Paste，不追加 Enter。多行可能由 shell 执行，应显示提示。
 
 #### 需要的证据
 
@@ -2478,7 +2482,7 @@
 
 - 功能：[FL-012](../COVERAGE.md#fl-012)
 - 需求：[FR-11](../COVERAGE.md#fr-11)
-- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 决策：[ADR-0001](../../adr/0001-architecture-and-reuse.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0074](../../adr/0074-bounded-instruction-snippets.md)
 - 优先级 / 阶段 / 层次：P0 / M2 / windows_e2e
 - 类型：state、boundary
 - 设计 / 执行：`designed / not_run`
@@ -2496,11 +2500,13 @@
 
 1. 分别为 A/B 编辑不同的管理器草稿，反复切换并重命名会话。
 2. 回到 A 检查草稿，再显式提交到已经确认的目标。
+3. 在活动 A 且侧栏选中 B 时打开片段；加载中取消、全局唤起、原 Run 替换、连接失败和 copy/search 模式分别复验。
 
 #### 预期与不变量
 
 - 草稿按稳定 Session 关联，不因名称或列表顺序变化串到 B。
 - 提交只使用当前确认的草稿和目标；未提交的 B 草稿保持原样。
+- 片段以明确展示的活动原 Session/Run/pane/view 为目标；取消／旧回执不重开；身份或连接变化不写入、不在重连后重放。
 
 #### 需要的证据
 

@@ -1,0 +1,5 @@
+--- FAIL: TestSnippetsTinyWindowCannotPasteUntilPreviewVisible (0.00s)
+    snippets_test.go:74: tiny invisible preview allowed a paste
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.841s
+FAIL

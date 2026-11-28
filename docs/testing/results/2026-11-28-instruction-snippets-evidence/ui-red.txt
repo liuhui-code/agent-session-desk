@@ -1,0 +1,5 @@
+# github.com/liuhui-code/agent-session-desk/internal/ui [github.com/liuhui-code/agent-session-desk/internal/ui.test]
+internal/ui/snippets_test.go:15:41: unknown field LoadSnippets in struct literal of type Options
+internal/ui/snippets_test.go:32:10: h.m.snippets undefined (type *Model has no field or method snippets)
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui [build failed]
+FAIL

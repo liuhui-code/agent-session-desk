@@ -54,3 +54,28 @@ func TestMarkdownResolutionKeepsOriginalRunDirectory(t *testing.T) {
 		t.Fatal("ended Run accepted")
 	}
 }
+
+func TestCurrentDirectoryRejectsDifferentOriginalBeforeLookup(t *testing.T) {
+	ctx := context.Background()
+	db, err := store.Open(ctx, filepath.Join(t.TempDir(), "db.sqlite3"), "scope")
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer db.Close()
+	original := observed()
+	backend := &documentTerminal{terminal: terminal{items: []session.Session{original}}, directory: t.TempDir()}
+	m := manager.New(backend, db)
+	dir, err := m.CurrentDirectory(ctx, original)
+	if err != nil || dir != backend.directory || backend.lookups != 1 {
+		t.Fatalf("directory: %q %v", dir, err)
+	}
+	changed := original
+	changed.BackendID = "wrong-pane"
+	if _, err = m.CurrentDirectory(ctx, changed); err == nil || backend.lookups != 1 {
+		t.Fatal("changed identity reached directory lookup")
+	}
+	backend.items = nil
+	if _, err = m.CurrentDirectory(ctx, original); err == nil {
+		t.Fatal("ended original returned directory")
+	}
+}

@@ -52,6 +52,7 @@ type attachDoneMsg struct{ err error }
 // Model implements the stable Bubble Tea v2 API. Mutable UI state is touched
 // only by Init/Update; asynchronous commands return values, never mutate it.
 type Model struct {
+	snippets                         snippetState
 	launchSeed                       *session.Launch
 	recoveryUI                       recoveryUIState
 	diagnostic                       diagnosticState
@@ -151,6 +152,10 @@ func newModelWithTokens(ctx context.Context, service Service, tokens designToken
 // exits because of an external error or signal. It does not stop a session.
 func (m *Model) Close() {
 	m.closed = true
+	if d := m.snippets.dialog; d != nil && d.cancel != nil {
+		d.cancel()
+	}
+	m.snippets.dialog = nil
 	if d := m.recoveryUI.center; d != nil && d.cancel != nil {
 		d.cancel()
 	}

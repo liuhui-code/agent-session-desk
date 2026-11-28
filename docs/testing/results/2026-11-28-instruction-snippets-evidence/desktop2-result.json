@@ -1,0 +1,152 @@
+{
+  "forced_hosts": 0,
+  "result": "failed",
+  "source": "working-tree-after-b9b0c6d",
+  "error": "Manager did not exit normally",
+  "events": [
+    {
+      "at": "2026-11-28T06:58:13.7743962Z",
+      "name": "fixture A"
+    },
+    {
+      "at": "2026-11-28T06:58:16.3798560Z",
+      "name": "fixture B"
+    },
+    {
+      "at": "2026-11-28T06:58:45.2373872Z",
+      "name": "one manager"
+    },
+    {
+      "at": "2026-11-28T06:58:45.2958535Z",
+      "name": "one owned window"
+    },
+    {
+      "at": "2026-11-28T06:58:45.3199420Z",
+      "name": "owned foreground"
+    },
+    {
+      "at": "2026-11-28T06:58:45.5798506Z",
+      "name": "original A terminal"
+    },
+    {
+      "at": "2026-11-28T06:58:45.6495511Z",
+      "name": "explicit original terminal focus"
+    },
+    {
+      "at": "2026-11-28T06:58:46.0178100Z",
+      "name": "editable draft"
+    },
+    {
+      "at": "2026-11-28T06:58:49.9771816Z",
+      "name": "snippet library loaded"
+    },
+    {
+      "at": "2026-11-28T06:58:50.2862350Z",
+      "name": "project literal preview"
+    },
+    {
+      "at": "2026-11-28T06:58:50.4333183Z",
+      "name": "owned preview capture"
+    },
+    {
+      "at": "2026-11-28T06:58:50.7195367Z",
+      "name": "project pasted as draft"
+    },
+    {
+      "at": "2026-11-28T06:58:50.7311773Z",
+      "name": "no automatic Enter"
+    },
+    {
+      "at": "2026-11-28T06:58:51.0419070Z",
+      "name": "explicit A submission"
+    },
+    {
+      "at": "2026-11-28T06:58:51.8235572Z",
+      "name": "original B terminal"
+    },
+    {
+      "at": "2026-11-28T06:58:54.0036102Z",
+      "name": "snippet library loaded"
+    },
+    {
+      "at": "2026-11-28T06:58:54.0751883Z",
+      "name": "global preview"
+    },
+    {
+      "at": "2026-11-28T06:58:54.3761628Z",
+      "name": "global pasted as draft"
+    },
+    {
+      "at": "2026-11-28T06:58:54.6702631Z",
+      "name": "explicit B submission"
+    },
+    {
+      "at": "2026-11-28T06:58:57.0886787Z",
+      "name": "snippet library loaded"
+    },
+    {
+      "at": "2026-11-28T06:58:57.3800227Z",
+      "name": "cancelled picker"
+    },
+    {
+      "at": "2026-11-28T06:58:59.9055701Z",
+      "name": "snippet library loaded"
+    },
+    {
+      "at": "2026-11-28T06:59:00.1856564Z",
+      "name": "cancelled picker"
+    },
+    {
+      "at": "2026-11-28T06:59:03.3726025Z",
+      "name": "snippet library loaded"
+    },
+    {
+      "at": "2026-11-28T06:59:03.6584013Z",
+      "name": "cancelled picker"
+    },
+    {
+      "at": "2026-11-28T06:59:05.4264283Z",
+      "name": "original identities retained"
+    }
+  ],
+  "clipboard_apis": 0,
+  "memory": [
+    {
+      "private_bytes": null,
+      "phase": "baseline",
+      "working_set": null,
+      "at": "2026-11-28T06:58:45.6724043Z"
+    },
+    {
+      "private_bytes": null,
+      "phase": "list",
+      "working_set": null,
+      "at": "2026-11-28T06:58:49.9836509Z"
+    },
+    {
+      "private_bytes": null,
+      "phase": "preview",
+      "working_set": null,
+      "at": "2026-11-28T06:58:50.2935959Z"
+    },
+    {
+      "private_bytes": null,
+      "phase": "closed-0",
+      "working_set": null,
+      "at": "2026-11-28T06:58:57.3938646Z"
+    },
+    {
+      "private_bytes": null,
+      "phase": "closed-1",
+      "working_set": null,
+      "at": "2026-11-28T06:59:00.1948270Z"
+    },
+    {
+      "private_bytes": null,
+      "phase": "closed-2",
+      "working_set": null,
+      "at": "2026-11-28T06:59:03.6669670Z"
+    }
+  ],
+  "forced_products": 0
+}

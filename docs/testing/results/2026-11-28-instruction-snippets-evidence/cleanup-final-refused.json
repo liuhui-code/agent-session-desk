@@ -1,0 +1,38 @@
+{
+  "forced_host": 0,
+  "manager_exit": null,
+  "identities": [
+    {
+      "pid": 14136,
+      "filetime": "134403234257464450",
+      "original_millisecond": 1795849825746,
+      "kind": "backend"
+    },
+    {
+      "pid": 16332,
+      "filetime": "134403234274918329",
+      "original_millisecond": 1795849827491,
+      "kind": "fixture"
+    },
+    {
+      "pid": 21584,
+      "filetime": "134403234424591709",
+      "original_millisecond": 1795849842459,
+      "kind": "backend"
+    },
+    {
+      "pid": 10024,
+      "filetime": "134403234438500364",
+      "original_millisecond": 1795849843850,
+      "kind": "fixture"
+    }
+  ],
+  "clipboard_apis": 0,
+  "forced_fixtures": 0,
+  "error": "Original scoped record differs",
+  "forced_manager": 0,
+  "attempts": [],
+  "ui_and_host_absent": true,
+  "result": "failed",
+  "forced_backends": 0
+}

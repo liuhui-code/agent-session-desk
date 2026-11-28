@@ -15,12 +15,14 @@
 | 终端活动 | 会话名后转圈／蓝点 | `internal/ui/activity.go`；[ADR-0057](adr/0057-terminal-activity.md) | 比较有界页，不是 Agent忙闲；离屏不监控、断连不报静默 |
 | 版本／发布查询 | version；check-update；管理 U | `internal/release`；[ADR-0058](adr/0058-build-and-release-check.md) | 按需联网，只显示公开发布；不下载安装 |
 | 便携交付／程序更新 | Start.cmd；asd-launch.exe；update CLI | [交付说明](WINDOWS_PORTABLE.md)；[更新合同](UPDATES.md)；[发布者工具](../tools/release/README.md) | 固定 launcher 跟随入口；仅程序更新不替换 host／launcher；候选与已公开版本分开 |
-| 全局唤起 | Windows Ctrl+Alt+Space | `internal/hotkey`；`cli/workbench.go` | 恢复原窗／核验待办；冲突提示、不抢占；实机仍待验 |
+| 全局唤起 | Windows Ctrl+F7pace | `internal/hotkey`；`cli/workbench.go` | 恢复原窗／核验待办；冲突提示、不抢占；实机仍待验 |
 | 最近会话 | Alt+P | `internal/ui/recent.go` | 最多16个成功连接视图；跳过已关视图；不改变行序 |
 | 项目工作区 | 管理 W；workspace NAME | [用法](WORKSPACES.md)；`config/workspace.go` | W为default；最多8模板，串行开新Run；重复执行会再开 |
 | 外置 Markdown | Ctrl+单击路径 | [说明](EXTERNAL_MARKDOWN.md) | 外部编辑器；不修改默认关联 |
 
 普通／race／cross-build 与实际 Windows执行必须分开。导航三个功能的当前局限见[报告](testing/results/2026-11-27-navigation.md)；活动标识见[报告](testing/results/2026-11-27-activity.md)。不要把交叉编译记为真机通过。
+
+新增[指令片段库](SNIPPETS.md)：F7／workspace.snippets；全局 state 同目录与项目当前 pane 目录的 `.asd/snippets.toml`，只读且按需重载。后续 Agent 按文件合同维护，正文不插值、不自动提交。
 
 ## 适配步骤
 

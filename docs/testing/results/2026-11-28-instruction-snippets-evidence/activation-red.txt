@@ -1,0 +1,5 @@
+--- FAIL: TestSnippetsKeepGlobalActivationInsideExistingModal (0.00s)
+    snippets_test.go:62: global activation escaped snippets and navigated to another Run
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	0.800s
+FAIL

@@ -1,0 +1,5 @@
+--- FAIL: TestSnippetsDefaultFunctionKeyAcceptsLockFlags (0.00s)
+    snippets_test.go:199: F7 did not open snippets before terminal forwarding
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	1.282s
+FAIL

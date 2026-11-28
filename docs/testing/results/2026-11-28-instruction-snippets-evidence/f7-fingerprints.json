@@ -1,0 +1,54 @@
+{
+  "baseline_commit": "b9b0c6dd8642c09b349d0889353d4048e292f9d8",
+  "modified_source": true,
+  "release_build": false,
+  "binaries": {
+    "asd-f7.exe": "99e837b11aa945939b6a2aea1695aa255c1656a58bfbe9cc47045426d00e340c",
+    "ui-f7.test.exe": "b7d294d059d88e2ca88a818a60d071456d919bccb4e878f59b77956460d0f22f",
+    "keys-f7.test.exe": "29692f3207a19362d3da595d527968b0a6a09295c4924fcef6cf88c7ff1808b2"
+  },
+  "source_files": {
+    "internal/cli/snippets.go": "5b1ad22b642c0ab5a1039538220ccd9642f9e36f0d3cd3d7c07ca2d0a4d81962",
+    "internal/cli/snippets_test.go": "79a871a2df23fad404099dbb0f6da87a2521e3130d3f3a68898f788b60ab344d",
+    "internal/cli/workbench.go": "7245149744686666afd5038edc18a9b7d7ef5b7045fa78433167e4a146f1e653",
+    "internal/keybindings/keys.go": "9485a391fd2b28b27d340ce5eb9e793e1b6476597f6ebaecdaf6cf5ca5e80cf4",
+    "internal/keybindings/keys_test.go": "4c8c85a5958a2a61e03876b14896175e5826fecebfca9398500d4f9139afa7f5",
+    "internal/manager/directory.go": "8619b00dad12a0c74b41fd93e760b6e0621c1e591c84792c32ae7906c155a78f",
+    "internal/manager/document_test.go": "a621601620d2834627bfcca95480018cf59ed8d73c1147f3ad54fdaff801d1f0",
+    "internal/snippets/library.go": "c3d2ac003991518f5fef5796f3f883618ef543e8ac3fe75394fe6f1a2033d131",
+    "internal/snippets/library_test.go": "f52eae3a1e5e53eff39168709635bb936ce97d6964df0e38b14bbe81c7deb29d",
+    "internal/ui/attention_companion.go": "699ab0bfcb8f4b1b0e5afca501409c9d4baf7f5a7bef61838374458e82efdf8f",
+    "internal/ui/design_tokens.go": "cf2b370eaa4c8c7d72930c105214a1cf6a23aa0c8d574aafdcb36b5c51bbfbf8",
+    "internal/ui/help_entries.go": "109f5c4d271142041476e7b55d2c5e392d31fbd986b880d7679fa7ebd524e5ed",
+    "internal/ui/home_view_frame.go": "7d4082c7f5d4961cfd47958fda2d4ae4314131c57b31e31a55465dc0f7945513",
+    "internal/ui/model.go": "4cea9b0e695fc881ca760bfe0dac7d043b649a4804757585d6c40e0e8e04012e",
+    "internal/ui/model_workspace_events.go": "0731e10b988d19483ff69b5851ae991cb7323fed02073e9c7f3a338eae24ceb1",
+    "internal/ui/sidebar_settings.go": "81cfbfe95078a9071b74844f872707b45dcc3e2bbada375ae3f166771acddd7d",
+    "internal/ui/snippets.go": "6a09bb7be1a3e5d8aec09c5278c379a86a9332aa493e9e48ba326e112e35ddbc",
+    "internal/ui/snippets_test.go": "e24fd2535724099318efd8e09143ed8a6435b97f7e440b484515e562e3bf029f",
+    "internal/ui/snippets_view.go": "2bb94a41a09af5f9bdf4b9ba17a2b2c81c8cb8e4f8ce614a1670ec5b7493cd43",
+    "internal/ui/workspace.go": "fab8778d079a4be5e6c3411267dc2a29fe8140241a0a98fea85f0463855a2f6b",
+    "internal/ui/workspace_keys.go": "c47534c24a16c2ec923739dce4ef099cb033394cee700c319601f01f3b9d990b",
+    "internal/ui/workspace_navigation.go": "81b570a116bea320a708ae1ce63f19bbaea50e9cb494c1e86776b0520dac47c3"
+  },
+  "native_test_counts": {
+    "ui": {
+      "top_level_pass": 9,
+      "fail": 0,
+      "skip": 0
+    },
+    "keybindings": {
+      "top_level_pass": 1,
+      "fail": 0,
+      "skip": 0
+    }
+  },
+  "private_driver_hashes": {
+    "native-f7.ps1": "251b30ae1d89eeb7f8b0702f579462db7269c2a92e0307634c104804a4c9a796",
+    "f7-desktop-worker.ps1": "c50dbfebe69e831ff0e49c704a36efd680cd508c94186a541f056f2061979ac2",
+    "final-cleanup-worker.ps1": "c0e228040ef8b66d9806ddff4201994b8f23815b09aba50f39fb76f2dd4d1715",
+    "scoped-final-cleanup.ps1": "a95c6bb54a55bb8737cdd76b3cca373e706ce2a39b3f732ae8c0018d67798ae5",
+    "exact-cleanup-only.ps1": "f5d0d7b5c5d37e7231599d8efa38948b488ca56d8a7271e8a9fc83773b711f59",
+    "remove-owned-tasks.ps1": "c1358ef45d695c63d2b0d53576330bcacc40ef3632ae9558ef604c38543b3419"
+  }
+}

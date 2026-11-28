@@ -1,0 +1,17 @@
+{
+  "result": "passed",
+  "tests": [
+    {
+      "stdout": "=== RUN   TestSnippetsPreviewThenPasteOnlyToOriginalTerminalWithoutEnter\n--- PASS: TestSnippetsPreviewThenPasteOnlyToOriginalTerminalWithoutEnter (0.01s)\n=== RUN   TestSnippetsKeepGlobalActivationInsideExistingModal\n--- PASS: TestSnippetsKeepGlobalActivationInsideExistingModal (0.00s)\n=== RUN   TestSnippetsTinyWindowCannotPasteUntilPreviewVisible\n--- PASS: TestSnippetsTinyWindowCannotPasteUntilPreviewVisible (0.00s)\n=== RUN   TestSnippetsCancelRestoresFocusAndRejectsReplacementRun\n--- PASS: TestSnippetsCancelRestoresFocusAndRejectsReplacementRun (0.00s)\n=== RUN   TestSnippetsDiscardLateLibraryAndRespectInputBarrier\n--- PASS: TestSnippetsDiscardLateLibraryAndRespectInputBarrier (0.00s)\n=== RUN   TestSnippetsFramesAndPreviewStayWithinViewport\n--- PASS: TestSnippetsFramesAndPreviewStayWithinViewport (0.01s)\n=== RUN   TestSnippetsOnlyOneLoadCanRemainOutstandingAfterCancel\n--- PASS: TestSnippetsOnlyOneLoadCanRemainOutstandingAfterCancel (0.00s)\n=== RUN   TestSnippetsMinimumFrameKeepsSelectionBodyAndActionsVisible\n--- PASS: TestSnippetsMinimumFrameKeepsSelectionBodyAndActionsVisible (0.00s)\n=== RUN   TestSnippetsDefaultFunctionKeyAcceptsLockFlags\n--- PASS: TestSnippetsDefaultFunctionKeyAcceptsLockFlags (0.00s)\nPASS\n",
+      "stderr": "",
+      "file": "ui-f7.test.exe",
+      "exit": 0
+    },
+    {
+      "stdout": "=== RUN   TestSnippetShortcutCanBeReplacedAndDisabled\n--- PASS: TestSnippetShortcutCanBeReplacedAndDisabled (0.00s)\nPASS\n",
+      "stderr": "",
+      "file": "keys-f7.test.exe",
+      "exit": 0
+    }
+  ]
+}

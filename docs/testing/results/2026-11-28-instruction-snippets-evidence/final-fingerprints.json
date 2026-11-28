@@ -1,0 +1,61 @@
+{
+  "baseline": "b9b0c6dd8642c09b349d0889353d4048e292f9d8",
+  "modified": true,
+  "binaries": {
+    "asd.exe": "644f4968ae80f4ee791abdfb530ea960b0cfd94e93c76a447bce771cc5f68f43",
+    "ui.test.exe": "00865c5a836ca9f1861a91ee68e60968c9734ffe615d6b06d95b6c8ebb6200f5",
+    "snippets.test.exe": "8f2b739d7fbfbdee2cc24e88c6b40b475f12e40e50f796ef1c8eba9215e4c45f",
+    "manager.test.exe": "388f2fdf76db2b06248d0b92071544f1f3583b790759d3f16a36442115fb6710",
+    "cli.test.exe": "7191d0ba01ab4c796e0a8e5f929f7e8c43232cd4a4e067f9bebd0ab6ad4db654"
+  },
+  "native_test_counts": {
+    "snippets.test.exe": {
+      "top_level_pass": 5,
+      "passes_including_subtests": 11,
+      "fail": 0,
+      "skip": 0
+    },
+    "ui.test.exe": {
+      "top_level_pass": 8,
+      "passes_including_subtests": 8,
+      "fail": 0,
+      "skip": 0
+    },
+    "manager.test.exe": {
+      "top_level_pass": 2,
+      "passes_including_subtests": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    "cli.test.exe": {
+      "top_level_pass": 1,
+      "passes_including_subtests": 1,
+      "fail": 0,
+      "skip": 0
+    }
+  },
+  "source_files": {
+    "internal/cli/snippets.go": "5b1ad22b642c0ab5a1039538220ccd9642f9e36f0d3cd3d7c07ca2d0a4d81962",
+    "internal/cli/snippets_test.go": "79a871a2df23fad404099dbb0f6da87a2521e3130d3f3a68898f788b60ab344d",
+    "internal/cli/workbench.go": "7245149744686666afd5038edc18a9b7d7ef5b7045fa78433167e4a146f1e653",
+    "internal/keybindings/keys.go": "f8eee42e1961b4dc2d249c7a6fcf32b25139d86973ed205e1bab2038961ac6ff",
+    "internal/keybindings/keys_test.go": "32f960f2bcb23622a02b3d6eb89d76da091c12dc3d36dc15ece8e18ca7d5c7f9",
+    "internal/manager/directory.go": "8619b00dad12a0c74b41fd93e760b6e0621c1e591c84792c32ae7906c155a78f",
+    "internal/manager/document_test.go": "a621601620d2834627bfcca95480018cf59ed8d73c1147f3ad54fdaff801d1f0",
+    "internal/snippets/library.go": "c3d2ac003991518f5fef5796f3f883618ef543e8ac3fe75394fe6f1a2033d131",
+    "internal/snippets/library_test.go": "f52eae3a1e5e53eff39168709635bb936ce97d6964df0e38b14bbe81c7deb29d",
+    "internal/ui/attention_companion.go": "699ab0bfcb8f4b1b0e5afca501409c9d4baf7f5a7bef61838374458e82efdf8f",
+    "internal/ui/design_tokens.go": "cf2b370eaa4c8c7d72930c105214a1cf6a23aa0c8d574aafdcb36b5c51bbfbf8",
+    "internal/ui/help_entries.go": "a04f63b4309bc8eb06707f43b3138dcb2f311f27c2e719f309b4330bd0e342e4",
+    "internal/ui/home_view_frame.go": "7d4082c7f5d4961cfd47958fda2d4ae4314131c57b31e31a55465dc0f7945513",
+    "internal/ui/model.go": "4cea9b0e695fc881ca760bfe0dac7d043b649a4804757585d6c40e0e8e04012e",
+    "internal/ui/model_workspace_events.go": "0731e10b988d19483ff69b5851ae991cb7323fed02073e9c7f3a338eae24ceb1",
+    "internal/ui/sidebar_settings.go": "81cfbfe95078a9071b74844f872707b45dcc3e2bbada375ae3f166771acddd7d",
+    "internal/ui/snippets.go": "6a09bb7be1a3e5d8aec09c5278c379a86a9332aa493e9e48ba326e112e35ddbc",
+    "internal/ui/snippets_test.go": "5a7dbf7824b86a4fdf99e845caf5b8c5bfc1c3a72eed5e461fa2be3c803a3af6",
+    "internal/ui/snippets_view.go": "2bb94a41a09af5f9bdf4b9ba17a2b2c81c8cb8e4f8ce614a1670ec5b7493cd43",
+    "internal/ui/workspace.go": "fab8778d079a4be5e6c3411267dc2a29fe8140241a0a98fea85f0463855a2f6b",
+    "internal/ui/workspace_keys.go": "cecf7270c7c19b744efa65f42fe85ac19604e92a66b95fa7a22144b08951581b",
+    "internal/ui/workspace_navigation.go": "81b570a116bea320a708ae1ce63f19bbaea50e9cb494c1e86776b0520dac47c3"
+  }
+}

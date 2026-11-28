@@ -22,7 +22,13 @@ type diagnosticTokens struct {
 	unchecked, checked, actionOpen, actionClose, actionSeparator string
 }
 
+type snippetTokens struct {
+	previewRows, minWidth, minHeight int
+	tabSpaces                        string
+}
+
 type designTokens struct {
+	snippets       snippetTokens
 	diagnostic     diagnosticTokens
 	activityIdle   string
 	activityFrames []string
@@ -187,6 +193,7 @@ type markTokens struct {
 func defaultDesignTokens() designTokens {
 	colors, purple := themePalette("dark")
 	return designTokens{
+		snippets:   snippetTokens{previewRows: 12, minWidth: 32, minHeight: 10, tabSpaces: "    "},
 		diagnostic: diagnosticTokens{width: 96, gutter: 4, rows: 24, confirmWidth: 32, confirmHeight: 10, unchecked: "[ ]", checked: "[x]", actionOpen: "[", actionClose: "]", actionSeparator: " / "},
 		pet: PetTokens{MaxDPI: 384, Width: 160, Height: 176, SpriteSize: 128, SpriteTop: 18, Margin: 16, DragSlop: 4,
 			BadgeX: 126, BadgeY: 24, BadgeRadius: 17, BadgeScale: 2,

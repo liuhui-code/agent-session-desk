@@ -1,0 +1,29 @@
+{
+  "result": "passed",
+  "tests": [
+    {
+      "stdout": "=== RUN   TestLoadKeepsProjectAndGlobalLiteralBodiesDistinct\n--- PASS: TestLoadKeepsProjectAndGlobalLiteralBodiesDistinct (0.08s)\n=== RUN   TestLoadRejectsInvalidOrUnboundedFilesWithoutPartialLibrary\n=== RUN   TestLoadRejectsInvalidOrUnboundedFilesWithoutPartialLibrary/schema_version=2_\n=== RUN   TestLoadRejectsInvalidOrUnboundedFilesWithoutPartialLibrary/schema_version=1_Unknown=1_\n=== RUN   TestLoadRejectsInvalidOrUnboundedFilesWithoutPartialLibrary/Schema_Version=1_\n=== RUN   TestLoadRejectsInvalidOrUnboundedFilesWithoutPartialLibrary/schema_version=1_[snippets.x]_Title='x'_body='ok'_\n=== RUN   TestLoadRejectsInvalidOrUnboundedFilesWithoutPartialLibrary/schema_version=1_[snippets.x]_title='x'_body=\"\\u001b[31m\"_\n=== RUN   TestLoadRejectsInvalidOrUnboundedFilesWithoutPartialLibrary/schema_version=1_[snippets.x]_title='x'_body=''_\n--- PASS: TestLoadRejectsInvalidOrUnboundedFilesWithoutPartialLibrary (0.16s)\n    --- PASS: TestLoadRejectsInvalidOrUnboundedFilesWithoutPartialLibrary/schema_version=2_ (0.02s)\n    --- PASS: TestLoadRejectsInvalidOrUnboundedFilesWithoutPartialLibrary/schema_version=1_Unknown=1_ (0.01s)\n    --- PASS: TestLoadRejectsInvalidOrUnboundedFilesWithoutPartialLibrary/Schema_Version=1_ (0.03s)\n    --- PASS: TestLoadRejectsInvalidOrUnboundedFilesWithoutPartialLibrary/schema_version=1_[snippets.x]_Title='x'_body='ok'_ (0.04s)\n    --- PASS: TestLoadRejectsInvalidOrUnboundedFilesWithoutPartialLibrary/schema_version=1_[snippets.x]_title='x'_body=\"\\u001b[31m\"_ (0.01s)\n    --- PASS: TestLoadRejectsInvalidOrUnboundedFilesWithoutPartialLibrary/schema_version=1_[snippets.x]_title='x'_body=''_ (0.02s)\n=== RUN   TestLoadMissingFilesAndCancellation\n--- PASS: TestLoadMissingFilesAndCancellation (0.00s)\n=== RUN   TestLoadExactBodyAndItemBounds\n--- PASS: TestLoadExactBodyAndItemBounds (0.10s)\n=== RUN   TestLoadRejectsOversizedFileAndDirectory\n--- PASS: TestLoadRejectsOversizedFileAndDirectory (0.03s)\nPASS\n",
+      "stderr": "",
+      "file": "snippets.test.exe",
+      "exit": 0
+    },
+    {
+      "stdout": "=== RUN   TestSnippetsPreviewThenPasteOnlyToOriginalTerminalWithoutEnter\n--- PASS: TestSnippetsPreviewThenPasteOnlyToOriginalTerminalWithoutEnter (0.01s)\n=== RUN   TestSnippetsKeepGlobalActivationInsideExistingModal\n--- PASS: TestSnippetsKeepGlobalActivationInsideExistingModal (0.00s)\n=== RUN   TestSnippetsTinyWindowCannotPasteUntilPreviewVisible\n--- PASS: TestSnippetsTinyWindowCannotPasteUntilPreviewVisible (0.00s)\n=== RUN   TestSnippetsCancelRestoresFocusAndRejectsReplacementRun\n--- PASS: TestSnippetsCancelRestoresFocusAndRejectsReplacementRun (0.00s)\n=== RUN   TestSnippetsDiscardLateLibraryAndRespectInputBarrier\n--- PASS: TestSnippetsDiscardLateLibraryAndRespectInputBarrier (0.00s)\n=== RUN   TestSnippetsFramesAndPreviewStayWithinViewport\n--- PASS: TestSnippetsFramesAndPreviewStayWithinViewport (0.01s)\n=== RUN   TestSnippetsOnlyOneLoadCanRemainOutstandingAfterCancel\n--- PASS: TestSnippetsOnlyOneLoadCanRemainOutstandingAfterCancel (0.00s)\n=== RUN   TestSnippetsMinimumFrameKeepsSelectionBodyAndActionsVisible\n--- PASS: TestSnippetsMinimumFrameKeepsSelectionBodyAndActionsVisible (0.00s)\nPASS\n",
+      "stderr": "",
+      "file": "ui.test.exe",
+      "exit": 0
+    },
+    {
+      "stdout": "=== RUN   TestMarkdownResolutionKeepsOriginalRunDirectory\n--- PASS: TestMarkdownResolutionKeepsOriginalRunDirectory (0.09s)\n=== RUN   TestCurrentDirectoryRejectsDifferentOriginalBeforeLookup\n--- PASS: TestCurrentDirectoryRejectsDifferentOriginalBeforeLookup (0.13s)\nPASS\n",
+      "stderr": "",
+      "file": "manager.test.exe",
+      "exit": 0
+    },
+    {
+      "stdout": "=== RUN   TestSnippetOptionsUseOriginalPaneAndMetadataDirectory\n--- PASS: TestSnippetOptionsUseOriginalPaneAndMetadataDirectory (0.01s)\nPASS\n",
+      "stderr": "",
+      "file": "cli.test.exe",
+      "exit": 0
+    }
+  ]
+}

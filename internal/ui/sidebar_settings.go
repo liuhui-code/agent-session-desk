@@ -17,9 +17,11 @@ import (
 	"github.com/liuhui-code/agent-session-desk/internal/appearance"
 	"github.com/liuhui-code/agent-session-desk/internal/config"
 	"github.com/liuhui-code/agent-session-desk/internal/session"
+	"github.com/liuhui-code/agent-session-desk/internal/snippets"
 )
 
 type Options struct {
+	LoadSnippets      func(context.Context, session.Session) (snippets.Library, error)
 	ReviewRecovery    func(context.Context, session.Session) (recovery.Review, error)
 	RestoreRecovery   func(context.Context, recovery.Review) (recovery.Outcome, error)
 	DiagnosticRuntime diagnostics.Runtime
@@ -50,6 +52,7 @@ type Options struct {
 
 func NewWithOptions(ctx context.Context, service Service, options Options) *Model {
 	m := New(ctx, service)
+	m.snippets.load = options.LoadSnippets
 	m.recoveryUI.review, m.recoveryUI.restore = options.ReviewRecovery, options.RestoreRecovery
 	m.diagnostic.runtime = options.DiagnosticRuntime
 	m.diagnostic.export = options.ExportDiagnostics

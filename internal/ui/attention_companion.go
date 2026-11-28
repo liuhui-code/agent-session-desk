@@ -33,7 +33,7 @@ func (m *Model) companionEvent(msg tea.Msg) (tea.Cmd, bool) {
 		return nil, true
 	case GlobalActivate:
 		if m.attentionFocus != nil && m.attentionFocus() {
-			if m.groupDialog == nil && m.groupRemoval == nil && m.sessionStop == nil && !m.project.busy && m.attention.center == nil && !m.help && m.launch == nil && m.search == nil && m.rename == nil && !m.history.open {
+			if m.snippets.dialog == nil && m.groupDialog == nil && m.groupRemoval == nil && m.sessionStop == nil && !m.project.busy && m.attention.center == nil && !m.help && m.launch == nil && m.search == nil && m.rename == nil && !m.history.open {
 				return m.nextAttention(), true
 			}
 			return nil, true
@@ -48,7 +48,7 @@ func (m *Model) companionEvent(msg tea.Msg) (tea.Cmd, bool) {
 		m.status = "Desktop reminder unavailable; use Alt+N in the workbench"
 		return nil, true
 	case AttentionActivate:
-		if m.workspace == nil || m.attention.center != nil || m.attaching || m.history.open || m.help || m.launch != nil || m.search != nil || m.rename != nil || m.groupDialog != nil || m.groupRemoval != nil || m.sessionStop != nil || m.densitySettings != nil {
+		if m.snippets.dialog != nil || m.workspace == nil || m.attention.center != nil || m.attaching || m.history.open || m.help || m.launch != nil || m.search != nil || m.rename != nil || m.groupDialog != nil || m.groupRemoval != nil || m.sessionStop != nil || m.densitySettings != nil {
 			m.status = "Finish the current navigation before opening the pending item"
 			return nil, true
 		}

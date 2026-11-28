@@ -1,0 +1,27 @@
+{
+  "fixtures_ended": 2,
+  "events": [
+    "manager and host exited normally"
+  ],
+  "manager_exit": 0,
+  "forced_hosts": 0,
+  "forced_products": 0,
+  "result": "passed",
+  "private_image_count": 0,
+  "input_summary": [
+    {
+      "fixture": "A",
+      "inputs": [
+        {
+          "length": 0,
+          "empty": true
+        }
+      ]
+    },
+    {
+      "fixture": "B",
+      "inputs": []
+    }
+  ],
+  "clipboard_apis": 0
+}

@@ -1,0 +1,37 @@
+{
+  "baseline": "b9b0c6d",
+  "modified": true,
+  "binaries": {
+    "asd.exe": "fb1bcba614917ebb9ec09f18625b75f1144834e476935aa8bdfed9154b4e6201",
+    "ui.test.exe": "85c31963c923472aeb31bf443701cba26f6b98d7cd35f8240aa4973a265d4847",
+    "snippets.test.exe": "8f2b739d7fbfbdee2cc24e88c6b40b475f12e40e50f796ef1c8eba9215e4c45f",
+    "manager.test.exe": "f2d805695dd2d56909733b4ccd9c28e6add93e36354c10a539e7685700b7970e",
+    "cli.test.exe": "dfc6e0f21f1b7cc5fe13d25ec38a183e8d026a4ad5a41fa8ee9364d6110b89d3"
+  },
+  "native_test_counts": {
+    "snippets.test.exe": {
+      "top_level_pass": 5,
+      "passes_including_subtests": 11,
+      "fail": 0,
+      "skip": 0
+    },
+    "ui.test.exe": {
+      "top_level_pass": 7,
+      "passes_including_subtests": 7,
+      "fail": 0,
+      "skip": 0
+    },
+    "manager.test.exe": {
+      "top_level_pass": 2,
+      "passes_including_subtests": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    "cli.test.exe": {
+      "top_level_pass": 1,
+      "passes_including_subtests": 1,
+      "fail": 0,
+      "skip": 0
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "method": "F6 confirmed management then q",
+  "result": "failed",
+  "forced_products": 0,
+  "manager_exit": null,
+  "stack": "at <ScriptBlock>, <No file>: line 22\r\nat <ScriptBlock>, <No file>: line 1",
+  "clipboard_apis": 0,
+  "error": "The result type 'System.Int32' of the dynamic binding produced by binder 'PSInvokeMember: static End ver:0 args:2 constraints:<args: , >' is not compatible with the result type 'System.Object' expected by the call site.",
+  "forced_hosts": 0
+}

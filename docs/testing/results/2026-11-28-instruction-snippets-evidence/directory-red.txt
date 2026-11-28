@@ -1,0 +1,6 @@
+# github.com/liuhui-code/agent-session-desk/internal/manager_test [github.com/liuhui-code/agent-session-desk/internal/manager.test]
+internal/manager/document_test.go:68:16: m.CurrentDirectory undefined (type *manager.Manager has no field or method CurrentDirectory)
+internal/manager/document_test.go:74:16: m.CurrentDirectory undefined (type *manager.Manager has no field or method CurrentDirectory)
+internal/manager/document_test.go:78:16: m.CurrentDirectory undefined (type *manager.Manager has no field or method CurrentDirectory)
+FAIL	github.com/liuhui-code/agent-session-desk/internal/manager [build failed]
+FAIL

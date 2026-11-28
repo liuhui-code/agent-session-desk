@@ -3,6 +3,9 @@ package ui
 import tea "charm.land/bubbletea/v2"
 
 func (m *Model) workspaceModelEvent(msg tea.Msg) (tea.Cmd, bool) {
+	if cmd, handled := m.snippetEvent(msg); handled {
+		return cmd, true
+	}
 	if cmd, handled := m.attentionEvent(msg); handled {
 		return cmd, true
 	}

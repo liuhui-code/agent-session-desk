@@ -28,6 +28,7 @@ func runWorkbench(ctx context.Context, service *manager.Manager, info backend.In
 		return e
 	}
 	settings := withQuickLaunch(loadUIOptions(options, stateDir), options, stateDir, configPath)
+	settings = withSnippets(settings, service, metadata)
 	settings.DiagnosticRuntime = diagnostics.CurrentRuntime(info.Name, info.Version)
 	settings.DiagnosticRuntime.ProductVersion = release.Version
 	settings.ExportDiagnostics = func(ctx context.Context, report diagnostics.Report) (string, error) {

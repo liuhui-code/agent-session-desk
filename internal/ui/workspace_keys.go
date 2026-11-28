@@ -58,6 +58,9 @@ func (m *Model) workspaceKeyNow(msg tea.KeyPressMsg) tea.Cmd {
 			return m.activateWorkspace(w.active - 1)
 		}
 	}
+	if msg.Code == tea.KeyF7 && msg.Mod & ^(tea.ModCapsLock|tea.ModNumLock|tea.ModScrollLock) == 0 {
+		return m.beginSnippets()
+	}
 	if msg.Code == tea.KeyF2 && msg.Mod == 0 {
 		return m.workspaceRenameKey()
 	}

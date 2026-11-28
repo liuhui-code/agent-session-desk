@@ -1,0 +1,9 @@
+{
+  "result": "failed_setup",
+  "stage": "fixture_copy",
+  "category": "sharing_violation",
+  "events": [],
+  "product_ui_started": false,
+  "new_runs_started": 0,
+  "note": "Previous scope cleanup had not completed; fixture file was shared by the old process. The next driver uses a separate fixture path and requires no previous test images."
+}

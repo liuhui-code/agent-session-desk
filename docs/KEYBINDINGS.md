@@ -23,7 +23,7 @@ global 是 Windows 注册键；只允许 Ctrl/Alt 加字母、数字、F1–F11�
 | 作用域 | ID |
 |---|---|
 | global | wake |
-| workspace | previous, next, back, attention, next_attention, toggle_sidebar, rename, toggle_focus |
+| workspace | snippets, previous, next, back, attention, next_attention, toggle_sidebar, rename, toggle_focus |
 | management | open_project, check_release, attention, copy_visible, delete, move_up, move_down, copy_mode, tab_left, tab_right, quit, up, down, group, first, last, move_group, open, rename, refresh, attach, history, diagnostics, recovery, new, new_dialog, help, settings, search, group_mode |
 
 权威默认表为 `internal/keybindings/keys.go`。弹窗字段、Esc/Enter、复制模式内部键、组数字跳转／折叠、拖动不属 v1；不做任意终端重映射。已改旧键不再触发该动作，终端焦点交原终端；切换中仍被输入屏障消费。
@@ -31,3 +31,5 @@ global 是 Windows 注册键；只允许 Ctrl/Alt 加字母、数字、F1–F11�
 帮助有覆盖时显示实际表；缺省仍保留原帮助。删除／改键不会修改会话、后端、配置模板或数据库。
 
 管理默认 D 为诊断、R 为恢复中心；对应 management.diagnostics／management.recovery。中心内部 E 导出、a 接回／n 新建／r 恢复及确认表单键保持固定，不属 v1 任意重映射。
+
+workspace.snippets 默认 F7，打开指令片段库；固定两次 Enter 分别预览／粘贴，确认键不提交终端。见[配置](SNIPPETS.md)。

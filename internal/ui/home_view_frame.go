@@ -20,6 +20,14 @@ import (
 )
 
 func (m *Model) View() tea.View {
+	if m.snippets.dialog != nil {
+		content, cursor := m.renderSnippets()
+		view := tea.NewView(content)
+		view.AltScreen = true
+		m.applyViewColors(&view)
+		view.Cursor = cursor
+		return view
+	}
 	if m.recoveryUI.center != nil {
 		view := tea.NewView(m.renderRecoveryCenter())
 		view.AltScreen = true

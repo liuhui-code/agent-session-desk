@@ -1,0 +1,32 @@
+{
+  "forced_fixture": 0,
+  "result": "cleaned",
+  "normal_shutdown": false,
+  "clipboard_apis": 0,
+  "forced_host": 0,
+  "forced_backend": 2,
+  "forced_manager": 0,
+  "private_image_count": 0,
+  "identities": [
+    {
+      "pid": 14136,
+      "filetime": "134403234257464450",
+      "kind": "backend"
+    },
+    {
+      "pid": 16332,
+      "filetime": "134403234274918329",
+      "kind": "fixture"
+    },
+    {
+      "pid": 21584,
+      "filetime": "134403234424591709",
+      "kind": "backend"
+    },
+    {
+      "pid": 10024,
+      "filetime": "134403234438500364",
+      "kind": "fixture"
+    }
+  ]
+}

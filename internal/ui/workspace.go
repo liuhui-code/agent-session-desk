@@ -167,7 +167,7 @@ func (m *Model) workspaceSessions() tea.Cmd {
 
 func (m *Model) connectWorkspace() tea.Cmd {
 	w := m.workspace
-	if len(w.tabs) == 0 || m.closed || m.recoveryUI.center != nil || m.diagnostic.open || m.attention.busy || m.attention.center != nil || m.attaching || m.history.open || m.help || m.launch != nil || m.densitySettings != nil || m.search != nil || m.rename != nil || m.groupDialog != nil || m.groupRemoval != nil || m.sessionStop != nil {
+	if len(w.tabs) == 0 || m.closed || m.snippets.dialog != nil || m.recoveryUI.center != nil || m.diagnostic.open || m.attention.busy || m.attention.center != nil || m.attaching || m.history.open || m.help || m.launch != nil || m.densitySettings != nil || m.search != nil || m.rename != nil || m.groupDialog != nil || m.groupRemoval != nil || m.sessionStop != nil {
 		return nil
 	}
 	g := m.workspaceGeometry()

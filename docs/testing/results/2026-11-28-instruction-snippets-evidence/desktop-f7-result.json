@@ -1,0 +1,24 @@
+{
+  "memory": [],
+  "creation_filetime": "134403257912189745",
+  "clipboard_apis": 0,
+  "forced_products": 0,
+  "stack": "Localized script frame text retained privately; Guard line 34 / driver line 42",
+  "terminal_replays": 0,
+  "controller": "5.1.19041.6456",
+  "result": "failed",
+  "events": [
+    {
+      "at": "2026-11-28T07:50:11.7974273Z",
+      "name": "one original-scope window"
+    },
+    {
+      "at": "2026-11-28T07:50:13.2302036Z",
+      "name": "retained final endpoint owner identity"
+    }
+  ],
+  "error": "Foreground guard",
+  "manager_pid": 20800,
+  "forced_hosts": 0,
+  "new_runs": 0
+}

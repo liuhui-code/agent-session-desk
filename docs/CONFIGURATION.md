@@ -42,6 +42,7 @@ Windows Terminal 自带“＋”／Ctrl+Shift+T 创建宿主标签，不经过�
 | `last-launch.toml` | schema_version=1，templates.last | 产品保存最近一次明确成功启动的完整配置；下次快速新建优先使用，不要把它当作作者模板 |
 | `ui.toml` | 当前写 v7，读 v1–v7 | 启动读取；界面接受的偏好修改会保存，手改前退出 UI，避免被内存中的旧偏好覆盖 |
 | `keybindings.toml` | schema_version=1 | 启动只读；重启后生效，缺项继承默认；详见 [快捷键](KEYBINDINGS.md) |
+| `snippets.toml` | schema_version=1 | 作者只读指令片段；F7 打开时读取，项目另读当前 pane 目录的 `.asd/snippets.toml`；见[片段说明](SNIPPETS.md) |
 | `recent-dirs-<scope哈希>.toml` | schema_version=1 | 产品维护有界最近目录；通常无需手改，最多 20 项 |
 | `metadata.sqlite3` 与 output-records | 当前数据库 v11／有界屏幕记录 | 运行数据，不是配置文件；不要用改表、清库代替配置修改 |
 
