@@ -1,0 +1,15 @@
+=== RUN   TestDiscoveryWaitsForNewSessionPublicationWithoutRetry
+--- PASS: TestDiscoveryWaitsForNewSessionPublicationWithoutRetry (0.39s)
+=== RUN   TestDiscoveryStillRejectsNonemptyCorruptMetadata
+=== RUN   TestDiscoveryStillRejectsNonemptyCorruptMetadata/_
+=== RUN   TestDiscoveryStillRejectsNonemptyCorruptMetadata/@@@@
+=== RUN   TestDiscoveryStillRejectsNonemptyCorruptMetadata/e30
+--- PASS: TestDiscoveryStillRejectsNonemptyCorruptMetadata (1.05s)
+    --- PASS: TestDiscoveryStillRejectsNonemptyCorruptMetadata/_ (0.35s)
+    --- PASS: TestDiscoveryStillRejectsNonemptyCorruptMetadata/@@@@ (0.32s)
+    --- PASS: TestDiscoveryStillRejectsNonemptyCorruptMetadata/e30 (0.36s)
+=== RUN   TestPreviouslyPublishedMissingMarkerRemainsUncertainAndUnusable
+--- PASS: TestPreviouslyPublishedMissingMarkerRemainsUncertainAndUnusable (0.38s)
+=== RUN   TestWindowsNativeDiscoveryBeforeAndAfterPublication
+--- PASS: TestWindowsNativeDiscoveryBeforeAndAfterPublication (0.89s)
+PASS

@@ -24,6 +24,10 @@
 
 ## 验证与留存
 
-[原始结果与公开摘要](2026-11-28-release-blockers-evidence/)分别保留模型 RED、真实 Windows RED／GREEN、两组并发退出码／stderr／墙钟耗时及源码／诊断二进制 SHA-256。并发摘要去掉 stdout 中机器路径和终端正文，不以缺测补零。Go 全量、race、vet、模块校验通过；部分未变包使用缓存。source limits、339 项 catalog 生成／检查通过，不把目录检查作为 Windows 产品证据。catalog 的 designed／not_run 基线不变。
+[原始结果与公开摘要](2026-11-28-release-blockers-evidence/)分别保留模型 RED、真实 Windows RED／GREEN、三组并发退出码／stderr／墙钟耗时及源码／诊断二进制 SHA-256。并发摘要去掉 stdout 中机器路径和终端正文，不以缺测补零。Go 全量、race、vet、模块校验通过；部分未变包使用缓存。source limits、339 项 catalog 生成／检查通过，不把目录检查作为 Windows 产品证据。catalog 的 designed／not_run 基线不变。
 
 STAB-008 本轮可确定复现的发布窗口已修复；原失去 stderr 的那一次历史事件仍不能唯一追因。没有改变 schema、依赖、输入、Run 生命周期、后台驻留数量或用户日常安装。Alpha 2 草稿现有附件仍是 f89444c，不因为代码修复而自动变成已修复版本。
+
+代码／ADR／首轮证据提交为 `9a2d46f67519db4961460b2ca2a90861ba53204b`。从干净工作树构建 Go 1.27.4 Windows/amd64 程序，`vcs.modified=false`；[最终字节与构建信息](2026-11-28-release-blockers-evidence/final-build.json)单列，未替换草稿／日常包。再次执行同四个顶层／七个含子测试全部通过，真实发布边界 0.80 秒；同样五次新建／三十次并发读取零失败、最终夹具为零。不同构建的重复执行分别记账，不把顶层数量相加。
+
+十个诊断任务核对各自 action 后移除，包含失败的清理／截图任务；任务退出码不能代替脚本内部结果。最终独立审计本轮私有进程为 0、诊断任务为 0，全部产品／宿主无强制结束；日常管理器 PID、创建时间和程序 SHA-256 均与原样相同。见[桌面回收](2026-11-28-release-blockers-evidence/desktop-cleanup.json)与最终审计。STAB-009 保持开放，后续需在再次复现时保留输入、关闭、客户端及宿主退出时间线，不通过投机清理改代码。

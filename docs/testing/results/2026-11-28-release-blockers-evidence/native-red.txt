@@ -1,0 +1,4 @@
+=== RUN   TestWindowsNativeDiscoveryBeforeAndAfterPublication
+    publication_windows_test.go:59: native unpublished session misclassified: [] read live session asd_ce65580c7e961e44923bf5e01bd0b713_2c9102a2e99f5a70c2bd1f5ed84c1e20: invalid M0 backend metadata
+--- FAIL: TestWindowsNativeDiscoveryBeforeAndAfterPublication (0.68s)
+FAIL

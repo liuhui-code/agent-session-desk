@@ -67,6 +67,8 @@ asd [全局参数] list --json
 
 数组元素的 Session 字段见第 3 节。选择目标后同时保存 session_id 和 run_id；不要在目标失效时自动选择同名会话。`terminal_state=available` 仅表示终端可用，不说明子 agent 是否 ready、busy、等待批准或已经完成。
 
+新建后端进程先于完整发现记录发布；这个窗口中的新目标不会出现在 `list`，稍后的正常发现才可读取同一 Session／Run 身份。暂未列出不表示启动失败，不得因此重复 `start` 或重放输入。非空损坏记录和命令错误仍返回错误；psmux 实例在有界发现提示中保留的原身份丢失标记时，沿原验证返回不确定错误。冷调用没有该历史提示，不能把未列出当作 Run 已结束的证明。见 [ADR-0073](adr/0073-live-discovery-publication-boundary.md)。
+
 ### 2.2 读取来源：read
 
 ```text

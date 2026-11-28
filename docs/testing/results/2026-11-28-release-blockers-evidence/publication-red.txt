@@ -1,0 +1,5 @@
+--- FAIL: TestDiscoveryWaitsForNewSessionPublicationWithoutRetry (0.08s)
+    publication_test.go:19: unpublished session must not fail or appear live: [] read live session asd_675587d9bf5525adcc424b19ccb0ef6d_c35227dafd7c7b9b1df31f81774d7325: invalid M0 backend metadata
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/backend	1.073s
+FAIL
