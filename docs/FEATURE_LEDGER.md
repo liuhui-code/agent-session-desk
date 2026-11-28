@@ -642,3 +642,5 @@ FL-012/015/018：ADR-0057 有界页变化标识，静默不代表 ready；见[�
 2026-11-28 FL-016/018：按 [ADR-0071](adr/0071-native-terminal-default-profile.md)将日常便携宿主原生“＋”默认项从旧测试启动页改为普通英文 Terminal，保留原产品 profile 与窗口按钮。[原生新建验证](testing/results/2026-11-28-native-terminal-default.md)观察到实际 Terminal Tab 与普通 shell，输入时间戳变化后保留新标签，未宣称关闭流程通过；原 manager 身份保持。只维护本机宿主设置，不计产品／安装器／公开包新功能或完整接受。
 
 2026-11-28 FL-001/016/017/018/019：按 [ADR-0072](adr/0072-reproducible-windows-portable-delivery.md)准备可重建便携包，加入固定 launcher、相对宿主路径与统一 CLI 缺省作用域，英文空工作区不自动创建示例。离线打包器校验干净构建／模块许可／runtime／官方宿主并附 update 合同；实现、实际 Windows 和公开发布状态见[交付报告](testing/results/2026-11-28-windows-portable-delivery.md)，完整发布接受不提升。
+
+2026-11-28 同轮最终候选沿用 clean f89444c Go 字节，纯打包修正完整宿主色表。Windows updater 19／CLI 4 顶层通过，实际英文空首开、默认系统 shell、两夹具输入与 Alt+J/K、原 Run 重开、原生“＋”打开／关闭通过；32 阶段安全续跑与原失败分别保留。一次 list 失败与一个空 OpenConsole 残留为 STAB-008／009，后者精确回收单列；不提升完整资源或发布接受。

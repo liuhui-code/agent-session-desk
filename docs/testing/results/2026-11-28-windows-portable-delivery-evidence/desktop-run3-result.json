@@ -1,0 +1,39 @@
+{
+  "events": [
+    {
+      "name": "clean-package-hashes",
+      "at": "2026-11-28T05:10:38.0039295Z"
+    },
+    {
+      "name": "one-product-manager",
+      "at": "2026-11-28T05:11:04.8628448Z"
+    },
+    {
+      "name": "one-package-host",
+      "at": "2026-11-28T05:11:04.9531540Z"
+    },
+    {
+      "name": "owned-foreground",
+      "at": "2026-11-28T05:11:04.9778358Z"
+    },
+    {
+      "name": "english-native-controls",
+      "at": "2026-11-28T05:11:05.1383340Z"
+    },
+    {
+      "name": "empty-first-open",
+      "at": "2026-11-28T05:11:06.3019860Z"
+    },
+    {
+      "name": "failed",
+      "at": "2026-11-28T05:11:18.1274726Z"
+    }
+  ],
+  "result": "failed",
+  "forced_product_ends": 0,
+  "clipboard_apis": 0,
+  "terminal_commands": 0,
+  "verified_payload_count": 298,
+  "controller_modulepath_removed": true,
+  "error": "CLI failed: list"
+}

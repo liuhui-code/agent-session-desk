@@ -1,0 +1,5 @@
+--- FAIL: TestPortableTerminalHostMovesWithInstallation (0.00s)
+    terminal_host_args_test.go:87: portable host depends on original machine path { } configured Windows Terminal is unavailable
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/cli	1.020s
+FAIL

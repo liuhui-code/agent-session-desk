@@ -1,0 +1,84 @@
+$ErrorActionPreference='Stop';$ProgressPreference='SilentlyContinue'
+$d=Join-Path $env:USERPROFILE 'asd-delivery-20261128';$legacy=Join-Path $env:USERPROFILE 'asd-acceptance-20261122'
+$o=Join-Path $d 'desktop-run3';New-Item -ItemType Directory $o|Out-Null
+$r=@{result='started';events=@();clipboard_apis=0;forced_product_ends=0;terminal_commands=0};$rows=@();$shells=@();$script:w=[IntPtr]::Zero
+function Receipt($name){$r.events+=@{name=$name;at=[DateTime]::UtcNow.ToString('o')};[IO.File]::WriteAllText((Join-Path $o 'progress.json'),($r|ConvertTo-Json -Depth 10))}
+function WaitFor($name,[scriptblock]$condition){$end=[DateTime]::UtcNow.AddSeconds(25);do{if(& $condition){Receipt $name;return};Start-Sleep -Milliseconds 250}while([DateTime]::UtcNow-lt $end);throw ('Timeout: '+$name)}
+try{
+& ([ScriptBlock]::Create([IO.File]::ReadAllText((Join-Path $legacy 'desktop-api.ps1'))))
+[Environment]::SetEnvironmentVariable('PSModulePath',$null,'Process');$r.controller_modulepath_removed=$true
+$zip=Join-Path $d 'final-candidate.zip'
+if((Get-FileHash $zip).Hash.ToLowerInvariant()-cne 'c596345be1e0ba85ccdf10686f5bcf2d68379ff4303df0432f33722594aa6bc8'){throw 'ZIP hash mismatch'}
+$name=([char]0x4fbf).ToString()+[char]0x643a+' clean path round3';$root=Join-Path $d $name
+if(Test-Path $root){throw 'Fresh extraction required'};Expand-Archive -LiteralPath $zip -DestinationPath $root
+$manifest=Get-Content -Raw (Join-Path $root 'manifest.json')|ConvertFrom-Json
+foreach($x in $manifest.files.PSObject.Properties){if((Get-FileHash (Join-Path $root $x.Name)).Hash.ToLowerInvariant()-cne $x.Value){throw 'Payload hash mismatch'}}
+if(Test-Path (Join-Path $root 'data')){throw 'Runtime data shipped'}
+$r.verified_payload_count=@($manifest.files.PSObject.Properties).Count;Receipt 'clean-package-hashes'
+$launcher=Join-Path $root 'asd-launch.exe';$product=Join-Path $root 'asd.exe';$hostPath=Join-Path $root 'terminal-host/WindowsTerminal.exe'
+function Call([string[]]$a){$text=& $launcher @a 2>$null;if($LASTEXITCODE-ne 0){throw ('CLI failed: '+$a[0])};return ($text|Out-String)}
+function Live{return @(Call @('list','--json')|ConvertFrom-Json)}
+function Preview($id){return (Call @('preview',$id)|ConvertFrom-Json).text}
+function Guard{if([DeskFlow]::GetForegroundWindow()-ne $script:w){throw 'Owned foreground guard'};foreach($key in @(1,2,4,16,17,18,91,92)){if(([DeskFlow]::GetAsyncKeyState($key)-band 32768)-ne 0){throw 'Held user key or button'}}}
+function Key([int]$key){Guard;if([DeskFlow]::Key($key)-ne 2){throw 'Key incomplete'}}
+function Chord([int]$mod,[int]$key){Guard;if([DeskFlow]::Chord($mod,$key)-ne 4){throw 'Chord incomplete'}}
+function Text([string]$text){Guard;if([DeskFlow]::Text($text)-ne $text.Length*2){throw 'Text incomplete'}}
+function Doc{$el=[Windows.Automation.AutomationElement]::FromHandle($script:w);$items=$el.FindAll([Windows.Automation.TreeScope]::Descendants,[Windows.Automation.Condition]::TrueCondition);$texts=@();foreach($x in $items){$p=$null;if($x.TryGetCurrentPattern([Windows.Automation.TextPattern]::Pattern,[ref]$p)){$texts+=$p.DocumentRange.GetText(65536)}};return ($texts-join "`n")}
+function OpenUI{
+$null=Start-Process -FilePath (Join-Path $root 'Start.cmd') -WorkingDirectory $root -PassThru
+WaitFor 'one-product-manager' {$script:managers=@(Get-Process|Where-Object{$_.Path-ceq $product});return $script:managers.Count-eq 1}
+$script:manager=$script:managers[0];$null=$script:manager.Handle
+WaitFor 'one-package-host' {$script:windows=@([DeskFlow]::HostWindows($hostPath));return $script:windows.Count-eq 1-and [DeskFlow]::OwnerBindings($script:windows[0])-eq 1}
+$script:w=$script:windows[0];$null=[DeskFlow]::SetForegroundWindow($script:w);WaitFor 'owned-foreground' {[DeskFlow]::GetForegroundWindow()-eq $script:w}
+$el=[Windows.Automation.AutomationElement]::FromHandle($script:w);$button=$el.FindFirst([Windows.Automation.TreeScope]::Descendants,[Windows.Automation.PropertyCondition]::new([Windows.Automation.AutomationElement]::AutomationIdProperty,'NewTabButton'))
+if(!$button-or $button.Current.Name-match '[\u4e00-\u9fff]'){throw 'New host did not load English UI'}
+Receipt 'english-native-controls'
+}
+function QuitUI{
+Key 117;Start-Sleep -Milliseconds 300;Text 'q'
+if(!$script:manager.WaitForExit(15000)-or $script:manager.ExitCode-ne 0){throw 'Manager did not quit normally'}
+WaitFor 'own-window-ended' {@([DeskFlow]::HostWindows($hostPath)).Count-eq 0}
+$script:w=[IntPtr]::Zero;Receipt 'normal-manager-exit'
+}
+if((Live).Count-ne 0){throw 'New package had sessions'}
+OpenUI
+if((Live).Count-ne 0){throw 'First open was not empty'};Receipt 'empty-first-open'
+$sys=Join-Path $env:SystemRoot 'System32/WindowsPowerShell/v1.0/powershell.exe';$beforePs=@(Get-Process|Where-Object{$_.Path-ieq $sys}|ForEach-Object Id)
+Text 'n';WaitFor 'default-new-session' {(Live).Count-eq 1};$default=(Live)[0]
+WaitFor 'default-system-shell' {$script:newPs=@(Get-Process|Where-Object{$_.Path-ieq $sys-and $_.Id-notin $beforePs});return $script:newPs.Count-eq 1}
+$defaultPs=$script:newPs[0];$null=$defaultPs.Handle;WaitFor 'default-shell-prompt' {(Doc)-match 'PS '}
+QuitUI;$null=Call @('stop',$default.session_id);if(!$defaultPs.WaitForExit(10000)){throw 'Default shell cleanup failed'};Receipt 'default-shell-no-input-cleanup'
+$fixture=Join-Path $d 'asd-fixture.exe';$aLog=Join-Path $o 'a.jsonl';$bLog=Join-Path $o 'b.jsonl'
+$a=Call @('start','--name','Delivery A','--cwd',$o,'--env',('ASD_FIXTURE_REPORT_PATH='+$aLog),'--',$fixture,'FIXTURE_A_READY')|ConvertFrom-Json
+$b=Call @('start','--name','Delivery B','--cwd',$o,'--env',('ASD_FIXTURE_REPORT_PATH='+$bLog),'--',$fixture,'FIXTURE_B_READY')|ConvertFrom-Json;$rows=@($a,$b)
+function Events($f){return @(Get-Content $f|ForEach-Object{$_|ConvertFrom-Json})}
+WaitFor 'two-fixture-reports' {(Test-Path $aLog)-and (Test-Path $bLog)}
+foreach($f in @($aLog,$bLog)){$sp=Get-Process -Id ((Events $f|Where-Object event -eq started)[0].pid);$null=$sp.Handle;$shells+=,$sp}
+OpenUI;Key 13;WaitFor 'first-original-terminal' {(Doc).Contains('FIXTURE_A_READY')}
+Text 'DELIVERY_A_INPUT';Key 13;$r.terminal_commands++
+WaitFor 'independent-a-input' {@(Events $aLog|Where-Object{$_.event-eq 'input'-and $_.text-ceq 'DELIVERY_A_INPUT'}).Count-eq 1}
+Chord 18 74;WaitFor 'alt-j-second-terminal' {(Doc).Contains('FIXTURE_B_READY')-and !(Doc).Contains('FIXTURE_A_READY')}
+Text 'DELIVERY_B_INPUT';Key 13;$r.terminal_commands++
+WaitFor 'independent-b-input' {@(Events $bLog|Where-Object{$_.event-eq 'input'-and $_.text-ceq 'DELIVERY_B_INPUT'}).Count-eq 1}
+Chord 18 75;WaitFor 'alt-k-first-terminal' {(Doc).Contains('FIXTURE_A_READY')-and !(Doc).Contains('FIXTURE_B_READY')}
+$before=@(Live|ForEach-Object{[ordered]@{s=$_.session_id;r=$_.run_id;b=$_.backend_id}}|Sort-Object s)|ConvertTo-Json -Compress
+QuitUI;foreach($sp in $shells){if($sp.HasExited){throw 'Original fixture exited on UI close'}}
+OpenUI;Key 13;WaitFor 'reopened-original-terminal' {(Doc).Contains('FIXTURE_A_READY')-or (Doc).Contains('FIXTURE_B_READY')}
+$after=@(Live|ForEach-Object{[ordered]@{s=$_.session_id;r=$_.run_id;b=$_.backend_id}}|Sort-Object s)|ConvertTo-Json -Compress
+if($before-cne $after){throw 'Session Run backend identity changed'}
+foreach($sp in $shells){if($sp.HasExited){throw 'Original fixture identity changed'}}
+$r.original_fixture_identities_retained=$true;Receipt 'original-session-run-process-retained'
+$el=[Windows.Automation.AutomationElement]::FromHandle($script:w);$tabCondition=[Windows.Automation.PropertyCondition]::new([Windows.Automation.AutomationElement]::ControlTypeProperty,[Windows.Automation.ControlType]::TabItem)
+$tabs=$el.FindAll([Windows.Automation.TreeScope]::Descendants,$tabCondition);if($tabs.Count-ne 1){throw 'Unexpected original native tabs'};$original=$tabs[0].GetRuntimeId()-join ','
+$button=$el.FindFirst([Windows.Automation.TreeScope]::Descendants,[Windows.Automation.PropertyCondition]::new([Windows.Automation.AutomationElement]::AutomationIdProperty,'NewTabButton'));$button.GetCurrentPattern([Windows.Automation.InvokePattern]::Pattern).Invoke()
+WaitFor 'native-plus-plain-terminal' {$script:tabs=$el.FindAll([Windows.Automation.TreeScope]::Descendants,$tabCondition);return $script:tabs.Count-eq 2-and @($script:tabs|Where-Object{$_.Current.Name-ceq 'Terminal'}).Count-eq 1}
+$new=@($script:tabs|Where-Object{($_.GetRuntimeId()-join ',')-cne $original});if($new.Count-ne 1){throw 'New native tab not unique'}
+$close=$new[0].FindFirst([Windows.Automation.TreeScope]::Descendants,[Windows.Automation.PropertyCondition]::new([Windows.Automation.AutomationElement]::AutomationIdProperty,'CloseButton'));if(!$close){throw 'Owned tab close absent'};$close.GetCurrentPattern([Windows.Automation.InvokePattern]::Pattern).Invoke()
+WaitFor 'owned-plain-tab-closed' {$t=$el.FindAll([Windows.Automation.TreeScope]::Descendants,$tabCondition);return $t.Count-eq 1-and ($t[0].GetRuntimeId()-join ',')-ceq $original}
+QuitUI
+foreach($row in $rows){$null=Call @('stop',$row.session_id)};foreach($sp in $shells){if(!$sp.WaitForExit(10000)){throw 'Owned fixture did not exit'}}
+if((Live).Count-ne 0){throw 'Test sessions remain'}
+WaitFor 'no-private-product-images' {@(Get-Process|Where-Object{$_.Path-ceq $product-or $_.Path-ceq $launcher-or $_.Path-ceq $hostPath}).Count-eq 0}
+$r.result='passed';$r.session_count=2;$r.ui_launches=3;$r.normal_ui_exits=3;$r.system_powershell_default=$true;$r.no_shell_input=$true;$r.no_samples_on_first_open=$true;$r.native_plus_closed=$true;$r.fixtures_ended=$true;Receipt 'finished'
+}catch{$r.result='failed';$r.error=$_.Exception.Message;$r.stack=$_.ScriptStackTrace;Receipt 'failed'}
+[IO.File]::WriteAllText((Join-Path $o 'result.json'),($r|ConvertTo-Json -Depth 10),[Text.UTF8Encoding]::new($false))

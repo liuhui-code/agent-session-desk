@@ -1,0 +1,5 @@
+--- FAIL: TestPortableTerminalHostRefusesEscapeThroughDirectoryLink (0.00s)
+    terminal_host_args_test.go:102: relative host escaped installation through directory link
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/cli	1.253s
+FAIL

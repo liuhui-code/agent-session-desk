@@ -7,6 +7,17 @@ from terminal_profile import write_settings
 
 
 class PortableTerminalTests(unittest.TestCase):
+    def test_referenced_color_scheme_has_all_sixteen_ansi_colors(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            write_settings(root)
+            settings = json.loads((root / "settings/settings.json").read_text())
+            name = settings["profiles"]["defaults"]["colorScheme"]
+            scheme = next(s for s in settings["schemes"] if s["name"] == name)
+            colors = {"black", "red", "green", "yellow", "blue", "purple", "cyan", "white"}
+            required = colors | {"bright" + c.capitalize() for c in colors}
+            self.assertTrue(required <= set(scheme), "Incomplete palette causes a native settings warning")
+
     def test_fresh_host_has_english_plain_terminal_and_no_sample_startup(self):
         with tempfile.TemporaryDirectory() as d:
             root = Path(d)

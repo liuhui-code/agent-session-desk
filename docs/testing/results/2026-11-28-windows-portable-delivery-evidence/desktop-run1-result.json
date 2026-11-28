@@ -1,0 +1,30 @@
+{
+  "verified_payload_count": 298,
+  "clipboard_apis": 0,
+  "result": "failed",
+  "error": "New host did not load English UI",
+  "forced_product_ends": 0,
+  "terminal_commands": 0,
+  "events": [
+    {
+      "at": "2026-11-28T04:56:37.7646757Z",
+      "name": "clean-package-hashes"
+    },
+    {
+      "at": "2026-11-28T04:57:08.8895480Z",
+      "name": "one-product-manager"
+    },
+    {
+      "at": "2026-11-28T04:57:09.0112431Z",
+      "name": "one-package-host"
+    },
+    {
+      "at": "2026-11-28T04:57:09.0446189Z",
+      "name": "owned-foreground"
+    },
+    {
+      "at": "2026-11-28T04:57:09.4184885Z",
+      "name": "failed"
+    }
+  ]
+}

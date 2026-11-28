@@ -2,6 +2,8 @@
 
 main 开发版新增按需 update CLI；U 继续查询公开发布。没有后台检查或常驻更新进程。决定见 [ADR-0070](adr/0070-explicit-portable-update-and-rollback.md)。
 
+Alpha 2 完整便携候选按 [ADR-0072](adr/0072-reproducible-windows-portable-delivery.md)增加固定 `asd-launch.exe`／Start.cmd；每次从 alpha.json 选择当前程序，CLI 与 UI 统一包内缺省作用域。它和 Terminal 配置属于完整 ZIP，不会由仅程序更新补装。候选／草稿不等于已公开可下载版本；实际状态见[交付报告](testing/results/2026-11-28-windows-portable-delivery.md)。
+
 ## 适用范围
 
 仅原生 Windows amd64、已有 alpha.json 的受管理便携目录和固定 terminal-runtime。首次换到支持 update probe 的程序仍走人工交付；历史 Alpha ZIP 不会因此自动具有更新能力。当前程序和候选都须为可识别的干净构建，并声明相同 SQLite v11、UI v7、launch／keybindings／recent-dirs／Agent recovery v1 以及三份终端运行库哈希。

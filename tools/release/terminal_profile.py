@@ -10,6 +10,9 @@ def write_settings(root: Path) -> str:
     settings = root / "settings"
     settings.mkdir()  # Refuse to overwrite settings from a used host.
     shell = r"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe"
+    # Reuse the complete, already recorded host palette, not a partial scheme.
+    reference = Path(__file__).resolve().parents[2] / "docs/testing/results/2026-11-25-minimal-workspace-evidence/local/iterm-reference.json"
+    scheme = json.loads(reference.read_text(encoding="utf-8"))["scheme"]
     doc = {
         "$schema": "https://aka.ms/terminal-profiles-schema",
         "language": "en-US",
@@ -21,7 +24,7 @@ def write_settings(root: Path) -> str:
         "profiles": {
             "defaults": {
                 "font": {"face": "Consolas", "size": 10},
-                "colorScheme": "ASD Classic",
+                "colorScheme": scheme["name"],
                 "startingDirectory": "%USERPROFILE%",
             },
             "list": [
@@ -32,9 +35,7 @@ def write_settings(root: Path) -> str:
                  "commandline": f'"{shell}" -NoLogo -NoProfile', "hidden": True},
             ],
         },
-        "schemes": [{"name": "ASD Classic", "background": "#000000",
-                     "foreground": "#BFBFBF", "cursorColor": "#BFBFBF",
-                     "selectionBackground": "#4D4D4D"}],
+        "schemes": [scheme],
     }
     (settings / "settings.json").write_text(json.dumps(doc, indent=2) + "\n", encoding="utf-8")
     (root / ".portable").touch(exist_ok=False)

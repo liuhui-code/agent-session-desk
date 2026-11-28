@@ -1,0 +1,37 @@
+{
+  "private_image_count": 1,
+  "tasks_removed": [
+    "AsdPortableDelivery20261128",
+    "AsdPortableInspect20261128",
+    "AsdPortableInspectText20261128",
+    "AsdPortableWarningRead1_20261128",
+    "AsdPortableCloseRound1_20261128",
+    "AsdPortableDelivery2_20261128",
+    "AsdPortableReadRound2_20261128",
+    "AsdPortableCloseRound2_20261128",
+    "AsdPortableDelivery3_20261128",
+    "AsdPortableResume3_20261128",
+    "AsdPortableFinalCleanup20261128"
+  ],
+  "utc": "2026-11-28T05:18:41.7699403Z",
+  "remaining_task_count": 0,
+  "private_images": [
+    {
+      "image": "OpenConsole.exe",
+      "pid": 19640
+    }
+  ],
+  "result": "audited",
+  "cleanup": {
+    "forced": 0,
+    "result": "completed",
+    "clipboard_apis": 0,
+    "closes": [
+      {
+        "exit_code": 0,
+        "pid": 15036
+      }
+    ]
+  },
+  "daily_manager_unchanged": true
+}
