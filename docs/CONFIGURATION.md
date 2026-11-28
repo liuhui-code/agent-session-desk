@@ -2,6 +2,14 @@
 
 更新：2026-11-27，适用于当前 main 开发版。先核对 `asd version`、exe SHA256 与安装来源；公开 Alpha、旧测试 exe 和日常快捷方式可能使用不同版本、不同数据目录。接口命令的完整合同见 [Agent API](AGENT_API.md)，功能状态见 [适配索引](AGENT_ADAPTATION.md)。
 
+## 原生 Windows Terminal 新标签
+
+Windows Terminal 自带“＋”／Ctrl+Shift+T 创建宿主标签，不经过本产品的 launch.toml／last-launch.toml，也不会自动登记为产品 Session。工作台内用管理 `n` 或 `N` 创建受管理的终端。
+
+当前日常宿主使用独立便携配置：WindowsTerminal.exe 同目录存在 `.portable`，设置位于 `settings/settings.json`。其 defaultProfile 现指向普通 PowerShell，名称与固定 tabTitle 为 `Terminal`，commandline 为已核验 shell 的绝对路径加 `-NoLogo -NoProfile`，startingDirectory 为 `%USERPROFILE%`；language 为 `en-US`。旧测试启动 profile 已隐藏。保留其他布局／外观设置及 local-host.json 的工作台 profileGuid，产品启动仍显式使用后者。
+
+迁移／安装其他机器时先确认实际宿主是否为 portable；不要把这个路径套到系统安装，也不要将私人 settings.json、旧测试命令或机器绝对路径提交仓库。全局语言覆盖可能需宿主下次正常重开；不为应用语言关闭活动终端。此次本机维护不代表安装器已自动生成这套配置。决定见 [ADR-0071](adr/0071-native-terminal-default-profile.md)。
+
 ## 1. 先确定工作台的作用域
 
 接入已有工作台时，记录并复用以下参数，不从会话名称、当前目录或 exe 所在目录推测：

@@ -112,3 +112,5 @@ ADR-0014 依据用户 2026-11-22 的明确要求接受，部分替代 0001/0002 
 | [0069](0069-explicit-recovery-center.md) | 显式恢复中心与原启动复用 | 已接受 | [局部证据](../testing/results/2026-11-28-recovery-center.md)，显式确认与不确定结果屏障，真实 Agent／发布仍开放 |
 
 | [0070](0070-explicit-portable-update-and-rollback.md) | 显式便携更新、同状态格式与程序回退 | 已接受 | 原生证据单列；不自动发布／安装或恢复数据库 |
+
+| [0071](0071-native-terminal-default-profile.md) | 便携宿主原生“＋”默认普通英文 Terminal | 已接受 | 日常宿主配置维护；产品 profile 保持，实际 UI 验证单列 |

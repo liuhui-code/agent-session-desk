@@ -638,3 +638,5 @@ FL-012/015/018：ADR-0057 有界页变化标识，静默不代表 ready；见[�
 2026-11-28 FL-016/017/018：按 [ADR-0070](adr/0070-explicit-portable-update-and-rollback.md)实施同状态格式／固定运行库的显式便携 update CLI：下载双重校验、三程序槽、固定捕获与轮转备份、入口切换／程序回退和中断 repair。无常驻更新进程，不自动关闭 UI／启动程序／恢复数据库或发布资产；[操作与发布合同](UPDATES.md)区分历史包和真实验证范围。
 
 2026-11-28 FL-016/017/018：ADR-0070 源码 db63c5a 的 clean Windows 镜像已交付日常入口；原生更新包 17／实例门禁 1／CLI 3 顶层通过，覆盖实际 v11 备份、切换／数据保留回退及一个刻意结束 updater 的修复。HTTP 提供方受控、实体桌面和公网发布仍分开；日常本轮七条身份与配置哈希保持，单次 manager 私有约 61 MiB。[正式执行／交付](testing/results/2026-11-28-portable-update.md#正式-windows-执行与首版交付)保留限制和清理，不提升完整发布接受。
+
+2026-11-28 FL-016/018：按 [ADR-0071](adr/0071-native-terminal-default-profile.md)将日常便携宿主原生“＋”默认项从旧测试启动页改为普通英文 Terminal，保留原产品 profile 与窗口按钮。[原生新建验证](testing/results/2026-11-28-native-terminal-default.md)观察到实际 Terminal Tab 与普通 shell，输入时间戳变化后保留新标签，未宣称关闭流程通过；原 manager 身份保持。只维护本机宿主设置，不计产品／安装器／公开包新功能或完整接受。

@@ -1,0 +1,35 @@
+{
+  "configuration": {
+    "result": "configured",
+    "red_old_default_is_encoded_helper": true,
+    "portable_only": true,
+    "backup_exact": true,
+    "settings_before_sha256": "23a8f719116068dcc441584fb2e8d5dbd4cd1a032b8dce355fefc990eaf5b2c7",
+    "settings_after_sha256": "d0d8a286dbce9dcd94cdc452ac1e0a22ca62bc185f377869af24f951a45a30dc",
+    "app_profile_preserved": true,
+    "default_name": "Terminal",
+    "language": "en-US",
+    "old_test_profile_hidden": true,
+    "no_focus_mode_change": true,
+    "no_product_rebuild": true,
+    "initial_replace_failed_before_publication": true,
+    "replacement_backup_exact": true
+  },
+  "verification": {
+    "settings_only_expected_diff": true,
+    "original_manager_unchanged": true,
+    "plain_terminal_left_open_for_user": true,
+    "native_verification": {
+      "new_plain_shell_start": "2026-11-28T04:06:21.8953528Z",
+      "new_plain_shell_pid": 24476,
+      "no_product_launch": true,
+      "result": "failed",
+      "error": "User input changed; leaving new tab open",
+      "new_title": "Terminal",
+      "native_plus_invoked": true,
+      "no_test_startup_command": true
+    },
+    "remaining_task_count": 0,
+    "checked_utc": "2026-11-28T04:07:04.0914732Z"
+  }
+}

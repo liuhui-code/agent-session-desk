@@ -34,6 +34,8 @@ Windows x64 体验包：[v0.1.0-alpha.1 预发布](https://github.com/liuhui-cod
 
 当前工作区只显示侧栏会话／分组导航，共享左右留白与顶部间距，隐藏侧栏后内容仍保留边距。`Alt+J/K` 切换会话视图，`Ctrl+S` 显隐侧栏，`F6` 切换管理／终端焦点；管理模式固定显示底部快捷键。`F2` 重命名当前活动／所选项；管理 `n` 直接沿最近成功／默认配置创建，`N` 显式编辑，`x` 只关闭视图。最新本机范围见[留白与快捷键验证](docs/testing/results/2026-11-26-workspace-spacing-controls.md)，公开 Alpha 字节仍以其发布报告为准。
 
+日常便携 Windows Terminal 的原生“＋”使用独立普通 PowerShell，英文标签名 `Terminal`；它与工作台内管理 `n`／`N` 新建 Session 分开。保留标题栏及窗口按钮，宿主界面配置为英文；已打开窗口的语言可能需下次正常重开宿主生效。[配置边界](docs/CONFIGURATION.md#原生-windows-terminal-新标签)与[实际验证](docs/testing/results/2026-11-28-native-terminal-default.md)单列；公开 Alpha 包未因此更新。
+
 会话回切会先显示该 Run 的上次画面，重连验证完成后更新；期间底栏标明只读末帧。最多保留四份／512 KiB 总计费缓存，不增加后台终端连接；首次打开、缓存淘汰或超大画面仍可能出现连接提示。范围与实际检查见[切换报告](docs/testing/results/2026-11-27-warm-session-switch.md)。
 
 开发版新增[原生 Agent 决策提醒](docs/ATTENTION.md)：已绑定的适配器上报授权／选择事件后，顶部留白和会话行显示待处理标记，`Alt+N` 定位原终端，查看不会解决事项或代答。新增 Alt+A／管理 t 打开待办中心，s／S 稍后 10／30 分钟、u 恢复；稍后仍 pending；当前以模拟 CLI 验证，真实 Agent 适配、桌面通知与后台提醒仍开放。
