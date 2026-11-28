@@ -11,7 +11,7 @@ import (
 	"time"
 )
 
-const Version = "0.0.0-m0-dev"
+const Version = "0.1.0-alpha.2"
 
 func Build() string {
 	v := Version

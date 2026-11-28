@@ -176,6 +176,11 @@ func run(ctx context.Context, args []string, input io.Reader, output, errorOutpu
 		}
 		return petDemo(ctx, commandArgs, errorOutput)
 	}
+	var portableErr error
+	options, stateDir, portableErr = applyPortableOptions(options, stateDir)
+	if portableErr != nil {
+		return portableErr
+	}
 	if command == "read" || command == "send" || command == "status" || command == "deliver" {
 		if configPath != "" {
 			return fmt.Errorf("--config is not used by messaging commands")
@@ -215,10 +220,6 @@ func run(ctx context.Context, args []string, input io.Reader, output, errorOutpu
 	var workbench *workbenchHost
 	if command == "" {
 		var err error
-		options, stateDir, err = applyPortableOptions(options, stateDir)
-		if err != nil {
-			return err
-		}
 		var handled bool
 		workbench, handled, err = prepareWorkbench(ctx, args, insideTerminal, windowToken, options, stateDir, input, output, errorOutput)
 		if err != nil || handled {

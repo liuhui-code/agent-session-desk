@@ -1,5 +1,7 @@
 # Agent Session Desk
 
+下一份 Windows 便携预发布按 [ADR-0072](docs/adr/0072-reproducible-windows-portable-delivery.md)准备：独立英文 Terminal、空工作区首开、固定启动入口随更新清单切换程序，以及 CLI／UI 共用便携数据目录。[使用说明](docs/WINDOWS_PORTABLE.md)与[实际交付验证](docs/testing/results/2026-11-28-windows-portable-delivery.md)区分候选包和已公开的历史 Alpha 1。
+
 其他 Agent 接手先看[配置与接入说明](docs/CONFIGURATION.md)和[功能与适配索引](docs/AGENT_ADAPTATION.md)，含配置位置、作用域、优先级、可复制示例与验证边界。
 
 main 开发版加入[可回退的便携更新](docs/UPDATES.md)：显式选择 tag、按需下载与双重 SHA256 校验，关闭工作台后备份并切换程序；回退保留当前数据。仅受管理 alpha.json 安装及相同状态格式／终端库，旧公开包缺更新合同会拒绝；没有后台自动更新。

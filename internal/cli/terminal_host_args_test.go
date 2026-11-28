@@ -66,3 +66,39 @@ func TestPinnedLocalTerminalRefusesChangedHost(t *testing.T) {
 		t.Fatal("changed host accepted")
 	}
 }
+
+func TestPortableTerminalHostMovesWithInstallation(t *testing.T) {
+	parent := t.TempDir()
+	root := filepath.Join(parent, "initial path")
+	if err := os.MkdirAll(filepath.Join(root, "terminal-host"), 0700); err != nil {
+		t.Fatal(err)
+	}
+	body := []byte("pinned portable terminal")
+	os.WriteFile(filepath.Join(root, "terminal-host", "WindowsTerminal.exe"), body, 0600)
+	digest := sha256.Sum256(body)
+	raw, _ := json.Marshal(map[string]any{"terminal": map[string]string{"path": "terminal-host/WindowsTerminal.exe", "sha256": hex.EncodeToString(digest[:])}, "profileGuid": "{portable-profile}"})
+	os.WriteFile(filepath.Join(root, "local-host.json"), raw, 0600)
+	moved := filepath.Join(parent, "moved path")
+	if err := os.Rename(root, moved); err != nil {
+		t.Fatal(err)
+	}
+	host, err := localTerminalHost(moved)
+	if err != nil || host.Path != filepath.Join(moved, "terminal-host", "WindowsTerminal.exe") {
+		t.Fatal("portable host depends on original machine path", host, err)
+	}
+}
+
+func TestPortableTerminalHostRefusesEscapeThroughDirectoryLink(t *testing.T) {
+	root, outside := t.TempDir(), t.TempDir()
+	body := []byte("pinned outside executable")
+	os.WriteFile(filepath.Join(outside, "WindowsTerminal.exe"), body, 0600)
+	if err := os.Symlink(outside, filepath.Join(root, "terminal-host")); err != nil {
+		t.Skip("directory symlink unavailable")
+	}
+	digest := sha256.Sum256(body)
+	raw, _ := json.Marshal(map[string]any{"terminal": map[string]string{"path": "terminal-host/WindowsTerminal.exe", "sha256": hex.EncodeToString(digest[:])}})
+	os.WriteFile(filepath.Join(root, "local-host.json"), raw, 0600)
+	if _, err := localTerminalHost(root); err == nil {
+		t.Fatal("relative host escaped installation through directory link")
+	}
+}

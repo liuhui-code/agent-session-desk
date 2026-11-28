@@ -35,7 +35,22 @@ func localTerminalHost(root string) (terminalHostConfig, error) {
 	if json.Unmarshal(data, &doc) != nil || doc.Terminal.Path == "" || len(doc.Terminal.SHA256) != 64 {
 		return terminalHostConfig{}, fmt.Errorf("local Windows Terminal configuration is invalid")
 	}
-	file, err := os.Open(doc.Terminal.Path)
+	var file *os.File
+	if !filepath.IsAbs(doc.Terminal.Path) {
+		local := filepath.FromSlash(strings.ReplaceAll(doc.Terminal.Path, `\`, "/"))
+		if !filepath.IsLocal(local) {
+			return terminalHostConfig{}, fmt.Errorf("portable Windows Terminal path must stay inside the installation")
+		}
+		dir, openErr := os.OpenRoot(root)
+		if openErr != nil {
+			return terminalHostConfig{}, fmt.Errorf("portable Windows Terminal directory is unavailable")
+		}
+		defer dir.Close()
+		file, err = dir.Open(local)
+		doc.Terminal.Path = filepath.Join(root, local)
+	} else {
+		file, err = os.Open(doc.Terminal.Path)
+	}
 	if err != nil {
 		return terminalHostConfig{}, fmt.Errorf("configured Windows Terminal is unavailable")
 	}

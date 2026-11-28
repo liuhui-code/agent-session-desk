@@ -166,3 +166,5 @@ Bubbles 2.2.2 textinput 通过模块使用，未复制组件源码。v2 表单�
 ## ADR-0041 用户外观调整
 
 沿既有 MIT 派生 UI 实现单一侧栏、无框工作区及悬浮提示；删除可视 Tab 条与其拖动状态，未增加来源复制或依赖。Dark 颜色以用户本机 iTerm Default 的公开视觉参数为新输入，保留 Light 的既有来源及其他许可；参考配置仅含字体名／颜色，不含 iTerm 连接配置。用户个人 Meslo 字体只在其两台机器间复制和当前用户安装，未纳入 Git 或 Alpha ZIP，不能当作发行物许可审计完成。实际当前可用字体为Consolas10，同款Meslo未验收，见[报告](testing/results/2026-11-25-minimal-workspace.md)。
+
+2026-11-28 ADR-0072：发行候选新增微软官方 Windows Terminal v1.25.3131.0 x64 portable ZIP，SHA256 `273d6f1502eca1b5bd95c43f5d4d7ec72cc503df340102f8659717e5bead3437`，实际下载与 GitHub API digest 一致。完整二进制分发目录及原 NOTICE.html 随包保留，固定 tag 的 MIT 原文保存在 third_party/windows-terminal/LICENSE；没有将其源码迁入 Go 或安装其附带字体。继续沿用已有修改版 psmux／ConPTY 字节及相应源码／许可，其他 Go 模块集合由打包器比对实际构建信息，不因打包选择自动升级依赖。

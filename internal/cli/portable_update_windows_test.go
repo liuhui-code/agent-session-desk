@@ -98,6 +98,24 @@ func TestWindowsNativePortableUpdateRollbackAndKilledTransaction(t *testing.T) {
 		updateCopy(t, filepath.Join(bundle, name), filepath.Join(root, "terminal-runtime", name))
 	}
 	updateCopy(t, product, filepath.Join(root, "old.exe"))
+	launcher := os.Getenv("ASD_UPDATE_LAUNCHER")
+	if launcher != "" {
+		updateCopy(t, launcher, filepath.Join(root, "asd-launch.exe"))
+	}
+	checkLauncher := func(program string) {
+		t.Helper()
+		if launcher == "" {
+			return
+		}
+		want, err := exec.Command(program, "version").CombinedOutput()
+		if err != nil {
+			t.Fatal("version reference", err)
+		}
+		got, err := exec.Command(filepath.Join(root, "asd-launch.exe"), "version").CombinedOutput()
+		if err != nil || string(got) != string(want) {
+			t.Fatalf("fixed launcher selected wrong program: %v %s != %s", err, got, want)
+		}
+	}
 	oldHash := updateHash(t, product)
 	newHash := updateHash(t, candidate)
 	if newHash == oldHash {
@@ -228,6 +246,7 @@ func TestWindowsNativePortableUpdateRollbackAndKilledTransaction(t *testing.T) {
 	if receipt.Previous != "old.exe" || updateHash(t, filepath.Join(root, receipt.Current)) != newHash {
 		t.Fatal("wrong switched program", receipt)
 	}
+	checkLauncher(candidate)
 	if check, e := store.Check(ctx, filepath.Join(root, ".asd-update", receipt.Backup)); e != nil || check.SchemaVersion != 11 {
 		t.Fatal("real metadata backup", check, e)
 	}
@@ -238,6 +257,7 @@ func TestWindowsNativePortableUpdateRollbackAndKilledTransaction(t *testing.T) {
 	if receipt.Current != "old.exe" {
 		t.Fatal("wrong rollback", receipt)
 	}
+	checkLauncher(product)
 	rows, err := svc.List(ctx)
 	if err != nil || len(rows) != 1 || rows[0].ID != original.ID || rows[0].RunID != original.RunID || rows[0].BackendID != original.BackendID || rows[0].Title != "Work after update" {
 		t.Fatal("rollback lost current work or original Run", err)
