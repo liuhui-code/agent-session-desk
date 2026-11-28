@@ -1,0 +1,46 @@
+{
+  "forced": 0,
+  "original_exit": "0",
+  "clipboard_apis": 0,
+  "manager": {
+    "working_set": 40181760,
+    "pid": 9144,
+    "filetime": "134403303028856241",
+    "private_bytes": 67534848
+  },
+  "source": "c2ac2c0",
+  "result": "updated-running",
+  "live_preserved": true,
+  "backup_verified": true,
+  "program_sha256": "3bfe96fafaa82765f474b1e3d32cdd42c514a169b7a3805ed103459e2789dea1",
+  "stages": [
+    {
+      "at": "2026-11-28T09:04:56.4130317Z",
+      "name": "original identity and configuration captured privately"
+    },
+    {
+      "at": "2026-11-28T09:04:57.2647376Z",
+      "name": "original UI ended; backend Runs kept"
+    },
+    {
+      "at": "2026-11-28T09:04:57.3925415Z",
+      "name": "validated metadata backup retained privately"
+    },
+    {
+      "at": "2026-11-28T09:04:57.4154810Z",
+      "name": "current entry switched; previous exe retained"
+    },
+    {
+      "at": "2026-11-28T09:04:57.7052211Z",
+      "name": "original shortcut launched once"
+    },
+    {
+      "at": "2026-11-28T09:05:04.5873365Z",
+      "name": "new original-owned UI ready; identities and configuration preserved"
+    }
+  ],
+  "config_preserved": true,
+  "manifest_switched": true,
+  "terminal_input": 0,
+  "launch_count": 1
+}

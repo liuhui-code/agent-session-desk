@@ -4,7 +4,7 @@
 
 Alpha 2 [候选草稿](https://github.com/liuhui-code/agent-session-desk/releases/tag/untagged-50caef99b4d719d78703)已上传并回下载核对六个附件；尚未公开。STAB-008 的新建／发现发布竞态已修复并经过 Windows 定向复验，草稿附件尚未替换；STAB-009 的空宿主残留继续调查。见[阻塞项报告](docs/testing/results/2026-11-28-release-blockers.md)，未宣称完整发布接受或公网更新通过。
 
-main 开发版新增 **F7 指令片段库**：搜索全局／当前目录的项目片段，预览后粘贴到原终端，不追加 Enter。配置只读、按需加载；多行在 shell 中仍可能执行，详见[使用与 Agent 配置说明](docs/SNIPPETS.md)。
+main 开发版新增 **F7 指令片段库**：搜索全局／当前目录的项目片段，预览后粘贴到原终端，不追加 Enter。配置只读、按需加载；本机 Windows 测试入口已更新，128 项库／20 次取消的[实机与内存补验](docs/testing/results/2026-11-28-snippets-windows-validation.md)已记录。多行在 shell 中仍可能执行，详见[使用与 Agent 配置说明](docs/SNIPPETS.md)。
 
 其他 Agent 接手先看[配置与接入说明](docs/CONFIGURATION.md)和[功能与适配索引](docs/AGENT_ADAPTATION.md)，含配置位置、作用域、优先级、可复制示例与验证边界。
 

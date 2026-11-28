@@ -1,0 +1,43 @@
+{
+  "files": [
+    {
+      "file_version": null,
+      "sha256": "3bfe96fafaa82765f474b1e3d32cdd42c514a169b7a3805ed103459e2789dea1",
+      "name": "asd.exe",
+      "size": 25334784
+    },
+    {
+      "file_version": null,
+      "sha256": "ff9d8893ecc53ac5caca3bae0146d75ebcaf2cf7edc4abf9d87578469fb7b16b",
+      "name": "terminal-runtime/psmux.exe",
+      "size": 9637376
+    },
+    {
+      "file_version": "1.25.2611.09001",
+      "sha256": "e971856f89748dc3b458125e9afdd79b5e9574a7c937676116d3cbbd3b71f492",
+      "name": "terminal-runtime/conpty.dll",
+      "size": 119608
+    },
+    {
+      "file_version": "1.25.2611.09001",
+      "sha256": "b17e48b07ef153b420f0a6e178bacd31fb4c3390e21ae746586213fc0719a775",
+      "name": "terminal-runtime/OpenConsole.exe",
+      "size": 1089336
+    },
+    {
+      "file_version": "1.25.2611.09001",
+      "sha256": "337c583db0b4b53c726a851933e3d3df86c09e0d4812d14d68ad703e81293fc9",
+      "name": "terminal-host/WindowsTerminal.exe",
+      "size": 610104
+    },
+    {
+      "file_version": "1.25.2611.09001",
+      "sha256": "b17e48b07ef153b420f0a6e178bacd31fb4c3390e21ae746586213fc0719a775",
+      "name": "terminal-host/OpenConsole.exe",
+      "size": 1089336
+    }
+  ],
+  "source_zip_sha256": "c596345be1e0ba85ccdf10686f5bcf2d68379ff4303df0432f33722594aa6bc8",
+  "official_terminal_archive_sha256": "273d6f1502eca1b5bd95c43f5d4d7ec72cc503df340102f8659717e5bead3437",
+  "terminal_archive_member_sha256": "337c583db0b4b53c726a851933e3d3df86c09e0d4812d14d68ad703e81293fc9"
+}

@@ -1,6 +1,6 @@
 # 常用指令与提示词片段
 
-main 开发版，见 [ADR-0074](adr/0074-bounded-instruction-snippets.md)及[实际验证](testing/results/2026-11-28-instruction-snippets.md)。旧公开包／日常安装不因 main 变化自动升级。
+main 开发版，本机 Windows 测试入口已更新到 clean c2ac2c0；实机及内存范围见[补验](testing/results/2026-11-28-snippets-windows-validation.md)。见 [ADR-0074](adr/0074-bounded-instruction-snippets.md)及[实际验证](testing/results/2026-11-28-instruction-snippets.md)。旧公开包／日常安装不因 main 变化自动升级。
 
 ## 使用
 

@@ -24,3 +24,7 @@
 ## 验证范围
 
 TDD 保存加载、实际模态粘贴归属、全局激活跨模态和短窗口的 RED／GREEN。检查缺文件、错误 schema、控制字符、条数／字节边界、原 Run 变化、加载取消、原生粘贴与无 Enter、布局边界和重绑。真实 Windows 输入与桌面结果另列，模拟不代替真实 Agent 或发布接受。
+
+## Windows 补验
+
+clean c2ac2c0 的实际 F7 项目／全局双 Run 流程、128 项库二十次取消、内存点样本及本机更新见[补验报告](../testing/results/2026-11-28-snippets-windows-validation.md)。驱动误判、旧冷 stop 拒绝和未完成门槛独立保留；不改变本决定或宣称完整资源／发布接受。

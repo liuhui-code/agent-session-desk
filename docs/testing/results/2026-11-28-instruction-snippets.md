@@ -63,3 +63,7 @@ F7 最终轮的正常宿主 WM_CLOSE 清理控制器未写出退出回执；计�
 最终审计移除 12 个已结束且启动动作核验属于本轮的任务，保留 0，私有镜像 0，见 [final-audit.json](2026-11-28-instruction-snippets-evidence/final-audit.json)。该审计整体为 review-required：日常安装原 PID 19012 已不在，日常 asd.exe 当前 SHA256 `404d352e72def2ed0d36ecb2ca08491271de8652ca589e6a8a13da2dff993366` 与前置记录 `069e4d2ed87ed08696ea12ee0cfddb0ab0a0d42efd44534d5324a84a207970e9` 不同。本轮驱动未写该安装；不能推断变化作者／原因，也不能宣称原日常进程或文件保持不变。这个差异不影响已独立核验的隔离任务／进程清理结果。
 
 代码、ADR、Feature Ledger、用例设计及本报告以 `feat: add bounded instruction snippets` 同一 Git 提交归档。未将测试程序覆盖日常安装，未发布或替换 GitHub 草稿附件。
+
+## 后续补验
+
+同日 clean c2ac2c0 的最终 F7 真实双 Run、128 项库二十次取消、内存采样和日常更新已在[独立报告](2026-11-28-snippets-windows-validation.md)补充。本文失败／空样本保持历史原样。后续确认旧清理器 backend 名称假设错误，且旧“日常文件变化”审计比较了两个不同 exe；这不解释更早的冷 stop 拒绝，该项继续作为 STAB-010 保留。

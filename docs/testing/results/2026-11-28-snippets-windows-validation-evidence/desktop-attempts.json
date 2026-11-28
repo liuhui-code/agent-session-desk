@@ -1,0 +1,436 @@
+[
+  {
+    "manager": {
+      "pid": 17976,
+      "filetime": "134403289280117080",
+      "image": "<home>\\asd-snippets-verify-20261128\\desktop1\\package\\asd.exe"
+    },
+    "file": "result.json",
+    "terminal_replays": 0,
+    "cancel_cycles": 0,
+    "calls": 3,
+    "error": "找不到类型 [ushort]。",
+    "events": [
+      {
+        "at": "2026-11-28T08:42:04.3962917Z",
+        "name": "fixture A"
+      },
+      {
+        "at": "2026-11-28T08:42:05.3393167Z",
+        "name": "fixture B"
+      },
+      {
+        "at": "2026-11-28T08:42:05.5978751Z",
+        "name": "original discovery before UI"
+      },
+      {
+        "at": "2026-11-28T08:42:09.2717426Z",
+        "name": "one owned endpoint"
+      },
+      {
+        "at": "2026-11-28T08:42:09.3722917Z",
+        "name": "owned foreground"
+      },
+      {
+        "at": "2026-11-28T08:42:10.0019488Z",
+        "name": "original A terminal"
+      },
+      {
+        "at": "2026-11-28T08:42:14.0344670Z",
+        "name": "original editable draft"
+      }
+    ],
+    "result": "failed"
+  },
+  {
+    "manager": {
+      "pid": 17976,
+      "filetime": "134403289280117080",
+      "image": "<home>\\asd-snippets-verify-20261128\\desktop1\\package\\asd.exe"
+    },
+    "file": "result-resume.json",
+    "terminal_replays": 0,
+    "cancel_cycles": 0,
+    "calls": 3,
+    "error": "Fixture exceeds file bound",
+    "events": [
+      {
+        "at": "2026-11-28T08:42:04.3962917Z",
+        "name": "fixture A"
+      },
+      {
+        "at": "2026-11-28T08:42:05.3393167Z",
+        "name": "fixture B"
+      },
+      {
+        "at": "2026-11-28T08:42:05.5978751Z",
+        "name": "original discovery before UI"
+      },
+      {
+        "at": "2026-11-28T08:42:09.2717426Z",
+        "name": "one owned endpoint"
+      },
+      {
+        "at": "2026-11-28T08:42:09.3722917Z",
+        "name": "owned foreground"
+      },
+      {
+        "at": "2026-11-28T08:42:10.0019488Z",
+        "name": "original A terminal"
+      },
+      {
+        "at": "2026-11-28T08:42:14.0344670Z",
+        "name": "original editable draft"
+      }
+    ],
+    "result": "failed"
+  },
+  {
+    "manager": {
+      "pid": 17976,
+      "filetime": "134403289280117080",
+      "image": "<home>\\asd-snippets-verify-20261128\\desktop1\\package\\asd.exe"
+    },
+    "file": "result-resume2.json",
+    "terminal_replays": 0,
+    "cancel_cycles": 0,
+    "calls": 4,
+    "error": "Timeout: explicit A once",
+    "events": [
+      {
+        "at": "2026-11-28T08:42:04.3962917Z",
+        "name": "fixture A"
+      },
+      {
+        "at": "2026-11-28T08:42:05.3393167Z",
+        "name": "fixture B"
+      },
+      {
+        "at": "2026-11-28T08:42:05.5978751Z",
+        "name": "original discovery before UI"
+      },
+      {
+        "at": "2026-11-28T08:42:09.2717426Z",
+        "name": "one owned endpoint"
+      },
+      {
+        "at": "2026-11-28T08:42:09.3722917Z",
+        "name": "owned foreground"
+      },
+      {
+        "at": "2026-11-28T08:42:10.0019488Z",
+        "name": "original A terminal"
+      },
+      {
+        "at": "2026-11-28T08:42:14.0344670Z",
+        "name": "original editable draft"
+      },
+      {
+        "at": "2026-11-28T08:46:04.5385236Z",
+        "name": "original discovery before no-replay resume"
+      },
+      {
+        "at": "2026-11-28T08:46:04.6482740Z",
+        "name": "one owned endpoint"
+      },
+      {
+        "at": "2026-11-28T08:46:04.7164028Z",
+        "name": "owned foreground"
+      },
+      {
+        "at": "2026-11-28T08:46:05.0927103Z",
+        "name": "original A and draft retained"
+      },
+      {
+        "at": "2026-11-28T08:46:06.6921299Z",
+        "name": "F7 128-item library"
+      },
+      {
+        "at": "2026-11-28T08:46:07.4467093Z",
+        "name": "project preview"
+      },
+      {
+        "at": "2026-11-28T08:46:07.5236724Z",
+        "name": "project pasted draft"
+      },
+      {
+        "at": "2026-11-28T08:46:07.5276568Z",
+        "name": "no automatic Enter"
+      }
+    ],
+    "result": "failed"
+  },
+  {
+    "manager": {
+      "pid": 17976,
+      "filetime": "134403289280117080",
+      "image": "<home>\\asd-snippets-verify-20261128\\desktop1\\package\\asd.exe"
+    },
+    "file": "result-resume3.json",
+    "terminal_replays": 0,
+    "cancel_cycles": 0,
+    "calls": 4,
+    "error": "Explicit A receipt not exact; no replay",
+    "events": [
+      {
+        "at": "2026-11-28T08:42:04.3962917Z",
+        "name": "fixture A"
+      },
+      {
+        "at": "2026-11-28T08:42:05.3393167Z",
+        "name": "fixture B"
+      },
+      {
+        "at": "2026-11-28T08:42:05.5978751Z",
+        "name": "original discovery before UI"
+      },
+      {
+        "at": "2026-11-28T08:42:09.2717426Z",
+        "name": "one owned endpoint"
+      },
+      {
+        "at": "2026-11-28T08:42:09.3722917Z",
+        "name": "owned foreground"
+      },
+      {
+        "at": "2026-11-28T08:42:10.0019488Z",
+        "name": "original A terminal"
+      },
+      {
+        "at": "2026-11-28T08:42:14.0344670Z",
+        "name": "original editable draft"
+      },
+      {
+        "at": "2026-11-28T08:46:04.5385236Z",
+        "name": "original discovery before no-replay resume"
+      },
+      {
+        "at": "2026-11-28T08:46:04.6482740Z",
+        "name": "one owned endpoint"
+      },
+      {
+        "at": "2026-11-28T08:46:04.7164028Z",
+        "name": "owned foreground"
+      },
+      {
+        "at": "2026-11-28T08:46:05.0927103Z",
+        "name": "original A and draft retained"
+      },
+      {
+        "at": "2026-11-28T08:46:06.6921299Z",
+        "name": "F7 128-item library"
+      },
+      {
+        "at": "2026-11-28T08:46:07.4467093Z",
+        "name": "project preview"
+      },
+      {
+        "at": "2026-11-28T08:46:07.5236724Z",
+        "name": "project pasted draft"
+      },
+      {
+        "at": "2026-11-28T08:46:07.5276568Z",
+        "name": "no automatic Enter"
+      }
+    ],
+    "result": "failed"
+  },
+  {
+    "manager": {
+      "pid": 17976,
+      "filetime": "134403289280117080",
+      "image": "<home>\\asd-snippets-verify-20261128\\desktop1\\package\\asd.exe"
+    },
+    "file": "result-resume4.json",
+    "terminal_replays": 0,
+    "cancel_cycles": 0,
+    "calls": 5,
+    "error": "Timeout: original B terminal",
+    "events": [
+      {
+        "at": "2026-11-28T08:42:04.3962917Z",
+        "name": "fixture A"
+      },
+      {
+        "at": "2026-11-28T08:42:05.3393167Z",
+        "name": "fixture B"
+      },
+      {
+        "at": "2026-11-28T08:42:05.5978751Z",
+        "name": "original discovery before UI"
+      },
+      {
+        "at": "2026-11-28T08:42:09.2717426Z",
+        "name": "one owned endpoint"
+      },
+      {
+        "at": "2026-11-28T08:42:09.3722917Z",
+        "name": "owned foreground"
+      },
+      {
+        "at": "2026-11-28T08:42:10.0019488Z",
+        "name": "original A terminal"
+      },
+      {
+        "at": "2026-11-28T08:42:14.0344670Z",
+        "name": "original editable draft"
+      },
+      {
+        "at": "2026-11-28T08:46:04.5385236Z",
+        "name": "original discovery before no-replay resume"
+      },
+      {
+        "at": "2026-11-28T08:46:04.6482740Z",
+        "name": "one owned endpoint"
+      },
+      {
+        "at": "2026-11-28T08:46:04.7164028Z",
+        "name": "owned foreground"
+      },
+      {
+        "at": "2026-11-28T08:46:05.0927103Z",
+        "name": "original A and draft retained"
+      },
+      {
+        "at": "2026-11-28T08:46:06.6921299Z",
+        "name": "F7 128-item library"
+      },
+      {
+        "at": "2026-11-28T08:46:07.4467093Z",
+        "name": "project preview"
+      },
+      {
+        "at": "2026-11-28T08:46:07.5236724Z",
+        "name": "project pasted draft"
+      },
+      {
+        "at": "2026-11-28T08:46:07.5276568Z",
+        "name": "no automatic Enter"
+      },
+      {
+        "at": "2026-11-28T08:52:13.4927216Z",
+        "name": "original discovery before no-replay resume"
+      },
+      {
+        "at": "2026-11-28T08:52:13.6208464Z",
+        "name": "one owned endpoint"
+      },
+      {
+        "at": "2026-11-28T08:52:13.6969817Z",
+        "name": "owned foreground"
+      },
+      {
+        "at": "2026-11-28T08:52:13.7129062Z",
+        "name": "independent explicit A receipt verified; no replay"
+      }
+    ],
+    "result": "failed"
+  },
+  {
+    "manager": {
+      "pid": 17976,
+      "filetime": "134403289280117080",
+      "image": "<home>\\asd-snippets-verify-20261128\\desktop1\\package\\asd.exe"
+    },
+    "file": "result-resume5.json",
+    "terminal_replays": 0,
+    "cancel_cycles": 0,
+    "calls": 6,
+    "error": "使用“3”个参数调用“FindText”时发生异常:“”",
+    "events": [
+      {
+        "at": "2026-11-28T08:42:04.3962917Z",
+        "name": "fixture A"
+      },
+      {
+        "at": "2026-11-28T08:42:05.3393167Z",
+        "name": "fixture B"
+      },
+      {
+        "at": "2026-11-28T08:42:05.5978751Z",
+        "name": "original discovery before UI"
+      },
+      {
+        "at": "2026-11-28T08:42:09.2717426Z",
+        "name": "one owned endpoint"
+      },
+      {
+        "at": "2026-11-28T08:42:09.3722917Z",
+        "name": "owned foreground"
+      },
+      {
+        "at": "2026-11-28T08:42:10.0019488Z",
+        "name": "original A terminal"
+      },
+      {
+        "at": "2026-11-28T08:42:14.0344670Z",
+        "name": "original editable draft"
+      },
+      {
+        "at": "2026-11-28T08:46:04.5385236Z",
+        "name": "original discovery before no-replay resume"
+      },
+      {
+        "at": "2026-11-28T08:46:04.6482740Z",
+        "name": "one owned endpoint"
+      },
+      {
+        "at": "2026-11-28T08:46:04.7164028Z",
+        "name": "owned foreground"
+      },
+      {
+        "at": "2026-11-28T08:46:05.0927103Z",
+        "name": "original A and draft retained"
+      },
+      {
+        "at": "2026-11-28T08:46:06.6921299Z",
+        "name": "F7 128-item library"
+      },
+      {
+        "at": "2026-11-28T08:46:07.4467093Z",
+        "name": "project preview"
+      },
+      {
+        "at": "2026-11-28T08:46:07.5236724Z",
+        "name": "project pasted draft"
+      },
+      {
+        "at": "2026-11-28T08:46:07.5276568Z",
+        "name": "no automatic Enter"
+      },
+      {
+        "at": "2026-11-28T08:52:13.4927216Z",
+        "name": "original discovery before no-replay resume"
+      },
+      {
+        "at": "2026-11-28T08:52:13.6208464Z",
+        "name": "one owned endpoint"
+      },
+      {
+        "at": "2026-11-28T08:52:13.6969817Z",
+        "name": "owned foreground"
+      },
+      {
+        "at": "2026-11-28T08:52:13.7129062Z",
+        "name": "independent explicit A receipt verified; no replay"
+      },
+      {
+        "at": "2026-11-28T08:58:43.1265334Z",
+        "name": "original discovery before no-replay resume"
+      },
+      {
+        "at": "2026-11-28T08:58:43.7350912Z",
+        "name": "one owned endpoint"
+      },
+      {
+        "at": "2026-11-28T08:58:43.8051705Z",
+        "name": "owned foreground"
+      },
+      {
+        "at": "2026-11-28T08:58:43.8143832Z",
+        "name": "independent explicit A receipt verified; no replay"
+      }
+    ],
+    "result": "failed"
+  }
+]

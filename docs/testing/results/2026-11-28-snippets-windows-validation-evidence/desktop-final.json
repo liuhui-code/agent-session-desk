@@ -1,0 +1,915 @@
+{
+  "calls": [
+    {
+      "args": [
+        "start",
+        "--name",
+        "Snippet A",
+        "--cwd",
+        "<home>\\asd-snippets-verify-20261128\\desktop1\\projectA",
+        "--env",
+        "ASD_FIXTURE_REPORT_PATH=<home>\\asd-snippets-verify-20261128\\desktop1\\A.jsonl",
+        "--",
+        "<home>\\asd-snippets-verify-20261128\\desktop1\\asd-fixture.exe",
+        "VERIFY_A_READY"
+      ],
+      "stdout": "{\n  \"session_id\": \"e5b46cd9eba8b251e623e4f2c874cf39\",\n  \"run_id\": \"cc37bbf10a0e9c1117644fc2ec8d5d42\",\n  \"backend_id\": \"asd_e5b46cd9eba8b251e623e4f2c874cf39_cc37bbf10a0e9c1117644fc2ec8d5d42\",\n  \"title\": \"Snippet A\",\n  \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\desktop1\\\\asd-fixture.exe\",\n  \"terminal_state\": \"available\"\n}",
+      "exit": 0
+    },
+    {
+      "args": [
+        "start",
+        "--name",
+        "Snippet B",
+        "--cwd",
+        "<home>\\asd-snippets-verify-20261128\\desktop1\\projectB",
+        "--env",
+        "ASD_FIXTURE_REPORT_PATH=<home>\\asd-snippets-verify-20261128\\desktop1\\B.jsonl",
+        "--",
+        "<home>\\asd-snippets-verify-20261128\\desktop1\\asd-fixture.exe",
+        "VERIFY_B_READY"
+      ],
+      "stdout": "{\n  \"session_id\": \"a68e4e5b866ddae9aa4b8dba54841f1c\",\n  \"run_id\": \"333f9ab1517cb772a37634a7919840c6\",\n  \"backend_id\": \"asd_a68e4e5b866ddae9aa4b8dba54841f1c_333f9ab1517cb772a37634a7919840c6\",\n  \"title\": \"Snippet B\",\n  \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\desktop1\\\\asd-fixture.exe\",\n  \"terminal_state\": \"available\"\n}",
+      "exit": 0
+    },
+    {
+      "args": [
+        "list",
+        "--json"
+      ],
+      "stdout": "[\n  {\n    \"session_id\": \"e5b46cd9eba8b251e623e4f2c874cf39\",\n    \"run_id\": \"cc37bbf10a0e9c1117644fc2ec8d5d42\",\n    \"backend_id\": \"asd_e5b46cd9eba8b251e623e4f2c874cf39_cc37bbf10a0e9c1117644fc2ec8d5d42\",\n    \"title\": \"Snippet A\",\n    \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\desktop1\\\\asd-fixture.exe\",\n    \"terminal_state\": \"available\"\n  },\n  {\n    \"session_id\": \"a68e4e5b866ddae9aa4b8dba54841f1c\",\n    \"run_id\": \"333f9ab1517cb772a37634a7919840c6\",\n    \"backend_id\": \"asd_a68e4e5b866ddae9aa4b8dba54841f1c_333f9ab1517cb772a37634a7919840c6\",\n    \"title\": \"Snippet B\",\n    \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\desktop1\\\\asd-fixture.exe\",\n    \"terminal_state\": \"available\"\n  }\n]",
+      "exit": 0
+    },
+    {
+      "args": [
+        "list",
+        "--json"
+      ],
+      "stdout": "[\n  {\n    \"session_id\": \"e5b46cd9eba8b251e623e4f2c874cf39\",\n    \"run_id\": \"cc37bbf10a0e9c1117644fc2ec8d5d42\",\n    \"backend_id\": \"asd_e5b46cd9eba8b251e623e4f2c874cf39_cc37bbf10a0e9c1117644fc2ec8d5d42\",\n    \"title\": \"Snippet A\",\n    \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\desktop1\\\\asd-fixture.exe\",\n    \"terminal_state\": \"available\"\n  },\n  {\n    \"session_id\": \"a68e4e5b866ddae9aa4b8dba54841f1c\",\n    \"run_id\": \"333f9ab1517cb772a37634a7919840c6\",\n    \"backend_id\": \"asd_a68e4e5b866ddae9aa4b8dba54841f1c_333f9ab1517cb772a37634a7919840c6\",\n    \"title\": \"Snippet B\",\n    \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\desktop1\\\\asd-fixture.exe\",\n    \"terminal_state\": \"available\"\n  }\n]",
+      "exit": 0
+    },
+    {
+      "args": [
+        "list",
+        "--json"
+      ],
+      "stdout": "[\n  {\n    \"session_id\": \"e5b46cd9eba8b251e623e4f2c874cf39\",\n    \"run_id\": \"cc37bbf10a0e9c1117644fc2ec8d5d42\",\n    \"backend_id\": \"asd_e5b46cd9eba8b251e623e4f2c874cf39_cc37bbf10a0e9c1117644fc2ec8d5d42\",\n    \"title\": \"Snippet A\",\n    \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\desktop1\\\\asd-fixture.exe\",\n    \"terminal_state\": \"available\"\n  },\n  {\n    \"session_id\": \"a68e4e5b866ddae9aa4b8dba54841f1c\",\n    \"run_id\": \"333f9ab1517cb772a37634a7919840c6\",\n    \"backend_id\": \"asd_a68e4e5b866ddae9aa4b8dba54841f1c_333f9ab1517cb772a37634a7919840c6\",\n    \"title\": \"Snippet B\",\n    \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\desktop1\\\\asd-fixture.exe\",\n    \"terminal_state\": \"available\"\n  }\n]",
+      "exit": 0
+    },
+    {
+      "args": [
+        "list",
+        "--json"
+      ],
+      "stdout": "[\n  {\n    \"session_id\": \"e5b46cd9eba8b251e623e4f2c874cf39\",\n    \"run_id\": \"cc37bbf10a0e9c1117644fc2ec8d5d42\",\n    \"backend_id\": \"asd_e5b46cd9eba8b251e623e4f2c874cf39_cc37bbf10a0e9c1117644fc2ec8d5d42\",\n    \"title\": \"Snippet A\",\n    \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\desktop1\\\\asd-fixture.exe\",\n    \"terminal_state\": \"available\"\n  },\n  {\n    \"session_id\": \"a68e4e5b866ddae9aa4b8dba54841f1c\",\n    \"run_id\": \"333f9ab1517cb772a37634a7919840c6\",\n    \"backend_id\": \"asd_a68e4e5b866ddae9aa4b8dba54841f1c_333f9ab1517cb772a37634a7919840c6\",\n    \"title\": \"Snippet B\",\n    \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\desktop1\\\\asd-fixture.exe\",\n    \"terminal_state\": \"available\"\n  }\n]",
+      "exit": 0
+    },
+    {
+      "args": [
+        "list",
+        "--json"
+      ],
+      "stdout": "[\n  {\n    \"session_id\": \"e5b46cd9eba8b251e623e4f2c874cf39\",\n    \"run_id\": \"cc37bbf10a0e9c1117644fc2ec8d5d42\",\n    \"backend_id\": \"asd_e5b46cd9eba8b251e623e4f2c874cf39_cc37bbf10a0e9c1117644fc2ec8d5d42\",\n    \"title\": \"Snippet A\",\n    \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\desktop1\\\\asd-fixture.exe\",\n    \"terminal_state\": \"available\"\n  },\n  {\n    \"session_id\": \"a68e4e5b866ddae9aa4b8dba54841f1c\",\n    \"run_id\": \"333f9ab1517cb772a37634a7919840c6\",\n    \"backend_id\": \"asd_a68e4e5b866ddae9aa4b8dba54841f1c_333f9ab1517cb772a37634a7919840c6\",\n    \"title\": \"Snippet B\",\n    \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\desktop1\\\\asd-fixture.exe\",\n    \"terminal_state\": \"available\"\n  }\n]",
+      "exit": 0
+    },
+    {
+      "args": [
+        "list",
+        "--json"
+      ],
+      "stdout": "[\n  {\n    \"session_id\": \"e5b46cd9eba8b251e623e4f2c874cf39\",\n    \"run_id\": \"cc37bbf10a0e9c1117644fc2ec8d5d42\",\n    \"backend_id\": \"asd_e5b46cd9eba8b251e623e4f2c874cf39_cc37bbf10a0e9c1117644fc2ec8d5d42\",\n    \"title\": \"Snippet A\",\n    \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\desktop1\\\\asd-fixture.exe\",\n    \"terminal_state\": \"available\"\n  },\n  {\n    \"session_id\": \"a68e4e5b866ddae9aa4b8dba54841f1c\",\n    \"run_id\": \"333f9ab1517cb772a37634a7919840c6\",\n    \"backend_id\": \"asd_a68e4e5b866ddae9aa4b8dba54841f1c_333f9ab1517cb772a37634a7919840c6\",\n    \"title\": \"Snippet B\",\n    \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\desktop1\\\\asd-fixture.exe\",\n    \"terminal_state\": \"available\"\n  }\n]",
+      "exit": 0
+    },
+    {
+      "args": [
+        "list",
+        "--json"
+      ],
+      "stdout": "[\n  {\n    \"session_id\": \"e5b46cd9eba8b251e623e4f2c874cf39\",\n    \"run_id\": \"cc37bbf10a0e9c1117644fc2ec8d5d42\",\n    \"backend_id\": \"asd_e5b46cd9eba8b251e623e4f2c874cf39_cc37bbf10a0e9c1117644fc2ec8d5d42\",\n    \"title\": \"Snippet A\",\n    \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\desktop1\\\\asd-fixture.exe\",\n    \"terminal_state\": \"available\"\n  },\n  {\n    \"session_id\": \"a68e4e5b866ddae9aa4b8dba54841f1c\",\n    \"run_id\": \"333f9ab1517cb772a37634a7919840c6\",\n    \"backend_id\": \"asd_a68e4e5b866ddae9aa4b8dba54841f1c_333f9ab1517cb772a37634a7919840c6\",\n    \"title\": \"Snippet B\",\n    \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\desktop1\\\\asd-fixture.exe\",\n    \"terminal_state\": \"available\"\n  }\n]",
+      "exit": 0
+    },
+    {
+      "args": [
+        "stop",
+        "e5b46cd9eba8b251e623e4f2c874cf39"
+      ],
+      "stdout": "{\n  \"session_id\": \"e5b46cd9eba8b251e623e4f2c874cf39\",\n  \"run_id\": \"cc37bbf10a0e9c1117644fc2ec8d5d42\",\n  \"result\": \"backend_session_stopped\"\n}",
+      "exit": 0
+    },
+    {
+      "args": [
+        "stop",
+        "a68e4e5b866ddae9aa4b8dba54841f1c"
+      ],
+      "stdout": "{\n  \"session_id\": \"a68e4e5b866ddae9aa4b8dba54841f1c\",\n  \"run_id\": \"333f9ab1517cb772a37634a7919840c6\",\n  \"result\": \"backend_session_stopped\"\n}",
+      "exit": 0
+    }
+  ],
+  "resume_without_replay": true,
+  "forced_hosts": 0,
+  "clipboard_apis": 0,
+  "forced_products": 0,
+  "stack": "在 <ScriptBlock>、<无文件> 中: 第 46 行\r\n在 <ScriptBlock>、<无文件> 中: 第 1 行",
+  "fixture_identities": [
+    {
+      "pid": 4248,
+      "filetime": "134403289231352778",
+      "image": "<home>\\asd-snippets-verify-20261128\\desktop1\\asd-fixture.exe"
+    },
+    {
+      "pid": 17748,
+      "filetime": "134403289247273048",
+      "image": "<home>\\asd-snippets-verify-20261128\\desktop1\\asd-fixture.exe"
+    }
+  ],
+  "terminal_replays": 0,
+  "after_actions": {
+    "value": [
+      {
+        "session_id": "e5b46cd9eba8b251e623e4f2c874cf39",
+        "run_id": "cc37bbf10a0e9c1117644fc2ec8d5d42",
+        "backend_id": "asd_e5b46cd9eba8b251e623e4f2c874cf39_cc37bbf10a0e9c1117644fc2ec8d5d42",
+        "title": "Snippet A",
+        "command": "<home>\\asd-snippets-verify-20261128\\desktop1\\asd-fixture.exe",
+        "terminal_state": "available"
+      },
+      {
+        "session_id": "a68e4e5b866ddae9aa4b8dba54841f1c",
+        "run_id": "333f9ab1517cb772a37634a7919840c6",
+        "backend_id": "asd_a68e4e5b866ddae9aa4b8dba54841f1c_333f9ab1517cb772a37634a7919840c6",
+        "title": "Snippet B",
+        "command": "<home>\\asd-snippets-verify-20261128\\desktop1\\asd-fixture.exe",
+        "terminal_state": "available"
+      }
+    ],
+    "Count": 2
+  },
+  "after_close": {
+    "value": [
+      {
+        "session_id": "e5b46cd9eba8b251e623e4f2c874cf39",
+        "run_id": "cc37bbf10a0e9c1117644fc2ec8d5d42",
+        "backend_id": "asd_e5b46cd9eba8b251e623e4f2c874cf39_cc37bbf10a0e9c1117644fc2ec8d5d42",
+        "title": "Snippet A",
+        "command": "<home>\\asd-snippets-verify-20261128\\desktop1\\asd-fixture.exe",
+        "terminal_state": "available"
+      },
+      {
+        "session_id": "a68e4e5b866ddae9aa4b8dba54841f1c",
+        "run_id": "333f9ab1517cb772a37634a7919840c6",
+        "backend_id": "asd_a68e4e5b866ddae9aa4b8dba54841f1c_333f9ab1517cb772a37634a7919840c6",
+        "title": "Snippet B",
+        "command": "<home>\\asd-snippets-verify-20261128\\desktop1\\asd-fixture.exe",
+        "terminal_state": "available"
+      }
+    ],
+    "Count": 2
+  },
+  "controller": "5.1.19041.6456",
+  "before_ui": {
+    "value": [
+      {
+        "session_id": "e5b46cd9eba8b251e623e4f2c874cf39",
+        "run_id": "cc37bbf10a0e9c1117644fc2ec8d5d42",
+        "backend_id": "asd_e5b46cd9eba8b251e623e4f2c874cf39_cc37bbf10a0e9c1117644fc2ec8d5d42",
+        "title": "Snippet A",
+        "command": "<home>\\asd-snippets-verify-20261128\\desktop1\\asd-fixture.exe",
+        "terminal_state": "available"
+      },
+      {
+        "session_id": "a68e4e5b866ddae9aa4b8dba54841f1c",
+        "run_id": "333f9ab1517cb772a37634a7919840c6",
+        "backend_id": "asd_a68e4e5b866ddae9aa4b8dba54841f1c_333f9ab1517cb772a37634a7919840c6",
+        "title": "Snippet B",
+        "command": "<home>\\asd-snippets-verify-20261128\\desktop1\\asd-fixture.exe",
+        "terminal_state": "available"
+      }
+    ],
+    "Count": 2
+  },
+  "result": "passed",
+  "before_resume": {
+    "value": [
+      {
+        "session_id": "e5b46cd9eba8b251e623e4f2c874cf39",
+        "run_id": "cc37bbf10a0e9c1117644fc2ec8d5d42",
+        "backend_id": "asd_e5b46cd9eba8b251e623e4f2c874cf39_cc37bbf10a0e9c1117644fc2ec8d5d42",
+        "title": "Snippet A",
+        "command": "<home>\\asd-snippets-verify-20261128\\desktop1\\asd-fixture.exe",
+        "terminal_state": "available"
+      },
+      {
+        "session_id": "a68e4e5b866ddae9aa4b8dba54841f1c",
+        "run_id": "333f9ab1517cb772a37634a7919840c6",
+        "backend_id": "asd_a68e4e5b866ddae9aa4b8dba54841f1c_333f9ab1517cb772a37634a7919840c6",
+        "title": "Snippet B",
+        "command": "<home>\\asd-snippets-verify-20261128\\desktop1\\asd-fixture.exe",
+        "terminal_state": "available"
+      }
+    ],
+    "Count": 2
+  },
+  "fixtures_ended": 2,
+  "cancel_cycles": 20,
+  "private_image_count": 0,
+  "events": [
+    {
+      "at": "2026-11-28T08:42:04.3962917Z",
+      "name": "fixture A"
+    },
+    {
+      "at": "2026-11-28T08:42:05.3393167Z",
+      "name": "fixture B"
+    },
+    {
+      "at": "2026-11-28T08:42:05.5978751Z",
+      "name": "original discovery before UI"
+    },
+    {
+      "at": "2026-11-28T08:42:09.2717426Z",
+      "name": "one owned endpoint"
+    },
+    {
+      "at": "2026-11-28T08:42:09.3722917Z",
+      "name": "owned foreground"
+    },
+    {
+      "at": "2026-11-28T08:42:10.0019488Z",
+      "name": "original A terminal"
+    },
+    {
+      "at": "2026-11-28T08:42:14.0344670Z",
+      "name": "original editable draft"
+    },
+    {
+      "at": "2026-11-28T08:46:04.5385236Z",
+      "name": "original discovery before no-replay resume"
+    },
+    {
+      "at": "2026-11-28T08:46:04.6482740Z",
+      "name": "one owned endpoint"
+    },
+    {
+      "at": "2026-11-28T08:46:04.7164028Z",
+      "name": "owned foreground"
+    },
+    {
+      "at": "2026-11-28T08:46:05.0927103Z",
+      "name": "original A and draft retained"
+    },
+    {
+      "at": "2026-11-28T08:46:06.6921299Z",
+      "name": "F7 128-item library"
+    },
+    {
+      "at": "2026-11-28T08:46:07.4467093Z",
+      "name": "project preview"
+    },
+    {
+      "at": "2026-11-28T08:46:07.5236724Z",
+      "name": "project pasted draft"
+    },
+    {
+      "at": "2026-11-28T08:46:07.5276568Z",
+      "name": "no automatic Enter"
+    },
+    {
+      "at": "2026-11-28T08:52:13.4927216Z",
+      "name": "original discovery before no-replay resume"
+    },
+    {
+      "at": "2026-11-28T08:52:13.6208464Z",
+      "name": "one owned endpoint"
+    },
+    {
+      "at": "2026-11-28T08:52:13.6969817Z",
+      "name": "owned foreground"
+    },
+    {
+      "at": "2026-11-28T08:52:13.7129062Z",
+      "name": "independent explicit A receipt verified; no replay"
+    },
+    {
+      "at": "2026-11-28T08:58:43.1265334Z",
+      "name": "original discovery before no-replay resume"
+    },
+    {
+      "at": "2026-11-28T08:58:43.7350912Z",
+      "name": "one owned endpoint"
+    },
+    {
+      "at": "2026-11-28T08:58:43.8051705Z",
+      "name": "owned foreground"
+    },
+    {
+      "at": "2026-11-28T08:58:43.8143832Z",
+      "name": "independent explicit A receipt verified; no replay"
+    },
+    {
+      "at": "2026-11-28T09:01:42.1903374Z",
+      "name": "original discovery before no-replay resume"
+    },
+    {
+      "at": "2026-11-28T09:01:42.3030598Z",
+      "name": "one owned endpoint"
+    },
+    {
+      "at": "2026-11-28T09:01:42.6368040Z",
+      "name": "owned foreground"
+    },
+    {
+      "at": "2026-11-28T09:01:42.6703095Z",
+      "name": "independent explicit A receipt verified; no replay"
+    },
+    {
+      "at": "2026-11-28T09:01:43.2422107Z",
+      "name": "original B terminal"
+    },
+    {
+      "at": "2026-11-28T09:01:44.3726954Z",
+      "name": "F7 128-item library"
+    },
+    {
+      "at": "2026-11-28T09:01:45.0011677Z",
+      "name": "global preview"
+    },
+    {
+      "at": "2026-11-28T09:01:45.0856074Z",
+      "name": "global pasted draft"
+    },
+    {
+      "at": "2026-11-28T09:01:45.1230073Z",
+      "name": "explicit B once"
+    },
+    {
+      "at": "2026-11-28T09:01:46.2814407Z",
+      "name": "F7 128-item library"
+    },
+    {
+      "at": "2026-11-28T09:01:46.5650424Z",
+      "name": "cancel closed"
+    },
+    {
+      "at": "2026-11-28T09:01:48.1251411Z",
+      "name": "F7 128-item library"
+    },
+    {
+      "at": "2026-11-28T09:01:48.4197807Z",
+      "name": "cancel closed"
+    },
+    {
+      "at": "2026-11-28T09:01:50.1881491Z",
+      "name": "F7 128-item library"
+    },
+    {
+      "at": "2026-11-28T09:01:50.4745248Z",
+      "name": "cancel closed"
+    },
+    {
+      "at": "2026-11-28T09:01:52.2314897Z",
+      "name": "F7 128-item library"
+    },
+    {
+      "at": "2026-11-28T09:01:52.5237352Z",
+      "name": "cancel closed"
+    },
+    {
+      "at": "2026-11-28T09:01:54.3050041Z",
+      "name": "F7 128-item library"
+    },
+    {
+      "at": "2026-11-28T09:01:54.8424472Z",
+      "name": "cancel closed"
+    },
+    {
+      "at": "2026-11-28T09:01:56.5882374Z",
+      "name": "F7 128-item library"
+    },
+    {
+      "at": "2026-11-28T09:01:57.1280124Z",
+      "name": "cancel closed"
+    },
+    {
+      "at": "2026-11-28T09:01:59.1599900Z",
+      "name": "F7 128-item library"
+    },
+    {
+      "at": "2026-11-28T09:01:59.4453498Z",
+      "name": "cancel closed"
+    },
+    {
+      "at": "2026-11-28T09:02:01.1888273Z",
+      "name": "F7 128-item library"
+    },
+    {
+      "at": "2026-11-28T09:02:01.4905372Z",
+      "name": "cancel closed"
+    },
+    {
+      "at": "2026-11-28T09:02:03.3102266Z",
+      "name": "F7 128-item library"
+    },
+    {
+      "at": "2026-11-28T09:02:03.5845196Z",
+      "name": "cancel closed"
+    },
+    {
+      "at": "2026-11-28T09:02:05.3707292Z",
+      "name": "F7 128-item library"
+    },
+    {
+      "at": "2026-11-28T09:02:05.9037211Z",
+      "name": "cancel closed"
+    },
+    {
+      "at": "2026-11-28T09:02:07.9106081Z",
+      "name": "F7 128-item library"
+    },
+    {
+      "at": "2026-11-28T09:02:08.1745803Z",
+      "name": "cancel closed"
+    },
+    {
+      "at": "2026-11-28T09:02:10.2205725Z",
+      "name": "F7 128-item library"
+    },
+    {
+      "at": "2026-11-28T09:02:10.5122663Z",
+      "name": "cancel closed"
+    },
+    {
+      "at": "2026-11-28T09:02:12.2777328Z",
+      "name": "F7 128-item library"
+    },
+    {
+      "at": "2026-11-28T09:02:12.5716044Z",
+      "name": "cancel closed"
+    },
+    {
+      "at": "2026-11-28T09:02:14.3151227Z",
+      "name": "F7 128-item library"
+    },
+    {
+      "at": "2026-11-28T09:02:14.6266706Z",
+      "name": "cancel closed"
+    },
+    {
+      "at": "2026-11-28T09:02:16.1159800Z",
+      "name": "F7 128-item library"
+    },
+    {
+      "at": "2026-11-28T09:02:16.4080275Z",
+      "name": "cancel closed"
+    },
+    {
+      "at": "2026-11-28T09:02:18.1938211Z",
+      "name": "F7 128-item library"
+    },
+    {
+      "at": "2026-11-28T09:02:18.4733248Z",
+      "name": "cancel closed"
+    },
+    {
+      "at": "2026-11-28T09:02:20.2835582Z",
+      "name": "F7 128-item library"
+    },
+    {
+      "at": "2026-11-28T09:02:20.5546999Z",
+      "name": "cancel closed"
+    },
+    {
+      "at": "2026-11-28T09:02:22.3329457Z",
+      "name": "F7 128-item library"
+    },
+    {
+      "at": "2026-11-28T09:02:22.6305427Z",
+      "name": "cancel closed"
+    },
+    {
+      "at": "2026-11-28T09:02:24.1211291Z",
+      "name": "F7 128-item library"
+    },
+    {
+      "at": "2026-11-28T09:02:24.4239188Z",
+      "name": "cancel closed"
+    },
+    {
+      "at": "2026-11-28T09:02:26.2231340Z",
+      "name": "F7 128-item library"
+    },
+    {
+      "at": "2026-11-28T09:02:26.5261604Z",
+      "name": "cancel closed"
+    },
+    {
+      "at": "2026-11-28T09:02:28.0905595Z",
+      "name": "original discovery after actions"
+    },
+    {
+      "at": "2026-11-28T09:02:28.1821904Z",
+      "name": "management focus"
+    },
+    {
+      "at": "2026-11-28T09:02:28.3180269Z",
+      "name": "normal UI and host exit"
+    },
+    {
+      "at": "2026-11-28T09:02:28.8941658Z",
+      "name": "original discovery after UI close"
+    }
+  ],
+  "memory": [
+    {
+      "phase": "baseline",
+      "working_set": 28241920,
+      "private_bytes": 62128128,
+      "at": "2026-11-28T08:42:13.1287020Z"
+    },
+    {
+      "phase": "resume-baseline",
+      "working_set": 30683136,
+      "private_bytes": 63614976,
+      "at": "2026-11-28T08:46:05.1662686Z"
+    },
+    {
+      "phase": "first-list",
+      "working_set": 32182272,
+      "private_bytes": 64667648,
+      "at": "2026-11-28T08:46:06.6998439Z"
+    },
+    {
+      "phase": "preview",
+      "working_set": 33394688,
+      "private_bytes": 65822720,
+      "at": "2026-11-28T08:46:07.4536877Z"
+    },
+    {
+      "phase": "closed-0",
+      "working_set": 22142976,
+      "private_bytes": 64892928,
+      "at": "2026-11-28T09:01:47.2237185Z"
+    },
+    {
+      "phase": "closed-1",
+      "working_set": 21012480,
+      "private_bytes": 63737856,
+      "at": "2026-11-28T09:01:49.0433982Z"
+    },
+    {
+      "phase": "closed-2",
+      "working_set": 21127168,
+      "private_bytes": 63852544,
+      "at": "2026-11-28T09:01:51.0892110Z"
+    },
+    {
+      "phase": "closed-3",
+      "working_set": 21835776,
+      "private_bytes": 64589824,
+      "at": "2026-11-28T09:01:53.1527652Z"
+    },
+    {
+      "phase": "closed-4",
+      "working_set": 21553152,
+      "private_bytes": 64262144,
+      "at": "2026-11-28T09:01:55.4727784Z"
+    },
+    {
+      "phase": "closed-5",
+      "working_set": 22077440,
+      "private_bytes": 64811008,
+      "at": "2026-11-28T09:01:57.7569814Z"
+    },
+    {
+      "phase": "closed-6",
+      "working_set": 21020672,
+      "private_bytes": 63721472,
+      "at": "2026-11-28T09:02:00.0697195Z"
+    },
+    {
+      "phase": "closed-7",
+      "working_set": 20819968,
+      "private_bytes": 63508480,
+      "at": "2026-11-28T09:02:02.1208271Z"
+    },
+    {
+      "phase": "closed-8",
+      "working_set": 21254144,
+      "private_bytes": 63885312,
+      "at": "2026-11-28T09:02:04.2014651Z"
+    },
+    {
+      "phase": "closed-9",
+      "working_set": 22188032,
+      "private_bytes": 64892928,
+      "at": "2026-11-28T09:02:06.5443172Z"
+    },
+    {
+      "phase": "closed-10",
+      "working_set": 22016000,
+      "private_bytes": 64339968,
+      "at": "2026-11-28T09:02:08.8034430Z"
+    },
+    {
+      "phase": "closed-11",
+      "working_set": 21823488,
+      "private_bytes": 64151552,
+      "at": "2026-11-28T09:02:11.1411965Z"
+    },
+    {
+      "phase": "closed-12",
+      "working_set": 21934080,
+      "private_bytes": 64253952,
+      "at": "2026-11-28T09:02:13.1977422Z"
+    },
+    {
+      "phase": "closed-13",
+      "working_set": 22986752,
+      "private_bytes": 65409024,
+      "at": "2026-11-28T09:02:15.2521132Z"
+    },
+    {
+      "phase": "closed-14",
+      "working_set": 21991424,
+      "private_bytes": 64344064,
+      "at": "2026-11-28T09:02:17.0369831Z"
+    },
+    {
+      "phase": "closed-15",
+      "working_set": 21790720,
+      "private_bytes": 64122880,
+      "at": "2026-11-28T09:02:19.0969414Z"
+    },
+    {
+      "phase": "closed-16",
+      "working_set": 21700608,
+      "private_bytes": 64040960,
+      "at": "2026-11-28T09:02:21.1737631Z"
+    },
+    {
+      "phase": "closed-17",
+      "working_set": 21848064,
+      "private_bytes": 64147456,
+      "at": "2026-11-28T09:02:23.2536875Z"
+    },
+    {
+      "phase": "closed-18",
+      "working_set": 21209088,
+      "private_bytes": 63508480,
+      "at": "2026-11-28T09:02:25.0527800Z"
+    },
+    {
+      "phase": "closed-19",
+      "working_set": 21716992,
+      "private_bytes": 64049152,
+      "at": "2026-11-28T09:02:27.1622443Z"
+    }
+  ],
+  "manager_exit": "0",
+  "error": null,
+  "foreground_request": true,
+  "original_runs": [
+    {
+      "session_id": "e5b46cd9eba8b251e623e4f2c874cf39",
+      "run_id": "cc37bbf10a0e9c1117644fc2ec8d5d42",
+      "backend_id": "asd_e5b46cd9eba8b251e623e4f2c874cf39_cc37bbf10a0e9c1117644fc2ec8d5d42",
+      "title": "Snippet A",
+      "command": "<home>\\asd-snippets-verify-20261128\\desktop1\\asd-fixture.exe",
+      "terminal_state": "available"
+    },
+    {
+      "session_id": "a68e4e5b866ddae9aa4b8dba54841f1c",
+      "run_id": "333f9ab1517cb772a37634a7919840c6",
+      "backend_id": "asd_a68e4e5b866ddae9aa4b8dba54841f1c_333f9ab1517cb772a37634a7919840c6",
+      "title": "Snippet B",
+      "command": "<home>\\asd-snippets-verify-20261128\\desktop1\\asd-fixture.exe",
+      "terminal_state": "available"
+    }
+  ],
+  "tree": [
+    {
+      "phase": "baseline",
+      "processes": [
+        {
+          "private_bytes": 3182592,
+          "working_set": 9519104,
+          "pid": 19364,
+          "filetime": "134403289226056587",
+          "image": "<home>\\asd-snippets-verify-20261128\\desktop1\\package\\terminal-runtime\\psmux.exe"
+        },
+        {
+          "private_bytes": 48676864,
+          "working_set": 45957120,
+          "pid": 4248,
+          "filetime": "134403289231352778",
+          "image": "<home>\\asd-snippets-verify-20261128\\desktop1\\asd-fixture.exe"
+        },
+        {
+          "private_bytes": 2039808,
+          "working_set": 8298496,
+          "pid": 21644,
+          "filetime": "134403289246150965",
+          "image": "<home>\\asd-snippets-verify-20261128\\desktop1\\package\\terminal-runtime\\psmux.exe"
+        },
+        {
+          "private_bytes": 48926720,
+          "working_set": 10170368,
+          "pid": 17748,
+          "filetime": "134403289247273048",
+          "image": "<home>\\asd-snippets-verify-20261128\\desktop1\\asd-fixture.exe"
+        },
+        {
+          "private_bytes": 84344832,
+          "working_set": 80879616,
+          "pid": 19004,
+          "filetime": "134403289272553324",
+          "image": "<home>\\asd-snippets-verify-20261128\\desktop1\\package\\terminal-host\\WindowsTerminal.exe"
+        },
+        {
+          "private_bytes": 2170880,
+          "working_set": 8871936,
+          "pid": 15436,
+          "filetime": "134403289279442692",
+          "image": "<home>\\asd-snippets-verify-20261128\\desktop1\\package\\terminal-host\\OpenConsole.exe"
+        },
+        {
+          "private_bytes": 63049728,
+          "working_set": 29184000,
+          "pid": 17976,
+          "filetime": "134403289280117080",
+          "image": "<home>\\asd-snippets-verify-20261128\\desktop1\\package\\asd.exe"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "phase": "resume-baseline",
+      "processes": [
+        {
+          "private_bytes": 3104768,
+          "working_set": 9736192,
+          "pid": 19364,
+          "filetime": "134403289226056587",
+          "image": "<home>\\asd-snippets-verify-20261128\\desktop1\\package\\terminal-runtime\\psmux.exe"
+        },
+        {
+          "private_bytes": 48619520,
+          "working_set": 45932544,
+          "pid": 4248,
+          "filetime": "134403289231352778",
+          "image": "<home>\\asd-snippets-verify-20261128\\desktop1\\asd-fixture.exe"
+        },
+        {
+          "private_bytes": 2199552,
+          "working_set": 8527872,
+          "pid": 21644,
+          "filetime": "134403289246150965",
+          "image": "<home>\\asd-snippets-verify-20261128\\desktop1\\package\\terminal-runtime\\psmux.exe"
+        },
+        {
+          "private_bytes": 48865280,
+          "working_set": 10141696,
+          "pid": 17748,
+          "filetime": "134403289247273048",
+          "image": "<home>\\asd-snippets-verify-20261128\\desktop1\\asd-fixture.exe"
+        },
+        {
+          "private_bytes": 83853312,
+          "working_set": 80371712,
+          "pid": 19004,
+          "filetime": "134403289272553324",
+          "image": "<home>\\asd-snippets-verify-20261128\\desktop1\\package\\terminal-host\\WindowsTerminal.exe"
+        },
+        {
+          "private_bytes": 2121728,
+          "working_set": 8851456,
+          "pid": 15436,
+          "filetime": "134403289279442692",
+          "image": "<home>\\asd-snippets-verify-20261128\\desktop1\\package\\terminal-host\\OpenConsole.exe"
+        },
+        {
+          "private_bytes": 64471040,
+          "working_set": 31551488,
+          "pid": 17976,
+          "filetime": "134403289280117080",
+          "image": "<home>\\asd-snippets-verify-20261128\\desktop1\\package\\asd.exe"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "phase": "list",
+      "processes": [
+        {
+          "private_bytes": 3112960,
+          "working_set": 9748480,
+          "pid": 19364,
+          "filetime": "134403289226056587",
+          "image": "<home>\\asd-snippets-verify-20261128\\desktop1\\package\\terminal-runtime\\psmux.exe"
+        },
+        {
+          "private_bytes": 48619520,
+          "working_set": 45932544,
+          "pid": 4248,
+          "filetime": "134403289231352778",
+          "image": "<home>\\asd-snippets-verify-20261128\\desktop1\\asd-fixture.exe"
+        },
+        {
+          "private_bytes": 2199552,
+          "working_set": 8527872,
+          "pid": 21644,
+          "filetime": "134403289246150965",
+          "image": "<home>\\asd-snippets-verify-20261128\\desktop1\\package\\terminal-runtime\\psmux.exe"
+        },
+        {
+          "private_bytes": 48865280,
+          "working_set": 10141696,
+          "pid": 17748,
+          "filetime": "134403289247273048",
+          "image": "<home>\\asd-snippets-verify-20261128\\desktop1\\asd-fixture.exe"
+        },
+        {
+          "private_bytes": 84033536,
+          "working_set": 80900096,
+          "pid": 19004,
+          "filetime": "134403289272553324",
+          "image": "<home>\\asd-snippets-verify-20261128\\desktop1\\package\\terminal-host\\WindowsTerminal.exe"
+        },
+        {
+          "private_bytes": 2142208,
+          "working_set": 8871936,
+          "pid": 15436,
+          "filetime": "134403289279442692",
+          "image": "<home>\\asd-snippets-verify-20261128\\desktop1\\package\\terminal-host\\OpenConsole.exe"
+        },
+        {
+          "private_bytes": 64798720,
+          "working_set": 32366592,
+          "pid": 17976,
+          "filetime": "134403289280117080",
+          "image": "<home>\\asd-snippets-verify-20261128\\desktop1\\package\\asd.exe"
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "phase": "closed-19",
+      "processes": [
+        {
+          "private_bytes": 3014656,
+          "working_set": 6545408,
+          "pid": 19364,
+          "filetime": "134403289226056587",
+          "image": "<home>\\asd-snippets-verify-20261128\\desktop1\\package\\terminal-runtime\\psmux.exe"
+        },
+        {
+          "private_bytes": 48734208,
+          "working_set": 42434560,
+          "pid": 4248,
+          "filetime": "134403289231352778",
+          "image": "<home>\\asd-snippets-verify-20261128\\desktop1\\asd-fixture.exe"
+        },
+        {
+          "private_bytes": 3678208,
+          "working_set": 7200768,
+          "pid": 21644,
+          "filetime": "134403289246150965",
+          "image": "<home>\\asd-snippets-verify-20261128\\desktop1\\package\\terminal-runtime\\psmux.exe"
+        },
+        {
+          "private_bytes": 48869376,
+          "working_set": 4550656,
+          "pid": 17748,
+          "filetime": "134403289247273048",
+          "image": "<home>\\asd-snippets-verify-20261128\\desktop1\\asd-fixture.exe"
+        },
+        {
+          "private_bytes": 84369408,
+          "working_set": 35561472,
+          "pid": 19004,
+          "filetime": "134403289272553324",
+          "image": "<home>\\asd-snippets-verify-20261128\\desktop1\\package\\terminal-host\\WindowsTerminal.exe"
+        },
+        {
+          "private_bytes": 2142208,
+          "working_set": 5107712,
+          "pid": 15436,
+          "filetime": "134403289279442692",
+          "image": "<home>\\asd-snippets-verify-20261128\\desktop1\\package\\terminal-host\\OpenConsole.exe"
+        },
+        {
+          "private_bytes": 64622592,
+          "working_set": 22298624,
+          "pid": 17976,
+          "filetime": "134403289280117080",
+          "image": "<home>\\asd-snippets-verify-20261128\\desktop1\\package\\asd.exe"
+        }
+      ],
+      "gaps": []
+    }
+  ],
+  "manager": {
+    "pid": 17976,
+    "filetime": "134403289280117080",
+    "image": "<home>\\asd-snippets-verify-20261128\\desktop1\\package\\asd.exe"
+  }
+}

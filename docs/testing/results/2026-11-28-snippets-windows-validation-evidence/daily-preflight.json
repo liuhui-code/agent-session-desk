@@ -1,0 +1,22 @@
+{
+  "config_hashes": [
+    {
+      "sha256": "62cb7348ac0ef0b165ac91229cc1987cb04484789d1a4efb37f93bc90e81ff9a",
+      "name": "local-host.json"
+    },
+    {
+      "sha256": "6cef62a40ba144248c78c3a490c787d81749766e434fe4cc42b7e8e2bfd4a380",
+      "name": "data/state/ui.toml"
+    }
+  ],
+  "active_managers": [
+    {
+      "pid": 24184,
+      "filetime": "134403283079841689",
+      "image_name": "asd-updater-db63c5a.exe"
+    }
+  ],
+  "manifest_present": true,
+  "entrypoint": "asd-updater-db63c5a.exe",
+  "entry_sha256": "069e4d2ed87ed08696ea12ee0cfddb0ab0a0d42efd44534d5324a84a207970e9"
+}

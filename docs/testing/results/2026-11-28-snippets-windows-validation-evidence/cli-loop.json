@@ -1,0 +1,639 @@
+{
+  "pairs": [
+    {
+      "iteration": 0,
+      "normal_fixture_exit_count": 2,
+      "original_runs": [
+        {
+          "session_id": "20c8a9a9bc9dc7e756c4e59fbc145490",
+          "run_id": "3d5a01566c11ac762515bcc6ccab12e1",
+          "backend_id": "asd_20c8a9a9bc9dc7e756c4e59fbc145490_3d5a01566c11ac762515bcc6ccab12e1",
+          "title": "Verify00",
+          "command": "<home>\\asd-snippets-verify-20261128\\cli-loop\\asd-fixture.exe",
+          "terminal_state": "available"
+        },
+        {
+          "session_id": "b767e4368083f0e28dd66fe1f2afd986",
+          "run_id": "5b21622db827fa60035007a6ad6d9c74",
+          "backend_id": "asd_b767e4368083f0e28dd66fe1f2afd986_5b21622db827fa60035007a6ad6d9c74",
+          "title": "Verify01",
+          "command": "<home>\\asd-snippets-verify-20261128\\cli-loop\\asd-fixture.exe",
+          "terminal_state": "available"
+        }
+      ]
+    },
+    {
+      "iteration": 1,
+      "normal_fixture_exit_count": 2,
+      "original_runs": [
+        {
+          "session_id": "e5f60bdb656ea71944fc2b95eeb1d114",
+          "run_id": "1dc6266e846cf98fe2dad0cca9e53853",
+          "backend_id": "asd_e5f60bdb656ea71944fc2b95eeb1d114_1dc6266e846cf98fe2dad0cca9e53853",
+          "title": "Verify10",
+          "command": "<home>\\asd-snippets-verify-20261128\\cli-loop\\asd-fixture.exe",
+          "terminal_state": "available"
+        },
+        {
+          "session_id": "da03d823fd54d97f4edf42d1281cc9bf",
+          "run_id": "452ad197d6ef63f3afab92b992995e96",
+          "backend_id": "asd_da03d823fd54d97f4edf42d1281cc9bf_452ad197d6ef63f3afab92b992995e96",
+          "title": "Verify11",
+          "command": "<home>\\asd-snippets-verify-20261128\\cli-loop\\asd-fixture.exe",
+          "terminal_state": "available"
+        }
+      ]
+    },
+    {
+      "iteration": 2,
+      "normal_fixture_exit_count": 2,
+      "original_runs": [
+        {
+          "session_id": "7646315a8daa8b49b30ea12527ff4ba2",
+          "run_id": "a818a0706dcf31aeebdcdf961940beee",
+          "backend_id": "asd_7646315a8daa8b49b30ea12527ff4ba2_a818a0706dcf31aeebdcdf961940beee",
+          "title": "Verify20",
+          "command": "<home>\\asd-snippets-verify-20261128\\cli-loop\\asd-fixture.exe",
+          "terminal_state": "available"
+        },
+        {
+          "session_id": "da743e528f85b62fb8af0316f5806fdb",
+          "run_id": "6e28270c11a51127a759f3cf2872c1c9",
+          "backend_id": "asd_da743e528f85b62fb8af0316f5806fdb_6e28270c11a51127a759f3cf2872c1c9",
+          "title": "Verify21",
+          "command": "<home>\\asd-snippets-verify-20261128\\cli-loop\\asd-fixture.exe",
+          "terminal_state": "available"
+        }
+      ]
+    }
+  ],
+  "result": "passed",
+  "forced_fixture": 0,
+  "calls": [
+    {
+      "args": [
+        "start",
+        "--name",
+        "Verify00",
+        "--cwd",
+        "<home>\\asd-snippets-verify-20261128\\cli-loop",
+        "--env",
+        "ASD_FIXTURE_REPORT_PATH=<home>\\asd-snippets-verify-20261128\\cli-loop\\fixture-0-0.jsonl",
+        "--",
+        "<home>\\asd-snippets-verify-20261128\\cli-loop\\asd-fixture.exe",
+        "VERIFY_0_0"
+      ],
+      "elapsed_ms": 1995,
+      "stdout": "{\n  \"session_id\": \"20c8a9a9bc9dc7e756c4e59fbc145490\",\n  \"run_id\": \"3d5a01566c11ac762515bcc6ccab12e1\",\n  \"backend_id\": \"asd_20c8a9a9bc9dc7e756c4e59fbc145490_3d5a01566c11ac762515bcc6ccab12e1\",\n  \"title\": \"Verify00\",\n  \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\cli-loop\\\\asd-fixture.exe\",\n  \"terminal_state\": \"available\"\n}",
+      "exit": 0
+    },
+    {
+      "args": [
+        "start",
+        "--name",
+        "Verify01",
+        "--cwd",
+        "<home>\\asd-snippets-verify-20261128\\cli-loop",
+        "--env",
+        "ASD_FIXTURE_REPORT_PATH=<home>\\asd-snippets-verify-20261128\\cli-loop\\fixture-0-1.jsonl",
+        "--",
+        "<home>\\asd-snippets-verify-20261128\\cli-loop\\asd-fixture.exe",
+        "VERIFY_0_1"
+      ],
+      "elapsed_ms": 361,
+      "stdout": "{\n  \"session_id\": \"b767e4368083f0e28dd66fe1f2afd986\",\n  \"run_id\": \"5b21622db827fa60035007a6ad6d9c74\",\n  \"backend_id\": \"asd_b767e4368083f0e28dd66fe1f2afd986_5b21622db827fa60035007a6ad6d9c74\",\n  \"title\": \"Verify01\",\n  \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\cli-loop\\\\asd-fixture.exe\",\n  \"terminal_state\": \"available\"\n}",
+      "exit": 0
+    },
+    {
+      "args": [
+        "list",
+        "--json"
+      ],
+      "elapsed_ms": 256,
+      "stdout": "[\n  {\n    \"session_id\": \"20c8a9a9bc9dc7e756c4e59fbc145490\",\n    \"run_id\": \"3d5a01566c11ac762515bcc6ccab12e1\",\n    \"backend_id\": \"asd_20c8a9a9bc9dc7e756c4e59fbc145490_3d5a01566c11ac762515bcc6ccab12e1\",\n    \"title\": \"Verify00\",\n    \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\cli-loop\\\\asd-fixture.exe\",\n    \"terminal_state\": \"available\"\n  },\n  {\n    \"session_id\": \"b767e4368083f0e28dd66fe1f2afd986\",\n    \"run_id\": \"5b21622db827fa60035007a6ad6d9c74\",\n    \"backend_id\": \"asd_b767e4368083f0e28dd66fe1f2afd986_5b21622db827fa60035007a6ad6d9c74\",\n    \"title\": \"Verify01\",\n    \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\cli-loop\\\\asd-fixture.exe\",\n    \"terminal_state\": \"available\"\n  }\n]",
+      "exit": 0
+    },
+    {
+      "args": [
+        "preview",
+        "20c8a9a9bc9dc7e756c4e59fbc145490"
+      ],
+      "elapsed_ms": 295,
+      "stdout": "{\n  \"session_id\": \"20c8a9a9bc9dc7e756c4e59fbc145490\",\n  \"run_id\": \"3d5a01566c11ac762515bcc6ccab12e1\",\n  \"kind\": \"screen_snapshot\",\n  \"snapshot\": {\n    \"text\": \"{\\\"event\\\":\\\"started\\\",\\\"pid\\\":8768,\\\"args\\\":[\\\"VERIFY_0_0\\\"],\\\"cwd\\\":\\\"<home>\\\\\\\\asd-snippets-verify-20261128\\\\\\\\cli-lo\\nop\\\",\\\"env\\\":{}}\\nCLI fixture · 中文 · é · 🧪 — type exit to end\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\",\n    \"truncated\": false\n  }\n}",
+      "exit": 0
+    },
+    {
+      "args": [
+        "preview",
+        "b767e4368083f0e28dd66fe1f2afd986"
+      ],
+      "elapsed_ms": 253,
+      "stdout": "{\n  \"session_id\": \"b767e4368083f0e28dd66fe1f2afd986\",\n  \"run_id\": \"5b21622db827fa60035007a6ad6d9c74\",\n  \"kind\": \"screen_snapshot\",\n  \"snapshot\": {\n    \"text\": \"{\\\"event\\\":\\\"started\\\",\\\"pid\\\":12472,\\\"args\\\":[\\\"VERIFY_0_1\\\"],\\\"cwd\\\":\\\"<home>\\\\\\\\asd-snippets-verify-20261128\\\\\\\\cli-l\\noop\\\",\\\"env\\\":{}}\\nCLI fixture · 中文 · é · 🧪 — type exit to end\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\",\n    \"truncated\": false\n  }\n}",
+      "exit": 0
+    },
+    {
+      "args": [
+        "list",
+        "--json"
+      ],
+      "elapsed_ms": 257,
+      "stdout": "[\n  {\n    \"session_id\": \"20c8a9a9bc9dc7e756c4e59fbc145490\",\n    \"run_id\": \"3d5a01566c11ac762515bcc6ccab12e1\",\n    \"backend_id\": \"asd_20c8a9a9bc9dc7e756c4e59fbc145490_3d5a01566c11ac762515bcc6ccab12e1\",\n    \"title\": \"Verify00\",\n    \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\cli-loop\\\\asd-fixture.exe\",\n    \"terminal_state\": \"available\"\n  },\n  {\n    \"session_id\": \"b767e4368083f0e28dd66fe1f2afd986\",\n    \"run_id\": \"5b21622db827fa60035007a6ad6d9c74\",\n    \"backend_id\": \"asd_b767e4368083f0e28dd66fe1f2afd986_5b21622db827fa60035007a6ad6d9c74\",\n    \"title\": \"Verify01\",\n    \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\cli-loop\\\\asd-fixture.exe\",\n    \"terminal_state\": \"available\"\n  }\n]",
+      "exit": 0
+    },
+    {
+      "args": [
+        "preview",
+        "20c8a9a9bc9dc7e756c4e59fbc145490"
+      ],
+      "elapsed_ms": 341,
+      "stdout": "{\n  \"session_id\": \"20c8a9a9bc9dc7e756c4e59fbc145490\",\n  \"run_id\": \"3d5a01566c11ac762515bcc6ccab12e1\",\n  \"kind\": \"screen_snapshot\",\n  \"snapshot\": {\n    \"text\": \"{\\\"event\\\":\\\"started\\\",\\\"pid\\\":8768,\\\"args\\\":[\\\"VERIFY_0_0\\\"],\\\"cwd\\\":\\\"<home>\\\\\\\\asd-snippets-verify-20261128\\\\\\\\cli-lo\\nop\\\",\\\"env\\\":{}}\\nCLI fixture · 中文 · é · 🧪 — type exit to end\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\",\n    \"truncated\": false\n  }\n}",
+      "exit": 0
+    },
+    {
+      "args": [
+        "preview",
+        "b767e4368083f0e28dd66fe1f2afd986"
+      ],
+      "elapsed_ms": 254,
+      "stdout": "{\n  \"session_id\": \"b767e4368083f0e28dd66fe1f2afd986\",\n  \"run_id\": \"5b21622db827fa60035007a6ad6d9c74\",\n  \"kind\": \"screen_snapshot\",\n  \"snapshot\": {\n    \"text\": \"{\\\"event\\\":\\\"started\\\",\\\"pid\\\":12472,\\\"args\\\":[\\\"VERIFY_0_1\\\"],\\\"cwd\\\":\\\"<home>\\\\\\\\asd-snippets-verify-20261128\\\\\\\\cli-l\\noop\\\",\\\"env\\\":{}}\\nCLI fixture · 中文 · é · 🧪 — type exit to end\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\",\n    \"truncated\": false\n  }\n}",
+      "exit": 0
+    },
+    {
+      "args": [
+        "list",
+        "--json"
+      ],
+      "elapsed_ms": 182,
+      "stdout": "[\n  {\n    \"session_id\": \"20c8a9a9bc9dc7e756c4e59fbc145490\",\n    \"run_id\": \"3d5a01566c11ac762515bcc6ccab12e1\",\n    \"backend_id\": \"asd_20c8a9a9bc9dc7e756c4e59fbc145490_3d5a01566c11ac762515bcc6ccab12e1\",\n    \"title\": \"Verify00\",\n    \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\cli-loop\\\\asd-fixture.exe\",\n    \"terminal_state\": \"available\"\n  },\n  {\n    \"session_id\": \"b767e4368083f0e28dd66fe1f2afd986\",\n    \"run_id\": \"5b21622db827fa60035007a6ad6d9c74\",\n    \"backend_id\": \"asd_b767e4368083f0e28dd66fe1f2afd986_5b21622db827fa60035007a6ad6d9c74\",\n    \"title\": \"Verify01\",\n    \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\cli-loop\\\\asd-fixture.exe\",\n    \"terminal_state\": \"available\"\n  }\n]",
+      "exit": 0
+    },
+    {
+      "args": [
+        "preview",
+        "20c8a9a9bc9dc7e756c4e59fbc145490"
+      ],
+      "elapsed_ms": 349,
+      "stdout": "{\n  \"session_id\": \"20c8a9a9bc9dc7e756c4e59fbc145490\",\n  \"run_id\": \"3d5a01566c11ac762515bcc6ccab12e1\",\n  \"kind\": \"screen_snapshot\",\n  \"snapshot\": {\n    \"text\": \"{\\\"event\\\":\\\"started\\\",\\\"pid\\\":8768,\\\"args\\\":[\\\"VERIFY_0_0\\\"],\\\"cwd\\\":\\\"<home>\\\\\\\\asd-snippets-verify-20261128\\\\\\\\cli-lo\\nop\\\",\\\"env\\\":{}}\\nCLI fixture · 中文 · é · 🧪 — type exit to end\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\",\n    \"truncated\": false\n  }\n}",
+      "exit": 0
+    },
+    {
+      "args": [
+        "preview",
+        "b767e4368083f0e28dd66fe1f2afd986"
+      ],
+      "elapsed_ms": 297,
+      "stdout": "{\n  \"session_id\": \"b767e4368083f0e28dd66fe1f2afd986\",\n  \"run_id\": \"5b21622db827fa60035007a6ad6d9c74\",\n  \"kind\": \"screen_snapshot\",\n  \"snapshot\": {\n    \"text\": \"{\\\"event\\\":\\\"started\\\",\\\"pid\\\":12472,\\\"args\\\":[\\\"VERIFY_0_1\\\"],\\\"cwd\\\":\\\"<home>\\\\\\\\asd-snippets-verify-20261128\\\\\\\\cli-l\\noop\\\",\\\"env\\\":{}}\\nCLI fixture · 中文 · é · 🧪 — type exit to end\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\",\n    \"truncated\": false\n  }\n}",
+      "exit": 0
+    },
+    {
+      "args": [
+        "list",
+        "--json"
+      ],
+      "elapsed_ms": 187,
+      "stdout": "[\n  {\n    \"session_id\": \"20c8a9a9bc9dc7e756c4e59fbc145490\",\n    \"run_id\": \"3d5a01566c11ac762515bcc6ccab12e1\",\n    \"backend_id\": \"asd_20c8a9a9bc9dc7e756c4e59fbc145490_3d5a01566c11ac762515bcc6ccab12e1\",\n    \"title\": \"Verify00\",\n    \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\cli-loop\\\\asd-fixture.exe\",\n    \"terminal_state\": \"available\"\n  },\n  {\n    \"session_id\": \"b767e4368083f0e28dd66fe1f2afd986\",\n    \"run_id\": \"5b21622db827fa60035007a6ad6d9c74\",\n    \"backend_id\": \"asd_b767e4368083f0e28dd66fe1f2afd986_5b21622db827fa60035007a6ad6d9c74\",\n    \"title\": \"Verify01\",\n    \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\cli-loop\\\\asd-fixture.exe\",\n    \"terminal_state\": \"available\"\n  }\n]",
+      "exit": 0
+    },
+    {
+      "args": [
+        "preview",
+        "20c8a9a9bc9dc7e756c4e59fbc145490"
+      ],
+      "elapsed_ms": 278,
+      "stdout": "{\n  \"session_id\": \"20c8a9a9bc9dc7e756c4e59fbc145490\",\n  \"run_id\": \"3d5a01566c11ac762515bcc6ccab12e1\",\n  \"kind\": \"screen_snapshot\",\n  \"snapshot\": {\n    \"text\": \"{\\\"event\\\":\\\"started\\\",\\\"pid\\\":8768,\\\"args\\\":[\\\"VERIFY_0_0\\\"],\\\"cwd\\\":\\\"<home>\\\\\\\\asd-snippets-verify-20261128\\\\\\\\cli-lo\\nop\\\",\\\"env\\\":{}}\\nCLI fixture · 中文 · é · 🧪 — type exit to end\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\",\n    \"truncated\": false\n  }\n}",
+      "exit": 0
+    },
+    {
+      "args": [
+        "preview",
+        "b767e4368083f0e28dd66fe1f2afd986"
+      ],
+      "elapsed_ms": 333,
+      "stdout": "{\n  \"session_id\": \"b767e4368083f0e28dd66fe1f2afd986\",\n  \"run_id\": \"5b21622db827fa60035007a6ad6d9c74\",\n  \"kind\": \"screen_snapshot\",\n  \"snapshot\": {\n    \"text\": \"{\\\"event\\\":\\\"started\\\",\\\"pid\\\":12472,\\\"args\\\":[\\\"VERIFY_0_1\\\"],\\\"cwd\\\":\\\"<home>\\\\\\\\asd-snippets-verify-20261128\\\\\\\\cli-l\\noop\\\",\\\"env\\\":{}}\\nCLI fixture · 中文 · é · 🧪 — type exit to end\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\",\n    \"truncated\": false\n  }\n}",
+      "exit": 0
+    },
+    {
+      "args": [
+        "list",
+        "--json"
+      ],
+      "elapsed_ms": 219,
+      "stdout": "[\n  {\n    \"session_id\": \"20c8a9a9bc9dc7e756c4e59fbc145490\",\n    \"run_id\": \"3d5a01566c11ac762515bcc6ccab12e1\",\n    \"backend_id\": \"asd_20c8a9a9bc9dc7e756c4e59fbc145490_3d5a01566c11ac762515bcc6ccab12e1\",\n    \"title\": \"Verify00\",\n    \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\cli-loop\\\\asd-fixture.exe\",\n    \"terminal_state\": \"available\"\n  },\n  {\n    \"session_id\": \"b767e4368083f0e28dd66fe1f2afd986\",\n    \"run_id\": \"5b21622db827fa60035007a6ad6d9c74\",\n    \"backend_id\": \"asd_b767e4368083f0e28dd66fe1f2afd986_5b21622db827fa60035007a6ad6d9c74\",\n    \"title\": \"Verify01\",\n    \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\cli-loop\\\\asd-fixture.exe\",\n    \"terminal_state\": \"available\"\n  }\n]",
+      "exit": 0
+    },
+    {
+      "args": [
+        "preview",
+        "20c8a9a9bc9dc7e756c4e59fbc145490"
+      ],
+      "elapsed_ms": 245,
+      "stdout": "{\n  \"session_id\": \"20c8a9a9bc9dc7e756c4e59fbc145490\",\n  \"run_id\": \"3d5a01566c11ac762515bcc6ccab12e1\",\n  \"kind\": \"screen_snapshot\",\n  \"snapshot\": {\n    \"text\": \"{\\\"event\\\":\\\"started\\\",\\\"pid\\\":8768,\\\"args\\\":[\\\"VERIFY_0_0\\\"],\\\"cwd\\\":\\\"<home>\\\\\\\\asd-snippets-verify-20261128\\\\\\\\cli-lo\\nop\\\",\\\"env\\\":{}}\\nCLI fixture · 中文 · é · 🧪 — type exit to end\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\",\n    \"truncated\": false\n  }\n}",
+      "exit": 0
+    },
+    {
+      "args": [
+        "preview",
+        "b767e4368083f0e28dd66fe1f2afd986"
+      ],
+      "elapsed_ms": 293,
+      "stdout": "{\n  \"session_id\": \"b767e4368083f0e28dd66fe1f2afd986\",\n  \"run_id\": \"5b21622db827fa60035007a6ad6d9c74\",\n  \"kind\": \"screen_snapshot\",\n  \"snapshot\": {\n    \"text\": \"{\\\"event\\\":\\\"started\\\",\\\"pid\\\":12472,\\\"args\\\":[\\\"VERIFY_0_1\\\"],\\\"cwd\\\":\\\"<home>\\\\\\\\asd-snippets-verify-20261128\\\\\\\\cli-l\\noop\\\",\\\"env\\\":{}}\\nCLI fixture · 中文 · é · 🧪 — type exit to end\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\",\n    \"truncated\": false\n  }\n}",
+      "exit": 0
+    },
+    {
+      "args": [
+        "stop",
+        "20c8a9a9bc9dc7e756c4e59fbc145490"
+      ],
+      "elapsed_ms": 562,
+      "stdout": "{\n  \"session_id\": \"20c8a9a9bc9dc7e756c4e59fbc145490\",\n  \"run_id\": \"3d5a01566c11ac762515bcc6ccab12e1\",\n  \"result\": \"backend_session_stopped\"\n}",
+      "exit": 0
+    },
+    {
+      "args": [
+        "stop",
+        "b767e4368083f0e28dd66fe1f2afd986"
+      ],
+      "elapsed_ms": 469,
+      "stdout": "{\n  \"session_id\": \"b767e4368083f0e28dd66fe1f2afd986\",\n  \"run_id\": \"5b21622db827fa60035007a6ad6d9c74\",\n  \"result\": \"backend_session_stopped\"\n}",
+      "exit": 0
+    },
+    {
+      "args": [
+        "start",
+        "--name",
+        "Verify10",
+        "--cwd",
+        "<home>\\asd-snippets-verify-20261128\\cli-loop",
+        "--env",
+        "ASD_FIXTURE_REPORT_PATH=<home>\\asd-snippets-verify-20261128\\cli-loop\\fixture-1-0.jsonl",
+        "--",
+        "<home>\\asd-snippets-verify-20261128\\cli-loop\\asd-fixture.exe",
+        "VERIFY_1_0"
+      ],
+      "elapsed_ms": 417,
+      "stdout": "{\n  \"session_id\": \"e5f60bdb656ea71944fc2b95eeb1d114\",\n  \"run_id\": \"1dc6266e846cf98fe2dad0cca9e53853\",\n  \"backend_id\": \"asd_e5f60bdb656ea71944fc2b95eeb1d114_1dc6266e846cf98fe2dad0cca9e53853\",\n  \"title\": \"Verify10\",\n  \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\cli-loop\\\\asd-fixture.exe\",\n  \"terminal_state\": \"available\"\n}",
+      "exit": 0
+    },
+    {
+      "args": [
+        "start",
+        "--name",
+        "Verify11",
+        "--cwd",
+        "<home>\\asd-snippets-verify-20261128\\cli-loop",
+        "--env",
+        "ASD_FIXTURE_REPORT_PATH=<home>\\asd-snippets-verify-20261128\\cli-loop\\fixture-1-1.jsonl",
+        "--",
+        "<home>\\asd-snippets-verify-20261128\\cli-loop\\asd-fixture.exe",
+        "VERIFY_1_1"
+      ],
+      "elapsed_ms": 368,
+      "stdout": "{\n  \"session_id\": \"da03d823fd54d97f4edf42d1281cc9bf\",\n  \"run_id\": \"452ad197d6ef63f3afab92b992995e96\",\n  \"backend_id\": \"asd_da03d823fd54d97f4edf42d1281cc9bf_452ad197d6ef63f3afab92b992995e96\",\n  \"title\": \"Verify11\",\n  \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\cli-loop\\\\asd-fixture.exe\",\n  \"terminal_state\": \"available\"\n}",
+      "exit": 0
+    },
+    {
+      "args": [
+        "list",
+        "--json"
+      ],
+      "elapsed_ms": 280,
+      "stdout": "[\n  {\n    \"session_id\": \"e5f60bdb656ea71944fc2b95eeb1d114\",\n    \"run_id\": \"1dc6266e846cf98fe2dad0cca9e53853\",\n    \"backend_id\": \"asd_e5f60bdb656ea71944fc2b95eeb1d114_1dc6266e846cf98fe2dad0cca9e53853\",\n    \"title\": \"Verify10\",\n    \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\cli-loop\\\\asd-fixture.exe\",\n    \"terminal_state\": \"available\"\n  },\n  {\n    \"session_id\": \"da03d823fd54d97f4edf42d1281cc9bf\",\n    \"run_id\": \"452ad197d6ef63f3afab92b992995e96\",\n    \"backend_id\": \"asd_da03d823fd54d97f4edf42d1281cc9bf_452ad197d6ef63f3afab92b992995e96\",\n    \"title\": \"Verify11\",\n    \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\cli-loop\\\\asd-fixture.exe\",\n    \"terminal_state\": \"available\"\n  }\n]",
+      "exit": 0
+    },
+    {
+      "args": [
+        "preview",
+        "e5f60bdb656ea71944fc2b95eeb1d114"
+      ],
+      "elapsed_ms": 277,
+      "stdout": "{\n  \"session_id\": \"e5f60bdb656ea71944fc2b95eeb1d114\",\n  \"run_id\": \"1dc6266e846cf98fe2dad0cca9e53853\",\n  \"kind\": \"screen_snapshot\",\n  \"snapshot\": {\n    \"text\": \"{\\\"event\\\":\\\"started\\\",\\\"pid\\\":8880,\\\"args\\\":[\\\"VERIFY_1_0\\\"],\\\"cwd\\\":\\\"<home>\\\\\\\\asd-snippets-verify-20261128\\\\\\\\cli-lo\\nop\\\",\\\"env\\\":{}}\\nCLI fixture · 中文 · é · 🧪 — type exit to end\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\",\n    \"truncated\": false\n  }\n}",
+      "exit": 0
+    },
+    {
+      "args": [
+        "preview",
+        "da03d823fd54d97f4edf42d1281cc9bf"
+      ],
+      "elapsed_ms": 251,
+      "stdout": "{\n  \"session_id\": \"da03d823fd54d97f4edf42d1281cc9bf\",\n  \"run_id\": \"452ad197d6ef63f3afab92b992995e96\",\n  \"kind\": \"screen_snapshot\",\n  \"snapshot\": {\n    \"text\": \"{\\\"event\\\":\\\"started\\\",\\\"pid\\\":24192,\\\"args\\\":[\\\"VERIFY_1_1\\\"],\\\"cwd\\\":\\\"<home>\\\\\\\\asd-snippets-verify-20261128\\\\\\\\cli-l\\noop\\\",\\\"env\\\":{}}\\nCLI fixture · 中文 · é · 🧪 — type exit to end\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\",\n    \"truncated\": false\n  }\n}",
+      "exit": 0
+    },
+    {
+      "args": [
+        "list",
+        "--json"
+      ],
+      "elapsed_ms": 229,
+      "stdout": "[\n  {\n    \"session_id\": \"e5f60bdb656ea71944fc2b95eeb1d114\",\n    \"run_id\": \"1dc6266e846cf98fe2dad0cca9e53853\",\n    \"backend_id\": \"asd_e5f60bdb656ea71944fc2b95eeb1d114_1dc6266e846cf98fe2dad0cca9e53853\",\n    \"title\": \"Verify10\",\n    \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\cli-loop\\\\asd-fixture.exe\",\n    \"terminal_state\": \"available\"\n  },\n  {\n    \"session_id\": \"da03d823fd54d97f4edf42d1281cc9bf\",\n    \"run_id\": \"452ad197d6ef63f3afab92b992995e96\",\n    \"backend_id\": \"asd_da03d823fd54d97f4edf42d1281cc9bf_452ad197d6ef63f3afab92b992995e96\",\n    \"title\": \"Verify11\",\n    \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\cli-loop\\\\asd-fixture.exe\",\n    \"terminal_state\": \"available\"\n  }\n]",
+      "exit": 0
+    },
+    {
+      "args": [
+        "preview",
+        "e5f60bdb656ea71944fc2b95eeb1d114"
+      ],
+      "elapsed_ms": 325,
+      "stdout": "{\n  \"session_id\": \"e5f60bdb656ea71944fc2b95eeb1d114\",\n  \"run_id\": \"1dc6266e846cf98fe2dad0cca9e53853\",\n  \"kind\": \"screen_snapshot\",\n  \"snapshot\": {\n    \"text\": \"{\\\"event\\\":\\\"started\\\",\\\"pid\\\":8880,\\\"args\\\":[\\\"VERIFY_1_0\\\"],\\\"cwd\\\":\\\"<home>\\\\\\\\asd-snippets-verify-20261128\\\\\\\\cli-lo\\nop\\\",\\\"env\\\":{}}\\nCLI fixture · 中文 · é · 🧪 — type exit to end\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\",\n    \"truncated\": false\n  }\n}",
+      "exit": 0
+    },
+    {
+      "args": [
+        "preview",
+        "da03d823fd54d97f4edf42d1281cc9bf"
+      ],
+      "elapsed_ms": 248,
+      "stdout": "{\n  \"session_id\": \"da03d823fd54d97f4edf42d1281cc9bf\",\n  \"run_id\": \"452ad197d6ef63f3afab92b992995e96\",\n  \"kind\": \"screen_snapshot\",\n  \"snapshot\": {\n    \"text\": \"{\\\"event\\\":\\\"started\\\",\\\"pid\\\":24192,\\\"args\\\":[\\\"VERIFY_1_1\\\"],\\\"cwd\\\":\\\"<home>\\\\\\\\asd-snippets-verify-20261128\\\\\\\\cli-l\\noop\\\",\\\"env\\\":{}}\\nCLI fixture · 中文 · é · 🧪 — type exit to end\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\",\n    \"truncated\": false\n  }\n}",
+      "exit": 0
+    },
+    {
+      "args": [
+        "list",
+        "--json"
+      ],
+      "elapsed_ms": 181,
+      "stdout": "[\n  {\n    \"session_id\": \"e5f60bdb656ea71944fc2b95eeb1d114\",\n    \"run_id\": \"1dc6266e846cf98fe2dad0cca9e53853\",\n    \"backend_id\": \"asd_e5f60bdb656ea71944fc2b95eeb1d114_1dc6266e846cf98fe2dad0cca9e53853\",\n    \"title\": \"Verify10\",\n    \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\cli-loop\\\\asd-fixture.exe\",\n    \"terminal_state\": \"available\"\n  },\n  {\n    \"session_id\": \"da03d823fd54d97f4edf42d1281cc9bf\",\n    \"run_id\": \"452ad197d6ef63f3afab92b992995e96\",\n    \"backend_id\": \"asd_da03d823fd54d97f4edf42d1281cc9bf_452ad197d6ef63f3afab92b992995e96\",\n    \"title\": \"Verify11\",\n    \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\cli-loop\\\\asd-fixture.exe\",\n    \"terminal_state\": \"available\"\n  }\n]",
+      "exit": 0
+    },
+    {
+      "args": [
+        "preview",
+        "e5f60bdb656ea71944fc2b95eeb1d114"
+      ],
+      "elapsed_ms": 314,
+      "stdout": "{\n  \"session_id\": \"e5f60bdb656ea71944fc2b95eeb1d114\",\n  \"run_id\": \"1dc6266e846cf98fe2dad0cca9e53853\",\n  \"kind\": \"screen_snapshot\",\n  \"snapshot\": {\n    \"text\": \"{\\\"event\\\":\\\"started\\\",\\\"pid\\\":8880,\\\"args\\\":[\\\"VERIFY_1_0\\\"],\\\"cwd\\\":\\\"<home>\\\\\\\\asd-snippets-verify-20261128\\\\\\\\cli-lo\\nop\\\",\\\"env\\\":{}}\\nCLI fixture · 中文 · é · 🧪 — type exit to end\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\",\n    \"truncated\": false\n  }\n}",
+      "exit": 0
+    },
+    {
+      "args": [
+        "preview",
+        "da03d823fd54d97f4edf42d1281cc9bf"
+      ],
+      "elapsed_ms": 327,
+      "stdout": "{\n  \"session_id\": \"da03d823fd54d97f4edf42d1281cc9bf\",\n  \"run_id\": \"452ad197d6ef63f3afab92b992995e96\",\n  \"kind\": \"screen_snapshot\",\n  \"snapshot\": {\n    \"text\": \"{\\\"event\\\":\\\"started\\\",\\\"pid\\\":24192,\\\"args\\\":[\\\"VERIFY_1_1\\\"],\\\"cwd\\\":\\\"<home>\\\\\\\\asd-snippets-verify-20261128\\\\\\\\cli-l\\noop\\\",\\\"env\\\":{}}\\nCLI fixture · 中文 · é · 🧪 — type exit to end\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\",\n    \"truncated\": false\n  }\n}",
+      "exit": 0
+    },
+    {
+      "args": [
+        "list",
+        "--json"
+      ],
+      "elapsed_ms": 198,
+      "stdout": "[\n  {\n    \"session_id\": \"e5f60bdb656ea71944fc2b95eeb1d114\",\n    \"run_id\": \"1dc6266e846cf98fe2dad0cca9e53853\",\n    \"backend_id\": \"asd_e5f60bdb656ea71944fc2b95eeb1d114_1dc6266e846cf98fe2dad0cca9e53853\",\n    \"title\": \"Verify10\",\n    \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\cli-loop\\\\asd-fixture.exe\",\n    \"terminal_state\": \"available\"\n  },\n  {\n    \"session_id\": \"da03d823fd54d97f4edf42d1281cc9bf\",\n    \"run_id\": \"452ad197d6ef63f3afab92b992995e96\",\n    \"backend_id\": \"asd_da03d823fd54d97f4edf42d1281cc9bf_452ad197d6ef63f3afab92b992995e96\",\n    \"title\": \"Verify11\",\n    \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\cli-loop\\\\asd-fixture.exe\",\n    \"terminal_state\": \"available\"\n  }\n]",
+      "exit": 0
+    },
+    {
+      "args": [
+        "preview",
+        "e5f60bdb656ea71944fc2b95eeb1d114"
+      ],
+      "elapsed_ms": 237,
+      "stdout": "{\n  \"session_id\": \"e5f60bdb656ea71944fc2b95eeb1d114\",\n  \"run_id\": \"1dc6266e846cf98fe2dad0cca9e53853\",\n  \"kind\": \"screen_snapshot\",\n  \"snapshot\": {\n    \"text\": \"{\\\"event\\\":\\\"started\\\",\\\"pid\\\":8880,\\\"args\\\":[\\\"VERIFY_1_0\\\"],\\\"cwd\\\":\\\"<home>\\\\\\\\asd-snippets-verify-20261128\\\\\\\\cli-lo\\nop\\\",\\\"env\\\":{}}\\nCLI fixture · 中文 · é · 🧪 — type exit to end\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\",\n    \"truncated\": false\n  }\n}",
+      "exit": 0
+    },
+    {
+      "args": [
+        "preview",
+        "da03d823fd54d97f4edf42d1281cc9bf"
+      ],
+      "elapsed_ms": 345,
+      "stdout": "{\n  \"session_id\": \"da03d823fd54d97f4edf42d1281cc9bf\",\n  \"run_id\": \"452ad197d6ef63f3afab92b992995e96\",\n  \"kind\": \"screen_snapshot\",\n  \"snapshot\": {\n    \"text\": \"{\\\"event\\\":\\\"started\\\",\\\"pid\\\":24192,\\\"args\\\":[\\\"VERIFY_1_1\\\"],\\\"cwd\\\":\\\"<home>\\\\\\\\asd-snippets-verify-20261128\\\\\\\\cli-l\\noop\\\",\\\"env\\\":{}}\\nCLI fixture · 中文 · é · 🧪 — type exit to end\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\",\n    \"truncated\": false\n  }\n}",
+      "exit": 0
+    },
+    {
+      "args": [
+        "list",
+        "--json"
+      ],
+      "elapsed_ms": 248,
+      "stdout": "[\n  {\n    \"session_id\": \"e5f60bdb656ea71944fc2b95eeb1d114\",\n    \"run_id\": \"1dc6266e846cf98fe2dad0cca9e53853\",\n    \"backend_id\": \"asd_e5f60bdb656ea71944fc2b95eeb1d114_1dc6266e846cf98fe2dad0cca9e53853\",\n    \"title\": \"Verify10\",\n    \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\cli-loop\\\\asd-fixture.exe\",\n    \"terminal_state\": \"available\"\n  },\n  {\n    \"session_id\": \"da03d823fd54d97f4edf42d1281cc9bf\",\n    \"run_id\": \"452ad197d6ef63f3afab92b992995e96\",\n    \"backend_id\": \"asd_da03d823fd54d97f4edf42d1281cc9bf_452ad197d6ef63f3afab92b992995e96\",\n    \"title\": \"Verify11\",\n    \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\cli-loop\\\\asd-fixture.exe\",\n    \"terminal_state\": \"available\"\n  }\n]",
+      "exit": 0
+    },
+    {
+      "args": [
+        "preview",
+        "e5f60bdb656ea71944fc2b95eeb1d114"
+      ],
+      "elapsed_ms": 234,
+      "stdout": "{\n  \"session_id\": \"e5f60bdb656ea71944fc2b95eeb1d114\",\n  \"run_id\": \"1dc6266e846cf98fe2dad0cca9e53853\",\n  \"kind\": \"screen_snapshot\",\n  \"snapshot\": {\n    \"text\": \"{\\\"event\\\":\\\"started\\\",\\\"pid\\\":8880,\\\"args\\\":[\\\"VERIFY_1_0\\\"],\\\"cwd\\\":\\\"<home>\\\\\\\\asd-snippets-verify-20261128\\\\\\\\cli-lo\\nop\\\",\\\"env\\\":{}}\\nCLI fixture · 中文 · é · 🧪 — type exit to end\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\",\n    \"truncated\": false\n  }\n}",
+      "exit": 0
+    },
+    {
+      "args": [
+        "preview",
+        "da03d823fd54d97f4edf42d1281cc9bf"
+      ],
+      "elapsed_ms": 276,
+      "stdout": "{\n  \"session_id\": \"da03d823fd54d97f4edf42d1281cc9bf\",\n  \"run_id\": \"452ad197d6ef63f3afab92b992995e96\",\n  \"kind\": \"screen_snapshot\",\n  \"snapshot\": {\n    \"text\": \"{\\\"event\\\":\\\"started\\\",\\\"pid\\\":24192,\\\"args\\\":[\\\"VERIFY_1_1\\\"],\\\"cwd\\\":\\\"<home>\\\\\\\\asd-snippets-verify-20261128\\\\\\\\cli-l\\noop\\\",\\\"env\\\":{}}\\nCLI fixture · 中文 · é · 🧪 — type exit to end\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\",\n    \"truncated\": false\n  }\n}",
+      "exit": 0
+    },
+    {
+      "args": [
+        "stop",
+        "e5f60bdb656ea71944fc2b95eeb1d114"
+      ],
+      "elapsed_ms": 572,
+      "stdout": "{\n  \"session_id\": \"e5f60bdb656ea71944fc2b95eeb1d114\",\n  \"run_id\": \"1dc6266e846cf98fe2dad0cca9e53853\",\n  \"result\": \"backend_session_stopped\"\n}",
+      "exit": 0
+    },
+    {
+      "args": [
+        "stop",
+        "da03d823fd54d97f4edf42d1281cc9bf"
+      ],
+      "elapsed_ms": 456,
+      "stdout": "{\n  \"session_id\": \"da03d823fd54d97f4edf42d1281cc9bf\",\n  \"run_id\": \"452ad197d6ef63f3afab92b992995e96\",\n  \"result\": \"backend_session_stopped\"\n}",
+      "exit": 0
+    },
+    {
+      "args": [
+        "start",
+        "--name",
+        "Verify20",
+        "--cwd",
+        "<home>\\asd-snippets-verify-20261128\\cli-loop",
+        "--env",
+        "ASD_FIXTURE_REPORT_PATH=<home>\\asd-snippets-verify-20261128\\cli-loop\\fixture-2-0.jsonl",
+        "--",
+        "<home>\\asd-snippets-verify-20261128\\cli-loop\\asd-fixture.exe",
+        "VERIFY_2_0"
+      ],
+      "elapsed_ms": 427,
+      "stdout": "{\n  \"session_id\": \"7646315a8daa8b49b30ea12527ff4ba2\",\n  \"run_id\": \"a818a0706dcf31aeebdcdf961940beee\",\n  \"backend_id\": \"asd_7646315a8daa8b49b30ea12527ff4ba2_a818a0706dcf31aeebdcdf961940beee\",\n  \"title\": \"Verify20\",\n  \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\cli-loop\\\\asd-fixture.exe\",\n  \"terminal_state\": \"available\"\n}",
+      "exit": 0
+    },
+    {
+      "args": [
+        "start",
+        "--name",
+        "Verify21",
+        "--cwd",
+        "<home>\\asd-snippets-verify-20261128\\cli-loop",
+        "--env",
+        "ASD_FIXTURE_REPORT_PATH=<home>\\asd-snippets-verify-20261128\\cli-loop\\fixture-2-1.jsonl",
+        "--",
+        "<home>\\asd-snippets-verify-20261128\\cli-loop\\asd-fixture.exe",
+        "VERIFY_2_1"
+      ],
+      "elapsed_ms": 335,
+      "stdout": "{\n  \"session_id\": \"da743e528f85b62fb8af0316f5806fdb\",\n  \"run_id\": \"6e28270c11a51127a759f3cf2872c1c9\",\n  \"backend_id\": \"asd_da743e528f85b62fb8af0316f5806fdb_6e28270c11a51127a759f3cf2872c1c9\",\n  \"title\": \"Verify21\",\n  \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\cli-loop\\\\asd-fixture.exe\",\n  \"terminal_state\": \"available\"\n}",
+      "exit": 0
+    },
+    {
+      "args": [
+        "list",
+        "--json"
+      ],
+      "elapsed_ms": 237,
+      "stdout": "[\n  {\n    \"session_id\": \"7646315a8daa8b49b30ea12527ff4ba2\",\n    \"run_id\": \"a818a0706dcf31aeebdcdf961940beee\",\n    \"backend_id\": \"asd_7646315a8daa8b49b30ea12527ff4ba2_a818a0706dcf31aeebdcdf961940beee\",\n    \"title\": \"Verify20\",\n    \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\cli-loop\\\\asd-fixture.exe\",\n    \"terminal_state\": \"available\"\n  },\n  {\n    \"session_id\": \"da743e528f85b62fb8af0316f5806fdb\",\n    \"run_id\": \"6e28270c11a51127a759f3cf2872c1c9\",\n    \"backend_id\": \"asd_da743e528f85b62fb8af0316f5806fdb_6e28270c11a51127a759f3cf2872c1c9\",\n    \"title\": \"Verify21\",\n    \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\cli-loop\\\\asd-fixture.exe\",\n    \"terminal_state\": \"available\"\n  }\n]",
+      "exit": 0
+    },
+    {
+      "args": [
+        "preview",
+        "7646315a8daa8b49b30ea12527ff4ba2"
+      ],
+      "elapsed_ms": 309,
+      "stdout": "{\n  \"session_id\": \"7646315a8daa8b49b30ea12527ff4ba2\",\n  \"run_id\": \"a818a0706dcf31aeebdcdf961940beee\",\n  \"kind\": \"screen_snapshot\",\n  \"snapshot\": {\n    \"text\": \"{\\\"event\\\":\\\"started\\\",\\\"pid\\\":22800,\\\"args\\\":[\\\"VERIFY_2_0\\\"],\\\"cwd\\\":\\\"<home>\\\\\\\\asd-snippets-verify-20261128\\\\\\\\cli-l\\noop\\\",\\\"env\\\":{}}\\nCLI fixture · 中文 · é · 🧪 — type exit to end\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\",\n    \"truncated\": false\n  }\n}",
+      "exit": 0
+    },
+    {
+      "args": [
+        "preview",
+        "da743e528f85b62fb8af0316f5806fdb"
+      ],
+      "elapsed_ms": 254,
+      "stdout": "{\n  \"session_id\": \"da743e528f85b62fb8af0316f5806fdb\",\n  \"run_id\": \"6e28270c11a51127a759f3cf2872c1c9\",\n  \"kind\": \"screen_snapshot\",\n  \"snapshot\": {\n    \"text\": \"{\\\"event\\\":\\\"started\\\",\\\"pid\\\":6208,\\\"args\\\":[\\\"VERIFY_2_1\\\"],\\\"cwd\\\":\\\"<home>\\\\\\\\asd-snippets-verify-20261128\\\\\\\\cli-lo\\nop\\\",\\\"env\\\":{}}\\nCLI fixture · 中文 · é · 🧪 — type exit to end\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\",\n    \"truncated\": false\n  }\n}",
+      "exit": 0
+    },
+    {
+      "args": [
+        "list",
+        "--json"
+      ],
+      "elapsed_ms": 199,
+      "stdout": "[\n  {\n    \"session_id\": \"7646315a8daa8b49b30ea12527ff4ba2\",\n    \"run_id\": \"a818a0706dcf31aeebdcdf961940beee\",\n    \"backend_id\": \"asd_7646315a8daa8b49b30ea12527ff4ba2_a818a0706dcf31aeebdcdf961940beee\",\n    \"title\": \"Verify20\",\n    \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\cli-loop\\\\asd-fixture.exe\",\n    \"terminal_state\": \"available\"\n  },\n  {\n    \"session_id\": \"da743e528f85b62fb8af0316f5806fdb\",\n    \"run_id\": \"6e28270c11a51127a759f3cf2872c1c9\",\n    \"backend_id\": \"asd_da743e528f85b62fb8af0316f5806fdb_6e28270c11a51127a759f3cf2872c1c9\",\n    \"title\": \"Verify21\",\n    \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\cli-loop\\\\asd-fixture.exe\",\n    \"terminal_state\": \"available\"\n  }\n]",
+      "exit": 0
+    },
+    {
+      "args": [
+        "preview",
+        "7646315a8daa8b49b30ea12527ff4ba2"
+      ],
+      "elapsed_ms": 312,
+      "stdout": "{\n  \"session_id\": \"7646315a8daa8b49b30ea12527ff4ba2\",\n  \"run_id\": \"a818a0706dcf31aeebdcdf961940beee\",\n  \"kind\": \"screen_snapshot\",\n  \"snapshot\": {\n    \"text\": \"{\\\"event\\\":\\\"started\\\",\\\"pid\\\":22800,\\\"args\\\":[\\\"VERIFY_2_0\\\"],\\\"cwd\\\":\\\"<home>\\\\\\\\asd-snippets-verify-20261128\\\\\\\\cli-l\\noop\\\",\\\"env\\\":{}}\\nCLI fixture · 中文 · é · 🧪 — type exit to end\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\",\n    \"truncated\": false\n  }\n}",
+      "exit": 0
+    },
+    {
+      "args": [
+        "preview",
+        "da743e528f85b62fb8af0316f5806fdb"
+      ],
+      "elapsed_ms": 307,
+      "stdout": "{\n  \"session_id\": \"da743e528f85b62fb8af0316f5806fdb\",\n  \"run_id\": \"6e28270c11a51127a759f3cf2872c1c9\",\n  \"kind\": \"screen_snapshot\",\n  \"snapshot\": {\n    \"text\": \"{\\\"event\\\":\\\"started\\\",\\\"pid\\\":6208,\\\"args\\\":[\\\"VERIFY_2_1\\\"],\\\"cwd\\\":\\\"<home>\\\\\\\\asd-snippets-verify-20261128\\\\\\\\cli-lo\\nop\\\",\\\"env\\\":{}}\\nCLI fixture · 中文 · é · 🧪 — type exit to end\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\",\n    \"truncated\": false\n  }\n}",
+      "exit": 0
+    },
+    {
+      "args": [
+        "list",
+        "--json"
+      ],
+      "elapsed_ms": 194,
+      "stdout": "[\n  {\n    \"session_id\": \"7646315a8daa8b49b30ea12527ff4ba2\",\n    \"run_id\": \"a818a0706dcf31aeebdcdf961940beee\",\n    \"backend_id\": \"asd_7646315a8daa8b49b30ea12527ff4ba2_a818a0706dcf31aeebdcdf961940beee\",\n    \"title\": \"Verify20\",\n    \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\cli-loop\\\\asd-fixture.exe\",\n    \"terminal_state\": \"available\"\n  },\n  {\n    \"session_id\": \"da743e528f85b62fb8af0316f5806fdb\",\n    \"run_id\": \"6e28270c11a51127a759f3cf2872c1c9\",\n    \"backend_id\": \"asd_da743e528f85b62fb8af0316f5806fdb_6e28270c11a51127a759f3cf2872c1c9\",\n    \"title\": \"Verify21\",\n    \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\cli-loop\\\\asd-fixture.exe\",\n    \"terminal_state\": \"available\"\n  }\n]",
+      "exit": 0
+    },
+    {
+      "args": [
+        "preview",
+        "7646315a8daa8b49b30ea12527ff4ba2"
+      ],
+      "elapsed_ms": 253,
+      "stdout": "{\n  \"session_id\": \"7646315a8daa8b49b30ea12527ff4ba2\",\n  \"run_id\": \"a818a0706dcf31aeebdcdf961940beee\",\n  \"kind\": \"screen_snapshot\",\n  \"snapshot\": {\n    \"text\": \"{\\\"event\\\":\\\"started\\\",\\\"pid\\\":22800,\\\"args\\\":[\\\"VERIFY_2_0\\\"],\\\"cwd\\\":\\\"<home>\\\\\\\\asd-snippets-verify-20261128\\\\\\\\cli-l\\noop\\\",\\\"env\\\":{}}\\nCLI fixture · 中文 · é · 🧪 — type exit to end\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\",\n    \"truncated\": false\n  }\n}",
+      "exit": 0
+    },
+    {
+      "args": [
+        "preview",
+        "da743e528f85b62fb8af0316f5806fdb"
+      ],
+      "elapsed_ms": 332,
+      "stdout": "{\n  \"session_id\": \"da743e528f85b62fb8af0316f5806fdb\",\n  \"run_id\": \"6e28270c11a51127a759f3cf2872c1c9\",\n  \"kind\": \"screen_snapshot\",\n  \"snapshot\": {\n    \"text\": \"{\\\"event\\\":\\\"started\\\",\\\"pid\\\":6208,\\\"args\\\":[\\\"VERIFY_2_1\\\"],\\\"cwd\\\":\\\"<home>\\\\\\\\asd-snippets-verify-20261128\\\\\\\\cli-lo\\nop\\\",\\\"env\\\":{}}\\nCLI fixture · 中文 · é · 🧪 — type exit to end\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\",\n    \"truncated\": false\n  }\n}",
+      "exit": 0
+    },
+    {
+      "args": [
+        "list",
+        "--json"
+      ],
+      "elapsed_ms": 237,
+      "stdout": "[\n  {\n    \"session_id\": \"7646315a8daa8b49b30ea12527ff4ba2\",\n    \"run_id\": \"a818a0706dcf31aeebdcdf961940beee\",\n    \"backend_id\": \"asd_7646315a8daa8b49b30ea12527ff4ba2_a818a0706dcf31aeebdcdf961940beee\",\n    \"title\": \"Verify20\",\n    \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\cli-loop\\\\asd-fixture.exe\",\n    \"terminal_state\": \"available\"\n  },\n  {\n    \"session_id\": \"da743e528f85b62fb8af0316f5806fdb\",\n    \"run_id\": \"6e28270c11a51127a759f3cf2872c1c9\",\n    \"backend_id\": \"asd_da743e528f85b62fb8af0316f5806fdb_6e28270c11a51127a759f3cf2872c1c9\",\n    \"title\": \"Verify21\",\n    \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\cli-loop\\\\asd-fixture.exe\",\n    \"terminal_state\": \"available\"\n  }\n]",
+      "exit": 0
+    },
+    {
+      "args": [
+        "preview",
+        "7646315a8daa8b49b30ea12527ff4ba2"
+      ],
+      "elapsed_ms": 244,
+      "stdout": "{\n  \"session_id\": \"7646315a8daa8b49b30ea12527ff4ba2\",\n  \"run_id\": \"a818a0706dcf31aeebdcdf961940beee\",\n  \"kind\": \"screen_snapshot\",\n  \"snapshot\": {\n    \"text\": \"{\\\"event\\\":\\\"started\\\",\\\"pid\\\":22800,\\\"args\\\":[\\\"VERIFY_2_0\\\"],\\\"cwd\\\":\\\"<home>\\\\\\\\asd-snippets-verify-20261128\\\\\\\\cli-l\\noop\\\",\\\"env\\\":{}}\\nCLI fixture · 中文 · é · 🧪 — type exit to end\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\",\n    \"truncated\": false\n  }\n}",
+      "exit": 0
+    },
+    {
+      "args": [
+        "preview",
+        "da743e528f85b62fb8af0316f5806fdb"
+      ],
+      "elapsed_ms": 289,
+      "stdout": "{\n  \"session_id\": \"da743e528f85b62fb8af0316f5806fdb\",\n  \"run_id\": \"6e28270c11a51127a759f3cf2872c1c9\",\n  \"kind\": \"screen_snapshot\",\n  \"snapshot\": {\n    \"text\": \"{\\\"event\\\":\\\"started\\\",\\\"pid\\\":6208,\\\"args\\\":[\\\"VERIFY_2_1\\\"],\\\"cwd\\\":\\\"<home>\\\\\\\\asd-snippets-verify-20261128\\\\\\\\cli-lo\\nop\\\",\\\"env\\\":{}}\\nCLI fixture · 中文 · é · 🧪 — type exit to end\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\",\n    \"truncated\": false\n  }\n}",
+      "exit": 0
+    },
+    {
+      "args": [
+        "list",
+        "--json"
+      ],
+      "elapsed_ms": 273,
+      "stdout": "[\n  {\n    \"session_id\": \"7646315a8daa8b49b30ea12527ff4ba2\",\n    \"run_id\": \"a818a0706dcf31aeebdcdf961940beee\",\n    \"backend_id\": \"asd_7646315a8daa8b49b30ea12527ff4ba2_a818a0706dcf31aeebdcdf961940beee\",\n    \"title\": \"Verify20\",\n    \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\cli-loop\\\\asd-fixture.exe\",\n    \"terminal_state\": \"available\"\n  },\n  {\n    \"session_id\": \"da743e528f85b62fb8af0316f5806fdb\",\n    \"run_id\": \"6e28270c11a51127a759f3cf2872c1c9\",\n    \"backend_id\": \"asd_da743e528f85b62fb8af0316f5806fdb_6e28270c11a51127a759f3cf2872c1c9\",\n    \"title\": \"Verify21\",\n    \"command\": \"<home>\\\\asd-snippets-verify-20261128\\\\cli-loop\\\\asd-fixture.exe\",\n    \"terminal_state\": \"available\"\n  }\n]",
+      "exit": 0
+    },
+    {
+      "args": [
+        "preview",
+        "7646315a8daa8b49b30ea12527ff4ba2"
+      ],
+      "elapsed_ms": 255,
+      "stdout": "{\n  \"session_id\": \"7646315a8daa8b49b30ea12527ff4ba2\",\n  \"run_id\": \"a818a0706dcf31aeebdcdf961940beee\",\n  \"kind\": \"screen_snapshot\",\n  \"snapshot\": {\n    \"text\": \"{\\\"event\\\":\\\"started\\\",\\\"pid\\\":22800,\\\"args\\\":[\\\"VERIFY_2_0\\\"],\\\"cwd\\\":\\\"<home>\\\\\\\\asd-snippets-verify-20261128\\\\\\\\cli-l\\noop\\\",\\\"env\\\":{}}\\nCLI fixture · 中文 · é · 🧪 — type exit to end\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\",\n    \"truncated\": false\n  }\n}",
+      "exit": 0
+    },
+    {
+      "args": [
+        "preview",
+        "da743e528f85b62fb8af0316f5806fdb"
+      ],
+      "elapsed_ms": 248,
+      "stdout": "{\n  \"session_id\": \"da743e528f85b62fb8af0316f5806fdb\",\n  \"run_id\": \"6e28270c11a51127a759f3cf2872c1c9\",\n  \"kind\": \"screen_snapshot\",\n  \"snapshot\": {\n    \"text\": \"{\\\"event\\\":\\\"started\\\",\\\"pid\\\":6208,\\\"args\\\":[\\\"VERIFY_2_1\\\"],\\\"cwd\\\":\\\"<home>\\\\\\\\asd-snippets-verify-20261128\\\\\\\\cli-lo\\nop\\\",\\\"env\\\":{}}\\nCLI fixture · 中文 · é · 🧪 — type exit to end\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\\n\",\n    \"truncated\": false\n  }\n}",
+      "exit": 0
+    },
+    {
+      "args": [
+        "stop",
+        "7646315a8daa8b49b30ea12527ff4ba2"
+      ],
+      "elapsed_ms": 529,
+      "stdout": "{\n  \"session_id\": \"7646315a8daa8b49b30ea12527ff4ba2\",\n  \"run_id\": \"a818a0706dcf31aeebdcdf961940beee\",\n  \"result\": \"backend_session_stopped\"\n}",
+      "exit": 0
+    },
+    {
+      "args": [
+        "stop",
+        "da743e528f85b62fb8af0316f5806fdb"
+      ],
+      "elapsed_ms": 441,
+      "stdout": "{\n  \"session_id\": \"da743e528f85b62fb8af0316f5806fdb\",\n  \"run_id\": \"6e28270c11a51127a759f3cf2872c1c9\",\n  \"result\": \"backend_session_stopped\"\n}",
+      "exit": 0
+    }
+  ],
+  "product_sha256": "3bfe96fafaa82765f474b1e3d32cdd42c514a169b7a3805ed103459e2789dea1",
+  "resumed_without_replay": true,
+  "controller": "5.1.19041.6456",
+  "private_image_count": 0
+}

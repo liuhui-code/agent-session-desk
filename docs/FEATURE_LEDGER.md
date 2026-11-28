@@ -648,3 +648,5 @@ FL-012/015/018：ADR-0057 有界页变化标识，静默不代表 ready；见[�
 2026-11-28 发现发布边界：FL-001/004/005/013/018 按 [ADR-0073](adr/0073-live-discovery-publication-boundary.md)区分未发布的新后端目标与非空损坏记录，保留旧身份丢失及所有目标操作守卫，不增加重试／Host／新存储。Windows 五次新建／三十次并发读取从三次失败到零失败，真实发布边界 RED→GREEN；[实际证据](testing/results/2026-11-28-release-blockers.md)区分诊断字节与尚未替换的 Alpha 2 草稿。STAB-009 宿主生命周期独立留存，各 FL 实现／接受状态不提升。
 
 2026-11-28 指令片段：FL-002/012/015/018 按 [ADR-0074](adr/0074-bounded-instruction-snippets.md)增加 F7 可配置入口、全局／当前 pane 目录的项目 TOML、来源区分和两步预览／原 FIFO 粘贴。只读、每文件 64 项／256 KiB、正文 4096 字节、单加载在途，关闭释放；不自动展开或添加 Enter。模型／原生／资源范围见[实际报告](testing/results/2026-11-28-instruction-snippets.md)，各 FL 仍实现中，完整 Agent／Windows／发布接受不提升。
+
+2026-11-28 片段补验：FL-002/004/005/012/015/018 的 clean c2ac2c0 完成三组双夹具 57 次 CLI 和一次真实 Terminal 双 Run F7 主路径；128 项库二十次取消后 Go UI 私有约 61.08 MiB，点样本最大 62.77 MiB，未观察到持续上涨。本机入口已更新，原 live 身份与配置摘要保持；九任务及私有镜像已回收。[实际结果及边界](testing/results/2026-11-28-snippets-windows-validation.md)保留仪器失败／安全续跑和 STAB-010 未复现状态，不提升完整资源、真实 Agent 或公开发布接受。

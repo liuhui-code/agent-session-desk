@@ -1,0 +1,50 @@
+{
+  "counter_scope": "Go UI process; distinct private-path image snapshots exclude unobserved system helpers and are not full lifetime peaks",
+  "manager_pid": 17976,
+  "manager_filetime": "134403289280117080",
+  "samples": 24,
+  "cancel_cycles": 20,
+  "private_bytes": {
+    "baseline": 62128128,
+    "resume_baseline": 63614976,
+    "maximum_observed": 65822720,
+    "last": 64049152,
+    "last_10_min": 63508480,
+    "last_10_max": 65409024
+  },
+  "working_set": {
+    "baseline": 28241920,
+    "maximum_observed": 33394688,
+    "last": 21716992
+  },
+  "private_image_snapshots": [
+    {
+      "phase": "baseline",
+      "processes": 7,
+      "gaps": 0,
+      "private_sum": 252391424,
+      "working_set_sum_nonunique": 192880640
+    },
+    {
+      "phase": "resume-baseline",
+      "processes": 7,
+      "gaps": 0,
+      "private_sum": 253235200,
+      "working_set_sum_nonunique": 195112960
+    },
+    {
+      "phase": "list",
+      "processes": 7,
+      "gaps": 0,
+      "private_sum": 253771776,
+      "working_set_sum_nonunique": 196489216
+    },
+    {
+      "phase": "closed-19",
+      "processes": 7,
+      "gaps": 0,
+      "private_sum": 255430656,
+      "working_set_sum_nonunique": 123699200
+    }
+  ]
+}
