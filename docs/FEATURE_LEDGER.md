@@ -644,3 +644,5 @@ FL-012/015/018：ADR-0057 有界页变化标识，静默不代表 ready；见[�
 2026-11-28 FL-001/016/017/018/019：按 [ADR-0072](adr/0072-reproducible-windows-portable-delivery.md)准备可重建便携包，加入固定 launcher、相对宿主路径与统一 CLI 缺省作用域，英文空工作区不自动创建示例。离线打包器校验干净构建／模块许可／runtime／官方宿主并附 update 合同；实现、实际 Windows 和公开发布状态见[交付报告](testing/results/2026-11-28-windows-portable-delivery.md)，完整发布接受不提升。
 
 2026-11-28 同轮最终候选沿用 clean f89444c Go 字节，纯打包修正完整宿主色表。Windows updater 19／CLI 4 顶层通过，实际英文空首开、默认系统 shell、两夹具输入与 Alt+J/K、原 Run 重开、原生“＋”打开／关闭通过；32 阶段安全续跑与原失败分别保留。一次 list 失败与一个空 OpenConsole 残留为 STAB-008／009，后者精确回收单列；不提升完整资源或发布接受。
+
+2026-11-28 发现发布边界：FL-001/004/005/013/018 按 [ADR-0073](adr/0073-live-discovery-publication-boundary.md)区分未发布的新后端目标与非空损坏记录，保留旧身份丢失及所有目标操作守卫，不增加重试／Host／新存储。Windows 五次新建／三十次并发读取从三次失败到零失败，真实发布边界 RED→GREEN；[实际证据](testing/results/2026-11-28-release-blockers.md)区分诊断字节与尚未替换的 Alpha 2 草稿。STAB-009 宿主生命周期独立留存，各 FL 实现／接受状态不提升。

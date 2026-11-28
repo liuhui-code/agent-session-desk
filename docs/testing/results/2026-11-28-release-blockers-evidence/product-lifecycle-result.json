@@ -1,0 +1,43 @@
+{
+  "result": "completed",
+  "forced_product_ends": 0,
+  "clipboard_apis": 0,
+  "fixtures_ended": 2,
+  "forced_hosts": 0,
+  "cases": [
+    {
+      "console_pid": 10904,
+      "manager_pid": 23244,
+      "manager_exit": 0,
+      "host_pid": 20284,
+      "console_ended_after_host": true,
+      "console_ended_before_host": false,
+      "iteration": 0,
+      "remaining_console_count": 0,
+      "console_creation": "2026-11-28T06:08:25.8733002Z"
+    },
+    {
+      "console_pid": 8380,
+      "manager_pid": 2224,
+      "manager_exit": 0,
+      "host_pid": 20900,
+      "console_ended_after_host": true,
+      "console_ended_before_host": false,
+      "iteration": 1,
+      "remaining_console_count": 0,
+      "console_creation": "2026-11-28T06:09:07.0315940Z"
+    },
+    {
+      "console_pid": 24296,
+      "manager_pid": 21476,
+      "manager_exit": 0,
+      "host_pid": 24204,
+      "console_ended_after_host": true,
+      "console_ended_before_host": false,
+      "iteration": 2,
+      "remaining_console_count": 0,
+      "console_creation": "2026-11-28T06:09:49.0615099Z"
+    }
+  ],
+  "original_identities_preserved": true
+}

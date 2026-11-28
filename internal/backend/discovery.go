@@ -40,6 +40,9 @@ func (b *Backend) List(ctx context.Context) ([]session.Session, error) {
 			continue
 		}
 		r, err := b.readRecord(ctx, name)
+		if errors.Is(err, errUnpublishedRecord) {
+			continue
+		}
 		if err != nil {
 			return nil, fmt.Errorf("read live session %s: %w", name, err)
 		}

@@ -1,0 +1,44 @@
+{
+  "forced_hosts": 0,
+  "clipboard_apis": 0,
+  "cases": [
+    {
+      "new_console_pid": 23224,
+      "parent_close_gap_ms": 0,
+      "anchor_text_read": true,
+      "iteration": 1,
+      "console_ended_after_host": true,
+      "remaining_console_count": 0,
+      "console_creation": "2026-11-28T05:54:29.7727295Z",
+      "host_pid": 20228,
+      "close_after_ms": 13762.2785,
+      "console_ended_before_host": false
+    },
+    {
+      "new_console_pid": 14120,
+      "parent_close_gap_ms": 0,
+      "anchor_text_read": true,
+      "iteration": 2,
+      "console_ended_after_host": true,
+      "remaining_console_count": 0,
+      "console_creation": "2026-11-28T05:54:58.5053419Z",
+      "host_pid": 18924,
+      "close_after_ms": 16463.0522,
+      "console_ended_before_host": true
+    },
+    {
+      "new_console_pid": 19668,
+      "parent_close_gap_ms": 0,
+      "anchor_text_read": true,
+      "iteration": 3,
+      "console_ended_after_host": true,
+      "remaining_console_count": 0,
+      "console_creation": "2026-11-28T05:55:27.6364876Z",
+      "host_pid": 23044,
+      "close_after_ms": 11655.8601,
+      "console_ended_before_host": false
+    }
+  ],
+  "result": "completed",
+  "product_launches": 0
+}

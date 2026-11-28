@@ -1,0 +1,15 @@
+{
+  "baseline": "b255d9137948423d9282a0192f4d451b2fee6c38",
+  "diagnostic_modified": true,
+  "files": {
+    "internal/backend/backend.go": "fc8546182c7e1d31c38e2288f46ad8e794695e37d435d4dc01c561afc5df2f00",
+    "internal/backend/discovery.go": "57a195be966bb41189ef2ca62b11c164a702b74fe8b85dc6702f6461807d01af",
+    "internal/backend/publication_test.go": "5230f7d50abfa8fac996022bb2de4465fc95f6be38e3c4e9bbf0fbcde196099b",
+    "internal/backend/publication_windows_test.go": "8bbe99024a4a867070534419de60a35626bfa3949d77b735d3a4ea1d8b057279"
+  },
+  "diagnostic_binaries": {
+    "backend-red.test.exe": "58978de45e35f78622475c4dc893b4ce6af2c868f02fad0393142e6341ef29b7",
+    "backend-green.test.exe": "1b428769d24a598770df1ea645a16617e7e5c13862717310730e6ce5f11f3c7a",
+    "asd-diagnostic-green.exe": "8382f9fe2b36d3b2eb9e71189e771a555216c7e948931e0794a3cf2dd1e61e19"
+  }
+}

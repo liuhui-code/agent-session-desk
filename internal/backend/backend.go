@@ -143,6 +143,10 @@ type liveRecord struct {
 	PaneID    string `json:"pane_id"`
 }
 
+// Session creation precedes publishing its single discovery record. An absent
+// marker is construction, never proof of an available managed Run.
+var errUnpublishedRecord = errors.New("backend discovery metadata is not published")
+
 func encodeRecord(r liveRecord) (string, error) {
 	data, err := json.Marshal(r)
 	if err != nil {
@@ -210,6 +214,9 @@ func (b *Backend) readRecord(ctx context.Context, name string) (liveRecord, erro
 	}
 	if out.truncated {
 		return liveRecord{}, errors.New("backend metadata exceeded the M0 limit")
+	}
+	if strings.TrimRight(out.text, "\r\n") == "" {
+		return liveRecord{}, errUnpublishedRecord
 	}
 	return decodeRecord(name, out.text)
 }

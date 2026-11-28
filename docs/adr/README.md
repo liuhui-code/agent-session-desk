@@ -116,3 +116,5 @@ ADR-0014 依据用户 2026-11-22 的明确要求接受，部分替代 0001/0002 
 | [0071](0071-native-terminal-default-profile.md) | 便携宿主原生“＋”默认普通英文 Terminal | 已接受 | 日常宿主配置维护；产品 profile 保持，实际 UI 验证单列 |
 
 | [0072](0072-reproducible-windows-portable-delivery.md) | 可重建的便携包、独立英文宿主与固定启动入口 | 已接受 | 产品／打包定向测试与最终包原生验证分别记录，未关闭完整发布门槛 |
+
+| [0073](0073-live-discovery-publication-boundary.md) | live 发现记录的单次发布边界 | 已接受 | 构建窗口的模型／原生 RED 与复验分列，不重试或放松身份守卫 |

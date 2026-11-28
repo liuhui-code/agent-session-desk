@@ -1,0 +1,194 @@
+{
+  "result": "completed",
+  "failure_count": 3,
+  "start_failures": 0,
+  "remaining_fixture_count": 0,
+  "source": "f89444c93ce4210a066e4e673f4ff8057eaee904",
+  "iterations": [
+    {
+      "iteration": 0,
+      "start_exit": 0,
+      "reads": [
+        {
+          "exit": 0,
+          "elapsed_ms": 2993,
+          "stderr": ""
+        },
+        {
+          "exit": 0,
+          "elapsed_ms": 2990,
+          "stderr": ""
+        },
+        {
+          "exit": 1,
+          "elapsed_ms": 2976,
+          "stderr": "asd: read live session asd_0cca0c6d859a75ff072ee5b762a2b4f6_43123e4c43548691d02408c937f7adc6: invalid M0 backend metadata\n"
+        },
+        {
+          "exit": 0,
+          "elapsed_ms": 2974,
+          "stderr": ""
+        },
+        {
+          "exit": 0,
+          "elapsed_ms": 2961,
+          "stderr": ""
+        },
+        {
+          "exit": 0,
+          "elapsed_ms": 2945,
+          "stderr": ""
+        }
+      ],
+      "after_count": 1
+    },
+    {
+      "iteration": 1,
+      "start_exit": 0,
+      "reads": [
+        {
+          "exit": 0,
+          "elapsed_ms": 1345,
+          "stderr": ""
+        },
+        {
+          "exit": 0,
+          "elapsed_ms": 1327,
+          "stderr": ""
+        },
+        {
+          "exit": 0,
+          "elapsed_ms": 1298,
+          "stderr": ""
+        },
+        {
+          "exit": 0,
+          "elapsed_ms": 1256,
+          "stderr": ""
+        },
+        {
+          "exit": 0,
+          "elapsed_ms": 1237,
+          "stderr": ""
+        },
+        {
+          "exit": 1,
+          "elapsed_ms": 1217,
+          "stderr": "asd: read live session asd_a0c3e8d64fff8b90699fb3e1283760d8_ab1e1bf67b0b5add910380918f768e66: invalid M0 backend metadata\n"
+        }
+      ],
+      "after_count": 1
+    },
+    {
+      "iteration": 2,
+      "start_exit": 0,
+      "reads": [
+        {
+          "exit": 0,
+          "elapsed_ms": 1369,
+          "stderr": ""
+        },
+        {
+          "exit": 0,
+          "elapsed_ms": 1744,
+          "stderr": ""
+        },
+        {
+          "exit": 0,
+          "elapsed_ms": 1712,
+          "stderr": ""
+        },
+        {
+          "exit": 0,
+          "elapsed_ms": 1707,
+          "stderr": ""
+        },
+        {
+          "exit": 0,
+          "elapsed_ms": 1693,
+          "stderr": ""
+        },
+        {
+          "exit": 0,
+          "elapsed_ms": 1683,
+          "stderr": ""
+        }
+      ],
+      "after_count": 1
+    },
+    {
+      "iteration": 3,
+      "start_exit": 0,
+      "reads": [
+        {
+          "exit": 0,
+          "elapsed_ms": 1770,
+          "stderr": ""
+        },
+        {
+          "exit": 0,
+          "elapsed_ms": 1751,
+          "stderr": ""
+        },
+        {
+          "exit": 1,
+          "elapsed_ms": 1729,
+          "stderr": "asd: read live session asd_0043e467f9bae680e9ad769303f8e0b3_8c661c47259a532eaf5d15ef4d2a3c3f: invalid M0 backend metadata\n"
+        },
+        {
+          "exit": 0,
+          "elapsed_ms": 1960,
+          "stderr": ""
+        },
+        {
+          "exit": 0,
+          "elapsed_ms": 1944,
+          "stderr": ""
+        },
+        {
+          "exit": 0,
+          "elapsed_ms": 1927,
+          "stderr": ""
+        }
+      ],
+      "after_count": 1
+    },
+    {
+      "iteration": 4,
+      "start_exit": 0,
+      "reads": [
+        {
+          "exit": 0,
+          "elapsed_ms": 1499,
+          "stderr": ""
+        },
+        {
+          "exit": 0,
+          "elapsed_ms": 1483,
+          "stderr": ""
+        },
+        {
+          "exit": 0,
+          "elapsed_ms": 1440,
+          "stderr": ""
+        },
+        {
+          "exit": 0,
+          "elapsed_ms": 1412,
+          "stderr": ""
+        },
+        {
+          "exit": 0,
+          "elapsed_ms": 1398,
+          "stderr": ""
+        },
+        {
+          "exit": 0,
+          "elapsed_ms": 1391,
+          "stderr": ""
+        }
+      ],
+      "after_count": 1
+    }
+  ]
+}

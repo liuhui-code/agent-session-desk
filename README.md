@@ -2,7 +2,7 @@
 
 下一份 Windows 便携预发布按 [ADR-0072](docs/adr/0072-reproducible-windows-portable-delivery.md)准备：独立英文 Terminal、空工作区首开、固定启动入口随更新清单切换程序，以及 CLI／UI 共用便携数据目录。[使用说明](docs/WINDOWS_PORTABLE.md)与[实际交付验证](docs/testing/results/2026-11-28-windows-portable-delivery.md)区分候选包和已公开的历史 Alpha 1。
 
-Alpha 2 [候选草稿](https://github.com/liuhui-code/agent-session-desk/releases/tag/untagged-50caef99b4d719d78703)已上传并回下载核对六个附件；尚未公开。新见 STAB-008 的一次 list 读取失败、STAB-009 的空宿主残留已记录，未宣称完整发布接受或公网更新通过。
+Alpha 2 [候选草稿](https://github.com/liuhui-code/agent-session-desk/releases/tag/untagged-50caef99b4d719d78703)已上传并回下载核对六个附件；尚未公开。STAB-008 的新建／发现发布竞态已修复并经过 Windows 定向复验，草稿附件尚未替换；STAB-009 的空宿主残留继续调查。见[阻塞项报告](docs/testing/results/2026-11-28-release-blockers.md)，未宣称完整发布接受或公网更新通过。
 
 其他 Agent 接手先看[配置与接入说明](docs/CONFIGURATION.md)和[功能与适配索引](docs/AGENT_ADAPTATION.md)，含配置位置、作用域、优先级、可复制示例与验证边界。
 
