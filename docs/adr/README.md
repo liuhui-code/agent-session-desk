@@ -110,3 +110,5 @@ ADR-0014 依据用户 2026-11-22 的明确要求接受，部分替代 0001/0002 
 | [0068](0068-bounded-workbench-diagnostics.md) | 管理模式诊断、128 条白名单事件与四槽主动导出 | 已接受 | [实际报告](../testing/results/2026-11-28-diagnostics.md)，不含终端正文／原始错误，不增加常驻进程 |
 
 | [0069](0069-explicit-recovery-center.md) | 显式恢复中心与原启动复用 | 已接受 | [局部证据](../testing/results/2026-11-28-recovery-center.md)，显式确认与不确定结果屏障，真实 Agent／发布仍开放 |
+
+| [0070](0070-explicit-portable-update-and-rollback.md) | 显式便携更新、同状态格式与程序回退 | 已接受 | 原生证据单列；不自动发布／安装或恢复数据库 |

@@ -1,0 +1,6 @@
+=== RUN   TestUnownedBackupSlotIsNeverOverwritten
+    engine_test.go:237: unowned backup overwritten
+--- FAIL: TestUnownedBackupSlotIsNeverOverwritten (0.12s)
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/updater	1.490s
+FAIL

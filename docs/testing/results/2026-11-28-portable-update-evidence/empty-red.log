@@ -1,0 +1,6 @@
+=== RUN   TestEmptyInstallationDoesNotClaimANonexistentBackup
+    engine_test.go:174: nonexistent backup reported {applied asd-update-1.exe old.exe backup-1.sqlite3 Program switched; start the original shortcut once. No Run restarted; conversation state not inferred.} <nil>
+--- FAIL: TestEmptyInstallationDoesNotClaimANonexistentBackup (0.14s)
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/updater	1.144s
+FAIL

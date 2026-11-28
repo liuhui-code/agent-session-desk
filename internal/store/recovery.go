@@ -13,6 +13,27 @@ import (
 // Snapshot creates a consistent copy at a new path. It never overwrites an
 // existing destination, including an empty file. The source is opened read-only.
 func Snapshot(ctx context.Context, source, destination string) error {
+	return snapshot(ctx, source, destination, "")
+}
+
+// SnapshotFixed uses an exclusive fixed capture path in the destination's
+// directory, so a caller's interrupted transaction occupies a bounded slot.
+// An occupied capture is never reused, truncated or removed.
+func SnapshotFixed(ctx context.Context, source, destination, capture string) error {
+	dst, err := filepath.Abs(destination)
+	if err != nil {
+		return err
+	}
+	stage, err := filepath.Abs(capture)
+	if err != nil {
+		return err
+	}
+	if filepath.Dir(dst) != filepath.Dir(stage) || dst == stage {
+		return fmt.Errorf("capture must be a distinct same-directory path")
+	}
+	return snapshot(ctx, source, dst, stage)
+}
+func snapshot(ctx context.Context, source, destination, capture string) error {
 	db, err := openReadOnly(source)
 	if err != nil {
 		return err
@@ -30,7 +51,12 @@ func Snapshot(ctx context.Context, source, destination string) error {
 	} else if !os.IsNotExist(err) {
 		return err
 	}
-	f, err := os.CreateTemp(filepath.Dir(destination), ".asd-snapshot-*.sqlite3")
+	var f *os.File
+	if capture == "" {
+		f, err = os.CreateTemp(filepath.Dir(destination), ".asd-snapshot-*.sqlite3")
+	} else {
+		f, err = os.OpenFile(capture, os.O_CREATE|os.O_EXCL|os.O_RDWR, 0600)
+	}
 	if err != nil {
 		return err
 	}

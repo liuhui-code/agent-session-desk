@@ -1359,7 +1359,7 @@
 
 - 功能：[FL-017](../COVERAGE.md#fl-017)、[FL-013](../COVERAGE.md#fl-013)、[FL-019](../COVERAGE.md#fl-019)
 - 需求：[FR-12](../COVERAGE.md#fr-12)
-- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0005](../../adr/0005-dependency-lifecycle-and-upgrades.md)
+- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0005](../../adr/0005-dependency-lifecycle-and-upgrades.md)、[ADR-0070](../../adr/0070-explicit-portable-update-and-rollback.md)
 - 优先级 / 阶段 / 层次：P0 / M4 / release
 - 类型：release、negative、compatibility
 - 设计 / 执行：`designed / not_run`
@@ -1396,7 +1396,7 @@
 
 - 功能：[FL-017](../COVERAGE.md#fl-017)、[FL-019](../COVERAGE.md#fl-019)
 - 需求：—
-- 决策：[ADR-0005](../../adr/0005-dependency-lifecycle-and-upgrades.md)
+- 决策：[ADR-0005](../../adr/0005-dependency-lifecycle-and-upgrades.md)、[ADR-0070](../../adr/0070-explicit-portable-update-and-rollback.md)
 - 优先级 / 阶段 / 层次：P0 / M4 / release
 - 类型：release、state
 - 设计 / 执行：`designed / not_run`
@@ -1434,7 +1434,7 @@
 
 - 功能：[FL-017](../COVERAGE.md#fl-017)、[FL-019](../COVERAGE.md#fl-019)
 - 需求：—
-- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0005](../../adr/0005-dependency-lifecycle-and-upgrades.md)
+- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0005](../../adr/0005-dependency-lifecycle-and-upgrades.md)、[ADR-0070](../../adr/0070-explicit-portable-update-and-rollback.md)
 - 优先级 / 阶段 / 层次：P0 / M0 / manual
 - 类型：release、compatibility、negative
 - 设计 / 执行：`designed / not_run`

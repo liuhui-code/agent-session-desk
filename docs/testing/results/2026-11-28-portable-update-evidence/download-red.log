@@ -1,0 +1,5 @@
+# github.com/liuhui-code/agent-session-desk/internal/updater [github.com/liuhui-code/agent-session-desk/internal/updater.test]
+internal/updater/download_test.go:17:10: undefined: Client
+internal/updater/download_test.go:22:12: e.Download undefined (type Engine has no field or method Download)
+FAIL	github.com/liuhui-code/agent-session-desk/internal/updater [build failed]
+FAIL

@@ -1,6 +1,6 @@
 # 阶段路线图
 
-2026-11-28 当前切片已实现管理 D 有界诊断／主动脱敏导出和 R 显式恢复中心，分别见 [ADR-0068](adr/0068-bounded-workbench-diagnostics.md)／[ADR-0069](adr/0069-explicit-recovery-center.md)。接回原终端、复用原配置新建和 Agent 对话恢复分开；不增加常驻进程或轮询。安全更新工作流留在后续阶段，真实 Agent／实体桌面／长期资源和完整发布门槛继续开放。
+2026-11-28 当前切片已实现管理 D 有界诊断／主动脱敏导出和 R 显式恢复中心，分别见 [ADR-0068](adr/0068-bounded-workbench-diagnostics.md)／[ADR-0069](adr/0069-explicit-recovery-center.md)。接回原终端、复用原配置新建和 Agent 对话恢复分开；不增加常驻进程或轮询。安全更新工作流现按 [ADR-0070](adr/0070-explicit-portable-update-and-rollback.md)推进同格式显式便携更新，真实 Agent／实体桌面／长期资源和完整发布门槛继续开放。
 
 2026-11-26 当前优先项：[ADR-0055](adr/0055-scoped-workbench-instance-and-owned-window.md)的工作台单实例／明确宿主定位，收口重复开猫、共用 Terminal 宿主时归属不明确及退出后重开。仅恢复该链路所需定向验证，原长稳、真实 Agent 和资源专项仍后置，不改变整体阶段接受。
 

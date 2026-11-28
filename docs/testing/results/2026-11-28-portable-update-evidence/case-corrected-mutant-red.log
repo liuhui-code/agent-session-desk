@@ -1,0 +1,6 @@
+=== RUN   TestCaseAliasCannotTurnCurrentProgramIntoAnInactiveSlot
+    engine_test.go:194: case alias treated as inactive program
+--- FAIL: TestCaseAliasCannotTurnCurrentProgramIntoAnInactiveSlot (0.05s)
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/updater	1.353s
+FAIL

@@ -1,0 +1,6 @@
+=== RUN   TestSwitchedManifestRetainsPowerShellUTF8Encoding
+    engine_test.go:231: PowerShell 5.1 manifest encoding lost
+--- FAIL: TestSwitchedManifestRetainsPowerShellUTF8Encoding (0.21s)
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/updater	1.313s
+FAIL

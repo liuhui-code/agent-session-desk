@@ -9,7 +9,7 @@ type helpSection struct {
 
 func workspaceHelpSections() []helpSection {
 	return []helpSection{
-		{"Build", [][2]string{{release.Build(), "U Check releases"}}},
+		{"Build", [][2]string{{release.Build(), "U Check releases"}, {"update CLI", "Explicit download, offline apply and program rollback; docs/UPDATES.md"}}},
 		{"Tabs and terminals", [][2]string{
 			{"F6", "Toggle navigation/terminal focus"},
 			{"Ctrl+S", "Show/hide sidebar (outside dialogs)"},

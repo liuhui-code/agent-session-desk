@@ -59,6 +59,7 @@ Usage:
   asd [global options] metadata check [FILE]   Check metadata without a backend
   asd [global options] metadata backup FILE    Back up metadata to a new file
   asd [global options] metadata restore FILE   Restore into an absent database
+  asd update status|download|apply|rollback|repair|discard [options]
   asd version
   asd pet-demo [--state idle|approval|question|unknown]  Native Windows visual demo
 
@@ -152,6 +153,12 @@ func run(ctx context.Context, args []string, input io.Reader, output, errorOutpu
 	if command == "help" {
 		fmt.Fprint(output, usage)
 		return nil
+	}
+	if command == "update" {
+		if configPath != "" || stateDir != "" || options.Binary != "" || options.TerminalBundle != "" || options.Namespace != "" || options.RuntimeDir != "" || insideTerminal || desktopPet || documentApp != "" {
+			return fmt.Errorf("update uses --install-dir, not workbench global options")
+		}
+		return portableUpdate(ctx, commandArgs, output, errorOutput)
 	}
 	if command == "check-update" {
 		return checkUpdate(ctx, commandArgs, output)

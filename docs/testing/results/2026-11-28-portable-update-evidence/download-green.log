@@ -1,0 +1,14 @@
+=== RUN   TestContractRequiresSameFormatsAndRuntimeBeforeDownloadCanBeUsed
+--- PASS: TestContractRequiresSameFormatsAndRuntimeBeforeDownloadCanBeUsed (0.00s)
+=== RUN   TestContractAcceptsOnlyIdenticalStateFormatsAndCleanExactBuild
+--- PASS: TestContractAcceptsOnlyIdenticalStateFormatsAndCleanExactBuild (0.00s)
+=== RUN   TestCorruptDownloadNeverPublishesPendingUpdate
+--- PASS: TestCorruptDownloadNeverPublishesPendingUpdate (0.03s)
+=== RUN   TestBackupFailureNeverChangesProgramOrConfiguration
+--- PASS: TestBackupFailureNeverChangesProgramOrConfiguration (0.08s)
+=== RUN   TestSwitchAndRollbackKeepCurrentMetadataAndOnePreviousProgram
+--- PASS: TestSwitchAndRollbackKeepCurrentMetadataAndOnePreviousProgram (0.16s)
+=== RUN   TestInterruptedPreparationRequiresExplicitRepairWithoutReplay
+--- PASS: TestInterruptedPreparationRequiresExplicitRepairWithoutReplay (0.06s)
+PASS
+ok  	github.com/liuhui-code/agent-session-desk/internal/updater	1.450s

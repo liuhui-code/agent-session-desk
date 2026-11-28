@@ -1,5 +1,7 @@
 # Windows Alpha 1 使用说明
 
+以下是历史 Alpha 1 包说明；后来的 main 开发版已有 [update CLI](UPDATES.md)，须先人工升级到支持新合同的受管理安装。不要拿缺少更新合同的历史包覆盖当前开发版。
+
 这是供体验的 Windows x64 预发布，沿用 `7691a2b` 样式版本的已测程序字节。没有系统安装器或自动升级；需要已安装的 Windows Terminal，核心不要求 WSL。包内附带固定的实验 psmux／ConPTY 运行库，不需要另装 psmux。不要用官方 psmux 文件替换其中任意文件。
 
 ## 解压与启动

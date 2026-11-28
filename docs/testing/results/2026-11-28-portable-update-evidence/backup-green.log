@@ -1,0 +1,8 @@
+=== RUN   TestContractRequiresSameFormatsAndRuntimeBeforeDownloadCanBeUsed
+--- PASS: TestContractRequiresSameFormatsAndRuntimeBeforeDownloadCanBeUsed (0.00s)
+=== RUN   TestContractAcceptsOnlyIdenticalStateFormatsAndCleanExactBuild
+--- PASS: TestContractAcceptsOnlyIdenticalStateFormatsAndCleanExactBuild (0.00s)
+=== RUN   TestBackupFailureNeverChangesProgramOrConfiguration
+--- PASS: TestBackupFailureNeverChangesProgramOrConfiguration (0.09s)
+PASS
+ok  	github.com/liuhui-code/agent-session-desk/internal/updater	1.971s

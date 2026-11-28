@@ -2,6 +2,8 @@
 
 其他 Agent 接手先看[配置与接入说明](docs/CONFIGURATION.md)和[功能与适配索引](docs/AGENT_ADAPTATION.md)，含配置位置、作用域、优先级、可复制示例与验证边界。
 
+main 开发版加入[可回退的便携更新](docs/UPDATES.md)：显式选择 tag、按需下载与双重 SHA256 校验，关闭工作台后备份并切换程序；回退保留当前数据。仅受管理 alpha.json 安装及相同状态格式／终端库，旧公开包缺更新合同会拒绝；没有后台自动更新。
+
 main 开发版新增管理模式 **D 诊断**与 **R 恢复中心**：查看连接／失败并主动导出脱敏报告，或明确选择接回原终端、按原配置新建、按 Agent 声明恢复。恢复默认取消，需确认旧 Run 已结束；启动成功不等于对话已恢复。[诊断说明](docs/DIAGNOSTICS.md) · [恢复操作](docs/AGENT_RECOVERY.md#工作台恢复入口)。
 
 自定义 Agent 可按[简易恢复协议 v1](docs/AGENT_RECOVERY.md)和[填写说明](docs/AGENT_RECOVERY_INSTRUCTIONS.md)准备自己的恢复配置；附 JSON Schema 与示例。main 开发版已有声明登记、持久配置、显式恢复与结果提交 CLI；恢复到原 Session 的新 Run，历史由 Agent 保存。实际范围见[验证报告](docs/testing/results/2026-11-27-agent-recovery-execution.md)，真实 Agent／完整重启仍需另验。

@@ -1,0 +1,6 @@
+=== RUN   TestAmbiguousUpdateJSONIsRejected
+    contract_test.go:46: ambiguous contract decoded: {"protocol":1,"protocol":1}
+--- FAIL: TestAmbiguousUpdateJSONIsRejected (0.00s)
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/updater	0.993s
+FAIL
