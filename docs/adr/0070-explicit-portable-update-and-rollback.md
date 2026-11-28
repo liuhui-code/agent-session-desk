@@ -18,6 +18,6 @@
 
 ## 验证
 
-按 TDD 逐条保存损坏下载不发布、兼容性拒绝、备份失败保留原入口、正常切换／回退、并发拒绝和中断修复的 RED／GREEN。Windows 原生验证与模型、交叉构建分别记账，不碰日常 Run。具体执行结果补入专项报告；架构接受不构成已实现／发布接受。
+按 TDD 逐条保存损坏下载不发布、兼容性拒绝、备份失败保留原入口、正常切换／回退、并发拒绝和中断修复的 RED／GREEN。Windows 原生验证与模型、交叉构建分别记账，不碰日常 Run。实现及本机／Windows 原生局部结果见[专项报告](../testing/results/2026-11-28-portable-update.md)。架构接受、模型和有界原生通过均不构成整体发布接受。
 
 接口依据：Context7 的 [GitHub Release assets](https://docs.github.com/en/rest/releases/assets) 描述 digest／size 和 200／302 下载。执行仍以具体原生文件／互斥测试为准；未引入更新框架或新依赖。

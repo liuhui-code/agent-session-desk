@@ -1,0 +1,45 @@
+=== RUN   TestContractRequiresSameFormatsAndRuntimeBeforeDownloadCanBeUsed
+--- PASS: TestContractRequiresSameFormatsAndRuntimeBeforeDownloadCanBeUsed (0.00s)
+=== RUN   TestContractAcceptsOnlyIdenticalStateFormatsAndCleanExactBuild
+--- PASS: TestContractAcceptsOnlyIdenticalStateFormatsAndCleanExactBuild (0.00s)
+=== RUN   TestAmbiguousUpdateJSONIsRejected
+--- PASS: TestAmbiguousUpdateJSONIsRejected (0.00s)
+=== RUN   TestCorruptDownloadNeverPublishesPendingUpdate
+--- PASS: TestCorruptDownloadNeverPublishesPendingUpdate (0.04s)
+=== RUN   TestVerifiedDownloadStagesWithoutExecutingAProgram
+--- PASS: TestVerifiedDownloadStagesWithoutExecutingAProgram (0.05s)
+=== RUN   TestAssetRedirectRefusesHTTPAndForeignHosts
+=== RUN   TestAssetRedirectRefusesHTTPAndForeignHosts/http://release-assets.githubusercontent.com/product
+=== RUN   TestAssetRedirectRefusesHTTPAndForeignHosts/https://example.com/product
+=== RUN   TestAssetRedirectRefusesHTTPAndForeignHosts/https://github.com.evil.example/product
+--- PASS: TestAssetRedirectRefusesHTTPAndForeignHosts (0.00s)
+    --- PASS: TestAssetRedirectRefusesHTTPAndForeignHosts/http://release-assets.githubusercontent.com/product (0.00s)
+    --- PASS: TestAssetRedirectRefusesHTTPAndForeignHosts/https://example.com/product (0.00s)
+    --- PASS: TestAssetRedirectRefusesHTTPAndForeignHosts/https://github.com.evil.example/product (0.00s)
+=== RUN   TestBackupFailureNeverChangesProgramOrConfiguration
+--- PASS: TestBackupFailureNeverChangesProgramOrConfiguration (0.04s)
+=== RUN   TestSwitchAndRollbackKeepCurrentMetadataAndOnePreviousProgram
+--- PASS: TestSwitchAndRollbackKeepCurrentMetadataAndOnePreviousProgram (0.10s)
+=== RUN   TestInterruptedPreparationRequiresExplicitRepairWithoutReplay
+--- PASS: TestInterruptedPreparationRequiresExplicitRepairWithoutReplay (0.05s)
+=== RUN   TestRepeatedUpdatesKeepThreeProgramSlotsAndPreviousRunnable
+--- PASS: TestRepeatedUpdatesKeepThreeProgramSlotsAndPreviousRunnable (0.77s)
+=== RUN   TestCommittedIntentRepairDoesNotReplayAProgram
+--- PASS: TestCommittedIntentRepairDoesNotReplayAProgram (0.08s)
+=== RUN   TestEmptyInstallationDoesNotClaimANonexistentBackup
+--- PASS: TestEmptyInstallationDoesNotClaimANonexistentBackup (0.05s)
+=== RUN   TestCaseAliasCannotTurnCurrentProgramIntoAnInactiveSlot
+--- PASS: TestCaseAliasCannotTurnCurrentProgramIntoAnInactiveSlot (0.04s)
+=== RUN   TestConcurrentUpdateRefusesInsteadOfOverwritingStaging
+--- PASS: TestConcurrentUpdateRefusesInsteadOfOverwritingStaging (0.03s)
+=== RUN   TestSwitchedManifestRetainsPowerShellUTF8Encoding
+--- PASS: TestSwitchedManifestRetainsPowerShellUTF8Encoding (0.12s)
+=== RUN   TestUnownedBackupSlotIsNeverOverwritten
+=== RUN   TestUnownedBackupSlotIsNeverOverwritten/empty=false
+=== RUN   TestUnownedBackupSlotIsNeverOverwritten/empty=true
+--- PASS: TestUnownedBackupSlotIsNeverOverwritten (0.08s)
+    --- PASS: TestUnownedBackupSlotIsNeverOverwritten/empty=false (0.05s)
+    --- PASS: TestUnownedBackupSlotIsNeverOverwritten/empty=true (0.03s)
+=== RUN   TestRepairReleasesUncommittedProgramAndBackupSlots
+--- PASS: TestRepairReleasesUncommittedProgramAndBackupSlots (0.08s)
+PASS

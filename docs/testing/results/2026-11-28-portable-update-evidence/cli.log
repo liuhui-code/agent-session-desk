@@ -1,0 +1,8 @@
+=== RUN   TestUpdateProbeReadsNoBackendOrPrivateState
+--- PASS: TestUpdateProbeReadsNoBackendOrPrivateState (0.00s)
+=== RUN   TestUpdateApplyRequiresExplicitClosedConfirmation
+--- PASS: TestUpdateApplyRequiresExplicitClosedConfirmation (0.00s)
+=== RUN   TestWindowsNativePortableUpdateRollbackAndKilledTransaction
+    portable_update_windows_test.go:297: original fixture pid=23796 creation=1795833988632290900 retained; actual CLI package/probes, streamed mock-provider staging, live UI refusal, v11 backup, switch, current-data rollback, one deliberately killed updater, explicit repair, no terminal input
+--- PASS: TestWindowsNativePortableUpdateRollbackAndKilledTransaction (13.88s)
+PASS

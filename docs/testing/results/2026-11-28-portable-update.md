@@ -27,3 +27,33 @@ apply／rollback／repair 要求显式关闭确认，实际持有既有启动门
 已准备独立目录的真实双程序字节、实际 CLI package／probe／apply／rollback、SQLite v11 备份、存活 mutex 拒绝和明确终止自有 updater 的恢复用例。此源码提交时尚未执行最终 clean 镜像；不得把交叉编译、上面的模型或已有旧原生结果记为本轮通过。正式执行／交付见后续追加。
 
 长期资源、真实 Agent、跨格式迁移、签名／许可与完整发布接受仍开放。本轮也不关闭完整断电／全部文件锁／多用户／多登录会话矩阵。
+
+## 正式 Windows 执行与首版交付
+
+最终源码 **db63c5a0a99ef77f075798ebead9c31814341a89**，两个 Windows amd64 产品均由干净工作树 Go 1.27.4 构建，VCS modified=false。普通产品与去符号候选为同源码不同字节，分别见[产物哈希](2026-11-28-portable-update-evidence/native-hashes.json)及两个 build.txt；候选不是手工伪造 build/probe。日常产品 SHA256：`069e4d2ed87ed08696ea12ee0cfddb0ab0a0d42efd44534d5324a84a207970e9`。
+
+[执行器](2026-11-28-portable-update-evidence/native.ps1)、[回执](2026-11-28-portable-update-evidence/native-result.json)记录 Windows **10.0.19045**：更新包 **17 顶层**、实例门禁 **1 顶层**、CLI **3 顶层**全部通过，零失败／跳过，三个 stderr 为空。17 项使用真实 Windows 文件／锁／替换及受控回调；CLI 包含两个无后台／确认边界和一个实际终端流程，不能全部算作实体桌面场景。详见 updater.log、instance.log、cli.log。
+
+实际流程证明：
+
+- 同一 clean 源码的不同 PE 字节，经实际 CLI package／probe 生成合同与校验；HTTP 提供方为受控 transport，程序内容从真实文件流式读取，不是假称已从公网 GitHub 下载。
+- 独立 namespace／安装根目录，固定开发 psmux 运行库（ff9d8893…，不是官方 3.4.0 原包）；实际 fixture JSONL 独立给出 PID，并核对完整镜像／FILETIME，更新全程保留原 Run／backend 身份。
+- 实际协议监听器持有 UI 存活 mutex 时 apply 拒绝；这是原生门禁合同，不是物理工作台键盘测试。退出监听后，真实 SQLite v11 快照与校验、程序文件／入口切换通过。
+- 更新后写入新的逻辑显示名称，回退程序后该数据仍在；未恢复旧数据库或重启原终端。
+- 另起一个明确自有 updater helper，在真实固定 SQLite 备份完成、发布入口前写出独立边界回执；刻意结束这一个 helper，等待结束后 apply 拒绝重放，显式 repair 保留旧入口并清理准备，discard 结束候选。**主动故障终止 updater=1**，不是零故障终止。未终止原 fixture；最后通过正常产品 Stop 清理该自有 Run 并等待原进程结束。
+
+这是同状态格式、同源不同字节的更新事务／失败合同；不代替未来跨源码发布的兼容性回归、签名验证、实体 Windows Terminal／IME 或完整资源预算。不同状态格式明确拒绝。
+
+### 日常安装
+
+首次支持协议的版本按原人工交付机制进入 `asd-updater-db63c5a.exe`；没有用不支持 update 的 44aa154 自行升级。原 manager 21436 的精确路径／创建时间、宿主 hash、唯一 owner binding 和恰好一个原生 Tab 守卫成立后，正常关闭旧视图；验证 v11 非覆盖备份，再切换清单并仅调用原快捷方式一次。新 manager 19012 已运行，见[交付回执](2026-11-28-portable-update-evidence/delivery-result.json)。没有停止日常 Run、发送终端输入或调用剪贴板 API。
+
+关闭前已落盘保存原始身份投影与五份配置哈希；[独立审计](2026-11-28-portable-update-evidence/audit-result.json)逐字段验证本轮前后 **7 条**完整 Session／Run／backend 身份相等、配置哈希相等、新 manager 对应唯一宿主和一个桌宠、旧 manager 不存在。七条是本轮观测身份数，不是七个活 Agent；不倒推上轮六条的状态或新增来源。原始投影／配置哈希／备份只留 Windows `asd-acceptance-20261122/update-delivery-db63c5a/`，不提交 Git。
+
+[实际安装冒烟](2026-11-28-portable-update-evidence/installed-smoke.json)再次证明 update status 可读当前入口、pending=false／repair_required=false，私有备份 v11／integrity=ok；[已装程序 probe](2026-11-28-portable-update-evidence/installed-probe.json)具有 protocol=1、准确 clean revision 与全部格式／运行库声明。status 首次建立专用有界锁目录，不改元数据、偏好或运行程序。
+
+UTC 02:55:06 的 manager 单次工作集 18,919,424 bytes（约 18.0 MiB）、私有 63,537,152 bytes（约 60.6 MiB）；不含 Terminal／psmux／子程序，不是更新前后配对测量、长期预算或优化成果。新增更新逻辑只按命令运行，无常驻更新进程。
+
+[精确清理](2026-11-28-portable-update-evidence/cleanup.json)核对零上传镜像进程、两个临时任务不存在，按哈希移除六份测试镜像和四份控制器，cleanup_forced=0，日常镜像及备份保留。它不抹去上面的一个主动故障 helper 终止。
+
+公开发布流水线未改，也没有发布新 GitHub 资产。旧公开包缺合同的拒绝行为保持；真正公网资产／CDN 下载接受须随新合同包发布后单独验证。
