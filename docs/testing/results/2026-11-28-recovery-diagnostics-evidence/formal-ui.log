@@ -1,0 +1,50 @@
+=== RUN   TestDiagnosticsInspectWithoutChangingNativeClientOrForwardingInput
+--- PASS: TestDiagnosticsInspectWithoutChangingNativeClientOrForwardingInput (0.00s)
+=== RUN   TestDiagnosticExportSurvivesClosingWithoutChangingOrReopeningView
+--- PASS: TestDiagnosticExportSurvivesClosingWithoutChangingOrReopeningView (0.00s)
+=== RUN   TestDiagnosticsRemainBoundedAtNarrowWindowSizes
+=== RUN   TestDiagnosticsRemainBoundedAtNarrowWindowSizes/[160_45]
+=== RUN   TestDiagnosticsRemainBoundedAtNarrowWindowSizes/[120_32]
+=== RUN   TestDiagnosticsRemainBoundedAtNarrowWindowSizes/[63_16]
+=== RUN   TestDiagnosticsRemainBoundedAtNarrowWindowSizes/[49_12]
+=== RUN   TestDiagnosticsRemainBoundedAtNarrowWindowSizes/[12_4]
+=== RUN   TestDiagnosticsRemainBoundedAtNarrowWindowSizes/[1_1]
+--- PASS: TestDiagnosticsRemainBoundedAtNarrowWindowSizes (0.02s)
+    --- PASS: TestDiagnosticsRemainBoundedAtNarrowWindowSizes/[160_45] (0.00s)
+    --- PASS: TestDiagnosticsRemainBoundedAtNarrowWindowSizes/[120_32] (0.00s)
+    --- PASS: TestDiagnosticsRemainBoundedAtNarrowWindowSizes/[63_16] (0.00s)
+    --- PASS: TestDiagnosticsRemainBoundedAtNarrowWindowSizes/[49_12] (0.00s)
+    --- PASS: TestDiagnosticsRemainBoundedAtNarrowWindowSizes/[12_4] (0.00s)
+    --- PASS: TestDiagnosticsRemainBoundedAtNarrowWindowSizes/[1_1] (0.00s)
+=== RUN   TestDiagnosticsIgnoreStaleReceiptsAndExcludeRawFailureText
+--- PASS: TestDiagnosticsIgnoreStaleReceiptsAndExcludeRawFailureText (0.01s)
+=== RUN   TestWindowsNativeDiagnosticsKeepOriginalClientAndExcludePrivateContent
+    diagnostics_windows_test.go:125: real fixture private marker verified; sanitized export; original connection/Session/Run/backend retained; no diagnostic input written
+--- PASS: TestWindowsNativeDiagnosticsKeepOriginalClientAndExcludePrivateContent (1.44s)
+=== RUN   TestRecoveryCenterReviewsWithoutChangingOriginalTerminalOrStartingAgent
+--- PASS: TestRecoveryCenterReviewsWithoutChangingOriginalTerminalOrStartingAgent (0.01s)
+=== RUN   TestRecoveryNewSessionReviewsOriginalLaunchAndPreservesArgumentBoundaries
+--- PASS: TestRecoveryNewSessionReviewsOriginalLaunchAndPreservesArgumentBoundaries (0.01s)
+=== RUN   TestRecoveryRestoreRequiresEndedConsentAndExplicitStartWithOneAttempt
+--- PASS: TestRecoveryRestoreRequiresEndedConsentAndExplicitStartWithOneAttempt (0.00s)
+=== RUN   TestRecoveryCannotStartWhenConfirmationControlsAreClipped
+--- PASS: TestRecoveryCannotStartWhenConfirmationControlsAreClipped (0.00s)
+=== RUN   TestRecoveryBlocksLiveUnknownAndUncertainAttempts
+=== RUN   TestRecoveryBlocksLiveUnknownAndUncertainAttempts/live
+=== RUN   TestRecoveryBlocksLiveUnknownAndUncertainAttempts/exited
+=== RUN   TestRecoveryBlocksLiveUnknownAndUncertainAttempts/unknown
+=== RUN   TestRecoveryBlocksLiveUnknownAndUncertainAttempts/launch_unknown
+=== RUN   TestRecoveryBlocksLiveUnknownAndUncertainAttempts/busy
+--- PASS: TestRecoveryBlocksLiveUnknownAndUncertainAttempts (0.00s)
+    --- PASS: TestRecoveryBlocksLiveUnknownAndUncertainAttempts/live (0.00s)
+    --- PASS: TestRecoveryBlocksLiveUnknownAndUncertainAttempts/exited (0.00s)
+    --- PASS: TestRecoveryBlocksLiveUnknownAndUncertainAttempts/unknown (0.00s)
+    --- PASS: TestRecoveryBlocksLiveUnknownAndUncertainAttempts/launch_unknown (0.00s)
+    --- PASS: TestRecoveryBlocksLiveUnknownAndUncertainAttempts/busy (0.00s)
+=== RUN   TestRecoveryCloneRejectsOldRecoveryCredentials
+--- PASS: TestRecoveryCloneRejectsOldRecoveryCredentials (0.00s)
+=== RUN   TestRecoveryLateReadDoesNotReopenClosedPanel
+--- PASS: TestRecoveryLateReadDoesNotReopenClosedPanel (0.00s)
+=== RUN   TestRecoveryReattachRetainsExactConnectedRunWithoutStart
+--- PASS: TestRecoveryReattachRetainsExactConnectedRunWithoutStart (0.00s)
+PASS

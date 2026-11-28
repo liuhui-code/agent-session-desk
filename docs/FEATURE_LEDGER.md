@@ -632,3 +632,5 @@ FL-012/015/018：ADR-0057 有界页变化标识，静默不代表 ready；见[�
 2026-11-28 FL-012/013/015/016/017：按 [ADR-0068](adr/0068-bounded-workbench-diagnostics.md)接入管理 D 诊断、连接／发现耗时和失败分类、四槽主动导出；128 条内存观察与固定字段白名单，不存正文／原始错误／命令／凭据。[实际报告](testing/results/2026-11-28-diagnostics.md)记录局部测试与原生范围，保持完整接受／发布门槛。
 
 2026-11-28 FL-001/002/011/013/018：按 [ADR-0069](adr/0069-explicit-recovery-center.md)加入管理 R 恢复中心，独立接回原终端／复用完整启动新建 Session／显式 Agent 恢复。默认取消、旧 Run 已结束确认、修订与身份复核、不确定结果不重试，最多 32 个独立私有交接目录；[实际证据](testing/results/2026-11-28-recovery-center.md)与真实 Agent／实体桌面／资源验收分列。
+
+2026-11-28 FL-012/013/015/018：正式源码 44aa154、modified=false 的 Windows 日常镜像已交付；最终原生 CLI 2／UI 13 顶层通过，两个临时任务清理，6 条身份投影和配置哈希前后相等。单次 manager 工作集约 42 MiB／私有约 61 MiB，不计完整进程树或长期预算。[交付及未验证边界](testing/results/2026-11-28-diagnostics.md#最终正式镜像与日常交付)保持与模型／合成 Agent 证据分列。

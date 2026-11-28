@@ -21,3 +21,17 @@
 [精确清理](2026-11-28-recovery-diagnostics-evidence/cleanup.json)：零私有测试镜像进程，七份测试镜像按哈希删除，强杀零，日常会话未操作。私有 SQLite、上下文、凭据、原始终端正文不提交。
 
 没有新增 daemon、worker 或轮询；内存事件／导出／历史加载均有界。此处没有测量完整 RSS、长期 soak、故障启动或真实 Agent，不能由有界结构推断资源预算已接受。退出即失去内存诊断观察；后端版本号也不证明二进制完整性。
+
+## 最终正式镜像与日常交付
+
+源码提交 **44aa154faff75b32fefb4c6b33b84b60de81f7ec**，干净工作树构建，VCS modified=false，Go 1.27.4 Windows amd64。[构建信息](2026-11-28-recovery-diagnostics-evidence/formal-build.txt)与[镜像哈希](2026-11-28-recovery-diagnostics-evidence/formal-hashes.json)独立记录。正式产品 SHA256 为 `7e45eaf62b813d4b0c6e3943e29a146430c0202d6f68690df243fa00a01f27e7`，不把 earlier dirty 测试镜像当作同一构建。
+
+最终等值样式 token 和补充测试均已包含在正式测试镜像：原生 UI **13 个顶层**、CLI **2 个顶层**通过，零失败／跳过，见 [formal-ui.log](2026-11-28-recovery-diagnostics-evidence/formal-ui.log)、[formal-cli.log](2026-11-28-recovery-diagnostics-evidence/formal-cli.log)及[结果](2026-11-28-recovery-diagnostics-evidence/formal-results.json)。UI 数包含一个实际后端诊断场景，其余模型输入；CLI 两个仍为合成历史的真实进程合同。不可加总 repeated 套件成独立场景或物理按键证据。
+
+Windows 日常清单已切至 `asd-desk-44aa154.exe`，沿原快捷方式单次启动。两个控制器启动尝试分别在脚本执行前被命令长度／本机文件执行策略拒绝，见[拒绝摘要](2026-11-28-recovery-diagnostics-evidence/delivery-controller-failures.json)；随后使用仓库既有 ReadAllText／ScriptBlock 加载器，未修改执行策略。真正交付任务 fresh 守卫成立，才正常关闭唯一绑定、单 Tab 的原工作台视图；未停止任何日常 Run、发送终端输入或访问剪贴板。
+
+[交付回执](2026-11-28-recovery-diagnostics-evidence/delivery-result.json)确认原 UI 正常结束、v11 非覆盖备份验证通过、清单切换和新 manager 成功运行。与上一轮只存内存的交付不同，本轮在关闭前已将身份投影和配置哈希写入 Windows 私有目录；[独立审计](2026-11-28-recovery-diagnostics-evidence/delivery-audit-result.json)逐字段核验 6 条完整 Session／Run／backend 身份，前后集合相等、配置哈希相等，新 manager 有指定 Terminal 镜像的唯一祖先窗口／owner binding 和一个所属桌宠，旧 manager 不存在。六条是观测身份数，不是六个活 Agent 或全部 available 的结论。
+
+原 manager PID 2532，新 manager PID 21436；备份及原始前后投影、配置哈希留在 Windows `asd-acceptance-20261122/desk-delivery-44aa154/`，不提交 Git。备份和当前库均 schema v11／integrity=ok。UTC 01:54:39 单次 manager 采样：工作集 44,032,000 bytes（约 42.0 MiB），私有 63,901,696 bytes（约 60.9 MiB）；不含 psmux、Windows Terminal 或子程序，不代表前后内存差、长期预算或完整进程树成本。
+
+[最终清理](2026-11-28-recovery-diagnostics-evidence/formal-cleanup.json)：四份正式测试上传镜像／四份临时控制器按精确哈希移除，零私有镜像进程，两个临时任务均不存在，日常新版与备份保留，forced=0。该交付只证明镜像和窗口归属；D／R 实体键盘／视觉、真实 Agent、系统重启和长期资源仍须另验。

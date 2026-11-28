@@ -1,0 +1,40 @@
+{
+  "source": "44aa154",
+  "clipboard_apis": 0,
+  "stages": [
+    {
+      "at": "2026-11-28T01:52:45.4269557Z",
+      "name": "guards"
+    },
+    {
+      "at": "2026-11-28T01:52:47.2311837Z",
+      "name": "close-ui"
+    },
+    {
+      "at": "2026-11-28T01:52:47.3795511Z",
+      "name": "metadata-backup"
+    },
+    {
+      "at": "2026-11-28T01:52:47.5373804Z",
+      "name": "launch-once"
+    },
+    {
+      "at": "2026-11-28T01:52:57.1802122Z",
+      "name": "verify"
+    }
+  ],
+  "manager_pid": 21436,
+  "final_schema": 11,
+  "result": "updated-running",
+  "manifest_switched": true,
+  "live_preserved": true,
+  "before_saved": true,
+  "original_manager_pid": 2532,
+  "backup_schema": 11,
+  "config_preserved": true,
+  "new_creation": "2026-11-28T01:52:55.0438966Z",
+  "terminal_input": 0,
+  "backup_valid": true,
+  "hash": "7e45eaf62b813d4b0c6e3943e29a146430c0202d6f68690df243fa00a01f27e7",
+  "forced": 0
+}

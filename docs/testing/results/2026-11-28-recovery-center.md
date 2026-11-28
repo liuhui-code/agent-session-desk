@@ -23,3 +23,5 @@ R 按需加载最近 100 条 Run 历史，按逻辑 Session 去重；Enter 在�
 开发 backend 仍为 ff9d8893… 的日常 psmux，未改官方基线。零私有测试进程与七份按哈希清理记录见 cleanup.json；未停止日常 Run。完整物理键盘／视觉、真实自定义 Agent、系统重启与资源预算仍待独立验证；合成历史只证明协议和桥接合同。
 
 最终等值 token 提取和实际 live／exited fixture 状态补全后，再执行受影响诊断／恢复的 [race 复验](2026-11-28-recovery-diagnostics-evidence/final-affected-race.log)，保持 earlier 原生镜像指纹独立。
+
+正式源码 **44aa154** 已在干净工作树构建并交付 Windows 日常镜像。最终正式 Windows CLI 两个顶层／UI 十三个顶层全部通过，源和镜像与 earlier 轮次分别保存；详见[正式验证与交付](2026-11-28-diagnostics.md#最终正式镜像与日常交付)。日常交付本身没有发起任何 Agent 恢复，不用窗口运行状态代替真实 Agent 恢复证据。

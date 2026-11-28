@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "stage": "encoded_controller",
+      "result": "rejected_before_script_execution",
+      "reason": "Windows command line too long"
+    },
+    {
+      "stage": "file_controller",
+      "result": "rejected_before_script_execution",
+      "reason": "Local file execution policy denied script loading"
+    }
+  ],
+  "subsequent_loader": "existing ReadAllText/ScriptBlock path; no execution policy change",
+  "product_launches_in_rejected_attempts": 0
+}
