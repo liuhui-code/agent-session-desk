@@ -1,0 +1,24 @@
+=== RUN   TestDiagnosticsInspectWithoutChangingNativeClientOrForwardingInput
+--- PASS: TestDiagnosticsInspectWithoutChangingNativeClientOrForwardingInput (0.00s)
+=== RUN   TestDiagnosticExportSurvivesClosingWithoutChangingOrReopeningView
+--- PASS: TestDiagnosticExportSurvivesClosingWithoutChangingOrReopeningView (0.00s)
+=== RUN   TestDiagnosticsRemainBoundedAtNarrowWindowSizes
+=== RUN   TestDiagnosticsRemainBoundedAtNarrowWindowSizes/[160_45]
+=== RUN   TestDiagnosticsRemainBoundedAtNarrowWindowSizes/[120_32]
+=== RUN   TestDiagnosticsRemainBoundedAtNarrowWindowSizes/[63_16]
+=== RUN   TestDiagnosticsRemainBoundedAtNarrowWindowSizes/[49_12]
+=== RUN   TestDiagnosticsRemainBoundedAtNarrowWindowSizes/[12_4]
+=== RUN   TestDiagnosticsRemainBoundedAtNarrowWindowSizes/[1_1]
+--- PASS: TestDiagnosticsRemainBoundedAtNarrowWindowSizes (0.01s)
+    --- PASS: TestDiagnosticsRemainBoundedAtNarrowWindowSizes/[160_45] (0.00s)
+    --- PASS: TestDiagnosticsRemainBoundedAtNarrowWindowSizes/[120_32] (0.00s)
+    --- PASS: TestDiagnosticsRemainBoundedAtNarrowWindowSizes/[63_16] (0.00s)
+    --- PASS: TestDiagnosticsRemainBoundedAtNarrowWindowSizes/[49_12] (0.00s)
+    --- PASS: TestDiagnosticsRemainBoundedAtNarrowWindowSizes/[12_4] (0.00s)
+    --- PASS: TestDiagnosticsRemainBoundedAtNarrowWindowSizes/[1_1] (0.00s)
+=== RUN   TestDiagnosticsIgnoreStaleReceiptsAndExcludeRawFailureText
+--- PASS: TestDiagnosticsIgnoreStaleReceiptsAndExcludeRawFailureText (0.01s)
+=== RUN   TestWindowsNativeDiagnosticsKeepOriginalClientAndExcludePrivateContent
+    diagnostics_windows_test.go:125: real fixture private marker verified; sanitized export; original connection/Session/Run/backend retained; no diagnostic input written
+--- PASS: TestWindowsNativeDiagnosticsKeepOriginalClientAndExcludePrivateContent (1.43s)
+PASS

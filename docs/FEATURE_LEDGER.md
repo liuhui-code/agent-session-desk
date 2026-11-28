@@ -628,3 +628,7 @@ FL-012/015/018：ADR-0057 有界页变化标识，静默不代表 ready；见[�
 2026-11-27 FL-012/015/018：按 [ADR-0067](adr/0067-five-session-warm-return-and-partial-activity.md)修复五会话先保存导致目标末帧被淘汰及全批 epoch 丢弃有效 peer 样本；[模型与原生后端回归](testing/results/2026-11-27-five-session-switch.md)独立记录，保留原缓存／采样边界，不提升整体验收。
 
 2026-11-28 FL-012/015/018：ADR-0067 的正式 Windows 日常镜像已切换至 5f5e6d3；[交付复核](testing/results/2026-11-27-five-session-switch.md)保留首次等待超时、后续已有窗口核验、严格状态统计和清理。原六条元数据身份保留，前后 live／配置哈希未完整落盘的限制明确保留，不提升长期资源或整体验收。
+
+2026-11-28 FL-012/013/015/016/017：按 [ADR-0068](adr/0068-bounded-workbench-diagnostics.md)接入管理 D 诊断、连接／发现耗时和失败分类、四槽主动导出；128 条内存观察与固定字段白名单，不存正文／原始错误／命令／凭据。[实际报告](testing/results/2026-11-28-diagnostics.md)记录局部测试与原生范围，保持完整接受／发布门槛。
+
+2026-11-28 FL-001/002/011/013/018：按 [ADR-0069](adr/0069-explicit-recovery-center.md)加入管理 R 恢复中心，独立接回原终端／复用完整启动新建 Session／显式 Agent 恢复。默认取消、旧 Run 已结束确认、修订与身份复核、不确定结果不重试，最多 32 个独立私有交接目录；[实际证据](testing/results/2026-11-28-recovery-center.md)与真实 Agent／实体桌面／资源验收分列。

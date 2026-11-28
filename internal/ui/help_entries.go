@@ -46,6 +46,8 @@ func workspaceHelpSections() []helpSection {
 			{"< / >", "Adjust and save split; drag saves on release"},
 			{"=", "Restore and save automatic split"},
 			{"h", "Read-only history; no terminal input"},
+			{"R", "Recovery: reattach, review a new Session, or explicitly restore"},
+			{"D", "Diagnostics: status, recent failures and sanitized export"},
 			{"v", "Native selection/search; Space Select, Enter Copy, / Search"},
 			{"V", "Copy the selected session's current screen, excluding history"},
 			{"Ctrl+click", "Open a visible local .md/.markdown reference in the external editor"},

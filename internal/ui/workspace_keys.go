@@ -103,6 +103,10 @@ func (m *Model) workspaceKeyNow(msg tea.KeyPressMsg) tea.Cmd {
 		return cmd
 	}
 	switch msg.String() {
+	case "R":
+		return m.beginRecoveryCenter()
+	case "D":
+		return m.beginDiagnostics()
 	case "W":
 		return m.startProject()
 	case "U":

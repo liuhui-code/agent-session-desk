@@ -1,0 +1,11 @@
+=== RUN   TestWindowsNativeRecoveryCLI
+    agent_recovery_windows_test.go:159: fixture pid=7800 creation=1795830136602662300
+    agent_recovery_windows_test.go:228: fixture pid=12888 creation=1795830138083880400
+    agent_recovery_windows_test.go:262: process launch inferred restored
+--- FAIL: TestWindowsNativeRecoveryCLI (3.65s)
+=== RUN   TestWindowsNativeRecoveryUIBridge
+    agent_recovery_windows_test.go:159: fixture pid=17472 creation=1795830139978248100
+    agent_recovery_windows_test.go:228: fixture pid=15604 creation=1795830141486760400
+    agent_recovery_windows_test.go:262: process launch inferred restored
+--- FAIL: TestWindowsNativeRecoveryUIBridge (3.32s)
+FAIL

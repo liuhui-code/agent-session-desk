@@ -8,7 +8,9 @@ package ui
 
 import (
 	"context"
+	"github.com/liuhui-code/agent-session-desk/internal/diagnostics"
 	"github.com/liuhui-code/agent-session-desk/internal/keybindings"
+	"github.com/liuhui-code/agent-session-desk/internal/recovery"
 	"strings"
 
 	tea "charm.land/bubbletea/v2"
@@ -18,6 +20,10 @@ import (
 )
 
 type Options struct {
+	ReviewRecovery    func(context.Context, session.Session) (recovery.Review, error)
+	RestoreRecovery   func(context.Context, recovery.Review) (recovery.Outcome, error)
+	DiagnosticRuntime diagnostics.Runtime
+	ExportDiagnostics func(context.Context, diagnostics.Report) (string, error)
 	Keybindings       keybindings.Map
 	LoadProject       func(context.Context) ([]session.Launch, error)
 	OpenDocument      func(context.Context, string) error
@@ -44,6 +50,9 @@ type Options struct {
 
 func NewWithOptions(ctx context.Context, service Service, options Options) *Model {
 	m := New(ctx, service)
+	m.recoveryUI.review, m.recoveryUI.restore = options.ReviewRecovery, options.RestoreRecovery
+	m.diagnostic.runtime = options.DiagnosticRuntime
+	m.diagnostic.export = options.ExportDiagnostics
 	if m.workspace != nil {
 		m.workspace.bindings = options.Keybindings
 	}

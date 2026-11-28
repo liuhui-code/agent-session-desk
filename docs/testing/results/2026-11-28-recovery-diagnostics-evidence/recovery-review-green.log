@@ -1,0 +1,32 @@
+=== RUN   TestRecoveryRefusesLiveUnknownOrStaleSourceBeforeLaunch
+=== RUN   TestRecoveryRefusesLiveUnknownOrStaleSourceBeforeLaunch/live
+=== RUN   TestRecoveryRefusesLiveUnknownOrStaleSourceBeforeLaunch/retained-exit
+=== RUN   TestRecoveryRefusesLiveUnknownOrStaleSourceBeforeLaunch/unknown
+=== RUN   TestRecoveryRefusesLiveUnknownOrStaleSourceBeforeLaunch/disconnected
+=== RUN   TestRecoveryRefusesLiveUnknownOrStaleSourceBeforeLaunch/stale
+=== RUN   TestRecoveryRefusesLiveUnknownOrStaleSourceBeforeLaunch/unconfirmed
+--- PASS: TestRecoveryRefusesLiveUnknownOrStaleSourceBeforeLaunch (0.02s)
+    --- PASS: TestRecoveryRefusesLiveUnknownOrStaleSourceBeforeLaunch/live (0.00s)
+    --- PASS: TestRecoveryRefusesLiveUnknownOrStaleSourceBeforeLaunch/retained-exit (0.00s)
+    --- PASS: TestRecoveryRefusesLiveUnknownOrStaleSourceBeforeLaunch/unknown (0.00s)
+    --- PASS: TestRecoveryRefusesLiveUnknownOrStaleSourceBeforeLaunch/disconnected (0.00s)
+    --- PASS: TestRecoveryRefusesLiveUnknownOrStaleSourceBeforeLaunch/stale (0.00s)
+    --- PASS: TestRecoveryRefusesLiveUnknownOrStaleSourceBeforeLaunch/unconfirmed (0.00s)
+=== RUN   TestRecoveryReviewReadsSavedLaunchWithoutStartingOrDiscoveringTerminal
+--- PASS: TestRecoveryReviewReadsSavedLaunchWithoutStartingOrDiscoveringTerminal (0.02s)
+PASS
+ok  	github.com/liuhui-code/agent-session-desk/internal/manager	2.294s
+=== RUN   TestRecoveryV10MigrationBackupAndRunSnapshot
+--- PASS: TestRecoveryV10MigrationBackupAndRunSnapshot (0.07s)
+=== RUN   TestRecoveryProfileIsBoundRevisionedAndDurable
+--- PASS: TestRecoveryProfileIsBoundRevisionedAndDurable (0.03s)
+=== RUN   TestRecoveryReservationFencesDuplicateStartsAndKeepsPerRunSnapshot
+--- PASS: TestRecoveryReservationFencesDuplicateStartsAndKeepsPerRunSnapshot (0.03s)
+=== RUN   TestRecoveryUnknownAttemptCannotBeConfirmedAway
+--- PASS: TestRecoveryUnknownAttemptCannotBeConfirmedAway (0.02s)
+=== RUN   TestRecoveryConcurrentReservationsChooseOneRun
+--- PASS: TestRecoveryConcurrentReservationsChooseOneRun (0.02s)
+=== RUN   TestRecoveryRefusesCyclicGroupMetadataWithoutChangingSource
+--- PASS: TestRecoveryRefusesCyclicGroupMetadataWithoutChangingSource (0.02s)
+PASS
+ok  	github.com/liuhui-code/agent-session-desk/internal/store	1.493s

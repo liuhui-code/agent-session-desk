@@ -17,7 +17,13 @@ import (
 // This is the single style definition site. Tokens are copied into each model;
 // there is no mutable global palette, file watcher or arbitrary theme format.
 // Zero/one in viewport algorithms are counts, not additional style choices.
+type diagnosticTokens struct {
+	width, gutter, rows, confirmWidth, confirmHeight             int
+	unchecked, checked, actionOpen, actionClose, actionSeparator string
+}
+
 type designTokens struct {
+	diagnostic     diagnosticTokens
 	activityIdle   string
 	activityFrames []string
 	pet            PetTokens
@@ -181,6 +187,7 @@ type markTokens struct {
 func defaultDesignTokens() designTokens {
 	colors, purple := themePalette("dark")
 	return designTokens{
+		diagnostic: diagnosticTokens{width: 96, gutter: 4, rows: 24, confirmWidth: 32, confirmHeight: 10, unchecked: "[ ]", checked: "[x]", actionOpen: "[", actionClose: "]", actionSeparator: " / "},
 		pet: PetTokens{MaxDPI: 384, Width: 160, Height: 176, SpriteSize: 128, SpriteTop: 18, Margin: 16, DragSlop: 4,
 			BadgeX: 126, BadgeY: 24, BadgeRadius: 17, BadgeScale: 2,
 			CaptionY: 152, CaptionWidth: 62, CaptionHeight: 20, CaptionScale: 2,

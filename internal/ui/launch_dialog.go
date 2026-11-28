@@ -61,6 +61,22 @@ func (m *Model) openLaunchDialog() tea.Cmd {
 		d.fields = append(d.fields, field)
 	}
 	d.fields[2].SetValue(group.DefaultDir)
+	if seed := m.launchSeed; seed != nil {
+		m.launchSeed = nil
+		d.groupID = seed.GroupID
+		args, env := seed.Args, seed.Env
+		if args == nil {
+			args = []string{}
+		}
+		if env == nil {
+			env = []string{}
+		}
+		a, _ := json.Marshal(args)
+		e, _ := json.Marshal(env)
+		for i, value := range []string{seed.Name, seed.Executable, seed.Dir, string(a), string(e)} {
+			d.fields[i].SetValue(value)
+		}
+	}
 	m.launch = d
 	m.workspace.focused = false
 	m.status = ""

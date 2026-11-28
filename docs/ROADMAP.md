@@ -1,5 +1,7 @@
 # 阶段路线图
 
+2026-11-28 当前切片已实现管理 D 有界诊断／主动脱敏导出和 R 显式恢复中心，分别见 [ADR-0068](adr/0068-bounded-workbench-diagnostics.md)／[ADR-0069](adr/0069-explicit-recovery-center.md)。接回原终端、复用原配置新建和 Agent 对话恢复分开；不增加常驻进程或轮询。安全更新工作流留在后续阶段，真实 Agent／实体桌面／长期资源和完整发布门槛继续开放。
+
 2026-11-26 当前优先项：[ADR-0055](adr/0055-scoped-workbench-instance-and-owned-window.md)的工作台单实例／明确宿主定位，收口重复开猫、共用 Terminal 宿主时归属不明确及退出后重开。仅恢复该链路所需定向验证，原长稳、真实 Agent 和资源专项仍后置，不改变整体阶段接受。
 
 2026-11-26 桌宠试用：按用户授权先做 [ADR-0050](adr/0050-native-windows-pet-demo.md) 的 Go／Win32 透明橘白猫样机，使用独立命令和原创素材，验证不抢焦点、状态演示、隐藏／恢复及短时占用。它不是已接入 Agent 的提醒渠道；实际事项／Windows Terminal 导航、共享后台、完整多屏／菜单／实体鼠标、资源与发布另行推进。新增代码与测试／驱动物理行均不超过 500；[证据](testing/results/2026-11-26-pet-demo.md)不关闭既有阶段门槛。

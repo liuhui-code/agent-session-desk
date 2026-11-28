@@ -20,6 +20,18 @@ import (
 )
 
 func (m *Model) View() tea.View {
+	if m.recoveryUI.center != nil {
+		view := tea.NewView(m.renderRecoveryCenter())
+		view.AltScreen = true
+		m.applyViewColors(&view)
+		return view
+	}
+	if m.diagnostic.open {
+		view := tea.NewView(m.renderDiagnostics())
+		view.AltScreen = true
+		m.applyViewColors(&view)
+		return view
+	}
 	if m.workspace != nil && m.attention.center != nil {
 		view := tea.NewView(m.renderAttentionCenter())
 		view.AltScreen = true

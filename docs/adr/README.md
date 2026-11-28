@@ -106,3 +106,7 @@ ADR-0014 依据用户 2026-11-22 的明确要求接受，部分替代 0001/0002 
 | [0066](0066-revalidate-incomplete-terminal-discovery.md) | 漏列原目标复验、128 条身份提示与原客户端独立存活 | 已接受 | [Windows 四轮回归与失败记录](../testing/results/2026-11-27-idle-discovery.md)，完整现场／资源与发布仍开放 |
 
 | [0067](0067-five-session-warm-return-and-partial-activity.md) | 五会话回切先取目标、未受影响的已完成采样保留 | 已接受 | [实际证据](../testing/results/2026-11-27-five-session-switch.md)，四份／512 KiB 与八目标上限不增加，完整接受另验 |
+
+| [0068](0068-bounded-workbench-diagnostics.md) | 管理模式诊断、128 条白名单事件与四槽主动导出 | 已接受 | [实际报告](../testing/results/2026-11-28-diagnostics.md)，不含终端正文／原始错误，不增加常驻进程 |
+
+| [0069](0069-explicit-recovery-center.md) | 显式恢复中心与原启动复用 | 已接受 | [局部证据](../testing/results/2026-11-28-recovery-center.md)，显式确认与不确定结果屏障，真实 Agent／发布仍开放 |

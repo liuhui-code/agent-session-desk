@@ -12,9 +12,12 @@ import (
 )
 
 func (s *Store) RecoveryAttempt(ctx context.Context, id string) (recovery.Attempt, error) {
+	return s.recoveryAttempt(ctx, s.db, id)
+}
+func (s *Store) recoveryAttempt(ctx context.Context, q rowReader, id string) (recovery.Attempt, error) {
 	var a recovery.Attempt
 	var result sql.NullString
-	err := s.db.QueryRowContext(ctx, `SELECT id,session_id,run_id,conversation_id,revision,state,result FROM recovery_attempts WHERE scope=? AND session_id=?`, s.scope, id).Scan(&a.ID, &a.SessionID, &a.RunID, &a.ConversationID, &a.Revision, &a.State, &result)
+	err := q.QueryRowContext(ctx, `SELECT id,session_id,run_id,conversation_id,revision,state,result FROM recovery_attempts WHERE scope=? AND session_id=?`, s.scope, id).Scan(&a.ID, &a.SessionID, &a.RunID, &a.ConversationID, &a.Revision, &a.State, &result)
 	if err != nil {
 		return a, fmt.Errorf("recovery attempt unavailable")
 	}

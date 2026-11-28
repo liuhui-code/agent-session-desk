@@ -1,0 +1,6 @@
+=== RUN   TestEncodingRejectsUnallowlistedReportStrings
+    journal_test.go:41: unallowlisted report values leaked
+--- FAIL: TestEncodingRejectsUnallowlistedReportStrings (0.00s)
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/diagnostics	0.736s
+FAIL

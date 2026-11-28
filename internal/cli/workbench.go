@@ -2,8 +2,10 @@ package cli
 
 import (
 	"context"
+	"github.com/liuhui-code/agent-session-desk/internal/diagnostics"
 	"github.com/liuhui-code/agent-session-desk/internal/hotkey"
 	"github.com/liuhui-code/agent-session-desk/internal/keybindings"
+	"github.com/liuhui-code/agent-session-desk/internal/release"
 	"io"
 	"path/filepath"
 	"time"
@@ -16,7 +18,7 @@ import (
 	"github.com/liuhui-code/agent-session-desk/internal/ui"
 )
 
-func runWorkbench(ctx context.Context, service *manager.Manager, options backend.Options, stateDir, configPath string, desktopPet bool, documentApp string, focus func() bool, input io.Reader, output io.Writer) error {
+func runWorkbench(ctx context.Context, service *manager.Manager, info backend.Info, options backend.Options, stateDir, configPath string, desktopPet bool, documentApp string, focus func() bool, input io.Reader, output io.Writer) error {
 	metadata, _, e := metadataPath(options, stateDir)
 	if e != nil {
 		return e
@@ -26,6 +28,12 @@ func runWorkbench(ctx context.Context, service *manager.Manager, options backend
 		return e
 	}
 	settings := withQuickLaunch(loadUIOptions(options, stateDir), options, stateDir, configPath)
+	settings.DiagnosticRuntime = diagnostics.CurrentRuntime(info.Name, info.Version)
+	settings.DiagnosticRuntime.ProductVersion = release.Version
+	settings.ExportDiagnostics = func(ctx context.Context, report diagnostics.Report) (string, error) {
+		return diagnostics.Export(ctx, filepath.Join(filepath.Dir(metadata), "diagnostics"), report)
+	}
+	settings = withRecoveryControls(settings, service, options, stateDir)
 	settings.Keybindings = keys
 	settings.AttentionFocus = focus
 	settings.OpenDocument = document.Open

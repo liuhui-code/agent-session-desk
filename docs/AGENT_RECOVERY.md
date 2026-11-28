@@ -139,3 +139,15 @@ $scopeArgs = @($c.global_args)
 凭据正文不打印、不放进结果。ASD_RECOVERY_ 环境键由工作台保留，不能在 resume.env 覆盖。结果文件不会自动被读取；写文件后仍需显式 recovery-result。没有集成回执的 Agent 最多显示 started，不能凭屏幕宣布 restored。既有 Agent 也可由轻量包装器完成此合同。
 
 元数据备份包含恢复配置、当前尝试、启动描述和凭据摘要；不包含 Agent 原生历史、context-dir 或凭据正文。普通 Run 的记录仍独立保留，旧待办／消息／批准不转移给新 Run。暂无管理 UI 恢复按钮或自动恢复。
+
+## 工作台恢复入口
+
+main 开发版 F6 进入管理焦点，大写 R 打开最近 100 条 Run 历史中的逻辑 Session，Enter 读取详情；可配置 management.recovery。h 仍是只读历史。
+
+- a：当前后端仍观察到完全相同且可交互的原终端时接回；不重新启动。
+- n：有完整原启动快照时打开 New terminal 表单，用户提交后创建新 Session。它不恢复对话，旧 ASD_RECOVERY_ 交接配置不能克隆。
+- r：有效声明且原终端已不存在时显示恢复命令与确认。用户需确认旧 Run 已结束，Space 勾选、Tab 从默认 Cancel 选到 Start recovery、Enter 启动一次。缩窗导致确认控件不可见时禁止启动，需放大重新勾选。保留的退出屏幕也算原终端，需另走显式停止流程。
+
+启动前重新读取元数据、核对声明修订／最新 Run、重新发现后端并复用 recover 的事务屏障。成功启动只表示新 Run 已开始；Agent 仍须显式 recovery-result 才能报告原对话恢复。结果不明时不自动重试、停止或转成新对话；重新打开检查最新尝试，launch_unknown 仍阻止重复启动。
+
+UI 在 metadata.sqlite3 旁独占创建 recovery-context-01 至 32；这些私有交接目录可能由 Agent 持有，不自动轮换。满额时先核对旧尝试再人工清理，不能删除仍在用的凭据。协议／数据库版本不变。[ADR-0069](adr/0069-explicit-recovery-center.md)与[局部验证](testing/results/2026-11-28-recovery-center.md)。

@@ -4,6 +4,7 @@ package cli
 
 import (
 	"bytes"
+	"context"
 	"encoding/json"
 	"fmt"
 	"os"
@@ -13,8 +14,12 @@ import (
 	"testing"
 	"time"
 
+	"github.com/liuhui-code/agent-session-desk/internal/backend"
+	"github.com/liuhui-code/agent-session-desk/internal/manager"
 	"github.com/liuhui-code/agent-session-desk/internal/recovery"
 	"github.com/liuhui-code/agent-session-desk/internal/session"
+	"github.com/liuhui-code/agent-session-desk/internal/store"
+	"github.com/liuhui-code/agent-session-desk/internal/ui"
 	"golang.org/x/sys/windows"
 )
 
@@ -105,7 +110,9 @@ func recoveryProcess(t *testing.T, pid uint32, image string) windows.Handle {
 	return h
 }
 
-func TestWindowsNativeRecoveryCLI(t *testing.T) {
+func TestWindowsNativeRecoveryCLI(t *testing.T)      { testWindowsNativeRecovery(t, false) }
+func TestWindowsNativeRecoveryUIBridge(t *testing.T) { testWindowsNativeRecovery(t, true) }
+func testWindowsNativeRecovery(t *testing.T, useUI bool) {
 	bundle, product := os.Getenv("ASD_RECOVERY_NATIVE_BUNDLE"), os.Getenv("ASD_RECOVERY_PRODUCT")
 	if bundle == "" || product == "" {
 		t.Skip("explicit isolated native recovery environment required")
@@ -171,7 +178,48 @@ func TestWindowsNativeRecoveryCLI(t *testing.T) {
 	}
 	dir := filepath.Join(root, "attempt")
 	var attempt recovery.Attempt
-	must(&attempt, "recover", "--session", original.ID, "--previous-run", original.RunID, "--revision", "1", "--confirm-ended", "--context-dir", dir)
+	if !useUI {
+		must(&attempt, "recover", "--session", original.ID, "--previous-run", original.RunID, "--revision", "1", "--confirm-ended", "--context-dir", dir)
+	} else {
+		ctx, cancel := context.WithTimeout(context.Background(), 60*time.Second)
+		defer cancel()
+		opts := backend.Options{TerminalBundle: bundle, RuntimeDir: filepath.Join(root, "runtime"), Namespace: "asd-rec-" + id[:12]}
+		b, err := backend.New(opts)
+		if err != nil {
+			t.Fatal(err)
+		}
+		path, scope, err := metadataPath(opts, filepath.Join(root, "state"))
+		if err != nil {
+			t.Fatal(err)
+		}
+		db, err := store.Open(ctx, path, scope)
+		if err != nil {
+			t.Fatal(err)
+		}
+		defer db.Close()
+		controls := withRecoveryControls(ui.Options{}, manager.New(b, db), opts, filepath.Join(root, "state"))
+		review, err := controls.ReviewRecovery(ctx, original)
+		if err != nil || review.Profile == nil {
+			t.Fatal("UI review", err)
+		}
+		stale := review
+		oldProfile := *review.Profile
+		oldProfile.Revision++
+		stale.Profile = &oldProfile
+		rejected, err := controls.RestoreRecovery(ctx, stale)
+		if err == nil || rejected.Attempted {
+			t.Fatal("stale UI review launched")
+		}
+		outcome, err := controls.RestoreRecovery(ctx, review)
+		if err != nil {
+			t.Fatal("UI restore", err)
+		}
+		attempt = outcome.Attempt
+		if !outcome.Attempted || outcome.Session.ID != original.ID || outcome.Session.RunID != attempt.RunID || outcome.Session.RunID == original.RunID {
+			t.Fatal("UI launch identity")
+		}
+		dir = filepath.Join(root, "state", "recovery-context-01")
+	}
 	if attempt.State != "started" || attempt.RunID == original.RunID || attempt.SessionID != original.ID {
 		t.Fatalf("attempt %#v", attempt)
 	}
@@ -186,6 +234,19 @@ func TestWindowsNativeRecoveryCLI(t *testing.T) {
 	var resultDoc recovery.Result
 	waitRecoveryJSON(t, result, &resultDoc)
 	credential := filepath.Join(dir, "agent-credential.json")
+	var beforeResult recovery.Attempt
+	must(&beforeResult, "recovery-status", "--session", original.ID)
+	if beforeResult.State != "started" {
+		t.Fatal("process launch inferred restored")
+	}
+	var contextDoc recoveryContext
+	waitRecoveryJSON(t, filepath.Join(dir, "context.json"), &contextDoc)
+	must(nil, "recovery-result", "--token-file", contextDoc.CredentialFile, "--file", contextDoc.ResultFile)
+	var accepted recovery.Attempt
+	must(&accepted, "recovery-status", "--session", original.ID)
+	if accepted.State != "restored" || accepted.ID != attempt.ID {
+		t.Fatal("authenticated recovery result not accepted")
+	}
 	must(&attempt, "recovery-result", "--token-file", credential, "--file", result)
 	if attempt.State != "restored" {
 		t.Fatal("unconfirmed restore", attempt.State)

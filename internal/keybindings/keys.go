@@ -15,6 +15,7 @@ var Definitions = []Definition{
 	{"global", "wake", []string{"ctrl+alt+space"}},
 	{"workspace", "previous", []string{"alt+p"}}, {"workspace", "next", []string{"alt+j", "ctrl+pgdown"}}, {"workspace", "back", []string{"alt+k", "ctrl+pgup"}},
 	{"workspace", "attention", []string{"alt+a"}}, {"workspace", "next_attention", []string{"alt+n"}}, {"workspace", "toggle_sidebar", []string{"ctrl+s"}}, {"workspace", "rename", []string{"f2"}}, {"workspace", "toggle_focus", []string{"f6"}},
+	{"management", "diagnostics", []string{"D"}}, {"management", "recovery", []string{"R"}},
 	{"management", "search", []string{"/"}}, {"management", "group_mode", []string{"alt+v"}},
 	{"management", "open_project", []string{"W"}}, {"management", "check_release", []string{"U"}}, {"management", "attention", []string{"t"}}, {"management", "copy_visible", []string{"V"}}, {"management", "delete", []string{"d"}},
 	{"management", "move_up", []string{"shift+up", "ctrl+up", "+", "K"}}, {"management", "move_down", []string{"shift+down", "ctrl+down", "-", "J"}},

@@ -1,0 +1,6 @@
+=== RUN   TestRawPathKeywordsDoNotBecomeFailureEvidence
+    journal_test.go:51: path text was treated as terminal failure evidence
+--- FAIL: TestRawPathKeywordsDoNotBecomeFailureEvidence (0.00s)
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/diagnostics	0.970s
+FAIL

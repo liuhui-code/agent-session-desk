@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"github.com/liuhui-code/agent-session-desk/internal/keybindings"
+	"time"
 
 	tea "charm.land/bubbletea/v2"
 	"github.com/liuhui-code/agent-session-desk/internal/session"
@@ -166,7 +167,7 @@ func (m *Model) workspaceSessions() tea.Cmd {
 
 func (m *Model) connectWorkspace() tea.Cmd {
 	w := m.workspace
-	if len(w.tabs) == 0 || m.closed || m.attention.busy || m.attention.center != nil || m.attaching || m.history.open || m.help || m.launch != nil || m.densitySettings != nil || m.search != nil || m.rename != nil || m.groupDialog != nil || m.groupRemoval != nil || m.sessionStop != nil {
+	if len(w.tabs) == 0 || m.closed || m.recoveryUI.center != nil || m.diagnostic.open || m.attention.busy || m.attention.center != nil || m.attaching || m.history.open || m.help || m.launch != nil || m.densitySettings != nil || m.search != nil || m.rename != nil || m.groupDialog != nil || m.groupRemoval != nil || m.sessionStop != nil {
 		return nil
 	}
 	g := m.workspaceGeometry()
@@ -178,6 +179,8 @@ func (m *Model) connectWorkspace() tea.Cmd {
 	w.screen = w.lastScreen()
 	w.err = nil
 	w.busy = true
+	m.diagnostic.connectStart = time.Now()
+	m.diagnostic.connectGeneration = w.generation
 	m.pauseActivity()
 	w.ctx, w.cancel = context.WithCancel(m.ctx)
 	generation, ctx, service, target := w.generation, w.ctx, w.service, w.tabs[w.active].session

@@ -2097,7 +2097,7 @@
 
 - 功能：[FL-005](../COVERAGE.md#fl-005)、[FL-013](../COVERAGE.md#fl-013)
 - 需求：[FR-04](../COVERAGE.md#fr-04)、[FR-12](../COVERAGE.md#fr-12)
-- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0063](../../adr/0063-agent-recovery-declaration-v1.md)、[ADR-0064](../../adr/0064-explicit-agent-recovery-execution.md)
+- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0063](../../adr/0063-agent-recovery-declaration-v1.md)、[ADR-0064](../../adr/0064-explicit-agent-recovery-execution.md)、[ADR-0069](../../adr/0069-explicit-recovery-center.md)
 - 优先级 / 阶段 / 层次：P1 / M1 / integration
 - 类型：negative、recovery
 - 设计 / 执行：`designed / not_run`
@@ -2135,7 +2135,7 @@
 
 - 功能：[FL-005](../COVERAGE.md#fl-005)、[FL-006](../COVERAGE.md#fl-006)、[FL-013](../COVERAGE.md#fl-013)
 - 需求：[FR-04](../COVERAGE.md#fr-04)、[FR-05](../COVERAGE.md#fr-05)、[FR-12](../COVERAGE.md#fr-12)
-- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0063](../../adr/0063-agent-recovery-declaration-v1.md)、[ADR-0064](../../adr/0064-explicit-agent-recovery-execution.md)
+- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0063](../../adr/0063-agent-recovery-declaration-v1.md)、[ADR-0064](../../adr/0064-explicit-agent-recovery-execution.md)、[ADR-0069](../../adr/0069-explicit-recovery-center.md)
 - 优先级 / 阶段 / 层次：P0 / M1 / integration
 - 类型：recovery、state
 - 设计 / 执行：`designed / not_run`
@@ -2173,7 +2173,7 @@
 
 - 功能：[FL-005](../COVERAGE.md#fl-005)、[FL-013](../COVERAGE.md#fl-013)
 - 需求：[FR-04](../COVERAGE.md#fr-04)、[FR-12](../COVERAGE.md#fr-12)
-- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0063](../../adr/0063-agent-recovery-declaration-v1.md)、[ADR-0064](../../adr/0064-explicit-agent-recovery-execution.md)
+- 决策：[ADR-0002](../../adr/0002-terminal-backends-and-attach.md)、[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0063](../../adr/0063-agent-recovery-declaration-v1.md)、[ADR-0064](../../adr/0064-explicit-agent-recovery-execution.md)、[ADR-0069](../../adr/0069-explicit-recovery-center.md)
 - 优先级 / 阶段 / 层次：P1 / M1 / integration
 - 类型：recovery、state
 - 设计 / 执行：`designed / not_run`

@@ -1,0 +1,13 @@
+=== RUN   TestWindowsNativeRecoveryCLI
+    agent_recovery_windows_test.go:159: fixture pid=20536 creation=1795830217769273200
+    agent_recovery_windows_test.go:228: fixture pid=14144 creation=1795830219335236600
+    agent_recovery_windows_test.go:292: session=479b86b6b5053c3fd4d7e229e952e6a8 old_run=f7b0473a4ad71630f7b275a70ec2524f new_run=448d7f28ebd39018a0c764598d930598 namespace=asd-rec-7d68e2de03e0
+    agent_recovery_windows_test.go:294: same Session, two exact native processes, persisted marker, new credential/result, backup; attempt=e174e5cf15eeec12b668f099c289d622
+--- PASS: TestWindowsNativeRecoveryCLI (3.75s)
+=== RUN   TestWindowsNativeRecoveryUIBridge
+    agent_recovery_windows_test.go:159: fixture pid=8700 creation=1795830221651324100
+    agent_recovery_windows_test.go:228: fixture pid=2264 creation=1795830223121975800
+    agent_recovery_windows_test.go:292: session=30c3b8b000b61047fff952a80c229aaf old_run=9ade6680c38b3629c6c2567a7c02bb8f new_run=a5dbbc40c4880e1e9f429f42735e07ed namespace=asd-rec-48338fb3f019
+    agent_recovery_windows_test.go:294: same Session, two exact native processes, persisted marker, new credential/result, backup; attempt=b57ee81d2a60a755b816bee68b96ec2c
+--- PASS: TestWindowsNativeRecoveryUIBridge (3.93s)
+PASS

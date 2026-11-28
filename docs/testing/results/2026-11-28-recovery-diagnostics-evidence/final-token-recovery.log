@@ -1,0 +1,28 @@
+=== RUN   TestRecoveryCenterReviewsWithoutChangingOriginalTerminalOrStartingAgent
+--- PASS: TestRecoveryCenterReviewsWithoutChangingOriginalTerminalOrStartingAgent (0.02s)
+=== RUN   TestRecoveryNewSessionReviewsOriginalLaunchAndPreservesArgumentBoundaries
+--- PASS: TestRecoveryNewSessionReviewsOriginalLaunchAndPreservesArgumentBoundaries (0.01s)
+=== RUN   TestRecoveryRestoreRequiresEndedConsentAndExplicitStartWithOneAttempt
+--- PASS: TestRecoveryRestoreRequiresEndedConsentAndExplicitStartWithOneAttempt (0.01s)
+=== RUN   TestRecoveryCannotStartWhenConfirmationControlsAreClipped
+--- PASS: TestRecoveryCannotStartWhenConfirmationControlsAreClipped (0.00s)
+=== RUN   TestRecoveryBlocksLiveUnknownAndUncertainAttempts
+=== RUN   TestRecoveryBlocksLiveUnknownAndUncertainAttempts/live
+=== RUN   TestRecoveryBlocksLiveUnknownAndUncertainAttempts/exited
+=== RUN   TestRecoveryBlocksLiveUnknownAndUncertainAttempts/unknown
+=== RUN   TestRecoveryBlocksLiveUnknownAndUncertainAttempts/launch_unknown
+=== RUN   TestRecoveryBlocksLiveUnknownAndUncertainAttempts/busy
+--- PASS: TestRecoveryBlocksLiveUnknownAndUncertainAttempts (0.00s)
+    --- PASS: TestRecoveryBlocksLiveUnknownAndUncertainAttempts/live (0.00s)
+    --- PASS: TestRecoveryBlocksLiveUnknownAndUncertainAttempts/exited (0.00s)
+    --- PASS: TestRecoveryBlocksLiveUnknownAndUncertainAttempts/unknown (0.00s)
+    --- PASS: TestRecoveryBlocksLiveUnknownAndUncertainAttempts/launch_unknown (0.00s)
+    --- PASS: TestRecoveryBlocksLiveUnknownAndUncertainAttempts/busy (0.00s)
+=== RUN   TestRecoveryCloneRejectsOldRecoveryCredentials
+--- PASS: TestRecoveryCloneRejectsOldRecoveryCredentials (0.00s)
+=== RUN   TestRecoveryLateReadDoesNotReopenClosedPanel
+--- PASS: TestRecoveryLateReadDoesNotReopenClosedPanel (0.00s)
+=== RUN   TestRecoveryReattachRetainsExactConnectedRunWithoutStart
+--- PASS: TestRecoveryReattachRetainsExactConnectedRunWithoutStart (0.00s)
+PASS
+ok  	github.com/liuhui-code/agent-session-desk/internal/ui	1.797s

@@ -1,0 +1,6 @@
+=== RUN   TestDiagnosticsInspectWithoutChangingNativeClientOrForwardingInput
+    diagnostics_test.go:18: management D did not open diagnostics
+--- FAIL: TestDiagnosticsInspectWithoutChangingNativeClientOrForwardingInput (0.00s)
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	1.277s
+FAIL

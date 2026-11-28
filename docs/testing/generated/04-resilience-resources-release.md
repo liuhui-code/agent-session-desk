@@ -1206,7 +1206,7 @@
 
 - 功能：[FL-013](../COVERAGE.md#fl-013)、[FL-017](../COVERAGE.md#fl-017)
 - 需求：[FR-12](../COVERAGE.md#fr-12)
-- 决策：[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)
+- 决策：[ADR-0003](../../adr/0003-bounded-resources-and-background-work.md)、[ADR-0004](../../adr/0004-cli-agents-and-session-messaging.md)、[ADR-0068](../../adr/0068-bounded-workbench-diagnostics.md)
 - 优先级 / 阶段 / 层次：P1 / M4 / windows_e2e
 - 类型：security、release、negative
 - 设计 / 执行：`designed / not_run`

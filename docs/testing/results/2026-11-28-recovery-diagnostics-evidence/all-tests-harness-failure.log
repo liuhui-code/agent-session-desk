@@ -1,0 +1,40 @@
+?   	github.com/liuhui-code/agent-session-desk/cmd/asd	[no test files]
+ok  	github.com/liuhui-code/agent-session-desk/cmd/asd-fixture	(cached)
+?   	github.com/liuhui-code/agent-session-desk/cmd/asd-pet	[no test files]
+ok  	github.com/liuhui-code/agent-session-desk/internal/appearance	(cached)
+ok  	github.com/liuhui-code/agent-session-desk/internal/backend	(cached)
+ok  	github.com/liuhui-code/agent-session-desk/internal/cli	3.993s
+ok  	github.com/liuhui-code/agent-session-desk/internal/config	(cached)
+ok  	github.com/liuhui-code/agent-session-desk/internal/diagnostics	(cached)
+ok  	github.com/liuhui-code/agent-session-desk/internal/document	(cached)
+?   	github.com/liuhui-code/agent-session-desk/internal/hotkey	[no test files]
+ok  	github.com/liuhui-code/agent-session-desk/internal/instance	(cached)
+ok  	github.com/liuhui-code/agent-session-desk/internal/keybindings	(cached)
+ok  	github.com/liuhui-code/agent-session-desk/internal/manager	(cached)
+ok  	github.com/liuhui-code/agent-session-desk/internal/pathsuggest	(cached)
+ok  	github.com/liuhui-code/agent-session-desk/internal/pet	8.242s
+ok  	github.com/liuhui-code/agent-session-desk/internal/recovery	3.666s
+ok  	github.com/liuhui-code/agent-session-desk/internal/release	(cached)
+ok  	github.com/liuhui-code/agent-session-desk/internal/session	(cached)
+ok  	github.com/liuhui-code/agent-session-desk/internal/store	(cached)
+ok  	github.com/liuhui-code/agent-session-desk/internal/terminal	(cached)
+--- FAIL: TestRecoveryBlocksLiveUnknownAndUncertainAttempts (0.00s)
+    --- FAIL: TestRecoveryBlocksLiveUnknownAndUncertainAttempts/busy (0.00s)
+panic: runtime error: invalid memory address or nil pointer dereference [recovered, repanicked]
+[signal SIGSEGV: segmentation violation code=0x1 addr=0x24a pc=0x170c029]
+
+goroutine 1779 [running]:
+testing.tRunner.func1.2({0x1dd5468, 0x1f0c8f0})
+	/private/tmp/git-intent-tools/go/src/testing/testing.go:2125 +0x232
+testing.tRunner.func1()
+	/private/tmp/git-intent-tools/go/src/testing/testing.go:2128 +0x329
+panic({0x1dd5468?, 0x1f0c8f0?})
+	/private/tmp/git-intent-tools/go/src/runtime/panic.go:859 +0x125
+github.com/liuhui-code/agent-session-desk/internal/ui.TestRecoveryBlocksLiveUnknownAndUncertainAttempts.func1(0x31f2a4853688)
+	/Users/liuhui/Documents/code/agent-session-desk/internal/ui/recovery_guards_test.go:32 +0x2a9
+testing.tRunner(0x31f2a4853688, 0x31f2a486b950)
+	/private/tmp/git-intent-tools/go/src/testing/testing.go:2195 +0xea
+created by testing.(*T).Run in goroutine 1774
+	/private/tmp/git-intent-tools/go/src/testing/testing.go:2260 +0x4d4
+FAIL	github.com/liuhui-code/agent-session-desk/internal/ui	9.241s
+FAIL

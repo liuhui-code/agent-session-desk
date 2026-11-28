@@ -1,0 +1,9 @@
+=== RUN   TestConcurrentExportsPublishCompleteReportsWithinFourSlots
+--- PASS: TestConcurrentExportsPublishCompleteReportsWithinFourSlots (0.02s)
+=== RUN   TestReportKeepsBoundedUsefulFactsWithoutRawErrorsOrIdentity
+--- PASS: TestReportKeepsBoundedUsefulFactsWithoutRawErrorsOrIdentity (0.00s)
+=== RUN   TestEncodingRejectsUnallowlistedReportStrings
+--- PASS: TestEncodingRejectsUnallowlistedReportStrings (0.00s)
+=== RUN   TestRawPathKeywordsDoNotBecomeFailureEvidence
+--- PASS: TestRawPathKeywordsDoNotBecomeFailureEvidence (0.00s)
+PASS

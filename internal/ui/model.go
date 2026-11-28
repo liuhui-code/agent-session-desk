@@ -52,6 +52,9 @@ type attachDoneMsg struct{ err error }
 // Model implements the stable Bubble Tea v2 API. Mutable UI state is touched
 // only by Init/Update; asynchronous commands return values, never mutate it.
 type Model struct {
+	launchSeed                       *session.Launch
+	recoveryUI                       recoveryUIState
+	diagnostic                       diagnosticState
 	project                          projectState
 	releaseBusy                      bool
 	openDocument                     func(context.Context, string) error
@@ -148,10 +151,15 @@ func newModelWithTokens(ctx context.Context, service Service, tokens designToken
 // exits because of an external error or signal. It does not stop a session.
 func (m *Model) Close() {
 	m.closed = true
+	if d := m.recoveryUI.center; d != nil && d.cancel != nil {
+		d.cancel()
+	}
+	m.recoveryUI.center = nil
 	m.attention.center, m.attention.centerIntent = nil, nil
 	if m.workspace != nil {
 		m.workspace.closeViews()
 	}
+	m.launchSeed = nil
 	m.launch = nil
 	m.groupDialog, m.groupIntent = nil, nil
 	m.groupOrder = nil
@@ -180,6 +188,13 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 	if m.closed {
 		return m, nil
 	}
+	m.observeDiagnostics(msg)
+	if cmd, handled := m.recoveryEvent(msg); handled {
+		return m, cmd
+	}
+	if cmd, handled := m.diagnosticEvent(msg); handled {
+		return m, cmd
+	}
 	if cmd, handled := m.companionEvent(msg); handled {
 		return m, cmd
 	}
@@ -187,49 +202,7 @@ func (m *Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		return m, cmd
 	}
 	if m.workspace != nil {
-		if cmd, handled := m.attentionEvent(msg); handled {
-			return m, cmd
-		}
-		if cmd, handled := m.attentionCenterEvent(msg); handled {
-			return m, cmd
-		}
-		if cmd, handled := m.sessionStopEvent(msg); handled {
-			return m, cmd
-		}
-		if cmd, handled := m.helpEvent(msg); handled {
-			return m, cmd
-		}
-		if cmd, handled := m.groupRemovalEvent(msg); handled {
-			return m, cmd
-		}
-		if cmd, handled := m.sessionOrderEvent(msg); handled {
-			return m, cmd
-		}
-		if cmd, handled := m.groupOrderEvent(msg); handled {
-			return m, cmd
-		}
-		if cmd, handled := m.groupDialogEvent(msg); handled {
-			return m, cmd
-		}
-		if cmd, handled := m.uiPreferencesEvent(msg); handled {
-			return m, cmd
-		}
-		if cmd, handled := m.sessionRenameEvent(msg); handled {
-			return m, cmd
-		}
-		if cmd, handled := m.sessionSearchEvent(msg); handled {
-			return m, cmd
-		}
-		if cmd, handled := m.densitySettingsEvent(msg); handled {
-			return m, cmd
-		}
-		if cmd, handled := m.quickLaunchEvent(msg); handled {
-			return m, cmd
-		}
-		if cmd, handled := m.launchEvent(msg); handled {
-			return m, cmd
-		}
-		if cmd, handled := m.workspaceEvent(msg); handled {
+		if cmd, handled := m.workspaceModelEvent(msg); handled {
 			return m, cmd
 		}
 	}
@@ -426,6 +399,7 @@ func (m *Model) loadSessions() tea.Cmd {
 	if m.listBusy || m.attaching || m.closed {
 		return nil
 	}
+	m.diagnostic.discoveryStart = time.Now()
 	m.listBusy = true
 	ctx, cancel := context.WithTimeout(m.ctx, 5*time.Second)
 	m.listCancel = cancel

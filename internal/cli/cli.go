@@ -309,7 +309,7 @@ func run(ctx context.Context, args []string, input io.Reader, output, errorOutpu
 		return startWorkspace(ctx, service, configPath, commandArgs, output)
 	}
 	if command == "" {
-		return runWorkbench(ctx, service, options, stateDir, configPath, desktopPet, documentApp, workbench.focus, input, output)
+		return runWorkbench(ctx, service, info, options, stateDir, configPath, desktopPet, documentApp, workbench.focus, input, output)
 	}
 	if command == "start" {
 		created, err := service.Start(ctx, launch)

@@ -1,0 +1,36 @@
+=== RUN   TestRecoveryCenterReviewsWithoutChangingOriginalTerminalOrStartingAgent
+--- PASS: TestRecoveryCenterReviewsWithoutChangingOriginalTerminalOrStartingAgent (0.37s)
+=== RUN   TestRecoveryNewSessionReviewsOriginalLaunchAndPreservesArgumentBoundaries
+--- PASS: TestRecoveryNewSessionReviewsOriginalLaunchAndPreservesArgumentBoundaries (0.09s)
+=== RUN   TestRecoveryRestoreRequiresEndedConsentAndExplicitStartWithOneAttempt
+--- PASS: TestRecoveryRestoreRequiresEndedConsentAndExplicitStartWithOneAttempt (0.04s)
+=== RUN   TestRecoveryCannotStartWhenConfirmationControlsAreClipped
+--- PASS: TestRecoveryCannotStartWhenConfirmationControlsAreClipped (0.00s)
+=== RUN   TestRecoveryBlocksLiveUnknownAndUncertainAttempts
+=== RUN   TestRecoveryBlocksLiveUnknownAndUncertainAttempts/live
+=== RUN   TestRecoveryBlocksLiveUnknownAndUncertainAttempts/exited
+=== RUN   TestRecoveryBlocksLiveUnknownAndUncertainAttempts/unknown
+=== RUN   TestRecoveryBlocksLiveUnknownAndUncertainAttempts/launch_unknown
+=== RUN   TestRecoveryBlocksLiveUnknownAndUncertainAttempts/busy
+--- PASS: TestRecoveryBlocksLiveUnknownAndUncertainAttempts (0.01s)
+    --- PASS: TestRecoveryBlocksLiveUnknownAndUncertainAttempts/live (0.00s)
+    --- PASS: TestRecoveryBlocksLiveUnknownAndUncertainAttempts/exited (0.00s)
+    --- PASS: TestRecoveryBlocksLiveUnknownAndUncertainAttempts/unknown (0.00s)
+    --- PASS: TestRecoveryBlocksLiveUnknownAndUncertainAttempts/launch_unknown (0.00s)
+    --- PASS: TestRecoveryBlocksLiveUnknownAndUncertainAttempts/busy (0.00s)
+=== RUN   TestRecoveryCloneRejectsOldRecoveryCredentials
+--- PASS: TestRecoveryCloneRejectsOldRecoveryCredentials (0.00s)
+=== RUN   TestRecoveryLateReadDoesNotReopenClosedPanel
+--- PASS: TestRecoveryLateReadDoesNotReopenClosedPanel (0.00s)
+=== RUN   TestRecoveryReattachRetainsExactConnectedRunWithoutStart
+--- PASS: TestRecoveryReattachRetainsExactConnectedRunWithoutStart (0.00s)
+PASS
+ok  	github.com/liuhui-code/agent-session-desk/internal/ui	3.817s
+=== RUN   TestRecoveryProfileAndStatusAreOffline
+--- PASS: TestRecoveryProfileAndStatusAreOffline (0.44s)
+=== RUN   TestRecoveryUIContextCapacityPreservesOccupiedSlots
+    recovery_ui_test.go:25: capacity not enforced namespace must start with asd- and contain 1–48 letters, digits, underscores or hyphens after it
+--- FAIL: TestRecoveryUIContextCapacityPreservesOccupiedSlots (0.03s)
+FAIL
+FAIL	github.com/liuhui-code/agent-session-desk/internal/cli	5.136s
+FAIL
